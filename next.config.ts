@@ -39,6 +39,28 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
+  //    PART 2: Vercel domain settings (tumhe khud karna hai)
+  //   Code- level redirect zaruri hai but Vercel pe bhi same redirect set karna chahiye.Reason: Vercel domain level pe redirect zyada fast hota hai (network edge pe handle hota hai before request hits Next.js), aur backup ke taur pe kaam karta hai.
+  //     Steps:
+
+  // Vercel project → Settings → Domains
+  // Tumhare paas eventually dono domains add hone chahiye:
+
+  // www.perfectimprints.com(primary)
+  // perfectimprints.com(redirect)
+
+
+
+  // Production launch ke time yeh karna hai(abhi dev.use kar rahe ho to skip karo, sirf yaad rakho):
+
+  // www.perfectimprints.com add karo as primary domain.Vercel pucchega "Redirect to" — yahan "No redirect" select karna(kyunki yeh khud primary hai)
+  // perfectimprints.com add karo(apex).Vercel automatically pucchega:
+
+  // "Redirect to which domain?"
+
+  // Yahan dropdown se www.perfectimprints.com select karo, aur 301(Permanent) chuno.
+  // Vercel automatically yeh setup kar dega aur DNS instructions dikhayega apex ke liye, jo Cloudflare mein jaisey CNAME hi add karna hota hai(ya A record if CNAME flattening na ho).
   async redirects() {
     return [
       {
