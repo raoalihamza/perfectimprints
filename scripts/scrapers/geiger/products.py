@@ -8,6 +8,7 @@ checkpointing so partial runs can resume.
 from __future__ import annotations
 
 import datetime as dt
+import json as _json
 from collections.abc import Iterator
 from typing import Any
 
@@ -16,7 +17,12 @@ from tqdm import tqdm
 
 from .checkpoint import CheckpointManager
 from .client import ScraperClient
-from .config import OUTPUT_DIR, SEARCHSPRING_BASE_URL, SEARCHSPRING_SITE_ID
+from .config import (
+    OUTPUT_DIR,
+    SEARCHSPRING_BASE_URL,
+    SEARCHSPRING_PER_PAGE,
+    SEARCHSPRING_SITE_ID,
+)
 
 
 def extract_leaf_categories(tree: list[dict[str, Any]]) -> list[dict[str, str]]:
@@ -52,7 +58,7 @@ def fetch_category_products(
             "siteId": SEARCHSPRING_SITE_ID,
             "bgfilter.category_path": category_path,
             "resultsFormat": "native",
-            "perPage": 100,
+            "perPage": SEARCHSPRING_PER_PAGE,
             "page": page,
         }
         response = client.get_json(SEARCHSPRING_BASE_URL, params=params)
@@ -209,6 +215,34 @@ def run(
     save_counter = 0
 
     with ScraperClient() as client:
+        # Phase B diagnostic: hit the first leaf in isolation to fail fast if the
+        # filter is wrong. Prevents silent 30-minute runs that produce nothing.
+        if remaining:
+            first = remaining[0]
+            print(f"  Diagnostic: testing first leaf {first['categoryPath']!r}...")
+            test_params = {
+                "siteId": SEARCHSPRING_SITE_ID,
+                "bgfilter.category_path": first["categoryPath"],
+                "resultsFormat": "native",
+                "perPage": SEARCHSPRING_PER_PAGE,
+                "page": 1,
+            }
+            test_response = client.get_json(SEARCHSPRING_BASE_URL, params=test_params)
+            total = int(test_response.get("pagination", {}).get("totalResults", 0))
+            if total == 0:
+                raise RuntimeError(
+                    "Phase B diagnostic failed: first leaf returned 0 products.\n"
+                    f"  categoryPath sent: {first['categoryPath']!r}\n"
+                    f"  Endpoint: {SEARCHSPRING_BASE_URL}\n"
+                    f"  Params: {test_params}\n"
+                    f"  Response (truncated to 2000 chars):\n"
+                    f"{_json.dumps(test_response, indent=2)[:2000]}\n\n"
+                    "Likely causes: wrong filter param name, wrong path format,\n"
+                    "or unexpected wrapper still present in path. Open a real\n"
+                    "Geiger category page in DevTools Network tab and compare."
+                )
+            print(f"  Diagnostic OK: {total} products for first leaf. Proceeding.")
+
         for leaf in tqdm(remaining, desc="Categories", unit="cat"):
             category_path = leaf["categoryPath"]
             try:

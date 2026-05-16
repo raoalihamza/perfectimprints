@@ -115,6 +115,43 @@ def _walk_menu(
     return nodes
 
 
+def _strip_path_prefix(node: dict, prefix: str) -> dict:
+    """Recursively remove `prefix` from every categoryPath in the subtree."""
+    if "categoryPath" in node and prefix in node["categoryPath"]:
+        node["categoryPath"] = node["categoryPath"].replace(prefix, "", 1)
+    for child in node.get("children", []):
+        _strip_path_prefix(child, prefix)
+    return node
+
+
+def _unwrap_shop_by_product(tree: list[dict]) -> list[dict]:
+    """Promote children of the 'Shop by Product' wrapper to top-level and
+    strip 'Shop by Product > ' from all descendant categoryPath strings.
+
+    'Shop by Product' is a mega menu UI grouping label, not a real taxonomy
+    node in Geiger's Searchspring index. Products are indexed under paths
+    like 'Home > Apparel > ...' not 'Home > Shop by Product > Apparel > ...'.
+    """
+    new_tree = []
+    for node in tree:
+        if node.get("slug") == "p" or node.get("name") == "Shop by Product":
+            for child in node.get("children", []):
+                new_tree.append(_strip_path_prefix(child, "Shop by Product > "))
+        else:
+            new_tree.append(node)
+    return new_tree
+
+
+def _drop_non_product_branches(tree: list[dict]) -> list[dict]:
+    """Remove top-level branches that are not product categories.
+
+    'Our Services' contains service descriptions, not products, and would
+    always return 0 results from Searchspring.
+    """
+    NON_PRODUCT_SLUGS = {"program-capabilities"}
+    return [node for node in tree if node.get("slug") not in NON_PRODUCT_SLUGS]
+
+
 def _count_nodes(tree: list[dict[str, Any]]) -> tuple[int, int]:
     """Return (total, leaves)."""
     total = 0
@@ -175,6 +212,9 @@ def run() -> None:
     tree = _walk_menu(container_for_walk, parent_path_segments=[])
     if not tree:
         raise RuntimeError("Mega menu parse produced zero categories.")
+
+    tree = _unwrap_shop_by_product(tree)
+    tree = _drop_non_product_branches(tree)
 
     total, leaves = _count_nodes(tree)
     sample_leaves = _collect_sample_leaves(tree, limit=5)

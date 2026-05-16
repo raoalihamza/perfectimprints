@@ -5,6 +5,7 @@ from pathlib import Path
 # Searchspring (Geiger's product search backend)
 SEARCHSPRING_SITE_ID = "kfx28d"
 SEARCHSPRING_BASE_URL = "https://kfx28d.a.searchspring.io/api/search/category.json"
+SEARCHSPRING_PER_PAGE = 60
 
 # Geiger taxonomy entry point (any category page works for mega menu)
 GEIGER_BASE_URL = "https://www.geiger.com"
