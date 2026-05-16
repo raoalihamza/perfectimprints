@@ -64,8 +64,8 @@ PI pe product detail pages NAHI bani. Patrick ne confirm kiya. Hum sirf SEO funn
 Framework:     Next.js 15 App Router + TypeScript strict
 Styling:       Tailwind CSS
 CMS:           Sanity v3 (hybrid model)
-Hosting:       Cloudflare Pages
-DNS:           Cloudflare
+Hosting:       Vercel
+DNS:           Cloudflare (DNS-only mode)
 AI:            DeepSeek-V3 via API (Patrick's key)
 Email:         Gmail SMTP via Nodemailer (Patrick's app password)
 Search:        Fuse.js client-side, prebuilt JSON index
@@ -172,13 +172,13 @@ Helper sirf `lib/affiliate-url.ts` mein hoga. Components mein hardcode nahi karn
 - GitHub repo + branch protection (`main` + `develop`)
 - GitHub Actions: typecheck + lint + build on PR
 
-### Sub-module 1B: Cloudflare Pages Staging (4h)
+### Sub-module 1B: Vercel Staging (4h)
 
-- Connect repo to Cloudflare Pages
-- Next.js Cloudflare adapter
-- Point `dev.perfectimprints.com` to staging deployment
-- Verify HTTPS works
-- Env vars setup in Cloudflare Pages dashboard
+- Connect repo to Vercel
+- Native Next.js support (no adapter needed)
+- Point `dev.perfectimprints.com` to staging deployment via Cloudflare CNAME (DNS-only mode)
+- Verify HTTPS works (Vercel handles cert issuance automatically)
+- Env vars setup in Vercel dashboard
 
 ### Sub-module 1C: Sanity Studio Bootstrap (6h)
 
@@ -596,7 +596,7 @@ Client-side sort over loaded SKU list (no server call).
 - Google Search Console verification (both staging + production hostnames)
 - Google Analytics 4 setup (preserve existing GA4 property)
 - Events: lead form submit, search usage, outbound clicks to Geiger
-- Production Cloudflare Pages env vars set
+- Production Vercel env vars set
 - Sanity webhook pointing to production
 - Launch runbook at `/docs/launch-runbook.md`
 
@@ -610,7 +610,7 @@ Client-side sort over loaded SKU list (no server call).
 
 - Lower DNS TTL day before to 300 seconds
 - Cutover during low-traffic window (early morning ET)
-- Repoint perfectimprints.com apex to Cloudflare Pages
+- Repoint perfectimprints.com apex to Vercel via Cloudflare DNS
 - SPF + DKIM records for Gmail SMTP
 - Monitor for 24 hours
 - Submit updated sitemap to Search Console
@@ -623,7 +623,7 @@ Client-side sort over loaded SKU list (no server call).
   1. Run Python scraper (Phases A, B, C — Phase D mapping stable after first run)
   2. Regenerate AI content for any new categories
   3. Commit data changes
-  4. Trigger Cloudflare Pages production build
+  4. Trigger Vercel production build
   5. Email Patrick summary stats (products count delta, new categories, etc)
 - Manual trigger button in Sanity for ad-hoc refresh
 
@@ -717,7 +717,7 @@ Client-side sort over loaded SKU list (no server call).
 - Impact: Affiliate links broken
 - Mitigation: Use `www.geiger.com` as fallback until `patrickblack.geiger.com` live. Simple env var swap on launch day (NEXT_PUBLIC_GEIGER_HOST).
 
-**6. Cloudflare Pages build timeout on 22,180 + 731 pages**
+**6. Vercel build timeout on 22,180 + 731 pages**
 
 - Likelihood: Medium
 - Impact: Failed deploys

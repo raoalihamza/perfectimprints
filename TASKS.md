@@ -49,15 +49,16 @@ Module to week mapping (client-facing 6-week plan):
       **Depends on.** M1-101.
       **Estimate.** 2 hours.
 
-### [ ] M1-103: Configure Cloudflare Pages staging
+### [ ] M1-103: Configure Vercel staging
 
-**Scope.** Connect the repo to Cloudflare Pages. Configure the Next.js adapter. Point dev.perfectimprints.com to the staging deployment. Verify HTTPS works. Add environment variables in Cloudflare Pages dashboard.
+**Scope.** Connect the repo to Vercel. Use Vercel's native Next.js support (no adapter required). Add a `dev.perfectimprints.com` CNAME in Cloudflare DNS pointing at the Vercel staging deployment, in DNS-only mode (grey cloud, not proxied). Verify HTTPS works (Vercel issues the cert automatically). Add environment variables in the Vercel dashboard.
 **Acceptance.**
 
-- [ ] Push to `develop` triggers a Cloudflare Pages build
-- [ ] dev.perfectimprints.com resolves to the staging deployment
+- [ ] Push to `main` triggers a Vercel production build
+- [ ] Push to `develop` triggers a Vercel preview/staging build
+- [ ] dev.perfectimprints.com resolves to the Vercel staging deployment via Cloudflare CNAME in DNS-only mode
+- [ ] HTTPS valid, no certificate warnings (Vercel auto-provisioned)
 - [ ] Build completes in under 5 minutes for the empty starter
-- [ ] HTTPS valid, no certificate warnings
       **Depends on.** M1-102.
       **Estimate.** 3 hours.
 
@@ -70,7 +71,7 @@ Module to week mapping (client-facing 6-week plan):
 - [ ] Initial schemas exist
 - [ ] Studio deploys to a Sanity-hosted URL
 - [ ] Webhook configured, signature verification working
-- [ ] Environment variables added to Cloudflare Pages
+- [ ] Environment variables added to Vercel
       **Depends on.** M1-101.
       **Estimate.** 4 hours.
 
@@ -597,7 +598,7 @@ Module to week mapping (client-facing 6-week plan):
 
 ### [ ] M6-603: Pre-launch setup (GA4, GSC, runbook)
 
-**Scope.** Connect GA4 with existing measurement ID. Add Search Console verification for both staging and production hostnames. Configure GA4 events for lead form submissions, search usage, outbound clicks to Geiger. Set production Cloudflare Pages environment variables. Configure Sanity webhook for production. Author launch runbook at `/docs/launch-runbook.md`.
+**Scope.** Connect GA4 with existing measurement ID. Add Search Console verification for both staging and production hostnames. Configure GA4 events for lead form submissions, search usage, outbound clicks to Geiger. Set production Vercel environment variables. Configure Sanity webhook for production. Author launch runbook at `/docs/launch-runbook.md`.
 **Acceptance.**
 
 - [ ] GA4 receiving events from staging
@@ -611,7 +612,7 @@ Module to week mapping (client-facing 6-week plan):
 
 ### [ ] M6-604: Final scrape refresh and production build
 
-**Scope.** Run one last scraper end-to-end for fresh data the day before launch. Regenerate AI content for any newly added Geiger categories. Final production build on Cloudflare Pages. Verify no build errors.
+**Scope.** Run one last scraper end-to-end for fresh data the day before launch. Regenerate AI content for any newly added Geiger categories. Final production build on Vercel. Verify no build errors.
 **Acceptance.**
 
 - [ ] Fresh data committed
@@ -623,7 +624,7 @@ Module to week mapping (client-facing 6-week plan):
 
 ### [ ] M6-605: DNS cutover and launch
 
-**Scope.** 48 hours before launch, lower TTL on perfectimprints.com DNS records to 300 seconds. Add SPF and DKIM records for Gmail SMTP. On launch day, repoint apex to Cloudflare Pages production. Verify SSL valid, all hostnames resolve. Monitor for 24 hours. Submit updated sitemap to Search Console.
+**Scope.** 48 hours before launch, lower TTL on perfectimprints.com DNS records to 300 seconds. Add SPF and DKIM records for Gmail SMTP. On launch day, repoint apex to Vercel production via Cloudflare DNS. Verify SSL valid, all hostnames resolve. Monitor for 24 hours. Submit updated sitemap to Search Console.
 **Acceptance.**
 
 - [ ] TTL lowered 48 hours prior
@@ -637,7 +638,7 @@ Module to week mapping (client-facing 6-week plan):
 
 ### [ ] M6-606: Monthly auto-rebuild scheduler
 
-**Scope.** GitHub Action workflow `.github/workflows/monthly-rebuild.yml` scheduled for the 1st of every month at 00:00 UTC. Steps: run scraper Phases A, B, C; regenerate AI content for new categories; commit to a `monthly-rebuild` branch; open auto-merge PR; trigger Cloudflare Pages production build on merge; email Patrick a summary report (product count delta, new categories, price changes). Manual trigger button in Sanity globalSettings for ad-hoc refresh.
+**Scope.** GitHub Action workflow `.github/workflows/monthly-rebuild.yml` scheduled for the 1st of every month at 00:00 UTC. Steps: run scraper Phases A, B, C; regenerate AI content for new categories; commit to a `monthly-rebuild` branch; open auto-merge PR; trigger Vercel production build on merge; email Patrick a summary report (product count delta, new categories, price changes). Manual trigger button in Sanity globalSettings for ad-hoc refresh.
 **Acceptance.**
 
 - [ ] Workflow file committed

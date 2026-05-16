@@ -15,8 +15,7 @@
     "sanity:dev": "cd sanity && sanity dev",
     "sanity:deploy": "cd sanity && sanity deploy",
     "import-urls": "tsx scripts/url-import/import-urls.ts",
-    "build:search-index": "tsx scripts/search-index/build-index.ts",
-    "build:cloudflare": "next-on-pages"
+    "build:search-index": "tsx scripts/search-index/build-index.ts"
   },
   "dependencies": {
     "@portabletext/react": "^3.1.0",
@@ -37,7 +36,6 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.13.5",
     "@types/node": "^22.9.0",
     "@types/nodemailer": "^6.4.16",
     "@types/react": "^19.0.0",

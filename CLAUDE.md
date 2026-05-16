@@ -18,7 +18,7 @@ Geiger source: `https://www.geiger.com/` (data source only, never emitted in lin
 | Framework       | Next.js 15, App Router, TypeScript strict                                   |
 | Styling         | Tailwind CSS                                                                |
 | CMS             | Sanity v3 (hybrid model, see Section 7)                                     |
-| Hosting         | Cloudflare Pages with Next.js adapter                                       |
+| Hosting         | Vercel                                                                      |
 | DNS             | Cloudflare                                                                  |
 | AI content      | DeepSeek-V3 via API                                                         |
 | Email           | Gmail SMTP via Nodemailer                                                   |
@@ -291,15 +291,15 @@ Fonts loaded with `font-display: swap` and preloaded for the main font weight. N
 
 ## 13. Deployment
 
-Cloudflare Pages, two environments:
+Vercel, two environments:
 
 - Staging: `dev.perfectimprints.com`, deploys on every push to `develop` branch
 - Production: `perfectimprints.com`, deploys on every push to `main` branch
 
 Build command: `pnpm build`
-Output directory: handled by Cloudflare Next.js adapter
+Output: handled by Vercel's native Next.js support
 
-DNS cutover plan: lower TTL on existing perfectimprints.com records 48 hours before launch. On launch day, repoint apex to Cloudflare Pages production.
+DNS is managed by Cloudflare (DNS-only mode, no proxy). DNS cutover plan: lower TTL on existing perfectimprints.com records 48 hours before launch. On launch day, repoint apex to Vercel production via Cloudflare DNS.
 
 **Monthly auto-rebuild:** A GitHub Action runs on the 1st of every month at 00:00 UTC. Workflow steps:
 
@@ -307,7 +307,7 @@ DNS cutover plan: lower TTL on existing perfectimprints.com records 48 hours bef
 2. Regenerate AI content for any new Geiger categories
 3. Commit data changes to repo on a `monthly-rebuild` branch
 4. Open auto-merge PR to `main`
-5. Cloudflare Pages production build triggered on merge
+5. Vercel production build triggered on merge
 6. Email Patrick a summary report (products added, removed, price changes, new categories)
 
 Manual rebuild trigger lives in Sanity Studio as a custom action on globalSettings.
@@ -336,7 +336,8 @@ Never commit a `.env` file. Use `.env.example` with empty values as the template
 ## 15. External Services
 
 - **Sanity** for CMS. Project lives under Patrick's Sanity account.
-- **Cloudflare Pages** for hosting. Account is Patrick's.
+- **Vercel** for hosting. Account is Patrick's.
+- **Cloudflare** for DNS only (DNS-only mode, not proxied).
 - **DeepSeek** for AI content. API key on Patrick's account, billed to him directly.
 - **Gmail SMTP** for transactional email. Uses Patrick's Google Workspace account with an app password. Requires SPF and DKIM records in DNS.
 - **Google Search Console and Google Analytics 4** for analytics. Existing GA4 property continues, new GSC property added for new site verification.
