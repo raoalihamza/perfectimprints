@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { ChromeGate } from '@/components/layout/ChromeGate';
 import { organizationSchema } from '@/lib/seo/schema-generators';
 import './globals.css';
 
@@ -41,11 +42,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="flex min-h-screen flex-col font-sans">
-        <Header />
+        <ChromeGate>
+          <Header />
+        </ChromeGate>
         <main id="main-content" className="flex-1">
           {children}
         </main>
-        <Footer />
+        <ChromeGate>
+          <Footer />
+        </ChromeGate>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
