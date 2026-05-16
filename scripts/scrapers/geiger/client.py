@@ -7,6 +7,7 @@ from types import TracebackType
 from typing import Any
 
 import httpx
+from curl_cffi import requests as curl_requests
 from tenacity import (
     retry,
     retry_if_exception_type,
@@ -51,9 +52,11 @@ class ScraperClient:
     """Wraps httpx HTTP/2 client with rate limiting and retry."""
 
     def __init__(self) -> None:
-        self._client = httpx.Client(
-            http2=True,
-            headers={
+        # curl_cffi impersonates a real Chrome TLS fingerprint so Cloudflare
+        # bot-detection on geiger.com lets the request through.
+        self._client = curl_requests.Session(impersonate="chrome131")
+        self._client.headers.update(
+            {
                 "User-Agent": USER_AGENT,
                 "Accept": (
                     "text/html,application/xhtml+xml,application/xml;q=0.9,"
@@ -66,9 +69,7 @@ class ScraperClient:
                 "Sec-Fetch-Site": "none",
                 "Sec-Fetch-User": "?1",
                 "Upgrade-Insecure-Requests": "1",
-            },
-            timeout=REQUEST_TIMEOUT_SECONDS,
-            follow_redirects=True,
+            }
         )
         self._limiter = RateLimiter()
 
@@ -94,15 +95,28 @@ class ScraperClient:
         ),
         reraise=True,
     )
-    def _do_get(self, url: str, params: dict[str, Any] | None = None) -> httpx.Response:
-        response = self._client.get(url, params=params)
+    def _do_get(self, url: str, params: dict[str, Any] | None = None) -> Any:
+        response = self._client.get(
+            url, params=params, timeout=REQUEST_TIMEOUT_SECONDS, allow_redirects=True
+        )
         if response.status_code >= 400:
-            response.raise_for_status()
+            # Convert curl_cffi failure into the httpx exception type the
+            # rest of the pipeline already handles, so retry/error logic
+            # downstream keeps working unchanged.
+            request = httpx.Request("GET", url)
+            httpx_response = httpx.Response(
+                status_code=response.status_code, request=request
+            )
+            raise httpx.HTTPStatusError(
+                f"{response.status_code} for {url}",
+                request=request,
+                response=httpx_response,
+            )
         return response
 
     def get(
         self, url: str, params: dict[str, Any] | None = None
-    ) -> httpx.Response:
+    ) -> Any:
         self._limiter.wait()
         try:
             return self._do_get(url, params)

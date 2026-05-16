@@ -100,7 +100,7 @@ Module to week mapping (client-facing 6-week plan):
       **Depends on.** M1-105.
       **Estimate.** 8 hours.
 
-### [ ] M1-107: Build Geiger Python scraper (Phase A: taxonomy)
+### [x] M1-107: Build Geiger Python scraper (Phase A: taxonomy)
 
 **Scope.** Python package at `scripts/scrapers/geiger/`. Phase A discovers the full Geiger category tree by parsing the mega menu HTML from one category page using BeautifulSoup. Output: `data/geiger/categories.json` with parent-child relationships and Searchspring category_path strings for each leaf.
 **Acceptance.**
