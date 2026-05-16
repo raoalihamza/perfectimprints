@@ -62,6 +62,8 @@ Category URL breakdown:
 
 Trailing slashes: match the current site behavior. If GA4 export shows no trailing slash, do not add one.
 
+Canonical host is www.perfectimprints.com. The apex perfectimprints.com 301-redirects to www. Configured in next.config redirects() and at the Vercel domain level.
+
 The full URL list with classification lives at `data/pi-urls/category-urls.json` (built by `pnpm import-urls`). Every component that needs to enumerate URLs reads from there.
 
 ## 5. Folder Layout
