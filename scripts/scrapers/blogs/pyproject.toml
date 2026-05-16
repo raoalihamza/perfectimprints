@@ -1,0 +1,12 @@
+[project]
+name = "perfectimprints-blog-scraper"
+version = "0.1.0"
+description = "Scrapes legacy perfectimprints.com blog posts when no clean export is available."
+requires-python = ">=3.11"
+dependencies = [
+    "playwright>=1.47",
+    "beautifulsoup4>=4.12",
+    "lxml>=5.0",
+    "orjson>=3.9",
+    "tqdm>=4.66",
+]

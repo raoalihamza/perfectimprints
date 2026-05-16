@@ -1,0 +1,58 @@
+{
+  "name": "perfectimprints",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@9.12.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "echo 'lint disabled by project preference'",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "sanity:dev": "cd sanity && sanity dev",
+    "sanity:deploy": "cd sanity && sanity deploy",
+    "import-urls": "tsx scripts/url-import/import-urls.ts",
+    "build:search-index": "tsx scripts/search-index/build-index.ts",
+    "build:cloudflare": "next-on-pages"
+  },
+  "dependencies": {
+    "@portabletext/react": "^3.1.0",
+    "@sanity/client": "^6.22.0",
+    "@sanity/image-url": "^1.1.0",
+    "@sanity/vision": "^3.62.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "fuse.js": "^7.0.0",
+    "next": "^16.2.0",
+    "next-sanity": "^9.8.0",
+    "nodemailer": "^6.9.16",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sanity": "^3.62.0",
+    "styled-components": "^6.1.13",
+    "tailwind-merge": "^2.5.4",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.5",
+    "@types/node": "^22.9.0",
+    "@types/nodemailer": "^6.4.16",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.8",
+    "tailwindcss": "^3.4.14",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4",
+    "xlsx": "^0.18.5"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  }
+}

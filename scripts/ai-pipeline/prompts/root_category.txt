@@ -1,0 +1,16 @@
+TODO: M2-202 - Root category prompt template.
+
+Generates: SEO H1, meta title (under 60 chars), meta description (under 155 chars),
+2-3 paragraph intro, 5 FAQs with answers, hero alt text.
+
+Inputs to inject at generation time:
+- {{ category_title }}
+- {{ target_keyword_plural }}
+- {{ top_product_names }} (newline-delimited)
+- {{ buyer_persona }}
+- {{ opening_style }} (use_case | buyer | material_quality | seasonal)
+
+Opening style distribution:
+  30% use case, 30% buyer/industry, 30% material/quality, 10% seasonal/trending.
+
+Output schema: see CLAUDE.md Section 9.

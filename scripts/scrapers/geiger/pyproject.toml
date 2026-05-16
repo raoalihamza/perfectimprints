@@ -1,0 +1,40 @@
+[project]
+name = "perfectimprints-geiger-scraper"
+version = "0.1.0"
+description = "Scrapes Geiger taxonomy and product catalog via Searchspring API."
+requires-python = ">=3.11"
+dependencies = [
+    "httpx[http2]>=0.27",
+    "tenacity>=8.2",
+    "beautifulsoup4>=4.12",
+    "lxml>=5.0",
+    "orjson>=3.9",
+    "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+dev = [
+    "mypy>=1.8",
+    "ruff>=0.5",
+    "pytest>=8.0",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["checkpoint", "client", "config", "discover", "mapping", "memberships", "products", "run"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = false
+warn_unused_ignores = true
+ignore_missing_imports = true

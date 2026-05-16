@@ -1,0 +1,13 @@
+TODO: M2-203 - Facet category prompt template (lite).
+
+Generates: SEO H1 (long-tail keyword), meta title, meta description, one short
+intro paragraph (60-80 words). No FAQs.
+
+Inputs to inject:
+- {{ root_category_title }}
+- {{ facet_type }}      (e.g. material)
+- {{ facet_value }}     (e.g. stainless-steel)
+- {{ target_keyword }}  (e.g. "custom stainless steel water bottles")
+- {{ top_product_names }}
+
+Output schema: see CLAUDE.md Section 9 (omit faqs array for facet pages).

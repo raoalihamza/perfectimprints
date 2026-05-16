@@ -1,0 +1,8 @@
+{
+  "name": "perfectimprints-studio",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "styled-components": "^6.1.15"
+  }
+}

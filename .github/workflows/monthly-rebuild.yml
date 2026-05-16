@@ -1,0 +1,19 @@
+name: Monthly rebuild
+
+on:
+  schedule:
+    # First of every month at 00:00 UTC
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
+
+jobs:
+  rebuild:
+    name: Refresh Geiger data and trigger production build
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - name: TODO M6-606 - implement full monthly rebuild
+        run: |
+          echo "TODO: M6-606 - run scraper phases A/B/C, regenerate AI content, open auto-merge PR, email Patrick"
+          echo "See TASKS.md ticket M6-606 for full scope"

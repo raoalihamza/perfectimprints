@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO M5-508: reference sitemap.xml once generator lands.
+# Sitemap: https://perfectimprints.com/sitemap.xml
