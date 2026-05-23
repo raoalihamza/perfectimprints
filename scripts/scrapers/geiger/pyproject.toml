@@ -10,6 +10,8 @@ dependencies = [
     "lxml>=5.0",
     "orjson>=3.9",
     "tqdm>=4.66",
+    "rapidfuzz>=3.6",
+    "curl-cffi>=0.7",
 ]
 
 [project.optional-dependencies]

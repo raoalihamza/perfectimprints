@@ -1,0 +1,2800 @@
+{
+  "generatedAt": "2026-05-21T08:18:49Z",
+  "totalPiRoots": 465,
+  "exactMatches": 72,
+  "fuzzyMatches": 224,
+  "overrideMatches": 169,
+  "unmapped": 0,
+  "mappings": {
+    "products": {
+      "geigerCategoryPath": "Home > All Products",
+      "geigerSlug": "p",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "matches": {
+      "geigerCategoryPath": "Home > Tradeshow & Events > Party Accessories",
+      "geigerSlug": "event-party-accessories",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "office": {
+      "geigerCategoryPath": "Home > Office & Technology",
+      "geigerSlug": "office-and-technology",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "rubber-ducks": {
+      "geigerCategoryPath": "Home > Tradeshow & Events > Party Accessories",
+      "geigerSlug": "event-party-accessories",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "pepper-spray": {
+      "geigerCategoryPath": "Home > Health & Wellness > Safety",
+      "geigerSlug": "safety",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "resistance-bands": {
+      "geigerCategoryPath": "Home > Health & Wellness",
+      "geigerSlug": "health-and-wellness",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "shirts": {
+      "geigerCategoryPath": "Home > Apparel > Dress Shirts",
+      "geigerSlug": "dress-shirts-and-sweaters",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "pens": {
+      "geigerCategoryPath": "Home > Writing Instruments > Pens",
+      "geigerSlug": "all-pens",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "apparel": {
+      "geigerCategoryPath": "Home > Apparel",
+      "geigerSlug": "apparel",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "stress-relievers-balls": {
+      "geigerCategoryPath": "Home > Health & Wellness > Stress Balls",
+      "geigerSlug": "stress-relievers",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "noise-makers": {
+      "geigerCategoryPath": "Home > Tradeshow & Events > Party Accessories",
+      "geigerSlug": "event-party-accessories",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "tote-bags": {
+      "geigerCategoryPath": "Home > Bags & Totes > Tote Bags",
+      "geigerSlug": "tote-bags",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "bags": {
+      "geigerCategoryPath": "Home > Bags & Totes",
+      "geigerSlug": "bags-and-totes",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "jackets": {
+      "geigerCategoryPath": "Home > Apparel > Outerwear",
+      "geigerSlug": "outerwear",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "golf-polo-shirts": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Golf",
+      "geigerSlug": "golf",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "calendars": {
+      "geigerCategoryPath": "Home > Office & Technology > Calendars & Planners",
+      "geigerSlug": "office-calendars-and-planners",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "backpacks": {
+      "geigerCategoryPath": "Home > Bags & Totes > Backpacks",
+      "geigerSlug": "backpacks",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "sunglasses": {
+      "geigerCategoryPath": "Home > Apparel > Sunglasses",
+      "geigerSlug": "sunglasses",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "toys-games-party": {
+      "geigerCategoryPath": "Home > Tradeshow & Events > Party Accessories",
+      "geigerSlug": "event-party-accessories",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "t-shirts": {
+      "geigerCategoryPath": "Home > Apparel > T-Shirts",
+      "geigerSlug": "t-shirts",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "beach-balls-inflatables": {
+      "geigerCategoryPath": "Home > Tradeshow & Events > Party Accessories",
+      "geigerSlug": "event-party-accessories",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "coins": {
+      "geigerCategoryPath": "Home > Tradeshow & Events",
+      "geigerSlug": "tradeshow-and-events",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "beach-towels": {
+      "geigerCategoryPath": "Home > Bags & Totes",
+      "geigerSlug": "bags-and-totes",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "drinkware": {
+      "geigerCategoryPath": "Home > Drinkware",
+      "geigerSlug": "drinkware",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "water-bottles": {
+      "geigerCategoryPath": "Home > Drinkware > Water Bottles",
+      "geigerSlug": "water-bottles",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "spirit-hands-signs-sticks": {
+      "geigerCategoryPath": "Home > Tradeshow & Events",
+      "geigerSlug": "tradeshow-and-events",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "games": {
+      "geigerCategoryPath": "Home > Tradeshow & Events > Party Accessories",
+      "geigerSlug": "event-party-accessories",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "school-spirit": {
+      "geigerCategoryPath": "Home > Shop By > Education > School Spirit",
+      "geigerSlug": "school-spirit",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "awards-recognition": {
+      "geigerCategoryPath": "Home > Office & Technology > Corporate Gifts > Awards & Recognition",
+      "geigerSlug": "awards-and-recognition",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "koozies": {
+      "geigerCategoryPath": "Home > Drinkware > Koozies & Can Coolers",
+      "geigerSlug": "koozies-and-can-coolers",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "tools": {
+      "geigerCategoryPath": "Home > Home & Auto > Tools & Tool Kits",
+      "geigerSlug": "tools-and-tool-kits",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "measuring-cups": {
+      "geigerCategoryPath": "Home > Drinkware",
+      "geigerSlug": "drinkware",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "buckets-pails": {
+      "geigerCategoryPath": "Home > Home & Auto",
+      "geigerSlug": "home-and-auto",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "headwear": {
+      "geigerCategoryPath": "Home > Apparel > Caps & Hats",
+      "geigerSlug": "caps-and-hats",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "pants-shorts": {
+      "geigerCategoryPath": "Home > Apparel > Pants & Shorts",
+      "geigerSlug": "pants-and-shorts",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "watches": {
+      "geigerCategoryPath": "Home > Apparel > Accessories > Watches & Jewelry",
+      "geigerSlug": "watches-and-jewelry",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "coffee-mugs": {
+      "geigerCategoryPath": "Home > Drinkware > Coffee Mugs",
+      "geigerSlug": "coffee-mugs",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "workwear": {
+      "geigerCategoryPath": "Home > Apparel > Workwear",
+      "geigerSlug": "workwear",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "beanies": {
+      "geigerCategoryPath": "Home > Apparel > Caps & Hats > Winter Hats & Beanies",
+      "geigerSlug": "winter-hats-and-beanies",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "notepads": {
+      "geigerCategoryPath": "Home > Office & Technology",
+      "geigerSlug": "office-and-technology",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "cutting-boards": {
+      "geigerCategoryPath": "Home > Home & Auto > Kitchen Accessories > Cutting Boards",
+      "geigerSlug": "cutting-boards",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "gift-boxes-ribbons": {
+      "geigerCategoryPath": "Home > Shop By > Collections > Boxes & Packaging",
+      "geigerSlug": "boxes-and-packaging",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "lip-balm": {
+      "geigerCategoryPath": "Home > Health & Wellness > Lip Balms",
+      "geigerSlug": "lip-balms",
+      "matchType": "fuzzy",
+      "confidence": 0.9412
+    },
+    "ornaments": {
+      "geigerCategoryPath": "Home > Home & Auto > Ornaments",
+      "geigerSlug": "ornaments",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "banners-mats-signs": {
+      "geigerCategoryPath": "Home > Tradeshow & Events",
+      "geigerSlug": "tradeshow-and-events",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "medical-healthcare-items": {
+      "geigerCategoryPath": "Home > Shop By > Healthcare",
+      "geigerSlug": "healthcare",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "hand-sanitizer": {
+      "geigerCategoryPath": "Home > Health & Wellness > Hand Sanitizers",
+      "geigerSlug": "hand-sanitizers",
+      "matchType": "fuzzy",
+      "confidence": 0.9655
+    },
+    "badge-reels": {
+      "geigerCategoryPath": "Home > Tradeshow & Events > Lanyards & Badges",
+      "geigerSlug": "tradeshow-lanyards-and-badges",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "gift-sets-bundles": {
+      "geigerCategoryPath": "Home > Shop By > Collections",
+      "geigerSlug": "collections",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "handheld-flashlights": {
+      "geigerCategoryPath": "Home > Sports & Outdoor",
+      "geigerSlug": "sports-and-outdoor",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "health": {
+      "geigerCategoryPath": "Home > Health & Wellness",
+      "geigerSlug": "health-and-wellness",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "waterproof-dry-bags": {
+      "geigerCategoryPath": "Home > Bags & Totes",
+      "geigerSlug": "bags-and-totes",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "business-card-holders": {
+      "geigerCategoryPath": "Home > Office & Technology",
+      "geigerSlug": "office-and-technology",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "food-beverage": {
+      "geigerCategoryPath": "Home > Drinkware",
+      "geigerSlug": "drinkware",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "writing": {
+      "geigerCategoryPath": "Home > Writing Instruments",
+      "geigerSlug": "writing-instruments",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "drawstring-backpacks": {
+      "geigerCategoryPath": "Home > Bags & Totes > Backpacks",
+      "geigerSlug": "backpacks",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "pencils": {
+      "geigerCategoryPath": "Home > Writing Instruments > Pencils > Pencils",
+      "geigerSlug": "pencils",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "sweatshirts": {
+      "geigerCategoryPath": "Home > Apparel > Sweatshirts & Hoodies",
+      "geigerSlug": "sweatshirts-and-hoodies",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "first-aid-kits": {
+      "geigerCategoryPath": "Home > Health & Wellness > First Aid > First Aid Kits",
+      "geigerSlug": "first-aid-kits",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "headbands-wristbands": {
+      "geigerCategoryPath": "Home > Apparel > Accessories > Headbands & Bandanas",
+      "geigerSlug": "headbands-and-bandanas",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "umbrellas": {
+      "geigerCategoryPath": "Home > Home & Auto > Umbrellas",
+      "geigerSlug": "umbrellas",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "automotive": {
+      "geigerCategoryPath": "Home > Home & Auto",
+      "geigerSlug": "home-and-auto",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "clipboards": {
+      "geigerCategoryPath": "Home > Office & Technology > Binders & Document Holders",
+      "geigerSlug": "binders-and-document-holders",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "coolers": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Coolers",
+      "geigerSlug": "coolers",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "flag-banners": {
+      "geigerCategoryPath": "Home > Tradeshow & Events",
+      "geigerSlug": "tradeshow-and-events",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "school-work-backpacks": {
+      "geigerCategoryPath": "Home > Bags & Totes > Backpacks",
+      "geigerSlug": "backpacks",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "garment-bags": {
+      "geigerCategoryPath": "Home > Shop By > Men",
+      "geigerSlug": "men",
+      "matchType": "fuzzy",
+      "confidence": 0.9
+    },
+    "golf": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Golf",
+      "geigerSlug": "golf",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "mouse-pads": {
+      "geigerCategoryPath": "Home > Office & Technology > Tech Accessories > Mouse Pads",
+      "geigerSlug": "mouse-pads",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "paper-bags": {
+      "geigerCategoryPath": "Home > Bags & Totes > Paper Bags",
+      "geigerSlug": "paper-bags",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "visors": {
+      "geigerCategoryPath": "Home > Apparel > Caps & Hats",
+      "geigerSlug": "caps-and-hats",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "portfolios": {
+      "geigerCategoryPath": "Home > Office & Technology > Binders & Document Holders",
+      "geigerSlug": "binders-and-document-holders",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "clocks": {
+      "geigerCategoryPath": "Home > Office & Technology > Desk Accessories > Clocks",
+      "geigerSlug": "clocks",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "diner-restaurant-mugs": {
+      "geigerCategoryPath": "Home > Drinkware > Coffee Mugs > Camp Mugs",
+      "geigerSlug": "camp-mugs",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "embroidered-patches": {
+      "geigerCategoryPath": "Home > Tradeshow & Events > Buttons, Pins & Ribbons",
+      "geigerSlug": "buttons-pins-and-ribbons",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "buttons-stickers-patches": {
+      "geigerCategoryPath": "Home > Tradeshow & Events > Buttons, Pins & Ribbons",
+      "geigerSlug": "buttons-pins-and-ribbons",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "canopy-tents": {
+      "geigerCategoryPath": "Home > Tradeshow & Events > Tents, Banners & Signs > Tents",
+      "geigerSlug": "tents",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "pocket-utility-knives": {
+      "geigerCategoryPath": "Home > Home & Auto > Kitchen Accessories > Knives",
+      "geigerSlug": "knives",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "tumblers-travel-mugs": {
+      "geigerCategoryPath": "Home > Drinkware > Travel Mugs & Tumblers > Insulated",
+      "geigerSlug": "insulated-travel-mugs-and-tumblers",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "wine-tumblers": {
+      "geigerCategoryPath": "Home > Drinkware > Beer, Wine & Barware > Wine Glasses & Tumblers",
+      "geigerSlug": "wine-glasses-and-tumblers",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "bbq-grilling": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > BBQ Sets",
+      "geigerSlug": "bbq-sets",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "household": {
+      "geigerCategoryPath": "Home > Home & Auto",
+      "geigerSlug": "home-and-auto",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "outerwear": {
+      "geigerCategoryPath": "Home > Apparel > Outerwear",
+      "geigerSlug": "outerwear",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "usb-flash-drives": {
+      "geigerCategoryPath": "Home > Office & Technology > USB Flash Drives",
+      "geigerSlug": "usb-flash-drives",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "cocktail-glasses": {
+      "geigerCategoryPath": "Home > Drinkware > Beer, Wine & Barware > Wine Glasses & Tumblers",
+      "geigerSlug": "wine-glasses-and-tumblers",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "table-displays": {
+      "geigerCategoryPath": "Home > Tradeshow & Events > Table Covers & Runners > Full Color Table Covers",
+      "geigerSlug": "full-color-table-covers",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "tool-kits": {
+      "geigerCategoryPath": "Home > Home & Auto > Tools & Tool Kits > All Tools & Tool Kits",
+      "geigerSlug": "tools-and-tool-kits",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "barware": {
+      "geigerCategoryPath": "Home > Drinkware > Beer, Wine & Barware > All Beer, Wine & Barware",
+      "geigerSlug": "beer-wine-and-barware",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "eyewear": {
+      "geigerCategoryPath": "Home > Apparel > Sunglasses",
+      "geigerSlug": "sunglasses",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "kitchen-accessories": {
+      "geigerCategoryPath": "Home > Home & Auto > Kitchen Accessories",
+      "geigerSlug": "kitchen-accessories",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "office-supplies": {
+      "geigerCategoryPath": "Home > Office & Technology > Calendars & Planners",
+      "geigerSlug": "office-calendars-and-planners",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "folding-chairs": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Folding Chairs",
+      "geigerSlug": "folding-chairs",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "laptop-cases": {
+      "geigerCategoryPath": "Home > Bags & Totes > Laptop Bags & Sleeves",
+      "geigerSlug": "laptop-bags-and-sleeves",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "medals": {
+      "geigerCategoryPath": "Home > Tradeshow & Events",
+      "geigerSlug": "tradeshow-and-events",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "nursing-scrubs": {
+      "geigerCategoryPath": "Home > Apparel",
+      "geigerSlug": "apparel",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "wine-glasses": {
+      "geigerCategoryPath": "Home > Drinkware > Beer, Wine & Barware > Wine Glasses & Tumblers",
+      "geigerSlug": "wine-glasses-and-tumblers",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "wine-openers": {
+      "geigerCategoryPath": "Home > Drinkware > Beer, Wine & Barware",
+      "geigerSlug": "beer-wine-and-barware",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "yardsticks": {
+      "geigerCategoryPath": "Home > Office & Technology",
+      "geigerSlug": "office-and-technology",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "jar-openers": {
+      "geigerCategoryPath": "Home > Home & Auto > Kitchen Accessories > Jar Openers",
+      "geigerSlug": "jar-openers",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "pizza-cutters": {
+      "geigerCategoryPath": "Home > Drinkware",
+      "geigerSlug": "drinkware",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "screwdrivers": {
+      "geigerCategoryPath": "Home > Home & Auto > Tools & Tool Kits > Screwdrivers",
+      "geigerSlug": "screwdrivers",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "sunscreen": {
+      "geigerCategoryPath": "Home > Health & Wellness > Personal Care",
+      "geigerSlug": "personal-care",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "lanyards": {
+      "geigerCategoryPath": "Home > Office & Technology > Lanyards & Badges > Lanyards",
+      "geigerSlug": "lanyards",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "mats": {
+      "geigerCategoryPath": "Home > Shop By > Collections > Floor Mats & Decals",
+      "geigerSlug": "floor-mats-and-decals",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "megaphones": {
+      "geigerCategoryPath": "Home > Tradeshow & Events > Party Accessories",
+      "geigerSlug": "event-party-accessories",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "personal-protection-equipment": {
+      "geigerCategoryPath": "Home > Health & Wellness > Personal Protective Equipment",
+      "geigerSlug": "ppe",
+      "matchType": "fuzzy",
+      "confidence": 0.931
+    },
+    "pitchers-jugs": {
+      "geigerCategoryPath": "Home > Drinkware",
+      "geigerSlug": "drinkware",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "socks": {
+      "geigerCategoryPath": "Home > Apparel > Accessories > Socks",
+      "geigerSlug": "socks",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "travel-lifestyle-gifts": {
+      "geigerCategoryPath": "Home > Bags & Totes > Travel",
+      "geigerSlug": "travel",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "adhesive-notepads": {
+      "geigerCategoryPath": "Home > Office & Technology > Adhesive Notes & Notepads",
+      "geigerSlug": "adhesive-notes-and-notepads",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "balloons": {
+      "geigerCategoryPath": "Home > Tradeshow & Events > Balloons",
+      "geigerSlug": "balloons",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "beer-mugs-steins": {
+      "geigerCategoryPath": "Home > Drinkware > Coffee Mugs > Camp Mugs",
+      "geigerSlug": "camp-mugs",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "electronics": {
+      "geigerCategoryPath": "Home > Office & Technology > Tech Accessories",
+      "geigerSlug": "tech-accessories",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "fitness-gifts": {
+      "geigerCategoryPath": "Home > Health & Wellness > Personal Care > Fitness",
+      "geigerSlug": "fitness",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "magnets": {
+      "geigerCategoryPath": "Home > Home & Auto > Magnets",
+      "geigerSlug": "magnets",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "multi-function-tools": {
+      "geigerCategoryPath": "Home > Home & Auto > Tools & Tool Kits",
+      "geigerSlug": "tools-and-tool-kits",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "personal-care-items": {
+      "geigerCategoryPath": "Home > Health & Wellness > Personal Care",
+      "geigerSlug": "personal-care",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "toys": {
+      "geigerCategoryPath": "Home > Home & Auto > Games & Novelty > Fidget Toys",
+      "geigerSlug": "fidget-toys",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "bandages": {
+      "geigerCategoryPath": "Home > Health & Wellness > First Aid > Bandages",
+      "geigerSlug": "bandages",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "essential-oils-diffusers": {
+      "geigerCategoryPath": "Home > Health & Wellness > Personal Care",
+      "geigerSlug": "personal-care",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "fidget-spinners": {
+      "geigerCategoryPath": "Home > Tradeshow & Events > Party Accessories",
+      "geigerSlug": "event-party-accessories",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "headphones": {
+      "geigerCategoryPath": "Home > Office & Technology > Tech Accessories > Headphones",
+      "geigerSlug": "headphones",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "power-banks-chargers": {
+      "geigerCategoryPath": "Home > Office & Technology > Tech Accessories > Chargers & Power Banks",
+      "geigerSlug": "chargers-and-power-banks",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "sportswear": {
+      "geigerCategoryPath": "Home > Apparel",
+      "geigerSlug": "apparel",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "coasters": {
+      "geigerCategoryPath": "Home > Drinkware > Coasters",
+      "geigerSlug": "coasters",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "leggings": {
+      "geigerCategoryPath": "Home > Apparel > Pants & Shorts",
+      "geigerSlug": "pants-and-shorts",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "luggage-accessories": {
+      "geigerCategoryPath": "Home > Bags & Totes > Travel > Luggage Tags & Accessories",
+      "geigerSlug": "luggage-tags-and-accessories",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "messenger-bags": {
+      "geigerCategoryPath": "Home > Bags & Totes > Messenger Bags & Briefcases",
+      "geigerSlug": "messenger-bags-and-briefcases",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "seat-cushions": {
+      "geigerCategoryPath": "Home > Sports & Outdoor",
+      "geigerSlug": "sports-and-outdoor",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "sling-backpacks": {
+      "geigerCategoryPath": "Home > Bags & Totes > Backpacks",
+      "geigerSlug": "backpacks",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "toothpicks": {
+      "geigerCategoryPath": "Home > Drinkware > Beer, Wine & Barware",
+      "geigerSlug": "beer-wine-and-barware",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "work-shirts": {
+      "geigerCategoryPath": "Home > Apparel > Dress Shirts",
+      "geigerSlug": "dress-shirts-and-sweaters",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "lunch-bags-boxes-totes": {
+      "geigerCategoryPath": "Home > Bags & Totes",
+      "geigerSlug": "bags-and-totes",
+      "matchType": "fuzzy",
+      "confidence": 0.9091
+    },
+    "napkins": {
+      "geigerCategoryPath": "Home > Home & Auto > Party Accessories > Napkins",
+      "geigerSlug": "napkins",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "pedometers": {
+      "geigerCategoryPath": "Home > Health & Wellness",
+      "geigerSlug": "health-and-wellness",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "briefcases": {
+      "geigerCategoryPath": "Home > Bags & Totes > Messenger Bags & Briefcases",
+      "geigerSlug": "messenger-bags-and-briefcases",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "camping-mugs": {
+      "geigerCategoryPath": "Home > Drinkware > Coffee Mugs > Camp Mugs",
+      "geigerSlug": "camp-mugs",
+      "matchType": "fuzzy",
+      "confidence": 0.8571
+    },
+    "desk-clocks": {
+      "geigerCategoryPath": "Home > Office & Technology > Desk Accessories > Clocks",
+      "geigerSlug": "clocks",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "disposable-cups": {
+      "geigerCategoryPath": "Home > Drinkware > Cups",
+      "geigerSlug": "cups",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "lapel-pins": {
+      "geigerCategoryPath": "Home > Tradeshow & Events > Buttons, Pins & Ribbons",
+      "geigerSlug": "buttons-pins-and-ribbons",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "pennants": {
+      "geigerCategoryPath": "Home > All Products",
+      "geigerSlug": "p",
+      "matchType": "fuzzy",
+      "confidence": 0.9
+    },
+    "pullovers": {
+      "geigerCategoryPath": "Home > Apparel > Sweatshirts & Hoodies",
+      "geigerSlug": "sweatshirts-and-hoodies",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "tank-tops": {
+      "geigerCategoryPath": "Home > Apparel > Tank Tops",
+      "geigerSlug": "tank-tops",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "apparel-accessories": {
+      "geigerCategoryPath": "Home > Apparel",
+      "geigerSlug": "apparel",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "bag-clips": {
+      "geigerCategoryPath": "Home > Home & Auto > Clips",
+      "geigerSlug": "clips",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "fanny-packs": {
+      "geigerCategoryPath": "Home > Apparel > Accessories > Fanny Packs",
+      "geigerSlug": "fanny-packs",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "flying-discs": {
+      "geigerCategoryPath": "Home > Sports & Outdoor",
+      "geigerSlug": "sports-and-outdoor",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "hiking-hydration-backpacks": {
+      "geigerCategoryPath": "Home > Bags & Totes > Backpacks",
+      "geigerSlug": "backpacks",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "paper-hand-fans": {
+      "geigerCategoryPath": "Home > Bags & Totes > Gift Bags",
+      "geigerSlug": "paper-bags-and-gift-bags",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "awards": {
+      "geigerCategoryPath": "Home > Office & Technology > Corporate Gifts > Awards & Recognition",
+      "geigerSlug": "awards-and-recognition",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "desk-organizers": {
+      "geigerCategoryPath": "Home > Office & Technology",
+      "geigerSlug": "office-and-technology",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "luggage-travel-bags": {
+      "geigerCategoryPath": "Home > Bags & Totes > Travel > Luggage Bags",
+      "geigerSlug": "luggage-bags",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "pet-collars": {
+      "geigerCategoryPath": "Home > Home & Auto",
+      "geigerSlug": "home-and-auto",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "phone-wallets": {
+      "geigerCategoryPath": "Home > Office & Technology > Tech Accessories > Phone Wallets",
+      "geigerSlug": "phone-wallets",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "photo-frames": {
+      "geigerCategoryPath": "Home > Home & Auto > Photo Frames & Albums",
+      "geigerSlug": "photo-frames-and-albums",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "playing-cards": {
+      "geigerCategoryPath": "Home > Home & Auto > Games & Novelty > Playing Cards",
+      "geigerSlug": "playing-cards",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "popcorn": {
+      "geigerCategoryPath": "Home > Home & Auto > Food & Candy > Popcorn, Pretzels & Nuts",
+      "geigerSlug": "popcorn-pretzels-and-nuts",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "safety-work-lights": {
+      "geigerCategoryPath": "Home > Health & Wellness > Safety",
+      "geigerSlug": "safety",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "screen-cleaners": {
+      "geigerCategoryPath": "Home > Office & Technology > Tech Accessories > Microfiber Cloths & Screen Cleaners",
+      "geigerSlug": "microfiber-cloths-and-screen-cleaners",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "stationery": {
+      "geigerCategoryPath": "Home > Office & Technology > Stationery",
+      "geigerSlug": "stationery",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "trash-bin-covers": {
+      "geigerCategoryPath": "Home > Tradeshow & Events > Table Covers & Runners > All Table Covers & Runners",
+      "geigerSlug": "table-covers-and-runners",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "work-pants": {
+      "geigerCategoryPath": "Home > Apparel > Pants & Shorts",
+      "geigerSlug": "pants-and-shorts",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "aprons": {
+      "geigerCategoryPath": "Home > Apparel > Workwear > Aprons",
+      "geigerSlug": "aprons",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "banner-display-accessories": {
+      "geigerCategoryPath": "Home > Apparel > Accessories",
+      "geigerSlug": "accessories",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "caps": {
+      "geigerCategoryPath": "Home > Apparel > Caps & Hats > All Caps & Hats",
+      "geigerSlug": "caps-and-hats",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "champagne-glasses": {
+      "geigerCategoryPath": "Home > Drinkware > Beer, Wine & Barware",
+      "geigerSlug": "beer-wine-and-barware",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "decanters": {
+      "geigerCategoryPath": "Home > Drinkware > Beer, Wine & Barware",
+      "geigerSlug": "beer-wine-and-barware",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "dog-tags": {
+      "geigerCategoryPath": "Home > Bags & Totes > Travel > Luggage Tags & Accessories",
+      "geigerSlug": "luggage-tags-and-accessories",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "golf-pencils": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Golf",
+      "geigerSlug": "golf",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "journals-notebooks": {
+      "geigerCategoryPath": "Home > Office & Technology > Notebooks & Journals > All Notebooks & Journals",
+      "geigerSlug": "notebooks-and-journals",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "lanyards-badges": {
+      "geigerCategoryPath": "Home > Office & Technology > Lanyards & Badges > Lanyards",
+      "geigerSlug": "lanyards",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "nuts": {
+      "geigerCategoryPath": "Home > Home & Auto > Food & Candy > Popcorn, Pretzels & Nuts",
+      "geigerSlug": "popcorn-pretzels-and-nuts",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "pants": {
+      "geigerCategoryPath": "Home > Apparel > Pants & Shorts",
+      "geigerSlug": "pants-and-shorts",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "pet-accessories": {
+      "geigerCategoryPath": "Home > Apparel > Accessories",
+      "geigerSlug": "accessories",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "speakers": {
+      "geigerCategoryPath": "Home > Office & Technology > Tech Accessories > Speakers",
+      "geigerSlug": "speakers",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "travel-accessories": {
+      "geigerCategoryPath": "Home > Home & Auto > Travel Accessories",
+      "geigerSlug": "travel-accessories",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "vests": {
+      "geigerCategoryPath": "Home > Apparel > Outerwear > Vests",
+      "geigerSlug": "vests",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "banners": {
+      "geigerCategoryPath": "Home > Tradeshow & Events > Tents, Banners & Signs > Banners",
+      "geigerSlug": "banners",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "bar-wine-gift-sets": {
+      "geigerCategoryPath": "Home > Office & Technology > Corporate Gifts > Gift Sets",
+      "geigerSlug": "gift-sets",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "blenders-shakers": {
+      "geigerCategoryPath": "Home > Drinkware > Beer, Wine & Barware",
+      "geigerSlug": "beer-wine-and-barware",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "coloring-books": {
+      "geigerCategoryPath": "Home > Home & Auto > Games & Novelty > Coloring Books",
+      "geigerSlug": "coloring-books",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "flashing-blinky-lights": {
+      "geigerCategoryPath": "Home > Home & Auto > Keychains > Key Lights",
+      "geigerSlug": "key-lights",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "golf-balls": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Golf > Balls",
+      "geigerSlug": "balls",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "hot-sauce": {
+      "geigerCategoryPath": "Home > Drinkware",
+      "geigerSlug": "drinkware",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "memo-boards": {
+      "geigerCategoryPath": "Home > Office & Technology",
+      "geigerSlug": "office-and-technology",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "mobile-devices": {
+      "geigerCategoryPath": "Home > Office & Technology > Tech Accessories",
+      "geigerSlug": "tech-accessories",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "plastic-vinyl": {
+      "geigerCategoryPath": "Home > Drinkware > Travel Mugs & Tumblers > Plastic",
+      "geigerSlug": "plastic-travel-mugs-and-tumblers",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "shorts": {
+      "geigerCategoryPath": "Home > Apparel > Pants & Shorts",
+      "geigerSlug": "pants-and-shorts",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "stuffed-animals-plush-toys": {
+      "geigerCategoryPath": "Home > Home & Auto > Stuffed Animals",
+      "geigerSlug": "stuffed-animals",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "tape-measures": {
+      "geigerCategoryPath": "Home > Home & Auto > Tools & Tool Kits > Tape Measures",
+      "geigerSlug": "tape-measures",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "candy": {
+      "geigerCategoryPath": "Home > Home & Auto > Food & Candy > Candy & Candy Jars",
+      "geigerSlug": "candy-and-candy-jars",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "carabiners": {
+      "geigerCategoryPath": "Home > Home & Auto > Keychains > Carabiners",
+      "geigerSlug": "carabiners",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "cooling-sport-towels": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Golf > Towels",
+      "geigerSlug": "towels",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "keychains": {
+      "geigerCategoryPath": "Home > Home & Auto > Keychains",
+      "geigerSlug": "keychains",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "martini-glasses": {
+      "geigerCategoryPath": "Home > Drinkware > Beer, Wine & Barware > Wine Glasses & Tumblers",
+      "geigerSlug": "wine-glasses-and-tumblers",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "note-cubes": {
+      "geigerCategoryPath": "Home > Office & Technology",
+      "geigerSlug": "office-and-technology",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "pen-holders": {
+      "geigerCategoryPath": "Home > Office & Technology > Binders & Document Holders > All Binders & Document Holders",
+      "geigerSlug": "binders-and-document-holders",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "pill-containers": {
+      "geigerCategoryPath": "Home > Home & Auto > Kitchen Accessories > Containers",
+      "geigerSlug": "containers",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "stick-on-magnetic-calendars": {
+      "geigerCategoryPath": "Home > Office & Technology > Calendars & Planners",
+      "geigerSlug": "office-calendars-and-planners",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "webcam-covers": {
+      "geigerCategoryPath": "Home > Shop By > Collections > Webcam Covers",
+      "geigerSlug": "webcam-covers",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "wine-accessories": {
+      "geigerCategoryPath": "Home > Apparel > Accessories",
+      "geigerSlug": "accessories",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "bar-wine": {
+      "geigerCategoryPath": "Home > Drinkware > Beer, Wine & Barware > Wine Glasses & Tumblers",
+      "geigerSlug": "wine-glasses-and-tumblers",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "bottled-water": {
+      "geigerCategoryPath": "Home > Drinkware > Water Bottles",
+      "geigerSlug": "water-bottles",
+      "matchType": "fuzzy",
+      "confidence": 0.9231
+    },
+    "calculators": {
+      "geigerCategoryPath": "Home > Office & Technology > Desk Accessories > Calculators",
+      "geigerSlug": "calculators",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "candles": {
+      "geigerCategoryPath": "Home > Home & Auto > Candles",
+      "geigerSlug": "candles",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "chef-wear": {
+      "geigerCategoryPath": "Home > Apparel",
+      "geigerSlug": "apparel",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "flasks": {
+      "geigerCategoryPath": "Home > Drinkware > Beer, Wine & Barware",
+      "geigerSlug": "beer-wine-and-barware",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "gloves": {
+      "geigerCategoryPath": "Home > Apparel > Accessories > Gloves",
+      "geigerSlug": "gloves",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "hot-cold-packs": {
+      "geigerCategoryPath": "Home > Health & Wellness > First Aid > Hot & Cold Packs",
+      "geigerSlug": "hot-cold-packs",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "insect-repellent": {
+      "geigerCategoryPath": "Home > Health & Wellness",
+      "geigerSlug": "health-and-wellness",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "jerseys": {
+      "geigerCategoryPath": "Home > Apparel > T-Shirts",
+      "geigerSlug": "t-shirts",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "money-clips-wallets": {
+      "geigerCategoryPath": "Home > Apparel > Accessories > Wallets & Money Clips",
+      "geigerSlug": "wallets-and-money-clips",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "outdoor": {
+      "geigerCategoryPath": "Home > Home & Auto > Blankets > Outdoor Blankets",
+      "geigerSlug": "outdoor-blankets",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "paperweights": {
+      "geigerCategoryPath": "Home > Shop By > Collections > Crystal Awards & Paperweights",
+      "geigerSlug": "crystal-awards-and-paperweights",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "pen-pencil-sets": {
+      "geigerCategoryPath": "Home > Office & Technology > Corporate Gifts > Gift Sets",
+      "geigerSlug": "gift-sets",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "sandals": {
+      "geigerCategoryPath": "Home > Apparel > Accessories > Footwear",
+      "geigerSlug": "footwear",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "stadium-cups": {
+      "geigerCategoryPath": "Home > Drinkware > Cups > Stadium Cups",
+      "geigerSlug": "stadium-cups",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "thunder-sticks": {
+      "geigerCategoryPath": "Home > Tradeshow & Events",
+      "geigerSlug": "tradeshow-and-events",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "vases": {
+      "geigerCategoryPath": "Home > Home & Auto",
+      "geigerSlug": "home-and-auto",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "yoga-mats": {
+      "geigerCategoryPath": "Home > Health & Wellness > Personal Care > Yoga",
+      "geigerSlug": "yoga",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "blankets": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Blankets",
+      "geigerSlug": "blankets",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "buttons": {
+      "geigerCategoryPath": "Home > Tradeshow & Events > Buttons, Pins & Ribbons",
+      "geigerSlug": "buttons-pins-and-ribbons",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "jump-ropes": {
+      "geigerCategoryPath": "Home > Sports & Outdoor",
+      "geigerSlug": "sports-and-outdoor",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "letter-openers": {
+      "geigerCategoryPath": "Home > Office & Technology",
+      "geigerSlug": "office-and-technology",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "levels": {
+      "geigerCategoryPath": "Home > Home & Auto > Tools & Tool Kits",
+      "geigerSlug": "tools-and-tool-kits",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "lighters": {
+      "geigerCategoryPath": "Home > Writing Instruments > Highlighters & Markers",
+      "geigerSlug": "highlighters-and-markers",
+      "matchType": "fuzzy",
+      "confidence": 0.9
+    },
+    "pet-leashes": {
+      "geigerCategoryPath": "Home > Home & Auto",
+      "geigerSlug": "home-and-auto",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "reading-glasses": {
+      "geigerCategoryPath": "Home > Apparel > Sunglasses",
+      "geigerSlug": "sunglasses",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "safety-glasses": {
+      "geigerCategoryPath": "Home > Health & Wellness > Safety",
+      "geigerSlug": "safety",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "scarves": {
+      "geigerCategoryPath": "Home > Apparel > Accessories > Scarves",
+      "geigerSlug": "scarves",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "shoe-bags": {
+      "geigerCategoryPath": "Home > Bags & Totes > Clear Bags & Backpacks",
+      "geigerSlug": "clear-bags-and-backpacks",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "wine-carriers-totes": {
+      "geigerCategoryPath": "Home > Bags & Totes > Wine Bags",
+      "geigerSlug": "wine-bags",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "yoga-blocks": {
+      "geigerCategoryPath": "Home > Health & Wellness > Personal Care > Yoga",
+      "geigerSlug": "yoga",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "bookmarks": {
+      "geigerCategoryPath": "Home > Home & Auto > Bookmarks",
+      "geigerSlug": "bookmarks",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "desk-calendars": {
+      "geigerCategoryPath": "Home > Home & Auto > Calendars & Planners",
+      "geigerSlug": "calendars-and-planners",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "drones": {
+      "geigerCategoryPath": "Home > Office & Technology > Tech Accessories",
+      "geigerSlug": "tech-accessories",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "earbuds": {
+      "geigerCategoryPath": "Home > Office & Technology > Tech Accessories > Headphones",
+      "geigerSlug": "headphones",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "golf-towels": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Golf > Towels",
+      "geigerSlug": "towels",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "highlighters": {
+      "geigerCategoryPath": "Home > Writing Instruments > Highlighters & Markers",
+      "geigerSlug": "highlighters-and-markers",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "jewelry": {
+      "geigerCategoryPath": "Home > Apparel > Accessories > Watches & Jewelry",
+      "geigerSlug": "watches-and-jewelry",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "luggage-spotters": {
+      "geigerCategoryPath": "Home > Bags & Totes > Travel > Luggage Tags & Accessories",
+      "geigerSlug": "luggage-tags-and-accessories",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "memo-office-clips": {
+      "geigerCategoryPath": "Home > Home & Auto > Clips",
+      "geigerSlug": "clips",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "phone-accessories": {
+      "geigerCategoryPath": "Home > Apparel > Accessories",
+      "geigerSlug": "accessories",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "stadium-blankets": {
+      "geigerCategoryPath": "Home > Home & Auto > Blankets",
+      "geigerSlug": "blankets",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "stopwatch-timer": {
+      "geigerCategoryPath": "Home > Office & Technology",
+      "geigerSlug": "office-and-technology",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "usb-accessories": {
+      "geigerCategoryPath": "Home > Apparel > Accessories",
+      "geigerSlug": "accessories",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "yard-signs": {
+      "geigerCategoryPath": "Home > Shop By > Collections > Yard Signs",
+      "geigerSlug": "yard-signs",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "duffle-gym-bags": {
+      "geigerCategoryPath": "Home > Bags & Totes > Duffle & Gym Bags",
+      "geigerSlug": "duffle-and-gym-bags",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "fleece": {
+      "geigerCategoryPath": "Home > Apparel > Outerwear > Fleece Jackets",
+      "geigerSlug": "fleece-jackets",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "growlers": {
+      "geigerCategoryPath": "Home > Drinkware > Beer, Wine & Barware",
+      "geigerSlug": "beer-wine-and-barware",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "mirrors": {
+      "geigerCategoryPath": "Home > Health & Wellness > Personal Care > Mirrors",
+      "geigerSlug": "mirrors",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "moscow-mule-mug": {
+      "geigerCategoryPath": "Home > Drinkware > Beer, Wine & Barware",
+      "geigerSlug": "beer-wine-and-barware",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "pom-poms": {
+      "geigerCategoryPath": "Home > All Products",
+      "geigerSlug": "p",
+      "matchType": "fuzzy",
+      "confidence": 0.9
+    },
+    "safety-gear": {
+      "geigerCategoryPath": "Home > Apparel > Workwear > Safety Gear",
+      "geigerSlug": "safety-gear",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "shot-glasses": {
+      "geigerCategoryPath": "Home > Drinkware > Beer, Wine & Barware > Shot Glasses",
+      "geigerSlug": "shot-glasses",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "sweaters-cardigans": {
+      "geigerCategoryPath": "Home > Apparel > Sweaters",
+      "geigerSlug": "sweaters",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "wall-calendars": {
+      "geigerCategoryPath": "Home > Home & Auto > Calendars & Planners",
+      "geigerSlug": "calendars-and-planners",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "yoga-items": {
+      "geigerCategoryPath": "Home > Health & Wellness > Personal Care > Yoga",
+      "geigerSlug": "yoga",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "beverage-glasses": {
+      "geigerCategoryPath": "Home > Drinkware > Beer, Wine & Barware > Beer Glasses",
+      "geigerSlug": "beer-glasses",
+      "matchType": "fuzzy",
+      "confidence": 0.8571
+    },
+    "car-accessories": {
+      "geigerCategoryPath": "Home > Apparel > Accessories",
+      "geigerSlug": "accessories",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "fans": {
+      "geigerCategoryPath": "Home > Home & Auto > Games & Novelty > Flyers & Fans",
+      "geigerSlug": "flyers-and-fans",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "knives-blocks-sets": {
+      "geigerCategoryPath": "Home > Home & Auto > Kitchen Accessories > Knives",
+      "geigerSlug": "knives",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "mechanical-pencils": {
+      "geigerCategoryPath": "Home > Writing Instruments > Pencils > Mechanical Pencils",
+      "geigerSlug": "mechanical-pencils",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "non-adhesive": {
+      "geigerCategoryPath": "Home > Bags & Totes > Tote Bags > Non-Woven Tote Bags",
+      "geigerSlug": "non-woven-tote-bags",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "phone-tablet-cases": {
+      "geigerCategoryPath": "Home > Office & Technology > Tech Accessories > Tablet & Phone Cases",
+      "geigerSlug": "tablet-and-phone-cases",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "phone-tablet-stands": {
+      "geigerCategoryPath": "Home > Office & Technology > Tech Accessories > Tablet & Phone Stands",
+      "geigerSlug": "tablet-and-phone-stands",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "safety-gloves": {
+      "geigerCategoryPath": "Home > Apparel > Accessories > Gloves",
+      "geigerSlug": "gloves",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "skirts": {
+      "geigerCategoryPath": "Home > Apparel > Pants & Shorts",
+      "geigerSlug": "pants-and-shorts",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "wall-clocks": {
+      "geigerCategoryPath": "Home > Office & Technology > Desk Accessories > Clocks",
+      "geigerSlug": "clocks",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "beer-glasses": {
+      "geigerCategoryPath": "Home > Drinkware > Beer, Wine & Barware > Beer Glasses",
+      "geigerSlug": "beer-glasses",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "coffee-tea-cocoa": {
+      "geigerCategoryPath": "Home > Drinkware",
+      "geigerSlug": "drinkware",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "golf-shoes": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Golf",
+      "geigerSlug": "golf",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "golf-tees": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Golf",
+      "geigerSlug": "golf",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "headlamps": {
+      "geigerCategoryPath": "Home > Sports & Outdoor",
+      "geigerSlug": "sports-and-outdoor",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "kitchen-utensils": {
+      "geigerCategoryPath": "Home > Home & Auto > Kitchen Accessories > Utensils",
+      "geigerSlug": "utensils",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "neck-gaiters-buffs": {
+      "geigerCategoryPath": "Home > Health & Wellness > Personal Protective Equipment > Bandanas & Neck Gaiters",
+      "geigerSlug": "bandanas-and-neck-gaiters",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "pet-bowls": {
+      "geigerCategoryPath": "Home > Home & Auto > Pet Products > Pet Bowls",
+      "geigerSlug": "pet-bowls",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "pet-waste-bags": {
+      "geigerCategoryPath": "Home > Home & Auto > Pet Products > Pet Waste Bags",
+      "geigerSlug": "pet-waste-bags",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "wine-stoppers": {
+      "geigerCategoryPath": "Home > Health & Wellness > Personal Protective Equipment",
+      "geigerSlug": "ppe",
+      "matchType": "fuzzy",
+      "confidence": 0.9
+    },
+    "yo-yos": {
+      "geigerCategoryPath": "Home > Tradeshow & Events > Party Accessories",
+      "geigerSlug": "event-party-accessories",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "crayons": {
+      "geigerCategoryPath": "Home > Writing Instruments",
+      "geigerSlug": "writing-instruments",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "joggers": {
+      "geigerCategoryPath": "Home > Apparel > Pants & Shorts",
+      "geigerSlug": "pants-and-shorts",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "laser-pointers": {
+      "geigerCategoryPath": "Home > Office & Technology",
+      "geigerSlug": "office-and-technology",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "luggage-locks": {
+      "geigerCategoryPath": "Home > Bags & Totes > Travel > Luggage Tags & Accessories",
+      "geigerSlug": "luggage-tags-and-accessories",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "luggage-straps": {
+      "geigerCategoryPath": "Home > Bags & Totes > Travel > Luggage Tags & Accessories",
+      "geigerSlug": "luggage-tags-and-accessories",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "pen-pencil-cases": {
+      "geigerCategoryPath": "Home > Office & Technology > Desk Accessories > Pencil Pouches & Sharpeners",
+      "geigerSlug": "pencil-pouches-and-sharpeners",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "puzzles": {
+      "geigerCategoryPath": "Home > Home & Auto > Games & Novelty > Games & Puzzles",
+      "geigerSlug": "games-and-puzzles",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "rulers": {
+      "geigerCategoryPath": "Home > Office & Technology",
+      "geigerSlug": "office-and-technology",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "spirit-towels": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Golf > Towels",
+      "geigerSlug": "towels",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "stash-bags": {
+      "geigerCategoryPath": "Home > Bags & Totes > Clear Bags & Backpacks",
+      "geigerSlug": "clear-bags-and-backpacks",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "sun-shades": {
+      "geigerCategoryPath": "Home > Sports & Outdoor",
+      "geigerSlug": "sports-and-outdoor",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "towels": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Golf > Towels",
+      "geigerSlug": "towels",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "arm-sleeves": {
+      "geigerCategoryPath": "Home > Bags & Totes > Laptop Bags & Sleeves",
+      "geigerSlug": "laptop-bags-and-sleeves",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "ash-trays": {
+      "geigerCategoryPath": "Home > Home & Auto",
+      "geigerSlug": "home-and-auto",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "badges": {
+      "geigerCategoryPath": "Home > Office & Technology > Lanyards & Badges > All Lanyards & Badges",
+      "geigerSlug": "lanyards-and-badges",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "belt-buckles": {
+      "geigerCategoryPath": "Home > Apparel > Accessories",
+      "geigerSlug": "accessories",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "cards": {
+      "geigerCategoryPath": "Home > Home & Auto > Games & Novelty > Playing Cards",
+      "geigerSlug": "playing-cards",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "carpenter-pencils": {
+      "geigerCategoryPath": "Home > Writing Instruments > Pencils",
+      "geigerSlug": "all-pencils",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "cleaning-supplies": {
+      "geigerCategoryPath": "Home > Home & Auto",
+      "geigerSlug": "home-and-auto",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "decals": {
+      "geigerCategoryPath": "Home > Shop By > Collections > Floor Mats & Decals",
+      "geigerSlug": "floor-mats-and-decals",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "electric-fans": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Games & Novelty > Flyers & Fans",
+      "geigerSlug": "outdoor-flyers-and-fans",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "golf-packs": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Golf",
+      "geigerSlug": "golf",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "reusable-straws": {
+      "geigerCategoryPath": "Home > Drinkware > Reusable Straws",
+      "geigerSlug": "reusable-straws",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "stickers": {
+      "geigerCategoryPath": "Home > Health & Wellness > Safety > Lights & Reflective Stickers",
+      "geigerSlug": "lights-and-reflective-stickers",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "stockings": {
+      "geigerCategoryPath": "Home > Apparel > Accessories > Socks",
+      "geigerSlug": "socks",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "sweatpants": {
+      "geigerCategoryPath": "Home > Apparel > Pants & Shorts",
+      "geigerSlug": "pants-and-shorts",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "unique-desk-accessories": {
+      "geigerCategoryPath": "Home > Apparel > Accessories",
+      "geigerSlug": "accessories",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "whistles": {
+      "geigerCategoryPath": "Home > Sports & Outdoor",
+      "geigerSlug": "sports-and-outdoor",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "bistro-mugs": {
+      "geigerCategoryPath": "Home > Drinkware > Travel Mugs & Tumblers > Insulated",
+      "geigerSlug": "insulated-travel-mugs-and-tumblers",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "bottle-openers": {
+      "geigerCategoryPath": "Home > Drinkware > Beer, Wine & Barware > Bottle Openers",
+      "geigerSlug": "bottle-openers",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "counter-mats": {
+      "geigerCategoryPath": "Home > Shop By > Collections > Floor Mats & Decals",
+      "geigerSlug": "floor-mats-and-decals",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "dress-shirts": {
+      "geigerCategoryPath": "Home > Apparel > Dress Shirts",
+      "geigerSlug": "dress-shirts-and-sweaters",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "face-masks": {
+      "geigerCategoryPath": "Home > Health & Wellness > Personal Protective Equipment > Face Masks",
+      "geigerSlug": "face-masks",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "golf-ball-markers": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Golf",
+      "geigerSlug": "golf",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "laptop-computer": {
+      "geigerCategoryPath": "Home > Bags & Totes > Laptop Bags & Sleeves",
+      "geigerSlug": "laptop-bags-and-sleeves",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "license-plate-frames": {
+      "geigerCategoryPath": "Home > Home & Auto > Auto Accessories > License Plates & Frames",
+      "geigerSlug": "license-plates-and-frames",
+      "matchType": "fuzzy",
+      "confidence": 0.9302
+    },
+    "magnifying-glasses": {
+      "geigerCategoryPath": "Home > Drinkware > Beer, Wine & Barware > Beer Glasses",
+      "geigerSlug": "beer-glasses",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "nail-clippers-manicure-items": {
+      "geigerCategoryPath": "Home > Health & Wellness > Personal Care",
+      "geigerSlug": "personal-care",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "party-accessories": {
+      "geigerCategoryPath": "Home > Home & Auto > Party Accessories",
+      "geigerSlug": "party-accessories",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "putty": {
+      "geigerCategoryPath": "Home > All Products",
+      "geigerSlug": "p",
+      "matchType": "fuzzy",
+      "confidence": 0.9
+    },
+    "school-kits": {
+      "geigerCategoryPath": "Home > Health & Wellness > Personal Care > Emery Boards & Manicure Kits",
+      "geigerSlug": "emery-boards-and-manicure-kits",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "selfie-sticks": {
+      "geigerCategoryPath": "Home > Office & Technology > Tech Accessories",
+      "geigerSlug": "tech-accessories",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "tire-pressure-gauges": {
+      "geigerCategoryPath": "Home > Home & Auto",
+      "geigerSlug": "home-and-auto",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "travel-clocks": {
+      "geigerCategoryPath": "Home > Office & Technology > Desk Accessories > Clocks",
+      "geigerSlug": "clocks",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "bath-body-gifts": {
+      "geigerCategoryPath": "Home > Home & Auto > Food & Candy > Food Gifts, Baskets & Boxes",
+      "geigerSlug": "food-gifts-baskets-and-boxes",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "bobbleheads": {
+      "geigerCategoryPath": "Home > Tradeshow & Events > Party Accessories",
+      "geigerSlug": "event-party-accessories",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "cafe-mugs": {
+      "geigerCategoryPath": "Home > Drinkware > Coffee Mugs > Inexpensive Mugs",
+      "geigerSlug": "inexpensive-mugs",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "cannabis": {
+      "geigerCategoryPath": "Home > Home & Auto",
+      "geigerSlug": "home-and-auto",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "compasses": {
+      "geigerCategoryPath": "Home > Sports & Outdoor",
+      "geigerSlug": "sports-and-outdoor",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "dispensary-containers": {
+      "geigerCategoryPath": "Home > Home & Auto > Kitchen Accessories > Containers",
+      "geigerSlug": "containers",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "dog-apparel": {
+      "geigerCategoryPath": "Home > Apparel",
+      "geigerSlug": "apparel",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "eye-masks": {
+      "geigerCategoryPath": "Home > Health & Wellness > Personal Care",
+      "geigerSlug": "personal-care",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "folders": {
+      "geigerCategoryPath": "Home > Office & Technology > Binders & Document Holders > Folders",
+      "geigerSlug": "folders",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "food-storage-containers": {
+      "geigerCategoryPath": "Home > Home & Auto > Kitchen Accessories > Containers",
+      "geigerSlug": "containers",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "gardening-tools": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Golf > Tees, Divot Tools & Kits",
+      "geigerSlug": "tees-divot-tools-and-kits",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "luggage-id-tags": {
+      "geigerCategoryPath": "Home > Bags & Totes > Travel > Luggage Tags & Accessories",
+      "geigerSlug": "luggage-tags-and-accessories",
+      "matchType": "fuzzy",
+      "confidence": 0.8889
+    },
+    "no-touch-door-opener-tools": {
+      "geigerCategoryPath": "Home > Shop By > Collections > Door Hangers",
+      "geigerSlug": "door-hangers",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "pet-treats": {
+      "geigerCategoryPath": "Home > Home & Auto > Pet Products > All Pet Products",
+      "geigerSlug": "pet-products",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "sponges": {
+      "geigerCategoryPath": "Home > All Products",
+      "geigerSlug": "p",
+      "matchType": "fuzzy",
+      "confidence": 0.9
+    },
+    "stock-shaped-notepads": {
+      "geigerCategoryPath": "Home > Office & Technology",
+      "geigerSlug": "office-and-technology",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "tech-toys-gifts": {
+      "geigerCategoryPath": "Home > Home & Auto > Food & Candy > Food Gifts, Baskets & Boxes",
+      "geigerSlug": "food-gifts-baskets-and-boxes",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "toiletry-bags": {
+      "geigerCategoryPath": "Home > Bags & Totes > Travel > Toiletry & Cosmetic Bags",
+      "geigerSlug": "toiletry-and-cosmetic-bags",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "address-books": {
+      "geigerCategoryPath": "Home > Shop By > Collections > Oil & Gas - Tally Books",
+      "geigerSlug": "oil-and-gas-tally-books",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "babies-toddlers": {
+      "geigerCategoryPath": "Home > Shop By > Kids",
+      "geigerSlug": "kids",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "badge-id-holders": {
+      "geigerCategoryPath": "Home > Office & Technology > Lanyards & Badges > Badge Holders",
+      "geigerSlug": "badge-holders",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "car-emergency-kits": {
+      "geigerCategoryPath": "Home > Health & Wellness > Personal Care > Emery Boards & Manicure Kits",
+      "geigerSlug": "emery-boards-and-manicure-kits",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "car-organizers": {
+      "geigerCategoryPath": "Home > Home & Auto",
+      "geigerSlug": "home-and-auto",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "carry-on-bags": {
+      "geigerCategoryPath": "Home > Bags & Totes > Clear Bags & Backpacks",
+      "geigerSlug": "clear-bags-and-backpacks",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "door-hangers": {
+      "geigerCategoryPath": "Home > Shop By > Collections > Door Hangers",
+      "geigerSlug": "door-hangers",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "dresses": {
+      "geigerCategoryPath": "Home > Apparel",
+      "geigerSlug": "apparel",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "footwear": {
+      "geigerCategoryPath": "Home > Apparel > Accessories > Footwear",
+      "geigerSlug": "footwear",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "french-presses": {
+      "geigerCategoryPath": "Home > Drinkware",
+      "geigerSlug": "drinkware",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "golf-bags": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Golf",
+      "geigerSlug": "golf",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "golf-gifts": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Golf",
+      "geigerSlug": "golf",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "golf-gloves": {
+      "geigerCategoryPath": "Home > Apparel > Accessories > Gloves",
+      "geigerSlug": "gloves",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "mason-jars": {
+      "geigerCategoryPath": "Home > Drinkware > Mason Jars",
+      "geigerSlug": "mason-jars",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "pet-toys": {
+      "geigerCategoryPath": "Home > All Products",
+      "geigerSlug": "p",
+      "matchType": "fuzzy",
+      "confidence": 0.9
+    },
+    "poker-chips": {
+      "geigerCategoryPath": "Home > Tradeshow & Events > Party Accessories",
+      "geigerSlug": "event-party-accessories",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "pre-roll-tubes": {
+      "geigerCategoryPath": "Home > Home & Auto",
+      "geigerSlug": "home-and-auto",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "ring-binders": {
+      "geigerCategoryPath": "Home > Office & Technology > Binders & Document Holders > Binders",
+      "geigerSlug": "binders",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "rubber-bracelets": {
+      "geigerCategoryPath": "Home > Health & Wellness > Awareness Bracelets",
+      "geigerSlug": "awareness-bracelets",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "sun-visor-clips": {
+      "geigerCategoryPath": "Home > Home & Auto > Clips",
+      "geigerSlug": "clips",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "ties": {
+      "geigerCategoryPath": "Home > Apparel > Accessories",
+      "geigerSlug": "accessories",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "tissues-wipes": {
+      "geigerCategoryPath": "Home > Home & Auto",
+      "geigerSlug": "home-and-auto",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "turtlenecks": {
+      "geigerCategoryPath": "Home > Apparel > T-Shirts",
+      "geigerSlug": "t-shirts",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "bandanas": {
+      "geigerCategoryPath": "Home > Apparel > Accessories > Headbands & Bandanas",
+      "geigerSlug": "headbands-and-bandanas",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "belts": {
+      "geigerCategoryPath": "Home > Apparel > Accessories",
+      "geigerSlug": "accessories",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "binoculars": {
+      "geigerCategoryPath": "Home > Sports & Outdoor",
+      "geigerSlug": "sports-and-outdoor",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "bluetooth-keyboards": {
+      "geigerCategoryPath": "Home > Office & Technology > Tech Accessories",
+      "geigerSlug": "tech-accessories",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "bowls-plates-trays": {
+      "geigerCategoryPath": "Home > Home & Auto > Pet Products > Pet Bowls",
+      "geigerSlug": "pet-bowls",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "brochures": {
+      "geigerCategoryPath": "Home > Shop By > Healthcare > Brochures & Pamphlets",
+      "geigerSlug": "brochures-and-pamphlets",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "cables-cords": {
+      "geigerCategoryPath": "Home > Office & Technology > Tech Accessories > Charging Cables",
+      "geigerSlug": "charging-cables",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "child-infant-products": {
+      "geigerCategoryPath": "Home > Shop By > New Products",
+      "geigerSlug": "new-products",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "classic-c-handle-mugs": {
+      "geigerCategoryPath": "Home > Drinkware > Coffee Mugs > Camp Mugs",
+      "geigerSlug": "camp-mugs",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "cocktail-shakers-tools": {
+      "geigerCategoryPath": "Home > Drinkware > Beer, Wine & Barware",
+      "geigerSlug": "beer-wine-and-barware",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "dental-care-toothbrushes-floss": {
+      "geigerCategoryPath": "Home > Health & Wellness > Dental Care > Toothbrushes",
+      "geigerSlug": "toothbrushes",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "desk-mugs": {
+      "geigerCategoryPath": "Home > Drinkware > Coffee Mugs > Inexpensive Mugs",
+      "geigerSlug": "inexpensive-mugs",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "emery-boards": {
+      "geigerCategoryPath": "Home > Health & Wellness > Personal Care > Emery Boards & Manicure Kits",
+      "geigerSlug": "emery-boards-and-manicure-kits",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "facial-rollers": {
+      "geigerCategoryPath": "Home > Health & Wellness > Personal Care",
+      "geigerSlug": "personal-care",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "food-gifts": {
+      "geigerCategoryPath": "Home > Home & Auto > Food & Candy > Food Gifts, Baskets & Boxes",
+      "geigerSlug": "food-gifts-baskets-and-boxes",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "golf-divot-tools": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Golf",
+      "geigerSlug": "golf",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "hair-lint-brushes": {
+      "geigerCategoryPath": "Home > Health & Wellness > Personal Care",
+      "geigerSlug": "personal-care",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "headphone-accessories": {
+      "geigerCategoryPath": "Home > Apparel > Accessories",
+      "geigerSlug": "accessories",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "ice-scrapers": {
+      "geigerCategoryPath": "Home > Home & Auto > Auto Accessories > Ice Scrapers",
+      "geigerSlug": "ice-scrapers",
+      "matchType": "exact",
+      "confidence": 1.0
+    },
+    "mints": {
+      "geigerCategoryPath": "Home > Home & Auto > Food & Candy > Mints & Gum",
+      "geigerSlug": "mints-and-gum",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "paint-paddles": {
+      "geigerCategoryPath": "Home > Home & Auto > Tools & Tool Kits",
+      "geigerSlug": "tools-and-tool-kits",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "rolling-luggage": {
+      "geigerCategoryPath": "Home > Bags & Totes > Travel > Luggage Tags & Accessories",
+      "geigerSlug": "luggage-tags-and-accessories",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "round-wood-cased-pencils": {
+      "geigerCategoryPath": "Home > Writing Instruments > Pencils",
+      "geigerSlug": "all-pencils",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "seat-covers": {
+      "geigerCategoryPath": "Home > Tradeshow & Events > Table Covers & Runners > 3-Sided Table Covers",
+      "geigerSlug": "3-sided-table-covers",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "shampoo": {
+      "geigerCategoryPath": "Home > All Products",
+      "geigerSlug": "p",
+      "matchType": "fuzzy",
+      "confidence": 0.9
+    },
+    "sports-gear": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Name Brand Sports & Outdoor",
+      "geigerSlug": "name-brand-sports-and-outdoor",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "staple-removers": {
+      "geigerCategoryPath": "Home > Office & Technology",
+      "geigerSlug": "office-and-technology",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "sunhats": {
+      "geigerCategoryPath": "Home > Apparel > Caps & Hats",
+      "geigerSlug": "caps-and-hats",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "waterproof-containers": {
+      "geigerCategoryPath": "Home > Home & Auto > Kitchen Accessories > Containers",
+      "geigerSlug": "containers",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "windbreakers": {
+      "geigerCategoryPath": "Home > Apparel > Outerwear",
+      "geigerSlug": "outerwear",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "bath-hand-towels": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Golf > Towels",
+      "geigerSlug": "towels",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "blue-light-computer-glasses": {
+      "geigerCategoryPath": "Home > Drinkware > Beer, Wine & Barware > Beer Glasses",
+      "geigerSlug": "beer-glasses",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "camping-outdoor": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Games & Novelty > Flyers & Fans",
+      "geigerSlug": "outdoor-flyers-and-fans",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "cigar-cutters": {
+      "geigerCategoryPath": "Home > Drinkware > Beer, Wine & Barware",
+      "geigerSlug": "beer-wine-and-barware",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "collapsible-bottles": {
+      "geigerCategoryPath": "Home > Drinkware",
+      "geigerSlug": "drinkware",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "digital-watches": {
+      "geigerCategoryPath": "Home > Apparel > Accessories > Watches & Jewelry",
+      "geigerSlug": "watches-and-jewelry",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "disposable-gloves": {
+      "geigerCategoryPath": "Home > Apparel > Accessories > Gloves",
+      "geigerSlug": "gloves",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "distance-barriers": {
+      "geigerCategoryPath": "Home > Tradeshow & Events",
+      "geigerSlug": "tradeshow-and-events",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "energy-drinks": {
+      "geigerCategoryPath": "Home > Shop By > Eco-Friendly > Solar & Energy Efficient",
+      "geigerSlug": "solar-and-energy-efficient",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "full-color-pencils": {
+      "geigerCategoryPath": "Home > Writing Instruments > Pencils",
+      "geigerSlug": "all-pencils",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "fun-unique-pencils": {
+      "geigerCategoryPath": "Home > Writing Instruments > Pencils",
+      "geigerSlug": "all-pencils",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "grinders": {
+      "geigerCategoryPath": "Home > Home & Auto > Tools & Tool Kits",
+      "geigerSlug": "tools-and-tool-kits",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "home-gifts": {
+      "geigerCategoryPath": "Home > Office & Technology > Corporate Gifts > Home Office Gifts",
+      "geigerSlug": "home-office-gifts",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "jars": {
+      "geigerCategoryPath": "Home > Drinkware > Mason Jars",
+      "geigerSlug": "mason-jars",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "makeup": {
+      "geigerCategoryPath": "Home > All Products",
+      "geigerSlug": "p",
+      "matchType": "fuzzy",
+      "confidence": 0.9
+    },
+    "markers": {
+      "geigerCategoryPath": "Home > Writing Instruments > Highlighters & Markers",
+      "geigerSlug": "highlighters-and-markers",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "massagers": {
+      "geigerCategoryPath": "Home > Health & Wellness > Personal Care",
+      "geigerSlug": "personal-care",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "medical-thermometers": {
+      "geigerCategoryPath": "Home > Health & Wellness > Thermometers",
+      "geigerSlug": "thermometers",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "on-ear": {
+      "geigerCategoryPath": "Home > Office & Technology > Tech Accessories > Headphones",
+      "geigerSlug": "headphones",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "over-the-ear": {
+      "geigerCategoryPath": "Home > Office & Technology > Tech Accessories > Headphones",
+      "geigerSlug": "headphones",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "paper-clip-holders": {
+      "geigerCategoryPath": "Home > Bags & Totes > Paper Bags",
+      "geigerSlug": "paper-bags",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "plastic-hand-fans": {
+      "geigerCategoryPath": "Home > Drinkware > Travel Mugs & Tumblers > Plastic",
+      "geigerSlug": "plastic-travel-mugs-and-tumblers",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "postcards": {
+      "geigerCategoryPath": "Home > Office & Technology",
+      "geigerSlug": "office-and-technology",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "rolling-trays": {
+      "geigerCategoryPath": "Home > Home & Auto",
+      "geigerSlug": "home-and-auto",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "salt-pepper-shakers": {
+      "geigerCategoryPath": "Home > Health & Wellness > Personal Protective Equipment",
+      "geigerSlug": "ppe",
+      "matchType": "fuzzy",
+      "confidence": 0.9
+    },
+    "shoe-care": {
+      "geigerCategoryPath": "Home > Health & Wellness > Dental Care > All Dental Care",
+      "geigerSlug": "dental-care",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "shoes": {
+      "geigerCategoryPath": "Home > Apparel > Accessories > Footwear",
+      "geigerSlug": "footwear",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "spices": {
+      "geigerCategoryPath": "Home > All Products",
+      "geigerSlug": "p",
+      "matchType": "fuzzy",
+      "confidence": 0.9
+    },
+    "sports-balls": {
+      "geigerCategoryPath": "Home > Sports & Outdoor",
+      "geigerSlug": "sports-and-outdoor",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "sticky-notes-flags": {
+      "geigerCategoryPath": "Home > Tradeshow & Events > Tents, Banners & Signs > Flags",
+      "geigerSlug": "flags",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "sunglass-cases": {
+      "geigerCategoryPath": "Home > Office & Technology > Tech Accessories > Tablet & Phone Cases",
+      "geigerSlug": "tablet-and-phone-cases",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "temporary-tattoos": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Tattoos",
+      "geigerSlug": "tattoos",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "tracking-devices": {
+      "geigerCategoryPath": "Home > Office & Technology > Tech Accessories",
+      "geigerSlug": "tech-accessories",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "wine-coolers-chillers": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Coolers",
+      "geigerSlug": "coolers",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "beach-mats": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Games & Novelty > Beach",
+      "geigerSlug": "beach",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "beer-accessories": {
+      "geigerCategoryPath": "Home > Apparel > Accessories",
+      "geigerSlug": "accessories",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "bumper-stickers": {
+      "geigerCategoryPath": "Home > Health & Wellness > Safety > Lights & Reflective Stickers",
+      "geigerSlug": "lights-and-reflective-stickers",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "coffee-mug-sets": {
+      "geigerCategoryPath": "Home > Office & Technology > Corporate Gifts > Gift Sets",
+      "geigerSlug": "gift-sets",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "cookies": {
+      "geigerCategoryPath": "Home > Home & Auto > Food & Candy > Cookies & Brownies",
+      "geigerSlug": "cookies-and-brownies",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "dab-mats-concentrate-tools": {
+      "geigerCategoryPath": "Home > Home & Auto > Tools & Tool Kits",
+      "geigerSlug": "tools-and-tool-kits",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "digital-photo-frames": {
+      "geigerCategoryPath": "Home > Office & Technology > Tech Accessories",
+      "geigerSlug": "tech-accessories",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "duffel-bags": {
+      "geigerCategoryPath": "Home > Bags & Totes > Clear Bags & Backpacks",
+      "geigerSlug": "clear-bags-and-backpacks",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "erasers": {
+      "geigerCategoryPath": "Home > Office & Technology",
+      "geigerSlug": "office-and-technology",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "excluded-products": {
+      "geigerCategoryPath": "Home > Shop By > New Products",
+      "geigerSlug": "new-products",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "eyewear-accessories": {
+      "geigerCategoryPath": "Home > Apparel > Accessories",
+      "geigerSlug": "accessories",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "eyewear-retainers": {
+      "geigerCategoryPath": "Home > Apparel > Sunglasses",
+      "geigerSlug": "sunglasses",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "face-shields": {
+      "geigerCategoryPath": "Home > Health & Wellness > Safety",
+      "geigerSlug": "safety",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "fly-swatters": {
+      "geigerCategoryPath": "Home > Health & Wellness > Safety",
+      "geigerSlug": "safety",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "inspirational-books": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Games & Novelty > Coloring Books",
+      "geigerSlug": "coloring-books-and-activity-pads",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "jotters": {
+      "geigerCategoryPath": "Home > Office & Technology",
+      "geigerSlug": "office-and-technology",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "lab-coats": {
+      "geigerCategoryPath": "Home > Apparel",
+      "geigerSlug": "apparel",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "laundry-bags": {
+      "geigerCategoryPath": "Home > Sports & Outdoor > Dry Bags",
+      "geigerSlug": "dry-bags",
+      "matchType": "fuzzy",
+      "confidence": 0.9
+    },
+    "lotion": {
+      "geigerCategoryPath": "Home > Health & Wellness > Personal Care",
+      "geigerSlug": "personal-care",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "manager-review": {
+      "geigerCategoryPath": "Home > Office & Technology",
+      "geigerSlug": "office-and-technology",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "mice": {
+      "geigerCategoryPath": "Home > Office & Technology > Tech Accessories",
+      "geigerSlug": "tech-accessories",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "mylar-exit-barrier-bags": {
+      "geigerCategoryPath": "Home > Bags & Totes > Drawstring Bags",
+      "geigerSlug": "drawstring-bags",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "other-headwear": {
+      "geigerCategoryPath": "Home > Apparel > Caps & Hats",
+      "geigerSlug": "caps-and-hats",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "oven-mitts-pot-holders": {
+      "geigerCategoryPath": "Home > Office & Technology > Lanyards & Badges > Badge Holders",
+      "geigerSlug": "badge-holders",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "pencil-sharpeners": {
+      "geigerCategoryPath": "Home > Office & Technology > Desk Accessories > Pencil Pouches & Sharpeners",
+      "geigerSlug": "pencil-pouches-and-sharpeners",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "pipes-chillums-one-hitters": {
+      "geigerCategoryPath": "Home > Home & Auto",
+      "geigerSlug": "home-and-auto",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "planners": {
+      "geigerCategoryPath": "Home > Home & Auto > Calendars & Planners",
+      "geigerSlug": "calendars-and-planners",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "poker-sets": {
+      "geigerCategoryPath": "Home > Office & Technology > Notebooks & Journals > Notebook & Pen Sets",
+      "geigerSlug": "notebook-and-pen-sets",
+      "matchType": "fuzzy",
+      "confidence": 0.855
+    },
+    "pouches": {
+      "geigerCategoryPath": "Home > Office & Technology > Desk Accessories > Pencil Pouches & Sharpeners",
+      "geigerSlug": "pencil-pouches-and-sharpeners",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "ppe-kits": {
+      "geigerCategoryPath": "Home > Health & Wellness > Personal Protective Equipment",
+      "geigerSlug": "ppe",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "radios": {
+      "geigerCategoryPath": "Home > Office & Technology > Tech Accessories",
+      "geigerSlug": "tech-accessories",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "tape-dispensers": {
+      "geigerCategoryPath": "Home > Writing Instruments > Pens",
+      "geigerSlug": "all-pens",
+      "matchType": "fuzzy",
+      "confidence": 0.9
+    },
+    "travel-bottles": {
+      "geigerCategoryPath": "Home > Bags & Totes > Travel",
+      "geigerSlug": "travel",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    },
+    "underwear-robes-sleepwear": {
+      "geigerCategoryPath": "Home > Apparel",
+      "geigerSlug": "apparel",
+      "matchType": "override",
+      "confidence": 1.0
+    },
+    "uv-sanitizers": {
+      "geigerCategoryPath": "Home > Health & Wellness > Hand Sanitizers",
+      "geigerSlug": "hand-sanitizers",
+      "matchType": "fuzzy",
+      "confidence": 0.8696
+    },
+    "vape-lanyards": {
+      "geigerCategoryPath": "Home > Office & Technology > Lanyards & Badges > Lanyards",
+      "geigerSlug": "lanyards",
+      "matchType": "fuzzy",
+      "confidence": 1.0
+    }
+  }
+}

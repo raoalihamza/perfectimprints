@@ -114,7 +114,7 @@ Module to week mapping (client-facing 6-week plan):
       **Depends on.** None. Can run in parallel with M1-101 through M1-106.
       **Estimate.** 4 hours.
 
-### [ ] M1-108: Build Geiger Python scraper (Phase B: product catalog)
+### [x] M1-108: Build Geiger Python scraper (Phase B: product catalog)
 
 **Scope.** Phase B paginates the Searchspring API at `https://kfx28d.a.searchspring.io/api/search/category.json` for each Geiger leaf category with `perPage=100`. Deduplicates by SKU. Uses httpx HTTP/2 + tenacity retry + 1 req/sec throttle + checkpointing. Output: `data/geiger/products.json` with full product objects.
 **Acceptance.**
@@ -127,7 +127,7 @@ Module to week mapping (client-facing 6-week plan):
       **Depends on.** M1-107.
       **Estimate.** 6 hours.
 
-### [ ] M1-109: Build Geiger Python scraper (Phase C: facet and modifier memberships)
+### [x] M1-109: Build Geiger Python scraper (Phase C: facet and modifier memberships)
 
 **Scope.** Phase C makes one filtered Searchspring API call per non-root PI URL (21,715 total: 576 modifiers + 21,137 facets + 2 compound facets) to capture which SKUs belong to that URL. Uses `bgfilter.category_path` plus `filter.[type]=[value]` for facets, and modifier-specific filters (e.g. `filter.is_on_sale=true` for closeout, `filter.min_qty[lt]=25` for no-minimum). Modifier filter mapping documented in CLAUDE.md Section 16. Compound facets use multiple `filter.*` params in one call. 1 req/sec throttle, checkpointing every 100 calls. Output: `data/geiger/facet-memberships.json` mapping URL to SKU list.
 **Acceptance.**
@@ -141,7 +141,7 @@ Module to week mapping (client-facing 6-week plan):
       **Depends on.** M1-108.
       **Estimate.** 8 hours (was 6, plus 2 for modifier filter verification).
 
-### [ ] M1-110: Build PI-to-Geiger category mapping (Phase D)
+### [x] M1-110: Build PI-to-Geiger category mapping (Phase D)
 
 **Scope.** Script that takes the 465 PI root category URLs and maps each to the closest Geiger leaf category. Strategy: exact slug match first, fuzzy match with rapidfuzz second, DeepSeek AI fallback for unresolved. Output: `data/mappings/pi-to-geiger.json` plus a CSV report with confidence scores for manual review.
 **Acceptance.**
@@ -154,7 +154,7 @@ Module to week mapping (client-facing 6-week plan):
       **Depends on.** M1-108.
       **Estimate.** 8 hours.
 
-### [ ] M1-111: First full scrape run and validation
+### [x] M1-111: First full scrape run and validation
 
 **Scope.** Run all 4 phases end-to-end. Validate outputs. Summary stats: total products, total categories, products per top category distribution, unmapped PI roots, average facet membership counts. Commit all data files to repo.
 **Acceptance.**
@@ -277,7 +277,7 @@ Module to week mapping (client-facing 6-week plan):
 
 ### [ ] M3-301: Page routing and static path generation
 
-**Scope.** Dynamic route at `/app/cat/[...slug]/page.tsx`. `generateStaticParams()` reads the PI URL list and emits all 22,180 static paths plus paginated variants. Loader function: Sanity-first (curated or custom category), then JSON fallback from `data/categories/`, then 404.
+**Scope.** Dynamic route at `/app/cat/[...slug]/page.tsx`. `generateStaticParams()` reads the PI URL list and emits all 22,180 static paths plus paginated variants. Loader function: Sanity-first (curated or custom category), then JSON fallback from `data/categories/`, then 404. Empty-grid behavior per CLAUDE.md Section 16 "Empty-page handling": when `facet-memberships.json` SKU list is empty for a URL, render the parent root's product grid (Tier 3) with a "Showing popular [Root] products" header; if even root is empty, render Tier 4 homepage CTA.
 **Acceptance.**
 
 - [ ] All 22,180 paths build successfully
@@ -285,6 +285,8 @@ Module to week mapping (client-facing 6-week plan):
 - [ ] Fallback to JSON works
 - [ ] 404 page rendered for unmapped slugs
 - [ ] Loader exposed as a single function used by the page component
+- [ ] Empty membership list → Tier 3 fallback (parent root products with explanatory header)
+- [ ] Empty root membership → Tier 4 fallback (homepage CTA, no grid)
       **Depends on.** M1-101, M2-207.
       **Estimate.** 6 hours.
 
@@ -353,7 +355,7 @@ Module to week mapping (client-facing 6-week plan):
 
 ### [ ] M3-307: Category page layout assembly
 
-**Scope.** Assemble the full category page: breadcrumb (Home > Department > Category > Subcategory), H1, AI intro paragraph, filter sidebar plus product grid plus sort plus pagination, FAQs accordion (root pages only), embedded lead capture form, bottom CTA banner. Schema.org markup: BreadcrumbList, FAQPage (root only), Product (within grid). Pixel-match the reference layout `sample-category-layout.jpg`.
+**Scope.** Assemble the full category page: breadcrumb (Home > Department > Category > Subcategory), H1, AI intro paragraph, filter sidebar plus product grid plus sort plus pagination, FAQs accordion (root pages only), embedded lead capture form, bottom CTA banner. Schema.org markup: BreadcrumbList, FAQPage (root only), Product (within grid). Pixel-match the reference layout `sample-category-layout.jpg`. Implement the Tier 3 / Tier 4 empty-grid fallback variants per CLAUDE.md Section 16. Per-page product count is user-selectable (20/40/60 dropdown), passed to Searchspring's `perPage` query param at render — NOT hardcoded.
 **Acceptance.**
 
 - [ ] All sections present
@@ -671,9 +673,9 @@ All five major architectural questions are now LOCKED as of May 15, 2026. Remain
 
 Confirm whether the lead form's "from" address should be `patrick@perfectimprints.com` directly or an alias like `leads@perfectimprints.com`. Affects M3-308 env var `LEAD_EMAIL_FROM`.
 
-### [ ] OQ-2: Image fallback policy
+### [x] OQ-2: Image fallback policy — RESOLVED
 
-Confirm fallback behavior when Geiger does not have an image for a product or when a category has zero matching products on Geiger. Options: placeholder image, hide product, or hide the entire category page. Affects M3-302.
+Patrick confirmed (2026-05-23): pages without matching Geiger products link to the Geiger homepage. To reduce how many pages need that, Phase C applies a recovery chain (Tier 1 brand fallback, Tier 2 search-keyword fallback) before Module 3 falls back to Tier 3 (parent-root product grid) and Tier 4 (homepage CTA). See CLAUDE.md Section 16 "Empty-page handling" for the full chain. Affects M3-301, M3-302, M3-307.
 
 ### [ ] OQ-3: Old site cutover timing
 

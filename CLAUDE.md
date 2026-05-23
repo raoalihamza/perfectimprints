@@ -362,18 +362,40 @@ Checkpointing: save state every 100 requests so partial runs resume. State file 
 
 **Phase C: Facet and modifier memberships.** For each of the 21,715 PI URLs that need product membership data (576 modifiers + 21,137 facets + 2 compound facets), one filtered Searchspring API call to capture the SKU list. Output: `data/geiger/facet-memberships.json`. Runtime: 6 hours unattended.
 
-For **modifier URLs** (search, no-minimum, closeout, production-time, eco-friendly, material), the Searchspring filter mapping is:
+For **modifier URLs** (search, no-minimum, closeout, production-time, eco-friendly, material), the Searchspring filter mapping is (verified during the first end-to-end Phase C run, 2026-05-22):
 
-- `search` → no extra filter (returns the same products as the root, used as a search-landing variant)
-- `no-minimum` → `filter.min_qty[lt]=25` (or similar low threshold; verify with sample call)
-- `closeout` → `filter.is_on_sale=true` or a closeout badge filter
-- `production-time` → `filter.production_time[lt]=5` (rush production)
-- `eco-friendly` → `filter.eco_friendly=true` (or matching badge)
-- `material` (1 URL only) → low priority, treat as root for now
+| PI modifier | Searchspring filter | Notes |
+| --- | --- | --- |
+| `search` | no extra filter | Treated as a search-landing variant of the root |
+| `no-minimum` | `filter.min_qty.high=24` | Items needing fewer than 25 units. Range filters use `.low`/`.high` suffixes, NOT bracketed `[lt]` |
+| `closeout` | `filter.refine_by=Deals` | `filter.is_on_sale=true` returned 0 across all categories; `Deals` is the only "on sale" refine_by value |
+| `production-time` | `filter.production_time.high=5` | Rush items (1–5 day production) |
+| `eco-friendly` | `filter.refine_by=Eco Friendly` | Best when the root mapping is also `Home > Shop By > Eco-Friendly > <child>` where one exists |
+| `material` (1 PI URL only) | no extra filter | Treat as a landing variant of the root |
 
-For **compound facet URLs** (2 of them), send multiple `filter.[type]=[value]` params in one call.
+For **compound facet URLs** (2 of them), send multiple `filter.[type]=[value]` params in one call. The request must use a list of tuples, not a dict, to preserve duplicate keys (e.g. two `filter.refine_by` values).
 
-**Phase D: PI-to-Geiger mapping.** Match each of the 465 PI root categories to a Geiger leaf via exact slug match, then fuzzy match with rapidfuzz, then AI fallback via DeepSeek for the remainder. Output: `data/mappings/pi-to-geiger.json` plus a CSV report with confidence scores. Runtime: minutes.
+**Searchspring vocabulary gotchas to remember:**
+
+- `filter.refine_by` has only 3 valid values across the whole catalog: `Made in the USA`, `Eco Friendly`, `Deals`. Any other value returns 0.
+- Numeric fields require integer values, NOT human-readable strings:
+  `filter.drinkware_size=26` (not `=26 Oz`), `filter.production_time=5` (not `=5 Days`).
+  Numeric fields include `drinkware_size`, `production_time`, `min_qty`, `mah`, `page_count`, `match_count`, `liter_capacity`, `can_capacity`, `flash_drive_capacity`.
+- Range syntax uses dotted suffix: `filter.<field>.low=N`, `filter.<field>.high=N`.
+- Brand filter values use the human-readable form: `filter.brand=Vineyard Vines` (not the slug `vineyard-vines`).
+
+**Slug-based resolver (recommended before falling back to filters).** Many PI facet URLs map to a dedicated Geiger category SLUG instead of a filter combination. Example: PI `/cat/bags/material/eco-friendly` should hit `bgfilter.category_path=Home > Bags & Totes > Eco-Friendly Bags` (dedicated category), not `bgfilter=Home > Bags & Totes` + `filter.material=Eco Friendly` (returns 0). The resolver in `scripts/scrapers/geiger/memberships.py::resolve_slug_match` tries (in order) children-of-root name match, then `<value>-<root>` / `<root>-<value>` / bare `<value>` slug candidates restricted to the same top-level Geiger branch. Use `python -m scripts.scrapers.geiger.run --phase c --retry-zeros` to apply it to existing zero-result URLs.
+
+**Phase D: PI-to-Geiger mapping.** Match each of the 465 PI root categories to a Geiger leaf via exact slug match (preferring non-aggregator leaves over `All <X>` aggregators), then fuzzy match with rapidfuzz (WRatio + token_set_ratio, threshold 80), then manual overrides in `scripts/scrapers/geiger/mapping_overrides.json`. DeepSeek AI fallback was deferred — manual overrides covered every remaining root. Output: `data/mappings/pi-to-geiger.json` plus a CSV report with confidence scores. Runtime: seconds.
+
+**Empty-page handling (zero-result PI URLs).** Patrick confirmed (2026-05-23) that PI URLs with no Geiger match should link to the Geiger homepage. To minimize how many pages need that fallback, Phase C includes a recovery chain. Apply in this order:
+
+1. **Tier 1 — brand fallback** (`--retry-brands`). For zero `/cat/<root>/brand/<brand>` URLs, query Searchspring with `filter.brand=<Brand Name>` and NO `bgfilter.category_path`. Recovers URLs where Geiger has the brand but not in PI's mapped category. Catches ~800 URLs.
+2. **Tier 2 — search-keyword fallback** (`--retry-search`). For remaining zero facet/compound-facet URLs, query Searchspring's `/api/search/search.json` endpoint with deslugified URL keywords (e.g. `q=blue water bottles`). Filter results to SKUs whose products.json `category_paths` includes the PI root's Geiger category — prevents semantic drift (e.g. "stadium table" appearing on a "folding chairs" page).
+3. **Tier 3 — parent-root fallback** (Module 3 template logic, not scraper). For URLs whose membership list is STILL empty after Tier 1+2, the category page template renders the PI root's product grid with a header like "We don't have exact matches — here are popular [Root Category] products". Each card still affiliate-links to its real Geiger page. This is **not** baked into `facet-memberships.json`; it's resolved at render time so the data file stays normalized.
+4. **Tier 4 — Geiger homepage CTA** (Module 3 template logic, last resort). For pages where even the PI root has no products (rare), show AI-generated content + a single CTA: "Browse the full Geiger catalog → `https://patrickblack.geiger.com/`".
+
+All four tiers preserve the SEO URL — every PI URL renders, every page has unique meta + H1 + AI intro. Module 3 must implement the Tier 3 + Tier 4 template behavior. Tier 1 and Tier 2 are scraper-side and are already applied to `facet-memberships.json` after a full pipeline run.
 
 For blog migration, attempt clean export from MPower dashboard at `app.mpowerpromo.com` first. If that fails, use the Playwright-based fallback scraper at `scripts/scrapers/blogs/` against perfectimprints.com using the URL list at `data/blogs/blog-urls.txt`.
 

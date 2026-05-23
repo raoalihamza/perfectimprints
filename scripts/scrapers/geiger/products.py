@@ -46,6 +46,34 @@ def extract_leaf_categories(tree: list[dict[str, Any]]) -> list[dict[str, str]]:
     return leaves
 
 
+def fetch_global_products(client: ScraperClient) -> Iterator[dict[str, Any]]:
+    """Paginate Searchspring with NO category filter.
+
+    Catches products that exist in the catalog but aren't reachable via any
+    leaf category we walked (e.g., products tagged only in "Shop By" virtual
+    collections like Brand Names or Deals).
+    """
+    page = 1
+    while True:
+        params = {
+            "siteId": SEARCHSPRING_SITE_ID,
+            "resultsFormat": "native",
+            "perPage": SEARCHSPRING_PER_PAGE,
+            "page": page,
+        }
+        response = client.get_json(SEARCHSPRING_BASE_URL, params=params)
+        results = response.get("results") or []
+        if not results:
+            return
+        for raw in results:
+            yield raw
+        pagination = response.get("pagination", {})
+        total_pages = int(pagination.get("totalPages", page))
+        if page >= total_pages:
+            return
+        page += 1
+
+
 def fetch_category_products(
     client: ScraperClient, category_path: str
 ) -> Iterator[dict[str, Any]]:
@@ -163,6 +191,51 @@ def _save_products(products: dict[str, dict[str, Any]], categories_with_errors: 
     with open(output_path, "wb") as f:
         f.write(orjson.dumps(payload, option=orjson.OPT_INDENT_2))
     print(f"  Wrote {len(sorted_products)} products to {output_path}")
+
+
+def run_global_only() -> None:
+    """Top-up pass: append SKUs from the global no-filter query to an existing
+    products.json. Skips re-walking the 482 leaf categories."""
+    print("Phase B (global top-up): no-filter Searchspring pass starting...")
+
+    output_path = OUTPUT_DIR / "products.json"
+    if not output_path.exists():
+        raise RuntimeError(
+            f"{output_path} not found. Run the full Phase B first: "
+            "python -m scripts.scrapers.geiger.run --phase b"
+        )
+
+    with open(output_path, "rb") as f:
+        existing = orjson.loads(f.read())
+
+    products: dict[str, dict[str, Any]] = {p["sku"]: p for p in existing["products"]}
+    categories_with_errors: list[str] = existing.get("categoriesWithErrors", [])
+    print(f"  Existing SKUs in products.json: {len(products)}")
+
+    new_count = 0
+    seen_count = 0
+
+    with ScraperClient() as client:
+        for raw in tqdm(fetch_global_products(client), desc="Global", unit="prod"):
+            try:
+                normalized = normalize_product(raw, "Home")
+            except ValueError as e:
+                tqdm.write(f"  Skipping product: {e}")
+                continue
+            sku = normalized["sku"]
+            if sku in products:
+                products[sku] = merge_product(products[sku], normalized)
+                seen_count += 1
+            else:
+                products[sku] = normalized
+                new_count += 1
+
+    _save_products(products, categories_with_errors)
+
+    print("\nGlobal top-up complete.")
+    print(f"  New SKUs added:        {new_count}")
+    print(f"  Already-seen SKUs:     {seen_count}")
+    print(f"  Total unique SKUs now: {len(products)}")
 
 
 def run(
