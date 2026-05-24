@@ -1,0 +1,87 @@
+{
+  "url": "/cat/ash-trays",
+  "type": "root",
+  "h1": "Custom Ash Trays for Promotional Use",
+  "metaTitle": "Custom Ash Trays - Perfect Imprints",
+  "metaDescription": "Order custom ash trays for corporate events, hospitality, and employee gifts. Personalize with your logo. Bulk discounts available at PerfectImprints.com.",
+  "introHtml": "<p>Custom ash trays are a practical and appreciated promotional item for outdoor corporate events, hospitality venues, and employee appreciation kits. Whether you're organizing a company picnic, outfitting a break room, or providing branded smoking accessories for a trade show patio, a personalized ash tray keeps your logo in sight while serving a functional purpose.</p><p>Perfect Imprints offers a range of promotional products that can be customized with your company logo or message. While our inventory includes items like the Astro Flashlight and Smashlight® series, we can also source custom ash trays to meet your specific needs. Options include various materials such as metal, glass, or durable plastic, with decoration methods like screen printing, laser engraving, or full-color pad printing.</p><p>When you order custom ash trays from Perfect Imprints, you get reliable quality and clear communication. Our team helps you choose the right size, material, and imprint method for your budget and timeline. Most orders come with a low minimum quantity, making it easy for small businesses or large corporations to get branded ash trays for their next event or safety program.</p>",
+  "faqs": [
+    {
+      "q": "What materials are available for custom ash trays?",
+      "a": "We offer custom ash trays in metal, glass, ceramic, and durable plastic. Metal trays are great for outdoor durability, while glass or ceramic options provide a more classic look. Plastic is lightweight and cost-effective for large events. We can source the right material for your use case."
+    },
+    {
+      "q": "How are logos applied to custom ash trays?",
+      "a": "Logos can be applied using screen printing, pad printing, or laser engraving. Screen printing works well for flat surfaces, pad printing for curved designs, and laser engraving for a permanent etched look on metal or glass. Our team will recommend the best method for your tray."
+    },
+    {
+      "q": "What is the minimum order quantity for custom ash trays?",
+      "a": "Minimum order quantities vary by product and material. Many custom ash trays have a MOQ of 50 to 100 pieces, but we can often accommodate smaller orders for an additional setup fee. Contact us for specific pricing on your desired quantity."
+    },
+    {
+      "q": "Can I get a sample of a custom ash tray before placing a bulk order?",
+      "a": "Yes, we offer sample orders for most products. You can request a blank sample to check size and material, or a pre-production sample with your logo for approval. Sample costs are typically deducted from your final order. Lead times vary, so please inquire."
+    },
+    {
+      "q": "What is the typical lead time for custom ash trays?",
+      "a": "Standard production lead time is 5 to 10 business days after artwork approval, plus shipping. Rush service may be available for an additional fee. For engraved or printed designs, add 2-3 days. We provide estimated timelines at order placement."
+    }
+  ],
+  "heroAltText": "Custom ash trays with engraved logos, available in metal and glass for promotional use",
+  "productSkus": [
+    "503074",
+    "508507",
+    "508698",
+    "509197",
+    "510061",
+    "512856 01A",
+    "513636",
+    "513697",
+    "513716 01S",
+    "515428",
+    "515501 01A",
+    "515511 01A",
+    "515512 01A",
+    "515514 01A",
+    "515515 01A",
+    "515516 01A",
+    "516423 01A",
+    "516618",
+    "516804",
+    "518237",
+    "518692",
+    "519415",
+    "519472",
+    "520252",
+    "520510",
+    "520887",
+    "520939",
+    "521094",
+    "522143",
+    "522330",
+    "522797",
+    "523240",
+    "524379",
+    "525944",
+    "526666",
+    "527487",
+    "527488",
+    "527489",
+    "527852",
+    "528092",
+    "528157",
+    "528283",
+    "528438",
+    "528471",
+    "528540",
+    "529182",
+    "529278"
+  ],
+  "generatedAt": "2026-05-24T13:49:38.773563+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v1",
+  "openingStyle": "use_case",
+  "skuFilterMode": "slug-filtered",
+  "rawSkuCount": 1412,
+  "filteredSkuCount": 47
+}

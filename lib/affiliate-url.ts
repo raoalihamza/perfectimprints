@@ -1,4 +1,4 @@
-const GEIGER_SOURCE_HOST = 'https://www.geiger.com/';
+const GEIGER_SOURCE_HOST = 'https://www.geiger.com';
 const DEFAULT_AFFILIATE_HOST = 'https://patrickblack.geiger.com';
 
 function getAffiliateHost(): string {
@@ -15,8 +15,12 @@ export function affiliateUrl(geigerUrl: string | null | undefined): string {
     return geigerUrl;
   }
 
-  if (geigerUrl.startsWith(GEIGER_SOURCE_HOST)) {
-    return `${host}/${geigerUrl.slice(GEIGER_SOURCE_HOST.length)}`;
+  if (geigerUrl.startsWith(`${GEIGER_SOURCE_HOST}/`) || geigerUrl === GEIGER_SOURCE_HOST) {
+    return `${host}${geigerUrl.slice(GEIGER_SOURCE_HOST.length)}`;
+  }
+
+  if (geigerUrl.startsWith('/')) {
+    return `${host}${geigerUrl}`;
   }
 
   return geigerUrl;

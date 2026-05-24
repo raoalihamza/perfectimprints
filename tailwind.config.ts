@@ -5,7 +5,8 @@ const config: Config = {
     './app/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
     './lib/**/*.{ts,tsx}',
-    './sanity/**/*.{ts,tsx}',
+    './sanity/*.{ts,tsx}',
+    './sanity/{actions,components,schemas}/**/*.{ts,tsx}',
   ],
   theme: {
     container: {

@@ -2,42 +2,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { SearchBox } from '@/components/forms/SearchBox';
-import { MegaMenu, type MegaMenuItem } from './MegaMenu';
+import { type MegaMenuItem } from './MegaMenu';
 import { MobileDrawer } from './MobileDrawer';
+import { ShopByMegaMenu } from './ShopByMegaMenu';
+import { AllCategoriesPopover } from './AllCategoriesPopover';
+import { SimpleNavDropdown } from './SimpleNavDropdown';
+import { getDepartments } from '@/lib/nav-data';
 
-const HARDCODED_MENU: MegaMenuItem[] = [
-  {
-    label: 'Promotional Products',
-    href: '/cat/promotional-products',
-    children: [
-      { label: 'Bags & Totes', href: '/cat/bags-and-totes' },
-      { label: 'Drinkware', href: '/cat/drinkware' },
-      { label: 'Health & Wellness', href: '/cat/health-and-wellness' },
-      { label: 'Home & Auto', href: '/cat/home-and-auto' },
-      { label: 'Office & Technology', href: '/cat/office-and-technology' },
-      { label: 'Sports & Outdoor', href: '/cat/sports-and-outdoor' },
-      { label: 'Trade Show & Event', href: '/cat/trade-show-and-event' },
-      { label: 'Writing Instruments', href: '/cat/writing-instruments' },
-    ],
-  },
-  {
-    label: 'Custom Apparel',
-    href: '/cat/custom-apparel',
-    children: [
-      { label: 'Athleisure', href: '/cat/athleisure' },
-      { label: 'Caps & Hats', href: '/cat/caps-and-hats' },
-      { label: 'Dress Shirts', href: '/cat/dress-shirts' },
-      { label: 'T-Shirts', href: '/cat/t-shirts' },
-      { label: 'Tank Tops', href: '/cat/tank-tops' },
-      { label: 'Workwear', href: '/cat/workwear' },
-      { label: 'Quarter Zips', href: '/cat/quarter-zips' },
-      { label: 'Hoodies', href: '/cat/hoodies' },
-      { label: 'Polos & Golf Shirts', href: '/cat/polos-and-golf-shirts' },
-      { label: 'Jackets', href: '/cat/jackets' },
-    ],
-  },
-  { label: 'Featured Promos', href: '#', featured: true, children: [] },
-  { label: 'New Products', href: '#', featured: true, children: [] },
+const SIMPLE_NAV: MegaMenuItem[] = [
+  { label: 'Promotional Products', href: '/cat/promotional-products' },
+  { label: 'New Products', href: '/cat/new-products' },
   { label: 'Rush Products', href: '/rush-promotional-products' },
   {
     label: 'Services',
@@ -53,7 +27,27 @@ const HARDCODED_MENU: MegaMenuItem[] = [
   { label: 'Blog', href: '/blog' },
 ];
 
+function buildMobileItems(
+  departments: ReturnType<typeof getDepartments>,
+): MegaMenuItem[] {
+  const availableLeaves = departments.flatMap((d) => [
+    ...(d.available && d.href ? [{ label: d.label, href: d.href }] : []),
+    ...d.children
+      .filter((c) => c.available && c.href)
+      .map((c) => ({ label: `${d.label} · ${c.label}`, href: c.href as string })),
+  ]);
+  const allCategories: MegaMenuItem = {
+    label: 'All Categories',
+    href: '#',
+    children: availableLeaves,
+  };
+  return [allCategories, ...SIMPLE_NAV];
+}
+
 export function Header() {
+  const departments = getDepartments();
+  const mobileItems = buildMobileItems(departments);
+
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-white">
       <Container className="flex items-center gap-4 py-3">
@@ -89,12 +83,32 @@ export function Header() {
           >
             Contact Us
           </Link>
-          <MobileDrawer items={HARDCODED_MENU} />
+          <MobileDrawer items={mobileItems} />
         </div>
       </Container>
 
       <Container className="border-t border-border py-1">
-        <MegaMenu items={HARDCODED_MENU} />
+        <nav aria-label="Primary">
+          <ul role="menubar" className="hidden items-center gap-1 lg:flex">
+            <ShopByMegaMenu departments={departments} />
+            <AllCategoriesPopover departments={departments} />
+            {SIMPLE_NAV.map((item) =>
+              item.children && item.children.length > 0 ? (
+                <SimpleNavDropdown key={item.label} item={item} />
+              ) : (
+                <li key={item.label} role="none">
+                  <Link
+                    href={item.href}
+                    role="menuitem"
+                    className="block rounded px-3 py-3 text-sm font-medium text-brand-ink hover:text-brand-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-ink"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ),
+            )}
+          </ul>
+        </nav>
         <div className="md:hidden">
           <SearchBox className="py-2" />
         </div>

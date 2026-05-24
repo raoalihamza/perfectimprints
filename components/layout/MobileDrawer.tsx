@@ -93,20 +93,47 @@ export function MobileDrawer({ items }: MobileDrawerProps) {
                     </button>
                     {isExpanded && (
                       <ul className="pl-4">
-                        {item.children?.map((child) => (
-                          <li key={child.label}>
-                            <Link
-                              href={child.href}
-                              className="block rounded px-3 py-2 text-sm text-text-primary hover:bg-bg-soft"
-                              onClick={() => setOpen(false)}
-                            >
-                              {child.label}
-                            </Link>
-                          </li>
-                        ))}
+                        {item.children?.map((child) => {
+                          const isExternal = /^https?:\/\//i.test(child.href);
+                          const className =
+                            'block rounded px-3 py-2 text-sm text-text-primary hover:bg-bg-soft';
+                          return (
+                            <li key={child.label}>
+                              {isExternal ? (
+                                <a
+                                  href={child.href}
+                                  target="_blank"
+                                  rel="noopener noreferrer sponsored"
+                                  className={className}
+                                  onClick={() => setOpen(false)}
+                                >
+                                  {child.label}
+                                </a>
+                              ) : (
+                                <Link
+                                  href={child.href}
+                                  className={className}
+                                  onClick={() => setOpen(false)}
+                                >
+                                  {child.label}
+                                </Link>
+                              )}
+                            </li>
+                          );
+                        })}
                       </ul>
                     )}
                   </>
+                ) : /^https?:\/\//i.test(item.href) ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer sponsored"
+                    className="block rounded px-3 py-3 text-base font-medium text-brand-ink hover:bg-bg-soft"
+                    onClick={() => setOpen(false)}
+                  >
+                    {item.label}
+                  </a>
                 ) : (
                   <Link
                     href={item.href}

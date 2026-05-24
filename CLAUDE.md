@@ -18,8 +18,8 @@ Geiger source: `https://www.geiger.com/` (data source only, never emitted in lin
 | Framework       | Next.js 15, App Router, TypeScript strict                                   |
 | Styling         | Tailwind CSS                                                                |
 | CMS             | Sanity v3 (hybrid model, see Section 7)                                     |
-| Hosting         | Vercel                                                                      |
-| DNS             | Cloudflare                                                                  |
+| Hosting         | Vercel (Next.js native platform)                                            |
+| DNS             | Cloudflare (DNS-only mode, CNAME to Vercel)                                 |
 | AI content      | DeepSeek-V3 via API                                                         |
 | Email           | Gmail SMTP via Nodemailer                                                   |
 | Search          | Fuse.js with prebuilt JSON index                                            |
@@ -145,10 +145,12 @@ Key parameters:
 - `bgfilter.category_path=Home > Drinkware > Water Bottles` (category path with spaces and `>` separator)
 - `resultsFormat=native`
 - `page=N` (1-indexed)
-- `perPage=100` (max)
+- `perPage=60` (Geiger's native page size; max is higher but pagination behavior matches `60` exactly)
 - `filter.[field]=[value]` (optional, for facet filtering)
 
 Response includes full product objects (sku, name, brand, low_price, high_price, msrp, min_qty, imageUrl, description, category_path[], badges, is_new_item, is_on_sale, product_type_unigram), aggregated facets array with counts, pagination metadata, and sort options.
+
+**Actual catalog size:** ~7,957 unique SKUs (verified 2026-05-24 via no-filter Searchspring query returning 7,971 total; our Phase B captured 99.82% of that). Note that summing per-category counts on Geiger's `/b/` pages produces inflated totals (around 13,500) because the average Geiger product appears in approximately 3.3 category paths (cross-listed across Apparel, Shop By > Brand Names, Shop By > Collections, etc). The 7,957 figure is the true unique-SKU count, not the sum of category page totals.
 
 **Per-product attributes (color, material, size) are NOT on the product object.** They only appear in the aggregated facets array. To know which products belong to a facet URL like `/cat/water-bottles/material/stainless-steel`, the pipeline makes a filtered API call per facet URL (Phase C of the scraper). This is the 21,715 calls described in Section 16.
 
@@ -216,20 +218,29 @@ Root prompt varies opening structure to avoid sameness:
 - 30 percent open with material or quality angle
 - 10 percent open with seasonal or trending angle
 
-Sample 465 root pages are generated first and reviewed before running the 21,715 lighter pages (576 modifiers + 21,137 facets + 2 compound).
+**Phased generation:**
+
+- **Phase 2.1 (Week 2 end, demo deliverable):** Top 35 root categories by Geiger product count generated as a sample for client review. Output goes to `data/categories/{slug}.json`. See Section 22 for current state.
+- **Phase 2.2 (Week 3, after sample approval):** Remaining 430 root categories.
+- **Phase 2.3 (Week 3, after roots approved):** All 21,715 non-root pages (576 modifiers + 21,137 facets + 2 compound).
 
 Output is written to `data/categories/[encoded-slug].json` with a fixed schema:
 
 ```json
 {
   "url": "/cat/water-bottles/material/stainless-steel",
+  "type": "root|modifier|facet|compound-facet",
   "h1": "...",
   "metaTitle": "...",
   "metaDescription": "...",
   "introHtml": "...",
   "faqs": [{ "q": "...", "a": "..." }],
   "heroAltText": "...",
-  "productSkus": ["SKU1", "SKU2", ...]
+  "productSkus": ["SKU1", "SKU2", ...],
+  "generatedAt": "ISO timestamp",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v1",
+  "openingStyle": "use_case|buyer|material_quality|seasonal"
 }
 ```
 
@@ -356,22 +367,22 @@ Checkpointing: save state every 100 requests so partial runs resume. State file 
 
 **Four-phase pipeline:**
 
-**Phase A: Taxonomy discovery.** One HTTP GET to a Geiger category page (e.g., `https://www.geiger.com/b/accessories`), parse the mega menu HTML with BeautifulSoup, extract the full category tree with parent-child relationships. Output: `data/geiger/categories.json`. Runtime: minutes.
+**Phase A: Taxonomy discovery.** One HTTP GET to a Geiger category page (e.g., `https://www.geiger.com/b/accessories`), parse the mega menu HTML with BeautifulSoup, extract the full category tree with parent-child relationships. Output: `data/geiger/categories.json` (544 categories, 482 leaves). Runtime: minutes.
 
-**Phase B: Product catalog.** For each Geiger leaf category, paginate the Searchspring API with `perPage=100`. Deduplicate by SKU. Output: `data/geiger/products.json`. Runtime: 20-40 minutes.
+**Phase B: Product catalog.** For each Geiger leaf category, paginate the Searchspring API with `perPage=60` (Geiger's native page size). Deduplicate by SKU. Output: `data/geiger/products.json` (7,957 unique SKUs, 99.82% of Geiger's total catalog of 7,971). Runtime: 20-40 minutes.
 
 **Phase C: Facet and modifier memberships.** For each of the 21,715 PI URLs that need product membership data (576 modifiers + 21,137 facets + 2 compound facets), one filtered Searchspring API call to capture the SKU list. Output: `data/geiger/facet-memberships.json`. Runtime: 6 hours unattended.
 
 For **modifier URLs** (search, no-minimum, closeout, production-time, eco-friendly, material), the Searchspring filter mapping is (verified during the first end-to-end Phase C run, 2026-05-22):
 
-| PI modifier | Searchspring filter | Notes |
-| --- | --- | --- |
-| `search` | no extra filter | Treated as a search-landing variant of the root |
-| `no-minimum` | `filter.min_qty.high=24` | Items needing fewer than 25 units. Range filters use `.low`/`.high` suffixes, NOT bracketed `[lt]` |
-| `closeout` | `filter.refine_by=Deals` | `filter.is_on_sale=true` returned 0 across all categories; `Deals` is the only "on sale" refine_by value |
-| `production-time` | `filter.production_time.high=5` | Rush items (1–5 day production) |
-| `eco-friendly` | `filter.refine_by=Eco Friendly` | Best when the root mapping is also `Home > Shop By > Eco-Friendly > <child>` where one exists |
-| `material` (1 PI URL only) | no extra filter | Treat as a landing variant of the root |
+| PI modifier                | Searchspring filter             | Notes                                                                                                    |
+| -------------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `search`                   | no extra filter                 | Treated as a search-landing variant of the root                                                          |
+| `no-minimum`               | `filter.min_qty.high=24`        | Items needing fewer than 25 units. Range filters use `.low`/`.high` suffixes, NOT bracketed `[lt]`       |
+| `closeout`                 | `filter.refine_by=Deals`        | `filter.is_on_sale=true` returned 0 across all categories; `Deals` is the only "on sale" refine_by value |
+| `production-time`          | `filter.production_time.high=5` | Rush items (1–5 day production)                                                                          |
+| `eco-friendly`             | `filter.refine_by=Eco Friendly` | Best when the root mapping is also `Home > Shop By > Eco-Friendly > <child>` where one exists            |
+| `material` (1 PI URL only) | no extra filter                 | Treat as a landing variant of the root                                                                   |
 
 For **compound facet URLs** (2 of them), send multiple `filter.[type]=[value]` params in one call. The request must use a list of tuples, not a dict, to preserve duplicate keys (e.g. two `filter.refine_by` values).
 
@@ -386,14 +397,22 @@ For **compound facet URLs** (2 of them), send multiple `filter.[type]=[value]` p
 
 **Slug-based resolver (recommended before falling back to filters).** Many PI facet URLs map to a dedicated Geiger category SLUG instead of a filter combination. Example: PI `/cat/bags/material/eco-friendly` should hit `bgfilter.category_path=Home > Bags & Totes > Eco-Friendly Bags` (dedicated category), not `bgfilter=Home > Bags & Totes` + `filter.material=Eco Friendly` (returns 0). The resolver in `scripts/scrapers/geiger/memberships.py::resolve_slug_match` tries (in order) children-of-root name match, then `<value>-<root>` / `<root>-<value>` / bare `<value>` slug candidates restricted to the same top-level Geiger branch. Use `python -m scripts.scrapers.geiger.run --phase c --retry-zeros` to apply it to existing zero-result URLs.
 
-**Phase D: PI-to-Geiger mapping.** Match each of the 465 PI root categories to a Geiger leaf via exact slug match (preferring non-aggregator leaves over `All <X>` aggregators), then fuzzy match with rapidfuzz (WRatio + token_set_ratio, threshold 80), then manual overrides in `scripts/scrapers/geiger/mapping_overrides.json`. DeepSeek AI fallback was deferred — manual overrides covered every remaining root. Output: `data/mappings/pi-to-geiger.json` plus a CSV report with confidence scores. Runtime: seconds.
+**Phase D: PI-to-Geiger mapping.** Match each of the 465 PI root categories to a Geiger leaf via exact slug match (preferring non-aggregator leaves over `All <X>` aggregators), then fuzzy match with rapidfuzz (WRatio + token_set_ratio, threshold 80), then manual overrides in `scripts/scrapers/geiger/mapping_overrides.json`. DeepSeek AI fallback was deferred — manual overrides covered every remaining root. Output: `data/mappings/pi-to-geiger.json` (465/465 mapped, 0 unmapped: 72 exact + 224 fuzzy + 169 manual) plus a CSV report with confidence scores. Runtime: seconds.
 
 **Empty-page handling (zero-result PI URLs).** Patrick confirmed (2026-05-23) that PI URLs with no Geiger match should link to the Geiger homepage. To minimize how many pages need that fallback, Phase C includes a recovery chain. Apply in this order:
 
-1. **Tier 1 — brand fallback** (`--retry-brands`). For zero `/cat/<root>/brand/<brand>` URLs, query Searchspring with `filter.brand=<Brand Name>` and NO `bgfilter.category_path`. Recovers URLs where Geiger has the brand but not in PI's mapped category. Catches ~800 URLs.
-2. **Tier 2 — search-keyword fallback** (`--retry-search`). For remaining zero facet/compound-facet URLs, query Searchspring's `/api/search/search.json` endpoint with deslugified URL keywords (e.g. `q=blue water bottles`). Filter results to SKUs whose products.json `category_paths` includes the PI root's Geiger category — prevents semantic drift (e.g. "stadium table" appearing on a "folding chairs" page).
+1. **Tier 1 — brand fallback** (`--retry-brands`). For zero `/cat/<root>/brand/<brand>` URLs, query Searchspring with `filter.brand=<Brand Name>` and NO `bgfilter.category_path`. Recovers URLs where Geiger has the brand but not in PI's mapped category. Recovered 809 URLs.
+2. **Tier 2 — search-keyword fallback** (`--retry-search`). For remaining zero facet/compound-facet URLs, query Searchspring's `/api/search/search.json` endpoint with deslugified URL keywords (e.g. `q=blue water bottles`). Filter results to SKUs whose products.json `category_paths` includes the PI root's Geiger category — prevents semantic drift (e.g. "stadium table" appearing on a "folding chairs" page). Recovered 2,625 URLs.
 3. **Tier 3 — parent-root fallback** (Module 3 template logic, not scraper). For URLs whose membership list is STILL empty after Tier 1+2, the category page template renders the PI root's product grid with a header like "We don't have exact matches — here are popular [Root Category] products". Each card still affiliate-links to its real Geiger page. This is **not** baked into `facet-memberships.json`; it's resolved at render time so the data file stays normalized.
 4. **Tier 4 — Geiger homepage CTA** (Module 3 template logic, last resort). For pages where even the PI root has no products (rare), show AI-generated content + a single CTA: "Browse the full Geiger catalog → `https://patrickblack.geiger.com/`".
+
+**Final Phase C breakdown after Tiers 1+2 applied:**
+
+- 13,968 of 21,715 non-root URLs (64.3%) have direct Geiger product matches
+- 7,518 (34.6%) return zero products
+- 229 (1.1%) errored during scrape
+
+Plus 465 root URLs (all mapped, all have products). So overall: 14,433 URLs (65%) render with real product grids, 7,747 (35%) use Tier 3/4 fallback at render time.
 
 All four tiers preserve the SEO URL — every PI URL renders, every page has unique meta + H1 + AI intro. Module 3 must implement the Tier 3 + Tier 4 template behavior. Tier 1 and Tier 2 are scraper-side and are already applied to `facet-memberships.json` after a full pipeline run.
 
@@ -462,5 +481,62 @@ Remaining pending items (track in TASKS.md):
 
 - Exact green hex shade confirmation
 - Lead form "from" address (patrick@ direct vs leads@ alias)
-- Image fallback policy when Geiger lacks an image
 - Old site cutover timing (parallel period or immediate decommission)
+
+## 22. Current Project State (Week 2 mid-point)
+
+Updated: 2026-05-24.
+
+**Module 1 (Data Pipeline): Complete.**
+
+- Phase A: 544 Geiger categories, 482 leaves in `data/geiger/categories.json` (146 KB)
+- Phase B: 7,957 unique SKUs in `data/geiger/products.json` (9.6 MB) — 99.82% of Geiger's total catalog of 7,971
+- Phase C: 21,715 non-root URLs processed in `data/geiger/facet-memberships.json` (44.5 MB), with the 4-tier recovery chain applied (Tiers 1 and 2 in data, Tiers 3 and 4 in template). Final breakdown: 13,968 with products, 7,518 zero, 229 errors.
+- Phase D: 465 PI roots mapped in `data/mappings/pi-to-geiger.json` (90 KB) — 0 unmapped (72 exact + 224 fuzzy + 169 manual overrides). CSV review at `data/mappings/pi-to-geiger-review.csv`.
+
+**Module 2 (AI Content): Sample batch in progress for Week 2 demo.**
+
+For the Week 2 client demo we generate full AI content for **the top 35 PI roots by Geiger product count** rather than all 465. This is a deliberate scope cut to deliver something the client can actually click through and review by end of Week 2. The remaining 430 roots and all 21,715 non-root pages are scheduled for Week 3 once the sample is approved.
+
+- Selection logic: load 465 PI roots, look up their mapped Geiger category, count unique SKUs from `products.json` containment, sort desc, take top 35.
+- Expected cost: ~$1 for the 35-page sample (vs ~$45-50 for the full 22,180 once Module 2 completes in Week 3).
+- Output: `data/categories/{slug}.json` per generated root.
+
+**Module 3 (Category Templates): Sample template in progress for Week 2 demo.**
+
+For the Week 2 demo, the category template renders the 35 generated roots with production-grade code that will extend to all 22,180 pages without rewrite. Today's scope:
+
+INCLUDED:
+
+- Routing for 35 root slugs (`generateStaticParams` filtered to JSON-backed slugs)
+- ProductCard (image, name, price range, MOQ, brand badge, NEW/SALE/CLOSEOUT ribbons, affiliate link)
+- ProductGrid (responsive 4/3/2/1 cols, all products in one view)
+- AI content rendering (H1, intro HTML, FAQs accordion, hero alt)
+- Breadcrumb
+- CTA banner (phone + email)
+- 404 page
+
+DEFERRED to Week 3-4 (after client sees the sample):
+
+- Filter sidebar (M3-304, single + multi-facet)
+- Sort dropdown (M3-305)
+- Static pagination (M3-306)
+- Lead capture form (M3-308) — replaced with phone/email CTA for now
+- Schema.org markup
+- Multi-facet query param logic
+- Related blog posts section
+
+These deferrals are intentional. The client review on layout + content + product cards is the most valuable signal at this stage. Filter UX adds complexity that gets reviewed once the foundation is approved.
+
+**Large data files note:** `products.json` (9.6 MB) and `facet-memberships.json` (44.5 MB) currently live in the main repo. We plan to move them to a separate data repo, Git LFS, or external object storage during the Module 5 performance pass. Tracked as M5-509.
+
+**Infrastructure state:**
+
+- GitHub repo: `raoalihamza/perfectimprints` (linked to Vercel)
+- Vercel deployment live at `dev.perfectimprints.com` (staging)
+- Cloudflare DNS: `dev.perfectimprints.com` CNAME to Vercel-provided value (DNS-only mode, grey cloud)
+- Apex `perfectimprints.com` 301-redirects to `www.perfectimprints.com`
+- Sanity Studio working at both `localhost:3333` (`pnpm sanity:dev`) and `https://dev.perfectimprints.com/admin`. Project ID `ii96lcy9`, dataset `production`. Env vars set in Vercel.
+- DeepSeek API key on Patrick's account, received and ready for Module 2 run.
+
+**Style guide live at `/style-guide` for Patrick review.** Brand red `#E11F1E` locked from logo SVG. Green CTA shade `#16A34A` pending confirmation.
