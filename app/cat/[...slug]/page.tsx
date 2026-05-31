@@ -22,7 +22,13 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprin
   ''
 );
 
-export const dynamicParams = false;
+// Static-first for headline pages (roots + modifiers + compound-facets); facet pages
+// serve as on-demand SSG (`dynamicParams = true`) because pre-building all 21,137 of
+// them plus pagination variants exceeds Vercel's per-deployment output-file budget
+// (Next.js 16 emits ~5 segment artifacts per page → ~175k symlinks blows ENOSPC).
+// Functionally identical to SSG for crawlers: first hit generates, then cached forever.
+export const dynamicParams = true;
+export const revalidate = false;
 
 interface ParsedSlug {
   /** URL-style category slug segments (no /page/N suffix). */
@@ -54,10 +60,15 @@ function parseSlug(slug: string[]): ParsedSlug | null {
   return { segments, fileSlug, baseUrl, page, hasPageSuffix };
 }
 
+// Categories pre-built at deploy time. Facet pages are excluded here and served via
+// on-demand SSG instead (see dynamicParams note above).
+const PREBUILD_TYPES = new Set(['root', 'modifier', 'compound-facet']);
+
 export function generateStaticParams() {
   const summaries = getAllGeneratedCategorySlugs();
   const params: { slug: string[] }[] = [];
   for (const s of summaries) {
+    if (!PREBUILD_TYPES.has(s.type)) continue;
     const segments = s.urlSlug.split('/');
     // Page 1 lives at the clean URL.
     params.push({ slug: segments });
