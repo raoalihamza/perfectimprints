@@ -1,0 +1,21 @@
+{
+  "url": "/cat/eyewear/material/bamboo",
+  "type": "facet",
+  "h1": "Custom Bamboo Eyewear for Bulk Orders",
+  "metaTitle": "Custom Bamboo Eyewear | Perfect Imprints",
+  "metaDescription": "Order custom bamboo eyewear in bulk from Perfect Imprints. Eco-friendly sunglasses perfect for your brand. Get a quote today!",
+  "introHtml": "<p>Bamboo eyewear offers a sustainable alternative to plastic frames, combining natural aesthetics with durability. Ideal for eco-conscious brands, trade shows, or corporate gifts, these sunglasses feature lightweight bamboo arms and UV400 lenses. Customize with your logo using laser engraving for a refined, earth-toned look that stands out from standard promotional sunglasses.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom bamboo eyewear with engraved logo, eco-friendly sunglasses for bulk orders",
+  "productSkus": [
+    "526680"
+  ],
+  "generatedAt": "2026-05-31T09:12:59.723887+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

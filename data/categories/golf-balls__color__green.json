@@ -1,0 +1,25 @@
+{
+  "url": "/cat/golf-balls/color/green",
+  "type": "facet",
+  "h1": "Custom Green Golf Balls for Branded Promotions",
+  "metaTitle": "Custom Green Golf Balls | Perfect Imprints",
+  "metaDescription": "Order custom green golf balls for your next event. High-visibility colors perfect for giveaways. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom green golf balls stand out on the course, making them a smart choice for tournaments and corporate outings. Whether you choose high-visibility Volvik Vivid or classic Wilson Ultra in a branded tube, green offers a fresh look that grabs attention. Imprint your logo with single or multicolor decoration to reinforce brand recognition every time a ball is teed up.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green golf balls with logo imprint displayed in a clear tube on a putting green",
+  "productSkus": [
+    "506922 50D",
+    "506923 50D",
+    "521337",
+    "527050",
+    "528245"
+  ],
+  "generatedAt": "2026-05-31T08:29:09.275618+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

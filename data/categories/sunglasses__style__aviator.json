@@ -1,0 +1,24 @@
+{
+  "url": "/cat/sunglasses/style/aviator",
+  "type": "facet",
+  "h1": "Custom Aviator Sunglasses for Bulk Orders",
+  "metaTitle": "Custom Aviator Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom aviator sunglasses in bulk with your logo. Perfect for corporate gifts and events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Aviator sunglasses bring a classic, confident look that suits a wide range of industries, from automotive to outdoor recreation. Their teardrop shape and metal frames offer excellent coverage and a timeless style that recipients appreciate. When ordering bulk custom sunglasses for your team or event, aviators provide a versatile canvas for logo imprinting—whether you choose mirrored lenses for a bold statement or a rubberized recycled frame for eco-friendly branding.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom aviator sunglasses with mirrored lenses and logo imprint for corporate branding",
+  "productSkus": [
+    "512466",
+    "526686",
+    "527734",
+    "529384"
+  ],
+  "generatedAt": "2026-05-31T09:03:00.821484+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

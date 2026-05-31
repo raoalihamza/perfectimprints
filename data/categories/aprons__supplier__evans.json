@@ -1,0 +1,26 @@
+{
+  "url": "/cat/aprons/supplier/evans",
+  "type": "facet",
+  "h1": "Custom Evans Aprons for Bulk Orders",
+  "metaTitle": "Custom Evans Aprons | Perfect Imprints",
+  "metaDescription": "Order custom Evans aprons in bulk for your team or event. Perfect Imprints offers quality options with your logo. Get started today!",
+  "introHtml": "<p>Evans aprons are a trusted choice for restaurants, catering companies, and food service operations that demand durability and professional appearance. With options like the 10 oz Cotton Apron and the Pro's Choice Kitchen Apron, these aprons withstand daily wear while keeping your brand front and center. Choose from waist aprons, full bib styles, and BBQ sets to match your specific needs. Custom embroidery or screen printing ensures your logo stays crisp through repeated washings. Perfect for staff uniforms, trade shows, or promotional giveaways, Evans aprons combine function with brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Evans aprons with embroidered logo on a 10 oz cotton apron, ideal for restaurants and food service.",
+  "productSkus": [
+    "508541",
+    "509133 90A",
+    "515077",
+    "516543 01A",
+    "527339",
+    "528072"
+  ],
+  "generatedAt": "2026-05-31T09:32:43.530156+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

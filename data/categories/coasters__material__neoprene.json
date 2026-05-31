@@ -1,0 +1,21 @@
+{
+  "url": "/cat/coasters/material/neoprene",
+  "type": "facet",
+  "h1": "Custom Neoprene Coasters",
+  "metaTitle": "Custom Neoprene Coasters | Perfect Imprints",
+  "metaDescription": "Order custom neoprene coasters for your brand. Absorbent, durable, and perfect for bars, restaurants, or giveaways. Get a quote today!",
+  "introHtml": "<p>Neoprene coasters offer a practical, absorbent surface that protects tabletops from condensation and spills, making them a smart choice for bars, restaurants, and corporate events. Unlike rigid materials, neoprene coasters are soft, flexible, and won't scratch surfaces. They can be fully customized with your logo using screen printing or debossing. Whether you're outfitting a taproom or handing them out at a trade show, custom neoprene coasters combine utility with brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom neoprene coasters with a printed logo, showing absorbent material and rounded corners.",
+  "productSkus": [
+    "522685"
+  ],
+  "generatedAt": "2026-05-31T09:10:43.704003+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

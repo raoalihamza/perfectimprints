@@ -1,0 +1,21 @@
+{
+  "url": "/cat/sportswear/color/silver",
+  "type": "facet",
+  "h1": "Custom Silver Sportswear",
+  "metaTitle": "Custom Silver Sportswear | Perfect Imprints",
+  "metaDescription": "Order custom silver sportswear for your team or event. Bulk pricing and fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>Silver sportswear stands out with a sleek, metallic look that pairs well with any logo color. Ideal for safety-conscious teams, reflective accents on items like knit beanies enhance visibility during low-light conditions. Whether for a company 5K or event staff uniforms, silver gear offers a modern, professional aesthetic that complements both bold and subtle branding.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom silver sportswear featuring a knit beanie with reflective stripes for high visibility",
+  "productSkus": [
+    "506903"
+  ],
+  "generatedAt": "2026-05-31T10:08:02.057686+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

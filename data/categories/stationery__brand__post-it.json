@@ -1,0 +1,24 @@
+{
+  "url": "/cat/stationery/brand/post-it",
+  "type": "facet",
+  "h1": "Custom Post It Stationery for Bulk Orders",
+  "metaTitle": "Custom Post It Stationery | Perfect Imprints",
+  "metaDescription": "Order custom Post It stationery in bulk for your business. Perfect for notes, reminders, and promotions. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom Post It stationery combines the trusted brand of Post-It notes with your unique messaging. Whether you need standard 4 x 8 pads for office memos or transparent notes for window reminders, these sticky notes keep your brand top of mind. Ideal for marketing directors and HR managers looking to reinforce company culture or promote events. Choose from various sizes and sheet counts, all customizable with your logo or design.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom Post It stationery pads with printed logo in assorted colors",
+  "productSkus": [
+    "528272",
+    "528273",
+    "528274",
+    "528275"
+  ],
+  "generatedAt": "2026-05-31T10:08:26.740363+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

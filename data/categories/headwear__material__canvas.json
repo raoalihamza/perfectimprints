@@ -1,0 +1,21 @@
+{
+  "url": "/cat/headwear/material/canvas",
+  "type": "facet",
+  "h1": "Custom Canvas Headwear for Bulk Orders",
+  "metaTitle": "Custom Canvas Headwear | Perfect Imprints",
+  "metaDescription": "Order custom canvas headwear for your team or event. Perfect for outdoor use and embroidery. Get a quote today.",
+  "introHtml": "<p>Canvas headwear offers a sturdy, structured look that stands up to daily wear and outdoor conditions. Unlike polyester or cotton twill, canvas holds its shape and provides a premium surface for embroidery or screen printing. Perfect for construction crews, outdoor events, or any brand that wants a rugged, durable cap. The North Face Ultimate Trucker Cap is a popular canvas option that combines breathable mesh with a classic profile.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom canvas headwear featuring a structured trucker cap with embroidered logo on front panel",
+  "productSkus": [
+    "526535"
+  ],
+  "generatedAt": "2026-05-31T09:50:17.139347+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

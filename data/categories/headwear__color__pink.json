@@ -1,0 +1,27 @@
+{
+  "url": "/cat/headwear/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Headwear for Branded Promotions",
+  "metaTitle": "Custom Pink Headwear | Perfect Imprints",
+  "metaDescription": "Order custom pink headwear in bulk from Perfect Imprints. Great for breast cancer awareness or team spirit. Get your quote today.",
+  "introHtml": "<p>Pink headwear stands out in a crowd, making it a smart choice for breast cancer awareness campaigns, women's events, or simply adding a pop of color to your uniform. From unstructured chino twill caps to cozy knit beanies with cuffs, pink hats and beanies offer a soft yet bold canvas for embroidery or screen printing. Whether you need 50 caps for a 5K run or 500 beanies for a corporate giveaway, custom pink headwear ensures your message is seen and remembered.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of custom pink headwear including caps and beanies with embroidered logos on a table",
+  "productSkus": [
+    "515974",
+    "516012",
+    "525630",
+    "526162",
+    "527215",
+    "527767",
+    "529239"
+  ],
+  "generatedAt": "2026-05-31T08:42:46.283154+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

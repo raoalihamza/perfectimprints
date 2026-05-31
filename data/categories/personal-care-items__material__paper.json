@@ -1,0 +1,26 @@
+{
+  "url": "/cat/personal-care-items/material/paper",
+  "type": "facet",
+  "h1": "Custom Paper Personal Care Items",
+  "metaTitle": "Custom Paper Personal Care Items | Perfect Imprints",
+  "metaDescription": "Order custom paper personal care items for your next event. Perfect for eco-conscious brands. Shop at Perfect Imprints today.",
+  "introHtml": "<p>Paper personal care items offer a sustainable alternative for brands looking to reduce plastic waste without sacrificing functionality. From affirmation cards that boost morale to mini paper bags for sample kits, paper products provide a natural, recyclable surface for full-color printing. Ideal for trade shows, wellness programs, or hotel amenities, these items combine eco-friendliness with practical use. Choose paper for a softer, more tactile brand experience that aligns with green initiatives.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom paper personal care items including affirmation cards, soap, tissue paper, and notebooks for branded giveaways",
+  "productSkus": [
+    "505818 90A",
+    "523061",
+    "526276",
+    "526690",
+    "527863",
+    "528541"
+  ],
+  "generatedAt": "2026-05-31T09:22:24.750469+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

@@ -1,0 +1,30 @@
+{
+  "url": "/cat/luggage-travel-bags/brand/solo",
+  "type": "facet",
+  "h1": "Custom Solo Luggage Travel Bags",
+  "metaTitle": "Custom Solo Luggage Travel Bags | Perfect Imprints",
+  "metaDescription": "Order custom Solo luggage travel bags with your logo. Perfect for corporate travel gifts and employee incentives. Shop now at PerfectImprints.com.",
+  "introHtml": "<p>Solo luggage travel bags combine lightweight durability with professional styling, making them a practical choice for corporate travel gifts and employee recognition programs. From the Ace Slim Brief to the Re:move Duffle, each bag features organizational pockets and padded laptop compartments. Add your logo via screen printing or embroidery for a polished, branded look that travels well.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Solo luggage travel bags with corporate logos, including briefcases and duffles",
+  "productSkus": [
+    "524395",
+    "524396",
+    "524397",
+    "524398",
+    "524400",
+    "524401",
+    "524403",
+    "524404",
+    "529455",
+    "529456"
+  ],
+  "generatedAt": "2026-05-31T08:43:49.295617+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

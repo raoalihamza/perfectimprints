@@ -1,0 +1,27 @@
+{
+  "url": "/cat/pen-pencil-sets/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Pen Pencil Sets",
+  "metaTitle": "Custom Blue Pen Pencil Sets | Perfect Imprints",
+  "metaDescription": "Order custom blue pen pencil sets for your brand. Perfect for corporate gifts and events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Blue pen pencil sets offer a classic, professional look that stands out in any corporate setting. Whether you're outfitting your sales team with branded writing instruments or assembling welcome kits for new hires, blue sets convey trust and reliability. Many of our sets, like the Urban Peak® Gift Set or the Delight 2-Piece Thank You Gift Set, are available in blue finishes that pair well with white or silver imprinting. Choose from ballpoint pens, mechanical pencils, or both to match your recipients' needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue pen pencil sets with branded ballpoint pens and mechanical pencils in a gift box",
+  "productSkus": [
+    "512596",
+    "519672",
+    "522098",
+    "523898",
+    "523950",
+    "526748",
+    "527285"
+  ],
+  "generatedAt": "2026-05-31T09:21:51.778015+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

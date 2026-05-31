@@ -1,0 +1,27 @@
+{
+  "url": "/cat/t-shirts/brand/bella-canvas",
+  "type": "facet",
+  "h1": "Custom Bella Canvas T Shirts for Bulk Orders",
+  "metaTitle": "Custom Bella Canvas T Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Bella Canvas t shirts for your team. Soft, stylish tees perfect for branding. Get a quote at Perfect Imprints today!",
+  "introHtml": "<p>Bella Canvas t shirts are a top choice for bulk buyers who want a soft, comfortable fit that employees and customers will actually wear. The triblend fabric and modern cuts, like the popular Unisex Triblend T-Shirt and Women’s Jersey Crop Tee, set these shirts apart from standard cotton tees. Whether you need uniforms for a company picnic or giveaways for a trade show, Bella Canvas delivers a premium feel that keeps your brand looking sharp without the stiff, boxy look of traditional promotional shirts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom Bella Canvas t shirts in various colors, showing soft fabric and modern fit for branding",
+  "productSkus": [
+    "506191",
+    "506864",
+    "526601",
+    "527377",
+    "528866",
+    "528887",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T08:22:45.388821+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

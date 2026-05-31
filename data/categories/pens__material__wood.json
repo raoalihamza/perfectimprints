@@ -1,0 +1,22 @@
+{
+  "url": "/cat/pens/material/wood",
+  "type": "facet",
+  "h1": "Custom Wood Pens for Bulk Orders",
+  "metaTitle": "Custom Wood Pens | Perfect Imprints",
+  "metaDescription": "Order custom wood pens in bulk at Perfect Imprints. Perfect for corporate gifts and eco-friendly branding. Shop now!",
+  "introHtml": "<p>Wood pens bring a natural, warm aesthetic that stands out from standard plastic or metal promotional pens. The grain of each pen is unique, giving your recipients a tactile reminder of your brand. Whether you choose the classic Luxwood Ballpoint Pen or the sleek Aaccura Point Pen, wood barrels offer a premium feel that suits corporate gifts, real estate giveaways, or eco-conscious company swag. Decorate with a laser engraving or a subtle imprint for a refined look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wood pens with natural grain finish, perfect for corporate gifts and branded promotional products",
+  "productSkus": [
+    "517666",
+    "527387"
+  ],
+  "generatedAt": "2026-05-31T08:27:06.521664+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

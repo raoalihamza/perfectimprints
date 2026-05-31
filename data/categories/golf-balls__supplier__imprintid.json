@@ -1,0 +1,27 @@
+{
+  "url": "/cat/golf-balls/supplier/imprintid",
+  "type": "facet",
+  "h1": "Custom Imprintid Golf Balls",
+  "metaTitle": "Custom Imprintid Golf Balls | Perfect Imprints",
+  "metaDescription": "Order custom Imprintid golf balls for your brand. Perfect for corporate gifts and events. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Imprintid golf balls offer a streamlined way to order branded golf balls from top brands like Titleist and Volvik. Whether you need personalized balls for a corporate tournament or client gifts, this supplier provides reliable decoration and fast turnaround. Choose from popular options like the Titleist Pro V1 or Volvik Vivid to ensure your logo stands out on the course.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Imprintid golf balls with corporate logo, including Titleist and Volvik options for branding.",
+  "productSkus": [
+    "506922 50D",
+    "506923 50D",
+    "507565 90A",
+    "515618 90A",
+    "521337",
+    "527050",
+    "528245"
+  ],
+  "generatedAt": "2026-05-31T09:14:25.003609+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

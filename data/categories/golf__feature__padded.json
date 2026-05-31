@@ -1,0 +1,23 @@
+{
+  "url": "/cat/golf/feature/padded",
+  "type": "facet",
+  "h1": "Custom Padded Golf Accessories for Bulk Orders",
+  "metaTitle": "Custom Padded Golf | Perfect Imprints",
+  "metaDescription": "Shop custom padded golf accessories for bulk orders at Perfect Imprints. Ideal for corporate gifts and tournaments.",
+  "introHtml": "<p>Padded golf accessories offer extra protection for your gear, making them a practical choice for corporate golf outings and promotional giveaways. Whether you need cushioned travel covers for clubs or padded organizers for tees and balls, these items combine functionality with brand visibility. Add your logo via screen printing or embroidery to create a premium gift that stands out on the course.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom padded golf accessories with embroidered logo, including padded travel covers and organizers.",
+  "productSkus": [
+    "514871",
+    "515618 90A",
+    "521337"
+  ],
+  "generatedAt": "2026-05-31T09:14:53.961269+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

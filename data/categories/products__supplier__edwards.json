@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/edwards",
+  "type": "facet",
+  "h1": "Custom Edwards Products for Bulk Orders",
+  "metaTitle": "Custom Edwards Products | Perfect Imprints",
+  "metaDescription": "Order custom Edwards products for your team. Perfect for corporate gifts and promotional use. Get a quote today!",
+  "introHtml": "<p>Edwards products are known for their durability and professional appearance, making them a reliable choice for corporate branding. Whether you need custom portfolios for client meetings or safety gear for your crew, Edwards offers a range of items that hold up to daily use. Decorate with your logo using screen printing or embroidery for a polished look that represents your company well.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Edwards products including portfolios and safety gear with company logo",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:23:45.092487+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

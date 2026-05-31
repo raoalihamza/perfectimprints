@@ -1,0 +1,25 @@
+{
+  "url": "/cat/work-pants/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Work Pants",
+  "metaTitle": "No-Minimum Custom Work Pants | Perfect Imprints",
+  "metaDescription": "Order small quantities of no-minimum custom work pants for your team. No bulk required. Get branded pants with no minimums at Perfect Imprints.",
+  "introHtml": "<p>No-minimum custom work pants let you order exactly what you need, whether it's a single pair for a new hire or a handful for a small team. Unlike traditional bulk orders, you can purchase low quantities without penalties or inflated per-unit costs. This flexibility is ideal for small businesses, startups, or companies needing sample sizes before committing to larger runs. Perfect Imprints offers no-minimum pricing on popular styles like flannel pants, so you can outfit your crew with branded workwear that fits your budget and timeline.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "No-minimum custom work pants in flannel style for small team orders with no bulk requirements",
+  "productSkus": [
+    "527831",
+    "527832",
+    "527834",
+    "527835",
+    "527836"
+  ],
+  "generatedAt": "2026-05-31T09:31:01.089106+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

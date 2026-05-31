@@ -1,0 +1,23 @@
+{
+  "url": "/cat/garment-bags/material/leather",
+  "type": "facet",
+  "h1": "Custom Leather Garment Bags",
+  "metaTitle": "Custom Leather Garment Bags | Perfect Imprints",
+  "metaDescription": "Order custom leather garment bags for your brand. Durable, elegant, and perfect for travel. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Leather garment bags offer a refined way to transport suits, dresses, and uniforms while keeping them wrinkle-free. Unlike nylon or polyester options, leather provides a premium look that reflects quality and professionalism. Ideal for corporate executives, sales teams, or hospitality staff who travel frequently, these bags can be debossed with your logo for a lasting impression. Choose from full-grain or bonded leather finishes to match your brand's aesthetic.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom leather garment bags with debossed logo, perfect for travel and corporate gifts.",
+  "productSkus": [
+    "520416",
+    "527820",
+    "528123"
+  ],
+  "generatedAt": "2026-05-31T09:14:00.303702+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

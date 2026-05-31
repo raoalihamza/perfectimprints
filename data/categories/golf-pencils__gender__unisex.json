@@ -1,0 +1,26 @@
+{
+  "url": "/cat/golf-pencils/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Golf Pencils",
+  "metaTitle": "Custom Unisex Golf Pencils | Perfect Imprints",
+  "metaDescription": "Order custom unisex golf pencils for your event. Perfect for tournaments, giveaways, and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Custom unisex golf pencils are a practical giveaway for any golf event, fitting comfortably in any hand regardless of gender. Whether you're stocking pro shop counters or assembling tournament swag bags, these pencils offer a low-cost, high-utility branding option that appeals to all players. Imprint your logo on the barrel using foil stamping or pad printing for a clean, professional look that lasts through 18 holes. Perfect for corporate outings, charity scrambles, or league play, they ensure your brand is part of every scorecard.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom unisex golf pencils with printed logos arranged on a golf scorecard and tee",
+  "productSkus": [
+    "505481",
+    "507820",
+    "515155",
+    "515156",
+    "527681",
+    "527682"
+  ],
+  "generatedAt": "2026-05-31T09:48:51.116255+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

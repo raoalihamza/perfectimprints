@@ -1,0 +1,22 @@
+{
+  "url": "/cat/pet-bowls/feature/folding",
+  "type": "facet",
+  "h1": "Custom Folding Pet Bowls for Bulk Orders",
+  "metaTitle": "Custom Folding Pet Bowls | Perfect Imprints",
+  "metaDescription": "Order custom folding pet bowls for your next event or giveaway. Perfect for on-the-go pet owners. Shop at Perfect Imprints.",
+  "introHtml": "<p>Folding pet bowls are a practical choice for trade shows, employee gifts, or client appreciation. Unlike standard rigid bowls, these collapsible designs pack flat for easy transport and storage, making them ideal for outdoor events or travel-themed campaigns. The Park Pet Kit and H2Ogo Pet Bowl are popular examples that combine portability with durability. Custom imprinting on the fabric or silicone surface ensures your logo stays visible during use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom folding pet bowls with collapsible silicone design and company logo imprint",
+  "productSkus": [
+    "519292 90A",
+    "520484"
+  ],
+  "generatedAt": "2026-05-31T08:36:26.316185+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

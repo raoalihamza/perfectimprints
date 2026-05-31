@@ -1,0 +1,27 @@
+{
+  "url": "/cat/golf-balls/supplier/hit",
+  "type": "facet",
+  "h1": "Custom Hit Golf Balls for Bulk Orders",
+  "metaTitle": "Custom Hit Golf Balls | Perfect Imprints",
+  "metaDescription": "Order custom Hit golf balls from Perfect Imprints. Personalize with your logo for corporate gifts or events. Bulk pricing available.",
+  "introHtml": "<p>Hit golf balls offer a reliable choice for corporate giveaways, tournament favors, and promotional events. With a reputation for consistent performance, these balls provide a solid surface for your logo or message. Options like the Volvik Vivid or Titleist Velocity can be imprinted with your brand using standard decoration methods. Whether you need a dozen for a client gift or hundreds for a company outing, custom Hit golf balls give you a professional look that resonates with golfers of all skill levels.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hit golf balls with corporate logo displayed on a green, perfect for promotional events and corporate gifts.",
+  "productSkus": [
+    "506922 50D",
+    "506923 50D",
+    "507565 90A",
+    "515618 90A",
+    "521337",
+    "527050",
+    "528245"
+  ],
+  "generatedAt": "2026-05-31T09:48:30.421265+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

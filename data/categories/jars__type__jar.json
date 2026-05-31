@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jars/type/jar",
+  "type": "facet",
+  "h1": "Custom Jar Jars for Branded Promotions",
+  "metaTitle": "Custom Jar Jars | Perfect Imprints",
+  "metaDescription": "Order custom jar jars for your next promotion. Personalize with your logo. Bulk pricing available at PerfectImprints.com.",
+  "introHtml": "<p>Jar jars, such as the 22 oz Fiesta Mason Jar Tumbler, combine the classic mason jar silhouette with durable glass or stainless steel construction. They are ideal for corporate gifts, event giveaways, or retail merchandise. Choose from clear glass for a traditional look or insulated options for hot and cold beverages. Decorate with screen printing or etching to showcase your brand prominently at picnics, trade shows, or office break rooms.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom jar jars with engraved logos, like a mason jar tumbler with a metal straw and lid",
+  "productSkus": [
+    "506911",
+    "525119"
+  ],
+  "generatedAt": "2026-05-31T09:52:01.672606+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

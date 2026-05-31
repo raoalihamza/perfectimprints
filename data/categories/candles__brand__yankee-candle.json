@@ -1,0 +1,23 @@
+{
+  "url": "/cat/candles/brand/yankee-candle",
+  "type": "facet",
+  "h1": "Custom Yankee Candle Candles for Bulk Orders",
+  "metaTitle": "Custom Yankee Candle Candles - Bulk Orders | Perfect",
+  "metaDescription": "Order custom Yankee Candle candles in bulk for corporate gifts, events, and client appreciation. Perfect for branding with logo customization.",
+  "introHtml": "<p>Yankee Candle candles are a trusted name in home fragrance, known for their long burn times and classic scents. Ordering custom Yankee Candle candles in bulk lets you offer recipients a premium, recognizable gift that stands out. Whether you are thanking clients during the holidays or welcoming new employees, these candles make a sophisticated impression. Choose from popular sizes like the 3-Wick or Large Tumbler and add your logo with precision printing for a polished, professional result.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Yankee Candle candles in bulk with logo imprint, featuring a 3-Wick Candle in a gift box",
+  "productSkus": [
+    "529022",
+    "529023",
+    "529024"
+  ],
+  "generatedAt": "2026-05-31T08:51:35.570337+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

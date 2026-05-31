@@ -1,0 +1,19 @@
+{
+  "url": "/cat/health/activity/tennis",
+  "type": "facet",
+  "h1": "Custom Tennis Health Products for Bulk Orders",
+  "metaTitle": "Custom Tennis Health | Perfect Imprints",
+  "metaDescription": "Order custom tennis health products in bulk at Perfect Imprints. Ideal for tournaments, clubs, and corporate events.",
+  "introHtml": "<p>Custom tennis health products are designed for players and clubs that prioritize wellness on and off the court. From cooling towels and sunscreen to hydration supplements and first aid kits, these items support performance and recovery during matches and tournaments. Bulk ordering ensures your team or event has consistent access to essential health aids, all while showcasing your brand. Choose from a range of practical items that active players will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom tennis health products including cooling towels, sunscreen, and first aid kits for bulk orders",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:55:33.498912+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/stockings/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Stockings for Bulk Orders",
+  "metaTitle": "Custom Set Stockings | Perfect Imprints",
+  "metaDescription": "Order custom set stockings in bulk for your brand. Perfect for holiday gifts and employee appreciation. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Ordering custom stockings as a set ensures consistency in design and quality across your entire group. Whether you are outfitting a corporate holiday party or assembling gift bundles for clients, matched sets eliminate the guesswork of mixing and matching. Sets also simplify decoration, allowing you to imprint your logo or message once across multiple pieces. Choose from classic knit, velvet, or burlap materials in various sizes to fit your budget and aesthetic.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom set stockings in red knit with white trim and embroidered logo",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:02:53.521796+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

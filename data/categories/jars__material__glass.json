@@ -1,0 +1,21 @@
+{
+  "url": "/cat/jars/material/glass",
+  "type": "facet",
+  "h1": "Custom Glass Jars for Bulk Orders",
+  "metaTitle": "Custom Glass Jars | Perfect Imprints",
+  "metaDescription": "Order custom glass jars for your next promotion. Perfect for gifts or giveaways. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Glass jars offer a premium, reusable packaging option that stands out from plastic alternatives. Whether you're filling them with gourmet treats, promotional kits, or office supplies, the clear material showcases your contents while providing a sturdy, eco-friendly vessel. Customize with your logo using screen printing or etching for a sophisticated look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom glass jars with engraved logos, perfect for promotional gifts and bulk orders.",
+  "productSkus": [
+    "525119"
+  ],
+  "generatedAt": "2026-05-31T09:52:00.346332+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

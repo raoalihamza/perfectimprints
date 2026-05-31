@@ -1,0 +1,33 @@
+{
+  "url": "/cat/multi-function-tools/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Multi Function Tools",
+  "metaTitle": "No-Minimum Custom Multi Function Tools | Perfect Imprints",
+  "metaDescription": "Order small quantities of custom multi function tools with no minimum. Perfect for small teams, events, and gifts. Get branded tools today.",
+  "introHtml": "<p>When you need custom multi function tools but don't require bulk quantities, our no-minimum program is the answer. Designed for small businesses, startups, and one-off events, you can order as few as a single unit without sacrificing quality or branding. Choose from top brands like Leatherman and Basecamp, and add your logo with no setup fees. Perfect for safety managers equipping a small crew or HR directors gifting a tight-knit team.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted no-minimum custom multi function tools including Leatherman and Basecamp models displayed on a workbench",
+  "productSkus": [
+    "508848 01A",
+    "508912 01A",
+    "513640 03W",
+    "513649 03W",
+    "513653 64F",
+    "513654 03W",
+    "518074 01N",
+    "522336",
+    "522979",
+    "527492",
+    "528971",
+    "529091",
+    "529397"
+  ],
+  "generatedAt": "2026-05-31T09:20:24.397873+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

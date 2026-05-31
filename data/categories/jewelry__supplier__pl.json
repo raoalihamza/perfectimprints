@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jewelry/supplier/pl",
+  "type": "facet",
+  "h1": "Custom PL Jewelry for Bulk Orders",
+  "metaTitle": "Custom PL Jewelry | Perfect Imprints",
+  "metaDescription": "Order custom PL jewelry in bulk from Perfect Imprints. Perfect for corporate gifts and events. Get a quote today.",
+  "introHtml": "<p>PL jewelry offers a sleek, professional look that suits corporate gifting and team recognition. Whether you choose a paracord bracelet for outdoor enthusiasts or a mood watch bracelet as a conversation starter, PL pieces combine durability with style. These items are ideal for trade shows, employee rewards, or safety incentives. Decorate with your logo using engraving or screen printing for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom PL jewelry including paracord bracelets and mood watch bracelets with engraved logos",
+  "productSkus": [
+    "516655",
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T09:52:12.531337+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

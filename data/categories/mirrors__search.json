@@ -1,0 +1,27 @@
+{
+  "url": "/cat/mirrors/search",
+  "type": "modifier",
+  "h1": "Custom Mirrors for Branded Promotions",
+  "metaTitle": "Custom Mirrors | Perfect Imprints",
+  "metaDescription": "Browse custom mirrors for your brand. Shop promotional mirrors with personalization at Perfect Imprints.",
+  "introHtml": "<p>Custom mirrors offer a practical and personal way to keep your brand in view. From compact mirrors for on-the-go touch-ups to LED-lit options for desk or purse, each piece becomes a daily reminder of your message. Whether you need a simple logo imprint or a full-color design, our selection covers styles that fit corporate gifts, trade show giveaways, and employee appreciation. Start exploring our range of promotional mirrors to find the perfect match for your next campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom mirrors including compact mirrors and LED-lit mirrors with logo imprint for promotional giveaways.",
+  "productSkus": [
+    "514661",
+    "514932",
+    "522025",
+    "522395",
+    "529298",
+    "529387",
+    "529413"
+  ],
+  "generatedAt": "2026-05-31T09:56:51.349713+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

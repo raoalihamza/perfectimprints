@@ -1,0 +1,21 @@
+{
+  "url": "/cat/calendars/theme/celebrations",
+  "type": "facet",
+  "h1": "Custom Celebrations Calendars for Bulk Orders",
+  "metaTitle": "Custom Celebrations Calendars | Perfect Imprints",
+  "metaDescription": "Order custom celebrations calendars for your team or clients. Perfect for highlighting holidays and special events. Bulk pricing available.",
+  "introHtml": "<p>Celebrations calendars do more than track dates—they highlight holidays, observances, and company milestones throughout the year. For HR directors planning employee engagement or marketing directors coordinating seasonal campaigns, these calendars serve as a visual reminder of key moments. Choose from spiral-bound formats like the 2027 National Day Calendar for a premium feel, or opt for wall calendars with ample space for custom logos and messaging. They keep your brand front and center every day.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom celebrations calendars featuring a spiral-bound 2027 National Day Calendar with branded cover and holiday highlights",
+  "productSkus": [
+    "521091"
+  ],
+  "generatedAt": "2026-05-31T08:51:32.559574+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

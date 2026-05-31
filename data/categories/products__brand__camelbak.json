@@ -1,0 +1,31 @@
+{
+  "url": "/cat/products/brand/camelbak",
+  "type": "facet",
+  "h1": "Custom Camelbak Products for Bulk Orders",
+  "metaTitle": "Custom Camelbak Products | Perfect Imprints",
+  "metaDescription": "Order custom Camelbak products for your team or event. Bulk pricing on bottles, bags & more at Perfect Imprints.",
+  "introHtml": "<p>Camelbak is known for rugged hydration and carry solutions that hold up to daily use. From the 32 oz Chute® Mag Bottle to the Denali 20 Can Cooler Backpack, these products combine durability with practical features like leakproof lids and recycled materials. Perfect for corporate gifts, safety teams, or outdoor events where recipients expect gear that lasts. Decorate with your logo via screen printing or laser engraving for a premium finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Camelbak products including water bottles and backpacks with company logo",
+  "productSkus": [
+    "525013",
+    "525506",
+    "525680",
+    "525681",
+    "526211",
+    "526695",
+    "527057",
+    "527058",
+    "527966",
+    "528153",
+    "528684"
+  ],
+  "generatedAt": "2026-05-31T10:03:25.941283+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

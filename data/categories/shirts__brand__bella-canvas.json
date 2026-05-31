@@ -1,0 +1,27 @@
+{
+  "url": "/cat/shirts/brand/bella-canvas",
+  "type": "facet",
+  "h1": "Custom Bella Canvas Shirts for Bulk Orders",
+  "metaTitle": "Custom Bella Canvas Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Bella Canvas shirts in bulk from Perfect Imprints. Soft, stylish tees and tanks for your brand. Get a quote today!",
+  "introHtml": "<p>Bella Canvas shirts are known for their ultra-soft, modern fit and eco-friendly manufacturing. They're a favorite among brands that want a premium feel without the premium price tag. Whether you're outfitting a team for a charity run or stocking a retail shop, Bella Canvas offers a wide range of styles from triblend tees to racerback tanks. Direct-to-garment or screen printing both work beautifully on these fabrics, ensuring your logo looks crisp and vibrant.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom Bella Canvas shirts in various colors, showing soft fabric and modern fit",
+  "productSkus": [
+    "506191",
+    "506864",
+    "526601",
+    "527377",
+    "528866",
+    "528887",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T08:25:34.358346+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

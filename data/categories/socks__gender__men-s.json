@@ -1,0 +1,21 @@
+{
+  "url": "/cat/socks/gender/men-s",
+  "type": "facet",
+  "h1": "Custom Men's Socks for Bulk Orders",
+  "metaTitle": "Custom Men's Socks | Perfect Imprints",
+  "metaDescription": "Order custom men's socks in bulk for your team or event. Durable, comfortable, and perfect for branding. Get a quote today!",
+  "introHtml": "<p>Men's socks are a practical and appreciated promotional item, especially when chosen for comfort and durability. Whether you need heavyweight merino wool boot socks for outdoor workers or moisture-wicking performance socks for a sports team, custom men's socks offer year-round utility. Decorate them with your logo using embroidery or screen printing for a professional look that lasts wash after wash.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom men's socks in bulk with embroidered logo, merino wool boot socks for branding",
+  "productSkus": [
+    "526363"
+  ],
+  "generatedAt": "2026-05-31T09:02:25.747234+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

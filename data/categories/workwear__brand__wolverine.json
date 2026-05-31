@@ -1,0 +1,21 @@
+{
+  "url": "/cat/workwear/brand/wolverine",
+  "type": "facet",
+  "h1": "Custom Wolverine Workwear for Bulk Orders",
+  "metaTitle": "Custom Wolverine Workwear | Perfect Imprints",
+  "metaDescription": "Order custom Wolverine workwear in bulk. Perfect for teams needing durable, branded gear. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Wolverine workwear is built for durability and comfort, making it a top choice for teams in demanding environments. When you add your logo to Wolverine gear, you get branded apparel that holds up to tough jobs while keeping your team looking professional. From rugged outerwear to performance polos, custom Wolverine workwear offers a practical way to reinforce your company identity on every job site.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Wolverine workwear with embroidered logo on a rugged jacket, suitable for team uniforms and bulk orders.",
+  "productSkus": [
+    "528158"
+  ],
+  "generatedAt": "2026-05-31T10:15:37.969514+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/watches/supplier/imprintid",
+  "type": "facet",
+  "h1": "Custom ImprintID Watches for Bulk Orders",
+  "metaTitle": "Custom ImprintID Watches | Perfect Imprints",
+  "metaDescription": "Order custom ImprintID watches for your team or event. Perfect for bulk branding with reliable delivery from Perfect Imprints.",
+  "introHtml": "<p>ImprintID watches combine durable construction with a variety of styles, from the casual Paracord Bracelet to the modern Mood Watch Bracelet. These pieces offer a comfortable fit and reliable timekeeping, making them ideal for employee recognition, safety incentives, or event giveaways. With ample space for your logo or message, you can create a lasting impression that recipients will wear daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom ImprintID watches including paracord bracelet and mood watch bracelet for bulk orders",
+  "productSkus": [
+    "516655",
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T09:04:22.516756+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

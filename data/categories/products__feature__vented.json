@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/vented",
+  "type": "facet",
+  "h1": "Custom Vented Products for Bulk Orders",
+  "metaTitle": "Custom Vented Products | Perfect Imprints",
+  "metaDescription": "Order custom vented products in bulk at Perfect Imprints. Ideal for safety and comfort. Get a fast quote today.",
+  "introHtml": "<p>Vented products allow airflow while maintaining brand visibility, making them a smart choice for safety managers and HR directors who need comfortable, breathable giveaways for outdoor events or warehouse teams. From vented hard hats to mesh backpacks, these items keep users cool on the job or on the go. Decorate with screen printing or embroidery for a polished look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom vented products including a mesh-back cap and a safety helmet with ventilation holes for breathability.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:07.684231+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

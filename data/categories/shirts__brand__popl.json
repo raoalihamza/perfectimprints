@@ -1,0 +1,22 @@
+{
+  "url": "/cat/shirts/brand/popl",
+  "type": "facet",
+  "h1": "Custom Popl Shirts for Branded Apparel",
+  "metaTitle": "Custom Popl Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Popl shirts for your team. Perfect for uniforms, events, and brand visibility. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Popl shirts combine modern style with durable comfort, making them a smart choice for businesses that want their branded apparel to stand out. Whether you're outfitting a retail team in the Ladies Montauk Henley or gearing up field staff in the Vansport Pro Maui Shirt, Popl's consistent sizing and quality fabrics ensure a professional look across all body types. These shirts take screen printing and embroidery cleanly, so your logo stays sharp wash after wash.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Popl shirts for bulk orders featuring embroidered logos on stylish henley and polo styles",
+  "productSkus": [
+    "523719",
+    "527895"
+  ],
+  "generatedAt": "2026-05-31T08:27:26.118358+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

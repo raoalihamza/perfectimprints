@@ -1,0 +1,27 @@
+{
+  "url": "/cat/speakers/feature/padded",
+  "type": "facet",
+  "h1": "Custom Padded Speakers for Bulk Orders",
+  "metaTitle": "Custom Padded Speakers | Perfect Imprints",
+  "metaDescription": "Order custom padded speakers for your next event or promotion. Durable, portable, and perfect for branding. Get a quote today!",
+  "introHtml": "<p>Padded speakers offer a distinct advantage for bulk buyers: the soft-touch exterior protects the device during transport while providing a comfortable grip. Whether you're outfitting a sales team with portable Bluetooth speakers or creating branded giveaways for a trade show, the padded construction ensures your logo stands out on a durable, travel-friendly surface. Options like the Roxbox Duet or Rugged Fabric Waterproof Bluetooth Speaker combine padding with robust audio performance.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom padded speakers with soft-touch exterior and Bluetooth connectivity for branding",
+  "productSkus": [
+    "515347",
+    "521630",
+    "522070",
+    "523659",
+    "526637",
+    "527974",
+    "528133"
+  ],
+  "generatedAt": "2026-05-31T10:07:33.966963+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

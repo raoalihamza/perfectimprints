@@ -1,0 +1,30 @@
+{
+  "url": "/cat/products/brand/solo",
+  "type": "facet",
+  "h1": "Custom Solo Products for Branded Giveaways",
+  "metaTitle": "Custom Solo Products | Perfect Imprints",
+  "metaDescription": "Order custom Solo products for your brand. From bags to fire pits, Perfect Imprints offers bulk customization with fast turnaround.",
+  "introHtml": "<p>Solo offers a versatile range of products that blend style and function, from professional laptop bags and backpacks to innovative outdoor gear like smokeless fire pits. When you choose custom Solo products for your corporate giveaways or employee incentives, you're selecting items that recipients will actually use and appreciate. Personalize Solo bags with your logo using embroidery or screen printing, or add laser engraving to Solo Stove fire pits for a unique branded experience that stands out at company events or trade shows.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Solo products including branded laptop bags and Solo Stove fire pits with logo personalization",
+  "productSkus": [
+    "524395",
+    "524396",
+    "524397",
+    "524398",
+    "524400",
+    "524401",
+    "524403",
+    "524404",
+    "529455",
+    "529456"
+  ],
+  "generatedAt": "2026-05-31T08:36:48.930733+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

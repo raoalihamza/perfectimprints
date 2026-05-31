@@ -1,0 +1,30 @@
+{
+  "url": "/cat/flasks/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Flasks for Bulk Orders",
+  "metaTitle": "Custom Purple Flasks | Perfect Imprints",
+  "metaDescription": "Order custom purple flasks for your brand. Perfect for promotions, events, or gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Purple flasks offer a distinctive color choice for promotional giveaways, corporate gifts, or event favors. This rich hue stands out from standard silver or black options, making your logo more memorable. Whether you are outfitting a sales team or rewarding employees, custom purple flasks convey a sense of creativity and sophistication. Decorate them with your logo using screen printing or engraving for a polished look that recipients will appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple flasks with engraved logo, displayed on a table with other promotional items.",
+  "productSkus": [
+    "510028",
+    "511450",
+    "520634",
+    "524524",
+    "524525",
+    "524527",
+    "524528",
+    "525816",
+    "525817",
+    "527252"
+  ],
+  "generatedAt": "2026-05-31T09:46:12.102060+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

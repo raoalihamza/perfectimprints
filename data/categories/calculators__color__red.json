@@ -1,0 +1,23 @@
+{
+  "url": "/cat/calculators/color/red",
+  "type": "facet",
+  "h1": "Custom Red Calculators for Bulk Orders",
+  "metaTitle": "Custom Red Calculators | Perfect Imprints",
+  "metaDescription": "Order custom red calculators with your logo in bulk. Perfect for promotions and giveaways. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom red calculators make your logo stand out in a sea of standard black and gray office supplies. Whether you are equipping a sales team with branded Value Calculators or handing out slim models at trade shows, red adds a pop of color that gets noticed. Red calculators are especially popular for holiday promotions, company store items, and safety incentive programs where visibility matters. Choose from basic four-function models or slim credit-card styles, all customizable with your imprint.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A row of custom red calculators with company logos on a desk, including a Value Calculator and a slim model.",
+  "productSkus": [
+    "502790",
+    "503150",
+    "503253"
+  ],
+  "generatedAt": "2026-05-31T09:38:55.516204+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

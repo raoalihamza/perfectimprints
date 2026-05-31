@@ -1,0 +1,24 @@
+{
+  "url": "/cat/pencil-sharpeners/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Pencil Sharpeners",
+  "metaTitle": "Custom Plastic Pencil Sharpeners | Perfect Imprints",
+  "metaDescription": "Order custom plastic pencil sharpeners in bulk. Great for schools and offices. Get your brand in their hands.",
+  "introHtml": "<p>Plastic pencil sharpeners are lightweight, affordable, and easy to customize with your logo or message. Whether you need a simple sharpener for a back-to-school promotion or a fun-shaped design like the Googly-Eyed Eraser/Sharpener for a safety event, plastic sharpeners offer durability without the weight of metal. They're available in various colors and styles, making them a versatile giveaway for any budget.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom plastic pencil sharpeners with printed logos, ideal for school and office promotions.",
+  "productSkus": [
+    "521678",
+    "528914",
+    "528915",
+    "528918"
+  ],
+  "generatedAt": "2026-05-31T10:00:04.955434+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

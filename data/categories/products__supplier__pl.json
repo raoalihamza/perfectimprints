@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/pl",
+  "type": "facet",
+  "h1": "Custom PL Products for Bulk Orders",
+  "metaTitle": "Custom PL Products | Perfect Imprints",
+  "metaDescription": "Order custom PL products in bulk from Perfect Imprints. Ideal for giveaways, events, and brand promotions.",
+  "introHtml": "<p>Custom PL products offer a reliable way to promote your brand with items that combine quality and practicality. Whether you need custom printed PL products for trade shows, employee gifts, or client appreciation, these items deliver consistent results. Choose from a range of decoration options including screen printing and laser engraving to match your logo perfectly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom PL products including branded PL items for promotional giveaways and corporate events",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:23:18.585801+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

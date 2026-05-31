@@ -1,0 +1,32 @@
+{
+  "url": "/cat/apparel-accessories/decoration/embroidery",
+  "type": "facet",
+  "h1": "Custom Embroidery Apparel Accessories",
+  "metaTitle": "Custom Embroidery Apparel Accessories | Perfect Imprints",
+  "metaDescription": "Order custom embroidery on apparel accessories like fleece gloves, scarves & more. Perfect for corporate gifts and team uniforms.",
+  "introHtml": "<p>When you choose embroidery for your apparel accessories, you get a premium, dimensional look that stands up to repeated wear and washing. Unlike screen printing, embroidery adds texture and durability to items like fleece gloves, scarves, and earbands. It is ideal for corporate gifts, trade show giveaways, or employee recognition where a polished, long-lasting logo matters. Our embroidery process works beautifully on fleece and knit fabrics, giving your brand a professional finish that recipients will appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Fleece gloves and scarves with custom embroidery logo detail",
+  "productSkus": [
+    "514088",
+    "516755",
+    "516800",
+    "516831",
+    "516832",
+    "516833",
+    "516834",
+    "516836",
+    "516837",
+    "516838",
+    "516872",
+    "520863"
+  ],
+  "generatedAt": "2026-05-31T09:31:49.346813+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

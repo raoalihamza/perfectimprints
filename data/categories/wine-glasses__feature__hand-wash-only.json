@@ -1,0 +1,29 @@
+{
+  "url": "/cat/wine-glasses/feature/hand-wash-only",
+  "type": "facet",
+  "h1": "Custom Hand Wash Only Wine Glasses",
+  "metaTitle": "Custom Hand Wash Only Wine Glasses | Perfect Imprints",
+  "metaDescription": "Order custom hand wash only wine glasses for your brand. Perfect for gifts and events. Shop at Perfect Imprints.",
+  "introHtml": "<p>Hand wash only wine glasses are designed for those who appreciate quality materials that require gentle care. Options like the 25 oz BrüMate Winesulator or the 12 oz Napa Stemless Wine Tumbler offer excellent insulation and durability, making them ideal for corporate gifts or event giveaways where you want a premium feel. Decorating with screen printing or full-color digital ensures your logo stands out on these unique shapes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hand wash only wine glasses featuring a stemless tumbler with a company logo printed in full color.",
+  "productSkus": [
+    "511450",
+    "520339",
+    "522060",
+    "522955",
+    "524524",
+    "524525",
+    "524526",
+    "526191",
+    "527802"
+  ],
+  "generatedAt": "2026-05-31T10:14:55.005457+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

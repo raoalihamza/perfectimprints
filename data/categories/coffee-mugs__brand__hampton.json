@@ -1,0 +1,21 @@
+{
+  "url": "/cat/coffee-mugs/brand/hampton",
+  "type": "facet",
+  "h1": "Custom Hampton Coffee Mugs for Bulk Orders",
+  "metaTitle": "Custom Hampton Coffee Mugs | Perfect Imprints",
+  "metaDescription": "Order custom Hampton coffee mugs in bulk. Perfect for offices and events. Get a quote today!",
+  "introHtml": "<p>Hampton coffee mugs bring a classic ceramic feel with a smooth finish that suits any corporate kitchen or breakroom. Their 11 oz capacity is ideal for daily coffee or tea, and the rounded handle provides a comfortable grip. When you add your logo or message with screen printing or full-color decoration, these mugs become a practical giveaway that recipients use every day. Choose Hampton for a timeless, reliable promotional mug that stands up to frequent washing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hampton coffee mugs with company logo printed on smooth ceramic surface, perfect for corporate gifts.",
+  "productSkus": [
+    "510964"
+  ],
+  "generatedAt": "2026-05-31T08:40:48.975966+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

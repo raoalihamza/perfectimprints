@@ -1,0 +1,24 @@
+{
+  "url": "/cat/cocktail-glasses/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Cocktail Glasses",
+  "metaTitle": "Custom Purple Cocktail Glasses | Perfect Imprints",
+  "metaDescription": "Order custom purple cocktail glasses with your logo. Ideal for events and branding. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Custom purple cocktail glasses add a bold pop of color to events, bar promotions, and corporate gifts. Whether you choose stemless wine glasses or reusable plastic flutes for outdoor gatherings, purple stands out in photos and on shelves. Decorate with screen printing or full-color digital for a vibrant logo that matches your brand palette. These glasses are practical giveaways that recipients actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple cocktail glasses with a screened logo, arranged on a bar table for an event",
+  "productSkus": [
+    "511450",
+    "524524",
+    "524525",
+    "527252"
+  ],
+  "generatedAt": "2026-05-31T08:52:15.762443+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

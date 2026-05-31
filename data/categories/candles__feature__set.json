@@ -1,0 +1,23 @@
+{
+  "url": "/cat/candles/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Candles for Bulk Orders",
+  "metaTitle": "Custom Set Candles | Perfect Imprints",
+  "metaDescription": "Order custom set candles in bulk at Perfect Imprints. Perfect for corporate gifts, events, and client appreciation.",
+  "introHtml": "<p>Custom set candles offer a coordinated gift solution that stands out from single candle orders. Whether you choose a pamper set with matching accessories or a premium wood wick candle in a wooden box, these sets create a cohesive brand experience. Ideal for corporate gifting, event favors, or employee recognition, each set can be decorated with your logo via screen printing or foil stamping. Bulk buyers appreciate the perceived value and convenience of a ready-to-gift package.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set candles in bulk with branded packaging, including wood wick candle in wooden box and pamper set",
+  "productSkus": [
+    "521842",
+    "527052",
+    "528964"
+  ],
+  "generatedAt": "2026-05-31T09:39:15.070516+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

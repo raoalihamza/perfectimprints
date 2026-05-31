@@ -1,0 +1,21 @@
+{
+  "url": "/cat/health/material/leather",
+  "type": "facet",
+  "h1": "Custom Leather Health Products for Your Team",
+  "metaTitle": "Custom Leather Health Products | Perfect Imprints",
+  "metaDescription": "Shop custom leather health products at Perfect Imprints. Ideal for workplace safety kits and branded giveaways. Order bulk today!",
+  "introHtml": "<p>Leather health products offer a durable and professional look that stands out from standard plastic or nylon options. Perfect for first aid kits, safety kits, or wellness packs, leather adds a touch of quality that employees and clients appreciate. Whether you are equipping a construction crew or assembling corporate gift sets, leather health items like the Bronze Automotive Kit provide lasting value and a premium feel that reflects your brand's commitment to quality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom leather health products including a leather first aid kit with branded logo, ideal for bulk corporate giveaways",
+  "productSkus": [
+    "524538"
+  ],
+  "generatedAt": "2026-05-31T08:22:20.688590+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,29 @@
+{
+  "url": "/cat/health/feature/led-light",
+  "type": "facet",
+  "h1": "Custom LED Light Health Products for Bulk Orders",
+  "metaTitle": "Custom LED Light Health Products | Perfect Imprints",
+  "metaDescription": "Order custom LED light health products for your team. Bulk pricing on sound machines, mirrors, and more. Get a quote today!",
+  "introHtml": "<p>LED light health products combine functional illumination with wellness benefits, making them ideal for corporate wellness programs, safety kits, and employee appreciation. From sound machines with integrated LED displays to cosmetic mirrors with adjustable lighting, these items help promote better sleep, relaxation, or workplace safety. Decorate with your logo using screen printing or laser engraving for a polished, professional look that stands out in break rooms or on desks.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom LED light health products including a sound machine with LED display and a cosmetic mirror with LED lights",
+  "productSkus": [
+    "513338",
+    "517502 53P",
+    "525616",
+    "526001",
+    "527032",
+    "527791",
+    "528132",
+    "529298",
+    "529387"
+  ],
+  "generatedAt": "2026-05-31T09:50:33.763767+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

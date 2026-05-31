@@ -1,0 +1,21 @@
+{
+  "url": "/cat/jars/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Jars for Bulk Orders",
+  "metaTitle": "Custom Blue Jars | Perfect Imprints",
+  "metaDescription": "Order custom blue jars in bulk for your brand. Perfect for gifts, events, and promotions. Get a quote today!",
+  "introHtml": "<p>Blue jars offer a versatile canvas for your brand, from deep navy to vibrant cobalt. Whether you're outfitting a company picnic with 22 oz Fiesta Mason Jar Tumblers or creating a coordinated giveaway for a trade show, blue jars stand out on any table. Their glass construction pairs well with screen printing or full-color labels, ensuring your logo looks crisp. Choose blue for a classic, trustworthy look that resonates with employees and customers alike.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue jars in bulk, including 22 oz Fiesta Mason Jar Tumblers with logo imprint",
+  "productSkus": [
+    "506911"
+  ],
+  "generatedAt": "2026-05-31T09:16:43.562626+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

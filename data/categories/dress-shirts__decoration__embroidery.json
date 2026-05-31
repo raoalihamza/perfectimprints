@@ -1,0 +1,33 @@
+{
+  "url": "/cat/dress-shirts/decoration/embroidery",
+  "type": "facet",
+  "h1": "Custom Embroidery Dress Shirts for Your Team",
+  "metaTitle": "Custom Embroidery Dress Shirts | Perfect Imprints",
+  "metaDescription": "Order custom embroidery dress shirts for your team. Perfect for uniforms or corporate events. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Embroidery adds a polished, professional finish to dress shirts that screen printing cannot match. Whether you are outfitting a sales team in Oxford cloth or issuing twill shirts to safety managers, stitched logos resist fading and wear better than printed designs. Choose from classic pinpoint Oxfords or durable twill weaves, and let us embroider your company mark on the chest or sleeve for a crisp, lasting look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of custom embroidery dress shirts with stitched logos on chest, including Oxford and twill styles",
+  "productSkus": [
+    "501740",
+    "501741",
+    "513877",
+    "513878",
+    "513879",
+    "513880",
+    "519010",
+    "519011",
+    "519684",
+    "519685",
+    "520265",
+    "520266",
+    "520267"
+  ],
+  "generatedAt": "2026-05-31T08:33:35.209873+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

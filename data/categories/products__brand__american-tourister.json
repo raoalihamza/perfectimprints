@@ -1,0 +1,21 @@
+{
+  "url": "/cat/products/brand/american-tourister",
+  "type": "facet",
+  "h1": "Custom American Tourister Products for Bulk Orders",
+  "metaTitle": "Custom American Tourister Products | Perfect Imprints",
+  "metaDescription": "Order bulk custom American Tourister products from Perfect Imprints. Brand bags for giveaways, events, and corporate gifts.",
+  "introHtml": "<p>American Tourister products combine durable construction with a trusted brand name, making them a smart choice for corporate gifts and promotional giveaways. The Zoom Turbo Sling Bag offers a sleek, compact design with multiple compartments, ideal for tradeshow attendees or employee onboarding kits. Choose from embroidery or screen printing to add your logo, and ensure your brand travels well with a reliable partner.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom American Tourister products including the Zoom Turbo Sling Bag with embroidered logo for corporate events",
+  "productSkus": [
+    "527196"
+  ],
+  "generatedAt": "2026-05-31T09:23:50.315535+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

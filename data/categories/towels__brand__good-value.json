@@ -1,0 +1,19 @@
+{
+  "url": "/cat/towels/brand/good-value",
+  "type": "facet",
+  "h1": "Custom Good Value Towels for Bulk Orders",
+  "metaTitle": "Custom Good Value Towels | Perfect Imprints",
+  "metaDescription": "Order custom Good Value towels in bulk. Perfect for gyms, hotels, and events. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Good Value towels offer a reliable balance of absorbency and durability without stretching your budget. Whether you need branded hand towels for a hotel chain or sports towels for a corporate wellness program, these towels accept screen printing or embroidery cleanly. Choose from terry or microfiber options in standard sizes to keep your logo visible and your costs predictable.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom Good Value towels with embroidered logo, available in bulk for businesses",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:11:57.123374+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

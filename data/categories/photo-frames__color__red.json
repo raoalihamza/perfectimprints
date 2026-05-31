@@ -1,0 +1,22 @@
+{
+  "url": "/cat/photo-frames/color/red",
+  "type": "facet",
+  "h1": "Custom Red Photo Frames",
+  "metaTitle": "Custom Red Photo Frames | Perfect Imprints",
+  "metaDescription": "Order custom red photo frames in bulk for gifts or events. Perfect for branding. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Red photo frames make a bold statement in any office or event setting. Whether you are recognizing employee achievements or thanking clients, a custom red frame draws attention to the photo inside. Our 4\" x 6\" Color Plus Frame offers a vibrant red finish that pairs well with screen-printed logos or engraved text. Choose red for a color that symbolizes energy and passion, and let your recipients know their contribution matters.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red photo frames with screen-printed logo, 4x6 inch size, perfect for corporate gifts",
+  "productSkus": [
+    "502584",
+    "516843"
+  ],
+  "generatedAt": "2026-05-31T10:01:55.633423+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

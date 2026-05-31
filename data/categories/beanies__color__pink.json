@@ -1,0 +1,21 @@
+{
+  "url": "/cat/beanies/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Beanies for Bulk Orders",
+  "metaTitle": "Custom Pink Beanies | Perfect Imprints",
+  "metaDescription": "Order custom pink beanies in bulk for your team or event. Perfect for branding with embroidery or screen printing.",
+  "introHtml": "<p>Pink beanies offer a bold and friendly way to showcase your brand during colder months. Unlike neutral tones, pink stands out in a crowd, making it ideal for breast cancer awareness campaigns, women's events, or any promotion where you want visibility and warmth. Choose from cuff styles that accept embroidery or screen printing for a crisp logo placement. Bulk orders ensure consistent color matching across every beanie, so your brand looks cohesive whether you order 50 or 500.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink beanies with embroidered logo on cuff, soft knit fabric, ideal for winter branding",
+  "productSkus": [
+    "516012"
+  ],
+  "generatedAt": "2026-05-31T08:39:55.006184+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

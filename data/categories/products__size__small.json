@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/size/small",
+  "type": "facet",
+  "h1": "Custom Small Products for Branded Giveaways",
+  "metaTitle": "Custom Small Products | Perfect Imprints",
+  "metaDescription": "Shop custom small products for your next event. Perfect Imprints offers bulk pricing on branded giveaways. Order today!",
+  "introHtml": "<p>Small products offer a low-cost way to get your logo into the hands of a large audience. From pocket-sized notepads to mini flashlights, these compact items are ideal for trade shows, welcome kits, and promotional mailers. Choose from a variety of imprint methods including pad printing and laser engraving to ensure crisp branding on every piece.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assortment of custom small products including pens, keychains, and stress relievers with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:19.531678+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/the-goods",
+  "type": "facet",
+  "h1": "Custom The Goods Products for Your Brand",
+  "metaTitle": "Custom The Goods Products | Perfect Imprints",
+  "metaDescription": "Order custom The Goods products for your brand. Perfect Imprints offers bulk pricing and fast turnaround on branded merchandise.",
+  "introHtml": "<p>The Goods brand combines modern design with practical functionality, making their products ideal for corporate gifts, employee incentives, and trade show giveaways. From stainless steel drinkware to tech accessories, each item features clean lines and durable materials that reflect well on your company. Choose from multiple decoration methods including laser engraving and full-color print to match your logo perfectly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assortment of custom The Goods products including water bottles and notebooks with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:45:48.078435+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

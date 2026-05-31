@@ -1,0 +1,23 @@
+{
+  "url": "/cat/stationery/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Stationery",
+  "metaTitle": "Custom Made in USA Stationery | Perfect Imprints",
+  "metaDescription": "Order custom made in USA stationery for your business. Bulk pricing, fast turnaround. Get a quote today!",
+  "introHtml": "<p>Choosing made in USA stationery ensures quality craftsmanship and supports domestic manufacturing. Perfect for corporate greeting cards, note pads, and letterhead that reflect your brand's commitment to American-made products. Our selection includes premium paper stocks and eco-friendly options suitable for bulk orders, with decoration methods like foil stamping or full-color printing that make your logo stand out. Whether you need holiday cards or everyday correspondence, these products deliver a professional touch that resonates with clients and employees alike.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA stationery including greeting cards and note pads, perfect for corporate branding and bulk orders.",
+  "productSkus": [
+    "513760 2EX",
+    "513761 2EX",
+    "513762 2EX"
+  ],
+  "generatedAt": "2026-05-31T10:08:41.166122+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

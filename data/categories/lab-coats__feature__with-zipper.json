@@ -1,0 +1,22 @@
+{
+  "url": "/cat/lab-coats/feature/with-zipper",
+  "type": "facet",
+  "h1": "Custom Lab Coats with Zipper for Bulk Orders",
+  "metaTitle": "Custom Lab Coats with Zipper | Perfect Imprints",
+  "metaDescription": "Order custom lab coats with zipper for your team. Durable, professional, and perfect for branding. Get a quote today!",
+  "introHtml": "<p>Lab coats with zippers offer a secure, professional fit that buttons can't match. Perfect for labs, medical offices, or clean rooms where quick changes are essential. The zipper closure keeps the coat neatly closed, reducing snag hazards and providing a streamlined look. Decorate with your logo using embroidery or screen printing for a polished, branded uniform that your team will appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom lab coats with zipper featuring embroidered logo on chest pocket",
+  "productSkus": [
+    "511088",
+    "511120"
+  ],
+  "generatedAt": "2026-05-31T08:56:45.229277+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

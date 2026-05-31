@@ -1,0 +1,23 @@
+{
+  "url": "/cat/desk-mugs/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Desk Mugs for Your Office",
+  "metaTitle": "Custom Pink Desk Mugs | Perfect Imprints",
+  "metaDescription": "Order custom pink desk mugs for your office. Perfect for branding and giveaways. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Pink desk mugs add a pop of color to any office, making them a popular choice for breast cancer awareness campaigns, women's leadership events, or simply to brighten a workspace. Available in finishes like matte or metallic, these mugs can be decorated with your logo using full-color imprint or engraving. The 15 oz Campfire Mug offers a generous size for coffee lovers, while the 11 oz Hampton Collection Mug provides a classic silhouette for everyday use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink desk mugs with company logos, including a 15 oz Campfire Mug and an 11 oz Hampton Collection Mug",
+  "productSkus": [
+    "510964",
+    "521384",
+    "524786"
+  ],
+  "generatedAt": "2026-05-31T09:11:38.663890+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

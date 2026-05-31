@@ -1,0 +1,30 @@
+{
+  "url": "/cat/wine-tumblers/brand/yeti",
+  "type": "facet",
+  "h1": "Custom Yeti Wine Tumblers for Your Brand",
+  "metaTitle": "Custom Yeti Wine Tumblers | Perfect Imprints",
+  "metaDescription": "Order custom Yeti wine tumblers with your logo. Durable stainless steel, perfect for events and gifts. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Yeti wine tumblers combine the brand's legendary Duracoat™ finish and double-wall vacuum insulation with a stemless design that keeps white wines chilled and reds at the ideal temperature. Perfect for corporate gift sets, trade show giveaways, or hospitality client appreciation, these tumblers accept laser engraving or screen printing for a crisp, lasting logo. Choose the 10 oz stackable lowball or the 20 oz tumbler for versatile branding opportunities that recipients will use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Yeti wine tumblers with engraved logo, stainless steel double-wall insulation, perfect for branded corporate gifts",
+  "productSkus": [
+    "528839",
+    "528840",
+    "528841",
+    "528844",
+    "528845",
+    "528846",
+    "528847",
+    "529532",
+    "529533",
+    "529534"
+  ],
+  "generatedAt": "2026-05-31T10:15:20.855467+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

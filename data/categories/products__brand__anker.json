@@ -1,0 +1,23 @@
+{
+  "url": "/cat/products/brand/anker",
+  "type": "facet",
+  "h1": "Custom Anker Products for Bulk Orders",
+  "metaTitle": "Custom Anker Products - Perfect Imprints",
+  "metaDescription": "Order custom Anker products with your logo. Perfect for corporate gifts and employee rewards. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Anker products are known for reliable charging and audio gear, making them ideal for corporate gifts and employee recognition. Whether you choose the 40 oz Denali Thermal Mug for outdoor enthusiasts or the 5000 mAh PowerCore Fusion for road warriors, each item offers daily utility. Customize with your logo via laser engraving or pad printing to keep your brand visible for years.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Anker products including thermal mug and power bank with logo engraving",
+  "productSkus": [
+    "524364",
+    "526549",
+    "527719"
+  ],
+  "generatedAt": "2026-05-31T09:23:50.230827+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

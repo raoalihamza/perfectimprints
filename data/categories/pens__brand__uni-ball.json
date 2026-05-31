@@ -1,0 +1,30 @@
+{
+  "url": "/cat/pens/brand/uni-ball",
+  "type": "facet",
+  "h1": "Custom Uni Ball Pens for Bulk Orders",
+  "metaTitle": "Custom Uni Ball Pens | Perfect Imprints",
+  "metaDescription": "Order custom Uni Ball pens for your brand. Smooth writing, reliable performance. Get a quote today.",
+  "introHtml": "<p>Uni Ball pens are known for their smooth, skip-free writing and durable ink. When you choose custom Uni Ball pens for your business, you get a writing instrument that recipients will actually use, keeping your brand top of mind. Whether you need retractable gel pens for a corporate event or rollerballs for everyday office use, Uni Ball offers a range of styles that pair well with pad printing or laser engraving. These pens are ideal for marketing directors and HR managers who want a premium giveaway that performs as well as it looks.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom Uni Ball pens with logos, including gel and rollerball styles, on a white background.",
+  "productSkus": [
+    "507227",
+    "507233",
+    "508066",
+    "508930",
+    "510260",
+    "525805",
+    "525810",
+    "525811",
+    "526876",
+    "527857"
+  ],
+  "generatedAt": "2026-05-31T08:45:11.871267+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

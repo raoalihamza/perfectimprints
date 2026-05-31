@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tank-tops/neckline/v-neck",
+  "type": "facet",
+  "h1": "Custom V-Neck Tank Tops",
+  "metaTitle": "Custom V-Neck Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom v neck tank tops for your team or event. Perfect for summer giveaways and apparel. Soft, stylish, and ready for your logo.",
+  "introHtml": "<p>Custom v neck tank tops offer a flattering, modern silhouette that stands out from standard crewneck tanks. Whether you're outfitting a summer festival staff or creating a stylish uniform for a charity run, the v-neckline adds a polished touch. Decorate with screen printing or embroidery on soft jersey fabrics from brands like Bella+Canvas and Gildan for a comfortable fit that your recipients will actually wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom v neck tank tops in assorted colors with screen printed logos, stacked for display.",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T09:03:21.999379+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/bags/activity/biking",
+  "type": "facet",
+  "h1": "Custom Biking Bags for Bulk Orders",
+  "metaTitle": "Custom Biking Bags | Perfect Imprints",
+  "metaDescription": "Order custom biking bags for your team or event. Durable, reflective, and branded for safety. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom biking bags serve a specific purpose: they need to be lightweight, durable, and often reflective for safety. Unlike standard promotional bags, biking bags like the CamelBak Eco-Hydrobak or a reflective drawstring tote offer hands-free hydration or high-visibility features. Whether you're outfitting a corporate cycling team or distributing safety kits for a bike-to-work event, these bags combine utility with brand exposure. Choose hydration packs, backpacks, or totes that keep riders comfortable and your logo visible on the move.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom biking bags for bulk orders, including hydration packs and reflective totes for cycling events.",
+  "productSkus": [
+    "513619",
+    "521307",
+    "525506",
+    "528156"
+  ],
+  "generatedAt": "2026-05-31T09:06:52.797619+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

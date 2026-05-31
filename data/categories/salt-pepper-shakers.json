@@ -1,0 +1,53 @@
+{
+  "url": "/cat/salt-pepper-shakers",
+  "type": "root",
+  "h1": "Custom Salt & Pepper Shakers for Branded Events",
+  "metaTitle": "Custom Salt & Pepper Shakers | Perfect Imprints",
+  "metaDescription": "Order custom salt and pepper shakers with your logo. Perfect for restaurants, events, and gifts. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Custom salt and pepper shakers are a practical and memorable promotional item that keeps your brand front and center during every meal. Made from durable materials like ceramic, glass, or acrylic, these shakers can be decorated with your logo using screen printing, pad printing, or full-color heat transfer. The tight-fitting lids and precise dispensing holes ensure consistent seasoning without mess, making them a favorite for restaurants, caterers, and corporate gift givers. Whether you're outfitting a chain of diners or assembling welcome kits for a trade show, branded shakers offer daily exposure in kitchens and dining rooms.</p><p>Marketing directors appreciate the low cost per impression, while HR directors use them as creative employee appreciation gifts. Business owners often order bulk sets for customer giveaways or to stock break rooms. With a wide range of shapes and sizes, from classic diner-style to modern minimalist designs, you can match the aesthetic of your brand. Most suppliers offer low minimum order quantities, so even small businesses can get started. Add your logo in one or two colors to keep costs low, or go full-color for vibrant, photo-quality branding.</p>",
+  "buyingGuideHtml": "<p>When ordering custom salt and pepper shakers, the first decision is material. Ceramic shakers offer a premium feel and are dishwasher-safe, but they can break if dropped. Glass shakers are clear, allowing the contents to show, and are also easy to clean. Acrylic shakers are lightweight and shatterproof, making them ideal for outdoor events or giveaway bags. Consider where the shakers will be used: restaurants may prefer ceramic or glass for durability, while promotional events often benefit from acrylic for portability.</p><h3>Decoration Options</h3><p>Screen printing works well for simple logos with one or two colors on flat surfaces. Pad printing is better for curved or irregular shapes. Full-color heat transfer or sublimation can produce detailed, photographic images on acrylic or ceramic. If you want a metallic or reflective logo, consider foil stamping. Always request a sample or proof before finalizing to ensure color accuracy and placement.</p><p>Common use cases include restaurant table settings, corporate gift baskets, employee appreciation kits, and wedding favors. Marketing directors often order promotional salt and pepper shakers for trade show giveaways, while HR directors include them in new hire welcome packages. Business owners use branded shakers as customer thank-you gifts or to promote a new location. For seasonal campaigns, consider holiday-themed designs or custom shapes like snowmen or pumpkins.</p><p>Quantity guidance: Most suppliers require a minimum order of 50 to 100 units for custom printing. Bulk orders of 500 or more typically offer the best per-unit pricing. If you need a small run for a local event, look for suppliers with low MOQs or stock options that can be personalized with labels. Keep in mind that setup fees for screen or pad printing are a one-time cost, so ordering a larger quantity spreads that expense across more units.</p><p>Common buying mistakes include choosing a material that doesn't match the use environment (e.g., glass for outdoor picnics) or selecting a decoration method that doesn't adhere well to the surface. Always check if the shakers are food-safe and if the lids are secure enough for shipping. Lead times vary from 2 to 4 weeks for custom orders, so plan ahead for events. If you need them quickly, some suppliers offer rush production or standard shapes that can be decorated faster.</p>",
+  "buyingGuideH2": "Custom Salt & Pepper Shakers Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom salt and pepper shakers?",
+      "a": "Most suppliers require a minimum of 50 to 100 units for custom printing. Some offer lower MOQs for stock shapes or with label decoration. Always confirm with your supplier before placing an order."
+    },
+    {
+      "q": "What decoration methods work best for salt and pepper shakers?",
+      "a": "Screen printing is ideal for flat surfaces and simple logos. Pad printing works on curved or textured shapes. Full-color heat transfer or sublimation is best for detailed designs. Foil stamping adds a metallic finish."
+    },
+    {
+      "q": "How long does production take for custom shakers?",
+      "a": "Typical lead time is 2 to 4 weeks from artwork approval. Rush production may be available for an additional fee. Always factor in shipping time when planning for an event."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, most suppliers offer pre-production samples for a fee, which is often credited toward the final order. This is recommended to check color, fit, and print quality."
+    },
+    {
+      "q": "Are custom salt and pepper shakers food-safe?",
+      "a": "Yes, reputable suppliers use food-safe materials and inks. Ceramic and glass shakers are typically dishwasher-safe. Acrylic shakers should be hand-washed to avoid scratching. Always verify with your supplier."
+    }
+  ],
+  "heroAltText": "Custom salt and pepper shakers with logo, ceramic and glass options, bulk promotional items",
+  "productSkus": [
+    "506990",
+    "506991",
+    "521602",
+    "522110",
+    "522111",
+    "524691",
+    "524692",
+    "524693",
+    "524695",
+    "524817",
+    "526912"
+  ],
+  "generatedAt": "2026-05-30T11:55:16.583541+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "material_quality",
+  "skuFilterMode": "full",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

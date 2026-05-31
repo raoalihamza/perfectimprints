@@ -1,0 +1,22 @@
+{
+  "url": "/cat/fans/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Fans",
+  "metaTitle": "Custom Made in USA Fans | Perfect Imprints",
+  "metaDescription": "Shop custom made in USA fans for your next event or promotion. Bulk orders available at Perfect Imprints. Get a quote today.",
+  "introHtml": "<p>Choosing custom made in USA fans supports American manufacturing and ensures fast turnaround times for your promotional campaigns. Whether you need hand-held flyers for a trade show or dog-safe flyers for a pet adoption event, these fans combine durable construction with vibrant full-color imprinting. The 7\" Flyer is a popular choice for outdoor events, while the Fetch! 9\" Dog-Safe Flyer offers a unique giveaway for pet-focused audiences. Both are proudly assembled in the United States, making them a strong choice for companies emphasizing domestic sourcing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA fans with full-color imprinting, including a 7-inch flyer and a 9-inch dog-safe flyer",
+  "productSkus": [
+    "507687",
+    "513209"
+  ],
+  "generatedAt": "2026-05-31T09:45:37.680931+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

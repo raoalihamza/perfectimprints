@@ -1,0 +1,22 @@
+{
+  "url": "/cat/footwear/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Footwear for Bulk Orders",
+  "metaTitle": "Custom Brown Footwear | Perfect Imprints",
+  "metaDescription": "Order custom brown footwear for your team or event. Bulk pricing available on socks and more at Perfect Imprints.",
+  "introHtml": "<p>Brown footwear offers a versatile, professional look that pairs well with uniforms, khakis, or earth-toned apparel. Whether you need custom crew socks for a corporate wellness program or non-binding seamless toe socks for long shifts, brown shades like tan, chestnut, and espresso complement a wide range of industries. Decorate with your logo using embroidery or screen printing to create a cohesive brand experience that stands out without being flashy.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown footwear including crew socks and seamless toe socks with logo embroidery for corporate branding.",
+  "productSkus": [
+    "525740",
+    "528344"
+  ],
+  "generatedAt": "2026-05-31T09:47:07.673281+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

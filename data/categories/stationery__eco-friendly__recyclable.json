@@ -1,0 +1,21 @@
+{
+  "url": "/cat/stationery/eco-friendly/recyclable",
+  "type": "facet",
+  "h1": "Custom Recyclable Stationery",
+  "metaTitle": "Custom Recyclable Stationery - Perfect Imprints",
+  "metaDescription": "Order custom recyclable stationery for eco-conscious branding. Soft CTA included. Perfect Imprints.",
+  "introHtml": "<p>Choosing recyclable stationery means your branded notepads, folders, and greeting cards can be disposed of responsibly without adding to landfill waste. Our Premium Seeded Paper Greeting Card, for instance, can be planted to grow wildflowers. For marketing directors and business owners committed to sustainability, custom recyclable stationery reinforces your environmental message with every pen stroke.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recyclable stationery including seeded paper greeting cards and notepads with eco-friendly branding",
+  "productSkus": [
+    "524481"
+  ],
+  "generatedAt": "2026-05-31T10:08:31.970140+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

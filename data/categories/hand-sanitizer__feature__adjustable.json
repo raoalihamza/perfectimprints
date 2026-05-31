@@ -1,0 +1,21 @@
+{
+  "url": "/cat/hand-sanitizer/feature/adjustable",
+  "type": "facet",
+  "h1": "Custom Adjustable Hand Sanitizer for Bulk Orders",
+  "metaTitle": "Custom Adjustable Hand Sanitizer | Perfect Imprints",
+  "metaDescription": "Order custom adjustable hand sanitizer in bulk. Perfect for giveaways, events, and safety kits. Get a quote today!",
+  "introHtml": "<p>Adjustable hand sanitizer dispensers let you control the dosage, reducing waste and ensuring each use is effective. Ideal for high-traffic areas like office lobbies or event registration tables, these units pair well with branded sleeves for maximum visibility. Choose from clip-on or stand models to fit your space.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adjustable hand sanitizer dispenser with a branded sleeve, suitable for bulk orders and corporate events.",
+  "productSkus": [
+    "521036"
+  ],
+  "generatedAt": "2026-05-31T09:15:02.025764+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

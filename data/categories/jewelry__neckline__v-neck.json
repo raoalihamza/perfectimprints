@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jewelry/neckline/v-neck",
+  "type": "facet",
+  "h1": "Custom V Neck Jewelry for Bulk Orders",
+  "metaTitle": "Custom V Neck Jewelry | Perfect Imprints",
+  "metaDescription": "Order custom v neck jewelry in bulk. Perfect for events, teams, and gifts. Fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>V neck jewelry offers a sleek, modern silhouette that complements collared shirts and open-necklines alike. Whether you are outfitting a sales team for a trade show or creating recognition awards for safety milestones, the V shape draws the eye naturally, making your logo or message more visible. Options like the Paracord Bracelet or Mood Watch Bracelet can be customized with your branding. Choose from metal, leather, or fabric finishes to match your company colors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom v neck jewelry with branded pendants on display, including paracord bracelets and mood watches.",
+  "productSkus": [
+    "516655",
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T09:16:48.460217+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

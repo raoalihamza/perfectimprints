@@ -1,0 +1,21 @@
+{
+  "url": "/cat/jewelry/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Jewelry for Bulk Orders",
+  "metaTitle": "Custom Purple Jewelry | Perfect Imprints",
+  "metaDescription": "Order custom purple jewelry in bulk for your team or event. Perfect for branding with your logo. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Purple jewelry stands out with a regal, creative tone that suits team recognition, fundraising events, or brand launches. From silicone bracelets to mood watches, these pieces offer a subtle yet memorable canvas for your logo or message. Decorate with pad printing or engraving for a polished look that recipients will wear proudly. Bulk orders keep costs low while delivering a premium feel.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom purple jewelry including mood watch bracelet with logo, perfect for corporate gifts and promotional events",
+  "productSkus": [
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T09:52:07.391078+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

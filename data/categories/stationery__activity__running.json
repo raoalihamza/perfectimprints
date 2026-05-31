@@ -1,0 +1,19 @@
+{
+  "url": "/cat/stationery/activity/running",
+  "type": "facet",
+  "h1": "Custom Running Stationery for Bulk Orders",
+  "metaTitle": "Custom Running Stationery | Perfect Imprints",
+  "metaDescription": "Order custom running stationery in bulk at Perfect Imprints. Perfect for race events, corporate wellness programs, and more.",
+  "introHtml": "<p>Custom running stationery is designed for race organizers, corporate wellness programs, and athletic events that need branded notepads, letterheads, or memo pads. Unlike generic stationery, running-themed options often feature race logos, motivational quotes, or space for event details. Choose from durable paper stocks and full-color printing to match your event branding. Perfect for goodie bags, registration packets, or sponsor thank-you notes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom running stationery with race logos and motivational text on notepads",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:46:58.215586+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

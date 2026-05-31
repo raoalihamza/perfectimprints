@@ -1,0 +1,54 @@
+{
+  "url": "/cat/sweaters-cardigans",
+  "type": "root",
+  "h1": "Custom Sweaters & Cardigans for Corporate Apparel",
+  "metaTitle": "Custom Sweaters & Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom sweaters and cardigans for your team or event. Bulk pricing, embroidery & screen print. Fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Custom sweaters and cardigans are a staple of corporate apparel programs because they combine comfort with a polished look. From fleece-lined cardigans to machine-washable merino wool, the materials used in these garments directly affect how they hold up after repeated wear and laundering. Most styles in this category are knit from cotton, acrylic, polyester blends, or merino wool, each offering different levels of warmth, breathability, and durability. For bulk orders, fabric weight and construction matter: a heavier gauge yarn resists pilling better over time, while reinforced seams prevent fraying at stress points like elbows and pockets.</p><p>Marketing directors often choose cardigans for client-facing teams who need a uniform that feels approachable yet professional. HR directors and safety managers may order sweater blazers or overshirts for employee recognition programs or uniform allowances. Business owners appreciate the versatility of layering pieces that work across seasons. Decoration options include left-chest embroidery, screen-printed logos on back panels, and full-color heat transfers for detailed designs. Most styles are available in sizes XS through 3XL, with some extended sizes on request.</p>",
+  "buyingGuideHtml": "<h3>What to Look for in Custom Sweaters and Cardigans</h3><p>When sourcing custom sweaters and cardigans, start by evaluating the fabric composition and weight. Cotton blends offer breathability for indoor wear, while acrylic or polyester fleece provides warmth for outdoor events. Merino wool is a premium choice for corporate gifts because it resists odors and stays soft after washing. Check the garment's care label: machine-washable styles reduce maintenance costs for large programs. For branded sweaters, a tight knit structure holds embroidery better without puckering, while fleece fabrics are ideal for screen printing.</p><h3>Common Use Cases and Buyer Personas</h3><p>Marketing directors order promotional sweaters and cardigans for trade show giveaways or client appreciation gifts, often choosing women's cardigans or men's v-neck sweaters with a subtle logo. HR directors use logo sweaters and cardigans for employee milestone awards or uniform programs, preferring styles like the Ladies' Sweater Blazer or Men's Journey Overshirt for a professional appearance. Safety managers may select high-visibility options or durable fleece cardigans for outdoor crews. Business owners buy bulk sweaters and cardigans for company stores or event merchandise, valuing wholesale pricing and quick turnaround.</p><h3>Decoration and Customization Options</h3><p>Embroidery is the most popular decoration for personalized sweaters and cardigans because it adds a premium, long-lasting finish. Left-chest embroidery works well for logos up to 4 inches, while full-back embroidery makes a statement for team apparel. Screen printing is cost-effective for larger runs on cotton or fleece styles, but avoid printing on ribbed or textured knits. Full-color heat transfer is suitable for complex artwork on polyester blends. For laser-engraved buttons or tags, check with your account manager for availability on select styles like the Brooks Brothers merino sweaters.</p><h3>Quantity Guidance and MOQ Context</h3><p>Minimum order quantities (MOQs) for custom sweaters and cardigans typically start at 12 pieces per style, though some premium brands may require 24 or 48. As order volume increases, unit prices drop significantly: a 50-piece order might cost 15% less per unit than a 12-piece order. Consider ordering extra units for future replacements or program growth. For large corporate programs, ask about tiered pricing for 100+ units. Wholesale custom sweaters and cardigans are available through our bulk ordering portal with dedicated account support.</p><h3>Tips to Avoid Common Buying Mistakes</h3><p>One frequent mistake is choosing the wrong size range. Always request a sample size run before placing a bulk order, especially for women's styles that may fit differently across brands. Another pitfall is selecting a fabric that pills quickly: opt for anti-pill finishes or higher-twist yarns for long-term use. Decoration placement matters: avoid printing over zippers or buttons, and ensure embroidery hoops fit the garment's panel width. Finally, confirm lead times for decorated orders — embroidery adds 5–7 business days, while screen printing may add 10–14 days. Plan ahead for seasonal needs like holiday sweaters or fall cardigans.</p>",
+  "buyingGuideH2": "Custom Sweaters & Cardigans Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom sweaters?",
+      "a": "Most custom sweaters and cardigans have a minimum order of 12 pieces per style. Some premium brands like Brooks Brothers require a minimum of 24 pieces. Contact your account manager for exact MOQs on specific styles."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, we recommend ordering a sample of the garment in your desired size and color to check fit and fabric quality. Sample pricing is available, and the cost is typically deducted from your bulk order."
+    },
+    {
+      "q": "What decoration methods work best for sweaters and cardigans?",
+      "a": "Embroidery is the most common and durable option for sweaters and cardigans. Screen printing works well on smooth cotton or fleece styles but is not recommended for ribbed or textured knits. Full-color heat transfer is suitable for polyester blends."
+    },
+    {
+      "q": "How long does production take for custom cardigans?",
+      "a": "Production time depends on decoration method and order size. Blank orders ship within 2-3 business days. Embroidered orders typically add 5-7 business days, and screen-printed orders add 10-14 business days. Rush options are available."
+    },
+    {
+      "q": "Are there size options for plus sizes?",
+      "a": "Yes, most styles in our catalog are available up to 3XL. Some styles offer extended sizes up to 5XL or 6XL. Check the product page for size range, or contact us for specific requests."
+    }
+  ],
+  "heroAltText": "Custom sweaters and cardigans for corporate apparel, featuring embroidered logos on knit cardigans and v-neck sweaters.",
+  "productSkus": [
+    "520268",
+    "520269",
+    "523604",
+    "526198",
+    "526291",
+    "526292",
+    "527181",
+    "527182",
+    "527833",
+    "527957",
+    "528757",
+    "528758"
+  ],
+  "generatedAt": "2026-05-30T11:20:11.463178+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "material_quality",
+  "skuFilterMode": "full",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/apparel/material/kraft",
+  "type": "facet",
+  "h1": "Custom Kraft Apparel for Bulk Orders",
+  "metaTitle": "Custom Kraft Apparel | Perfect Imprints",
+  "metaDescription": "Order custom kraft apparel in bulk for your team. Perfect for eco-conscious brands. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Kraft apparel offers a natural, unbleached look that stands out from standard cotton or polyester options. The earthy brown tone pairs well with bold screen-printed logos, making it a favorite for trade shows, company picnics, and sustainability-focused campaigns. Bulk buyers appreciate the durable fabric that holds up to repeated wear while reinforcing an eco-friendly brand image. Whether you are outfitting a seasonal crew or stocking company swag, custom kraft apparel gives your team a relaxed yet professional appearance.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom kraft apparel with printed logos at an outdoor company event",
+  "productSkus": [
+    "526803",
+    "526805"
+  ],
+  "generatedAt": "2026-05-31T09:32:18.702463+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

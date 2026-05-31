@@ -1,0 +1,21 @@
+{
+  "url": "/cat/bar-wine-gift-sets/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Bar Wine Gift Sets",
+  "metaTitle": "Custom Pink Bar Wine Gift Sets | Perfect Imprints",
+  "metaDescription": "Order custom pink bar wine gift sets for your next event. Perfect for bachelorettes, bridal parties, or breast cancer awareness. Bulk pricing available.",
+  "introHtml": "<p>Pink bar and wine gift sets add a playful, celebratory touch to any occasion. Whether you're planning a bachelorette party, a bridal shower, or a breast cancer awareness event, custom pink sets create a cohesive, memorable gift. The Sip and Step Gift Set, for example, combines a stemless wine glass with a pedicure kit in a matching pink box — ideal for spa-themed corporate gifts or event favors. Choose from screen printing or full-color wrap for your logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink bar wine gift set with a stemless wine glass and pedicure kit in a pink gift box",
+  "productSkus": [
+    "526748"
+  ],
+  "generatedAt": "2026-05-31T08:39:32.809029+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

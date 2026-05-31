@@ -1,0 +1,22 @@
+{
+  "url": "/cat/workwear/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Workwear for Your Team",
+  "metaTitle": "Custom Purple Workwear | Perfect Imprints",
+  "metaDescription": "Order custom purple workwear for your team at Perfect Imprints. Great for branding with embroidery or screen printing. Shop now!",
+  "introHtml": "<p>Purple workwear offers a distinctive look that stands out from standard navy or black uniforms. Whether you're outfitting a customer-facing team or a safety crew, purple polos like the Cornerstone Snag-Proof Polo combine professional style with durability. These garments accept embroidery and screen printing cleanly, making them ideal for company logos or department identifiers. Choose purple to convey creativity, loyalty, or simply to make your team easy to spot on the job site.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple workwear polo shirt with embroidered logo on the chest, worn by a team member",
+  "productSkus": [
+    "515284",
+    "515285"
+  ],
+  "generatedAt": "2026-05-31T09:31:08.779467+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

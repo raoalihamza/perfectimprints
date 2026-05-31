@@ -1,0 +1,30 @@
+{
+  "url": "/cat/products/brand/hershey",
+  "type": "facet",
+  "h1": "Custom Hershey Products for Bulk Orders",
+  "metaTitle": "Custom Hershey Products | Perfect Imprints",
+  "metaDescription": "Order branded Hershey products for corporate gifts, events, and promotions. Customize Hershey's candies with your logo at Perfect Imprints.",
+  "introHtml": "<p>Hershey branded products combine the universal appeal of America's favorite chocolate with your company logo for a sweet promotional impact. From Hershey's Kisses in custom-printed jars to s'mores kits and gift sets, these treats are ideal for holiday gifts, client appreciation, and employee rewards. The familiar Hershey branding ensures instant recognition and warmth, making your message more memorable. Choose from a variety of packaging options that keep the candy fresh and your logo front and center.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hershey products including Hershey's Kisses in branded jars and s'mores kits with logo",
+  "productSkus": [
+    "503478 43A",
+    "507505 91A",
+    "518381 90E",
+    "518509 90E",
+    "525122",
+    "525780",
+    "526317",
+    "526318",
+    "526980",
+    "527006"
+  ],
+  "generatedAt": "2026-05-31T09:23:55.434595+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

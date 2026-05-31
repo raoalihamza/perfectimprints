@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/activity/running",
+  "type": "facet",
+  "h1": "Custom Running Products for Bulk Orders",
+  "metaTitle": "Custom Running Products | Perfect Imprints",
+  "metaDescription": "Order custom running products for your team or event. Perfect for races, corporate fitness challenges, and giveaways.",
+  "introHtml": "<p>Running-specific promotional products help you connect with active audiences at marathons, 5Ks, and corporate wellness events. Whether you need moisture-wicking towels for finish lines or reflective gear for safety, these items show recipients you understand their passion. Choose from water bottles, headbands, or drawstring bags imprinted with your logo. Bulk orders keep costs low while maximizing brand visibility mile after mile.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom running products like branded water bottles and towels for race participants",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:36:43.289989+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

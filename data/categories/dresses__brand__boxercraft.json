@@ -1,0 +1,27 @@
+{
+  "url": "/cat/dresses/brand/boxercraft",
+  "type": "facet",
+  "h1": "Custom Boxercraft Dresses for Bulk Orders",
+  "metaTitle": "Custom Boxercraft Dresses - Perfect Imprints",
+  "metaDescription": "Order custom Boxercraft dresses in bulk for your team. Perfect for comfort and style. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Boxercraft is known for soft, durable fabrics and relaxed fits that make their dresses a favorite for company apparel, spirit wear, and casual uniform programs. Whether you need custom women's flannel dresses or cozy sherpa styles, Boxercraft offers consistent sizing and a range of colors that screen print or embroider beautifully. Bulk orders benefit from reliable inventory and fast turnaround, so your team gets comfortable, branded dresses that hold up wash after wash.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Boxercraft dresses for bulk orders featuring a woman in a flannel dress with embroidered logo",
+  "productSkus": [
+    "521535",
+    "527831",
+    "527832",
+    "527833",
+    "527834",
+    "527835",
+    "527836"
+  ],
+  "generatedAt": "2026-05-31T09:43:22.437304+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

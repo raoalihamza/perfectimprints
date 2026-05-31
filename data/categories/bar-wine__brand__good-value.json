@@ -1,0 +1,19 @@
+{
+  "url": "/cat/bar-wine/brand/good-value",
+  "type": "facet",
+  "h1": "Custom Good Value Bar Wine for Bulk Orders",
+  "metaTitle": "Custom Good Value Bar Wine | Perfect Imprints",
+  "metaDescription": "Shop custom Good Value bar wine for your next event. Perfect for branding with your logo. Bulk pricing available.",
+  "introHtml": "<p>Good Value bar wine offers an affordable yet quality option for corporate events, weddings, and promotional giveaways. These wine bottles and accessories can be customized with your logo through screen printing or labels, making them a practical choice for brand visibility. Whether you're hosting a client appreciation party or stocking a company bar, Good Value products provide a cost-effective way to serve wine without sacrificing taste or presentation.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Good Value bar wine bottles with logo imprint for corporate events and promotional use",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:07:33.937599+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/outerwear/brand/glacier",
+  "type": "facet",
+  "h1": "Custom Glacier Outerwear for Bulk Orders",
+  "metaTitle": "Custom Glacier Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom Glacier outerwear in bulk for your team. Perfect for corporate events and employee gifts. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Glacier outerwear, known for its durable fleece construction and iconic quarter-zip design, offers a polished yet comfortable look for corporate teams. Whether you're outfitting employees for a company retreat or providing branded gear for a trade show, these pieces accept embroidery and screen printing with excellent results. The classic style and reliable warmth make custom Glacier outerwear a practical choice for year-round branding.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Glacier outerwear fleece quarter-zip jacket with embroidered logo",
+  "productSkus": [
+    "529016",
+    "529017"
+  ],
+  "generatedAt": "2026-05-31T09:58:59.419467+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

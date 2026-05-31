@@ -1,0 +1,22 @@
+{
+  "url": "/cat/eyewear/material/polyester",
+  "type": "facet",
+  "h1": "Custom Polyester Eyewear for Bulk Orders",
+  "metaTitle": "Custom Polyester Eyewear | Perfect Imprints",
+  "metaDescription": "Order custom polyester eyewear in bulk at Perfect Imprints. Ideal for events and safety. Get your quote today!",
+  "introHtml": "<p>Polyester eyewear offers a durable and lightweight option for your branded safety glasses or promotional sunglasses. The fabric-like finish allows for vibrant full-color printing, making your logo stand out at trade shows or company events. Unlike plastic frames, polyester provides a comfortable, non-slip fit for all-day wear. Perfect for safety managers equipping teams or marketing directors distributing at outdoor events, custom polyester eyewear combines practicality with brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom polyester eyewear with printed logo on durable, lightweight frames for promotional use",
+  "productSkus": [
+    "522772",
+    "526805"
+  ],
+  "generatedAt": "2026-05-31T09:13:00.596174+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

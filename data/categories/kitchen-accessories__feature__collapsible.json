@@ -1,0 +1,26 @@
+{
+  "url": "/cat/kitchen-accessories/feature/collapsible",
+  "type": "facet",
+  "h1": "Custom Collapsible Kitchen Accessories",
+  "metaTitle": "Custom Collapsible Kitchen Accessories | Perfect Imprints",
+  "metaDescription": "Order custom collapsible kitchen accessories for your team. Space-saving designs perfect for corporate gifts and office kitchens.",
+  "introHtml": "<p>Collapsible kitchen accessories save space and reduce clutter, making them ideal for office breakrooms, company picnics, and employee welcome kits. From silicone strainers that flatten for storage to folding cheese boards with tools, these items offer practical utility without bulk. Decorate them with your logo using pad printing or laser engraving for a branded touch that fits any workspace or on-the-go lifestyle.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom collapsible kitchen accessories including a silicone collapsible strainer and folding cheese board on a countertop",
+  "productSkus": [
+    "514744",
+    "514876",
+    "516252 30A",
+    "521364",
+    "521522",
+    "527345"
+  ],
+  "generatedAt": "2026-05-31T09:53:05.477815+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

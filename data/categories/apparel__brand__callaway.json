@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel/brand/callaway",
+  "type": "facet",
+  "h1": "Custom Callaway Apparel for Your Team",
+  "metaTitle": "Custom Callaway Apparel - Perfect Imprints",
+  "metaDescription": "Order custom Callaway apparel for your team or event. Premium quality, bulk pricing, and fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Custom Callaway apparel offers the same quality and performance trusted by golfers worldwide, now with your brand or logo. Whether outfitting your sales team for a company outing or creating branded gear for a charity tournament, Callaway's moisture-wicking fabrics and classic silhouettes ensure comfort and a polished look. Choose from polos, quarter-zips, and outerwear in a range of colors, all suitable for embroidery or screen printing. Perfect for corporate events, golf outings, or employee uniforms that need to perform on and off the course.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Callaway apparel featuring embroidered logo on a performance polo shirt",
+  "productSkus": [
+    "529257"
+  ],
+  "generatedAt": "2026-05-31T08:38:40.359587+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

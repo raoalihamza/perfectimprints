@@ -1,0 +1,22 @@
+{
+  "url": "/cat/folding-chairs/color/white",
+  "type": "facet",
+  "h1": "Custom White Folding Chairs",
+  "metaTitle": "Custom White Folding Chairs | Perfect Imprints",
+  "metaDescription": "Order custom white folding chairs with your logo. Perfect for events, weddings, and corporate functions. Bulk pricing available.",
+  "introHtml": "<p>White folding chairs offer a clean, uniform look that works well for weddings, galas, trade shows, and corporate ceremonies. Unlike darker frames that can feel heavy, white chairs keep spaces feeling open and bright. Choose between the classic Sling Chair for easy stacking and storage or the Director Chair in bar height for cocktail tables and reception areas. Both styles accept screen printing or debossing for your logo, and the white finish provides a high-contrast canvas that makes branding stand out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom white folding chairs with company logo, ideal for events and corporate functions",
+  "productSkus": [
+    "505166",
+    "526663"
+  ],
+  "generatedAt": "2026-05-31T09:13:35.757644+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

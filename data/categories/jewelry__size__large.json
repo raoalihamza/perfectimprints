@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jewelry/size/large",
+  "type": "facet",
+  "h1": "Custom Large Jewelry for Bulk Orders",
+  "metaTitle": "Custom Large Jewelry | Perfect Imprints",
+  "metaDescription": "Order custom large jewelry in bulk for your team or event. Shop paracord bracelets and more at Perfect Imprints.",
+  "introHtml": "<p>Large jewelry makes a bold statement for your brand, offering more surface area for logos and designs. Whether you choose custom paracord bracelets for outdoor enthusiasts or mood watches for a tech-savvy crowd, large sizes ensure visibility and impact. Perfect for trade shows, employee gifts, or safety rewards, these items combine durability with style. Decorate with screen printing or engraving to match your brand colors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom large jewelry including paracord bracelets and mood watches with logo imprint",
+  "productSkus": [
+    "516655",
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T09:16:49.320688+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

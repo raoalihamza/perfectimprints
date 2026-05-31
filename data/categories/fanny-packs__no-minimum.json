@@ -1,0 +1,22 @@
+{
+  "url": "/cat/fanny-packs/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Fanny Packs",
+  "metaTitle": "No-Minimum Custom Fanny Packs | PerfectImprints.com",
+  "metaDescription": "Order no-minimum custom fanny packs with no bulk requirements. Perfect for small teams, events, and samples. Get yours today!",
+  "introHtml": "<p>No-minimum custom fanny packs let you order exactly what you need, whether that is five packs for a small team or a single sample to test the quality. Unlike traditional bulk orders, there are no minimum quantity requirements, so small businesses, startups, and one-time event organizers can get branded fanny packs without overcommitting. Options like the clear fanny pack for security venues or the Stavanger quilted waist bag for a premium look are available in low volumes. Pricing per unit is transparent, and the ordering process is straightforward for any quantity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A person wearing a no-minimum custom fanny pack, with a branded clear fanny pack and a quilted waist bag shown in the background.",
+  "productSkus": [
+    "523655",
+    "525724"
+  ],
+  "generatedAt": "2026-05-31T09:45:30.144326+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

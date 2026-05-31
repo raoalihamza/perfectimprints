@@ -1,0 +1,29 @@
+{
+  "url": "/cat/buttons/color/black",
+  "type": "facet",
+  "h1": "Custom Black Buttons for Bulk Orders",
+  "metaTitle": "Custom Black Buttons | Perfect Imprints",
+  "metaDescription": "Order custom black buttons in bulk from Perfect Imprints. Great for events, promotions, and branding. Get a quote today!",
+  "introHtml": "<p>Black buttons offer a classic, versatile look that complements any brand color or logo. Whether you need satin ribbon badges for an awards ceremony or enamel lapel pins for employee recognition, the black base provides a neutral backdrop that makes your design pop. Perfect for corporate events, trade shows, or safety campaigns, these buttons are easy to customize with screen printing or debossing. Bulk ordering ensures consistent quality and cost savings.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black buttons with satin ribbon and enamel lapel pins for corporate branding",
+  "productSkus": [
+    "522113",
+    "522114",
+    "522115",
+    "522116",
+    "522117",
+    "522118",
+    "522323",
+    "525854",
+    "527144"
+  ],
+  "generatedAt": "2026-05-31T08:33:01.170954+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

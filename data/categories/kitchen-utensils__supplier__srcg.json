@@ -1,0 +1,31 @@
+{
+  "url": "/cat/kitchen-utensils/supplier/srcg",
+  "type": "facet",
+  "h1": "Custom SRCG Kitchen Utensils for Bulk Orders",
+  "metaTitle": "Custom SRCG Kitchen Utensils | Perfect Imprints",
+  "metaDescription": "Order custom SRCG kitchen utensils in bulk. Perfect for giveaways, events, and branding. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>SRCG kitchen utensils offer reliable, everyday functionality for company cafeterias, event catering, or employee meal programs. From durable stainless steel cutlery sets to portable utensil kits with carabiners, these items keep your brand visible during lunch breaks and outdoor gatherings. Choose from reusable bamboo fiber options or silicone baking tools to match your company's sustainability goals. Decorate with your logo using pad printing or laser engraving for a clean, professional look that stands up to frequent use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom SRCG kitchen utensils including stainless steel cutlery sets and reusable utensil kits with logos",
+  "productSkus": [
+    "512001",
+    "512260",
+    "513068",
+    "523884",
+    "523887",
+    "524089",
+    "525537",
+    "525701",
+    "526594",
+    "527100",
+    "527345"
+  ],
+  "generatedAt": "2026-05-31T09:17:23.683656+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

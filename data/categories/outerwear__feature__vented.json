@@ -1,0 +1,24 @@
+{
+  "url": "/cat/outerwear/feature/vented",
+  "type": "facet",
+  "h1": "Custom Vented Outerwear for Bulk Orders",
+  "metaTitle": "Custom Vented Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom vented outerwear in bulk for your team. Breathable, durable jackets and vests perfect for outdoor work or events.",
+  "introHtml": "<p>Vented outerwear adds breathability where it matters most, making it ideal for active teams, outdoor events, or safety managers who need gear that works as hard as their crew. Unlike standard jackets, vented styles like the Rains® Jacket or The North Face® DryVent™ Rain Jacket allow heat to escape without letting rain in, keeping your logo visible and your team comfortable during long shifts or outdoor promotions.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom vented outerwear featuring a breathable rain jacket with a company logo on the chest",
+  "productSkus": [
+    "524456",
+    "526345",
+    "526346",
+    "528967"
+  ],
+  "generatedAt": "2026-05-31T08:44:53.183914+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

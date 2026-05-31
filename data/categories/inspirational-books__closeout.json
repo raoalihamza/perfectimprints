@@ -1,0 +1,21 @@
+{
+  "url": "/cat/inspirational-books/closeout",
+  "type": "modifier",
+  "h1": "Closeout Custom Inspirational Books",
+  "metaTitle": "Closeout Custom Inspirational Books | Perfect Imprints",
+  "metaDescription": "Save on closeout custom inspirational books for corporate gifts and events. Limited stock available—browse deals now at Perfect Imprints.",
+  "introHtml": "<p>This closeout section features custom inspirational books at reduced pricing—perfect for marketing directors, HR teams, and business owners looking to stretch their promotional budgets. These titles are available while supplies last, with selection changing as stock moves. Grab value-priced bulk orders for employee appreciation, client gifts, or event giveaways before they're gone.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of closeout custom inspirational books with colorful covers, including a 2027 Adult Coloring Book Planner, displayed for bulk purchase.",
+  "productSkus": [
+    "520614"
+  ],
+  "generatedAt": "2026-05-31T09:51:32.806186+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

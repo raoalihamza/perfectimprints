@@ -1,0 +1,25 @@
+{
+  "url": "/cat/golf-towels/feature/with-carabiner",
+  "type": "facet",
+  "h1": "Custom Golf Towels with Carabiner",
+  "metaTitle": "Custom Golf Towels with Carabiner | Perfect Imprints",
+  "metaDescription": "Order custom golf towels with carabiner for easy attachment to golf bags. Perfect for corporate events and tournaments.",
+  "introHtml": "<p>Golf towels with a carabiner clip offer a simple, practical upgrade: they hook directly onto a golf bag loop, keeping the towel accessible without fumbling. Whether you choose a classic Champions towel or a waffle-weave style for extra absorbency, the carabiner ensures the towel stays put during play. This makes them a smart giveaway for corporate golf outings, charity tournaments, or any event where convenience matters.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom golf towels with carabiner clip attached to golf bag, featuring embroidered logo",
+  "productSkus": [
+    "513098",
+    "522450",
+    "527643",
+    "528005",
+    "528437"
+  ],
+  "generatedAt": "2026-05-31T09:14:49.322895+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

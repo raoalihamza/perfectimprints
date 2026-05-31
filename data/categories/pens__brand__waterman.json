@@ -1,0 +1,26 @@
+{
+  "url": "/cat/pens/brand/waterman",
+  "type": "facet",
+  "h1": "Custom Waterman Pens for Bulk Orders",
+  "metaTitle": "Custom Waterman Pens | Perfect Imprints",
+  "metaDescription": "Order custom Waterman pens in bulk for your business. Premium writing instruments with your logo from Perfect Imprints.",
+  "introHtml": "<p>Waterman pens represent a legacy of fine craftsmanship that dates back to 1884, making them a distinguished choice for corporate gifts and executive branding. Whether you choose the sleek Waterman Hemisphere rollerball for daily use or the classic Waterman Expert ballpoint for client meetings, each pen delivers a smooth writing experience that reflects your company's commitment to quality. Personalize these premium pens with your logo or message through laser engraving or pad printing for a sophisticated, lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Waterman pens with engraved logos, including Hemisphere and Expert models in bulk",
+  "productSkus": [
+    "528404",
+    "528405",
+    "528406",
+    "528407",
+    "528408",
+    "528409"
+  ],
+  "generatedAt": "2026-05-31T08:30:12.768797+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

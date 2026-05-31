@@ -1,0 +1,22 @@
+{
+  "url": "/cat/coasters/material/paper",
+  "type": "facet",
+  "h1": "Custom Paper Coasters for Bulk Orders",
+  "metaTitle": "Custom Paper Coasters | Perfect Imprints",
+  "metaDescription": "Order custom paper coasters for your next event or promotion. Perfect for bars, restaurants, and tradeshows. Get a quote today!",
+  "introHtml": "<p>Paper coasters are a cost-effective choice for businesses that need disposable branded drinkware accessories. Unlike stone or wood options, paper coasters are lightweight and easily customizable with full-color printing, making them ideal for high-volume events, bars, and restaurants. They offer a practical way to keep surfaces dry while promoting your brand with every drink served. Choose paper for an affordable, eco-friendly option that can be recycled after use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom paper coasters with full-color logo printing for event branding",
+  "productSkus": [
+    "520562",
+    "528135"
+  ],
+  "generatedAt": "2026-05-31T09:40:51.766297+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

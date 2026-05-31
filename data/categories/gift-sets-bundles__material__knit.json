@@ -1,0 +1,21 @@
+{
+  "url": "/cat/gift-sets-bundles/material/knit",
+  "type": "facet",
+  "h1": "Custom Knit Gift Sets & Bundles",
+  "metaTitle": "Custom Knit Gift Sets & Bundles | Perfect Imprints",
+  "metaDescription": "Shop custom knit gift sets bundles for bulk orders. Cozy, branded sets perfect for corporate gifts or employee appreciation at Perfect Imprints.",
+  "introHtml": "<p>Knit gift sets offer a soft, tactile alternative to standard corporate gifts. Ideal for winter holiday promotions or employee appreciation, these bundles combine warmth with brand visibility. The 3 Piece Knit Set, for example, allows full-color digital decoration across multiple items, giving you a cohesive look that stands out. Choose knit for a gift that feels personal and substantial.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom knit gift sets bundles with full color digital print, including a beanie, scarf, and gloves in a branded set.",
+  "productSkus": [
+    "520012"
+  ],
+  "generatedAt": "2026-05-31T08:54:37.136767+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

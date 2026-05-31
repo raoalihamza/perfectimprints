@@ -1,0 +1,23 @@
+{
+  "url": "/cat/drinkware/brand/contigo",
+  "type": "facet",
+  "h1": "Custom Contigo Drinkware for Bulk Orders",
+  "metaTitle": "Custom Contigo Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom Contigo drinkware in bulk. Perfect for branding with your logo. Fast turnaround. Get a quote today!",
+  "introHtml": "<p>Contigo drinkware is known for its durable construction and spill-proof lids, making it a popular choice for corporate gifts and employee incentives. When you choose custom Contigo drinkware from Perfect Imprints, you get trusted brands like the 24 oz Jackson Chill or 20 oz Ashland Chill 2.0, each offering excellent thermal retention. These travel mugs and water bottles are ideal for busy professionals who need reliable performance on the go. Decorate with your company logo using screen printing or laser engraving for a polished, professional look that stands up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Contigo drinkware with company logo, including 24 oz Jackson Chill and 20 oz Ashland Chill 2.0",
+  "productSkus": [
+    "526058",
+    "527504",
+    "527505"
+  ],
+  "generatedAt": "2026-05-31T08:21:45.926792+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

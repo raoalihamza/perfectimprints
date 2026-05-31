@@ -1,0 +1,21 @@
+{
+  "url": "/cat/stash-bags/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Stash Bags",
+  "metaTitle": "No-Minimum Custom Stash Bags | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom stash bags with low MOQs. Perfect for small teams, events, and samples. Get started with Perfect Imprints today.",
+  "introHtml": "<p>No-minimum custom stash bags let you order exactly what you need—whether that is a single clear fanny pack for a product sample or a dozen bags for a small team. Unlike bulk-only suppliers, we specialize in low-quantity orders so you can test designs, outfit a startup, or supply a one-time event without overcommitting inventory or budget. Each bag is printed to your specifications with the same quality as large runs, giving you flexibility without the waste.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A clear fanny pack with custom logo, representing no-minimum custom stash bags for small orders and events.",
+  "productSkus": [
+    "523655"
+  ],
+  "generatedAt": "2026-05-31T10:08:21.740371+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

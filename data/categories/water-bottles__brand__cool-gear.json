@@ -1,0 +1,21 @@
+{
+  "url": "/cat/water-bottles/brand/cool-gear",
+  "type": "facet",
+  "h1": "Custom Cool Gear Water Bottles for Your Brand",
+  "metaTitle": "Custom Cool Gear Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom Cool Gear water bottles with your logo. Perfect for promotions, events, and employee gifts. Get a quote today!",
+  "introHtml": "<p>Cool Gear water bottles are engineered with advanced insulation to keep drinks cold for hours, making them a top pick for outdoor events, trade shows, and corporate gift bags. Unlike standard promotional bottles, Cool Gear's double-wall vacuum technology and durable Tritan construction ensure long-lasting performance. Add your logo with full-color pad printing or laser engraving for a crisp, professional look that stands out at any temperature.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Cool Gear water bottles with company logo, double-wall insulated and available in various colors for bulk orders.",
+  "productSkus": [
+    "509109"
+  ],
+  "generatedAt": "2026-05-31T09:04:23.360155+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

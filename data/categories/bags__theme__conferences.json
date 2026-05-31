@@ -1,0 +1,24 @@
+{
+  "url": "/cat/bags/theme/conferences",
+  "type": "facet",
+  "h1": "Custom Conference Bags for Bulk Orders",
+  "metaTitle": "Custom Conference Bags | Perfect Imprints",
+  "metaDescription": "Order custom conference bags for your next event. Perfect for swag, giveaways, and attendee gifts at Perfect Imprints.",
+  "introHtml": "<p>Conference bags need to balance style, durability, and practicality for attendees who carry them all day. Options like the Executive Tote offer a professional look for corporate events, while non-woven totes like the Freedom Heat Seal provide a cost-effective solution for large-scale giveaways. Clear belt bags meet security requirements at venues with bag policies. Whether you need custom printed totes or zippered styles, these bags keep your brand visible and functional.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom conference bags including tote bags and clear belt bags for trade shows and corporate events",
+  "productSkus": [
+    "503823",
+    "505633",
+    "507465",
+    "528999"
+  ],
+  "generatedAt": "2026-05-31T09:34:37.230893+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

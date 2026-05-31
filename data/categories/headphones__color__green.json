@@ -1,0 +1,25 @@
+{
+  "url": "/cat/headphones/color/green",
+  "type": "facet",
+  "h1": "Custom Green Headphones for Bulk Orders",
+  "metaTitle": "Custom Green Headphones | Perfect Imprints",
+  "metaDescription": "Order custom green headphones in bulk with your logo. Perfect for giveaways, events, and employee kits. Get a quote today.",
+  "introHtml": "<p>Green headphones stand out in a crowd, making them a smart pick for eco-conscious giveaways, outdoor events, or any brand that wants to signal freshness and sustainability. Whether you choose recycled earbuds like the Recycled Type C Colorful Ear Bud Set or a full kit like the Carry All Techie Set, imprinting your logo in a contrasting color ensures high visibility. Bulk orders keep per-unit costs low while delivering a useful, everyday item your recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green headphones in bulk with logo imprint, including earbuds and headset styles for corporate giveaways",
+  "productSkus": [
+    "512230",
+    "515807",
+    "526804",
+    "528013",
+    "528014"
+  ],
+  "generatedAt": "2026-05-31T09:15:25.050898+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

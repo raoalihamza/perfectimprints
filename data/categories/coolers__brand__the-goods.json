@@ -1,0 +1,21 @@
+{
+  "url": "/cat/coolers/brand/the-goods",
+  "type": "facet",
+  "h1": "Custom The Goods Coolers for Bulk Orders",
+  "metaTitle": "Custom The Goods Coolers | Perfect Imprints",
+  "metaDescription": "Order custom The Goods coolers in bulk. Perfect for your next promotion. Get a quote today.",
+  "introHtml": "<p>The Goods coolers combine sturdy insulation with clean, minimalist design that looks great with a screen-printed logo. Whether you're outfitting a sales team or assembling summer gift packs, these branded coolers keep drinks cold and your brand visible all day. The Activo Insulated Tote is a popular choice for its easy carry and generous capacity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom The Goods coolers with screen-printed logo, including the Activo Insulated Tote in a corporate setting",
+  "productSkus": [
+    "515965"
+  ],
+  "generatedAt": "2026-05-31T09:41:38.492588+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

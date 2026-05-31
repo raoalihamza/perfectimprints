@@ -1,0 +1,21 @@
+{
+  "url": "/cat/shirts/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Shirts for Bulk Orders",
+  "metaTitle": "Custom Orange Shirts | Perfect Imprints",
+  "metaDescription": "Order custom orange shirts in bulk at Perfect Imprints. Ideal for teams, events, and promotions. Get a quote today!",
+  "introHtml": "<p>Orange shirts make a bold statement for safety crews, event staff, or brand activations. The high-visibility hue ensures your team stands out, whether they're working a construction site or directing a festival. Choose from performance fabrics like the Vansport™ Pro Maui Shirt for moisture-wicking comfort, or opt for classic cotton styles. Screen printing or embroidery adds your logo cleanly on this vibrant background.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom orange shirts for teams and events with logo printing options",
+  "productSkus": [
+    "523719"
+  ],
+  "generatedAt": "2026-05-31T08:22:25.779382+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

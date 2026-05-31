@@ -1,0 +1,25 @@
+{
+  "url": "/cat/gift-sets-bundles/closeout",
+  "type": "modifier",
+  "h1": "Closeout Custom Gift Sets & Bundles",
+  "metaTitle": "Closeout Custom Gift Sets Bundles | Perfect Imprints",
+  "metaDescription": "Save on closeout custom gift sets bundles at Perfect Imprints. Limited stock, great value. Shop now before they're gone!",
+  "introHtml": "<p>Closeout custom gift sets bundles offer a rare opportunity to secure premium promotional products at clearance prices. These are not overstock leftovers—they are curated sets and bundles from past seasons or limited runs, now available while supplies last. For marketing directors and business owners, this means high perceived value for a fraction of the cost. Stock is limited and selection rotates quickly, so acting fast is essential to lock in the best deals.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Closeout custom gift sets bundles including a stadium cup and spiral calendars displayed on a table",
+  "productSkus": [
+    "502385",
+    "503054 90A",
+    "503699 90A",
+    "504249 90A",
+    "517824 90A"
+  ],
+  "generatedAt": "2026-05-31T09:47:51.119862+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

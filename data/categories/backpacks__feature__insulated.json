@@ -1,0 +1,25 @@
+{
+  "url": "/cat/backpacks/feature/insulated",
+  "type": "facet",
+  "h1": "Custom Insulated Backpacks for Bulk Orders",
+  "metaTitle": "Custom Insulated Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom insulated backpacks in bulk for your team or event. Perfect for lunches, picnics, and travel. Get your quote today!",
+  "introHtml": "<p>Custom insulated backpacks combine the convenience of a backpack with the functionality of a cooler, making them ideal for employees who pack lunches, field workers needing cold meals, or event attendees carrying snacks. With features like leakproof liners and padded straps, these bags keep contents fresh and comfortable to carry. Options like the Ogio Epic Pack or the CamelBak Arete Light Sling offer different capacities and styles to suit various uses, from daily commutes to outdoor adventures.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom insulated backpacks for bulk orders, featuring a cooler backpack with padded straps and zippered compartments",
+  "productSkus": [
+    "515082 01A",
+    "517456",
+    "526575",
+    "527057",
+    "527444"
+  ],
+  "generatedAt": "2026-05-31T09:33:41.106144+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

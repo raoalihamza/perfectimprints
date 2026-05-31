@@ -1,0 +1,24 @@
+{
+  "url": "/cat/beverage-glasses/color/black",
+  "type": "facet",
+  "h1": "Custom Black Beverage Glasses for Bulk Orders",
+  "metaTitle": "Custom Black Beverage Glasses | Perfect Imprints",
+  "metaDescription": "Order custom black beverage glasses in bulk for your brand. Perfect for offices, events, or giveaways. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Black beverage glasses offer a sleek, professional look that fits any brand aesthetic. Whether you need stainless steel tumblers for corporate gifts or durable pint glasses for promotional events, the black finish adds a modern touch that coordinates easily with any logo color. Our selection includes insulated options like the 16 oz Stainless Steel Pint and the 12 oz Urban Peak 3-in-1 Tumbler, perfect for keeping drinks hot or cold. Customize with your logo using screen printing or laser engraving for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom black beverage glasses including stainless steel tumblers and pint glasses with logos",
+  "productSkus": [
+    "515153",
+    "521930",
+    "523495",
+    "523689"
+  ],
+  "generatedAt": "2026-05-31T08:50:54.660126+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

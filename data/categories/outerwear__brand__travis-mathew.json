@@ -1,0 +1,32 @@
+{
+  "url": "/cat/outerwear/brand/travis-mathew",
+  "type": "facet",
+  "h1": "Custom Travis Mathew Outerwear for Bulk Orders",
+  "metaTitle": "Custom Travis Mathew Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom Travis Mathew outerwear for your team. Perfect for corporate events and employee rewards. Get branded vests and quarter-zips.",
+  "introHtml": "<p>Travis Mathew outerwear brings a premium, modern look to corporate uniforms and employee rewards. The Men's and Ladies' Cold Bay Vests offer lightweight warmth for outdoor events, while the Crestview 1/4-Zip provides a polished layer for casual office days. With embroidery options available, these pieces let you add your logo to high-quality apparel that your team will actually wear. Perfect for trade shows, company outings, or seasonal gifts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Travis Mathew outerwear with embroidered logo on a quarter-zip pullover and insulated vest",
+  "productSkus": [
+    "527672",
+    "527673",
+    "527674",
+    "527675",
+    "527676",
+    "527677",
+    "527678",
+    "527679",
+    "527680",
+    "527681",
+    "527682",
+    "527683"
+  ],
+  "generatedAt": "2026-05-31T08:59:04.838517+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

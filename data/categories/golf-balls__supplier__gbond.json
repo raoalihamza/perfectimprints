@@ -1,0 +1,27 @@
+{
+  "url": "/cat/golf-balls/supplier/gbond",
+  "type": "facet",
+  "h1": "Custom Gbond Golf Balls for Branded Promotions",
+  "metaTitle": "Custom Gbond Golf Balls | Perfect Imprints",
+  "metaDescription": "Order custom Gbond golf balls from Perfect Imprints. Great for tournaments and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Gbond golf balls offer a reliable, cost-effective option for promotional giveaways, corporate tournaments, and client appreciation gifts. Unlike premium tour-level balls, Gbond balls are designed for everyday play and custom imprinting, making them ideal for high-volume orders where brand visibility matters. Choose from solid colors or opt for a clear tube presentation to showcase your logo. Decorate with a single-color imprint for a clean, professional look that stands out on the course.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gbond golf balls with company logo displayed on a tee, ready for promotional events",
+  "productSkus": [
+    "506922 50D",
+    "506923 50D",
+    "507565 90A",
+    "515618 90A",
+    "521337",
+    "527050",
+    "528245"
+  ],
+  "generatedAt": "2026-05-31T08:42:12.519909+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

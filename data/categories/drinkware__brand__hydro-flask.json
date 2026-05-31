@@ -1,0 +1,29 @@
+{
+  "url": "/cat/drinkware/brand/hydro-flask",
+  "type": "facet",
+  "h1": "Custom Hydro Flask Drinkware for Bulk Orders",
+  "metaTitle": "Custom Hydro Flask Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom Hydro Flask drinkware in bulk. Perfect for your brand. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Hydro Flask drinkware is known for its TempShield insulation, keeping beverages cold for 24 hours or hot for 12. When you add your logo to these stainless steel bottles, mugs, and tumblers, you give your team or clients a premium item they will use daily. Choose from wide-mouth bottles, travel tumblers, or coffee mugs in a range of sizes. Laser engraving or screen printing ensures a crisp, durable mark that lasts. This is not generic drinkware — it is a brand investment in quality that recipients appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hydro Flask drinkware with engraved logo, including a 32 oz wide mouth bottle and a 20 oz tumbler.",
+  "productSkus": [
+    "526267",
+    "526268",
+    "526269",
+    "526270",
+    "526271",
+    "527859",
+    "528582",
+    "528583",
+    "529393"
+  ],
+  "generatedAt": "2026-05-31T09:43:31.423857+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

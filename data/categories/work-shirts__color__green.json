@@ -1,0 +1,28 @@
+{
+  "url": "/cat/work-shirts/color/green",
+  "type": "facet",
+  "h1": "Custom Green Work Shirts for Your Team",
+  "metaTitle": "Custom Green Work Shirts | Perfect Imprints",
+  "metaDescription": "Order custom green work shirts for your team. Perfect for branding with logos. Fast turnaround & bulk pricing. Shop now!",
+  "introHtml": "<p>Green work shirts offer a professional yet approachable look for industries like landscaping, hospitality, and healthcare. Whether you choose a classic Oxford or a performance twill, green conveys reliability and a connection to nature. Our selection includes men's and women's styles in various shades, from sage to forest, all suitable for embroidery or screen printing. Customize your team's uniforms with durable fabrics that hold up to daily wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A team of professionals wearing custom green work shirts with embroidered logos, showcasing a uniform look.",
+  "productSkus": [
+    "517273",
+    "517274",
+    "519011",
+    "519684",
+    "519685",
+    "520266",
+    "524313",
+    "526291"
+  ],
+  "generatedAt": "2026-05-31T09:31:01.636135+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

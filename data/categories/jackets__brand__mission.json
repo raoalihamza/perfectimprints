@@ -1,0 +1,19 @@
+{
+  "url": "/cat/jackets/brand/mission",
+  "type": "facet",
+  "h1": "Custom Mission Jackets for Bulk Orders",
+  "metaTitle": "Custom Mission Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Mission jackets in bulk for your team. Perfect for branding with logos. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Mission jackets are known for their lightweight design and technical fabric, making them ideal for outdoor events, trade shows, and corporate uniforms. Unlike standard jackets, Mission's moisture-wicking and breathable materials keep your team comfortable in changing weather. Decorate with embroidery or screen printing for a crisp, professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Mission jackets with embroidered logo displayed on a mannequin in an outdoor setting",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:16:27.894643+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

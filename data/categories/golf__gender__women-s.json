@@ -1,0 +1,21 @@
+{
+  "url": "/cat/golf/gender/women-s",
+  "type": "facet",
+  "h1": "Custom Women's Golf Apparel",
+  "metaTitle": "Custom Women's Golf Apparel | Perfect Imprints",
+  "metaDescription": "Order custom women's golf apparel for your team or event. Polos, hats & more with your logo. Fast turnaround. Start now!",
+  "introHtml": "<p>Women's golf apparel combines performance fabrics with a fit designed specifically for the female athlete. Whether you are outfitting a corporate tournament or rewarding your sales team, women's specific cuts in polos like the Greg Norman® Women's Play Dry® Performance Mesh Polo offer moisture-wicking comfort and a polished look. Choose from a range of colors and add your logo with embroidery or screen printing for a professional finish that stands out on the course.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Women wearing custom women's golf polos with embroidered logos on a sunny golf course",
+  "productSkus": [
+    "517777"
+  ],
+  "generatedAt": "2026-05-31T09:14:54.605626+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

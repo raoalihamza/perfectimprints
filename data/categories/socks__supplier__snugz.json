@@ -1,0 +1,29 @@
+{
+  "url": "/cat/socks/supplier/snugz",
+  "type": "facet",
+  "h1": "Custom Snugz Socks for Bulk Orders",
+  "metaTitle": "Custom Snugz Socks | Perfect Imprints",
+  "metaDescription": "Order custom Snugz socks in bulk. Perfect for corporate gifts, events, and employee appreciation. Get a quote today!",
+  "introHtml": "<p>Snugz socks combine comfort and durability, making them a top choice for corporate gifts and promotional events. Whether you choose the plush Fuzzy Feet Slipper Socks for a cozy winter giveaway or the breathable Midcalf Jacquard Socks with Bamboo Thread for everyday wear, Snugz offers a variety of styles that can be customized with your logo. These socks provide a practical, high-quality option that recipients will actually use and appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Snugz socks with embroidered logo, featuring a variety of styles including crew and slipper socks.",
+  "productSkus": [
+    "516800",
+    "521927",
+    "522251",
+    "524427",
+    "525740",
+    "526360",
+    "526361",
+    "526363",
+    "526896"
+  ],
+  "generatedAt": "2026-05-31T10:07:24.700769+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

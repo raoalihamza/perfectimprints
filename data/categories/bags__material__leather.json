@@ -1,0 +1,28 @@
+{
+  "url": "/cat/bags/material/leather",
+  "type": "facet",
+  "h1": "Custom Leather Bags for Bulk Orders",
+  "metaTitle": "Custom Leather Bags | Perfect Imprints",
+  "metaDescription": "Order custom leather bags for your team or event. Durable, professional, and available in bulk at Perfect Imprints.",
+  "introHtml": "<p>Leather bags bring a level of sophistication and durability that synthetic materials often can't match. Whether you're outfitting a sales team with premium leather backpacks or creating branded luggage tags for corporate gifts, the natural grain and rich texture of leather make a lasting impression. These bags age gracefully, developing a patina that adds character over time. For bulk buyers, leather offers a timeless look that works across industries, from finance to travel. Consider embossing or debossing your logo for an elegant finish that stands out without being loud.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom leather bags including backpacks, passport holders, and toiletry bags with embossed logos",
+  "productSkus": [
+    "517191 01A",
+    "517192 01A",
+    "518287",
+    "520416",
+    "523571",
+    "528728",
+    "529356",
+    "529358"
+  ],
+  "generatedAt": "2026-05-31T09:34:29.488555+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

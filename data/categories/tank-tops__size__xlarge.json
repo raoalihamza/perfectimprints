@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tank-tops/size/xlarge",
+  "type": "facet",
+  "h1": "Custom Xlarge Tank Tops for Bulk Orders",
+  "metaTitle": "Custom Xlarge Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom xlarge tank tops for teams, events, or uniforms. Bulk pricing & expert decoration from Perfect Imprints.",
+  "introHtml": "<p>Xlarge tank tops offer a roomy, comfortable fit that works well for event staff, sports teams, and summer giveaways. Whether you need moisture-wicking fabrics for outdoor crews or soft jersey cotton for casual uniforms, the xlarge size provides extra coverage without sacrificing mobility. Decoration options like screen printing or embroidery stand out clearly on the broader fabric area. Choose from racerback or traditional styles in men's, women's, and youth cuts to fit your group.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom xlarge tank tops with printed logos at an outdoor event",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T10:10:42.750232+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

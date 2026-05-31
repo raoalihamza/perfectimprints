@@ -1,0 +1,30 @@
+{
+  "url": "/cat/bar-wine/brand/yeti",
+  "type": "facet",
+  "h1": "Custom Yeti Bar Wine Products for Bulk Orders",
+  "metaTitle": "Custom Yeti Bar Wine | Perfect Imprints",
+  "metaDescription": "Order custom Yeti bar wine products for your business. Durable drinkware perfect for branding. Bulk discounts available at Perfect Imprints.",
+  "introHtml": "<p>Yeti bar wine products bring the rugged durability and premium insulation that Yeti is known for to your corporate bar and wine service. Whether you are outfitting an employee break room or creating branded drinkware for a hospitality client, Yeti's stainless steel tumblers, lowballs, and can coolers keep beverages at the perfect temperature. With ample space for your logo via laser engraving or screen printing, these pieces reinforce your brand every time they are used. Choose Yeti for a product that matches your company's commitment to quality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Yeti bar wine products including stainless steel tumblers and lowballs with engraved logo",
+  "productSkus": [
+    "528839",
+    "528840",
+    "528841",
+    "528844",
+    "528845",
+    "528846",
+    "528847",
+    "529532",
+    "529533",
+    "529534"
+  ],
+  "generatedAt": "2026-05-31T09:35:28.802155+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

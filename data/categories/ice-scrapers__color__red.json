@@ -1,0 +1,25 @@
+{
+  "url": "/cat/ice-scrapers/color/red",
+  "type": "facet",
+  "h1": "Custom Red Ice Scrapers for Bulk Orders",
+  "metaTitle": "Custom Red Ice Scrapers | Perfect Imprints",
+  "metaDescription": "Order custom red ice scrapers in bulk for your team or event. High-visibility, branded tools from Perfect Imprints.",
+  "introHtml": "<p>Red ice scrapers are a practical choice for winter giveaways because the bright color stands out against snow and ice, making them easy to find in a glove box or truck cab. Whether you choose the compact 7-inch Polar model for commuters or the larger 10-inch version with a foam grip for fleet drivers, imprinting your logo in a contrasting color ensures your brand stays visible all season long.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red ice scrapers with ergonomic handles and printed logos for winter giveaways",
+  "productSkus": [
+    "503216",
+    "503217",
+    "506006",
+    "514833",
+    "524289"
+  ],
+  "generatedAt": "2026-05-31T09:16:19.888231+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

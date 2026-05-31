@@ -1,0 +1,22 @@
+{
+  "url": "/cat/outerwear/material/recycled-pet",
+  "type": "facet",
+  "h1": "Custom Recycled PET Outerwear",
+  "metaTitle": "Custom Recycled PET Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom recycled PET outerwear for your team. Eco-friendly vests, jackets, and more with your logo. Get a quote today.",
+  "introHtml": "<p>Recycled PET outerwear is made from post-consumer plastic bottles, transformed into durable polyester fabric. This material offers the same warmth and weather resistance as virgin polyester but with a fraction of the environmental impact. For companies prioritizing sustainability, custom recycled PET outerwear like quilted vests provides a tangible way to showcase eco-conscious values. These pieces accept embroidery and screen printing cleanly, making them ideal for corporate uniforms, trade show giveaways, or employee rewards. Choose recycled PET to align your brand with responsible sourcing without sacrificing performance or style.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled PET outerwear quilted vest with embroidered logo on front, eco-friendly material",
+  "productSkus": [
+    "526297",
+    "526298"
+  ],
+  "generatedAt": "2026-05-31T08:44:54.244346+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,32 @@
+{
+  "url": "/cat/sweaters-cardigans/production-time/rush",
+  "type": "facet",
+  "h1": "Custom Rush Sweaters & Cardigans",
+  "metaTitle": "Custom Rush Sweaters & Cardigans - Perfect Imprints",
+  "metaDescription": "Order custom rush sweaters and cardigans for quick delivery. Perfect for events, teams, or corporate gifts. Get your order fast at Perfect Imprints.",
+  "introHtml": "<p>When you need custom sweaters or cardigans in a hurry, our rush production option ensures your order ships quickly without sacrificing quality. Whether you're outfitting a team for an upcoming event or need last-minute corporate gifts, styles like the Men's Brooks Brothers Washable Merino V-Neck Sweater or the Women's Boxercraft Cuddle Cardigan can be decorated with embroidery or screen printing on an accelerated timeline. Skip the standard lead times and get your branded apparel when you need it.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom rush sweaters and cardigans with embroidered logo, ready for quick delivery.",
+  "productSkus": [
+    "520268",
+    "520269",
+    "523604",
+    "526198",
+    "526291",
+    "526292",
+    "527181",
+    "527182",
+    "527833",
+    "527957",
+    "528757",
+    "528758"
+  ],
+  "generatedAt": "2026-05-31T09:03:05.784089+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

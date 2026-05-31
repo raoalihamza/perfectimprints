@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pet-leashes/feature/reflective",
+  "type": "facet",
+  "h1": "Custom Reflective Pet Leashes",
+  "metaTitle": "Custom Reflective Pet Leashes | Perfect Imprints",
+  "metaDescription": "Order custom reflective pet leashes for safety and visibility. Perfect for pet events, giveaways, and employee gifts. Bulk pricing available.",
+  "introHtml": "<p>Reflective pet leashes add a critical safety feature for evening walks or low-light conditions. When you order custom reflective pet leashes from Perfect Imprints, you get durable nylon webbing with high-visibility reflective stitching that catches headlights and streetlights. These leashes are ideal for pet adoption events, dog park giveaways, or safety-themed employee gifts. Choose from multiple widths and colors, and add your logo via screen printing or woven label for a professional finish that keeps pets and people visible after dark.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom reflective pet leashes with bright reflective stitching on black nylon webbing, perfect for nighttime walks",
+  "productSkus": [
+    "525324"
+  ],
+  "generatedAt": "2026-05-31T09:22:48.666335+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

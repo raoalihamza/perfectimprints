@@ -1,0 +1,24 @@
+{
+  "url": "/cat/drones/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Drones",
+  "metaTitle": "Custom Full Color Drones - Perfect Imprints",
+  "metaDescription": "Order custom full color drones for your next event or promotion. Perfect Imprints offers high-quality branding on drones.",
+  "introHtml": "<p>Custom full color drones let you showcase your logo or artwork with vibrant, edge-to-edge printing. Unlike single-color imprints, full color allows for gradients, photos, and intricate designs that make your brand stand out at trade shows, outdoor events, or corporate giveaways. Perfect for marketing teams looking to create a memorable impression with a high-tech promotional product.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color drones with vibrant logo printing, ready for promotional events and corporate giveaways.",
+  "productSkus": [
+    "524320",
+    "527804",
+    "527805",
+    "527806"
+  ],
+  "generatedAt": "2026-05-31T09:12:21.796186+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

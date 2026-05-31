@@ -1,0 +1,21 @@
+{
+  "url": "/cat/leggings/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Leggings for Bulk Orders",
+  "metaTitle": "Custom Cotton Leggings | Perfect Imprints",
+  "metaDescription": "Order custom cotton leggings in bulk for your team. Comfortable, breathable, and perfect for branding. Get a quote today.",
+  "introHtml": "<p>Cotton leggings offer a soft, breathable alternative to synthetic fabrics, making them ideal for casual office wear, wellness events, or hospitality uniforms. Unlike performance blends, cotton provides natural comfort for all-day use, and our custom decoration options — including screen printing and embroidery — ensure your logo stands out on this classic material. Perfect for companies prioritizing comfort and sustainability.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cotton leggings with embroidered logo on a soft fabric, perfect for bulk orders",
+  "productSkus": [
+    "526128"
+  ],
+  "generatedAt": "2026-05-31T09:54:23.678458+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

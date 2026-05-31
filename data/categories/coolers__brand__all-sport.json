@@ -1,0 +1,31 @@
+{
+  "url": "/cat/coolers/brand/all-sport",
+  "type": "facet",
+  "h1": "Custom All Sport Coolers for Bulk Orders",
+  "metaTitle": "Custom All Sport Coolers | Perfect Imprints",
+  "metaDescription": "Order custom All Sport coolers in bulk from Perfect Imprints. Perfect for teams, events, and corporate giveaways. Get your quote today!",
+  "introHtml": "<p>All Sport coolers are built to withstand heavy use, making them a reliable choice for team sidelines, company picnics, and outdoor events. Their durable construction and insulation keep drinks cold for hours, while your logo or message gets prime visibility. Whether you need small lunch pails or large backpack coolers, decorating with screen printing or embroidery is straightforward on these rugged surfaces.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom All Sport coolers with company logo, perfect for team events and corporate giveaways.",
+  "productSkus": [
+    "508102",
+    "510724",
+    "517456",
+    "520406",
+    "524297",
+    "525923",
+    "525924",
+    "525964",
+    "525976",
+    "526487",
+    "528730"
+  ],
+  "generatedAt": "2026-05-31T09:11:09.784715+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

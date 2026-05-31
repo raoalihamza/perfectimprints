@@ -1,0 +1,23 @@
+{
+  "url": "/cat/apparel/ounce-capacity/16-oz",
+  "type": "facet",
+  "h1": "Custom 16 oz Apparel for Bulk Orders",
+  "metaTitle": "Custom 16 oz Apparel | Perfect Imprints",
+  "metaDescription": "Order custom 16 oz apparel for your team. Perfect for uniforms and giveaways. Fast turnaround on bulk orders at Perfect Imprints.",
+  "introHtml": "<p>When you need lightweight apparel that keeps your team comfortable, 16 oz apparel hits the sweet spot. This midweight fabric works well for outdoor events, uniform programs, and promotional giveaways where you want durability without overheating. Decorate with screen printing, embroidery, or heat transfer for a polished look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom 16 oz apparel including a Fiesta Kit and Snowed In Set for promotional use",
+  "productSkus": [
+    "521927",
+    "526648",
+    "526805"
+  ],
+  "generatedAt": "2026-05-31T09:32:21.487953+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

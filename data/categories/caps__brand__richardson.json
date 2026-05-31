@@ -1,0 +1,30 @@
+{
+  "url": "/cat/caps/brand/richardson",
+  "type": "facet",
+  "h1": "Custom Richardson Caps for Bulk Orders",
+  "metaTitle": "Custom Richardson Caps | Perfect Imprints",
+  "metaDescription": "Order custom Richardson caps in bulk. Perfect for teams, events, and brands. Get a quote today.",
+  "introHtml": "<p>Richardson caps are a trusted choice for promotional headwear, known for their structured fit and durable construction. Whether you need trucker snapbacks for a construction crew or performance caps for a corporate run, Richardson offers consistent sizing and a wide range of colors. Their signature mesh back and foam front panels make them ideal for embroidery or screen printing, ensuring your logo stands out. Choose Richardson for a professional look that lasts through daily wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Richardson caps with embroidered logos, including trucker snapbacks and low profile styles.",
+  "productSkus": [
+    "522099",
+    "522624",
+    "522625",
+    "522627",
+    "526934",
+    "526935",
+    "529238",
+    "529239",
+    "529240",
+    "529316"
+  ],
+  "generatedAt": "2026-05-31T09:39:34.067011+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

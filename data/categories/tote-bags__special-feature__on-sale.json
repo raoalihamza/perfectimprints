@@ -1,0 +1,24 @@
+{
+  "url": "/cat/tote-bags/special-feature/on-sale",
+  "type": "facet",
+  "h1": "Custom On Sale Tote Bags",
+  "metaTitle": "Custom On Sale Tote Bags - Perfect Imprints",
+  "metaDescription": "Shop custom on sale tote bags at Perfect Imprints. Bulk discounts on recycled cotton totes and more. Order now!",
+  "introHtml": "<p>Custom on sale tote bags give you the chance to stock up on branded giveaways without stretching your budget. These discounted totes include recycled cotton options like the Reclaim Recycled Zippered Tote and the Recycled Cotton Convention Tote, making them ideal for trade shows, grocery promotions, or employee gifts. Even at sale prices, you can still add your logo with screen printing or embroidery to create a useful, eco-friendly promotional item.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom on sale tote bags featuring recycled cotton totes with screen-printed logos",
+  "productSkus": [
+    "522132",
+    "524422",
+    "525490",
+    "526215"
+  ],
+  "generatedAt": "2026-05-31T10:11:50.220488+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

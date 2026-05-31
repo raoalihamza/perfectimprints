@@ -1,0 +1,31 @@
+{
+  "url": "/cat/golf-pencils/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Golf Pencils for Bulk Orders",
+  "metaTitle": "Custom Pink Golf Pencils | Perfect Imprints",
+  "metaDescription": "Order custom pink golf pencils in bulk for your next event. Add your logo with imprint options. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Pink golf pencils add a playful pop of color to your course or event. Whether you are planning a charity tournament or a corporate outing, these custom pencils stand out in scorecard holders and giveaways. Choose from foil stamping or pad printing to showcase your logo or message. They are a budget-friendly promotional item that gets noticed.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink golf pencils with printed logo, displayed on a scorecard in a golf cart",
+  "productSkus": [
+    "510303",
+    "511117",
+    "517777",
+    "519574",
+    "519683",
+    "522780",
+    "523540",
+    "524126",
+    "528009",
+    "528068",
+    "529204"
+  ],
+  "generatedAt": "2026-05-31T09:48:49.751664+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

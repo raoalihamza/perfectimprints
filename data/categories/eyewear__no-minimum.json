@@ -1,0 +1,23 @@
+{
+  "url": "/cat/eyewear/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Eyewear for Small Orders",
+  "metaTitle": "No-Minimum Custom Eyewear | Perfect Imprints",
+  "metaDescription": "Order custom eyewear with no minimums. Perfect for small teams, events, and samples. Get branded sunglasses in low quantities at Perfect Imprints.",
+  "introHtml": "<p>Not every promotional campaign requires a bulk order. With our no-minimum custom eyewear, you can order as few as a single pair of branded sunglasses for small teams, client gifts, or event giveaways. Whether you need Nike® Chance or Skylon Ace styles, our low-quantity pricing makes it easy to test designs or outfit a small group without committing to large volumes. Perfect for startups, small businesses, and one-off promotions.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "No-minimum custom eyewear including branded Nike Chance sunglasses displayed on a table with colorful frames and logo imprint.",
+  "productSkus": [
+    "526685",
+    "526686",
+    "526687"
+  ],
+  "generatedAt": "2026-05-31T08:41:40.890661+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

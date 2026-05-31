@@ -1,0 +1,24 @@
+{
+  "url": "/cat/bags/brand/travis-wells",
+  "type": "facet",
+  "h1": "Custom Travis Wells Bags for Bulk Orders",
+  "metaTitle": "Custom Travis Wells Bags | Perfect Imprints",
+  "metaDescription": "Order custom Travis Wells bags in bulk at Perfect Imprints. Ideal for corporate gifts and employee appreciation.",
+  "introHtml": "<p>Travis Wells bags combine premium materials like full-grain leather with modern design, making them a standout choice for corporate gifts and executive incentives. Whether you choose the Lennox Crossbody for daily carry or the Envoy Junior Writing Pad for meetings, these pieces offer lasting quality. Decorate with a subtle debossed logo to keep your brand front and center without compromising the bag's refined look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Travis Wells bags including the Lennox Crossbody and Leather Zippered Pouch for bulk orders",
+  "productSkus": [
+    "524212",
+    "527195",
+    "527307",
+    "528123"
+  ],
+  "generatedAt": "2026-05-31T08:49:34.606204+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

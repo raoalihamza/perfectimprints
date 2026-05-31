@@ -1,0 +1,24 @@
+{
+  "url": "/cat/pens/brand/post-it",
+  "type": "facet",
+  "h1": "Custom Post It Pens for Bulk Orders",
+  "metaTitle": "Custom Post It Pens | Perfect Imprints",
+  "metaDescription": "Order custom Post It pens for your business. Perfect for giveaways and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Post It pens combine the trusted brand recognition of Post-It with the everyday utility of a writing instrument. Ideal for trade shows, office supply kits, or corporate welcome packages, these pens keep your logo visible on desks and in pockets. Choose from classic stick pens or retractable styles, each customizable with your company name or message. Durable and reliable, they reinforce brand recall with every use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Post It pens with company logo displayed on a desk alongside sticky notes",
+  "productSkus": [
+    "528272",
+    "528273",
+    "528274",
+    "528275"
+  ],
+  "generatedAt": "2026-05-31T09:22:06.794791+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

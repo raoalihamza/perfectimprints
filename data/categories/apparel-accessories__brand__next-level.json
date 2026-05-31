@@ -1,0 +1,24 @@
+{
+  "url": "/cat/apparel-accessories/brand/next-level",
+  "type": "facet",
+  "h1": "Custom Next Level Apparel Accessories",
+  "metaTitle": "Custom Next Level Apparel Accessories | Perfect Imprints",
+  "metaDescription": "Order custom Next Level apparel accessories for your team. Soft, durable tees perfect for branding. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Next Level Apparel accessories are known for their ultra-soft fabrics and modern fits, making them a top choice for employee uniforms, event giveaways, and retail merchandise. The 4.3-ounce tri-blend tees offer a vintage feel that holds up to frequent washing, while the 100% cotton options provide a crisp canvas for screen printing or embroidery. For marketing directors and HR managers, these accessories combine comfort with a professional look that keeps your brand front and center.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Next Level Apparel accessories including soft tri-blend and cotton tees for branding",
+  "productSkus": [
+    "526133",
+    "526134",
+    "529307",
+    "529308"
+  ],
+  "generatedAt": "2026-05-31T08:48:16.352490+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

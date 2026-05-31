@@ -1,0 +1,19 @@
+{
+  "url": "/cat/shirts/feature/cropped",
+  "type": "facet",
+  "h1": "Custom Cropped Shirts for Your Brand",
+  "metaTitle": "Custom Cropped Shirts | Perfect Imprints",
+  "metaDescription": "Order custom cropped shirts for your next event or promotion. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Cropped shirts bring a modern, fitted silhouette that stands out from standard tees. Whether you're outfitting a tradeshow team or creating limited-edition merch, the cropped cut pairs well with screen printing or embroidery on the front or back. Choose from cotton or poly-blend fabrics to match your event's vibe.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A group of people wearing custom cropped shirts with printed logos at an outdoor event",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:02:06.291385+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

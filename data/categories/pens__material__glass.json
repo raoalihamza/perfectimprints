@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pens/material/glass",
+  "type": "facet",
+  "h1": "Custom Glass Pens for Bulk Orders",
+  "metaTitle": "Custom Glass Pens - Perfect Imprints",
+  "metaDescription": "Order custom glass pens for your brand. Perfect for trade shows and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Custom glass pens offer a sleek, high-end alternative to standard promotional pens. The smooth glass barrel provides a comfortable grip and a sophisticated look, making them ideal for corporate gifts, trade shows, and client appreciation. Unlike plastic pens, glass pens feel substantial and can be etched or printed with your logo for a lasting impression. Choose glass when you want your brand to stand out with elegance and quality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A row of custom glass pens with engraved logos, displayed on a desk with a notepad.",
+  "productSkus": [
+    "526802"
+  ],
+  "generatedAt": "2026-05-31T08:59:38.426288+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

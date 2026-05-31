@@ -1,0 +1,26 @@
+{
+  "url": "/cat/scarves/production-time/rush",
+  "type": "facet",
+  "h1": "Custom Rush Scarves for Urgent Orders",
+  "metaTitle": "Custom Rush Scarves | Perfect Imprints",
+  "metaDescription": "Need custom rush scarves fast? Perfect Imprints offers quick turnaround on branded scarves for your event or promotion.",
+  "introHtml": "<p>When your event or promotion timeline is tight, custom rush scarves deliver the warmth and brand visibility you need without the wait. Whether you choose embroidered fleece scarves for a corporate giveaway or digitally printed knit scarves for a seasonal campaign, our rush production keeps your schedule on track. Skip the standard lead times and get your logo onto soft, wearable gear that your team or customers will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom rush scarves with embroidered logo on a soft fleece scarf",
+  "productSkus": [
+    "514088",
+    "516838",
+    "516839",
+    "516872",
+    "520012",
+    "520863"
+  ],
+  "generatedAt": "2026-05-31T10:05:41.174943+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/tools/feature/padded",
+  "type": "facet",
+  "h1": "Custom Padded Tools for Bulk Orders",
+  "metaTitle": "Custom Padded Tools | Perfect Imprints",
+  "metaDescription": "Order custom padded tools in bulk from Perfect Imprints. Ideal for safety managers and HR directors. Get your quote today!",
+  "introHtml": "<p>Padded tools combine utility with comfort, making them ideal for safety managers equipping field crews or HR directors assembling welcome kits. Unlike standard metal tools, padded handles reduce hand fatigue during repeated use. Options like the Tape Measure with LED Flashlight and Level Notepad Tape Measure offer practical features plus a soft grip. Decorate with your logo via pad printing or laser engraving for a professional finish that stands up to job site conditions.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom padded tools including a tape measure with LED flashlight and level notepad, featuring ergonomic padded handles for comfort",
+  "productSkus": [
+    "501983 91A",
+    "506866",
+    "514471 01A",
+    "515454 01A",
+    "522797"
+  ],
+  "generatedAt": "2026-05-31T09:28:41.199022+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

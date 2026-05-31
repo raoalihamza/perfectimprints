@@ -1,0 +1,27 @@
+{
+  "url": "/cat/jackets/brand/bella-canvas",
+  "type": "facet",
+  "h1": "Custom Bella Canvas Jackets for Bulk Orders",
+  "metaTitle": "Custom Bella Canvas Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Bella Canvas jackets for your team. Soft, stylish, and perfect for branding. Get a quote today!",
+  "introHtml": "<p>Bella Canvas jackets offer a modern, lightweight feel that your team will actually want to wear. Unlike heavier workwear, these jackets feature a soft cotton-poly blend that drapes well and holds screen printing or embroidery cleanly. Ideal for trade shows, uniform programs, or employee gifts, they combine comfort with a polished look that represents your brand well. Choose from full-zip or pullover styles in versatile colors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Bella Canvas jackets with embroidered logo on front, displayed on a model",
+  "productSkus": [
+    "506191",
+    "506864",
+    "526601",
+    "527377",
+    "528866",
+    "528887",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T09:51:35.133860+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

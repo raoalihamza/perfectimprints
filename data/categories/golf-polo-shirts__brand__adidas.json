@@ -1,0 +1,31 @@
+{
+  "url": "/cat/golf-polo-shirts/brand/adidas",
+  "type": "facet",
+  "h1": "Custom Adidas Golf Polo Shirts",
+  "metaTitle": "Custom Adidas Golf Polo Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Adidas golf polo shirts for your team or event. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Adidas golf polo shirts combine athletic performance with brand recognition, making them a top choice for corporate golf outings, team uniforms, and promotional events. The moisture-wicking fabric and classic fit keep wearers comfortable on and off the course, while your logo can be embroidered or screen printed for lasting visibility. Choose from men's and women's styles like the Performance Polo or Basic Sport Polo to ensure a polished, professional look for your group.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Adidas golf polo shirts with embroidered logo, available in multiple colors and sizes for bulk orders.",
+  "productSkus": [
+    "527061",
+    "527063",
+    "527066",
+    "527067",
+    "527068",
+    "527069",
+    "527070",
+    "529075",
+    "529076",
+    "529184",
+    "529185"
+  ],
+  "generatedAt": "2026-05-31T08:34:06.605093+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

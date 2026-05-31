@@ -1,0 +1,24 @@
+{
+  "url": "/cat/t-shirts/brand/next-level",
+  "type": "facet",
+  "h1": "Custom Next Level T Shirts for Bulk Orders",
+  "metaTitle": "Custom Next Level T Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Next Level t shirts in bulk. Soft tri-blend and cotton tees perfect for your brand. Get a quote today.",
+  "introHtml": "<p>Next Level Apparel t shirts are a favorite for bulk orders because they combine soft, modern fabrics with consistent sizing and a wide range of colors. Whether you choose the popular tri-blend for a vintage feel or the durable cotton tee for everyday wear, these shirts hold up to screen printing and embroidery exceptionally well. Marketing directors and HR teams appreciate the professional look and comfortable fit that employees actually want to wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Next Level t shirts in tri-blend and cotton fabrics for corporate branding",
+  "productSkus": [
+    "526133",
+    "526134",
+    "529307",
+    "529308"
+  ],
+  "generatedAt": "2026-05-31T10:10:14.298640+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

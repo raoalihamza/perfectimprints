@@ -1,0 +1,22 @@
+{
+  "url": "/cat/health/feature/waterproof",
+  "type": "facet",
+  "h1": "Custom Waterproof Health Products",
+  "metaTitle": "Custom Waterproof Health Products | Perfect Imprints",
+  "metaDescription": "Shop custom waterproof health products for bulk orders. Perfect for safety managers. Get a quote today!",
+  "introHtml": "<p>Waterproof health products are essential for environments where moisture, spills, or outdoor conditions are a concern. From UV air purifiers that withstand humidity to digital scales that resist water damage, these items maintain functionality and hygiene in demanding settings. Perfect for corporate wellness programs, construction sites, or medical facilities, they ensure your branded health tools remain reliable and clean. Choose waterproof to protect your investment and your team's well-being.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom waterproof health products including a Sealy UV Air Purifier and Personal Digital Scale",
+  "productSkus": [
+    "527900",
+    "527905"
+  ],
+  "generatedAt": "2026-05-31T08:55:35.436223+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

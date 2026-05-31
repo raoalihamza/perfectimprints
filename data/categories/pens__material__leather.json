@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pens/material/leather",
+  "type": "facet",
+  "h1": "Custom Leather Pens for Bulk Orders",
+  "metaTitle": "Custom Leather Pens | Perfect Imprints",
+  "metaDescription": "Order custom leather pens for a sophisticated brand impression. Perfect for executive gifts and corporate events.",
+  "introHtml": "<p>Leather pens offer a refined alternative to standard promotional pens, making them ideal for executive gifts, client appreciation, or high-end corporate events. The natural grain and rich texture of leather provide a tactile experience that conveys quality and attention to detail. Options like the Tuscany™ Executive Pen combine a genuine leather barrel with a smooth-writing ballpoint refill, ensuring your logo leaves a lasting impression. These pens are typically decorated with foil stamping or debossing for an elegant finish that aligns with premium branding strategies.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom leather pens with gold accents and debossed logo on a desk",
+  "productSkus": [
+    "518921"
+  ],
+  "generatedAt": "2026-05-31T09:22:12.270486+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

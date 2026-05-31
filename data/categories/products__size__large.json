@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/size/large",
+  "type": "facet",
+  "h1": "Custom Large Products for Bulk Orders",
+  "metaTitle": "Custom Large Products | Perfect Imprints",
+  "metaDescription": "Order custom large products in bulk at Perfect Imprints. Ideal for giveaways, events, and corporate branding.",
+  "introHtml": "<p>When you need branded items that make a statement, custom large products offer the visibility and impact smaller giveaways can't match. From oversized tote bags to jumbo stress relievers, these items ensure your logo is seen clearly. Perfect for trade shows, employee gifts, or event swag, large-format products provide ample space for full-color decoration and detailed designs. Choose from durable materials and finishes that hold up to daily use, ensuring your brand stays front and center.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom large products like oversized tote bags and jumbo stress balls with printed logos for corporate branding",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:59.204182+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

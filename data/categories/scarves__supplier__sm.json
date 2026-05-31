@@ -1,0 +1,26 @@
+{
+  "url": "/cat/scarves/supplier/sm",
+  "type": "facet",
+  "h1": "Custom SM Scarves for Bulk Orders",
+  "metaTitle": "Custom SM Scarves | Perfect Imprints",
+  "metaDescription": "Order custom SM scarves for your team or event. Perfect for bulk branding with embroidery or screen printing.",
+  "introHtml": "<p>SM scarves offer a reliable choice for promotional giveaways and corporate gifts. Whether you need fleece scarves for winter trade shows or knit scarves for employee appreciation, SM provides consistent quality across multiple styles. Decorate with embroidery or screen printing to showcase your logo. These scarves are ideal for cold-weather events, holiday gifts, or uniform accessories. Perfect for bulk orders where durability and comfort matter.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom SM scarves in fleece and knit styles for promotional use, featuring embroidered logos.",
+  "productSkus": [
+    "514088",
+    "516838",
+    "516839",
+    "516872",
+    "520012",
+    "520863"
+  ],
+  "generatedAt": "2026-05-31T10:05:43.331843+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

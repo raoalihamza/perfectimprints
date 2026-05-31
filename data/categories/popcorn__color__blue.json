@@ -1,0 +1,24 @@
+{
+  "url": "/cat/popcorn/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Popcorn for Bulk Orders",
+  "metaTitle": "Custom Blue Popcorn | Perfect Imprints",
+  "metaDescription": "Order custom blue popcorn in bulk for your next event. Perfect for branding and gifting. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Blue popcorn adds a vibrant, eye-catching touch to corporate gifts and event giveaways. Whether you choose the classic 3 Way Popcorn Tin or the Poppinsanity Sweet & Salty Artisanal Popcorn Mug Stuffer, the bold blue color makes your brand stand out. Ideal for trade shows, employee appreciation, or client gifts, these custom blue popcorn options are easy to decorate with your logo or message.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue popcorn in a decorated tin with a branded ribbon, perfect for corporate gifts and events.",
+  "productSkus": [
+    "507901",
+    "513153 23A",
+    "513154 23A",
+    "527813"
+  ],
+  "generatedAt": "2026-05-31T09:00:28.502431+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

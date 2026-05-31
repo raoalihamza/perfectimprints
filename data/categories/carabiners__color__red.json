@@ -1,0 +1,27 @@
+{
+  "url": "/cat/carabiners/color/red",
+  "type": "facet",
+  "h1": "Custom Red Carabiners for Bulk Orders",
+  "metaTitle": "Custom Red Carabiners | Perfect Imprints",
+  "metaDescription": "Order custom red carabiners in bulk for giveaways, events, or safety kits. Branded with your logo. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Red carabiners stand out on backpacks, keychains, and tool belts, making them a smart choice for safety teams, outdoor events, and branded giveaways. The anodized finish on models like the 8mm Anodized Carabiner resists scratches and fading, while direct printing or pad printing keeps your logo visible. Whether you need a simple clip for keys or a multi-tool like the Basecamp Quickdraw, custom red carabiners help your brand get noticed in high-traffic settings.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red carabiners with keyring and direct print logo on anodized aluminum",
+  "productSkus": [
+    "501590",
+    "508958",
+    "510855",
+    "513263",
+    "517505",
+    "519904",
+    "520411"
+  ],
+  "generatedAt": "2026-05-31T09:10:12.632781+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

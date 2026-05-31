@@ -1,0 +1,22 @@
+{
+  "url": "/cat/wine-glasses/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Wine Glasses",
+  "metaTitle": "Custom Orange Wine Glasses | Perfect Imprints",
+  "metaDescription": "Order custom orange wine glasses for your next event. Perfect for branding at Perfect Imprints. Get a quote today!",
+  "introHtml": "<p>Orange wine glasses add a bold pop of color to any event or corporate gift. Whether you're planning a fall festival, a Halloween party, or simply want your brand to stand out on the bar, orange glassware makes a statement. These 10 oz vacuum insulated cups keep drinks at the perfect temperature while showcasing your logo. Ideal for promotional giveaways or employee appreciation gifts, custom orange wine glasses are a memorable choice that recipients will use again and again.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange wine glasses with a company logo, perfect for promotional events and corporate gifts.",
+  "productSkus": [
+    "522060",
+    "526191"
+  ],
+  "generatedAt": "2026-05-31T08:38:21.304990+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel/feature/led-light",
+  "type": "facet",
+  "h1": "Custom LED Light Apparel for Promotional Events",
+  "metaTitle": "Custom LED Light Apparel | Perfect Imprints",
+  "metaDescription": "Shop custom LED light apparel for safety and visibility. Perfect for night events. Bulk orders at Perfect Imprints.",
+  "introHtml": "<p>LED light apparel adds a functional twist to promotional clothing by integrating small, battery-powered lights into the fabric. Ideal for nighttime runs, outdoor festivals, or safety-conscious teams, these pieces ensure your brand stays visible after dark. The Mood Watch Bracelet is one example of a wearable that uses LED technology to create a memorable impression. Customize with your logo or message for a unique glow that stands out in any crowd.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom LED light apparel including a glowing Mood Watch Bracelet for promotional events",
+  "productSkus": [
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T08:48:25.551731+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

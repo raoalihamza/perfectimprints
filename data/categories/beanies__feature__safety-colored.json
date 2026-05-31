@@ -1,0 +1,21 @@
+{
+  "url": "/cat/beanies/feature/safety-colored",
+  "type": "facet",
+  "h1": "Custom Safety Colored Beanies",
+  "metaTitle": "Custom Safety Colored Beanies | Perfect Imprints",
+  "metaDescription": "Order custom safety colored beanies in bulk for your team. High-visibility colors with reflective stripes. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Safety colored beanies combine the warmth of a knit cap with high-visibility hues like neon orange and lime green, making them ideal for outdoor crews, safety teams, and event staff. Many styles include reflective stripes for added visibility in low-light conditions. These beanies keep your team warm while reinforcing your brand with practical workwear that stands out on the job site.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom safety colored beanies with reflective stripes in neon orange and lime green for bulk orders",
+  "productSkus": [
+    "506903"
+  ],
+  "generatedAt": "2026-05-31T08:32:43.772276+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

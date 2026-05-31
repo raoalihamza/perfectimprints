@@ -1,0 +1,23 @@
+{
+  "url": "/cat/cafe-mugs/activity/camping",
+  "type": "facet",
+  "h1": "Custom Camping Cafe Mugs",
+  "metaTitle": "Custom Camping Cafe Mugs | Perfect Imprints",
+  "metaDescription": "Order custom camping cafe mugs for your team or event. Durable, branded mugs perfect for outdoor use. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom camping cafe mugs bring the warmth of the outdoors to your brand. Whether you're outfitting a company retreat or creating giveaways for outdoor enthusiasts, these mugs are built to handle rugged use. Double-wall insulation keeps coffee hot during morning hikes, while the durable ceramic or enamel finish resists chips and cracks. Decorate with your logo using screen printing or full-wrap color for a design that stands out around the campfire. Perfect for trade shows, employee gifts, or promotional events where durability and style matter.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom camping cafe mugs with double-wall insulation and screen-printed logo, ideal for outdoor promotional use.",
+  "productSkus": [
+    "522392",
+    "522462",
+    "524786"
+  ],
+  "generatedAt": "2026-05-31T09:38:52.246555+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

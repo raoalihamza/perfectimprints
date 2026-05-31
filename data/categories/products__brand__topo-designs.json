@@ -1,0 +1,21 @@
+{
+  "url": "/cat/products/brand/topo-designs",
+  "type": "facet",
+  "h1": "Custom Topo Designs Products for Bulk Orders",
+  "metaTitle": "Custom Topo Designs Products | Perfect Imprints",
+  "metaDescription": "Order custom Topo Designs products in bulk. Perfect for corporate gifts and branded merchandise. Get a quote today!",
+  "introHtml": "<p>Topo Designs products combine retro outdoor style with modern functionality, making them a standout choice for corporate gifts and employee rewards. Their durable, color-blocked designs like the Recycled Classic 15\" Laptop Daypack offer practical everyday use while keeping your brand visible. Whether you're outfitting a remote team or gifting clients, these pieces carry your logo with a rugged, authentic look that resonates with outdoor enthusiasts and urban commuters alike.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Topo Designs products including the Recycled Classic 15\" Laptop Daypack with embroidered logo",
+  "productSkus": [
+    "528156"
+  ],
+  "generatedAt": "2026-05-31T09:24:01.454067+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

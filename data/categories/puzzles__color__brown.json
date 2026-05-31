@@ -1,0 +1,28 @@
+{
+  "url": "/cat/puzzles/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Puzzles for Branded Gifts",
+  "metaTitle": "Custom Brown Puzzles | Perfect Imprints",
+  "metaDescription": "Order custom brown puzzles for your next event. Perfect Imprints offers quality branded puzzles in brown. Request a quote today.",
+  "introHtml": "<p>Brown puzzles offer a warm, natural look that stands out from standard white or black options. Whether you choose a wooden-themed design or a solid brown finish, these puzzles create a tactile, engaging experience for recipients. Ideal for corporate gifts, trade show giveaways, or team-building kits, custom brown puzzles can be printed with your logo using full-color or single-color imprinting. The earthy tone pairs well with many branding palettes, making them a versatile choice for any campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown puzzles with logo imprint, stacked in a gift box, showcasing warm wooden tones",
+  "productSkus": [
+    "519909",
+    "524494",
+    "524558",
+    "526049",
+    "526385",
+    "526832",
+    "527915",
+    "528770"
+  ],
+  "generatedAt": "2026-05-31T10:04:50.235533+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

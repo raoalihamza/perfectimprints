@@ -1,0 +1,26 @@
+{
+  "url": "/cat/apparel/material/wood",
+  "type": "facet",
+  "h1": "Custom Wood Apparel for Unique Branding",
+  "metaTitle": "Custom Wood Apparel | Perfect Imprints",
+  "metaDescription": "Order custom wood apparel for a natural, eco-friendly brand look. Perfect for giveaways and events. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Custom wood apparel, like bamboo sunglasses and wood-grain accessories, offers a distinctive natural aesthetic that sets your brand apart from standard cotton or polyester options. Ideal for outdoor events or eco-conscious campaigns, these items pair well with laser engraving for a refined, earthy look. Whether you're outfitting a trade show team or rewarding employees, wood apparel makes a memorable impression that aligns with sustainability values.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wood apparel featuring bamboo sunglasses with laser engraved logo on a rustic background",
+  "productSkus": [
+    "505312",
+    "506146",
+    "510468 64F",
+    "510469 64E",
+    "526680",
+    "528712"
+  ],
+  "generatedAt": "2026-05-31T09:32:21.088063+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

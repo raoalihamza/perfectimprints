@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jewelry/size/3xlarge",
+  "type": "facet",
+  "h1": "Custom 3XL Jewelry for Bulk Orders",
+  "metaTitle": "Custom 3XL Jewelry | Perfect Imprints",
+  "metaDescription": "Order custom 3XL jewelry in bulk for your team. Perfect for promotional giveaways. Fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Oversized jewelry makes a statement, and our 3XL custom jewelry is designed for recipients who prefer a bolder look. Whether it's a paracord bracelet for outdoor enthusiasts or a mood watch bracelet for trade shows, these pieces offer ample surface area for your logo or message. Ideal for corporate gifts, safety incentives, or event giveaways where visibility and durability matter. Choose from adjustable or fixed sizes to fit your audience.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom 3XL jewelry including paracord bracelets and mood watch bracelets with engraved logos",
+  "productSkus": [
+    "516655",
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T09:16:49.303599+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

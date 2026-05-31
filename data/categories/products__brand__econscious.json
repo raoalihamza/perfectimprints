@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/econscious",
+  "type": "facet",
+  "h1": "Custom Econscious Products for Bulk Orders",
+  "metaTitle": "Custom Econscious Products | Perfect Imprints",
+  "metaDescription": "Order custom Econscious products from Perfect Imprints. Eco-friendly, fair trade, perfect for bulk branding. Get a quote today!",
+  "introHtml": "<p>Econscious products are made from recycled materials and produced under fair trade conditions, making them a responsible choice for your branded merchandise. Whether you're outfitting a corporate event with organic cotton tote bags or supplying your team with recycled polyester pullovers, Econscious offers a range of apparel and accessories that align with sustainability goals. Decorate with screen printing or embroidery to showcase your logo while demonstrating environmental commitment.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Econscious products including organic cotton tote bags and recycled polyester pullovers with printed logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:23:52.712028+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

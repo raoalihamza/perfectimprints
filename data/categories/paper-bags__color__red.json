@@ -1,0 +1,23 @@
+{
+  "url": "/cat/paper-bags/color/red",
+  "type": "facet",
+  "h1": "Custom Red Paper Bags for Branded Packaging",
+  "metaTitle": "Custom Red Paper Bags | Perfect Imprints",
+  "metaDescription": "Order custom red paper bags for your brand. Perfect for retail, events, and promotions. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Red paper bags make a bold statement for retail packaging, event giveaways, or promotional mailers. Unlike standard kraft or white bags, red instantly grabs attention and reinforces brand recognition. Perfect for holiday promotions, Valentine's Day campaigns, or any brand that wants to stand out, these bags are available in sizes from small 6\" x 8 3/8\" Toto bags to large 16\" x 12\" Judy bags. Customize with your logo using screen printing or foil stamping for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red paper bags with white handles and printed logos, ideal for retail and promotional use.",
+  "productSkus": [
+    "503365",
+    "503366",
+    "503367"
+  ],
+  "generatedAt": "2026-05-31T09:21:36.278358+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

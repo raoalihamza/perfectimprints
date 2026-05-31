@@ -1,0 +1,27 @@
+{
+  "url": "/cat/office/material/spandex",
+  "type": "facet",
+  "h1": "Custom Spandex Office Products for Teams",
+  "metaTitle": "Custom Spandex Office | Perfect Imprints",
+  "metaDescription": "Shop custom spandex office gear at Perfect Imprints. Perfect for teams needing stretchy, comfortable branded apparel. Order bulk today!",
+  "introHtml": "<p>Spandex office products combine professional style with four-way stretch for all-day comfort. Whether you need touch screen gloves for field work or soft shell jackets for team outings, spandex blends offer durability and flexibility. Decorate with embroidery or screen printing for a polished look that moves with your team.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom spandex office touch screen gloves and soft shell jackets for team uniforms",
+  "productSkus": [
+    "515290",
+    "515291",
+    "519076",
+    "520280",
+    "520281",
+    "525734",
+    "525735"
+  ],
+  "generatedAt": "2026-05-31T09:58:16.037561+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

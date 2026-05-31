@@ -1,0 +1,32 @@
+{
+  "url": "/cat/health/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Health Products for Your Brand",
+  "metaTitle": "Custom Cotton Health Products - Perfect Imprints",
+  "metaDescription": "Order custom cotton health products for your wellness program. Branded bandanas, towels, and more at Perfect Imprints.",
+  "introHtml": "<p>Cotton health products offer a natural, breathable choice for corporate wellness programs, safety teams, and outdoor events. From branded bandanas that double as face coverings to cotton towels for gyms or first-aid kits, these items prioritize comfort and sustainability. Decorate with screen printing or embroidery for a soft, professional finish that stands up to repeated use. Choose cotton when you want a fabric that feels good against the skin and conveys a thoughtful, earth-friendly brand image.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cotton health products including organic cotton travel kit and cotton bandana for corporate wellness",
+  "productSkus": [
+    "516240",
+    "521602",
+    "522110",
+    "522111",
+    "522878",
+    "523623",
+    "524126",
+    "525624",
+    "526128",
+    "527258",
+    "527339",
+    "528435"
+  ],
+  "generatedAt": "2026-05-31T08:42:52.051443+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

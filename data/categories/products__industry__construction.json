@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/industry/construction",
+  "type": "facet",
+  "h1": "Custom Construction Products for Bulk Orders",
+  "metaTitle": "Custom Construction Products | Perfect Imprints",
+  "metaDescription": "Order custom construction products for your team. Perfect Imprints offers bulk pricing on hard hats, safety vests, and more.",
+  "introHtml": "<p>Construction job sites demand durable, high-visibility gear that keeps your brand front and center. Custom hard hats, safety vests, and insulated drinkware with your logo help reinforce safety protocols while building team identity. Whether you need screened logos on ANSI-rated vests or debossed branding on aluminum water bottles, these products are built to withstand rough daily use on active sites.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom construction products including branded hard hats, safety vests, and insulated water bottles for bulk orders.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:56.602898+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

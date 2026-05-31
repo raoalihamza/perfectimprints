@@ -1,0 +1,19 @@
+{
+  "url": "/cat/caps/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Caps",
+  "metaTitle": "No-Minimum Custom Caps | Perfect Imprints",
+  "metaDescription": "Order small quantities of custom caps with no minimums. Perfect for small teams, events, or samples. Get branded caps today at Perfect Imprints.",
+  "introHtml": "<p>When you need custom caps but don't have a large order, our no-minimum program gives you the flexibility to order as few as one or a handful. Perfect for small businesses, startups, team events, or sampling designs before a bigger run. You get the same quality decoration and fast turnaround without being forced to buy in bulk. Simply choose your cap style, add your logo, and order the quantity that fits your needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "No-minimum custom caps with embroidered logos on a table, showcasing small-batch orders for teams and events.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:10:06.114104+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

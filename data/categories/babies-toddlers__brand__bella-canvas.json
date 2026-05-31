@@ -1,0 +1,27 @@
+{
+  "url": "/cat/babies-toddlers/brand/bella-canvas",
+  "type": "facet",
+  "h1": "Custom Bella Canvas Babies & Toddlers Apparel",
+  "metaTitle": "Custom Bella Canvas Babies Toddlers | Perfect Imprints",
+  "metaDescription": "Shop custom Bella Canvas babies & toddlers apparel. Soft, tagless tees perfect for bulk orders. Get a quote today!",
+  "introHtml": "<p>Bella Canvas babies and toddlers apparel offers the same ultra-soft, ring-spun cotton that parents love, now in pint-sized cuts. The tagless neck labels and pre-shrunk fabric make these pieces ideal for screen printing or embroidery at trade shows, company picnics, or employee welcome kits. Ordering in bulk ensures consistent sizing and color across your entire run, from 6-month onesies to youth small tees.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of custom Bella Canvas babies and toddlers t-shirts in various colors with printed logos",
+  "productSkus": [
+    "506191",
+    "506864",
+    "526601",
+    "527377",
+    "528866",
+    "528887",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T09:06:14.206768+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

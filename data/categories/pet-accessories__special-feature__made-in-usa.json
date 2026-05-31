@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pet-accessories/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Pet Accessories",
+  "metaTitle": "Custom Made in USA Pet Accessories | Perfect Imprints",
+  "metaDescription": "Order custom made in USA pet accessories for your brand. Perfect for giveaways and retail. Get a quote today.",
+  "introHtml": "<p>Choosing custom made in USA pet accessories means supporting American manufacturing while promoting your brand. Products like the Traditional USA Paisley Bandana offer a patriotic touch that resonates with customers who value domestic production. These accessories are ideal for pet-related events, retail stores, or employee gifts. Decorate with screen printing or embroidery for a polished look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA pet accessories including a Traditional USA Paisley Bandana for dogs",
+  "productSkus": [
+    "506991"
+  ],
+  "generatedAt": "2026-05-31T10:01:08.302876+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

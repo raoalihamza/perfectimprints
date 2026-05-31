@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tank-tops/neckline/ringer",
+  "type": "facet",
+  "h1": "Custom Ringer Tank Tops for Teams & Events",
+  "metaTitle": "Custom Ringer Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom ringer tank tops for your team or event. Bulk pricing, fast turnaround, and quality decoration. Get a quote today!",
+  "introHtml": "<p>Ringer tank tops add a retro sporty vibe that standard tanks can't match, with contrasting neck and armhole bands that make your logo pop. Whether you're outfitting a summer camp staff, a 5K race crew, or a company picnic, these lightweight tops offer breathable comfort and a classic look. Decorate with screen printing or embroidery for a crisp, long-lasting finish that stands out at events and on the go.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom ringer tank tops with printed logos at a outdoor event",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T10:10:41.791592+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

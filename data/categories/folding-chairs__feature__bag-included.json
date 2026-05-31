@@ -1,0 +1,27 @@
+{
+  "url": "/cat/folding-chairs/feature/bag-included",
+  "type": "facet",
+  "h1": "Custom Bag Included Folding Chairs",
+  "metaTitle": "Custom Bag Included Folding Chairs | Perfect Imprints",
+  "metaDescription": "Order custom bag included folding chairs for events and promotions. Perfect for bulk orders at Perfect Imprints.",
+  "introHtml": "<p>When you need portable seating that's easy to transport and store, custom bag included folding chairs are the practical solution. The included carrying bag protects chairs during transit and simplifies storage, making them ideal for outdoor events, trade shows, and corporate picnics. Choose from styles like the Camp Throne or Premium Stripe Chair, and add your logo via screen printing or debossing for a professional look that travels well.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom bag included folding chairs with carrying bags, perfect for outdoor events and bulk orders.",
+  "productSkus": [
+    "505894",
+    "513930",
+    "520195",
+    "520397",
+    "523192",
+    "525794",
+    "527459"
+  ],
+  "generatedAt": "2026-05-31T09:46:33.957204+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

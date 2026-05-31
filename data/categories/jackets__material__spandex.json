@@ -1,0 +1,21 @@
+{
+  "url": "/cat/jackets/material/spandex",
+  "type": "facet",
+  "h1": "Custom Spandex Jackets for Bulk Orders",
+  "metaTitle": "Custom Spandex Jackets | Perfect Imprints",
+  "metaDescription": "Order custom spandex jackets in bulk for your team. Perfect for uniforms and events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Spandex jackets offer a stretchy, form-fitting option that moves with your team during active workdays or outdoor events. Unlike rigid shell jackets, spandex blends provide flexibility and a sleek silhouette that looks sharp with logo embroidery or screen printing. Ideal for safety managers equipping field crews or marketing directors outfitting event staff, these jackets combine comfort with a professional appearance.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom spandex jackets with embroidered logo on front, form-fitting design in black",
+  "productSkus": [
+    "511084"
+  ],
+  "generatedAt": "2026-05-31T08:56:11.284512+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

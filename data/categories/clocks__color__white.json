@@ -1,0 +1,23 @@
+{
+  "url": "/cat/clocks/color/white",
+  "type": "facet",
+  "h1": "Custom White Clocks",
+  "metaTitle": "Custom White Clocks | Perfect Imprints",
+  "metaDescription": "Brand your space with custom white clocks from Perfect Imprints. Bulk orders with your logo. Shop now.",
+  "introHtml": "<p>White clocks offer a clean, versatile look that blends into any office, breakroom, or retail environment. Whether you choose the modern Oslo Clock or the functional 15W Bamboo Folding Charger With Digital Clock, white keeps the focus on your brand without visual clutter. Perfect for corporate gifts or facility signage, these clocks accept screen printing or laser engraving for a crisp logo display.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom white clocks with logo imprint, including Oslo and Hawick models, displayed on an office wall.",
+  "productSkus": [
+    "515134 90E",
+    "528699",
+    "528775"
+  ],
+  "generatedAt": "2026-05-31T09:10:35.437832+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/personal-care-items/material/stainless-steel",
+  "type": "facet",
+  "h1": "Custom Stainless Steel Personal Care Items",
+  "metaTitle": "Custom Stainless Steel Personal Care Items | Perfect",
+  "metaDescription": "Browse custom stainless steel personal care items for bulk orders. Durable, reusable, and perfect for your brand. Get a quote today.",
+  "introHtml": "<p>Stainless steel personal care items offer unmatched durability and a premium feel that plastic simply can't match. Whether you're outfitting a corporate wellness program or gifting employees at a safety meeting, these items resist rust, retain temperature, and hold up to daily use. From tumblers to water bottles, each piece can be laser engraved or screen printed with your logo for a sleek, professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom stainless steel personal care items including tumblers and water bottles with engraved logos",
+  "productSkus": [
+    "521206",
+    "523425",
+    "526267",
+    "527135",
+    "528189"
+  ],
+  "generatedAt": "2026-05-31T09:22:24.501158+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

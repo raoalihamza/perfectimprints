@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jackets/material/ripstop",
+  "type": "facet",
+  "h1": "Custom Ripstop Jackets for Bulk Orders",
+  "metaTitle": "Custom Ripstop Jackets | Perfect Imprints",
+  "metaDescription": "Order custom ripstop jackets in bulk for your team. Durable, wind-resistant, and perfect for logo embroidery or screen printing.",
+  "introHtml": "<p>Ripstop fabric is woven with a reinforcing grid that stops tears from spreading, making it a smart choice for work crews, outdoor events, and field teams. Custom ripstop jackets hold up to daily wear while keeping your logo crisp through embroidery or screen printing. Whether you need lightweight windbreakers for a sales team or insulated shells for utility workers, ripstop construction adds durability without extra weight.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom ripstop jackets for bulk orders with embroidered logos, durable wind-resistant fabric for teams and events.",
+  "productSkus": [
+    "525728",
+    "525729"
+  ],
+  "generatedAt": "2026-05-31T08:34:51.597753+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

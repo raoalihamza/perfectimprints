@@ -1,0 +1,23 @@
+{
+  "url": "/cat/flasks/material/wood",
+  "type": "facet",
+  "h1": "Custom Wood Flasks for Bulk Orders",
+  "metaTitle": "Custom Wood Flasks | Perfect Imprints",
+  "metaDescription": "Order custom wood flasks for your next event. Perfect for corporate gifts and promotions. Get started at Perfect Imprints.",
+  "introHtml": "<p>Wood flasks offer a distinctive, natural look that sets them apart from standard metal options. The warm grain of the wood provides a unique canvas for laser engraving your logo or message, making them ideal for corporate gifts, executive retreats, or holiday promotions. These flasks pair well with accessories like the Wood Wine Stopper or Executive Wine Collectors Set for a cohesive gift set. Choose custom wood flasks for a premium, memorable impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wood flasks with engraved logo displayed on a rustic wooden table",
+  "productSkus": [
+    "523165",
+    "523546",
+    "526459"
+  ],
+  "generatedAt": "2026-05-31T09:46:14.200204+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

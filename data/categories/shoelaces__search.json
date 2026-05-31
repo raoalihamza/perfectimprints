@@ -1,0 +1,19 @@
+{
+  "url": "/cat/shoelaces/search",
+  "type": "modifier",
+  "h1": "Custom Shoelaces for Branded Promotions",
+  "metaTitle": "Custom Shoelaces – Perfect Imprints",
+  "metaDescription": "Browse our selection of custom shoelaces for your next promotion. Find the right style and color for your brand at Perfect Imprints.",
+  "introHtml": "<p>Custom shoelaces offer a unique and practical way to keep your brand top of mind. Whether for corporate giveaways, event swag, or retail packaging, our wide selection of colors, materials, and imprint options makes it easy to find the perfect fit. Explore our collection and discover how custom shoelaces can add a subtle yet effective touch to your promotional strategy.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A variety of custom shoelaces in different colors and patterns for promotional use",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:06:44.480447+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

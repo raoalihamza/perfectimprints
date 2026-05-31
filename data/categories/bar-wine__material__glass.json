@@ -1,0 +1,24 @@
+{
+  "url": "/cat/bar-wine/material/glass",
+  "type": "facet",
+  "h1": "Custom Glass Bar & Wine Glasses",
+  "metaTitle": "Custom Glass Bar & Wine | Perfect Imprints",
+  "metaDescription": "Order custom glass bar wine glasses for your business. Perfect for events, gifts, and branding. Bulk pricing available.",
+  "introHtml": "<p>Glass bar and wine glasses offer a classic, professional look that plastic or acrylic simply can't match. Whether you're branding stemless white wine glasses for a corporate gift set or ordering optic goblets for a trade show, the clarity and weight of glass make a strong impression. With options like the 15 oz stemless design or the elegant 6 oz flute, you can choose a shape that fits your event or promotion. Decoration methods like etching or screen printing ensure your logo stands out beautifully.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom glass bar wine glasses with etched logo, including stemless wine glass and optic flute",
+  "productSkus": [
+    "510995 90E",
+    "511000 90E",
+    "511046 90E",
+    "511053 90E"
+  ],
+  "generatedAt": "2026-05-31T09:07:39.290533+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

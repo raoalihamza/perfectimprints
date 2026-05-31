@@ -1,0 +1,26 @@
+{
+  "url": "/cat/joggers/color/green",
+  "type": "facet",
+  "h1": "Custom Green Joggers for Teams & Events",
+  "metaTitle": "Custom Green Joggers | Perfect Imprints",
+  "metaDescription": "Order custom green joggers in bulk from Perfect Imprints. Perfect for teams, events, and corporate giveaways. Get a quote today.",
+  "introHtml": "<p>Green joggers make a bold, cohesive statement for your team or event. Whether you need moisture-wicking mesh shorts for a charity run or durable polyester joggers for employee uniforms, green offers a versatile look that stands out. Choose from styles like the Champion Adult Mesh Short with Pockets or the Women's TriDri Maria Jogger Shorts, and add your logo with screen printing or embroidery. Bulk ordering ensures consistent color and sizing across your group.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of custom green joggers with embroidered logos on a sports field",
+  "productSkus": [
+    "526129",
+    "528865",
+    "528873",
+    "528875",
+    "528876",
+    "528886"
+  ],
+  "generatedAt": "2026-05-31T09:16:50.695046+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

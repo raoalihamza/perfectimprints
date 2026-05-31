@@ -1,0 +1,21 @@
+{
+  "url": "/cat/food-beverage/material/paper",
+  "type": "facet",
+  "h1": "Custom Paper Cups for Food & Beverage",
+  "metaTitle": "Custom Paper Cups | Perfect Imprints",
+  "metaDescription": "Order custom paper cups for your business. Perfect Imprints offers eco-friendly, branded paper cups ideal for events and daily use.",
+  "introHtml": "<p>Paper cups are a practical choice for businesses that serve hot or cold drinks and want a sustainable alternative to plastic. Whether you run a coffee shop, corporate cafeteria, or event space, custom paper cups with your logo help reduce waste while keeping your brand front and center. These cups are available in various sizes and can be printed with full-color designs for maximum visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom paper cups with full-color printing and lid options for hot and cold beverages",
+  "productSkus": [
+    "528015"
+  ],
+  "generatedAt": "2026-05-31T09:46:48.239070+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

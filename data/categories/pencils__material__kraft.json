@@ -1,0 +1,22 @@
+{
+  "url": "/cat/pencils/material/kraft",
+  "type": "facet",
+  "h1": "Custom Kraft Pencils for Bulk Orders",
+  "metaTitle": "Custom Kraft Pencils | Perfect Imprints",
+  "metaDescription": "Order custom kraft pencils in bulk from Perfect Imprints. Ideal for eco-friendly branding. Get a quote today.",
+  "introHtml": "<p>Kraft pencils offer a natural, uncoated finish that appeals to eco-conscious buyers and brands emphasizing sustainability. The warm brown paper-like surface takes screen printing or foil stamping cleanly, making your logo stand out without extra lacquer. Bulk orders of custom kraft pencils work well for trade shows, school supply drives, or corporate welcome kits where a rustic, authentic look matters.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom kraft pencils with printed logos, natural paper-wrapped finish, grouped for corporate branding",
+  "productSkus": [
+    "526804",
+    "526806"
+  ],
+  "generatedAt": "2026-05-31T10:00:10.768133+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

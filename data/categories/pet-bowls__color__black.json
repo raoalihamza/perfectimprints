@@ -1,0 +1,30 @@
+{
+  "url": "/cat/pet-bowls/color/black",
+  "type": "facet",
+  "h1": "Custom Black Pet Bowls for Bulk Orders",
+  "metaTitle": "Custom Black Pet Bowls | Perfect Imprints",
+  "metaDescription": "Order custom black pet bowls in bulk. Perfect for pet supply brands, vet clinics, and corporate gifts. Get your quote today.",
+  "introHtml": "<p>Black pet bowls offer a sleek, professional look that hides wear and tear better than lighter colors. Whether you choose collapsible silicone bowls for hiking giveaways or sturdy H2Ogo bowls for vet clinic branding, the black finish ensures your logo stands out while the bowl stays looking clean. Ideal for outdoor events, pet adoption drives, or corporate welcome kits that include a pet-friendly touch.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black pet bowls with logo imprint, including collapsible silicone and rigid H2Ogo styles for bulk orders",
+  "productSkus": [
+    "506366",
+    "506367",
+    "520484",
+    "521770",
+    "524414",
+    "524415",
+    "527080",
+    "527081",
+    "528202",
+    "529534"
+  ],
+  "generatedAt": "2026-05-31T08:30:26.108218+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

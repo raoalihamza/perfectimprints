@@ -1,0 +1,22 @@
+{
+  "url": "/cat/drawstring-backpacks/material/mesh",
+  "type": "facet",
+  "h1": "Custom Mesh Drawstring Backpacks",
+  "metaTitle": "Custom Mesh Drawstring Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom mesh drawstring backpacks for events, giveaways, and promotions. Breathable and lightweight. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Mesh drawstring backpacks offer a breathable, lightweight alternative to traditional backpacks, making them ideal for outdoor events, sports giveaways, and summer promotions. The open weave allows sand and debris to fall out, perfect for beachgoers or gym-goers. Customize with screen printing or heat transfer for a durable, vibrant logo. Whether you need a quick grab-and-go bag for a 5K run or a reusable tote for a trade show, mesh backpacks keep contents visible and ventilated.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom mesh drawstring backpacks with printed logo in various colors, lightweight and breathable for events",
+  "productSkus": [
+    "517456",
+    "521162"
+  ],
+  "generatedAt": "2026-05-31T09:43:08.823180+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

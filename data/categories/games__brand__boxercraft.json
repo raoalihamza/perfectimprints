@@ -1,0 +1,27 @@
+{
+  "url": "/cat/games/brand/boxercraft",
+  "type": "facet",
+  "h1": "Custom Boxercraft Games for Promotional Events",
+  "metaTitle": "Custom Boxercraft Games | Perfect Imprints",
+  "metaDescription": "Order custom Boxercraft games for your next event. Perfect for branded giveaways at corporate functions and team-building activities.",
+  "introHtml": "<p>Boxercraft games combine the comfort of their signature flannel and sherpa fabrics with classic game formats like cornhole, ladder toss, and giant checkers. These branded games are ideal for company picnics, tailgate parties, or trade show activations where you want attendees to relax and engage with your logo. The soft, cozy materials make them stand out from standard plastic or wood games, adding a layer of warmth and approachability that reinforces your brand's personality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Boxercraft games with embroidered logo on cornhole boards and ladder toss sets",
+  "productSkus": [
+    "521535",
+    "527831",
+    "527832",
+    "527833",
+    "527834",
+    "527835",
+    "527836"
+  ],
+  "generatedAt": "2026-05-31T09:47:19.860528+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

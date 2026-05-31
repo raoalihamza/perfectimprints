@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/eco-friendly/sustainable",
+  "type": "facet",
+  "h1": "Custom Sustainable Products for Bulk Orders",
+  "metaTitle": "Custom Sustainable Products | Perfect Imprints",
+  "metaDescription": "Order custom sustainable products for your brand. Perfect Imprints offers eco-friendly promo items in bulk. Call us today!",
+  "introHtml": "<p>Choosing custom sustainable products means selecting items made from recycled, biodegradable, or renewable materials that align with your company's environmental goals. From bamboo notebooks to recycled polyester bags, these products help reduce waste while promoting your brand. Bulk orders benefit from consistent eco-friendly materials and decoration methods like water-based inks.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom sustainable products including bamboo pens, recycled tote bags, and stainless steel bottles",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:27:13.465227+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

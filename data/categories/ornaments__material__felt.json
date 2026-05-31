@@ -1,0 +1,21 @@
+{
+  "url": "/cat/ornaments/material/felt",
+  "type": "facet",
+  "h1": "Custom Felt Ornaments for Bulk Orders",
+  "metaTitle": "Custom Felt Ornaments | Perfect Imprints",
+  "metaDescription": "Order custom felt ornaments in bulk. Soft, durable, and perfect for holiday gifts. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Felt ornaments offer a soft, textured surface that stands out from traditional ceramic or plastic options. The material holds vibrant screen-printed logos cleanly, making them ideal for corporate holiday gifts or promotional giveaways. Unlike rigid ornaments, felt is lightweight and shatterproof, reducing shipping costs and breakage. Choose custom felt ornaments for a warm, handcrafted look that recipients will hang on their trees year after year.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom felt ornaments with company logo printed on soft felt surface, perfect for holiday promotions",
+  "productSkus": [
+    "528853"
+  ],
+  "generatedAt": "2026-05-31T09:58:30.252235+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

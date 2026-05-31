@@ -1,0 +1,24 @@
+{
+  "url": "/cat/coolers/feature/with-a-lid",
+  "type": "facet",
+  "h1": "Custom Coolers with a Lid for Bulk Orders",
+  "metaTitle": "Custom Coolers with a Lid | Perfect Imprints",
+  "metaDescription": "Order custom coolers with a lid for your brand. Perfect for events, giveaways, and employee gifts. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Coolers with a lid keep contents secure and insulated, making them ideal for outdoor events, employee appreciation, or client gifts. Unlike open-top options, these designs prevent spills and maintain temperature longer. Choose from personal lunch-box styles like the Mix 4-Can 4.8 Qt Cooler or larger models such as the 25L Cooler for full-color branding. Decorate with screen printing or pad printing for a professional finish that stands out at tailgates, picnics, or trade shows.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom coolers with lids featuring company logos, including Igloo Playmate and personal lunch box coolers.",
+  "productSkus": [
+    "526724",
+    "526725",
+    "527460",
+    "528723"
+  ],
+  "generatedAt": "2026-05-31T09:41:43.987185+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

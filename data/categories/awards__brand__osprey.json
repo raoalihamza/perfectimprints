@@ -1,0 +1,21 @@
+{
+  "url": "/cat/awards/brand/osprey",
+  "type": "facet",
+  "h1": "Custom Osprey Awards for Bulk Orders",
+  "metaTitle": "Custom Osprey Awards | Perfect Imprints",
+  "metaDescription": "Order custom Osprey awards in bulk at Perfect Imprints. Great for corporate recognition and employee incentives.",
+  "introHtml": "<p>Osprey awards bring the trusted quality of a leading outdoor brand to your employee recognition or corporate gifting program. Unlike generic plaques or trophies, these awards feature functional Osprey packs like the Daylite Plus that recipients can actually use for travel, hiking, or daily commutes. Customize with your company logo using embroidery or screen printing for a lasting impression that aligns with an active, outdoor-friendly brand image.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Osprey awards with embroidered logos on Daylite Plus packs for corporate recognition",
+  "productSkus": [
+    "525925"
+  ],
+  "generatedAt": "2026-05-31T09:33:13.213202+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

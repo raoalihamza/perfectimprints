@@ -1,0 +1,22 @@
+{
+  "url": "/cat/stationery/color/green",
+  "type": "facet",
+  "h1": "Custom Green Stationery for Your Brand",
+  "metaTitle": "Custom Green Stationery | Perfect Imprints",
+  "metaDescription": "Order custom green stationery in bulk at Perfect Imprints. Perfect for eco-friendly branding. Get your quote today!",
+  "introHtml": "<p>Green stationery offers a natural, calming aesthetic that aligns with sustainability-minded branding. Whether you choose textured holly or brushstroke tree greeting cards, this color works well for corporate holiday mailings, environmental initiatives, or year-round correspondence. Decorate with foil stamping or full-color print for a polished look that stands out in any office setting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green stationery featuring a textured holly greeting card with foil stamping decoration",
+  "productSkus": [
+    "513762 2EX",
+    "513768 2EX"
+  ],
+  "generatedAt": "2026-05-31T08:25:40.545169+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

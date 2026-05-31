@@ -1,0 +1,22 @@
+{
+  "url": "/cat/backpacks/activity/running",
+  "type": "facet",
+  "h1": "Custom Running Backpacks for Bulk Orders",
+  "metaTitle": "Custom Running Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom running backpacks in bulk from Perfect Imprints. Ideal for races, corporate events, and athletic teams. Get a quote today!",
+  "introHtml": "<p>Running backpacks are designed for movement, with lightweight materials and secure fits that won't bounce or chafe during a jog or marathon. Unlike standard backpacks, they often feature hydration compatibility, reflective accents for visibility, and multiple small pockets for keys, phones, and gels. Whether you're outfitting a race team or promoting a fitness event, custom running backpacks keep your brand visible mile after mile.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom running backpacks for bulk orders, featuring lightweight design and reflective details for safety during runs.",
+  "productSkus": [
+    "524420",
+    "528352"
+  ],
+  "generatedAt": "2026-05-31T09:06:18.063497+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

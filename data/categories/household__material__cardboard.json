@@ -1,0 +1,25 @@
+{
+  "url": "/cat/household/material/cardboard",
+  "type": "facet",
+  "h1": "Custom Cardboard Household Items for Bulk Orders",
+  "metaTitle": "Custom Cardboard Household | Perfect Imprints",
+  "metaDescription": "Order custom cardboard household items in bulk from Perfect Imprints. Perfect for promotional mailers and branded kits.",
+  "introHtml": "<p>Cardboard household items offer a sturdy, lightweight, and eco-friendly option for promotional mailers, gift sets, and meeting kits. Unlike plastic or metal alternatives, cardboard is easy to customize with full-color printing and can be shipped flat to save on storage. Perfect for branded breakfast meeting boxes, s'mores kits, or snack mailers that arrive ready to assemble.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cardboard household items like branded mailer boxes and snack kits with full-color printing",
+  "productSkus": [
+    "524480",
+    "525117",
+    "525118",
+    "525120",
+    "525122"
+  ],
+  "generatedAt": "2026-05-31T09:16:13.458989+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/dresses/closeout",
+  "type": "modifier",
+  "h1": "Closeout Custom Dresses",
+  "metaTitle": "Closeout Custom Dresses | Perfect Imprints",
+  "metaDescription": "Shop closeout custom dresses at clearance prices. Limited stock on styles like the Anywhere Belt Bag. Order now while supplies last!",
+  "introHtml": "<p>Closeout custom dresses offer a rare chance to score branded apparel at clearance prices. These are overstock or discontinued styles—perfect for budget-conscious marketing directors, HR directors, and business owners who need quality promotional clothing without the full price tag. Selection changes fast as stock moves, so ordering early is key. Whether you need employee uniforms or event giveaways, closeout dresses deliver real value.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A closeout custom dress displayed alongside a branded Anywhere Belt Bag, highlighting clearance promotional apparel deals",
+  "productSkus": [
+    "526499"
+  ],
+  "generatedAt": "2026-05-31T09:43:23.507286+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

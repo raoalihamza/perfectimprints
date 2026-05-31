@@ -1,0 +1,22 @@
+{
+  "url": "/cat/coins/feature/with-zipper",
+  "type": "facet",
+  "h1": "Custom Coins with Zipper for Bulk Orders",
+  "metaTitle": "Custom Coins with Zipper | Perfect Imprints",
+  "metaDescription": "Order custom coins with zipper for secure storage. Ideal for giveaways and events. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Custom coins with zipper add a functional twist to traditional promotional coins. The integrated zipper closure turns a simple coin into a secure mini-pouch, perfect for storing keys, cash, or small accessories. Ideal for trade shows or corporate gifts, these coins offer a unique unboxing experience. Decorate with your logo through screen printing or debossing for a tactile brand impression that stands out from standard coin giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom coins with zipper in various finishes, featuring a secure zipper closure and logo imprint",
+  "productSkus": [
+    "523243",
+    "524532"
+  ],
+  "generatedAt": "2026-05-31T08:28:36.154569+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/workwear/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Workwear for Bulk Orders",
+  "metaTitle": "Custom Plastic Workwear | Perfect Imprints",
+  "metaDescription": "Order custom plastic workwear with your logo. Perfect for safety glasses and accessories. Fast turnaround on bulk orders.",
+  "introHtml": "<p>Plastic workwear offers a lightweight, durable solution for safety and vision needs. From adjustable safety glasses to blue light blocking readers, polycarbonate and other plastic frames provide impact resistance and comfort for all-day wear. Perfect for trade shows, employee safety programs, or corporate giveaways, these items can be decorated with your logo using pad printing or laser engraving for a professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom plastic workwear including safety glasses and blue light blocking glasses with logo imprinting",
+  "productSkus": [
+    "524937",
+    "525212",
+    "525213",
+    "525214"
+  ],
+  "generatedAt": "2026-05-31T09:31:14.583618+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,31 @@
+{
+  "url": "/cat/koozies/brand/camelbak",
+  "type": "facet",
+  "h1": "Custom CamelBak Koozies for Branded Giveaways",
+  "metaTitle": "Custom CamelBak Koozies | Perfect Imprints",
+  "metaDescription": "Order custom CamelBak koozies for your next event or promotion. Perfect for keeping drinks cold and your brand visible. Get a quote today!",
+  "introHtml": "<p>CamelBak is known for durable hydration gear, and their koozies are no exception. Designed to fit most cans and bottles, these neoprene sleeves provide excellent insulation while showcasing your logo. Ideal for outdoor events, trade shows, or corporate gifts, custom CamelBak koozies keep drinks cold and your brand top of mind. Choose from a range of colors and add your logo with full-color imprinting for a polished, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom CamelBak koozies with company logo printed on neoprene sleeve, keeping a beverage can cold",
+  "productSkus": [
+    "525013",
+    "525506",
+    "525680",
+    "525681",
+    "526211",
+    "526695",
+    "527057",
+    "527058",
+    "527966",
+    "528153",
+    "528684"
+  ],
+  "generatedAt": "2026-05-31T08:35:02.456308+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

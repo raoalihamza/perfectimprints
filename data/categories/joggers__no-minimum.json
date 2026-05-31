@@ -1,0 +1,25 @@
+{
+  "url": "/cat/joggers/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Joggers for Small Orders",
+  "metaTitle": "No-Minimum Custom Joggers | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom joggers with no bulk requirements. Perfect for small teams or events. Get started with Perfect Imprints today.",
+  "introHtml": "<p>No-minimum custom joggers let you order as few as a single pair, making them ideal for small businesses, startups, or one-off events. Unlike traditional bulk orders, you can customize popular styles like the Men's Boxercraft Flannel Short or Women's Haley Flannel Pant without committing to large quantities. Perfect for sample orders, small teams, or personalized gifts, our no-minimum program gives you flexibility without sacrificing quality or branding.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A pair of no-minimum custom joggers with a small logo on the hip, perfect for small orders and team events.",
+  "productSkus": [
+    "527831",
+    "527832",
+    "527834",
+    "527835",
+    "527836"
+  ],
+  "generatedAt": "2026-05-31T08:56:18.291889+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

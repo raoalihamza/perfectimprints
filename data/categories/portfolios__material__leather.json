@@ -1,0 +1,26 @@
+{
+  "url": "/cat/portfolios/material/leather",
+  "type": "facet",
+  "h1": "Custom Leather Portfolios for Bulk Orders",
+  "metaTitle": "Custom Leather Portfolios | Perfect Imprints",
+  "metaDescription": "Order custom leather portfolios for your team. Durable, professional, and ideal for bulk branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Leather portfolios convey a level of professionalism that synthetic materials simply cannot match. Whether you are outfitting your sales team with presentation folders or creating executive gift sets with ring binders, the rich texture and durability of leather make a lasting impression. Options like the Cowhide 1\" Ring Binder or Document Presentation Folder offer ample space for documents while providing a premium feel. Choose from foil stamping or debossing to add your logo, ensuring your brand stands out in meetings and conferences.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom leather portfolios with embossed logos, including ring binders and presentation folders for professional branding.",
+  "productSkus": [
+    "516718 01A",
+    "516719 01A",
+    "517193 01A",
+    "517201 01A",
+    "518178",
+    "518284"
+  ],
+  "generatedAt": "2026-05-31T09:23:24.800551+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

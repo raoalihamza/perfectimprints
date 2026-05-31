@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/activity/hunting",
+  "type": "facet",
+  "h1": "Custom Hunting Products for Bulk Orders",
+  "metaTitle": "Custom Hunting Products | Perfect Imprints",
+  "metaDescription": "Order custom hunting products for your brand. Perfect for trade shows, giveaways, and outdoor enthusiasts. Call us today!",
+  "introHtml": "<p>Custom hunting products let you connect with outdoor enthusiasts who value practicality and durability. From branded camo hats and insulated drinkware to multi-tools and game bags, these items are built for the field. Choose screen printing, embroidery, or debossing to add your logo. Great for hunting expos, conservation groups, or employee gifts that get real use season after season.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom hunting products including camo hats, insulated water bottles, and multi-tools arranged on a rustic wooden table",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:22.065392+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

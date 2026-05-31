@@ -1,0 +1,28 @@
+{
+  "url": "/cat/shirts/brand/eddie-bauer",
+  "type": "facet",
+  "h1": "Custom Eddie Bauer Shirts for Bulk Orders",
+  "metaTitle": "Custom Eddie Bauer Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Eddie Bauer shirts in bulk. Perfect for corporate apparel, teams, and events. Get a quote today.",
+  "introHtml": "<p>Eddie Bauer shirts and jackets are known for their outdoor durability and classic style, making them a popular choice for corporate apparel, trade shows, and employee uniforms. From microfleece jackets to soft shell vests, these pieces offer reliable comfort and a professional look. Decorate with your logo using embroidery or screen printing for a polished finish that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Eddie Bauer shirts and jackets with embroidered logos for corporate apparel",
+  "productSkus": [
+    "513811",
+    "513812",
+    "515290",
+    "515291",
+    "522094",
+    "522095",
+    "529196",
+    "529197"
+  ],
+  "generatedAt": "2026-05-31T09:25:46.450346+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

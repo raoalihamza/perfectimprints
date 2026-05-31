@@ -1,0 +1,21 @@
+{
+  "url": "/cat/blankets/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Blankets",
+  "metaTitle": "Custom Made in USA Blankets | Perfect Imprints",
+  "metaDescription": "Order custom made in USA blankets for your team or event. High-quality, American-made. Get a quote today.",
+  "introHtml": "<p>When you need promotional blankets that reflect a commitment to American manufacturing, custom made in USA blankets deliver. The Made*Here New York Basketweave Cotton Blanket, for example, combines domestic production with a classic, durable weave that holds up to repeated use. Perfect for employee gifts, trade show giveaways, or safety rewards, these blankets offer a tangible way to show your values. Choose from embroidery or screen printing for your logo or message.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA blankets featuring a cotton basketweave blanket with embroidered logo",
+  "productSkus": [
+    "528587"
+  ],
+  "generatedAt": "2026-05-31T09:37:27.477723+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

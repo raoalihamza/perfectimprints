@@ -1,0 +1,31 @@
+{
+  "url": "/cat/first-aid-kits/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple First Aid Kits",
+  "metaTitle": "Custom Purple First Aid Kits | Perfect Imprints",
+  "metaDescription": "Order custom purple first aid kits for your team or event. Perfect for branding safety gear. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Purple first aid kits offer a distinctive way to make safety supplies visible and brand-aligned. Whether you choose the compact First Aid Traveler or the rugged Rip Stop First Aid Kit, the purple color helps your kit stand out in a backpack, glove box, or job site. Ideal for breast cancer awareness events, team uniforms, or any group that wants to combine preparedness with a recognizable color. Customize with your logo using screen printing or heat transfer.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple first aid kits with white cross logo, including a compact travel kit and a larger rip stop kit.",
+  "productSkus": [
+    "506435",
+    "506806",
+    "510035",
+    "510164",
+    "510542",
+    "510550",
+    "510551",
+    "510552",
+    "513205",
+    "521117",
+    "526828"
+  ],
+  "generatedAt": "2026-05-31T08:26:27.846415+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/sony",
+  "type": "facet",
+  "h1": "Custom Sony Products for Bulk Orders",
+  "metaTitle": "Custom Sony Products | Perfect Imprints",
+  "metaDescription": "Order custom Sony products in bulk. Perfect for corporate gifts, trade shows, and employee recognition. Get a quote today.",
+  "introHtml": "<p>Sony is a globally recognized brand known for high-quality electronics. When you choose custom Sony products for your corporate giveaways, you offer recipients reliable, desirable items that reflect positively on your organization. From Bluetooth speakers to headphones, Sony products carry instant name recognition and appeal. Decorating these items with your logo or message creates a lasting impression. Whether for employee milestones, client appreciation, or event swag, branded Sony products communicate quality and thoughtfulness.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Sony products including Bluetooth speakers and headphones with engraved logos for corporate gifts",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:40.591160+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,29 @@
+{
+  "url": "/cat/carabiners/production-time/rush",
+  "type": "facet",
+  "h1": "Custom Rush Carabiners",
+  "metaTitle": "Custom Rush Carabiners | Perfect Imprints",
+  "metaDescription": "Order custom rush carabiners for fast delivery. Perfect for events, promotions, and giveaways. Quick turnaround on bulk orders.",
+  "introHtml": "<p>When you need branded carabiners in a hurry, our rush production service delivers. Whether it's a last-minute trade show, a corporate event, or an employee appreciation gift, custom rush carabiners ensure you have functional promotional products on time. Choose from styles like the Cara-Spinner or Basecamp Quickdraw Carabiner Tool, all available with your logo imprinted. Rush orders prioritize your timeline without sacrificing quality or detail.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom rush carabiners with keyring and logo imprint, available for quick delivery",
+  "productSkus": [
+    "501590",
+    "508958",
+    "510855",
+    "513263",
+    "515706 01A",
+    "517505",
+    "519904",
+    "520411",
+    "520857"
+  ],
+  "generatedAt": "2026-05-31T08:33:10.660302+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/outerwear/color/gray",
+  "type": "facet",
+  "h1": "Custom Gray Outerwear for Your Team",
+  "metaTitle": "Custom Gray Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom gray outerwear for your team at Perfect Imprints. Ideal for uniforms, events, and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Gray outerwear offers a neutral, professional look that pairs well with any logo color, making it a top choice for corporate uniforms and team apparel. Whether you need lightweight jackets for a trade show or insulated fleece for outdoor crews, gray provides a versatile canvas for embroidery or screen printing. The Performer Jacket and Boundary Fleece Jacket are popular options that combine durability with a clean, understated appearance.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom gray outerwear jackets with embroidered logos",
+  "productSkus": [
+    "511016",
+    "511088",
+    "523279",
+    "523280"
+  ],
+  "generatedAt": "2026-05-31T09:21:19.297456+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

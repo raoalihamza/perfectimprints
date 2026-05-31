@@ -1,0 +1,26 @@
+{
+  "url": "/cat/ice-scrapers/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Ice Scrapers",
+  "metaTitle": "Custom Blue Ice Scrapers | Perfect Imprints",
+  "metaDescription": "Order custom blue ice scrapers for your team or event. Durable, branded tools from Perfect Imprints. Get a quote today!",
+  "introHtml": "<p>Blue custom ice scrapers stand out in a snow-covered parking lot, making them a practical giveaway for winter safety kits or employee appreciation. Whether you choose the compact 7\" Polar Ice Scraper for easy glovebox storage or the Gripper Ice Scraper with its ergonomic handle, imprinting your logo in a contrasting color ensures visibility. These scrapers are built to handle frost and ice without cracking, so your brand stays useful season after season.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Blue custom ice scrapers with a company logo printed on the handle, ideal for winter promotional giveaways",
+  "productSkus": [
+    "503216",
+    "503217",
+    "506006",
+    "514833",
+    "522046",
+    "524289"
+  ],
+  "generatedAt": "2026-05-31T08:34:44.543777+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

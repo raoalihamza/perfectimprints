@@ -1,0 +1,23 @@
+{
+  "url": "/cat/pencils/color/silver",
+  "type": "facet",
+  "h1": "Custom Silver Pencils",
+  "metaTitle": "Custom Silver Pencils | Perfect Imprints",
+  "metaDescription": "Shop custom silver pencils for bulk orders at Perfect Imprints. Ideal for events, schools, and promotions. Get a quote today!",
+  "introHtml": "<p>Silver pencils offer a sleek, metallic look that stands out from standard wooden pencils. Whether you choose the Mood Star, Arctic, or Sparkle series, the silver finish adds a touch of elegance to any promotional giveaway. These are perfect for trade shows, corporate events, or school supply kits, and can be imprinted with your logo using foil stamping or screen printing. The subtle shimmer catches light without being flashy, making them a versatile choice for brands that want a premium feel at an affordable price.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom silver pencils with metallic finish and imprinted logos, perfect for promotional giveaways",
+  "productSkus": [
+    "509598",
+    "511849",
+    "520375"
+  ],
+  "generatedAt": "2026-05-31T10:00:08.541015+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,31 @@
+{
+  "url": "/cat/stash-bags/color/white",
+  "type": "facet",
+  "h1": "Custom White Stash Bags",
+  "metaTitle": "Custom White Stash Bags | Perfect Imprints",
+  "metaDescription": "Order custom white stash bags for events or promotions. Perfect for bulk orders with your logo. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>White stash bags offer a clean, neutral canvas that makes your logo stand out. Whether you need clear stadium-approved bags for security events or zippered totes for giveaways, white provides a versatile base that pairs well with any brand color. These bags are popular at concerts, corporate events, and trade shows where visibility and compliance matter. Choose screen printing or debossing for a crisp, professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom white stash bags with logo, clear stadium tote and zippered amenities bag for events",
+  "productSkus": [
+    "512984",
+    "513100 90E",
+    "517657 90E",
+    "517658 90E",
+    "521680",
+    "521722",
+    "523655",
+    "525639",
+    "526895",
+    "527343",
+    "528999"
+  ],
+  "generatedAt": "2026-05-31T08:37:37.178546+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

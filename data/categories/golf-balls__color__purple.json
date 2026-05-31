@@ -1,0 +1,21 @@
+{
+  "url": "/cat/golf-balls/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Golf Balls for Branded Promotions",
+  "metaTitle": "Custom Purple Golf Balls | Perfect Imprints",
+  "metaDescription": "Order custom purple golf balls with your logo. Perfect for tournaments, giveaways, and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Purple golf balls stand out on the course and in the office — they pair a playful color with professional branding. Whether you're outfitting a corporate tournament or handing out custom logo balls at a trade show, purple adds a memorable pop of color. Decorate with a single-color imprint or a full-color logo using pad printing. These balls work well for promotional events, client gifts, or employee swag that gets used and noticed.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple golf balls with company logo imprint for promotional giveaways and tournaments",
+  "productSkus": [
+    "527050"
+  ],
+  "generatedAt": "2026-05-31T09:48:26.165801+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

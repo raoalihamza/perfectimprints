@@ -1,0 +1,28 @@
+{
+  "url": "/cat/office/feature/cuff",
+  "type": "facet",
+  "h1": "Custom Cuff Office Products for Branded Promotions",
+  "metaTitle": "Custom Cuff Office Items | Perfect Imprints",
+  "metaDescription": "Order custom cuff office products like fleece mittens and jackets. Perfect for corporate gifts and employee incentives.",
+  "introHtml": "<p>Custom cuff office products offer a unique way to keep your team warm and branded. From fleece mittens to soft shell jackets, these items combine functionality with your logo. Ideal for corporate gifts, trade shows, or employee incentives, cuff items provide high visibility and practical use. Choose from styles like the Eddie Bauer Soft Shell Jacket or the Men's Columbia Steens Mountain Fleece for a professional look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cuff office products including branded fleece mittens and jackets for corporate gifts",
+  "productSkus": [
+    "506146",
+    "513811",
+    "515290",
+    "515291",
+    "516832",
+    "523863",
+    "527803",
+    "527805"
+  ],
+  "generatedAt": "2026-05-31T08:44:36.861086+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

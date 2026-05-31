@@ -1,0 +1,23 @@
+{
+  "url": "/cat/writing/material/paper",
+  "type": "facet",
+  "h1": "Custom Paper Writing Products for Bulk Orders",
+  "metaTitle": "Custom Paper Writing Products | Perfect Imprints",
+  "metaDescription": "Order custom paper writing products like pens and pencils with your logo. Perfect for eco-conscious branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Paper-based writing instruments offer a sustainable alternative to plastic pens and pencils. With recycled paper barrels and natural materials, these products appeal to eco-conscious clients and trade show attendees. Options like the 100% Recycled Paper Barrel Ballpoint Pen provide a smooth writing experience while reducing plastic waste. Ideal for corporate gifts, event giveaways, or office supplies that reflect your company's commitment to the environment.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom paper writing products including recycled paper barrel ballpoint pens and jumbo pencil-look pens with logo imprint",
+  "productSkus": [
+    "519108",
+    "527629",
+    "528225"
+  ],
+  "generatedAt": "2026-05-31T08:48:11.692978+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

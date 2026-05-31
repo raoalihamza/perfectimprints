@@ -1,0 +1,23 @@
+{
+  "url": "/cat/workwear/material/acrylic",
+  "type": "facet",
+  "h1": "Custom Acrylic Workwear for Bulk Orders",
+  "metaTitle": "Custom Acrylic Workwear | Perfect Imprints",
+  "metaDescription": "Order custom acrylic workwear in bulk at Perfect Imprints. Perfect for branding hats, beanies, and more. Get a quote today!",
+  "introHtml": "<p>Acrylic workwear offers warmth, durability, and a professional look for teams working in cold environments. Unlike cotton or polyester blends, acrylic retains its shape and color after repeated washing, making it ideal for branded knit hats and beanies. Decorate with screen-printed logos or embroidered patches for a crisp, long-lasting finish. Whether outfitting a construction crew or a winter event staff, custom acrylic workwear ensures your brand stands out in low temperatures.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom acrylic workwear featuring a Carhartt acrylic knit hat with embroidered logo",
+  "productSkus": [
+    "506903",
+    "524211",
+    "526537"
+  ],
+  "generatedAt": "2026-05-31T09:31:12.415541+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

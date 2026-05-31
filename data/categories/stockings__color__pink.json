@@ -1,0 +1,21 @@
+{
+  "url": "/cat/stockings/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Stockings for Branded Giveaways",
+  "metaTitle": "Custom Pink Stockings | Perfect Imprints",
+  "metaDescription": "Order custom pink stockings for your next promotion. Soft, cozy, and perfect for holiday gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Pink stockings add a playful pop of color to any corporate gift or holiday giveaway. Whether you are treating employees to Fuzzy Feet Slipper Socks or handing out branded stockings at a trade show, pink stands out on shelves and in offices. The soft knit fabric accepts screen printing or embroidery cleanly, letting your logo shine without overwhelming the design. Choose pink for breast cancer awareness events, Valentine’s Day campaigns, or simply to break away from standard red and green.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink stockings with embroidered logo, soft knit fabric, perfect for corporate holiday gifts",
+  "productSkus": [
+    "516800"
+  ],
+  "generatedAt": "2026-05-31T09:27:00.901179+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

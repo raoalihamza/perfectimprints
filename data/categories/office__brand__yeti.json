@@ -1,0 +1,30 @@
+{
+  "url": "/cat/office/brand/yeti",
+  "type": "facet",
+  "h1": "Custom Yeti Office Products for Bulk Orders",
+  "metaTitle": "Custom Yeti Office Products | Perfect Imprints",
+  "metaDescription": "Order custom Yeti office products in bulk at Perfect Imprints. Personalize drinkware with your logo for a premium brand impression.",
+  "introHtml": "<p>Yeti office products bring rugged durability and professional style to any workplace. From the 20 oz Rambler Travel Mug to the 30 oz Tumbler with MagSlider Lid, each piece is built with double-wall vacuum insulation to keep coffee hot or water cold through long meetings. Custom laser engraving or screen printing adds your logo with a clean, permanent finish that stands out in break rooms, conference tables, and client gift bags. Choose Yeti for a premium look that says your team deserves the best.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Yeti office products including engraved travel mugs and tumblers on a desk",
+  "productSkus": [
+    "528839",
+    "528840",
+    "528841",
+    "528844",
+    "528845",
+    "528846",
+    "528847",
+    "529532",
+    "529533",
+    "529534"
+  ],
+  "generatedAt": "2026-05-31T08:30:02.053648+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/sweatpants/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Sweatpants",
+  "metaTitle": "Custom Orange Sweatpants | Perfect Imprints",
+  "metaDescription": "Shop custom orange sweatpants for bulk orders. Perfect for teams, events, and giveaways. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Orange sweatpants bring high visibility and energy to any group uniform or promotional giveaway. Whether you need them for a safety crew, a sports team, or a branded event, these sweatpants stand out in a crowd. Choose from fleece or cotton blends, and add your logo with screen printing or embroidery. Bulk orders ship quickly across the U.S., making them a reliable choice for marketing directors and HR managers alike.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange sweatpants with embroidered logo displayed on a model, perfect for team uniforms and promotional giveaways.",
+  "productSkus": [
+    "528886"
+  ],
+  "generatedAt": "2026-05-31T09:27:40.158865+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

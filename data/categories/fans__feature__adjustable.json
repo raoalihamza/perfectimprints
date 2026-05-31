@@ -1,0 +1,23 @@
+{
+  "url": "/cat/fans/feature/adjustable",
+  "type": "facet",
+  "h1": "Custom Adjustable Fans for Bulk Orders",
+  "metaTitle": "Custom Adjustable Fans | Perfect Imprints",
+  "metaDescription": "Order custom adjustable fans for your next event or promotion. Perfect for trade shows, offices, and outdoor events. Get a quote today!",
+  "introHtml": "<p>Custom adjustable fans let you direct airflow exactly where it's needed, making them ideal for trade show booths, outdoor company picnics, or employee break rooms. Unlike fixed-position fans, adjustable models like the E-Z Breezy Mini Travel Fan or the Prisma Battery Powered Clip on Fan offer flexible positioning—clip them to a desk, tripod, or bag strap. Decorate with your logo using pad printing or full-color imprint for year-round brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adjustable fans with flexible tripod and clip-on design, featuring a branded logo for promotional use.",
+  "productSkus": [
+    "527151",
+    "528632",
+    "529058"
+  ],
+  "generatedAt": "2026-05-31T08:41:43.342738+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

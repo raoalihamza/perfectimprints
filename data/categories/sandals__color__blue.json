@@ -1,0 +1,27 @@
+{
+  "url": "/cat/sandals/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Sandals for Bulk Orders",
+  "metaTitle": "Custom Blue Sandals | Perfect Imprints",
+  "metaDescription": "Order custom blue sandals in bulk for your team or event. Perfect for giveaways, uniforms, or promotional use.",
+  "introHtml": "<p>Blue sandals offer a versatile and eye-catching option for your next promotional giveaway or company uniform. Whether you choose classic flip flops for a beach event or cozy slipper socks for a trade show booth, blue conveys trust and professionalism. Decorate with your logo using screen printing or embroidery for a lasting impression that recipients will appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted blue custom sandals including flip flops and slipper socks with logos for promotional use",
+  "productSkus": [
+    "501556",
+    "516800",
+    "517496",
+    "520052",
+    "521340",
+    "526782",
+    "528311"
+  ],
+  "generatedAt": "2026-05-31T10:05:33.191462+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

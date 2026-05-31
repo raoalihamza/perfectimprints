@@ -1,0 +1,27 @@
+{
+  "url": "/cat/household/brand/cuisinart",
+  "type": "facet",
+  "h1": "Custom Cuisinart Household Items for Bulk Orders",
+  "metaTitle": "Custom Cuisinart Household Items | Perfect Imprints",
+  "metaDescription": "Order custom Cuisinart household products in bulk. Perfect for corporate gifts, client appreciation, and employee rewards. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Cuisinart is a trusted name in kitchen and household appliances, known for quality and innovation. Choosing custom Cuisinart household items for your corporate gifting or employee rewards program means giving recipients a premium product they will actually use. From cordless wine openers to ice cream makers, these items carry your logo on a brand that already stands for excellence. Bulk orders are ideal for client appreciation or holiday gifts that leave a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Cuisinart household items including a wine opener and electric kettle with engraved logo",
+  "productSkus": [
+    "525765",
+    "526494",
+    "526946",
+    "527040",
+    "527041",
+    "527042",
+    "527198"
+  ],
+  "generatedAt": "2026-05-31T08:26:40.884154+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

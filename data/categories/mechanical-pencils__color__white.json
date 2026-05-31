@@ -1,0 +1,21 @@
+{
+  "url": "/cat/mechanical-pencils/color/white",
+  "type": "facet",
+  "h1": "Custom White Mechanical Pencils",
+  "metaTitle": "Custom White Mechanical Pencils | Perfect Imprints",
+  "metaDescription": "Order custom white mechanical pencils for your business. Perfect for precise writing and branding. Get a quote today!",
+  "introHtml": "<p>White mechanical pencils offer a clean, professional look that stands out on any desk. Ideal for architects, engineers, or corporate offices, these pencils combine precision with a minimalist aesthetic. Customize with your logo using pad printing or laser engraving for a sleek finish. The Build-It™ Mechanical Pencil Set is a popular choice for its durability and comfortable grip.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom white mechanical pencils with logo imprint, perfect for corporate branding and office giveaways.",
+  "productSkus": [
+    "514646"
+  ],
+  "generatedAt": "2026-05-31T09:56:04.862308+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

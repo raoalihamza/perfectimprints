@@ -1,0 +1,31 @@
+{
+  "url": "/cat/cutting-boards/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Cutting Boards for Bulk Orders",
+  "metaTitle": "Custom Set Cutting Boards | Perfect Imprints",
+  "metaDescription": "Order custom set cutting boards in bulk for your brand. Perfect for corporate gifts and events. Get started at Perfect Imprints.",
+  "introHtml": "<p>Custom set cutting boards offer a complete entertaining solution, pairing a quality board with cheese tools, knives, or serving accessories. These coordinated sets make ideal corporate gifts, promotional giveaways, or employee appreciation rewards. Choose from bamboo, acacia, or marble finishes, and add your logo via laser engraving or screen printing for a polished, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set cutting boards with cheese tools and logo engraving for corporate gifts",
+  "productSkus": [
+    "513149 64F",
+    "516243 30A",
+    "516244 30A",
+    "516252 30A",
+    "516253 30A",
+    "517504 32E",
+    "525946",
+    "526756",
+    "526916",
+    "527087",
+    "529175"
+  ],
+  "generatedAt": "2026-05-31T08:24:57.225369+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

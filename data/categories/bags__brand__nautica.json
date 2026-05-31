@@ -1,0 +1,23 @@
+{
+  "url": "/cat/bags/brand/nautica",
+  "type": "facet",
+  "h1": "Custom Nautica Bags for Bulk Orders",
+  "metaTitle": "Custom Nautica Bags for Bulk Orders | Perfect Imprints",
+  "metaDescription": "Shop custom Nautica bags for bulk orders. Perfect for corporate gifts and promotional events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom Nautica bags bring a trusted nautical brand to your promotional merchandise. Whether you need totes for a beachside event or duffels for a sales team incentive, these bags carry the quality and style that Nautica is known for. Choose from canvas, nylon, or polyester options and add your logo with screen printing or embroidery for a polished look that stands out at trade shows or client meetings.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Nautica bags with embroidered logo displayed on a table, including totes and duffels.",
+  "productSkus": [
+    "525547",
+    "525548",
+    "525893"
+  ],
+  "generatedAt": "2026-05-31T09:06:54.429761+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

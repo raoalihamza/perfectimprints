@@ -1,0 +1,24 @@
+{
+  "url": "/cat/workwear/material/knit",
+  "type": "facet",
+  "h1": "Custom Knit Workwear for Your Team",
+  "metaTitle": "Custom Knit Workwear | Perfect Imprints",
+  "metaDescription": "Shop custom knit workwear at Perfect Imprints. Durable, comfortable polos and hi-vis jackets for your team. Order bulk today.",
+  "introHtml": "<p>Knit workwear offers a balance of comfort and durability that woven fabrics can't match. The natural stretch and breathability of knits make them ideal for jobs requiring constant movement, from warehouse shifts to outdoor crews. Whether you need snag-proof polos for a professional look or hi-vis jackets for safety, knit fabrics hold up to daily wear while keeping your team comfortable. Decorate with embroidery or screen printing for a clean, lasting brand impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom knit workwear including a hi-vis jacket and polo shirt with company logo",
+  "productSkus": [
+    "506903",
+    "511014",
+    "515284",
+    "515285"
+  ],
+  "generatedAt": "2026-05-31T09:31:14.161380+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

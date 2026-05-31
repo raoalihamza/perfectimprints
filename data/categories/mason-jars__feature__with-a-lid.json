@@ -1,0 +1,22 @@
+{
+  "url": "/cat/mason-jars/feature/with-a-lid",
+  "type": "facet",
+  "h1": "Custom Mason Jars with Lids",
+  "metaTitle": "Custom Mason Jars with Lids | Perfect Imprints",
+  "metaDescription": "Shop custom mason jars with lids for bulk orders. Perfect for gifts, events, and branding. Get a quote today!",
+  "introHtml": "<p>Custom mason jars with lids combine rustic charm with practical functionality, making them ideal for promotional gifts, event favors, or corporate swag. The included lid keeps contents secure, whether you're filling them with beverages, snacks, or DIY kits like the Arnold Palmer Kit. Choose from sizes like the 22 oz Fiesta Mason Jar Tumbler, and add your logo via screen printing or engraving for a memorable branded item that recipients will reuse.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom mason jars with lids featuring a branded logo, perfect for promotional gifts and events.",
+  "productSkus": [
+    "506911",
+    "525119"
+  ],
+  "generatedAt": "2026-05-31T09:55:49.189364+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

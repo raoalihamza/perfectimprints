@@ -1,0 +1,22 @@
+{
+  "url": "/cat/apparel/activity/yoga",
+  "type": "facet",
+  "h1": "Custom Yoga Apparel for Your Brand",
+  "metaTitle": "Custom Yoga Apparel | Perfect Imprints",
+  "metaDescription": "Brand custom yoga apparel for your studio or event. Soft, breathable fabrics perfect for movement. Bulk orders at Perfect Imprints.",
+  "introHtml": "<p>Custom yoga apparel lets you outfit your studio, event, or corporate wellness program in comfort and style. From soft tank tops to moisture-wicking headbands, these pieces are designed for movement and relaxation. Choose from lightweight fabrics that breathe during flow and hold up wash after wash. Add your logo, tagline, or design with screen printing or embroidery to create gear your clients and employees will actually wear off the mat.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom yoga apparel including a soft tank top and tie-back headband with brand logo, perfect for studio or corporate wellness.",
+  "productSkus": [
+    "505073",
+    "525555"
+  ],
+  "generatedAt": "2026-05-31T08:21:37.665248+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

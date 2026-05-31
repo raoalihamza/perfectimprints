@@ -1,0 +1,26 @@
+{
+  "url": "/cat/pants/material/polyester",
+  "type": "facet",
+  "h1": "Custom Polyester Pants",
+  "metaTitle": "Custom Polyester Pants | Perfect Imprints",
+  "metaDescription": "Order custom polyester pants in bulk for your team or event. Perfect for uniforms with moisture-wicking and durability.",
+  "introHtml": "<p>Polyester pants offer durability, moisture-wicking performance, and easy care, making them a top choice for corporate uniforms, sports teams, and event staff. Unlike cotton or blends, polyester resists shrinking and holds vibrant screen-printed or embroidered logos wash after wash. Whether you need shorts for a summer race or full-length pants for a uniform program, polyester provides consistent comfort and professional appearance across all sizes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom polyester pants for team uniforms with moisture-wicking fabric and embroidered logo",
+  "productSkus": [
+    "509482",
+    "526129",
+    "528875",
+    "528881",
+    "528882",
+    "528886"
+  ],
+  "generatedAt": "2026-05-31T08:22:10.569099+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

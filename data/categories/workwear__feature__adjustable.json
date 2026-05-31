@@ -1,0 +1,28 @@
+{
+  "url": "/cat/workwear/feature/adjustable",
+  "type": "facet",
+  "h1": "Custom Adjustable Workwear for Bulk Orders",
+  "metaTitle": "Custom Adjustable Workwear | Perfect Imprints",
+  "metaDescription": "Order custom adjustable workwear in bulk. Perfect for teams needing comfort and safety. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Adjustable workwear gives your team flexibility and comfort on the job, whether it's a hard hat with a ratchet fit, safety glasses with adjustable temples, or an apron with an adjustable neck strap. Unlike one-size-fits-all gear, adjustable options let each worker dial in the fit for all-day wear. For safety managers and HR directors, that means fewer complaints and better compliance. Decorate with your logo using screen printing or embroidery for a professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adjustable workwear with logo, including hard hat and safety glasses, displayed on a workbench.",
+  "productSkus": [
+    "516543 01A",
+    "519005",
+    "520378",
+    "521089",
+    "525212",
+    "525806",
+    "527339",
+    "528072"
+  ],
+  "generatedAt": "2026-05-31T08:22:28.771497+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

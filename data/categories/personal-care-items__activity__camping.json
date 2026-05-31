@@ -1,0 +1,23 @@
+{
+  "url": "/cat/personal-care-items/activity/camping",
+  "type": "facet",
+  "h1": "Custom Camping Personal Care Items",
+  "metaTitle": "Custom Camping Personal Care Items | Perfect Imprints",
+  "metaDescription": "Order custom camping personal care items for your next outdoor event or promotion. Perfect for bulk orders at Perfect Imprints.",
+  "introHtml": "<p>Camping personal care items combine the convenience of travel-size toiletries with rugged durability for the outdoors. Think mini hydration packs and fanny packs that keep hands free while hiking. These products are ideal for outdoor gear giveaways, corporate retreats, or safety kits. Decorate with screen printing or embroidery for a lasting impression on your team or customers.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom camping personal care items including mini hydration packs and fanny packs for outdoor promotions",
+  "productSkus": [
+    "514184",
+    "514185 01A",
+    "519201"
+  ],
+  "generatedAt": "2026-05-31T09:22:17.537592+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

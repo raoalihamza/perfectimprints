@@ -1,0 +1,25 @@
+{
+  "url": "/cat/cafe-mugs/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Cafe Mugs",
+  "metaTitle": "Custom Orange Cafe Mugs | Perfect Imprints",
+  "metaDescription": "Order custom orange cafe mugs for your brand. Perfect for coffee lovers. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Orange cafe mugs bring a vibrant, energetic look to your company kitchen or break room. Unlike standard white or black mugs, orange stands out on desks and in cabinets, making your logo more visible during morning coffee breaks. These ceramic mugs are ideal for employee gifts, client appreciation, or retail merchandise. With options like the 15 oz Campfire Mug or the 14 oz Kona Joe Ceramic Mug, you can choose a shape that fits your brand's personality. Decorate with full-color imprint or a simple one-color logo for maximum impact.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange cafe mugs with company logo, featuring ceramic construction and vibrant orange color",
+  "productSkus": [
+    "510964",
+    "511005",
+    "512771",
+    "522392",
+    "524786"
+  ],
+  "generatedAt": "2026-05-31T09:38:53.042060+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,28 @@
+{
+  "url": "/cat/products/brand/vineyard-vines",
+  "type": "facet",
+  "h1": "Custom Vineyard Vines Products for Bulk Orders",
+  "metaTitle": "Custom Vineyard Vines Products | Perfect Imprints",
+  "metaDescription": "Order custom Vineyard Vines products in bulk from Perfect Imprints. Polos, totes, vests & more with your logo. Get a quote today!",
+  "introHtml": "<p>Vineyard Vines products combine preppy style with everyday functionality, making them a favorite for corporate gifts, employee rewards, and promotional events. From the classic Edgartown Pique Polo to the versatile Captain Tote, each item offers a premium canvas for your logo. Choose custom embroidery for a polished look that reflects your brand's attention to quality. Whether outfitting your team or thanking clients, these pieces deliver lasting impressions.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Vineyard Vines products including polo shirts and totes with embroidered logos for corporate branding",
+  "productSkus": [
+    "526099",
+    "526100",
+    "526101",
+    "526102",
+    "526103",
+    "526106",
+    "526107",
+    "526108"
+  ],
+  "generatedAt": "2026-05-30T10:23:45.137125+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

@@ -1,0 +1,30 @@
+{
+  "url": "/cat/table-displays/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Table Displays for Branded Events",
+  "metaTitle": "Custom Brown Table Displays | Perfect Imprints",
+  "metaDescription": "Shop custom brown table displays at Perfect Imprints. Perfect for trade shows and events. Bulk pricing available.",
+  "introHtml": "<p>Brown table displays offer a warm, professional look that stands out at trade shows and corporate events. Unlike basic black or white, brown conveys reliability and earthiness, making it ideal for brands in agriculture, outdoor gear, or natural products. Choose from stain-resistant table throws, fitted covers, and runners in various sizes, all customizable with full-color front panel printing to showcase your logo and messaging.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown table display with full-color imprint at a trade show booth",
+  "productSkus": [
+    "506590",
+    "506802",
+    "506928",
+    "506943",
+    "506947",
+    "506956",
+    "507074",
+    "511861",
+    "511863",
+    "523293"
+  ],
+  "generatedAt": "2026-05-31T10:10:34.386887+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

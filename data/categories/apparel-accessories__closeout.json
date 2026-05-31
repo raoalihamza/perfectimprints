@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel-accessories/closeout",
+  "type": "modifier",
+  "h1": "Closeout Custom Apparel Accessories",
+  "metaTitle": "Closeout Custom Apparel Accessories | Perfect Imprints",
+  "metaDescription": "Save on closeout custom apparel accessories while supplies last. Limited stock, great pricing. Order now at Perfect Imprints.",
+  "introHtml": "<p>Closeout custom apparel accessories offer a rare chance to stretch your promotional budget without sacrificing quality. These are not leftovers — they are overstock, discontinued colors, or end-of-season items priced to move quickly. Because inventory is limited and restocking is not guaranteed, the selection changes frequently. Marketing directors, HR directors, and safety managers can lock in low prices on items like belt bags for events, employee gifts, or trade shows. Check the available stock now and order before the best options are gone.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Closeout custom apparel accessories including a branded Anywhere Belt Bag in clearance pricing.",
+  "productSkus": [
+    "526499"
+  ],
+  "generatedAt": "2026-05-31T08:27:48.119838+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/perka",
+  "type": "facet",
+  "h1": "Custom Perka Products for Your Brand",
+  "metaTitle": "Custom Perka Products | Perfect Imprints",
+  "metaDescription": "Order custom Perka products with your logo. Perfect for promotions, events, and corporate gifting. Get a quote today!",
+  "introHtml": "<p>Perka products combine modern style with practical functionality, making them a smart choice for branded giveaways. From sleek notebooks to durable drinkware, Perka offers a consistent look across your promotional lineup. Whether you need custom notebooks for a trade show or branded water bottles for employee kits, Perka ensures your logo stands out with clean lines and quality materials. Order in bulk and get reliable, on-time delivery.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Perka products including branded notebooks and drinkware with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:37.606226+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/martini-glasses/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Martini Glasses",
+  "metaTitle": "Custom Purple Martini Glasses | Perfect Imprints",
+  "metaDescription": "Order custom purple martini glasses for your next event. Perfect for brand awareness. Get a quote today!",
+  "introHtml": "<p>Purple martini glasses add a bold pop of color to corporate events, galas, and branded giveaways. Whether you choose plastic stemless options like the 12 oz Plastic Stemless Wine Glass for outdoor safety or elegant glassware for VIP guests, purple conveys creativity and sophistication. Decorate with full-color digital printing or screen printing for a lasting impression. These glasses are ideal for marketing directors planning themed parties or HR directors seeking memorable employee gifts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple martini glasses with full-color digital printing on a stemless design, perfect for branded events.",
+  "productSkus": [
+    "511450",
+    "524524",
+    "524525",
+    "527252"
+  ],
+  "generatedAt": "2026-05-31T08:35:23.549404+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

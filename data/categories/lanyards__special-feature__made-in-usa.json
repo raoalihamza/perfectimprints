@@ -1,0 +1,26 @@
+{
+  "url": "/cat/lanyards/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Lanyards",
+  "metaTitle": "Custom Made in USA Lanyards | Perfect Imprints",
+  "metaDescription": "Order custom made in USA lanyards for your organization. Durable, American-made options perfect for events, schools, and businesses.",
+  "introHtml": "<p>Custom made in USA lanyards give you the confidence of domestic manufacturing with faster turnaround times and support for American workers. Whether you need 1/2\" knitted cotton lanyards for a trade show or 3/4\" nylon web lanyards for employee IDs, these products are built to last. Digital sublimation allows full-color logos that won't peel or fade, making them ideal for events, schools, and corporate use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA lanyards with full-color digital sublimation and breakaway feature for safety and branding.",
+  "productSkus": [
+    "502387",
+    "503551",
+    "510173",
+    "528514",
+    "528515",
+    "528518"
+  ],
+  "generatedAt": "2026-05-31T08:43:34.928544+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

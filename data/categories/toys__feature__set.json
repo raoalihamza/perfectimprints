@@ -1,0 +1,19 @@
+{
+  "url": "/cat/toys/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Toys for Bulk Orders",
+  "metaTitle": "Custom Set Toys | Perfect Imprints",
+  "metaDescription": "Order custom set toys in bulk from Perfect Imprints. Ideal for giveaways, events, and promotional campaigns.",
+  "introHtml": "<p>Custom set toys bundle multiple items into one cohesive giveaway, saving you time and ensuring every recipient gets a complete package. Whether it's a stress-relief kit with a squishy ball and puzzle or a mini game set for trade show visitors, these curated combinations boost perceived value and keep your brand top of mind. Perfect for marketing directors planning event swag or HR directors assembling welcome kits.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom set toys including stress balls and puzzles in a branded package",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:12:26.540165+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

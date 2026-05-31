@@ -1,0 +1,22 @@
+{
+  "url": "/cat/products/brand/otterbox",
+  "type": "facet",
+  "h1": "Custom Otterbox Products for Bulk Orders",
+  "metaTitle": "Custom Otterbox Products | Perfect Imprints",
+  "metaDescription": "Order custom Otterbox products in bulk at Perfect Imprints. Ideal for corporate gifts and brand giveaways. Get started today!",
+  "introHtml": "<p>Otterbox products are known for their rugged durability and premium quality, making them a standout choice for corporate gifts and employee recognition. From the 28 oz Elevation Growler Tumbler to the 10 oz Core Colors Stainless Steel Tumbler, these items offer excellent insulation and a sturdy feel. Laser engraving or full-color imprinting ensures your logo stays sharp, even with everyday use. Perfect for businesses that want to give a gift that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Otterbox products including branded stainless steel tumblers with company logo",
+  "productSkus": [
+    "526311",
+    "526315"
+  ],
+  "generatedAt": "2026-05-31T09:23:57.902040+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

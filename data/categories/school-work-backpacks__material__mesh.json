@@ -1,0 +1,23 @@
+{
+  "url": "/cat/school-work-backpacks/material/mesh",
+  "type": "facet",
+  "h1": "Custom Mesh School Work Backpacks",
+  "metaTitle": "Custom Mesh School Work Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom mesh school work backpacks for your team. Breathable, durable, and perfect for branding. Get a quote today!",
+  "introHtml": "<p>Mesh backpacks offer a lightweight, breathable alternative to traditional fabric packs, making them ideal for students and commuters who carry laptops and books in warmer climates. The open weave reduces sweat buildup and allows for quick drying if caught in rain. Decorate the front panel with a screen-printed logo or embroidered patch for a crisp, professional look that stands out on campus or at corporate events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom mesh school work backpacks with breathable fabric and logo printing, perfect for bulk orders",
+  "productSkus": [
+    "519540",
+    "519541",
+    "519879"
+  ],
+  "generatedAt": "2026-05-31T08:46:20.533033+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

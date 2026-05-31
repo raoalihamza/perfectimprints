@@ -1,0 +1,19 @@
+{
+  "url": "/cat/shirts/brand/omni",
+  "type": "facet",
+  "h1": "Custom Omni Shirts for Bulk Orders",
+  "metaTitle": "Custom Omni Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Omni shirts for your team or event. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Omni shirts offer a reliable, comfortable fit that works for corporate events, safety teams, and everyday branding. Made with durable fabric and available in a range of colors, they accept screen printing and embroidery cleanly. Whether you need uniform shirts for a retail staff or promotional tees for a trade show, Omni provides consistent quality across bulk orders.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom Omni shirts in various colors with logo print, ready for bulk orders",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:06:27.388741+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

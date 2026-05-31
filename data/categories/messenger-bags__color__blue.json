@@ -1,0 +1,28 @@
+{
+  "url": "/cat/messenger-bags/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Messenger Bags for Bulk Orders",
+  "metaTitle": "Custom Blue Messenger Bags | Perfect Imprints",
+  "metaDescription": "Order custom blue messenger bags in bulk. Ideal for corporate giveaways and events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Blue messenger bags offer a professional yet approachable look for corporate branding. Whether you choose the classic Access Messenger Bag or the sporty Oakley® Messenger Bag, blue conveys trust and reliability. These bags are ideal for trade shows, employee onboarding, or client gifts. With ample space for laptops and documents, they keep your brand visible in daily use. Decorate with your logo using embroidery or screen printing for a polished finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue messenger bags with embroidered logos, perfect for corporate gifts and promotional events.",
+  "productSkus": [
+    "506126",
+    "508023",
+    "513686",
+    "513948",
+    "522130",
+    "523948",
+    "527201",
+    "529352"
+  ],
+  "generatedAt": "2026-05-31T08:35:28.747760+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

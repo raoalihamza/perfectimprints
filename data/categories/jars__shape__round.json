@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jars/shape/round",
+  "type": "facet",
+  "h1": "Custom Round Jars for Bulk Orders",
+  "metaTitle": "Custom Round Jars | Perfect Imprints",
+  "metaDescription": "Order custom round jars for your next promotion. Perfect for giveaways, events, and corporate gifts. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Round jars offer a classic, versatile shape that works well for a wide range of promotional uses. From mason jar tumblers perfect for summer events to kit-in-a-jar sets that make memorable corporate gifts, the round profile provides a comfortable grip and an attractive display. Customize with your logo using screen printing, etching, or full-color labels to create a lasting impression at trade shows or employee appreciation events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom round jars with lids, featuring screen-printed logos, ideal for promotional gifts and giveaways.",
+  "productSkus": [
+    "506911",
+    "525119"
+  ],
+  "generatedAt": "2026-05-31T09:16:44.258931+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,27 @@
+{
+  "url": "/cat/backpacks/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Backpacks for Bulk Orders",
+  "metaTitle": "Custom Orange Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom orange backpacks in bulk. Perfect for safety teams or brand visibility. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Orange backpacks offer high visibility and a bold brand statement, making them a smart choice for safety-conscious teams or outdoor events. Whether you need drawstring packs for a 5K or insulated coolers for a company picnic, the orange color ensures your logo stands out. These backpacks work well with screen printing or embroidery, giving you durable, eye-catching promotional gear that gets noticed.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange backpacks in a row, showing bright color and logo placement for bulk promotional use.",
+  "productSkus": [
+    "502862",
+    "517456",
+    "521466",
+    "525573",
+    "527471",
+    "528445",
+    "528636"
+  ],
+  "generatedAt": "2026-05-31T09:06:26.311340+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

@@ -1,0 +1,29 @@
+{
+  "url": "/cat/socks/size/xsmall",
+  "type": "facet",
+  "h1": "Custom XSmall Socks for Bulk Orders",
+  "metaTitle": "Custom XSmall Socks | Perfect Imprints",
+  "metaDescription": "Order custom xsmall socks for kids or petite feet. Perfect for events, giveaways, and teams. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom xsmall socks are designed for children, teens, or adults with smaller feet who still want a comfortable, branded sock. Whether you're outfitting a youth sports team or handing out cozy giveaways at a family-friendly event, these socks offer a snug fit without bunching. Decorate them with your logo using full-color printing or classic embroidery for a polished look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom xsmall socks with colorful logos, perfect for kids and petite feet",
+  "productSkus": [
+    "516800",
+    "521927",
+    "522251",
+    "524427",
+    "525740",
+    "526360",
+    "526361",
+    "526363",
+    "526896"
+  ],
+  "generatedAt": "2026-05-31T09:26:15.779645+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

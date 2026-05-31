@@ -1,0 +1,30 @@
+{
+  "url": "/cat/fanny-packs/supplier/lmrk",
+  "type": "facet",
+  "h1": "Custom LMRK Fanny Packs for Bulk Orders",
+  "metaTitle": "Custom LMRK Fanny Packs | Perfect Imprints",
+  "metaDescription": "Order custom LMRK fanny packs in bulk. Perfect for events, teams, or giveaways. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>LMRK fanny packs combine durable construction with modern design, making them a practical choice for events, corporate giveaways, and team outings. Unlike generic fanny packs, LMRK offers consistent quality across styles like the Running Belt Fanny Pack or the Taurus Eco Fanny Pack. Decorate with screen printing or embroidery for a clean, professional look that stands out at trade shows or company picnics.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom LMRK fanny packs in various colors and styles for bulk promotional use",
+  "productSkus": [
+    "514432",
+    "514433",
+    "519201",
+    "522510",
+    "522705",
+    "522803",
+    "523655",
+    "524162",
+    "524500",
+    "525724"
+  ],
+  "generatedAt": "2026-05-31T09:45:34.206192+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

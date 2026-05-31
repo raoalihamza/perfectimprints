@@ -1,0 +1,28 @@
+{
+  "url": "/cat/gloves/material/polyester",
+  "type": "facet",
+  "h1": "Custom Polyester Gloves for Bulk Orders",
+  "metaTitle": "Custom Polyester Gloves | Perfect Imprints",
+  "metaDescription": "Order custom polyester gloves in bulk for your team or event. Durable, comfortable, and ready for your logo at Perfect Imprints.",
+  "introHtml": "<p>Polyester gloves offer a practical balance of durability and comfort for everyday use. Whether you need branded fleece gloves for a winter giveaway or lightweight tech gloves for trade shows, polyester resists shrinking and holds up to repeated wear. Decorate with screen printing or embroidery for a clean, professional look that keeps your logo visible through many washes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom polyester gloves with embroidered logo, available in bulk for corporate events and promotions.",
+  "productSkus": [
+    "516831",
+    "516832",
+    "516833",
+    "516834",
+    "516839",
+    "516872",
+    "524376",
+    "527493"
+  ],
+  "generatedAt": "2026-05-31T08:54:40.278005+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

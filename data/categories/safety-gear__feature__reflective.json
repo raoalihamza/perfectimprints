@@ -1,0 +1,28 @@
+{
+  "url": "/cat/safety-gear/feature/reflective",
+  "type": "facet",
+  "h1": "Custom Reflective Safety Gear for Bulk Orders",
+  "metaTitle": "Custom Reflective Safety Gear | Perfect Imprints",
+  "metaDescription": "Order custom reflective safety gear in bulk from Perfect Imprints. High-vis vests, jackets, and more for your team.",
+  "introHtml": "<p>Reflective safety gear is essential for workers who need to be seen in low-light conditions, from construction crews to event staff. Choosing reflective gear over standard safety gear adds an extra layer of visibility that can prevent accidents. Options like ANSI-rated vests, hi-vis jackets, and reflective snap bands allow you to customize with your logo while meeting safety standards. Whether you need mesh vests for warm weather or insulated jackets for cold nights, reflective gear keeps your team both safe and branded.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Reflective safety vest with high-visibility stripes and custom logo on a worker at a construction site",
+  "productSkus": [
+    "506903",
+    "507978",
+    "509138",
+    "511014",
+    "511795 10A",
+    "521967",
+    "524758",
+    "528678"
+  ],
+  "generatedAt": "2026-05-31T10:05:26.232687+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

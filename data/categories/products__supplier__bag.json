@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/bag",
+  "type": "facet",
+  "h1": "Custom Bag Products for Bulk Orders",
+  "metaTitle": "Custom Bag Products | Perfect Imprints",
+  "metaDescription": "Order custom bag products in bulk at Perfect Imprints. Ideal for trade shows, events, and corporate gifts. Get a quote today.",
+  "introHtml": "<p>When you need branded bag products for your next trade show, employee gift, or retail promotion, choosing the right supplier matters. Bag products from this supplier offer consistent quality across styles like totes, backpacks, and duffels, with decoration options including screen printing and embroidery. Whether you are outfitting a sales team or packing giveaway kits, these bags hold up to daily use and keep your logo visible.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom bag products including tote bags and backpacks with printed logos for corporate branding",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:45:56.063125+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

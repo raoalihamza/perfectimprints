@@ -1,0 +1,25 @@
+{
+  "url": "/cat/beer-glasses/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Beer Glasses for Your Brand",
+  "metaTitle": "Custom Blue Beer Glasses | Perfect Imprints",
+  "metaDescription": "Order custom blue beer glasses with your logo. Perfect for bars, events, and giveaways. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Blue beer glasses stand out at any event, from tailgate parties to corporate happy hours. Whether you choose lightweight plastic pint glasses for outdoor events or stainless steel tumblers for durability, blue offers a crisp, professional look that pairs well with most brand colors. Add your logo through screen printing or digital decoration for a polished finish that keeps your brand top of mind every time someone raises a glass.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue beer glasses with logos, including plastic pint glasses and stainless steel tumblers in a bold blue color.",
+  "productSkus": [
+    "515153",
+    "521930",
+    "523689",
+    "524527",
+    "524528"
+  ],
+  "generatedAt": "2026-05-31T09:08:33.915412+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

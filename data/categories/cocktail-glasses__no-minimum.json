@@ -1,0 +1,28 @@
+{
+  "url": "/cat/cocktail-glasses/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Cocktail Glasses",
+  "metaTitle": "No-Minimum Custom Cocktail Glasses | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom cocktail glasses with no minimums. Perfect for small teams, events, or samples. Get personalized drinkware today.",
+  "introHtml": "<p>Not every order needs to fill a warehouse. Our no-minimum custom cocktail glasses let you order as few as one or two pieces, making them ideal for small businesses, startups, one-off events, or sample testing. Whether you need a single branded 25 oz BrüMate Winesulator for a client gift or a dozen Snowfox® insulated champagne flutes for a small team toast, you get the same quality and customization without the bulk commitment. No minimums means you decide the quantity, not the factory.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "No-minimum custom cocktail glasses featuring a set of insulated stemmed wine glasses with company logos, perfect for small orders.",
+  "productSkus": [
+    "511053 90E",
+    "523186",
+    "523495",
+    "523689",
+    "524419",
+    "527802",
+    "528731",
+    "528732"
+  ],
+  "generatedAt": "2026-05-31T09:10:51.221067+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

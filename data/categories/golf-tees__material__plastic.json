@@ -1,0 +1,28 @@
+{
+  "url": "/cat/golf-tees/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Golf Tees for Bulk Orders",
+  "metaTitle": "Custom Plastic Golf Tees | Perfect Imprints",
+  "metaDescription": "Order custom plastic golf tees in bulk for your next event. Durable, colorful, and perfect for branding. Get a quote today.",
+  "introHtml": "<p>Plastic golf tees offer a durable and weather-resistant option for corporate golf outings and promotional events. Unlike wooden tees that can splinter or break, plastic tees hold up through repeated use while providing a smooth, consistent surface for your logo or message. Available in a range of colors to match your brand, these tees make a practical giveaway that players will actually use. Pair them with ball markers or luggage tags for a complete tournament package.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom plastic golf tees in assorted colors with printed logos, arranged on a green background.",
+  "productSkus": [
+    "519481",
+    "524030",
+    "526042",
+    "528009",
+    "528245",
+    "528607",
+    "528608",
+    "529253"
+  ],
+  "generatedAt": "2026-05-31T09:49:09.616908+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

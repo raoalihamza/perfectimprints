@@ -1,0 +1,28 @@
+{
+  "url": "/cat/wine-glasses/brand/silipint",
+  "type": "facet",
+  "h1": "Custom Silipint Wine Glasses for Bulk Orders",
+  "metaTitle": "Custom Silipint Wine Glasses | Perfect Imprints",
+  "metaDescription": "Order custom Silipint wine glasses in bulk. Durable, shatterproof design with your logo. Perfect for events and giveaways.",
+  "introHtml": "<p>Silipint wine glasses combine the elegance of stemless glassware with the durability of silicone, making them a smart choice for outdoor events, trade shows, and employee gifts. Unlike standard glass, these unbreakable cups won't shatter on concrete or in transit. The 12 oz Silipint Clear Stemless Wine Glass offers a comfortable grip and crystal clarity, ideal for screen printing or debossed logos. Whether you're outfitting a company picnic or a hospitality suite, custom Silipint wine glasses deliver a premium feel without the breakage risk.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Silipint wine glasses with logo, clear silicone stemless design for events",
+  "productSkus": [
+    "522248",
+    "526428",
+    "527291",
+    "527292",
+    "527774",
+    "528236",
+    "528237",
+    "528252"
+  ],
+  "generatedAt": "2026-05-31T10:14:52.770500+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

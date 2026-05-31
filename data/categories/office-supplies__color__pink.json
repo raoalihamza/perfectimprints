@@ -1,0 +1,25 @@
+{
+  "url": "/cat/office-supplies/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Office Supplies for Bulk Orders",
+  "metaTitle": "Custom Pink Office Supplies | Perfect Imprints",
+  "metaDescription": "Order custom pink office supplies in bulk. Perfect for breast cancer awareness events, team branding, and more.",
+  "introHtml": "<p>Pink office supplies add a pop of color that stands out in any workspace while signaling support for causes like breast cancer awareness. From pink planners and notebooks to pens and desk accessories, these items make your brand memorable. Bulk orders are ideal for company swag bags, promotional giveaways, or retail store merchandise. Decorate with your logo using screen printing or foil stamping for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink office supplies including planners and notebooks with company logo for bulk promotional orders",
+  "productSkus": [
+    "503402",
+    "503415",
+    "507269",
+    "509193",
+    "523058"
+  ],
+  "generatedAt": "2026-05-31T09:57:57.026010+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/outdoor/material/nylon",
+  "type": "facet",
+  "h1": "Custom Nylon Outdoor Products for Bulk Orders",
+  "metaTitle": "Custom Nylon Outdoor Products | Perfect Imprints",
+  "metaDescription": "Order custom nylon outdoor gear for your team or event. Durable, lightweight, and perfect for branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Nylon outdoor products offer a unique combination of durability and lightweight portability that other materials can't match. Whether you're outfitting a sales team with custom blankets for trade shows or providing safety managers with rugged gear for field use, nylon resists moisture and abrasion while remaining easy to carry. Products like the KOOZIE® Field Blanket and Brookfield Picnic Blanket showcase how screen printing or laser etching can turn a practical item into a lasting brand impression. Choose nylon for outdoor giveaways that actually get used.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom nylon outdoor blankets with embroidered logo on a picnic table",
+  "productSkus": [
+    "503799",
+    "507150",
+    "521841"
+  ],
+  "generatedAt": "2026-05-31T08:35:57.412731+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

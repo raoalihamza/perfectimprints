@@ -1,0 +1,27 @@
+{
+  "url": "/cat/hand-sanitizer/color/red",
+  "type": "facet",
+  "h1": "Custom Red Hand Sanitizer for Bulk Orders",
+  "metaTitle": "Custom Red Hand Sanitizer | Perfect Imprints",
+  "metaDescription": "Order custom red hand sanitizer in bulk for your team or event. Perfect for safety managers and marketing directors.",
+  "introHtml": "<p>Red hand sanitizer stands out in any office, event, or trade show, making your brand visible while promoting hygiene. Choose from portable options like the Credit Card Shaped Hand Sanitizer Sprayer or the 2 in 1 5ml Sanitizer and Pen Combo, both available in red. These are ideal for safety managers and HR directors who want to provide practical, branded protection that employees and attendees will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red hand sanitizer bottles and sprayers with branding, arranged on a white surface",
+  "productSkus": [
+    "506849",
+    "524905",
+    "525261",
+    "525262",
+    "525263",
+    "528503",
+    "528735"
+  ],
+  "generatedAt": "2026-05-31T08:55:14.211077+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/t-shirts/eco-friendly/organic",
+  "type": "facet",
+  "h1": "Custom Organic T Shirts",
+  "metaTitle": "Custom Organic T Shirts | Perfect Imprints",
+  "metaDescription": "Shop custom organic t shirts for your brand. Eco-friendly, bulk orders with your logo. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Organic cotton t shirts offer the softness and breathability your team will appreciate while supporting sustainable farming practices. Unlike conventional cotton, organic varieties are grown without synthetic pesticides or fertilizers, making them a responsible choice for companies prioritizing environmental stewardship. The Men's Allmade Tri-Blend Tee combines organic cotton with recycled polyester for a durable, comfortable fit that holds up to frequent wear and repeated washing. Perfect for employee uniforms, event giveaways, or retail merchandise, these shirts can be screen printed or embroidered with your logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom organic t shirts in natural tones, featuring the Men's Allmade Tri-Blend Tee with a screen-printed logo",
+  "productSkus": [
+    "525400"
+  ],
+  "generatedAt": "2026-05-31T09:27:55.096009+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

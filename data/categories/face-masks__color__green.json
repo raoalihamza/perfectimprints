@@ -1,0 +1,24 @@
+{
+  "url": "/cat/face-masks/color/green",
+  "type": "facet",
+  "h1": "Custom Green Face Masks",
+  "metaTitle": "Custom Green Face Masks | Perfect Imprints",
+  "metaDescription": "Order custom green face masks for your team or event. Bulk pricing, fast turnaround. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Green face masks offer a natural, calming look that works well for outdoor events, eco-conscious brands, or teams wanting a subtle pop of color. Whether you choose a classic bandana style or a tubular design, green pairs easily with logos in white, black, or gold. These masks are ideal for giveaways, corporate safety kits, or promotional campaigns focused on sustainability. Decorate with screen printing or embroidery for a professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green face masks in bandana and tubular styles with printed logos for promotional use",
+  "productSkus": [
+    "506991",
+    "521602",
+    "522111",
+    "524693"
+  ],
+  "generatedAt": "2026-05-31T09:45:14.176329+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

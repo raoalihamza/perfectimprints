@@ -1,0 +1,19 @@
+{
+  "url": "/cat/watches/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Watches for Bulk Orders",
+  "metaTitle": "Custom Set Watches | Perfect Imprints",
+  "metaDescription": "Order custom set watches in bulk at Perfect Imprints. Ideal for teams, events, and corporate gifts. Get your quote today.",
+  "introHtml": "<p>Custom set watches offer a coordinated look for teams, events, or corporate gifts. By ordering matching timepieces, you ensure every recipient wears the same style and quality, reinforcing brand unity. Choose from classic analog or sporty digital models, all available with your logo or message engraved on the dial or case back. Perfect for employee milestones, conference swag, or promotional giveaways where consistency matters.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom set watches with engraved logos, displayed in a coordinated collection for corporate events.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:04:20.294698+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

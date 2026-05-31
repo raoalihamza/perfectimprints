@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/swannies",
+  "type": "facet",
+  "h1": "Custom Swannies Products for Bulk Orders",
+  "metaTitle": "Custom Swannies Products | Perfect Imprints",
+  "metaDescription": "Order custom Swannies products in bulk from Perfect Imprints. Perfect for corporate gifts, events, and branding.",
+  "introHtml": "<p>Swannies products combine retro style with modern functionality, making them a standout choice for corporate giveaways and event merchandise. Their signature designs, like the popular Swannies flask, offer a unique alternative to standard promotional items. Whether you are outfitting a sales team or creating VIP gifts, custom Swannies products deliver a memorable brand impression with options for engraving or screen printing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Swannies products including branded flasks and accessories for corporate gifts",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:42.945075+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

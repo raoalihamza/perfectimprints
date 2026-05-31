@@ -1,0 +1,22 @@
+{
+  "url": "/cat/koozies/brand/urban-peak",
+  "type": "facet",
+  "h1": "Custom Urban Peak Koozies for Bulk Orders",
+  "metaTitle": "Custom Urban Peak Koozies | Perfect Imprints",
+  "metaDescription": "Order custom Urban Peak koozies in bulk. Perfect for promotions or events. Get your branded koozies today!",
+  "introHtml": "<p>Urban Peak koozies combine rugged durability with versatile insulation, making them ideal for outdoor events, trade shows, and employee gifts. The 3-in-1 Insulator and Bedrock Trail Vacuum Can Cooler keep drinks cold longer while offering multiple carrying options. Choose screen printing or debossing to add your logo, and order in bulk for consistent branding across your team or event attendees.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Urban Peak koozies with logo, featuring 3-in-1 insulator and vacuum can cooler designs",
+  "productSkus": [
+    "520377",
+    "527562"
+  ],
+  "generatedAt": "2026-05-31T08:56:38.245536+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,30 @@
+{
+  "url": "/cat/shot-glasses/supplier/mgroup",
+  "type": "facet",
+  "h1": "Custom Mgroup Shot Glasses for Branded Events",
+  "metaTitle": "Custom Mgroup Shot Glasses | Perfect Imprints",
+  "metaDescription": "Order custom Mgroup shot glasses from Perfect Imprints. Perfect for bars, events, and promotions. Fast turnaround on bulk orders.",
+  "introHtml": "<p>Mgroup shot glasses offer a dependable choice for bars, restaurants, and promotional events that need durable, customizable drinkware. Whether you choose clear glass for a classic look or plastic mood cups that change color, these shot glasses accept crisp logos and text via screen printing or full-color digital decoration. Ordering from the Mgroup lineup means consistent quality across large batches, so your branded shot glasses arrive ready for game nights, tasting events, or giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom Mgroup shot glasses with logos, including clear glass and color-changing plastic options for promotional use.",
+  "productSkus": [
+    "513679",
+    "522845",
+    "522847",
+    "525816",
+    "525817",
+    "525916",
+    "525967",
+    "526428",
+    "529493",
+    "529515"
+  ],
+  "generatedAt": "2026-05-31T10:07:02.135071+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

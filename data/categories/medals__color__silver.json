@@ -1,0 +1,21 @@
+{
+  "url": "/cat/medals/color/silver",
+  "type": "facet",
+  "h1": "Custom Silver Medals for Bulk Orders",
+  "metaTitle": "Custom Silver Medals | Perfect Imprints",
+  "metaDescription": "Order custom silver medals for your event. Bulk pricing available at Perfect Imprints. Get a fast quote today.",
+  "introHtml": "<p>Silver medals offer a classic, elegant look that stands out in any competition or recognition program. Whether you're awarding top performers at a corporate event or honoring participants in a charity race, silver medals convey achievement with a polished metallic finish. The Laurel Wreath Medal is a popular choice, featuring a timeless design that pairs well with custom engraving or full-color imprinting. Choose silver for a versatile, professional appearance that complements any ribbon color or event theme.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom silver medals with laurel wreath design and red ribbon",
+  "productSkus": [
+    "513818"
+  ],
+  "generatedAt": "2026-05-31T09:19:26.736243+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

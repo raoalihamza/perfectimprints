@@ -1,0 +1,32 @@
+{
+  "url": "/cat/bar-wine-gift-sets/supplier/evans",
+  "type": "facet",
+  "h1": "Custom Evans Bar Wine Gift Sets",
+  "metaTitle": "Custom Evans Bar Wine Gift Sets | Perfect Imprints",
+  "metaDescription": "Order custom Evans bar wine gift sets for your team or clients. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Evans gift sets combine premium drinkware and accessories in curated packages designed for corporate gifting. Whether you need a Speakeasy Gift Set for a client appreciation event or a Hot-N-Cold Gift Set for employee recognition, each set arrives ready to personalize with your logo. Choose from styles like the Napa Stemless Wine Tumbler Set or the Welcome Aboard 4-Piece Gift Set. Evans offers consistent quality across bulk orders, making them a practical choice for marketing directors and HR managers alike.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Evans bar wine gift sets with branded drinkware and accessories for corporate gifting",
+  "productSkus": [
+    "512596",
+    "512693 64F",
+    "519672",
+    "521002",
+    "521897",
+    "522098",
+    "523898",
+    "523924",
+    "523950",
+    "525628",
+    "526748",
+    "527285"
+  ],
+  "generatedAt": "2026-05-31T09:35:22.645015+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

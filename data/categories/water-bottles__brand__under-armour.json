@@ -1,0 +1,28 @@
+{
+  "url": "/cat/water-bottles/brand/under-armour",
+  "type": "facet",
+  "h1": "Custom Under Armour Water Bottles",
+  "metaTitle": "Custom Under Armour Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom Under Armour water bottles with your logo. Durable, branded hydration for teams, events, and corporate gifts at Perfect Imprints.",
+  "introHtml": "<p>Under Armour water bottles bring the same performance-driven design trusted by athletes to your branded merchandise. Whether you're outfitting a corporate wellness program, a sports team, or a trade show giveaway, these bottles offer reliable hydration with a logo that stands out. Choose from squeeze bottles or insulated options, and add your imprint via screen printing or laser engraving for a crisp, durable finish that lasts through daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Under Armour water bottles with logo imprint, available in multiple colors and styles for bulk orders.",
+  "productSkus": [
+    "527121",
+    "527122",
+    "528095",
+    "528096",
+    "528105",
+    "528106",
+    "528108",
+    "529262"
+  ],
+  "generatedAt": "2026-05-31T09:30:07.389911+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

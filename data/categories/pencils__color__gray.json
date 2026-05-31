@@ -1,0 +1,19 @@
+{
+  "url": "/cat/pencils/color/gray",
+  "type": "facet",
+  "h1": "Custom Gray Pencils for Bulk Orders",
+  "metaTitle": "Custom Gray Pencils | Perfect Imprints",
+  "metaDescription": "Order custom gray pencils in bulk with your logo. Perfect for corporate events and giveaways. Get a quote today!",
+  "introHtml": "<p>Gray pencils offer a subtle, professional look that stands out from standard yellow or black options. They are ideal for corporate offices, trade shows, or promotional kits where you want a sophisticated yet affordable branded item. Choose from matte or glossy finishes, and add your logo via screen printing or foil stamping for a polished impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom gray pencils with company logo, arranged on a desk for corporate branding.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:21:54.291181+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

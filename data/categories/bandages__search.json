@@ -1,0 +1,25 @@
+{
+  "url": "/cat/bandages/search",
+  "type": "modifier",
+  "h1": "Custom Bandages for Branded Promotions",
+  "metaTitle": "Custom Bandages | PerfectImprints.com",
+  "metaDescription": "Browse our selection of custom bandages for your next promotion. Perfect for safety kits, giveaways, and more. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Custom bandages combine everyday practicality with brand visibility. Whether you are building safety kits for employees or creating memorable giveaways for a trade show, printed bandages keep your logo in front of people throughout the day. Our selection includes colorful patterned bandages, convenient dispensers, and eco-friendly options. Start exploring the possibilities and find the right style for your next campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom bandages in colorful wrappers and a dispenser, ideal for promotional giveaways and safety kits.",
+  "productSkus": [
+    "502343",
+    "506843",
+    "510131",
+    "528559",
+    "529323"
+  ],
+  "generatedAt": "2026-05-31T08:39:19.521683+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel/feature/with-wheels",
+  "type": "facet",
+  "h1": "Custom Apparel with Wheels for Bulk Orders",
+  "metaTitle": "Custom Apparel with Wheels - Perfect Imprints",
+  "metaDescription": "Order custom apparel with wheels from Perfect Imprints. Ideal for safety managers needing mobile gear like hard hats with wheels.",
+  "introHtml": "<p>For safety managers and facility teams, apparel with wheels adds mobility to protective gear. The Kilimanjaro™ Ratchet Hard Hat, with its wheeled adjustment system, allows quick sizing changes on the go. This feature is ideal for construction sites or warehouses where workers need to adjust headgear without removing gloves. Customize with your logo for instant brand recognition while keeping teams comfortable and efficient.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom apparel with wheels featuring a ratchet hard hat with wheeled adjustment system for safety and mobility.",
+  "productSkus": [
+    "525806"
+  ],
+  "generatedAt": "2026-05-31T08:38:44.968971+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

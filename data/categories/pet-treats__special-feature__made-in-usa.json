@@ -1,0 +1,19 @@
+{
+  "url": "/cat/pet-treats/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Pet Treats",
+  "metaTitle": "Custom Made in USA Pet Treats | Perfect Imprints",
+  "metaDescription": "Order custom made in USA pet treats for bulk gifts. Perfect for pet-loving clients and employees. Fast turnaround.",
+  "introHtml": "<p>Choosing made in USA pet treats means supporting domestic manufacturing while giving a gift that resonates with pet owners who value quality and origin. These treats are ideal for corporate gift bags, pet adoption events, or employee appreciation. Decorate with your logo using custom packaging or labels to reinforce your brand's commitment to American craftsmanship.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom made in USA pet treats in bulk packaging with company logo, ideal for corporate gifts.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:10.080785+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/flasks/closeout",
+  "type": "modifier",
+  "h1": "Closeout Custom Flasks",
+  "metaTitle": "Closeout Custom Flasks | Perfect Imprints",
+  "metaDescription": "Save on closeout custom flasks with limited inventory and clearance pricing. Order now while stock lasts.",
+  "introHtml": "<p>Closeout custom flasks offer significant savings on promotional drinkware, but only while supplies last. These are overstock or discontinued designs priced to move quickly. Ideal for marketing directors and safety managers looking to stretch budgets, each closeout lot is first-come, first-served. Once inventory is gone, these specific flask models will not be restocked. Act now to secure branded flasks at a fraction of standard pricing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Closeout custom flasks with engraved logo, stainless steel finish, limited stock clearance pricing",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:46:11.808415+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

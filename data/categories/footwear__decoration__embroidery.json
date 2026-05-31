@@ -1,0 +1,21 @@
+{
+  "url": "/cat/footwear/decoration/embroidery",
+  "type": "facet",
+  "h1": "Custom Embroidery Footwear for Bulk Orders",
+  "metaTitle": "Custom Embroidery Footwear | Perfect Imprints",
+  "metaDescription": "Order custom embroidery footwear for your team or event. Perfect for branded slippers, shoes, and more. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Embroidered footwear gives your brand a polished, professional look that printed logos can't match. Whether you're outfitting a hospitality staff with cozy branded slippers or creating uniform shoes for a retail team, embroidery adds durability and a premium feel. The stitched thread holds up to wear and washing, making it ideal for items like the Fuzzy Feet Slipper Socks that employees will actually use. Choose from multiple thread colors to match your logo exactly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom embroidery footwear featuring a branded logo stitched on a pair of cozy slippers for corporate gifts",
+  "productSkus": [
+    "516800"
+  ],
+  "generatedAt": "2026-05-31T09:47:09.786714+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

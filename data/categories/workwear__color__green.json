@@ -1,0 +1,30 @@
+{
+  "url": "/cat/workwear/color/green",
+  "type": "facet",
+  "h1": "Custom Green Workwear for Your Team",
+  "metaTitle": "Custom Green Workwear | Perfect Imprints",
+  "metaDescription": "Order custom green workwear in bulk. Perfect for safety teams, uniforms, and branding with high-visibility options.",
+  "introHtml": "<p>Green workwear stands out in industrial and outdoor settings, offering visibility without the harsh contrast of neon. Whether you need hi-vis vests for construction crews or polos for landscaping crews, green uniforms project a professional, safety-conscious image. Our selection includes durable options like the Signal Hi-Vis Jacket and the Cornerstone Snag-Proof Polo, both suitable for screen printing or embroidery. Choose green to align with safety standards or your brand colors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green workwear including hi-vis jackets and polo shirts for team uniforms",
+  "productSkus": [
+    "511014",
+    "515284",
+    "515285",
+    "521967",
+    "523772",
+    "524456",
+    "525806",
+    "526537",
+    "528072",
+    "528797"
+  ],
+  "generatedAt": "2026-05-31T08:27:45.607472+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

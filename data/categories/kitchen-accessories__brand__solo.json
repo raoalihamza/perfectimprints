@@ -1,0 +1,30 @@
+{
+  "url": "/cat/kitchen-accessories/brand/solo",
+  "type": "facet",
+  "h1": "Custom Solo Kitchen Accessories for Bulk Orders",
+  "metaTitle": "Custom Solo Kitchen Accessories | Perfect Imprints",
+  "metaDescription": "Order custom Solo kitchen accessories in bulk. Perfect for branding. Get a quote today.",
+  "introHtml": "<p>When your kitchen staff or event crew needs durable, reliable tools, custom Solo kitchen accessories deliver. From Solo Stove fire pit stands to branded prep bowls, these items combine rugged construction with everyday utility. Imprint your logo on silicone trivets, stainless steel bowls, or portable cookware to keep your brand visible during meal prep and outdoor cooking. Perfect for corporate gifts, restaurant giveaways, or trade show swag that gets used repeatedly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Solo kitchen accessories including a Solo Stove fire pit bowl with engraved logo, ideal for outdoor branding.",
+  "productSkus": [
+    "524395",
+    "524396",
+    "524397",
+    "524398",
+    "524400",
+    "524401",
+    "524403",
+    "524404",
+    "529455",
+    "529456"
+  ],
+  "generatedAt": "2026-05-31T08:43:20.397704+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

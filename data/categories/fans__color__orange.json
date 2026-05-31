@@ -1,0 +1,27 @@
+{
+  "url": "/cat/fans/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Fans for Branded Promotions",
+  "metaTitle": "Custom Orange Fans - Perfect Imprints",
+  "metaDescription": "Custom orange fans for your next event. Stand out with vibrant, branded hand fans from Perfect Imprints. Order in bulk today!",
+  "introHtml": "<p>Orange fans make a bold statement at outdoor events, trade shows, and summer giveaways. Whether you choose a classic 7\" Flyer or a unique Circle Hand Fan, the bright color ensures your logo gets noticed. Perfect for marketing directors and event planners seeking high-visibility promotional products that keep attendees cool and engaged.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange hand fans with full-color logo printing for promotional events and giveaways",
+  "productSkus": [
+    "507687",
+    "510731",
+    "510732",
+    "513209",
+    "523471",
+    "523727",
+    "528330"
+  ],
+  "generatedAt": "2026-05-31T08:33:46.913042+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

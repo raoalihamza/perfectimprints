@@ -1,0 +1,30 @@
+{
+  "url": "/cat/shot-glasses/type/box",
+  "type": "facet",
+  "h1": "Custom Box Shot Glasses",
+  "metaTitle": "Custom Box Shot Glasses | Perfect Imprints",
+  "metaDescription": "Shop custom box shot glasses at Perfect Imprints. Perfect for events and promotions. Get a quote for bulk orders today.",
+  "introHtml": "<p>Box shot glasses offer a convenient and attractive way to serve shots at events, trade shows, or bars. Unlike standard shot glasses, these come pre-packaged in individual boxes, making them ideal for branded giveaways, VIP gifts, or hygienic serving. Choose from glass or plastic options, and add your logo via screen printing or digital decoration for a polished, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom box shot glasses with logo in individual packaging for events and promotions",
+  "productSkus": [
+    "513679",
+    "522845",
+    "522847",
+    "525816",
+    "525817",
+    "525916",
+    "525967",
+    "526428",
+    "529493",
+    "529515"
+  ],
+  "generatedAt": "2026-05-31T10:07:01.786727+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/outerwear/brand/cornerstone",
+  "type": "facet",
+  "h1": "Custom Cornerstone Outerwear for Bulk Orders",
+  "metaTitle": "Custom Cornerstone Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom Cornerstone outerwear in bulk. Perfect for safety teams and corporate branding. Get a quote today!",
+  "introHtml": "<p>Cornerstone outerwear combines durability with professional style, making it a top choice for safety managers and marketing directors alike. Whether you need ANSI-compliant vests for construction crews or heavy-duty fleece hoodies for outdoor events, Cornerstone offers reliable options that hold up to daily wear. Decorate with embroidery or screen printing for a polished, long-lasting brand impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Cornerstone outerwear including ANSI mesh vests and fleece hoodies for corporate branding",
+  "productSkus": [
+    "528678",
+    "529301"
+  ],
+  "generatedAt": "2026-05-31T09:21:16.405792+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

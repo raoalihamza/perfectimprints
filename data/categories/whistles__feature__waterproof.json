@@ -1,0 +1,21 @@
+{
+  "url": "/cat/whistles/feature/waterproof",
+  "type": "facet",
+  "h1": "Custom Waterproof Whistles for Bulk Orders",
+  "metaTitle": "Custom Waterproof Whistles | Perfect Imprints",
+  "metaDescription": "Order custom waterproof whistles in bulk. Ideal for outdoor events, safety kits, and promotions. Get your quote today!",
+  "introHtml": "<p>Waterproof whistles are built to perform in rain, snow, or humidity, making them a reliable choice for outdoor events, emergency kits, and safety gear. Unlike standard whistles that may fail when wet, these are sealed to produce a consistent, loud tone in any weather. Decorate them with your logo via pad printing or laser engraving for durable branding that lasts through tough conditions. Ideal for safety managers and marketing directors who need dependable promotional items for outdoor use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom waterproof whistles in bright colors with logo imprint, ideal for outdoor safety and promotions.",
+  "productSkus": [
+    "520888"
+  ],
+  "generatedAt": "2026-05-31T10:14:18.607104+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

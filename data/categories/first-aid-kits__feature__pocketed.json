@@ -1,0 +1,23 @@
+{
+  "url": "/cat/first-aid-kits/feature/pocketed",
+  "type": "facet",
+  "h1": "Custom Pocketed First Aid Kits",
+  "metaTitle": "Custom Pocketed First Aid Kits | Perfect Imprints",
+  "metaDescription": "Order custom pocketed first aid kits with your logo. Perfect for safety managers and bulk buyers. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Pocketed first aid kits offer organized storage for bandages, ointments, and tools, making them ideal for job sites, offices, or vehicles. The built-in compartments keep supplies accessible and secure, reducing the risk of items shifting or getting damaged. Customize these kits with your company logo for a practical safety giveaway that reinforces your brand while promoting preparedness. Choose from durable nylon or polyester shells with multiple pockets for efficient inventory management.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pocketed first aid kit with multiple compartments and zippered closure, perfect for bulk orders and corporate branding.",
+  "productSkus": [
+    "506435",
+    "510643 45D",
+    "511984"
+  ],
+  "generatedAt": "2026-05-31T08:41:45.195764+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

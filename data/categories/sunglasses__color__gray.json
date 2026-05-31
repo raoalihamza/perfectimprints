@@ -1,0 +1,23 @@
+{
+  "url": "/cat/sunglasses/color/gray",
+  "type": "facet",
+  "h1": "Custom Gray Sunglasses for Bulk Orders",
+  "metaTitle": "Custom Gray Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom gray sunglasses for your team or event. Perfect for outdoor promotions. Get a quote today.",
+  "introHtml": "<p>Gray sunglasses offer a neutral, versatile look that pairs well with any uniform or event color scheme. Whether you're outfitting a sales team for an outdoor conference or providing sun protection at a company picnic, gray lenses reduce glare without distorting colors. Choose from sporty styles like the Nike Skylon Ace or polarized options such as the Nike Circuit Polarized Sunglasses for added clarity. Decorating with your logo is easy using pad printing or laser engraving on the temples.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gray sunglasses with polarized lenses and logo engraving on temple",
+  "productSkus": [
+    "526685",
+    "526686",
+    "526687"
+  ],
+  "generatedAt": "2026-05-31T10:09:21.662848+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

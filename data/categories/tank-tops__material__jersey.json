@@ -1,0 +1,22 @@
+{
+  "url": "/cat/tank-tops/material/jersey",
+  "type": "facet",
+  "h1": "Custom Jersey Tank Tops for Bulk Orders",
+  "metaTitle": "Custom Jersey Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom jersey tank tops for your team or event. Soft, breathable fabric perfect for printing. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Jersey tank tops offer a soft, breathable fabric that drapes well and accepts vibrant screen printing or embroidery. Ideal for summer giveaways, team uniforms, or event staff apparel, they keep wearers cool while displaying your logo clearly. Choose from youth and adult sizes to fit your entire group.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom jersey tank tops with printed logo on a soft, breathable cotton-poly blend fabric",
+  "productSkus": [
+    "506864",
+    "528866"
+  ],
+  "generatedAt": "2026-05-31T08:37:53.366377+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

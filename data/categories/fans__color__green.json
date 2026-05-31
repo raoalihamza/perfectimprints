@@ -1,0 +1,28 @@
+{
+  "url": "/cat/fans/color/green",
+  "type": "facet",
+  "h1": "Custom Green Fans for Branded Promotions",
+  "metaTitle": "Custom Green Fans | Perfect Imprints",
+  "metaDescription": "Order custom green fans for your next event or promotion. Perfect for outdoor giveaways and eco-friendly branding. Shop at Perfect Imprints.",
+  "introHtml": "<p>Custom green fans are a smart choice for outdoor events, trade shows, and summer campaigns where you want your brand to stand out with a fresh, natural color. Green conveys growth, health, and sustainability, making it ideal for eco-conscious companies or garden-related promotions. From hand fans to portable mini fans, these giveaways keep recipients cool while reinforcing your message. Decorate with a full-color logo or simple imprint to maximize visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green hand fans with brand logo for outdoor event giveaways",
+  "productSkus": [
+    "510729",
+    "510731",
+    "510732",
+    "512550",
+    "523471",
+    "523727",
+    "528330",
+    "528896"
+  ],
+  "generatedAt": "2026-05-31T09:13:09.997977+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

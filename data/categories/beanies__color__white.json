@@ -1,0 +1,21 @@
+{
+  "url": "/cat/beanies/color/white",
+  "type": "facet",
+  "h1": "Custom White Beanies for Bulk Orders",
+  "metaTitle": "Custom White Beanies | Perfect Imprints",
+  "metaDescription": "Order custom white beanies for your team or event. Perfect for winter promotions. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>White beanies offer a crisp, clean canvas for your logo, making them ideal for winter giveaways, employee gifts, or event merchandise. The neutral color pairs well with any brand palette, and the high-contrast imprint ensures your design stands out. Whether you choose embroidery or screen printing, custom white beanies provide a polished look that recipients will wear proudly all season long.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom white beanies with embroidered logo on a model, perfect for winter promotions and team gifts.",
+  "productSkus": [
+    "521927"
+  ],
+  "generatedAt": "2026-05-31T09:36:35.937489+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

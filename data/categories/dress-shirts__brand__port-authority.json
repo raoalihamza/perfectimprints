@@ -1,0 +1,27 @@
+{
+  "url": "/cat/dress-shirts/brand/port-authority",
+  "type": "facet",
+  "h1": "Custom Port Authority Dress Shirts for Bulk Orders",
+  "metaTitle": "Custom Port Authority Dress Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Port Authority dress shirts in bulk. Perfect for corporate uniforms. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Port Authority dress shirts combine wrinkle-resistant fabrics with a professional fit, making them a top choice for corporate uniforms and team apparel. From the Dimension Knit Dress Shirt to the Easy Care and Superpro Oxford styles, these shirts offer consistent sizing and durable construction for embroidery or screen printing. Whether you need long-sleeve button-downs for sales teams or 3/4-sleeve tunics for office staff, Port Authority provides a reliable, polished look that holds up to daily wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Port Authority dress shirts in various colors and styles for corporate uniforms",
+  "productSkus": [
+    "501558",
+    "501559",
+    "515106",
+    "515107",
+    "519684",
+    "519685",
+    "524313"
+  ],
+  "generatedAt": "2026-05-31T09:12:00.964905+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

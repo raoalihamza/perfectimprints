@@ -1,0 +1,25 @@
+{
+  "url": "/cat/magnets/activity/soccer",
+  "type": "facet",
+  "h1": "Custom Soccer Magnets",
+  "metaTitle": "Custom Soccer Magnets | Perfect Imprints",
+  "metaDescription": "Order custom soccer magnets for bulk giveaways. Perfect Imprints offers high-quality, branded magnets for sports fans.",
+  "introHtml": "<p>Custom soccer magnets are a targeted giveaway for sports leagues, tournaments, and fan shops. Unlike generic magnets, these feature soccer-specific designs like balls, cleats, or field motifs, making them instant hits with players and supporters. Decorate with a team logo or event date using full-color print. Ideal for promotional bags, concession stands, or mail-order swag.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom soccer magnets with team logos and soccer ball designs for promotional giveaways",
+  "productSkus": [
+    "504235 2AC",
+    "504235 2AK",
+    "504235 2AM",
+    "504235 2AN",
+    "504235 2KI"
+  ],
+  "generatedAt": "2026-05-31T09:55:29.534755+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

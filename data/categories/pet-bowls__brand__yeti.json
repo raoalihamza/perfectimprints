@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pet-bowls/brand/yeti",
+  "type": "facet",
+  "h1": "Custom Yeti Pet Bowls for Bulk Orders",
+  "metaTitle": "Custom Yeti Pet Bowls | Perfect Imprints",
+  "metaDescription": "Order custom Yeti pet bowls in bulk. Durable stainless steel, personalized with your logo. Perfect for pet owners and corporate gifts.",
+  "introHtml": "<p>Yeti pet bowls are built from heavy-duty stainless steel that resists rust, dents, and chewing — a smart upgrade over standard plastic or ceramic bowls. The Boomer 8 Dog Bowl features a non-skid base and dishwasher-safe construction, making it ideal for corporate giveaways, pet-friendly offices, or client appreciation gifts. Add your logo with laser engraving for a polished, long-lasting imprint that stands up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Yeti pet bowls with engraved logo on stainless steel surface, durable and stylish for dogs.",
+  "productSkus": [
+    "529534"
+  ],
+  "generatedAt": "2026-05-31T09:22:40.346818+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

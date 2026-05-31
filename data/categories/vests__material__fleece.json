@@ -1,0 +1,23 @@
+{
+  "url": "/cat/vests/material/fleece",
+  "type": "facet",
+  "h1": "Custom Fleece Vests for Bulk Orders",
+  "metaTitle": "Custom Fleece Vests | Perfect Imprints",
+  "metaDescription": "Order custom fleece vests in bulk from Perfect Imprints. Ideal for corporate gifts, uniforms, and promotions. Get your quote today!",
+  "introHtml": "<p>Fleece vests offer warmth without bulk, making them a practical choice for indoor and outdoor wear. Whether you need branded vests for a company uniform, a safety team, or a promotional giveaway, fleece provides comfort and a professional look. Choose from styles like the Men's Core 365™ Journey Fleece Vest for a reliable, everyday layer that can be embroidered or screen-printed with your logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom fleece vests with embroidered logos, ideal for corporate uniforms and promotional giveaways.",
+  "productSkus": [
+    "506613",
+    "506614",
+    "529196"
+  ],
+  "generatedAt": "2026-05-31T10:13:27.387891+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

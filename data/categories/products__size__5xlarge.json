@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/size/5xlarge",
+  "type": "facet",
+  "h1": "Custom 5X Large Products for Bulk Orders",
+  "metaTitle": "Custom 5X Large Products | Perfect Imprints",
+  "metaDescription": "Shop custom 5X large products for your team. Perfect for bulk orders with your logo. Browse our selection at Perfect Imprints.",
+  "introHtml": "<p>Ordering custom 5X large products ensures a comfortable fit for everyone on your team. Whether you need branded 5XL polo shirts for a company event or safety vests that accommodate all body types, sizing up matters. Our 5X large items maintain the same quality and decoration options as standard sizes, including embroidery and screen printing. Bulk orders are welcome.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom 5X large products including a branded polo shirt and safety vest with embroidery options",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:24:27.311714+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

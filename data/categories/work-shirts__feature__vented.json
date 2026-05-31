@@ -1,0 +1,19 @@
+{
+  "url": "/cat/work-shirts/feature/vented",
+  "type": "facet",
+  "h1": "Custom Vented Work Shirts",
+  "metaTitle": "Custom Vented Work Shirts | Perfect Imprints",
+  "metaDescription": "Shop custom vented work shirts at Perfect Imprints. Perfect for warm-weather jobsites. Bulk orders with your logo. Get a quote today.",
+  "introHtml": "<p>Vented work shirts add airflow through mesh panels or back vents, keeping your crew cooler on hot jobsites. Unlike standard work shirts, these are designed for outdoor crews, warehouse teams, and anyone working in heat. Decorate with embroidery or screen printing for a professional look that breathes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom vented work shirts with mesh back panels for airflow, displayed on a worker at a construction site",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:15:30.658924+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

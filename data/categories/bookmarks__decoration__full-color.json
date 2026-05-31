@@ -1,0 +1,31 @@
+{
+  "url": "/cat/bookmarks/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Bookmarks",
+  "metaTitle": "Custom Full Color Bookmarks | Perfect Imprints",
+  "metaDescription": "Order custom full color bookmarks for your next promotion. Vibrant, durable, and perfect for branding. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Full color bookmarks let you reproduce logos, photos, or intricate designs with crisp detail and vibrant hues. Unlike single- or two-color imprints, full color digital printing captures gradients and fine lines, making these bookmarks ideal for libraries, schools, or retail giveaways. Choose from shapes like leaves, paws, or dollars, or opt for laminated rectangular bookmarks for extra durability. They pair well with a matching branded bookmark to reinforce your message every time someone reads.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color bookmarks with vibrant printed designs, including leaf and dollar sign shapes, for promotional giveaways.",
+  "productSkus": [
+    "506697",
+    "510500",
+    "512302 90A",
+    "512395 90A",
+    "512396 90A",
+    "512398 90A",
+    "512399 90A",
+    "512408 90A",
+    "512409 90A",
+    "517728 90A",
+    "519813"
+  ],
+  "generatedAt": "2026-05-31T09:37:42.777537+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

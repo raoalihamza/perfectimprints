@@ -1,0 +1,26 @@
+{
+  "url": "/cat/aprons/age/kids",
+  "type": "facet",
+  "h1": "Custom Kids Aprons for Fun & Functional Branding",
+  "metaTitle": "Custom Kids Aprons | Perfect Imprints",
+  "metaDescription": "Order custom kids aprons for your business or event. Perfect for cooking classes, camps, and more. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Custom kids aprons are sized smaller than standard adult aprons, making them easier for children to wear during cooking classes, summer camps, or restaurant promotions. Choose from cotton or polyester blends that hold up to frequent washing and screen printing. Add your logo or fun design to the front bib for a memorable branded experience that kids and parents will love.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of children wearing custom kids aprons with logos while cooking in a classroom",
+  "productSkus": [
+    "508541",
+    "509133 90A",
+    "515077",
+    "516543 01A",
+    "527339",
+    "528072"
+  ],
+  "generatedAt": "2026-05-31T09:32:32.495057+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

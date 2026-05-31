@@ -1,0 +1,21 @@
+{
+  "url": "/cat/toys/color/yellow",
+  "type": "facet",
+  "h1": "Custom Yellow Toys for Branded Giveaways",
+  "metaTitle": "Custom Yellow Toys - Perfect Imprints",
+  "metaDescription": "Order custom yellow toys for your next promotion. Bright, fun, and memorable. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Yellow toys stand out in any crowd, making them ideal for trade shows and events where high visibility matters. From the PromoSpinner™ Tri-Highlighter to other playful giveaways, yellow adds a cheerful pop of color that draws attention. These items work well for safety campaigns, summer promotions, or any brand looking to make a bright impression. Screen printing or pad printing keeps your logo crisp and vibrant on the yellow surface.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom yellow toys including a PromoSpinner Tri-Highlighter on a bright background",
+  "productSkus": [
+    "521175"
+  ],
+  "generatedAt": "2026-05-31T10:12:24.700780+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

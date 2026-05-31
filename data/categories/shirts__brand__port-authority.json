@@ -1,0 +1,27 @@
+{
+  "url": "/cat/shirts/brand/port-authority",
+  "type": "facet",
+  "h1": "Custom Port Authority Shirts for Bulk Orders",
+  "metaTitle": "Custom Port Authority Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Port Authority shirts in bulk. Perfect for teams and events. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Port Authority shirts are a top choice for corporate uniforms and team apparel because of their consistent quality and professional fit. The easy-care fabric resists wrinkles, making these shirts ideal for employees who need a polished look all day. Choose from long-sleeve, Oxford, or knit dress shirt styles, all available with your logo embroidered or screen printed. Perfect for trade shows, office wear, or promotional events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Port Authority shirts with embroidered logo, professional fit for corporate uniforms",
+  "productSkus": [
+    "501558",
+    "501559",
+    "515106",
+    "515107",
+    "519684",
+    "519685",
+    "524313"
+  ],
+  "generatedAt": "2026-05-31T08:24:30.343274+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

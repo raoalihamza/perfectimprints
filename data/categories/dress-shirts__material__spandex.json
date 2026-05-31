@@ -1,0 +1,24 @@
+{
+  "url": "/cat/dress-shirts/material/spandex",
+  "type": "facet",
+  "h1": "Custom Spandex Dress Shirts for Bulk Orders",
+  "metaTitle": "Custom Spandex Dress Shirts | Perfect Imprints",
+  "metaDescription": "Order custom spandex dress shirts in bulk from Perfect Imprints. Perfect for teams needing stretch and comfort.",
+  "introHtml": "<p>Spandex-blend dress shirts offer the stretch and flexibility that traditional woven shirts lack. Ideal for teams that need to move—whether on a trade show floor or during a presentation—these shirts resist wrinkling and maintain a crisp look throughout the day. Styles like the Men's OGIO Commuter Woven Shirt combine professional appearance with all-day comfort, making them a smart choice for employee uniforms and corporate events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom spandex dress shirts for bulk orders featuring stretch fabric and professional style",
+  "productSkus": [
+    "523719",
+    "525388",
+    "525389",
+    "527895"
+  ],
+  "generatedAt": "2026-05-31T09:43:19.221589+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

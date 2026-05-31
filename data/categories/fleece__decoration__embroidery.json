@@ -1,0 +1,32 @@
+{
+  "url": "/cat/fleece/decoration/embroidery",
+  "type": "facet",
+  "h1": "Custom Embroidery Fleece Jackets for Teams",
+  "metaTitle": "Custom Embroidery Fleece | Perfect Imprints",
+  "metaDescription": "Custom embroidery fleece jackets for corporate teams. Add your logo to premium fleece. Bulk orders available. Get a quote today!",
+  "introHtml": "<p>Embroidery adds a professional, textured finish to fleece jackets that screen printing can't match. For corporate teams, trade shows, or employee uniforms, embroidered logos on fleece hold up wash after wash without fading. Choose from full-zip microfleece by Eddie Bauer or quarter-zip sweater fleece from Devon & Jones for a crisp, stitched look that elevates your brand presence.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom embroidery fleece jackets with embroidered logos displayed on a full-zip microfleece jacket",
+  "productSkus": [
+    "506605",
+    "509568",
+    "509569",
+    "513811",
+    "513812",
+    "515736",
+    "520270",
+    "520271",
+    "520298",
+    "520299",
+    "521110",
+    "526811"
+  ],
+  "generatedAt": "2026-05-31T08:33:51.696330+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

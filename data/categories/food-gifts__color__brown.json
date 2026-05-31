@@ -1,0 +1,29 @@
+{
+  "url": "/cat/food-gifts/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Food Gifts",
+  "metaTitle": "Custom Brown Food Gifts | Perfect Imprints",
+  "metaDescription": "Order custom brown food gifts in bulk from Perfect Imprints. Perfect for corporate gifting with your logo.",
+  "introHtml": "<p>Brown food gifts offer a warm, natural presentation that feels both rustic and refined. Whether you choose a kraft box with cherry berry mix or a gourmet BBQ kit, the brown color evokes a sense of quality and earthiness that appeals to a wide range of recipients. These gifts are ideal for corporate holiday gifting, client appreciation, or employee rewards. Decorate with foil stamping or a printed label to match your brand's colors while keeping the packaging elegant and understated.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown food gift box with assorted gourmet snacks and corporate logo",
+  "productSkus": [
+    "518201 30A",
+    "518391 30A",
+    "520248",
+    "526224",
+    "526225",
+    "526743",
+    "526745",
+    "527294",
+    "529021"
+  ],
+  "generatedAt": "2026-05-31T09:46:55.889038+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

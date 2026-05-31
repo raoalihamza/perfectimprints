@@ -1,0 +1,21 @@
+{
+  "url": "/cat/games/feature/folding",
+  "type": "facet",
+  "h1": "Custom Folding Games for Bulk Orders",
+  "metaTitle": "Custom Folding Games | Perfect Imprints",
+  "metaDescription": "Order custom folding games for events and promotions. Perfect for trade shows and giveaways. Get a quote today.",
+  "introHtml": "<p>Folding games offer a portable and space-saving solution for your promotional needs. Unlike bulky game sets, these items collapse flat for easy storage and transport, making them ideal for trade shows, corporate events, and safety training sessions. Custom imprinting on the game surface ensures your logo is visible during play. From folding flying discs to compact board games, these branded giveaways provide interactive fun that recipients will remember.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom folding games like a flying disc with pouch featuring a company logo, perfect for promotional giveaways",
+  "productSkus": [
+    "506530"
+  ],
+  "generatedAt": "2026-05-31T09:13:55.292474+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

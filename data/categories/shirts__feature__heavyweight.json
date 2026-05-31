@@ -1,0 +1,21 @@
+{
+  "url": "/cat/shirts/feature/heavyweight",
+  "type": "facet",
+  "h1": "Custom Heavyweight Shirts for Bulk Orders",
+  "metaTitle": "Custom Heavyweight Shirts | Perfect Imprints",
+  "metaDescription": "Order custom heavyweight shirts in bulk for durability and comfort. Perfect for uniforms and teams. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Heavyweight shirts offer the durability and structure that lighter tees can't match, making them ideal for work uniforms, outdoor events, or any setting where longevity matters. With a thicker fabric, these shirts hold up to frequent washing and maintain their shape, while providing a professional appearance. The Ladies' Sweater Blazer is a standout example of a heavyweight option that combines comfort with a polished look. Decorate with embroidery or screen printing for lasting brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom heavyweight shirts in various colors stacked on a table, perfect for bulk orders",
+  "productSkus": [
+    "527957"
+  ],
+  "generatedAt": "2026-05-31T09:25:53.981690+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

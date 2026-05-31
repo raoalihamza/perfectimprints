@@ -1,0 +1,28 @@
+{
+  "url": "/cat/products/brand/coleman",
+  "type": "facet",
+  "h1": "Custom Coleman Products for Bulk Orders",
+  "metaTitle": "Custom Coleman Products | Perfect Imprints",
+  "metaDescription": "Order custom Coleman products in bulk from Perfect Imprints. Ideal for outdoor events, giveaways, and corporate gifts.",
+  "introHtml": "<p>Coleman is a trusted name in outdoor gear, making custom Coleman products a natural fit for brands targeting camping, tailgating, and outdoor enthusiasts. From coolers and jugs to chairs and lanterns, these items offer high perceived value and everyday utility. Decoration options like pad printing or laser engraving let you add your logo to durable surfaces that withstand the elements. Whether you're outfitting a company picnic or rewarding a sales team, Coleman products keep your brand visible long after the event ends.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Coleman products like coolers, jugs, and tumblers with company logos for outdoor events and corporate gifts.",
+  "productSkus": [
+    "509109",
+    "517874",
+    "521930",
+    "525375",
+    "525794",
+    "525795",
+    "525796",
+    "529517"
+  ],
+  "generatedAt": "2026-05-31T09:23:52.455994+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

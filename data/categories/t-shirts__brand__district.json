@@ -1,0 +1,29 @@
+{
+  "url": "/cat/t-shirts/brand/district",
+  "type": "facet",
+  "h1": "Custom District T Shirts for Bulk Orders",
+  "metaTitle": "Custom District T Shirts | Perfect Imprints",
+  "metaDescription": "Order custom District t shirts in bulk. Soft, durable tees perfect for your brand. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>District t shirts are known for their exceptional softness and modern fit, made from premium cotton blends like the Perfect Blend CVC fabric. Whether you need employee uniforms or event giveaways, these tees offer a polished look that holds up wash after wash. Choose from styles like the Very Important Tee or The Concert Tee, and add your logo with screen printing or embroidery for a professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom District t shirts in various colors with screen-printed logos, perfect for branding and uniforms.",
+  "productSkus": [
+    "515949",
+    "515950",
+    "515966",
+    "516166",
+    "516167",
+    "525258",
+    "527176",
+    "527177",
+    "527178"
+  ],
+  "generatedAt": "2026-05-31T10:10:11.247619+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

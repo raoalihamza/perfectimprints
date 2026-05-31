@@ -1,0 +1,25 @@
+{
+  "url": "/cat/backpacks/color/white",
+  "type": "facet",
+  "h1": "Custom White Backpacks for Bulk Orders",
+  "metaTitle": "Custom White Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom white backpacks in bulk from Perfect Imprints. Great for events, teams, and promotions. Get a free quote today!",
+  "introHtml": "<p>White backpacks offer a clean, versatile canvas for your logo or design, making them a popular choice for corporate events, school giveaways, and team uniforms. Whether you prefer the durability of the Tornado Deluxe Backpack or the lightweight convenience of a sublimated drawstring bag, white ensures high contrast for screen printing or embroidery. Bulk ordering keeps costs down while delivering a polished, uniform look for your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom white backpacks with printed logos, including Tornado Deluxe and Under Armour Team Hustle styles",
+  "productSkus": [
+    "523627",
+    "527471",
+    "528108",
+    "528636",
+    "528727"
+  ],
+  "generatedAt": "2026-05-31T08:39:05.983276+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/backpacks/feature/folding",
+  "type": "facet",
+  "h1": "Custom Folding Backpacks for Bulk Orders",
+  "metaTitle": "Custom Folding Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom folding backpacks for your next event or promotion. Compact, eco-friendly, and perfect for bulk branding.",
+  "introHtml": "<p>Custom folding backpacks offer a compact, portable solution for brands that want to provide something useful without taking up much space. Unlike standard backpacks, these fold into a small pouch that fits easily in a glove box or drawer, making them ideal for trade shows, employee giveaways, or emergency kits. The Foldable RPET Backpack, for example, combines sustainability with convenience, letting you decorate a recycled polyester surface with your logo using screen printing or embroidery. Choose folding backpacks when you need a practical item that won't burden your audience with bulk.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom folding backpacks folded into compact pouches, showcasing eco-friendly design and branding",
+  "productSkus": [
+    "528242"
+  ],
+  "generatedAt": "2026-05-31T08:49:13.262530+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

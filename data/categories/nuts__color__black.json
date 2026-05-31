@@ -1,0 +1,23 @@
+{
+  "url": "/cat/nuts/color/black",
+  "type": "facet",
+  "h1": "Custom Black Nuts for Corporate Gifts",
+  "metaTitle": "Custom Black Nuts | Perfect Imprints",
+  "metaDescription": "Order custom black nuts for your next corporate gift. Perfect for branding with your logo. Bulk discounts available at Perfect Imprints.",
+  "introHtml": "<p>Black nuts offer a sleek, sophisticated look that stands out on any desk or in a gift box. Whether you choose dark chocolate almonds or gourmet pretzels, the black finish conveys a premium feel. Ideal for corporate gifts, employee appreciation, or client thank-yous, these nuts can be customized with your logo using foil stamping or custom labels. The rich color pairs well with any branding, making them a versatile choice for your next promotional campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom black nuts in a gift box with corporate logo, perfect for branded corporate gifts.",
+  "productSkus": [
+    "512808 01A",
+    "512847 01A",
+    "527813"
+  ],
+  "generatedAt": "2026-05-31T09:57:54.583194+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

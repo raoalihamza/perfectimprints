@@ -1,0 +1,23 @@
+{
+  "url": "/cat/tote-bags/color/multi-color",
+  "type": "facet",
+  "h1": "Custom Multi Color Tote Bags",
+  "metaTitle": "Custom Multi Color Tote Bags | Perfect Imprints",
+  "metaDescription": "Order custom multi color tote bags for your next event. Perfect for branding with your logo in bulk. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Multi color tote bags let you incorporate multiple brand colors or create eye-catching patterns that stand out in a crowd. Whether you need a two-tone design for a corporate event or a rainbow of hues for a school fundraiser, these bags offer flexibility beyond single-color options. The Zippin Tote and Avenue Business Tote are popular choices that provide ample space for promotional messaging while keeping your logo visible from every angle. Screen printing or embroidery can match your exact color specifications.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom multi color tote bags with vibrant two-tone design and logo imprint, perfect for promotional events and bulk orders.",
+  "productSkus": [
+    "510696",
+    "510720",
+    "510954"
+  ],
+  "generatedAt": "2026-05-31T10:11:43.614770+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/t-shirts/material/tri-blend",
+  "type": "facet",
+  "h1": "Custom Tri Blend T Shirts for Bulk Orders",
+  "metaTitle": "Custom Tri Blend T Shirts | Perfect Imprints",
+  "metaDescription": "Order custom tri blend t shirts in bulk for a soft, vintage feel. Perfect for teams, events, and uniforms. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Tri blend t shirts combine cotton, polyester, and rayon for a fabric that feels broken-in from the first wear. The lightweight, heathered look gives uniforms, event tees, and staff apparel a casual, premium appearance without the stiffness of standard cotton. These shirts hold up well to frequent washing and are ideal for screen printing or embroidery. The Ladies' District Perfect Tri Tee and Men's Allmade Tri-Blend Tee are popular choices for companies that want comfort and durability in one package.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom tri blend t shirts in heather gray stacked on a table, showing soft fabric texture and screen-printed logo",
+  "productSkus": [
+    "525400",
+    "525910",
+    "525911",
+    "526200"
+  ],
+  "generatedAt": "2026-05-31T09:27:58.401463+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

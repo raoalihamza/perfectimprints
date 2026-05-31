@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/age/kids",
+  "type": "facet",
+  "h1": "Custom Kids Products for Bulk Orders",
+  "metaTitle": "Custom Kids Products | Perfect Imprints",
+  "metaDescription": "Order custom kids products in bulk for your next event. Shop branded toys, bags, and more at Perfect Imprints.",
+  "introHtml": "<p>Custom kids products are essential for family-friendly events, school giveaways, and youth-focused marketing campaigns. From branded coloring books to drawstring backpacks, these items appeal directly to children and their parents. Choose soft, durable materials and bright colors that stand out. Imprint your logo or message using screen printing or pad printing for lasting visibility. Perfect for trade shows, community events, or employee appreciation kits that include the whole family.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom kids products including branded toys and backpacks for bulk orders",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:22:40.807853+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

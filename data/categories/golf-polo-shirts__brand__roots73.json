@@ -1,0 +1,30 @@
+{
+  "url": "/cat/golf-polo-shirts/brand/roots73",
+  "type": "facet",
+  "h1": "Custom Roots73 Golf Polo Shirts",
+  "metaTitle": "Custom Roots73 Golf Polo Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Roots73 golf polo shirts in bulk. Perfect for corporate events, teams, and giveaways. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Roots73 golf polo shirts combine the brand's signature comfort with a performance-ready design ideal for corporate outings, team uniforms, and promotional events. The moisture-wicking fabric keeps you cool on the course, while the classic fit allows for easy decoration with your logo or text. Choose from a range of sizes and colors to match your brand identity. Whether you need 50 polos for a tournament or 500 for a company store, Roots73 delivers consistent quality and style.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of custom Roots73 golf polo shirts in various colors, embroidered with logos, perfect for corporate branding.",
+  "productSkus": [
+    "517041",
+    "517042",
+    "517232",
+    "517233",
+    "517320",
+    "517321",
+    "524273",
+    "524274",
+    "525378",
+    "525379"
+  ],
+  "generatedAt": "2026-05-31T09:14:34.710525+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

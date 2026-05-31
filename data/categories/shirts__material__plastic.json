@@ -1,0 +1,24 @@
+{
+  "url": "/cat/shirts/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Shirts for Durable Branding",
+  "metaTitle": "Custom Plastic Shirts - Perfect Imprints",
+  "metaDescription": "Order custom plastic shirts for durable, weather-resistant branding. Perfect for outdoor teams and events at Perfect Imprints.",
+  "introHtml": "<p>Custom plastic shirts offer a unique combination of durability and weather resistance that traditional fabrics can't match. Ideal for outdoor events, construction sites, or any environment where your team needs to stay visible and protected, these shirts can be screen-printed with your logo for long-lasting branding. Choose from styles like the Men's Elemental Coffee Shirts or Ladies Montauk Henley for a professional look that withstands the elements.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A group of workers wearing custom plastic shirts with company logos at an outdoor event",
+  "productSkus": [
+    "526291",
+    "527304",
+    "527305",
+    "527895"
+  ],
+  "generatedAt": "2026-05-31T08:30:59.591773+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

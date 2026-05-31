@@ -1,0 +1,28 @@
+{
+  "url": "/cat/sweatpants/brand/under-armour",
+  "type": "facet",
+  "h1": "Custom Under Armour Sweatpants for Your Team",
+  "metaTitle": "Custom Under Armour Sweatpants | Perfect Imprints",
+  "metaDescription": "Order custom Under Armour sweatpants with your logo. Bulk pricing, fast turnaround. Get a quote today.",
+  "introHtml": "<p>Under Armour sweatpants combine athletic performance with everyday comfort, making them a top choice for corporate wellness programs, team uniforms, or employee incentives. The moisture-wicking fabric and ergonomic design keep wearers dry and comfortable during workouts or casual wear. Adding your logo via embroidery or screen printing creates a cohesive look that reinforces brand identity. Whether you're outfitting a sales team or rewarding staff, custom Under Armour sweatpants offer durability and style that recipients will use regularly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Under Armour sweatpants with embroidered logo on the left leg, shown in a casual team setting.",
+  "productSkus": [
+    "527121",
+    "527122",
+    "528095",
+    "528096",
+    "528105",
+    "528106",
+    "528108",
+    "529262"
+  ],
+  "generatedAt": "2026-05-31T09:03:07.767003+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

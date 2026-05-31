@@ -1,0 +1,25 @@
+{
+  "url": "/cat/kitchen-utensils/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Kitchen Utensils",
+  "metaTitle": "Custom Brown Kitchen Utensils | Perfect Imprints",
+  "metaDescription": "Order custom brown kitchen utensils in bulk for your brand. Perfect for eco-friendly giveaways. Get a quote today!",
+  "introHtml": "<p>Brown kitchen utensils offer a warm, natural aesthetic that stands out from standard black or silver options. Whether you choose bamboo fiber cutlery sets for eco-conscious trade shows or silicone baking utensils for cooking demos, the brown color evokes earthiness and reliability. Customize with your logo via pad printing or laser engraving for a professional look that aligns with sustainability-minded branding.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown kitchen utensils including bamboo cutlery set and silicone baking utensils with logo imprint",
+  "productSkus": [
+    "523884",
+    "523887",
+    "524089",
+    "525537",
+    "526594"
+  ],
+  "generatedAt": "2026-05-31T09:53:14.697065+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

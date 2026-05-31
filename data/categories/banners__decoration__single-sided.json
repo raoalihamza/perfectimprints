@@ -1,0 +1,28 @@
+{
+  "url": "/cat/banners/decoration/single-sided",
+  "type": "facet",
+  "h1": "Custom Single Sided Banners",
+  "metaTitle": "Custom Single Sided Banners | Perfect Imprints",
+  "metaDescription": "Order custom single sided banners for events, trade shows, and promotions. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Single sided banners are the go-to choice for wall-mounted displays, trade show backdrops, and outdoor signage where only one side is visible. Made from durable vinyl with hemmed edges and grommets, they offer a cost-effective solution for high-impact messaging. Decorate with full-color digital printing to showcase your logo, event details, or safety messaging. Whether you need a 3' x 10' banner for a grand opening or a retractor kit for a sleek retractable display, single sided banners deliver professional results without the added cost of double-sided printing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom single sided vinyl banner with full-color printing, hemmed edges, and grommets for easy hanging.",
+  "productSkus": [
+    "510438 90A",
+    "521973",
+    "521974",
+    "522220",
+    "523304",
+    "523305",
+    "523311",
+    "526788"
+  ],
+  "generatedAt": "2026-05-31T09:35:11.731099+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

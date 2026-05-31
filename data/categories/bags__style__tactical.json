@@ -1,0 +1,21 @@
+{
+  "url": "/cat/bags/style/tactical",
+  "type": "facet",
+  "h1": "Custom Tactical Bags for Bulk Orders",
+  "metaTitle": "Custom Tactical Bags | Perfect Imprints",
+  "metaDescription": "Order custom tactical bags in bulk for your team. Durable, functional, and branded for safety managers and businesses.",
+  "introHtml": "<p>Custom tactical bags are built for durability and functionality, featuring reinforced stitching, MOLLE webbing, and heavy-duty zippers. Unlike standard bags, these are designed to withstand demanding environments—perfect for safety managers equipping field crews or businesses needing rugged promotional gear. Decorate with embroidery or screen printing for a professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom tactical bags with MOLLE webbing and reinforced handles, ideal for bulk orders and branding",
+  "productSkus": [
+    "528729"
+  ],
+  "generatedAt": "2026-05-31T08:28:00.017183+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

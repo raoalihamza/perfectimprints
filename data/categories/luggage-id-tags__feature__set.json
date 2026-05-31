@@ -1,0 +1,22 @@
+{
+  "url": "/cat/luggage-id-tags/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Luggage ID Tags for Bulk Orders",
+  "metaTitle": "Custom Set Luggage ID Tags | Perfect Imprints",
+  "metaDescription": "Order custom set luggage ID tags in bulk. Perfect for corporate gifts or travel giveaways. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Ordering custom set luggage ID tags means getting multiple coordinated pieces that work together for a polished travel look. Sets like the Guardian RFID Card Wallet and Passport Wallet Seek Sets combine an ID tag with a wallet, giving recipients both security and convenience. These sets are ideal for corporate travel gifts or employee recognition, allowing you to brand one cohesive package instead of individual items.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set luggage ID tags including an RFID-blocking card wallet and passport wallet, displayed together",
+  "productSkus": [
+    "522514",
+    "522515"
+  ],
+  "generatedAt": "2026-05-31T09:54:51.531025+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

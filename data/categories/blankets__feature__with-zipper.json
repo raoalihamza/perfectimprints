@@ -1,0 +1,28 @@
+{
+  "url": "/cat/blankets/feature/with-zipper",
+  "type": "facet",
+  "h1": "Custom Blankets with Zipper for Bulk Orders",
+  "metaTitle": "Custom Blankets with Zipper | Perfect Imprints",
+  "metaDescription": "Order custom blankets with zipper for travel or events. Perfect for bulk branding. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Zippered blankets offer a practical solution for corporate travel gifts and event giveaways. Unlike open-edge throws, these blankets feature a protective closure that keeps the fabric clean and compact when rolled or folded. Many designs include a built-in pouch or mesh bag that doubles as storage, making them ideal for employees on the go or outdoor safety kits. Decoration options include screen printing or embroidery on the fabric or the zipper case itself for a polished, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blankets with zipper featuring a rolled fleece throw inside a mesh storage bag with a zipper closure, perfect for travel branding.",
+  "productSkus": [
+    "523473",
+    "523701",
+    "527059",
+    "527258",
+    "528856",
+    "529071",
+    "529107",
+    "529132"
+  ],
+  "generatedAt": "2026-05-31T09:37:22.850223+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

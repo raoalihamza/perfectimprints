@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/bubba",
+  "type": "facet",
+  "h1": "Custom Bubba Products for Bulk Orders",
+  "metaTitle": "Custom Bubba Products - Perfect Imprints",
+  "metaDescription": "Order custom Bubba products in bulk at Perfect Imprints. Great for giveaways, events, and corporate gifts.",
+  "introHtml": "<p>Bubba products are built for rugged, everyday use, making them a smart choice for outdoor events, trade shows, and employee gifts. Their double-wall insulation keeps drinks cold or hot for hours, and the durable design stands up to job sites and tailgates alike. Customize with your logo using screen printing, laser engraving, or full-color wraps for a premium look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Bubba products including insulated tumblers and mugs with company logo",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:45:46.029183+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/golf/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Golf Promotional Products",
+  "metaTitle": "Custom Made in USA Golf | Perfect Imprints",
+  "metaDescription": "Order custom made in USA golf promotional products for your next event. Perfect for corporate tournaments and client gifts.",
+  "introHtml": "<p>Choosing custom made in USA golf promotional products supports American manufacturing while giving your brand a premium presence on the course. Whether you're outfitting a corporate tournament with personalized Titleist Pro V1 golf balls or handing out embroidered Champions Golf Towels at a charity event, these items carry a story of quality and domestic craftsmanship that resonates with clients and employees alike.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA golf promotional products including branded golf towels and golf balls on a green",
+  "productSkus": [
+    "506896 90A",
+    "507565 90A",
+    "522450",
+    "528437"
+  ],
+  "generatedAt": "2026-05-31T08:26:34.170935+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

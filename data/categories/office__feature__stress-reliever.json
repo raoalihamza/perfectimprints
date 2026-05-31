@@ -1,0 +1,29 @@
+{
+  "url": "/cat/office/feature/stress-reliever",
+  "type": "facet",
+  "h1": "Custom Stress Reliever Office Products",
+  "metaTitle": "Custom Stress Reliever Office Products | Perfect Imprints",
+  "metaDescription": "Browse custom stress reliever office items at Perfect Imprints. Perfect for employee wellness and client gifts. Order bulk stress balls today.",
+  "introHtml": "<p>Stress relievers for the office go beyond simple fidget toys. They help employees decompress during hectic workdays and serve as thoughtful wellness gifts. From squishy stress balls like the MopTopper™ to adult coloring books that encourage mindfulness, these items promote mental breaks. Custom imprinting with your logo turns them into branded reminders of your company's commitment to employee well-being. Perfect for HR directors planning wellness initiatives or marketing teams creating client care packages.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom stress reliever office products including stress balls and coloring books on a desk",
+  "productSkus": [
+    "509181",
+    "513572",
+    "518694",
+    "519175 90A",
+    "519563",
+    "520654",
+    "520734",
+    "524057",
+    "526149"
+  ],
+  "generatedAt": "2026-05-31T09:20:54.170318+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

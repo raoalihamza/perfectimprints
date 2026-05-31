@@ -1,0 +1,30 @@
+{
+  "url": "/cat/candy/brand/yeti",
+  "type": "facet",
+  "h1": "Custom Yeti Candy for Bulk Orders",
+  "metaTitle": "Custom Yeti Candy | Perfect Imprints",
+  "metaDescription": "Order custom Yeti candy for your next event. Perfect Imprints offers bulk pricing and fast turnaround. Get a quote today.",
+  "introHtml": "<p>Yeti candy combines the rugged durability of Yeti drinkware with the sweet appeal of branded candy. Perfect for trade shows, employee gifts, or client appreciation, these custom Yeti candy items pair a high-quality Yeti product with your logo. Choose from popular Yeti drinkware like the 20 oz Rambler Tumbler or 26 oz Water Bottle, and fill them with wrapped candies. Your recipients get a reusable premium item and a tasty treat, making your brand memorable long after the candy is gone.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Yeti candy in a 20 oz YETI Rambler Tumbler with branded candy and logo",
+  "productSkus": [
+    "528839",
+    "528840",
+    "528841",
+    "528844",
+    "528845",
+    "528846",
+    "528847",
+    "529532",
+    "529533",
+    "529534"
+  ],
+  "generatedAt": "2026-05-31T09:39:17.217483+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

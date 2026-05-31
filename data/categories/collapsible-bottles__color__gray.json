@@ -1,0 +1,22 @@
+{
+  "url": "/cat/collapsible-bottles/color/gray",
+  "type": "facet",
+  "h1": "Custom Gray Collapsible Bottles",
+  "metaTitle": "Custom Gray Collapsible Bottles | Perfect Imprints",
+  "metaDescription": "Order custom gray collapsible bottles for your brand. Perfect for events, giveaways, and eco-friendly promotions. Get a quote today!",
+  "introHtml": "<p>Gray collapsible bottles offer a neutral, professional look that fits seamlessly into corporate events, trade shows, and employee wellness kits. Unlike brighter colors, gray conveys reliability and sophistication while still being practical for on-the-go hydration. These bottles collapse when empty, saving space in bags and reducing waste. Decorate with your logo using screen printing or pad printing for a clean, lasting finish. Perfect for safety managers and HR directors looking for functional, branded giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gray collapsible water bottles with company logo, collapsed and ready for storage",
+  "productSkus": [
+    "510517",
+    "529164"
+  ],
+  "generatedAt": "2026-05-31T09:41:27.688134+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

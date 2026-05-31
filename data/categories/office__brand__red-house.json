@@ -1,0 +1,21 @@
+{
+  "url": "/cat/office/brand/red-house",
+  "type": "facet",
+  "h1": "Custom Red House Office Products for Bulk Orders",
+  "metaTitle": "Custom Red House Office Products | Perfect Imprints",
+  "metaDescription": "Order custom Red House office products in bulk. Perfect for branded earbuds and more. Get a quote today.",
+  "introHtml": "<p>Red House office products bring a clean, modern look to your branded workspace essentials. Whether you are outfitting a new hire kit with the Atune Bluetooth® Earbuds with Charger Case or stocking the breakroom with custom notebooks, the Red House brand offers reliable quality and a consistent aesthetic. Screen printing or debossing on these items ensures your logo stands out without overwhelming the design. Choose Red House for a professional, understated brand presence that fits any corporate environment.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Red House office products including Atune Bluetooth Earbuds with Charger Case for branded corporate gifts",
+  "productSkus": [
+    "523497"
+  ],
+  "generatedAt": "2026-05-31T09:58:08.326314+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,33 @@
+{
+  "url": "/cat/sling-backpacks/brand/miir",
+  "type": "facet",
+  "h1": "Custom Miir Sling Backpacks",
+  "metaTitle": "Custom Miir Sling Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Miir sling backpacks with your logo. Durable, sustainable, and perfect for corporate gifts or events. Get a quote today!",
+  "introHtml": "<p>Miir sling backpacks combine sustainable design with everyday utility, making them a smart choice for brands that value environmental responsibility. Crafted from recycled materials and featuring a sleek, compact silhouette, these backpacks are ideal for tradeshow giveaways or employee welcome kits. The single-strap design allows for quick access while keeping hands free, and the large front panel provides ample space for your logo through screen printing or embroidery. Choose Miir to align your brand with quality and purpose.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Miir sling backpacks with logo embroidery in black, shown on a model",
+  "productSkus": [
+    "523728",
+    "523729",
+    "523730",
+    "523761",
+    "525478",
+    "525481",
+    "525612",
+    "526419",
+    "526482",
+    "527194",
+    "527204",
+    "527938",
+    "527939"
+  ],
+  "generatedAt": "2026-05-31T10:07:09.800507+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

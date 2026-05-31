@@ -1,0 +1,21 @@
+{
+  "url": "/cat/headlamps/activity/running",
+  "type": "facet",
+  "h1": "Custom Running Headlamps for Bulk Orders",
+  "metaTitle": "Custom Running Headlamps | Perfect Imprints",
+  "metaDescription": "Order custom running headlamps in bulk. Lightweight, secure-fit designs ideal for night runs, races, and corporate events. Get your quote today.",
+  "introHtml": "<p>Custom running headlamps are built for motion: lightweight frames, sweat-resistant materials, and secure straps that stay put during sprints or trail runs. Unlike general-purpose headlamps, running-specific models prioritize low weight and beam focus to keep you visible and hands-free. Whether you're outfitting a marathon team, a corporate wellness program, or a safety crew working after dark, these headlamps offer reliable illumination without the bulk. The Venture Headlamp, for example, combines a slim profile with a powerful LED beam, making it a practical giveaway for active brands.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom running headlamps with adjustable strap and bright LED beam, ideal for night runs and corporate events",
+  "productSkus": [
+    "520378"
+  ],
+  "generatedAt": "2026-05-31T09:49:48.505742+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

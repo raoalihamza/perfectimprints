@@ -1,0 +1,21 @@
+{
+  "url": "/cat/candles/material/ceramic",
+  "type": "facet",
+  "h1": "Custom Ceramic Candles",
+  "metaTitle": "Custom Ceramic Candles | Perfect Imprints",
+  "metaDescription": "Order custom ceramic candles for your brand. Perfect for corporate gifts and events. Bulk pricing available.",
+  "introHtml": "<p>Ceramic candle containers offer a premium feel that glass or tin options can't match. The weight and texture of ceramic make these candles feel substantial in hand, ideal for corporate gifts or employee appreciation programs. Choose from various glaze finishes and add your logo with screen printing or foil stamping for a sophisticated look that recipients will keep long after the wax is gone.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom ceramic candles with branded labels in a gift box",
+  "productSkus": [
+    "526492"
+  ],
+  "generatedAt": "2026-05-31T09:09:53.978941+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

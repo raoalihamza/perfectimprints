@@ -1,0 +1,24 @@
+{
+  "url": "/cat/leggings/material/mesh",
+  "type": "facet",
+  "h1": "Custom Mesh Leggings for Bulk Orders",
+  "metaTitle": "Custom Mesh Leggings | Perfect Imprints",
+  "metaDescription": "Order custom mesh leggings in bulk. Breathable, moisture-wicking fabric ideal for sports teams and corporate events. Get a quote today!",
+  "introHtml": "<p>Mesh leggings offer superior breathability and moisture-wicking performance, making them a top choice for activewear in corporate fitness programs, sports teams, and promotional giveaways. The open-knit mesh fabric allows for maximum airflow during high-intensity workouts, while still providing a comfortable fit. Decorate with screen printing or embroidery for a durable, professional look that stands out at events or in the gym.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom mesh leggings in black with moisture-wicking fabric and embroidered logo",
+  "productSkus": [
+    "528874",
+    "528881",
+    "528882",
+    "528886"
+  ],
+  "generatedAt": "2026-05-31T09:54:24.412633+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

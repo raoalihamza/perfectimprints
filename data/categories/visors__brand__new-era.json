@@ -1,0 +1,22 @@
+{
+  "url": "/cat/visors/brand/new-era",
+  "type": "facet",
+  "h1": "Custom New Era Visors for Bulk Orders",
+  "metaTitle": "Custom New Era Visors | Perfect Imprints",
+  "metaDescription": "Order custom New Era visors in bulk for your team or event. Premium quality and fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>New Era visors offer the same trusted fit and finish as their iconic caps, with an open-top design that keeps teams cool during outdoor events, trade shows, and uniform programs. Choose from structured or unstructured fronts, curved brims, and custom embroidery to display your logo prominently. These visors pair well with polo shirts or branded apparel for a coordinated look that holds up wash after wash.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A custom embroidered New Era visor with a structured front and curved brim, showing a corporate logo.",
+  "productSkus": [
+    "529314",
+    "529315"
+  ],
+  "generatedAt": "2026-05-31T10:13:32.176231+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

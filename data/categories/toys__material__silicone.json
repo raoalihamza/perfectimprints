@@ -1,0 +1,32 @@
+{
+  "url": "/cat/toys/material/silicone",
+  "type": "facet",
+  "h1": "Custom Silicone Toys for Bulk Orders",
+  "metaTitle": "Custom Silicone Toys | Perfect Imprints",
+  "metaDescription": "Order custom silicone toys in bulk for your next promo campaign. Perfect for stress relief and fun. Get a quote today!",
+  "introHtml": "<p>Custom silicone toys offer a soft, durable, and safe option for promotional giveaways that stand up to daily use. Unlike hard plastic toys, silicone provides a satisfying tactile experience with pop-it and stress-relief designs that appeal to all ages. Perfect for trade shows, employee wellness kits, or client appreciation gifts, these toys can be debossed or pad-printed with your logo for lasting brand visibility. Choose from fidget cubes, pop balls, keychains, and phone accessories that keep your brand top of mind.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Collection of custom silicone toys including pop-it fidget cubes, stress balls, and keychains with logo printing",
+  "productSkus": [
+    "525561",
+    "525858",
+    "525974",
+    "527050",
+    "527955",
+    "528314",
+    "528857",
+    "528858",
+    "528859",
+    "528860",
+    "528935",
+    "529289"
+  ],
+  "generatedAt": "2026-05-31T09:29:22.622703+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/nuts/color/red",
+  "type": "facet",
+  "h1": "Custom Red Nuts for Branded Promotional Items",
+  "metaTitle": "Custom Red Nuts | Perfect Imprints",
+  "metaDescription": "Order custom red nuts for your next promotion. Perfect for trade shows and events. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Red nuts add a bold pop of color to any promotional giveaway, making them stand out at trade shows and events. Whether you are branding a 3 Way Popcorn Tin or other snack containers, red nuts create a cohesive, eye-catching look. Choose from multiple imprint options to match your logo perfectly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom red nuts in a bowl for promotional giveaways with company logo",
+  "productSkus": [
+    "507901"
+  ],
+  "generatedAt": "2026-05-31T08:58:34.732981+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

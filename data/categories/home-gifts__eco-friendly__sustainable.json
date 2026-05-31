@@ -1,0 +1,23 @@
+{
+  "url": "/cat/home-gifts/eco-friendly/sustainable",
+  "type": "facet",
+  "h1": "Custom Sustainable Home Gifts",
+  "metaTitle": "Custom Sustainable Home Gifts | Perfect Imprints",
+  "metaDescription": "Shop eco-friendly custom sustainable home gifts for bulk orders. Perfect for corporate gifting. Get a quote today!",
+  "introHtml": "<p>Sustainable home gifts let you reward employees or thank clients with items that reflect your company's environmental values. From recycled-material planters like the Ceramic Planter Set to energy-efficient Bluetooth speakers, these products reduce waste without sacrificing style. Choose eco-friendly materials including bamboo, recycled plastics, or organic cotton for a gift that aligns with green initiatives. Decorate with laser engraving or low-VOC screen printing to keep your brand visible and the planet protected.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom sustainable home gifts including eco-friendly planters and recycled material products for corporate gifting",
+  "productSkus": [
+    "521630",
+    "524477",
+    "526011"
+  ],
+  "generatedAt": "2026-05-31T09:51:00.094295+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

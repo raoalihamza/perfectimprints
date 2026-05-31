@@ -1,0 +1,21 @@
+{
+  "url": "/cat/coasters/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Coasters",
+  "metaTitle": "Custom Made in USA Coasters | Perfect Imprints",
+  "metaDescription": "Order custom made in USA coasters for your business. Perfect for trade shows, events, and client gifts. Bulk pricing available.",
+  "introHtml": "<p>For buyers who prioritize American craftsmanship, custom made in USA coasters offer a tangible way to demonstrate that commitment. Whether you choose natural leather coasters that develop a rich patina over time or opt for recycled materials, these coasters carry a story that resonates with clients and employees alike. They work well for corporate gifts, hospitality settings, or as promotional items at trade shows where quality and origin matter. Each coaster can be debossed, screen printed, or foil stamped with your logo for a refined finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA coasters featuring natural leather with debossed logo on a wooden table",
+  "productSkus": [
+    "506094 33D"
+  ],
+  "generatedAt": "2026-05-31T08:33:15.890876+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

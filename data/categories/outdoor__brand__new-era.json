@@ -1,0 +1,28 @@
+{
+  "url": "/cat/outdoor/brand/new-era",
+  "type": "facet",
+  "h1": "Custom New Era Outdoor Gear for Bulk Orders",
+  "metaTitle": "Custom New Era Outdoor Gear | Perfect Imprints",
+  "metaDescription": "Order custom New Era outdoor gear for your team or event. Perfect Imprints offers bulk pricing on caps, polos, and more.",
+  "introHtml": "<p>New Era brings a sporty, authentic style to outdoor gear that stands out at company picnics, volunteer events, and trade shows. Their stretch mesh caps and flat bill snapbacks offer sun protection and a modern look, while performance polos and fleece hoodies keep teams comfortable during outdoor activities. Choosing New Era for your branded outdoor apparel means getting durable, recognizable headwear and clothing that your employees and customers will actually wear again.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom New Era outdoor caps and polos at a company outdoor event",
+  "productSkus": [
+    "527747",
+    "529309",
+    "529310",
+    "529311",
+    "529312",
+    "529313",
+    "529314",
+    "529315"
+  ],
+  "generatedAt": "2026-05-31T09:21:06.522418+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

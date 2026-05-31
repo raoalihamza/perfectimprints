@@ -1,0 +1,27 @@
+{
+  "url": "/cat/pullovers/brand/dri-duck",
+  "type": "facet",
+  "h1": "Custom Dri Duck Pullovers for Bulk Orders",
+  "metaTitle": "Custom Dri Duck Pullovers | Perfect Imprints",
+  "metaDescription": "Order custom Dri Duck pullovers in bulk. Perfect for corporate uniforms or team apparel. Get your quote today.",
+  "introHtml": "<p>Dri Duck pullovers combine rugged durability with weather-ready performance, making them a smart choice for outdoor work crews, safety teams, and brand giveaways. Unlike standard pullovers, Dri Duck styles often feature water-resistant shells, reinforced seams, and practical pocket layouts. Decorate with your logo using screen printing or embroidery for a professional finish that holds up to repeated wear. Whether you need pullovers for a construction safety program or a company store, Dri Duck delivers reliable comfort and a consistent brand look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Dri Duck pullovers with embroidered logo, featuring a durable water-resistant shell and front pockets.",
+  "productSkus": [
+    "522595",
+    "527125",
+    "527126",
+    "528099",
+    "528100",
+    "528838",
+    "529182"
+  ],
+  "generatedAt": "2026-05-31T09:24:33.251082+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

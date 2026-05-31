@@ -1,0 +1,25 @@
+{
+  "url": "/cat/stationery/color/red",
+  "type": "facet",
+  "h1": "Custom Red Stationery for Bulk Orders",
+  "metaTitle": "Custom Red Stationery - Perfect Imprints",
+  "metaDescription": "Order custom red stationery for your business. Perfect for holiday mailings, events, and branding. Get a quote today.",
+  "introHtml": "<p>Red stationery makes a bold statement for holiday cards, event invitations, or corporate thank-you notes. Whether you choose festive greeting cards with holly or sleek modern designs, the rich color stands out in any mailbox. Decorate with foil stamping or full-color print to match your brand. Perfect for HR directors sending seasonal greetings or marketing teams promoting a year-end event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red stationery with greeting cards featuring holly and berry designs for bulk business orders",
+  "productSkus": [
+    "513754 2EX",
+    "513756 2EX",
+    "513759 2EX",
+    "513762 2EX",
+    "513767 2EX"
+  ],
+  "generatedAt": "2026-05-31T09:26:44.820014+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

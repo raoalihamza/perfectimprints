@@ -1,0 +1,23 @@
+{
+  "url": "/cat/caps/brand/oakley",
+  "type": "facet",
+  "h1": "Custom Oakley Caps for Bulk Orders",
+  "metaTitle": "Custom Oakley Caps | Perfect Imprints",
+  "metaDescription": "Order custom Oakley caps with your logo. Perfect for teams, events & giveaways. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Oakley caps combine premium materials with iconic style, making them a standout choice for corporate giveaways and team uniforms. Unlike generic headwear, these caps feature moisture-wicking fabrics and structured fits that hold up to daily wear. Decorate with embroidery or screen printing for a polished look that recipients will actually use. Whether outfitting a sales team or rewarding employees, custom Oakley caps deliver lasting brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Oakley caps with embroidered logo, structured fit, and moisture-wicking fabric for corporate branding.",
+  "productSkus": [
+    "522669",
+    "523948",
+    "529181"
+  ],
+  "generatedAt": "2026-05-31T09:39:33.499864+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

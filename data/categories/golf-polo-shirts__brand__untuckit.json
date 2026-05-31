@@ -1,0 +1,25 @@
+{
+  "url": "/cat/golf-polo-shirts/brand/untuckit",
+  "type": "facet",
+  "h1": "Custom UNTUCKit Golf Polo Shirts",
+  "metaTitle": "Custom UNTUCKit Golf Polo Shirts | Perfect Imprints",
+  "metaDescription": "Order custom UNTUCKit golf polo shirts in bulk. Perfect for corporate golf events and team uniforms. Shop at Perfect Imprints.",
+  "introHtml": "<p>UNTUCKit polos are designed to be worn untucked, with a tailored fit and wrinkle-free fabrics that keep your team looking sharp from tee to green. The Damaschino Short Sleeve Polo offers moisture-wicking performance, while the wrinkle-resistant Petrus and Castello shirts hold up through a full day of meetings or tournaments. Decorate with your logo via embroidery or screen printing for a polished, professional look that stands out on the course.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom UNTUCKit golf polo shirts with embroidered logo on a man at a golf course",
+  "productSkus": [
+    "525602",
+    "525603",
+    "525604",
+    "525605",
+    "525606"
+  ],
+  "generatedAt": "2026-05-31T09:48:56.739510+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

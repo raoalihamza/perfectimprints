@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Products for Bulk Orders",
+  "metaTitle": "Custom Brown Products | Perfect Imprints",
+  "metaDescription": "Shop custom brown products for your brand. Perfect for corporate gifts, events, and more. Bulk orders available.",
+  "introHtml": "<p>Choosing brown for your promotional products conveys reliability and a natural, earthy feel that stands out from typical corporate colors. Whether it's custom brown notebooks for a construction company or branded brown tote bags for an eco-friendly event, this versatile hue works well with foil stamping or screen printing. Perfect for safety managers looking for high-visibility items or HR directors seeking sophisticated giveaways, brown products offer a grounded, professional appearance that resonates with a wide audience.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom brown promotional products including a notebook, tote bag, and pen on a wooden desk",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:27:13.237829+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

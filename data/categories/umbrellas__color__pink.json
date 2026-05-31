@@ -1,0 +1,27 @@
+{
+  "url": "/cat/umbrellas/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Umbrellas for Branded Promotions",
+  "metaTitle": "Custom Pink Umbrellas | Perfect Imprints",
+  "metaDescription": "Order custom pink umbrellas for your next event or campaign. High-quality, bulk pricing, and fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Pink umbrellas offer a vibrant, eye-catching option for brand promotions that stand out in a crowd. Whether you choose a classic retro dome or a compact pop-up style, pink conveys energy and approachability. Ideal for breast cancer awareness events, spring campaigns, or any occasion where you want your logo to pop, these umbrellas combine function with a memorable color. Decorate with screen printing or full-color imprint on the canopy for maximum visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink umbrellas with brand logo, featuring a pop-up automatic style for easy use",
+  "productSkus": [
+    "505964",
+    "510988",
+    "516053",
+    "525369",
+    "527114",
+    "528068",
+    "529204"
+  ],
+  "generatedAt": "2026-05-31T09:29:38.894894+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

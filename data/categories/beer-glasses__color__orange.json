@@ -1,0 +1,21 @@
+{
+  "url": "/cat/beer-glasses/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Beer Glasses",
+  "metaTitle": "Custom Orange Beer Glasses | Perfect Imprints",
+  "metaDescription": "Order custom orange beer glasses for your brand. Perfect for events, bars, and giveaways. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Custom orange beer glasses stand out at tailgates, company picnics, and bar promotions. The bright color makes them easy to spot in a crowd and adds a pop of team spirit or brand identity. Our 16 oz Symglass Colored Pint Glass is a popular choice, offering a durable, vibrant finish that resists fading. Decorate with screen printing or etching for a polished look that keeps your logo front and center.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange beer glasses with screen printed logo, perfect for promotional events and bulk orders.",
+  "productSkus": [
+    "528814"
+  ],
+  "generatedAt": "2026-05-31T08:40:00.891714+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

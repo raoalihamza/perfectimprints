@@ -1,0 +1,21 @@
+{
+  "url": "/cat/blankets/brand/hilana",
+  "type": "facet",
+  "h1": "Custom Hilana Blankets for Bulk Orders",
+  "metaTitle": "Custom Hilana Blankets | Perfect Imprints",
+  "metaDescription": "Order custom Hilana blankets in bulk. Perfect for corporate gifts, employee rewards, and branded giveaways. Get a quote today!",
+  "introHtml": "<p>Hilana blankets are handcrafted from upcycled textiles, giving each throw a unique texture and story. When you choose custom Hilana blankets for your brand, you offer recipients a sustainable, artisanal product that stands out from standard fleece or cotton options. Ideal for eco-conscious corporate gifts or VIP client appreciation, these blankets can be decorated with your logo through woven labels or fabric tags. Their one-of-a-kind look ensures your brand is remembered long after the event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hilana blankets featuring handwoven upcycled textiles with subtle logo embroidery, displayed as a luxurious throw on a chair.",
+  "productSkus": [
+    "526273"
+  ],
+  "generatedAt": "2026-05-31T09:37:17.756154+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

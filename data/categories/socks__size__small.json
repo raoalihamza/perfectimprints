@@ -1,0 +1,29 @@
+{
+  "url": "/cat/socks/size/small",
+  "type": "facet",
+  "h1": "Custom Small Socks for Bulk Orders",
+  "metaTitle": "Custom Small Socks | Perfect Imprints",
+  "metaDescription": "Order custom small socks in bulk at Perfect Imprints. Ideal for giveaways, events, and employee gifts. Get your quote today!",
+  "introHtml": "<p>Custom small socks are a practical and memorable promotional item, especially for events where unisex sizing or youth audiences are the focus. Unlike standard one-size-fits-all socks, small sizes ensure a comfortable fit for a broader range of recipients. Options like the BeWell™ Socks or Fuzzy Feet Slipper Socks can be decorated with your logo using embroidery or screen printing, making them perfect for trade shows, wellness programs, or corporate gift sets.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom small socks in bulk with embroidered logo, perfect for promotional giveaways and corporate gifts.",
+  "productSkus": [
+    "516800",
+    "521927",
+    "522251",
+    "524427",
+    "525740",
+    "526360",
+    "526361",
+    "526363",
+    "526896"
+  ],
+  "generatedAt": "2026-05-31T10:07:22.542195+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

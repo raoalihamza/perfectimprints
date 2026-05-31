@@ -1,0 +1,23 @@
+{
+  "url": "/cat/beach-mats/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Beach Mats",
+  "metaTitle": "Custom Plastic Beach Mats | Perfect Imprints",
+  "metaDescription": "Order custom plastic beach mats for your next event. Durable, waterproof, and perfect for branding. Get a quote today!",
+  "introHtml": "<p>Plastic beach mats offer a durable, waterproof surface that stands up to sand, sun, and surf. Unlike fabric mats that retain moisture and sand, plastic mats wipe clean easily and resist mildew. They are ideal for promotional giveaways at beach resorts, outdoor festivals, or corporate beach days. Imprint your logo in vibrant colors using screen printing or heat transfer for long-lasting visibility. Whether you need a custom plastic beach mat for a trade show or employee appreciation, these mats provide a practical branded item your recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom plastic beach mats with company logo printed in bright colors, rolled up on sandy beach",
+  "productSkus": [
+    "523554",
+    "523569",
+    "523996"
+  ],
+  "generatedAt": "2026-05-31T08:50:36.862055+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

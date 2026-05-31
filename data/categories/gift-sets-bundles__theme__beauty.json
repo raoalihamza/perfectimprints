@@ -1,0 +1,22 @@
+{
+  "url": "/cat/gift-sets-bundles/theme/beauty",
+  "type": "facet",
+  "h1": "Custom Beauty Gift Sets & Bundles",
+  "metaTitle": "Custom Beauty Gift Sets | Perfect Imprints",
+  "metaDescription": "Order custom beauty gift sets bundles for corporate gifting. Perfect for employee appreciation and client thank-yous.",
+  "introHtml": "<p>Beauty gift sets and bundles offer a polished, thoughtful option for corporate gifting that goes beyond generic promotional items. Whether you are rewarding employees with a spa-like treat or thanking clients with a curated collection, these sets combine premium self-care products with your logo. Decoration options like foil stamping on packaging or custom labels make each set feel personal and intentional. From lotions to lip balms, beauty bundles create a memorable unboxing experience that reflects your brand's attention to detail.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom beauty gift sets bundles with branded packaging and self-care products arranged on a table",
+  "productSkus": [
+    "525715",
+    "525717"
+  ],
+  "generatedAt": "2026-05-31T08:42:09.421430+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/type/business-card",
+  "type": "facet",
+  "h1": "Custom Business Card Products for Your Brand",
+  "metaTitle": "Custom Business Card Products | Perfect Imprints",
+  "metaDescription": "Order custom business card products to make a lasting impression. Perfect for networking events and client meetings.",
+  "introHtml": "<p>Custom business card products give you more than just contact information—they put your brand directly into your prospect's hands. From magnetic cards that stick on metal surfaces to plastic cards that resist wear, these options ensure your details stay visible long after the handshake. Ideal for trade shows, sales meetings, or everyday networking, they offer a tangible reminder of your company's professionalism.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom business card products including magnetic and plastic cards for professional networking",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:01:03.861945+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

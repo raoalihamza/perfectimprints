@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/cool-gear",
+  "type": "facet",
+  "h1": "Custom Cool Gear Products for Bulk Orders",
+  "metaTitle": "Custom Cool Gear Products | Perfect Imprints",
+  "metaDescription": "Order custom Cool Gear products in bulk. Perfect for branded giveaways, events, and employee appreciation. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Cool Gear specializes in double-wall insulated stainless steel bottles and tumblers that keep drinks cold up to 24 hours. For bulk buyers, this brand offers consistent quality and a range of sizes from 12 oz to 32 oz, ideal for corporate events or trade shows. Customize with your logo using screen printing or laser engraving for a sleek, durable finish that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom Cool Gear products including stainless steel water bottles and tumblers with logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:27.249810+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

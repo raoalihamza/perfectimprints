@@ -1,0 +1,25 @@
+{
+  "url": "/cat/backpacks/color/gray",
+  "type": "facet",
+  "h1": "Custom Gray Backpacks for Bulk Orders",
+  "metaTitle": "Custom Gray Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom gray backpacks in bulk for your team. Perfect for corporate gifts and events. Get a quote today.",
+  "introHtml": "<p>Gray backpacks offer a versatile, professional look that works for any industry. Unlike black, gray is less formal but still neutral, making it ideal for corporate giveaways, trade shows, or employee gifts. Options like the Solo® Re:vive Mini Backpack or the High Sierra® Swerve Compu-Backpack provide ample storage for laptops and daily essentials. Decorate with embroidery or screen printing for a polished brand impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gray backpacks for bulk orders, featuring a sleek gray backpack with a branded logo.",
+  "productSkus": [
+    "513619",
+    "519540",
+    "520571",
+    "522057",
+    "524401"
+  ],
+  "generatedAt": "2026-05-31T08:27:55.456438+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

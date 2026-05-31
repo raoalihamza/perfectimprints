@@ -1,0 +1,23 @@
+{
+  "url": "/cat/kitchen-accessories/material/marble",
+  "type": "facet",
+  "h1": "Custom Marble Kitchen Accessories",
+  "metaTitle": "Custom Marble Kitchen Accessories | Perfect Imprints",
+  "metaDescription": "Order custom marble kitchen accessories for your brand. Charcuterie boards and cutting boards perfect for corporate gifts.",
+  "introHtml": "<p>Marble kitchen accessories bring a touch of elegance to any corporate gift or employee reward. Unlike standard kitchen tools, marble surfaces are naturally cool and ideal for serving cheeses or charcuterie. Our custom marble kitchen accessories, like Calacatta charcuterie boards, can be laser engraved with your logo for a sophisticated, lasting impression. Perfect for client appreciation or trade show giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom marble kitchen accessories including a Calacatta charcuterie board with laser engraved logo",
+  "productSkus": [
+    "526141",
+    "526504",
+    "526752"
+  ],
+  "generatedAt": "2026-05-31T09:53:08.579746+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

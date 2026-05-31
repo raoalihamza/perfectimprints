@@ -1,0 +1,29 @@
+{
+  "url": "/cat/balloons/color/white",
+  "type": "facet",
+  "h1": "Custom White Balloons",
+  "metaTitle": "Custom White Balloons | Perfect Imprints",
+  "metaDescription": "Order custom white balloons for brand events, trade shows, and promotions. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>White balloons offer a clean, neutral canvas that works for any event or brand color scheme. Unlike colored balloons, white allows your logo or message to stand out without competition. Perfect for corporate events, trade shows, and grand openings, these balloons can be printed with your branding in vibrant inks. Choose from standard latex, metallic, or helium-saver XtraLife® options for lasting impact. Custom white balloons deliver a polished, professional look that complements any theme.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "White custom balloons with printed logo at a corporate event, featuring helium-filled latex balloons.",
+  "productSkus": [
+    "519461",
+    "527576",
+    "527577",
+    "527578",
+    "527579",
+    "527580",
+    "527583",
+    "527584",
+    "527586"
+  ],
+  "generatedAt": "2026-05-31T08:49:39.049427+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

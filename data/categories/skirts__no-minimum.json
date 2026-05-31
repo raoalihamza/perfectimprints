@@ -1,0 +1,25 @@
+{
+  "url": "/cat/skirts/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Skirts for Every Team",
+  "metaTitle": "No-Minimum Custom Skirts | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom skirts in small quantities. Perfect for small teams, events, or samples. Fast turnaround and no bulk requirements.",
+  "introHtml": "<p>No-minimum custom skirts let you order exactly what you need—whether that's a single sample for a marketing director to approve or a small batch for a startup team. Unlike traditional bulk orders, you can purchase as few as one skirt without sacrificing quality or customization options. Perfect for small businesses, one-off events, or testing designs before committing to larger quantities. Enjoy the same embroidery and screen printing services typically reserved for large orders, now accessible for your smallest needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A group of no-minimum custom skirts in various colors and styles, including flannel and athletic designs, suitable for small team orders.",
+  "productSkus": [
+    "527831",
+    "527832",
+    "527834",
+    "527835",
+    "527836"
+  ],
+  "generatedAt": "2026-05-31T08:37:30.888352+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

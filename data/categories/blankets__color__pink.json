@@ -1,0 +1,21 @@
+{
+  "url": "/cat/blankets/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Blankets for Bulk Orders",
+  "metaTitle": "Custom Pink Blankets | Perfect Imprints",
+  "metaDescription": "Order custom pink blankets for your brand. Soft fleece, cozy throws, and bulk pricing at PerfectImprints.com.",
+  "introHtml": "<p>Custom pink blankets offer a soft, noticeable way to share your brand at events, in promotional kits, or as employee gifts. Pink stands out from standard corporate colors and pairs well with both warm and cool decoration methods like screen printing or embroidery. The Cozy Comfort Coffee Kit combines a pink blanket with a mug for a memorable giveaway. Whether you need fleece throws for a breast cancer awareness campaign or cozy blankets for a spring trade show, pink adds a welcoming touch that recipients appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom pink blankets with embroidered logo, soft fleece texture, perfect for promotional giveaways",
+  "productSkus": [
+    "526239"
+  ],
+  "generatedAt": "2026-05-31T08:28:15.351641+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

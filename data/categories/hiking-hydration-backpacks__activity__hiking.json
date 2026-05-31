@@ -1,0 +1,25 @@
+{
+  "url": "/cat/hiking-hydration-backpacks/activity/hiking",
+  "type": "facet",
+  "h1": "Custom Hiking Hydration Backpacks for Bulk Orders",
+  "metaTitle": "Custom Hiking Hydration Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom hiking hydration backpacks in bulk for your team or event. Perfect for outdoor promotions. Get a quote today.",
+  "introHtml": "<p>When you need hydration packs built for the trail, standard promotional backpacks won't cut it. Custom hiking hydration backpacks combine a durable, ergonomic design with a built-in reservoir, making them ideal for corporate hiking events, outdoor team-building, or safety teams working in remote areas. The Mini Hydration Pack and Quench Hydration Pack offer lightweight comfort, while the Nomad Eco Backpack adds sustainable materials. Decorate with a screen-printed logo for lasting brand visibility on every hike.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hiking hydration backpacks with built-in water reservoir and logo, ideal for outdoor corporate events and hiking promotions.",
+  "productSkus": [
+    "514184",
+    "514185 01A",
+    "521836",
+    "527161",
+    "527744"
+  ],
+  "generatedAt": "2026-05-31T08:42:54.740140+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

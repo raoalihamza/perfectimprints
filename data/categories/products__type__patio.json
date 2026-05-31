@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/type/patio",
+  "type": "facet",
+  "h1": "Custom Patio Products for Your Outdoor Events",
+  "metaTitle": "Custom Patio Products | Perfect Imprints",
+  "metaDescription": "Order custom patio products for your next outdoor event. Shop bulk branded patio items at Perfect Imprints.",
+  "introHtml": "<p>Custom patio products are built for outdoor durability—think powder-coated aluminum, UV-resistant fabrics, and fade-proof finishes. Whether you're outfitting a company picnic with branded coolers and chairs or supplying a trade show patio with custom umbrellas, these items hold up under sun and light rain. Choose screen printing or debossing for a clean logo that stays visible season after season.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "custom patio products including branded outdoor chairs and umbrellas for corporate events",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:30.079130+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

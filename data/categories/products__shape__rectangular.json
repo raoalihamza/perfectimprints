@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/shape/rectangular",
+  "type": "facet",
+  "h1": "Custom Rectangular Products for Bulk Orders",
+  "metaTitle": "Custom Rectangular Products | Perfect Imprints",
+  "metaDescription": "Order custom rectangular products in bulk at Perfect Imprints. Ideal for branded giveaways, promotional items, and corporate gifts.",
+  "introHtml": "<p>Rectangular shapes offer a classic, efficient canvas for your logo or message, making them a popular choice for promotional products. From custom notebooks and mouse pads to sticky note holders and rulers, rectangular items maximize imprint area while staying compact for easy distribution. They fit neatly into standard envelopes, reducing shipping costs, and stack well for storage. Whether you need a practical giveaway for a trade show or a useful desk accessory for employee onboarding, rectangular products provide a clean, professional look that works across industries.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom rectangular products including notebooks, mouse pads, and sticky note holders with printed logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:23:44.984878+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

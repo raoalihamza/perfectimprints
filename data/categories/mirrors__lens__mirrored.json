@@ -1,0 +1,27 @@
+{
+  "url": "/cat/mirrors/lens/mirrored",
+  "type": "facet",
+  "h1": "Custom Mirrored Mirrors for Bulk Orders",
+  "metaTitle": "Custom Mirrored Mirrors | Perfect Imprints",
+  "metaDescription": "Order custom mirrored mirrors in bulk from Perfect Imprints. Ideal for branding with logo imprint. Get a quote today!",
+  "introHtml": "<p>Mirrored lenses give mirrors a sleek, reflective finish that stands out in promotional products. Whether you need compact mirrors for trade shows or LED-lit mirrors for corporate gifts, the mirrored lens adds a polished look that recipients appreciate. Choose from options like the Compact Mirror with Dual Magnification or the BioBlend™ Phone Stand with Mirror for a practical branded giveaway.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom mirrored mirrors with logo imprint on compact and LED-lit designs for promotional use.",
+  "productSkus": [
+    "514661",
+    "514932",
+    "522025",
+    "522395",
+    "529298",
+    "529387",
+    "529413"
+  ],
+  "generatedAt": "2026-05-31T08:58:03.449921+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

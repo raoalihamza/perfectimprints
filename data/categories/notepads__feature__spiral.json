@@ -1,0 +1,22 @@
+{
+  "url": "/cat/notepads/feature/spiral",
+  "type": "facet",
+  "h1": "Custom Spiral Notepads for Your Business",
+  "metaTitle": "Custom Spiral Notepads | Perfect Imprints",
+  "metaDescription": "Order custom spiral notepads with your logo. Perfect for meetings, training, and daily notes. Get a quick quote at Perfect Imprints.",
+  "introHtml": "<p>Spiral notepads offer a practical, lay-flat design that makes note-taking easy during meetings, training sessions, or daily tasks. With the spiral binding, pages turn smoothly and can be folded back for compact writing. Customize them with your logo using full-color print or foil stamping for a professional look that keeps your brand top of mind.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom spiral notepads with spiral binding, personalized with logo for business use",
+  "productSkus": [
+    "520193",
+    "523239"
+  ],
+  "generatedAt": "2026-05-31T09:57:48.467465+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

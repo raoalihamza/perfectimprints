@@ -1,0 +1,32 @@
+{
+  "url": "/cat/sunscreen/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Sunscreen for Bulk Orders",
+  "metaTitle": "Custom Unisex Sunscreen | Perfect Imprints",
+  "metaDescription": "Order custom unisex sunscreen in bulk for your team or event. Perfect for outdoor workers and brand giveaways. Get a quote today.",
+  "introHtml": "<p>Unisex sunscreen is the practical choice for any workplace or event where sun protection matters. Unlike gender-specific branding, unisex formulas appeal to everyone, simplifying your ordering process for safety kits, employee appreciation packs, or outdoor giveaways. Whether you need SPF 30 for construction crews or sport sunscreen for a company picnic, custom unisex sunscreen keeps your brand visible while protecting skin. Decorate with your logo using screen printing or labels for a professional finish that works for any audience.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom unisex sunscreen bottles with company logo, ideal for outdoor workers and event giveaways",
+  "productSkus": [
+    "506864",
+    "515733",
+    "522099",
+    "524427",
+    "525740",
+    "525826",
+    "525827",
+    "526128",
+    "526306",
+    "526905",
+    "526906",
+    "527418"
+  ],
+  "generatedAt": "2026-05-31T10:09:39.119368+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/t-shirts/sleeve-length/sleeveless",
+  "type": "facet",
+  "h1": "Custom Sleeveless T Shirts for Bulk Orders",
+  "metaTitle": "Custom Sleeveless T Shirts | Perfect Imprints",
+  "metaDescription": "Order custom sleeveless t shirts for your team or event. Perfect for warm weather and active use. Get a quote today.",
+  "introHtml": "<p>Custom sleeveless t shirts offer a cooler, more mobile option than standard tees, making them ideal for outdoor events, charity runs, and warehouse teams. The Sport-Tek Club Sleeveless V-Neck, for example, provides moisture-wicking fabric and a comfortable fit for both men and women. Decorate with screen printing or embroidery to display your logo prominently while keeping your team comfortable in warmer conditions.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom sleeveless t shirts with printed logos at an outdoor event",
+  "productSkus": [
+    "528871",
+    "528883",
+    "528884"
+  ],
+  "generatedAt": "2026-05-31T09:27:59.241185+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

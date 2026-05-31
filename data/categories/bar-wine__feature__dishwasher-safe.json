@@ -1,0 +1,21 @@
+{
+  "url": "/cat/bar-wine/feature/dishwasher-safe",
+  "type": "facet",
+  "h1": "Custom Dishwasher Safe Bar Wine",
+  "metaTitle": "Custom Dishwasher Safe Bar Wine | Perfect Imprints",
+  "metaDescription": "Shop custom dishwasher safe bar wine at Perfect Imprints. Perfect for events, with easy cleanup and durable glassware.",
+  "introHtml": "<p>Choosing custom dishwasher safe bar wine means your logo stays sharp through countless wash cycles. Unlike delicate stemware that requires hand washing, these stemless wine glasses handle commercial dishwashers without fading or cracking. Ideal for busy restaurants, corporate events, or employee gifts where convenience matters. The 12 oz Oceanworks Stemless Wine Glass, made from recycled ocean plastic, offers a sustainable option that still meets durability standards.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom dishwasher safe bar wine with a 12 oz stemless wine glass featuring a corporate logo",
+  "productSkus": [
+    "527252"
+  ],
+  "generatedAt": "2026-05-31T09:35:33.975814+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

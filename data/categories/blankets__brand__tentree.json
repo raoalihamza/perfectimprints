@@ -1,0 +1,21 @@
+{
+  "url": "/cat/blankets/brand/tentree",
+  "type": "facet",
+  "h1": "Custom Tentree Blankets for Your Brand",
+  "metaTitle": "Custom Tentree Blankets | Perfect Imprints",
+  "metaDescription": "Order custom Tentree blankets with your logo. Eco-friendly, organic cotton. Perfect for corporate gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom Tentree blankets bring together sustainable materials and brand visibility. Made from organic cotton, these blankets appeal to eco-conscious clients and employees. Each purchase supports Tentree's tree-planting mission, making your logo a symbol of environmental stewardship. Ideal for corporate gifts, trade show giveaways, or employee recognition, they offer a soft, cozy surface for embroidery or screen printing. Choose Tentree blankets to align your brand with sustainability without sacrificing quality or comfort.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Tentree blankets featuring a soft organic cotton throw with embroidered logo, perfect for eco-friendly corporate gifts.",
+  "productSkus": [
+    "525984"
+  ],
+  "generatedAt": "2026-05-31T08:50:57.557081+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,31 @@
+{
+  "url": "/cat/outerwear/feature/half-zip",
+  "type": "facet",
+  "h1": "Custom Half Zip Outerwear for Teams & Events",
+  "metaTitle": "Custom Half Zip Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom half zip outerwear for your team or event. Choose from fleece, quilted, and knit styles. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Half zip outerwear offers a versatile layering option for corporate apparel, team uniforms, or event giveaways. The partial zipper provides easy temperature control while maintaining a clean, professional look. From fleece pullovers to quilted jackets, these pieces work well for outdoor events, casual Fridays, or promotional wardrobes. Decorate with your logo using embroidery or screen printing for a polished finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom half zip outerwear including fleece and quilted jackets for corporate branding",
+  "productSkus": [
+    "509568",
+    "509569",
+    "511074",
+    "520270",
+    "520271",
+    "521110",
+    "521111",
+    "523169",
+    "523170",
+    "529192",
+    "529193"
+  ],
+  "generatedAt": "2026-05-31T09:59:09.222641+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

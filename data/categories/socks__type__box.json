@@ -1,0 +1,29 @@
+{
+  "url": "/cat/socks/type/box",
+  "type": "facet",
+  "h1": "Custom Box Socks for Bulk Orders",
+  "metaTitle": "Custom Box Socks | Perfect Imprints",
+  "metaDescription": "Order custom box socks in bulk for your team or event. Perfect for corporate gifts and promotional giveaways at Perfect Imprints.",
+  "introHtml": "<p>Box socks are individually packed in tidy boxes, making them ideal for corporate gifts, welcome kits, or trade show giveaways. Unlike bulk socks, each pair arrives ready to hand out without extra wrapping. Choose from crew, ankle, or slipper styles with custom logos, and add trifold packaging for a polished unboxing experience that recipients appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom box socks in individual packaging with logo, ready for corporate gifts and promotional giveaways.",
+  "productSkus": [
+    "516800",
+    "521927",
+    "522251",
+    "524427",
+    "525740",
+    "526360",
+    "526361",
+    "526363",
+    "526896"
+  ],
+  "generatedAt": "2026-05-31T10:07:25.480892+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

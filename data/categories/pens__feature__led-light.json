@@ -1,0 +1,28 @@
+{
+  "url": "/cat/pens/feature/led-light",
+  "type": "facet",
+  "h1": "Custom LED Light Pens",
+  "metaTitle": "Custom LED Light Pens | Perfect Imprints",
+  "metaDescription": "Order custom LED light pens with your logo. Perfect for trade shows, safety kits, and giveaways. Shop at Perfect Imprints.",
+  "introHtml": "<p>LED light pens combine writing utility with a built-in flashlight, making them ideal for trade show giveaways, safety kits, and emergency preparedness. Unlike standard promotional pens, these multi-function tools keep your brand visible in low-light conditions—whether at a concert, in a dark office, or during a power outage. Decorate with a full-color imprint on the barrel for year-round impressions.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom LED light pens with logo imprint, featuring a built-in flashlight for low-light use",
+  "productSkus": [
+    "510543",
+    "512227",
+    "512548",
+    "514672",
+    "514674",
+    "518692",
+    "522674",
+    "529006"
+  ],
+  "generatedAt": "2026-05-31T08:36:18.429360+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

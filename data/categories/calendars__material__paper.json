@@ -1,0 +1,26 @@
+{
+  "url": "/cat/calendars/material/paper",
+  "type": "facet",
+  "h1": "Custom Paper Calendars for Bulk Orders",
+  "metaTitle": "Custom Paper Calendars | Perfect Imprints",
+  "metaDescription": "Order custom paper calendars for your business. Perfect for desk pads, wall calendars, and planners. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Paper calendars remain a practical and appreciated promotional item because they offer daily visibility in offices, break rooms, and homes. Unlike digital versions, a printed paper calendar with your logo stays front and center all year long. Whether you choose a desk pad, wall calendar, or pocket planner, paper allows for full-color printing on sturdy stock that holds up to daily use. Options like stapled or wire-bound construction give you flexibility in design and budget.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom paper calendars with colorful designs and spiral binding, ideal for promotional use",
+  "productSkus": [
+    "511061 90A",
+    "522709",
+    "523057",
+    "523058",
+    "527283",
+    "529403"
+  ],
+  "generatedAt": "2026-05-31T08:33:03.972809+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

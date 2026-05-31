@@ -1,0 +1,28 @@
+{
+  "url": "/cat/earbuds/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Earbuds for Bulk Orders",
+  "metaTitle": "Custom Set Earbuds | Perfect Imprints",
+  "metaDescription": "Order custom set earbuds in bulk from Perfect Imprints. Perfect for teams, events, and giveaways. Get a quote today!",
+  "introHtml": "<p>When you order custom set earbuds, you get a coordinated audio solution that pairs perfectly for teams, events, or employee gifts. Unlike single earbuds, sets include both earpieces and often a charging case, making them ready for immediate use. Options like the TerraTone™ Wireless Earbuds offer balanced sound and reliable connectivity, while the Lingo Translation Earbuds add AI-powered translation for global teams. Decorate with your logo via pad printing or laser engraving for a professional finish that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set earbuds in a charging case with logo imprint, ready for bulk orders",
+  "productSkus": [
+    "511481",
+    "515807",
+    "526802",
+    "526804",
+    "527695",
+    "527710",
+    "528013",
+    "529360"
+  ],
+  "generatedAt": "2026-05-31T09:44:15.930949+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

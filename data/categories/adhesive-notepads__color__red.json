@@ -1,0 +1,30 @@
+{
+  "url": "/cat/adhesive-notepads/color/red",
+  "type": "facet",
+  "h1": "Custom Red Adhesive Notepads",
+  "metaTitle": "Custom Red Adhesive Notepads | Perfect Imprints",
+  "metaDescription": "Order custom red adhesive notepads in bulk. Perfect for urgent memos or safety reminders. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Red adhesive notepads grab attention fast — ideal for urgent reminders, safety notices, or promotional giveaways where visibility matters. Choose from sticky note cubes, magnetic memo pads, or mini notebooks with custom imprinting in your brand colors. Bulk orders keep your message front and center on desks, filing cabinets, or job sites. Whether you need a standard 3x3 pad or a multi-functional set with flags, red notepads ensure your branding stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red adhesive notepads with brand logo, including sticky notes and memo pads for office or promotional use.",
+  "productSkus": [
+    "501197",
+    "502525",
+    "508373",
+    "509125",
+    "513102",
+    "513900",
+    "515914",
+    "519560",
+    "520332",
+    "523225"
+  ],
+  "generatedAt": "2026-05-31T09:31:41.929433+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

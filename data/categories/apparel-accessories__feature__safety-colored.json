@@ -1,0 +1,28 @@
+{
+  "url": "/cat/apparel-accessories/feature/safety-colored",
+  "type": "facet",
+  "h1": "Custom Safety Colored Apparel Accessories",
+  "metaTitle": "Custom Safety Colored Apparel Accessories | Perfect Imprints",
+  "metaDescription": "Order custom safety colored apparel accessories in bulk. High-visibility bandanas, sunglasses & more for events, safety teams & promotions.",
+  "introHtml": "<p>Safety colored apparel accessories combine high visibility with everyday practicality. Whether you need neon bandanas for a construction crew or bright sunglasses for a safety fair, these items help your team stand out while reinforcing your brand. Choose from hot pink, lime green, or orange options that meet safety standards without sacrificing comfort. Decorate with screen printing or debossing for a professional finish that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom safety colored apparel accessories including neon bandanas and bright sunglasses for bulk orders",
+  "productSkus": [
+    "510937",
+    "512429",
+    "512432",
+    "512560",
+    "513337",
+    "520417",
+    "520622",
+    "522111"
+  ],
+  "generatedAt": "2026-05-31T09:31:52.225625+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

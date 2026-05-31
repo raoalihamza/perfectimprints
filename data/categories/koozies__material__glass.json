@@ -1,0 +1,27 @@
+{
+  "url": "/cat/koozies/material/glass",
+  "type": "facet",
+  "h1": "Custom Glass Koozies for Bulk Orders",
+  "metaTitle": "Custom Glass Koozies | Perfect Imprints",
+  "metaDescription": "Order custom glass koozies in bulk for your brand. Perfect for events and promotions. Get a fast quote today!",
+  "introHtml": "<p>Custom glass koozies keep beverages cold while showcasing your logo on a clear, elegant surface. Unlike foam or neoprene options, glass koozies offer a premium feel that stands out at corporate events, trade shows, and retail settings. Use full-color decoration on wraps like the Pint Size Cooler Wrap or the Koozie® britePix® Slim Can Cooler for vibrant brand visibility. Ideal for wine bottles, pint glasses, and slim cans, these koozies combine style with function for any promotional campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom glass koozies featuring a full-color printed wrap around a clear glass bottle",
+  "productSkus": [
+    "517064 90A",
+    "524417",
+    "524419",
+    "526431",
+    "526609",
+    "527393",
+    "529164"
+  ],
+  "generatedAt": "2026-05-31T09:17:34.086235+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

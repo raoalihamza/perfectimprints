@@ -1,0 +1,21 @@
+{
+  "url": "/cat/t-shirts/brand/tentree",
+  "type": "facet",
+  "h1": "Custom Tentree T Shirts for Your Brand",
+  "metaTitle": "Custom Tentree T Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Tentree t shirts for your brand. Eco-friendly, soft organic cotton tees perfect for corporate gifts or employee uniforms.",
+  "introHtml": "<p>Tentree t shirts combine premium organic cotton with a mission to plant ten trees for every purchase. For marketing directors and HR leaders seeking sustainable apparel, these tees offer a soft, comfortable fit that showcases your logo through screen printing or embroidery. Choose Tentree to align your brand with environmental stewardship while outfitting your team or event attendees in durable, earth-friendly fabric.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Tentree t shirts in organic cotton with printed logo, stacked on a wooden table",
+  "productSkus": [
+    "525984"
+  ],
+  "generatedAt": "2026-05-31T09:27:53.866010+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

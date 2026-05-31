@@ -1,0 +1,28 @@
+{
+  "url": "/cat/sweatshirts/feature/lightweight",
+  "type": "facet",
+  "h1": "Custom Lightweight Sweatshirts for Bulk Orders",
+  "metaTitle": "Custom Lightweight Sweatshirts | Perfect Imprints",
+  "metaDescription": "Order custom lightweight sweatshirts for your team or event. Perfect for layering or mild weather. Get a quote today.",
+  "introHtml": "<p>Custom lightweight sweatshirts offer a versatile alternative to heavy fleece, making them ideal for team uniforms, corporate giveaways, or safety apparel in mild climates. Materials like French terry and performance blends provide breathability and stretch, so your logo stays comfortable whether worn on a job site or at a company picnic. Decorate with screen printing or embroidery for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom lightweight sweatshirts in various colors and styles for bulk orders, perfect for corporate branding and team apparel.",
+  "productSkus": [
+    "515920",
+    "515928",
+    "521441",
+    "528221",
+    "528222",
+    "528594",
+    "528595",
+    "529436"
+  ],
+  "generatedAt": "2026-05-31T09:27:45.661787+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

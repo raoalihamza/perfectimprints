@@ -1,0 +1,28 @@
+{
+  "url": "/cat/garment-bags/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Garment Bags",
+  "metaTitle": "Custom Purple Garment Bags | Perfect Imprints",
+  "metaDescription": "Order custom purple garment bags for trade shows and events. Perfect for brand visibility. Bulk pricing available.",
+  "introHtml": "<p>Purple garment bags offer a distinctive way to protect and transport suits, gowns, and uniforms while showcasing your brand. The rich color stands out at trade shows and corporate events, making your logo more memorable. Choose from polyester or nylon materials with full-color imprint options. Whether you need 50 bags for a sales team or 500 for an employee appreciation event, custom purple garment bags combine practicality with brand presence.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple garment bags with zipper closure and brand logo, ideal for travel and storage.",
+  "productSkus": [
+    "519684",
+    "525852",
+    "526815",
+    "526984",
+    "527067",
+    "527248",
+    "527366",
+    "527419"
+  ],
+  "generatedAt": "2026-05-31T08:54:30.139911+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

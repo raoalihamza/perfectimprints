@@ -1,0 +1,21 @@
+{
+  "url": "/cat/sweatshirts/color/silver",
+  "type": "facet",
+  "h1": "Custom Silver Sweatshirts for Bulk Orders",
+  "metaTitle": "Custom Silver Sweatshirts | Perfect Imprints",
+  "metaDescription": "Order custom silver sweatshirts in bulk for your team or event. Fast turnaround and free setup at Perfect Imprints.",
+  "introHtml": "<p>Silver sweatshirts offer a sleek, neutral alternative to basic black or gray, making them a versatile choice for corporate teams and events. The subtle metallic tone pairs well with bold logo colors, ensuring your imprint stands out without clashing. Whether you're outfitting a safety crew with high-visibility accents or creating a unified look for a company retreat, silver provides a modern backdrop for screen printing or embroidery. Options like the OGIO Luuma Flex Hooded Henley combine comfort with a polished finish that works for both casual and professional settings.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom silver sweatshirts with embroidered logo, featuring a hooded henley style in a metallic silver color.",
+  "productSkus": [
+    "526532"
+  ],
+  "generatedAt": "2026-05-31T08:27:31.350254+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

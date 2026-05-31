@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/material/mesh",
+  "type": "facet",
+  "h1": "Custom Mesh Products for Bulk Orders",
+  "metaTitle": "Custom Mesh Products - Perfect Imprints",
+  "metaDescription": "Order custom mesh products in bulk at Perfect Imprints. Ideal for promotional giveaways and events. Get a quote today!",
+  "introHtml": "<p>Mesh products offer a lightweight, breathable option for outdoor events, sports promotions, and summer giveaways. Unlike solid materials, mesh allows airflow and visibility, making it ideal for drawstring backpacks, caps, and bags that attendees can use at races or fairs. Decorate with screen printing or embroidery for a logo that stands out on the porous surface. Order custom mesh products in bulk to keep your brand visible and functional.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom mesh products including mesh backpacks and caps with printed logo, ideal for outdoor promotional events",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:27:14.904780+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

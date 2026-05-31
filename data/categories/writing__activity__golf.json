@@ -1,0 +1,21 @@
+{
+  "url": "/cat/writing/activity/golf",
+  "type": "facet",
+  "h1": "Custom Golf Writing for Tournaments & Events",
+  "metaTitle": "Custom Golf Writing | Perfect Imprints",
+  "metaDescription": "Order custom golf writing for your next tournament. Perfect Imprints offers branded pencils and more for golf events.",
+  "introHtml": "<p>Custom golf writing is essential for tournaments, corporate outings, and charity events where every detail reflects your brand. Unlike standard promotional pens, golf-specific writing tools like our round golf pencils are designed to fit easily into golf bags and scorecards, ensuring your logo stays visible throughout the game. Choose from imprint colors that match your event theme or company colors, and give participants a practical keepsake they'll use every round.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom golf writing with branded round pencils for tournament giveaways and corporate golf events",
+  "productSkus": [
+    "501981"
+  ],
+  "generatedAt": "2026-05-31T10:15:56.773990+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

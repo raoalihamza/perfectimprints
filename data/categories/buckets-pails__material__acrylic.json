@@ -1,0 +1,30 @@
+{
+  "url": "/cat/buckets-pails/material/acrylic",
+  "type": "facet",
+  "h1": "Custom Acrylic Buckets & Pails",
+  "metaTitle": "Custom Acrylic Buckets & Pails | Perfect Imprints",
+  "metaDescription": "Order custom acrylic buckets & pails for your next event or promotion. Durable, clear material perfect for branding. Get a quote today!",
+  "introHtml": "<p>Acrylic buckets and pails offer a sleek, modern look that stands out from standard metal or plastic options. Their crystal-clear finish showcases contents beautifully, making them ideal for gift baskets, party favors, or retail displays. Durable and lightweight, acrylic resists cracking and yellowing over time. Customize with your logo or design using screen printing or laser engraving for a polished, professional appearance that elevates your brand at trade shows, corporate events, or as employee gifts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom acrylic buckets and pails with clear finish and engraved logo, perfect for promotional gifts and corporate events.",
+  "productSkus": [
+    "521805",
+    "523732",
+    "524224",
+    "526786",
+    "526899",
+    "526903",
+    "527031",
+    "528703",
+    "528705",
+    "528706"
+  ],
+  "generatedAt": "2026-05-31T08:26:11.455892+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

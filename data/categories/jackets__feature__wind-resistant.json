@@ -1,0 +1,30 @@
+{
+  "url": "/cat/jackets/feature/wind-resistant",
+  "type": "facet",
+  "h1": "Custom Wind Resistant Jackets for Bulk Orders",
+  "metaTitle": "Custom Wind Resistant Jackets | Perfect Imprints",
+  "metaDescription": "Shop custom wind resistant jackets with your logo. Ideal for teams, events, and corporate gifts. Order bulk from Perfect Imprints.",
+  "introHtml": "<p>Wind resistant jackets offer essential protection for outdoor workers, event staff, and promotional giveaways where staying comfortable in breezy conditions matters. Unlike standard jackets, wind resistant fabrics like those used in the Men's Microburst Puffer Hooded Jacket or the Men's Aspect Soft Shell Jacket reduce chilling and help maintain body heat without adding bulk. These jackets are ideal for safety managers equipping field crews, marketing directors outfitting event teams, or HR directors selecting durable corporate gifts that recipients will actually use. Decoration options include screen printing, embroidery, and heat transfer for your logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wind resistant jackets for corporate branding - soft shell and puffer styles with logo embroidery",
+  "productSkus": [
+    "511016",
+    "523279",
+    "523280",
+    "526297",
+    "526298",
+    "527896",
+    "527897",
+    "527926",
+    "529244",
+    "529245"
+  ],
+  "generatedAt": "2026-05-31T09:16:33.650094+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

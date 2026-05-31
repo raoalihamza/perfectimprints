@@ -1,0 +1,21 @@
+{
+  "url": "/cat/jackets/brand/champion",
+  "type": "facet",
+  "h1": "Custom Champion Jackets for Bulk Orders",
+  "metaTitle": "Custom Champion Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Champion jackets in bulk for your team or event. Perfect for corporate apparel. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Champion jackets offer a trusted brand name and a classic athletic style that resonates with employees and customers alike. The Champion Adult Packable Anorak 1/4 Zip Jacket, for example, provides lightweight warmth and easy storage, making it ideal for outdoor events or uniform programs. When you choose custom Champion jackets, you get reliable quality and a range of decoration options, including screen printing and embroidery, to showcase your logo prominently.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Champion jackets with embroidered logo, including a packable anorak jacket in navy blue",
+  "productSkus": [
+    "526131"
+  ],
+  "generatedAt": "2026-05-31T08:56:03.070482+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

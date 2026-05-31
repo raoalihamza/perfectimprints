@@ -1,0 +1,22 @@
+{
+  "url": "/cat/puzzles/feature/folding",
+  "type": "facet",
+  "h1": "Custom Folding Puzzles for Branded Giveaways",
+  "metaTitle": "Custom Folding Puzzles | Perfect Imprints",
+  "metaDescription": "Order custom folding puzzles with your logo. Perfect for trade shows and events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom folding puzzles offer a compact, interactive giveaway that stands out at trade shows and corporate events. Unlike standard puzzles, these fold flat for easy storage and portability, making them ideal for attendees on the go. Print your logo or message directly on the puzzle pieces for a memorable branding experience. Choose from various piece counts and sizes to fit your budget and audience.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom folding puzzles with company logo displayed on a table at a corporate event",
+  "productSkus": [
+    "514614 01A",
+    "527915"
+  ],
+  "generatedAt": "2026-05-31T09:01:19.391124+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

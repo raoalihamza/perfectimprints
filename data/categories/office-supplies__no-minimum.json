@@ -1,0 +1,19 @@
+{
+  "url": "/cat/office-supplies/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Office Supplies for Small Orders",
+  "metaTitle": "No-Minimum Custom Office Supplies | Perfect Imprints",
+  "metaDescription": "Order custom office supplies with no minimums. Perfect for small teams, startups, and events. Shop no-minimum custom office supplies at Perfect Imprints.",
+  "introHtml": "<p>Not every promotional order needs to be a bulk buy. Our no-minimum custom office supplies let you order as few as a single unit — ideal for small businesses, startups, sampling new designs, or equipping a small team. Skip the large-quantity commitments and get branded pens, notepads, and desk accessories without the volume requirements. Per-unit pricing is higher at low quantities, but the flexibility to order exactly what you need makes these small orders a practical fit for tight budgets and targeted giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted no-minimum custom office supplies including branded pens, notepads, and sticky notes on a desk",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:58:37.712804+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

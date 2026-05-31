@@ -1,0 +1,21 @@
+{
+  "url": "/cat/beanies/style/two-tone",
+  "type": "facet",
+  "h1": "Custom Two Tone Beanies",
+  "metaTitle": "Custom Two Tone Beanies | Perfect Imprints",
+  "metaDescription": "Order custom two tone beanies for your team or event. Contrast-color cuffs and pom options. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Two tone beanies let you combine your brand colors in one accessory, creating a polished look that stands out from single-color caps. The contrast cuff and optional pom add visual interest while keeping your logo front and center. Whether you are outfitting a winter sales team or creating employee gifts, these beanies offer a professional, coordinated appearance that reinforces your brand identity across colder months.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom two tone beanies with contrast-color cuffs and pom, featuring embroidered logo on front.",
+  "productSkus": [
+    "514093"
+  ],
+  "generatedAt": "2026-05-31T08:39:57.698183+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

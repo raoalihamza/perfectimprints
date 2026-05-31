@@ -1,0 +1,31 @@
+{
+  "url": "/cat/jackets/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Jackets",
+  "metaTitle": "Custom Made in USA Jackets | Perfect Imprints",
+  "metaDescription": "Order custom made in USA jackets for your team. Bulk pricing on quality jackets from Perfect Imprints. Get a quote today!",
+  "introHtml": "<p>Choosing custom made in USA jackets means supporting American manufacturing while outfitting your team in durable, high-quality outerwear. These jackets are built with domestic materials and labor, offering reliable warmth and style for corporate events, trade shows, or employee uniforms. With options like the Labrador Parka or the Narvik Hybrid Jacket, you get performance and patriotism. Decorate with embroidery or screen printing to showcase your brand on a product that stands for quality craftsmanship.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA jackets in various styles, including parkas and hybrid jackets, for corporate branding",
+  "productSkus": [
+    "525719",
+    "525720",
+    "525722",
+    "525726",
+    "525727",
+    "525728",
+    "525729",
+    "525736",
+    "525737",
+    "525738",
+    "525739"
+  ],
+  "generatedAt": "2026-05-31T08:34:52.128841+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

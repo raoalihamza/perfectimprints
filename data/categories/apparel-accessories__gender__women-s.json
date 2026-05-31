@@ -1,0 +1,25 @@
+{
+  "url": "/cat/apparel-accessories/gender/women-s",
+  "type": "facet",
+  "h1": "Custom Women's Apparel Accessories",
+  "metaTitle": "Custom Women's Apparel Accessories | Perfect Imprints",
+  "metaDescription": "Shop custom women's apparel accessories for bulk orders. Perfect for corporate gifts, events, and promotions. Get a quote today!",
+  "introHtml": "<p>Women's apparel accessories offer a tailored fit and style that unisex options often miss. From fleece gloves and mittens to merino wool boot socks, these items are designed to complement women's proportions while providing comfort and warmth. Perfect for corporate gift sets, employee appreciation, or event giveaways, our selection of women's accessories can be customized with your logo using embroidery or screen printing. Choose women-specific sizing and colors for a polished, professional look that resonates with your recipients.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom women's apparel accessories including fleece gloves, mittens, and merino wool socks with embroidered logo",
+  "productSkus": [
+    "516831",
+    "516832",
+    "516834",
+    "526363",
+    "528344"
+  ],
+  "generatedAt": "2026-05-31T09:05:16.518947+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

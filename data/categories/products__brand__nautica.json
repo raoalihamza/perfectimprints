@@ -1,0 +1,23 @@
+{
+  "url": "/cat/products/brand/nautica",
+  "type": "facet",
+  "h1": "Custom Nautica Products for Bulk Orders",
+  "metaTitle": "Custom Nautica Products | Perfect Imprints",
+  "metaDescription": "Order custom Nautica products in bulk from Perfect Imprints. Perfect for corporate gifts, uniforms, and events.",
+  "introHtml": "<p>Nautica brings a classic, preppy aesthetic to corporate apparel that stands out in the office or at off-site events. Their deck polos and quarter-zip pullovers are crafted from durable, easy-care fabrics that hold up to frequent wear and repeated logo embroidery. For companies that want a polished, recognizable look without sacrificing comfort, Nautica offers consistent sizing and a timeless style that suits both men and women.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Nautica products including men's and ladies' deck polos and anchor quarter-zip pullover with embroidered logos",
+  "productSkus": [
+    "525547",
+    "525548",
+    "525893"
+  ],
+  "generatedAt": "2026-05-31T09:23:57.554370+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

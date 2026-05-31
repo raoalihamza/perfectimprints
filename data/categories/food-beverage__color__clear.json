@@ -1,0 +1,22 @@
+{
+  "url": "/cat/food-beverage/color/clear",
+  "type": "facet",
+  "h1": "Custom Clear Food & Beverage Products",
+  "metaTitle": "Custom Clear Food & Beverage | Perfect Imprints",
+  "metaDescription": "Order custom clear food beverage products for your brand. Perfect for tradeshows and events. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Clear food and beverage products let your logo or message take center stage without color distractions. Whether you need transparent water bottles for a company picnic or clear cups for a promotional event, these items offer a clean, professional look that pairs with any design. Decorate with full-color wraps or simple one-color imprints for maximum visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom clear food beverage products including transparent water bottles and cups with logo imprint",
+  "productSkus": [
+    "507913",
+    "507915 91A"
+  ],
+  "generatedAt": "2026-05-31T09:46:42.099800+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

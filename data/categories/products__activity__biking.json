@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/activity/biking",
+  "type": "facet",
+  "h1": "Custom Biking Products for Your Next Event",
+  "metaTitle": "Custom Biking Products | Perfect Imprints",
+  "metaDescription": "Shop custom biking products for your next event. Choose from water bottles, cycling caps, and more. Get a quote today!",
+  "introHtml": "<p>Custom biking products are ideal for cycling events, team sponsorships, or corporate wellness programs. From branded water bottles to cycling caps and reflective gear, these items keep your logo visible on the road. Durable materials and practical designs ensure your message travels miles. Perfect for marketing directors and event organizers looking to make an impact.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom biking products including a branded water bottle and cycling cap displayed on a bike",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:21.690726+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

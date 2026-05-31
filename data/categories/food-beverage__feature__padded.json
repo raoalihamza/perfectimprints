@@ -1,0 +1,21 @@
+{
+  "url": "/cat/food-beverage/feature/padded",
+  "type": "facet",
+  "h1": "Custom Padded Food Beverage Products",
+  "metaTitle": "Custom Padded Food Beverage | Perfect Imprints",
+  "metaDescription": "Shop custom padded food beverage products. Perfect for branding at events. Bulk orders available. Get a quote today.",
+  "introHtml": "<p>Padded food and beverage items offer a smart way to protect drinks and snacks during transport while keeping your brand visible. Whether you are outfitting a sales team with insulated lunch bags or giving away soft-sided coolers at a trade show, the padded construction adds durability and a premium feel. These products work well for corporate gifts, employee appreciation, or event giveaways where function matters. Choose from styles that accommodate cans, bottles, or full meals, and add your logo through screen printing or embroidery for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom padded food beverage products like insulated lunch bags and coolers with logo printing",
+  "productSkus": [
+    "518135 43A"
+  ],
+  "generatedAt": "2026-05-31T09:46:45.962257+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,27 @@
+{
+  "url": "/cat/apparel/brand/mercer-mettle",
+  "type": "facet",
+  "h1": "Custom Mercer Mettle Apparel for Bulk Orders",
+  "metaTitle": "Custom Mercer Mettle Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Mercer Mettle apparel in bulk. Perfect for corporate uniforms and team wear. Get a quote today.",
+  "introHtml": "<p>Mercer Mettle apparel combines modern design with durable performance fabrics, making it a smart choice for corporate uniforms and team apparel. From puffy vests to stretch woven shirts, each piece offers a professional look that holds up to daily wear. Decorate with your logo using embroidery or screen printing for a polished finish that your employees will actually want to wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Mercer Mettle apparel including puffy vests and twill overshirts for corporate branding",
+  "productSkus": [
+    "526292",
+    "526295",
+    "526296",
+    "526538",
+    "526539",
+    "527183",
+    "527184"
+  ],
+  "generatedAt": "2026-05-31T09:32:06.093922+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

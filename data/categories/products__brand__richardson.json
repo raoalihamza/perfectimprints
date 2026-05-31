@@ -1,0 +1,30 @@
+{
+  "url": "/cat/products/brand/richardson",
+  "type": "facet",
+  "h1": "Custom Richardson Products for Bulk Orders",
+  "metaTitle": "Custom Richardson Products | Perfect Imprints",
+  "metaDescription": "Order custom Richardson products in bulk from Perfect Imprints. Perfect for corporate gifts and promotional giveaways.",
+  "introHtml": "<p>Richardson is a trusted brand in headwear, known for its durable construction and classic trucker cap styles. When you choose custom Richardson products, you get hats that hold their shape and your logo stays sharp. These caps work well for outdoor events, trade shows, or employee uniforms. With options like the Richardson Trucker Cap and Recycled Trucker Cap, you can pick a style that fits your brand's image. Decorate with embroidery or screen printing for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Richardson products including trucker caps and snapbacks for promotional use",
+  "productSkus": [
+    "522099",
+    "522624",
+    "522625",
+    "522627",
+    "526934",
+    "526935",
+    "529238",
+    "529239",
+    "529240",
+    "529316"
+  ],
+  "generatedAt": "2026-05-31T10:03:39.498432+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

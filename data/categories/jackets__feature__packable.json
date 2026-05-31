@@ -1,0 +1,24 @@
+{
+  "url": "/cat/jackets/feature/packable",
+  "type": "facet",
+  "h1": "Custom Packable Jackets for Bulk Orders",
+  "metaTitle": "Custom Packable Jackets | Perfect Imprints",
+  "metaDescription": "Order custom packable jackets in bulk. Perfect for outdoor events, trade shows, and employee gifts. Get a quote today.",
+  "introHtml": "<p>Custom packable jackets are ideal for outdoor events, trade shows, and employee gifts where portability and comfort are key. These jackets stuff into their own pocket or pouch, making them easy to distribute and carry. Choose from insulated options like the Silverton Packable Insulated Jacket or the Core 365 Prevail Packable Puffer Jacket, available in men's and ladies' styles. Decorate with your logo using embroidery or screen printing for a professional look that travels anywhere.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom packable jackets folded into their own pouches, ready for distribution at an outdoor corporate event.",
+  "productSkus": [
+    "520278",
+    "520279",
+    "521114",
+    "521115"
+  ],
+  "generatedAt": "2026-05-31T08:26:42.779435+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/pillows/search",
+  "type": "modifier",
+  "h1": "Custom Pillows for Branded Promotions",
+  "metaTitle": "Custom Pillows | PerfectImprints.com",
+  "metaDescription": "Browse our selection of custom pillows for your next promotion. Find the right style and quantity with no minimums required. Start your order today.",
+  "introHtml": "<p>Custom pillows are a versatile promotional product that offers comfort and visibility for your brand. Whether you're looking for travel pillows, seat cushions, or decorative throw pillows, our wide selection gives you plenty of options to match your campaign. As a search landing page, this is your starting point to explore different styles, materials, and customization possibilities. Our team can help you select the perfect pillow for your audience and budget.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of custom pillows featuring embroidered logos in various colors and sizes for branded promotions",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:45:29.985548+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

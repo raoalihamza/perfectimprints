@@ -1,0 +1,66 @@
+{
+  "url": "/cat/footwear",
+  "type": "root",
+  "h1": "Custom Footwear for Events, Safety & Branding",
+  "metaTitle": "Custom Footwear | Perfect Imprints",
+  "metaDescription": "Order custom footwear for your team or event. Bulk pricing, fast turnaround, and quality materials. Get your logo on shoes, slippers, and socks.",
+  "introHtml": "<p>Whether you're a safety manager sourcing slip-resistant shoes for a warehouse crew or a marketing director planning a giveaway for a beachside conference, custom footwear helps your message land on its feet. From branded flip-flops for summer events to logo-printed socks for employee appreciation, this category covers a range of practical apparel that people actually use. The key is matching the right product to your audience and setting.</p><p>For safety programs, look for durable materials and non-slip soles in styles like slides or closed-toe shoes. For trade shows and corporate gifts, lightweight flip-flops and cozy slippers offer high visibility in casual settings. Socks and shoe bags work well for onboarding kits and year-end gifts. With decoration options like screen printing, embroidery, and full-color heat transfer, you can add your logo in a way that holds up to regular wear.</p>",
+  "buyingGuideHtml": "<p>When ordering custom footwear, start by considering how the item will be used. Safety managers need slip-resistant outsoles and durable construction for daily wear in industrial settings. Marketing directors might prioritize comfort and style for event giveaways, where flip-flops or slides with a logo can generate brand impressions all summer. HR directors often choose socks or slippers for employee appreciation gifts, where softness and fit matter most.</p><h3>Materials and Build Quality</h3><p>Footwear materials vary widely. Flip-flops are typically made from EVA foam or rubber, which are lightweight and water-resistant. Slippers often feature fleece, sherpa, or cotton linings for warmth. Socks come in cotton, polyester, or bamboo blends, with options for cushioning and moisture-wicking. For logo placement, smooth surfaces on flip-flops and slides work well for screen printing or pad printing, while socks and fabric shoes accept embroidery or full-color heat transfer.</p><h3>Decoration and Customization</h3><p>Common decoration methods include screen printing for flat surfaces on flip-flops and slides, embroidery for socks and fabric shoes, and full-color heat transfer for detailed logos on polyester blends. For footwear with textured or curved surfaces, pad printing or debossing may be better options. Always request a proof before production to ensure the logo aligns correctly and scales properly to the product size.</p><h3>Quantity and Pricing</h3><p>Minimum order quantities for custom footwear typically start at 50 to 100 units for stock styles, with lower MOQs for socks and shoe bags. Bulk orders of 500 or more reduce per-unit costs significantly. Wholesale pricing is common for large runs, and many suppliers offer tiered pricing. If you need a small quantity for a pilot program, ask about sample availability before committing to a full bulk order.</p><h3>Common Mistakes to Avoid</h3><p>One frequent mistake is ordering the wrong size range. Footwear sizing varies by brand, so provide a size chart and consider offering multiple sizes. Another pitfall is choosing a decoration method that doesn't adhere well to the material — for example, screen printing on heavily textured fabric may crack. Finally, account for lead time: custom footwear can take 2-4 weeks for production plus shipping, so plan ahead for your event date.</p><p>Whether you need branded socks for a trade show, personalized flip-flops for a company picnic, or logo-printed slippers for a hotel giveaway, custom footwear offers a practical way to keep your brand top of mind. Work with your supplier to select the right style, decoration, and quantity for your audience.</p>",
+  "buyingGuideH2": "Custom Footwear Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom footwear?",
+      "a": "Minimum order quantities vary by product. For socks and shoe bags, MOQs often start at 50-100 units. For flip-flops and slides, expect MOQs of 100-300 units. Contact your supplier for exact numbers."
+    },
+    {
+      "q": "What decoration methods work best on footwear?",
+      "a": "Screen printing works well on flat rubber or EVA surfaces like flip-flops. Embroidery is ideal for socks and fabric shoes. Full-color heat transfer is suitable for polyester blends. Pad printing can handle curved or textured surfaces."
+    },
+    {
+      "q": "How long does production take for custom footwear?",
+      "a": "Typical production time is 2-4 weeks after artwork approval. Rush orders may be available for an additional fee. Always confirm lead time with your supplier and plan for shipping."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, most suppliers offer samples for a fee, which is often credited toward your bulk order. Requesting a sample allows you to check size, material, and print quality before committing."
+    },
+    {
+      "q": "What sizes are available for custom footwear?",
+      "a": "Size ranges depend on the product. Flip-flops typically come in small to extra-large (US 5-13). Socks are often one-size-fits-most or available in specific sizes. Always review the size chart provided by your supplier."
+    }
+  ],
+  "heroAltText": "Custom footwear with logos on flip-flops, slippers, and socks for corporate events and safety programs",
+  "productSkus": [
+    "501556",
+    "513304 90A",
+    "516800",
+    "517496",
+    "520052",
+    "521340",
+    "522251",
+    "524427",
+    "525740",
+    "526360",
+    "526361",
+    "526363",
+    "526782",
+    "526905",
+    "526906",
+    "526927",
+    "527216",
+    "527554",
+    "527988",
+    "528171",
+    "528311",
+    "528344",
+    "528345",
+    "529443"
+  ],
+  "generatedAt": "2026-05-30T11:40:12.604137+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "buyer",
+  "skuFilterMode": "full",
+  "rawSkuCount": 24,
+  "filteredSkuCount": 24
+}

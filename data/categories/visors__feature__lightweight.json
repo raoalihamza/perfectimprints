@@ -1,0 +1,23 @@
+{
+  "url": "/cat/visors/feature/lightweight",
+  "type": "facet",
+  "h1": "Custom Lightweight Visors for Bulk Orders",
+  "metaTitle": "Custom Lightweight Visors | Perfect Imprints",
+  "metaDescription": "Shop custom lightweight visors for bulk orders. Perfect for outdoor events and teams. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Lightweight visors keep your team cool and comfortable during outdoor events, trade shows, or company picnics. Unlike heavier caps, these visors offer breathability and sun protection without the weight. Choose from styles like the Sports Performance Sandwich Cap or the Unstructured Low Profile Twill Cap for a polished, airy look that your crew will actually want to wear. Decorate with your logo using embroidery or screen printing for a crisp, professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom lightweight visors with embroidered logo, perfect for outdoor corporate events and team uniforms.",
+  "productSkus": [
+    "512764",
+    "516015",
+    "516016"
+  ],
+  "generatedAt": "2026-05-31T09:04:16.510089+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

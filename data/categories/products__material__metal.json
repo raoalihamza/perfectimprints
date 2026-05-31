@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/material/metal",
+  "type": "facet",
+  "h1": "Custom Metal Products for Bulk Orders",
+  "metaTitle": "Custom Metal Products | Perfect Imprints",
+  "metaDescription": "Order custom metal products for your brand. Durable, polished, and ideal for corporate gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Metal products offer a premium feel and lasting durability that plastic or fabric alternatives cannot match. Whether you need engraved stainless steel pens for a sales team or brushed aluminum keychains for a trade show, metal provides a professional finish that elevates your brand. Choose from polished, matte, or textured surfaces, and decorate with laser engraving or pad printing for a crisp, permanent logo. These items withstand daily use and convey quality to your clients and employees.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom metal products including pens, keychains, and drinkware with engraved logos on a wooden desk.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:27:15.412421+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

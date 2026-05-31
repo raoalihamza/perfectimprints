@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/gourmet-expressions",
+  "type": "facet",
+  "h1": "Custom Gourmet Expressions Products for Bulk Orders",
+  "metaTitle": "Custom Gourmet Expressions Products | Perfect Imprints",
+  "metaDescription": "Order custom Gourmet Expressions products in bulk. Perfect for corporate gifts, trade shows, and employee rewards. Get a quote today!",
+  "introHtml": "<p>Gourmet Expressions specializes in premium food gifts that combine quality ingredients with elegant packaging, making them ideal for corporate gifting, client appreciation, and employee recognition programs. Whether you choose gourmet popcorn tins, chocolate collections, or snack baskets, each item can be customized with your logo or message. These products stand out because they offer a tangible, consumable experience that recipients genuinely enjoy, strengthening your brand connection with every bite.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Gourmet Expressions products including branded popcorn tins and chocolate gift boxes for corporate events",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:41.003555+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

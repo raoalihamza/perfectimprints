@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/jcharles",
+  "type": "facet",
+  "h1": "Custom JCharles Products for Bulk Orders",
+  "metaTitle": "Custom JCharles Products | Perfect Imprints",
+  "metaDescription": "Order custom JCharles products in bulk for your brand. Perfect for giveaways and events. Get a quote today.",
+  "introHtml": "<p>JCharles products are known for their durability and classic style, making them a popular choice for corporate giveaways and trade show promotions. From stainless steel drinkware to versatile bags, these items offer reliable branding opportunities with methods like screen printing and laser engraving. Bulk buyers appreciate the consistent quality and timeless appeal that JCharles brings to any promotional campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom JCharles products including stainless steel water bottles and bags with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:24.729555+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

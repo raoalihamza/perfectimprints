@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/flashlight",
+  "type": "facet",
+  "h1": "Custom Flashlight Products for Bulk Orders",
+  "metaTitle": "Custom Flashlight Products | Perfect Imprints",
+  "metaDescription": "Order custom flashlight products for your brand. Perfect for safety, promotions, and giveaways. Bulk pricing available.",
+  "introHtml": "<p>Flashlights are a practical promotional item that keeps your brand visible in low-light situations. Whether for safety managers equipping workers or marketers handing out useful giveaways, custom flashlight products offer high utility and repeated exposure. Choose from keychain flashlights, heavy-duty models, or pen lights with your logo imprinted via pad printing or laser engraving.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom flashlight products with logos, including keychain and pen lights",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:50.172403+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

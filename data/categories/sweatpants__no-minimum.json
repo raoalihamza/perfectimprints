@@ -1,0 +1,25 @@
+{
+  "url": "/cat/sweatpants/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Sweatpants",
+  "metaTitle": "No-Minimum Custom Sweatpants | Perfect Imprints",
+  "metaDescription": "Order small quantities of no-minimum custom sweatpants for your team. No bulk requirements, fast turnaround. Get a quote today.",
+  "introHtml": "<p>No-minimum custom sweatpants let you order exactly what you need—whether it’s a dozen pairs for a small team, a handful for a startup event, or just one sample to test. Skip the typical bulk minimums and get quality apparel like our Men's Boxercraft Flannel Short or Women's Haley Flannel Pant without overcommitting. Perfect for small businesses, HR teams, and safety managers who want branded comfort in low volumes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of no-minimum custom sweatpants in various colors, including flannel shorts and pants for men and women.",
+  "productSkus": [
+    "527831",
+    "527832",
+    "527834",
+    "527835",
+    "527836"
+  ],
+  "generatedAt": "2026-05-31T08:37:47.872066+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

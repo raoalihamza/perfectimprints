@@ -1,0 +1,23 @@
+{
+  "url": "/cat/umbrellas/color/silver",
+  "type": "facet",
+  "h1": "Custom Silver Umbrellas for Branded Promotions",
+  "metaTitle": "Custom Silver Umbrellas | Perfect Imprints",
+  "metaDescription": "Order custom silver umbrellas with your logo. Durable, weather-resistant designs perfect for corporate gifts and events. Get your quote today.",
+  "introHtml": "<p>Silver umbrellas offer a sleek, neutral backdrop for your logo, making them a popular choice for corporate events and employee gifts. The metallic finish adds a touch of sophistication while providing excellent UV protection. Whether you choose a compact telescopic model for commuters or a sturdy market umbrella for outdoor events, silver ensures your brand stands out without clashing with other colors. Decorate with screen printing or full-color digital transfer for a crisp look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom silver umbrellas with logo printed on canopy, perfect for corporate promotions and outdoor events.",
+  "productSkus": [
+    "511764",
+    "511822",
+    "511824"
+  ],
+  "generatedAt": "2026-05-31T09:29:39.927087+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

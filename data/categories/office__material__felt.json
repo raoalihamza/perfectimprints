@@ -1,0 +1,30 @@
+{
+  "url": "/cat/office/material/felt",
+  "type": "facet",
+  "h1": "Custom Felt Office Products for Branded Workspaces",
+  "metaTitle": "Custom Felt Office Products | Perfect Imprints",
+  "metaDescription": "Order custom felt office products for a soft, professional look. Perfect for desk accessories and branded giveaways at Perfect Imprints.",
+  "introHtml": "<p>Felt office products offer a soft, textured alternative to standard plastic or metal desk accessories. The material absorbs sound and reduces clutter noise, making it ideal for open-plan offices where acoustics matter. From felt pen cups to desk pads and laptop sleeves, custom felt items provide a warm, professional aesthetic that stands out. Decorate with screen printing or debossing for a subtle brand impression that lasts. Perfect for corporate gifts or employee onboarding kits.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom felt office products including desk pads and pen cups with debossed logos",
+  "productSkus": [
+    "516469 90A",
+    "516470 90A",
+    "518552",
+    "518742",
+    "520232",
+    "520701",
+    "520859",
+    "521471",
+    "521499",
+    "527038"
+  ],
+  "generatedAt": "2026-05-31T08:35:52.382842+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

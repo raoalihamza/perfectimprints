@@ -1,0 +1,30 @@
+{
+  "url": "/cat/fanny-packs/search",
+  "type": "modifier",
+  "h1": "Custom Fanny Packs for Branded Promotions",
+  "metaTitle": "Custom Fanny Packs | PerfectImprints.com",
+  "metaDescription": "Browse our selection of custom fanny packs for your next promotion. Find the perfect style for your brand at PerfectImprints.com.",
+  "introHtml": "<p>Custom fanny packs offer a practical and stylish way to keep essentials close while promoting your brand. From clear stadium-approved designs to eco-friendly options and sporty running belts, our selection covers every need. Whether you're outfitting a team, event staff, or giveaway recipients, you'll find versatile choices that combine utility with visibility. Explore our range of custom fanny packs to find the right fit for your next campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom fanny packs in neon, clear, and eco-friendly styles for branded promotions",
+  "productSkus": [
+    "514432",
+    "514433",
+    "519201",
+    "522510",
+    "522705",
+    "522803",
+    "523655",
+    "524162",
+    "524500",
+    "525724"
+  ],
+  "generatedAt": "2026-05-31T08:22:50.392630+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

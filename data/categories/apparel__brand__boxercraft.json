@@ -1,0 +1,27 @@
+{
+  "url": "/cat/apparel/brand/boxercraft",
+  "type": "facet",
+  "h1": "Custom Boxercraft Apparel for Bulk Orders",
+  "metaTitle": "Custom Boxercraft Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Boxercraft apparel in bulk. Perfect for corporate gifts, team uniforms, and promotional events. Get a quote today!",
+  "introHtml": "<p>Boxercraft apparel combines the comfort of fleece and flannel with a relaxed, homewear-inspired style that your team or event attendees will actually want to wear. Whether you are outfitting staff with cozy Sherpa pullovers for a winter retreat or handing out flannel shorts at a company picnic, these pieces offer a soft, lived-in feel from the first wear. Decorate with embroidery or screen printing on the chest or back for a polished look that stands out from standard uniform tees.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom Boxercraft apparel including Sherpa pullovers and flannel shorts at a corporate event",
+  "productSkus": [
+    "521535",
+    "527831",
+    "527832",
+    "527833",
+    "527834",
+    "527835",
+    "527836"
+  ],
+  "generatedAt": "2026-05-31T08:48:23.064863+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

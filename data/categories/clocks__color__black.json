@@ -1,0 +1,24 @@
+{
+  "url": "/cat/clocks/color/black",
+  "type": "facet",
+  "h1": "Custom Black Clocks for Bulk Orders",
+  "metaTitle": "Custom Black Clocks | Perfect Imprints",
+  "metaDescription": "Order custom black clocks for your brand. Bulk pricing, fast turnaround. Perfect for offices, events, and promotions.",
+  "introHtml": "<p>Black clocks offer a versatile, professional look that blends into any office or home setting while keeping your brand visible. Whether you choose a classic wall clock like the 16Inch Giant Wall Clock or a modern charging station with a digital display, black finishes provide a sleek backdrop for your logo. Perfect for corporate gifts, trade show giveaways, or employee recognition, these clocks combine function with brand presence.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black wall clocks with company logo displayed on a clean white wall",
+  "productSkus": [
+    "514834 01A",
+    "516151",
+    "520887",
+    "528699"
+  ],
+  "generatedAt": "2026-05-31T08:52:04.391448+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

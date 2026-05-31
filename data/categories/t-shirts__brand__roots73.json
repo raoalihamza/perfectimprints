@@ -1,0 +1,30 @@
+{
+  "url": "/cat/t-shirts/brand/roots73",
+  "type": "facet",
+  "h1": "Custom Roots73 T Shirts for Bulk Orders",
+  "metaTitle": "Custom Roots73 T Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Roots73 t shirts for your team. Perfect for corporate events and uniforms. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Roots73 delivers premium blanks that hold up to frequent wear and washing, making them a top choice for corporate uniforms and event giveaways. Their softshell and microfleece jackets offer warmth without bulk, while full-zip hoodies provide layering flexibility. Customize with embroidery or screen printing for a polished, professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Roots73 t shirts and jackets with embroidery for corporate branding",
+  "productSkus": [
+    "517041",
+    "517042",
+    "517232",
+    "517233",
+    "517320",
+    "517321",
+    "524273",
+    "524274",
+    "525378",
+    "525379"
+  ],
+  "generatedAt": "2026-05-31T10:10:14.654545+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

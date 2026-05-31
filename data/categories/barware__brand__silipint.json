@@ -1,0 +1,28 @@
+{
+  "url": "/cat/barware/brand/silipint",
+  "type": "facet",
+  "h1": "Custom Silipint Barware for Bulk Orders",
+  "metaTitle": "Custom Silipint Barware | Perfect Imprints",
+  "metaDescription": "Order custom Silipint barware in bulk from Perfect Imprints. Perfect for events, giveaways, and branding. Get a quote today!",
+  "introHtml": "<p>Silipint barware combines the look of glass with the durability of silicone, making it ideal for outdoor events, poolside parties, and corporate tailgates. Unlike traditional glassware, these unbreakable cups are shatterproof, dishwasher safe, and stackable for easy storage. Choose from pint glasses, stemless wine glasses, or the iconic beer stein, and add your logo or message with full-color imprinting. Perfect for trade shows, company picnics, or client gifts that won't break.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Silipint barware including a clear pint glass and a beer stein with company logos imprinted",
+  "productSkus": [
+    "522248",
+    "526428",
+    "527291",
+    "527292",
+    "527774",
+    "528236",
+    "528237",
+    "528252"
+  ],
+  "generatedAt": "2026-05-31T09:35:51.425005+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

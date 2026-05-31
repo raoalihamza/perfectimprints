@@ -1,0 +1,23 @@
+{
+  "url": "/cat/personal-care-items/activity/hiking",
+  "type": "facet",
+  "h1": "Custom Hiking Personal Care Items",
+  "metaTitle": "Custom Hiking Personal Care Items | Perfect Imprints",
+  "metaDescription": "Order custom hiking personal care items for your team. Perfect for outdoor events and giveaways. Shop at Perfect Imprints.",
+  "introHtml": "<p>When your team hits the trail, they need personal care items that can keep up. Custom hiking personal care items from Perfect Imprints are designed for active use, from mini hydration packs to running belt fanny packs. These products are built to withstand the elements while keeping your brand visible. Whether you're outfitting employees for a company hike or preparing giveaway bags for a outdoor event, these items offer practical utility and reliable performance. Choose durable materials, secure pockets, and easy-access designs that make sense on the trail.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hiking personal care items including mini hydration packs and fanny packs for outdoor events",
+  "productSkus": [
+    "514184",
+    "514185 01A",
+    "519201"
+  ],
+  "generatedAt": "2026-05-31T09:22:18.197217+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

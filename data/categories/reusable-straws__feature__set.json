@@ -1,0 +1,25 @@
+{
+  "url": "/cat/reusable-straws/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Reusable Straws",
+  "metaTitle": "Custom Set Reusable Straws | Perfect Imprints",
+  "metaDescription": "Order custom set reusable straws in bulk for your business. Perfect for eco-friendly branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Ordering custom set reusable straws means providing a complete, ready-to-use solution for your clients or employees. Unlike single straws, sets often include multiple sizes, colors, or even a cleaning brush, making them more practical for daily use. These bundled straws are ideal for corporate gift boxes, employee welcome kits, or trade show giveaways where recipients appreciate a thoughtful, reusable alternative to plastic. Choose from stainless steel or silicone sets, and add your logo with engraving or imprinting for lasting brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set reusable straws in stainless steel and silicone with cleaning brush, perfect for bulk orders",
+  "productSkus": [
+    "522032",
+    "522270",
+    "523099",
+    "525537",
+    "528300"
+  ],
+  "generatedAt": "2026-05-31T10:05:02.914894+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

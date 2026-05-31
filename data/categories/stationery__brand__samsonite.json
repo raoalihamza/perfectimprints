@@ -1,0 +1,22 @@
+{
+  "url": "/cat/stationery/brand/samsonite",
+  "type": "facet",
+  "h1": "Custom Samsonite Stationery for Bulk Orders",
+  "metaTitle": "Custom Samsonite Stationery | Perfect Imprints",
+  "metaDescription": "Order custom Samsonite stationery in bulk at Perfect Imprints. Business-quality bags and accessories for your team.",
+  "introHtml": "<p>Samsonite stationery brings the durability and professional look of a trusted travel brand to your corporate office or field team. Unlike generic stationery, Samsonite products are built to withstand daily commutes, client meetings, and trade show travel. Whether you need laptop backpacks for your sales force or wheeled duffles for event staff, these pieces carry your logo on a rugged, recognizable foundation that reinforces your company's commitment to quality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Samsonite stationery including a laptop backpack and wheeled duffle with company logo",
+  "productSkus": [
+    "527869",
+    "528124"
+  ],
+  "generatedAt": "2026-05-31T09:26:42.294933+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

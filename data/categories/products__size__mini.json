@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/size/mini",
+  "type": "facet",
+  "h1": "Custom Mini Products for Bulk Orders",
+  "metaTitle": "Custom Mini Products | Perfect Imprints",
+  "metaDescription": "Shop custom mini products at Perfect Imprints. Perfect for giveaways and events. Get a quote today!",
+  "introHtml": "<p>Mini products offer a compact yet effective way to promote your brand at trade shows, events, and in direct mail campaigns. From mini stress relievers to tiny flashlights, these items fit easily into pockets or swag bags, ensuring your logo gets seen repeatedly. Choose from a range of decoration options including pad printing and laser engraving to make your mark on these small but mighty giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom mini products including stress relievers, flashlights, and keychains with logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:19.538156+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

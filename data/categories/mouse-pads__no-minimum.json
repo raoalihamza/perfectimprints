@@ -1,0 +1,23 @@
+{
+  "url": "/cat/mouse-pads/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Mouse Pads",
+  "metaTitle": "No-Minimum Custom Mouse Pads | Perfect Imprints",
+  "metaDescription": "Order small quantities of custom mouse pads with no minimum. Perfect for small teams, events, or samples. Get a quote today!",
+  "introHtml": "<p>Not every order needs to be a bulk run. Our no-minimum custom mouse pads let you order as few as one or two units, making them ideal for small businesses, startup teams, one-off events, or testing designs before a larger order. Whether you need a branded NoWire Mouse Pad for a new hire or a few Wireless Charging Mouse Pads for a client gift, you get the same quality and per-unit pricing clarity without the commitment of volume. No wasted inventory, no minimums to hit—just the mouse pads you need, when you need them.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of no-minimum custom mouse pads featuring the NoWire Mouse Pad design, showing a clean desk setup with a branded mouse pad.",
+  "productSkus": [
+    "521845",
+    "525956",
+    "526011"
+  ],
+  "generatedAt": "2026-05-31T08:35:33.523269+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

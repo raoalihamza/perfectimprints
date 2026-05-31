@@ -1,0 +1,32 @@
+{
+  "url": "/cat/pen-pencil-sets/supplier/evans",
+  "type": "facet",
+  "h1": "Custom Evans Pen Pencil Sets for Bulk Orders",
+  "metaTitle": "Custom Evans Pen Pencil Sets | Perfect Imprints",
+  "metaDescription": "Order custom Evans pen pencil sets for your business. Perfect for corporate gifts and events. Get a quote today.",
+  "introHtml": "<p>Evans pen pencil sets combine classic style with functional design, making them ideal for corporate gifting and promotional events. These sets often feature sleek metal finishes and coordinated writing instruments that leave a lasting impression. Whether for client appreciation or employee rewards, custom engraving adds a personal touch that reflects your brand's attention to detail.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Evans pen pencil sets with engraved branding, featuring metal pens and pencils in a gift box.",
+  "productSkus": [
+    "512596",
+    "512693 64F",
+    "519672",
+    "521002",
+    "521897",
+    "522098",
+    "523898",
+    "523924",
+    "523950",
+    "525628",
+    "526748",
+    "527285"
+  ],
+  "generatedAt": "2026-05-31T08:59:24.331921+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

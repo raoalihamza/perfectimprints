@@ -1,0 +1,22 @@
+{
+  "url": "/cat/backpacks/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Backpacks for Bulk Orders",
+  "metaTitle": "Custom Cotton Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom cotton backpacks in bulk from Perfect Imprints. Soft, durable, and eco-friendly bags with your logo.",
+  "introHtml": "<p>Cotton backpacks offer a soft, natural feel that stands apart from synthetic alternatives, making them ideal for corporate gifts, trade show giveaways, and employee welcome kits. The fabric takes screen printing and embroidery beautifully, ensuring your logo looks crisp and professional. Whether you choose the classic Port Authority The Original Pack or the padded Field & Co. Hudson 15\" Computer Backpack, cotton provides a comfortable carry that recipients will use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cotton backpacks with embroidered logo, soft natural fabric, available in bulk from Perfect Imprints.",
+  "productSkus": [
+    "520837",
+    "527746"
+  ],
+  "generatedAt": "2026-05-31T08:39:05.930638+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,29 @@
+{
+  "url": "/cat/carabiners/type/bottle",
+  "type": "facet",
+  "h1": "Custom Bottle Carabiners for Bulk Orders",
+  "metaTitle": "Custom Bottle Carabiners | Perfect Imprints",
+  "metaDescription": "Order custom bottle carabiners for bulk events. Perfect for hydration packs, gym bags, and outdoor giveaways. Get a quote today.",
+  "introHtml": "<p>Custom bottle carabiners let you attach a reusable water bottle directly to a backpack, belt loop, or gym bag — no more juggling or lost bottles. Choose from anodized aluminum or stainless steel options, with direct print or pad print decoration for your logo. They're a practical giveaway for outdoor events, corporate wellness programs, or trade shows where hydration is key. Durable, lightweight, and easy to clip, these carabiners turn any standard bottle into a hands-free essential.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom bottle carabiners with logo printed on aluminum carabiner clipped to a reusable water bottle",
+  "productSkus": [
+    "501590",
+    "508958",
+    "510855",
+    "513263",
+    "515706 01A",
+    "517505",
+    "519904",
+    "520411",
+    "520857"
+  ],
+  "generatedAt": "2026-05-31T09:10:16.110700+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

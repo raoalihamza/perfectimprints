@@ -1,0 +1,24 @@
+{
+  "url": "/cat/reusable-straws/feature/with-case",
+  "type": "facet",
+  "h1": "Custom Reusable Straws with Case for Bulk Orders",
+  "metaTitle": "Custom Reusable Straws with Case | Perfect Imprints",
+  "metaDescription": "Order custom reusable straws with case for your brand. Perfect for eco-friendly giveaways and events. Get a quote today!",
+  "introHtml": "<p>Custom reusable straws with a carrying case keep your logo visible while offering a practical, eco-friendly alternative to single-use plastics. The included case protects the straw and makes it easy to carry in a purse, backpack, or lunch bag. Ideal for trade shows, employee gifts, or sustainability initiatives, these kits often include a cleaning brush and are available in materials like stainless steel or silicone. Options like the Collapsible Stainless Steel Straw Kit or the Buildable Harvest Straw Kit in Travel Case give recipients a complete, portable set they will use every day.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom reusable straws with case, stainless steel straws in a travel case with cleaning brush",
+  "productSkus": [
+    "522307",
+    "524107",
+    "525027",
+    "525537"
+  ],
+  "generatedAt": "2026-05-31T09:24:49.701294+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

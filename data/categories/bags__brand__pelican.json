@@ -1,0 +1,23 @@
+{
+  "url": "/cat/bags/brand/pelican",
+  "type": "facet",
+  "h1": "Custom Pelican Bags for Bulk Orders",
+  "metaTitle": "Custom Pelican Bags | Perfect Imprints",
+  "metaDescription": "Order custom Pelican bags in bulk from Perfect Imprints. Ideal for branding, giveaways, and corporate gifts.",
+  "introHtml": "<p>Pelican bags are built to withstand demanding environments, making them a reliable choice for safety managers and field teams who need rugged durability. Unlike standard promotional bags, Pelican products feature weather-resistant materials and reinforced stitching, ensuring your logo stays visible through heavy use. Ideal for trade shows, safety kits, or employee appreciation, these bags pair well with Pelican drinkware like the Traveler tumbler for a coordinated brand package.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Pelican bags with rugged design and logo branding for corporate giveaways",
+  "productSkus": [
+    "527482",
+    "527483",
+    "527484"
+  ],
+  "generatedAt": "2026-05-31T08:32:11.683213+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

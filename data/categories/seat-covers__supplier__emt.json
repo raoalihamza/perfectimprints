@@ -1,0 +1,28 @@
+{
+  "url": "/cat/seat-covers/supplier/emt",
+  "type": "facet",
+  "h1": "Custom EMT Seat Covers",
+  "metaTitle": "Custom EMT Seat Covers | Perfect Imprints",
+  "metaDescription": "Order custom EMT seat covers for your emergency vehicles. Durable, full-color printing. Bulk discounts available.",
+  "introHtml": "<p>Custom EMT seat covers are designed specifically for emergency medical vehicles, offering a professional look that reinforces your agency's identity. Made from durable materials that withstand daily wear and frequent cleaning, these covers can be printed with your department's logo, unit numbers, or safety messaging using full-color dye-sublimation. Whether you outfit a single ambulance or an entire fleet, the flat 3-sided table covers and economy table throws in this collection provide a seamless fit for standard stretcher-side tables. Choose custom EMT seat covers to maintain a cohesive, branded appearance across your emergency response fleet.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom EMT seat covers for ambulance vehicles with full-color printed logo and durable fabric",
+  "productSkus": [
+    "506947",
+    "506949 90A",
+    "507074",
+    "507076 90A",
+    "510137",
+    "510139",
+    "510140 90A",
+    "510141 90A"
+  ],
+  "generatedAt": "2026-05-31T09:01:53.926419+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

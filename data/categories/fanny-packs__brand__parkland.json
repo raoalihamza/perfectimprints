@@ -1,0 +1,30 @@
+{
+  "url": "/cat/fanny-packs/brand/parkland",
+  "type": "facet",
+  "h1": "Custom Parkland Fanny Packs for Bulk Orders",
+  "metaTitle": "Custom Parkland Fanny Packs | Perfect Imprints",
+  "metaDescription": "Order custom Parkland fanny packs in bulk. Perfect for events, giveaways, and brand promotion. Get a quote today!",
+  "introHtml": "<p>Parkland fanny packs offer a reliable, budget-friendly option for bulk promotional orders. Whether you need clear packs for security events or neon styles for high-visibility giveaways, the Parkland brand delivers consistent quality. Decorate with screen printing or embroidery to showcase your logo. Ideal for trade shows, corporate runs, and safety campaigns where practicality meets brand exposure.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Parkland fanny packs in assorted colors with logo imprint, ideal for promotional giveaways and events.",
+  "productSkus": [
+    "514432",
+    "514433",
+    "519201",
+    "522510",
+    "522705",
+    "522803",
+    "523655",
+    "524162",
+    "524500",
+    "525724"
+  ],
+  "generatedAt": "2026-05-31T09:45:23.465306+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

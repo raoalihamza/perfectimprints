@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pet-leashes/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Pet Leashes",
+  "metaTitle": "Custom Recycled Pet Leashes | Perfect Imprints",
+  "metaDescription": "Order branded recycled pet leashes for eco-conscious giveaways. Custom colors and logo printing available at Perfect Imprints.",
+  "introHtml": "<p>Recycled pet leashes offer a sustainable alternative for brands that want to align with eco-friendly values. Made from post-consumer recycled materials, these leashes appeal to pet owners who prioritize environmental responsibility. Customize with your logo using screen printing or debossing for a subtle, professional look. Perfect for pet adoption events, green corporate gifts, or retail store promotions where durability and sustainability matter.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled pet leashes with printed logo, eco-friendly dog leash made from recycled materials",
+  "productSkus": [
+    "528199"
+  ],
+  "generatedAt": "2026-05-31T09:00:06.414956+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

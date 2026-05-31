@@ -1,0 +1,27 @@
+{
+  "url": "/cat/outerwear/brand/port-authority",
+  "type": "facet",
+  "h1": "Custom Port Authority Outerwear for Bulk Orders",
+  "metaTitle": "Custom Port Authority Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom Port Authority outerwear in bulk. Perfect for teams, events, or corporate gifts. Get started at Perfect Imprints.",
+  "introHtml": "<p>Port Authority outerwear combines durability and professional style, making it a top choice for corporate uniforms, event giveaways, and employee rewards. Their grid fleece jackets and insulated vests offer warmth without bulk, while tech shells provide weather protection. Decorate with your logo using embroidery or screen printing for a polished look that lasts. Whether outfitting a sales team or equipping safety managers, these pieces deliver consistent quality across sizes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Port Authority outerwear including fleece jackets and insulated vests with embroidered logos",
+  "productSkus": [
+    "522096",
+    "522097",
+    "525392",
+    "525393",
+    "525904",
+    "525906",
+    "525907"
+  ],
+  "generatedAt": "2026-05-31T08:27:02.258166+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

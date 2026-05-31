@@ -1,0 +1,25 @@
+{
+  "url": "/cat/golf-polo-shirts/brand/columbia",
+  "type": "facet",
+  "h1": "Custom Columbia Golf Polo Shirts for Bulk Orders",
+  "metaTitle": "Custom Columbia Golf Polo Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Columbia golf polo shirts in bulk. Perfect for corporate events and teams. Get a quote today.",
+  "introHtml": "<p>Columbia golf polo shirts combine the trusted durability of Columbia's outdoor heritage with the polished look required for corporate events, golf outings, and team uniforms. Unlike generic polos, these shirts feature advanced moisture-wicking fabrics, UPF sun protection, and a tailored fit that keeps your group comfortable on the course or at the clubhouse. Add your logo with embroidery or screen printing for a professional finish that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Columbia golf polo shirts with embroidered logo, available in bulk for corporate events and teams.",
+  "productSkus": [
+    "523863",
+    "523865",
+    "523866",
+    "523867",
+    "523870"
+  ],
+  "generatedAt": "2026-05-31T09:48:51.971313+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/apparel/brand/paragon",
+  "type": "facet",
+  "h1": "Custom Paragon Apparel for Your Team",
+  "metaTitle": "Custom Paragon Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Paragon apparel for your team. Perfect for uniforms and events. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Paragon apparel offers a professional, comfortable fit that stands up to daily wear, making it a top choice for corporate uniforms and team events. Whether you need polo shirts for a trade show or jackets for an outdoor company outing, Paragon’s consistent sizing and durable fabrics ensure your logo looks sharp wash after wash. Choose from a range of colors and styles to match your brand identity, and pair them with embroidery or screen printing for a polished finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Paragon apparel with embroidered logo on a polo shirt and jacket",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:25:49.895228+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

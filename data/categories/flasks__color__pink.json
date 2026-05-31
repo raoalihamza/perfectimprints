@@ -1,0 +1,26 @@
+{
+  "url": "/cat/flasks/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Flasks for Bulk Orders",
+  "metaTitle": "Custom Pink Flasks | Perfect Imprints",
+  "metaDescription": "Order custom pink flasks in bulk at Perfect Imprints. Ideal for events, promotions, and branding. Soft CTA included.",
+  "introHtml": "<p>Pink flasks offer a distinctive way to stand out at events or as corporate gifts. Whether for a breast cancer awareness campaign or a fun branding giveaway, the pink finish adds a subtle yet memorable touch. These stainless steel flasks can be debossed or screen-printed with your logo, making them a practical and stylish promotional item. Ideal for parties, fundraisers, or employee incentives, custom pink flasks combine utility with a pop of color that recipients appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink flasks with engraved logo, stainless steel, polished finish, perfect for promotional gifts and events.",
+  "productSkus": [
+    "519574",
+    "520634",
+    "525816",
+    "525817",
+    "528811",
+    "528816"
+  ],
+  "generatedAt": "2026-05-31T08:33:51.735954+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

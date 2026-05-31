@@ -1,0 +1,22 @@
+{
+  "url": "/cat/watches/size/xsmall",
+  "type": "facet",
+  "h1": "Custom Xsmall Watches for Bulk Orders",
+  "metaTitle": "Custom Xsmall Watches | Perfect Imprints",
+  "metaDescription": "Order custom xsmall watches for bulk giveaways. Compact and stylish. Get a free quote at Perfect Imprints.",
+  "introHtml": "<p>Xsmall watches offer a compact, lightweight option for recipients who prefer a low-profile timepiece. These smaller watches fit comfortably on narrower wrists and are ideal for promotional events, trade shows, or employee gifts where subtle branding is key. Choose from styles like the Paracord Bracelet or Mood Watch Bracelet, both available with custom imprinting in your company colors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom xsmall watches in bulk with compact design and custom logo imprinting",
+  "productSkus": [
+    "516655",
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T09:04:22.469851+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

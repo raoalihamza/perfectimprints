@@ -1,0 +1,21 @@
+{
+  "url": "/cat/workwear/color/yellow",
+  "type": "facet",
+  "h1": "Custom Yellow Workwear for High-Visibility Safety",
+  "metaTitle": "Custom Yellow Workwear - Perfect Imprints",
+  "metaDescription": "Shop custom yellow workwear for high-visibility safety. Perfect for construction crews and road crews. Bulk orders available.",
+  "introHtml": "<p>Yellow workwear is the standard for high-visibility safety in construction, road work, and warehouse environments. Unlike standard safety colors, yellow provides maximum contrast against most backgrounds, ensuring your crew stays visible in low-light or busy conditions. Customize yellow safety vests, jackets, or shirts with your company logo or reflective striping. Perfect for teams that need ANSI-compliant visibility with professional branding.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom yellow workwear safety vests with reflective striping for high-visibility branding",
+  "productSkus": [
+    "511795 10A"
+  ],
+  "generatedAt": "2026-05-31T09:04:54.975508+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

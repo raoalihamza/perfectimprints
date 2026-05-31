@@ -1,0 +1,23 @@
+{
+  "url": "/cat/napkins/color/black",
+  "type": "facet",
+  "h1": "Custom Black Napkins for Bulk Orders",
+  "metaTitle": "Custom Black Napkins | Perfect Imprints",
+  "metaDescription": "Order custom black napkins in bulk for events, restaurants, or corporate branding. Fast turnaround with Perfect Imprints.",
+  "introHtml": "<p>Black napkins bring a sophisticated, neutral backdrop that makes logos and text pop without competing for attention. Whether you need luncheon or dinner napkins with 1/4 or 1/8 fold, black is a versatile choice for catered lunches, corporate galas, or restaurant supply. Screen printing in one or two colors delivers crisp branding on every napkin.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom black napkins with a white logo printed on the corner, ideal for corporate events and catering",
+  "productSkus": [
+    "520635",
+    "520636",
+    "520637"
+  ],
+  "generatedAt": "2026-05-31T09:20:28.660640+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

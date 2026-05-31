@@ -1,0 +1,24 @@
+{
+  "url": "/cat/ornaments/color/silver",
+  "type": "facet",
+  "h1": "Custom Silver Ornaments for Bulk Orders",
+  "metaTitle": "Custom Silver Ornaments | Perfect Imprints",
+  "metaDescription": "Order custom silver ornaments in bulk for corporate gifts. Perfect for holidays and events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Silver ornaments offer a timeless, elegant look that stands out on any tree or display. Whether you choose glossy beveled glass, hand-blown glass, or ceramic, the silver finish catches light beautifully and pairs with any color scheme. These are ideal for corporate holiday gifts, client appreciation, or annual employee recognition. Decorate with your logo using etching or full-color printing for a sophisticated branded keepsake.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom silver ornaments with company logo on a holiday tree, including beveled glass and ceramic styles",
+  "productSkus": [
+    "525279",
+    "526846",
+    "527670",
+    "528864"
+  ],
+  "generatedAt": "2026-05-31T09:58:29.744071+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

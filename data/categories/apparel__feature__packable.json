@@ -1,0 +1,29 @@
+{
+  "url": "/cat/apparel/feature/packable",
+  "type": "facet",
+  "h1": "Custom Packable Apparel for On-the-Go Branding",
+  "metaTitle": "Custom Packable Apparel | Perfect Imprints",
+  "metaDescription": "Order custom packable apparel for trade shows, events, and travel. Bulk pricing on jackets and pullovers at Perfect Imprints.",
+  "introHtml": "<p>Packable apparel solves a real problem for brands that need visibility on the move. These jackets and pullovers fold into their own pockets or stuff sacks, making them ideal for trade show giveaways, employee travel kits, and outdoor events where space is tight. The lightweight nylon and polyester shells take screen printing or embroidery cleanly, so your logo stays sharp. Whether you need a quick layer for a team offsite or a giveaway that won't weigh down a backpack, custom packable apparel delivers utility and brand recall in one compact package.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom packable apparel including a folded nylon jacket with embroidered logo, ready for travel and events.",
+  "productSkus": [
+    "505165",
+    "510006",
+    "520278",
+    "520279",
+    "521114",
+    "521115",
+    "526131",
+    "526813",
+    "526814"
+  ],
+  "generatedAt": "2026-05-31T09:32:13.419122+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/shirts/color/yellow",
+  "type": "facet",
+  "h1": "Custom Yellow Shirts for Bulk Orders",
+  "metaTitle": "Custom Yellow Shirts | Perfect Imprints",
+  "metaDescription": "Order custom yellow shirts in bulk for your team or event. Perfect for high-visibility branding. Get a quote today!",
+  "introHtml": "<p>Yellow shirts stand out in any crowd, making them a smart choice for safety teams, event staff, or promotional giveaways where visibility matters. The bright hue pairs well with bold logo prints in dark inks for strong contrast. Whether you need performance polos for a construction crew or cotton tees for a charity run, custom yellow shirts ensure your brand gets noticed. Decoration options include screen printing, embroidery, and heat transfer.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of bright custom yellow shirts with printed logos, ideal for promotional bulk orders.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:30:56.707792+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

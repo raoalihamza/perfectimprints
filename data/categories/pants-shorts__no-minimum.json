@@ -1,0 +1,25 @@
+{
+  "url": "/cat/pants-shorts/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Pants & Shorts",
+  "metaTitle": "No-Minimum Custom Pants & Shorts | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom pants and shorts with no bulk requirements. Perfect for small teams or sample orders. Get a quote today.",
+  "introHtml": "<p>No-minimum custom pants and shorts let you order exactly what you need—whether it’s a single pair for a sample or a small batch for your team. Unlike traditional bulk orders, you can start with as few as one piece, making it ideal for startups, small businesses, or one-off events. Choose from popular styles like men’s and women’s flannel shorts or youth poly flannel pants, all with your logo. No inventory commitment, just flexibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of no-minimum custom pants and shorts featuring men's and women's flannel styles with embroidered logos.",
+  "productSkus": [
+    "527831",
+    "527832",
+    "527834",
+    "527835",
+    "527836"
+  ],
+  "generatedAt": "2026-05-31T08:44:58.281009+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

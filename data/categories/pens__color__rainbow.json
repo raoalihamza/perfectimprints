@@ -1,0 +1,23 @@
+{
+  "url": "/cat/pens/color/rainbow",
+  "type": "facet",
+  "h1": "Custom Rainbow Pens for Bulk Orders",
+  "metaTitle": "Custom Rainbow Pens | Perfect Imprints",
+  "metaDescription": "Order custom rainbow pens in bulk for vibrant branding. Perfect for events and giveaways. Get a quote today!",
+  "introHtml": "<p>Rainbow pens add a pop of color to any desk or event bag, making them a standout choice for trade shows, school supply drives, or Pride Month campaigns. The Rainbow Gel Gripper Pen offers a comfortable grip and smooth writing, while the Eclaire Bright Illuminated Stylus Pen combines fun with function. Whether screen-printed or debossed, these pens keep your logo visible and memorable.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom rainbow pens with colorful barrels and white grips, ideal for promotional giveaways and bulk orders.",
+  "productSkus": [
+    "504928 49B",
+    "521971",
+    "526804"
+  ],
+  "generatedAt": "2026-05-31T09:22:09.194220+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

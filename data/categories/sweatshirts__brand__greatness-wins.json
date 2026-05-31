@@ -1,0 +1,25 @@
+{
+  "url": "/cat/sweatshirts/brand/greatness-wins",
+  "type": "facet",
+  "h1": "Custom Greatness Wins Sweatshirts for Bulk Orders",
+  "metaTitle": "Custom Greatness Wins Sweatshirts | Perfect Imprints",
+  "metaDescription": "Order custom Greatness Wins sweatshirts in bulk for your team or event. Perfect for branding with embroidery or screen printing.",
+  "introHtml": "<p>Greatness Wins sweatshirts combine premium comfort with a brand that stands for achievement. Whether you're outfitting a sales team for a conference or rewarding employees for hitting goals, these sweatshirts offer a modern fit and performance fabrics that hold up to daily wear. The Storm Creek Pacesetter Hoodie and Sightseer Performance Hoodie are popular picks for their moisture-wicking and stretch properties. Decorate with embroidery or screen printing for a polished, long-lasting logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Greatness Wins sweatshirts with embroidered logo on front, available in bulk for corporate branding.",
+  "productSkus": [
+    "515995",
+    "525379",
+    "528038",
+    "528039",
+    "529434"
+  ],
+  "generatedAt": "2026-05-31T09:27:43.162814+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

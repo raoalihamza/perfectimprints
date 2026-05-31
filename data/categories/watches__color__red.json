@@ -1,0 +1,21 @@
+{
+  "url": "/cat/watches/color/red",
+  "type": "facet",
+  "h1": "Custom Red Watches for Bulk Orders",
+  "metaTitle": "Custom Red Watches | Perfect Imprints",
+  "metaDescription": "Order custom red watches for your team or event. Perfect for branding with your logo. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Red watches make a bold statement, ensuring your brand stands out in a crowd. Whether for safety teams needing high-visibility gear or as spirited giveaways for company events, red watch bands and faces grab attention. Choose from sporty silicone bands or rugged options like the Paracord Bracelet style. Personalize with screen printing or engraving for a lasting impression that aligns with your brand colors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red watches with logo imprint, featuring sporty silicone band and bold red face",
+  "productSkus": [
+    "516655"
+  ],
+  "generatedAt": "2026-05-31T10:13:42.390961+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

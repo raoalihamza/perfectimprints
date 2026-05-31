@@ -1,0 +1,31 @@
+{
+  "url": "/cat/fleece/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Fleece",
+  "metaTitle": "Custom Recycled Fleece | Perfect Imprints",
+  "metaDescription": "Order custom recycled fleece jackets for your team. Eco-friendly warmth with your logo. Bulk pricing from Perfect Imprints.",
+  "introHtml": "<p>Custom recycled fleece offers the same soft warmth and durability as traditional fleece, but with a lighter environmental footprint. Made from post-consumer recycled polyester, these jackets are ideal for companies that prioritize sustainability in their branded apparel. Whether you choose a half-zip pullover or a full-zip jacket, recycled fleece provides excellent insulation for outdoor events, team uniforms, or corporate gifts. Decorate with embroidery or screen printing for a polished, professional look that aligns with your green initiatives.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom recycled fleece jackets with embroidered logos, standing outdoors in a park",
+  "productSkus": [
+    "526073",
+    "526074",
+    "526347",
+    "526348",
+    "528167",
+    "528168",
+    "528931",
+    "528932",
+    "529016",
+    "529017",
+    "529190"
+  ],
+  "generatedAt": "2026-05-31T08:54:04.116263+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/writing/brand/paper-mate",
+  "type": "facet",
+  "h1": "Custom Paper Mate Writing Pens for Bulk Orders",
+  "metaTitle": "Custom Paper Mate Writing | Perfect Imprints",
+  "metaDescription": "Order custom Paper Mate writing pens in bulk. Personalize InkJoy, Flair, and gel pens with your logo. Get a quote today.",
+  "introHtml": "<p>Paper Mate pens are a trusted choice for businesses that need reliable, comfortable writing instruments. From the smooth InkJoy gel pens to the classic Flair felt-tip markers, Paper Mate offers a range of styles that suit any office or promotional need. Customize them with your logo or message using pad printing or laser engraving, and choose from multiple ink colors and point sizes. Whether you're outfitting a sales team or preparing a trade show giveaway, Paper Mate writing pens deliver quality and brand recognition.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Paper Mate writing pens with company logo, including InkJoy retractable and Flair pens in various colors",
+  "productSkus": [
+    "502707",
+    "504898",
+    "510273",
+    "521118",
+    "525230"
+  ],
+  "generatedAt": "2026-05-31T10:16:00.734385+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

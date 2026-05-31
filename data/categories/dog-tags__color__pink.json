@@ -1,0 +1,24 @@
+{
+  "url": "/cat/dog-tags/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Dog Tags for Bulk Orders",
+  "metaTitle": "Custom Pink Dog Tags | Perfect Imprints",
+  "metaDescription": "Order custom pink dog tags in bulk from Perfect Imprints. Personalize with your logo for events, teams, or pet IDs.",
+  "introHtml": "<p>Pink dog tags make a bold statement for your next event, fundraiser, or team uniform. Whether you need luggage tags for a women’s conference or ID tags for a charity run, this color stands out while keeping your branding front and center. Choose from rectangle or business card insert styles, and add your logo with full-color imprint or laser engraving. Perfect for bulk orders with fast turnaround.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink dog tags with personalized logo imprint, ideal for bulk orders and branding.",
+  "productSkus": [
+    "505522",
+    "509674",
+    "521320",
+    "522803"
+  ],
+  "generatedAt": "2026-05-31T08:53:03.896841+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

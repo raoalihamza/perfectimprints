@@ -1,0 +1,25 @@
+{
+  "url": "/cat/mechanical-pencils/type/mood",
+  "type": "facet",
+  "h1": "Custom Mood Mechanical Pencils",
+  "metaTitle": "Custom Mood Mechanical Pencils | Perfect Imprints",
+  "metaDescription": "Order custom mood mechanical pencils in bulk. Perfect for giveaways and events. Shop at Perfect Imprints today.",
+  "introHtml": "<p>Mood mechanical pencils change color with heat, turning ordinary writing instruments into interactive giveaways that spark conversations. Whether you choose the playful Wild Smilez or the classic Armadillo design, these pencils add a fun, memorable twist to your branded merchandise. Ideal for trade shows, school events, or employee engagement, they keep your logo visible as colors shift throughout the day.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom mood mechanical pencils in assorted colors with color-changing barrels for promotional giveaways",
+  "productSkus": [
+    "510506",
+    "510906",
+    "514646",
+    "519577",
+    "525811"
+  ],
+  "generatedAt": "2026-05-31T08:35:25.727939+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

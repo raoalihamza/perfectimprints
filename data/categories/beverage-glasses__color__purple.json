@@ -1,0 +1,22 @@
+{
+  "url": "/cat/beverage-glasses/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Beverage Glasses",
+  "metaTitle": "Custom Purple Beverage Glasses | Perfect Imprints",
+  "metaDescription": "Order custom purple beverage glasses in bulk for events or branding. Perfect for promotions. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Purple beverage glasses offer a distinctive look that stands out at events, trade shows, or in retail settings. Whether you choose our 16 oz plastic pint glasses for outdoor gatherings or full-color digital printing for vibrant logos, purple adds a regal touch that aligns with brand colors or themed promotions. Bulk orders ensure consistent quality and cost savings for your next campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple beverage glasses with a company logo, perfect for promotional events and bulk orders.",
+  "productSkus": [
+    "524527",
+    "524528"
+  ],
+  "generatedAt": "2026-05-31T09:08:42.338943+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

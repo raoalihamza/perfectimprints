@@ -1,0 +1,23 @@
+{
+  "url": "/cat/coasters/material/glass",
+  "type": "facet",
+  "h1": "Custom Glass Coasters for Bulk Orders",
+  "metaTitle": "Custom Glass Coasters | Perfect Imprints",
+  "metaDescription": "Order custom glass coasters for your brand. Durable, stylish, and perfect for offices, events, or giveaways. Get a quote today.",
+  "introHtml": "<p>Custom glass coasters offer a sleek, modern surface for any desk or table, combining durability with a polished look that paper or plastic coasters can't match. Whether you're branding an office refresh or creating upscale event giveaways, glass coasters accept crisp screen printing or full-color UV printing for sharp logos. They resist heat and moisture, making them practical for daily use while keeping your brand visible. Choose from clear, frosted, or colored glass to match your company's aesthetic.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom glass coasters with printed logo on a modern office desk",
+  "productSkus": [
+    "510545 32B",
+    "514300 90E",
+    "518270"
+  ],
+  "generatedAt": "2026-05-31T09:10:43.989145+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

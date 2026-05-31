@@ -1,0 +1,26 @@
+{
+  "url": "/cat/puzzles/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Puzzles for Your Brand",
+  "metaTitle": "Custom Purple Puzzles | Perfect Imprints",
+  "metaDescription": "Order custom purple puzzles for branding, giveaways, or team building. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Purple puzzles stand out in a crowd, offering a bold and creative way to showcase your brand. Whether you're planning a team-building event or a promotional giveaway, these puzzles in shades of purple add a fun and memorable twist. From classic jigsaw styles to fidget-friendly options like the Tangle Mini Puzzle or Push Pop Bubble Cube, you can customize them with your logo or message using full-color printing or engraving.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple puzzles with a company logo, including a jigsaw and fidget puzzle in vibrant purple tones.",
+  "productSkus": [
+    "508353",
+    "512801",
+    "519909",
+    "524494",
+    "528858",
+    "528859"
+  ],
+  "generatedAt": "2026-05-31T08:46:00.949163+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

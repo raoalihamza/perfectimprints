@@ -1,0 +1,77 @@
+{
+  "url": "/cat/coasters",
+  "type": "root",
+  "h1": "Custom Coasters for Branded Giveaways & Events",
+  "metaTitle": "Custom Coasters | Perfect Imprints",
+  "metaDescription": "Order custom coasters for your next event or promotion. Perfect for bars, restaurants, and corporate gifts. Low minimums, fast turnaround.",
+  "introHtml": "<p>As holiday parties and corporate year-end events approach, custom coasters make a practical and memorable giveaway. Whether you're a marketing director planning a trade show promotion or a business owner looking for affordable client gifts, coasters offer daily visibility in homes and offices. Choose from natural wood slices, sleek slate, durable stone, or versatile neoprene options. Each coaster can be customized with your logo or message using screen printing, laser engraving, or full-color heat transfer. With low minimum order quantities and quick production times, coasters are an easy addition to any promotional campaign.</p><p>For HR directors and safety managers, coasters also work well as employee appreciation gifts or welcome kit items. They're lightweight, easy to ship, and fit a variety of budgets. From rustic wood designs that appeal to outdoor brands to modern brass coasters for upscale restaurants, the right coaster reinforces your brand in a subtle but effective way. Browse our selection below to find the perfect style for your next event or program.</p>",
+  "buyingGuideHtml": "<p>When ordering custom coasters, start by considering the material. Wood coasters offer a natural, warm look and are ideal for brands focused on sustainability or rustic aesthetics. Slate and stone coasters provide a premium feel and absorb moisture naturally, making them great for high-end restaurants or law firms. Neoprene coasters are lightweight, portable, and perfect for outdoor events or bars where durability matters. Each material affects both the decoration method and the overall cost.</p><h3>Decoration Options</h3><p>Laser engraving works beautifully on wood, slate, and stone, creating a permanent, elegant mark. Screen printing is cost-effective for larger runs on neoprene or ceramic coasters. Full-color heat transfer allows vibrant logos on coated surfaces. For a sophisticated look, consider debossing on leather coasters. The decoration method you choose will depend on your design complexity, quantity, and budget.</p><p>Common use cases for promotional coasters include trade show giveaways, restaurant and bar promotions, real estate open houses, and corporate gift sets. Marketing directors often use coasters as a low-cost item that stays in view for months. HR directors include them in new hire welcome kits or as part of employee appreciation packages. Business owners may order personalized coasters for client meetings or holiday gifts.</p><p>Quantity and pricing vary widely. Most suppliers require a minimum order of 50 to 100 units for custom coasters, with per-unit costs dropping significantly at 500 or more. Bulk coaster orders are common for large events, while smaller runs work for intimate gatherings or test markets. Wholesale coaster pricing is available for quantities over 1,000. Be sure to request a quote for your specific volume.</p><p>Avoid common mistakes like choosing a material that doesn't suit your environment. For example, untreated wood can stain from condensation, so sealed wood or coasters with a cork backing are better for wet drinks. Also, ensure your logo is sized appropriately for the coaster surface — intricate details may get lost on a small 4-inch diameter. Finally, order samples before committing to a large run to verify color and finish.</p><p>Personalized coasters are a versatile addition to any promotional strategy. By understanding the material options, decoration methods, and typical order volumes, you can select coasters that align with your brand image and budget. Whether you need logo coasters for a bar opening or branded coasters for a corporate event, the right choice will leave a lasting impression.</p>",
+  "buyingGuideH2": "Custom Coasters Buying Guide",
+  "faqs": [
+    {
+      "q": "What materials are available for custom coasters?",
+      "a": "We offer wood, slate, stone, neoprene, leather, and brass coasters. Each material has different durability and decoration options. Wood and slate are popular for laser engraving, while neoprene works well with screen printing."
+    },
+    {
+      "q": "What is the minimum order quantity for custom coasters?",
+      "a": "Minimum order quantities vary by product, typically starting at 50 to 100 units. Some styles like neoprene coasters may have lower minimums. Contact us for specific product MOQs."
+    },
+    {
+      "q": "How long does production take for custom coasters?",
+      "a": "Standard production time is 7 to 10 business days after artwork approval. Rush orders may be available for an additional fee. Shipping time depends on your location and chosen method."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, samples are available for most coaster styles. You can order a sample with your logo or a generic design to check material quality and print/engrave quality before committing to a large run."
+    },
+    {
+      "q": "What decoration methods work best for coasters?",
+      "a": "Laser engraving is ideal for wood, slate, and stone for a permanent mark. Screen printing works well on neoprene and ceramic. Full-color heat transfer is great for coated surfaces. The best method depends on your design and material."
+    }
+  ],
+  "heroAltText": "Custom coasters featuring laser-engraved logos on slate and wood surfaces for promotional giveaways",
+  "productSkus": [
+    "506094 33D",
+    "510544 32B",
+    "510545 32B",
+    "511029 32B",
+    "511267 90A",
+    "512285 32B",
+    "512328 32B",
+    "512392 32B",
+    "514300 90E",
+    "516973 01C",
+    "516974 01C",
+    "518270",
+    "518282 01A",
+    "518880",
+    "519140 01A",
+    "519672",
+    "519739",
+    "520338",
+    "520382",
+    "520562",
+    "521742",
+    "522685",
+    "523999",
+    "525326",
+    "525327",
+    "525571",
+    "526254",
+    "526757",
+    "527338",
+    "527429",
+    "528135",
+    "529066",
+    "529067",
+    "529143",
+    "529291"
+  ],
+  "generatedAt": "2026-05-30T10:52:04.676263+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "seasonal",
+  "skuFilterMode": "full",
+  "rawSkuCount": 35,
+  "filteredSkuCount": 35
+}

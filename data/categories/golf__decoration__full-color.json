@@ -1,0 +1,32 @@
+{
+  "url": "/cat/golf/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Golf Promotional Products",
+  "metaTitle": "Custom Full Color Golf | Perfect Imprints",
+  "metaDescription": "Order custom full color golf promotional products for your next event. Perfect for tournaments, corporate gifts, and brand awareness.",
+  "introHtml": "<p>Full color decoration brings your logo, team photo, or complex artwork to life on golf giveaways. Unlike one- or two-color imprints, full color allows gradients, realistic images, and fine details to reproduce accurately on items like golf towels, gloves, and ball markers. This makes it ideal for tournament souvenirs, corporate outing gifts, or any promotion where you want your brand to stand out with photographic quality. Choose full color when your design demands more than simple text or a single logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color golf promotional products including towels, gloves, and ball markers with vibrant logo imprint",
+  "productSkus": [
+    "505481",
+    "506896 90A",
+    "512806",
+    "516971 90A",
+    "519574",
+    "519693",
+    "520192",
+    "521335",
+    "523540",
+    "526773",
+    "528005",
+    "529122"
+  ],
+  "generatedAt": "2026-05-31T08:34:13.159598+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

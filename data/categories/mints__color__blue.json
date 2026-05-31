@@ -1,0 +1,25 @@
+{
+  "url": "/cat/mints/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Mints for Bulk Orders",
+  "metaTitle": "Custom Blue Mints | Perfect Imprints",
+  "metaDescription": "Order custom blue mints in bulk for your brand. Perfect for events, offices, and giveaways. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Blue mints add a pop of color to your promotional giveaway, making them stand out at trade shows, office welcome desks, or client appreciation packages. Whether you choose pastel buttermints for a soft look or peppermints in a sliding tin for a crisp finish, the blue hue reinforces brand recognition while offering a refreshing treat that recipients actually use. Perfect for corporate events, healthcare offices, or any business looking to leave a lasting impression with a functional, consumable giveaway.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue mints in a sliding tin and pastel buttermints for promotional giveaways",
+  "productSkus": [
+    "501791",
+    "501798",
+    "503070",
+    "517992",
+    "519431"
+  ],
+  "generatedAt": "2026-05-31T08:58:02.477230+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

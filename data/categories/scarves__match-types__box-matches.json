@@ -1,0 +1,26 @@
+{
+  "url": "/cat/scarves/match-types/box-matches",
+  "type": "facet",
+  "h1": "Custom Box Matches Scarves",
+  "metaTitle": "Custom Box Matches Scarves | Perfect Imprints",
+  "metaDescription": "Order custom box matches scarves for your next promotional campaign. Perfect for corporate gifts and events. Get a quote today!",
+  "introHtml": "<p>Box matches scarves combine the warmth and style of a premium scarf with the convenience of individual packaging. Each scarf is folded neatly into a branded box, making them ideal for corporate gift sets, holiday giveaways, or welcome kits. Choose from fleece, knit, or acrylic options and add your logo through screen printing or embroidery. These packaged scarves arrive ready to hand out, saving you time while making a lasting impression on employees, clients, or event attendees.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom box matches scarves in branded packaging featuring a fleece scarf with company logo",
+  "productSkus": [
+    "514088",
+    "516838",
+    "516839",
+    "516872",
+    "520012",
+    "520863"
+  ],
+  "generatedAt": "2026-05-31T10:05:40.170564+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

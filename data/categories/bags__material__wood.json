@@ -1,0 +1,27 @@
+{
+  "url": "/cat/bags/material/wood",
+  "type": "facet",
+  "h1": "Custom Wood Bags for Bulk Orders",
+  "metaTitle": "Custom Wood Bags | Perfect Imprints",
+  "metaDescription": "Order custom wood bags for a natural, durable look. Perfect for corporate gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Wood bags offer a distinctive, eco-friendly alternative to standard fabric or leather options. The natural grain and warm tones create a premium feel that stands out at trade shows or corporate events. Whether you choose a wood cooler for outdoor branding or a wine tote for client gifts, these bags combine durability with a rustic aesthetic. Decorate with a laser-engraved logo for a polished, lasting impression that aligns with sustainability values.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wood bags featuring a laser-engraved logo on a natural wood surface, ideal for corporate gifts",
+  "productSkus": [
+    "505898 02B",
+    "514185 01A",
+    "525850",
+    "525976",
+    "525983",
+    "526424",
+    "527206"
+  ],
+  "generatedAt": "2026-05-31T09:34:29.922949+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

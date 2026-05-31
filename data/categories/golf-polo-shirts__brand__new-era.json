@@ -1,0 +1,28 @@
+{
+  "url": "/cat/golf-polo-shirts/brand/new-era",
+  "type": "facet",
+  "h1": "Custom New Era Golf Polo Shirts",
+  "metaTitle": "Custom New Era Golf Polo Shirts | Perfect Imprints",
+  "metaDescription": "Order custom New Era golf polo shirts for your team or event. Bulk pricing available. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>New Era golf polo shirts combine athletic performance with the brand's signature style, making them a popular choice for corporate golf outings, charity tournaments, and team uniforms. The moisture-wicking fabric keeps you cool on the course, while the clean, professional look transitions easily from the fairway to the clubhouse. Decorate with your logo using embroidery or screen printing for a polished finish that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom New Era golf polo shirts with embroidered logo on the chest, available in multiple colors and sizes for bulk orders.",
+  "productSkus": [
+    "527747",
+    "529309",
+    "529310",
+    "529311",
+    "529312",
+    "529313",
+    "529314",
+    "529315"
+  ],
+  "generatedAt": "2026-05-31T08:42:17.442879+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

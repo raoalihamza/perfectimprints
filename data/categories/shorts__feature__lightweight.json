@@ -1,0 +1,21 @@
+{
+  "url": "/cat/shorts/feature/lightweight",
+  "type": "facet",
+  "h1": "Custom Lightweight Shorts",
+  "metaTitle": "Custom Lightweight Shorts | Perfect Imprints",
+  "metaDescription": "Order custom lightweight shorts in bulk. Perfect for sports teams, events, and corporate giveaways. Get a quote today!",
+  "introHtml": "<p>Lightweight shorts keep your team or event attendees cool and comfortable during warm-weather activities. Made from breathable fabrics like polyester or mesh, they dry quickly and resist wrinkling — ideal for outdoor races, company picnics, or gym giveaways. Decorate with your logo using screen printing or heat transfer for a crisp, lasting finish. The Youth Competitor™ Short is a popular choice for kids' sizes, ensuring a consistent look across all ages.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom lightweight shorts for bulk orders featuring breathable fabric and logo decoration",
+  "productSkus": [
+    "509482"
+  ],
+  "generatedAt": "2026-05-31T09:02:17.187033+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

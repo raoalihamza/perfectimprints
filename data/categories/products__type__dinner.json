@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/type/dinner",
+  "type": "facet",
+  "h1": "Custom Dinner Products for Events & Gifts",
+  "metaTitle": "Custom Dinner Products | Perfect Imprints",
+  "metaDescription": "Order custom dinner products for corporate events, client gifts, and employee appreciation. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Custom dinner products let you extend your brand presence to the table, whether for company picnics, client appreciation dinners, or holiday parties. From branded dinner plates and serving bowls to insulated food carriers and placemats, these items are used repeatedly, keeping your logo top of mind. Choose from melamine for durability, porcelain for elegance, or stainless steel for outdoor events. Many pieces are dishwasher safe for easy reuse.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom dinner products including branded plates, bowls, and serving dishes for corporate events",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:29.820989+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

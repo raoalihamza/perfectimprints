@@ -1,0 +1,24 @@
+{
+  "url": "/cat/school-work-backpacks/feature/padded",
+  "type": "facet",
+  "h1": "Custom Padded School Work Backpacks",
+  "metaTitle": "Custom Padded School Work Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom padded school work backpacks with your logo. Perfect for commuters and students. Bulk pricing available.",
+  "introHtml": "<p>Custom padded school work backpacks offer the protection your gear needs during daily commutes or campus travel. The padding in models like the Hive Compu-Backpack or High Sierra Pilsen Backpack safeguards laptops and tablets from bumps and drops, while maintaining a professional silhouette. Whether for employee onboarding or student giveaways, these backpacks combine durability with comfort, making them a practical choice for bulk orders.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom padded school work backpacks with laptop compartment, ideal for commuting and campus use.",
+  "productSkus": [
+    "518365",
+    "520571",
+    "521963",
+    "528088"
+  ],
+  "generatedAt": "2026-05-31T08:18:23.958754+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

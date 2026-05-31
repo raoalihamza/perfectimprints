@@ -1,0 +1,30 @@
+{
+  "url": "/cat/eyewear/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Eyewear for Bulk Orders",
+  "metaTitle": "Custom Plastic Eyewear | Perfect Imprints",
+  "metaDescription": "Order custom plastic eyewear in bulk from Perfect Imprints. Ideal for events, safety, and brand visibility. Get your quote today!",
+  "introHtml": "<p>Plastic eyewear offers a lightweight, durable, and cost-effective option for bulk branding. Whether you need promotional sunglasses for a corporate event or safety glasses for your team, plastic frames provide comfort and versatility. Decorate with your logo using pad printing or screen printing for high visibility. From classic aviators to modern wayfarers, plastic eyewear ensures your brand stands out without weighing down your budget.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom plastic eyewear with logo imprint, including sunglasses and safety glasses in various colors",
+  "productSkus": [
+    "507422",
+    "510468 64F",
+    "510469 64E",
+    "524168",
+    "525620",
+    "526792",
+    "526802",
+    "526803",
+    "527733",
+    "529384"
+  ],
+  "generatedAt": "2026-05-31T08:22:50.103229+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

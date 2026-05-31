@@ -1,0 +1,21 @@
+{
+  "url": "/cat/products/brand/wolverine",
+  "type": "facet",
+  "h1": "Custom Wolverine Products for Bulk Orders",
+  "metaTitle": "Custom Wolverine Products | Perfect Imprints",
+  "metaDescription": "Order custom Wolverine products in bulk. Perfect for promotions, giveaways, and employee gifts. Get started at Perfect Imprints today.",
+  "introHtml": "<p>Wolverine brand products are built for durability and performance, making them ideal for companies in construction, manufacturing, and outdoor industries. From branded coolers to rugged apparel, these items resonate with hardworking teams and clients who value reliability. Customize with your logo using screen printing or embroidery for a professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Wolverine products including a vertical 12 can cooler with logo, perfect for bulk promotional orders.",
+  "productSkus": [
+    "528158"
+  ],
+  "generatedAt": "2026-05-31T10:03:47.261559+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

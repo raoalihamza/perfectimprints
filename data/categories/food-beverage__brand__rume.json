@@ -1,0 +1,22 @@
+{
+  "url": "/cat/food-beverage/brand/rume",
+  "type": "facet",
+  "h1": "Custom Rume Food & Beverage Products",
+  "metaTitle": "Custom Rume Food & Beverage | Perfect Imprints",
+  "metaDescription": "Order custom Rume food & beverage products for your brand. Perfect for eco-conscious giveaways. Get a quote today!",
+  "introHtml": "<p>Rume food and beverage products combine sustainable materials with practical design, making them a smart choice for brands that value environmental responsibility. From reusable baggies to durable totes, these items are ideal for trade shows, employee gifts, or client appreciation. Decorate with your logo using screen printing or foil stamping for a polished look that aligns with your green initiatives.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Rume food and beverage products like reusable baggies and totes with logo imprint",
+  "productSkus": [
+    "524196",
+    "528962"
+  ],
+  "generatedAt": "2026-05-31T09:46:41.368237+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

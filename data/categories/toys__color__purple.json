@@ -1,0 +1,30 @@
+{
+  "url": "/cat/toys/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Toys for Branded Giveaways",
+  "metaTitle": "Custom Purple Toys | Perfect Imprints",
+  "metaDescription": "Shop custom purple toys for branded giveaways. Bulk pricing, fast turnaround. Order your personalized promotional toys today!",
+  "introHtml": "<p>Purple toys add a regal touch to your brand’s giveaway strategy. Whether you choose cloud putty, fidget puzzles, or pop-it sensory toys, this color stands out at events and in office breakrooms. Bulk imprinting on purple surfaces works well with screen printing or pad printing, ensuring your logo stays visible. Perfect for safety fairs, HR wellness kits, or marketing swag bags.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple toys including fidget puzzles and pop-it sensory toys with logo imprint for promotional giveaways",
+  "productSkus": [
+    "502874",
+    "508353",
+    "521174",
+    "525855",
+    "527050",
+    "527955",
+    "528234",
+    "528331",
+    "528858",
+    "528859"
+  ],
+  "generatedAt": "2026-05-31T10:12:24.792711+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

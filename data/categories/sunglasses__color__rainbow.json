@@ -1,0 +1,22 @@
+{
+  "url": "/cat/sunglasses/color/rainbow",
+  "type": "facet",
+  "h1": "Custom Rainbow Sunglasses for Bulk Orders",
+  "metaTitle": "Custom Rainbow Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom rainbow sunglasses in bulk at Perfect Imprints. Great for events, pride, and giveaways. Get a quote today!",
+  "introHtml": "<p>Rainbow sunglasses bring instant visibility and a playful, inclusive vibe to any event or campaign. Whether you're planning a pride celebration, summer festival, or corporate giveaway, these bold frames stand out in group photos and on sunny days. Available with one-color imprint on the temple or lens, they offer a low-cost, high-impact way to spread your message. The colorful gradient finish appeals to all ages and makes your logo pop against a bright backdrop.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom rainbow sunglasses with gradient frames and logo imprint on temple for events and giveaways.",
+  "productSkus": [
+    "520335",
+    "524168"
+  ],
+  "generatedAt": "2026-05-31T08:47:05.539954+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

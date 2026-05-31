@@ -1,0 +1,30 @@
+{
+  "url": "/cat/pens/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Pens",
+  "metaTitle": "Custom Made in USA Pens | Perfect Imprints",
+  "metaDescription": "Order custom made in USA pens for your business. Perfect Imprints offers high-quality, American-made promotional pens for bulk orders.",
+  "introHtml": "<p>Choosing custom made in USA pens means supporting American manufacturing while getting a promotional product that meets strict quality standards. Whether you need reliable ballpoints for your sales team or unique shaped pens for a trade show giveaway, domestically produced pens offer faster turnaround times and consistent craftsmanship. Options like the Sharpie S-Gel or Paper Mate Profile Gel provide smooth writing and bold impressions, while novelty shapes like the Key or Star Inkbend pens add personality. Perfect for marketing directors and small business owners who value quality and domestic sourcing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA pens including Sharpie S-Gel and novelty shaped pens for corporate gifts",
+  "productSkus": [
+    "515518 19G",
+    "515521 10A",
+    "515522 17G",
+    "515525 10I",
+    "515526 16B",
+    "515527 60A",
+    "515528 19G",
+    "515532 17G",
+    "525230",
+    "525232"
+  ],
+  "generatedAt": "2026-05-31T09:22:13.347322+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

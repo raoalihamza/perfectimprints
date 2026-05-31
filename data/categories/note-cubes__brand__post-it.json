@@ -1,0 +1,24 @@
+{
+  "url": "/cat/note-cubes/brand/post-it",
+  "type": "facet",
+  "h1": "Custom Post It Note Cubes for Bulk Orders",
+  "metaTitle": "Custom Post It Note Cubes | Perfect Imprints",
+  "metaDescription": "Order custom Post It note cubes in bulk. Ideal for offices, events, and promotions. Get a quote today at PerfectImprints.com.",
+  "introHtml": "<p>Post It brand note cubes are a trusted choice for offices and promotions because their adhesive sheets stick reliably and remove cleanly. Custom printed note cubes keep your message visible throughout the workday, whether used as desk giveaways at trade shows or as everyday reminders for employees. Choose from standard or transparent sheets to match your branding needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom Post It note cubes with colorful sticky notes and company logo printed on top",
+  "productSkus": [
+    "528272",
+    "528273",
+    "528274",
+    "528275"
+  ],
+  "generatedAt": "2026-05-31T09:57:45.598491+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

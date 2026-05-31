@@ -1,0 +1,22 @@
+{
+  "url": "/cat/office/brand/anker",
+  "type": "facet",
+  "h1": "Custom Anker Office Products for Bulk Orders",
+  "metaTitle": "Custom Anker Office Products | Perfect Imprints",
+  "metaDescription": "Order custom Anker office products in bulk. Perfect for employee gifts and client giveaways. Get a quote today.",
+  "introHtml": "<p>Anker office products combine reliable charging technology with sleek design, making them ideal for corporate giveaways and employee welcome kits. The 5000 mAh PowerCore Fusion, for example, doubles as a charger and wall plug, saving desk space. Choose custom Anker office items to show your team or clients you value quality and practicality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Anker office products including branded PowerCore Fusion charger on a desk",
+  "productSkus": [
+    "524364",
+    "527719"
+  ],
+  "generatedAt": "2026-05-31T08:44:34.692377+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

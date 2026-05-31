@@ -1,0 +1,23 @@
+{
+  "url": "/cat/health/material/jersey",
+  "type": "facet",
+  "h1": "Custom Jersey Health Products",
+  "metaTitle": "Custom Jersey Health Products - Perfect Imprints",
+  "metaDescription": "Order custom jersey health products for your team. Perfect for wellness programs, safety incentives, and corporate events. Get a quote today!",
+  "introHtml": "<p>Jersey fabric combines the breathability of cotton with the durability of polyester, making it a smart choice for health-related giveaways. Whether you are outfitting a corporate wellness team with moisture-wicking tank tops or providing soft pullover hoodies for a charity run, jersey keeps recipients comfortable during physical activity. The fabric accepts screen printing and embroidery cleanly, so your logo stays visible through repeated wear. Ordering in bulk from Perfect Imprints ensures consistent color and sizing across your entire group.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom jersey health products including a unisex tank top and pullover hoodie for corporate wellness programs",
+  "productSkus": [
+    "506864",
+    "515733",
+    "527418"
+  ],
+  "generatedAt": "2026-05-31T09:50:38.502001+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

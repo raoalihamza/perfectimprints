@@ -1,0 +1,25 @@
+{
+  "url": "/cat/jotters/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Jotters for Bulk Orders",
+  "metaTitle": "Custom Unisex Jotters | Perfect Imprints",
+  "metaDescription": "Order custom unisex jotters in bulk from Perfect Imprints. Perfect for giveaways, events, and corporate gifts.",
+  "introHtml": "<p>Unisex jotters offer a versatile canvas for your brand, fitting any audience without gender-specific styling. Whether you're equipping a safety team with durable note-taking tools or handing out promotional pads at a trade show, these jotters work for everyone. Choose from options like the Bandana or Jerzees® NuBlend® Hoodie for a cohesive look, or pair them with custom socks for a complete giveaway set. Imprint your logo with screen printing or embroidery for lasting visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom unisex jotters with pen and notepad, ideal for corporate branding and promotional giveaways.",
+  "productSkus": [
+    "505528",
+    "520125",
+    "522251",
+    "524427",
+    "524817"
+  ],
+  "generatedAt": "2026-05-31T08:43:15.470154+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

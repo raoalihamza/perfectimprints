@@ -1,0 +1,28 @@
+{
+  "url": "/cat/apparel/brand/eddie-bauer",
+  "type": "facet",
+  "h1": "Custom Eddie Bauer Apparel for Bulk Orders",
+  "metaTitle": "Custom Eddie Bauer Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Eddie Bauer apparel in bulk for your team or event. Perfect Imprints offers quality embroidery and screen printing.",
+  "introHtml": "<p>Eddie Bauer apparel is built for durability and comfort, making it a reliable choice for corporate uniforms, outdoor events, and employee rewards. From soft shell jackets to microfleece vests, each piece retains its shape and color through repeated wear and washing. Decorate with your logo using embroidery or screen printing for a polished look that stands up to active use. Whether outfitting a sales team or gifting field crews, custom Eddie Bauer apparel combines trusted performance with professional branding.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Eddie Bauer apparel including men's and ladies' soft shell jackets and fleece vests with embroidered logos",
+  "productSkus": [
+    "513811",
+    "513812",
+    "515290",
+    "515291",
+    "522094",
+    "522095",
+    "529196",
+    "529197"
+  ],
+  "generatedAt": "2026-05-31T08:38:41.545242+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

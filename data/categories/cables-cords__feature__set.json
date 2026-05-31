@@ -1,0 +1,24 @@
+{
+  "url": "/cat/cables-cords/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Cables Cords for Bulk Orders",
+  "metaTitle": "Custom Set Cables Cords | Perfect Imprints",
+  "metaDescription": "Order custom set cables cords in bulk. Perfect for corporate gifts and events. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Ordering custom set cables cords means your recipients get a complete charging solution instead of a single loose cord. Sets like the Juice Tech Kit or Ridge Cable Set combine multiple connectors into one organized bundle, making them ideal for corporate welcome kits or trade show swag. Decorate the packaging or included accessories with your logo for a polished, professional look that stands out from standard single-item giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set cables cords with multiple connectors in a bundled kit for corporate gifts",
+  "productSkus": [
+    "515806",
+    "515807",
+    "520452",
+    "526802"
+  ],
+  "generatedAt": "2026-05-31T09:09:36.788161+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,31 @@
+{
+  "url": "/cat/writing/feature/pocketed",
+  "type": "facet",
+  "h1": "Custom Pocketed Writing",
+  "metaTitle": "Custom Pocketed Writing | Perfect Imprints",
+  "metaDescription": "Order custom pocketed writing from Perfect Imprints. Ideal for on-the-go use. Bulk pricing available. Get a quote.",
+  "introHtml": "<p>Pocketed writing instruments are designed for professionals who need a reliable pen or highlighter that clips securely to a shirt pocket or notebook. From the durable Bic Clic Stic to the compact Pocket Highlighter, these pens are built for everyday carry. Choose from stylus options for tablet users or classic ballpoints for signing documents. Custom imprinting with your logo turns a simple tool into a portable brand ambassador.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assortment of custom pocketed writing instruments including pens and highlighters with clips",
+  "productSkus": [
+    "503862",
+    "504592",
+    "510017 91A",
+    "518545",
+    "519622",
+    "522355",
+    "522472",
+    "522986",
+    "523059",
+    "524711",
+    "529283"
+  ],
+  "generatedAt": "2026-05-31T08:38:29.615320+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

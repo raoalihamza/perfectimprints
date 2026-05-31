@@ -1,0 +1,30 @@
+{
+  "url": "/cat/golf/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Golf for Corporate Events",
+  "metaTitle": "Custom Brown Golf | Perfect Imprints",
+  "metaDescription": "Browse custom brown golf gear for your next event. Perfect for corporate outings. Order bulk branded items at Perfect Imprints.",
+  "introHtml": "<p>Brown golf accessories offer a natural, understated look that stands out against the green fairways. From bamboo golf buddies and oval tee carriers to Nike Dri-FIT polos, brown items convey reliability and a grounded brand image. Ideal for corporate outings or client appreciation, these products can be debossed or embroidered with your logo. Choose brown to give your promotional golf gear a classic, outdoorsy feel that resonates with seasoned players.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown golf accessories including a bamboo golf buddy and polo shirt for corporate events",
+  "productSkus": [
+    "505143",
+    "507820",
+    "510186",
+    "510187",
+    "510317",
+    "514871",
+    "515156",
+    "515975",
+    "523540",
+    "528396"
+  ],
+  "generatedAt": "2026-05-31T08:29:12.728925+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

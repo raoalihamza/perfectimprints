@@ -1,0 +1,30 @@
+{
+  "url": "/cat/first-aid-kits/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange First Aid Kits",
+  "metaTitle": "Custom Orange First Aid Kits | Perfect Imprints",
+  "metaDescription": "Order custom orange first aid kits in bulk. High-visibility designs perfect for safety teams. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Orange first aid kits offer high visibility that makes them easy to locate in emergencies, whether on a construction site, in a warehouse, or at an outdoor event. The bright color stands out against most backgrounds, ensuring your safety supplies are always within reach. Customize these kits with your company logo using screen printing or heat transfer for a professional look that reinforces your commitment to workplace safety.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange first aid kits with white cross logo and company branding, displayed on a workbench",
+  "productSkus": [
+    "506806",
+    "510035",
+    "510164",
+    "510551",
+    "510552",
+    "513205",
+    "520182",
+    "521117",
+    "524529",
+    "527565"
+  ],
+  "generatedAt": "2026-05-31T09:45:41.668981+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

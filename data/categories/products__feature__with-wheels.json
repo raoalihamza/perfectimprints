@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/with-wheels",
+  "type": "facet",
+  "h1": "Custom Products with Wheels",
+  "metaTitle": "Custom Products with Wheels | Perfect Imprints",
+  "metaDescription": "Order custom products with wheels for easy transport. Perfect for trade shows, offices, and events. Call Perfect Imprints for a quote.",
+  "introHtml": "<p>Products with wheels make transportation effortless, whether you are moving marketing materials to a trade show or distributing supplies across a warehouse. From rolling coolers and wheeled duffel bags to portable carts and rolling backpacks, these items combine mobility with brand visibility. Decorate them with your logo using screen printing or embroidery for a professional look that travels well. Ideal for companies that need practical giveaways with lasting utility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom products with wheels featuring a branded rolling cooler and logo on the side",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:23:43.482751+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

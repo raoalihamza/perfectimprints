@@ -1,0 +1,22 @@
+{
+  "url": "/cat/candles/material/bamboo",
+  "type": "facet",
+  "h1": "Custom Bamboo Candles",
+  "metaTitle": "Custom Bamboo Candles | Perfect Imprints",
+  "metaDescription": "Order custom bamboo candles for your brand. Eco-friendly soy wax in reusable bamboo vessels. Perfect for corporate gifts.",
+  "introHtml": "<p>Bamboo candles bring a natural, eco-friendly look to corporate gifting that standard glass candles can't match. The bamboo vessel adds a warm, sustainable touch that resonates with environmentally conscious clients and employees. Whether you choose the Santal Candle for a subtle, woody aroma or the Bamboo Soy Candle for a clean burn, these candles make memorable branded gifts for trade shows, client appreciation, or employee recognition programs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom bamboo candles in reusable bamboo vessels with soy wax, ideal for corporate gifts and branding.",
+  "productSkus": [
+    "525181",
+    "526443"
+  ],
+  "generatedAt": "2026-05-31T08:40:31.883472+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

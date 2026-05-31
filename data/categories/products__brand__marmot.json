@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/marmot",
+  "type": "facet",
+  "h1": "Custom Marmot Products for Bulk Orders",
+  "metaTitle": "Custom Marmot Products | Perfect Imprints",
+  "metaDescription": "Order custom Marmot products in bulk from Perfect Imprints. Ideal for corporate gifts, outdoor events, and brand visibility.",
+  "introHtml": "<p>Marmot is known for high-performance outdoor gear, making custom Marmot products a smart choice for brands that value durability and adventure. Whether you need embroidered fleece jackets for a company retreat or printed caps for a field team, Marmot’s trusted name adds perceived value to your giveaway. Perfect for employee rewards, client gifts, or event merchandise that sees real use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Marmot products including embroidered fleece jackets and printed caps for corporate branding.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:23:57.106953+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

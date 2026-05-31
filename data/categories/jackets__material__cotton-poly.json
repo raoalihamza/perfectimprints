@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jackets/material/cotton-poly",
+  "type": "facet",
+  "h1": "Custom Cotton Poly Jackets for Bulk Orders",
+  "metaTitle": "Custom Cotton Poly Jackets | Perfect Imprints",
+  "metaDescription": "Order custom cotton poly jackets for your team or event. Durable, breathable, and perfect for screen printing. Get a quote today!",
+  "introHtml": "<p>Cotton poly jackets combine the softness of cotton with the durability and wrinkle resistance of polyester, making them a practical choice for uniforms, team apparel, or promotional giveaways. The blend holds vibrant screen-printed logos well and withstands repeated washing without fading. Whether you need youth sizes for a school event or adult jackets for a corporate team, these jackets offer comfort and long-lasting performance for any climate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom cotton poly jackets with embroidered logos at an outdoor event",
+  "productSkus": [
+    "523279",
+    "523280"
+  ],
+  "generatedAt": "2026-05-31T08:56:10.033287+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

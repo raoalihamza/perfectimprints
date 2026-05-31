@@ -1,0 +1,23 @@
+{
+  "url": "/cat/earbuds/brand/anker",
+  "type": "facet",
+  "h1": "Custom Anker Earbuds for Bulk Orders",
+  "metaTitle": "Custom Anker Earbuds | Perfect Imprints",
+  "metaDescription": "Order custom Anker earbuds in bulk with your logo. Perfect for corporate gifts and employee incentives. Get a quote today!",
+  "introHtml": "<p>Anker earbuds deliver reliable sound quality and long battery life, making them a practical choice for corporate gifts and employee rewards. When you choose custom Anker earbuds, you get a trusted brand that recipients will use daily, keeping your logo visible. Personalize them with laser engraving or pad printing for a clean, professional look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Anker earbuds in a charging case with a company logo laser engraved on the lid",
+  "productSkus": [
+    "524364",
+    "526549",
+    "527719"
+  ],
+  "generatedAt": "2026-05-31T09:44:12.214968+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

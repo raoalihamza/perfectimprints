@@ -1,0 +1,58 @@
+{
+  "url": "/cat/bowls-plates-trays",
+  "type": "root",
+  "h1": "Custom Bowls, Plates & Trays for Events & Gifts",
+  "metaTitle": "Custom Bowls Plates Trays | Perfect Imprints",
+  "metaDescription": "Order custom bowls, plates & trays for your next event. Perfect for pet owners, outdoor enthusiasts, and corporate gifts. Bulk pricing available.",
+  "introHtml": "<p>Whether you are planning a company picnic, a trade show giveaway, or a pet-friendly community event, custom bowls, plates, and trays make practical and memorable promotional items. Marketing directors appreciate the high visibility of branded pet bowls at dog parks, while HR directors often include collapsible bowls in employee welcome kits for outdoor enthusiasts. Safety managers also find durable, non-breakable plates ideal for break rooms and outdoor safety events.</p><p>Our selection ranges from collapsible silicone pet bowls and stainless steel options to ceramic serving pieces and complete pet accessory kits. Many items feature easy-clean materials, BPA-free construction, and compact designs for travel. Whether you need a small run for a local fundraiser or bulk quantities for a national campaign, we offer customization options including screen printing, laser engraving, and full-color heat transfers to match your brand.</p>",
+  "buyingGuideHtml": "<p>When ordering custom bowls, plates, and trays, start by considering the primary use case. For pet-focused promotions, look for durable, non-toxic materials like BPA-free silicone or stainless steel. Collapsible bowls are great for outdoor events and travel giveaways, while ceramic bowls offer a premium feel for client gifts. For general dining, melamine or bamboo plates provide a lightweight, shatter-resistant option for picnics and break rooms.</p><h3>Materials and Durability</h3><p>Material choice affects both cost and longevity. Silicone bowls are flexible, easy to clean, and dishwasher safe, making them ideal for frequent use. Stainless steel bowls resist rust and are nearly indestructible, perfect for outdoor and industrial settings. Ceramic bowls offer a classic look but require careful handling. For plates and trays, melamine is a popular choice for its durability and weight, while bamboo provides an eco-friendly alternative.</p><h3>Use Cases and Buyer Personas</h3><p>Marketing directors often choose promotional bowls for pet-related events or as part of a branded pet care kit. HR directors might include collapsible bowls in employee wellness packages or outdoor team-building swag. Safety managers can use durable, non-breakable plates in break rooms to reduce injury risk. Business owners looking for customer appreciation gifts often select ceramic bowls or stainless steel options with engraved logos for a lasting impression.</p><h3>Decoration and Customization</h3><p>Customization options vary by material. Silicone bowls accept screen printing and pad printing well, while stainless steel is best suited for laser engraving or debossing. Ceramic bowls can be screen printed or sublimated for full-color designs. For plates and trays, full-color heat transfers work on melamine, and screen printing is common on bamboo. Always request a decoration sample to ensure color accuracy and adhesion, especially on curved surfaces.</p><h3>Quantity and MOQ Guidance</h3><p>Minimum order quantities (MOQs) typically start at 50-100 units for stock items, but custom shapes or colors may require 500+. Bulk orders of 500+ units often reduce per-unit costs significantly. For large campaigns, consider ordering extra to cover future needs. Wholesale pricing is available for quantities over 1,000. Plan for lead times of 2-4 weeks for standard decoration, plus shipping.</p><h3>Common Buying Mistakes</h3><p>One common mistake is ignoring size and capacity. For pet bowls, ensure the volume matches the intended pet size (e.g., small bowls for cats, large for dogs). For plates, consider whether they need to be microwave or dishwasher safe. Another pitfall is choosing a decoration method that wears off quickly; for high-use items like pet bowls, laser engraving or debossing outlasts surface printing. Finally, verify that materials are food-safe and BPA-free, especially for items that will hold hot food or water.</p>",
+  "buyingGuideH2": "Custom Bowls, Plates & Trays Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom bowls?",
+      "a": "Minimum order quantities vary by product. Stock bowls typically start at 50-100 units, while custom shapes or colors may require 500+. Contact us for specific MOQs on your chosen item."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, we offer samples of most products. Sample costs and shipping apply, but we often deduct the sample cost from your first bulk order. Request a sample through your account manager."
+    },
+    {
+      "q": "What decoration methods work best on silicone bowls?",
+      "a": "Silicone bowls accept screen printing and pad printing well. For best durability, use a high-temperature cure process. Laser engraving is also possible on some silicone blends but may have color limitations."
+    },
+    {
+      "q": "Are these bowls and plates microwave safe?",
+      "a": "It depends on the material. Melamine plates are not microwave safe. Silicone bowls and ceramic plates are microwave safe but check product specs. Stainless steel is not microwave safe. Always verify with your sales rep."
+    },
+    {
+      "q": "What is the typical production lead time?",
+      "a": "Standard production lead time is 2-4 weeks after artwork approval. Rush orders may be available for an additional fee. Shipping time depends on your location and chosen carrier."
+    }
+  ],
+  "heroAltText": "Custom bowls, plates and trays with logos including collapsible silicone pet bowls and stainless steel dog bowls for promotional giveaways",
+  "productSkus": [
+    "506366",
+    "506367",
+    "512329",
+    "518465",
+    "519292 90A",
+    "520484",
+    "521770",
+    "524371",
+    "524414",
+    "524415",
+    "527080",
+    "527081",
+    "528202",
+    "528984",
+    "529207",
+    "529534"
+  ],
+  "generatedAt": "2026-05-30T11:44:26.552799+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "use_case",
+  "skuFilterMode": "full",
+  "rawSkuCount": 16,
+  "filteredSkuCount": 16
+}

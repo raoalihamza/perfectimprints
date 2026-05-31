@@ -1,0 +1,28 @@
+{
+  "url": "/cat/toys/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Toys for Bulk Orders",
+  "metaTitle": "Custom Plastic Toys | Perfect Imprints",
+  "metaDescription": "Order custom plastic toys in bulk at Perfect Imprints. Great for giveaways, trade shows, and employee rewards.",
+  "introHtml": "<p>Plastic toys are a budget-friendly way to add fun to any promotion or event. From fidget spinners to puzzle pens, these lightweight items are easy to customize with your logo using pad printing or laser engraving. Marketing directors use them for trade show giveaways, while HR directors pick them for employee appreciation kits. Durable and colorful, custom plastic toys keep your brand top of mind without breaking the budget.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom plastic toys including fidget spinners and puzzle pens with logos",
+  "productSkus": [
+    "509158",
+    "522056",
+    "527060",
+    "527779",
+    "528234",
+    "528331",
+    "528429",
+    "529032"
+  ],
+  "generatedAt": "2026-05-31T08:38:08.944737+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

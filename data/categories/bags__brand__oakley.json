@@ -1,0 +1,23 @@
+{
+  "url": "/cat/bags/brand/oakley",
+  "type": "facet",
+  "h1": "Custom Oakley Bags for Bulk Orders",
+  "metaTitle": "Custom Oakley Bags | Perfect Imprints",
+  "metaDescription": "Order custom Oakley bags in bulk at Perfect Imprints. Perfect for corporate giveaways and employee gifts.",
+  "introHtml": "<p>Oakley bags combine rugged durability with a sporty aesthetic, making them a top choice for companies that want to give their team or clients a bag that lasts. From the spacious Kitchen Sink Backpack to the versatile Messenger Bag, these bags feature Oakley's signature styling and practical organization. Ideal for trade shows, employee milestones, or client appreciation, Oakley bags offer a premium unboxing experience that reflects well on your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Oakley bags including backpacks and messenger bags with logo imprint for corporate branding",
+  "productSkus": [
+    "522669",
+    "523948",
+    "529181"
+  ],
+  "generatedAt": "2026-05-31T08:32:11.694575+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

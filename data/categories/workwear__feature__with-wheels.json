@@ -1,0 +1,21 @@
+{
+  "url": "/cat/workwear/feature/with-wheels",
+  "type": "facet",
+  "h1": "Custom With Wheels Workwear",
+  "metaTitle": "Custom With Wheels Workwear | Perfect Imprints",
+  "metaDescription": "Order custom with wheels workwear for easy mobility. Get branded gear that moves with your team at Perfect Imprints.",
+  "introHtml": "<p>Workwear with wheels is built for professionals who need to keep tools and gear close while staying mobile. Whether it's a wheeled duffel for field technicians or a rolling tool bag for facility managers, these items reduce strain and improve efficiency. Customize with your logo using screen printing or embroidery for a cohesive team look that stands out on the job site.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom with wheels workwear featuring a rolling duffel bag with embroidered logo for mobile professionals.",
+  "productSkus": [
+    "525806"
+  ],
+  "generatedAt": "2026-05-31T10:15:43.965658+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

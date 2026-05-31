@@ -1,0 +1,21 @@
+{
+  "url": "/cat/household/feature/with-handle",
+  "type": "facet",
+  "h1": "Custom Household Items with Handle",
+  "metaTitle": "Custom Household Items with Handle | Perfect Imprints",
+  "metaDescription": "Order custom household items with handle for your business. Perfect for giveaways and employee gifts. Bulk pricing available.",
+  "introHtml": "<p>When you choose custom household items with handle, you get products that are easy to carry and distribute at events or as employee gifts. The handle adds convenience for recipients who are on the go, whether it's a tool kit, a caddy, or a storage bin. Perfect for trade shows or corporate gifting, these items offer practical branding that people use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom with handle household products like a branded zip executive tool kit with sturdy handle for easy carrying.",
+  "productSkus": [
+    "513063"
+  ],
+  "generatedAt": "2026-05-31T09:51:16.711033+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

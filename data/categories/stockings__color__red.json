@@ -1,0 +1,21 @@
+{
+  "url": "/cat/stockings/color/red",
+  "type": "facet",
+  "h1": "Custom Red Stockings for Bulk Orders",
+  "metaTitle": "Custom Red Stockings | Perfect Imprints",
+  "metaDescription": "Order custom red stockings in bulk for your holiday promotions or corporate gifts. Perfect for branding. Get a quote today!",
+  "introHtml": "<p>Red stockings make a bold statement for holiday giveaways, winter events, or employee appreciation gifts. Whether you choose cozy Fuzzy Feet Slipper Socks or classic knit designs, the vibrant red color ensures your logo stands out. Perfect for stuffing with small branded items, these stockings double as memorable promotional products that recipients will use year after year.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red stockings with embroidered logo displayed on a festive background",
+  "productSkus": [
+    "516800"
+  ],
+  "generatedAt": "2026-05-31T09:02:52.182407+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

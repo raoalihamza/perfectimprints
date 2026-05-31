@@ -1,0 +1,33 @@
+{
+  "url": "/cat/balloons/shape/heart",
+  "type": "facet",
+  "h1": "Custom Heart Balloons for Bulk Orders",
+  "metaTitle": "Custom Heart Balloons | Perfect Imprints",
+  "metaDescription": "Order custom heart balloons in bulk for events. Perfect for Valentine's Day, weddings, and promotions. Free quote at Perfect Imprints.",
+  "introHtml": "<p>Heart-shaped balloons add an unmistakable romantic or celebratory touch that standard round balloons can't match. Whether you're planning a Valentine's Day giveaway, a wedding favor, or a breast cancer awareness campaign, custom heart balloons in metallic, latex, or helium-saver XtraLife® materials let you imprint your logo or message on a shape that immediately conveys care. They inflate easily with air or helium and are available in sizes from 9 to 17 inches for versatile display options.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom heart balloons in metallic red and pink with company logo printed on each balloon.",
+  "productSkus": [
+    "518390 30A",
+    "519461",
+    "527576",
+    "527577",
+    "527578",
+    "527579",
+    "527580",
+    "527581",
+    "527582",
+    "527583",
+    "527584",
+    "527585",
+    "527586"
+  ],
+  "generatedAt": "2026-05-31T09:07:04.774914+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

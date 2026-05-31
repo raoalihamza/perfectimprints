@@ -1,0 +1,29 @@
+{
+  "url": "/cat/shot-glasses/brand/corkcicle",
+  "type": "facet",
+  "h1": "Custom Corkcicle Shot Glasses for Bulk Orders",
+  "metaTitle": "Custom Corkcicle Shot Glasses | Perfect Imprints",
+  "metaDescription": "Order custom Corkcicle shot glasses in bulk. Perfect for corporate gifts and events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Corkcicle shot glasses bring the brand's signature triple-insulated construction and premium finish to a compact form. Unlike standard promotional shot glasses, these maintain temperature and resist condensation, making them ideal for trade show giveaways or executive gift sets. Decorate with your logo using laser engraving or screen printing for a polished look that stands up to repeated use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Corkcicle shot glasses with engraved logo, triple-insulated stainless steel",
+  "productSkus": [
+    "524367",
+    "524368",
+    "525223",
+    "525225",
+    "525226",
+    "525791",
+    "526483",
+    "528115",
+    "528116"
+  ],
+  "generatedAt": "2026-05-31T10:06:52.003403+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

@@ -1,0 +1,30 @@
+{
+  "url": "/cat/bbq-grilling/brand/oxo",
+  "type": "facet",
+  "h1": "Custom OXO BBQ Grilling Tools for Bulk Orders",
+  "metaTitle": "Custom OXO BBQ Grilling | Perfect Imprints",
+  "metaDescription": "Order custom OXO BBQ grilling tools in bulk from Perfect Imprints. Ideal for corporate gifts, events, and branded giveaways.",
+  "introHtml": "<p>OXO brings its signature ergonomic design and durable construction to BBQ grilling tools, making them a standout choice for corporate gifts or employee appreciation. Unlike generic grill sets, OXO utensils feature comfortable non-slip handles and precision-engineered heads for better control. Whether you're outfitting a company cookout or sending branded gifts to clients, these tools offer a premium feel that reflects well on your brand. Decorate with a laser engraving on the handle for a clean, lasting logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom OXO BBQ grilling tools including a bamboo BBQ set and stainless steel utensils for bulk branding",
+  "productSkus": [
+    "505176 32E",
+    "505898 02B",
+    "525760",
+    "525763",
+    "525765",
+    "526942",
+    "526943",
+    "526944",
+    "527712",
+    "528136"
+  ],
+  "generatedAt": "2026-05-31T08:39:44.619186+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

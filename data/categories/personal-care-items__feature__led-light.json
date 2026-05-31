@@ -1,0 +1,24 @@
+{
+  "url": "/cat/personal-care-items/feature/led-light",
+  "type": "facet",
+  "h1": "Custom LED Light Personal Care Items",
+  "metaTitle": "Custom LED Light Personal Care Items | Perfect Imprints",
+  "metaDescription": "Order custom LED light personal care items for your team or event. Perfect for giveaways and employee appreciation. Get a quote today!",
+  "introHtml": "<p>LED light personal care items combine practical grooming tools with built-in illumination, making them ideal for trade show giveaways, corporate wellness kits, and employee appreciation gifts. From lighted mirrors for quick touch-ups to rechargeable fans with carabiners for outdoor events, these items offer utility that keeps your brand visible long after the event. Decorate with your logo via pad printing or laser engraving for a polished, professional look that recipients use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom LED light personal care items including a lighted mirror and a rechargeable fan with carabiner",
+  "productSkus": [
+    "527032",
+    "528132",
+    "529298",
+    "529387"
+  ],
+  "generatedAt": "2026-05-31T10:00:33.134935+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,32 @@
+{
+  "url": "/cat/sweaters-cardigans/supplier/va",
+  "type": "facet",
+  "h1": "Custom VA Sweaters & Cardigans for Bulk Orders",
+  "metaTitle": "Custom VA Sweaters Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom VA sweaters and cardigans in bulk from Perfect Imprints. Perfect for corporate gifts, uniforms, and events. Soft CTA.",
+  "introHtml": "<p>VA sweaters and cardigans bring a refined, professional look to your company apparel. Whether you need uniform cardigans for a retail team or branded sweaters for a corporate retreat, these garments offer consistent sizing and versatile styling. Decorate with embroidery or screen printing for a polished finish that lasts through repeated wear. Choose from classic v-necks, cozy cardigans, and modern tunics that make your logo stand out without sacrificing comfort.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom VA sweaters and cardigans for bulk orders, featuring embroidered logos on professional knitwear.",
+  "productSkus": [
+    "520268",
+    "520269",
+    "523604",
+    "526198",
+    "526291",
+    "526292",
+    "527181",
+    "527182",
+    "527833",
+    "527957",
+    "528757",
+    "528758"
+  ],
+  "generatedAt": "2026-05-31T10:09:56.405980+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

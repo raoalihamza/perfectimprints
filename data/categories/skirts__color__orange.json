@@ -1,0 +1,21 @@
+{
+  "url": "/cat/skirts/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Skirts for Bulk Orders",
+  "metaTitle": "Custom Orange Skirts | Perfect Imprints",
+  "metaDescription": "Shop custom orange skirts for uniforms and events. Bulk orders available at PerfectImprints.com.",
+  "introHtml": "<p>Orange skirts offer a vibrant, high-visibility option for corporate uniforms, event staff, or safety-conscious teams. The bright color ensures your crew stands out in crowds or on job sites, while still maintaining a professional appearance. Choose from lightweight performance fabrics for active environments or classic styles for office settings. Add your logo with screen printing or embroidery for a cohesive, branded look that's both functional and eye-catching.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange skirts with embroidered logo for corporate uniforms and events",
+  "productSkus": [
+    "528886"
+  ],
+  "generatedAt": "2026-05-31T10:07:04.028252+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

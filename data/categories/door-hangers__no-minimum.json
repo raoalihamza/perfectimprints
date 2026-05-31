@@ -1,0 +1,21 @@
+{
+  "url": "/cat/door-hangers/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Door Hangers",
+  "metaTitle": "No-Minimum Custom Door Hangers | Perfect Imprints",
+  "metaDescription": "Order small quantities of custom door hangers with no minimums. Ideal for small businesses, events, and samples. Get started at Perfect Imprints.",
+  "introHtml": "<p>No-minimum custom door hangers let you order exactly the quantity you need—whether it's 10, 25, or 100—without being forced into bulk pricing. Small businesses, startups, and local events often require just a handful of door hangers for a targeted campaign. With our low MOQ flexibility, you can test designs, run limited-time promotions, or equip a small sales team without overcommitting inventory or budget. Per-unit pricing remains competitive even at low volumes, making this an accessible option for any organization.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of no-minimum custom door hangers featuring a full-color design on sturdy cardstock, ideal for small orders and local promotions.",
+  "productSkus": [
+    "503106 91A"
+  ],
+  "generatedAt": "2026-05-31T09:11:50.931930+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

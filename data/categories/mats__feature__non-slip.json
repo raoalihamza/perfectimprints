@@ -1,0 +1,22 @@
+{
+  "url": "/cat/mats/feature/non-slip",
+  "type": "facet",
+  "h1": "Custom Non Slip Mats for Bulk Orders",
+  "metaTitle": "Custom Non Slip Mats | Perfect Imprints",
+  "metaDescription": "Order custom non slip mats for your business. Perfect for high-traffic areas. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Non slip mats reduce workplace accidents and keep your brand visible in entryways, lobbies, and industrial areas. Whether you need indoor floor mats with square corners or custom-printed rugs for trade shows, the non slip backing ensures safety without sacrificing design. Choose from carpet or rubber options, add your logo, and improve traction in busy spaces.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom non slip mats with square corners and non slip backing for commercial use",
+  "productSkus": [
+    "515939 90A",
+    "526438"
+  ],
+  "generatedAt": "2026-05-31T09:19:16.186904+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

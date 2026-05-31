@@ -1,0 +1,31 @@
+{
+  "url": "/cat/visors/style/trucker",
+  "type": "facet",
+  "h1": "Custom Trucker Visors for Bulk Orders",
+  "metaTitle": "Custom Trucker Visors | Perfect Imprints",
+  "metaDescription": "Order custom trucker visors with your logo. Perfect for outdoor events and teams. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Trucker visors combine the classic mesh back and foam front of a trucker hat with an open-top design for maximum breathability. Ideal for outdoor events, sports teams, or construction crews, these visors keep the sun off your face while letting heat escape. Choose from structured or unstructured fronts, and decorate with embroidery or screen printing for a crisp logo that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom trucker visor with embroidered logo on foam front, mesh back, and adjustable snapback closure",
+  "productSkus": [
+    "516928",
+    "521617",
+    "522099",
+    "522530",
+    "522602",
+    "522624",
+    "522625",
+    "522627",
+    "522628",
+    "522635",
+    "527682"
+  ],
+  "generatedAt": "2026-05-31T10:13:35.530542+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

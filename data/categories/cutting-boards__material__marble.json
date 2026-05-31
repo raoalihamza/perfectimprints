@@ -1,0 +1,23 @@
+{
+  "url": "/cat/cutting-boards/material/marble",
+  "type": "facet",
+  "h1": "Custom Marble Cutting Boards",
+  "metaTitle": "Custom Marble Cutting Boards | Perfect Imprints",
+  "metaDescription": "Order custom marble cutting boards for your brand. Durable, elegant surfaces perfect for corporate gifts or events. Get a quote today.",
+  "introHtml": "<p>Marble cutting boards offer a sophisticated surface that resists heat and knife marks, making them ideal for serving cheeses, charcuterie, or appetizers at corporate events. Unlike wood, marble stays cool and provides a smooth, non-porous surface when sealed properly. Customize with your logo through etching or engraving for a premium branded gift that stands out in any kitchen or office gathering.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom marble cutting boards with engraved logo, elegant white marble surface with bamboo edge for corporate gifting",
+  "productSkus": [
+    "526141",
+    "526504",
+    "526752"
+  ],
+  "generatedAt": "2026-05-31T08:33:25.116552+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

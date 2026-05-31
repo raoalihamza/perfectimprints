@@ -1,0 +1,22 @@
+{
+  "url": "/cat/stationery/theme/celebrations",
+  "type": "facet",
+  "h1": "Custom Celebrations Stationery for Bulk Orders",
+  "metaTitle": "Custom Celebrations Stationery | Perfect Imprints",
+  "metaDescription": "Order custom celebrations stationery in bulk at Perfect Imprints. Perfect for birthdays, anniversaries, and company milestones.",
+  "introHtml": "<p>Celebrations stationery lets you mark birthdays, work anniversaries, and company milestones with a personal touch. Unlike standard note cards, these designs incorporate festive themes and interactive elements like the InstaCake Birthday Cake in a Card that pops open to reveal a miniature cake. Choose from foil stamping or full-color digital printing to add your logo and a personalized message. They are a memorable alternative to a generic e-card or a store-bought card, and they show employees and clients that you took the time to celebrate them individually.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom celebrations stationery with pop-up cake design and foil-stamped logo for bulk corporate orders",
+  "productSkus": [
+    "525800",
+    "525801"
+  ],
+  "generatedAt": "2026-05-31T10:08:47.033085+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/personal-care-items/feature/with-handle",
+  "type": "facet",
+  "h1": "Custom Personal Care Items with Handle",
+  "metaTitle": "Custom Personal Care Items with Handle - Perfect Imprints",
+  "metaDescription": "Order custom personal care items with handle for your team. Perfect for giveaways, travel kits, and bulk branding. Get a quote today!",
+  "introHtml": "<p>Personal care items with handles offer practical portability for your branded giveaways. Whether you are assembling hygiene kits for trade shows or employee wellness packages, a sturdy handle makes distribution and daily use more convenient. Products like the Ike™ Tote or 22\" Elite Travel Duffle combine storage with easy carrying, while the Power Clip Jumbo adds a hanging option. These items keep your logo visible and your recipients organized.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom personal care items with handle including tote bags and duffles for branded giveaways",
+  "productSkus": [
+    "501030",
+    "521018",
+    "527548"
+  ],
+  "generatedAt": "2026-05-31T09:22:22.089987+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

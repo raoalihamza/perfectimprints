@@ -1,0 +1,22 @@
+{
+  "url": "/cat/stationery/brand/rite-in-the-rain",
+  "type": "facet",
+  "h1": "Custom Rite in the Rain Stationery",
+  "metaTitle": "Custom Rite in the Rain Stationery | Perfect Imprints",
+  "metaDescription": "Order custom Rite in the Rain stationery for outdoor professionals. All-weather notebooks and pads with your logo. Bulk pricing available.",
+  "introHtml": "<p>Rite in the Rain stationery is engineered for harsh environments where standard paper fails. Whether you're equipping field crews, safety inspectors, or outdoor enthusiasts, these all-weather notebooks resist water, sweat, and mud without smudging your logo. Choose top-spiral or notepad formats and imprint your brand with a durable one-color deboss or screen print that lasts as long as the paper. Perfect for construction sites, utility crews, or anyone who works in the elements.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Rite in the Rain stationery with all-weather paper and spiral binding, imprinted with corporate logo",
+  "productSkus": [
+    "526713",
+    "526714"
+  ],
+  "generatedAt": "2026-05-31T09:26:42.453624+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

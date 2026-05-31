@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/hallscompany",
+  "type": "facet",
+  "h1": "Custom HallsCompany Products for Bulk Orders",
+  "metaTitle": "Custom HallsCompany Products | Perfect Imprints",
+  "metaDescription": "Shop custom HallsCompany products for bulk orders. Perfect for corporate gifts, events, and branding. Get a quote today.",
+  "introHtml": "<p>HallsCompany products combine quality construction with practical designs, making them a smart choice for corporate gifts, trade show giveaways, and employee recognition. Whether you need custom notebooks, bags, or drinkware, HallsCompany offers a reliable foundation for your logo. Decorate with screen printing, embroidery, or laser engraving to create a polished look that represents your brand well.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom HallsCompany products including notebooks and bags with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:04:20.362340+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

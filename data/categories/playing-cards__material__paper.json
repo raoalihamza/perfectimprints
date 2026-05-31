@@ -1,0 +1,29 @@
+{
+  "url": "/cat/playing-cards/material/paper",
+  "type": "facet",
+  "h1": "Custom Paper Playing Cards for Bulk Orders",
+  "metaTitle": "Custom Paper Playing Cards | Perfect Imprints",
+  "metaDescription": "Order custom paper playing cards in bulk for your brand. Perfect for giveaways, events, and client gifts. Get a quote today.",
+  "introHtml": "<p>Paper playing cards offer a classic feel and a cost-effective way to put your brand in people's hands. Unlike plastic-coated cards, paper cards are easy to customize with full-color printing on both sides, making them ideal for promotional giveaways, event favors, or corporate gifts. Choose from standard finishes or themed designs like vintage wood or poker night to match your campaign. Perfect for trade shows, customer appreciation, or employee engagement.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom paper playing cards with full-color branding, displayed in a fan spread on a table.",
+  "productSkus": [
+    "524494",
+    "524496",
+    "526561",
+    "526562",
+    "526831",
+    "526832",
+    "526833",
+    "526834",
+    "526835"
+  ],
+  "generatedAt": "2026-05-31T10:02:28.811018+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

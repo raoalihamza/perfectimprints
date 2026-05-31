@@ -1,0 +1,81 @@
+{
+  "url": "/cat/camping-outdoor",
+  "type": "root",
+  "h1": "Custom Camping Outdoor Gear for Events & Promotions",
+  "metaTitle": "Custom Camping Outdoor Promos | Perfect Imprints",
+  "metaDescription": "Browse custom camping outdoor gear at Perfect Imprints. Great for trade shows, employee gifts, and events. Order bulk today!",
+  "introHtml": "<p>Marketing directors planning summer giveaways, HR directors assembling employee appreciation kits, and safety managers outfitting field teams all need durable, functional promotional items that hold up outdoors. Custom camping outdoor gear fits the bill: portable fans, flyers, and accessories that keep people cool, informed, and engaged at job sites, festivals, and corporate retreats. Whether you’re stocking a company picnic or handing out swag at a trade show, these items offer high visibility in real-world conditions.</p><p>From compact hand fans that beat the heat to colorful flyers that grab attention, the category includes a range of printed essentials. Products like the Twist-n-Chill Fan and Rally Fan combine utility with branding space, while value flyers and confetti flyers add a festive touch to any event. Ordering in bulk keeps unit costs low, and customization options let you match your logo, event theme, or safety messaging exactly. Perfect for field days, outdoor expos, and customer thank-you gifts.</p>",
+  "buyingGuideHtml": "<h3>What to Look for in Custom Camping Outdoor Gear</h3><p>When ordering custom camping outdoor items, focus on durability and portability. Products like the 9\" Flyer and Emoji Hand Fan should be made from sturdy paper or plastic that won’t tear after a few uses. Look for reinforced handles on fans and smooth edges on flyers to ensure they withstand outdoor handling. Materials should be lightweight for easy transport at events or in field kits.</p><p>Common use cases include corporate picnics, safety training days, and trade show giveaways. Marketing directors often choose promotional camping outdoor fans for summer events, while HR directors use branded flyers in onboarding packets. Safety managers appreciate items like the Star Clip Magnet for holding checklists on metal surfaces. Business owners find these products effective for customer appreciation gifts at outdoor festivals.</p><p>Decoration options vary by item. Screen printing works well on flat fan surfaces, while full-color heat transfer produces vivid images on flyers. For a premium feel, consider personalized camping outdoor fans with custom shapes like the Circle Hand Fan or Square Hand Fan. Embroidery isn’t typical for this category, but pad printing can add fine details to small areas like magnet faces.</p><p>Quantity guidance matters for pricing. Bulk camping outdoor orders of 500+ units typically lower per-item costs significantly. For smaller runs (100–250 units), choose simple designs with one or two colors to keep setup fees low. Wholesale camping outdoor pricing becomes available at higher volumes, so plan ahead for large events or annual campaigns.</p><p>Common buying mistakes include ignoring size and weight. A 5\" Mini Flyer might get lost in a crowded event bag, while an oversized fan could be cumbersome. Always request a sample to check print alignment and material feel. Also, verify lead times: custom-printed fans and flyers often require 10–15 business days for production plus shipping.</p><p>Finally, consider the environment. Logo camping outdoor gear that is reusable (like fans) offers longer brand exposure than single-use flyers. Pairing a branded fan with a small flyer creates a coordinated giveaway set. For safety programs, include clear instructions on the item itself, such as heat safety tips on a fan. These details make your promotional camping outdoor items more useful and memorable.</p>",
+  "buyingGuideH2": "Custom Camping Outdoor Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom fans?",
+      "a": "Minimum order quantities vary by product, but typically start at 100 units for simple fans like the 9\" Value Flyer. Custom shapes or multicolor prints may require 250+ units. Contact our team for exact MOQs on specific items."
+    },
+    {
+      "q": "Can I print my logo on both sides of a fan?",
+      "a": "Yes, most fans and flyers in this category allow double-sided printing at no extra setup cost. This increases brand visibility, especially for items like the Rally Fan or Twist-n-Chill Fan that are used in crowds."
+    },
+    {
+      "q": "What is the typical production lead time?",
+      "a": "Standard production takes 10–15 business days after artwork approval. Rush orders may be available for an additional fee. Shipping time depends on your location and chosen carrier."
+    },
+    {
+      "q": "Are samples available before placing a bulk order?",
+      "a": "Yes, we offer pre-production samples for most items. You can request a sample of the blank product or a printed proof to verify size, material, and print quality before committing to a large run."
+    },
+    {
+      "q": "What materials are used for the hand fans?",
+      "a": "Hand fans are typically made from durable cardstock or plastic with a bamboo or plastic handle. Paper flyers are printed on glossy or matte stock. All materials are chosen for outdoor durability and lightweight portability."
+    }
+  ],
+  "heroAltText": "Custom camping outdoor gear including branded hand fans and flyers for events and promotions",
+  "productSkus": [
+    "501943",
+    "502358",
+    "502745 10B",
+    "502894",
+    "502895",
+    "502895 1BI",
+    "503089",
+    "504299",
+    "504376",
+    "506530",
+    "507496",
+    "507687",
+    "507782",
+    "508709 90A",
+    "508710 90A",
+    "510729",
+    "510731",
+    "510732",
+    "511520 90A",
+    "512550",
+    "513209",
+    "517241",
+    "517555 97H",
+    "517556 97H",
+    "517557 97H",
+    "517585 90A",
+    "517640 90A",
+    "517652 90A",
+    "518166",
+    "521058",
+    "521642",
+    "523471",
+    "523727",
+    "527151",
+    "528197",
+    "528330",
+    "528896",
+    "529031",
+    "529058"
+  ],
+  "generatedAt": "2026-05-30T11:50:37.374288+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "use_case",
+  "skuFilterMode": "full",
+  "rawSkuCount": 39,
+  "filteredSkuCount": 39
+}

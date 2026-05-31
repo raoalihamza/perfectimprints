@@ -1,0 +1,19 @@
+{
+  "url": "/cat/shampoo/type/box",
+  "type": "facet",
+  "h1": "Custom Box Shampoo for Bulk Orders",
+  "metaTitle": "Custom Box Shampoo | Perfect Imprints",
+  "metaDescription": "Order custom box shampoo for your business. Perfect for hotels, gyms, and events. Get a quote today!",
+  "introHtml": "<p>Box shampoo offers a practical, single-use solution for hotels, gyms, and corporate events. Unlike bottled shampoo, these individual packets reduce waste and are easy to distribute. Customize each box with your logo using flexographic printing for a clean, professional look. Ideal for guest amenities or promotional giveaways, box shampoo ensures your brand is part of a convenient, everyday experience.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom box shampoo packets with a brand logo, displayed in an open box for promotional use.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:25:43.746378+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,28 @@
+{
+  "url": "/cat/dress-shirts/color/green",
+  "type": "facet",
+  "h1": "Custom Green Dress Shirts for Bulk Orders",
+  "metaTitle": "Custom Green Dress Shirts | Perfect Imprints",
+  "metaDescription": "Order custom green dress shirts in bulk for your team. Perfect for uniforms or events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Green dress shirts offer a professional yet distinctive look for your team. Whether you choose a classic Oxford or a performance twill, green stands out from standard white or blue. These shirts pair well with khaki or navy bottoms and work for trade shows, retail uniforms, or office attire. Add your logo with embroidery or screen printing for a polished finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green dress shirts for men and women, perfect for corporate uniforms with embroidered logos.",
+  "productSkus": [
+    "517273",
+    "517274",
+    "519011",
+    "519684",
+    "519685",
+    "520266",
+    "524313",
+    "526291"
+  ],
+  "generatedAt": "2026-05-31T09:43:16.439295+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

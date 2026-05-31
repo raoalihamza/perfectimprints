@@ -1,0 +1,27 @@
+{
+  "url": "/cat/folding-chairs/color/green",
+  "type": "facet",
+  "h1": "Custom Green Folding Chairs",
+  "metaTitle": "Custom Green Folding Chairs | Perfect Imprints",
+  "metaDescription": "Order custom green folding chairs for your next event. Perfect for outdoor branding. Get a quote from Perfect Imprints.",
+  "introHtml": "<p>Green folding chairs offer a versatile branding option for outdoor events, corporate picnics, and trade shows. The color green conveys growth and sustainability, making it an ideal choice for eco-conscious companies or springtime giveaways. Whether you choose a classic folding chair with carrying bag for easy transport or a cooler chair for tailgating, green stands out in a crowd. Decorate with screen printing or embroidery for a professional look that aligns with your brand identity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green folding chairs with carrying bags for outdoor events and corporate branding",
+  "productSkus": [
+    "505166",
+    "505894",
+    "511015",
+    "512246",
+    "520195",
+    "522742",
+    "522743"
+  ],
+  "generatedAt": "2026-05-31T09:46:31.743494+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

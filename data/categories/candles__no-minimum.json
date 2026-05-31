@@ -1,0 +1,26 @@
+{
+  "url": "/cat/candles/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Candles for Small Orders",
+  "metaTitle": "No-Minimum Custom Candles | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom candles with no bulk requirements. Perfect for small teams, events, and gifts. Get a quick quote at Perfect Imprints.",
+  "introHtml": "<p>Not every promotional need requires a bulk order. Our no-minimum custom candles let you order as few as one or two units, making them ideal for small businesses, startups, team gifts, or sample runs. Choose from premium options like the Yankee Candle® 3-Wick Candle or the Modern Sprout® Rooted Candle, and add your logo without the pressure of large quantities. Enjoy per-unit pricing that works for small budgets and fast turnaround on low-volume orders.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A collection of no-minimum custom candles including a Yankee Candle 3-Wick Candle and a Modern Sprout Rooted Candle with logo imprint",
+  "productSkus": [
+    "521842",
+    "526492",
+    "527052",
+    "528964",
+    "529023",
+    "529024"
+  ],
+  "generatedAt": "2026-05-31T08:51:38.589430+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

@@ -1,0 +1,28 @@
+{
+  "url": "/cat/bumper-stickers/search",
+  "type": "modifier",
+  "h1": "Custom Bumper Stickers for Branded Promotions",
+  "metaTitle": "Custom Bumper Stickers | Perfect Imprints",
+  "metaDescription": "Browse our wide selection of custom bumper stickers for your next promotion. Perfect for businesses, events, and more. Start your order today!",
+  "introHtml": "<p>Custom bumper stickers are a versatile and cost-effective way to put your brand in front of a wide audience. Whether you are a marketing director planning a campaign, a safety manager promoting awareness, or a small business owner looking for affordable advertising, our extensive collection offers designs and materials to suit any need. From classic vinyl stickers to reflective options, find the perfect fit for your message and start making an impact on the road.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of colorful custom bumper stickers featuring various designs and logos, ideal for promotional campaigns and brand awareness.",
+  "productSkus": [
+    "503360",
+    "503362 85T",
+    "503396",
+    "506951",
+    "513338",
+    "517502 53P",
+    "520715",
+    "521967"
+  ],
+  "generatedAt": "2026-05-31T09:38:23.366894+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

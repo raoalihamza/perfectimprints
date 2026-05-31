@@ -1,0 +1,29 @@
+{
+  "url": "/cat/outerwear/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Outerwear for Teams & Events",
+  "metaTitle": "Custom Set Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom set outerwear for your team or event. Perfect for corporate uniforms and group branding. Get a quote today!",
+  "introHtml": "<p>Ordering custom outerwear as a set ensures your team looks unified and professional, whether you choose matching hybrid jackets or coordinating fleece pullovers. Sets simplify ordering and guarantee consistent branding across sizes and styles. Perfect for corporate uniforms, event staff, or safety crews who need reliable layering options from trusted brands like The North Face.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set outerwear featuring matching men's and women's hybrid jackets and fleece pullovers for team branding",
+  "productSkus": [
+    "525738",
+    "525739",
+    "528167",
+    "528168",
+    "529016",
+    "529017",
+    "529190",
+    "529191",
+    "529245"
+  ],
+  "generatedAt": "2026-05-31T09:59:10.382086+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

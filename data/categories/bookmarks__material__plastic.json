@@ -1,0 +1,22 @@
+{
+  "url": "/cat/bookmarks/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Bookmarks",
+  "metaTitle": "Custom Plastic Bookmarks | Perfect Imprints",
+  "metaDescription": "Order custom plastic bookmarks in bulk. Durable, colorful, and printed with your logo. Perfect for libraries, schools, and events.",
+  "introHtml": "<p>Plastic bookmarks offer durability and vibrant color that paper simply cannot match. They resist bending, tearing, and moisture, making them ideal for frequent use in libraries, schools, and corporate reading programs. Choose from clear or opaque plastic, and add your full-color logo or design with offset or screen printing. For a practical giveaway that keeps your brand in sight, custom plastic bookmarks are a long-lasting choice.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom plastic bookmarks with printed logo in bright colors, durable and glossy finish",
+  "productSkus": [
+    "527786",
+    "527787"
+  ],
+  "generatedAt": "2026-05-31T08:40:08.723376+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

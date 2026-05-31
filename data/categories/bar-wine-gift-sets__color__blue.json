@@ -1,0 +1,27 @@
+{
+  "url": "/cat/bar-wine-gift-sets/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Bar & Wine Gift Sets",
+  "metaTitle": "Custom Blue Bar Wine Gift Sets | Perfect Imprints",
+  "metaDescription": "Shop custom blue bar wine gift sets for corporate gifts. Perfect for client appreciation, employee rewards, and events. Bulk orders available.",
+  "introHtml": "<p>Blue bar and wine gift sets offer a polished, cohesive look for corporate gifting. Whether you choose the deep navy of the Urban Peak Gift Set or the soft blue of the Napa Stemless Wine Tumbler Set, blue conveys trust and sophistication. These sets are ideal for client appreciation, employee milestones, or event favors. Personalize with company logos via screen printing or etching for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue bar wine gift sets with corporate logos, including tumblers and accessories",
+  "productSkus": [
+    "512596",
+    "519672",
+    "522098",
+    "523898",
+    "523950",
+    "526748",
+    "527285"
+  ],
+  "generatedAt": "2026-05-31T09:07:28.602913+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

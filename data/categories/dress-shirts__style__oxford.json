@@ -1,0 +1,25 @@
+{
+  "url": "/cat/dress-shirts/style/oxford",
+  "type": "facet",
+  "h1": "Custom Oxford Dress Shirts for Your Team",
+  "metaTitle": "Custom Oxford Dress Shirts | Perfect Imprints",
+  "metaDescription": "Order custom oxford dress shirts in bulk. Classic style with embroidery options. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Oxford dress shirts offer a timeless blend of durability and professional style, making them a favorite for corporate uniforms, trade show attire, and team apparel. The classic oxford weave resists wrinkles and holds up to frequent wear, while the button-down collar provides a polished yet approachable look. Whether you need custom embroidery for company logos or screen-printed branding, these shirts provide a crisp canvas that works across industries from hospitality to construction management.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom oxford dress shirts for men and women with embroidered logos, featuring button-down collars and classic oxford weave.",
+  "productSkus": [
+    "513879",
+    "513880",
+    "519684",
+    "519685",
+    "526629"
+  ],
+  "generatedAt": "2026-05-31T08:22:06.678418+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

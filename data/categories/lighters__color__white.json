@@ -1,0 +1,25 @@
+{
+  "url": "/cat/lighters/color/white",
+  "type": "facet",
+  "h1": "Custom White Lighters for Bulk Orders",
+  "metaTitle": "Custom White Lighters | Perfect Imprints",
+  "metaDescription": "Order custom white lighters in bulk from Perfect Imprints. Ideal for promotions, events, and giveaways. Get your free quote today!",
+  "introHtml": "<p>White lighters offer a clean, minimalist canvas for your brand logo or message, making them a popular choice for corporate events, trade shows, and promotional giveaways. Unlike darker colors, white allows for vibrant full-color digital printing that stands out. Whether you need a simple one-color imprint or a detailed design, white lighters provide high contrast and visibility. Perfect for safety managers distributing lighters as safety reminders or marketing directors looking for a sleek, modern giveaway item.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom white lighters with full-color digital printing, perfect for promotional giveaways and events.",
+  "productSkus": [
+    "510017 91A",
+    "512257 90A",
+    "521175",
+    "526804",
+    "527952"
+  ],
+  "generatedAt": "2026-05-31T09:54:35.248446+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

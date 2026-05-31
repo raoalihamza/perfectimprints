@@ -1,0 +1,31 @@
+{
+  "url": "/cat/kitchen-utensils/supplier/debco",
+  "type": "facet",
+  "h1": "Custom Debco Kitchen Utensils for Bulk Orders",
+  "metaTitle": "Custom Debco Kitchen Utensils | Perfect Imprints",
+  "metaDescription": "Order custom Debco kitchen utensils in bulk. Perfect for eco-friendly branding. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Debco kitchen utensils combine durable materials like bamboo fiber and stainless steel with practical designs for everyday use. Whether you need reusable cutlery sets for employee breakrooms or branded utensil kits for company picnics, Debco offers reliable options that hold up to frequent use. Many sets include travel pouches or carabiners for portability, making them ideal for on-the-go teams. Custom imprinting on the handles or pouches keeps your logo visible wherever they go.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Debco kitchen utensils including bamboo cutlery set and stainless steel travel utensil kit with logo imprint",
+  "productSkus": [
+    "512001",
+    "512260",
+    "513068",
+    "523884",
+    "523887",
+    "524089",
+    "525537",
+    "525701",
+    "526594",
+    "527100",
+    "527345"
+  ],
+  "generatedAt": "2026-05-31T09:53:20.036366+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

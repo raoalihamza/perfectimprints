@@ -1,0 +1,27 @@
+{
+  "url": "/cat/sweatshirts/brand/dri-duck",
+  "type": "facet",
+  "h1": "Custom Dri Duck Sweatshirts for Bulk Orders",
+  "metaTitle": "Custom Dri Duck Sweatshirts | Perfect Imprints",
+  "metaDescription": "Shop custom Dri Duck sweatshirts for your team or event. Durable, comfortable, and ready for decoration. Order bulk at Perfect Imprints.",
+  "introHtml": "<p>Dri Duck sweatshirts combine rugged durability with all-day comfort, making them a top choice for companies that need work-ready apparel. Unlike standard fleece, these sweatshirts resist pilling and hold up to frequent washing, which matters when you're ordering for a crew that puts their gear to the test. Whether you're outfitting a construction team or a warehouse staff, the heavy-weight fabric and reinforced stitching keep your logo looking sharp season after season. Add screen printing or embroidery for a polished, professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Dri Duck sweatshirts for bulk orders with embroidery on front chest",
+  "productSkus": [
+    "522595",
+    "527125",
+    "527126",
+    "528099",
+    "528100",
+    "528838",
+    "529182"
+  ],
+  "generatedAt": "2026-05-31T10:10:01.859686+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

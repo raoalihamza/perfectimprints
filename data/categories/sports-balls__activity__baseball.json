@@ -1,0 +1,21 @@
+{
+  "url": "/cat/sports-balls/activity/baseball",
+  "type": "facet",
+  "h1": "Custom Baseball Sports Balls",
+  "metaTitle": "Custom Baseball Sports Balls - Perfect Imprints",
+  "metaDescription": "Order custom baseball sports balls for your team or event. Bulk pricing, fast turnaround. Get a quote today.",
+  "introHtml": "<p>Custom baseball sports balls offer a unique way to promote your brand or commemorate a special event. Unlike generic sports balls, baseballs provide a classic, timeless feel that resonates with athletes and fans alike. Perfect for corporate team-building events, charity tournaments, or giveaways, these balls can be customized with your logo or message using screen printing or debossing. Made from durable materials, they hold up to repeated use while keeping your brand front and center.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom baseball sports balls with printed logo, ideal for promotional events and team giveaways.",
+  "productSkus": [
+    "506530"
+  ],
+  "generatedAt": "2026-05-31T08:31:06.537548+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

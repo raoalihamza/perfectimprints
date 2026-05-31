@@ -1,0 +1,23 @@
+{
+  "url": "/cat/belt-buckles/feature/adjustable",
+  "type": "facet",
+  "h1": "Custom Adjustable Belt Buckles",
+  "metaTitle": "Custom Adjustable Belt Buckles | Perfect Imprints",
+  "metaDescription": "Order custom adjustable belt buckles for your team or event. Perfect for trade shows and uniforms. Bulk pricing available.",
+  "introHtml": "<p>Custom adjustable belt buckles offer a practical fit for any waist size, making them ideal for promotional events, uniform programs, and corporate giveaways. Unlike fixed-size buckles, adjustable versions accommodate a range of body types without sacrificing comfort. Decorate with your logo using screen printing or laser engraving for a polished look. Whether you are outfitting a trade show team or rewarding employees, these buckles provide a versatile, branded accessory that recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adjustable belt buckles with engraved logo on a fabric belt, ideal for promotional giveaways and corporate uniforms.",
+  "productSkus": [
+    "514432",
+    "514433",
+    "519201"
+  ],
+  "generatedAt": "2026-05-31T09:37:01.181196+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/apparel-accessories/activity/camping",
+  "type": "facet",
+  "h1": "Custom Camping Apparel Accessories",
+  "metaTitle": "Custom Camping Apparel Accessories | Perfect Imprints",
+  "metaDescription": "Order custom camping apparel accessories for your team or event. Perfect for outdoor enthusiasts. Get a quote today.",
+  "introHtml": "<p>Custom camping apparel accessories combine practicality with brand visibility for outdoor enthusiasts. Paracord bracelets, floating sunglass straps, and running belt fanny packs are popular choices for trade shows, company outings, and employee gifts. These items are designed to withstand the elements while keeping your logo front and center. Decorate with screen printing or embroidery for a durable finish that lasts through many adventures.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom camping apparel accessories including paracord bracelets and floating sunglass straps with logos",
+  "productSkus": [
+    "516655",
+    "516800",
+    "519201",
+    "520684"
+  ],
+  "generatedAt": "2026-05-31T09:31:42.985474+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

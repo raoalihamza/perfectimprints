@@ -1,0 +1,24 @@
+{
+  "url": "/cat/dress-shirts/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Dress Shirts",
+  "metaTitle": "Custom Recycled Dress Shirts | Perfect Imprints",
+  "metaDescription": "Order custom recycled dress shirts for your team. Eco-friendly fabric, professional style. Bulk pricing available.",
+  "introHtml": "<p>Recycled dress shirts let your team look sharp while reducing environmental impact. Made from post-consumer plastic bottles or reclaimed fibers, these shirts offer the same crisp, professional appearance as traditional options. Perfect for uniform programs, trade shows, or company stores, they can be embroidered with your logo or screen-printed for a polished finish. Choose from styles like the Men's Elemental Coffee Shirt or Women's Elemental Coffee Shirt for a sustainable upgrade to your corporate apparel.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled dress shirts in eco-friendly fabric with embroidered logo, perfect for corporate uniforms.",
+  "productSkus": [
+    "526247",
+    "527304",
+    "527305",
+    "527895"
+  ],
+  "generatedAt": "2026-05-31T09:12:03.371316+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

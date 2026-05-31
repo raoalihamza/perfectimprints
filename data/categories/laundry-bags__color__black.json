@@ -1,0 +1,29 @@
+{
+  "url": "/cat/laundry-bags/color/black",
+  "type": "facet",
+  "h1": "Custom Black Laundry Bags",
+  "metaTitle": "Custom Black Laundry Bags | Perfect Imprints",
+  "metaDescription": "Order custom black laundry bags with your logo. Perfect for gyms, hotels, and corporate events. Fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>Black laundry bags offer a sleek, professional look that hides dirt and wear better than lighter colors. Whether you need waterproof dry bags for outdoor promotions or mesh wet/dry bags for corporate gym facilities, black provides a versatile canvas for screen-printed or embroidered logos. These bags are ideal for hospitality, fitness centers, and field service kits where durability and a uniform appearance matter.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black laundry bags with logo, featuring a waterproof dry bag and a mesh wet/dry bag",
+  "productSkus": [
+    "520673",
+    "520888",
+    "521607",
+    "522058",
+    "522326",
+    "522543",
+    "523502",
+    "525813",
+    "528445"
+  ],
+  "generatedAt": "2026-05-31T09:54:18.814390+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

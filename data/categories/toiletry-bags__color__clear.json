@@ -1,0 +1,26 @@
+{
+  "url": "/cat/toiletry-bags/color/clear",
+  "type": "facet",
+  "h1": "Custom Clear Toiletry Bags",
+  "metaTitle": "Custom Clear Toiletry Bags | Perfect Imprints",
+  "metaDescription": "Shop custom clear toiletry bags for bulk orders. Perfect for travel, events, and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Clear toiletry bags let your recipients see exactly what's inside, making them ideal for airport security checks, gym lockers, and event giveaways. The transparent design also showcases your logo prominently, whether screen-printed or embossed on the material. From sleek vinyl pouches to durable wet/dry kits, these bags offer practicality and brand visibility in one package.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom clear toiletry bags with zippered compartments, ideal for travel and corporate gifts",
+  "productSkus": [
+    "512984",
+    "515747",
+    "520937",
+    "522416",
+    "527371",
+    "529106"
+  ],
+  "generatedAt": "2026-05-31T08:47:24.532603+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

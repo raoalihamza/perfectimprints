@@ -1,0 +1,24 @@
+{
+  "url": "/cat/bandages/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Bandages for Bulk Orders",
+  "metaTitle": "Custom Blue Bandages | Perfect Imprints",
+  "metaDescription": "Order custom blue bandages in bulk at Perfect Imprints. Ideal for first aid kits, events, and workplace safety. Get a quote today.",
+  "introHtml": "<p>Blue bandages stand out in first aid kits and workplace safety stations, making them easy to locate when needed. Whether you are stocking a construction site or assembling event giveaways, custom printed blue bandages combine visibility with brand awareness. Choose from dispenser-ready options or individual wrappers, and add your logo or safety message. The blue color also helps reduce the clinical look, which can be more approachable for consumer-facing environments.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue bandages in a dispenser with a company logo, ideal for workplace first aid kits and promotional giveaways.",
+  "productSkus": [
+    "502343",
+    "506843",
+    "510131",
+    "528559"
+  ],
+  "generatedAt": "2026-05-31T08:49:39.537777+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

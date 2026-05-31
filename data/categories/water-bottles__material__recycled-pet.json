@@ -1,0 +1,22 @@
+{
+  "url": "/cat/water-bottles/material/recycled-pet",
+  "type": "facet",
+  "h1": "Custom Recycled PET Water Bottles",
+  "metaTitle": "Custom Recycled PET Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom recycled PET water bottles for your brand. Eco-friendly, BPA-free, and perfect for bulk orders. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Recycled PET water bottles offer a sustainable alternative to virgin plastic without sacrificing durability or clarity. Made from post-consumer recycled materials, these bottles help your organization reduce its environmental footprint while still delivering a high-quality, BPA-free hydration solution. Ideal for trade shows, employee wellness programs, or eco-conscious corporate gifts, they accept screen printing or pad printing for your logo. Choose from popular sizes like 20 oz or 32 oz to match your audience's needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled PET water bottles with company logo on a desk next to a laptop and greenery",
+  "productSkus": [
+    "523254",
+    "525600"
+  ],
+  "generatedAt": "2026-05-31T08:27:40.315032+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

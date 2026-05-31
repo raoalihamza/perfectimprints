@@ -1,0 +1,33 @@
+{
+  "url": "/cat/laundry-bags/supplier/hit",
+  "type": "facet",
+  "h1": "Custom Hit Laundry Bags for Bulk Orders",
+  "metaTitle": "Custom Hit Laundry Bags | Perfect Imprints",
+  "metaDescription": "Order custom Hit laundry bags in bulk. Perfect for gyms, hotels, or corporate events. Get your quote today.",
+  "introHtml": "<p>Hit laundry bags combine rugged durability with practical design, making them a smart choice for bulk buyers who need reliable storage for wet or dirty gear. Whether you are outfitting a hotel laundry service or branding giveaways for a fitness event, these bags handle heavy use without tearing or leaking. Many Hit bags feature waterproof construction and roll-top closures, keeping contents secure during transport. Add your logo through screen printing or heat transfer for a professional finish that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hit laundry bags in various sizes and colors, ideal for branding with logos for corporate events or gym promotions.",
+  "productSkus": [
+    "518013 01N",
+    "518753",
+    "520673",
+    "520888",
+    "521607",
+    "522058",
+    "522326",
+    "522543",
+    "522667",
+    "523502",
+    "525515",
+    "525813",
+    "528445"
+  ],
+  "generatedAt": "2026-05-31T09:54:20.095464+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

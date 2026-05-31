@@ -1,0 +1,33 @@
+{
+  "url": "/cat/barware/brand/miir",
+  "type": "facet",
+  "h1": "Custom MiiR Barware for Branded Drinkware",
+  "metaTitle": "Custom MiiR Barware | Perfect Imprints",
+  "metaDescription": "Order custom MiiR barware with your logo. Perfect for corporate gifts, events, and promotions. Shop premium drinkware at Perfect Imprints.",
+  "introHtml": "<p>MiiR barware combines sleek vacuum-insulated design with a commitment to sustainability, making it a standout choice for branded drinkware. Whether you need custom tumblers for a tasting event or engraved camp cups for a team retreat, MiiR's durable stainless steel construction keeps beverages at the perfect temperature. Each purchase supports global giving projects, adding purpose to your promotional products. Choose MiiR barware for a premium look that aligns with your company's values.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom MiiR barware including vacuum insulated tumblers and camp cups with engraved logos for corporate events",
+  "productSkus": [
+    "523728",
+    "523729",
+    "523730",
+    "523761",
+    "525478",
+    "525481",
+    "525612",
+    "526419",
+    "526482",
+    "527194",
+    "527204",
+    "527938",
+    "527939"
+  ],
+  "generatedAt": "2026-05-31T09:07:46.918496+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

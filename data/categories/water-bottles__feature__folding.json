@@ -1,0 +1,21 @@
+{
+  "url": "/cat/water-bottles/feature/folding",
+  "type": "facet",
+  "h1": "Custom Folding Water Bottles",
+  "metaTitle": "Custom Folding Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom folding water bottles for your team or event. Compact, reusable, and perfect for on-the-go hydration. Get a quote today.",
+  "introHtml": "<p>Custom folding water bottles are the ultimate space-saving solution for active teams and outdoor events. Unlike rigid bottles, these collapsible designs flatten when empty, making them easy to pack in a bag or pocket. The 16 oz Bend-A-Bottle is a popular choice for trade shows and corporate giveaways. Decorate with your logo using screen printing or pad printing for a branded hydration companion that fits any adventure.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom folding water bottles with company logo, collapsible design, ideal for outdoor events and travel",
+  "productSkus": [
+    "509269"
+  ],
+  "generatedAt": "2026-05-31T08:21:41.899588+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

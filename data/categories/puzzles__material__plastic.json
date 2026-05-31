@@ -1,0 +1,28 @@
+{
+  "url": "/cat/puzzles/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Puzzles for Branded Giveaways",
+  "metaTitle": "Custom Plastic Puzzles | Perfect Imprints",
+  "metaDescription": "Order custom plastic puzzles for your next promotion. Perfect for trade shows and events. Get a quote today.",
+  "introHtml": "<p>Custom plastic puzzles offer a durable and vibrant alternative to cardboard puzzles, making them ideal for promotional giveaways that need to withstand repeated use. Whether you're handing them out at trade shows or including them in employee welcome kits, plastic puzzles resist bending and moisture. Choose from options like puzzle play cubes or snake cubes, and imprint your logo directly on the pieces for a lasting brand impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom plastic puzzles with company logo printed on colorful puzzle pieces",
+  "productSkus": [
+    "522343",
+    "523760",
+    "525824",
+    "526052",
+    "528400",
+    "528401",
+    "529032",
+    "529444"
+  ],
+  "generatedAt": "2026-05-31T08:46:01.620210+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

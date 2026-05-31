@@ -1,0 +1,32 @@
+{
+  "url": "/cat/earbuds/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Earbuds for Bulk Orders",
+  "metaTitle": "Custom Blue Earbuds | Perfect Imprints",
+  "metaDescription": "Order custom blue earbuds in bulk from Perfect Imprints. Perfect for corporate gifts, events, and branding. Get a quote today!",
+  "introHtml": "<p>Blue earbuds stand out in a crowd, making them a smart choice for trade shows, employee onboarding kits, or branded giveaways. Whether you choose the compact Earbuds in Case for easy distribution or the Color Pop Earbuds with a built-in microphone for hands-free calls, blue adds a pop of color that recipients remember. Custom imprint your logo or message to keep your brand top of mind every time they listen.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue earbuds with logo imprint in a carrying case for bulk corporate branding",
+  "productSkus": [
+    "505390",
+    "511481",
+    "512230",
+    "512293",
+    "512294",
+    "515807",
+    "519980",
+    "526804",
+    "528013",
+    "528014",
+    "528125",
+    "528376"
+  ],
+  "generatedAt": "2026-05-31T09:44:13.635656+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

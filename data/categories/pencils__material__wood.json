@@ -1,0 +1,32 @@
+{
+  "url": "/cat/pencils/material/wood",
+  "type": "facet",
+  "h1": "Custom Wood Pencils for Bulk Orders",
+  "metaTitle": "Custom Wood Pencils | Perfect Imprints",
+  "metaDescription": "Order custom wood pencils in bulk from Perfect Imprints. Perfect for branding with your logo. Shop now!",
+  "introHtml": "<p>Wood pencils remain a classic, eco-friendly choice for businesses that value tradition and sustainability. Unlike plastic or mechanical alternatives, custom wood pencils offer a natural feel that customers appreciate. They are ideal for schools, offices, and trade shows where reliable writing instruments are needed. With options like the FSC® Certified Round Workhorse Pencil, you can choose sustainable materials that align with your company's green initiatives. Add your logo through screen printing or foil stamping for a professional look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom wood pencils with company logo printed on the barrel, arranged on a desk.",
+  "productSkus": [
+    "502669",
+    "502672",
+    "510561",
+    "510562",
+    "510904",
+    "511380",
+    "511382",
+    "511451",
+    "524813",
+    "527684",
+    "527685",
+    "527686"
+  ],
+  "generatedAt": "2026-05-31T08:30:12.775309+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

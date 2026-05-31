@@ -1,0 +1,24 @@
+{
+  "url": "/cat/mats/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Mats for Bulk Orders",
+  "metaTitle": "Custom Set Mats | Perfect Imprints",
+  "metaDescription": "Order custom set mats in bulk. Perfect for offices, gyms, and events. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Custom set mats offer versatility for high-traffic areas, allowing you to place branded mats at multiple entry points or workstations. Sets like the Surface Grip Footprints (Set of 10) or 12\" Indoor Surface Grip Circles (Set of 6) provide consistent branding and slip resistance. Ideal for safety managers or HR directors outfitting office lobbies or gym floors, these mats can be decorated with your logo using screen printing or dye sublimation for lasting visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set mats with slip-resistant surface and printed logo, perfect for office entryways and gyms.",
+  "productSkus": [
+    "522789",
+    "524721",
+    "524756",
+    "524757"
+  ],
+  "generatedAt": "2026-05-31T09:19:16.407530+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

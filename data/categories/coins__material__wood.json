@@ -1,0 +1,30 @@
+{
+  "url": "/cat/coins/material/wood",
+  "type": "facet",
+  "h1": "Custom Wood Coins for Bulk Orders",
+  "metaTitle": "Custom Wood Coins | Perfect Imprints",
+  "metaDescription": "Order custom wood coins for bulk branding. Perfect for awards, giveaways, and unique promotional items. Get a quote today!",
+  "introHtml": "<p>Custom wood coins offer a natural, warm alternative to metal or plastic coins, making them ideal for eco-conscious brands, rustic-themed events, or corporate awards that stand out. The laser-engraved wood grain adds a tactile, premium feel that recipients appreciate. Whether you are recognizing employee milestones or handing out unique giveaways at a trade show, these coins create a memorable impression. Decorate with your logo or message using full-color printing or engraving for a sophisticated finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wood coins with laser-engraved logo on natural wood surface, ideal for promotional giveaways and awards",
+  "productSkus": [
+    "512640 64F",
+    "524026",
+    "524557",
+    "525452",
+    "525455",
+    "525456",
+    "525457",
+    "526411",
+    "526503",
+    "529407"
+  ],
+  "generatedAt": "2026-05-31T08:52:29.599747+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

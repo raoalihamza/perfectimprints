@@ -1,0 +1,25 @@
+{
+  "url": "/cat/bandages/supplier/mixie",
+  "type": "facet",
+  "h1": "Custom Mixie Bandages for Bulk Orders",
+  "metaTitle": "Custom Mixie Bandages | Perfect Imprints",
+  "metaDescription": "Order custom Mixie bandages in bulk for your team. Perfect for safety kits and giveaways. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Mixie bandages stand out for their fun patterns and colors, making them a favorite for first aid kits that people actually want to use. Whether you're stocking a workplace safety station or putting together promotional giveaways for a health fair, custom Mixie bandages add a touch of personality while serving a practical purpose. Choose from dispensers with patterned or color bandages for easy access and brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom Mixie bandages in colorful patterns and a dispenser with branded bandages for bulk orders.",
+  "productSkus": [
+    "502343",
+    "506843",
+    "510131",
+    "528559",
+    "529323"
+  ],
+  "generatedAt": "2026-05-31T08:49:39.373446+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

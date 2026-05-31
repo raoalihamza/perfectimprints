@@ -1,0 +1,24 @@
+{
+  "url": "/cat/playing-cards/color/black",
+  "type": "facet",
+  "h1": "Custom Black Playing Cards",
+  "metaTitle": "Custom Black Playing Cards | Perfect Imprints",
+  "metaDescription": "Order custom black playing cards for your brand. Perfect for promotions, events, and gifts. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Black playing cards make a bold statement for your brand, standing out at poker nights, trade show giveaways, or corporate event favors. The dark background contrasts sharply with custom imprinting, ensuring your logo or message pops. Choose from coated paper or plastic finishes, and opt for solid backs or full-color designs. Whether you need 100 decks for a client appreciation gift or 10,000 for a large promotion, custom black playing cards deliver a sophisticated, memorable impression that standard decks can't match.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black playing cards with a branded logo on the back, fanned out on a dark table surface.",
+  "productSkus": [
+    "512116",
+    "522393",
+    "524494",
+    "526561"
+  ],
+  "generatedAt": "2026-05-31T09:23:13.807023+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,28 @@
+{
+  "url": "/cat/outdoor/color/red",
+  "type": "facet",
+  "h1": "Custom Red Outdoor Blankets & Gear",
+  "metaTitle": "Custom Red Outdoor Gear | Perfect Imprints",
+  "metaDescription": "Order custom red outdoor blankets and gear for your next event. Bulk pricing with your logo. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Red outdoor gear stands out in any setting, making it an excellent choice for company picnics, tailgates, and safety events. Custom red blankets like the KOOZIE® Field Blanket or the Carry-It™ Picnic Throw offer high visibility and brand recognition. Whether you need fleece throws for a winter promotion or picnic blankets for a summer gathering, red adds energy and urgency to your branded merchandise. Decorate with screen printing or embroidery to match your logo perfectly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red outdoor blankets and picnic throws with company logo, perfect for events and promotions",
+  "productSkus": [
+    "503799",
+    "507150",
+    "510676",
+    "512997",
+    "521841",
+    "522968",
+    "523079",
+    "523473"
+  ],
+  "generatedAt": "2026-05-31T08:58:56.545151+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

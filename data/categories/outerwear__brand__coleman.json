@@ -1,0 +1,28 @@
+{
+  "url": "/cat/outerwear/brand/coleman",
+  "type": "facet",
+  "h1": "Custom Coleman Outerwear for Bulk Orders",
+  "metaTitle": "Custom Coleman Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom Coleman outerwear in bulk. Perfect for corporate apparel. Contact Perfect Imprints for a quote.",
+  "introHtml": "<p>Coleman outerwear combines rugged durability with practical design, making it a smart choice for corporate apparel programs, outdoor events, and employee uniforms. The brand's reputation for reliability means your logo will be associated with quality and adventure. Whether you need lightweight jackets for a charity walk or insulated coats for winter work crews, custom Coleman outerwear offers consistent sizing and easy decoration options like embroidery or screen printing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Coleman outerwear jackets with embroidered logo, perfect for corporate apparel and outdoor events.",
+  "productSkus": [
+    "509109",
+    "517874",
+    "521930",
+    "525375",
+    "525794",
+    "525795",
+    "525796",
+    "529517"
+  ],
+  "generatedAt": "2026-05-31T09:58:59.321536+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

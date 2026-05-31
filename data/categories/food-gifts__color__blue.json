@@ -1,0 +1,32 @@
+{
+  "url": "/cat/food-gifts/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Food Gifts for Bulk Orders",
+  "metaTitle": "Custom Blue Food Gifts | Perfect Imprints",
+  "metaDescription": "Order custom blue food gifts in bulk from Perfect Imprints. Perfect for corporate gifting, with options like gift sets and mugs.",
+  "introHtml": "<p>Blue food gifts offer a calming, professional aesthetic that stands out from standard corporate fare. Whether you choose a navy gift set for a formal client appreciation or a sky-blue coffee kit for a team morale boost, the blue hue adds a thoughtful, cohesive look. These gifts pair well with logo-printed mugs or branded treat boxes, making them ideal for marketing directors and HR leaders who want a polished, memorable impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue food gifts featuring a blue mug and hot cocoa gift set with corporate logo",
+  "productSkus": [
+    "513153 23A",
+    "513154 23A",
+    "518213",
+    "526239",
+    "526244",
+    "526317",
+    "526744",
+    "526746",
+    "527814",
+    "528832",
+    "528900",
+    "528902"
+  ],
+  "generatedAt": "2026-05-31T08:54:15.054333+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

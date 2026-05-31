@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/evans",
+  "type": "facet",
+  "h1": "Custom Evans Products for Bulk Orders",
+  "metaTitle": "Custom Evans Products | Perfect Imprints",
+  "metaDescription": "Order custom Evans products in bulk from Perfect Imprints. Ideal for promotions, events, and branding. Get a quote today!",
+  "introHtml": "<p>Evans products are known for their durability and classic style, making them a popular choice for corporate gifts and promotional giveaways. Whether you need custom drinkware, bags, or writing instruments, Evans offers reliable options that can be decorated with your logo or message. Bulk orders are ideal for trade shows, employee appreciation, or client gifts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Evans products including drinkware and bags with logo imprint, perfect for corporate promotions.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:27:16.184788+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

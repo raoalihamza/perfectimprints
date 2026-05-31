@@ -1,0 +1,79 @@
+{
+  "url": "/cat/brochures",
+  "type": "root",
+  "h1": "Custom Brochures for Marketing & Safety Campaigns",
+  "metaTitle": "Custom Brochures | Perfect Imprints",
+  "metaDescription": "Order custom brochures for your next campaign. Marketing, safety, or HR materials. Bulk pricing available. Get a quote today.",
+  "introHtml": "<p>Custom brochures are a staple of effective communication, whether you are rolling out a new safety protocol, launching a marketing campaign, or distributing health resources. Our selection includes pocket sliders, bookmarks, flyers, and organizer booklets printed on durable 4 pt. gloss text stock or sturdy cardstock. These materials are designed to withstand frequent handling and remain legible over time. With full-color printing and precise folding options, your messaging stays sharp and professional from the first handoff to the last.</p><p>Marketing directors use custom brochures to introduce product lines at trade shows. HR directors rely on them for open enrollment summaries and policy updates. Safety managers distribute pocket sliders covering topics from ergonomics to emergency procedures. Business owners often hand out flyers at local events or include them in new customer welcome packets. Because brochures are lightweight and easy to mail, they work well for direct mail campaigns, too. No matter your audience, a well-designed brochure delivers information in a compact, memorable format.</p>",
+  "buyingGuideHtml": "<p>When ordering custom brochures, the first consideration is paper stock and finish. Heavier stocks like 100 lb. gloss text or 14 pt. cardstock resist tearing and feel more substantial. A gloss or matte coating protects ink from smudging and fingerprints, which matters when brochures will be handled repeatedly. For outdoor use or humid environments, consider a UV coating or laminated finish to prevent moisture damage.</p><h3>Materials and Durability</h3><p>Most promotional brochures are printed on coated paper for vibrant color reproduction. Uncoated paper works well for a natural, writable surface but may show wear sooner. For pocket sliders and bookmarks, a thicker substrate (like 16 pt. board) adds rigidity. Always request a paper sample if you are unsure about thickness or texture.</p><h3>Common Use Cases and Personas</h3><p>Marketing directors often use tri-fold brochures to highlight product features at trade shows or in sales kits. HR directors turn to custom brochures for employee handbooks, benefit summaries, and wellness program guides. Safety managers rely on branded brochures for training materials, hazard communication, and emergency action plans. Business owners may create promotional brochures for local advertising or event sponsorship packets.</p><h3>Decoration and Customization</h3><p>Full-color offset or digital printing is standard for brochures, allowing photographic images and gradients. Spot UV coating or foil stamping can accent logos or headlines. Folding options include half-fold, tri-fold, Z-fold, and gatefold. Pocket sliders and bookmarks often use a single-sheet design with rounded corners for a polished look. Embossing or debossing is possible on heavier stocks.</p><h3>Quantity Guidance and MOQ Context</h3><p>Minimum order quantities for custom brochures typically start at 250 or 500 pieces, though digital printing can accommodate runs as low as 50. Bulk orders of 1,000 or more reduce per-unit cost significantly. For large campaigns, consider ordering extra to have inventory for future events. Lead times range from 5 to 15 business days depending on quantity and finishing options.</p><h3>Common Buying Mistakes to Avoid</h3><p>One common mistake is ordering too few brochures for a long campaign. Another is choosing a paper weight that is too flimsy for the intended use. Also, ensure your design includes proper bleed and margins; otherwise, trimming may cut off text. Finally, verify that your chosen fold type matches your content layout. A tri-fold brochure requires careful panel sizing to avoid awkward breaks in text.</p><p>To get the most value from your bulk brochures, plan your content early and request a proof before production. Custom brochures are a cost-effective way to distribute detailed information, and with the right specifications, they will represent your organization professionally. Whether you need promotional brochures for a product launch or logo-printed brochures for safety training, careful planning ensures a successful print run.</p>",
+  "buyingGuideH2": "Custom Brochures Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom brochures?",
+      "a": "Minimum order quantities typically start at 250 pieces for offset printing, but digital printing can accommodate runs as low as 50. For the best per-unit price, consider ordering 1,000 or more."
+    },
+    {
+      "q": "What paper stock is best for brochures?",
+      "a": "For a professional feel, 100 lb. gloss text or 14 pt. cardstock is recommended. Heavier stocks like 16 pt. are ideal for pocket sliders and bookmarks. Coated stocks provide vibrant color and protection."
+    },
+    {
+      "q": "What decoration options are available for brochures?",
+      "a": "Full-color offset or digital printing is standard. You can also add spot UV coating, foil stamping, embossing, or debossing for accents. Folding options include half-fold, tri-fold, Z-fold, and gatefold."
+    },
+    {
+      "q": "How long does production take?",
+      "a": "Lead times range from 5 to 15 business days depending on quantity, paper stock, and finishing options. Rush production may be available for an additional fee."
+    },
+    {
+      "q": "Can I get a sample before ordering in bulk?",
+      "a": "Yes, we recommend requesting a physical sample of the paper stock and a digital proof of your design. This ensures you are satisfied with the quality and layout before full production."
+    }
+  ],
+  "heroAltText": "Custom brochures printed on glossy cardstock with full-color graphics and tri-fold design.",
+  "productSkus": [
+    "517651 90A",
+    "517729 90A",
+    "517734 90A",
+    "518094 90A",
+    "518097 90A",
+    "518951 90A",
+    "518952 90A",
+    "518957 90A",
+    "518958 90A",
+    "518960 90A",
+    "518961 90A",
+    "518966 90A",
+    "518967 90A",
+    "518968 90A",
+    "518980 90A",
+    "518985 90A",
+    "518986 90A",
+    "518992 90A",
+    "518993 90A",
+    "518994 90A",
+    "519016 90A",
+    "519023 90A",
+    "519026 90A",
+    "519027 90A",
+    "519028 90A",
+    "519029 90A",
+    "519030 90A",
+    "519032 90A",
+    "519033 90A",
+    "519034 90A",
+    "519035 90A",
+    "519037 90A",
+    "519039 90A",
+    "519044 90A",
+    "519046 90A",
+    "519048 90A",
+    "519049 90A"
+  ],
+  "generatedAt": "2026-05-30T11:44:40.696742+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "material_quality",
+  "skuFilterMode": "full",
+  "rawSkuCount": 37,
+  "filteredSkuCount": 37
+}

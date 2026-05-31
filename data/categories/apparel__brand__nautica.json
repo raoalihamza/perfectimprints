@@ -1,0 +1,23 @@
+{
+  "url": "/cat/apparel/brand/nautica",
+  "type": "facet",
+  "h1": "Custom Nautica Apparel for Bulk Orders",
+  "metaTitle": "Custom Nautica Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Nautica apparel for your team. Perfect for corporate events and uniforms. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Nautica apparel combines classic maritime style with reliable quality, making it a strong choice for corporate uniforms, team outings, and event giveaways. From the Men's Nautica Deck Polo to the Ladies' Nautica Deck Polo and the Anchor Quarter-Zip Pullover, these pieces accept embroidery and screen printing cleanly. Choose Nautica for a polished, preppy look that holds up wash after wash.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Nautica apparel including men's and ladies' deck polos and anchor quarter-zip pullover for corporate branding",
+  "productSkus": [
+    "525547",
+    "525548",
+    "525893"
+  ],
+  "generatedAt": "2026-05-31T09:05:26.582913+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

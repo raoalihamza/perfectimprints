@@ -1,0 +1,19 @@
+{
+  "url": "/cat/shirts/theme/beach",
+  "type": "facet",
+  "h1": "Custom Beach Shirts for Your Next Event",
+  "metaTitle": "Custom Beach Shirts | Perfect Imprints",
+  "metaDescription": "Order custom beach shirts for your team or event. Perfect for summer outings, trade shows, and company picnics. Get a quote today.",
+  "introHtml": "<p>Whether you're planning a company beach party, a team-building retreat, or a summer trade show, custom beach shirts help your group stand out in the sun. Lightweight fabrics like cotton or performance blends keep everyone cool, while vibrant prints or embroidery capture the coastal vibe. Choose from short sleeves, tank tops, or button-downs to match your event's style.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom beach shirts with tropical prints at a sunny outdoor event",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:26:02.103576+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

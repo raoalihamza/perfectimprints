@@ -1,0 +1,25 @@
+{
+  "url": "/cat/backpacks/material/ripstop",
+  "type": "facet",
+  "h1": "Custom Ripstop Backpacks for Bulk Orders",
+  "metaTitle": "Custom Ripstop Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom ripstop backpacks with your logo in bulk. Durable, lightweight, and perfect for giveaways. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Ripstop nylon backpacks are a smart choice for businesses that need durable, lightweight bags that can handle daily wear without tearing. The woven reinforcing threads in ripstop fabric prevent rips from spreading, making these backpacks ideal for outdoor events, trade shows, or employee welcome kits. Decorate with screen printing or embroidery on styles like the Sport Backpack or the KOOZIE® Wanderer Daypack for a professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom ripstop backpacks with embroidered logo displayed on a desk next to a laptop and water bottle.",
+  "productSkus": [
+    "506205",
+    "512269",
+    "521466",
+    "521471",
+    "521834"
+  ],
+  "generatedAt": "2026-05-31T09:06:29.480029+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

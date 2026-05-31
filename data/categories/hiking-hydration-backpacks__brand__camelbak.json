@@ -1,0 +1,31 @@
+{
+  "url": "/cat/hiking-hydration-backpacks/brand/camelbak",
+  "type": "facet",
+  "h1": "Custom CamelBak Hiking Hydration Backpacks",
+  "metaTitle": "Custom CamelBak Hiking Hydration Backpacks | Perfect",
+  "metaDescription": "Order custom CamelBak hiking hydration backpacks for your team or event. Perfect for outdoor promotions. Get a quote today.",
+  "introHtml": "<p>CamelBak hiking hydration backpacks combine hands-free hydration with rugged durability, making them a top choice for corporate outdoor events, safety teams, and field crews. The Eco-Hydrobak model, for example, features a 2.5L reservoir and is made with recycled materials, aligning with sustainability goals. Customize with your logo via screen printing or embroidery for a premium branded giveaway that employees and clients will actually use on the trail.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom CamelBak hiking hydration backpacks with logo, featuring a CamelBak Eco-Hydrobak backpack in blue",
+  "productSkus": [
+    "525013",
+    "525506",
+    "525680",
+    "525681",
+    "526211",
+    "526695",
+    "527057",
+    "527058",
+    "527966",
+    "528153",
+    "528684"
+  ],
+  "generatedAt": "2026-05-31T08:55:40.253282+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

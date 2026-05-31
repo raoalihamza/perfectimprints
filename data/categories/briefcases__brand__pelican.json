@@ -1,0 +1,23 @@
+{
+  "url": "/cat/briefcases/brand/pelican",
+  "type": "facet",
+  "h1": "Custom Pelican Briefcases for Bulk Orders",
+  "metaTitle": "Custom Pelican Briefcases | Perfect Imprints",
+  "metaDescription": "Order branded Pelican briefcases in bulk. Durable, watertight cases perfect for corporate gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Pelican briefcases offer unmatched durability with their legendary watertight, crushproof construction. For safety managers and field teams who need equipment protection in demanding environments, these cases go beyond standard briefcases. Decorate with pad printing or laser engraving on the hard shell for a lasting brand impression. Choose from models like the Pelican 1450 or 1500 for laptops, tools, or sensitive gear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Pelican briefcases with rugged watertight cases featuring corporate logos for bulk orders",
+  "productSkus": [
+    "527482",
+    "527483",
+    "527484"
+  ],
+  "generatedAt": "2026-05-31T08:51:12.172248+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

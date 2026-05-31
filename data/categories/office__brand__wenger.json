@@ -1,0 +1,23 @@
+{
+  "url": "/cat/office/brand/wenger",
+  "type": "facet",
+  "h1": "Custom Wenger Office Products for Bulk Orders",
+  "metaTitle": "Custom Wenger Office Products | Perfect Imprints",
+  "metaDescription": "Order custom Wenger office products for your team. Perfect for bulk branding. Get a quote today.",
+  "introHtml": "<p>Custom Wenger office products combine Swiss-quality design with practical functionality for your workplace. Known for durable backpacks, duffles, and dopp kits made from recycled RPET materials, Wenger gear stands up to daily commutes and business travel. Decorate with your logo using embroidery or screen printing for a professional look that lasts. Whether you need branded laptop bags for your sales team or travel kits for client gifts, Wenger offers reliable options that represent your company well.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Wenger office products like a recycled computer backpack and duffle bag with company logo",
+  "productSkus": [
+    "526883",
+    "526884",
+    "526885"
+  ],
+  "generatedAt": "2026-05-31T09:20:51.573570+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/popcorn/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Popcorn for Bulk Orders",
+  "metaTitle": "Custom Set Popcorn | Perfect Imprints",
+  "metaDescription": "Order custom set popcorn for corporate gifts. Perfect for employee appreciation and client thank-yous. Shop at Perfect Imprints.",
+  "introHtml": "<p>Custom set popcorn bundles combine premium popcorn with coordinating seasonings or greeting cards, creating a ready-to-gift package that stands out from a single bag. These sets are ideal for HR directors planning holiday gifts or marketing directors assembling client appreciation boxes. The included accessories add perceived value while keeping your logo front and center. Choose from options like the Popcorn Kernel Set with Seasonings and Greeting Card for a thoughtful, all-in-one giveaway that feels curated rather than generic.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set popcorn gift box with popcorn kernels, seasonings, and greeting card for corporate branding",
+  "productSkus": [
+    "526237",
+    "527813"
+  ],
+  "generatedAt": "2026-05-31T10:02:40.430748+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

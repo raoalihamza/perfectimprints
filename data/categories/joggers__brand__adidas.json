@@ -1,0 +1,31 @@
+{
+  "url": "/cat/joggers/brand/adidas",
+  "type": "facet",
+  "h1": "Custom Adidas Joggers for Corporate Orders",
+  "metaTitle": "Custom Adidas Joggers | Perfect Imprints",
+  "metaDescription": "Order custom Adidas joggers with your logo. Perfect for corporate teams, events, and giveaways. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Adidas joggers combine athletic performance with everyday comfort, making them a top pick for corporate teams and promotional events. The moisture-wicking fabric and tailored fit keep recipients comfortable during workouts or casual wear. With embroidery or screen printing options, you can add your logo to these joggers for a polished, professional look that stands out at company runs, wellness programs, or branded apparel giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Adidas joggers with embroidered logo for corporate team apparel",
+  "productSkus": [
+    "527061",
+    "527063",
+    "527066",
+    "527067",
+    "527068",
+    "527069",
+    "527070",
+    "529075",
+    "529076",
+    "529184",
+    "529185"
+  ],
+  "generatedAt": "2026-05-31T09:52:14.238563+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

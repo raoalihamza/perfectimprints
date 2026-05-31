@@ -1,0 +1,21 @@
+{
+  "url": "/cat/shirts/brand/sublivie",
+  "type": "facet",
+  "h1": "Custom Sublivie Shirts for Bulk Orders",
+  "metaTitle": "Custom Sublivie Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Sublivie shirts for your team. Perfect for corporate events and uniforms. Bulk pricing available.",
+  "introHtml": "<p>Sublivie apparel is built for comfort and durability, making it a top choice for uniforms, event giveaways, and employee rewards. Their moisture-wicking fabrics and modern cuts keep teams looking sharp during long workdays or outdoor activities. Whether you need polos for a trade show or performance tees for a company 5K, Sublivie shirts hold up wash after wash. Add your logo with screen printing or embroidery for a professional finish that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom Sublivie shirts with embroidered logos at a corporate outdoor event",
+  "productSkus": [
+    "523719"
+  ],
+  "generatedAt": "2026-05-31T09:02:03.438059+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

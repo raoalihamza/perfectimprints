@@ -1,0 +1,23 @@
+{
+  "url": "/cat/sweatshirts/brand/elevate",
+  "type": "facet",
+  "h1": "Custom Elevate Sweatshirts for Bulk Orders",
+  "metaTitle": "Custom Elevate Sweatshirts | Perfect Imprints",
+  "metaDescription": "Order custom Elevate sweatshirts in bulk at Perfect Imprints. Ideal for teams, events, and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Elevate sweatshirts combine premium comfort with a polished look, making them a top pick for corporate teams, event staff, and branded apparel programs. The Elevate brand focuses on performance fabrics and modern silhouettes, so your logo looks sharp on everything from fleece hoodies to flex henleys. Whether you need a uniform for a trade show or a gift for employees, these sweatshirts deliver a professional appearance that stands out from standard cotton options. Choose from multiple colors and decoration methods, including embroidery and screen printing, to match your brand identity perfectly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Elevate sweatshirts featuring embroidered logos on fleece hoodies and henleys for corporate branding",
+  "productSkus": [
+    "526532",
+    "528998",
+    "529075"
+  ],
+  "generatedAt": "2026-05-31T10:10:01.929220+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

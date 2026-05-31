@@ -1,0 +1,29 @@
+{
+  "url": "/cat/socks/size/xlarge",
+  "type": "facet",
+  "h1": "Custom Xlarge Socks for Bulk Orders",
+  "metaTitle": "Custom Xlarge Socks - Perfect Imprints",
+  "metaDescription": "Order custom xlarge socks in bulk for teams or events. Get comfort and branding from Perfect Imprints.",
+  "introHtml": "<p>Xlarge socks provide a roomier fit for larger feet or those who prefer extra space in their footwear. For safety managers and HR directors ordering for industrial teams or outdoor crews, these socks offer comfort during long shifts. Decorate them with a company logo or safety slogan using embroidery or screen printing. Options like the BeWell™ Socks or Midcalf Jacquard Socks with Bamboo Thread combine durability with moisture-wicking performance, making them a practical giveaway for trade shows or employee appreciation.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom xlarge socks with company logo, available in bulk for promotional events and employee gifts.",
+  "productSkus": [
+    "516800",
+    "521927",
+    "522251",
+    "524427",
+    "525740",
+    "526360",
+    "526361",
+    "526363",
+    "526896"
+  ],
+  "generatedAt": "2026-05-31T10:07:23.150185+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

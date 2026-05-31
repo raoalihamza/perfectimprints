@@ -1,0 +1,24 @@
+{
+  "url": "/cat/cutting-boards/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Cutting Boards",
+  "metaTitle": "Custom Blue Cutting Boards | Perfect Imprints",
+  "metaDescription": "Order custom blue cutting boards for your brand. Perfect for kitchens, gifts, and events. Get a quote today!",
+  "introHtml": "<p>Blue cutting boards bring a pop of color to any kitchen or workspace while keeping your brand front and center. Whether you need durable plastic boards for commercial use or natural bamboo for eco-friendly giveaways, blue options stand out on countertops and in photos. Choose from sizes like the Petit or 12\" Grande to fit your budget and audience. Decorate with screen printing or laser engraving for a crisp, lasting logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue cutting boards with engraved logos, available in plastic and bamboo materials for branding.",
+  "productSkus": [
+    "510025",
+    "513121",
+    "514990",
+    "526756"
+  ],
+  "generatedAt": "2026-05-31T08:28:41.529914+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/lip-balm/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Lip Balm for Small Orders",
+  "metaTitle": "No-Minimum Custom Lip Balm | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom lip balm with no bulk requirements. Perfect for small teams, events, or samples. Get branded lip balm in low quantities at",
+  "introHtml": "<p>No-minimum custom lip balm lets you order as few as a handful of units without facing typical bulk minimums. Whether you need branded lip balm for a small team, a one-time event, or product sampling before a larger run, our no-minimum program gives you the flexibility to start small. You get the same high-quality imprint and packaging options, with per-unit pricing that reflects the smaller quantity. No need to overcommit—just order what you need and see results.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "No-minimum custom lip balm in small quantities displayed on a counter, with a branded label and tube packaging.",
+  "productSkus": [
+    "513434 90E",
+    "513435 90E"
+  ],
+  "generatedAt": "2026-05-31T08:26:48.723219+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

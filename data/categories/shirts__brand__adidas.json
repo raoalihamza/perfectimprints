@@ -1,0 +1,31 @@
+{
+  "url": "/cat/shirts/brand/adidas",
+  "type": "facet",
+  "h1": "Custom Adidas Shirts for Bulk Orders",
+  "metaTitle": "Custom Adidas Shirts | Perfect Imprints",
+  "metaDescription": "Shop custom Adidas shirts for your team or event. Bulk orders with logo embroidery or screen printing. Get a quote today!",
+  "introHtml": "<p>Choose custom Adidas shirts for a branded look that combines athletic performance with everyday comfort. From polos to hoodies, Adidas offers moisture-wicking fabrics and classic styles that hold up to repeated wear. Perfect for corporate teams, trade shows, or employee uniforms, these shirts accept embroidery and screen printing with clean results. Ordering in bulk ensures consistent sizing and color matching across your entire group.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Adidas shirts with embroidered logo on a polo and a hoodie, displayed in a corporate setting",
+  "productSkus": [
+    "527061",
+    "527063",
+    "527066",
+    "527067",
+    "527068",
+    "527069",
+    "527070",
+    "529075",
+    "529076",
+    "529184",
+    "529185"
+  ],
+  "generatedAt": "2026-05-31T08:46:31.935522+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

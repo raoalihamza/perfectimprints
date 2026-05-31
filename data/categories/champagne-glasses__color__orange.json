@@ -1,0 +1,30 @@
+{
+  "url": "/cat/champagne-glasses/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Champagne Glasses for Bulk Orders",
+  "metaTitle": "Custom Orange Champagne Glasses | Perfect Imprints",
+  "metaDescription": "Order custom orange champagne glasses in bulk for your next event. Perfect for branded toasts and giveaways at Perfect Imprints.",
+  "introHtml": "<p>Orange champagne glasses add a vibrant pop of color to any celebration, making them ideal for brand launches, holiday parties, or company milestones. Unlike clear glassware, these colored glasses stand out in photos and reinforce your brand's visual identity. The 12 oz Symglass Colored Stemless Wine Glass offers a modern silhouette that works for both champagne and cocktails. Screen printing or etching your logo creates a lasting impression that guests will remember long after the toast.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange champagne glasses with a company logo screen printed on the front, ready for bulk orders.",
+  "productSkus": [
+    "509442",
+    "509541",
+    "510575",
+    "520183",
+    "520634",
+    "522060",
+    "526191",
+    "526428",
+    "528811",
+    "528814"
+  ],
+  "generatedAt": "2026-05-31T09:40:16.484871+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

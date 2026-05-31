@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel/brand/russell-athletic",
+  "type": "facet",
+  "h1": "Custom Russell Athletic Apparel for Bulk Orders",
+  "metaTitle": "Custom Russell Athletic Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Russell Athletic apparel in bulk at Perfect Imprints. Durable, comfortable gear for teams, workwear, and giveaways.",
+  "introHtml": "<p>Russell Athletic apparel is built for durability and comfort, making it a top choice for corporate uniforms, team gear, and promotional giveaways. The Russell Outdoors Basin Jacket, for example, offers weather-resistant performance and a clean canvas for screen printing or embroidery. When you choose custom Russell Athletic apparel, you get reliable construction that holds up to frequent washing and active use. Perfect for safety managers outfitting crews or HR directors building cohesive team looks, this brand delivers consistent sizing and a professional appearance that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Russell Athletic apparel featuring embroidered logos on jackets and polo shirts for corporate uniforms.",
+  "productSkus": [
+    "527745"
+  ],
+  "generatedAt": "2026-05-31T09:32:08.003851+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

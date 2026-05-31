@@ -1,0 +1,32 @@
+{
+  "url": "/cat/sweaters-cardigans/supplier/scrub",
+  "type": "facet",
+  "h1": "Custom Scrub Sweaters & Cardigans for Bulk Orders",
+  "metaTitle": "Custom Scrub Sweaters & Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom scrub sweaters and cardigans in bulk from Perfect Imprints. Perfect for healthcare uniforms and corporate apparel.",
+  "introHtml": "<p>Scrub-branded sweaters and cardigans offer medical professionals a polished layering option that maintains a clinical appearance while adding warmth. These garments typically feature easy-care fabrics, functional pockets, and decorative methods like embroidery or heat transfer that withstand frequent washing. Whether outfitting a hospital nursing staff or equipping a dental practice with uniform cardigans, this curated selection combines comfort with a professional look suitable for healthcare environments.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom scrub sweaters and cardigans in bulk for healthcare uniforms and corporate apparel",
+  "productSkus": [
+    "520268",
+    "520269",
+    "523604",
+    "526198",
+    "526291",
+    "526292",
+    "527181",
+    "527182",
+    "527833",
+    "527957",
+    "528757",
+    "528758"
+  ],
+  "generatedAt": "2026-05-31T09:27:37.464717+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

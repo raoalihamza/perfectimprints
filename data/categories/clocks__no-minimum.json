@@ -1,0 +1,33 @@
+{
+  "url": "/cat/clocks/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Clocks for Small Orders",
+  "metaTitle": "No-Minimum Custom Clocks | Perfect Imprints",
+  "metaDescription": "Order small quantities of no-minimum custom clocks. Perfect for small teams, events, or samples. Get branded clocks with no bulk requirements.",
+  "introHtml": "<p>No-minimum custom clocks let you order small quantities without the typical bulk requirements. Perfect for small businesses, startups, or one-off events, these branded clocks offer flexibility when you need just a few. From the sleek Titan Clock to the classic Somerset Clock, you can customize as few as one or two pieces. Ideal for gifts, samples, or small team rewards, no-minimum custom clocks make it easy to stay on budget while still getting a professional, branded product.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A display of no-minimum custom clocks including the Oslo and Titan models, perfect for small orders with no minimum quantity.",
+  "productSkus": [
+    "512640 64F",
+    "514585 43A",
+    "514834 01A",
+    "515134 90E",
+    "520887",
+    "527550",
+    "528133",
+    "528216",
+    "528765",
+    "528766",
+    "528774",
+    "528775",
+    "528776"
+  ],
+  "generatedAt": "2026-05-31T09:10:36.367482+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

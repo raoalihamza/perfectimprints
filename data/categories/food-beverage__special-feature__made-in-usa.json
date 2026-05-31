@@ -1,0 +1,23 @@
+{
+  "url": "/cat/food-beverage/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Food & Beverage Products",
+  "metaTitle": "Custom Made in USA Food & Beverage | Perfect Imprints",
+  "metaDescription": "Order custom made in USA food & beverage products for your brand. Bulk pricing available. Get a quote today.",
+  "introHtml": "<p>Choosing custom made in USA food and beverage products means supporting domestic manufacturing and ensuring high-quality standards. From transparent bottles to insulated drinkware, these items are perfect for trade shows, employee gifts, or corporate events. Decorate with your logo using screen printing or laser engraving for a durable, professional look that resonates with American-made pride.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA food and beverage products including transparent water bottles with logo",
+  "productSkus": [
+    "507912",
+    "507913",
+    "507915 91A"
+  ],
+  "generatedAt": "2026-05-31T09:13:45.760076+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/bags/color/camo",
+  "type": "facet",
+  "h1": "Custom Camo Bags for Bulk Orders",
+  "metaTitle": "Custom Camo Bags | Perfect Imprints",
+  "metaDescription": "Order custom camo bags in bulk at Perfect Imprints. Ideal for outdoor events, trade shows, and corporate gifts. Get your quote today.",
+  "introHtml": "<p>Camo bags bring a rugged, outdoor-ready aesthetic that stands out from standard solids or patterns. Whether you're outfitting a hunting lodge, organizing a company camping trip, or branding gear for a tactical team, custom camo bags like the Solo® Re:move Duffle or Re:vive Mini Backpack offer durable construction and practical storage. Choose screen printing or embroidery to add your logo without overpowering the camouflage finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom camo bags including duffle, tote, and backpack styles with camouflage pattern for bulk corporate orders.",
+  "productSkus": [
+    "524401",
+    "524403",
+    "524404"
+  ],
+  "generatedAt": "2026-05-31T09:34:20.179106+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

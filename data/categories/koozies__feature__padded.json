@@ -1,0 +1,23 @@
+{
+  "url": "/cat/koozies/feature/padded",
+  "type": "facet",
+  "h1": "Custom Padded Koozies for Bulk Orders",
+  "metaTitle": "Custom Padded Koozies | Perfect Imprints",
+  "metaDescription": "Order custom padded koozies for your brand. Perfect for events, giveaways, and bulk orders. Get a quote today!",
+  "introHtml": "<p>Padded koozies offer extra insulation and a comfortable grip, making them ideal for outdoor events, golf tournaments, and trade shows. Unlike standard koozies, the padded design keeps cans and bottles colder longer while providing a premium feel. Decorate with your logo using screen printing or embroidery for a durable, professional look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom padded koozies with logo, perfect for keeping drinks cold at events and giveaways",
+  "productSkus": [
+    "514448 90A",
+    "520377",
+    "526710"
+  ],
+  "generatedAt": "2026-05-31T08:35:00.870981+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

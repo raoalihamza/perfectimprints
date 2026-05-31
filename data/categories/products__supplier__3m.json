@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/3m",
+  "type": "facet",
+  "h1": "Custom 3M Products for Bulk Orders",
+  "metaTitle": "Custom 3M Products | Perfect Imprints",
+  "metaDescription": "Order custom 3M products for your team or event. Bulk pricing, fast turnaround. Get a quote today!",
+  "introHtml": "<p>When you need trusted safety, office, or industrial supplies with your logo, 3M products deliver consistent quality that employees and clients recognize. From branded Post-it Notes and Scotch tape dispensers to safety glasses and respirators, 3M items carry an inherent reputation for reliability that generic alternatives lack. Perfect for safety managers equipping job sites or marketing directors sending practical promotional kits, these products combine everyday utility with a trusted brand name that reinforces your company’s commitment to quality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom 3M products including branded Post-it Notes and safety glasses displayed on a desk",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:45:54.099156+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

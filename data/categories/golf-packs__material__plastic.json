@@ -1,0 +1,28 @@
+{
+  "url": "/cat/golf-packs/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Golf Packs for Bulk Orders",
+  "metaTitle": "Custom Plastic Golf Packs | Perfect Imprints",
+  "metaDescription": "Order custom plastic golf packs for your next event. Perfect for giveaways and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Plastic golf packs offer a durable and cost-effective way to promote your brand on the course. Unlike fabric or leather options, plastic resists moisture and cleans easily, making it ideal for outdoor events and giveaways. Whether you need custom golf ball luggage tags with clear straps or bio-composite tees with ball markers, these packs keep your logo visible round after round. Order in bulk for your next tournament or client appreciation gift.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom plastic golf packs with branded golf tees and ball markers for corporate events",
+  "productSkus": [
+    "519481",
+    "524030",
+    "526042",
+    "528009",
+    "528245",
+    "528607",
+    "528608",
+    "529253"
+  ],
+  "generatedAt": "2026-05-31T08:54:47.037846+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

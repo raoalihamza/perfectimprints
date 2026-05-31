@@ -1,0 +1,24 @@
+{
+  "url": "/cat/wine-tumblers/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Wine Tumblers",
+  "metaTitle": "Custom Made in USA Wine Tumblers | Perfect Imprints",
+  "metaDescription": "Order custom made in USA wine tumblers for your next event. Durable, American-made. Bulk pricing available. Get a quote today!",
+  "introHtml": "<p>Choosing custom made in USA wine tumblers means you're investing in quality and supporting American manufacturing. These durable, BPA-free plastic tumblers are perfect for corporate events, trade shows, or employee gifts. With options like the 12 oz Vinello Stemless Wine Glass, you can add your logo via full-color digital print or screen printing. Made in the USA ensures consistent quality and faster turnaround times for your bulk order.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA wine tumblers featuring a 12 oz plastic stemless wine glass with a full-color digital logo",
+  "productSkus": [
+    "511450",
+    "524524",
+    "524525",
+    "524526"
+  ],
+  "generatedAt": "2026-05-31T08:38:24.595945+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,32 @@
+{
+  "url": "/cat/pen-pencil-sets/type/mood",
+  "type": "facet",
+  "h1": "Custom Mood Pen Pencil Sets",
+  "metaTitle": "Custom Mood Pen Pencil Sets | Perfect Imprints",
+  "metaDescription": "Order custom mood pen pencil sets for your team or event. Unique color-changing pens that spark conversation. Get a quote today.",
+  "introHtml": "<p>Mood pen pencil sets add an element of surprise and engagement that standard promotional pens just can't match. The thermochromic ink reacts to body heat, shifting colors as they're held — a simple but memorable interaction that keeps your brand top of mind. Perfect for trade show giveaways, employee appreciation, or client welcome kits, these sets pair a color-changing pen with a coordinating pencil, often in a gift-style box or tin. Decorating options include pad printing on the barrel or foil stamping on the packaging for a polished, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom mood pen pencil sets with color-changing pens and matching pencils in gift boxes",
+  "productSkus": [
+    "512596",
+    "512693 64F",
+    "519672",
+    "521002",
+    "521897",
+    "522098",
+    "523898",
+    "523924",
+    "523950",
+    "525628",
+    "526748",
+    "527285"
+  ],
+  "generatedAt": "2026-05-31T08:45:06.109745+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

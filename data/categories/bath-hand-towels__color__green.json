@@ -1,0 +1,30 @@
+{
+  "url": "/cat/bath-hand-towels/color/green",
+  "type": "facet",
+  "h1": "Custom Green Bath Hand Towels",
+  "metaTitle": "Custom Green Bath Hand Towels | Perfect Imprints",
+  "metaDescription": "Order custom green bath hand towels with your logo. Perfect for spas, gyms, and hotels. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Green bath hand towels add a natural, calming touch to any setting. Whether you are stocking a spa, outfitting a gym, or branding a golf event, these towels offer a versatile canvas for your logo. Choose from velour or microfiber options with hemmed edges for a polished look. Decorate with screen printing or embroidery for lasting visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom green bath hand towels with embroidered logo, perfect for spa or gym use.",
+  "productSkus": [
+    "510188",
+    "510325",
+    "512900",
+    "513098",
+    "514841",
+    "520178",
+    "521013",
+    "522450",
+    "524126",
+    "528644"
+  ],
+  "generatedAt": "2026-05-31T09:36:12.718499+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/backpacks/brand/merchant-craft",
+  "type": "facet",
+  "h1": "Custom Merchant Craft Backpacks",
+  "metaTitle": "Custom Merchant Craft Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Merchant Craft backpacks for your team. Durable, professional styles with your logo. Get a quote today!",
+  "introHtml": "<p>Merchant Craft backpacks combine rugged durability with a refined, professional look that stands out in corporate environments. Whether you need branded laptop backpacks for a sales team or giveaways for a trade show, these bags offer padded compartments, water-resistant materials, and ample storage. Decorate with embroidery or screen printing for a polished finish that your recipients will use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Merchant Craft backpacks with embroidered logo displayed on a desk alongside a laptop and notebook.",
+  "productSkus": [
+    "521545",
+    "525849"
+  ],
+  "generatedAt": "2026-05-31T09:06:22.131293+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

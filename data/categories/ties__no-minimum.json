@@ -1,0 +1,30 @@
+{
+  "url": "/cat/ties/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Ties",
+  "metaTitle": "No-Minimum Custom Ties | Perfect Imprints",
+  "metaDescription": "Order custom ties with no minimum quantity. Perfect for small teams, events, or gifts. Get branded ties without bulk. Shop now at Perfect Imprints.",
+  "introHtml": "<p>No-minimum custom ties let you order exactly what you need—whether it's a single tie for a special recognition or a small set for your startup team. Unlike traditional bulk orders, you can purchase as few as one tie without facing high minimums or setup fees. This flexibility makes it ideal for small businesses, HR directors honoring employees, or marketing directors testing a new giveaway. Each tie is fully customizable with your logo or design, and you still get professional quality and fast turnaround. Skip the bulk and order precisely what your event or team requires.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom no-minimum ties with embroidered logo, perfect for small orders and team gifts",
+  "productSkus": [
+    "520886",
+    "521927",
+    "523655",
+    "524817",
+    "525724",
+    "527493",
+    "527554",
+    "528171",
+    "528870",
+    "529359"
+  ],
+  "generatedAt": "2026-05-31T08:47:24.359000+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

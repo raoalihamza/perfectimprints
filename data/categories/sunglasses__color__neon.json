@@ -1,0 +1,21 @@
+{
+  "url": "/cat/sunglasses/color/neon",
+  "type": "facet",
+  "h1": "Custom Neon Sunglasses for Bold Branding",
+  "metaTitle": "Custom Neon Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom neon sunglasses for events, trade shows, or safety gear. Bright, bold, and branded with your logo.",
+  "introHtml": "<p>Neon sunglasses stand out in a crowd, making them ideal for outdoor events, safety campaigns, or brand activations where visibility matters. Unlike standard shades, these high-visibility frames grab attention and keep your logo front and center. Choose from bright neon colors like green, orange, or pink, and decorate with screen printing or pad printing for a durable finish. Perfect for marketing teams looking to make an impact at summer festivals or corporate fun runs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom neon sunglasses in bright green and orange colors with a company logo printed on the frame",
+  "productSkus": [
+    "510166"
+  ],
+  "generatedAt": "2026-05-31T09:27:13.722855+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

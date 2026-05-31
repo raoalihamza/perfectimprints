@@ -1,0 +1,26 @@
+{
+  "url": "/cat/aprons/supplier/edwards",
+  "type": "facet",
+  "h1": "Custom Edwards Aprons for Bulk Orders",
+  "metaTitle": "Custom Edwards Aprons | Perfect Imprints",
+  "metaDescription": "Order custom Edwards aprons in bulk for your team. Perfect for restaurants, grills, and events. Get a quote today!",
+  "introHtml": "<p>Edwards aprons are known for their durable cotton construction and practical designs, making them a reliable choice for restaurants, catering companies, and BBQ events. Whether you need waist aprons for servers or full-length aprons with pouches for grill masters, Edwards offers consistent quality that holds up to daily use. Customize with your logo using screen printing or embroidery for a professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Edwards aprons with logo embroidery, featuring a durable cotton waist apron for restaurant staff.",
+  "productSkus": [
+    "508541",
+    "509133 90A",
+    "515077",
+    "516543 01A",
+    "527339",
+    "528072"
+  ],
+  "generatedAt": "2026-05-31T09:05:45.078648+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/watches/supplier/compass",
+  "type": "facet",
+  "h1": "Custom Compass Watches for Bulk Orders",
+  "metaTitle": "Custom Compass Watches | Perfect Imprints",
+  "metaDescription": "Order custom compass watches from Perfect Imprints. Ideal for outdoor events and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Compass watches combine timekeeping with directional functionality, making them a practical choice for outdoor corporate events, safety teams, or client gifts. These watches feature a built-in compass bezel, durable resin or metal cases, and reliable quartz movements. Decorate with your logo using pad printing or laser engraving for a professional finish. Perfect for trade shows, safety training, or promotional giveaways where utility matters.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom compass watches with logo engraving, featuring a durable resin case and compass bezel",
+  "productSkus": [
+    "516655",
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T10:13:45.354889+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

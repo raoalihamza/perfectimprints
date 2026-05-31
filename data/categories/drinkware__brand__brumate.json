@@ -1,0 +1,22 @@
+{
+  "url": "/cat/drinkware/brand/brumate",
+  "type": "facet",
+  "h1": "Custom BrüMate Drinkware for Bulk Orders",
+  "metaTitle": "Custom BrüMate Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom BrüMate drinkware for your brand. Perfect for corporate gifts and events. Get a quote today.",
+  "introHtml": "<p>BrüMate drinkware stands out for its triple-wall insulation and leak-proof design, keeping drinks cold for up to 40 hours. Ordering custom BrüMate drinkware in bulk lets you offer your team or clients a premium, everyday item that performs. The 40 oz Era and 25 oz Winesulator are top choices for gifting, each compatible with laser engraving or full-color pad printing for a clean, lasting logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom BrüMate drinkware with engraved logo, including 40 oz Era and 25 oz Winesulator",
+  "productSkus": [
+    "527798",
+    "527802"
+  ],
+  "generatedAt": "2026-05-31T09:43:29.334050+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

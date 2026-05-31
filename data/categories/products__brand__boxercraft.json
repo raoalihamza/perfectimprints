@@ -1,0 +1,27 @@
+{
+  "url": "/cat/products/brand/boxercraft",
+  "type": "facet",
+  "h1": "Custom Boxercraft Products for Bulk Orders",
+  "metaTitle": "Custom Boxercraft Products | Perfect Imprints",
+  "metaDescription": "Order custom Boxercraft products in bulk from Perfect Imprints. Ideal for corporate gifts, team apparel, and promotional giveaways.",
+  "introHtml": "<p>Boxercraft offers a unique blend of comfort and style, making their Sherpa pullovers, flannel pants, and cuddle cardigans popular for corporate gifts and team apparel. When you choose custom Boxercraft products, you get soft, durable fabrics that accept screen printing or embroidery beautifully. Whether outfitting a remote team with cozy flannel shorts or rewarding employees with branded sherpa pullovers, Boxercraft's laid-back aesthetic ensures your logo looks great in any casual setting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Boxercraft products including Sherpa pullover and flannel pants with embroidered logo",
+  "productSkus": [
+    "521535",
+    "527831",
+    "527832",
+    "527833",
+    "527834",
+    "527835",
+    "527836"
+  ],
+  "generatedAt": "2026-05-31T08:36:43.374939+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

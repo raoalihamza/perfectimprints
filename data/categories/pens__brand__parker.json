@@ -1,0 +1,24 @@
+{
+  "url": "/cat/pens/brand/parker",
+  "type": "facet",
+  "h1": "Custom Parker Pens for Bulk Orders",
+  "metaTitle": "Custom Parker Pens | Perfect Imprints",
+  "metaDescription": "Order custom Parker pens for your brand. Perfect Imprints offers bulk pricing on engraved Parker pens. Get a quote today.",
+  "introHtml": "<p>Parker pens are synonymous with quality and precision, making them a standout choice for corporate gifts and executive branding. Unlike generic promotional pens, Parker pens offer a refined writing experience with smooth ink flow and durable construction. The Parker IM and Sonnet series are popular for laser engraving, allowing your logo to appear crisp and professional on the metal barrel. Whether you're equipping a sales team or gifting clients, custom Parker pens convey attention to detail and lasting value.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Parker pens with engraved logos on a desk, including Parker IM and Sonnet ballpoint and rollerball models.",
+  "productSkus": [
+    "528410",
+    "528411",
+    "528412",
+    "528413"
+  ],
+  "generatedAt": "2026-05-31T08:59:33.116050+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

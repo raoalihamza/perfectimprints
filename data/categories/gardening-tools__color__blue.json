@@ -1,0 +1,33 @@
+{
+  "url": "/cat/gardening-tools/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Gardening Tools",
+  "metaTitle": "Custom Blue Gardening Tools | Perfect Imprints",
+  "metaDescription": "Order custom blue gardening tools for your team or event. Perfect for giveaways and employee gifts. Get a quote today!",
+  "introHtml": "<p>Blue gardening tools stand out in the garden and make excellent branded giveaways for landscaping teams, corporate Earth Day events, or employee wellness programs. From trowels and pruners to tool sets, imprinting your logo on a blue handle or blade adds a professional touch that’s easy to spot among green foliage. Durable materials like stainless steel or fiberglass ensure these tools hold up to repeated use, while the blue color adds a clean, recognizable look that aligns with many company color schemes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue gardening tools with branded handles, including trowels and pruners, displayed on a wooden table",
+  "productSkus": [
+    "510186",
+    "510187",
+    "510804",
+    "514871",
+    "515897",
+    "519574",
+    "523540",
+    "524637",
+    "526773",
+    "526774",
+    "528607",
+    "528608",
+    "528609"
+  ],
+  "generatedAt": "2026-05-31T09:47:29.733242+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

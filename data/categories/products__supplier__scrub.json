@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/scrub",
+  "type": "facet",
+  "h1": "Custom Scrub Products for Bulk Orders",
+  "metaTitle": "Custom Scrub Products | Perfect Imprints",
+  "metaDescription": "Order custom scrub products in bulk from Perfect Imprints. Perfect for healthcare, hospitality, and more. Get a quote today!",
+  "introHtml": "<p>Scrub products, including scrub caps and lab coats, are essential for healthcare and hospitality teams that need both professionalism and comfort. Choosing custom scrub products ensures your staff looks coordinated while reinforcing your brand identity. Options like embroidery or screen printing allow you to add logos to pockets or sleeves. Perfect Imprints offers a curated selection of scrub items from trusted suppliers, making it easy to outfit your team with durable, branded apparel that withstands daily wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of custom scrub caps and lab coats with embroidered logos, ideal for healthcare teams ordering custom scrub products.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:45:56.718097+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

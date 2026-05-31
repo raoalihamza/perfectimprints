@@ -1,0 +1,27 @@
+{
+  "url": "/cat/health/eco-friendly/renewable",
+  "type": "facet",
+  "h1": "Custom Renewable Health Products",
+  "metaTitle": "Custom Renewable Health | Perfect Imprints",
+  "metaDescription": "Shop custom renewable health products at Perfect Imprints. Ideal for eco-conscious bulk orders. Get a quote today!",
+  "introHtml": "<p>Renewable health products made from bamboo, wood, and other sustainable materials offer a natural alternative for corporate wellness programs, safety kits, and promotional giveaways. From bamboo toothbrushes and soy candles to wooden hairbrushes and bandages in compostable packaging, these items align with your company's environmental goals while promoting well-being. Choose screen printing or engraving for a subtle brand impression on eco-friendly surfaces.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom renewable health products including bamboo toothbrush, soy candle, and wooden hairbrush on a wooden table",
+  "productSkus": [
+    "508125",
+    "524498",
+    "525181",
+    "527910",
+    "528803",
+    "529323",
+    "529413"
+  ],
+  "generatedAt": "2026-05-31T09:50:32.789032+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

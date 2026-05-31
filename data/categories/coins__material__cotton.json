@@ -1,0 +1,32 @@
+{
+  "url": "/cat/coins/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Coins for Bulk Orders",
+  "metaTitle": "Custom Cotton Coins - Perfect Imprints",
+  "metaDescription": "Order custom cotton coins for events or promotions. Soft, durable, and perfect for bulk branding. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Custom cotton coins offer a soft, fabric alternative to standard metal or plastic tokens. Made from durable cotton twill or knitted cotton, these coins are lightweight and comfortable to handle. They are ideal for trade shows, giveaways, or employee recognition where a premium feel matters. Decorate with screen printing or embroidery for a textured brand impression that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cotton coins with screen printed logo on soft fabric, perfect for bulk promotional giveaways",
+  "productSkus": [
+    "502387",
+    "503551",
+    "510274",
+    "510275",
+    "511342",
+    "511344",
+    "511364",
+    "513236",
+    "513374",
+    "513378",
+    "513402",
+    "524422"
+  ],
+  "generatedAt": "2026-05-31T08:52:28.067878+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

@@ -1,0 +1,27 @@
+{
+  "url": "/cat/shirts/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Shirts for Bulk Orders",
+  "metaTitle": "Custom Pink Shirts | Perfect Imprints",
+  "metaDescription": "Order custom pink shirts for teams, events, or promotions. Bulk pricing & fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>Pink shirts create a soft, approachable look that works well for breast cancer awareness events, spring promotions, or gender-neutral uniform options. From long-sleeve oxford cloth to 3/4-sleeve tunic blouses, our pink shirts come in a range of styles suitable for screen printing or embroidery. Bulk orders ensure consistent color and sizing across your team.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink shirts in various styles for bulk orders, including long-sleeve and blouse options.",
+  "productSkus": [
+    "501558",
+    "501559",
+    "520266",
+    "524313",
+    "525546",
+    "525602",
+    "526629"
+  ],
+  "generatedAt": "2026-05-31T08:30:55.976426+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

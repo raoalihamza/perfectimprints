@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jars/supplier/adnart",
+  "type": "facet",
+  "h1": "Custom Adnart Jars for Bulk Orders",
+  "metaTitle": "Custom Adnart Jars | Perfect Imprints",
+  "metaDescription": "Order custom Adnart jars for your next event or promotion. Perfect for bulk branding with your logo. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Adnart jars combine the classic mason jar silhouette with modern drinkware functionality, making them a versatile giveaway for corporate events, trade shows, or employee gifts. The 22 oz Fiesta Mason Jar Tumbler features a colorful powder-coated finish that resists chips and scratches, while the Arnold Palmer Kit in a Mason Jar offers a ready-to-assemble gift option. Both accept screen printing or debossing for clean logo placement that stands out on breakroom shelves or at outdoor gatherings.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Adnart jars with logos, including a 22 oz Fiesta Mason Jar Tumbler and Arnold Palmer Kit in a Mason Jar",
+  "productSkus": [
+    "506911",
+    "525119"
+  ],
+  "generatedAt": "2026-05-31T09:16:44.528471+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

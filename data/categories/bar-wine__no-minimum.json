@@ -1,0 +1,28 @@
+{
+  "url": "/cat/bar-wine/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Bar Wine for Small Orders",
+  "metaTitle": "No-Minimum Custom Bar Wine - Perfect Imprints",
+  "metaDescription": "Order no-minimum custom bar wine in small quantities. Perfect for small businesses and events. Get branded barware without bulk minimums.",
+  "introHtml": "<p>When you need custom bar wine products but don't have the volume to meet typical minimums, our no-minimum collection is the solution. Whether you're a small business owner ordering for a team of five or a marketing director needing samples before a larger run, you can order as few as one or two items. Choose from insulated stemware, tumblers, and gift sets—all customizable with your logo. No bulk requirements, no hassle.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "No-minimum custom bar wine including insulated stemmed glasses and tumblers with logo imprint",
+  "productSkus": [
+    "511053 90E",
+    "523186",
+    "523495",
+    "523689",
+    "524419",
+    "527802",
+    "528731",
+    "528732"
+  ],
+  "generatedAt": "2026-05-31T08:50:07.011265+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

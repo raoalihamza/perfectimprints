@@ -1,0 +1,24 @@
+{
+  "url": "/cat/products/brand/next-level",
+  "type": "facet",
+  "h1": "Custom Next Level Products for Bulk Orders",
+  "metaTitle": "Custom Next Level Products | Perfect Imprints",
+  "metaDescription": "Order custom Next Level products in bulk from Perfect Imprints. Perfect for teams, events, and uniforms. Get started today.",
+  "introHtml": "<p>Next Level Apparel is known for its soft, comfortable fabrics and modern fits, making it a top choice for custom apparel that employees and event attendees actually want to wear. Whether you need cotton tees for a company picnic or tri-blend shirts for a team uniform, these garments hold up well to screen printing and embroidery. Bulk orders from Perfect Imprints ensure consistent sizing and color across your entire order.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Next Level products including soft cotton and tri-blend t-shirts for branding",
+  "productSkus": [
+    "526133",
+    "526134",
+    "529307",
+    "529308"
+  ],
+  "generatedAt": "2026-05-31T09:23:57.514188+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

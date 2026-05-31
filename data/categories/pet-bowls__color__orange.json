@@ -1,0 +1,25 @@
+{
+  "url": "/cat/pet-bowls/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Pet Bowls for Bulk Orders",
+  "metaTitle": "Custom Orange Pet Bowls | Perfect Imprints",
+  "metaDescription": "Order custom orange pet bowls in bulk for your brand. Perfect for pet-related promotions. Get a quote today!",
+  "introHtml": "<p>Orange pet bowls stand out in a crowd, making them a smart choice for pet adoption events, veterinary clinics, or pet supply stores. The bright color ensures your logo is easily noticed, whether you choose durable stainless steel for long-lasting use or collapsible silicone for portability. Custom imprinting on these bowls offers high visibility in homes and kennels, reinforcing brand recognition every time they are used.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange pet bowls with logo imprint, including stainless steel and collapsible silicone options for bulk orders.",
+  "productSkus": [
+    "506366",
+    "506367",
+    "520484",
+    "521770",
+    "524371"
+  ],
+  "generatedAt": "2026-05-31T10:01:14.247958+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

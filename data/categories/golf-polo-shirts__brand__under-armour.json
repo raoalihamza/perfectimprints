@@ -1,0 +1,28 @@
+{
+  "url": "/cat/golf-polo-shirts/brand/under-armour",
+  "type": "facet",
+  "h1": "Custom Under Armour Golf Polo Shirts",
+  "metaTitle": "Custom Under Armour Golf Polo Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Under Armour golf polo shirts for your team or event. Premium quality with your logo. Fast turnaround. Shop now!",
+  "introHtml": "<p>Under Armour golf polo shirts combine athletic performance with a polished look, making them a top choice for corporate golf events, sales teams, and employee uniforms. Their moisture-wicking fabric and four-way stretch keep wearers comfortable on the course or in the office. With options like the Recycled Polo and Tipped Teams Performance Polo, you can choose a style that fits your brand's aesthetic. Add your logo through embroidery or screen printing for a professional finish that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Under Armour golf polo shirts with embroidered logo displayed on a mannequin in a corporate setting",
+  "productSkus": [
+    "527121",
+    "527122",
+    "528095",
+    "528096",
+    "528105",
+    "528106",
+    "528108",
+    "529262"
+  ],
+  "generatedAt": "2026-05-31T09:14:37.058417+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

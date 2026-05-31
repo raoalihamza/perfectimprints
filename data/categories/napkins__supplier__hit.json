@@ -1,0 +1,31 @@
+{
+  "url": "/cat/napkins/supplier/hit",
+  "type": "facet",
+  "h1": "Custom Hit Napkins for Bulk Orders",
+  "metaTitle": "Custom Hit Napkins | Perfect Imprints",
+  "metaDescription": "Order custom Hit napkins in bulk for your business. Perfect for events and dining. Get a quote today!",
+  "introHtml": "<p>Hit napkins are a trusted choice for businesses that need reliable, absorbent paper napkins for events, cafeterias, or dining areas. Available in beverage, luncheon, and dinner sizes with 1/4 or 1/8 fold options, these napkins can be customized with your logo or message using flexographic printing. They hold up well for both casual and formal settings, making them a practical branded item for any bulk order.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom Hit napkins with a printed logo, available in various sizes and colors for branding.",
+  "productSkus": [
+    "514577 90A",
+    "514579 90A",
+    "514580 90A",
+    "514581 90A",
+    "514583 90A",
+    "519472",
+    "519473",
+    "520634",
+    "520635",
+    "520636",
+    "520637"
+  ],
+  "generatedAt": "2026-05-31T09:20:30.674814+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

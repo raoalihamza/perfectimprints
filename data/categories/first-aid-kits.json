@@ -1,0 +1,80 @@
+{
+  "url": "/cat/first-aid-kits",
+  "type": "root",
+  "h1": "Custom First Aid Kits for Safety & Branding",
+  "metaTitle": "Custom First Aid Kits | Perfect Imprints",
+  "metaDescription": "Order custom first aid kits with your logo. Bulk pricing, fast turnaround, and US-based support for safety managers and HR directors.",
+  "introHtml": "<p>Safety managers stocking job-site first aid stations, HR directors assembling employee safety kits, and marketing teams looking for practical trade show giveaways all turn to custom first aid kits. These kits put your company name on a product people actually use and keep nearby. Whether you need a compact 34-piece kit for individual workstations or a full 80-piece kit for break rooms and fleet vehicles, the category covers a range of sizes and contents.</p><p>Perfect Imprints offers dozens of first aid kit configurations, from the slim First Aid Traveler to the comprehensive Platinum First Aid Kit. Each kit can be imprinted with your company logo, safety slogan, or contact information using screen printing or full-color heat transfer. Bulk ordering keeps per-unit costs low, and many kits qualify for quantity discounts at 100, 250, or 500 units. Browse the selection below to find the right size and content mix for your next safety program, corporate gift, or event giveaway.</p>",
+  "buyingGuideHtml": "<p>Ordering custom first aid kits means balancing content quality, case durability, and decoration options. Look for kits with organized compartments, clear labeling, and refillable components. Kits like the Gold First Aid Kit or the Escape First Aid Kit offer sturdy nylon cases that withstand being tossed in a truck or stored in a warehouse. For office environments, the Executive First Aid Kit provides a professional look with a padded case and organized interior.</p><h3>Materials & Build Quality</h3><p>Case material matters. Nylon and polyester cases resist tearing and moisture, while plastic or metal boxes offer rigid protection for high-traffic areas. Check that the kit includes brand-name supplies like bandages, antiseptic wipes, and gloves. Cheaper kits may skimp on adhesive quality or include fewer items than listed. The 80-Piece First Aid Kit and Platinum First Aid Kit are known for reliable contents and durable packaging.</p><h3>Use Cases & Buyer Personas</h3><p>Safety managers often order bulk custom first aid kits for OSHA compliance and job-site readiness. HR directors use branded first aid kits for employee onboarding kits or wellness initiatives. Marketing directors give promotional first aid kits at trade shows, conferences, and as customer thank-you gifts. The First Aid Pouch is a compact giveaway option, while the Rip Stop First Aid Kit works well for outdoor or construction teams.</p><h3>Decoration & Customization</h3><p>Most kits accept screen printing or full-color heat transfer on the case exterior. Some kits allow pad printing on smaller surfaces. Logo placement is typically on the front panel or a sewn-on patch. For a premium look, consider kits with a zippered closure that offers a flat imprint area. The Sunscape First Aid Kit and Protect First Aid Kit have large front panels that showcase your logo clearly.</p><h3>Quantity Guidance & MOQ</h3><p>Minimum order quantities vary by kit. Simple kits like the First Aid Traveler may have a MOQ of 50, while larger kits like the 80-Piece First Aid Kit might start at 100. Bulk pricing improves significantly at 250, 500, and 1,000 units. If you need smaller quantities for a pilot program, ask about sample options or lower MOQ kits. Wholesale first aid kit pricing typically includes a setup fee for custom imprinting, which is a one-time cost.</p><p>A common buying mistake is underestimating the kit size needed. A small pouch works for individual desk kits but won't cover a team of ten. Conversely, an 80-piece kit may be overkill for a single-vehicle first aid bag. Review the contents list and compare it to your expected use. Also check the case dimensions to ensure it fits your storage space. Order a sample first to verify quality and imprint appearance before placing a large bulk order.</p>",
+  "buyingGuideH2": "Custom First Aid Kits Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom first aid kits?",
+      "a": "MOQs vary by kit. Smaller kits like the First Aid Traveler may start at 50 units, while larger kits like the 80-Piece First Aid Kit often require a minimum of 100. Contact us for specific kit MOQs."
+    },
+    {
+      "q": "Can I choose which supplies go inside the first aid kit?",
+      "a": "Most kits come with pre-selected supplies to ensure compliance and consistency. However, we can discuss custom content for large bulk orders. Standard kits include bandages, antiseptic wipes, gloves, and other essentials."
+    },
+    {
+      "q": "What decoration methods are available for first aid kits?",
+      "a": "We offer screen printing and full-color heat transfer on most kit cases. Pad printing is available for smaller imprint areas. The imprint size and location depend on the kit design."
+    },
+    {
+      "q": "How long does production take for custom first aid kits?",
+      "a": "Typical production time is 10-15 business days after artwork approval. Rush orders may be available for an additional fee. Shipping time depends on your location and chosen method."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, we recommend ordering a blank sample to evaluate the kit's size, quality, and contents. Sample pricing applies, and the cost is usually credited toward your first bulk order."
+    }
+  ],
+  "heroAltText": "Custom first aid kits with logo imprint, including compact pouch and larger 80-piece kit for workplace safety",
+  "productSkus": [
+    "505732",
+    "506435",
+    "506806",
+    "510035",
+    "510106",
+    "510164",
+    "510542",
+    "510550",
+    "510551",
+    "510552",
+    "510643 45D",
+    "511984",
+    "513205",
+    "516883",
+    "518484",
+    "520182",
+    "521117",
+    "523242",
+    "524529",
+    "524534",
+    "524535",
+    "524536",
+    "524537",
+    "524538",
+    "524540",
+    "524545",
+    "524640",
+    "524951",
+    "526828",
+    "527075",
+    "527076",
+    "527565",
+    "528053",
+    "528054",
+    "528057",
+    "528059",
+    "528536",
+    "528963"
+  ],
+  "generatedAt": "2026-05-30T10:36:54.635180+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "use_case",
+  "skuFilterMode": "full",
+  "rawSkuCount": 38,
+  "filteredSkuCount": 38
+}

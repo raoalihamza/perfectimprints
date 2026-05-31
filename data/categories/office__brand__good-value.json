@@ -1,0 +1,27 @@
+{
+  "url": "/cat/office/brand/good-value",
+  "type": "facet",
+  "h1": "Custom Good Value Office Products for Bulk Orders",
+  "metaTitle": "Custom Good Value Office Products | Perfect Imprints",
+  "metaDescription": "Shop custom Good Value office products at Perfect Imprints. Perfect for bulk orders. Get a quote today!",
+  "introHtml": "<p>Good Value brand office products offer a budget-friendly way to keep your workspace stocked with practical essentials. From gloss paper folders and mouse pads to spiral calendars and pens with stylus tips, these items are ideal for trade shows, employee onboarding, or daily office use. Choose full-color imprinting on folders or pad printing on calendars to showcase your logo consistently across your entire order.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Good Value office products including a pen with stylus, gloss folder, and spiral calendar",
+  "productSkus": [
+    "503970 90A",
+    "504660",
+    "510874 90A",
+    "528655",
+    "528657",
+    "528672",
+    "529000"
+  ],
+  "generatedAt": "2026-05-31T08:44:35.085644+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/golf/feature/with-zipper",
+  "type": "facet",
+  "h1": "Custom Golf with Zipper for Bulk Orders",
+  "metaTitle": "Custom Golf with Zipper | Perfect Imprints",
+  "metaDescription": "Order custom golf with zipper for your team or event. Perfect for bulk branding. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Golf apparel with zippers offers a practical layer for the course or office. Quarter-zip pullovers and full-zip jackets allow easy temperature control during play, while providing a clean canvas for your logo. Whether you need custom quarter-zips for a corporate tournament or branded windbreakers for your sales team, zippered golf garments keep your crew looking sharp and comfortable. Choose from men's and ladies' styles in performance fabrics that resist wrinkles and pilling. Decorate with embroidery or screen printing for a polished, professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom golf with zipper quarter-zip pullovers featuring embroidered logos for corporate events",
+  "productSkus": [
+    "524637",
+    "527677",
+    "527678"
+  ],
+  "generatedAt": "2026-05-31T08:22:53.622583+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/auto-open",
+  "type": "facet",
+  "h1": "Custom Auto Open Products",
+  "metaTitle": "Custom Auto Open Products | Perfect Imprints",
+  "metaDescription": "Shop custom auto open products for easy one-handed use. Perfect for trade shows and giveaways. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Auto open products are designed for convenience, deploying automatically with the press of a button or a simple motion. Ideal for safety managers and HR directors, these items like auto-open umbrellas or pop-up tents ensure quick setup and hassle-free use at events or outdoor activities. Choose from a variety of styles and colors for your next promotional campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom auto open products including an auto-open umbrella with a company logo, ready for easy one-handed use.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:36:49.054052+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

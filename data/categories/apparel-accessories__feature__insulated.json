@@ -1,0 +1,22 @@
+{
+  "url": "/cat/apparel-accessories/feature/insulated",
+  "type": "facet",
+  "h1": "Custom Insulated Apparel Accessories",
+  "metaTitle": "Custom Insulated Apparel Accessories | Perfect Imprints",
+  "metaDescription": "Order custom insulated apparel accessories with your logo. Perfect for outdoor events and employee gifts. Fast turnaround.",
+  "introHtml": "<p>Insulated apparel accessories keep your team comfortable in cold conditions while promoting your brand. From insulated aprons for grill masters to hard hat liners for construction crews, these items combine warmth with utility. Choose from materials like neoprene or quilted polyester, and add your logo via embroidery or screen printing. Ideal for outdoor events, winter giveaways, or employee appreciation gifts that get used daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom insulated apparel accessories like an insulated apron and hard hat liner with logos",
+  "productSkus": [
+    "508541",
+    "525806"
+  ],
+  "generatedAt": "2026-05-31T09:05:14.058297+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

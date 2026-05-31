@@ -1,0 +1,21 @@
+{
+  "url": "/cat/shot-glasses/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Shot Glasses for Bulk Orders",
+  "metaTitle": "Custom Set Shot Glasses | Perfect Imprints",
+  "metaDescription": "Order custom set shot glasses in bulk for events or promotions. Perfect for branded gifts. Get a quote today!",
+  "introHtml": "<p>Shot glasses sold as sets give you more value per impression — each glass in the set carries your logo, so a single order multiplies your brand exposure. Whether you need a 4-pack for corporate gift bags or a 6-set for bar promotions, sets make distribution easy and memorable. The 1.5 oz Silipint Silishot is a popular choice for its durable, non-breakable silicone construction, ideal for outdoor events or branded giveaways. Customize each glass with screen printing or debossing for a consistent, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom set shot glasses with logo imprint, including 1.5 oz Silipint Silishot silicone shot glasses",
+  "productSkus": [
+    "526428"
+  ],
+  "generatedAt": "2026-05-31T09:26:08.066830+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

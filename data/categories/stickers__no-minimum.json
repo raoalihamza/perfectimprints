@@ -1,0 +1,19 @@
+{
+  "url": "/cat/stickers/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Stickers for Small Orders",
+  "metaTitle": "No-Minimum Custom Stickers | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom stickers with no minimum quantity. Perfect for small teams, events, or samples. Get your free quote today.",
+  "introHtml": "<p>No-minimum custom stickers give you the freedom to order exactly what you need, whether it's a dozen for a small team or a handful for a one-time event. Unlike traditional bulk orders, this option eliminates MOQ requirements, making it ideal for startups, small businesses, and sample testing. Our low-volume pricing ensures you get durable, full-color vinyl stickers without overcommitting inventory or budget. Get started with as few as you want.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Roll of no-minimum custom stickers with colorful designs, showing small order flexibility for businesses.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:26:59.149174+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

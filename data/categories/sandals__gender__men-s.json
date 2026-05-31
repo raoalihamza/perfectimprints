@@ -1,0 +1,22 @@
+{
+  "url": "/cat/sandals/gender/men-s",
+  "type": "facet",
+  "h1": "Custom Men's Sandals for Bulk Orders",
+  "metaTitle": "Custom Men's Sandals | Perfect Imprints",
+  "metaDescription": "Order custom men's sandals for your next event or promotion. Perfect for bulk branding with your logo. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Men's sandals offer a relaxed, open-toe option for summer giveaways, resort events, or casual corporate gifts. Unlike unisex styles, these are sized and shaped specifically for men's feet, ensuring a better fit and more comfortable wear. Choose from classic flip flops or deluxe styles with cushioned soles, and add your logo through screen printing or debossing for a lasting impression that walks with your recipients.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom men's sandals with logo imprint, available in bulk for promotional events",
+  "productSkus": [
+    "501556",
+    "520052"
+  ],
+  "generatedAt": "2026-05-31T10:05:34.736032+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

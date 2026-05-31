@@ -1,0 +1,24 @@
+{
+  "url": "/cat/knives-blocks-sets/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Knives, Blocks & Sets",
+  "metaTitle": "No-Minimum Custom Knives, Blocks & Sets | Perfect Imprints",
+  "metaDescription": "Order small quantities of custom knives, blocks & sets with no minimum. Perfect for small teams, events, or gifts. Get your quote today.",
+  "introHtml": "<p>No-minimum custom knives, blocks, and sets let you order exactly what you need—whether it’s a single Leatherman® Skeletool KBX for a top performer or a handful of steak knife sets for a small company event. Unlike typical bulk orders, you can buy as few as one or two units without inflated per-piece costs. This flexibility is ideal for startups, small businesses, or any team that wants premium branded cutlery without committing to large quantities. Browse our selection and enjoy the same quality and customization options usually reserved for big orders.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A collection of no-minimum custom knives, blocks and sets including a Leatherman Skeletool and a cutlery block set with engraved logos",
+  "productSkus": [
+    "524008",
+    "527494",
+    "527495",
+    "529396"
+  ],
+  "generatedAt": "2026-05-31T09:53:24.748625+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

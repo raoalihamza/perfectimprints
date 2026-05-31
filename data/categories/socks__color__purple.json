@@ -1,0 +1,21 @@
+{
+  "url": "/cat/socks/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Socks for Bulk Orders",
+  "metaTitle": "Custom Purple Socks | Perfect Imprints",
+  "metaDescription": "Order custom purple socks for your team or event. Perfect for branding with your logo in bulk. Get a quote today!",
+  "introHtml": "<p>Purple socks bring a distinctive pop of color to any uniform, promotional giveaway, or event swag bag. Whether you choose cozy slipper socks like Fuzzy Feet for comfort or crew socks for everyday wear, purple stands out while still looking professional. Screen printing or embroidery works well on most sock materials, making it easy to add your logo. Bulk ordering ensures consistent color and sizing across your entire team or event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple socks with embroidered logo, displayed on a white background.",
+  "productSkus": [
+    "516800"
+  ],
+  "generatedAt": "2026-05-31T08:46:48.710611+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

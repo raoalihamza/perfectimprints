@@ -1,0 +1,19 @@
+{
+  "url": "/cat/automotive/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Automotive for Bulk Orders",
+  "metaTitle": "Custom Set Automotive | Perfect Imprints",
+  "metaDescription": "Order custom set automotive products in bulk. Perfect for safety kits, road emergency sets, and branded giveaways.",
+  "introHtml": "<p>Custom set automotive products bundle essential gear like jumper cables, first aid supplies, and emergency tools into a single branded package. These sets are ideal for safety managers equipping fleet vehicles or HR directors assembling roadside assistance kits for company cars. Choose from prepacked configurations or build your own combination. Decoration options include screen printing or pad printing on the case or individual items. A set makes a practical, memorable giveaway that keeps your brand visible in the glove compartment.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set automotive emergency kit with branded case and essential tools for roadside assistance.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:38:51.822080+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

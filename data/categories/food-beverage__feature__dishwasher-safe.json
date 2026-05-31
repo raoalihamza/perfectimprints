@@ -1,0 +1,24 @@
+{
+  "url": "/cat/food-beverage/feature/dishwasher-safe",
+  "type": "facet",
+  "h1": "Custom Dishwasher Safe Food & Beverage Products",
+  "metaTitle": "Custom Dishwasher Safe Food & Beverage | Perfect Imprints",
+  "metaDescription": "Order custom dishwasher safe food & beverage items for your team. Perfect for busy offices. Get a quote today!",
+  "introHtml": "<p>When you order custom food and beverage products for your team or clients, durability matters. Dishwasher safe items like the 20 oz YETI Rambler Travel Mug and the 25 oz Silipint Mason Jar Mug survive repeated commercial wash cycles without fading or warping. This makes them ideal for daily use in break rooms, job sites, or company kitchens. Choose dishwasher safe drinkware and accessories for a practical, long-lasting promotional item that your recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom dishwasher safe food and beverage products including a stainless steel travel mug and a silicone cup",
+  "productSkus": [
+    "510003",
+    "523099",
+    "528252",
+    "528839"
+  ],
+  "generatedAt": "2026-05-31T09:13:43.467497+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

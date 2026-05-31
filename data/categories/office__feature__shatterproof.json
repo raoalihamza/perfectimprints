@@ -1,0 +1,22 @@
+{
+  "url": "/cat/office/feature/shatterproof",
+  "type": "facet",
+  "h1": "Custom Shatterproof Office Products",
+  "metaTitle": "Custom Shatterproof Office | Perfect Imprints",
+  "metaDescription": "Order custom shatterproof office products for safe, durable branding. Perfect for safety-conscious workplaces. Get a quote today!",
+  "introHtml": "<p>Shatterproof office products are ideal for environments where safety and durability are priorities. Unlike standard glass or acrylic items, these ornaments and desk accessories resist breaking on impact, making them a smart choice for breakrooms, lobbies, or employee gifts. Decorate with your logo using pad printing or engraving for a lasting impression that won't crack under pressure.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Round satin finished shatterproof ornament with custom logo on a desk in a modern office setting",
+  "productSkus": [
+    "503213",
+    "508896"
+  ],
+  "generatedAt": "2026-05-31T08:30:01.924046+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

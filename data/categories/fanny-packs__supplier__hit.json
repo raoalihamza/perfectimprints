@@ -1,0 +1,30 @@
+{
+  "url": "/cat/fanny-packs/supplier/hit",
+  "type": "facet",
+  "h1": "Custom Hit Fanny Packs for Bulk Orders",
+  "metaTitle": "Custom Hit Fanny Packs | Perfect Imprints",
+  "metaDescription": "Order custom Hit fanny packs in bulk from Perfect Imprints. Ideal for events, promotions, and giveaways. Get your quote today!",
+  "introHtml": "<p>Hit fanny packs offer a reliable, budget-friendly option for bulk promotional orders. Whether you need clear bags for stadium security or neon packs for race events, Hit's lineup includes styles like the Clear Choice Fanny Pack and the Running Belt Fanny Pack. Durable materials and simple decoration methods like screen printing ensure your logo stands out without hidden costs. Choose Hit for consistent quality across large quantities.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hit fanny packs in neon and clear styles for promotional giveaways",
+  "productSkus": [
+    "514432",
+    "514433",
+    "519201",
+    "522510",
+    "522705",
+    "522803",
+    "523655",
+    "524162",
+    "524500",
+    "525724"
+  ],
+  "generatedAt": "2026-05-31T09:45:32.001501+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

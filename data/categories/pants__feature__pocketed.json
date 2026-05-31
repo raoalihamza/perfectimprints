@@ -1,0 +1,31 @@
+{
+  "url": "/cat/pants/feature/pocketed",
+  "type": "facet",
+  "h1": "Custom Pocketed Pants for Bulk Orders",
+  "metaTitle": "Custom Pocketed Pants | Perfect Imprints",
+  "metaDescription": "Order custom pocketed pants for your team. Perfect for uniforms, workwear, and events. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Pocketed pants offer practical storage for pens, tools, or phones, making them a top choice for medical staff, tradespeople, and event crews. Whether you need scrub pants with multiple pockets for healthcare uniforms or cargo pants for construction teams, adding your logo ensures your brand stays visible on the job. Choose from joggers, shorts, and straight-leg styles in durable fabrics that withstand daily wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pocketed pants for bulk orders featuring cargo pockets and logo embroidery",
+  "productSkus": [
+    "526129",
+    "527831",
+    "527832",
+    "528786",
+    "528788",
+    "528789",
+    "528795",
+    "528865",
+    "528874",
+    "528875",
+    "529237"
+  ],
+  "generatedAt": "2026-05-31T09:59:35.254442+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

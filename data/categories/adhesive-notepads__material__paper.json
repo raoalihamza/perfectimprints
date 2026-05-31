@@ -1,0 +1,29 @@
+{
+  "url": "/cat/adhesive-notepads/material/paper",
+  "type": "facet",
+  "h1": "Custom Paper Adhesive Notepads",
+  "metaTitle": "Custom Paper Adhesive Notepads | Perfect Imprints",
+  "metaDescription": "Order custom paper adhesive notepads in bulk at Perfect Imprints. Ideal for branded notes and reminders. Soft CTA: Shop now.",
+  "introHtml": "<p>Paper adhesive notepads offer a classic, cost-effective way to keep your brand top-of-mind. Unlike specialty materials, paper provides a familiar writing surface that works with any pen or pencil. Choose from standard sticky notes, page markers, or combo pads with flags. Perfect for safety reminders, meeting notes, or daily to-do lists. Decorate with your logo using full-color print or simple one-color imprint for a professional look that gets used daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom paper adhesive notepads with a printed logo, featuring sticky notes and page markers in bright colors.",
+  "productSkus": [
+    "511061 90A",
+    "520678",
+    "520987",
+    "521666",
+    "523225",
+    "528272",
+    "528273",
+    "528673",
+    "529000"
+  ],
+  "generatedAt": "2026-05-31T09:05:11.586861+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

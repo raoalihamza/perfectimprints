@@ -1,0 +1,23 @@
+{
+  "url": "/cat/coolers/feature/collapsible",
+  "type": "facet",
+  "h1": "Custom Collapsible Coolers",
+  "metaTitle": "Custom Collapsible Coolers | Perfect Imprints",
+  "metaDescription": "Shop custom collapsible coolers for bulk orders. Perfect for giveaways and events. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Collapsible coolers offer the convenience of portable cooling without the bulk of rigid coolers. For corporate events, trade shows, or employee appreciation, these coolers pack flat for easy storage and expand to hold drinks and snacks. Decorate with your logo using screen printing or heat transfer for a durable finish. Options like the KOOZIE® Tailgate Rolling Cooler add wheels for easy transport, while the Collapsible 2-In-1 Trunk Organizer/Cooler doubles as a car organizer. Choose custom collapsible coolers to give your brand a practical, space-saving advantage.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom collapsible coolers with logo, packed flat and expanded, ideal for bulk promotional orders",
+  "productSkus": [
+    "510112",
+    "516104",
+    "525850"
+  ],
+  "generatedAt": "2026-05-31T09:41:41.786140+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

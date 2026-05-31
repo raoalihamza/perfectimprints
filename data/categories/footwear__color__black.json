@@ -1,0 +1,31 @@
+{
+  "url": "/cat/footwear/color/black",
+  "type": "facet",
+  "h1": "Custom Black Footwear for Branded Uniforms & Events",
+  "metaTitle": "Custom Black Footwear | Perfect Imprints",
+  "metaDescription": "Order custom black footwear for your team or event. Perfect for uniforms, safety, and giveaways. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Black footwear is a staple for corporate uniforms, trade show staff, and event volunteers because it matches nearly any dress code and hides wear well. Whether you need custom black slides for a poolside activation, logoed flip flops for a resort giveaway, or non-slip socks for a wellness fair, black keeps the focus on your brand. Decoration options include screen printing, embroidery, and heat transfer, allowing your logo to stand out against the dark background.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black footwear including slides, flip flops, and socks with logos for corporate events and uniforms",
+  "productSkus": [
+    "501556",
+    "516800",
+    "520052",
+    "521340",
+    "525740",
+    "526782",
+    "526927",
+    "527554",
+    "528171",
+    "528311",
+    "528344"
+  ],
+  "generatedAt": "2026-05-31T09:47:07.394690+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

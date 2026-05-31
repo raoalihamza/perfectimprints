@@ -1,0 +1,21 @@
+{
+  "url": "/cat/canopy-tents/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Canopy Tents",
+  "metaTitle": "Custom Set Canopy Tents | Perfect Imprints",
+  "metaDescription": "Order custom set canopy tents for your next event. Perfect for trade shows, sports, and outdoor promotions. Get a quote today!",
+  "introHtml": "<p>Set canopy tents come as complete kits with frame, top, and sidewalls, saving you the hassle of sourcing components separately. They are ideal for trade shows, corporate events, and sports tournaments where quick setup and brand consistency matter. Choose full-color imprint on the canopy top and sidewalls for maximum visibility. The included carry bag and stakes make transport and storage easy.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set canopy tent with full-color imprint at an outdoor event",
+  "productSkus": [
+    "529428"
+  ],
+  "generatedAt": "2026-05-31T08:40:35.233291+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

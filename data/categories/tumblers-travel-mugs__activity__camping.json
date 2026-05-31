@@ -1,0 +1,23 @@
+{
+  "url": "/cat/tumblers-travel-mugs/activity/camping",
+  "type": "facet",
+  "h1": "Custom Camping Tumblers & Travel Mugs",
+  "metaTitle": "Custom Camping Tumblers | Perfect Imprints",
+  "metaDescription": "Order custom camping tumblers and travel mugs for your next outdoor event or promotion. Durable, insulated designs from Perfect Imprints.",
+  "introHtml": "<p>Camping tumblers and travel mugs are built to handle rough outdoor conditions while keeping drinks hot or cold for hours. Unlike standard promotional drinkware, these mugs feature vacuum insulation, rugged exteriors, and spill-resistant lids designed for campsite use. Whether you are branding gear for a company retreat, outfitting a campground staff, or giving away durable drinkware at an outdoor expo, custom camping tumblers offer practical, long-lasting visibility. Choose from powder-coated finishes or laser engraving to match your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom camping tumblers and travel mugs with rugged, insulated design for outdoor use",
+  "productSkus": [
+    "521896",
+    "521930",
+    "523761"
+  ],
+  "generatedAt": "2026-05-31T09:29:31.753871+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

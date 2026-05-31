@@ -1,0 +1,25 @@
+{
+  "url": "/cat/pullovers/brand/jerzees",
+  "type": "facet",
+  "h1": "Custom Jerzees Pullovers for Bulk Orders",
+  "metaTitle": "Custom Jerzees Pullovers | Perfect Imprints",
+  "metaDescription": "Order custom Jerzees pullovers in bulk at Perfect Imprints. Great for team uniforms, employee gifts, and promotional events.",
+  "introHtml": "<p>Jerzees pullovers are a workhorse in the promotional apparel world, known for their durable NuBlend fabric that resists shrinking and pilling. Whether you need crewneck sweatshirts for a company uniform or hooded pullovers for a trade show giveaway, Jerzees offers consistent sizing and a range of colors. Decorate with screen printing or embroidery to add your logo. Perfect for safety managers and HR directors looking for budget-friendly, long-lasting apparel.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom Jerzees pullovers with embroidered logos at a corporate event",
+  "productSkus": [
+    "505528",
+    "515984",
+    "515994",
+    "515995",
+    "515996"
+  ],
+  "generatedAt": "2026-05-31T10:04:33.819304+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

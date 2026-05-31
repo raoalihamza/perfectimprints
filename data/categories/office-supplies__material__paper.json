@@ -1,0 +1,26 @@
+{
+  "url": "/cat/office-supplies/material/paper",
+  "type": "facet",
+  "h1": "Custom Paper Office Supplies for Bulk Orders",
+  "metaTitle": "Custom Paper Office Supplies | Perfect Imprints",
+  "metaDescription": "Order custom paper office supplies in bulk at Perfect Imprints. Ideal for branded calendars, planners, and desk pads. Get your quote today!",
+  "introHtml": "<p>Paper office supplies offer a tangible, customizable way to keep your team organized and your brand visible. From wall calendars and monthly planners to desk pads, paper products provide daily touchpoints for your logo or message. Unlike digital tools, printed paper items are always in sight, reinforcing your brand with every use. Choose from stapled or window calendars, pocket planners, or coloring desk pads—all ideal for corporate gifts, client appreciation, or employee onboarding kits.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom paper office supplies including branded calendars and planners on a desk",
+  "productSkus": [
+    "511061 90A",
+    "522709",
+    "523057",
+    "523058",
+    "527283",
+    "529403"
+  ],
+  "generatedAt": "2026-05-31T09:58:01.210919+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

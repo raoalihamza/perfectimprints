@@ -1,0 +1,22 @@
+{
+  "url": "/cat/outerwear/brand/bayside",
+  "type": "facet",
+  "h1": "Custom Bayside Outerwear for Bulk Orders",
+  "metaTitle": "Custom Bayside Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom Bayside outerwear in bulk from Perfect Imprints. Perfect for company uniforms, events, and employee gifts.",
+  "introHtml": "<p>Bayside outerwear combines durable construction with a professional look, making it a top choice for corporate uniforms, safety incentives, and team apparel. The brushed-back micro-fleece full-zip jackets offer lightweight warmth and easy decoration via embroidery or screen printing. Whether you need men's or women's styles, Bayside delivers consistent sizing and quality that reflects well on your company.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Bayside outerwear featuring men's and women's brushed-back micro-fleece full-zip jackets in various colors",
+  "productSkus": [
+    "505577",
+    "505578"
+  ],
+  "generatedAt": "2026-05-31T08:59:03.201555+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

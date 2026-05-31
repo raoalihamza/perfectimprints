@@ -1,0 +1,21 @@
+{
+  "url": "/cat/scarves/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Scarves",
+  "metaTitle": "Custom Full Color Scarves | Perfect Imprints",
+  "metaDescription": "Order custom full color scarves for your team or event. Perfect for branding with vibrant designs. Get a quote today!",
+  "introHtml": "<p>Full color digital printing on scarves allows you to reproduce intricate logos, gradients, and photographic images with exceptional detail. Unlike traditional screen printing, full color decoration has no color limitations and works beautifully on lightweight polyester and knit fabrics. Whether you need branded scarves for a company retreat, trade show giveaway, or employee uniform accessory, full color printing keeps your design crisp and vibrant. The 3 Piece Knit Set is a popular choice for a coordinated look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color scarves with vibrant digital print showcasing a detailed company logo on a lightweight knit fabric",
+  "productSkus": [
+    "520012"
+  ],
+  "generatedAt": "2026-05-31T09:25:08.578160+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

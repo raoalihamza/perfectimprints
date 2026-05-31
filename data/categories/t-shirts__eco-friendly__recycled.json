@@ -1,0 +1,27 @@
+{
+  "url": "/cat/t-shirts/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled T Shirts",
+  "metaTitle": "Custom Recycled T Shirts | Perfect Imprints",
+  "metaDescription": "Eco-friendly custom recycled t shirts for your brand. Perfect for sustainable giveaways. Order bulk recycled tees at Perfect Imprints.",
+  "introHtml": "<p>Custom recycled t shirts are a smart choice for businesses that want to reduce environmental impact without sacrificing quality. Made from recycled polyester or cotton blends, these tees offer the same soft feel and durability as conventional options. Whether you're outfitting a green team or promoting a sustainability initiative, recycled t shirts show your commitment to the planet. Decorate with screen printing, embroidery, or heat transfer for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom recycled t shirts in various colors at an outdoor event",
+  "productSkus": [
+    "515831",
+    "516049",
+    "516050",
+    "516106",
+    "525400",
+    "528883",
+    "528884"
+  ],
+  "generatedAt": "2026-05-31T10:10:19.980621+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

@@ -1,0 +1,32 @@
+{
+  "url": "/cat/bar-wine-gift-sets/supplier/spec",
+  "type": "facet",
+  "h1": "Custom Spec Bar Wine Gift Sets",
+  "metaTitle": "Custom Spec Bar Wine Gift Sets | Perfect Imprints",
+  "metaDescription": "Order custom Spec bar wine gift sets in bulk. Perfect for corporate gifts. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Spec-branded bar and wine gift sets offer a curated, upscale presentation that stands out from generic options. These sets, like the Speakeasy Gift Set or the Napa Stemless Wine Tumbler Set, combine premium drinkware with complementary accessories, making them ideal for client appreciation or employee rewards. Choose from a variety of themes, from cocktail-focused to self-care, and decorate with your logo via etching or screen printing for a polished, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Spec bar wine gift sets with branded drinkware and accessories for corporate gifting",
+  "productSkus": [
+    "512596",
+    "512693 64F",
+    "519672",
+    "521002",
+    "521897",
+    "522098",
+    "523898",
+    "523924",
+    "523950",
+    "525628",
+    "526748",
+    "527285"
+  ],
+  "generatedAt": "2026-05-31T09:07:33.679318+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

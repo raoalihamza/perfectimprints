@@ -1,0 +1,22 @@
+{
+  "url": "/cat/ornaments/material/acrylic",
+  "type": "facet",
+  "h1": "Custom Acrylic Ornaments",
+  "metaTitle": "Custom Acrylic Ornaments | Perfect Imprints",
+  "metaDescription": "Order custom acrylic ornaments for your next promotion. Durable, clear, and perfect for bulk branding at Perfect Imprints.",
+  "introHtml": "<p>Acrylic ornaments offer a sleek, modern alternative to traditional glass or ceramic options. Their lightweight, shatter-resistant construction makes them ideal for corporate gifts, trade show giveaways, or employee appreciation programs. The crystal-clear material provides a beautiful canvas for full-color imprinting, allowing your logo or design to pop with vibrant detail. Whether you choose the classic Acrylic Holiday Ornament or the unique Intrepid Acrylic Ornament, these custom acrylic ornaments deliver a polished, professional look that recipients will display proudly year after year.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom acrylic ornaments with vibrant printed logos, perfect for corporate gifts and holiday promotions.",
+  "productSkus": [
+    "526903",
+    "528706"
+  ],
+  "generatedAt": "2026-05-31T09:21:01.657599+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

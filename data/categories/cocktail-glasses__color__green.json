@@ -1,0 +1,31 @@
+{
+  "url": "/cat/cocktail-glasses/color/green",
+  "type": "facet",
+  "h1": "Custom Green Cocktail Glasses",
+  "metaTitle": "Custom Green Cocktail Glasses | Perfect Imprints",
+  "metaDescription": "Order custom green cocktail glasses for your brand. Perfect for events and promotions. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Green cocktail glasses add a distinctive pop of color to any bar or event setting, making them a smart choice for brands that want to stand out. Whether you are outfitting a corporate happy hour or creating a cohesive look for a themed promotion, green glassware offers a memorable canvas for your logo. From stemless wine tumblers to insulated cups, these glasses pair well with screen printing or digital decoration for crisp, lasting brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green cocktail glasses with logo, including stemless wine tumblers and insulated cups for branded events.",
+  "productSkus": [
+    "511450",
+    "520339",
+    "522060",
+    "522098",
+    "522955",
+    "523950",
+    "524419",
+    "524524",
+    "524525",
+    "526191",
+    "527252"
+  ],
+  "generatedAt": "2026-05-31T09:41:01.033778+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

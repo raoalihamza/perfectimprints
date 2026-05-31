@@ -1,0 +1,22 @@
+{
+  "url": "/cat/lip-balm/activity/golf",
+  "type": "facet",
+  "h1": "Custom Golf Lip Balm for Bulk Orders",
+  "metaTitle": "Custom Golf Lip Balm | Perfect Imprints",
+  "metaDescription": "Order custom golf lip balm in bulk for your next tournament. SPF protection and unique shapes available. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom golf lip balm is a practical giveaway for tournaments, corporate outings, and country club events. Unlike generic balm, golf-themed options like the Golf Ball Shaped Lip Moisturizer Container tie directly to the sport, while SPF 15 Lip Balm in White Tube offers sun protection for long days on the course. Both can be imprinted with your logo, making them memorable favors that players will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom golf lip balm in white tube and golf ball shaped container with logo imprint",
+  "productSkus": [
+    "506825 90A",
+    "528500"
+  ],
+  "generatedAt": "2026-05-31T08:35:13.215695+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

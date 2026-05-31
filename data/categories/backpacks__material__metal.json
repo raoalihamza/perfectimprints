@@ -1,0 +1,23 @@
+{
+  "url": "/cat/backpacks/material/metal",
+  "type": "facet",
+  "h1": "Custom Metal Backpacks for Bulk Orders",
+  "metaTitle": "Custom Metal Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom metal backpacks in bulk. Durable, stylish, and perfect for corporate gifts or events. Get a quote today!",
+  "introHtml": "<p>Custom metal backpacks offer a sleek, industrial look that stands out from traditional fabric bags. The metallic finish adds a modern edge, making them ideal for tech companies or urban brands. With durable construction and options like embroidery or screen printing, these backpacks are built to last while keeping your logo visible. Perfect for trade shows or employee giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom metal backpacks with sleek metallic finish and embroidered logo, perfect for corporate gifts.",
+  "productSkus": [
+    "527471",
+    "527672",
+    "527746"
+  ],
+  "generatedAt": "2026-05-31T09:33:45.368778+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

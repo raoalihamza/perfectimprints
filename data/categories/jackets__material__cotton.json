@@ -1,0 +1,28 @@
+{
+  "url": "/cat/jackets/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Jackets for Your Team",
+  "metaTitle": "Custom Cotton Jackets | Perfect Imprints",
+  "metaDescription": "Order custom cotton jackets for your team at Perfect Imprints. Bulk pricing, embroidery & screen printing available. Get a quote today.",
+  "introHtml": "<p>Cotton jackets offer a comfortable, breathable layer that works well for indoor teams, outdoor events, and casual corporate wear. Unlike synthetic shells, cotton provides a soft hand feel and natural look that employees actually want to wear. Options like the Men's Mesa Jacket or Roadie Denim Jacket give you a blank canvas for embroidery or screen printing. Choose cotton for a classic, durable uniform that represents your brand without the plastic sheen.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cotton jackets with embroidered logo, including men's and women's styles for corporate teams",
+  "productSkus": [
+    "525736",
+    "525737",
+    "526199",
+    "528759",
+    "528952",
+    "528953",
+    "528956",
+    "528957"
+  ],
+  "generatedAt": "2026-05-31T09:51:46.186913+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

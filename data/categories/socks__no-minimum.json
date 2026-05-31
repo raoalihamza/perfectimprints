@@ -1,0 +1,21 @@
+{
+  "url": "/cat/socks/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Socks for Small Orders",
+  "metaTitle": "No-Minimum Custom Socks | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom socks in small quantities. Perfect for small teams, events, or samples. Get branded socks with low MOQ at Perfect Imprints.",
+  "introHtml": "<p>No-minimum custom socks let you order exactly what you need, whether that is a dozen pairs for a small team or just a few for a one-time event. Small businesses, startups, and managers running sample programs appreciate the flexibility to buy in low volume without sacrificing quality or customization. With no minimum order requirements, you can test designs, outfit a small crew, or create unique giveaways without committing to bulk inventory.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A pair of no-minimum custom socks with a colorful pattern, perfect for small orders and branded promotions.",
+  "productSkus": [
+    "521927"
+  ],
+  "generatedAt": "2026-05-31T09:02:26.129134+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

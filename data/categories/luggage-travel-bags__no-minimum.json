@@ -1,0 +1,33 @@
+{
+  "url": "/cat/luggage-travel-bags/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Luggage Travel Bags",
+  "metaTitle": "No-Minimum Custom Luggage Travel Bags | Perfect Imprints",
+  "metaDescription": "Order small quantities of no-minimum custom luggage travel bags from Perfect Imprints. Perfect for small teams, events, or samples. Get a quote today.",
+  "introHtml": "<p>No-minimum custom luggage travel bags let you order exactly what you need—whether it's 5 bags for a small team, 10 for a startup event, or a single sample to test quality. Unlike traditional bulk orders that require dozens or hundreds of units, this page is built for buyers who need flexibility without sacrificing customization. Choose from duffels, backpacks, garment bags, and more, all with your logo or design. Perfect for small businesses, HR directors, or marketing managers who want branded travel gear without the inventory commitment.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A selection of no-minimum custom luggage travel bags including duffels and backpacks with embroidered logos",
+  "productSkus": [
+    "501293",
+    "510316",
+    "513631",
+    "517197 30A",
+    "518970",
+    "520445",
+    "520571",
+    "521847",
+    "522037",
+    "522724",
+    "522807",
+    "527674",
+    "527689"
+  ],
+  "generatedAt": "2026-05-31T09:18:40.577927+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

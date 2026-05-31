@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/galaxy",
+  "type": "facet",
+  "h1": "Custom Galaxy Products for Bulk Orders",
+  "metaTitle": "Custom Galaxy Products | Perfect Imprints",
+  "metaDescription": "Order custom Galaxy products in bulk at Perfect Imprints. Perfect for branded giveaways and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Galaxy products offer a reliable and recognizable brand for your promotional campaigns. Whether you need custom power banks, phone accessories, or drinkware, Galaxy’s consistent quality ensures your logo stands out. Perfect for trade shows, employee gifts, or client appreciation, these items deliver practicality and brand visibility. Choose from a range of decoration options including screen printing and laser engraving to match your company colors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Galaxy products including branded power banks and phone accessories for corporate giveaways",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:04:19.546613+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

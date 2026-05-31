@@ -1,0 +1,25 @@
+{
+  "url": "/cat/apparel-accessories/decoration/sublimation",
+  "type": "facet",
+  "h1": "Custom Sublimation Apparel Accessories",
+  "metaTitle": "Custom Sublimation Apparel Accessories | Perfect Imprints",
+  "metaDescription": "Order custom sublimation apparel accessories for vivid, all-over designs. Perfect for teams and events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Sublimation printing allows for full-color, all-over designs that won't crack or peel, making it ideal for custom apparel accessories like socks, shoelaces, and headbands. Unlike standard screen printing, sublimation dyes bond with polyester fabrics, producing vibrant, permanent graphics that stretch with the material. Whether you need branded socks for a 5K race or custom headbands for a corporate wellness program, sublimation delivers crisp logos and patterns that last.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom sublimation apparel accessories including full color socks and printed headbands with vibrant all-over designs",
+  "productSkus": [
+    "507311 90A",
+    "513304 90A",
+    "521927",
+    "522251",
+    "526803"
+  ],
+  "generatedAt": "2026-05-31T08:23:22.966450+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

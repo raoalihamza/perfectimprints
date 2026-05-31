@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jewelry/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Jewelry for Bulk Orders",
+  "metaTitle": "Custom Blue Jewelry | Perfect Imprints",
+  "metaDescription": "Order custom blue jewelry in bulk for your team or event. Perfect Imprints offers quality branded bracelets and more.",
+  "introHtml": "<p>Blue jewelry offers a versatile way to represent your brand with a color associated with trust and professionalism. Whether you choose custom paracord bracelets for outdoor events or mood watch bracelets that change color, blue options fit corporate gifts, trade shows, and employee rewards. Decorate with your logo using screen printing or engraving for a polished look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue jewelry including paracord bracelets and mood watch bracelets for branding",
+  "productSkus": [
+    "516655",
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T09:52:05.438021+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

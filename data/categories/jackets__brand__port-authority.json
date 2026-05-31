@@ -1,0 +1,23 @@
+{
+  "url": "/cat/jackets/brand/port-authority",
+  "type": "facet",
+  "h1": "Custom Port Authority Jackets for Bulk Orders",
+  "metaTitle": "Custom Port Authority Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Port Authority jackets in bulk. Perfect for corporate teams, events, and uniforms. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Port Authority jackets are a trusted choice for corporate apparel because they combine professional styling with reliable durability. Whether you need lightweight outer shells for trade shows or warm fleece jackets for outdoor employee events, this brand offers consistent sizing and a range of colors that work well with embroidery or screen printing. Perfect for uniform programs or branded giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Port Authority jackets with embroidered logo, available in multiple colors for corporate teams.",
+  "productSkus": [
+    "525392",
+    "525393",
+    "525904"
+  ],
+  "generatedAt": "2026-05-31T08:21:59.129451+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

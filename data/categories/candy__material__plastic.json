@@ -1,0 +1,29 @@
+{
+  "url": "/cat/candy/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Candy for Bulk Orders",
+  "metaTitle": "Custom Plastic Candy | Perfect Imprints",
+  "metaDescription": "Order custom plastic candy for your next event. Perfect for trade shows, offices, and giveaways. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Plastic candy containers offer a durable, lightweight way to distribute branded sweets at trade shows, office breakrooms, or client appreciation events. Unlike glass or metal, plastic won't break during shipping or handling, making it ideal for bulk orders. Options like the Petite Treat Mini Dispenser or small jars with resealable lids keep candy fresh while showcasing your logo. Choose from single-serve packs or multi-compartment gift sets to match your budget and giveaway strategy.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom plastic candy gift set with branded logo, including small jars and mini dispensers for bulk orders",
+  "productSkus": [
+    "526256",
+    "526918",
+    "527907",
+    "527908",
+    "527909",
+    "528145",
+    "528146",
+    "529147",
+    "529148"
+  ],
+  "generatedAt": "2026-05-31T09:39:19.633970+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

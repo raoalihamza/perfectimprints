@@ -1,0 +1,21 @@
+{
+  "url": "/cat/dress-shirts/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Dress Shirts for Company Uniforms",
+  "metaTitle": "Custom Brown Dress Shirts | Perfect Imprints",
+  "metaDescription": "Order custom brown dress shirts in bulk for your team. Perfect for uniforms, events, and corporate apparel. Shop at Perfect Imprints.",
+  "introHtml": "<p>Brown dress shirts offer a professional alternative to traditional white or blue, bringing warmth and approachability to your company's uniform program. Whether you need long-sleeve styles like the Women's Preston Long Sleeve Shirt or short-sleeve options, brown complements a range of skin tones and pairs well with khaki or navy bottoms. These shirts are ideal for customer-facing roles where a polished yet friendly image matters. Add your logo with embroidery or screen printing for a cohesive brand look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown dress shirts for men and women, featuring a long-sleeve button-down style with logo embroidery, perfect for corporate uniforms.",
+  "productSkus": [
+    "517274"
+  ],
+  "generatedAt": "2026-05-31T09:12:01.883668+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

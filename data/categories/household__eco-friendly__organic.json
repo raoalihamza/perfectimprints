@@ -1,0 +1,19 @@
+{
+  "url": "/cat/household/eco-friendly/organic",
+  "type": "facet",
+  "h1": "Custom Organic Household Products",
+  "metaTitle": "Custom Organic Household Products | Perfect Imprints",
+  "metaDescription": "Order branded organic household items for your business. Eco-friendly giveaways that align with your sustainability goals. Shop now!",
+  "introHtml": "<p>Organic household products offer a natural alternative for companies committed to reducing their environmental footprint. Made from materials like organic cotton and bamboo, these items are free from synthetic pesticides and chemicals. Whether you need custom kitchen linens, reusable shopping bags, or compostable tableware, organic options ensure your brand aligns with eco-conscious values. Perfect for trade shows, employee gifts, or client appreciation, these products demonstrate a genuine commitment to sustainability without sacrificing quality or function.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom organic household products including organic cotton towels and bamboo kitchen utensils for eco-friendly branding",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:51:14.661817+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

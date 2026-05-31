@@ -1,0 +1,27 @@
+{
+  "url": "/cat/stationery/color/black",
+  "type": "facet",
+  "h1": "Custom Black Stationery for Professional Branding",
+  "metaTitle": "Custom Black Stationery | Perfect Imprints",
+  "metaDescription": "Order custom black stationery for your business. Envelopes, cards, and more with your logo. Perfect for professional branding.",
+  "introHtml": "<p>Black stationery offers a timeless, professional look that stands out in any corporate setting. Whether you need custom currency envelopes for holiday gifts or greeting cards for client appreciation, black adds a touch of elegance. Perfect for year-end mailings or everyday correspondence, these items can be imprinted with your logo in silver or white ink for a striking contrast. Ideal for marketing directors and business owners who want refined, branded materials.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black stationery including currency envelopes and greeting cards with silver foil logo imprint",
+  "productSkus": [
+    "513760 2EX",
+    "513773 2EX",
+    "526989",
+    "526990",
+    "526991",
+    "526992",
+    "526994"
+  ],
+  "generatedAt": "2026-05-31T08:23:49.285400+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

@@ -1,0 +1,33 @@
+{
+  "url": "/cat/drinkware/brand/urban-peak",
+  "type": "facet",
+  "h1": "Custom Urban Peak Drinkware for Bulk Orders",
+  "metaTitle": "Custom Urban Peak Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom Urban Peak drinkware in bulk. Perfect for corporate gifts and events. Get a quote today!",
+  "introHtml": "<p>Urban Peak drinkware combines rugged outdoor style with premium vacuum insulation, making it a smart choice for companies that want branded drinkware that actually gets used. From the 12 oz 3-in-1 Tumbler to the 40 oz Apex Ridge Travel Mug, each piece keeps beverages hot or cold for hours. These stainless steel tumblers and bottles offer a durable canvas for screen printing or laser engraving your logo. Whether you are outfitting a sales team or creating gift sets for a trade show, Urban Peak delivers a premium feel that reflects well on your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Urban Peak drinkware including vacuum tumblers and water bottles with company logos",
+  "productSkus": [
+    "520377",
+    "522862",
+    "523495",
+    "523496",
+    "523498",
+    "523503",
+    "523689",
+    "523898",
+    "525495",
+    "526874",
+    "527093",
+    "527499",
+    "527562"
+  ],
+  "generatedAt": "2026-05-31T08:23:09.692640+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

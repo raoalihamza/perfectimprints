@@ -1,0 +1,26 @@
+{
+  "url": "/cat/vests/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Vests for Bulk Orders",
+  "metaTitle": "Custom Full Color Vests | Perfect Imprints",
+  "metaDescription": "Order custom full color vests for your team or event. Perfect for branding with vibrant logos. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Full color decoration brings your logo or design to life with vibrant, photo-quality detail on any vest fabric. Whether you're outfitting a safety crew with high-visibility gear or giving employees branded fleece vests for a trade show, full color printing ensures your artwork stands out with sharp gradients and fine text. Choose from styles like the Men's Mesa Vest or Ladies' Radius Quilted Vest for a professional look that gets noticed.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color vests with vibrant logo printing on front and back panels",
+  "productSkus": [
+    "506613",
+    "506614",
+    "526297",
+    "526298",
+    "528952",
+    "528953"
+  ],
+  "generatedAt": "2026-05-31T08:25:44.759377+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

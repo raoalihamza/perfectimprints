@@ -1,0 +1,21 @@
+{
+  "url": "/cat/portfolios/feature/pen-included",
+  "type": "facet",
+  "h1": "Custom Pen Included Portfolios",
+  "metaTitle": "Custom Pen Included Portfolios | Perfect Imprints",
+  "metaDescription": "Order custom pen included portfolios for your team. Perfect for meetings and events. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Portfolios with a built-in pen slot keep your team prepared for client meetings, trade shows, and onboarding sessions. The included pen means no last-minute searches for writing tools. These portfolios combine professional organization with practical convenience, making them a smart choice for branded giveaways that get used immediately. Choose from leather, poly, or recycled materials, each with a dedicated pen loop or holder.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pen included portfolio with leather cover, pen slot, and branded logo on front",
+  "productSkus": [
+    "516719 01A"
+  ],
+  "generatedAt": "2026-05-31T10:02:44.313848+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

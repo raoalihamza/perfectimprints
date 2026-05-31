@@ -1,0 +1,29 @@
+{
+  "url": "/cat/stockings/supplier/pl",
+  "type": "facet",
+  "h1": "Custom PL Stockings for Bulk Orders",
+  "metaTitle": "Custom PL Stockings | Perfect Imprints",
+  "metaDescription": "Order custom PL stockings in bulk for your team or event. Perfect for branding with your logo. Get a quote today.",
+  "introHtml": "<p>PL stockings offer a versatile canvas for your brand, from cozy Fuzzy Feet Slipper Socks to performance-focused Jacquard Athletic Socks. Whether you're outfitting a corporate wellness program or creating custom holiday gifts, these stockings can be decorated with your logo using embroidery or full-color printing. The BeWell™ Socks and Heavyweight Merino Wool Boot Sock are popular choices for comfort and durability, making them ideal for branded giveaways that recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom PL stockings displayed in a variety of styles including slipper socks and athletic socks with logos",
+  "productSkus": [
+    "516800",
+    "521927",
+    "522251",
+    "524427",
+    "525740",
+    "526360",
+    "526361",
+    "526363",
+    "526896"
+  ],
+  "generatedAt": "2026-05-31T10:09:01.568652+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

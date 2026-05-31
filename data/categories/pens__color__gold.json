@@ -1,0 +1,30 @@
+{
+  "url": "/cat/pens/color/gold",
+  "type": "facet",
+  "h1": "Custom Gold Pens for Bulk Orders",
+  "metaTitle": "Custom Gold Pens | Perfect Imprints",
+  "metaDescription": "Shop custom gold pens at Perfect Imprints. Ideal for corporate gifts and events. Bulk pricing available. Order now!",
+  "introHtml": "<p>Gold pens add a touch of sophistication to any corporate gift or event giveaway. Whether you choose the sleek Clic™ Gold Pen or the elegant Monaco Classic® Pen, the metallic finish stands out on desks and in pockets. Perfect for executive thank-you gifts, award ceremonies, or high-end promotional campaigns, these pens pair well with foil stamping or laser engraving to showcase your logo. Bulk ordering ensures you get consistent quality and a polished look that reflects your brand's attention to detail.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom gold pens with metallic finish, perfect for corporate branding and bulk orders",
+  "productSkus": [
+    "503860",
+    "505979",
+    "506508",
+    "506766",
+    "508125",
+    "509216",
+    "510596",
+    "515735",
+    "520729",
+    "529282"
+  ],
+  "generatedAt": "2026-05-31T08:22:40.795243+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

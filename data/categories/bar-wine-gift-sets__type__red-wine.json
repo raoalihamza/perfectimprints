@@ -1,0 +1,32 @@
+{
+  "url": "/cat/bar-wine-gift-sets/type/red-wine",
+  "type": "facet",
+  "h1": "Custom Red Wine Bar Gift Sets",
+  "metaTitle": "Custom Red Wine Bar Gift Sets | Perfect Imprints",
+  "metaDescription": "Order custom red wine bar gift sets for corporate gifts and events. Perfect for clients and employees. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom red wine bar gift sets combine premium wine accessories with branded elegance, making them ideal for client appreciation or holiday gifting. Unlike general wine sets, these focus on red wine essentials like aerating tumblers and stemless glasses. The Napa Stemless Wine Tumbler Set and Speakeasy Gift Set offer practical, stylish options that keep your logo front and center during tastings or corporate events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red wine bar gift set with stemless wine tumblers and accessories in a gift box",
+  "productSkus": [
+    "512596",
+    "512693 64F",
+    "519672",
+    "521002",
+    "521897",
+    "522098",
+    "523898",
+    "523924",
+    "523950",
+    "525628",
+    "526748",
+    "527285"
+  ],
+  "generatedAt": "2026-05-31T08:50:04.175584+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

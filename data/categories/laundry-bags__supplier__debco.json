@@ -1,0 +1,33 @@
+{
+  "url": "/cat/laundry-bags/supplier/debco",
+  "type": "facet",
+  "h1": "Custom Debco Laundry Bags for Bulk Orders",
+  "metaTitle": "Custom Debco Laundry Bags | Perfect Imprints",
+  "metaDescription": "Order custom Debco laundry bags in bulk from Perfect Imprints. Perfect for corporate gifts, gyms, and hotels. Get a quote today!",
+  "introHtml": "<p>Debco laundry bags combine rugged waterproof construction with practical designs, making them ideal for corporate wellness programs, hotel amenities, or gym giveaways. From the Wetty 50L Dry Bag to the Waterproof Dry Bag Backpack, these bags offer reliable moisture protection and easy portability. Choose custom Debco laundry bags with your logo for a branded solution that stands up to heavy use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Debco laundry bags in various sizes and colors, including dry bags and backpacks with waterproof features",
+  "productSkus": [
+    "518013 01N",
+    "518753",
+    "520673",
+    "520888",
+    "521607",
+    "522058",
+    "522326",
+    "522543",
+    "522667",
+    "523502",
+    "525515",
+    "525813",
+    "528445"
+  ],
+  "generatedAt": "2026-05-31T09:18:16.601136+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/oxo",
+  "type": "facet",
+  "h1": "Custom OXO Products for Bulk Orders",
+  "metaTitle": "Custom OXO Products - Perfect Imprints",
+  "metaDescription": "Order custom OXO products with your logo. Perfect for trade shows, employee gifts, and corporate giveaways. Get a quote today.",
+  "introHtml": "<p>OXO is known for its ergonomic, user-friendly kitchen and home tools that combine comfort with durability. When you choose custom OXO products for your corporate gifts or promotional events, you're giving recipients something they'll actually use daily—from salad spinners to measuring cups. These items carry a reputation for quality that reflects well on your brand. Decorate with a subtle laser engraving or a vibrant screen print to keep your logo visible without compromising the sleek design.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom OXO products including kitchen tools and gadgets with company logo imprint",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:37.637471+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

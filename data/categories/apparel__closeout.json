@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel/closeout",
+  "type": "modifier",
+  "h1": "Closeout Custom Apparel",
+  "metaTitle": "Closeout Custom Apparel | Perfect Imprints",
+  "metaDescription": "Save on closeout custom apparel with limited-stock deals on branded gear. Shop clearance inventory now at PerfectImprints.com.",
+  "introHtml": "<p>Closeout custom apparel offers budget-conscious buyers a chance to secure branded gear at reduced prices. These items are overstock, discontinued styles, or seasonal leftovers — all priced to move quickly. Selection changes frequently as stock clears, so acting fast is key. Whether you need promotional tees for a one-time event or logoed outerwear for your team, closeout apparel delivers real value without compromising on quality. Browse current closeout custom apparel and lock in savings while sizes and colors last.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Closeout custom apparel featuring a branded Anywhere Belt Bag in a clearance sale display.",
+  "productSkus": [
+    "526499"
+  ],
+  "generatedAt": "2026-05-31T08:25:50.376088+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

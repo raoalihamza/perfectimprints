@@ -1,0 +1,32 @@
+{
+  "url": "/cat/workwear/color/red",
+  "type": "facet",
+  "h1": "Custom Red Workwear for Your Team",
+  "metaTitle": "Custom Red Workwear | Perfect Imprints",
+  "metaDescription": "Order custom red workwear for your team at Perfect Imprints. Choose from polos, aprons, scrubs, and more. Get your quote today.",
+  "introHtml": "<p>Red workwear makes your team instantly recognizable on the job site or in the kitchen. Whether you need custom red polos for a safety crew or red aprons for restaurant staff, the bold color stands out and reinforces your brand. Our selection includes snag-proof polos, durable scrubs, and reflective accessories that hold up to daily wear. Add your logo with embroidery or screen printing for a professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red workwear including polo shirts and aprons with embroidered logos for team uniforms",
+  "productSkus": [
+    "508541",
+    "515077",
+    "515284",
+    "515285",
+    "521967",
+    "525806",
+    "527339",
+    "528072",
+    "528785",
+    "528796",
+    "528797",
+    "528798"
+  ],
+  "generatedAt": "2026-05-31T10:15:39.168512+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

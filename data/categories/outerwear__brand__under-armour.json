@@ -1,0 +1,28 @@
+{
+  "url": "/cat/outerwear/brand/under-armour",
+  "type": "facet",
+  "h1": "Custom Under Armour Outerwear for Bulk Orders",
+  "metaTitle": "Custom Under Armour Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom Under Armour outerwear in bulk. Perfect for teams, events, and corporate gifts. Fast turnaround. Get a quote today.",
+  "introHtml": "<p>Under Armour outerwear combines performance fabrics with a brand that stands for athletic excellence. Whether you need custom fleece sweatshirts for a company wellness program or branded polos for a sales team, these pieces hold up to daily wear and repeated washes. Decorate with your logo using embroidery or screen printing for a professional finish that employees and clients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Under Armour outerwear with embroidered logo on a black fleece sweatshirt",
+  "productSkus": [
+    "527121",
+    "527122",
+    "528095",
+    "528096",
+    "528105",
+    "528106",
+    "528108",
+    "529262"
+  ],
+  "generatedAt": "2026-05-31T09:59:05.633184+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

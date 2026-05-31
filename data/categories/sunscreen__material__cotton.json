@@ -1,0 +1,28 @@
+{
+  "url": "/cat/sunscreen/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Sunscreen for Bulk Orders",
+  "metaTitle": "Custom Cotton Sunscreen | Perfect Imprints",
+  "metaDescription": "Order custom cotton sunscreen for your team or event. Soft, breathable fabric sunscreen from Perfect Imprints. Bulk pricing available.",
+  "introHtml": "<p>Cotton sunscreen offers a unique alternative to traditional plastic bottles: soft fabric saturated with SPF that you can wipe on without sticky residue. Ideal for outdoor events, construction sites, or beach giveaways, these cotton-based sunscreens come in towels, tote bags, and even apparel like the Gildan Softstyle T-Shirt. Your logo can be screen printed or embroidered directly on the fabric, making them functional promotional items that protect skin and build brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cotton sunscreen products including towels and tote bags with SPF protection",
+  "productSkus": [
+    "516240",
+    "522878",
+    "523623",
+    "524126",
+    "525624",
+    "526128",
+    "527339",
+    "528435"
+  ],
+  "generatedAt": "2026-05-31T10:09:41.326349+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

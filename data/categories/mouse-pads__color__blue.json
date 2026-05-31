@@ -1,0 +1,21 @@
+{
+  "url": "/cat/mouse-pads/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Mouse Pads",
+  "metaTitle": "Custom Blue Mouse Pads | Perfect Imprints",
+  "metaDescription": "Order custom blue mouse pads in bulk from Perfect Imprints. Great for branding desks at events or offices.",
+  "introHtml": "<p>Blue mouse pads bring a sense of calm and professionalism to any workspace. Whether you choose a solid jersey gel mouse pad with a built-in wrist rest for comfort or a printed fabric pad, blue works well with most office color schemes. Bulk orders are ideal for trade shows, corporate gifts, or outfitting an entire team with matching branded accessories.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue mouse pads with printed logo and gel wrist rest for office branding",
+  "productSkus": [
+    "509537"
+  ],
+  "generatedAt": "2026-05-31T08:26:52.055875+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

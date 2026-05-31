@@ -1,0 +1,24 @@
+{
+  "url": "/cat/beanies/color/red",
+  "type": "facet",
+  "h1": "Custom Red Beanies for Bulk Orders",
+  "metaTitle": "Custom Red Beanies | Perfect Imprints",
+  "metaDescription": "Order custom red beanies in bulk for your team or event. Perfect for branding with embroidery or screen printing. Shop at Perfect Imprints.",
+  "introHtml": "<p>Red beanies stand out in a crowd, making them a smart choice for safety visibility or team spirit. Whether you need branded knit caps for a winter giveaway or high-visibility headwear for outdoor crews, red offers a bold, recognizable look. Options like the Beanie With Cuff or Two-Tone Knit Pom Beanie provide room for embroidery or screen printing, so your logo stays front and center.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red beanies with embroidered logo displayed on a model for promotional use",
+  "productSkus": [
+    "514093",
+    "516012",
+    "516785",
+    "516872"
+  ],
+  "generatedAt": "2026-05-31T09:08:28.977544+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

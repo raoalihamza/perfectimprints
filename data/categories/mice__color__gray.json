@@ -1,0 +1,22 @@
+{
+  "url": "/cat/mice/color/gray",
+  "type": "facet",
+  "h1": "Custom Gray Mice for Bulk Orders",
+  "metaTitle": "Custom Gray Mice | Perfect Imprints",
+  "metaDescription": "Order custom gray mice for your team. Perfect for offices and events. Get a quote today.",
+  "introHtml": "<p>Gray mice offer a professional, understated look that blends seamlessly into any office environment. Unlike bold colors that may clash with corporate decor, custom gray mice provide a neutral canvas for your logo while maintaining a polished aesthetic. Ideal for bulk orders, these mice can be decorated with your brand using pad printing or laser engraving, ensuring a clean, lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gray mice with embroidered logo on a desk in a modern office setting",
+  "productSkus": [
+    "513619",
+    "521971"
+  ],
+  "generatedAt": "2026-05-31T08:58:01.248643+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/products/brand/skullcandy",
+  "type": "facet",
+  "h1": "Custom Skullcandy Products for Bulk Orders",
+  "metaTitle": "Custom Skullcandy Products | Perfect Imprints",
+  "metaDescription": "Order custom Skullcandy products in bulk from Perfect Imprints. Perfect for corporate gifts and events.",
+  "introHtml": "<p>Skullcandy products bring a youthful, energetic vibe to your corporate gifts and event swag. With options like the Dime Evo True Wireless Earbuds and Cassette Bluetooth Headphones, you can offer premium audio gear that recipients actually want to use. Customize them with your logo using pad printing or laser engraving for a sleek, professional look that stands out at trade shows or employee appreciation events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Skullcandy products including wireless earbuds and headphones with logo imprint",
+  "productSkus": [
+    "524348",
+    "529171"
+  ],
+  "generatedAt": "2026-05-31T09:00:46.372644+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

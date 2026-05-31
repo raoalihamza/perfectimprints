@@ -1,0 +1,29 @@
+{
+  "url": "/cat/carabiners/supplier/snugz",
+  "type": "facet",
+  "h1": "Custom Snugz Carabiners for Bulk Orders",
+  "metaTitle": "Custom Snugz Carabiners | Perfect Imprints",
+  "metaDescription": "Order custom Snugz carabiners in bulk. Perfect for giveaways, trade shows, and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Snugz carabiners are known for their durable construction and smooth keyring attachment, making them a reliable choice for everyday carry. Whether you need custom-printed carabiners for a safety team giveaway or a branded multi-tool for a trade show, Snugz offers a variety of styles including the Cara-Spinner and Dog Bone Carabiner. Their anodized aluminum options provide a premium look that stands out in promotional use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Snugz carabiners with keyring and direct print logo, displayed on a table for bulk promotional use.",
+  "productSkus": [
+    "501590",
+    "508958",
+    "510855",
+    "513263",
+    "515706 01A",
+    "517505",
+    "519904",
+    "520411",
+    "520857"
+  ],
+  "generatedAt": "2026-05-31T09:40:04.496967+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

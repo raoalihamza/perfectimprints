@@ -1,0 +1,22 @@
+{
+  "url": "/cat/vests/activity/golf",
+  "type": "facet",
+  "h1": "Custom Golf Vests",
+  "metaTitle": "Custom Golf Vests | Perfect Imprints",
+  "metaDescription": "Order custom golf vests for your team or event. Perfect for the course with lightweight warmth and full mobility. Bulk pricing available.",
+  "introHtml": "<p>Custom golf vests are a smart choice for tournaments, corporate outings, and team uniforms. Unlike standard vests, golf-specific designs prioritize lightweight insulation and unrestricted arm movement for a full swing. Options like the Cutter & Buck Rainier Primaloft Eco Insulated Full Zip Puffer Vest offer warmth without bulk, and can be embroidered with your logo for a polished look. Keep your group comfortable and branded from tee to green.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom golf vests with embroidered logo, lightweight insulated design for comfortable wear on the course.",
+  "productSkus": [
+    "527559",
+    "527560"
+  ],
+  "generatedAt": "2026-05-31T08:47:47.508289+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

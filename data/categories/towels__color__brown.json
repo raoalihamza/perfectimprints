@@ -1,0 +1,19 @@
+{
+  "url": "/cat/towels/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Towels for Bulk Orders",
+  "metaTitle": "Custom Brown Towels | Perfect Imprints",
+  "metaDescription": "Order custom brown towels for your business. Perfect for gyms, hotels, or events. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Brown towels offer a practical and professional look for businesses that need to hide stains and wear over time. Whether you are stocking a gym, outfitting a hotel, or providing shop towels for a maintenance team, custom brown towels in bulk keep your branding consistent while standing up to heavy use. Choose from cotton or microfiber options and add your logo with embroidery or screen printing for a durable finish that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom brown towels with embroidered logo, ideal for bulk corporate orders",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:11:57.950988+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

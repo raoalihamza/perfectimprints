@@ -1,0 +1,21 @@
+{
+  "url": "/cat/watches/feature/led-light",
+  "type": "facet",
+  "h1": "Custom LED Light Watches for Bulk Orders",
+  "metaTitle": "Custom LED Light Watches | Perfect Imprints",
+  "metaDescription": "Shop custom LED light watches for bulk orders. Great for safety, events, and promotions. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>LED light watches combine timekeeping with a built-in light source, making them ideal for low-light environments like concerts, night runs, or emergency kits. Safety managers often choose them for workers who need visible time access in dim conditions, while event planners appreciate the added functionality for giveaways. The Mood Watch Bracelet, for example, offers a compact design with an easy-to-use LED feature. Decorate with a custom logo on the band or face using pad printing or engraving.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom LED light watches with illuminated display and logo, ideal for bulk promotional orders.",
+  "productSkus": [
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T08:27:38.500184+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

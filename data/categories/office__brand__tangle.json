@@ -1,0 +1,29 @@
+{
+  "url": "/cat/office/brand/tangle",
+  "type": "facet",
+  "h1": "Custom Tangle Office Products for Bulk Orders",
+  "metaTitle": "Custom Tangle Office Products | Perfect Imprints",
+  "metaDescription": "Brand your workplace with custom Tangle office products. Perfect for bulk orders. Get a quote at Perfect Imprints today!",
+  "introHtml": "<p>Tangle office products bring a playful, tactile twist to everyday desk accessories. From cord organizers to charging cables, these items feature the iconic twisted design that reduces cord tangles and adds visual interest. Bulk buyers appreciate how Tangle products keep workspaces tidy while reinforcing brand recognition through a unique, hands-on experience. Ideal for tech companies, creative agencies, or any office that values both function and fun.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Tangle office products including a Ridge Cable Set and Color Pop Earbuds on a desk",
+  "productSkus": [
+    "505390",
+    "512294",
+    "520452",
+    "520453",
+    "521601",
+    "528359",
+    "529420",
+    "529458",
+    "529496"
+  ],
+  "generatedAt": "2026-05-31T08:30:00.304646+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

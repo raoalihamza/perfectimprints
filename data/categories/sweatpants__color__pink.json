@@ -1,0 +1,24 @@
+{
+  "url": "/cat/sweatpants/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Sweatpants for Teams & Events",
+  "metaTitle": "Custom Pink Sweatpants | Perfect Imprints",
+  "metaDescription": "Order custom pink sweatpants for your team or event. Bulk pricing, fast turnaround. Shop Perfect Imprints today.",
+  "introHtml": "<p>Pink sweatpants offer a bold yet approachable way to unify your team or event attendees. Whether you are outfitting a breast cancer awareness walk or adding a pop of color to your company's casual Friday uniform, custom pink sweatpants in performance fabrics like moisture-wicking jersey keep your group comfortable and coordinated. Choose from jogger or classic cuts, and add your logo with screen printing or embroidery for a polished look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink sweatpants with embroidered logo on a jogger style, displayed on a model",
+  "productSkus": [
+    "528865",
+    "528873",
+    "528874",
+    "528876"
+  ],
+  "generatedAt": "2026-05-31T10:09:59.235214+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

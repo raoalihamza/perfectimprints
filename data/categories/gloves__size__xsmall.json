@@ -1,0 +1,33 @@
+{
+  "url": "/cat/gloves/size/xsmall",
+  "type": "facet",
+  "h1": "Custom XSmall Gloves for Bulk Orders",
+  "metaTitle": "Custom XSmall Gloves | Perfect Imprints",
+  "metaDescription": "Order custom xsmall gloves in bulk from Perfect Imprints. Ideal for trade shows, events, and corporate gifts. Get your quote today!",
+  "introHtml": "<p>Custom xsmall gloves offer a precise fit for team members or event attendees with smaller hands, ensuring comfort and dexterity. Whether you need touch-screen compatible options like our TechSmart Gloves for outdoor staff or durable fleece gloves for winter promotions, this size provides a tailored solution. Perfect for safety managers equipping crews or marketing directors distributing branded gear at trade shows.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom xsmall gloves for bulk orders, featuring fleece and touch screen styles with logo imprinting",
+  "productSkus": [
+    "516831",
+    "516832",
+    "516833",
+    "516834",
+    "516839",
+    "516872",
+    "519076",
+    "520012",
+    "521335",
+    "522780",
+    "524376",
+    "527422",
+    "527493"
+  ],
+  "generatedAt": "2026-05-31T08:54:40.336171+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

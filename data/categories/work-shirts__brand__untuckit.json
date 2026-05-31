@@ -1,0 +1,24 @@
+{
+  "url": "/cat/work-shirts/brand/untuckit",
+  "type": "facet",
+  "h1": "Custom Untuckit Work Shirts for Your Team",
+  "metaTitle": "Custom Untuckit Work Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Untuckit work shirts for your team. Perfect for a polished, untucked look. Shop bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Untuckit work shirts combine a tailored fit with a casual hem, designed specifically to be worn untucked. This makes them ideal for teams that want a professional appearance without the formality of a tucked-in shirt. Available in wrinkle-free fabrics like the Petrus and Castello styles, these shirts keep your team looking sharp through long workdays. Perfect for client meetings, trade shows, or daily office wear, custom Untuckit shirts offer a modern uniform solution that employees will actually want to wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Untuckit work shirts for teams, featuring wrinkle-free long sleeve and short sleeve styles in solid colors.",
+  "productSkus": [
+    "525602",
+    "525604",
+    "525605",
+    "525606"
+  ],
+  "generatedAt": "2026-05-31T10:15:28.027364+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

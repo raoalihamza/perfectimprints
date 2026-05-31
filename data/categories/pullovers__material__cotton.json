@@ -1,0 +1,31 @@
+{
+  "url": "/cat/pullovers/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Pullovers for Your Team",
+  "metaTitle": "Custom Cotton Pullovers | Perfect Imprints",
+  "metaDescription": "Order custom cotton pullovers for your team or event. Soft, comfortable, and perfect for embroidery or screen printing. Get a quote today!",
+  "introHtml": "<p>Cotton pullovers offer a soft, breathable feel that synthetic blends can't match, making them a favorite for employee uniforms, event giveaways, and corporate gifts. Whether you choose a classic crew neck like the Camden Crew Neck Sweatshirt or a quarter-zip style like the Crosswind Quarter Zip, cotton provides a comfortable fit for everyday wear. These pullovers take screen printing and embroidery beautifully, giving your logo a clean, professional look. Perfect for teams that value comfort and durability.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of custom cotton pullovers in various colors with embroidered logos",
+  "productSkus": [
+    "511025",
+    "511117",
+    "522160",
+    "526103",
+    "526530",
+    "526531",
+    "527947",
+    "528221",
+    "528222",
+    "528594",
+    "528595"
+  ],
+  "generatedAt": "2026-05-31T10:04:41.967432+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

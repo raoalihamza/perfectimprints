@@ -1,0 +1,21 @@
+{
+  "url": "/cat/coasters/material/crystal",
+  "type": "facet",
+  "h1": "Custom Crystal Coasters for Bulk Orders",
+  "metaTitle": "Custom Crystal Coasters | Perfect Imprints",
+  "metaDescription": "Order custom crystal coasters for your brand. Perfect for upscale events and corporate gifts. Bulk pricing available.",
+  "introHtml": "<p>Crystal coasters offer a polished, high-end look that standard ceramic or cork options can't match. The clear material showcases your logo with a sleek, modern appearance, making them ideal for executive gifts, hospitality suites, or client appreciation events. Decorate with full-color imprint or a subtle etch for a sophisticated finish that stands out on any desk or bar top.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Set of four custom crystal coasters with engraved logo on a wooden table",
+  "productSkus": [
+    "514300 90E"
+  ],
+  "generatedAt": "2026-05-31T09:10:43.577617+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/sunglass-cases/search",
+  "type": "modifier",
+  "h1": "Custom Sunglass Cases for Branded Promotions",
+  "metaTitle": "Custom Sunglass Cases – Perfect Imprints",
+  "metaDescription": "Explore custom sunglass cases for your brand. Find stylish, durable options with easy ordering from Perfect Imprints.",
+  "introHtml": "<p>Custom sunglass cases are a practical and stylish way to keep your brand in sight. Whether you need cases for employee gifts, client appreciation, or event giveaways, our selection offers a range of materials, colors, and imprint options to match your message. From sleek neoprene pouches to premium leather-like designs, you can find the perfect case to protect eyewear while promoting your logo. Start browsing our collection to see what fits your brand best.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom sunglass cases displayed in various colors and materials, including neoprene and leather-like options, with imprinted logos.",
+  "productSkus": [
+    "515643 33A",
+    "518272",
+    "524248",
+    "525515"
+  ],
+  "generatedAt": "2026-05-31T09:27:12.388916+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/cards/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Cards for Bulk Orders",
+  "metaTitle": "Custom Recycled Cards | Perfect Imprints",
+  "metaDescription": "Order custom recycled cards in bulk for eco-friendly branding. Perfect for marketing, events, or gifts at Perfect Imprints.",
+  "introHtml": "<p>Custom recycled cards let you promote your brand while reducing environmental impact. Made from post-consumer waste, these cards offer the same durability and print quality as virgin stock. Whether you need playing cards for a trade show giveaway or loyalty cards for your retail business, recycled materials show your commitment to sustainability. Choose from standard finishes and full-color imprinting to match your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled playing cards with full-color branding on eco-friendly paper stock",
+  "productSkus": [
+    "526561"
+  ],
+  "generatedAt": "2026-05-31T09:40:04.364834+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

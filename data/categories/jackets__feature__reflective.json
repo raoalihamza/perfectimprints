@@ -1,0 +1,27 @@
+{
+  "url": "/cat/jackets/feature/reflective",
+  "type": "facet",
+  "h1": "Custom Reflective Jackets for Safety & Visibility",
+  "metaTitle": "Custom Reflective Jackets | Perfect Imprints",
+  "metaDescription": "Order custom reflective jackets with your logo. High-visibility safety wear for teams, events, and construction. Get a quote today.",
+  "introHtml": "<p>Reflective jackets combine high-visibility materials with practical weather protection, making them essential for nighttime events, construction crews, and safety-conscious teams. Unlike standard jackets, these feature reflective striping or panels that meet ANSI or EN standards for low-light conditions. Options like the Men's Ecoreflect Rain Jacket or the CornerStone ANSI 107 fleece hoodie offer waterproofing or insulation alongside visibility. Decorate with screen printing or embroidery for a professional look that stands out on the job site or at a company outing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom reflective jackets with high-visibility stripes and embroidered logos for safety and branding",
+  "productSkus": [
+    "510005",
+    "520281",
+    "520529",
+    "525904",
+    "529244",
+    "529245",
+    "529301"
+  ],
+  "generatedAt": "2026-05-31T08:43:08.051628+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/t-shirts/activity/baseball",
+  "type": "facet",
+  "h1": "Custom Baseball T Shirts for Teams & Events",
+  "metaTitle": "Custom Baseball T Shirts | Perfect Imprints",
+  "metaDescription": "Order custom baseball t shirts for your team or event. Bulk pricing and fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Baseball t shirts are designed for comfort and durability on and off the diamond. With three-quarter sleeves and soft ring-spun cotton, styles like the Men's and Women's Dakota Three Quarter Tee offer a vintage look that works for team uniforms, fan giveaways, or company outings. Screen printing or embroidery adds your logo cleanly to the chest or sleeve, making these shirts a practical choice for any baseball-related promotion.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom baseball t shirts with three-quarter sleeves and team logo on chest",
+  "productSkus": [
+    "521950",
+    "521951"
+  ],
+  "generatedAt": "2026-05-31T08:31:16.760650+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

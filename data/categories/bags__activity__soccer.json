@@ -1,0 +1,32 @@
+{
+  "url": "/cat/bags/activity/soccer",
+  "type": "facet",
+  "h1": "Custom Soccer Bags for Teams & Events",
+  "metaTitle": "Custom Soccer Bags | Perfect Imprints",
+  "metaDescription": "Shop custom soccer bags for teams, tournaments, and events. Bulk orders with your logo from Perfect Imprints.",
+  "introHtml": "<p>Custom soccer bags are built for the pitch and the sideline. From drawstring backpacks that hold shin guards and cleats to nylon duffels for tournament travel, these bags combine sport-specific design with durable materials. Decorate with screen-printed team logos or embroidered player names for a cohesive look. Whether you need gear bags for a youth club or branded giveaways for a soccer camp, these options keep your logo visible on and off the field.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom soccer bags with team logo printed on nylon drawstring backpack and duffel bag",
+  "productSkus": [
+    "509291 2AC",
+    "509291 2AK",
+    "509291 2AN",
+    "509291 2CI",
+    "510125",
+    "519478",
+    "519479",
+    "519480",
+    "519481",
+    "519482",
+    "519995",
+    "520907"
+  ],
+  "generatedAt": "2026-05-31T09:34:16.003729+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

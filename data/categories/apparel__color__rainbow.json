@@ -1,0 +1,24 @@
+{
+  "url": "/cat/apparel/color/rainbow",
+  "type": "facet",
+  "h1": "Custom Rainbow Apparel for Bold Branding",
+  "metaTitle": "Custom Rainbow Apparel | Perfect Imprints",
+  "metaDescription": "Shop custom rainbow apparel for bold branding. Perfect for pride events, team spirit, and more. Order bulk today!",
+  "introHtml": "<p>Rainbow apparel lets your brand stand out with vibrant, multicolor designs that signal inclusivity and energy. Whether you're outfitting a pride parade team, a summer festival staff, or a company-wide celebration, these pieces—from trucker caps to sunglasses to classic tees—create instant visual impact. Polyester and cotton blends take screen printing or embroidery well, ensuring your logo pops against the rainbow backdrop. Bulk orders keep costs down while maximizing visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom rainbow apparel including trucker caps and t-shirts at a pride event",
+  "productSkus": [
+    "506058",
+    "520335",
+    "522530",
+    "524168"
+  ],
+  "generatedAt": "2026-05-31T08:48:26.009838+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

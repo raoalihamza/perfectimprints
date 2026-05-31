@@ -1,0 +1,23 @@
+{
+  "url": "/cat/coolers/activity/golf",
+  "type": "facet",
+  "h1": "Custom Golf Coolers for the Course",
+  "metaTitle": "Custom Golf Coolers | Perfect Imprints",
+  "metaDescription": "Shop custom golf coolers at Perfect Imprints. Personalize with your logo for tournaments, events, and corporate gifts.",
+  "introHtml": "<p>Custom golf coolers keep drinks cold and your brand visible from the first tee to the 19th hole. Designed to clip onto golf bags or sit in carts, these coolers offer hands-free convenience for players. Choose from soft-sided options like the Cooler Caddy Jr or the KOOZIE® Golf Back Nine Cooler, both ideal for logo imprinting. Whether you're planning a charity tournament, corporate outing, or employee gift, branded coolers add a practical touch that golfers appreciate round after round.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom golf cooler with company logo clipped to a golf bag, featuring insulated fabric and a zippered top.",
+  "productSkus": [
+    "515039",
+    "515147 01A",
+    "524029"
+  ],
+  "generatedAt": "2026-05-31T08:41:05.082903+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

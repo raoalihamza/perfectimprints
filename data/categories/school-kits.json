@@ -1,0 +1,60 @@
+{
+  "url": "/cat/school-kits",
+  "type": "root",
+  "h1": "Custom School Kits for Students & Staff",
+  "metaTitle": "Custom School Kits | Perfect Imprints",
+  "metaDescription": "Order custom school kits for students and staff. Perfect for back-to-school, orientation, and employee onboarding. Bulk pricing available.",
+  "introHtml": "<p>Marketing directors planning back-to-school campaigns, HR directors assembling employee onboarding kits, and safety managers looking for practical giveaways all turn to custom school kits. These ready-to-assemble sets combine essential items like notebooks, pens, and hand sanitizers into a single branded package that makes a strong first impression. Whether you need 500 kits for a university orientation or 5,000 for a company-wide wellness initiative, our selection of components lets you build a kit that fits your budget and message.</p><p>From branded manicure sets and nail files for self-care themed kits to custom emery boards and clippers for hygiene-focused programs, each item can be decorated with your logo or message. Full-color printing, screen printing, and pad printing are available depending on the product. With low minimums on many components, you can test a small run before scaling up. Browse our catalog below to mix and match items that resonate with your audience.</p>",
+  "buyingGuideHtml": "<p>When ordering custom school kits, start by defining the recipient and occasion. A kit for college freshmen might include a branded manicure set and nail file, while a kit for elementary students could focus on hygiene items like hand sanitizer and tissues. Understanding the use case helps you choose components that will actually get used, which extends your brand exposure. For employee onboarding, consider including a deluxe manicure sew kit or an easy grip nail clipper — practical items that reinforce a message of care and preparedness.</p><h3>Materials and Build Quality</h3><p>Quality matters because recipients judge your brand by what they receive. Look for components made from durable materials: bamboo nail files offer an eco-friendly option, while glass nail files in sleeves provide a premium feel. Vinyl manicure kits are lightweight and affordable for large distributions. Check that cases and sleeves close securely and that printed logos resist smudging. For bulk orders, request a sample first to verify material quality and decoration accuracy.</p><h3>Customization Options</h3><p>Decoration methods vary by component. Full-color heat transfer works well on vinyl kits and paper sleeves, while screen printing suits flat surfaces like emery boards and nail clippers. Pad printing is ideal for small, curved items like the easy grip nail clipper. For a cohesive look, use the same logo placement and color across all pieces. Some items, like shaped emery boards, can be custom die-cut for a unique shape that reinforces your brand identity.</p><h3>Quantity and Pricing</h3><p>Minimum order quantities (MOQs) vary by product. Small items like matchbook nail files may have MOQs of 250, while larger kits like the 6-piece manicure set might require 100. Bulk orders of 1,000+ units typically lower the per-unit cost significantly. If your budget is tight, consider a smaller run of a single high-impact item rather than a full kit. Wholesale pricing is available for quantities over 500, and many suppliers offer tiered discounts. Plan for a 2-3 week lead time for decoration and assembly.</p><h3>Avoiding Common Mistakes</h3><p>One frequent error is ordering components that don't fit together physically or thematically. Ensure that cases are sized correctly for the items inside. Another pitfall is neglecting to account for assembly time — if you're combining multiple items into a kit, factor in labor for packaging. Also, verify that all components comply with safety regulations, especially if the kits are for children. Finally, order extras to cover defects and last-minute additions. With careful planning, your promotional school kits will leave a lasting positive impression.</p>",
+  "buyingGuideH2": "Custom School Kits Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom school kits?",
+      "a": "Minimums vary by component. Small items like matchbook nail files may have MOQs of 250, while larger kits like the 6-piece manicure set require 100. You can mix and match items to meet your budget."
+    },
+    {
+      "q": "What decoration methods are available for school kit items?",
+      "a": "Common methods include full-color heat transfer for vinyl kits and sleeves, screen printing for flat surfaces like emery boards, and pad printing for small curved items like nail clippers. Each method offers durability and color accuracy."
+    },
+    {
+      "q": "How long does production and delivery take?",
+      "a": "Typical lead time is 2-3 weeks from order approval, including decoration and assembly. Rush orders may be available for an additional fee. Always confirm timelines with your account manager."
+    },
+    {
+      "q": "Can I request samples before placing a bulk order?",
+      "a": "Yes, samples are recommended to verify material quality, decoration accuracy, and fit. Most suppliers offer sample orders at cost plus shipping. Request samples for each component you plan to include."
+    },
+    {
+      "q": "Are the products safe for children?",
+      "a": "Many components like nail files and clippers are safe for older children, but always check for small parts or sharp edges. For kits intended for young children, choose items like bamboo files and avoid glass or metal components."
+    }
+  ],
+  "heroAltText": "Custom school kits with branded manicure sets, nail files, and clippers for back-to-school and employee onboarding.",
+  "productSkus": [
+    "504251",
+    "505916",
+    "507835",
+    "511154 90A",
+    "511157 01A",
+    "511519",
+    "512842 90A",
+    "516737",
+    "517164",
+    "517165",
+    "519962",
+    "527656",
+    "527657",
+    "527659",
+    "527660",
+    "528034",
+    "528332",
+    "529296"
+  ],
+  "generatedAt": "2026-05-30T11:34:01.101127+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "use_case",
+  "skuFilterMode": "full",
+  "rawSkuCount": 18,
+  "filteredSkuCount": 18
+}

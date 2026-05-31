@@ -1,0 +1,24 @@
+{
+  "url": "/cat/messenger-bags/eco-friendly/recyclable",
+  "type": "facet",
+  "h1": "Custom Recyclable Messenger Bags",
+  "metaTitle": "Custom Recyclable Messenger Bags | Perfect Imprints",
+  "metaDescription": "Order custom recyclable messenger bags for your brand. Eco-friendly, durable, and perfect for bulk orders. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom recyclable messenger bags offer a sustainable alternative for brands that prioritize environmental responsibility. Made from materials like recycled polyester and RPET, these bags reduce waste while providing reliable daily carry for documents, laptops, and essentials. Whether you choose a sling, crossbody, or padded computer case, each bag can be decorated with your logo using screen printing or embroidery. Perfect for trade shows, employee gifts, or corporate giveaways, they align your brand with eco-conscious values without sacrificing durability or style.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recyclable messenger bags made from recycled materials, featuring branded logos and eco-friendly design.",
+  "productSkus": [
+    "527140",
+    "527201",
+    "528454",
+    "528726"
+  ],
+  "generatedAt": "2026-05-31T09:56:38.434345+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

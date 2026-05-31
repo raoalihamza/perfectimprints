@@ -1,0 +1,31 @@
+{
+  "url": "/cat/paper-bags/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Paper Bags",
+  "metaTitle": "Custom Recycled Paper Bags | Perfect Imprints",
+  "metaDescription": "Order custom recycled paper bags for eco-friendly branding. Perfect for retail, takeout, and events. Get a quote today.",
+  "introHtml": "<p>Custom recycled paper bags let you reduce environmental impact while keeping your brand visible. Made from post-consumer waste, these bags are a genuine sustainability choice for retailers, restaurants, and events. Whether you need natural kraft grocery bags for a farmers market or white kraft wine bottle bags for a boutique, recycled paper offers a textured, natural look that communicates eco-conscious values. Decorate with your logo using screen printing or foil stamping for a polished finish that aligns with your green initiatives.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled paper bags with company logo printed in black ink on natural kraft paper",
+  "productSkus": [
+    "506541 01A",
+    "514534 32E",
+    "514535 90A",
+    "517671 90A",
+    "517672 30A",
+    "517686",
+    "517691 90A",
+    "517692 90A",
+    "517693 90A",
+    "519461",
+    "524510"
+  ],
+  "generatedAt": "2026-05-31T09:59:40.333593+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

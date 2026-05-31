@@ -1,0 +1,23 @@
+{
+  "url": "/cat/bbq-grilling/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue BBQ Grilling Accessories",
+  "metaTitle": "Custom Blue BBQ Grilling | Perfect Imprints",
+  "metaDescription": "Order custom blue BBQ grilling accessories for your next company cookout. Perfect for marketing, HR, and safety teams.",
+  "introHtml": "<p>Blue custom BBQ grilling accessories stand out at company picnics and team-building events, making it easy to spot your branded gear among the crowd. Whether you choose a 3-piece BBQ set in a case or a micro coral plush blanket in navy, this color conveys trust and professionalism while keeping your logo visible from across the grill. Ideal for marketing directors and HR managers looking to reinforce brand identity during outdoor gatherings.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue BBQ grilling accessories including a 3-piece BBQ set in a case with branding",
+  "productSkus": [
+    "516806",
+    "517227",
+    "518717"
+  ],
+  "generatedAt": "2026-05-31T08:50:31.546753+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/coasters/material/felt",
+  "type": "facet",
+  "h1": "Custom Felt Coasters for Your Brand",
+  "metaTitle": "Custom Felt Coasters | Perfect Imprints",
+  "metaDescription": "Order custom felt coasters for your brand. Eco-friendly, absorbent, and perfect for events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Felt coasters offer a soft, absorbent surface that protects tabletops from condensation and scratches, making them a practical choice for trade shows, office breakrooms, and hospitality settings. Unlike hard coasters, felt absorbs moisture without sticking to glasses, and recycled felt options add an eco-friendly angle to your brand message. Decorate with a full-color logo using screen printing or debossing for a subtle, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom felt coasters with screen-printed logo on a wooden table, showcasing absorbent material",
+  "productSkus": [
+    "527429"
+  ],
+  "generatedAt": "2026-05-31T09:40:50.251000+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

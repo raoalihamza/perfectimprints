@@ -1,0 +1,23 @@
+{
+  "url": "/cat/waterproof-containers/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Waterproof Containers for Small Orders",
+  "metaTitle": "No-Minimum Custom Waterproof Containers | Perfect Imprints",
+  "metaDescription": "Order small quantities of custom waterproof containers with no minimums. Perfect for small businesses, teams, or events. Get branded gear without bulk.",
+  "introHtml": "<p>Not every order needs to be a bulk buy. Our no-minimum custom waterproof containers let you order as few as you need, whether it's a single branded lunch cooler for a team member or a small set of food jars for a client gift. No minimum quantities, no extra fees, and no need to overcommit inventory. Perfect for small businesses, startups, or one-off events where flexibility matters more than volume.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A set of no-minimum custom waterproof containers including a lunch cooler and food jar with brand logo, ideal for small orders",
+  "productSkus": [
+    "525036",
+    "525296",
+    "526044"
+  ],
+  "generatedAt": "2026-05-31T09:04:31.530114+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

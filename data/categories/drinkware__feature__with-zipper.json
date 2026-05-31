@@ -1,0 +1,24 @@
+{
+  "url": "/cat/drinkware/feature/with-zipper",
+  "type": "facet",
+  "h1": "Custom Drinkware with Zipper for Bulk Orders",
+  "metaTitle": "Custom Drinkware with Zipper – Perfect Imprints",
+  "metaDescription": "Order custom drinkware with zipper in bulk. Perfect for branded bottle coolers and pouches. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Drinkware with a zipper adds a layer of utility that standard bottles or tumblers don't offer. Whether you need a zippered bottle cooler to keep drinks cold during trade shows or a branded water bottle pouch for employee safety kits, the closure secures contents and prevents leaks. These items work well for construction site giveaways or outdoor corporate events where durability matters. Decorate with your logo using screen printing or embroidery for a professional finish that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom drinkware with zipper featuring a branded bottle cooler and pouch for promotional use",
+  "productSkus": [
+    "511304",
+    "527142",
+    "527416",
+    "528183"
+  ],
+  "generatedAt": "2026-05-31T09:12:14.873751+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/bistro-mugs/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Bistro Mugs",
+  "metaTitle": "Custom Brown Bistro Mugs | Perfect Imprints",
+  "metaDescription": "Order custom brown bistro mugs for your brand. Perfect for coffee shops and corporate gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Brown bistro mugs bring a warm, earthy feel to any breakroom or café setting. Their rich color hides coffee stains better than lighter shades, making them a practical choice for daily use. Personalize with your logo using screen printing or full-color wrap for a durable finish. Ideal for coffee shops, offices, or promotional giveaways where a cozy, rustic aesthetic fits your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown bistro mugs with logo imprint, perfect for coffee and tea",
+  "productSkus": [
+    "520339",
+    "521937",
+    "527416"
+  ],
+  "generatedAt": "2026-05-31T09:08:45.598450+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

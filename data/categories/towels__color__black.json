@@ -1,0 +1,32 @@
+{
+  "url": "/cat/towels/color/black",
+  "type": "facet",
+  "h1": "Custom Black Towels for Bulk Orders",
+  "metaTitle": "Custom Black Towels | Perfect Imprints",
+  "metaDescription": "Order custom black towels in bulk for your brand. Perfect for gyms, events, and giveaways. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Black towels are a versatile choice for brands that want a professional, neutral backdrop that makes logos pop. Whether you need cooling towels for outdoor events, golf towels for corporate tournaments, or velour hemmed towels for gym giveaways, black hides stains and maintains a crisp appearance through repeated use. Decorate with screen printing or embroidery for a durable, high-contrast finish that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black towels with embroidered logo, displayed in a stack for bulk orders",
+  "productSkus": [
+    "510188",
+    "510325",
+    "510644",
+    "513098",
+    "513733",
+    "521013",
+    "522450",
+    "524126",
+    "527643",
+    "528005",
+    "528436",
+    "528644"
+  ],
+  "generatedAt": "2026-05-31T08:38:02.304090+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

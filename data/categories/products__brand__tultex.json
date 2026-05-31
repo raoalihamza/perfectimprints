@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/tultex",
+  "type": "facet",
+  "h1": "Custom Tultex Products for Bulk Orders",
+  "metaTitle": "Custom Tultex Products - Perfect Imprints",
+  "metaDescription": "Order custom Tultex products in bulk from Perfect Imprints. Ideal for corporate apparel, team uniforms, and branded giveaways.",
+  "introHtml": "<p>Tultex is known for its soft, comfortable fleece and jersey fabrics, making it a top choice for custom apparel that employees actually want to wear. Whether you are outfitting a team for a charity walk or stocking the company store with hoodies and tees, Tultex offers consistent sizing and durable construction that holds up to repeated washing. Screen printing and embroidery both work well on these garments, giving you flexibility in decoration.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Tultex products including hoodies and t-shirts with screen-printed logos for corporate branding.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:45.322582+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

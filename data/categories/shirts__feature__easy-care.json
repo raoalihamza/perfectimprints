@@ -1,0 +1,32 @@
+{
+  "url": "/cat/shirts/feature/easy-care",
+  "type": "facet",
+  "h1": "Custom Easy Care Shirts for Bulk Orders",
+  "metaTitle": "Custom Easy Care Shirts | Perfect Imprints",
+  "metaDescription": "Order custom easy care shirts for your team. Wrinkle-resistant fabrics keep your brand looking sharp all day. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Easy care shirts are engineered with wrinkle-resistant fabrics that hold up through long workdays and frequent washing. For corporate teams, trade show staff, or field crews, these shirts maintain a crisp, professional appearance without ironing. Choose from solid Oxfords or gingham checks in men's and women's cuts, all suitable for embroidery or screen printing. Perfect for companies that want polished uniforms with minimal upkeep.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom easy care shirts featuring wrinkle-resistant fabrics for professional uniforms",
+  "productSkus": [
+    "501558",
+    "501559",
+    "513877",
+    "513878",
+    "513879",
+    "513880",
+    "517273",
+    "517274",
+    "526538",
+    "526539",
+    "528950",
+    "528951"
+  ],
+  "generatedAt": "2026-05-31T08:22:01.865966+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

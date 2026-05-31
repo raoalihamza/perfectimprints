@@ -1,0 +1,23 @@
+{
+  "url": "/cat/pens/brand/nautica",
+  "type": "facet",
+  "h1": "Custom Nautica Pens for Bulk Orders",
+  "metaTitle": "Custom Nautica Pens | Perfect Imprints",
+  "metaDescription": "Shop custom Nautica pens for bulk orders. Perfect for nautical-themed branding. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Custom Nautica pens bring a coastal, preppy aesthetic to your promotional giveaways, ideal for marine industry events, resort hospitality, or any brand that wants to evoke the sea. These pens pair the trusted Nautica name with reliable writing performance, making them a memorable giveaway for trade shows, client gifts, or employee welcome kits. Choose from ballpoint or stylus options, and add your logo with pad printing or laser engraving for a crisp, professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Nautica pens with logo imprint in blue and white, ideal for nautical-themed corporate gifts",
+  "productSkus": [
+    "525547",
+    "525548",
+    "525893"
+  ],
+  "generatedAt": "2026-05-31T08:59:32.895968+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/mgroup",
+  "type": "facet",
+  "h1": "Custom MGroup Products for Bulk Orders",
+  "metaTitle": "Custom MGroup Products | Perfect Imprints",
+  "metaDescription": "Order custom MGroup products for your business. Perfect Imprints offers bulk pricing and fast turnaround on branded promo items.",
+  "introHtml": "<p>MGroup products are known for their durable construction and modern designs, making them a reliable choice for corporate giveaways and employee recognition programs. Whether you need custom drinkware, tech accessories, or office essentials, MGroup offers a consistent look and feel across multiple categories. Decorate with your logo using screen printing, laser engraving, or full-color pad printing for a polished finish that reflects your brand's commitment to quality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom MGroup products including drinkware and tech accessories with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:22:43.015822+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

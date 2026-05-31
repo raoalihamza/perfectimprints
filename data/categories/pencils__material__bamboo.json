@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pencils/material/bamboo",
+  "type": "facet",
+  "h1": "Custom Bamboo Pencils for Bulk Orders",
+  "metaTitle": "Custom Bamboo Pencils | Perfect Imprints",
+  "metaDescription": "Order eco-friendly custom bamboo pencils in bulk. Perfect for sustainable branding. Get a quote at PerfectImprints.com.",
+  "introHtml": "<p>Bamboo pencils offer a sustainable alternative to traditional wood pencils, made from rapidly renewable bamboo that grows faster than standard timber. Ideal for eco-conscious businesses, trade shows, or corporate gifts, these pencils can be imprinted with your logo using foil stamping or screen printing. The natural bamboo grain gives each pencil a unique, organic look that stands out from ordinary promotional writing instruments.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom bamboo pencils with engraved logos arranged on a natural wood surface",
+  "productSkus": [
+    "527690"
+  ],
+  "generatedAt": "2026-05-31T10:00:10.424961+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

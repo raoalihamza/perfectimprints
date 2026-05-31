@@ -1,0 +1,31 @@
+{
+  "url": "/cat/pens/color/yellow",
+  "type": "facet",
+  "h1": "Custom Yellow Pens for Bulk Orders",
+  "metaTitle": "Custom Yellow Pens | Perfect Imprints",
+  "metaDescription": "Order custom yellow pens in bulk at Perfect Imprints. Bright, eye-catching colors perfect for branding. Get a quote today.",
+  "introHtml": "<p>Yellow pens stand out on any desk, making them an excellent choice for safety managers or marketing directors who want to add a pop of color to their branded giveaways. From the cheerful Sun Wild Smilez Pen to the practical Viva Pen/Highlighter, these options combine visibility with functionality. Perfect for trade shows, office supply kits, or safety campaigns where high visibility is key.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom yellow pens with black ink and promotional branding, including ballpoint and highlighter styles.",
+  "productSkus": [
+    "504928 49B",
+    "508272",
+    "516589",
+    "516591",
+    "519090",
+    "520731",
+    "522277",
+    "522354",
+    "528469",
+    "528477",
+    "528926"
+  ],
+  "generatedAt": "2026-05-31T08:24:21.181945+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

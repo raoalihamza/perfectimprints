@@ -1,0 +1,28 @@
+{
+  "url": "/cat/personal-care-items/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Personal Care Items",
+  "metaTitle": "Custom Full Color Personal Care Items | Perfect Imprints",
+  "metaDescription": "Order custom full color personal care items for bulk giveaways. Perfect for branded lip balms, mirrors, and more. Get a quote today!",
+  "introHtml": "<p>Full color decoration on personal care items gives you the freedom to reproduce logos, photos, or intricate designs with vivid detail. Unlike one- or two-color imprints, full color allows gradients and fine text to appear crisp on products like lip balms, mirrors, and travel kits. This is ideal for promotional campaigns where visual impact matters—think event giveaways or corporate welcome packages. With the right artwork, your brand stands out on every compact and clipper.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color personal care items including a branded lip balm and compact mirror with vibrant logo imprint",
+  "productSkus": [
+    "502594",
+    "508499 88H",
+    "512842 90A",
+    "519962",
+    "521018",
+    "526751",
+    "527548",
+    "529387"
+  ],
+  "generatedAt": "2026-05-31T08:36:23.034023+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

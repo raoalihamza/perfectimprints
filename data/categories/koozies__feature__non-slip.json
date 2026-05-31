@@ -1,0 +1,22 @@
+{
+  "url": "/cat/koozies/feature/non-slip",
+  "type": "facet",
+  "h1": "Custom Non Slip Koozies for Bulk Orders",
+  "metaTitle": "Custom Non Slip Koozies | Perfect Imprints",
+  "metaDescription": "Order custom non slip koozies in bulk. Perfect for promotions, events, and giveaways. Get a quote today!",
+  "introHtml": "<p>Custom non slip koozies keep drinks secure and hands dry, making them ideal for outdoor events, poolside promotions, or job site giveaways. Unlike standard koozies, the textured grip prevents cans and bottles from sliding, even when wet. Options like the Kangaroo Bottle Pouch offer added utility with a built-in pocket, while the Frost Buddy To-Go Buddy provides superior insulation. Decorate with your logo using screen printing or debossing for lasting brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom non slip koozies with textured grip holding a beverage can, featuring a company logo",
+  "productSkus": [
+    "527491",
+    "528183"
+  ],
+  "generatedAt": "2026-05-31T09:17:32.293074+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

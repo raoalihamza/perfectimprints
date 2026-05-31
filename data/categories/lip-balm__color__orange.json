@@ -1,0 +1,23 @@
+{
+  "url": "/cat/lip-balm/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Lip Balm for Bulk Orders",
+  "metaTitle": "Custom Orange Lip Balm | Perfect Imprints",
+  "metaDescription": "Order custom orange lip balm in bulk for your brand. Perfect for giveaways, events, and employee gifts. Get a quote today!",
+  "introHtml": "<p>Orange lip balm stands out in a crowd, making it a memorable choice for trade shows and promotional events. The bright, cheerful color pairs well with summer campaigns or wellness kits. Whether you choose a squeeze tube with a key ring for easy carry or a Sun Bum® kit for a trusted brand, custom imprinting on the tube or ball ensures your logo stays visible. Bulk orders keep costs low while delivering a useful, everyday item that recipients will reach for again and again.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange lip balm tubes and balls with logo imprint for promotional giveaways",
+  "productSkus": [
+    "519430",
+    "525626",
+    "529479"
+  ],
+  "generatedAt": "2026-05-31T08:23:38.658446+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

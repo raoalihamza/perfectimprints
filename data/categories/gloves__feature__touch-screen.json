@@ -1,0 +1,23 @@
+{
+  "url": "/cat/gloves/feature/touch-screen",
+  "type": "facet",
+  "h1": "Custom Touch Screen Gloves for Bulk Orders",
+  "metaTitle": "Custom Touch Screen Gloves | Perfect Imprints",
+  "metaDescription": "Order custom touch screen gloves in bulk for your team. Perfect for outdoor workers who need to stay connected. Get a quote today!",
+  "introHtml": "<p>Custom touch screen gloves let your team stay productive without removing their gloves to answer calls or use tablets. Unlike standard gloves, these use conductive threads in the fingertips so screens respond naturally. Great for construction crews, warehouse staff, or field sales teams who need device access in cold weather. Decorate with your logo using embroidery or screen printing for a professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom touch screen gloves with conductive fingertips, ideal for outdoor workers using smartphones and tablets",
+  "productSkus": [
+    "519076",
+    "520012",
+    "524376"
+  ],
+  "generatedAt": "2026-05-31T08:26:31.748422+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

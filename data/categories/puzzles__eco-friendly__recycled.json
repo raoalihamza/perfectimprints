@@ -1,0 +1,23 @@
+{
+  "url": "/cat/puzzles/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Puzzles",
+  "metaTitle": "Custom Recycled Puzzles | Perfect Imprints",
+  "metaDescription": "Order custom recycled puzzles for eco-conscious branding. Perfect for trade shows and gifts. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Custom recycled puzzles let you hand out a fun, brain-teasing giveaway that aligns with your company’s sustainability goals. Made from post-consumer recycled materials, these puzzles appeal to eco-conscious clients and employees alike. Choose from sudoku, word jumbles, or standard playing cards, all printed with your logo using soy-based inks. They’re a compact, engaging option for trade shows, welcome kits, or Earth Day events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled puzzles with company logo, sudoku and word jumble designs on recycled cardboard",
+  "productSkus": [
+    "508722 90A",
+    "508723 90A",
+    "526561"
+  ],
+  "generatedAt": "2026-05-31T10:04:52.482923+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

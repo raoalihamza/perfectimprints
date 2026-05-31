@@ -1,0 +1,26 @@
+{
+  "url": "/cat/shorts/color/green",
+  "type": "facet",
+  "h1": "Custom Green Shorts",
+  "metaTitle": "Custom Green Shorts | Perfect Imprints",
+  "metaDescription": "Order custom green shorts in bulk for teams, events, or uniforms. Perfect Imprints offers quality apparel with your logo.",
+  "introHtml": "<p>Green shorts are a versatile choice for teams, corporate events, and outdoor workwear. Whether you need moisture-wicking performance fabrics for a company 5K or durable mesh shorts for a summer uniform, green stands out while remaining professional. Options like the Champion® Adult Mesh Short with Pockets or Sport-Tek® PosiCharge® Competitor™ 7” Pocketed Short combine comfort with decoration-ready surfaces for screen printing or embroidery.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green shorts with embroidered logo on a moisture-wicking fabric, perfect for team uniforms and corporate events.",
+  "productSkus": [
+    "526129",
+    "528865",
+    "528873",
+    "528875",
+    "528876",
+    "528886"
+  ],
+  "generatedAt": "2026-05-31T08:31:04.669838+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

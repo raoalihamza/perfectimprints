@@ -1,0 +1,30 @@
+{
+  "url": "/cat/coffee-mugs/brand/yeti",
+  "type": "facet",
+  "h1": "Custom Yeti Coffee Mugs for Bulk Orders",
+  "metaTitle": "Custom Yeti Coffee Mugs | Perfect Imprints",
+  "metaDescription": "Order custom Yeti coffee mugs in bulk at Perfect Imprints. Durable stainless steel with your logo. Perfect for corporate gifts and events.",
+  "introHtml": "<p>Yeti coffee mugs combine rugged stainless steel construction with superior insulation, keeping beverages hot for hours. For businesses that value durability and premium branding, custom Yeti mugs offer a high-perceived-value giveaway that stands out from standard ceramic options. Decorate with laser engraving or full-color printing on the durable exterior for a polished, long-lasting logo. Ideal for client appreciation, employee rewards, or trade show giveaways where quality matters.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Yeti coffee mugs with engraved logos, stainless steel tumblers and travel mugs for bulk orders",
+  "productSkus": [
+    "528839",
+    "528840",
+    "528841",
+    "528844",
+    "528845",
+    "528846",
+    "528847",
+    "529532",
+    "529533",
+    "529534"
+  ],
+  "generatedAt": "2026-05-31T08:52:21.288965+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

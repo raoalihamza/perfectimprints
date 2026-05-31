@@ -1,0 +1,21 @@
+{
+  "url": "/cat/beanies/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Beanies for Your Brand",
+  "metaTitle": "Custom Cotton Beanies | Perfect Imprints",
+  "metaDescription": "Order custom cotton beanies for your team or event. Comfortable, breathable, and perfect for embroidery. Get a quote today.",
+  "introHtml": "<p>Cotton beanies offer a soft, breathable alternative to acrylic or wool, making them ideal for indoor events, trade shows, or mild-weather giveaways. Unlike synthetic options, cotton absorbs moisture and feels comfortable against the skin, which matters when recipients wear them for hours. The Haberdasher Knit Beanie with Leather Patch, for example, pairs natural fabric with a premium leather patch for a rugged, professional look. Custom embroidery or woven labels work beautifully on cotton beanies, giving your logo a textured, high-quality finish that stands out from standard polyester caps.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cotton beanies with embroidered logo on a soft knit fabric, ideal for branded promotional giveaways and corporate events.",
+  "productSkus": [
+    "521871"
+  ],
+  "generatedAt": "2026-05-31T08:32:44.197500+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

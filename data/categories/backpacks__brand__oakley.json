@@ -1,0 +1,22 @@
+{
+  "url": "/cat/backpacks/brand/oakley",
+  "type": "facet",
+  "h1": "Custom Oakley Backpacks for Bulk Orders",
+  "metaTitle": "Custom Oakley Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Oakley backpacks in bulk at Perfect Imprints. Ideal for corporate gifts and employee swag. Get your quote today.",
+  "introHtml": "<p>Oakley backpacks combine rugged durability with modern style, making them a favorite for corporate giveaways and employee incentives. The 22L Enduro Backpack offers a sleek profile for daily commutes, while the Kitchen Sink Backpack provides ample storage for travel. Both feature padded laptop compartments and multiple organizer pockets. Decorate with your logo via embroidery or screen printing for a premium branded look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Oakley backpacks with embroidered logo, featuring the 22L Enduro Backpack in black",
+  "productSkus": [
+    "522669",
+    "529181"
+  ],
+  "generatedAt": "2026-05-31T08:49:10.895115+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

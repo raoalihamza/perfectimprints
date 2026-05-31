@@ -1,0 +1,29 @@
+{
+  "url": "/cat/face-masks/age/kids",
+  "type": "facet",
+  "h1": "Custom Kids Face Masks for Bulk Orders",
+  "metaTitle": "Custom Kids Face Masks | Perfect Imprints",
+  "metaDescription": "Order custom kids face masks in bulk for schools, camps, and events. Perfect for branding with fun designs. Get a quote today!",
+  "introHtml": "<p>When ordering face masks for children, fit and comfort are key. Our custom kids face masks are sized specifically for smaller faces, ensuring a snug yet breathable fit. Choose from colorful bandana styles like the Winterdana or Full Color Tubular Bandana, perfect for adding playful logos or patterns. These masks are ideal for school giveaways, summer camps, or family-friendly events where you want to promote your brand while keeping kids comfortable.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of children wearing custom kids face masks with colorful bandana patterns and logos",
+  "productSkus": [
+    "506990",
+    "506991",
+    "521602",
+    "522111",
+    "524691",
+    "524692",
+    "524693",
+    "524695",
+    "526912"
+  ],
+  "generatedAt": "2026-05-31T09:45:13.871407+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/backpacks/brand/asobu",
+  "type": "facet",
+  "h1": "Custom Asobu Backpacks for Bulk Orders",
+  "metaTitle": "Custom Asobu Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Asobu backpacks in bulk. Perfect for branded giveaways. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Asobu backpacks combine the brand's signature insulated technology with practical everyday carry design. Perfect for corporate gifts or employee onboarding kits, these bags keep lunches and drinks cool while offering ample storage for laptops and gear. Decorate with your logo using screen printing or embroidery for a professional finish that stands out at trade shows or team events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Asobu backpacks with insulated compartments and logo embroidery for corporate branding",
+  "productSkus": [
+    "524414",
+    "524415",
+    "524417",
+    "527300",
+    "527436",
+    "527437"
+  ],
+  "generatedAt": "2026-05-31T09:33:32.417003+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

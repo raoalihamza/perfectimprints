@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel/brand/top-of-the-world",
+  "type": "facet",
+  "h1": "Custom Top of the World Apparel for Bulk Orders",
+  "metaTitle": "Custom Top of the World Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Top of the World apparel in bulk from Perfect Imprints. Perfect for teams, events, and giveaways. Get your quote today!",
+  "introHtml": "<p>Top of the World apparel offers a unique blend of comfort and style, making it a popular choice for corporate uniforms, team outings, and promotional events. Their slippers, like the Cascade Slippers, provide a cozy option for casual giveaways. Whether you're outfitting your staff or rewarding customers, Top of the World's quality construction and classic designs ensure your logo looks great and lasts. Choose from a variety of sizes and colors to match your brand identity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Top of the World apparel featuring a cozy pair of Cascade Slippers with a company logo embroidered on the side.",
+  "productSkus": [
+    "529443"
+  ],
+  "generatedAt": "2026-05-31T08:31:43.604187+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

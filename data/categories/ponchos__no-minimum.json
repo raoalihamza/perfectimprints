@@ -1,0 +1,19 @@
+{
+  "url": "/cat/ponchos/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Ponchos",
+  "metaTitle": "No-Minimum Custom Ponchos | Perfect Imprints",
+  "metaDescription": "Order custom ponchos with no minimum. Perfect for small teams, events, and samples. Fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>When you need custom ponchos but don't have the volume to meet typical bulk minimums, our no-minimum program gives you the flexibility to order exactly what you need. Whether it's a dozen for a small team, a handful for a pop-up event, or just a few samples to evaluate quality, you can get branded ponchos without overcommitting inventory or budget. Perfect for small businesses, startups, and one-time promotions.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of colorful no-minimum custom ponchos folded neatly, ready for branding with logos or text.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:02:37.929088+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/beanies/activity/football",
+  "type": "facet",
+  "h1": "Custom Football Beanies for Game Day Giveaways",
+  "metaTitle": "Custom Football Beanies | Perfect Imprints",
+  "metaDescription": "Order custom football beanies for your team or event. Perfect for game day giveaways and fan gear. Get a quote today.",
+  "introHtml": "<p>When you need custom beanies for football season, you want a cap that keeps fans warm and your logo visible under stadium lights. These acrylic beanies hold embroidery and screen printing well, making your brand stand out in the crowd. Whether you are ordering for a youth league, corporate tailgate, or halftime promotion, a soft acrylic beanie with a folded cuff delivers a classic look that works for both sidelines and stands.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom football beanies with embroidered logo, soft acrylic knit cap with folded cuff",
+  "productSkus": [
+    "521675"
+  ],
+  "generatedAt": "2026-05-31T08:28:12.604083+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

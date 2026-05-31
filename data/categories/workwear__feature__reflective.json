@@ -1,0 +1,28 @@
+{
+  "url": "/cat/workwear/feature/reflective",
+  "type": "facet",
+  "h1": "Custom Reflective Workwear for Safety & Visibility",
+  "metaTitle": "Custom Reflective Workwear | Perfect Imprints",
+  "metaDescription": "Order custom reflective workwear for your team. High-visibility vests, jackets & more. Perfect for safety compliance. Get a quote today!",
+  "introHtml": "<p>High-visibility reflective workwear keeps your team seen and safe on the job. From Class 2 mesh vests to hi-vis jackets with reflective stripes, these garments meet ANSI standards while carrying your logo. Safety managers choose reflective gear for construction crews, road crews, and warehouse staff who work near traffic or heavy equipment. Decorate with screen printing or embroidery for a professional look that reinforces your brand on every shift.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom reflective workwear including hi-vis vests and jackets with reflective stripes for safety",
+  "productSkus": [
+    "506903",
+    "507978",
+    "509138",
+    "511014",
+    "511795 10A",
+    "521967",
+    "524758",
+    "528678"
+  ],
+  "generatedAt": "2026-05-31T10:15:43.053743+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

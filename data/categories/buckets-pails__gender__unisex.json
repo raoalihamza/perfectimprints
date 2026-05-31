@@ -1,0 +1,22 @@
+{
+  "url": "/cat/buckets-pails/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Buckets & Pails",
+  "metaTitle": "Custom Unisex Buckets & Pails | Perfect Imprints",
+  "metaDescription": "Order custom unisex buckets & pails for your next promotion. Bulk pricing, fast turnaround. Perfect for giveaways and events.",
+  "introHtml": "<p>Unisex buckets and pails offer a gender-neutral option for promotional giveaways that appeal to any audience. Whether you're outfitting a safety team with a Roadside Rescue Kit or creating a cozy gift set like the Charleston Throw & Fuzzy Socks Set, these versatile containers provide practical branding opportunities. Choose from multiple sizes and decoration methods to match your campaign needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom unisex buckets and pails with company logo for promotional giveaways and events",
+  "productSkus": [
+    "526899",
+    "527493"
+  ],
+  "generatedAt": "2026-05-31T09:09:16.864062+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

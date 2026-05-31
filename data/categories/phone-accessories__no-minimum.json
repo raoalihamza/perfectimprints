@@ -1,0 +1,30 @@
+{
+  "url": "/cat/phone-accessories/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Phone Accessories",
+  "metaTitle": "No-Minimum Custom Phone Accessories | Perfect Imprints",
+  "metaDescription": "Order small quantities of custom phone accessories with no minimums. Perfect for small teams, events, or samples. Get branded phone accessories fast.",
+  "introHtml": "<p>When you need custom phone accessories but don't have a large order, our no-minimum program gives you the flexibility to buy as few as one piece. Whether you're outfitting a small sales team, creating employee welcome kits, or testing a design before a bigger run, you can order branded phone accessories without the bulk. No hidden setup fees, no forced overstock—just the quantity you need, at fair per-unit pricing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted no-minimum custom phone accessories including clear fanny packs and custom slides with logo branding.",
+  "productSkus": [
+    "520886",
+    "521927",
+    "523655",
+    "524817",
+    "525724",
+    "527493",
+    "527554",
+    "528171",
+    "528870",
+    "529359"
+  ],
+  "generatedAt": "2026-05-31T09:00:11.745702+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

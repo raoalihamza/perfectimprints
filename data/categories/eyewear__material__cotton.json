@@ -1,0 +1,22 @@
+{
+  "url": "/cat/eyewear/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Eyewear for Branded Events",
+  "metaTitle": "Custom Cotton Eyewear | Perfect Imprints",
+  "metaDescription": "Order custom cotton eyewear for your next event. Soft, comfortable, and fully customizable. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Cotton eyewear offers a soft, breathable alternative to standard plastic frames, making it ideal for outdoor events, trade shows, and employee wellness kits. Unlike acetate or metal options, cotton eyewear can be dyed in vibrant brand colors and paired with custom-printed lanyards or cases. Whether you need sunglasses for a summer giveaway or reading glasses for a corporate gift, cotton frames provide a comfortable fit for all-day wear while keeping your logo front and center.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cotton eyewear with branded frames and soft cotton case for promotional events",
+  "productSkus": [
+    "513236",
+    "520125"
+  ],
+  "generatedAt": "2026-05-31T09:13:00.503080+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

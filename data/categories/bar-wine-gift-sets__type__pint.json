@@ -1,0 +1,32 @@
+{
+  "url": "/cat/bar-wine-gift-sets/type/pint",
+  "type": "facet",
+  "h1": "Custom Pint Bar Wine Gift Sets",
+  "metaTitle": "Custom Pint Bar Wine Gift Sets | Perfect Imprints",
+  "metaDescription": "Order custom pint bar wine gift sets for your team or clients. Perfect for bulk branding with logo engraving or screen printing.",
+  "introHtml": "<p>Pint-sized bar and wine gift sets offer a practical, everyday option for corporate gifting. Unlike standard wine sets, pint glasses are versatile for beer, cocktails, or non-alcoholic drinks, making them suitable for a wider audience. Sets like the Speakeasy or Hot-N-Cold Gift Set can be customized with your logo through engraving or screen printing, creating a memorable branded gift that recipients will use repeatedly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pint bar wine gift sets with engraved logos, including a Speakeasy Gift Set and a Hot-N-Cold Gift Set",
+  "productSkus": [
+    "512596",
+    "512693 64F",
+    "519672",
+    "521002",
+    "521897",
+    "522098",
+    "523898",
+    "523924",
+    "523950",
+    "525628",
+    "526748",
+    "527285"
+  ],
+  "generatedAt": "2026-05-31T09:35:25.036462+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

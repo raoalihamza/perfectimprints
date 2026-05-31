@@ -1,0 +1,29 @@
+{
+  "url": "/cat/tank-tops/brand/a4",
+  "type": "facet",
+  "h1": "Custom A4 Tank Tops for Bulk Orders",
+  "metaTitle": "Custom A4 Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom A4 tank tops in bulk from Perfect Imprints. Perfect for events, teams, and promotions. Fast turnaround.",
+  "introHtml": "<p>A4 brand tank tops offer a consistent, high-quality canvas for your custom designs, whether you need moisture-wicking performance tanks for a corporate 5K or soft tri-blend racerbacks for a summer giveaway. The A4 label ensures reliable sizing and fabric construction across styles, from men's reversible mesh tanks to ladies' jersey tanks, making bulk ordering straightforward for matching team uniforms or promotional apparel.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom A4 tank tops in various colors and styles for bulk corporate orders",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528867",
+    "528871",
+    "528872",
+    "528883",
+    "528884",
+    "528885"
+  ],
+  "generatedAt": "2026-05-31T09:28:08.245116+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

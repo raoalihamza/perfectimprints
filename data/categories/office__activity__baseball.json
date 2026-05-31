@@ -1,0 +1,27 @@
+{
+  "url": "/cat/office/activity/baseball",
+  "type": "facet",
+  "h1": "Custom Baseball Office Supplies for Bulk Orders",
+  "metaTitle": "Custom Baseball Office Supplies | Perfect Imprints",
+  "metaDescription": "Shop custom baseball office supplies for bulk orders. Perfect for sports-themed workplaces. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Baseball-themed office supplies bring team spirit to the workplace, whether you're outfitting a front office at a ballpark or creating a cohesive look for a corporate suite. From custom lanyards with baseball designs to desk accessories like sports magnets, these items let you brand everyday office essentials with your logo in team colors. Choose screen printing or full-color decoration on items like the Pop Mags - Sports or Pennant Sports Magnet to keep your brand visible at every desk.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom baseball office supplies including sports magnets and lanyards with baseball designs for bulk orders",
+  "productSkus": [
+    "503083",
+    "504235 2AC",
+    "504235 2AK",
+    "504235 2AM",
+    "504235 2AN",
+    "504235 2KI",
+    "522292"
+  ],
+  "generatedAt": "2026-05-31T08:44:33.689831+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

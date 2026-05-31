@@ -1,0 +1,26 @@
+{
+  "url": "/cat/products/brand/waterman",
+  "type": "facet",
+  "h1": "Custom Waterman Products for Bulk Orders",
+  "metaTitle": "Custom Waterman Products | Perfect Imprints",
+  "metaDescription": "Order custom Waterman pens and gifts for your business. Premium branding with bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Waterman pens bring a legacy of French craftsmanship and refined elegance to corporate gifting. When you choose custom Waterman products, you offer recipients a writing instrument that signals quality and prestige. From the smooth-writing Allure rollerball to the classic Hemisphere ballpoint, each pen accepts precise laser engraving or pad printing. These make ideal gifts for executive milestones, client appreciation, or high-end event swag. Ordering in bulk through Perfect Imprints ensures consistent branding and competitive pricing on these luxury items.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom Waterman pens with engraved logos, including ballpoint and rollerball models",
+  "productSkus": [
+    "528404",
+    "528405",
+    "528406",
+    "528407",
+    "528408",
+    "528409"
+  ],
+  "generatedAt": "2026-05-31T10:03:45.864835+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

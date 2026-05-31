@@ -1,0 +1,25 @@
+{
+  "url": "/cat/playing-cards/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Playing Cards for Bulk Orders",
+  "metaTitle": "Custom Blue Playing Cards | Perfect Imprints",
+  "metaDescription": "Order custom blue playing cards for your brand. Perfect for giveaways, events, and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Blue custom playing cards stand out from standard decks with a rich, classic color that works well for casino nights, trade show giveaways, or employee gifts. With full-color printing on the back and face, you can add your logo, tagline, or custom artwork. Options include solid backs, poker night themes, or traveler card and dice game combos. Blue decks pair nicely with silver or gold foil accents for a premium feel that recipients will keep and use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue playing cards with company logo on a poker table, ready for bulk orders.",
+  "productSkus": [
+    "512116",
+    "524494",
+    "526561",
+    "526787",
+    "526833"
+  ],
+  "generatedAt": "2026-05-31T10:02:27.922961+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/filter-included",
+  "type": "facet",
+  "h1": "Custom Filter Included Products for Bulk Orders",
+  "metaTitle": "Custom Filter Included Products | Perfect Imprints",
+  "metaDescription": "Order custom filter included products for your team or event. Browse bulk options with built-in filtration at Perfect Imprints.",
+  "introHtml": "<p>Filter included products combine everyday utility with water filtration, making them ideal for trade shows, employee wellness programs, or outdoor safety kits. Instead of standard drinkware, these items give recipients access to cleaner water wherever they go. Choose from insulated bottles with built-in filters or reusable straw systems that reduce single-plastic waste. Decorate with your logo using pad printing or laser engraving for a polished, professional look that keeps your brand top of mind with every sip.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom filter included water bottles with built-in filtration for branded promotional giveaways",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:51.468081+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

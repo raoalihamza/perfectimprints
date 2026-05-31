@@ -1,0 +1,31 @@
+{
+  "url": "/cat/vests/feature/lightweight",
+  "type": "facet",
+  "h1": "Custom Lightweight Vests for Teams & Events",
+  "metaTitle": "Custom Lightweight Vests | Perfect Imprints",
+  "metaDescription": "Order custom lightweight vests for your team or event. Perfect for layering, logo embroidery, and bulk orders. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Lightweight vests offer the ideal balance of warmth and mobility for outdoor events, trade shows, and corporate uniforms. Unlike heavier outerwear, these vests layer easily over polos or long sleeves without restricting movement. Choose from quilted options like the Men's Radius Quilted Vest or insulated puffers such as the Men's Mercer+Mettle Puffy Vest. Add your logo with embroidery or screen printing for a polished, professional look that keeps your team comfortable in mild weather.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom lightweight vests with embroidered logos at an outdoor corporate event",
+  "productSkus": [
+    "523929",
+    "523930",
+    "525721",
+    "526295",
+    "526296",
+    "526297",
+    "526298",
+    "527559",
+    "527560",
+    "527679",
+    "527680"
+  ],
+  "generatedAt": "2026-05-31T10:13:25.774735+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

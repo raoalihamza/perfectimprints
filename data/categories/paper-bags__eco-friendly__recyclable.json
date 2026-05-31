@@ -1,0 +1,31 @@
+{
+  "url": "/cat/paper-bags/eco-friendly/recyclable",
+  "type": "facet",
+  "h1": "Custom Recyclable Paper Bags",
+  "metaTitle": "Custom Recyclable Paper Bags | Perfect Imprints",
+  "metaDescription": "Order custom recyclable paper bags for your business. Eco-friendly branding with fast turnaround. Shop Perfect Imprints today.",
+  "introHtml": "<p>Custom recyclable paper bags let you offer customers a sustainable carry option without sacrificing durability. From natural kraft grocery bags to glassine-lined cookie bags, these paper bags are fully recyclable and ideal for retail, takeout, or pharmacy use. Imprint your logo using one-color screen printing for a clean, professional look that reinforces your commitment to the environment.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recyclable paper bags with company logo, natural kraft finish, ideal for retail and food service",
+  "productSkus": [
+    "506541 01A",
+    "514534 32E",
+    "514535 90A",
+    "517671 90A",
+    "517672 30A",
+    "517686",
+    "517691 90A",
+    "517692 90A",
+    "517693 90A",
+    "519461",
+    "524510"
+  ],
+  "generatedAt": "2026-05-31T09:59:39.967215+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

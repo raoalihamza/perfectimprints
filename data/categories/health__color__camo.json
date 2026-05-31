@@ -1,0 +1,23 @@
+{
+  "url": "/cat/health/color/camo",
+  "type": "facet",
+  "h1": "Custom Camo Health Products for Bulk Orders",
+  "metaTitle": "Custom Camo Health Products | Perfect Imprints",
+  "metaDescription": "Order custom camo health products for your team. Bulk pricing, fast turnaround. Get a quote today!",
+  "introHtml": "<p>Camo patterns on health items like bandanas and silicone bracelets add a rugged, outdoorsy feel that stands out in a corporate wellness kit or safety giveaway. Unlike standard solid colors, camo appeals to teams who work in field environments or simply appreciate a tactical aesthetic. These branded health accessories pair well with logo imprinting and are popular for construction crews, hunting outfitters, or outdoor event swag.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom camo health products including a camouflage bandana and silicone bracelets with logo imprinting",
+  "productSkus": [
+    "506990",
+    "522288",
+    "523370"
+  ],
+  "generatedAt": "2026-05-31T08:34:27.602040+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

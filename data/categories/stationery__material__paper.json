@@ -1,0 +1,27 @@
+{
+  "url": "/cat/stationery/material/paper",
+  "type": "facet",
+  "h1": "Custom Paper Stationery for Bulk Orders",
+  "metaTitle": "Custom Paper Stationery | Perfect Imprints",
+  "metaDescription": "Order custom paper stationery in bulk at Perfect Imprints. Ideal for marketing, HR, and business gifts. Get a quote today.",
+  "introHtml": "<p>Paper stationery offers a classic, tactile way to communicate your brand's message. From seeded paper greeting cards that grow into wildflowers to currency envelopes for holiday bonuses, paper products provide a sustainable and personal touch. Bulk ordering ensures consistent quality for corporate gifts, event invitations, or employee appreciation. Choose from a variety of finishes and sizes to match your brand identity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom paper stationery including seeded greeting cards and currency envelopes for corporate gifts",
+  "productSkus": [
+    "524481",
+    "526989",
+    "526990",
+    "526991",
+    "526992",
+    "526993",
+    "526994"
+  ],
+  "generatedAt": "2026-05-31T08:27:29.171418+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

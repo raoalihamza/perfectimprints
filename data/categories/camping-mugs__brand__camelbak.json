@@ -1,0 +1,31 @@
+{
+  "url": "/cat/camping-mugs/brand/camelbak",
+  "type": "facet",
+  "h1": "Custom Camelbak Camping Mugs for Bulk Orders",
+  "metaTitle": "Custom Camelbak Camping Mugs | Perfect Imprints",
+  "metaDescription": "Shop custom Camelbak camping mugs at Perfect Imprints. Perfect for corporate gifts, outdoor events, and brand giveaways. Order bulk today!",
+  "introHtml": "<p>Camelbak camping mugs bring the same rugged durability and innovative design that outdoor enthusiasts trust on the trail to your branded drinkware. Whether you are outfitting a corporate retreat or rewarding safety team members, these mugs offer reliable insulation and spill-resistant lids. The wide range of colors and finishes allows for crisp logo imprinting via pad printing or laser engraving, ensuring your brand stands out at every campsite or job site.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Camelbak camping mugs with brand logo, insulated stainless steel design for outdoor use",
+  "productSkus": [
+    "525013",
+    "525506",
+    "525680",
+    "525681",
+    "526211",
+    "526695",
+    "527057",
+    "527058",
+    "527966",
+    "528153",
+    "528684"
+  ],
+  "generatedAt": "2026-05-31T09:09:46.863501+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/personal-care-items/feature/padded",
+  "type": "facet",
+  "h1": "Custom Padded Personal Care Items",
+  "metaTitle": "Custom Padded Personal Care Items | Perfect Imprints",
+  "metaDescription": "Order custom padded personal care items for bulk giveaways. Perfect for gyms, travel, and corporate wellness programs.",
+  "introHtml": "<p>Padded personal care items add a layer of protection and comfort that standard products lack. Whether you are outfitting a corporate wellness program with cushioned hydration packs or gifting padded travel duffles to employees, the extra padding ensures contents stay safe and users stay comfortable. These items work well for safety managers looking to provide first-aid kits with padded compartments or HR directors promoting self-care with padded accessories.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom padded personal care items including a padded hydration pack and travel duffle with logo imprint",
+  "productSkus": [
+    "514184",
+    "516737",
+    "527548"
+  ],
+  "generatedAt": "2026-05-31T10:00:33.341706+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

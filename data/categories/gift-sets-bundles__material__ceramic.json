@@ -1,0 +1,32 @@
+{
+  "url": "/cat/gift-sets-bundles/material/ceramic",
+  "type": "facet",
+  "h1": "Custom Ceramic Gift Sets & Bundles",
+  "metaTitle": "Custom Ceramic Gift Sets & Bundles | Perfect Imprints",
+  "metaDescription": "Shop custom ceramic gift sets bundles for bulk orders. Perfect for corporate gifts with mugs, planters, and more. Get a quote today!",
+  "introHtml": "<p>Ceramic gift sets and bundles offer a warm, tactile experience that plastic or metal alternatives can't match. Whether you're assembling employee appreciation packages with personalized mugs and gourmet treats or creating client gifts featuring ceramic planters, the natural weight and finish of ceramic conveys quality and thoughtfulness. These sets are ideal for desk accessories, breakroom upgrades, or holiday giveaways. With options like full-color sublimation mugs or stoneware with cork bases, you can add your logo in a way that feels intentional and premium.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom ceramic gift sets bundles with personalized mugs and planters for corporate gifting",
+  "productSkus": [
+    "506670 90A",
+    "510100 90A",
+    "512613",
+    "515311",
+    "515507",
+    "520226",
+    "523195",
+    "524477",
+    "524478",
+    "525715",
+    "525780",
+    "526697"
+  ],
+  "generatedAt": "2026-05-31T09:47:57.905141+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

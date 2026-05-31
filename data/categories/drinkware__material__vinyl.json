@@ -1,0 +1,21 @@
+{
+  "url": "/cat/drinkware/material/vinyl",
+  "type": "facet",
+  "h1": "Custom Vinyl Drinkware",
+  "metaTitle": "Custom Vinyl Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom vinyl drinkware for your next event or promotion. Perfect for coolers, cups, and more at Perfect Imprints.",
+  "introHtml": "<p>Vinyl drinkware offers a durable, flexible surface that stands up to everyday use and outdoor conditions. Unlike rigid materials, vinyl can conform to unique shapes like can coolers and tumblers, making it ideal for custom printing with vibrant logos and artwork. Whether you need branded koozies for a summer giveaway or insulated cups for employee appreciation, vinyl provides a cost-effective way to keep drinks cold and your brand visible. Perfect for trade shows, corporate events, or retail promotions.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom vinyl drinkware featuring a branded glow-in-the-dark can cooler",
+  "productSkus": [
+    "522888"
+  ],
+  "generatedAt": "2026-05-31T09:43:39.090846+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

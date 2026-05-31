@@ -1,0 +1,22 @@
+{
+  "url": "/cat/apparel/brand/econscious",
+  "type": "facet",
+  "h1": "Custom Econscious Apparel for Your Brand",
+  "metaTitle": "Custom Econscious Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Econscious apparel in bulk from Perfect Imprints. Sustainable, organic options perfect for your brand.",
+  "introHtml": "<p>Econscious apparel combines sustainable materials like organic cotton and recycled polyester with fair-trade manufacturing, making it a responsible choice for your next company uniform or promotional giveaway. Whether you choose the Eco Trucker Hat or the organic cotton T-shirt, these pieces offer a comfortable fit and a clean canvas for embroidery or screen printing. Ordering bulk custom Econscious apparel shows your team and customers that your brand values eco-friendly practices without sacrificing quality or style.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Econscious apparel including organic cotton t-shirts and recycled trucker hats with logo embroidery",
+  "productSkus": [
+    "524499",
+    "526470"
+  ],
+  "generatedAt": "2026-05-31T08:27:47.991083+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

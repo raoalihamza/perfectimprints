@@ -1,0 +1,27 @@
+{
+  "url": "/cat/photo-frames/color/black",
+  "type": "facet",
+  "h1": "Custom Black Photo Frames for Bulk Orders",
+  "metaTitle": "Custom Black Photo Frames | Perfect Imprints",
+  "metaDescription": "Order custom black photo frames in bulk for your next event. Perfect for employee gifts and corporate milestones. Get a quote today!",
+  "introHtml": "<p>Black photo frames offer a timeless, professional look that complements any office decor or corporate gift set. Whether you are recognizing years of service or celebrating a team achievement, a black frame keeps the focus on the photo while adding a touch of elegance. Choose from classic mount styles or modern digital frames to match your branding needs. These frames are ideal for bulk orders where consistency and quality matter.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black photo frames in a modern office setting, showing a 5x7 mount with a corporate team photo",
+  "productSkus": [
+    "502584",
+    "504868",
+    "507676 01A",
+    "507677 01A",
+    "507678 01A",
+    "512312",
+    "528212"
+  ],
+  "generatedAt": "2026-05-31T10:01:53.830442+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

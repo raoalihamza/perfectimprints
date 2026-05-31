@@ -1,0 +1,24 @@
+{
+  "url": "/cat/stash-bags/color/green",
+  "type": "facet",
+  "h1": "Custom Green Stash Bags",
+  "metaTitle": "Custom Green Stash Bags | Perfect Imprints",
+  "metaDescription": "Order custom green stash bags in bulk at Perfect Imprints. Perfect for branding events, trade shows, and giveaways.",
+  "introHtml": "<p>Green stash bags offer a natural, eco-friendly look that stands out at trade shows, corporate events, and retail spaces. Whether you choose a vibrant lime for high visibility or a deep forest green for a premium feel, these bags pair well with screen printing or debossed logos. Durable materials like clear EVA or polyester keep contents secure while your brand stays front and center.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green stash bags in various styles including clear tote and drawstring backpack for branding",
+  "productSkus": [
+    "512446",
+    "513445",
+    "513944",
+    "515747"
+  ],
+  "generatedAt": "2026-05-31T09:02:42.682978+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

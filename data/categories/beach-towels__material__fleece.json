@@ -1,0 +1,22 @@
+{
+  "url": "/cat/beach-towels/material/fleece",
+  "type": "facet",
+  "h1": "Custom Fleece Beach Towels",
+  "metaTitle": "Custom Fleece Beach Towels | Perfect Imprints",
+  "metaDescription": "Order custom fleece beach towels for your next event. Soft, absorbent, and perfect for branding. Get a quote today!",
+  "introHtml": "<p>Fleece beach towels offer a plush, ultra-soft feel that stands out from standard cotton towels. They dry quickly and resist sand, making them ideal for poolside giveaways, company picnics, or beach resort promotions. Customize with your logo using screen printing or embroidery for a cozy, memorable branded item your team will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom fleece beach towels with embroidered logo, soft and absorbent for beach or pool use.",
+  "productSkus": [
+    "521873",
+    "526444"
+  ],
+  "generatedAt": "2026-05-31T08:26:06.444574+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

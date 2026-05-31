@@ -1,0 +1,27 @@
+{
+  "url": "/cat/coffee-mugs/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Coffee Mugs",
+  "metaTitle": "Custom Full Color Coffee Mugs | Perfect Imprints",
+  "metaDescription": "Order custom full color coffee mugs with vibrant, photo-quality prints. Perfect for promotions or gifts. Get a quote today!",
+  "introHtml": "<p>Full color coffee mugs let you print logos, photos, or intricate designs with vibrant, photo-quality detail. Unlike single-color imprints, full color decoration captures gradients and fine lines — ideal for commemorative events, employee gifts, or retail promotions. Sublimation and ceramic coating ensure durable, dishwasher-safe results on mugs like the 15 oz Full Color Mug or the 16 oz Stir'n Sip Mug™.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color coffee mugs with vibrant, photo-quality print of a company logo on a white ceramic mug.",
+  "productSkus": [
+    "506670 90A",
+    "514870",
+    "515311",
+    "520226",
+    "522465",
+    "529137",
+    "529464"
+  ],
+  "generatedAt": "2026-05-31T08:33:17.555825+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

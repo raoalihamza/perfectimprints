@@ -1,0 +1,21 @@
+{
+  "url": "/cat/sunglasses/special-feature/on-sale",
+  "type": "facet",
+  "h1": "Custom On Sale Sunglasses",
+  "metaTitle": "Custom On Sale Sunglasses | Perfect Imprints",
+  "metaDescription": "Shop custom on sale sunglasses for bulk orders at Perfect Imprints. Perfect for giveaways. Request a quote today.",
+  "introHtml": "<p>Ordering custom sunglasses at a discount makes it easier to stretch your promotional budget without cutting back on quality. Our on sale selection includes styles like the Pupil Kit, a versatile option that pairs well with logo imprinting. Whether you need sunnies for a company picnic, a trade show giveaway, or a safety awareness event, these discounted sunglasses let you brand more units for less. Choose from multiple frame colors and lens tints to match your campaign colors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom on sale sunglasses with logo imprint, including Pupil Kit model for promotional events",
+  "productSkus": [
+    "526803"
+  ],
+  "generatedAt": "2026-05-31T09:03:00.247952+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

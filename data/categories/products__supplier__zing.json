@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/zing",
+  "type": "facet",
+  "h1": "Custom Zing Products for Bulk Orders",
+  "metaTitle": "Custom Zing Products – Perfect Imprints",
+  "metaDescription": "Order custom Zing products in bulk at Perfect Imprints. Perfect for giveaways, events, and employee recognition.",
+  "introHtml": "<p>Zing products stand out with their vibrant colors and playful designs, making them a favorite for promotional giveaways and employee recognition. Whether you need custom stress relievers, keychains, or drinkware, Zing’s unique aesthetic adds personality to your brand. These items work well for trade shows, corporate events, and retail displays. Decorate with screen printing, pad printing, or laser engraving to match your logo perfectly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Zing products including colorful stress relievers and keychains with brand logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:01:03.581460+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

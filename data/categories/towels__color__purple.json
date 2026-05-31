@@ -1,0 +1,24 @@
+{
+  "url": "/cat/towels/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Towels for Bulk Orders",
+  "metaTitle": "Custom Purple Towels | Perfect Imprints",
+  "metaDescription": "Order custom purple towels in bulk for your brand. Perfect for events, sports teams, and giveaways. Get a quote today.",
+  "introHtml": "<p>Purple towels make a bold statement for your brand at sports events, trade shows, or employee giveaways. Whether you choose a cooling towel for outdoor activities or a colorful rally towel to show team spirit, purple stands out in a crowd. Decorate with your logo using screen printing or embroidery for a professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple towels with embroidered logo, including cooling and rally towels for bulk orders",
+  "productSkus": [
+    "510325",
+    "513098",
+    "521013",
+    "524126"
+  ],
+  "generatedAt": "2026-05-31T08:47:32.989545+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

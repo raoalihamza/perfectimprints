@@ -1,0 +1,31 @@
+{
+  "url": "/cat/sling-backpacks/brand/camelbak",
+  "type": "facet",
+  "h1": "Custom Camelbak Sling Backpacks for Bulk Orders",
+  "metaTitle": "Custom Camelbak Sling Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Camelbak sling backpacks in bulk. Perfect for corporate gifts, events, and employee swag. Get a quote today.",
+  "introHtml": "<p>Camelbak sling backpacks combine the brand's signature hydration-compatible design with a compact, single-strap silhouette. Ideal for outdoor events, trade shows, or employee wellness programs, these bags offer hands-free carry and durable construction. Decorate with your logo using screen printing or embroidery for a professional look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Camelbak sling backpacks with logo, featuring a single strap and hydration-compatible design in black.",
+  "productSkus": [
+    "525013",
+    "525506",
+    "525680",
+    "525681",
+    "526211",
+    "526695",
+    "527057",
+    "527058",
+    "527966",
+    "528153",
+    "528684"
+  ],
+  "generatedAt": "2026-05-31T10:07:07.670484+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

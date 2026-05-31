@@ -1,0 +1,24 @@
+{
+  "url": "/cat/rubber-bracelets/color/green",
+  "type": "facet",
+  "h1": "Custom Green Rubber Bracelets",
+  "metaTitle": "Custom Green Rubber Bracelets | Perfect Imprints",
+  "metaDescription": "Order custom green rubber bracelets for your next event or campaign. Perfect Imprints offers bulk pricing and fast turnaround.",
+  "introHtml": "<p>Green rubber bracelets are a go-to choice for environmental campaigns, St. Patrick’s Day events, and health awareness initiatives. The vibrant green stands out against any skin tone, making your message visible from across the room. Choose from debossed or printed silicone styles, including mood bracelets that change color. Bulk orders are easy with consistent color matching across thousands of units.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green rubber bracelets with debossed text on a white background",
+  "productSkus": [
+    "506469",
+    "506959",
+    "510414",
+    "511817"
+  ],
+  "generatedAt": "2026-05-31T10:05:11.087486+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

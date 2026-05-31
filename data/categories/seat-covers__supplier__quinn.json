@@ -1,0 +1,28 @@
+{
+  "url": "/cat/seat-covers/supplier/quinn",
+  "type": "facet",
+  "h1": "Custom Quinn Seat Covers",
+  "metaTitle": "Custom Quinn Seat Covers | Perfect Imprints",
+  "metaDescription": "Order custom Quinn seat covers for your event or office. Perfect for branding. Get a quote today!",
+  "introHtml": "<p>Quinn seat covers offer a clean, professional look for trade shows, conferences, and corporate events. Made from durable polyester with full-color dye-sublimation printing, these covers let you display your logo or messaging across the entire surface. Whether you need flat 3-sided covers for standard 6 ft or 8 ft tables, or economy throws with front panel imprinting, Quinn provides consistent quality and vibrant results that make your brand stand out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Quinn seat covers with full-color dye-sublimation printing for trade show tables",
+  "productSkus": [
+    "506947",
+    "506949 90A",
+    "507074",
+    "507076 90A",
+    "510137",
+    "510139",
+    "510140 90A",
+    "510141 90A"
+  ],
+  "generatedAt": "2026-05-31T10:06:19.765710+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

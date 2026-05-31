@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tank-tops/fit/fitted",
+  "type": "facet",
+  "h1": "Custom Fitted Tank Tops",
+  "metaTitle": "Custom Fitted Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom fitted tank tops in bulk for your team or event. Perfect for promotional use with your logo. Fast turnaround.",
+  "introHtml": "<p>Fitted tank tops offer a sleek, modern silhouette that flatters a variety of body types, making them a popular choice for promotional apparel. Whether you're outfitting a race team with moisture-wicking performance tanks or creating branded merchandise for a summer festival, the fitted cut ensures a polished look without excess fabric. Decoration options like screen printing or embroidery work well on the smooth surface of fitted tanks, giving your logo a clean, professional appearance.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom fitted tank tops with printed logos at a corporate event",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T08:31:19.470806+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

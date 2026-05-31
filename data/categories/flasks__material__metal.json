@@ -1,0 +1,24 @@
+{
+  "url": "/cat/flasks/material/metal",
+  "type": "facet",
+  "h1": "Custom Metal Flasks for Bulk Orders",
+  "metaTitle": "Custom Metal Flasks | Perfect Imprints",
+  "metaDescription": "Order custom metal flasks for corporate gifts or events. Durable stainless steel with your logo. Bulk pricing available.",
+  "introHtml": "<p>Metal flasks offer a classic, durable option for corporate gifts and promotional giveaways. Unlike plastic versions, metal flasks provide a premium feel and long-lasting finish that withstands daily use. Whether you are outfitting a sales team with engraved stainless steel flasks or handing out branded dog tag bottle openers at a trade show, the weight and quality of metal make a lasting impression. Choose from brushed, polished, or painted finishes to match your brand colors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom metal flasks with engraved logo, brushed stainless steel finish, ideal for corporate gifts.",
+  "productSkus": [
+    "518135 43A",
+    "521776",
+    "523227",
+    "526559"
+  ],
+  "generatedAt": "2026-05-31T08:54:01.614427+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/bags/brand/elleven",
+  "type": "facet",
+  "h1": "Custom Elleven Bags for Bulk Orders",
+  "metaTitle": "Custom Elleven Bags - Perfect Imprints",
+  "metaDescription": "Order custom Elleven bags with your logo. Perfect for corporate gifts and employee swag. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Elleven bags combine modern design with practical features like padded laptop compartments and checkpoint-friendly access. Whether you need custom laptop backpacks for a sales team or recycled computer sleeves for a sustainability initiative, these bags offer a polished, professional look that your recipients will use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Elleven bags including laptop backpacks and computer sleeves with logo imprint",
+  "productSkus": [
+    "510716",
+    "519541",
+    "524471",
+    "527056",
+    "528075",
+    "528214"
+  ],
+  "generatedAt": "2026-05-31T09:34:17.577902+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

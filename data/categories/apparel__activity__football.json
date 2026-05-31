@@ -1,0 +1,23 @@
+{
+  "url": "/cat/apparel/activity/football",
+  "type": "facet",
+  "h1": "Custom Football Apparel for Teams & Events",
+  "metaTitle": "Custom Football Apparel | Perfect Imprints",
+  "metaDescription": "Order custom football apparel for your team or event. Bulk pricing, fast turnaround. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Football apparel goes beyond game day jerseys. Custom football t-shirts, beanies, and fine jersey tees let teams, coaches, and fans rep their squad with pride. Whether you need sideline gear for a youth league, promotional giveaways for a bowl game, or branded apparel for a corporate flag football tournament, our selection of decoration-ready garments offers the durability and comfort your group demands. Choose from adult and women's styles that hold up to repeated wear and washing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom football apparel including t-shirts and beanies with team logo",
+  "productSkus": [
+    "521675",
+    "524039",
+    "524040"
+  ],
+  "generatedAt": "2026-05-31T08:22:03.995103+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

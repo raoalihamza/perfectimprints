@@ -1,0 +1,23 @@
+{
+  "url": "/cat/vests/feature/waterproof",
+  "type": "facet",
+  "h1": "Custom Waterproof Vests for Work & Promotions",
+  "metaTitle": "Custom Waterproof Vests | Perfect Imprints",
+  "metaDescription": "Order custom waterproof vests for teams, events, or safety gear. Bulk pricing at Perfect Imprints. Get a quote today.",
+  "introHtml": "<p>Waterproof vests keep your team dry and visible during outdoor work, events, or promotions. Unlike standard polyester vests, waterproof styles feature sealed seams and DWR coatings that block rain and wind. Ideal for safety managers equipping road crews or marketing directors outfitting event staff, these vests accept screen printing or embroidery for logos. The Men's and Ladies' Mercer+Mettle™ Puffy Vests offer lightweight insulation with waterproof protection, making them a practical, year-round giveaway.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom waterproof vests with logo embroidery, featuring sealed seams and DWR coating for rain protection",
+  "productSkus": [
+    "526295",
+    "526296",
+    "527493"
+  ],
+  "generatedAt": "2026-05-31T10:13:27.333587+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

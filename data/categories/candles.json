@@ -1,0 +1,63 @@
+{
+  "url": "/cat/candles",
+  "type": "root",
+  "h1": "Custom Candles for Corporate Gifts & Events",
+  "metaTitle": "Custom Candles - Perfect Imprints",
+  "metaDescription": "Order custom candles for corporate gifts, events, and employee appreciation. Bulk pricing, fast turnaround, and free artwork review at Perfect Imprints.",
+  "introHtml": "<p>Marketing directors planning conference swag, HR directors assembling employee appreciation kits, and business owners looking for thoughtful client gifts all turn to custom candles. A scented candle creates a warm, memorable impression that lasts far longer than the event itself. Whether you need a small run for a holiday party or a large bulk order for a trade show, our curated selection of premium candles offers something for every budget and aesthetic.</p><p>From the clean burn of the Bamboo Soy Candle to the elegant presentation of the Silhouette Wood Wick Candle with Wooden Box, each product can be customized with your logo or message. Choose from popular scents like Calm Meadow, Coastal Waves, or the classic Yankee Candle® 3-Wick Candle. With options like mini tin candles for giveaway events and large tumbler candles for VIP gifts, you can match the candle to the occasion perfectly.</p>",
+  "buyingGuideHtml": "<h3>What to Look for in Custom Candles</h3><p>When ordering promotional candles, consider wax type, burn time, and container material. Soy wax candles like the Bamboo Soy Candle offer a clean, eco-friendly burn, while paraffin blends provide stronger scent throw. Glass tumblers and metal tins are common containers that accept various decoration methods. Burn time matters for your recipients: a 2.7oz mini tin burns about 15 hours, while a 16oz Woodwick® Ellipse can burn over 100 hours. Match the size to your use case — mini tins for trade shows, larger candles for VIP gifts or employee milestones.</p><h3>Materials and Build Quality</h3><p>Most custom candles are made from soy, paraffin, or a blend. Soy wax is renewable and biodegradable, making it a popular choice for eco-conscious brands. Cotton or wooden wicks affect burn quality; wooden wicks like those in Woodwick® candles create a crackling sound. Containers range from glass tumblers to metal tins to ceramic holders. The Beechwood Cube Candle Holder adds a natural, upscale touch. Ensure the candle is well-made with even wax distribution and a centered wick to avoid tunneling.</p><h3>Common Use Cases and Buyer Personas</h3><p>Marketing directors often use branded candles as trade show giveaways or event favors, choosing mini tins or small tumblers for easy transport. HR directors order custom candles for employee appreciation gifts, onboarding kits, or wellness programs. Business owners give personalized candles to clients during the holidays or as thank-you gifts. Safety managers might include candles in stress-relief kits for employees. The Pamper Me Set is ideal for spa-themed gifts, while the Zen Tea mini tin suits corporate wellness initiatives.</p><h3>Decoration and Customization Options</h3><p>Custom candles can be decorated using screen printing, pad printing, or full-color heat transfer on the container. For glass tumblers, screen printing with one or two colors is cost-effective for bulk orders. Metal tins accept pad printing or full-color labels. Some candles, like the Yankee Candle® Large Tumbler, allow for a wrap-around label with full-color artwork. Always request a proof before production to ensure your logo appears crisp and correctly aligned. Laser engraving on wooden lids or boxes is an elegant option for premium gifts.</p><h3>Quantity Guidance and MOQ Context</h3><p>Minimum order quantities (MOQs) for custom candles typically start at 50 to 100 units for simple screen printing on tins. For glass tumblers with multi-color printing, MOQs may be higher, around 250 to 500. As order volume increases, unit pricing drops significantly. Bulk orders of 1,000+ candles often qualify for the best per-unit price and faster production. If you need a small run for a limited event, look for products with lower MOQs, such as mini tin candles. Plan ahead — typical production lead time is 10 to 15 business days after artwork approval.</p><h3>Tips to Avoid Common Buying Mistakes</h3><p>A common mistake is choosing a scent that doesn't appeal to a broad audience. Stick to neutral, pleasant scents like vanilla, lavender, or citrus for general giveaways. Another pitfall is neglecting to check container dimensions for decoration space — small tins may not accommodate large logos. Also, verify that the wax fill level leaves enough room for your branding on the container. Finally, order samples before placing a bulk run to test burn quality, scent strength, and decoration appearance. This step prevents disappointment and ensures your recipients receive a high-quality product.</p>",
+  "buyingGuideH2": "Custom Candles Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom candles?",
+      "a": "Minimum order quantities vary by product and decoration method. For mini tin candles with screen printing, MOQs typically start at 50 units. For larger glass tumblers with full-color labels, MOQs may be 250 or more. Contact our team for specific product MOQs."
+    },
+    {
+      "q": "Can I choose the scent for my custom candles?",
+      "a": "Yes, most candles come in a range of pre-selected scents. For example, the Calm Meadow and Coastal Waves mini tins offer distinct fragrance options. Some products may allow custom scent development for large bulk orders, but standard scents are recommended for smaller runs."
+    },
+    {
+      "q": "What decoration methods are available for candles?",
+      "a": "Common methods include screen printing on glass or metal, pad printing on tins, and full-color heat transfer labels on tumblers. For wooden boxes or lids, laser engraving is an option. Each method has different artwork requirements and cost implications."
+    },
+    {
+      "q": "How long does production take for custom candles?",
+      "a": "Typical production lead time is 10 to 15 business days after artwork approval. Rush orders may be available for an additional fee. Shipping time depends on the delivery address and selected carrier."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, we recommend ordering a sample candle to evaluate scent, burn quality, and decoration appearance. Samples can be ordered as stock items or with a mock-up of your logo for a small fee. This helps ensure satisfaction with the final product."
+    }
+  ],
+  "heroAltText": "Custom candles in glass tumblers and metal tins with corporate logos for gifts and events",
+  "productSkus": [
+    "520905",
+    "521842",
+    "525181",
+    "526341",
+    "526355",
+    "526356",
+    "526357",
+    "526396",
+    "526397",
+    "526398",
+    "526407",
+    "526443",
+    "526451",
+    "526492",
+    "526780",
+    "527052",
+    "528203",
+    "528964",
+    "529022",
+    "529023",
+    "529024"
+  ],
+  "generatedAt": "2026-05-30T11:08:57.403501+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "use_case",
+  "skuFilterMode": "full",
+  "rawSkuCount": 21,
+  "filteredSkuCount": 21
+}

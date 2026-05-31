@@ -1,0 +1,21 @@
+{
+  "url": "/cat/gift-boxes-ribbons/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Gift Boxes & Ribbons",
+  "metaTitle": "No-Minimum Custom Gift Boxes & Ribbons | Perfect Imprints",
+  "metaDescription": "Order small quantities of custom gift boxes and ribbons with no minimum. Perfect for small businesses and events. Get a quote today!",
+  "introHtml": "<p>Not every promotion needs a truckload of packaging. Our no-minimum custom gift boxes and ribbons let you order as few as a handful of units — ideal for small businesses, startups, sample orders, or one-time events. You get the same quality as bulk orders without the inventory commitment. Whether you need a dozen branded gift boxes for a client appreciation or a small batch of custom ribbons for a product launch, we make it easy to start small.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of no-minimum custom gift boxes and ribbons in assorted colors, perfect for small orders and branded promotions.",
+  "productSkus": [
+    "507997"
+  ],
+  "generatedAt": "2026-05-31T08:26:31.322143+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

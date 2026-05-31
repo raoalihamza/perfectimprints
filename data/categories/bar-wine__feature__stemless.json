@@ -1,0 +1,21 @@
+{
+  "url": "/cat/bar-wine/feature/stemless",
+  "type": "facet",
+  "h1": "Custom Stemless Bar Wine",
+  "metaTitle": "Custom Stemless Bar Wine | Perfect Imprints",
+  "metaDescription": "Shop custom stemless bar wine for bulk orders. Perfect for events and gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Stemless bar wine glasses combine the elegance of wine service with the stability and compact storage of a tumbler. For outdoor events, trade shows, or casual office celebrations, stemless designs reduce breakage and stack neatly on shelves. Customize with your logo using screen printing or etching for a polished, professional look that fits comfortably in hand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom stemless bar wine glasses with engraved logo on a table setting",
+  "productSkus": [
+    "527252"
+  ],
+  "generatedAt": "2026-05-31T09:35:34.081570+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

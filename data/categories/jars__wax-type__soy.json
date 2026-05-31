@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jars/wax-type/soy",
+  "type": "facet",
+  "h1": "Custom Soy Jars for Branded Gifts",
+  "metaTitle": "Custom Soy Jars | Perfect Imprints",
+  "metaDescription": "Order custom soy jars for your next event or promotion. Perfect for candles and gifts. Get a quote today.",
+  "introHtml": "<p>Soy wax burns cleaner and longer than paraffin, making custom soy jars a preferred choice for eco-conscious corporate gifts. Whether you are filling them with scented candles for a hospitality client or assembling thank-you kits for employees, the smooth, even burn of soy wax adds a premium touch. Our selection includes jars that pair beautifully with soy, like the 22 oz Fiesta Mason Jar Tumbler, which offers a rustic look ideal for custom labeling. Choose soy jars for a sustainable, high-quality impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom soy jars with branded labels, perfect for corporate gifts and promotional events",
+  "productSkus": [
+    "506911",
+    "525119"
+  ],
+  "generatedAt": "2026-05-31T09:52:02.131495+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

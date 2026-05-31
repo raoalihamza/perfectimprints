@@ -1,0 +1,27 @@
+{
+  "url": "/cat/golf-balls/type/box",
+  "type": "facet",
+  "h1": "Custom Box Golf Balls for Bulk Orders",
+  "metaTitle": "Custom Box Golf Balls - Perfect Imprints",
+  "metaDescription": "Order custom box golf balls in bulk from Perfect Imprints. Personalize with your logo for tournaments, gifts, or corporate events.",
+  "introHtml": "<p>Ordering custom box golf balls gives you a polished, ready-to-give presentation that loose balls can't match. Whether you're stocking a corporate tournament gift bag or sending a thank-you to clients, a branded box with your logo on premium balls like Titleist® Pro V1® or Volvik® Vivid makes a lasting impression. Choose your preferred ball model, then add your logo through screen printing or pad printing. Boxes keep sets organized and easy to distribute at events or as employee rewards.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom box golf balls with corporate logo in a branded box, perfect for tournament giveaways and client gifts.",
+  "productSkus": [
+    "506922 50D",
+    "506923 50D",
+    "507565 90A",
+    "515618 90A",
+    "521337",
+    "527050",
+    "528245"
+  ],
+  "generatedAt": "2026-05-31T08:34:04.095806+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

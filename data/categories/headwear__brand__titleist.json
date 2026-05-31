@@ -1,0 +1,21 @@
+{
+  "url": "/cat/headwear/brand/titleist",
+  "type": "facet",
+  "h1": "Custom Titleist Headwear for Your Team",
+  "metaTitle": "Custom Titleist Headwear | Perfect Imprints",
+  "metaDescription": "Order custom Titleist headwear for your team or event. Premium golf hats with your logo. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Custom Titleist headwear gives your team a polished, professional look that stands out on the course or at company outings. Titleist is a trusted brand among golfers, and adding your logo to their performance hats signals quality and attention to detail. Whether you're outfitting a corporate golf tournament or rewarding top performers, these hats offer moisture-wicking fabrics, structured fits, and vibrant embroidery options that hold up wash after wash.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Titleist headwear with embroidered logo, featuring a structured golf hat in team colors.",
+  "productSkus": [
+    "529259"
+  ],
+  "generatedAt": "2026-05-31T09:15:34.964003+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

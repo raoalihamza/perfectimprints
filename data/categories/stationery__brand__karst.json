@@ -1,0 +1,22 @@
+{
+  "url": "/cat/stationery/brand/karst",
+  "type": "facet",
+  "h1": "Custom Karst Stationery for Bulk Orders",
+  "metaTitle": "Custom Karst Stationery | Perfect Imprints",
+  "metaDescription": "Order custom Karst stationery in bulk at Perfect Imprints. Eco-friendly stone paper notebooks perfect for branded giveaways.",
+  "introHtml": "<p>Karst stationery uses stone paper, a waterproof and tear-resistant material made from recycled stone waste, without any trees or water. This makes it a standout choice for eco-conscious marketing directors and HR directors who want sustainable branded giveaways. The smooth, durable surface takes imprinting beautifully, and the natural off-white color gives a premium, minimalist look. Perfect for corporate gifts, onboarding kits, or trade show handouts that align with a green brand identity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Karst stationery including stone paper notebooks with company logo imprint, eco-friendly and waterproof.",
+  "productSkus": [
+    "526221",
+    "526712"
+  ],
+  "generatedAt": "2026-05-31T10:08:26.025964+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

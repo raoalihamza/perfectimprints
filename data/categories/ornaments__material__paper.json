@@ -1,0 +1,21 @@
+{
+  "url": "/cat/ornaments/material/paper",
+  "type": "facet",
+  "h1": "Custom Paper Ornaments for Bulk Orders",
+  "metaTitle": "Custom Paper Ornaments | Perfect Imprints",
+  "metaDescription": "Order custom paper ornaments in bulk for your next event. Perfect for holiday gifts and branded promotions. Get a quote today!",
+  "introHtml": "<p>Paper ornaments offer a lightweight, eco-friendly alternative to plastic or glass decorations. They are ideal for corporate holiday gifts, direct mail campaigns, or event giveaways where shipping costs matter. The Treat Filled Holiday Ornament, for example, can be customized with your logo and filled with small candies or treats. Screen printing or foil stamping works well on paper surfaces, giving you crisp brand visibility. Choose paper ornaments when you want a sustainable, budget-friendly promotional item that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom paper ornaments with corporate logo, eco-friendly holiday decorations for bulk orders",
+  "productSkus": [
+    "527006"
+  ],
+  "generatedAt": "2026-05-31T09:58:32.434632+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

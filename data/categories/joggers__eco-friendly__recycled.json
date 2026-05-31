@@ -1,0 +1,21 @@
+{
+  "url": "/cat/joggers/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Joggers",
+  "metaTitle": "Custom Recycled Joggers | Perfect Imprints",
+  "metaDescription": "Order branded custom recycled joggers for your team. Eco-friendly bulk options available at Perfect Imprints.",
+  "introHtml": "<p>Recycled joggers let your team represent your brand while reducing environmental impact. Made from post-consumer recycled materials, these joggers offer the same comfort and durability as conventional fabrics. Whether you're outfitting a corporate wellness program or supplying uniforms for a green initiative, recycled joggers provide a sustainable choice. Decorate with screen printing or embroidery for a professional finish that aligns with your company's eco-conscious values.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled joggers made from sustainable materials with embroidered logo, perfect for eco-friendly corporate apparel",
+  "productSkus": [
+    "528865"
+  ],
+  "generatedAt": "2026-05-31T09:16:51.114850+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,31 @@
+{
+  "url": "/cat/jackets/feature/quarter-zip",
+  "type": "facet",
+  "h1": "Custom Quarter Zip Jackets for Your Team",
+  "metaTitle": "Custom Quarter Zip Jackets | Perfect Imprints",
+  "metaDescription": "Order custom quarter zip jackets for your team. Perfect for corporate events, uniforms, and gifts. Fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Quarter zip jackets offer a versatile layering option that works for both casual Fridays and outdoor company events. The half-zip design gives employees easy temperature control without the bulk of a full zip. Popular styles like the Men's Sweater Knit Jacket or the Clique® Summit ½ Zip provide a polished look that accepts embroidery or screen printing on the chest. Whether you need branded outerwear for a trade show or a cohesive uniform for your field crew, custom quarter zip jackets deliver comfort and a professional appearance.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom quarter zip jackets with embroidered logo on chest, available in multiple colors and sizes",
+  "productSkus": [
+    "509568",
+    "509569",
+    "511074",
+    "519612",
+    "520270",
+    "521110",
+    "521111",
+    "523169",
+    "523170",
+    "525893",
+    "528443"
+  ],
+  "generatedAt": "2026-05-31T09:51:44.090242+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

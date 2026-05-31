@@ -1,0 +1,28 @@
+{
+  "url": "/cat/pens/brand/coleman",
+  "type": "facet",
+  "h1": "Custom Coleman Pens for Bulk Orders",
+  "metaTitle": "Custom Coleman Pens | Perfect Imprints",
+  "metaDescription": "Get custom Coleman pens for your next promotion. Perfect for outdoor brands and events. Order bulk branded pens at Perfect Imprints.",
+  "introHtml": "<p>Coleman pens bring the trusted outdoor brand to your promotional campaigns. Ideal for companies in camping, hiking, or outdoor recreation, these pens pair a reliable writing instrument with the Coleman name. Choose from classic stick pens or retractable styles, and add your logo via pad printing or laser engraving for a clean, professional look that resonates with outdoor enthusiasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Coleman pens with logo imprint, featuring outdoor brand style for promotional use.",
+  "productSkus": [
+    "509109",
+    "517874",
+    "521930",
+    "525375",
+    "525794",
+    "525795",
+    "525796",
+    "529517"
+  ],
+  "generatedAt": "2026-05-31T08:59:31.980127+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

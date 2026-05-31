@@ -1,0 +1,29 @@
+{
+  "url": "/cat/beanies/brand/champion",
+  "type": "facet",
+  "h1": "Custom Champion Beanies for Bulk Orders",
+  "metaTitle": "Custom Champion Beanies | Perfect Imprints",
+  "metaDescription": "Order custom Champion beanies for your team or event. Bulk pricing available. Get your quote today!",
+  "introHtml": "<p>Champion beanies bring instant brand recognition with the iconic C logo, making them a top choice for corporate giveaways, employee uniforms, and retail merchandise. Crafted from heavyweight acrylic or cotton blends, they offer warmth and durability through multiple seasons. Decorate with embroidery or screen printing for a clean, professional look that stands out. Whether you need 50 or 500, custom Champion beanies deliver quality your recipients will wear for years.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of custom embroidered Champion beanies in various colors on a table",
+  "productSkus": [
+    "526122",
+    "526123",
+    "526124",
+    "526126",
+    "526127",
+    "526128",
+    "526129",
+    "526130",
+    "526131"
+  ],
+  "generatedAt": "2026-05-31T09:36:33.030635+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

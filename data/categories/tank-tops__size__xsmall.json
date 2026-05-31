@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tank-tops/size/xsmall",
+  "type": "facet",
+  "h1": "Custom Xsmall Tank Tops",
+  "metaTitle": "Custom Xsmall Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom xsmall tank tops in bulk from Perfect Imprints. Ideal for youth teams, events, and giveaways. Get a quote today!",
+  "introHtml": "<p>Custom xsmall tank tops are ideal for youth sports teams, summer camps, and kids' events where a lightweight, breathable fit is essential. Available in styles like the Youth Bella+Canvas Jersey Tank and Girls' Badger B-Core Racerback, these tops offer easy customization with screen printing or embroidery. Choose moisture-wicking fabrics for active use or soft cotton for everyday comfort. Ordering in bulk ensures consistent sizing and color for your group.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Youth-sized custom xsmall tank tops with screen-printed logos, ideal for teams and events",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T09:28:13.787113+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

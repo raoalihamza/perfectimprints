@@ -1,0 +1,30 @@
+{
+  "url": "/cat/banners/feature/with-grommets",
+  "type": "facet",
+  "h1": "Custom Banners with Grommets",
+  "metaTitle": "Custom Banners with Grommets | Perfect Imprints",
+  "metaDescription": "Order custom banners with grommets for easy indoor or outdoor display. Durable vinyl, bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Custom banners with grommets provide a simple, secure way to hang signage at trade shows, job sites, or storefronts. The reinforced metal rings prevent tearing and make setup fast with rope, zip ties, or hooks. Choose from sizes like 2' x 4' or 4' x 6' vinyl banners, printed in full color with your logo or message. Grommets are spaced every 18-24 inches for reliable tension, so your banner stays flat and professional in any weather.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom vinyl banner with metal grommets for easy hanging, displayed outdoors with a company logo",
+  "productSkus": [
+    "502118",
+    "502119",
+    "502120",
+    "507304 90A",
+    "507307 90A",
+    "507309 90A",
+    "508398 90A",
+    "521973",
+    "521974",
+    "523311"
+  ],
+  "generatedAt": "2026-05-31T08:25:59.989154+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

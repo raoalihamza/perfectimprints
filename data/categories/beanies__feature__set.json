@@ -1,0 +1,23 @@
+{
+  "url": "/cat/beanies/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Beanies for Bulk Orders",
+  "metaTitle": "Custom Set Beanies | Perfect Imprints",
+  "metaDescription": "Order custom set beanies in bulk from Perfect Imprints. Perfect for company gifts, events, and employee appreciation.",
+  "introHtml": "<p>Ordering custom set beanies allows you to provide your team or event attendees with coordinated winter gear that includes matching accessories like scarves or gloves. These sets simplify gifting and ensure a polished, uniform look at company outings, trade shows, or holiday parties. Choose from fleece-lined knit sets or full-color digital printed options for a cohesive brand experience.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set beanies with matching scarf and gloves in a coordinated winter gift set",
+  "productSkus": [
+    "516872",
+    "520012",
+    "521927"
+  ],
+  "generatedAt": "2026-05-31T09:08:30.058377+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

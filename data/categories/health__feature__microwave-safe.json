@@ -1,0 +1,23 @@
+{
+  "url": "/cat/health/feature/microwave-safe",
+  "type": "facet",
+  "h1": "Custom Microwave Safe Health Products",
+  "metaTitle": "Custom Microwave Safe Health Products | Perfect Imprints",
+  "metaDescription": "Order custom microwave safe health products for your team. Perfect for safety managers and HR directors. Shop at Perfect Imprints.",
+  "introHtml": "<p>Microwave safe health products combine the convenience of quick heating with the practicality of branded giveaways. Items like hot/cold packs and thermal wraps can be heated in minutes, providing soothing relief for aches and strains. For safety managers and HR directors, these products show employees you care about their well-being while keeping your logo visible. Choose from gel bead packs or thermal wraps that retain heat effectively and are safe for repeated microwave use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom microwave safe health products including hot/cold packs and thermal wraps with logo imprint",
+  "productSkus": [
+    "510371",
+    "517058 20A",
+    "524787"
+  ],
+  "generatedAt": "2026-05-31T08:55:34.677403+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

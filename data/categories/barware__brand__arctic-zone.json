@@ -1,0 +1,27 @@
+{
+  "url": "/cat/barware/brand/arctic-zone",
+  "type": "facet",
+  "h1": "Custom Arctic Zone Barware for Bulk Orders",
+  "metaTitle": "Custom Arctic Zone Barware | Perfect Imprints",
+  "metaDescription": "Order custom Arctic Zone barware in bulk. Perfect for promotions, events, and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Arctic Zone barware combines advanced thermal insulation with rugged durability, making it ideal for outdoor events, tailgates, and corporate promotions. The Titan Thermal HP double-wall vacuum insulation keeps drinks ice-cold for hours, while copper mugs and tumblers add a premium look. Customize with your logo using pad printing or laser engraving for a polished finish that stands out at any gathering.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Arctic Zone barware including copper mugs and tumblers with company logo, perfect for promotional events and corporate gifts.",
+  "productSkus": [
+    "525341",
+    "525841",
+    "525842",
+    "525843",
+    "525921",
+    "525964",
+    "526694"
+  ],
+  "generatedAt": "2026-05-31T09:07:46.701537+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

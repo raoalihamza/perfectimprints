@@ -1,0 +1,22 @@
+{
+  "url": "/cat/workwear/feature/moisture-wicking",
+  "type": "facet",
+  "h1": "Custom Moisture Wicking Workwear",
+  "metaTitle": "Custom Moisture Wicking Workwear | Perfect Imprints",
+  "metaDescription": "Order custom moisture wicking workwear for your team. Perfect for hot environments. Fast turnaround on bulk orders at Perfect Imprints.",
+  "introHtml": "<p>Moisture wicking workwear keeps your team dry and comfortable during long shifts in hot warehouses or outdoor job sites. Unlike standard cotton uniforms, these fabrics pull sweat away from the skin and dry quickly, reducing chafing and odor. Options like the Cornerstone® Snag-Proof Polo offer a professional look with performance fabric. Add your logo with screen printing or embroidery for a cohesive, durable uniform that works as hard as your crew.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom moisture wicking workwear polo shirts with embroidered logo for industrial teams",
+  "productSkus": [
+    "515284",
+    "515285"
+  ],
+  "generatedAt": "2026-05-31T09:31:11.402429+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

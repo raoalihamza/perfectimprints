@@ -1,0 +1,25 @@
+{
+  "url": "/cat/apparel/material/organic-cotton",
+  "type": "facet",
+  "h1": "Custom Organic Cotton Apparel",
+  "metaTitle": "Custom Organic Cotton Apparel | Perfect Imprints",
+  "metaDescription": "Order custom organic cotton apparel for your brand. Eco-friendly shirts, hoodies & hats for teams and events. Get a quote today.",
+  "introHtml": "<p>Organic cotton apparel is a natural choice for brands committed to sustainability. Unlike conventional cotton, it’s grown without synthetic pesticides, reducing environmental impact while delivering soft, breathable fabric. Perfect for company uniforms, event giveaways, or retail merchandise, these garments can be decorated with screen printing or embroidery. From classic tees to French terry hoodies, organic cotton offers comfort and a clear eco-story your customers will appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "custom organic cotton apparel featuring a stack of eco-friendly t-shirts and hoodies",
+  "productSkus": [
+    "524499",
+    "525400",
+    "526470",
+    "528165",
+    "528166"
+  ],
+  "generatedAt": "2026-05-31T08:48:27.885014+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

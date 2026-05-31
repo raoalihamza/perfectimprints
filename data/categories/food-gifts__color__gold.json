@@ -1,0 +1,27 @@
+{
+  "url": "/cat/food-gifts/color/gold",
+  "type": "facet",
+  "h1": "Custom Gold Food Gifts for Corporate Gifting",
+  "metaTitle": "Custom Gold Food Gifts | Perfect Imprints",
+  "metaDescription": "Order custom gold food gifts for your corporate gifting needs. Impress clients with premium branded treats from Perfect Imprints.",
+  "introHtml": "<p>Gold packaging adds a touch of luxury to your corporate food gifts, making them stand out during the holiday season or client appreciation events. Whether you choose a Lindt Clearview Gift Box or a Large Chocolate Box With Truffles, the gold finish signals quality and thoughtfulness. Perfect for marketing directors and HR leaders looking to leave a lasting impression with branded gourmet treats.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gold food gifts including a large chocolate box with gold foil accents and a Lindt clearview gift box",
+  "productSkus": [
+    "508996",
+    "508997",
+    "508998",
+    "512871 41A",
+    "512873 41A",
+    "518213",
+    "520248"
+  ],
+  "generatedAt": "2026-05-31T09:46:55.849610+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

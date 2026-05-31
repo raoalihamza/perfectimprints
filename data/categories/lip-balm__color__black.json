@@ -1,0 +1,28 @@
+{
+  "url": "/cat/lip-balm/color/black",
+  "type": "facet",
+  "h1": "Custom Black Lip Balm for Bulk Orders",
+  "metaTitle": "Custom Black Lip Balm | Perfect Imprints",
+  "metaDescription": "Shop custom black lip balm in bulk at Perfect Imprints. Ideal for branding with sleek black tubes and unique shapes. Order now!",
+  "introHtml": "<p>Black lip balm offers a sleek, professional look that stands out in any corporate giveaway or event bag. Whether you choose a classic black tube or a playful rubber ball, the dark color hides wear and complements any logo. Perfect for safety managers needing SPF protection or HR directors seeking a gender-neutral promotional item, custom black lip balm pairs durability with everyday utility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black lip balm in a black tube with a company logo, perfect for bulk promotional orders.",
+  "productSkus": [
+    "512747",
+    "513294 01A",
+    "519430",
+    "519664",
+    "519746",
+    "528465",
+    "528502",
+    "529479"
+  ],
+  "generatedAt": "2026-05-31T08:26:48.027025+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

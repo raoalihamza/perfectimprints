@@ -1,0 +1,27 @@
+{
+  "url": "/cat/workwear/brand/boxercraft",
+  "type": "facet",
+  "h1": "Custom Boxercraft Workwear for Your Team",
+  "metaTitle": "Custom Boxercraft Workwear | Perfect Imprints",
+  "metaDescription": "Order custom Boxercraft workwear for your team. Shop sherpa pullovers, flannel pants, and more. Get a quote today!",
+  "introHtml": "<p>Boxercraft workwear brings the comfort of loungewear into the workplace, making it a smart choice for casual office environments, team building events, or employee gifts. Their signature flannel pants and cozy sherpa pullovers are crafted from soft, durable fabrics that hold up to frequent washing, ensuring your custom logo stays sharp. Whether you choose the Men's Harley Flannel Pant or the Women's Cuddle Cardigan, Boxercraft offers a relaxed fit that employees actually want to wear, which means your brand gets more visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Boxercraft workwear featuring a sherpa pullover and flannel pants with embroidered logo",
+  "productSkus": [
+    "521535",
+    "527831",
+    "527832",
+    "527833",
+    "527834",
+    "527835",
+    "527836"
+  ],
+  "generatedAt": "2026-05-31T08:31:37.502606+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

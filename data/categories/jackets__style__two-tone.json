@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jackets/style/two-tone",
+  "type": "facet",
+  "h1": "Custom Two Tone Jackets for Your Team",
+  "metaTitle": "Custom Two Tone Jackets | Perfect Imprints",
+  "metaDescription": "Order custom two tone jackets for your team. Perfect for corporate events, uniforms, and giveaways. Get a quote today.",
+  "introHtml": "<p>Two tone jackets combine contrasting colors on the body and sleeves, creating a sharp, modern look that stands out in a crowd. This style is ideal for trade shows, safety crews, or any team that wants a uniform that's both functional and distinctive. With options like the Narvik Hybrid Jacket, you can choose insulated or shell versions to match your climate needs. Decorate with embroidery or screen printing for a polished finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom two tone jackets with contrasting sleeves and body, perfect for corporate uniforms and team apparel.",
+  "productSkus": [
+    "525738",
+    "525739"
+  ],
+  "generatedAt": "2026-05-31T09:16:40.753950+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/mirrors/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Mirrors",
+  "metaTitle": "Custom Blue Mirrors | Perfect Imprints",
+  "metaDescription": "Order custom blue mirrors for your brand. Perfect for bulk promotional giveaways. Request a quote at Perfect Imprints.",
+  "introHtml": "<p>Blue mirrors offer a distinctive way to promote your brand, whether for retail giveaways, corporate events, or employee recognition. The blue finish adds a pop of color that stands out in any setting, from compact mirrors to phone stands with mirrors. Choose from options like the Compact Mirror or the BioBlend™ Phone Stand with Mirror, ideal for adding your logo through screen printing or debossing. These functional items keep your brand visible daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue mirrors with logo imprint, including compact and phone stand styles for promotional giveaways.",
+  "productSkus": [
+    "514932",
+    "522025",
+    "522395",
+    "529413"
+  ],
+  "generatedAt": "2026-05-31T09:19:58.102847+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

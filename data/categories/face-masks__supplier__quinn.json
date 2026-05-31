@@ -1,0 +1,29 @@
+{
+  "url": "/cat/face-masks/supplier/quinn",
+  "type": "facet",
+  "h1": "Custom Quinn Face Masks for Bulk Orders",
+  "metaTitle": "Custom Quinn Face Masks – Perfect Imprints",
+  "metaDescription": "Order custom Quinn face masks in bulk from Perfect Imprints. Ideal for teams, events, and promotions. Fast turnaround.",
+  "introHtml": "<p>Quinn face masks combine classic bandana styling with modern face-covering functionality, making them a popular choice for outdoor events, construction sites, and promotional giveaways. The tubular and bandana styles from Quinn offer breathable cotton construction and versatile wear options, including neck gaiter and full-face coverage. Decorating these masks with screen-printed logos or embroidered designs creates a durable, comfortable giveaway that your recipients will actually use. Whether you need solid colors for uniform branding or full-color patterns for event merchandise, Quinn masks deliver reliable quality in bulk quantities.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Quinn face masks in various colors and patterns, including bandanas and tubular styles, ideal for promotional use.",
+  "productSkus": [
+    "506990",
+    "506991",
+    "521602",
+    "522111",
+    "524691",
+    "524692",
+    "524693",
+    "524695",
+    "526912"
+  ],
+  "generatedAt": "2026-05-31T09:45:18.666977+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

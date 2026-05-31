@@ -1,0 +1,22 @@
+{
+  "url": "/cat/apparel-accessories/material/leather",
+  "type": "facet",
+  "h1": "Custom Leather Apparel Accessories",
+  "metaTitle": "Custom Leather Apparel Accessories | Perfect Imprints",
+  "metaDescription": "Order custom leather apparel accessories for your brand. Wallets, belts, and more with your logo. Perfect for corporate gifts.",
+  "introHtml": "<p>Leather accessories bring a sense of quality and durability that other materials can't match. From custom wallets to belts, leather pieces are ideal for corporate gifts or employee recognition programs. The Slater Single Pocket Wallet and Duluth Pack Credit Card Bifold Wallet are popular choices that offer timeless style and practical everyday use. Leather develops a unique patina over time, making each piece a lasting reminder of your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom leather apparel accessories including wallets and belts with engraved logos",
+  "productSkus": [
+    "529300",
+    "529359"
+  ],
+  "generatedAt": "2026-05-31T08:48:19.091558+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

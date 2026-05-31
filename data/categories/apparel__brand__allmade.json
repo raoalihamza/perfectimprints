@@ -1,0 +1,26 @@
+{
+  "url": "/cat/apparel/brand/allmade",
+  "type": "facet",
+  "h1": "Custom Allmade Apparel for Your Brand",
+  "metaTitle": "Custom Allmade Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Allmade apparel from Perfect Imprints. Eco-friendly tees and hoodies perfect for branded uniforms and giveaways.",
+  "introHtml": "<p>Allmade apparel combines eco-conscious materials like recycled polyester and organic cotton with a mission to support garment workers. For businesses seeking sustainable branded apparel, these tri-blend tees and French terry hoodies offer softness and durability that employees and clients will appreciate. Decorate with screen printing or embroidery for a polished look at your next event or uniform rollout.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Allmade apparel including tri-blend tees and organic French terry hoodies for branded merchandise",
+  "productSkus": [
+    "525400",
+    "527784",
+    "528163",
+    "528164",
+    "528165",
+    "528166"
+  ],
+  "generatedAt": "2026-05-31T09:32:01.964693+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

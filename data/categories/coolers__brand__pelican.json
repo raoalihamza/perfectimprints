@@ -1,0 +1,23 @@
+{
+  "url": "/cat/coolers/brand/pelican",
+  "type": "facet",
+  "h1": "Custom Pelican Coolers for Bulk Orders",
+  "metaTitle": "Custom Pelican Coolers | Perfect Imprints",
+  "metaDescription": "Order custom Pelican coolers in bulk with your logo. Durable, brandable coolers perfect for giveaways and events. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Pelican coolers are built to withstand the toughest conditions, making them a standout choice for brands that value durability and performance. Whether you're outfitting a safety team with rugged lunch coolers or rewarding top clients with premium insulated tumblers, Pelican's lineup offers reliable temperature retention and a professional look. Decorate with your logo via laser engraving or pad printing for a lasting impression that goes beyond the typical promotional cooler.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Pelican coolers with engraved logo, featuring a stainless steel tumbler and a durable cooler in outdoor setting.",
+  "productSkus": [
+    "527482",
+    "527483",
+    "527484"
+  ],
+  "generatedAt": "2026-05-31T09:11:13.632777+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

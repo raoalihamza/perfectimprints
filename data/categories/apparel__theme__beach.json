@@ -1,0 +1,24 @@
+{
+  "url": "/cat/apparel/theme/beach",
+  "type": "facet",
+  "h1": "Custom Beach Apparel",
+  "metaTitle": "Custom Beach Apparel | Perfect Imprints",
+  "metaDescription": "Order custom beach apparel for your team or event. Perfect for giveaways, uniforms, and more. Get a quote today!",
+  "introHtml": "<p>Custom beach apparel brings a relaxed, coastal vibe to your brand. Whether you need promotional flip flops for a beachside event or branded sunglasses for a summer campaign, these items keep your logo visible in sunny settings. Choose from styles like our Deluxe Flip Flop or Sun Ray Sunglasses to create memorable giveaways that your audience will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom beach apparel including branded flip flops and sunglasses for promotional events",
+  "productSkus": [
+    "507422",
+    "510646",
+    "520052",
+    "526792"
+  ],
+  "generatedAt": "2026-05-31T08:48:32.380107+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

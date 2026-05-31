@@ -1,0 +1,32 @@
+{
+  "url": "/cat/writing/color/gold",
+  "type": "facet",
+  "h1": "Custom Gold Writing Instruments",
+  "metaTitle": "Custom Gold Writing Instruments | Perfect Imprints",
+  "metaDescription": "Order custom gold pens and pencils for your brand. Premium bulk writing instruments with your logo. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Gold writing instruments add a touch of elegance and prestige to any corporate gift or event giveaway. Whether you choose a classic gold pen like the Clic™ Gold Pen or a sleek gold pencil, the metallic finish stands out on desks and in pockets. Perfect for executive gifts, client appreciation, or trade show giveaways, these custom gold writing tools combine functionality with a premium look that reflects well on your brand. Decorate with your logo via pad printing or engraving for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gold pens and pencils with metallic finish and logo imprint for corporate gifts",
+  "productSkus": [
+    "501104",
+    "503860",
+    "505979",
+    "506508",
+    "506766",
+    "508125",
+    "509216",
+    "510561",
+    "510596",
+    "515735",
+    "520729",
+    "529282"
+  ],
+  "generatedAt": "2026-05-31T10:16:01.943087+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

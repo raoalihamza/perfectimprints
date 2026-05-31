@@ -1,0 +1,23 @@
+{
+  "url": "/cat/apparel/feature/touch-screen",
+  "type": "facet",
+  "h1": "Custom Touch Screen Apparel for Bulk Orders",
+  "metaTitle": "Custom Touch Screen Apparel | Perfect Imprints",
+  "metaDescription": "Shop custom touch screen apparel for bulk orders. Perfect for teams needing device-friendly wear. Get a quote today!",
+  "introHtml": "<p>Custom touch screen apparel lets your team stay connected without removing gloves or mittens. From branded touch screen gloves for outdoor workers to tech-friendly knit sets for trade shows, these pieces combine warmth with device usability. Decorate with full-color digital printing or embroidery to keep your logo visible while wearers scroll, type, or tap. Ideal for safety managers and marketing directors who need functional, branded cold-weather gear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom touch screen apparel including branded touch screen gloves with smartphone compatibility",
+  "productSkus": [
+    "519076",
+    "520012",
+    "524376"
+  ],
+  "generatedAt": "2026-05-31T09:32:15.101285+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

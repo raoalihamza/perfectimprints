@@ -1,0 +1,24 @@
+{
+  "url": "/cat/seat-covers/color/red",
+  "type": "facet",
+  "h1": "Custom Red Seat Covers",
+  "metaTitle": "Custom Red Seat Covers | Perfect Imprints",
+  "metaDescription": "Order custom red seat covers for your event or office. Bulk pricing available. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Red seat covers make a bold statement at conferences, trade shows, and corporate events. Whether you need fitted covers for standard banquet chairs or stretch options for unique seating, red offers high visibility that draws attention to your brand. Choose from polyester, spandex, or cotton blends with full-color imprinting or one-color logos. Bulk orders ship quickly to any U.S. location.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red seat covers for trade show chairs with full-color company logo imprint",
+  "productSkus": [
+    "506947",
+    "507074",
+    "510137",
+    "510139"
+  ],
+  "generatedAt": "2026-05-31T10:06:17.348344+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

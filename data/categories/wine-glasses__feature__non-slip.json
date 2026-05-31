@@ -1,0 +1,22 @@
+{
+  "url": "/cat/wine-glasses/feature/non-slip",
+  "type": "facet",
+  "h1": "Custom Non Slip Wine Glasses",
+  "metaTitle": "Custom Non Slip Wine Glasses | Perfect Imprints",
+  "metaDescription": "Order custom non slip wine glasses for your brand. Perfect for events, promotions, and giveaways. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Custom non slip wine glasses combine elegance with practicality, making them ideal for outdoor events, poolside parties, or corporate picnics where spills are a risk. The textured base or sleeve keeps the glass stable on uneven surfaces, while the stemless design of models like the 12 oz Corkcicle® Stemless Wine Cup offers a comfortable grip. Choose from silicone wraps or debossed logos to keep your branding secure and visible. These glasses give your recipients confidence to enjoy wine without worrying about accidents.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom non slip wine glasses with textured base and branded logo, perfect for outdoor corporate events and promotions.",
+  "productSkus": [
+    "524368",
+    "527802"
+  ],
+  "generatedAt": "2026-05-31T10:14:56.403071+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

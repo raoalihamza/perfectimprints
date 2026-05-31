@@ -1,0 +1,21 @@
+{
+  "url": "/cat/bags/feature/packable",
+  "type": "facet",
+  "h1": "Custom Packable Bags for Bulk Orders",
+  "metaTitle": "Custom Packable Bags | Perfect Imprints",
+  "metaDescription": "Order custom packable bags in bulk at Perfect Imprints. Lightweight, portable designs perfect for events and giveaways.",
+  "introHtml": "<p>Packable bags fold into their own built-in pouches, making them ideal for trade shows, corporate events, and travel giveaways. Unlike standard totes or backpacks, these lightweight bags let recipients carry them everywhere without taking up space. The Brand Charger Eco Sling Backpack is a popular example that combines portability with eco-friendly materials. Decorate with your logo using screen printing or embroidery for a practical branded giveaway that attendees will actually keep and use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom packable bags folded into small pouches, perfect for travel and event giveaways.",
+  "productSkus": [
+    "527055"
+  ],
+  "generatedAt": "2026-05-31T09:34:24.892249+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

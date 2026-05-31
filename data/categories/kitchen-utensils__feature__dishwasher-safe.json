@@ -1,0 +1,23 @@
+{
+  "url": "/cat/kitchen-utensils/feature/dishwasher-safe",
+  "type": "facet",
+  "h1": "Custom Dishwasher Safe Kitchen Utensils",
+  "metaTitle": "Dishwasher Safe Kitchen Utensils | Perfect Imprints",
+  "metaDescription": "Order custom dishwasher safe kitchen utensils for your business. Perfect for company kitchens and employee gifts. Get started today!",
+  "introHtml": "<p>Dishwasher safe kitchen utensils are essential for busy office kitchens and break rooms where hygiene and convenience matter. Unlike standard utensils that may warp or fade after repeated washes, these durable options maintain their appearance and functionality. Whether you choose the HIP® Reusable Utensils for daily use or the Travel Cutlery Set for on-the-go employees, you can imprint your logo with confidence knowing they will withstand commercial dishwashers without cracking or losing color.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom dishwasher safe kitchen utensils with logo, including reusable forks and spoons, arranged on a clean kitchen counter.",
+  "productSkus": [
+    "512001",
+    "513068",
+    "527100"
+  ],
+  "generatedAt": "2026-05-31T09:53:17.642902+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

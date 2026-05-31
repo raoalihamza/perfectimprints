@@ -1,0 +1,21 @@
+{
+  "url": "/cat/backpacks/feature/packable",
+  "type": "facet",
+  "h1": "Custom Packable Backpacks",
+  "metaTitle": "Custom Packable Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom packable backpacks for giveaways and events. Lightweight, foldable designs perfect for bulk branding.",
+  "introHtml": "<p>Packable backpacks are designed to fold into their own pocket, making them ideal for trade show giveaways, corporate swag bags, and emergency kits. Unlike standard backpacks, these lightweight carriers take up minimal space until needed, so recipients can stash one in a glovebox or carry-on without bulking up. Decorate with a screen-printed logo for a practical promo that gets used on trips, commutes, and outdoor events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom packable backpacks folded into small pouches, featuring a printed logo on lightweight nylon fabric.",
+  "productSkus": [
+    "527055"
+  ],
+  "generatedAt": "2026-05-31T08:49:13.416669+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

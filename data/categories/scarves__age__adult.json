@@ -1,0 +1,26 @@
+{
+  "url": "/cat/scarves/age/adult",
+  "type": "facet",
+  "h1": "Custom Adult Scarves for Bulk Orders",
+  "metaTitle": "Custom Adult Scarves | Perfect Imprints",
+  "metaDescription": "Order custom adult scarves in bulk for your team or event. Perfect for corporate gifts and promotional giveaways at Perfect Imprints.",
+  "introHtml": "<p>Adult scarves are a practical and stylish promotional item that keeps your brand visible during colder months. Unlike one-size-fits-all options, adult-specific scarves offer better length and coverage, making them a more appreciated gift for employees, clients, or event attendees. Choose from fleece for warmth or knit styles like the Two-Tone Knit Scarf with Fringe for a classic look. Decorate with your logo using embroidery or full-color digital printing for a vibrant, lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adult scarves for corporate gifts, featuring a fleece scarf with embroidered logo",
+  "productSkus": [
+    "514088",
+    "516838",
+    "516839",
+    "516872",
+    "520012",
+    "520863"
+  ],
+  "generatedAt": "2026-05-31T09:25:07.455604+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

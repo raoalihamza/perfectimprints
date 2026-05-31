@@ -1,0 +1,32 @@
+{
+  "url": "/cat/table-displays/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Table Displays",
+  "metaTitle": "Custom Purple Table Displays | Perfect Imprints",
+  "metaDescription": "Order custom purple table displays for brand visibility at events. Durable fabric, full-color imprint. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Purple table displays make your brand stand out at trade shows and corporate events. Whether you choose a fitted table throw or a standard table runner, the rich purple color pairs well with white or gold logos for a professional look. Our fabric options include stain-resistant materials that hold up through multiple uses, and full-color front panel printing ensures your message is clear from across the room.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple table display with full-color logo imprint at a trade show booth",
+  "productSkus": [
+    "506590",
+    "506802",
+    "506928",
+    "506943",
+    "506947",
+    "506956",
+    "507074",
+    "507113",
+    "507143",
+    "511861",
+    "511863",
+    "523293"
+  ],
+  "generatedAt": "2026-05-31T09:03:14.915034+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

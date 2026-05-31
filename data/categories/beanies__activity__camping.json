@@ -1,0 +1,21 @@
+{
+  "url": "/cat/beanies/activity/camping",
+  "type": "facet",
+  "h1": "Custom Camping Beanies",
+  "metaTitle": "Custom Camping Beanies | Perfect Imprints",
+  "metaDescription": "Browse bulk custom camping beanies at Perfect Imprints. Perfect for outdoor events, giveaways, and brand visibility.",
+  "introHtml": "<p>Custom camping beanies are a practical choice for outdoor events, company retreats, or winter giveaways. Made from warm acrylic or wool blends, these beanies keep your brand visible in cold weather. The classic cuff style allows for a clean embroidery or screen-printed logo. Choose a color that matches your brand or camp theme, and add your logo for a functional promotional item that your audience will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom camping beanies with embroidered logo on a cuff style beanie, perfect for outdoor brand promotions.",
+  "productSkus": [
+    "516012"
+  ],
+  "generatedAt": "2026-05-31T09:08:23.845275+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

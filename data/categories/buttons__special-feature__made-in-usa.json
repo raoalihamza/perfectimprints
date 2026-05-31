@@ -1,0 +1,28 @@
+{
+  "url": "/cat/buttons/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Buttons",
+  "metaTitle": "Custom Made in USA Buttons | Perfect Imprints",
+  "metaDescription": "Order custom made in USA buttons for your brand. Bulk pricing, fast turnaround. Perfect for events and promotions.",
+  "introHtml": "<p>Custom made in USA buttons combine quality craftsmanship with domestic manufacturing. Whether you need 1 1/2\" round safety pin back buttons for a trade show or 3\" diameter buttons for a political campaign, choosing American-made ensures durable materials and reliable production. These buttons feature vibrant full-color printing on sturdy metal backs, making them ideal for giveaways, fundraising, or employee recognition. Bulk orders benefit from consistent quality and shorter lead times compared to overseas alternatives.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA buttons featuring round safety pin back designs in various sizes for promotional use",
+  "productSkus": [
+    "502330 90A",
+    "502331 90A",
+    "502332 90A",
+    "502333 90A",
+    "502334 90A",
+    "510266 90A",
+    "526678",
+    "528544"
+  ],
+  "generatedAt": "2026-05-31T08:51:26.476564+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/calendars/brand/good-value",
+  "type": "facet",
+  "h1": "Custom Good Value Calendars for Bulk Ordering",
+  "metaTitle": "Custom Good Value Calendars | Perfect Imprints",
+  "metaDescription": "Order custom Good Value calendars in bulk at Perfect Imprints. Perfect for promotions, with spiral and stapled options.",
+  "introHtml": "<p>Good Value calendars deliver year-long brand visibility at an affordable price point. Available in spiral-bound and stapled formats, these calendars feature themes like Motivations and Agriculture that resonate with diverse audiences. Ideal for marketing directors and HR teams looking to provide functional desk or wall calendars that keep your brand front and center every day. Decorate with your logo using full-color imprinting for a professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom Good Value calendars featuring spiral-bound and stapled styles with nature and motivational themes.",
+  "productSkus": [
+    "503970 90A",
+    "510874 90A",
+    "528655"
+  ],
+  "generatedAt": "2026-05-31T08:21:44.828991+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

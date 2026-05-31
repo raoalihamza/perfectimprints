@@ -1,0 +1,21 @@
+{
+  "url": "/cat/games/material/paper",
+  "type": "facet",
+  "h1": "Custom Paper Games for Events and Promotions",
+  "metaTitle": "Custom Paper Games | Perfect Imprints",
+  "metaDescription": "Order custom paper games for team building or events. Bulk pricing at Perfect Imprints. Get a quote today.",
+  "introHtml": "<p>Custom paper games offer a lightweight, cost-effective option for corporate events, trade shows, and team-building activities. Unlike plastic or wooden games, paper versions are easy to customize with your logo or message using full-color printing. They are also recyclable, aligning with eco-conscious branding. From trivia cards to bingo sheets, paper games provide high-impact engagement without the bulk or cost of other materials.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom paper games with printed branding on a table at a corporate event",
+  "productSkus": [
+    "507997"
+  ],
+  "generatedAt": "2026-05-31T08:54:24.654311+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/photo-frames/activity/golf",
+  "type": "facet",
+  "h1": "Custom Golf Photo Frames for Bulk Orders",
+  "metaTitle": "Custom Golf Photo Frames | Perfect Imprints",
+  "metaDescription": "Order custom golf photo frames for your golf event or corporate gift. Perfect Imprints offers bulk pricing on personalized frames.",
+  "introHtml": "<p>Custom golf photo frames let you combine a love for the game with a memorable giveaway. Whether you're hosting a charity tournament or rewarding top clients, these frames hold a 6x4 photo and feature golf-themed designs that resonate with players. Add your logo or event details with screen printing or debossing for a polished look that stands out in an office or home.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom golf photo frame with a 6x4 photo mount, featuring a golf ball and tee design, ideal for corporate gifts.",
+  "productSkus": [
+    "516382 50A"
+  ],
+  "generatedAt": "2026-05-31T10:01:52.556372+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,67 @@
+{
+  "url": "/cat/mouse-pads",
+  "type": "root",
+  "h1": "Custom Mouse Pads for Branding, Events & Office Use",
+  "metaTitle": "Custom Mouse Pads - Perfect Imprints",
+  "metaDescription": "Order custom mouse pads with your logo. Perfect for trade shows, offices, and events. Bulk pricing available. Get a quote today.",
+  "introHtml": "<p>Marketing directors looking for a high-utility trade show giveaway, HR directors assembling employee onboarding kits, and business owners wanting to reinforce their brand at client meetings all turn to custom mouse pads. They are one of the few promotional products that sit on a desk every single day, keeping your logo visible for years. Whether you need a standard soft surface pad, a premium aluminum option, or a wireless charging mouse pad that doubles as a practical tech accessory, this category covers the full range.</p><p>Our selection includes eco-friendly recycled options, fabric and firm surface pads, gel wrist rest models for ergonomic comfort, and even MousePaper® pads that combine a mouse surface with a tear-off note pad. Every product can be decorated with your logo or message using screen printing, full-color heat transfer, or laser engraving depending on the material. With low minimums and competitive wholesale pricing, ordering branded mouse pads is a smart investment for any company.</p>",
+  "buyingGuideHtml": "<h3>What to Look for in Custom Mouse Pads</h3><p>When ordering custom mouse pads, consider the surface material first. Cloth or fabric surfaces offer smooth gliding and are ideal for optical and laser mice. Hard surfaces like aluminum or firm PVC provide a slick feel and are more durable. If your team or event attendees spend long hours at a desk, a gel wrist rest pad can reduce strain. The shape also matters: standard rectangles fit most desks, while round or hexagon shapes add a modern twist.</p><h3>Materials and Build Quality</h3><p>Mouse pads come in a variety of materials. Soft foam pads are lightweight and inexpensive, making them great for bulk giveaways. Recycled rubber options appeal to eco-conscious buyers. Aluminum pads are nearly indestructible and look premium. Firm surface pads resist curling and warping over time. For a dual-function item, consider a wireless charging mouse pad that integrates a charging coil, or a MousePaper® pad that combines a mouse surface with a tear-off notepad.</p><h3>Common Use Cases</h3><p>Promotional mouse pads are popular at trade shows, where attendees appreciate a practical desk accessory. They work well in employee welcome kits, as customer thank-you gifts, and as corporate holiday presents. Safety managers can use them as part of ergonomic programs to reduce wrist strain. Business owners often order branded mouse pads for client meetings or to outfit their own office. Full-color print options let you reproduce complex logos or artwork.</p><h3>Decoration Options</h3><p>Most mouse pads can be screen printed for simple logos with limited colors. For full-color designs, heat transfer or sublimation (on polyester-coated surfaces) produces vibrant, photographic results. Laser engraving works well on aluminum and some hard surfaces, creating a sleek, permanent mark. When choosing a decoration method, consider the quantity and your budget: screen printing is cost-effective for large runs, while full-color transfer is better for small batches with complex art.</p><h3>Quantity and MOQ Guidance</h3><p>Minimum order quantities for custom mouse pads typically start at 50 to 100 units for printed pads, though some stock shapes may have lower minimums. As with most promotional products, unit price drops significantly as quantity increases. For a trade show giveaway, ordering 500 or more is common. For an office refresh or small team, 50 to 100 pads can be a cost-effective choice. Wholesale pricing is available for larger quantities, and many suppliers offer tiered pricing.</p><h3>Common Buying Mistakes to Avoid</h3><p>One frequent mistake is choosing a surface material that doesn't match the user's mouse type. Optical and laser mice work on most surfaces, but older ball mice require a cloth pad. Another pitfall is overlooking thickness: a thin pad may slide on the desk, while a thick one can feel bulky. Always request a sample to test the feel and print quality before placing a large order. Also, confirm that the decoration method is compatible with the pad material to avoid peeling or fading.</p>",
+  "buyingGuideH2": "Custom Mouse Pads Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom mouse pads?",
+      "a": "Minimum order quantities vary by product. Standard printed mouse pads typically have an MOQ of 50 to 100 units. Some stock shapes or smaller items may have lower minimums. Contact us for specific product MOQs."
+    },
+    {
+      "q": "What decoration methods are available for mouse pads?",
+      "a": "Common decoration methods include screen printing for simple logos, full-color heat transfer for detailed artwork, and laser engraving for hard surfaces like aluminum. Sublimation is also available for polyester-coated pads. The best method depends on your design and quantity."
+    },
+    {
+      "q": "How long does production take for custom mouse pads?",
+      "a": "Production lead time typically ranges from 10 to 15 business days after artwork approval. Rush orders may be available for an additional fee. Shipping time depends on your location and chosen carrier."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, we recommend ordering a sample to evaluate the material, size, and print quality. Samples are available for most products. Contact our sales team to request a sample of your preferred mouse pad."
+    },
+    {
+      "q": "Are there eco-friendly mouse pad options?",
+      "a": "Yes, we offer recycled mouse pads made from post-consumer or post-industrial materials. The Recycled Mouse Mat® is a popular choice. These are a great option for companies with sustainability goals."
+    }
+  ],
+  "heroAltText": "Custom mouse pads with logo print on desk, including soft, aluminum, and wireless charging options.",
+  "productSkus": [
+    "501358 90A",
+    "502995 90A",
+    "508741 90A",
+    "509131 90A",
+    "509537",
+    "510793 90A",
+    "511058 90A",
+    "511061 90A",
+    "511064 90A",
+    "511065 90A",
+    "511066 90A",
+    "511075 90A",
+    "511077 90A",
+    "513432",
+    "521262",
+    "521845",
+    "524614",
+    "525351",
+    "525956",
+    "526011",
+    "526803",
+    "526878",
+    "528230",
+    "528231",
+    "528232"
+  ],
+  "generatedAt": "2026-05-30T10:38:41.924322+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "use_case",
+  "skuFilterMode": "full",
+  "rawSkuCount": 25,
+  "filteredSkuCount": 25
+}

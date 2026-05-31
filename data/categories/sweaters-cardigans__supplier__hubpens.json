@@ -1,0 +1,32 @@
+{
+  "url": "/cat/sweaters-cardigans/supplier/hubpens",
+  "type": "facet",
+  "h1": "Custom Hubpens Sweaters & Cardigans",
+  "metaTitle": "Custom Hubpens Sweaters Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom Hubpens sweaters and cardigans in bulk for your team. Perfect Imprints offers quality apparel with your logo. Get a quote today!",
+  "introHtml": "<p>When you order custom Hubpens sweaters and cardigans, you get reliable apparel from a trusted supplier known for consistent quality and on-time delivery. Whether you need cozy cardigans for a company retreat or professional sweater blazers for your sales team, Hubpens offers styles like the Men's Journey Overshirt and the Ladies' Ogio Luuma Flex Tunic. Choose from embroidery or screen printing to add your logo, and outfit your team in comfort that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hubpens sweaters and cardigans with embroidered logos, including cardigan and overshirt styles for men and women.",
+  "productSkus": [
+    "520268",
+    "520269",
+    "523604",
+    "526198",
+    "526291",
+    "526292",
+    "527181",
+    "527182",
+    "527833",
+    "527957",
+    "528757",
+    "528758"
+  ],
+  "generatedAt": "2026-05-31T09:27:36.973924+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

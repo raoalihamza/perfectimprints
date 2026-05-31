@@ -1,0 +1,22 @@
+{
+  "url": "/cat/beanies/feature/with-patch",
+  "type": "facet",
+  "h1": "Custom With Patch Beanies",
+  "metaTitle": "Custom With Patch Beanies – Perfect Imprints",
+  "metaDescription": "Order custom with patch beanies for your team or event. Durable knit styles with a leather patch for a classic look. Get a quote today.",
+  "introHtml": "<p>Knit beanies with a patch offer a structured, vintage-inspired look that stands out from standard embroidered caps. The leather or woven patch provides a larger canvas for your logo or text, making it ideal for corporate gifts, trade show giveaways, or employee uniforms. Choose from styles like the Haberdasher Knit Beanie with Leather Patch for a premium feel that holds up wash after wash.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom with patch beanies featuring a leather patch logo on a knit beanie for bulk corporate orders",
+  "productSkus": [
+    "521871",
+    "521927"
+  ],
+  "generatedAt": "2026-05-31T09:36:36.440742+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

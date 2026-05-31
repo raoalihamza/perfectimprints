@@ -1,0 +1,25 @@
+{
+  "url": "/cat/pens/color/gray",
+  "type": "facet",
+  "h1": "Custom Gray Pens for Bulk Orders",
+  "metaTitle": "Custom Gray Pens | Perfect Imprints",
+  "metaDescription": "Order custom gray pens for your brand. Perfect for corporate gifts and events. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Gray pens offer a professional, understated look that works well for corporate environments and trade shows. Unlike black or blue, gray provides a neutral yet distinctive option that complements most logo colors. Choose from metal-barrel styles like the Torano Pen for a premium feel or translucent options for a modern twist. Imprint with your logo using pad printing or laser engraving for a clean, lasting finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gray pens with logo imprint, including metal and translucent styles for corporate branding",
+  "productSkus": [
+    "508661",
+    "510015",
+    "510016",
+    "521971",
+    "528782"
+  ],
+  "generatedAt": "2026-05-31T08:45:12.048339+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

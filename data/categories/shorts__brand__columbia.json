@@ -1,0 +1,25 @@
+{
+  "url": "/cat/shorts/brand/columbia",
+  "type": "facet",
+  "h1": "Custom Columbia Shorts for Bulk Orders",
+  "metaTitle": "Custom Columbia Shorts | Perfect Imprints",
+  "metaDescription": "Order custom Columbia shorts for your team. Durable, performance-ready styles perfect for corporate events and uniforms. Get a quote today.",
+  "introHtml": "<p>Columbia shorts combine outdoor durability with all-day comfort, making them a smart choice for corporate uniforms, event staff, and field teams. With moisture-wicking fabrics and UPF sun protection, these shorts keep your crew comfortable during long hours outdoors. Decorate with your logo using embroidery or screen printing for a polished, professional look that holds up wash after wash.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Columbia shorts with embroidered logo, displayed on a mannequin in an outdoor setting.",
+  "productSkus": [
+    "523863",
+    "523865",
+    "523866",
+    "523867",
+    "523870"
+  ],
+  "generatedAt": "2026-05-31T10:06:46.779617+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

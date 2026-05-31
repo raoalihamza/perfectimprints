@@ -1,0 +1,26 @@
+{
+  "url": "/cat/fleece/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Fleece for Corporate Apparel",
+  "metaTitle": "Custom Purple Fleece | Perfect Imprints",
+  "metaDescription": "Order custom purple fleece for your team. Perfect for uniforms, events & gifts. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Purple fleece offers a distinctive look for corporate apparel, standing out from standard navy or black. Whether you're outfitting a safety team or creating branded jackets for a company event, purple provides excellent visibility and a professional appearance. Our polyfleece jackets, like the Men's and Ladies' Rixford Polyfleece Jacket, are ideal for screen printing or embroidery, keeping your logo visible while providing warmth and comfort.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple fleece jackets with embroidered logos on display, suitable for corporate uniforms and promotional giveaways.",
+  "productSkus": [
+    "506605",
+    "506606",
+    "509568",
+    "520298",
+    "520299",
+    "526811"
+  ],
+  "generatedAt": "2026-05-31T09:46:18.920301+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

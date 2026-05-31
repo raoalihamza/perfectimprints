@@ -1,0 +1,23 @@
+{
+  "url": "/cat/shirts/brand/oakley",
+  "type": "facet",
+  "h1": "Custom Oakley Shirts for Bulk Orders",
+  "metaTitle": "Custom Oakley Shirts | Perfect Imprints",
+  "metaDescription": "Shop custom Oakley shirts for your team. Perfect for uniforms or giveaways. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Oakley shirts bring instant brand recognition and a reputation for performance to your custom apparel program. Whether outfitting a field crew or building a giveaway package for a trade show, Oakley’s technical fabrics and athletic fits hold up through repeated wear and washing. Decorate with embroidery or screen printing on the chest or sleeve for a clean, professional look that aligns with your company’s image.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Oakley shirts with embroidered logo on chest, available in bulk for corporate uniforms and giveaways.",
+  "productSkus": [
+    "522669",
+    "523948",
+    "529181"
+  ],
+  "generatedAt": "2026-05-31T08:46:34.821186+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

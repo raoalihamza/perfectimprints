@@ -1,0 +1,30 @@
+{
+  "url": "/cat/toys-games-party/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Toys, Games & Party Favors",
+  "metaTitle": "Custom Plastic Toys, Games & Party Favors | Perfect Imprints",
+  "metaDescription": "Shop custom plastic toys, games, and party favors at Perfect Imprints. Ideal for events, giveaways, and bulk orders.",
+  "introHtml": "<p>Plastic toys, games, and party favors offer durability, vibrant colors, and lightweight portability that other materials can't match. Whether you need custom stadium cups for a company picnic, branded sunglasses for a trade show, or personalized shot glasses for a product launch, plastic items withstand handling and outdoor use without breaking. Choose from glow-in-the-dark cups, confetti-filled beach balls, or deck of cards for versatile branding that stands out at any event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom plastic toys, games, and party favors including stadium cups, sunglasses, and beach balls",
+  "productSkus": [
+    "504345",
+    "511450",
+    "513679",
+    "517554 47B",
+    "523289",
+    "523996",
+    "525824",
+    "526145",
+    "526256",
+    "526342"
+  ],
+  "generatedAt": "2026-05-31T08:47:36.659057+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

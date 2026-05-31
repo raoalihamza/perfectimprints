@@ -1,0 +1,32 @@
+{
+  "url": "/cat/jackets/brand/rtic",
+  "type": "facet",
+  "h1": "Custom Rtic Jackets for Bulk Orders",
+  "metaTitle": "Custom Rtic Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Rtic jackets in bulk from Perfect Imprints. Durable, waterproof styles perfect for branding. Get a quote today!",
+  "introHtml": "<p>Rtic jackets are built for durability and weather resistance, making them a smart choice for outdoor crews, event staff, or any team that works in the elements. From the waterproof Rains® Jacket to the insulated Prevail Packable Puffer, these styles offer reliable protection and ample space for your logo. Choose from rain shells, soft shells, and insulated options to match your climate and uniform needs. Decorate with screen printing or embroidery for a crisp, long-lasting brand impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Rtic jackets with embroidered logos on waterproof rain jackets and soft shell jackets",
+  "productSkus": [
+    "510005",
+    "510007",
+    "511120",
+    "520279",
+    "520529",
+    "526245",
+    "526246",
+    "526345",
+    "526346",
+    "528967",
+    "529244",
+    "529245"
+  ],
+  "generatedAt": "2026-05-31T08:34:48.587306+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

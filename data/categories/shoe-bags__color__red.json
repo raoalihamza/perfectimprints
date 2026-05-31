@@ -1,0 +1,24 @@
+{
+  "url": "/cat/shoe-bags/color/red",
+  "type": "facet",
+  "h1": "Custom Red Shoe Bags for Bulk Orders",
+  "metaTitle": "Custom Red Shoe Bags | Perfect Imprints",
+  "metaDescription": "Order custom red shoe bags in bulk. Perfect for teams, events, and giveaways. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Red shoe bags make your gear instantly recognizable, whether for a sports team, school program, or corporate event. The bold color stands out in crowded locker rooms and gym bags, helping athletes and employees keep their footwear separate from other belongings. Choose from clear vinyl styles for easy identification or opaque fabrics for a classic look. Add your logo or team name with screen printing or embroidery for a professional finish that lasts season after season.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red shoe bags with zipper closure, perfect for bulk orders and team branding",
+  "productSkus": [
+    "512446",
+    "513445",
+    "513944",
+    "528999"
+  ],
+  "generatedAt": "2026-05-31T10:06:36.809681+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

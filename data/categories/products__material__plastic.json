@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Products for Bulk Orders",
+  "metaTitle": "Custom Plastic Products | Perfect Imprints",
+  "metaDescription": "Order custom plastic products for your business. Perfect for giveaways, events, and branding. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Plastic products offer a cost-effective way to brand your business at trade shows, company events, or in daily operations. From custom pens and drinkware to reusable bags and promotional items, plastic materials provide durability and versatility. Choose from a wide range of colors and decoration methods, including screen printing and pad printing, to match your logo perfectly. Ideal for high-volume orders where budget matters without sacrificing quality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom plastic products including pens, water bottles, and tote bags with company logos.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:55.686461+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

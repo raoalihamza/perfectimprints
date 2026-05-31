@@ -1,0 +1,19 @@
+{
+  "url": "/cat/scarves/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Scarves for Small Orders",
+  "metaTitle": "No-Minimum Custom Scarves | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom scarves with no bulk requirements. Perfect for small teams, events & gifts. Get a fast quote today.",
+  "introHtml": "<p>No-minimum custom scarves give you the flexibility to order exactly what you need—whether that's a handful for a small team, a sample run, or a one-off gift. Unlike traditional bulk orders, there are no large quantity requirements, so small businesses, startups, and event planners can get branded scarves without overcommitting. While per-unit pricing is higher at low volumes, you only pay for what you use. Explore our selection of styles and personalize them with your logo or design.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of no-minimum custom scarves in various colors, perfect for small orders and promotional gifts",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:25:10.062409+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

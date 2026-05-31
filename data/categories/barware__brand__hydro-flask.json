@@ -1,0 +1,32 @@
+{
+  "url": "/cat/barware/brand/hydro-flask",
+  "type": "facet",
+  "h1": "Custom Hydro Flask Barware for Branded Drinkware",
+  "metaTitle": "Custom Hydro Flask Barware | Perfect Imprints",
+  "metaDescription": "Order custom Hydro Flask barware with your logo. Perfect for corporate gifts, events, and brand promotion. Get a quote today!",
+  "introHtml": "<p>Hydro Flask barware combines the brand's signature TempShield insulation with durable stainless steel construction, making it ideal for keeping drinks cold or hot during corporate events, trade shows, or employee gifts. From tumblers and mugs to insulated totes, these items offer high perceived value and everyday utility. Customize with your logo using laser engraving or screen printing for a polished, professional look that stands out in any setting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hydro Flask barware including tumblers, mugs, and insulated totes with logo engraving",
+  "productSkus": [
+    "526267",
+    "526268",
+    "526269",
+    "526270",
+    "526271",
+    "527823",
+    "527859",
+    "527961",
+    "528582",
+    "528583",
+    "528688",
+    "529393"
+  ],
+  "generatedAt": "2026-05-31T08:39:38.922445+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

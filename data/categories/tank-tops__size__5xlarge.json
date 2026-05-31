@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tank-tops/size/5xlarge",
+  "type": "facet",
+  "h1": "Custom 5 XLarge Tank Tops for Bulk Orders",
+  "metaTitle": "Custom 5 XLarge Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom 5 xlarge tank tops in bulk. Perfect for team events, promotions, and uniforms. Get a quote today!",
+  "introHtml": "<p>For buyers who need a roomier fit, custom 5 xlarge tank tops provide the comfort and coverage your team or event requires. Whether you're outfitting staff for a summer festival or ordering promotional apparel for a charity run, these sizes ensure everyone looks sharp. Decorate with screen printing or embroidery on cotton or performance blends from brands like Gildan and Sport-Tek. Order bulk quantities for consistent branding across your group.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom 5 xlarge tank tops in black and white for bulk promotional orders",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T08:47:19.812544+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

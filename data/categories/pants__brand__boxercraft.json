@@ -1,0 +1,25 @@
+{
+  "url": "/cat/pants/brand/boxercraft",
+  "type": "facet",
+  "h1": "Custom Boxercraft Pants for Bulk Orders",
+  "metaTitle": "Custom Boxercraft Pants | Perfect Imprints",
+  "metaDescription": "Order custom Boxercraft pants in bulk for your team or event. Perfect for lounging, pajama parties, or branded giveaways.",
+  "introHtml": "<p>Boxercraft pants are known for their soft flannel and comfortable fit, making them a popular choice for casual company apparel, holiday gifts, or team lounging. Unlike generic pants, Boxercraft offers unique patterns and a homey feel that recipients actually want to wear. Decorate with screen printing or embroidery on the leg or hip for a subtle brand presence. Perfect for marketing directors and HR managers looking for cozy, wearable swag that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Boxercraft pants with embroidered logo displayed on a pair of flannel pants",
+  "productSkus": [
+    "527831",
+    "527832",
+    "527834",
+    "527835",
+    "527836"
+  ],
+  "generatedAt": "2026-05-31T08:44:58.974047+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

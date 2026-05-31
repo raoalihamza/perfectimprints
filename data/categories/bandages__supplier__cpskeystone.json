@@ -1,0 +1,25 @@
+{
+  "url": "/cat/bandages/supplier/cpskeystone",
+  "type": "facet",
+  "h1": "Custom CPSKeystone Bandages for Bulk Orders",
+  "metaTitle": "Custom CPSKeystone Bandages | Perfect Imprints",
+  "metaDescription": "Order custom CPSKeystone bandages in bulk from Perfect Imprints. Perfect for safety kits, first aid, and branded giveaways. Get a quote today!",
+  "introHtml": "<p>CPSKeystone is a trusted name in first aid supplies, known for quality bandages that meet workplace safety standards. When you choose custom CPSKeystone bandages, you get durable adhesive bandages in various sizes and patterns, perfect for safety managers building branded first aid kits or HR directors stocking break rooms. Decorate with your logo via imprint on the bandage or dispenser for a practical, everyday reminder of your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom CPSKeystone bandages in dispenser with colorful patterned bandages and logo imprint",
+  "productSkus": [
+    "502343",
+    "506843",
+    "510131",
+    "528559",
+    "529323"
+  ],
+  "generatedAt": "2026-05-31T09:07:06.653131+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/workwear/brand/untuckit",
+  "type": "facet",
+  "h1": "Custom Untuckit Workwear for Your Team",
+  "metaTitle": "Custom Untuckit Workwear | Perfect Imprints",
+  "metaDescription": "Shop custom Untuckit workwear at Perfect Imprints. Perfect for branded polos and wrinkle-free shirts in bulk orders.",
+  "introHtml": "<p>Untuckit workwear brings a polished, modern look to your team with wrinkle-free fabrics and a relaxed fit that stays tucked or untucked. Whether you choose the Men's Petrus Short Sleeve Shirt for a crisp uniform or the Women's Bella Long Sleeve Shirt for a professional yet comfortable option, these pieces hold up to daily wear and repeated branding. Embroidery or screen printing on the chest or sleeve works well on these structured shirts, making them a smart choice for retail, hospitality, or office teams.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Untuckit workwear featuring a branded Men's Untuckit wrinkle-free short sleeve shirt with embroidered logo",
+  "productSkus": [
+    "525602",
+    "525603",
+    "525604",
+    "525605",
+    "525606"
+  ],
+  "generatedAt": "2026-05-31T10:15:38.293110+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

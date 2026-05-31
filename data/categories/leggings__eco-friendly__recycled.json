@@ -1,0 +1,22 @@
+{
+  "url": "/cat/leggings/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Leggings",
+  "metaTitle": "Custom Recycled Leggings | Perfect Imprints",
+  "metaDescription": "Order custom recycled leggings for your team or event. Eco-friendly bulk options with your logo. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Recycled leggings let you offer your team or event attendees a performance garment that reduces waste. Made from post-consumer plastic bottles, these leggings deliver the same moisture-wicking, four-way stretch comfort as virgin polyester, but with a fraction of the environmental impact. They are ideal for corporate wellness programs, eco-conscious brand giveaways, or retail merchandise that reflects a commitment to sustainability. Decorate with screen printing or embroidery for a crisp logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled leggings in black with white logo on waistband, eco-friendly athletic wear for bulk orders",
+  "productSkus": [
+    "528881",
+    "528882"
+  ],
+  "generatedAt": "2026-05-31T09:18:18.220196+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

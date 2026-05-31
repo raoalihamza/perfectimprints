@@ -1,0 +1,33 @@
+{
+  "url": "/cat/balloons/supplier/galaxy",
+  "type": "facet",
+  "h1": "Custom Galaxy Balloons for Bulk Orders",
+  "metaTitle": "Custom Galaxy Balloons | Perfect Imprints",
+  "metaDescription": "Order custom galaxy balloons for your next event. Perfect for grand openings and brand launches. Bulk pricing available.",
+  "introHtml": "<p>Galaxy balloons bring a cosmic, high-impact look to any event, making them a standout choice for grand openings, product launches, and trade shows. Unlike standard latex balloons, Galaxy-brand balloons offer consistent color, reliable helium retention, and a professional finish that reflects well on your brand. Whether you choose metallic, crystal, or opaque finishes, these balloons can be custom printed with your logo or message for a memorable promotional giveaway.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom galaxy balloons in metallic and opaque finishes with custom printing for promotional events.",
+  "productSkus": [
+    "518390 30A",
+    "519461",
+    "527576",
+    "527577",
+    "527578",
+    "527579",
+    "527580",
+    "527581",
+    "527582",
+    "527583",
+    "527584",
+    "527585",
+    "527586"
+  ],
+  "generatedAt": "2026-05-31T08:39:19.074534+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

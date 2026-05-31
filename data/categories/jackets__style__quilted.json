@@ -1,0 +1,32 @@
+{
+  "url": "/cat/jackets/style/quilted",
+  "type": "facet",
+  "h1": "Custom Quilted Jackets for Bulk Orders",
+  "metaTitle": "Custom Quilted Jackets | Perfect Imprints",
+  "metaDescription": "Order custom quilted jackets in bulk for your team. Perfect for corporate gifts, uniforms, and promotional events. Get a quote today!",
+  "introHtml": "<p>Quilted jackets offer a classic, textured look that sets them apart from standard outerwear. The diamond or channel stitching not only adds visual interest but also provides extra insulation, making them ideal for cooler months. Whether you choose a lightweight vest like the Men's Radius Quilted Vest or a full-zip style such as the Women's Brooks Brothers® Diamond Quilt Full-Zip, these jackets offer a professional appearance suitable for corporate uniforms, trade show giveaways, or employee rewards. Embroidery on the chest or back works well with the quilted fabric, ensuring your logo stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom quilted jackets with embroidered logos, featuring diamond stitching and professional styling for corporate teams.",
+  "productSkus": [
+    "525726",
+    "525727",
+    "525728",
+    "525729",
+    "525736",
+    "525737",
+    "525738",
+    "525739",
+    "526297",
+    "526298",
+    "529192",
+    "529193"
+  ],
+  "generatedAt": "2026-05-31T08:29:29.456768+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

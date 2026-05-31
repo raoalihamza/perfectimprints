@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/with-spf",
+  "type": "facet",
+  "h1": "Custom Products with SPF for Sun Protection",
+  "metaTitle": "Custom Products with SPF | Perfect Imprints",
+  "metaDescription": "Order custom products with SPF for sun safety. Perfect for outdoor events, teams, and corporate giveaways. Get a quote today!",
+  "introHtml": "<p>Sun protection is essential for outdoor events, company picnics, and safety gear. Products with SPF, such as lip balms, sunscreens, and moisturizers, offer practical value while keeping your brand visible under the sun. These items are ideal for tradeshows, employee wellness kits, or client appreciation gifts. Choose from various SPF levels and formats to match your audience's needs. Custom imprinting ensures your logo stands out, making these giveaways both useful and memorable.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom products with SPF including lip balm and sunscreen tubes with logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:08.360545+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

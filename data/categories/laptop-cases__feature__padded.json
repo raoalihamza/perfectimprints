@@ -1,0 +1,24 @@
+{
+  "url": "/cat/laptop-cases/feature/padded",
+  "type": "facet",
+  "h1": "Custom Padded Laptop Cases for Bulk Orders",
+  "metaTitle": "Custom Padded Laptop Cases | Perfect Imprints",
+  "metaDescription": "Order custom padded laptop cases with your logo. Perfect for trade shows and employee gifts. Get a quote today.",
+  "introHtml": "<p>Padded laptop cases provide essential protection for devices during daily commutes and business travel. When ordering branded cases for your team or clients, choosing a padded interior ensures that laptops stay secure from bumps and drops. Options like the Vertex Carbon Computer Backpack or the Heritage Supply Tanner Messenger Bag combine professional style with durable padding. Whether you need cases for field sales teams or corporate gifts, the extra cushioning adds value your recipients will appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom padded laptop cases with logo, featuring a padded interior for device protection",
+  "productSkus": [
+    "513518 80D",
+    "519860",
+    "522054",
+    "529318"
+  ],
+  "generatedAt": "2026-05-31T08:43:39.001173+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

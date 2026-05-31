@@ -1,0 +1,25 @@
+{
+  "url": "/cat/bandages/type/box",
+  "type": "facet",
+  "h1": "Custom Box Bandages for Bulk Orders",
+  "metaTitle": "Custom Box Bandages | Perfect Imprints",
+  "metaDescription": "Order custom box bandages for your workplace or event. Perfect for first aid kits and giveaways. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Box bandages are a practical choice for bulk buyers who need to stock first aid stations, safety kits, or employee break rooms. Unlike individual pouches, box packaging keeps bandages organized and easy to dispense. Choose from options like bamboo bandages for a sustainable touch or patterned bandages for a branded look. Decorate the box or the bandage wrappers with your logo to reinforce your company’s commitment to safety and preparedness.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom box bandages in a bulk box with branded wrappers and dispenser, ideal for workplace safety and promotional giveaways",
+  "productSkus": [
+    "502343",
+    "506843",
+    "510131",
+    "528559",
+    "529323"
+  ],
+  "generatedAt": "2026-05-31T09:34:41.941295+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

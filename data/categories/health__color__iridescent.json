@@ -1,0 +1,23 @@
+{
+  "url": "/cat/health/color/iridescent",
+  "type": "facet",
+  "h1": "Custom Iridescent Health Products for Branding",
+  "metaTitle": "Custom Iridescent Health Items | Perfect Imprints",
+  "metaDescription": "Shop custom iridescent health products at Perfect Imprints. Perfect for wellness events and brand giveaways. Order bulk today.",
+  "introHtml": "<p>Iridescent health items add a playful, eye-catching sheen to your wellness giveaways. Unlike standard solid colors, the shifting rainbow finish catches light from every angle, making your logo pop on products like the 12 oz Iridescent Ceramic Mug or Hologram Vanity Bag. Safety managers and HR directors often choose these for employee wellness kits or health fair swag because the unique finish makes recipients actually want to keep and use the item. Decorate with screen printing or pad printing to maintain the iridescent effect.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom iridescent health products including a hologram vanity bag and ceramic mug with shifting rainbow finish",
+  "productSkus": [
+    "521330",
+    "522536",
+    "523084"
+  ],
+  "generatedAt": "2026-05-31T09:50:31.162425+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

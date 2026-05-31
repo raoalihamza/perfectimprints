@@ -1,0 +1,28 @@
+{
+  "url": "/cat/headwear/brand/coleman",
+  "type": "facet",
+  "h1": "Custom Coleman Headwear for Bulk Orders",
+  "metaTitle": "Custom Coleman Headwear | Perfect Imprints",
+  "metaDescription": "Order custom Coleman headwear in bulk at Perfect Imprints. Perfect for outdoor events, teams, and giveaways.",
+  "introHtml": "<p>Coleman is a trusted name in outdoor gear, and custom Coleman headwear brings that reliability to your branded apparel. Whether you need hats for a company camping trip, a trade show giveaway, or employee uniforms, Coleman headwear offers durable construction and classic styles that resonate with outdoor enthusiasts. Choose from unstructured caps, snapbacks, or visors in colors like khaki, navy, and forest green. Add your logo with embroidery or screen printing for a professional finish that stands up to sun and sweat.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Coleman headwear featuring embroidered logo on unstructured cap, ideal for outdoor events and giveaways.",
+  "productSkus": [
+    "509109",
+    "517874",
+    "521930",
+    "525375",
+    "525794",
+    "525795",
+    "525796",
+    "529517"
+  ],
+  "generatedAt": "2026-05-31T09:15:32.274513+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

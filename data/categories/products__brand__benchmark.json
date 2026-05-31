@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/benchmark",
+  "type": "facet",
+  "h1": "Custom Benchmark Products for Bulk Orders",
+  "metaTitle": "Custom Benchmark Products | Perfect Imprints",
+  "metaDescription": "Order custom Benchmark products for your team. Perfect Imprints offers bulk pricing and fast turnaround on branded merchandise.",
+  "introHtml": "<p>Benchmark products are known for their durability and classic styling, making them a reliable choice for corporate gifts, employee recognition, and trade show giveaways. Whether you need custom logo drinkware or embroidered apparel, Benchmark offers a consistent canvas for your branding. Decoration options include screen printing, debossing, and full-color digital transfers that hold up well over time. Bulk buyers appreciate the consistent quality and wide selection of styles that fit professional environments.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Benchmark products with company logo, including a stainless steel tumbler and a canvas tote bag",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:36:43.338971+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

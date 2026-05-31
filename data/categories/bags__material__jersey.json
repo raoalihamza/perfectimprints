@@ -1,0 +1,21 @@
+{
+  "url": "/cat/bags/material/jersey",
+  "type": "facet",
+  "h1": "Custom Jersey Bags for Bulk Orders",
+  "metaTitle": "Custom Jersey Bags | Perfect Imprints",
+  "metaDescription": "Order custom jersey bags for your team or event. Durable, lightweight, and perfect for bulk branding. Get a quote today!",
+  "introHtml": "<p>Jersey bags are a lightweight, breathable alternative to traditional totes or backpacks, making them ideal for sports teams, summer camps, and outdoor events. Made from durable mesh or polyester jersey fabric, these bags allow contents to air out while keeping gear visible and accessible. Decorate with screen printing or heat transfer for a soft, lasting imprint that stands up to frequent use and washing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom jersey bags with screen-printed logo, perfect for team giveaways and event promotions",
+  "productSkus": [
+    "515733"
+  ],
+  "generatedAt": "2026-05-31T09:34:28.091128+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

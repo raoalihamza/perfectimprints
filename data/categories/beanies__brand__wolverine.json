@@ -1,0 +1,21 @@
+{
+  "url": "/cat/beanies/brand/wolverine",
+  "type": "facet",
+  "h1": "Custom Wolverine Beanies for Bulk Orders",
+  "metaTitle": "Custom Wolverine Beanies - Perfect Imprints",
+  "metaDescription": "Order custom Wolverine beanies in bulk for your team or event. Durable, branded headwear from Perfect Imprints.",
+  "introHtml": "<p>Wolverine beanies combine rugged durability with a classic look, making them a smart choice for outdoor crews, construction teams, and winter giveaways. These beanies feature the trusted Wolverine brand known for tough workwear, and they can be embroidered with your logo for a professional finish. Whether you need branded headwear for a safety incentive or a company event, custom Wolverine beanies offer a practical, wearable promotional item that holds up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Wolverine beanies with embroidered logo for branded winter headwear",
+  "productSkus": [
+    "528158"
+  ],
+  "generatedAt": "2026-05-31T08:50:44.261382+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

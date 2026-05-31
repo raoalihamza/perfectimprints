@@ -1,0 +1,27 @@
+{
+  "url": "/cat/bags/feature/hydration-pack-included",
+  "type": "facet",
+  "h1": "Custom Hydration Pack Included Bags",
+  "metaTitle": "Custom Bags with Hydration Pack | Perfect Imprints",
+  "metaDescription": "Order custom bags with hydration pack included. Perfect for outdoor events, teams, and corporate gifts. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Custom bags with an integrated hydration pack offer a practical solution for outdoor events, corporate retreats, and safety teams that need hands-free hydration on the go. Unlike standard backpacks, these bags feature a built-in reservoir and drinking tube, making them ideal for hiking, cycling, or long shifts. Options like the CamelBak Eco-Hydrobak provide lightweight comfort, while larger packs offer extra storage for gear. Decorate with your logo using screen printing or embroidery to create a useful branded giveaway.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hydration pack included bags with branded logo, featuring a built-in water reservoir and drinking tube for outdoor activities.",
+  "productSkus": [
+    "514184",
+    "521836",
+    "525506",
+    "525925",
+    "528733",
+    "529547",
+    "529548"
+  ],
+  "generatedAt": "2026-05-31T09:34:24.244503+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

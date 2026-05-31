@@ -1,0 +1,31 @@
+{
+  "url": "/cat/sandals/color/black",
+  "type": "facet",
+  "h1": "Custom Black Sandals for Bulk Orders",
+  "metaTitle": "Custom Black Sandals | Perfect Imprints",
+  "metaDescription": "Order custom black sandals in bulk for your team or event. Perfect for giveaways, promotional use, and employee gifts from Perfect Imprints.",
+  "introHtml": "<p>Black sandals are a versatile choice for corporate giveaways, employee incentives, and event swag. Their neutral color works with any brand logo, whether screen printed or debossed on styles like slide flip flops or the ISlide Motto Slides. Durable rubber or EVA construction ensures comfort for all-day wear at trade shows, company picnics, or as welcome gifts. Ordering custom black sandals in bulk gives you a practical promotional item that recipients actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black sandals with a debossed logo on the strap, perfect for promotional giveaways and corporate gifts.",
+  "productSkus": [
+    "501556",
+    "516800",
+    "520052",
+    "521340",
+    "525740",
+    "526782",
+    "526927",
+    "527554",
+    "528171",
+    "528311",
+    "528344"
+  ],
+  "generatedAt": "2026-05-31T09:25:06.894597+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

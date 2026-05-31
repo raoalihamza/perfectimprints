@@ -1,0 +1,22 @@
+{
+  "url": "/cat/watches/production-time/rush",
+  "type": "facet",
+  "h1": "Custom Rush Watches for Quick Turnaround Orders",
+  "metaTitle": "Custom Rush Watches | Perfect Imprints",
+  "metaDescription": "Order custom rush watches for fast delivery. Perfect for events, giveaways, and corporate gifts. Quick turnaround from Perfect Imprints.",
+  "introHtml": "<p>When you need branded watches in a hurry, custom rush watches deliver without compromising quality. Whether you're preparing for an upcoming trade show or a last-minute employee appreciation event, expedited production ensures your logo arrives on time. Choose from styles like paracord bracelets or mood watch bracelets, both available with fast turnaround. Screen printing or laser engraving keeps your mark crisp and professional. Perfect for marketing directors and safety managers who need reliable, quick-ship promotional products.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom rush watches with engraved logos, including paracord and mood watch bracelets, ready for fast delivery.",
+  "productSkus": [
+    "516655",
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T09:30:04.718434+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

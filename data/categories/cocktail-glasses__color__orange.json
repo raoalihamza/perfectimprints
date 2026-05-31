@@ -1,0 +1,22 @@
+{
+  "url": "/cat/cocktail-glasses/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Cocktail Glasses",
+  "metaTitle": "Custom Orange Cocktail Glasses | Perfect Imprints",
+  "metaDescription": "Shop custom orange cocktail glasses for your next event. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Orange cocktail glasses bring a vibrant pop of color to any event, from corporate happy hours to trade show receptions. Whether you choose a 10 oz Neo Vacuum Insulated Cup for hot or cold beverages or a sleek stemmed glass, the orange hue adds energy and brand visibility. These glasses pair well with white or black logos for high contrast, making your company name stand out on the bar or in photos. Order in bulk for consistent branding across your team or event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange cocktail glasses with branded logo, perfect for corporate events and promotional giveaways.",
+  "productSkus": [
+    "522060",
+    "526191"
+  ],
+  "generatedAt": "2026-05-31T08:52:15.761445+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

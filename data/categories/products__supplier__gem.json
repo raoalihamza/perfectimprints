@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/gem",
+  "type": "facet",
+  "h1": "Custom Gem Products for Bulk Orders",
+  "metaTitle": "Custom Gem Products | Perfect Imprints",
+  "metaDescription": "Shop custom Gem products for your brand. Order bulk promotional items from Gem at Perfect Imprints today.",
+  "introHtml": "<p>Gem offers a curated selection of premium promotional products known for their quality and modern design. When you choose custom Gem products, you get items that stand out in a crowd—from sleek tech accessories to stylish drinkware. Perfect for corporate gifts, trade shows, or employee appreciation, these products accept crisp logo imprints via screen printing, laser engraving, or pad printing. Make your next campaign memorable with Gem's reliable craftsmanship.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Gem products including branded tech accessories and drinkware for corporate gifts and trade shows.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:45:56.062146+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

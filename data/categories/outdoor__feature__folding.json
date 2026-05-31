@@ -1,0 +1,28 @@
+{
+  "url": "/cat/outdoor/feature/folding",
+  "type": "facet",
+  "h1": "Custom Folding Outdoor Products for Bulk Orders",
+  "metaTitle": "Custom Folding Outdoor Products | Perfect Imprints",
+  "metaDescription": "Order custom folding outdoor products for your next event. Perfect for picnics, camping, and giveaways. Shop bulk at Perfect Imprints.",
+  "introHtml": "<p>When you need outdoor gear that packs down small and sets up fast, folding products are the practical choice. From roll-up picnic blankets that fit in a tote to compact stadium seats, these items are designed for portability and convenience. Bulk buyers choose folding outdoor products because they combine brand visibility with real utility — your logo goes where your customers go, whether it's a company picnic, a tailgate, or a day at the park. Decorate with screen printing or embroidery for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom folding outdoor products like roll-up picnic blankets with logo, perfect for bulk orders and giveaways.",
+  "productSkus": [
+    "505863",
+    "510676",
+    "514085",
+    "515638",
+    "522968",
+    "523473",
+    "523732",
+    "525844"
+  ],
+  "generatedAt": "2026-05-31T09:21:09.599953+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/cables-cords/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Cables & Cords",
+  "metaTitle": "No-Minimum Custom Cables & Cords | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom cables & cords with low MOQs. Perfect for small teams, events, or samples. Get branded charging cables without bulk minimums.",
+  "introHtml": "<p>When you need custom cables and cords in small quantities, typical bulk minimums can be a barrier. That is why we offer no-minimum orders on branded charging cables, data transfer cords, and tech accessories. Whether you are outfitting a small team, preparing giveaway kits for a local event, or ordering samples before a larger run, our low-MOQ flexibility means you get exactly what you need without excess inventory. Per-unit pricing at low volumes is transparent, so you can plan your budget with confidence.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "No-minimum custom cables and cords including a three-in-one charging cable with brand logo, ideal for small orders and sample requests.",
+  "productSkus": [
+    "527692",
+    "527806",
+    "528150"
+  ],
+  "generatedAt": "2026-05-31T08:51:28.352689+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

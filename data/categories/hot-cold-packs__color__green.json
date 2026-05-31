@@ -1,0 +1,27 @@
+{
+  "url": "/cat/hot-cold-packs/color/green",
+  "type": "facet",
+  "h1": "Custom Green Hot Cold Packs",
+  "metaTitle": "Custom Green Hot Cold Packs | Perfect Imprints",
+  "metaDescription": "Order custom green hot cold packs for your team. Great for safety kits, HR wellness programs, and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Green custom hot cold packs stand out in safety kits and wellness programs because the color signals health and safety naturally. Whether you choose plush packs for employee comfort or gel bead designs for first aid use, green aligns with medical and eco-friendly branding. These packs offer reliable hot or cold therapy while reinforcing your company's commitment to well-being. Ideal for HR directors building wellness initiatives or safety managers outfitting first aid stations.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green hot cold packs with plush fabric and gel beads, ideal for corporate wellness and safety kits",
+  "productSkus": [
+    "510371",
+    "511893",
+    "511894",
+    "515556",
+    "515557",
+    "517054",
+    "524787"
+  ],
+  "generatedAt": "2026-05-31T09:16:01.987298+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

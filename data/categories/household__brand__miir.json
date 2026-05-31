@@ -1,0 +1,33 @@
+{
+  "url": "/cat/household/brand/miir",
+  "type": "facet",
+  "h1": "Custom Miir Household Products for Bulk Orders",
+  "metaTitle": "Custom Miir Household Items | Perfect Imprints",
+  "metaDescription": "Order custom Miir household items in bulk. Branded drinkware and bags with your logo. Perfect for corporate gifts and events.",
+  "introHtml": "<p>Miir household products combine sleek design with sustainable purpose, making them a standout choice for corporate gifts and employee appreciation. Their vacuum-insulated drinkware keeps beverages at the perfect temperature, while their backpacks offer durable everyday utility. With a portion of every purchase supporting global water projects, your branded Miir items reflect a commitment to quality and social responsibility. Whether you choose the 32 oz All Day Straw Cup or the 20 oz Wide Mouth Bottle, each piece offers ample space for laser engraving or screen printing, ensuring your logo looks sharp and lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Miir household products including vacuum insulated tumblers and bottles with engraved logos",
+  "productSkus": [
+    "523728",
+    "523729",
+    "523730",
+    "523761",
+    "525478",
+    "525481",
+    "525612",
+    "526419",
+    "526482",
+    "527194",
+    "527204",
+    "527938",
+    "527939"
+  ],
+  "generatedAt": "2026-05-31T08:55:47.006713+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

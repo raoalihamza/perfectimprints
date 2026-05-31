@@ -1,0 +1,30 @@
+{
+  "url": "/cat/bags/material/organic-cotton",
+  "type": "facet",
+  "h1": "Custom Organic Cotton Bags",
+  "metaTitle": "Custom Organic Cotton Bags | Perfect Imprints",
+  "metaDescription": "Order custom organic cotton bags for your brand. Eco-friendly, bulk pricing, and free setup at Perfect Imprints.",
+  "introHtml": "<p>Organic cotton bags offer a sustainable alternative to conventional totes and backpacks, grown without synthetic pesticides or fertilizers. Choosing organic cotton signals your company's commitment to environmental stewardship while providing a durable, soft-touch canvas for your logo. Whether you need promotional totes for a trade show or branded backpacks for employee gifts, organic cotton bags deliver a premium feel and a responsible story that resonates with eco-conscious audiences.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom organic cotton bags with company logo printed on front, stacked in bulk for promotional giveaways.",
+  "productSkus": [
+    "520837",
+    "521019",
+    "521035",
+    "526581",
+    "527261",
+    "527746",
+    "527944",
+    "528905",
+    "528906",
+    "529234"
+  ],
+  "generatedAt": "2026-05-31T08:39:16.780047+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

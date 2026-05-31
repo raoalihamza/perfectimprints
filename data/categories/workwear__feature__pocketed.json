@@ -1,0 +1,29 @@
+{
+  "url": "/cat/workwear/feature/pocketed",
+  "type": "facet",
+  "h1": "Custom Pocketed Workwear for Your Team",
+  "metaTitle": "Custom Pocketed Workwear | Perfect Imprints",
+  "metaDescription": "Order custom pocketed workwear bulk for your team. Get aprons, vests, and jackets with pockets for tools and essentials.",
+  "introHtml": "<p>Pocketed workwear keeps your team's tools, phones, and notepads close at hand. Whether you need aprons with multiple pockets for restaurant staff or vests with secure pockets for construction crews, the extra storage reduces trips back to the toolbox. Choose from cotton aprons, mesh safety vests, or canvas jackets, all customizable with your logo. Pocketed gear improves efficiency and keeps your brand visible on the job.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pocketed workwear including aprons and safety vests with multiple pockets for tools and essentials",
+  "productSkus": [
+    "507978",
+    "508541",
+    "509133 90A",
+    "515077",
+    "518658 10A",
+    "519005",
+    "524758",
+    "527339",
+    "528678"
+  ],
+  "generatedAt": "2026-05-31T08:48:09.315934+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

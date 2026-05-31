@@ -1,0 +1,24 @@
+{
+  "url": "/cat/tools/material/steel",
+  "type": "facet",
+  "h1": "Custom Steel Tools",
+  "metaTitle": "Custom Steel Tools | Perfect Imprints",
+  "metaDescription": "Order custom steel tools for your team. Durable, reliable, and perfect for branding. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Steel tools offer unmatched durability for demanding work environments. Whether you need custom tape measures for construction crews or pocket screwdrivers for maintenance teams, steel withstands daily wear and tear while keeping your logo front and center. Choose from laser engraving or pad printing to add your brand to these heavy-duty essentials.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom steel tools including pocket screwdrivers and tape measures with engraved logos",
+  "productSkus": [
+    "526950",
+    "526951",
+    "526952",
+    "528333"
+  ],
+  "generatedAt": "2026-05-31T09:28:45.566546+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

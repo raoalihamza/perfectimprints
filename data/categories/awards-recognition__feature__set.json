@@ -1,0 +1,25 @@
+{
+  "url": "/cat/awards-recognition/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Awards Recognition",
+  "metaTitle": "Custom Set Awards Recognition | Perfect Imprints",
+  "metaDescription": "Order custom set awards recognition for employee milestones. Bulk pricing & free art. Shop Perfect Imprints.",
+  "introHtml": "<p>When recognizing achievements, a coordinated set makes the award feel more substantial and intentional. Our custom set awards recognition options include desk sets, coaster sets, and multi-piece plaques that allow you to present a cohesive gift. Whether it's a Summit 2Pc Desk Water Set for a corner office or a Set Of 4 Midland Coaster Set for a team, these sets offer versatility for different recipient preferences. Choose from materials like wood, glass, or metal, and personalize with engraving or screen printing to match your company's brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set awards recognition featuring a desk set with engraved plaque and pen holder for employee recognition",
+  "productSkus": [
+    "514300 90E",
+    "514584 90E",
+    "514708 90E",
+    "524026",
+    "529408"
+  ],
+  "generatedAt": "2026-05-31T09:33:00.944146+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,30 @@
+{
+  "url": "/cat/golf-tees/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Golf Tees for Branded Promotions",
+  "metaTitle": "Custom Brown Golf Tees | Perfect Imprints",
+  "metaDescription": "Order custom brown golf tees in bulk. Perfect for tournaments, corporate gifts, and team events. Get a quick quote at Perfect Imprints.",
+  "introHtml": "<p>Custom brown golf tees offer a natural, understated look that stands out on the green. Whether you're branding them for a corporate tournament or a company outing, brown tees pair well with eco-conscious messaging and organic materials like bamboo. Add your logo via screen printing or debossing for a professional finish that lasts through every swing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom brown golf tees with screen-printed logo, ready for bulk orders",
+  "productSkus": [
+    "505143",
+    "507820",
+    "510186",
+    "510187",
+    "510317",
+    "514871",
+    "515156",
+    "515975",
+    "523540",
+    "528396"
+  ],
+  "generatedAt": "2026-05-31T09:14:47.779795+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

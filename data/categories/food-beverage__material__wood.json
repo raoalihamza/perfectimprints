@@ -1,0 +1,29 @@
+{
+  "url": "/cat/food-beverage/material/wood",
+  "type": "facet",
+  "h1": "Custom Wood Food & Beverage Products",
+  "metaTitle": "Custom Wood Food & Beverage | Perfect Imprints",
+  "metaDescription": "Order custom wood food & beverage products for your next event. Perfect for eco-conscious branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Wood food and beverage products bring a natural, earthy feel to your brand. Unlike plastic or metal, wood offers a warm texture and sustainable appeal that stands out at corporate events, trade shows, or client gifts. From coasters that protect tabletops to wine stoppers and cheese boards, these items pair well with rustic or eco-friendly branding. Decorate with a laser engraving for a clean, lasting impression that highlights your logo on the grain.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom wood food and beverage products including coasters, wine stopper, and cheese board with engraved logos.",
+  "productSkus": [
+    "523165",
+    "523546",
+    "525326",
+    "525327",
+    "526254",
+    "526459",
+    "528135",
+    "529143",
+    "529291"
+  ],
+  "generatedAt": "2026-05-31T09:13:45.738269+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

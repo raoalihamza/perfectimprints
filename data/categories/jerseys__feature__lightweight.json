@@ -1,0 +1,21 @@
+{
+  "url": "/cat/jerseys/feature/lightweight",
+  "type": "facet",
+  "h1": "Custom Lightweight Jerseys for Bulk Orders",
+  "metaTitle": "Custom Lightweight Jerseys | Perfect Imprints",
+  "metaDescription": "Order custom lightweight jerseys for your team or event. Breathable, quick-dry fabric perfect for sports and uniforms.",
+  "introHtml": "<p>Lightweight jerseys are designed for active use where breathability and comfort are essential. Whether you need uniforms for a sports team, staff shirts for a summer event, or promotional wear for a race, these jerseys keep wearers cool and dry. Made from moisture-wicking polyester or poly-cotton blends, they allow for full range of motion and easy care. Customize with screen printing or embroidery for a professional look that lasts through repeated washing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom lightweight jerseys in athletic fit with moisture-wicking fabric and full-color screen printing",
+  "productSkus": [
+    "506191"
+  ],
+  "generatedAt": "2026-05-31T08:26:43.067909+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

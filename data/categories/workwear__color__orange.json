@@ -1,0 +1,29 @@
+{
+  "url": "/cat/workwear/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Workwear for Safety & Visibility",
+  "metaTitle": "Custom Orange Workwear | Perfect Imprints",
+  "metaDescription": "Order custom orange workwear in bulk for high-visibility safety. Perfect for construction crews, traffic control, and outdoor workers. Get a quote today.",
+  "introHtml": "<p>Orange workwear is the standard for high-visibility safety in construction, traffic management, and outdoor industries. From ANSI Class 2 mesh vests to UPF-rated safety tees, orange gear ensures your team stays seen on the job. Customize with reflective stripes, logos, or screen-printed company names to meet safety regulations while reinforcing your brand. Whether you need lightweight summer options or insulated hooded sweatshirts, orange workwear combines compliance with comfort for long shifts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange workwear including high-visibility safety tee, reflective vest, and knit beanie for construction crews",
+  "productSkus": [
+    "506903",
+    "507978",
+    "509138",
+    "514056",
+    "521967",
+    "523772",
+    "524758",
+    "526537",
+    "528678"
+  ],
+  "generatedAt": "2026-05-31T10:15:39.410140+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

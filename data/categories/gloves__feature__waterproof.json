@@ -1,0 +1,21 @@
+{
+  "url": "/cat/gloves/feature/waterproof",
+  "type": "facet",
+  "h1": "Custom Waterproof Gloves for Bulk Orders",
+  "metaTitle": "Custom Waterproof Gloves | Perfect Imprints",
+  "metaDescription": "Order custom waterproof gloves in bulk from Perfect Imprints. Ideal for safety, outdoor events, and branding. Get a quote today!",
+  "introHtml": "<p>Waterproof gloves keep hands dry and protected in rain, snow, or wet work environments. Unlike standard gloves, these feature sealed seams and water-resistant materials like latex or nitrile coatings. Safety managers can order them with custom logos for construction crews or outdoor event staff. Choose from insulated or lightweight styles, and add screen printing or embossing for brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom waterproof gloves with logo displayed on a pair of durable work gloves",
+  "productSkus": [
+    "527493"
+  ],
+  "generatedAt": "2026-05-31T09:14:18.004156+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

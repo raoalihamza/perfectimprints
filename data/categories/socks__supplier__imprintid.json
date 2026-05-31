@@ -1,0 +1,29 @@
+{
+  "url": "/cat/socks/supplier/imprintid",
+  "type": "facet",
+  "h1": "Custom Imprintid Socks in Bulk",
+  "metaTitle": "Custom Imprintid Socks | Perfect Imprints",
+  "metaDescription": "Order custom Imprintid socks in bulk for your team or event. Perfect for branding with comfort and style. Get a quote today!",
+  "introHtml": "<p>Imprintid offers a curated selection of custom socks designed for comfort and durability, from cushioned crew socks to cozy slipper socks. When you choose Imprintid socks from Perfect Imprints, you get reliable quality and consistent branding across every pair. Ideal for corporate gifts, trade show giveaways, or employee appreciation, these socks can be decorated with your logo using embroidery or full-color printing. Skip the guesswork of sourcing and go straight to a supplier known for dependable results.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Imprintid socks in bulk with logo embroidery, including crew and slipper sock styles",
+  "productSkus": [
+    "516800",
+    "521927",
+    "522251",
+    "524427",
+    "525740",
+    "526360",
+    "526361",
+    "526363",
+    "526896"
+  ],
+  "generatedAt": "2026-05-31T09:26:16.638791+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

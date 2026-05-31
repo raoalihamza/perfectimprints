@@ -1,0 +1,23 @@
+{
+  "url": "/cat/gift-sets-bundles/material/canvas",
+  "type": "facet",
+  "h1": "Custom Canvas Gift Sets & Bundles",
+  "metaTitle": "Custom Canvas Gift Sets Bundles | Perfect Imprints",
+  "metaDescription": "Order custom canvas gift sets and bundles for your team or clients. Durable, branded canvas at Perfect Imprints.",
+  "introHtml": "<p>Canvas gift sets and bundles offer a durable, natural look that stands out from standard promotional kits. The heavyweight fabric takes screen printing, embroidery, and debossing cleanly, so your logo stays sharp through years of use. Whether you are assembling welcome packages for new hires, client appreciation gifts, or safety reward kits, canvas adds a tactile quality that plastic or nylon cannot match. Items like the Promenade Picnic Basket or the Color Evolution Cotton Canvas Tote Bag provide generous space for bundling additional branded items.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom canvas gift sets and bundles featuring branded tote bags and picnic baskets with company logos",
+  "productSkus": [
+    "519420",
+    "523605",
+    "523670"
+  ],
+  "generatedAt": "2026-05-31T09:47:57.141720+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

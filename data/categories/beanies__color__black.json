@@ -1,0 +1,31 @@
+{
+  "url": "/cat/beanies/color/black",
+  "type": "facet",
+  "h1": "Custom Black Beanies for Bulk Orders",
+  "metaTitle": "Custom Black Beanies | Perfect Imprints",
+  "metaDescription": "Order custom black beanies for your team or event. Perfect for branding with embroidery or screen printing. Shop bulk pricing now.",
+  "introHtml": "<p>Black beanies are a staple for any promotional campaign because the color pairs with any logo and works for all seasons. Whether you need knit caps for a winter employee gift or branded beanies for a trade show giveaway, the neutral black base ensures your imprint stands out. Options like the Carhartt® Watch Cap 2.0 or the Soft Acrylic Beanie Hat offer durability and comfort, while decoration methods such as embroidery or screen printing provide crisp, long-lasting results.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black beanies with embroidered logo on a neutral background",
+  "productSkus": [
+    "514093",
+    "516012",
+    "516785",
+    "516872",
+    "520012",
+    "520922",
+    "521675",
+    "521871",
+    "521927",
+    "524211",
+    "526537"
+  ],
+  "generatedAt": "2026-05-31T09:08:27.750247+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

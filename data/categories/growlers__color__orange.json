@@ -1,0 +1,30 @@
+{
+  "url": "/cat/growlers/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Growlers for Branded Events",
+  "metaTitle": "Custom Orange Growlers | Perfect Imprints",
+  "metaDescription": "Order custom orange growlers for your next event. Perfect for breweries, tailgates, and brand giveaways. Bulk pricing available.",
+  "introHtml": "<p>Orange growlers bring a vibrant, energetic look to your branded drinkware. Whether you're promoting a new brew or outfitting a tailgate party, the bright color stands out in any crowd. Choose from 64 oz glass or stainless steel options, and add your logo with screen printing or full-wrap digital decoration. These custom orange growlers are ideal for breweries, beer festivals, and corporate gifts that leave a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange growlers with brewery logo, perfect for beer festivals and corporate gifts",
+  "productSkus": [
+    "509442",
+    "509541",
+    "510575",
+    "520183",
+    "520634",
+    "522060",
+    "526191",
+    "526428",
+    "528811",
+    "528814"
+  ],
+  "generatedAt": "2026-05-31T08:42:32.246191+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

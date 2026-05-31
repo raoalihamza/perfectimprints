@@ -1,0 +1,22 @@
+{
+  "url": "/cat/gloves/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Gloves for Bulk Orders",
+  "metaTitle": "Custom Set Gloves | Perfect Imprints",
+  "metaDescription": "Order custom set gloves in bulk for your team or event. Perfect for branding with logos. Shop at Perfect Imprints.",
+  "introHtml": "<p>Custom set gloves offer a coordinated look for corporate gifts, safety kits, or promotional giveaways. Whether you choose a fleece gift set for warmth or a knit set with full-color digital imprint, these bundled gloves maximize brand visibility. Perfect for trade shows or employee appreciation, sets provide a complete package that recipients appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set gloves in a coordinated gift set with branded logo imprint",
+  "productSkus": [
+    "516872",
+    "520012"
+  ],
+  "generatedAt": "2026-05-31T09:14:17.068709+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

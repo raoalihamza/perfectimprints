@@ -1,0 +1,25 @@
+{
+  "url": "/cat/beverage-glasses/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Beverage Glasses for Bulk Orders",
+  "metaTitle": "Custom Blue Beverage Glasses | Perfect Imprints",
+  "metaDescription": "Order custom blue beverage glasses in bulk. Perfect for events, branding, and giveaways. Get a quote today!",
+  "introHtml": "<p>Blue beverage glasses offer a versatile and eye-catching option for your next corporate event, trade show, or employee gift. Whether you choose durable plastic pint glasses for outdoor gatherings or insulated stainless steel tumblers for hot and cold drinks, the color blue conveys trust and professionalism. Perfect for imprinting your logo with screen printing or digital decoration, these glasses make your brand stand out while providing a practical item your recipients will use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue beverage glasses including plastic pint glasses and stainless steel tumblers with brand logos.",
+  "productSkus": [
+    "515153",
+    "521930",
+    "523689",
+    "524527",
+    "524528"
+  ],
+  "generatedAt": "2026-05-31T09:37:03.104040+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

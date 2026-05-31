@@ -1,0 +1,25 @@
+{
+  "url": "/cat/hot-cold-packs/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Hot Cold Packs",
+  "metaTitle": "Custom Orange Hot Cold Packs | Perfect Imprints",
+  "metaDescription": "Order custom orange hot cold packs for your brand. Perfect for safety kits, employee wellness, and events. Get a quote today.",
+  "introHtml": "<p>Orange hot cold packs offer high visibility for workplace safety kits, first aid stations, and outdoor events. The bright color makes them easy to locate in busy environments, whether you are stocking break rooms or distributing to employees. Choose from plush gel packs or eye masks, all customizable with your logo via screen printing or debossing. Durable fabric covers withstand repeated use, while the gel beads provide flexible cold or heat therapy for sore muscles and minor injuries.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange hot cold packs with gel beads and plush fabric, branded with a company logo for corporate wellness programs.",
+  "productSkus": [
+    "510371",
+    "515556",
+    "515557",
+    "517054",
+    "524787"
+  ],
+  "generatedAt": "2026-05-31T08:55:44.878892+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/sportswear/material/jersey",
+  "type": "facet",
+  "h1": "Custom Jersey Sportswear for Bulk Orders",
+  "metaTitle": "Custom Jersey Sportswear | Perfect Imprints",
+  "metaDescription": "Order custom jersey sportswear in bulk for your team or event. Fast turnaround, low minimums at Perfect Imprints.",
+  "introHtml": "<p>Jersey fabric is a go-to for custom sportswear because it breathes, stretches, and holds up to repeated washing. Whether you are outfitting a company softball team or handing out polos at a charity 5K, jersey material keeps your group comfortable during activity. The Women's Clique Parma Tech Jersey Polo is a popular example — it wicks moisture and resists wrinkles, making it suitable for both game day and casual office wear. With screen printing or embroidery, your logo stays sharp on this textured knit.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom jersey sportswear polos with embroidered logo on blue fabric",
+  "productSkus": [
+    "526963"
+  ],
+  "generatedAt": "2026-05-31T09:26:33.375417+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,28 @@
+{
+  "url": "/cat/joggers/brand/under-armour",
+  "type": "facet",
+  "h1": "Custom Under Armour Joggers for Bulk Orders",
+  "metaTitle": "Custom Under Armour Joggers | Perfect Imprints",
+  "metaDescription": "Order custom Under Armour joggers in bulk. Logo embroidery options. Perfect for corporate teams. Shop at Perfect Imprints today.",
+  "introHtml": "<p>Under Armour joggers combine athletic performance with brand visibility, making them a top choice for corporate wellness programs and team uniforms. The moisture-wicking fabric and comfortable fit ensure your team stays dry during workouts or casual events. Add your logo with embroidery or screen printing for a polished look that stands out in the office or on the go.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Under Armour joggers with embroidered logo on the left leg, shown in a team setting.",
+  "productSkus": [
+    "527121",
+    "527122",
+    "528095",
+    "528096",
+    "528105",
+    "528106",
+    "528108",
+    "529262"
+  ],
+  "generatedAt": "2026-05-31T09:16:50.436108+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

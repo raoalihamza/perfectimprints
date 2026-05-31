@@ -1,0 +1,21 @@
+{
+  "url": "/cat/tank-tops/feature/cropped",
+  "type": "facet",
+  "h1": "Custom Cropped Tank Tops for Bulk Orders",
+  "metaTitle": "Custom Cropped Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom cropped tank tops in bulk for your team or event. Fast turnaround and free setup at Perfect Imprints.",
+  "introHtml": "<p>Cropped tank tops offer a modern silhouette that stands out in trade show giveaways, event staff uniforms, or retail merchandise. The shorter cut pairs well with high-waisted bottoms, making them popular for fitness events, summer festivals, and brand ambassador programs. Decorate with screen printing or embroidery on the front or back for a sleek, contemporary look that your audience will actually wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Women wearing a custom cropped tank top with a printed logo, perfect for events and promotions.",
+  "productSkus": [
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T09:03:19.336160+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

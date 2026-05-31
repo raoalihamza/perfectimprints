@@ -1,0 +1,29 @@
+{
+  "url": "/cat/socks/supplier/gbond",
+  "type": "facet",
+  "h1": "Custom GBond Socks for Bulk Orders",
+  "metaTitle": "Custom GBond Socks | Perfect Imprints",
+  "metaDescription": "Order custom GBond socks in bulk from Perfect Imprints. Great for corporate gifts, events, and employee appreciation.",
+  "introHtml": "<p>GBond socks offer a reliable, comfortable option for branded apparel that stands up to daily wear. Whether you need crew socks for a company uniform or slipper socks for a promotional giveaway, GBond provides consistent quality and decoration-friendly surfaces. Choose from styles like the BeWell™ Socks or Fuzzy Feet Slipper Socks to keep your logo visible and your recipients comfortable.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom GBond socks with embroidered logo on a crew sock featuring a cushioned foot and reinforced heel",
+  "productSkus": [
+    "516800",
+    "521927",
+    "522251",
+    "524427",
+    "525740",
+    "526360",
+    "526361",
+    "526363",
+    "526896"
+  ],
+  "generatedAt": "2026-05-31T10:07:24.167436+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

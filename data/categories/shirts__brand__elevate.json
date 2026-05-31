@@ -1,0 +1,21 @@
+{
+  "url": "/cat/shirts/brand/elevate",
+  "type": "facet",
+  "h1": "Custom Elevate Shirts for Bulk Orders",
+  "metaTitle": "Custom Elevate Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Elevate shirts in bulk from Perfect Imprints. Ideal for teams, events, and uniforms. Get your quote today.",
+  "introHtml": "<p>Elevate shirts combine modern athletic fabrics with professional styling, making them a smart pick for corporate teams, trade shows, and employee uniforms. The Ladies' Ogio® Luuma Flex Tunic, for example, offers moisture-wicking performance and a flattering fit that stays comfortable through long hours. Choosing a specific brand like Elevate ensures consistent sizing and quality across your entire order, something generic shirts can't guarantee.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Elevate shirts for bulk orders featuring moisture-wicking fabric and professional design",
+  "productSkus": [
+    "526291"
+  ],
+  "generatedAt": "2026-05-31T08:24:30.000281+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

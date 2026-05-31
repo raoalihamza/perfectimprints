@@ -1,0 +1,26 @@
+{
+  "url": "/cat/shirts/eco-friendly/sustainable",
+  "type": "facet",
+  "h1": "Custom Sustainable Shirts for Eco-Conscious Brands",
+  "metaTitle": "Custom Sustainable Shirts | Perfect Imprints",
+  "metaDescription": "Order custom sustainable shirts for your brand. Eco-friendly materials, bulk pricing. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Sustainable shirts are made from organic cotton, recycled polyester, or other eco-friendly materials that reduce environmental impact. For companies prioritizing green initiatives, these shirts demonstrate your commitment to sustainability while providing comfortable, durable apparel. Perfect for team uniforms, promotional giveaways, or retail merchandise, custom sustainable shirts can be decorated with embroidery or screen printing. Choose from button-downs, blazers, and blouses that align with your brand values.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom sustainable shirts in organic cotton and recycled materials for eco-friendly corporate apparel",
+  "productSkus": [
+    "527304",
+    "527305",
+    "529246",
+    "529247",
+    "529248",
+    "529249"
+  ],
+  "generatedAt": "2026-05-31T09:25:51.581387+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

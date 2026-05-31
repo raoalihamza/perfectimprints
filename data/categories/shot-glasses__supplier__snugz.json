@@ -1,0 +1,30 @@
+{
+  "url": "/cat/shot-glasses/supplier/snugz",
+  "type": "facet",
+  "h1": "Custom Snugz Shot Glasses",
+  "metaTitle": "Custom Snugz Shot Glasses | Perfect Imprints",
+  "metaDescription": "Order custom Snugz shot glasses for events and promotions. Perfect for branding with your logo. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Snugz shot glasses combine durable glass or plastic construction with a comfortable, easy-grip design that your customers will appreciate. Whether you choose clear glass for a classic look or plastic for outdoor events, these shot glasses offer smooth sides ideal for screen printing or full-color digital decoration. Perfect for bar promotions, tailgates, or corporate giveaways, Snugz shot glasses deliver a premium feel without the premium price.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Snugz shot glasses with engraved logo, displayed on a bar table.",
+  "productSkus": [
+    "513679",
+    "522845",
+    "522847",
+    "525816",
+    "525817",
+    "525916",
+    "525967",
+    "526428",
+    "529493",
+    "529515"
+  ],
+  "generatedAt": "2026-05-31T10:07:01.786059+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

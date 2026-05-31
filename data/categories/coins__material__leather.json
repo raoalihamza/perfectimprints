@@ -1,0 +1,22 @@
+{
+  "url": "/cat/coins/material/leather",
+  "type": "facet",
+  "h1": "Custom Leather Coins for Bulk Orders",
+  "metaTitle": "Custom Leather Coins | Perfect Imprints",
+  "metaDescription": "Order custom leather coins for your next event. Unique, durable, and perfect for bulk branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Leather coins offer a tactile, premium alternative to standard metal or plastic coins. The natural grain and rich texture of leather give these coins a sophisticated feel, making them ideal for corporate awards, membership tokens, or commemorative giveaways. Unlike stamped metal, leather can be debossed or foil-stamped with your logo for a subtle, elegant mark. Perfect for safety managers or HR directors looking for a distinctive recognition item that stands out in a desk drawer or on a lanyard.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom leather coins with debossed logo, showcasing rich brown texture",
+  "productSkus": [
+    "517193 01A",
+    "518284"
+  ],
+  "generatedAt": "2026-05-31T08:52:28.751736+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

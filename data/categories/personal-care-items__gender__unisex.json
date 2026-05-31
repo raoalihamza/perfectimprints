@@ -1,0 +1,32 @@
+{
+  "url": "/cat/personal-care-items/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Personal Care Items",
+  "metaTitle": "Custom Unisex Personal Care Items | Perfect Imprints",
+  "metaDescription": "Order custom unisex personal care items for your team or event. Bulk pricing on socks, scrunchies, and more at Perfect Imprints.",
+  "introHtml": "<p>Unisex personal care items ensure that everyone on your team or at your event feels included. From cozy knit socks and adjustable slippers to performance caps and pullover hoodies, these products are designed to fit and appeal to all genders. Choose from apparel kits, hair scrunchies, and bamboo-thread socks for a thoughtful, practical giveaway that works for any recipient. Decorate with your logo using embroidery or screen printing for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom unisex personal care items including knit socks, scrunchies, and caps with logo",
+  "productSkus": [
+    "506864",
+    "515733",
+    "522099",
+    "524427",
+    "525740",
+    "525826",
+    "525827",
+    "526128",
+    "526306",
+    "526905",
+    "526906",
+    "527418"
+  ],
+  "generatedAt": "2026-05-31T10:00:35.829668+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

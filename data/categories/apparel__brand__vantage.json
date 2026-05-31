@@ -1,0 +1,30 @@
+{
+  "url": "/cat/apparel/brand/vantage",
+  "type": "facet",
+  "h1": "Custom Vantage Apparel for Bulk Orders",
+  "metaTitle": "Custom Vantage Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Vantage apparel for your team. Premium tees, hoodies & hats with your logo. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Vantage apparel offers a curated selection of premium blanks that hold up to frequent wear and repeated washing, making them a favorite for corporate uniforms and team gear. From the soft District Wash fleece hoodie to structured trucker caps, each piece provides a consistent canvas for screen printing or embroidery. HR directors and safety managers appreciate the durable fabrics and reliable sizing across styles, ensuring a professional look shift after shift.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Vantage apparel featuring a fleece hoodie and trucker cap with embroidered logo",
+  "productSkus": [
+    "510647",
+    "514432",
+    "514433",
+    "514922",
+    "516695 97H",
+    "521950",
+    "521951",
+    "526535",
+    "528998",
+    "529238"
+  ],
+  "generatedAt": "2026-05-31T08:38:43.613509+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

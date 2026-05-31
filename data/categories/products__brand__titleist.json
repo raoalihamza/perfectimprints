@@ -1,0 +1,28 @@
+{
+  "url": "/cat/products/brand/titleist",
+  "type": "facet",
+  "h1": "Custom Titleist Products for Bulk Orders",
+  "metaTitle": "Custom Titleist Products | Perfect Imprints",
+  "metaDescription": "Order custom Titleist products for your brand. Perfect for corporate golf events and client gifts. Bulk pricing available.",
+  "introHtml": "<p>Titleist is the premier brand for serious golfers, making custom Titleist products a top choice for corporate golf outings, client appreciation gifts, and tournament giveaways. Whether you choose the iconic Pro V1 golf balls with your logo or the Tour Performance Golf Hat for a polished look, these items carry a reputation for quality that reflects well on your business. Decoration options include full-color imprinting on golf balls and embroidery on hats, ensuring your brand stands out on the course.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Titleist Pro V1 golf balls with corporate logo displayed on a putting green, ideal for branded giveaways",
+  "productSkus": [
+    "507565 90A",
+    "515618 90A",
+    "528008",
+    "529251",
+    "529255",
+    "529256",
+    "529258",
+    "529259"
+  ],
+  "generatedAt": "2026-05-31T09:24:00.975463+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

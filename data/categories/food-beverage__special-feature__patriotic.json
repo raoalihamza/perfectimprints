@@ -1,0 +1,21 @@
+{
+  "url": "/cat/food-beverage/special-feature/patriotic",
+  "type": "facet",
+  "h1": "Custom Patriotic Food & Beverage Items",
+  "metaTitle": "Custom Patriotic Food & Beverage | Perfect Imprints",
+  "metaDescription": "Order custom patriotic food and beverage items for your next event. Perfect for July 4th, parades, and more. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Red, white, and blue food and beverage items are essential for Independence Day celebrations, military appreciation events, and patriotic promotions. Choose from coolers, drinkware, and snack containers decorated with stars and stripes. A custom patriotic bottle opener keytag makes a memorable giveaway that guests can use all summer long. These items boost morale and show your company's support for American values.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom patriotic food and beverage items including a red, white, and blue bottle opener keytag",
+  "productSkus": [
+    "518135 43A"
+  ],
+  "generatedAt": "2026-05-31T09:46:50.712173+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

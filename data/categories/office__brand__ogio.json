@@ -1,0 +1,21 @@
+{
+  "url": "/cat/office/brand/ogio",
+  "type": "facet",
+  "h1": "Custom Ogio Office Products for Bulk Orders",
+  "metaTitle": "Custom Ogio Office Products | Perfect Imprints",
+  "metaDescription": "Order custom Ogio office products in bulk at Perfect Imprints. Perfect for corporate gifts and employee recognition.",
+  "introHtml": "<p>Ogio office products combine rugged durability with professional style, making them a smart choice for companies that want their branded gear to last. From the Kickstart 22 Travel Bag to other work-ready designs, Ogio items feature reinforced stitching and padded compartments that protect laptops and tablets during daily commutes or business trips. These bags and accessories hold up to heavy use while keeping your logo looking crisp. For marketing directors and HR managers seeking reliable corporate gifts that employees will actually use, Ogio offers a proven blend of function and brand presence.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Ogio office products including the Kickstart 22 Travel Bag with company logo",
+  "productSkus": [
+    "510316"
+  ],
+  "generatedAt": "2026-05-31T08:24:18.737628+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

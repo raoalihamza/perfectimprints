@@ -1,0 +1,27 @@
+{
+  "url": "/cat/pens/brand/jerzees",
+  "type": "facet",
+  "h1": "Custom Jerzees Pens for Bulk Orders",
+  "metaTitle": "Custom Jerzees Pens | Perfect Imprints",
+  "metaDescription": "Order custom Jerzees pens for bulk branding. Perfect for promotional giveaways. Get a quote today.",
+  "introHtml": "<p>Jerzees is a trusted brand known for durable apparel, but their pens offer the same reliability for your promotional needs. Custom Jerzees pens are ideal for trade shows, employee kits, and client gifts where you want a writing instrument that feels substantial without breaking your budget. Available in several colors and with full-color imprint options, these pens ensure your logo stays visible through daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Jerzees pens with company logo imprint, available in assorted colors for bulk promotional orders",
+  "productSkus": [
+    "505528",
+    "515903",
+    "515983",
+    "515984",
+    "515994",
+    "515995",
+    "515996"
+  ],
+  "generatedAt": "2026-05-31T10:00:19.674063+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

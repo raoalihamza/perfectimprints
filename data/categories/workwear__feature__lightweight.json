@@ -1,0 +1,22 @@
+{
+  "url": "/cat/workwear/feature/lightweight",
+  "type": "facet",
+  "h1": "Custom Lightweight Workwear for Every Job",
+  "metaTitle": "Custom Lightweight Workwear | Perfect Imprints",
+  "metaDescription": "Browse custom lightweight workwear at Perfect Imprints. Ideal for warm-weather jobs. Bulk orders available. Get a quote today!",
+  "introHtml": "<p>Lightweight workwear keeps your crew comfortable and productive in warm conditions or indoor environments where heavy fabrics cause overheating. From UPF-rated short-sleeve shirts to ventilated hard hats, these options reduce heat stress while maintaining safety compliance. Decorate with embroidery or screen printing for a professional, cohesive look that stands up to frequent washing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom lightweight workwear including UPF t-shirts and ventilated hard hats for warm-weather jobs.",
+  "productSkus": [
+    "524758",
+    "525806"
+  ],
+  "generatedAt": "2026-05-31T10:15:43.052992+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/eyewear/feature/with-zipper",
+  "type": "facet",
+  "h1": "Custom Eyewear with Zipper for Bulk Orders",
+  "metaTitle": "Custom Eyewear with Zipper | Perfect Imprints",
+  "metaDescription": "Order custom eyewear with zipper for secure storage and branding. Perfect for corporate gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom eyewear with zipper adds a layer of security and convenience for your team or clients. Unlike open-style cases, zippered eyewear keeps glasses safely enclosed during travel or storage. Perfect for safety managers issuing protective eyewear or marketing directors creating branded gift sets, these cases can be decorated with your logo using screen printing or embroidery. The L.E.N.S. Large Eyewear Suede-Ish and Jersey Knit Neoprene options offer durable, stylish choices for bulk orders.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom with zipper eyewear cases featuring zippered closure and logo imprint for corporate branding",
+  "productSkus": [
+    "520417",
+    "520622"
+  ],
+  "generatedAt": "2026-05-31T09:45:02.502415+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

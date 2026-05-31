@@ -1,0 +1,32 @@
+{
+  "url": "/cat/jerseys/material/jersey",
+  "type": "facet",
+  "h1": "Custom Jersey Jerseys for Bulk Orders",
+  "metaTitle": "Custom Jersey Jerseys | Perfect Imprints",
+  "metaDescription": "Order custom jersey jerseys in bulk. Soft, breathable, and perfect for team uniforms or corporate events. Get a quote today.",
+  "introHtml": "<p>Jersey fabric is a lightweight, breathable knit that offers comfort and flexibility, making it a top choice for custom apparel. Unlike standard cotton tees, jersey material drapes well and wicks moisture, ideal for active teams, promotional events, or employee uniforms. With options like the LAT Adult Football Fine Jersey Tee or Gildan Performance T-Shirts, you can achieve vibrant screen-printed logos that stay sharp wash after wash. Perfect for bulk orders where consistency and comfort matter.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom jersey jerseys in various colors with printed logos, stacked neatly for bulk orders.",
+  "productSkus": [
+    "505094",
+    "506191",
+    "507457",
+    "507458",
+    "514720",
+    "515983",
+    "520600",
+    "524031",
+    "524039",
+    "524040",
+    "525407",
+    "525408"
+  ],
+  "generatedAt": "2026-05-31T08:43:13.343444+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

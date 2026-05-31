@@ -1,0 +1,27 @@
+{
+  "url": "/cat/pullovers/brand/nike",
+  "type": "facet",
+  "h1": "Custom Nike Pullovers for Bulk Orders",
+  "metaTitle": "Custom Nike Pullovers | Perfect Imprints",
+  "metaDescription": "Order custom Nike pullovers in bulk at Perfect Imprints. Perfect for corporate gifts, employee rewards, and branded apparel.",
+  "introHtml": "<p>Custom Nike pullovers combine the trusted quality of Nike performance apparel with your company logo. Whether you need crewneck sweatshirts for a company retreat or hoodies for your safety team, Nike pullovers offer durable construction and a recognizable brand that recipients will appreciate. Decorate with embroidery or screen printing for a polished look that represents your organization well.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Nike pullovers with embroidered company logo on the chest, displayed in a corporate setting.",
+  "productSkus": [
+    "527357",
+    "527358",
+    "527359",
+    "527360",
+    "527361",
+    "528941",
+    "528942"
+  ],
+  "generatedAt": "2026-05-31T10:04:34.569873+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

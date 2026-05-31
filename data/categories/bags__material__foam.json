@@ -1,0 +1,24 @@
+{
+  "url": "/cat/bags/material/foam",
+  "type": "facet",
+  "h1": "Custom Foam Bags for Branded Promotions",
+  "metaTitle": "Custom Foam Bags | Perfect Imprints",
+  "metaDescription": "Order custom foam bags for your brand. Durable, insulated options perfect for giveaways, events, and employee gifts. Get a quote today!",
+  "introHtml": "<p>Custom foam bags offer superior insulation and protection, making them ideal for corporate giveaways, outdoor events, or employee appreciation gifts. Unlike standard totes, foam bags keep contents cool or warm for hours, which is why they are a top choice for brands that want practical, high-visibility items. Whether you choose a compact cooler for lunches or a larger tote for beach outings, these bags provide lasting quality and everyday utility that recipients will use repeatedly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom foam bags with insulated lining and brand logo, perfect for corporate gifts and promotional events",
+  "productSkus": [
+    "526724",
+    "526725",
+    "528238",
+    "529518"
+  ],
+  "generatedAt": "2026-05-31T09:06:58.570546+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

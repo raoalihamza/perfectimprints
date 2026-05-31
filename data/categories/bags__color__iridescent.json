@@ -1,0 +1,23 @@
+{
+  "url": "/cat/bags/color/iridescent",
+  "type": "facet",
+  "h1": "Custom Iridescent Bags for Bulk Orders",
+  "metaTitle": "Custom Iridescent Bags | Perfect Imprints",
+  "metaDescription": "Order custom iridescent bags in bulk at Perfect Imprints. Perfect for promotions, events, and retail. Fast turnaround & free quotes.",
+  "introHtml": "<p>Iridescent bags add a shimmering, color-shifting finish that catches light and attention, making them a standout choice for product launches, trade shows, or retail packaging. Unlike standard solid-color totes, these bags create a memorable unboxing experience and photo-worthy moments. Options like the Hologram Vanity Bag or Iridescent Non-Woven Gift Tote offer durable construction with high-impact branding through screen printing or foil stamping. Whether you need custom iridescent bags for a limited-edition promotion or everyday retail, the reflective surface ensures your logo pops.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom iridescent bags with holographic finish, perfect for bulk orders and promotional events.",
+  "productSkus": [
+    "522536",
+    "523084",
+    "523085"
+  ],
+  "generatedAt": "2026-05-31T09:34:21.210898+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/beer-glasses/feature/shatterproof",
+  "type": "facet",
+  "h1": "Custom Shatterproof Beer Glasses",
+  "metaTitle": "Custom Shatterproof Beer Glasses | Perfect Imprints",
+  "metaDescription": "Order custom shatterproof beer glasses for events, bars, or giveaways. Durable and safe. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom shatterproof beer glasses are the smart choice for outdoor events, bars, and corporate giveaways where broken glass is a safety hazard. Made from durable materials like clear or colored Symglass and heavy-duty plastic, these pint glasses mimic the look and feel of traditional glass without the risk of shattering. They are ideal for poolside parties, stadium concessions, or promotional gifts for safety-conscious industries. Add your logo with screen printing or full-color digital decoration for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom shatterproof beer glasses with company logo printed on clear plastic pint glasses for promotional use",
+  "productSkus": [
+    "524527",
+    "524528",
+    "528812",
+    "528814",
+    "528815"
+  ],
+  "generatedAt": "2026-05-31T09:08:35.276437+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

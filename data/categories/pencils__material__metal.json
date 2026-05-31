@@ -1,0 +1,24 @@
+{
+  "url": "/cat/pencils/material/metal",
+  "type": "facet",
+  "h1": "Custom Metal Pencils for Bulk Orders",
+  "metaTitle": "Custom Metal Pencils | Perfect Imprints",
+  "metaDescription": "Order custom metal pencils for your brand. Durable and professional. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Metal pencils offer a refined alternative to standard wood or plastic options, making them ideal for corporate gifts, trade shows, or executive branding. Their sturdy construction provides a satisfying weight and long-lasting use, while the metallic finish adds a touch of sophistication. Choose from shaped designs like the Bentcil® or classic mechanical styles from uni-ball®. Personalize with your logo via engraving or full-color printing for a premium look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom metal pencils with engraved logos, including shaped and mechanical styles, on a desk.",
+  "productSkus": [
+    "515523 01A",
+    "515524 01A",
+    "515531 22B",
+    "525811"
+  ],
+  "generatedAt": "2026-05-31T09:21:56.998641+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

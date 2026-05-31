@@ -1,0 +1,28 @@
+{
+  "url": "/cat/duffle-gym-bags/brand/eddie-bauer",
+  "type": "facet",
+  "h1": "Custom Eddie Bauer Duffle Gym Bags",
+  "metaTitle": "Custom Eddie Bauer Duffle Gym Bags | Perfect Imprints",
+  "metaDescription": "Order custom Eddie Bauer duffle gym bags with your logo. Durable, premium fabric, ideal for corporate gifts and employee rewards.",
+  "introHtml": "<p>Eddie Bauer duffle gym bags combine rugged outdoor durability with a clean, professional look that suits corporate branding. Made from tough, water-resistant materials, these bags hold up to daily use at the gym or on business trips. Choose from multiple sizes and color options, then add your logo via screen printing or embroidery for a polished finish. Perfect for employee wellness programs, client gifts, or company swag that gets noticed.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Eddie Bauer duffle gym bag with embroidered logo, black fabric, and sturdy handles",
+  "productSkus": [
+    "513811",
+    "513812",
+    "515290",
+    "515291",
+    "522094",
+    "522095",
+    "529196",
+    "529197"
+  ],
+  "generatedAt": "2026-05-31T09:43:54.522835+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

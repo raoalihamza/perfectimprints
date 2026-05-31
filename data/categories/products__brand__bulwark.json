@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/bulwark",
+  "type": "facet",
+  "h1": "Custom Bulwark Products for Bulk Orders",
+  "metaTitle": "Custom Bulwark Products | Perfect Imprints",
+  "metaDescription": "Order custom Bulwark products in bulk for your team. Perfect for safety managers and HR directors. Get a quote today!",
+  "introHtml": "<p>Bulwark is a trusted name in flame-resistant apparel, built for workers who need reliable protection on the job. When you choose custom Bulwark products, you get FR-rated shirts, pants, and outerwear that can be embroidered or screen-printed with your company logo. Safety managers and HR directors often select Bulwark for industries like oil and gas, electrical utilities, and welding because the fabric meets NFPA 70E and ASTM standards. Ordering in bulk ensures consistent branding across your entire crew while maintaining compliance with workplace safety requirements.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Bulwark flame-resistant shirts with embroidered logo for industrial safety teams",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:22:01.365422+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

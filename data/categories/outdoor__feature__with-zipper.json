@@ -1,0 +1,21 @@
+{
+  "url": "/cat/outdoor/feature/with-zipper",
+  "type": "facet",
+  "h1": "Custom Outdoor Products with Zipper",
+  "metaTitle": "Custom Outdoor Products with Zipper | Perfect Imprints",
+  "metaDescription": "Order custom outdoor products with zipper for your team or event. Perfect for bulk branding at Perfect Imprints.",
+  "introHtml": "<p>Outdoor products with zippered closures offer secure storage for gear, tools, and personal items during events, trade shows, or company outings. From branded picnic throws that fold into a zippered carrying case to insulated bags that keep contents safe, these items combine practicality with your logo. Choose durable materials and custom decoration to create giveaways that attendees will use again and again.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom outdoor products with zipper, like a branded picnic throw with zippered carrying case",
+  "productSkus": [
+    "523473"
+  ],
+  "generatedAt": "2026-05-31T08:24:20.644748+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

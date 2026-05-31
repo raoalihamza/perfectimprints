@@ -1,0 +1,32 @@
+{
+  "url": "/cat/bar-wine-gift-sets/supplier/debco",
+  "type": "facet",
+  "h1": "Custom Debco Bar Wine Gift Sets",
+  "metaTitle": "Custom Debco Bar Wine Gift Sets | Perfect Imprints",
+  "metaDescription": "Order custom Debco bar wine gift sets for your team or clients. Perfect for corporate gifting. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Debco bar wine gift sets combine premium materials with thoughtful design, making them a standout choice for corporate gifting. Each set, like the Speakeasy Gift Set or the Napa Stemless Wine Tumbler Set, comes ready for customization with your logo. Whether you're thanking remote employees or welcoming new hires, these curated sets deliver a polished, ready-to-gift experience that saves you time while impressing recipients.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Debco bar wine gift set with branded stemless wine tumblers and accessories arranged on a table",
+  "productSkus": [
+    "512596",
+    "512693 64F",
+    "519672",
+    "521002",
+    "521897",
+    "522098",
+    "523898",
+    "523924",
+    "523950",
+    "525628",
+    "526748",
+    "527285"
+  ],
+  "generatedAt": "2026-05-31T08:50:03.980556+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

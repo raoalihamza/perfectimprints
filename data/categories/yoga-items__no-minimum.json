@@ -1,0 +1,25 @@
+{
+  "url": "/cat/yoga-items/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Yoga Items",
+  "metaTitle": "No-Minimum Custom Yoga Items | Perfect Imprints",
+  "metaDescription": "Order small quantities of custom yoga items with no minimums. Perfect for small teams, events, and samples. Get branded yoga mats, sets, and more.",
+  "introHtml": "<p>No-minimum custom yoga items let you order branded yoga mats, sets, and accessories without being forced into bulk quantities. Whether you need five mats for a small team wellness program or a dozen sets for a one-time event, you get the flexibility to buy exactly what you need. This is ideal for small businesses, startups, or any organization that wants to test designs before committing to larger orders. Per-unit pricing applies at low volumes, but you avoid the waste and storage of excess inventory.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "No-minimum custom yoga items including a professional yoga mat with a company logo, ideal for small orders and sample testing.",
+  "productSkus": [
+    "512283",
+    "520476",
+    "524432",
+    "525617",
+    "527971"
+  ],
+  "generatedAt": "2026-05-31T09:05:08.671851+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

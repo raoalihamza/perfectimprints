@@ -1,0 +1,21 @@
+{
+  "url": "/cat/outerwear/activity/baseball",
+  "type": "facet",
+  "h1": "Custom Baseball Outerwear for Teams & Events",
+  "metaTitle": "Custom Baseball Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom baseball outerwear for your team or event. Perfect Imprints offers bulk pricing on jackets, vests & more.",
+  "introHtml": "<p>Custom baseball outerwear goes beyond dugout style. Whether you need warm-up jackets for a tournament or branded vests for a company softball league, these pieces combine team identity with practical layering. The Men's Mercer+Mettle™ Puffy Vest, for example, offers lightweight insulation and a full-zip front, ideal for cool evenings at the field. Decorate with screen-printed logos or embroidered team names for a professional look that stands out in the stands.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom baseball outerwear featuring a team logo on a puffy vest for field use",
+  "productSkus": [
+    "526296"
+  ],
+  "generatedAt": "2026-05-31T09:58:57.023575+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

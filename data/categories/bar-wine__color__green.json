@@ -1,0 +1,31 @@
+{
+  "url": "/cat/bar-wine/color/green",
+  "type": "facet",
+  "h1": "Custom Green Bar & Wine Glasses",
+  "metaTitle": "Custom Green Bar Wine | Perfect Imprints",
+  "metaDescription": "Order custom green bar wine glasses in bulk. Perfect for events, promotions, and gifts. Get your free quote today.",
+  "introHtml": "<p>Green custom bar and wine glasses make a distinctive choice for eco-conscious brands or events tied to nature, sustainability, or seasonal themes. Whether you choose the Napa Stemless Wine Tumbler Set for a polished look or the 12 oz Plastic Stemless Wine Glass for outdoor gatherings, green offers a fresh, recognizable color that stands out. These glasses can be decorated with screen printing, full-color digital, or laser engraving to match your logo exactly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green bar and wine glasses with logos, including stemless tumblers and plastic wine glasses",
+  "productSkus": [
+    "511450",
+    "520339",
+    "522060",
+    "522098",
+    "522955",
+    "523950",
+    "524419",
+    "524524",
+    "524525",
+    "526191",
+    "527252"
+  ],
+  "generatedAt": "2026-05-31T08:23:07.015407+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

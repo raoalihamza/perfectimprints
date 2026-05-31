@@ -1,0 +1,26 @@
+{
+  "url": "/cat/backpacks/brand/work",
+  "type": "facet",
+  "h1": "Custom Work Backpacks for Bulk Orders",
+  "metaTitle": "Custom Work Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom work backpacks for your team. Perfect for commuters and trades. Get a quote at PerfectImprints.com.",
+  "introHtml": "<p>Work backpacks are designed for daily commutes and job sites where durability and organization matter. Unlike casual backpacks, they feature padded laptop compartments, reinforced stitching, and multiple pockets for tools or documents. Choose custom work backpacks to keep your team prepared and your brand visible, whether they're heading to a client meeting or a construction site.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom work backpacks with branded logo on front pocket, featuring padded laptop compartment and durable fabric",
+  "productSkus": [
+    "518365",
+    "520571",
+    "521963",
+    "524591",
+    "528088",
+    "528108"
+  ],
+  "generatedAt": "2026-05-31T09:33:38.375168+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/eyewear/activity/hiking",
+  "type": "facet",
+  "h1": "Custom Hiking Eyewear for Outdoor Enthusiasts",
+  "metaTitle": "Custom Hiking Eyewear | Perfect Imprints",
+  "metaDescription": "Order custom hiking eyewear for your team or event. Sunglasses, straps, and more with your logo. Get a quote today!",
+  "introHtml": "<p>When you're hiking, standard eyewear just doesn't cut it. You need polarized lenses to cut glare and secure straps to keep your gear from tumbling down a ravine. Custom hiking eyewear from Perfect Imprints lets you outfit your team with performance sunglasses and floating straps that stay put on the trail. Choose from wrap styles with UV protection and add your logo via pad printing or debossing for a professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hiking eyewear with polarized lenses and floating sunglass strap for outdoor branding",
+  "productSkus": [
+    "520684"
+  ],
+  "generatedAt": "2026-05-31T09:12:57.690915+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

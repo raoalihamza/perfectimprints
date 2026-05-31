@@ -1,0 +1,29 @@
+{
+  "url": "/cat/chef-wear/feature/adjustable",
+  "type": "facet",
+  "h1": "Custom Adjustable Chef Wear",
+  "metaTitle": "Custom Adjustable Chef Wear | Perfect Imprints",
+  "metaDescription": "Order custom adjustable chef wear with secure fits for your kitchen team. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Custom adjustable chef wear gives your kitchen staff a secure, comfortable fit that moves with them through a busy shift. Unlike standard uniforms, adjustable features like snap closures, drawstrings, and elastic cuffs let each wearer dial in the fit. Whether you need embroidered chef coats or logoed aprons for a restaurant chain or hospitality team, adjustable chef wear reduces returns and keeps your crew looking sharp. Perfect for hot kitchens where ease of movement and a polished appearance are both essential.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adjustable chef wear with branded embroidery on a professional chef coat for kitchen staff",
+  "productSkus": [
+    "501558",
+    "501559",
+    "515106",
+    "520267",
+    "526958",
+    "529010",
+    "529011",
+    "529012",
+    "529245"
+  ],
+  "generatedAt": "2026-05-31T09:10:25.598774+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

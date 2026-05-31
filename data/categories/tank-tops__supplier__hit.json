@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tank-tops/supplier/hit",
+  "type": "facet",
+  "h1": "Custom Hit Tank Tops for Bulk Orders",
+  "metaTitle": "Custom Hit Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom Hit tank tops in bulk for your team or event. Fast turnaround, quality printing. Get a quote today.",
+  "introHtml": "<p>Hit tank tops offer a versatile, comfortable base for your custom designs, ideal for summer events, sports teams, or promotional giveaways. Made from soft cotton or moisture-wicking blends, these tanks provide a relaxed fit that suits all body types. Choose from racerback, V-neck, or sleeveless styles and decorate with screen printing or embroidery for a durable, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of custom hit tank tops with printed logos in various colors for team or promotional use",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T09:03:24.154325+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

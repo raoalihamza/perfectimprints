@@ -1,0 +1,22 @@
+{
+  "url": "/cat/t-shirts/brand/vantage",
+  "type": "facet",
+  "h1": "Custom Vantage T Shirts for Bulk Orders",
+  "metaTitle": "Custom Vantage T Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Vantage t shirts in bulk from Perfect Imprints. Great for teams and events. Get a quote today.",
+  "introHtml": "<p>Vantage t shirts offer a durable, comfortable fit that holds up to frequent wear and washing, making them a smart choice for corporate uniforms, event staff, or promotional giveaways. The Dakota Three Quarter Tee, available in men's and women's cuts, provides a modern silhouette with reinforced seams for long-lasting use. Customize with screen printing or embroidery to display your logo prominently on a quality garment that recipients will actually wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Vantage t shirts featuring the Dakota Three Quarter Tee for corporate branding and promotional events.",
+  "productSkus": [
+    "521950",
+    "521951"
+  ],
+  "generatedAt": "2026-05-31T08:47:12.777681+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

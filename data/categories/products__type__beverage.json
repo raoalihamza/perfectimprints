@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/type/beverage",
+  "type": "facet",
+  "h1": "Custom Beverage Products for Your Brand",
+  "metaTitle": "Custom Beverage Products | Perfect Imprints",
+  "metaDescription": "Order custom beverage products for your next event or promotion. Perfect for branding at trade shows, offices, and more.",
+  "introHtml": "<p>Custom beverage products offer a practical way to keep your brand visible throughout the day. From insulated tumblers to reusable bottles, these items are used daily in offices, gyms, and on the go. Choose from stainless steel, plastic, or glass options in various sizes. Decorate with your logo using screen printing, engraving, or full-color wraps to create a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom beverage products including stainless steel water bottles and tumblers with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:04:25.496507+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

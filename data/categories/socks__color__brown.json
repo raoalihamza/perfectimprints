@@ -1,0 +1,22 @@
+{
+  "url": "/cat/socks/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Socks for Bulk Orders",
+  "metaTitle": "Custom Brown Socks | Perfect Imprints",
+  "metaDescription": "Order custom brown socks in bulk from Perfect Imprints. Perfect for corporate gifts, uniforms, and events. Get a quote today.",
+  "introHtml": "<p>Brown socks offer a versatile and professional look that pairs well with earth-toned uniforms or casual dress codes. From cozy crew socks for winter giveaways to branded fashion socks for trade show swag, custom brown socks provide a practical and stylish option for your team or event. Choose from cotton, wool, or blended fabrics and add your logo with embroidery or screen printing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown socks with embroidered logo, displayed on a table for corporate branding",
+  "productSkus": [
+    "521927",
+    "525740"
+  ],
+  "generatedAt": "2026-05-31T10:07:19.246863+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

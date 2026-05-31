@@ -1,0 +1,23 @@
+{
+  "url": "/cat/tools/brand/cree",
+  "type": "facet",
+  "h1": "Custom Cree Tools for Bulk Orders",
+  "metaTitle": "Custom Cree Tools | Perfect Imprints",
+  "metaDescription": "Order custom Cree tools with your logo. Perfect for giveaways, safety kits, and trade shows. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Cree is known for high-performance lighting and durable tools, making custom Cree tools a smart choice for brands that want reliability and visibility. From the 5-In-1 Work Pen to the Swiss Force Protector Emergency Safety Tool, these items combine everyday utility with trusted engineering. Ideal for safety managers equipping crews or marketing directors building trade show kits, Cree tools carry your logo on products that people actually keep and use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Cree tools including a 5-in-1 work pen and emergency safety tool with logo imprint",
+  "productSkus": [
+    "501983 91A",
+    "515340 01A",
+    "516294"
+  ],
+  "generatedAt": "2026-05-31T10:11:22.058262+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

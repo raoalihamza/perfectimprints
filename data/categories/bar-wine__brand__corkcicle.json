@@ -1,0 +1,21 @@
+{
+  "url": "/cat/bar-wine/brand/corkcicle",
+  "type": "facet",
+  "h1": "Custom Corkcicle Bar Wine",
+  "metaTitle": "Custom Corkcicle Bar Wine | Perfect Imprints",
+  "metaDescription": "Order custom Corkcicle bar wine for your brand. Perfect for gifts and events. Shop at Perfect Imprints today.",
+  "introHtml": "<p>Corkcicle bar wine products combine triple-insulated stainless steel with elegant design, keeping drinks at the perfect temperature for hours. Whether you're outfitting a corporate wine tasting or rewarding employees with a premium gift, the 12 oz Stemless Wine Cup offers a sophisticated canvas for your logo. Choose from multiple colors and add your brand with laser engraving or screen printing for a polished, durable finish that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Corkcicle bar wine stemless cup with engraved logo, triple-insulated stainless steel",
+  "productSkus": [
+    "524368"
+  ],
+  "generatedAt": "2026-05-31T09:07:33.886898+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

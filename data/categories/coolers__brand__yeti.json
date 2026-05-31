@@ -1,0 +1,30 @@
+{
+  "url": "/cat/coolers/brand/yeti",
+  "type": "facet",
+  "h1": "Custom Yeti Coolers for Bulk Orders",
+  "metaTitle": "Custom Yeti Coolers | Perfect Imprints",
+  "metaDescription": "Order custom Yeti coolers for your team or event. Durable, branded coolers from Perfect Imprints. Bulk pricing available.",
+  "introHtml": "<p>Yeti coolers are built to withstand the toughest conditions, making them a premium choice for outdoor events, construction sites, and corporate gifts. When you add your logo to a custom Yeti cooler, you're giving a product that recipients will use for years. Whether it's a 20 oz Rambler Travel Mug for daily commutes or a 26 oz Water Bottle for job sites, these coolers offer exceptional insulation and durability. Perfect for marketing directors and safety managers looking for high-quality branded merchandise that stands up to real-world use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Yeti coolers with engraved logos, including Rambler tumblers and water bottles, displayed on a wooden table.",
+  "productSkus": [
+    "528839",
+    "528840",
+    "528841",
+    "528844",
+    "528845",
+    "528846",
+    "528847",
+    "529532",
+    "529533",
+    "529534"
+  ],
+  "generatedAt": "2026-05-31T09:41:40.242078+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

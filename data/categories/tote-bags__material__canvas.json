@@ -1,0 +1,32 @@
+{
+  "url": "/cat/tote-bags/material/canvas",
+  "type": "facet",
+  "h1": "Custom Canvas Tote Bags",
+  "metaTitle": "Custom Canvas Tote Bags | Perfect Imprints",
+  "metaDescription": "Order custom canvas tote bags for your brand. Durable, eco-friendly, and perfect for promotions. Get a quote today!",
+  "introHtml": "<p>Canvas tote bags offer a durable, eco-friendly alternative to plastic or paper bags, making them a popular choice for trade shows, retail stores, and corporate gifts. The heavy-duty cotton canvas material provides a sturdy structure that holds up to daily use while offering a large surface area for screen printing or embroidery. Whether you're outfitting a team with branded totes for a conference or providing reusable bags at a farmers market, custom canvas tote bags deliver practical, long-lasting brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom canvas tote bags with screen-printed logos, durable cotton fabric, and ample storage space for everyday use.",
+  "productSkus": [
+    "503495",
+    "506607",
+    "510779 23A",
+    "511761",
+    "511762",
+    "519420",
+    "519421",
+    "521019",
+    "523605",
+    "523606",
+    "523978",
+    "528586"
+  ],
+  "generatedAt": "2026-05-31T08:20:58.905152+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

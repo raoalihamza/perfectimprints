@@ -1,0 +1,28 @@
+{
+  "url": "/cat/blankets/color/green",
+  "type": "facet",
+  "h1": "Custom Green Blankets",
+  "metaTitle": "Custom Green Blankets | Perfect Imprints",
+  "metaDescription": "Order custom green blankets in bulk for events, giveaways, or corporate gifts. Perfect for branding with your logo. Get a quote today!",
+  "introHtml": "<p>Green blankets offer a natural, calming appeal that works well for outdoor events, eco-conscious branding, or corporate gifts with a sustainable message. Whether you choose a fleece roll-up blanket with a handle for easy distribution at trade shows or a recycled cotton beach blanket with tassel fringe for eco-friendly giveaways, the green color reinforces themes of growth, health, and environmental responsibility. These blankets are ideal for marketing directors promoting outdoor festivals, HR directors selecting wellness gifts, or safety managers rewarding teams with practical, branded comfort items.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of custom green blankets with embroidered logos, including fleece roll-up and recycled cotton styles.",
+  "productSkus": [
+    "507150",
+    "512997",
+    "514085",
+    "520308",
+    "525694",
+    "526239",
+    "526444",
+    "528626"
+  ],
+  "generatedAt": "2026-05-31T08:32:51.589744+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

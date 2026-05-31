@@ -1,0 +1,30 @@
+{
+  "url": "/cat/mechanical-pencils/brand/uni-ball",
+  "type": "facet",
+  "h1": "Custom Uni Ball Mechanical Pencils for Bulk Orders",
+  "metaTitle": "Custom Uni Ball Mechanical Pencils | Perfect Imprints",
+  "metaDescription": "Order custom Uni Ball mechanical pencils with your logo. Perfect for schools and offices. Get a quote today.",
+  "introHtml": "<p>Uni Ball mechanical pencils offer precision and reliability for everyday writing. When you need a writing instrument that reduces waste and provides consistent performance, the Chroma Pencil (0.5mm) is a top choice. Customize these pencils with your logo via pad printing or laser engraving for a professional look that stands out in any office or classroom setting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Uni Ball mechanical pencils with black barrel and silver clip, personalized with a company logo.",
+  "productSkus": [
+    "507227",
+    "507233",
+    "508066",
+    "508930",
+    "510260",
+    "525805",
+    "525810",
+    "525811",
+    "526876",
+    "527857"
+  ],
+  "generatedAt": "2026-05-31T09:19:21.981822+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

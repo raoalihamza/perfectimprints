@@ -1,0 +1,23 @@
+{
+  "url": "/cat/jackets/brand/vineyard-vines",
+  "type": "facet",
+  "h1": "Custom Vineyard Vines Jackets for Bulk Orders",
+  "metaTitle": "Custom Vineyard Vines Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Vineyard Vines jackets in bulk. Perfect for corporate gifts or team uniforms. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Vineyard Vines jackets bring a preppy, coastal aesthetic to corporate apparel. From the On-The-Go Shep Vest to the Mountain Sweater Fleece Vest, these pieces combine style with durability. Ideal for marketing directors seeking a polished look for giveaways or safety managers outfitting teams with comfortable outerwear, each jacket can be embroidered with your logo. Choose Vineyard Vines for a brand that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Vineyard Vines jackets with embroidered logos, including fleece vests and shep vests for corporate branding.",
+  "productSkus": [
+    "526106",
+    "526107",
+    "526108"
+  ],
+  "generatedAt": "2026-05-31T09:16:29.335441+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

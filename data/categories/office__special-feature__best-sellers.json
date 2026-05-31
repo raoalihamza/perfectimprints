@@ -1,0 +1,21 @@
+{
+  "url": "/cat/office/special-feature/best-sellers",
+  "type": "facet",
+  "h1": "Custom Best Sellers Office Products",
+  "metaTitle": "Custom Best Sellers Office | Perfect Imprints",
+  "metaDescription": "Shop custom best sellers office products at Perfect Imprints. Get branded flash drives, pens, and more for your team. Order bulk today!",
+  "introHtml": "<p>Custom best sellers office products are the proven favorites that marketing directors, HR teams, and business owners reorder year after year. From the 2GB Rotate Flash Drive to premium pens and desk accessories, these items combine high perceived value with practical daily use. Choosing from our best sellers means you get products that recipients actually want and use, maximizing your brand exposure. Decorate with your logo via screen printing or laser engraving for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom best sellers office products including a branded 2GB Rotate Flash Drive and pen set on a desk",
+  "productSkus": [
+    "504786 2GB"
+  ],
+  "generatedAt": "2026-05-31T09:58:17.898594+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

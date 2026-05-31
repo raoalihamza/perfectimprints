@@ -1,0 +1,30 @@
+{
+  "url": "/cat/towels/color/red",
+  "type": "facet",
+  "h1": "Custom Red Towels",
+  "metaTitle": "Custom Red Towels | Perfect Imprints",
+  "metaDescription": "Order custom red towels for your team or event. Perfect for sports, promotions, and giveaways. Bulk pricing available.",
+  "introHtml": "<p>Red towels command attention, making them a strong choice for sports teams, promotional giveaways, and safety visibility. Whether you need microfiber golf towels with custom logos or velour hemmed towels for hospitality, red stands out in any setting. Decorate with screen printing or embroidery to match your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red microfiber golf towels with embroidered logos displayed on a green background",
+  "productSkus": [
+    "510188",
+    "510325",
+    "510644",
+    "512900",
+    "513098",
+    "521013",
+    "522450",
+    "524126",
+    "528005",
+    "528436"
+  ],
+  "generatedAt": "2026-05-31T09:28:58.874032+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

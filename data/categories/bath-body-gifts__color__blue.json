@@ -1,0 +1,32 @@
+{
+  "url": "/cat/bath-body-gifts/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Bath Body Gifts",
+  "metaTitle": "Custom Blue Bath Body Gifts | Perfect Imprints",
+  "metaDescription": "Shop custom blue bath body gifts for bulk orders. Perfect for employee wellness or client appreciation. Get a quote today!",
+  "introHtml": "<p>Blue bath body gifts evoke calm and relaxation, making them ideal for spa-themed corporate gifts or employee wellness programs. From soothing blue gift sets to branded mugs and gourmet treats, these items pair well with custom logos through screen printing or engraving. Choose blue to convey trust and serenity in your next promotional campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom blue bath body gifts including gift sets, mugs, and treats with corporate logos",
+  "productSkus": [
+    "513153 23A",
+    "513154 23A",
+    "518213",
+    "526239",
+    "526244",
+    "526317",
+    "526744",
+    "526746",
+    "527814",
+    "528832",
+    "528900",
+    "528902"
+  ],
+  "generatedAt": "2026-05-31T09:36:07.715157+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

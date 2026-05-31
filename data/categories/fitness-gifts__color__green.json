@@ -1,0 +1,30 @@
+{
+  "url": "/cat/fitness-gifts/color/green",
+  "type": "facet",
+  "h1": "Custom Green Fitness Gifts",
+  "metaTitle": "Custom Green Fitness Gifts | Perfect Imprints",
+  "metaDescription": "Order custom green fitness gifts for your team. Eco-friendly and motivating. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Green fitness gifts stand out as a natural choice for wellness programs, Earth Day campaigns, or any event focused on health and sustainability. From pedometers to yoga mats, adding your logo in a complementary color creates a cohesive, professional look that recipients appreciate. These items encourage daily movement while reinforcing your brand's commitment to an active, eco-conscious lifestyle.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green fitness gifts including a pedometer, yoga mat, and stretch expander with company logo",
+  "productSkus": [
+    "501187",
+    "510648",
+    "512283",
+    "513098",
+    "514432",
+    "514841",
+    "515576 50A",
+    "520178",
+    "521013",
+    "521190"
+  ],
+  "generatedAt": "2026-05-31T08:26:28.406669+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/workwear/brand/jockey",
+  "type": "facet",
+  "h1": "Custom Jockey Workwear for Bulk Orders",
+  "metaTitle": "Custom Jockey Workwear | Perfect Imprints",
+  "metaDescription": "Order custom Jockey workwear in bulk. Perfect for uniforms, safety, and team apparel. Get a quote today!",
+  "introHtml": "<p>Jockey workwear combines the trusted comfort of a heritage brand with the durability needed for daily job site demands. From hi-vis jackets to canvas work jackets, these pieces hold up to repeated washing and heavy use while keeping your team looking professional. Ideal for construction crews, warehouse teams, or field service uniforms, Jockey workwear accepts screen printing and embroidery for a clean, lasting brand impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Jockey workwear including hi-vis jackets and canvas work jackets for uniform branding",
+  "productSkus": [
+    "511014",
+    "519005"
+  ],
+  "generatedAt": "2026-05-31T09:31:06.716401+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

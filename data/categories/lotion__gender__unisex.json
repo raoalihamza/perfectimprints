@@ -1,0 +1,32 @@
+{
+  "url": "/cat/lotion/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Lotion for Bulk Orders",
+  "metaTitle": "Custom Unisex Lotion | Perfect Imprints",
+  "metaDescription": "Shop custom unisex lotion for your team or event. Perfect for any gender. Bulk orders available at Perfect Imprints.",
+  "introHtml": "<p>Custom unisex lotion is a versatile promotional product that appeals to everyone, regardless of gender. Unlike gender-specific lotions, these formulations focus on universal skin care benefits like moisturizing and soothing. Ideal for corporate gifts, safety kits, or event giveaways, they offer a practical and inclusive branding opportunity. Decorate with your logo using screen printing or labels to create a thoughtful, everyday essential that recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom unisex lotion bottles with brand logo, suitable for all genders, in bulk packaging.",
+  "productSkus": [
+    "506864",
+    "515733",
+    "522099",
+    "524427",
+    "525740",
+    "525826",
+    "525827",
+    "526128",
+    "526306",
+    "526905",
+    "526906",
+    "527418"
+  ],
+  "generatedAt": "2026-05-31T09:54:37.832140+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/towels/feature/with-carabiner",
+  "type": "facet",
+  "h1": "Custom Towels with Carabiner for Bulk Orders",
+  "metaTitle": "Custom Towels with Carabiner | Perfect Imprints",
+  "metaDescription": "Order custom towels with carabiner for easy attachment. Perfect for golf, gym, or outdoor events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Towels with carabiner clips let your recipients clip them directly to a golf bag, gym duffel, or tool belt—no fumbling for a loop or hook. These branded towels stay accessible through a round of golf or a sweaty workout, making them a practical giveaway that actually gets used. Decorate with your logo using screen printing or embroidery on waffle, terry velour, or sport terry fabrics for a polished, durable finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom towels with carabiner clip attached to a golf bag, featuring embroidered logo and waffle texture",
+  "productSkus": [
+    "513098",
+    "522450",
+    "527643",
+    "528005",
+    "528437"
+  ],
+  "generatedAt": "2026-05-31T09:03:48.803297+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

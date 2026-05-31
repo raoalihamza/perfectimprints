@@ -1,0 +1,24 @@
+{
+  "url": "/cat/bandages/color/red",
+  "type": "facet",
+  "h1": "Custom Red Bandages for Bulk Orders",
+  "metaTitle": "Custom Red Bandages | Perfect Imprints",
+  "metaDescription": "Order custom red bandages in bulk for your workplace or event. Stand out with branded first aid supplies. Get a quote today!",
+  "introHtml": "<p>Red bandages offer high visibility in first aid kits, making them easy to spot in an emergency. Perfect for safety managers equipping job sites or marketing directors branding event giveaways, custom red bandages can be printed with your logo using standard decoration methods. Choose from dispensers or individual wrappers to suit your needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red bandages in a dispenser with printed logo, ideal for branded first aid kits",
+  "productSkus": [
+    "502343",
+    "506843",
+    "510131",
+    "528559"
+  ],
+  "generatedAt": "2026-05-31T08:28:01.082599+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

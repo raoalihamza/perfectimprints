@@ -1,0 +1,24 @@
+{
+  "url": "/cat/school-work-backpacks/feature/pocketed",
+  "type": "facet",
+  "h1": "Custom Pocketed School Work Backpacks",
+  "metaTitle": "Custom Pocketed School Work Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom pocketed school work backpacks with organized storage. Perfect for bulk branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Pocketed school work backpacks offer the organized storage that students and professionals need to keep laptops, tablets, notebooks, and accessories separate and secure. With multiple compartments, these bags make daily commutes and campus life more efficient. Customize with your logo or design using embroidery or screen printing for a polished look that stands out in hallways and offices alike.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pocketed school work backpacks with multiple compartments for organized storage and branding.",
+  "productSkus": [
+    "518365",
+    "520571",
+    "521963",
+    "528088"
+  ],
+  "generatedAt": "2026-05-31T09:01:48.275779+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

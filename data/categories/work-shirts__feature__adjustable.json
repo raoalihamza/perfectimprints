@@ -1,0 +1,24 @@
+{
+  "url": "/cat/work-shirts/feature/adjustable",
+  "type": "facet",
+  "h1": "Custom Adjustable Work Shirts for Bulk Orders",
+  "metaTitle": "Custom Adjustable Work Shirts | Perfect Imprints",
+  "metaDescription": "Order custom adjustable work shirts in bulk. Perfect for teams needing comfort and flexibility. Get a quote today.",
+  "introHtml": "<p>Custom adjustable work shirts offer built-in comfort features like snap cuffs, adjustable tabs, or stretch fabrics that move with your team. Whether you need long-sleeve twill overshirts for field crews or knit dress shirts for office staff, adjustable details ensure a better fit across different body types. Decorate with embroidery or screen printing for a professional, unified look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adjustable work shirts with snap cuffs and stretch fabric for team uniforms",
+  "productSkus": [
+    "515106",
+    "527183",
+    "527184",
+    "529218"
+  ],
+  "generatedAt": "2026-05-31T08:48:05.300672+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

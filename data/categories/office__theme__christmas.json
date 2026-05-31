@@ -1,0 +1,33 @@
+{
+  "url": "/cat/office/theme/christmas",
+  "type": "facet",
+  "h1": "Custom Christmas Office Gifts & Supplies",
+  "metaTitle": "Custom Christmas Office Gifts | Perfect Imprints",
+  "metaDescription": "Order custom Christmas office gifts for your team or clients. Branded ornaments, greeting cards, and more at Perfect Imprints.",
+  "introHtml": "<p>Christmas-themed office gifts let you spread holiday cheer while reinforcing your brand. Whether you need custom greeting cards for clients, branded ornaments for employee gifts, or a complete gift set like the Snowed In Set, these items bring seasonal warmth to corporate gifting. Choose from classic designs like wreaths and trees or modern styles like turquoise berry branches. Personalize with your logo and a holiday message to make a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assortment of custom Christmas office gifts including branded ornaments and greeting cards",
+  "productSkus": [
+    "503213",
+    "507272",
+    "508896",
+    "513759 2EX",
+    "513760 2EX",
+    "513761 2EX",
+    "513762 2EX",
+    "513765 2EX",
+    "513767 2EX",
+    "513768 2EX",
+    "517642 90A",
+    "520835",
+    "521927"
+  ],
+  "generatedAt": "2026-05-31T08:44:41.106368+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

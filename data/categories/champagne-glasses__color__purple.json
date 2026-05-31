@@ -1,0 +1,30 @@
+{
+  "url": "/cat/champagne-glasses/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Champagne Glasses",
+  "metaTitle": "Custom Purple Champagne Glasses | Perfect Imprints",
+  "metaDescription": "Shop custom purple champagne glasses for weddings, galas, and corporate events. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Purple champagne glasses add a bold, regal touch to any celebration. Whether you're planning a corporate gala, a wedding reception, or a fundraising event, custom purple glasses create a cohesive look that stands out. Choose from stemless plastic flutes for outdoor events or classic shot glasses for toasting. Decorate with your logo or event date using screen printing or etching for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple champagne glasses with engraved logo on stemless flute and shot glass",
+  "productSkus": [
+    "510028",
+    "511450",
+    "520634",
+    "524524",
+    "524525",
+    "524527",
+    "524528",
+    "525816",
+    "525817",
+    "527252"
+  ],
+  "generatedAt": "2026-05-31T09:40:16.230900+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

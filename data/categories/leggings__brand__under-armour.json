@@ -1,0 +1,28 @@
+{
+  "url": "/cat/leggings/brand/under-armour",
+  "type": "facet",
+  "h1": "Custom Under Armour Leggings for Bulk Orders",
+  "metaTitle": "Custom Under Armour Leggings | Perfect Imprints",
+  "metaDescription": "Order custom Under Armour leggings in bulk for your team. Perfect for fitness, corporate wellness, or uniforms. Get a quote today.",
+  "introHtml": "<p>Under Armour leggings combine moisture-wicking fabric with a four-way stretch, making them ideal for active teams, corporate wellness programs, or gym uniforms. Unlike standard leggings, Under Armour offers built-in compression and anti-odor technology that holds up to frequent washing. Decorate with your logo using screen printing or embroidery on the hip or lower leg for a professional finish that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of custom Under Armour leggings in black and gray with embroidered logos, neatly folded on a table.",
+  "productSkus": [
+    "527121",
+    "527122",
+    "528095",
+    "528096",
+    "528105",
+    "528106",
+    "528108",
+    "529262"
+  ],
+  "generatedAt": "2026-05-31T08:43:41.996869+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

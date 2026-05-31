@@ -1,0 +1,21 @@
+{
+  "url": "/cat/shoe-bags/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Shoe Bags",
+  "metaTitle": "Custom Orange Shoe Bags | Perfect Imprints",
+  "metaDescription": "Order custom orange shoe bags for sports teams or events. Get high-visibility bags with your logo at Perfect Imprints.",
+  "introHtml": "<p>Orange shoe bags offer high visibility for team gear, making them ideal for sports teams, school events, or outdoor promotions. Unlike generic bags, orange stands out on the field or in a gym locker, helping your brand stay noticeable. Whether you need drawstring bags for a youth soccer club or heavy-duty totes for a corporate wellness program, our orange shoe bags can be screen-printed or embroidered with your logo. Choose from styles like the Clear Game Drawstring Backpack for a modern twist that combines orange with transparent panels for easy bag checks at events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange shoe bags with drawstring closure and logo imprint, perfect for sports teams and events.",
+  "productSkus": [
+    "513944"
+  ],
+  "generatedAt": "2026-05-31T10:06:37.176593+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

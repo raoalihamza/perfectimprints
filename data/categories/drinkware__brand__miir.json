@@ -1,0 +1,33 @@
+{
+  "url": "/cat/drinkware/brand/miir",
+  "type": "facet",
+  "h1": "Custom Miir Drinkware for Bulk Orders",
+  "metaTitle": "Custom Miir Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom Miir drinkware for your brand. Eco-friendly, insulated bottles & cups with your logo. Perfect for corporate gifts.",
+  "introHtml": "<p>Miir drinkware stands out for its commitment to sustainability and quality construction. Each piece features vacuum insulation to keep drinks hot or cold for hours, making them ideal for corporate gifts, employee incentives, or trade show giveaways. The 32 oz All Day Straw Cup and 20 oz Wide Mouth Bottle are popular choices for bulk orders, offering ample space for your logo through screen printing or laser engraving. Choose Miir to align your brand with environmental responsibility and premium performance.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Miir drinkware including vacuum insulated tumblers and bottles with corporate logos",
+  "productSkus": [
+    "523728",
+    "523729",
+    "523730",
+    "523761",
+    "525478",
+    "525481",
+    "525612",
+    "526419",
+    "526482",
+    "527194",
+    "527204",
+    "527938",
+    "527939"
+  ],
+  "generatedAt": "2026-05-31T09:43:31.480879+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

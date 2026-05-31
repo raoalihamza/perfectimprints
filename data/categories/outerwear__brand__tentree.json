@@ -1,0 +1,21 @@
+{
+  "url": "/cat/outerwear/brand/tentree",
+  "type": "facet",
+  "h1": "Custom Tentree Outerwear for Your Brand",
+  "metaTitle": "Custom Tentree Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom Tentree outerwear with your logo. Eco-friendly, sustainable apparel for bulk orders. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Tentree outerwear combines sustainable materials like organic cotton and recycled fibers with a commitment to planting ten trees for every item purchased. For businesses prioritizing eco-conscious branding, these pieces offer a tangible way to align your logo with environmental stewardship. From lightweight jackets to cozy fleeces, each garment provides a high-quality canvas for embroidery or screen printing, making them ideal for trade shows, employee uniforms, or retail merchandise that reflects your company's green values.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Tentree outerwear with embroidered logo on organic cotton jacket",
+  "productSkus": [
+    "525984"
+  ],
+  "generatedAt": "2026-05-31T09:21:17.528106+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/products/brand/columbia",
+  "type": "facet",
+  "h1": "Custom Columbia Products for Bulk Orders",
+  "metaTitle": "Custom Columbia Products | Perfect Imprints",
+  "metaDescription": "Order custom Columbia products for your team or event. Shop jackets, shirts, and more at Perfect Imprints with bulk pricing.",
+  "introHtml": "<p>Columbia sportswear combines outdoor durability with a professional look, making it a top choice for corporate apparel programs, trade show giveaways, and employee uniforms. From the Men's Ascender Soft Shell to the Ladies' Kruser Ridge Soft Shell, these pieces feature moisture-wicking fabrics and sun protection. Decorate with your logo using embroidery or screen printing for a polished finish that stands up to frequent wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Columbia products including soft shell jackets and polo shirts with company logo embroidery for corporate branding",
+  "productSkus": [
+    "523863",
+    "523865",
+    "523866",
+    "523867",
+    "523870"
+  ],
+  "generatedAt": "2026-05-31T08:45:46.041063+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/mechanical-pencils/color/green",
+  "type": "facet",
+  "h1": "Custom Green Mechanical Pencils for Bulk Orders",
+  "metaTitle": "Custom Green Mechanical Pencils | Perfect Imprints",
+  "metaDescription": "Order custom green mechanical pencils in bulk. Perfect for eco-friendly branding or school events. Get a quote today!",
+  "introHtml": "<p>Green mechanical pencils offer a fresh, eco-conscious look for your brand. Whether you choose the sleek Armadillo or the fun Wild Smilez, these writing instruments stand out in office supply rooms or promotional giveaways. Available with full-color imprinting, they pair well with recycled materials for a cohesive sustainability message. Ideal for Earth Day campaigns or corporate swag, green mechanical pencils show attention to detail and environmental values.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green mechanical pencils in bulk with imprinting, featuring Armadillo and Wild Smilez designs",
+  "productSkus": [
+    "510506",
+    "510906",
+    "519577"
+  ],
+  "generatedAt": "2026-05-31T09:19:23.952614+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

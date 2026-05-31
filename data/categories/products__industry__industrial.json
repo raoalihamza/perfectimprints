@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/industry/industrial",
+  "type": "facet",
+  "h1": "Custom Industrial Products for Bulk Orders",
+  "metaTitle": "Custom Industrial Products | Perfect Imprints",
+  "metaDescription": "Order custom industrial products for your team or facility. Perfect Imprints offers bulk pricing on branded safety gear, tools, and more.",
+  "introHtml": "<p>Custom industrial products serve a distinct purpose: they combine durability, safety, and brand visibility in environments where standard promotional items fall short. Whether you need hard hats, safety glasses, or heavy-duty work gloves with your logo, these products are built for job sites, warehouses, and manufacturing floors. Choose from multiple decoration methods like pad printing or laser engraving to ensure your branding withstands daily wear and tear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom industrial products including branded hard hats and safety gear arranged on a workbench",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:36:52.476962+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

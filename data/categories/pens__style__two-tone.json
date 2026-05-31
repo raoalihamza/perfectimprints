@@ -1,0 +1,22 @@
+{
+  "url": "/cat/pens/style/two-tone",
+  "type": "facet",
+  "h1": "Custom Two Tone Pens for Bulk Orders",
+  "metaTitle": "Custom Two Tone Pens | Perfect Imprints",
+  "metaDescription": "Order custom two tone pens for your brand. Perfect for promotional giveaways with a sleek, professional look. Get a quote today.",
+  "introHtml": "<p>Two tone pens combine two complementary colors in a single design, giving your logo a polished, professional backdrop that stands out on any desk. Unlike single-color pens, the dual-color barrel creates visual interest without extra decoration cost. Ideal for trade shows, client gifts, or employee kits, these pens pair well with padfolios or notebooks for a coordinated look. Choose from matte and gloss finishes to match your brand's personality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom two tone pens with dual-color rubberized barrels and printed logos for promotional use",
+  "productSkus": [
+    "520714",
+    "520752"
+  ],
+  "generatedAt": "2026-05-31T08:45:15.043947+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

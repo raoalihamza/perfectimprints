@@ -1,0 +1,19 @@
+{
+  "url": "/cat/stationery/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Stationery for Bulk Orders",
+  "metaTitle": "Custom Set Stationery | Perfect Imprints",
+  "metaDescription": "Order custom set stationery in bulk from Perfect Imprints. Perfect for corporate gifts and branded office supplies. Get a quote today!",
+  "introHtml": "<p>Custom set stationery bundles multiple branded essentials into one cohesive package, making them ideal for new hire kits, client welcome gifts, and corporate event swag. Unlike single-item orders, sets create a polished impression by coordinating notebooks, pens, sticky notes, and more under one consistent design. Choose from options like spiral notebooks paired with retractable pens or sticky note cubes combined with mini highlighters. Decoration methods include full-color pad printing and foil stamping for a professional finish that reflects your company's attention to detail.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set stationery including branded notebooks, pens, sticky notes, and highlighters arranged on a desk",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:02:46.403938+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

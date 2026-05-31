@@ -1,0 +1,19 @@
+{
+  "url": "/cat/badges/search",
+  "type": "modifier",
+  "h1": "Custom Badges for Branded Promotions",
+  "metaTitle": "Custom Badges | Perfect Imprints",
+  "metaDescription": "Browse our selection of custom badges for your next promotion. Perfect for events, uniforms, and branding. Start your order today.",
+  "introHtml": "<p>Custom badges are a versatile way to promote your brand, recognize employees, or identify staff at events. Whether you need metal badges for a polished look, woven badges for apparel, or PVC badges for durability, our range of options makes it easy to find the right style. As a starting point for exploring the category, we offer a broad selection of shapes, sizes, and attachment types. Browse our collection to see what works for your team or event, and get a quote on the quantities and designs you need.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom badges with metal, woven, and PVC options for branding and identification",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:23:25.884331+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

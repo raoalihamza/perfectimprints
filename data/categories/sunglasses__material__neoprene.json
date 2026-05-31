@@ -1,0 +1,24 @@
+{
+  "url": "/cat/sunglasses/material/neoprene",
+  "type": "facet",
+  "h1": "Custom Neoprene Sunglasses for Bulk Orders",
+  "metaTitle": "Custom Neoprene Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom neoprene sunglasses in bulk. Perfect for outdoor events and giveaways. Contact Perfect Imprints for a quote.",
+  "introHtml": "<p>Neoprene sunglasses offer a lightweight, flexible, and durable alternative to traditional frames, making them ideal for outdoor events, trade shows, and corporate giveaways. The soft neoprene material provides a comfortable fit and comes in a variety of colors for full-color imprinting. Whether you need custom eyewear for a safety campaign or a branded accessory for a beach-themed promotion, neoprene sunglasses are a practical and eye-catching choice.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom neoprene sunglasses with colorful frames and logo imprint, perfect for outdoor events and bulk orders",
+  "productSkus": [
+    "505722",
+    "515640 33A",
+    "520417",
+    "520622"
+  ],
+  "generatedAt": "2026-05-31T10:09:25.294635+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

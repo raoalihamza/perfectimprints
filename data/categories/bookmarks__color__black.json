@@ -1,0 +1,23 @@
+{
+  "url": "/cat/bookmarks/color/black",
+  "type": "facet",
+  "h1": "Custom Black Bookmarks for Branded Giveaways",
+  "metaTitle": "Custom Black Bookmarks | Perfect Imprints",
+  "metaDescription": "Order custom black bookmarks for your next event or corporate gift. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Black bookmarks offer a sleek, professional look that pairs well with any brand color. Whether you choose the Big MagneticMark Bookmark with its strong magnet for securing pages or the slim Standard MagneticMark, black provides a neutral backdrop that makes your logo stand out. Ideal for corporate gifts, trade shows, or library promotions, these custom bookmarks are a practical and lasting giveaway.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black bookmarks with magnetic closure and company logo on a desk",
+  "productSkus": [
+    "501529",
+    "501530",
+    "527786"
+  ],
+  "generatedAt": "2026-05-31T09:37:40.276733+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/work-shirts/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Work Shirts for Your Team",
+  "metaTitle": "Custom Brown Work Shirts | Perfect Imprints",
+  "metaDescription": "Order custom brown work shirts for your team. Durable, comfortable, and perfect for branding. Get a quote today.",
+  "introHtml": "<p>Brown work shirts offer a practical alternative to traditional blue or gray, hiding dirt and wear while providing a professional, earthy look. Ideal for landscaping, construction, or warehouse teams, these shirts can be embroidered or screen-printed with your logo. The Women's Preston Long Sleeve Shirt is a popular option that combines durability with comfort for all-day wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown work shirts for team uniforms featuring embroidery on the chest pocket",
+  "productSkus": [
+    "517274"
+  ],
+  "generatedAt": "2026-05-31T10:15:27.569008+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

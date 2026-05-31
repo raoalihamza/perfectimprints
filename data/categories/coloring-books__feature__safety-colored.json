@@ -1,0 +1,26 @@
+{
+  "url": "/cat/coloring-books/feature/safety-colored",
+  "type": "facet",
+  "h1": "Custom Safety Colored Coloring Books",
+  "metaTitle": "Custom Safety Colored Coloring Books | Perfect Imprints",
+  "metaDescription": "Order custom safety colored coloring books for your safety program. Perfect for teaching kids fire, bike, and drug safety. Bulk discounts available.",
+  "introHtml": "<p>Safety colored coloring books combine education with engagement, making them a go-to giveaway for safety fairs, school programs, and community events. These books cover topics like fire escape plans, bicycle helmet use, and saying no to drugs, all in a format kids enjoy. Choose from titles such as <i>Fire, Escaping Fire Danger</i> or <i>Barkley Teaches Bicycle Safety</i> to reinforce your safety message. Custom imprint your organization's logo on the cover for lasting brand recognition.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom safety colored coloring books featuring fire safety and bike safety themes for children's educational programs.",
+  "productSkus": [
+    "518962 90A",
+    "518964 90A",
+    "518965 90A",
+    "519022 90A",
+    "526683",
+    "529052"
+  ],
+  "generatedAt": "2026-05-31T09:41:30.273462+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/cutting-boards/color/red",
+  "type": "facet",
+  "h1": "Custom Red Cutting Boards for Bulk Orders",
+  "metaTitle": "Custom Red Cutting Boards | Perfect Imprints",
+  "metaDescription": "Order custom red cutting boards in bulk from Perfect Imprints. Perfect for branding in commercial kitchens and retail.",
+  "introHtml": "<p>Red cutting boards offer high visibility in busy commercial kitchens, helping to prevent cross-contamination when used for raw meats. Perfect for branding with your logo or slogan, these boards are available in sizes like the 12\" Grande and Petit. Choose bamboo or plastic options to match your kitchen's needs and your brand's colors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red cutting boards with logo imprint, available in various sizes for commercial kitchens",
+  "productSkus": [
+    "510025",
+    "513121",
+    "514990",
+    "526756",
+    "528807"
+  ],
+  "generatedAt": "2026-05-31T09:42:15.464924+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

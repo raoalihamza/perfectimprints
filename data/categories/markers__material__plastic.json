@@ -1,0 +1,29 @@
+{
+  "url": "/cat/markers/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Markers for Bulk Orders",
+  "metaTitle": "Custom Plastic Markers | Perfect Imprints",
+  "metaDescription": "Order custom plastic markers in bulk with your logo. Perfect for offices, events, and promotions at Perfect Imprints.",
+  "introHtml": "<p>Plastic markers offer a durable, cost-effective option for branding that holds up to daily use. Whether you need highlighters for office supply kits or dry erase markers for conference rooms, plastic bodies resist cracking and provide a comfortable grip. Decorate with your logo using pad printing or full-color digital processes for a polished look that stands out on desks and in giveaway bags.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom plastic markers with company logo, assorted colors, bulk order for office promotions",
+  "productSkus": [
+    "508569",
+    "522355",
+    "522988",
+    "525233",
+    "525234",
+    "527952",
+    "528507",
+    "528508",
+    "528509"
+  ],
+  "generatedAt": "2026-05-31T08:57:38.322472+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

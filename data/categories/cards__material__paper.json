@@ -1,0 +1,29 @@
+{
+  "url": "/cat/cards/material/paper",
+  "type": "facet",
+  "h1": "Custom Paper Cards for Bulk Orders",
+  "metaTitle": "Custom Paper Cards | Perfect Imprints",
+  "metaDescription": "Order custom paper cards for your brand. Perfect for promotions, events, and giveaways. Fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Paper cards offer a classic, tactile way to promote your brand at events, trade shows, or as customer giveaways. Unlike plastic or metal cards, paper cards are lightweight, cost-effective, and easily customizable with full-color printing. Choose from standard playing card sizes or custom shapes, and add your logo or message with vibrant offset or digital printing. Perfect for marketing directors and small business owners looking for an affordable, memorable promotional item.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom paper cards with full-color printing, showing a poker-themed design and a company logo on the back.",
+  "productSkus": [
+    "524494",
+    "524496",
+    "526561",
+    "526562",
+    "526831",
+    "526832",
+    "526833",
+    "526834",
+    "526835"
+  ],
+  "generatedAt": "2026-05-31T09:40:05.131324+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/automotive/feature/padded",
+  "type": "facet",
+  "h1": "Custom Padded Automotive Products",
+  "metaTitle": "Custom Padded Automotive | Perfect Imprints",
+  "metaDescription": "Order custom padded automotive products with Perfect Imprints. Ideal for desk pads and accessories. Get your free quote today!",
+  "introHtml": "<p>Padded automotive products add comfort and protection to your vehicle or workspace. Whether you need custom desk pads for your fleet office or padded organizers for tool storage, the cushioning reduces fatigue and prevents scratches. Choose from materials like leatherette or neoprene with your logo embroidered or screen printed. Perfect for safety managers kitting out service vehicles or marketing directors creating branded driver comfort sets.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom padded automotive desk pad with embroidered logo, featuring leatherette surface and foam padding",
+  "productSkus": [
+    "518859"
+  ],
+  "generatedAt": "2026-05-31T08:31:51.901365+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

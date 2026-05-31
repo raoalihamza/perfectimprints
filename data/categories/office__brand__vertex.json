@@ -1,0 +1,22 @@
+{
+  "url": "/cat/office/brand/vertex",
+  "type": "facet",
+  "h1": "Custom Vertex Office Products for Bulk Orders",
+  "metaTitle": "Custom Vertex Office Products | Perfect Imprints",
+  "metaDescription": "Order custom Vertex office products from Perfect Imprints. Ideal for branded desk accessories and backpacks. Get your quote today.",
+  "introHtml": "<p>Vertex office products combine durability with a professional appearance, making them a smart choice for businesses that want their branded items to last. From the Summit 2Pc Desk Water Set to the Vertex Carbon Computer Backpack, these products offer practical daily use while keeping your logo visible. Whether outfitting a new office or supplying your sales team, Vertex items deliver quality that reflects well on your company.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Vertex office products including a desk water set and carbon computer backpack with branding",
+  "productSkus": [
+    "514584 90E",
+    "522054"
+  ],
+  "generatedAt": "2026-05-31T08:44:35.847149+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

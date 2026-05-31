@@ -1,0 +1,22 @@
+{
+  "url": "/cat/office/feature/with-wheels",
+  "type": "facet",
+  "h1": "Custom Office Products with Wheels",
+  "metaTitle": "Custom Office Products with Wheels | Perfect Imprints",
+  "metaDescription": "Order custom office products with wheels for your business. Perfect for trade shows, break rooms, and mobile storage. Get a quote today!",
+  "introHtml": "<p>Office products with wheels add mobility to your workspace, making it easy to move supplies, displays, or equipment wherever needed. Whether you need a branded utility cart for a trade show or a rolling organizer for a break room, adding wheels creates flexibility. Choose from items like the Coleman Camp Wagon or our rolling coolers, all customizable with your logo using screen printing or debossing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom office products with wheels, like a branded rolling utility cart, for mobile storage and display",
+  "productSkus": [
+    "504982",
+    "525795"
+  ],
+  "generatedAt": "2026-05-31T08:44:37.996014+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

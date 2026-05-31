@@ -1,0 +1,23 @@
+{
+  "url": "/cat/pouches/material/polyester",
+  "type": "facet",
+  "h1": "Custom Polyester Pouches for Bulk Orders",
+  "metaTitle": "Custom Polyester Pouches | Perfect Imprints",
+  "metaDescription": "Order custom polyester pouches for your brand. Ideal for trade shows, events, and corporate gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Polyester pouches offer a durable, lightweight option for carrying pens, cables, and everyday essentials. Unlike cotton or canvas, polyester resists moisture and holds its shape, making it a practical choice for promotional giveaways and employee kits. These pouches can be screen-printed or embroidered with your logo for a clean, professional look that lasts through daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom polyester pouches in assorted colors with zipper closures, perfect for corporate branding and promotional events.",
+  "productSkus": [
+    "510926",
+    "522164",
+    "524593"
+  ],
+  "generatedAt": "2026-05-31T09:00:30.767384+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/stationery/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Stationery for Branded Business Mail",
+  "metaTitle": "Custom Full Color Stationery | Perfect Imprints",
+  "metaDescription": "Order custom full color stationery for your business. Perfect for branded mail, notes & marketing. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Full color printing transforms standard stationery into a vibrant brand statement. Whether you need letterheads, notepads, or seeded paper greeting cards that bloom after planting, full color reproduction captures logos, gradients, and photography with clarity. Marketing directors and small business owners choose full color stationery to make every piece of mail reinforce their visual identity. From corporate correspondence to event invitations, custom full color stationery ensures your message stands out in any mailbox.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color stationery featuring a premium seeded paper greeting card with vibrant floral design",
+  "productSkus": [
+    "524481"
+  ],
+  "generatedAt": "2026-05-31T10:08:29.846656+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/umbrellas/special-feature/best-sellers",
+  "type": "facet",
+  "h1": "Custom Best Sellers Umbrellas",
+  "metaTitle": "Custom Best Sellers Umbrellas | Perfect Imprints",
+  "metaDescription": "Shop custom best sellers umbrellas for your next event. Reliable designs that keep your brand visible in any weather.",
+  "introHtml": "<p>Our best-selling umbrellas combine reliable construction with practical features like automatic open/close mechanisms, making them a favorite for corporate giveaways and employee gifts. The Pop Up Automatic Umbrella, for example, offers one-handed operation that commuters appreciate. Choosing from our best sellers means you get proven designs that recipients actually use, ensuring your logo gets repeated exposure rain or shine.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom best sellers umbrellas with automatic open feature, perfect for corporate branding and promotional events.",
+  "productSkus": [
+    "528068"
+  ],
+  "generatedAt": "2026-05-31T10:13:01.089959+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

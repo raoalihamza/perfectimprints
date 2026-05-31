@@ -1,0 +1,23 @@
+{
+  "url": "/cat/towels/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Towels for Bulk Orders",
+  "metaTitle": "Custom Full Color Towels | Perfect Imprints",
+  "metaDescription": "Order custom full color towels with vibrant sublimation. Perfect for giveaways, sports, or promotions. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Full color towels let you reproduce logos, photos, or intricate designs with photographic detail. Unlike screen-printed towels limited to a few colors, sublimation transfers dye directly into the fabric, resulting in a soft hand and fade-resistant graphics. From 15\" x 18\" rally towels for stadium giveaways to 22\" x 42\" bench towels for gyms, full color decoration gives you the flexibility to match any brand palette or event theme. Ideal for marketing directors and safety managers who need high-impact promotional items that stand out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color towels with vibrant sublimated logo, perfect for promotional giveaways and sports events.",
+  "productSkus": [
+    "516971 90A",
+    "528005",
+    "529122"
+  ],
+  "generatedAt": "2026-05-31T10:12:00.066191+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

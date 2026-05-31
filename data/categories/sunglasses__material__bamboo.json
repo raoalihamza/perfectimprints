@@ -1,0 +1,21 @@
+{
+  "url": "/cat/sunglasses/material/bamboo",
+  "type": "facet",
+  "h1": "Custom Bamboo Sunglasses",
+  "metaTitle": "Custom Bamboo Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom bamboo sunglasses for your brand. Eco-friendly, stylish, and perfect for events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Bamboo sunglasses offer a natural, lightweight alternative to plastic frames, making them a standout choice for eco-conscious brands. The wood grain varies in each pair, giving your logo a unique backdrop. Ideal for outdoor events, trade shows, or employee gifts, these sunglasses can be laser engraved or printed with your message. They combine style with sustainability, appealing to audiences who value environmental responsibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom bamboo sunglasses with laser engraved logo, eco-friendly wooden frames",
+  "productSkus": [
+    "526680"
+  ],
+  "generatedAt": "2026-05-31T10:09:24.931715+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

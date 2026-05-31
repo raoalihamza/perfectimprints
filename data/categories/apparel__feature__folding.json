@@ -1,0 +1,31 @@
+{
+  "url": "/cat/apparel/feature/folding",
+  "type": "facet",
+  "h1": "Custom Folding Apparel for Bulk Orders",
+  "metaTitle": "Custom Folding Apparel | Perfect Imprints",
+  "metaDescription": "Order custom folding apparel in bulk. Perfect for giveaways and travel. Shop packable jackets and more at Perfect Imprints.",
+  "introHtml": "<p>Folding apparel—packable jackets, ponchos, and eyewear cases—solves the problem of bulky giveaways. These items compress into their own pockets or small pouches, making them ideal for trade shows, corporate gifts, and safety kits where space is tight. Choose from nylon packable jackets like the Harriton® Adult Nylon Jacket or the Shed Rain™ Poncho, both easily decorated with your logo. Your recipients get functional gear that travels light, and your brand stays visible long after the event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom folding apparel including a packable nylon jacket folded into its own pocket, ready for logo imprinting",
+  "productSkus": [
+    "505114",
+    "505165",
+    "510937",
+    "519005",
+    "526781",
+    "527831",
+    "527832",
+    "527885",
+    "527886",
+    "528755",
+    "528756"
+  ],
+  "generatedAt": "2026-05-31T09:05:29.632532+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

@@ -1,0 +1,31 @@
+{
+  "url": "/cat/napkins/supplier/tran",
+  "type": "facet",
+  "h1": "Custom Tran Napkins for Bulk Orders",
+  "metaTitle": "Custom Tran Napkins | Perfect Imprints",
+  "metaDescription": "Order custom Tran napkins in bulk for your business. Perfect for events, restaurants, and corporate branding. Get a quote today.",
+  "introHtml": "<p>Tran napkins offer a reliable choice for businesses needing custom paper napkins in bulk. Whether you choose white or colored options in beverage, luncheon, or dinner sizes, Tran provides consistent quality for imprinting your logo. These napkins work well for restaurants, catered events, or office breakrooms where branded disposables leave a lasting impression on guests and staff alike.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom Tran napkins with logo imprint in various colors and sizes for bulk business orders",
+  "productSkus": [
+    "514577 90A",
+    "514579 90A",
+    "514580 90A",
+    "514581 90A",
+    "514583 90A",
+    "519472",
+    "519473",
+    "520634",
+    "520635",
+    "520636",
+    "520637"
+  ],
+  "generatedAt": "2026-05-31T08:25:20.571579+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

@@ -1,0 +1,27 @@
+{
+  "url": "/cat/personal-care-items/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Personal Care Items for Bulk Orders",
+  "metaTitle": "Custom Set Personal Care Items | Perfect Imprints",
+  "metaDescription": "Order custom set personal care items for your team or event. Perfect for corporate gifts and employee wellness kits.",
+  "introHtml": "<p>Ordering custom set personal care items means you get coordinated, ready-to-gift bundles that save time and effort. Curated sets like the Calm and Relax Cozy Kit combine multiple useful products into one branded package, ideal for employee appreciation or conference swag. Choose sets that include items such as manicure tools, mirrors, or mini fans to create a cohesive brand experience recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set personal care items including a manicure set and LED mirror in a branded gift box",
+  "productSkus": [
+    "526751",
+    "527032",
+    "527054",
+    "527656",
+    "528132",
+    "529298",
+    "529387"
+  ],
+  "generatedAt": "2026-05-31T09:22:21.815596+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

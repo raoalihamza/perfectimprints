@@ -1,0 +1,26 @@
+{
+  "url": "/cat/sunglasses/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Sunglasses for Bulk Orders",
+  "metaTitle": "Custom Set Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom set sunglasses in bulk from Perfect Imprints. Perfect for events and giveaways with multiple items in one package.",
+  "introHtml": "<p>Custom set sunglasses bundle multiple items—like a pair of shades with a pouch or microfiber cloth—into one cohesive giveaway. This option is ideal for trade shows, corporate events, or employee appreciation where you want to offer more value without extra logistics. Sets ensure recipients receive a complete, ready-to-use package that reinforces your brand at every touchpoint.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set sunglasses with branded microfiber cloth and pouch for corporate giveaways",
+  "productSkus": [
+    "520125",
+    "522406",
+    "525620",
+    "526802",
+    "526803",
+    "526805"
+  ],
+  "generatedAt": "2026-05-31T09:27:14.839536+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

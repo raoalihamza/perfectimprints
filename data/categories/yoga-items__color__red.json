@@ -1,0 +1,24 @@
+{
+  "url": "/cat/yoga-items/color/red",
+  "type": "facet",
+  "h1": "Custom Red Yoga Items for Bulk Orders",
+  "metaTitle": "Custom Red Yoga Items | Perfect Imprints",
+  "metaDescription": "Order custom red yoga items in bulk for your studio or event. Perfect Imprints offers quality branded gear. Get a quote today!",
+  "introHtml": "<p>Red yoga items stand out in a crowd, making them ideal for brand visibility at events, studio giveaways, or employee wellness kits. Whether you choose custom red yoga mats, towels, or the vibrant Yoga Retreat Cotton Tote, the bold color ensures your logo pops. Decorate with screen printing or embroidery for a polished look that aligns with your brand's energy.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red yoga items including a red yoga mat, red water bottle, and red cotton tote bag with logo",
+  "productSkus": [
+    "505073",
+    "520476",
+    "522878",
+    "524322"
+  ],
+  "generatedAt": "2026-05-31T09:31:37.472505+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

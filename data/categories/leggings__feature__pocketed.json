@@ -1,0 +1,27 @@
+{
+  "url": "/cat/leggings/feature/pocketed",
+  "type": "facet",
+  "h1": "Custom Pocketed Leggings for Bulk Orders",
+  "metaTitle": "Custom Pocketed Leggings | Perfect Imprints",
+  "metaDescription": "Order custom pocketed leggings in bulk from Perfect Imprints. Ideal for teams needing functional, branded apparel with secure storage.",
+  "introHtml": "<p>Custom pocketed leggings combine the comfort of performance fabric with the practicality of secure storage, making them a smart choice for teams that need to keep phones, keys, or ID badges close at hand during workouts or work shifts. Unlike standard leggings, pocketed designs offer functional utility without sacrificing fit or flexibility. Whether you are outfitting a fitness crew or a medical staff, these leggings provide a polished, branded look that stays put. Choose from moisture-wicking materials and custom decoration options to match your organization's colors and logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pocketed leggings with side pockets, ideal for active teams and promotional use.",
+  "productSkus": [
+    "528786",
+    "528788",
+    "528789",
+    "528795",
+    "528874",
+    "528875",
+    "529237"
+  ],
+  "generatedAt": "2026-05-31T09:54:23.705619+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

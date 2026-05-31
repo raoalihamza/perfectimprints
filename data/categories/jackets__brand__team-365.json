@@ -1,0 +1,23 @@
+{
+  "url": "/cat/jackets/brand/team-365",
+  "type": "facet",
+  "h1": "Custom Team 365 Jackets for Bulk Orders",
+  "metaTitle": "Custom Team 365 Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Team 365 jackets in bulk from Perfect Imprints. Durable, stylish outerwear for your team.",
+  "introHtml": "<p>Team 365 jackets combine durable construction with professional styling, making them a top pick for corporate teams, safety crews, and event staff. Whether you need waterproof shells for outdoor workers or lightweight fleece for trade shows, these jackets accept embroidery and screen printing cleanly. The Dominator Waterproof Jacket and Core 365 Journey Fleece are popular choices that hold up to daily wear while keeping your logo visible.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Team 365 jackets with embroidered logos, including waterproof and fleece styles for teams",
+  "productSkus": [
+    "506605",
+    "506606",
+    "520529"
+  ],
+  "generatedAt": "2026-05-31T09:51:41.254871+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

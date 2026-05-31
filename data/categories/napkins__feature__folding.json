@@ -1,0 +1,26 @@
+{
+  "url": "/cat/napkins/feature/folding",
+  "type": "facet",
+  "h1": "Custom Folding Napkins for Branded Events",
+  "metaTitle": "Custom Folding Napkins | Perfect Imprints",
+  "metaDescription": "Order custom folding napkins for your next event. Choose from 1/4 or 1/8 fold styles with your logo. Perfect for restaurants, caterers, and more.",
+  "introHtml": "<p>Folding napkins offer a compact, pre-folded solution that saves time and ensures consistent presentation at catered events, corporate lunches, and food service operations. Unlike bulk flat napkins, custom folding napkins arrive ready to use, with your logo printed on each precisely folded square. Choose from 1/4 fold dinner napkins for hearty meals or 1/8 fold beverage napkins for coffee bars and cocktail hours.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom folding napkins with logo, available in 1/4 fold and 1/8 fold styles for events",
+  "productSkus": [
+    "514579 90A",
+    "514580 90A",
+    "514583 90A",
+    "519473",
+    "520636",
+    "520637"
+  ],
+  "generatedAt": "2026-05-31T08:29:52.535264+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/mission",
+  "type": "facet",
+  "h1": "Custom Mission Products for Bulk Orders",
+  "metaTitle": "Custom Mission Products | Perfect Imprints",
+  "metaDescription": "Order custom Mission products in bulk at Perfect Imprints. Ideal for corporate gifts, trade shows, and brand giveaways.",
+  "introHtml": "<p>Mission brand products are known for their rugged durability and outdoor-ready design, making them a smart choice for companies that want to give gear employees and clients will actually use. From insulated bottles to multitools, these items hold up to daily wear while keeping your logo front and center. Ideal for safety managers equipping field teams or marketing directors building trade show kits, Mission products combine function with brand visibility. Decorate with screen printing, laser engraving, or pad printing for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom Mission products including water bottles and multitools with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:44.150780+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

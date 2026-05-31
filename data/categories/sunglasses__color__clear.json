@@ -1,0 +1,22 @@
+{
+  "url": "/cat/sunglasses/color/clear",
+  "type": "facet",
+  "h1": "Custom Clear Sunglasses",
+  "metaTitle": "Custom Clear Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom clear sunglasses for your next event. Perfect for outdoor promotions and giveaways. Browse our collection at Perfect Imprints.",
+  "introHtml": "<p>Clear sunglasses offer a modern, translucent look that keeps the focus on your logo while providing UV protection. Ideal for trade shows, outdoor events, and summer promotions, these shades pair well with any outfit. The Crystalline Malibu Sunglasses feature a sleek clear frame that stands out without overpowering your brand colors. Decorate with pad printing or a custom case for added visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom clear sunglasses with transparent frames and UV protection, perfect for branded promotional giveaways",
+  "productSkus": [
+    "505722",
+    "520336"
+  ],
+  "generatedAt": "2026-05-31T10:09:21.636435+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

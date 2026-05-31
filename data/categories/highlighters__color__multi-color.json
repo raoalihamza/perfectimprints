@@ -1,0 +1,29 @@
+{
+  "url": "/cat/highlighters/color/multi-color",
+  "type": "facet",
+  "h1": "Custom Multi Color Highlighters",
+  "metaTitle": "Custom Multi Color Highlighters | Perfect Imprints",
+  "metaDescription": "Order custom multi color highlighters for your team. Perfect for color-coding and notes. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom multi color highlighters give your team or event attendees an easy way to color-code documents, schedules, or training materials. Unlike a single-color highlighter, a multi pack lets each user keep multiple shades on hand for organizing by priority, topic, or deadline. Options like the PromoSpinner™ Tri-Highlighter or 3-In-1 Pen/Highlighter/Stylus combine several tools in one barrel. Imprint your logo on each barrel for a practical giveaway that gets used daily in offices and classrooms.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom multi color highlighters with company logos, including tri-highlighter and pen combos",
+  "productSkus": [
+    "512204",
+    "514818",
+    "516589",
+    "516591",
+    "518853",
+    "521175",
+    "522353",
+    "522354",
+    "522472"
+  ],
+  "generatedAt": "2026-05-31T09:50:51.166716+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

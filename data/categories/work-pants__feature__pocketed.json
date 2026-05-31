@@ -1,0 +1,21 @@
+{
+  "url": "/cat/work-pants/feature/pocketed",
+  "type": "facet",
+  "h1": "Custom Pocketed Work Pants for Bulk Orders",
+  "metaTitle": "Custom Pocketed Work Pants | Perfect Imprints",
+  "metaDescription": "Order custom pocketed work pants with your logo. Durable, functional, and perfect for teams. Get a quote today!",
+  "introHtml": "<p>Pocketed work pants keep tools, phones, and notepads within easy reach on the job. Unlike standard work pants, these feature reinforced pockets designed for daily use in construction, maintenance, and field service. Add your company logo with embroidery or screen printing for a professional uniform that works as hard as your team. Custom pocketed work pants combine utility with brand visibility for safety managers and crew leaders alike.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pocketed work pants with reinforced pockets and embroidered logo, ideal for construction and field workers",
+  "productSkus": [
+    "527831"
+  ],
+  "generatedAt": "2026-05-31T09:30:58.832801+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

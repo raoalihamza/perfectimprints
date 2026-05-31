@@ -1,0 +1,29 @@
+{
+  "url": "/cat/bandanas/color/black",
+  "type": "facet",
+  "h1": "Custom Black Bandanas for Bulk Orders",
+  "metaTitle": "Custom Black Bandanas | Perfect Imprints",
+  "metaDescription": "Order custom black bandanas in bulk. Perfect for uniforms, giveaways, and promotions. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Black bandanas offer a versatile, neutral canvas for your logo or message, making them a popular choice for uniforms, employee gifts, and event giveaways. Unlike lighter colors, black hides dirt and wear, ideal for outdoor or industrial use. Available in cotton, fleece, and tubular styles, these bandanas can be screen printed or embroidered for a crisp, professional look that stands out against the dark fabric.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black bandanas with screen-printed logo displayed on a table, perfect for bulk promotional orders.",
+  "productSkus": [
+    "506991",
+    "516836",
+    "516837",
+    "521602",
+    "522110",
+    "522111",
+    "524693",
+    "524817",
+    "525555"
+  ],
+  "generatedAt": "2026-05-31T09:34:44.046351+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

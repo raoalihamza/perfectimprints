@@ -1,0 +1,25 @@
+{
+  "url": "/cat/wine-glasses/material/crystal",
+  "type": "facet",
+  "h1": "Custom Crystal Wine Glasses for Bulk Orders",
+  "metaTitle": "Custom Crystal Wine Glasses | Perfect Imprints",
+  "metaDescription": "Order custom crystal wine glasses in bulk. Perfect for corporate gifts and events. Get a quote today.",
+  "introHtml": "<p>Crystal wine glasses offer clarity and brilliance that standard glass cannot match, making them a premium choice for corporate gifts, VIP events, and client appreciation. The fine material allows for crisp laser engraving or elegant screen printing, ensuring your logo stands out with a sophisticated finish. Whether you're celebrating a milestone or hosting a high-end trade show reception, custom crystal wine glasses convey quality and attention to detail.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom crystal wine glasses with engraved logo on a table setting, showcasing elegance and clarity",
+  "productSkus": [
+    "512377 90E",
+    "516380 90E",
+    "524524",
+    "524525",
+    "524526"
+  ],
+  "generatedAt": "2026-05-31T10:14:56.958583+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

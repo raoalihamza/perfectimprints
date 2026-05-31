@@ -1,0 +1,23 @@
+{
+  "url": "/cat/scarves/material/knit",
+  "type": "facet",
+  "h1": "Custom Knit Scarves for Branded Promotions",
+  "metaTitle": "Custom Knit Scarves | Perfect Imprints",
+  "metaDescription": "Order custom knit scarves for your next promotion. Soft, warm, and perfect for corporate gifts or events. Get a quote today.",
+  "introHtml": "<p>Knit scarves offer a cozy, textured look that stands out from printed or woven options. Whether you choose a classic striped rugby scarf for a sports-themed giveaway or a two-tone fringe design for a corporate holiday gift, the knit construction provides warmth and durability. Full-color digital printing on knit sets allows for detailed logos, making these scarves a memorable promotional item for outdoor events, trade shows, or employee appreciation packages.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom knit scarves in various colors and patterns, including striped and fringed styles, for branding.",
+  "productSkus": [
+    "514088",
+    "520012",
+    "520863"
+  ],
+  "generatedAt": "2026-05-31T10:05:40.171357+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

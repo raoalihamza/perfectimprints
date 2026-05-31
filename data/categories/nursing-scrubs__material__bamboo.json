@@ -1,0 +1,23 @@
+{
+  "url": "/cat/nursing-scrubs/material/bamboo",
+  "type": "facet",
+  "h1": "Custom Bamboo Nursing Scrubs",
+  "metaTitle": "Custom Bamboo Nursing Scrubs | Perfect Imprints",
+  "metaDescription": "Order custom bamboo nursing scrubs for your team. Soft, breathable, and eco-friendly. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Bamboo nursing scrubs offer a unique combination of softness, breathability, and sustainability that traditional cotton or poly blends can't match. The natural moisture-wicking and antibacterial properties keep nurses comfortable during long shifts, while the eco-friendly material appeals to environmentally conscious organizations. Ideal for hospital uniforms or clinic teams, these scrubs can be embroidered with your logo for a professional look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom bamboo nursing scrubs with embroidered logo, soft and breathable fabric for healthcare uniforms",
+  "productSkus": [
+    "524427",
+    "526680",
+    "527216"
+  ],
+  "generatedAt": "2026-05-31T08:29:57.519217+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

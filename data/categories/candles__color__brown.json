@@ -1,0 +1,25 @@
+{
+  "url": "/cat/candles/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Candles for Bulk Orders",
+  "metaTitle": "Custom Brown Candles | Perfect Imprints",
+  "metaDescription": "Order custom brown candles for your brand. Perfect for earthy, rustic themes. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Brown candles bring a natural, grounded feel to any setting, making them a strong choice for brands that want to convey warmth, sustainability, or rustic charm. Whether you choose a wooden wick candle like the Silhouette Wood Wick Candle with Wooden Box for a crackling ambiance or a soy blend like the Modern Sprout Rooted Candle, brown tones complement earth-conscious messaging. Customize with your logo using screen printing or foil stamping for a polished look at corporate events or retail giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown candles in various styles, including wooden wick and soy blends, arranged on a rustic wooden table.",
+  "productSkus": [
+    "521842",
+    "526407",
+    "526492",
+    "526780",
+    "527052"
+  ],
+  "generatedAt": "2026-05-31T08:40:31.381869+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

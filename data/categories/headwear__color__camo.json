@@ -1,0 +1,22 @@
+{
+  "url": "/cat/headwear/color/camo",
+  "type": "facet",
+  "h1": "Custom Camo Headwear for Bulk Orders",
+  "metaTitle": "Custom Camo Headwear | Perfect Imprints",
+  "metaDescription": "Order custom camo headwear in bulk from Perfect Imprints. Perfect for outdoor events, teams, and promotions. Get your quote today!",
+  "introHtml": "<p>Camo headwear offers a rugged, outdoorsy look that stands out from standard caps. Whether you're outfitting a hunting team, promoting an outdoor brand, or supplying safety crews, custom camo hats in patterns like digital camouflage or patriotic camo provide a distinct visual identity. Decorate with embroidered logos for a durable, professional finish that holds up to heavy use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom camo headwear with embroidered logo, featuring a digital camouflage pattern cap",
+  "productSkus": [
+    "509366 93A",
+    "512748 37A"
+  ],
+  "generatedAt": "2026-05-31T09:15:35.059687+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

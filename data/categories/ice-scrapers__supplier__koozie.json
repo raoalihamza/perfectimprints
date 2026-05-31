@@ -1,0 +1,27 @@
+{
+  "url": "/cat/ice-scrapers/supplier/koozie",
+  "type": "facet",
+  "h1": "Custom Koozie Ice Scrapers",
+  "metaTitle": "Custom Koozie Ice Scrapers | Perfect Imprints",
+  "metaDescription": "Order custom Koozie ice scrapers for your brand. Durable, effective, and perfect for winter promotions. Get a quote today.",
+  "introHtml": "<p>Koozie ice scrapers combine the trusted durability of a known brand with practical winter utility. Whether you outfit company vehicles with the compact Visor Ice Scraper or the long-reach 10\" Polar model, each scraper offers a generous imprint area for your logo. Ideal for safety managers equipping fleet drivers or marketing directors distributing branded winter kits at events, these scrapers clear frost and ice quickly. Decorate with screen printing or pad printing for lasting visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Koozie ice scrapers with a company logo, including Visor and Polar models.",
+  "productSkus": [
+    "503216",
+    "503217",
+    "506006",
+    "513053",
+    "514833",
+    "522046",
+    "524289"
+  ],
+  "generatedAt": "2026-05-31T08:43:03.937266+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

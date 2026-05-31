@@ -1,0 +1,25 @@
+{
+  "url": "/cat/household/brand/columbia",
+  "type": "facet",
+  "h1": "Custom Columbia Household Items for Bulk Orders",
+  "metaTitle": "Custom Columbia Household | Perfect Imprints",
+  "metaDescription": "Shop custom Columbia household items for bulk orders. Brand jackets, fleeces & more. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>When you need branded outerwear for your team or event, Columbia household items offer reliable performance and classic style. From soft shell jackets to fleece pullovers, these pieces are built for comfort and durability. Decorate with embroidery or screen printing for a polished look that keeps your brand visible in any setting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Columbia household items including jackets and fleeces with embroidered logos",
+  "productSkus": [
+    "523863",
+    "523865",
+    "523866",
+    "523867",
+    "523870"
+  ],
+  "generatedAt": "2026-05-31T09:51:09.881567+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

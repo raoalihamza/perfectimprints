@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/activity/football",
+  "type": "facet",
+  "h1": "Custom Football Products for Bulk Orders",
+  "metaTitle": "Custom Football Products | Perfect Imprints",
+  "metaDescription": "Order custom football products for game day giveaways and team events. Browse our bulk selection at PerfectImprints.com.",
+  "introHtml": "<p>Custom football products are ideal for tailgate parties, corporate sponsorships, and team-building events. From branded footballs and stadium cups to tailgating gear and fan accessories, these items create a strong connection with sports-loving audiences. Decorate with your logo using screen printing or debossing for a professional finish that stands out in the crowd.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom football products including branded footballs and tailgating accessories with logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:38.692103+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/coloring-books/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Coloring Books",
+  "metaTitle": "Made in USA Coloring Books | Perfect Imprints",
+  "metaDescription": "Order custom made in USA coloring books for your next promotion. Perfect for educational campaigns. Bulk pricing available.",
+  "introHtml": "<p>Made in USA coloring books combine the appeal of a trusted promotional product with the assurance of domestic manufacturing. These books are printed on American paper with U.S.-based production, making them a strong choice for companies that prioritize supporting local industry. Whether you need safety-themed books for a school program or health-focused titles for a community event, the made in USA designation adds credibility. Decorate with your logo on the cover for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA coloring books with safety and health themes, ideal for bulk promotional orders.",
+  "productSkus": [
+    "518681 90A",
+    "518962 90A",
+    "518964 90A",
+    "518965 90A",
+    "519022 90A",
+    "528543"
+  ],
+  "generatedAt": "2026-05-31T09:11:07.258394+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

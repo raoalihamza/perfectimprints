@@ -1,0 +1,22 @@
+{
+  "url": "/cat/stationery/brand/rocketbook",
+  "type": "facet",
+  "h1": "Custom Rocketbook Stationery for Bulk Orders",
+  "metaTitle": "Custom Rocketbook Stationery | Perfect Imprints",
+  "metaDescription": "Order custom Rocketbook stationery in bulk. Reusable notebooks with your logo. Perfect for eco-conscious corporate gifts.",
+  "introHtml": "<p>Custom Rocketbook stationery combines the convenience of a traditional notebook with the sustainability of a digital workflow. These reusable smart notebooks allow you to scan notes directly to the cloud, erase pages with a damp cloth, and use them again. For marketing directors and HR leaders seeking innovative, eco-friendly corporate gifts, Rocketbook offers a unique way to reduce paper waste while keeping your brand top of mind. Choose from the Core Executive Notebook Set or the Executive Flip Notebook Set, both customizable with your logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Rocketbook stationery with a branded cover, featuring a reusable smart notebook and pen.",
+  "productSkus": [
+    "526223",
+    "529172"
+  ],
+  "generatedAt": "2026-05-31T09:26:41.860410+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

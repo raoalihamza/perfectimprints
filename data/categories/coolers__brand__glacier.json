@@ -1,0 +1,21 @@
+{
+  "url": "/cat/coolers/brand/glacier",
+  "type": "facet",
+  "h1": "Custom Glacier Coolers for Bulk Orders",
+  "metaTitle": "Custom Glacier Coolers | Perfect Imprints",
+  "metaDescription": "Order custom Glacier coolers in bulk for your team or event. Durable, branded coolers from Perfect Imprints.",
+  "introHtml": "<p>Glacier coolers are built to keep contents cold for hours, making them a reliable choice for outdoor events, construction sites, and corporate giveaways. Their rugged construction and bold branding areas allow your logo to stand out whether you choose a backpack style or a traditional cooler. Perfect for safety managers equipping crews or marketing directors promoting at trade shows.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Glacier cooler backpack with logo branding, ideal for outdoor events and corporate giveaways.",
+  "productSkus": [
+    "527079"
+  ],
+  "generatedAt": "2026-05-31T09:41:37.513191+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

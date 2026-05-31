@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/adline",
+  "type": "facet",
+  "h1": "Custom Adline Products for Your Brand",
+  "metaTitle": "Custom Adline Products | Perfect Imprints",
+  "metaDescription": "Order custom Adline products for your brand. Perfect Imprints offers bulk pricing and fast turnaround on promotional items.",
+  "introHtml": "<p>Adline is known for its durable, high-quality promotional products that stand up to daily use. Whether you need custom logo drinkware for a trade show or branded office accessories for employee gifts, Adline's lineup delivers consistent imprint results and long-lasting value. Bulk buyers appreciate the wide range of styles and colors available, making it easy to match your brand guidelines while keeping per-unit costs low.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Adline products including branded drinkware and office accessories with logo imprint",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:20:58.195757+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

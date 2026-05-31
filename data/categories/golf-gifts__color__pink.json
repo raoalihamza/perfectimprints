@@ -1,0 +1,31 @@
+{
+  "url": "/cat/golf-gifts/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Golf Gifts for Women",
+  "metaTitle": "Custom Pink Golf Gifts | Perfect Imprints",
+  "metaDescription": "Order custom pink golf gifts in bulk for your next event. Perfect for women's tournaments. Get a quote today!",
+  "introHtml": "<p>Pink golf gifts stand out on the course while appealing to female players and breast cancer awareness events. From gloves to polos, these items combine style with function. Imprint your logo on high-performance fabrics or accessories for a cohesive, memorable giveaway that your recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink golf gifts including a women's golf glove, polo shirt, and tees with ball marker",
+  "productSkus": [
+    "510303",
+    "511117",
+    "517777",
+    "519574",
+    "519683",
+    "522780",
+    "523540",
+    "524126",
+    "528009",
+    "528068",
+    "529204"
+  ],
+  "generatedAt": "2026-05-31T09:48:37.534203+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

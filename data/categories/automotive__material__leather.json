@@ -1,0 +1,26 @@
+{
+  "url": "/cat/automotive/material/leather",
+  "type": "facet",
+  "h1": "Custom Leather Automotive Products for Bulk Orders",
+  "metaTitle": "Custom Leather Automotive | Perfect Imprints",
+  "metaDescription": "Order custom leather automotive products for your fleet or team. Durable, professional branding from Perfect Imprints.",
+  "introHtml": "<p>Leather automotive accessories bring a refined, professional look to your vehicle fleet or company cars. Unlike standard plastic or nylon options, leather offers a tactile quality that conveys durability and attention to detail. Perfect for branded keychains, luggage tags, or passport holders given to drivers or traveling employees, these items hold up well to daily use. Choose from embossed logos or debossed lettering for a clean, permanent mark that looks premium without being flashy.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom leather automotive products including keychains, luggage tags, and passport holders with embossed logos.",
+  "productSkus": [
+    "517192 01A",
+    "518287",
+    "520416",
+    "520885",
+    "524538",
+    "527820"
+  ],
+  "generatedAt": "2026-05-31T09:32:50.645425+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

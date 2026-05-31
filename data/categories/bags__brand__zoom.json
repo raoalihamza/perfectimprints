@@ -1,0 +1,23 @@
+{
+  "url": "/cat/bags/brand/zoom",
+  "type": "facet",
+  "h1": "Custom Zoom Bags for Branded Promotions",
+  "metaTitle": "Custom Zoom Bags | Perfect Imprints",
+  "metaDescription": "Shop custom Zoom bags for bulk orders. Perfect for trade shows and corporate gifts. Get a quote at PerfectImprints.com.",
+  "introHtml": "<p>Zoom bags combine durability with practical design, making them a smart pick for corporate giveaways and employee gifts. The Zoom Grid 15\" TSA Computer Backpack offers laptop protection for frequent travelers, while the Zoom Checkpoint-Friendly Compu-Backpack speeds through security lines. Choose custom embroidery or screen printing to add your logo to these reliable bags.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Zoom bags with embroidered logos, including a Zoom Grid 15-inch TSA Computer Backpack and a Zoom Checkpoint-Friendly Compu-Backpack",
+  "productSkus": [
+    "516688 01A",
+    "520571",
+    "527196"
+  ],
+  "generatedAt": "2026-05-31T09:06:55.886069+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

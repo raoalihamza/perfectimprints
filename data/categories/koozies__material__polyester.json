@@ -1,0 +1,33 @@
+{
+  "url": "/cat/koozies/material/polyester",
+  "type": "facet",
+  "h1": "Custom Polyester Koozies for Bulk Orders",
+  "metaTitle": "Custom Polyester Koozies | Perfect Imprints",
+  "metaDescription": "Order custom polyester koozies in bulk. Great for events and promotions. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Polyester koozies offer a durable, lightweight option that resists fraying and holds up to repeated use. Unlike foam or neoprene, polyester fabric allows for full-color sublimation printing, giving you vivid, edge-to-edge branding. Perfect for outdoor events, trade shows, or company picnics, these koozies keep drinks cold while showcasing your logo with high detail. Choose from slim or standard sizes to fit any can or bottle.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom polyester koozies with full-color logo printing, keeping drinks cold at an outdoor event.",
+  "productSkus": [
+    "510517",
+    "522884",
+    "525289",
+    "525578",
+    "526429",
+    "526430",
+    "526431",
+    "526805",
+    "527030",
+    "527393",
+    "529164",
+    "529206",
+    "529400"
+  ],
+  "generatedAt": "2026-05-31T08:25:13.621767+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

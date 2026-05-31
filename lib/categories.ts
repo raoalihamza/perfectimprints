@@ -1,9 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { decodeHtmlEntities } from './text-utils';
 
 const ROOT = process.cwd();
 const CATEGORIES_DIR = path.join(ROOT, 'data', 'categories');
 const PRODUCTS_FILE = path.join(ROOT, 'data', 'geiger', 'products.json');
+
+export const PRODUCTS_PER_PAGE = 60;
 
 export interface CategoryFaq {
   q: string;
@@ -19,6 +22,8 @@ export interface GeneratedCategoryContent {
   metaTitle: string;
   metaDescription: string;
   introHtml: string;
+  buyingGuideHtml?: string | null;
+  buyingGuideH2?: string | null;
   faqs: CategoryFaq[];
   heroAltText: string;
   productSkus: string[];
@@ -88,6 +93,7 @@ export function getAllGeneratedRootSlugs(): string[] {
   for (const file of files) {
     if (file.includes('__')) continue;
     const raw = fs.readFileSync(path.join(CATEGORIES_DIR, file), 'utf8');
+    if (!raw.trim()) continue;
     const data = JSON.parse(raw) as GeneratedCategoryContent;
     if (data.type === 'root') {
       slugs.push(file.replace(/\.json$/, ''));
@@ -96,14 +102,87 @@ export function getAllGeneratedRootSlugs(): string[] {
   return slugs.sort();
 }
 
+export interface CategorySlugSummary {
+  /** URL-style slug segments (joined with '/'), e.g. 'water-bottles/color/black'. */
+  urlSlug: string;
+  /** Filename slug (joined with '__'), used as the JSON filename without extension. */
+  fileSlug: string;
+  type: CategoryType;
+  totalProducts: number;
+  totalPages: number;
+}
+
+/**
+ * Returns one entry per generated category JSON file. Used by `generateStaticParams`
+ * to enumerate both base URLs and paginated variants (`/page/N`).
+ */
+export function getAllGeneratedCategorySlugs(): CategorySlugSummary[] {
+  if (!fs.existsSync(CATEGORIES_DIR)) return [];
+  const files = fs.readdirSync(CATEGORIES_DIR).filter((f) => f.endsWith('.json'));
+  const out: CategorySlugSummary[] = [];
+  for (const file of files) {
+    const raw = fs.readFileSync(path.join(CATEGORIES_DIR, file), 'utf8');
+    if (!raw.trim()) continue;
+    let data: GeneratedCategoryContent;
+    try {
+      data = JSON.parse(raw) as GeneratedCategoryContent;
+    } catch {
+      continue;
+    }
+    if (!data.url) continue;
+    const fileSlug = file.replace(/\.json$/, '');
+    const urlSlug = fileSlug.split('__').join('/');
+    const totalProducts = data.productSkus?.length ?? 0;
+    const totalPages = Math.max(1, Math.ceil(totalProducts / PRODUCTS_PER_PAGE));
+    out.push({ urlSlug, fileSlug, type: data.type, totalProducts, totalPages });
+  }
+  return out;
+}
+
 export function getProductsForCategorySlug(slug: string): GeigerProduct[] {
   const content = getCategoryContent(slug);
   if (!content) return [];
+  return resolveProducts(content.productSkus);
+}
+
+export interface CategoryProductsPage {
+  products: GeigerProduct[];
+  totalProducts: number;
+  totalPages: number;
+  page: number;
+  perPage: number;
+}
+
+/**
+ * Returns a single page of products (sliced by perPage). Page numbers are 1-indexed.
+ */
+export function getProductsPageForCategorySlug(
+  slug: string,
+  page: number,
+  perPage: number = PRODUCTS_PER_PAGE
+): CategoryProductsPage {
+  const content = getCategoryContent(slug);
+  const allSkus = content?.productSkus ?? [];
+  const totalProducts = allSkus.length;
+  const totalPages = Math.max(1, Math.ceil(totalProducts / perPage));
+  const start = (page - 1) * perPage;
+  const end = start + perPage;
+  const products = resolveProducts(allSkus.slice(start, end));
+  return { products, totalProducts, totalPages, page, perPage };
+}
+
+function resolveProducts(skus: string[]): GeigerProduct[] {
   const index = loadProductsIndex();
   const out: GeigerProduct[] = [];
-  for (const sku of content.productSkus) {
+  for (const sku of skus) {
     const product = index.get(sku);
-    if (product) out.push(product);
+    if (product) {
+      out.push({
+        ...product,
+        name: decodeHtmlEntities(product.name),
+        description: product.description ? decodeHtmlEntities(product.description) : product.description,
+      });
+    }
   }
   return out;
 }

@@ -1,0 +1,30 @@
+{
+  "url": "/cat/barware/brand/yeti",
+  "type": "facet",
+  "h1": "Custom Yeti Barware for Branded Drinkware",
+  "metaTitle": "Custom Yeti Barware | Perfect Imprints",
+  "metaDescription": "Order custom Yeti barware for your brand. Durable, insulated drinkware perfect for corporate gifts and events. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Yeti barware combines legendary durability with superior insulation, making it a top choice for branded drinkware that keeps beverages at the perfect temperature. Whether you're outfitting a corporate breakroom or creating premium gifts for clients, custom Yeti tumblers, lowballs, and can coolers offer a rugged, upscale look that stands out. Decorate with your logo using laser engraving or screen printing for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Yeti barware including a stackable lowball and tumbler with engraved logos on a bar counter",
+  "productSkus": [
+    "528839",
+    "528840",
+    "528841",
+    "528844",
+    "528845",
+    "528846",
+    "528847",
+    "529532",
+    "529533",
+    "529534"
+  ],
+  "generatedAt": "2026-05-31T08:32:28.766173+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

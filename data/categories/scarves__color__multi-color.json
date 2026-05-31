@@ -1,0 +1,21 @@
+{
+  "url": "/cat/scarves/color/multi-color",
+  "type": "facet",
+  "h1": "Custom Multi Color Scarves",
+  "metaTitle": "Custom Multi Color Scarves | Perfect Imprints",
+  "metaDescription": "Order custom multi color scarves for your team or event. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Multi color scarves give you the flexibility to incorporate several brand colors or create a vibrant design that stands out. The Sportsman Rugby Striped Knit Scarf is a popular choice for corporate gifts, trade shows, and seasonal promotions. With multiple decoration options including embroidery and screen printing, you can achieve a polished look that reflects your brand's personality. Perfect for marketing directors and HR directors looking for eye-catching giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom multi color scarves featuring the Sportsman Rugby Striped Knit Scarf in a striped pattern",
+  "productSkus": [
+    "520863"
+  ],
+  "generatedAt": "2026-05-31T09:01:36.494343+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

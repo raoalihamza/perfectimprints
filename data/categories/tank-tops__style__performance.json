@@ -1,0 +1,24 @@
+{
+  "url": "/cat/tank-tops/style/performance",
+  "type": "facet",
+  "h1": "Custom Performance Tank Tops for Active Teams",
+  "metaTitle": "Custom Performance Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom performance tank tops for your team or event. Moisture-wicking fabrics and bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Performance tank tops are built for movement and sweat. Unlike basic cotton tanks, they use moisture-wicking fabrics like polyester or tri-blends to keep wearers dry during runs, tradeshows, or outdoor work. Styles like the Sport-Tek PosiCharge Reversible Mesh Tank offer cooling mesh panels, while racerback cuts allow full range of motion. Ideal for sports teams, 5K events, or warehouse crews, these tanks can be decorated with screen printing or embroidery to showcase your logo in action.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom performance tank tops with moisture-wicking fabric and racerback design for active use",
+  "productSkus": [
+    "526200",
+    "528867",
+    "528880",
+    "528885"
+  ],
+  "generatedAt": "2026-05-31T09:28:16.511083+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

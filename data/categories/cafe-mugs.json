@@ -1,0 +1,67 @@
+{
+  "url": "/cat/cafe-mugs",
+  "type": "root",
+  "h1": "Custom Cafe Mugs for Branded Coffee Giveaways",
+  "metaTitle": "Custom Cafe Mugs | Perfect Imprints",
+  "metaDescription": "Order custom cafe mugs with your logo. Perfect for office, events, or client gifts. Fast turnaround and bulk pricing from Perfect Imprints.",
+  "introHtml": "<p>Marketing directors, HR managers, and business owners know that a warm drink in a branded mug creates a daily touchpoint with your company. Custom cafe mugs are one of the most practical and appreciated promotional items you can order. Whether you're stocking the office breakroom, preparing swag for a trade show, or sending thank-you gifts to clients, a quality mug keeps your logo front and center during coffee breaks, team meetings, and remote workdays.</p><p>At Perfect Imprints, we offer a wide selection of ceramic mugs in various sizes, shapes, and colors. From the classic 11 oz Aztec Mug to the oversized 20 oz Colossal Collection, you can find the right fit for your audience. Choose from budget-friendly options like the 11 oz Budget Mug or premium designs such as the 15 oz Campfire Mug with its unique contour. All mugs are customizable with your logo using screen print, full-color heat transfer, or laser engraving.</p>",
+  "buyingGuideHtml": "<p>When ordering custom cafe mugs, consider the size and shape that best suits your recipients. Standard 11 oz mugs are great for everyday coffee, while larger 15 or 16 oz options work for tea or hot chocolate. The 20 oz Colossal Collection appeals to heavy coffee drinkers. Think about the mug's handle design and rim feel, especially if you want a comfortable drinking experience.</p><h3>Materials and Build Quality</h3><p>Most custom cafe mugs are made from durable ceramic, which holds heat well and is dishwasher safe. Some mugs, like the 15 oz Full Color Mug, feature a glossy finish that makes full-color logos pop. Others, like the 14 oz Two-Tone Bistro Mug, offer a matte exterior with a contrasting interior. Always check if the mug is microwave safe, as many buyers prefer this feature for office use.</p><h3>Common Use Cases</h3><p>Branded cafe mugs are popular for employee onboarding kits, client appreciation gifts, and conference swag. Marketing directors often use them as giveaway items at trade shows, while HR directors include them in new hire welcome packages. Safety managers might order mugs for safety program incentives. Business owners also use personalized cafe mugs for holiday gifts or customer retention programs.</p><h3>Decoration Options</h3><p>Screen printing is cost-effective for simple one- or two-color logos and works well on flat or slightly curved mugs. For full-color artwork, choose the 15 oz Full Color Mug or use a full-color heat transfer process that wraps around the mug. Laser engraving on ceramic creates a subtle, permanent mark that won't fade. Consider the mug's color: dark mugs may require a white underbase for vibrant prints.</p><h3>Quantity and MOQ Guidance</h3><p>Bulk custom cafe mugs typically have a minimum order quantity of 48 to 72 pieces, depending on the style and decoration method. Ordering larger quantities, such as 144 or 288, reduces the per-unit cost significantly. Wholesale pricing is available for orders over 500 pieces. If you need a small run for a team event, look for styles with lower MOQs, like the 11 oz Budget Mug.</p><h3>Tips to Avoid Common Mistakes</h3><p>One common mistake is choosing a mug with a tapered shape that doesn't fit standard cup holders. Another is overlooking the imprint area: some mugs have curved surfaces that limit print size. Always request a proof before production. Also, consider lead times: screen printing takes longer than heat transfer, so plan accordingly. Finally, order a sample first to test the mug's feel and color accuracy.</p>",
+  "buyingGuideH2": "Custom Cafe Mugs Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom cafe mugs?",
+      "a": "The minimum order typically ranges from 48 to 72 pieces, depending on the mug style and decoration method. Some budget-friendly options may have lower MOQs. Contact us for specific product requirements."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, we offer sample orders for most mugs. You can request a blank sample to evaluate the size, feel, and quality. For decorated samples, a setup fee may apply."
+    },
+    {
+      "q": "What decoration methods are available for mugs?",
+      "a": "We offer screen printing, full-color heat transfer, and laser engraving. Screen printing is best for simple logos, while heat transfer allows full-color designs. Engraving provides a permanent, subtle mark."
+    },
+    {
+      "q": "Are the mugs dishwasher and microwave safe?",
+      "a": "Most of our ceramic mugs are dishwasher and microwave safe. However, mugs with metallic accents or certain decorations may not be. Check the product details or ask your account manager."
+    },
+    {
+      "q": "How long does production take for custom mugs?",
+      "a": "Standard production time is 10-15 business days after proof approval. Rush orders may be available for an additional fee. Heat transfer decorations typically have faster turnaround than screen printing."
+    }
+  ],
+  "heroAltText": "Custom cafe mugs with logo printed on ceramic surface, perfect for coffee giveaways and office use",
+  "productSkus": [
+    "503190",
+    "504267",
+    "509885",
+    "510094",
+    "510100 90A",
+    "510964",
+    "510998",
+    "511005",
+    "511030 90E",
+    "512770",
+    "512771",
+    "514870",
+    "515507",
+    "517509",
+    "518784",
+    "520204",
+    "521330",
+    "521384",
+    "521879",
+    "522392",
+    "522462",
+    "522463",
+    "522465",
+    "524109",
+    "524786"
+  ],
+  "generatedAt": "2026-05-30T11:35:19.041576+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "buyer",
+  "skuFilterMode": "full",
+  "rawSkuCount": 25,
+  "filteredSkuCount": 25
+}

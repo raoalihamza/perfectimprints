@@ -1,0 +1,23 @@
+{
+  "url": "/cat/apparel/brand/trimark",
+  "type": "facet",
+  "h1": "Custom Trimark Apparel for Bulk Orders",
+  "metaTitle": "Custom Trimark Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Trimark apparel for your team. Perfect Imprints offers bulk pricing on hats, bags, and more. Get a quote today.",
+  "introHtml": "<p>Trimark apparel is built for durability and comfort, making it a reliable choice for corporate uniforms, event giveaways, and employee rewards. From the rugged Vulcan Bifold Wallet to the casual Haberdasher Knit Beanie with Leather Patch, each piece accepts screen printing or embroidery for a polished brand look. Bulk buyers appreciate Trimark's consistent sizing and wash-tested materials that keep logos looking sharp shift after shift.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Trimark apparel including embroidered hats and durable bags for corporate branding",
+  "productSkus": [
+    "520886",
+    "521871",
+    "528171"
+  ],
+  "generatedAt": "2026-05-31T08:48:25.053346+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

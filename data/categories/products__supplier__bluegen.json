@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/bluegen",
+  "type": "facet",
+  "h1": "Custom Bluegen Products for Bulk Orders",
+  "metaTitle": "Custom Bluegen Products | Perfect Imprints",
+  "metaDescription": "Order custom Bluegen products in bulk. Perfect Imprints offers a wide selection of branded merchandise from Bluegen for your business.",
+  "introHtml": "<p>Bluegen products combine practical design with durable construction, making them a reliable choice for corporate giveaways and employee recognition. Whether you need custom notebooks for a sales meeting or branded bags for a trade show, Bluegen items offer a consistent, professional look. Their streamlined styles work well with screen printing or embroidery, giving you flexibility in decoration. Bulk orders ensure you keep your brand visible across multiple events without sacrificing quality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Bluegen products including notebooks and bags with company logo for corporate branding",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:21:55.244647+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

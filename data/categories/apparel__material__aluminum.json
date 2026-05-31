@@ -1,0 +1,23 @@
+{
+  "url": "/cat/apparel/material/aluminum",
+  "type": "facet",
+  "h1": "Custom Aluminum Apparel",
+  "metaTitle": "Custom Aluminum Apparel | Perfect Imprints",
+  "metaDescription": "Shop custom aluminum apparel for high-visibility safety and style. Durable, reflective, and perfect for bulk orders. Get a quote today!",
+  "introHtml": "<p>Aluminum apparel isn't your typical clothing—it's engineered for safety and visibility. Whether you need high-visibility vests for construction crews or reflective accents on workwear, aluminum-based materials provide durability and heat resistance that standard fabrics can't match. Perfect for safety managers equipping teams or event staff needing standout gear, these pieces combine function with custom imprinting options like screen printing or embroidery.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom aluminum apparel featuring high-visibility reflective vests and workwear with custom logos",
+  "productSkus": [
+    "525400",
+    "526802",
+    "527493"
+  ],
+  "generatedAt": "2026-05-31T09:05:29.630453+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

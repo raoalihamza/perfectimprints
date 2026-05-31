@@ -1,0 +1,21 @@
+{
+  "url": "/cat/products/brand/callaway",
+  "type": "facet",
+  "h1": "Custom Callaway Products for Corporate Events",
+  "metaTitle": "Custom Callaway Products | Perfect Imprints",
+  "metaDescription": "Order branded Callaway products for golf outings and corporate gifts. Custom Callaway products available in bulk at Perfect Imprints.",
+  "introHtml": "<p>Callaway is a trusted name in golf, known for high-performance equipment like the Supersoft Golf Balls. When you choose custom Callaway products for your corporate tournament, client appreciation gift, or employee event, you align your brand with quality and precision. Decorate these items with your logo using screen printing or debossing for a professional finish that stands out on the course.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Callaway products including branded Supersoft golf balls arranged on grass",
+  "productSkus": [
+    "529257"
+  ],
+  "generatedAt": "2026-05-31T10:03:25.581906+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

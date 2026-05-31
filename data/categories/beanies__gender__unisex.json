@@ -1,0 +1,26 @@
+{
+  "url": "/cat/beanies/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Beanies for Bulk Orders",
+  "metaTitle": "Custom Unisex Beanies | Perfect Imprints",
+  "metaDescription": "Order custom unisex beanies in bulk for your team or event. Perfect for branding with embroidery or screen printing.",
+  "introHtml": "<p>Unisex beanies offer a versatile fit that works for any gender, making them an ideal choice for company giveaways, event merchandise, or employee uniforms. Materials range from classic acrylic to heavyweight cotton blends, with options like pom-poms or reflective stripes for added style and safety. Decorate with embroidery or screen printing for a clean, professional look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of custom unisex beanies in various colors, embroidered with logos, displayed on a table.",
+  "productSkus": [
+    "506903",
+    "520012",
+    "520922",
+    "523881",
+    "524211",
+    "526537"
+  ],
+  "generatedAt": "2026-05-31T09:08:30.060787+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

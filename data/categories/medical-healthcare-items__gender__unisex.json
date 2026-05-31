@@ -1,0 +1,25 @@
+{
+  "url": "/cat/medical-healthcare-items/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Medical Healthcare Items",
+  "metaTitle": "Custom Unisex Medical Healthcare Items | Perfect Imprints",
+  "metaDescription": "Order custom unisex medical healthcare items for your team. Branded apparel and accessories for clinics and hospitals. Shop Perfect Imprints.",
+  "introHtml": "<p>Unisex medical healthcare items offer a practical fit for any professional, eliminating the need to sort by gender when ordering for a diverse team. From comfortable scrubs and T-shirts to accessories like bandanas and socks, these items ensure a consistent look across your staff. Customize with screen-printed or embroidered logos to reinforce your facility's identity while maintaining a unified, professional appearance.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom unisex medical healthcare items including branded T-shirts and bandanas for clinic staff",
+  "productSkus": [
+    "506191",
+    "515831",
+    "524427",
+    "524817",
+    "526134"
+  ],
+  "generatedAt": "2026-05-31T08:44:05.044905+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

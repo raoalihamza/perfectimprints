@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jewelry/supplier/koozie",
+  "type": "facet",
+  "h1": "Custom Koozie Jewelry for Bulk Orders",
+  "metaTitle": "Custom Koozie Jewelry | Perfect Imprints",
+  "metaDescription": "Order custom koozie jewelry in bulk from Perfect Imprints. Ideal for giveaways, events, and branding. Get a quote today!",
+  "introHtml": "<p>Koozie jewelry offers a unique blend of style and durability, perfect for trade show giveaways or employee appreciation gifts. These custom pieces, like the Paracord Bracelet and Mood Watch Bracelet, are designed to withstand daily wear while showcasing your logo. Choose from a variety of colors and engraving options to create a memorable promotional item that recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom koozie jewelry including paracord bracelets and mood watch bracelets with engraved logos",
+  "productSkus": [
+    "516655",
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T09:52:12.085588+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

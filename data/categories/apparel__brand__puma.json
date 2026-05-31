@@ -1,0 +1,19 @@
+{
+  "url": "/cat/apparel/brand/puma",
+  "type": "facet",
+  "h1": "Custom Puma Apparel for Bulk Orders",
+  "metaTitle": "Custom Puma Apparel - Perfect Imprints",
+  "metaDescription": "Order custom Puma apparel for your team or event. Perfect Imprints offers bulk pricing on embroidered and printed Puma gear.",
+  "introHtml": "<p>Puma apparel combines athletic performance with street-ready style, making it a popular choice for corporate uniforms, event staff, and promotional giveaways. Unlike generic brands, Puma brings instant brand recognition and a reputation for quality that reflects well on your organization. From polo shirts to jackets, custom embroidery or screen printing adds your logo without compromising the fabric's breathability or fit. Whether you're outfitting a trade show team or launching a new product line, custom Puma apparel ensures your message stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom Puma apparel with embroidered logos at a corporate event",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:38:42.520706+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

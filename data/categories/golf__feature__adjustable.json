@@ -1,0 +1,26 @@
+{
+  "url": "/cat/golf/feature/adjustable",
+  "type": "facet",
+  "h1": "Custom Adjustable Golf Hats and Visors",
+  "metaTitle": "Custom Adjustable Golf Hats & Visors | Perfect Imprints",
+  "metaDescription": "Shop custom adjustable golf hats and visors for your team or event. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Adjustable golf hats and visors let you offer one-size-fits-most comfort for your team or event. Whether you choose a classic trucker cap or a lightweight visor, the snapback or hook-and-loop closure ensures a secure fit for every golfer. Decorate with your logo using embroidery or screen printing for a polished look on the course or in the clubhouse.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adjustable golf hats and visors with embroidered logos displayed on a golf course",
+  "productSkus": [
+    "505481",
+    "507820",
+    "515975",
+    "521335",
+    "527681",
+    "527682"
+  ],
+  "generatedAt": "2026-05-31T08:55:07.527507+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

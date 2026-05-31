@@ -1,0 +1,19 @@
+{
+  "url": "/cat/stationery/material/steel",
+  "type": "facet",
+  "h1": "Custom Steel Stationery for Bulk Orders",
+  "metaTitle": "Custom Steel Stationery | Perfect Imprints",
+  "metaDescription": "Order custom steel stationery in bulk at Perfect Imprints. Durable, sleek pens and clips for your brand. Get a quote today.",
+  "introHtml": "<p>Steel stationery offers a refined, durable alternative to standard plastic or wood options. Perfect for corporate gifts, executive sets, or safety-conscious environments, steel pens and clips resist wear while projecting a professional image. Decorate with laser engraving or pad printing for a lasting brand impression that stands out on any desk.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom steel stationery including pens and clips with laser engraving for corporate branding",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:08:38.500914+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

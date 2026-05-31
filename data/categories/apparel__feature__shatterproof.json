@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel/feature/shatterproof",
+  "type": "facet",
+  "h1": "Custom Shatterproof Apparel for Safety & Durability",
+  "metaTitle": "Custom Shatterproof Apparel | Perfect Imprints",
+  "metaDescription": "Order custom shatterproof apparel for safety and durability. Perfect for work environments where glass or debris is a risk. Get your quote today!",
+  "introHtml": "<p>Shatterproof apparel is built for environments where impact resistance matters—whether you're managing a warehouse, a construction site, or a manufacturing floor. Unlike standard clothing, these items are designed to withstand hard knocks without cracking or breaking, reducing injury risk. For safety managers and HR directors, choosing shatterproof gear means fewer replacements and better protection. Decorate with screen printing or embroidery to keep your brand visible while keeping your team safe.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom shatterproof apparel including reflective rimless sunglasses for safety and brand visibility in industrial settings.",
+  "productSkus": [
+    "526792"
+  ],
+  "generatedAt": "2026-05-31T09:32:14.461456+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

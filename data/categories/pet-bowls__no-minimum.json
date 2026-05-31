@@ -1,0 +1,22 @@
+{
+  "url": "/cat/pet-bowls/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Pet Bowls",
+  "metaTitle": "No-Minimum Custom Pet Bowls | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom pet bowls with no bulk requirements. Perfect for small teams or one-off events. Get started today.",
+  "introHtml": "<p>No-minimum custom pet bowls let you order exactly what you need—whether it's a single sample or a small batch for your team. Unlike traditional bulk orders, there's no minimum quantity, making it easy for small businesses, startups, or one-time events to get branded pet bowls. Choose from durable stainless steel or premium Yeti® options, each imprinted with your logo. Per-unit pricing is transparent at low volumes, so you can budget confidently.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "No-minimum custom pet bowls featuring a stainless steel dog bowl with a company logo",
+  "productSkus": [
+    "524371",
+    "529534"
+  ],
+  "generatedAt": "2026-05-31T08:30:26.242449+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

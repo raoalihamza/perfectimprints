@@ -1,0 +1,21 @@
+{
+  "url": "/cat/products/brand/rubiks",
+  "type": "facet",
+  "h1": "Custom Rubiks Products for Branded Giveaways",
+  "metaTitle": "Custom Rubiks Products | Perfect Imprints",
+  "metaDescription": "Order custom Rubiks products for bulk branded giveaways. Perfect for trade shows and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Rubiks-branded promotional products offer a nostalgic and engaging way to connect with your audience. The iconic Rubik's Cube, now available with your logo, sparks curiosity and hands-on interaction at trade shows, corporate events, and client gifts. Unlike generic stress relievers, a custom Rubiks product challenges recipients to solve the puzzle while keeping your brand top of mind. Perfect for marketing directors and HR directors seeking memorable, conversation-starting giveaways that stand out in a crowded promotional landscape.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Rubiks products with a branded Rubik's Cube puzzle featuring a company logo on the side.",
+  "productSkus": [
+    "503296 90A"
+  ],
+  "generatedAt": "2026-05-31T10:03:40.575326+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

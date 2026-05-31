@@ -1,0 +1,27 @@
+{
+  "url": "/cat/apparel/brand/brooks-brothers",
+  "type": "facet",
+  "h1": "Custom Brooks Brothers Apparel for Bulk Orders",
+  "metaTitle": "Custom Brooks Brothers Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Brooks Brothers apparel for your team. Premium polos, sweaters, and more with your logo. Get a quote at PerfectImprints.com.",
+  "introHtml": "<p>Brooks Brothers apparel brings a legacy of American style and quality to your corporate wardrobe. From the classic Pima Pique Polo to the Washable Merino V-Neck Sweater, these pieces offer refined looks that last. Ideal for client gifts, executive retreats, or uniform programs, they combine timeless design with modern comfort. Decorate with embroidery or screen printing to add your logo without compromising the fabric's feel. Choose Brooks Brothers for a professional image that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Brooks Brothers apparel featuring a navy polo shirt with embroidered logo on a clean background.",
+  "productSkus": [
+    "526629",
+    "526630",
+    "526631",
+    "527181",
+    "527182",
+    "529192",
+    "529193"
+  ],
+  "generatedAt": "2026-05-31T09:32:02.706482+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

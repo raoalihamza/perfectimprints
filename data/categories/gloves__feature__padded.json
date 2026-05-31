@@ -1,0 +1,21 @@
+{
+  "url": "/cat/gloves/feature/padded",
+  "type": "facet",
+  "h1": "Custom Padded Gloves for Bulk Orders",
+  "metaTitle": "Custom Padded Gloves | Perfect Imprints",
+  "metaDescription": "Order custom padded gloves in bulk for safety and branding. Perfect for work, sports, or outdoor use. Get a quote today!",
+  "introHtml": "<p>Custom padded gloves offer extra cushioning and protection for tasks requiring repetitive hand motion or impact resistance. Whether you need work gloves for warehouse crews or promotional gloves for outdoor events, padding reduces fatigue and adds a layer of safety. Choose from materials like leather, synthetic, or knit with foam or gel padding. Decorate with your logo using screen printing or embroidery for a professional look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom padded gloves with foam padding and embroidered logo on a workbench",
+  "productSkus": [
+    "527493"
+  ],
+  "generatedAt": "2026-05-31T09:48:12.304810+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

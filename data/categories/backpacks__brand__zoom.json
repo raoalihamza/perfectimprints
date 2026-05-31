@@ -1,0 +1,22 @@
+{
+  "url": "/cat/backpacks/brand/zoom",
+  "type": "facet",
+  "h1": "Custom Zoom Backpacks for Bulk Orders",
+  "metaTitle": "Custom Zoom Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Zoom backpacks in bulk for your team. Perfect for commuters and travelers. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Zoom backpacks are built for the modern commuter, with checkpoint-friendly laptop compartments and ergonomic designs that make travel easier. When you order custom Zoom backpacks in bulk, you get a bag that your team will actually use every day. Choose embroidery or screen printing for your logo on styles like the Grid 15\" TSA Computer Backpack. It is a practical, high-visibility brand investment for companies that value functionality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Zoom backpacks with embroidered logo, featuring padded laptop compartment and ergonomic straps",
+  "productSkus": [
+    "516688 01A",
+    "520571"
+  ],
+  "generatedAt": "2026-05-31T09:33:38.528235+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

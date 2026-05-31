@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Products for Small Orders",
+  "metaTitle": "No-Minimum Custom Products | Perfect Imprints",
+  "metaDescription": "Shop no-minimum custom products with zero order minimums. Perfect for small teams, events, and samples. Get started at Perfect Imprints today.",
+  "introHtml": "<p>No-minimum custom products let you order exactly what you need—whether it's 5 pens for a small team or 20 tote bags for a one-time event. Unlike traditional promo suppliers that require bulk orders, our no-minimum program gives small businesses, startups, and sample-seekers the flexibility to buy low quantities without sacrificing quality or customization. Browse our selection and order the quantities that fit your budget.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted no-minimum custom products including branded pens, water bottles, and tote bags arranged on a table",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:23:18.277725+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

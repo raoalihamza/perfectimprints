@@ -1,0 +1,22 @@
+{
+  "url": "/cat/apparel/brand/lat-apparel",
+  "type": "facet",
+  "h1": "Custom LAT Apparel for Bulk Orders",
+  "metaTitle": "Custom LAT Apparel | Perfect Imprints",
+  "metaDescription": "Order custom LAT Apparel in bulk. High-quality, comfortable tees and v-necks perfect for teams, events, and corporate wear.",
+  "introHtml": "<p>LAT Apparel specializes in performance fabrics that hold up to repeated wear and washing, making it a preferred choice for corporate teams, event staff, and promotional giveaways. Their fine jersey tees and v-necks offer a soft, athletic feel with a tailored fit that looks sharp on any body type. Whether you are outfitting a company softball team or distributing shirts at a trade show, LAT Apparel provides a polished, durable option that recipients will actually wear long after the event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom LAT Apparel fine jersey tees and v-necks in bulk for corporate teams and events",
+  "productSkus": [
+    "524039",
+    "524040"
+  ],
+  "generatedAt": "2026-05-31T08:48:23.474573+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

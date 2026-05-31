@@ -1,0 +1,23 @@
+{
+  "url": "/cat/sunglasses/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Sunglasses for Small Orders",
+  "metaTitle": "No-Minimum Custom Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom sunglasses with no minimum quantity. Perfect for small teams, events, or samples. Get branded shades without bulk requirements at Perfect",
+  "introHtml": "<p>Ordering custom sunglasses in small quantities can be a challenge when most suppliers demand bulk minimums. Our no-minimum custom sunglasses program lets you buy as few as one pair, making it ideal for small businesses, startup teams, one-off events, or sample orders before committing to larger quantities. You get the same high-quality branding options and fast turnaround, with the flexibility to order exactly what you need.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A pair of no-minimum custom sunglasses with a company logo on the temple, perfect for small orders and promotional giveaways.",
+  "productSkus": [
+    "526685",
+    "526686",
+    "526687"
+  ],
+  "generatedAt": "2026-05-31T09:27:17.389519+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

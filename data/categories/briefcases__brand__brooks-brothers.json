@@ -1,0 +1,28 @@
+{
+  "url": "/cat/briefcases/brand/brooks-brothers",
+  "type": "facet",
+  "h1": "Custom Brooks Brothers Briefcases for Corporate Gifting",
+  "metaTitle": "Custom Brooks Brothers Briefcases | Perfect Imprints",
+  "metaDescription": "Order custom Brooks Brothers briefcases with your logo. Premium leather and fabric options for corporate gifts. Shop bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Brooks Brothers briefcases combine classic American style with the durability expected by executives and frequent travelers. Whether you choose full-grain leather or lightweight ballistic nylon, these bags offer organized storage for laptops and documents. Add your company logo through debossing or a subtle embroidery patch for a refined look that reinforces your brand at meetings and conferences.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Brooks Brothers briefcase with debossed logo in black leather, open on a desk",
+  "productSkus": [
+    "526629",
+    "526630",
+    "526631",
+    "526632",
+    "527181",
+    "527182",
+    "529192",
+    "529193"
+  ],
+  "generatedAt": "2026-05-31T09:09:10.713434+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

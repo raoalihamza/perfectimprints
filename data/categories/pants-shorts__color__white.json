@@ -1,0 +1,25 @@
+{
+  "url": "/cat/pants-shorts/color/white",
+  "type": "facet",
+  "h1": "Custom White Pants Shorts for Bulk Orders",
+  "metaTitle": "Custom White Pants Shorts | Perfect Imprints",
+  "metaDescription": "Order custom white pants shorts in bulk for your team or event. Perfect for uniforms, sports, and promotional use. Get a quote today!",
+  "introHtml": "<p>White pants and shorts offer a clean, professional look for uniforms, team apparel, or promotional giveaways. Whether you need sweatpants for a corporate wellness program or performance shorts for a sports event, white provides a versatile base for screen printing or embroidery. Choose from styles like Gildan sweatpants or Sport-Tek shorts to match your needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom white pants and shorts in bulk for uniforms and promotional apparel",
+  "productSkus": [
+    "506401",
+    "528795",
+    "528865",
+    "528875",
+    "529237"
+  ],
+  "generatedAt": "2026-05-31T09:59:29.643361+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/towels/activity/running",
+  "type": "facet",
+  "h1": "Custom Running Towels for Athletes & Events",
+  "metaTitle": "Custom Running Towels | Perfect Imprints",
+  "metaDescription": "Shop custom running towels for races, gyms, and events. Bulk pricing with your logo. Fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>Custom running towels are lightweight, absorbent, and designed to stay put during high-motion activities. Unlike standard terry towels, running towels often feature a quick-dry microfiber construction and a corner grommet for easy clipping to a gym bag or race belt. Whether you're outfitting a marathon swag bag, stocking a corporate gym, or creating premium giveaways for a 5K, these towels combine function with brand visibility. Decorate with your logo using full-color dye sublimation for a vibrant, lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom running towels with colorful dye-sublimated logo, clipped to a gym bag, showing microfiber texture",
+  "productSkus": [
+    "526028"
+  ],
+  "generatedAt": "2026-05-31T09:28:57.658652+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

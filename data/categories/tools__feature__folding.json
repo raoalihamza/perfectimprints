@@ -1,0 +1,23 @@
+{
+  "url": "/cat/tools/feature/folding",
+  "type": "facet",
+  "h1": "Custom Folding Tools for Bulk Orders",
+  "metaTitle": "Custom Folding Tools | Perfect Imprints",
+  "metaDescription": "Order custom folding tools with your logo. Perfect for giveaways, safety kits, and corporate gifts. Bulk pricing available.",
+  "introHtml": "<p>Custom folding tools combine everyday utility with compact portability, making them a smart choice for trade show giveaways, safety manager appreciation gifts, or corporate welcome kits. Unlike fixed-blade tools, folding designs like pocket knives and multi-tools fit easily in a pocket or on a keychain, so recipients can carry them daily. Choose from options like the classic Buck Folding Hunter lockback knife or the Spyder 8-in-1 multi-tool with built-in LED. Decorate with your logo via laser engraving or pad printing for a professional finish that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom folding tools including a pocket knife and multi-tool with logo engraving displayed on a wooden surface",
+  "productSkus": [
+    "513653 64F",
+    "515798 43A",
+    "518913 10A"
+  ],
+  "generatedAt": "2026-05-31T08:47:27.093684+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

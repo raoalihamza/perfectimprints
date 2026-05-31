@@ -1,0 +1,23 @@
+{
+  "url": "/cat/candy/color/yellow",
+  "type": "facet",
+  "h1": "Custom Yellow Candy for Bulk Orders",
+  "metaTitle": "Custom Yellow Candy | Perfect Imprints",
+  "metaDescription": "Order custom yellow candy in bulk for your brand. Perfect for events, gifts, and promotions. Get a quote today!",
+  "introHtml": "<p>Yellow candy stands out on any snack table or gift bag, making it a smart choice for branding at trade shows, corporate events, and employee appreciation. Whether you choose lemon-flavored gummies or bright butter toffees, custom-printed wrappers and tins let you match your company colors while offering a universally enjoyed treat. Bulk orders keep per-unit costs low.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom yellow candy in branded tins and wrappers for corporate gifts and events",
+  "productSkus": [
+    "517995",
+    "518500",
+    "527907"
+  ],
+  "generatedAt": "2026-05-31T09:39:18.115649+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

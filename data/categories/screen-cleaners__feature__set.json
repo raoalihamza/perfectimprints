@@ -1,0 +1,21 @@
+{
+  "url": "/cat/screen-cleaners/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Screen Cleaners for Bulk Orders",
+  "metaTitle": "Custom Set Screen Cleaners | Perfect Imprints",
+  "metaDescription": "Order custom set screen cleaners for your team or event. Perfect for bulk branding with your logo. Shop now at Perfect Imprints.",
+  "introHtml": "<p>When you need screen cleaning supplies that go beyond a single wipe, custom set screen cleaners offer a complete solution. These kits bundle multiple wipes or cleaning tools in one package, making them ideal for onboarding kits, trade show giveaways, or office supply closets. The Pupil Kit, for example, combines a microfiber cloth with a cleaning solution for a thorough clean. Choose screen cleaner sets to provide your team or clients with a ready-to-use cleaning station that keeps devices smudge-free.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set screen cleaners in a kit with microfiber cloth and cleaning solution, perfect for branded giveaways",
+  "productSkus": [
+    "526803"
+  ],
+  "generatedAt": "2026-05-31T09:01:51.668559+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

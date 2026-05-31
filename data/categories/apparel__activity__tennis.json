@@ -1,0 +1,25 @@
+{
+  "url": "/cat/apparel/activity/tennis",
+  "type": "facet",
+  "h1": "Custom Tennis Apparel for Teams & Events",
+  "metaTitle": "Custom Tennis Apparel | Perfect Imprints",
+  "metaDescription": "Order custom tennis apparel for your team or event. Perfect for tournaments, clubs, and promotions. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Custom tennis apparel goes beyond basic polo shirts and jackets. Designed for movement and comfort, these pieces use recycled performance fabrics that wick moisture and offer stretch for a full range of motion on the court. Whether you need embroidered polos for a club tournament or branded jackets for your coaching staff, this apparel keeps your team looking professional while staying cool and dry. Choose from eco-friendly options like the Cutter & Buck Virtue Eco Pique Recycled Polo or the Charter Eco Recycled Full-Zip Jacket for a sustainable, polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom tennis apparel featuring embroidered logo on a performance polo shirt for team uniforms",
+  "productSkus": [
+    "526813",
+    "526814",
+    "526816",
+    "527557",
+    "527558"
+  ],
+  "generatedAt": "2026-05-31T08:48:22.701551+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

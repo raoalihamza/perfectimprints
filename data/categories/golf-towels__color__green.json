@@ -1,0 +1,30 @@
+{
+  "url": "/cat/golf-towels/color/green",
+  "type": "facet",
+  "h1": "Custom Green Golf Towels",
+  "metaTitle": "Custom Green Golf Towels | Perfect Imprints",
+  "metaDescription": "Order custom green golf towels with your logo. Perfect for corporate events, tournaments, and giveaways. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Green golf towels stand out on the course while complementing natural surroundings. Whether you choose a microfiber towel with a hook for easy attachment or a cooling towel for hot days, green offers a versatile backdrop for your logo. Ideal for corporate tournaments, charity events, or employee gifts, these towels combine practicality with brand visibility. Decorate with screen printing or embroidery for a polished look that endures.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green golf towels with embroidered logo, hanging from a golf bag",
+  "productSkus": [
+    "510188",
+    "510325",
+    "512900",
+    "513098",
+    "514841",
+    "520178",
+    "521013",
+    "522450",
+    "524126",
+    "528644"
+  ],
+  "generatedAt": "2026-05-31T09:14:49.487275+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

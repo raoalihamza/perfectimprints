@@ -1,0 +1,28 @@
+{
+  "url": "/cat/backpacks/material/nylon",
+  "type": "facet",
+  "h1": "Custom Nylon Backpacks for Bulk Orders",
+  "metaTitle": "Custom Nylon Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom nylon backpacks in bulk from Perfect Imprints. Ideal for corporate gifts, events, and giveaways. Get a quote today!",
+  "introHtml": "<p>Nylon backpacks offer a durable, lightweight, and water-resistant option for everyday carry. Perfect for corporate giveaways, trade shows, or employee gifts, these bags withstand daily commutes and outdoor use. Choose from laptop-compatible designs like the Thule Achiever or compact packs like the Mini Hydration Pack. Decorating with embroidery or screen printing ensures your logo stands out on the smooth nylon fabric.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom nylon backpacks in various colors and styles for bulk orders, featuring durable fabric and multiple compartments.",
+  "productSkus": [
+    "510716",
+    "514185 01A",
+    "519541",
+    "520571",
+    "524263",
+    "525506",
+    "525725",
+    "527744"
+  ],
+  "generatedAt": "2026-05-31T08:49:15.453948+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

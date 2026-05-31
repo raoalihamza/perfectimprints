@@ -1,0 +1,19 @@
+{
+  "url": "/cat/pet-toys/search",
+  "type": "modifier",
+  "h1": "Custom Pet Toys for Branded Promotions",
+  "metaTitle": "Custom Pet Toys | Perfect Imprints",
+  "metaDescription": "Browse custom pet toys for your next promotion. Find durable, fun options to engage pet owners. Start your order at Perfect Imprints today.",
+  "introHtml": "<p>Custom pet toys offer a playful way to connect with pet-loving audiences at trade shows, client appreciation events, or employee giveaways. Whether you need plush squeakers, rope tugs, or durable fetch balls, our selection covers a range of styles and budgets. As a promotional products distributor, Perfect Imprints helps you navigate options, from material choices to imprint methods, so you can find the right fit for your brand. Explore our collection and get started with a quote for your next campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom pet toys including plush squeakers, rope tugs, and fetch balls with brand logos on a bright studio background.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:01:25.130511+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

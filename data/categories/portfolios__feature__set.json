@@ -1,0 +1,19 @@
+{
+  "url": "/cat/portfolios/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Portfolios for Bulk Orders",
+  "metaTitle": "Custom Set Portfolios | Perfect Imprints",
+  "metaDescription": "Order custom set portfolios in bulk from Perfect Imprints. Ideal for corporate events, training kits, and onboarding packages.",
+  "introHtml": "<p>Custom set portfolios bundle multiple pieces into one coordinated package, making them ideal for corporate training kits, new hire onboarding folders, or event registration materials. Each set can include a portfolio, notepad, pen loop, and business card holder, all decorated with your logo. Choose from leatherette, poly, or recycled materials with foil stamping, screen printing, or embossing for a polished, professional look that keeps your brand organized and accessible.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set portfolios with notepad, pen loop, and business card holder in leatherette material",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:02:44.225100+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

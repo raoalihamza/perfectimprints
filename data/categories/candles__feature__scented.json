@@ -1,0 +1,32 @@
+{
+  "url": "/cat/candles/feature/scented",
+  "type": "facet",
+  "h1": "Custom Scented Candles for Branded Giveaways",
+  "metaTitle": "Custom Scented Candles | Perfect Imprints",
+  "metaDescription": "Order custom scented candles for your next event or promotion. Perfect for corporate gifts and client appreciation. Shop now.",
+  "introHtml": "<p>Custom scented candles offer a sensory way to keep your brand top of mind. Unlike unscented options, a carefully chosen fragrance like lavender or vanilla can evoke relaxation and warmth, making these candles ideal for corporate gifts, client appreciation, or employee morale boosters. Personalize glass jars, metal tins, or wooden boxes with your logo using screen printing or labels. Whether you choose a soy wax blend or a classic Yankee Candle, the right scent creates a memorable unboxing experience that recipients will associate with your company.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom scented candles in glass jars with bamboo lids and branded labels on a wooden table",
+  "productSkus": [
+    "520905",
+    "521842",
+    "526341",
+    "526396",
+    "526397",
+    "526398",
+    "526451",
+    "526492",
+    "528203",
+    "529022",
+    "529023",
+    "529024"
+  ],
+  "generatedAt": "2026-05-31T08:40:31.702598+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

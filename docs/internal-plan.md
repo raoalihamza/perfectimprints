@@ -4,9 +4,9 @@
 **Developer:** Ali Hamza Rao
 **Client:** Patrick Black (perfectimprints.com)
 **Contract:** $6000 fixed via Fiverr (15% paid May 5, 2026)
-**Today:** May 15, 2026
+**Today:** May 26, 2026 (Week 3 start)
 **Patrick's expected launch:** June 19, 2026 (final 10% payment date)
-**Internal realistic launch:** July 9, 2026 (1 week internal buffer)
+**Internal realistic launch:** July 9, 2026 (3 week internal buffer)
 
 > Yeh internal doc hai. Client ke saath share nahi karna. Roman Urdu mix mein hai jaisa main soch ke kaam karta hoon. Client wala professional version `development-plan.md` mein hai.
 
@@ -31,10 +31,12 @@ Teen websites involved hain:
 - URL pattern: `/b/[slug]` for categories, `/p/[slug]-[id]` for products
 - ~544 categories, ~7,957 unique SKUs (verified 2026-05-24)
 - Searchspring API (siteId=`kfx28d`) ke through scrape hoga
+- Brand index at `https://www.geiger.com/c/shop-by-brand` (static HTML, ~200-300 brands)
 
 **3. patrickblack.geiger.com (affiliate target)**
 
-- Geiger ne Patrick ke liye banaya hai (ya banayega — Patrick ne email mein bola "they haven't created my site yet")
+- Geiger ne Patrick ke liye banaya hai (ya banayega)
+- Patrick confirmed 2026-05-25: subdomain NOT yet active on Geiger's side, chasing them
 - Same URL structure as geiger.com, sirf `www` → `patrickblack`
 - Hamare product cards yahin link karenge, Patrick ko commission milti hai
 
@@ -44,847 +46,686 @@ PI pe product detail pages NAHI bani. Patrick ne confirm kiya. Hum sirf SEO funn
 
 ---
 
-## 0.5 Current State (Snapshot as of 2026-05-24)
+## 0.5 Current State (Snapshot as of 2026-05-26, Week 3 Start)
 
 Yeh section live update hota rahega project ke through.
 
-**Where we are:** Week 2 mid-point. Module 1 complete, Module 2 sample in progress, Module 3 sample template in progress.
+**Where we are:** Week 3 start. Week 2 demo delivered Sunday May 25. Patrick approved content quality and gave green light for full 22,180-page generation. Eid-ul-Adha holiday Wed May 27 + Thu May 28, work resumes Friday May 29.
 
 **What's done:**
 
-- Module 1 complete: 544 Geiger categories scraped (482 leaves), 7,957 unique SKUs in `products.json` (99.82% of Geiger's actual 7,971 catalog), 21,715 non-root PI URLs processed in Phase C with 4-tier recovery chain, 465/465 PI roots mapped (72 exact + 224 fuzzy + 169 manual overrides, 0 unmapped)
-- Phase C final breakdown: 13,968 URLs (64.3%) with products, 7,518 (34.6%) zero, 229 (1.1%) errors. Tiers 1 (brand fallback, recovered 809) and Tier 2 (search-keyword fallback, recovered 2,625) baked into data; Tiers 3 (parent-root products) and Tier 4 (Geiger homepage CTA) handled in Module 3 template
-- Infrastructure: Vercel deployment live at `dev.perfectimprints.com`, Sanity Studio working at `/admin`, GitHub repo `raoalihamza/perfectimprints` linked. DeepSeek API key received from Patrick.
-- Week 1 wrap delivered 3 days ahead of schedule
+- Module 1 complete: 544 Geiger categories, 7,957 SKUs, 21,715 non-root URLs processed, 465/465 PI roots mapped
+- Phase C: 13,968 URLs with products, 7,518 zero, 229 errors. Tier 1+2 recovery applied (3,434 URLs recovered)
+- Module 2 Week 2 demo: 35 top root pages generated, $0.065 total cost across 4 rounds
+- Module 3 Week 2 demo: production category page template — routing, ProductCard, ProductGrid, AI content, FAQs, CTA banner, 404. Build clean (52 static pages, 0 errors)
+- Week 2 demo delivered to Patrick Sunday May 25 with 5 sample URLs on `dev.perfectimprints.com`
+- Patrick reviewed Monday May 26 — content tone APPROVED, full generation GREEN-LIT
+- Infrastructure: Vercel, Sanity Studio, DeepSeek API all working
 
-**What's in progress (Week 2 demo deliverable for Sunday May 25):**
+**Patrick's Week 2 demo feedback (acceptance recorded 2026-05-25):**
 
-- Module 2 mini-batch: top 35 root categories by Geiger product count being generated via DeepSeek (Prompt 1: AI content generation)
-- Module 3 sample template: production-grade category page rendering for the 35 demo roots (Prompt 2: page rendering) — layout, breadcrumb, AI content, product grid, FAQs, CTA banner. NO filter sidebar, NO pagination, NO sort, NO lead form (these are deferred to Week 3-4)
+Quick fixes (Week 3):
 
-**What's deferred from Week 2 demo:**
+- HTML entity bug in product titles (`&amp;`, `&quot;`)
+- Image fallback when Geiger image 404s
+- H2 "Custom [Category] Buying Guide" above bottom text
+- Buying-guide format content (400-600 words, keyword derivatives, structured sections like Stadium Seat Cushions blog)
+- Full 22,180 page content generation
+- Pagination with noindex on page 2+
 
-- Filter sidebar (M3-304) — implemented Week 3 after sample approval
-- Static pagination (M3-306) — Week 3
-- Sort dropdown (M3-305) — Week 3-4
-- Lead capture form (M3-308) — Week 4
-- Schema.org markup, related blog posts, related categories — Week 4-5
+Scope additions (Weeks 4-5):
 
-**Big data files note:** `products.json` (9.6 MB) and `facet-memberships.json` (44.5 MB) are in the main repo for now. Relocation to separate repo / Git LFS / R2 tracked as M5-509. Will tackle during Module 5 performance pass.
+- "Minimum Quantity" filter (Patrick's addition, useful for small-order buyers)
+- "Search within this category" input in filter sidebar
+- Context-specific filters (apparel/drinkware/tech show extra filters)
+- Related Blogs section ("Related Blogs About [Category]" H2 with up to 8 blog cards)
+- Brands main menu button + `/brands` index + `/brands/[slug]` per-brand pages
+- Brand logos scrape (Patrick chose Option 1: auto-scrape)
+- Deals main menu button + `/deals` aggregator page
+- Mobile pagespeed improvement (LCP + Speed Index)
+
+Already built (just confirming to Patrick):
+
+- Sale/Closeout ribbon on product images — will show on closeout pages once full generation completes
+- Monthly auto-rebuild — already planned as M6-606
+- Image fallback policy — Tier 1-4 recovery chain already in place, plus new onError handler tracked in M3-302
+
+**What's planned for Week 3 (May 29 - June 4):**
+
+Day 1 (Friday May 29):
+
+- HTML entity fix in `lib/categories.ts` (loader-level)
+- Image fallback `onError` handler in ProductCard
+- H2 `Custom [Category] Buying Guide` component addition
+- Upgrade `root_category.txt` prompt to buying-guide v2 format
+- Delete existing 35 demo JSONs, regenerate with v2
+- Patrick spot-check 2-3 outputs
+
+Day 2-3 (Sat-Sun May 30-31):
+
+- Generate remaining 430 root pages with v2 prompt
+- Build out facet + modifier prompt templates
+- Generic `generate_content.py` pipeline
+
+Day 3-5 (Mon-Wed June 1-3):
+
+- Generate all 21,715 non-root pages
+- Static pagination with noindex on page 2+
+- Patrick payment request for Week 3
+
+Day 5 (Wed June 4):
+
+- Week 3 review with Patrick
+
+**Eid schedule:**
+
+- Wed May 27 — Eid Day 1, fully offline
+- Thu May 28 — Eid Day 2, fully offline
+- Fri May 29 — resume work
+
+**Patrick payment status:**
+
+- Week 2 payment request sent post-demo with Eid bonus ask (polite, "no pressure")
+- Patrick acknowledged Eid neutrally — bonus decision is his, no follow-up on bonus from our side
+- Week 3 payment request to be sent normally without Eid mention
+
+**Big data files note:** `products.json` (9.6 MB) and `facet-memberships.json` (44.5 MB) in main repo. Relocation tracked as M5-509.
 
 ---
 
 ## 1. Locked Decisions (Ab Yeh Sab Final)
 
-| Decision              | Choice                                     | Reason                                          |
-| --------------------- | ------------------------------------------ | ----------------------------------------------- |
-| Pagination URL        | Static `/cat/[slug]/page/N`                | SEO friendly, link equity preserve              |
-| AI content depth      | Lite-on-facets (465 full + 21,715 lite)    | Cost $35-50, balanced quality                   |
-| Sanity AI button      | **Option A: Build it (8 hours)**           | Patrick will create custom categories regularly |
-| Per-facet membership  | **Option A: 1 API call per facet (~6h)**   | Bulletproof accuracy                            |
-| Product detail scrape | **NO**                                     | PI pe detail pages nahi hain, saves 40+ hours   |
-| Module structure      | **6 modules** (M1+M2 merged)               | Less artificial separation                      |
-| Data refresh strategy | **One-time scrape + monthly auto-rebuild** | Industry standard, no live API dependency       |
-| Hosting               | **Vercel** (not Cloudflare Pages)          | Edge Runtime incompatible with Sanity Studio    |
+| Decision              | Choice                                       | Reason                                                             |
+| --------------------- | -------------------------------------------- | ------------------------------------------------------------------ |
+| Pagination URL        | Static `/cat/[slug]/page/N`                  | SEO friendly, link equity preserve                                 |
+| Pagination indexing   | **Page 1 indexable, page 2+ noindex**        | Patrick request 2026-05-25, prevents duplicate content             |
+| AI content format     | **Buying-guide v2 on roots, lite on facets** | Patrick request 2026-05-25, 400-600 words with keyword derivatives |
+| Sanity AI button      | Build it (Option A, 8 hours)                 | Patrick will create custom categories regularly                    |
+| Per-facet membership  | 1 API call per facet (~6h)                   | Bulletproof accuracy                                               |
+| Product detail scrape | **NO**                                       | PI pe detail pages nahi hain                                       |
+| Module structure      | 6 modules (M1+M2 merged)                     | Less artificial separation                                         |
+| Data refresh strategy | One-time scrape + monthly auto-rebuild       | Industry standard                                                  |
+| Hosting               | **Vercel** (not Cloudflare Pages)            | Edge Runtime incompatible with Sanity Studio                       |
+| Brand logos           | **Scrape from Geiger** (Patrick choice)      | Patrick said "I'd never be able to manually add that many logos"   |
+| HTML entity decoding  | **Loader level only** (`lib/categories.ts`)  | Single source of truth, components stay clean                      |
+| Image fallback        | **Tier 1-4 recovery + per-image onError**    | Two layers: data-side + render-side                                |
 
 ---
 
-## 2. Tech Stack Lock
+## 2. Week-by-Week Plan
 
-```
-Framework:     Next.js 15 App Router + TypeScript strict
-Styling:       Tailwind CSS
-CMS:           Sanity v3 (hybrid model)
-Hosting:       Vercel (Next.js native)
-DNS:           Cloudflare (DNS-only mode, CNAME to Vercel)
-AI:            DeepSeek-V3 via API (Patrick's key, received)
-Email:         Gmail SMTP via Nodemailer (Patrick's app password, pending)
-Search:        Fuse.js client-side, prebuilt JSON index
-Scraper:       Python (httpx HTTP/2 + curl_cffi for bot bypass + tenacity + tqdm + orjson + beautifulsoup4 + rapidfuzz)
-Package mgr:   pnpm
-Node:          20 LTS+
-```
+**Week 1 (May 15-21):** Foundation + Module 1 scaffold. DONE.
+**Week 2 (May 22-28):** Module 1 completion + Week 2 demo (35 sample pages). DONE. Demo Sun May 25.
+**Week 3 (May 29-Jun 4):** Buying-guide prompt upgrade + full 22,180 page generation + pagination.
+**Week 4 (Jun 5-11):** Filters (with Min Qty, search-within, context-specific) + sort + lead form + blog migration + brand scrape + brand pages + related blogs section.
+**Week 5 (Jun 12-18):** Home page + search + Deals page + mega menu Sanity wiring + mobile pagespeed + schema markup.
+**Week 6 (Jun 19-25):** QA + URL audit + cross-browser + DNS prep + monthly auto-rebuild + training.
 
-**Hosting migration note:** Originally planned for Cloudflare Pages. Migrated to Vercel mid-Week 1 because Cloudflare Pages requires the `@cloudflare/next-on-pages` Edge Runtime adapter for every dynamic route, and Sanity Studio cannot run on Edge (needs Node.js APIs). Vercel handles both Next.js dynamic routes and Sanity Studio without adapter friction. Patrick was informed.
-
-**Brand tokens:**
-
-- `--color-brand-red: #E11F1E` (logo SVG se extract kiya)
-- `--color-brand-ink: #231F20`
-- `--color-brand-green: #16A34A` (green CTAs jaisa reference site mein hai, Patrick confirmation pending)
-- `--color-brand-white: #FFFFFF`
+Patrick's expected launch: June 19. Internal realistic: July 9 (3 week buffer for revisions, scope absorption, polish).
 
 ---
 
-## 3. URL Counts Confirmed
+## 3. Module 1: Foundation + Data Pipeline (~50h total)
 
-| Source              | Raw Rows | Valid URLs | Notes                                               |
-| ------------------- | -------- | ---------- | --------------------------------------------------- |
-| Category_Pages.xlsx | 22,213   | **22,180** | 22 blog taxonomy URLs + 10 GA4 header rows stripped |
-| Blog_Links.xlsx     | 823      | **731**    | 82 taxonomy/pagination URLs stripped                |
+### Sub-module 1A: Project Scaffold (8h) — DONE
 
-Of 22,180 valid category URLs:
-
-- **465** root categories (`/cat/water-bottles`)
-- **576** modifier pages (`/cat/water-bottles/closeout`)
-- **21,137** standard facet pages (`/cat/water-bottles/material/stainless-steel`)
-- **2** compound facet pages
-
-After Phase C scrape with all 4-tier recovery applied:
-
-- **14,433 URLs** render with real Geiger product grids (65%)
-- **7,747 URLs** use Tier 3/4 fallback (parent-root products or Geiger homepage CTA) (35%)
-
----
-
-## 4. Geiger Searchspring API Reference (Important)
-
-API endpoint: `https://kfx28d.a.searchspring.io/api/search/category.json`
-
-Key params:
-
-- `siteId=kfx28d`
-- `bgfilter.category_path=Home > Drinkware > Water Bottles`
-- `resultsFormat=native`
-- `page=N`
-- `perPage=60` (Geiger's native page size; what we use)
-- Optional `filter.[field]=[value]` for facet filtering
-
-Response structure:
-
-- Full product objects: sku, name, brand, low_price, high_price, msrp, min_qty, imageUrl, description, category_path[], badges, is_new_item, is_on_sale, product_type_unigram
-- Facets array: aggregated counts per facet value
-- Pagination metadata
-- Sort options
-
-**Critical limitation:** Per-product color/material/size attributes Geiger ke product object pe NAHI hain. Yeh sirf aggregated facets array mein milte hain. Iska matlab: har facet URL ke liye humein separate filtered API call karni padegi to capture SKU membership. Yeh exactly Module 1 ka Phase C scrape hai.
-
-**Catalog size reality check:** Geiger's `/b/` category pages show inflated counts (e.g. Apparel shows 1,089, sum of 10 top-level categories ≈ 13,491) because their products are cross-listed across ~3.3 category paths on average (Apparel + Shop By > Brand Names + Shop By > Collections, etc). The true unique-SKU count is **7,971** (verified via Searchspring no-filter query). Our scrape captured 7,957 (99.82%).
-
----
-
-## 5. Affiliate URL Rewrite Rule
-
-Jab bhi koi Geiger link emit karte hain, yeh transformation lagao:
-
-```ts
-const affiliateUrl = (geigerUrl: string): string =>
-  geigerUrl.replace('https://www.geiger.com/', 'https://patrickblack.geiger.com/');
-```
-
-Works for both `/p/` product URLs aur `/b/` category URLs.
-
-Source URL: `https://www.geiger.com/p/vinyl-football-510336?pid=208667`
-Output URL: `https://patrickblack.geiger.com/p/vinyl-football-510336?pid=208667`
-
-Helper sirf `lib/affiliate-url.ts` mein hoga. Components mein hardcode nahi karna.
-
----
-
-# Modules
-
-## Module 1: Foundation + Data Pipeline
-
-**Total: ~50 hours | Weeks 1-2 (May 15 - May 28) | Status: COMPLETE**
-
-### Sub-module 1A: Project Scaffold (8h)
-
-- Next.js 15 App Router + TypeScript strict + Tailwind init
-- pnpm setup, Node 20+
-- Repo structure:
-  ```
-  /app                # Next.js routes
-  /components         # React components
-  /lib                # utilities, sanity client, data loaders
-  /data
-    /categories       # AI-generated content JSON
-    /geiger           # Scraped Geiger data
-    /mappings         # PI-to-Geiger mapping
-  /sanity             # Sanity studio config + schemas
-  /scripts
-    /scrapers/geiger  # Python scraper
-    /ai-pipeline      # DeepSeek content generation
-    /search-index     # Fuse index builder
-  /public             # Static assets
-  /docs               # Internal docs
-  ```
+- Next.js 15 App Router + TypeScript strict + Tailwind + pnpm
+- Folder structure per CLAUDE.md Section 5
 - ESLint, Prettier, Husky pre-commit
-- Tailwind config with brand tokens (red, ink, green, white)
-- GitHub repo + branch protection (`main` + `develop`)
-- GitHub Actions: typecheck + lint + build on PR
+- GitHub repo + branch protection
 
-### Sub-module 1B: Vercel Staging (4h)
+### Sub-module 1B: Vercel Staging (4h) — DONE
 
-- Connect repo to Vercel (migrated from Cloudflare Pages mid-Week 1)
-- Native Next.js support (no adapter needed)
-- Point `dev.perfectimprints.com` to staging deployment via Cloudflare CNAME (DNS-only mode)
-- Verify HTTPS works (Vercel handles cert issuance automatically)
-- Env vars setup in Vercel dashboard
-- Apex `perfectimprints.com` → 301-redirects to `www.perfectimprints.com`
+- Connect repo to Vercel
+- `dev.perfectimprints.com` CNAME via Cloudflare DNS (DNS-only mode)
+- HTTPS auto-issued, env vars set
 
-### Sub-module 1C: Sanity Studio Bootstrap (6h)
+### Sub-module 1C: Sanity Studio Bootstrap (6h) — DONE
 
-- Sanity v3 project under Patrick's account (Project ID `ii96lcy9`, dataset `production`)
-- Initial schemas (M5 mein expand karenge):
-  - `homePage` (singleton)
-  - `globalSettings` (singleton)
-  - `megaMenu` (singleton)
-- Studio embedded at `/admin` route in Next.js (works at both `localhost:3333` via `pnpm sanity:dev` and `https://dev.perfectimprints.com/admin`)
-- Patrick test login
-- Webhook setup for ISR revalidation
-- Env vars: `SANITY_PROJECT_ID`, `SANITY_DATASET`, `SANITY_API_TOKEN`, `SANITY_WEBHOOK_SECRET`
+- Sanity v3, Project ID `ii96lcy9`, dataset `production`
+- Embedded at `/admin` + standalone at `localhost:3333`
+- Initial schemas: homePage, globalSettings, megaMenu (singletons)
+- Webhook for ISR revalidation
 
-### Sub-module 1D: Global Layout Components (8h)
+### Sub-module 1D: Global Layout Components (8h) — DONE
 
-- Header component (logo, mega menu skeleton, phone `800-773-9472`, contact link)
-- Footer (4 columns, social links, address, copyright auto-year)
-- Mega menu shell (hardcoded structure for now, Sanity-driven in M5)
-- Brand button styles, typography scale, spacing tokens
-- `/style-guide` route for visual review
+- Header, Footer, mega menu shell (M5-503 will wire to Sanity)
+- Brand button styles, typography, spacing tokens
+- `/style-guide` route
 
-### Sub-module 1E: Python Scraper Development (16h)
+### Sub-module 1E: Python Scraper Development (16h) — DONE
 
 Path: `scripts/scrapers/geiger/`
 
 Files:
 
 ```
-config.py          # siteId, base URLs, throttle settings, output paths
-client.py          # httpx HTTP/2 client + tenacity retry + 1 req/sec throttle (later switched to curl_cffi for Cloudflare bypass)
-discover.py        # Phase A: parse Geiger mega menu HTML, extract category tree
-products.py        # Phase B: Searchspring API pagination per Geiger leaf
-memberships.py     # Phase C: per-facet API call for 21,715 PI facet URLs (with slug-resolver and 4-tier recovery)
-mapping.py         # Phase D: fuzzy-match 465 PI roots to Geiger leaves
-mapping_overrides.json  # Manual override file for hard-to-match PI roots
-run.py             # entrypoint with --phase 1|2|3|4|all flag
-checkpoint.py      # resumable runs, save state every N requests
+config.py          # siteId, base URLs, throttle settings
+client.py          # httpx HTTP/2 + curl_cffi for Cloudflare bypass
+discover.py        # Phase A: parse mega menu, extract category tree
+products.py        # Phase B: Searchspring API pagination per leaf
+memberships.py     # Phase C: per-facet API call + 4-tier recovery
+mapping.py         # Phase D: fuzzy-match 465 PI roots to Geiger
+brand_logos.py     # Phase E: NEW (Week 4) — brand logo scrape
+mapping_overrides.json
+run.py             # entrypoint with --phase flag
+checkpoint.py
 requirements.txt
 README.md
 ```
 
-Dependencies: httpx, curl_cffi, tenacity, tqdm, orjson, beautifulsoup4, rapidfuzz
+**Phase A: Taxonomy discovery (~minutes)** — DONE. 544 categories, 482 leaves.
 
-**Phase A: Taxonomy discovery (~minutes)**
+**Phase B: Product catalog (~20-40 min)** — DONE. 7,957 unique SKUs.
 
-- One HTTP GET to `https://www.geiger.com/b/accessories` (or any category page)
-- BeautifulSoup se mega menu parse
-- Extract all category nodes with parent-child relationships
-- Result: 544 categories, 482 leaves
-- Output: `data/geiger/categories.json`
+**Phase C: Facet memberships (~6 hours)** — DONE. 13,968 with products, 7,518 zero, 229 errors. Tier 1+2 recovery applied (3,434 URLs recovered).
 
-**Phase B: Product catalog (~20-40 min)**
+**Phase D: PI mapping (~10 min)** — DONE. 465/465 mapped, 0 unmapped.
 
-- For each Geiger leaf category, hit Searchspring API
-- `perPage=60` (Geiger's native page size), paginate until end
-- Deduplicate by SKU
-- Result: 7,957 unique SKUs captured (99.82% of Geiger's total 7,971)
-- Output: `data/geiger/products.json` (9.6 MB)
+**Phase E: Brand logo scrape (NEW, scheduled Week 4)**
 
-**Phase C: Facet memberships (~6 hours unattended)**
+- Added 2026-05-26 per Patrick feedback
+- Visit `https://www.geiger.com/c/shop-by-brand` (static HTML A-Z index)
+- For each brand link, follow to brand page and download logo image
+- Output: `data/geiger/brand-logos/{slug}.{webp|png|jpg}` + `data/geiger/brands.json`
+- Brand metadata includes name, slug, logo path, product count from products.json
+- Runtime: 30-60 min
+- Runs as part of monthly auto-rebuild
 
-- For each of 21,715 PI facet/modifier/compound URLs, ek filtered Searchspring API call
-- `bgfilter.category_path=...` + `filter.[type]=[value]`
-- Modifier filter mapping verified during first run (see CLAUDE.md Section 16)
-- Slug-based resolver tries dedicated Geiger category slugs before falling back to filters
-- Capture SKU list per facet URL
-- 1 req/sec throttle = ~6 hours total
-- Checkpointing every 100 calls so resume kar saken
-- 4-tier recovery chain applied:
-  - Tier 1: brand fallback (`--retry-brands`) recovered 809 URLs
-  - Tier 2: search-keyword fallback (`--retry-search`) recovered 2,625 URLs
-  - Tier 3: parent-root fallback (Module 3 template, not scraper)
-  - Tier 4: Geiger homepage CTA (Module 3 template, last resort)
-- Final breakdown: 13,968 URLs with products (64.3%), 7,518 zero (34.6%), 229 errors (1.1%)
-- Output: `data/geiger/facet-memberships.json` (44.5 MB)
+### Sub-module 1F: First Full Scrape Run (8h) — DONE
 
-**Phase D: PI mapping (~10 min compute)**
-
-- Map 465 PI roots to Geiger leaves
-- Strategy: exact slug match → fuzzy match (rapidfuzz, threshold 80) → manual overrides
-- DeepSeek AI fallback was deferred; manual overrides covered all remaining cases
-- Result: 465/465 mapped (72 exact + 224 fuzzy + 169 manual), 0 unmapped
-- Output: `data/mappings/pi-to-geiger.json` (90 KB)
-- CSV report with confidence scores at `data/mappings/pi-to-geiger-review.csv`
-
-### Sub-module 1F: First Full Scrape Run (8h)
-
-- Run all 4 phases end-to-end
-- Generate all 4 JSON outputs
-- Summary stats report: total products, categories, unmapped PI URLs
-- Commit data files to repo (yeh repo mein rehne wala data hai, not gitignored)
-
-**Status (2026-05-24): Complete.** See `docs/scrape-results.md` for full report.
-Headline numbers: 482 Geiger leaves, 7,957 unique SKUs, 465/465 PI roots mapped (0 unmapped), 13,968 of 21,715 non-root PI URLs have direct product matches, 7,747 require Tier 3/4 fallback in the template.
+Full reports at `docs/scrape-results.md`. 482 leaves, 7,957 SKUs, 465/465 mapped, 14,433 URLs with real grids.
 
 **Acceptance criteria for M1: ALL MET**
 
-- [x] `dev.perfectimprints.com` accessible with brand-styled empty home + style guide
-- [x] Patrick Sanity mein login kar sakta hai, home page text edit, staging pe reflect ho
-- [x] All 4 scraper phases run successfully
-- [x] `data/geiger/products.json` has 7,957 products (99.82% of Geiger's 7,971 total)
-- [x] `data/mappings/pi-to-geiger.json` resolves 465/465 PI roots
-- [x] Unmapped roots documented (zero unmapped, all covered by manual overrides)
+- [x] dev.perfectimprints.com accessible
+- [x] Patrick can log into Sanity, edit, see changes
+- [x] All 4 scraper phases run successfully (Phase E scheduled Week 4)
+- [x] 7,957 products in products.json (99.82% of Geiger's 7,971)
+- [x] 465/465 PI roots resolved
 
 ---
 
-## Module 2: AI Content Generation
+## 4. Module 2: AI Content Generation (~38h total, +3h for buying-guide v2 upgrade)
 
-**Total: ~35 hours | Week 2 end (sample) + Week 3 (full run)**
+### Sub-module 2A: DeepSeek Client Setup (4h) — DONE
 
-### Sub-module 2A: DeepSeek Client Setup (4h)
+- Client at `scripts/ai-pipeline/deepseek_client.py`
+- Retry logic, cost tracking, dry-run mode
+- DeepSeek V3 pricing: input $0.27/M tokens, output $1.10/M tokens
+- Mini-batch ran at $0.00105 per page (much lower than original $0.025 estimate)
 
-- API client at `scripts/ai-pipeline/deepseek_client.py`
-- Retry logic, rate limit handling
-- Token counter for cost tracking (input $0.27/M tokens, output $1.10/M tokens, DeepSeek V3 standard tier)
-- Env var: `DEEPSEEK_API_KEY`
-- Cost reporting per batch
+### Sub-module 2B: Prompt Templates (6h base + 3h v2 upgrade)
 
-### Sub-module 2B: Prompt Templates (6h)
+**`prompts/root_category.txt` v1 — DONE 2026-05-24**
 
-**`prompts/root_category.txt`** — full body template for 465 root categories
+- Generated 35 demo pages for Week 2
+- Patrick approved content quality 2026-05-25
+- Requested upgrade to buying-guide format
 
-- Output: SEO H1, meta title (under 60 chars), meta description (under 155 chars), 2-3 paragraph intro, 5 FAQs with answers, hero alt text
-- Variation injection (30% open with use case, 30% target buyer, 30% material angle, 10% seasonal)
-- Persona context: marketing directors, HR directors, safety managers, business owners
-- Plural keywords baked in (custom water bottles, branded tote bags, personalized pens)
-- Geiger product names injected for natural product mentions
+**`prompts/root_category.txt` v2 — buying-guide format (Week 3 Day 1-2)**
 
-**`prompts/modifier_category.txt`** — lite template for 576 modifier pages
+Added 2026-05-26 per Patrick feedback. New output structure:
+
+- SEO H1, meta title, meta description (same as v1)
+- **`introHtml`** (1-2 paragraphs, 150-250 words) — hero intro above grid
+- **`buyingGuideHtml`** (400-600 words) — structured buying guide below grid
+- **`buyingGuideH2`** = `Custom [Category Name] Buying Guide` — explicit H2 string
+- 5 FAQs with answers
+- Hero alt text
+
+Buying guide sections required:
+
+1. What buyers should look for when ordering this category
+2. Materials, build quality, durability considerations
+3. Common use cases and which buyer personas each fits
+4. Decoration and customization options (screen print, embroidery, laser engraving, full-color, debossing)
+5. Quantity guidance and MOQ context
+6. Tips to avoid common buying mistakes
+
+Keyword derivatives to inject naturally throughout buying guide:
+
+- `custom [category]`, `promotional [category]`, `branded [category]`, `personalized [category]`, `logo [category]`, `bulk [category]`, `wholesale [category]`
+
+Reference tone: `https://www.perfectimprints.com/blog/buying-guide-for-stadium-seat-cushions`
+
+**`prompts/modifier_category.txt`** — Week 3, lite template for 576 modifier pages
 
 - Per modifier intent (closeout/sale/no-minimum/production-time/eco-friendly/search/material)
-- Output: H1 combining root + modifier, meta title, meta description, 1 short intro (60-80 words)
-- No FAQs
+- H1 combining root + modifier, meta, 1 short intro (60-80 words)
+- No FAQs, no buying guide
 
-**`prompts/facet_category.txt`** — lite template for 21,137 standard facets + 2 compound facets
+**`prompts/facet_category.txt`** — Week 3, lite template for 21,137 facets + 2 compound
 
-- Output: SEO H1, meta title, meta description, 1 short intro paragraph (60-80 words)
-- No FAQs (root pages se inherit if needed)
-- Facet-specific keyword phrase ("stainless steel water bottles", "pink yardsticks", etc)
+- H1 long-tail keyword, meta, 1 short intro paragraph (60-80 words)
+- No FAQs, no buying guide
 
 ### Sub-module 2C: Content Generation Pipeline (8h)
 
-- `scripts/ai-pipeline/generate_content.py`
+`scripts/ai-pipeline/generate_content.py` — Week 3
+
 - Reads PI URL list + mapping
-- For each URL: load Geiger context, select template by type, call DeepSeek, save output JSON
-- Resumable (skip URLs that already have output)
-- Quality logging: flag short/erroneous outputs
-- Dry-run mode for prompt testing
-- Per-batch cost report
+- Per URL: load Geiger context, select template by type, call DeepSeek, save JSON
+- Resumable, dry-run, per-batch cost report
+- `post_process_lengths()` safety net (truncate at word boundary) applied to every output
 
-### Sub-module 2D-prime: Week 2 Mini-batch Carve-out (5h)
+### Sub-module 2D: Week 2 Mini-batch (5h) — DONE
 
-**This sub-module added 2026-05-24 for the Week 2 client demo.**
+Top 35 root categories by Geiger product count. Generated 2026-05-24 for Sunday May 25 demo. $0.065 cumulative cost across 4 rounds. EXCLUDED_SLUGS final list has 11 entries. SKU filtering uses 3 modes: `full`, `slug-filtered`, `full-capped-60`. Compound-noun H1 rule + HARD LIMIT reinforcement added to prompt.
 
-For the Sunday May 25 client demo we generate full AI content for the **top 35 root categories by Geiger product count**, not all 465. This is delivered in parallel with Module 3's sample template so Patrick can review actual rendered pages by end of Week 2.
+### Sub-module 2E: Week 3 Full Generation (Week 3, ~15h active + 8-12h wall)
 
-- Selection logic: load 465 PI roots from `data/pi-urls/category-urls.json`, look up Geiger category path via `data/mappings/pi-to-geiger.json`, count unique SKUs from `data/geiger/products.json` (where `category_paths` contains the mapped path), sort desc, take top 35.
-- Script: `scripts/ai-pipeline/generate_sample_roots.py` (separate from `generate_content.py` so the main pipeline stays clean)
-- Output: `data/categories/{slug}.json` per generated root
-- Cost: ~$1 (35 × $0.025 per root page at DeepSeek V3 pricing)
-- Time: 5-7 minutes wall time, plus prompt-tuning iterations as needed
-- Deterministic opening-style distribution: 30% use_case / 30% buyer / 30% material_quality / 10% seasonal across the 35 categories (stable seed for reproducibility)
+Step 1: Regenerate 35 demo pages with v2 buying-guide prompt
 
-After Patrick approves the sample on Sunday/Monday, Week 3 proceeds with M2-204 (generic pipeline), M2-203 + M2-203a (modifier and facet prompts), and full generation across all 22,180 URLs.
+- Delete all existing JSONs at `data/categories/`
+- Run mini-batch script with v2 prompt
+- Patrick spot-checks 2-3 outputs for new format
+- Cost: ~$0.10 (heavier content per page)
 
-### Sub-module 2D: Full Generation Run + Review (10h)
+Step 2: Generate remaining 430 root pages
 
-**Step 1: All 465 roots (Week 3)**
+- Run generic pipeline on the other 430 root URLs
+- Cost: ~$1.30
 
-- Generate all root category content via `generate_content.py` (~$12)
-- Spot-check 20 random outputs with Patrick (the 35 mini-batch from 2D-prime serve as the initial review set)
-- Adjust prompts if tone/accuracy issues
+Step 3: Generate 21,715 non-root pages
 
-**Step 2: 21,715 non-root pages (Week 3)**
+- Run on modifier + facet + compound facet URLs
+- Cost: ~$22-25 (heaviest batch, mostly lite content)
 
-- After Patrick approval, run full generation for modifiers + facets + compound facets (~$33)
-- Monitor cost, success rate, quality
-- Spot-check 50 random samples post-run
-
-### Sub-module 2E: Content Storage (7h)
-
-- Output structure: `data/categories/[encoded-slug].json`
-- Slash converted to `__` in filename (e.g., `water-bottles__material__stainless-steel.json`)
-- Schema per file (matches CLAUDE.md Section 9):
-  ```json
-  {
-    "url": "/cat/water-bottles/material/stainless-steel",
-    "type": "root|modifier|facet|compound-facet",
-    "h1": "...",
-    "metaTitle": "...",
-    "metaDescription": "...",
-    "introHtml": "...",
-    "faqs": [{ "q": "...", "a": "..." }],
-    "heroAltText": "...",
-    "productSkus": ["SKU1", "SKU2", ...],
-    "generatedAt": "ISO timestamp",
-    "model": "deepseek-chat",
-    "promptVersion": "root-v1",
-    "openingStyle": "use_case"
-  }
-  ```
-- `productSkus` pulled from Phase C facet memberships (or computed at generation time for roots from `category_paths` containment)
+**Total Week 3 generation cost estimate:** ~$25 (was $50 budget, 50% savings due to DeepSeek pricing)
 
 **Acceptance criteria for M2:**
 
-- [ ] All 22,180 content JSON files generated
-- [ ] Patrick approves quality from spot-check (35-page sample first, then 465 roots, then full run)
-- [ ] Total DeepSeek spend under $50
-- [ ] All files committed to repo
+- [x] DeepSeek client working
+- [x] Root v1 prompt delivered for Week 2 demo
+- [ ] Root v2 prompt with buying-guide format delivered
+- [ ] 35 demo pages regenerated with v2, Patrick approved
+- [ ] Remaining 430 root pages generated
+- [ ] All 21,715 non-root pages generated
+- [ ] Zero schema violations, zero length violations
+- [ ] Cost under $30 total
 
 ---
 
-## Module 3: Category Page Templates
-
-**Total: ~80 hours | Week 2 end (sample template) + Weeks 3-4 (filters, pagination, lead form, polish)**
-
-**Phased delivery (updated 2026-05-24):**
-
-- **Phase 3.1 (Week 2 end, demo deliverable):** Render the 35 mini-batch root pages with breadcrumb, H1, AI intro, product grid (all products, no pagination), FAQs, CTA banner. This proves layout and content quality to the client.
-- **Phase 3.2 (Week 3):** Extend `generateStaticParams` to all 22,180 paths once Module 2 full generation completes. Add static pagination (M3-306). Implement Tier 3 and Tier 4 empty-grid fallback.
-- **Phase 3.3 (Week 3-4):** Implement M3-304 filter sidebar (single-facet → multi-facet logic), plus M3-305 sort dropdown.
-- **Phase 3.4 (Week 4):** Implement M3-308 lead form, wire M3-309 CTA banner to Sanity, complete M3-307 page assembly with schema markup and related blog posts, M3-310 polish.
+## 5. Module 3: Category Page Templates (~85h total, +5h for Patrick additions)
 
 ### Sub-module 3A: Page Routing (6h)
 
-- Dynamic route `/app/cat/[...slug]/page.tsx`
-- `generateStaticParams()` reads PI URL list, generates all 22,180 static paths
-- Loader function: Sanity-first (curated/custom category), then JSON fallback, then 404
-- Type-safe slug parsing
+- `/app/cat/[...slug]/page.tsx` with `generateStaticParams`
+- Loader: Sanity → JSON fallback → 404
+- Tier 3 (parent-root grid with explanatory header) at template layer
+- Tier 4 (homepage CTA) at template layer
 
-**Phase 3.1 status:** 35 root slugs wired via `getAllGeneratedRootSlugs()` in `lib/categories.ts`. Full 22,180 generation pending M2-204 + M2-206 completion.
+**Phase 3.1 status (Week 2 demo): PARTIAL.** 35 root slugs wired in. Full 22,180 paths pending M2-206.
 
-### Sub-module 3B: Product Card Component (6h)
+### Sub-module 3B: Product Card (6h base + 3h Week 3 additions) — SUBSTANTIALLY DONE
 
-- Displays: hot-linked Geiger CDN image, name, brand badge, price range, MOQ, "New"/"Sale"/"CLOSEOUT" badges
-- Click opens patrickblack.geiger.com in new tab via `lib/affiliate-url.ts`
-- Hover state (subtle elevation + image scale)
-- Responsive: 4 cols desktop, 3 cols tablet (md), 2 cols sm, 1 col xs
-- Loading skeleton state
+Hot-linked Geiger CDN image, name, brand badge, price, MOQ, NEW/SALE/CLOSEOUT badges, affiliate URL via helper.
 
-**Image strategy:** Hot-link from `imgsirv.geiger.com` (Geiger's CDN). NO download. Patrick Geiger ka distributor hai, hot-linking allowed. Saves 5-15GB build size. HTML-decode `&amp;` in imageUrl before rendering.
+**Phase 3.1 status: DONE for Week 2 demo.**
 
-**Phase 3.1 status: DONE.** Production-grade ProductCard built for Week 2 demo.
+**Week 3 additions per Patrick feedback (2026-05-25):**
+
+1. **HTML entity decoding** at loader level in `lib/categories.ts::getProductsForCategorySlug`
+   - Decode: `&amp;`, `&quot;`, `&#039;`, `&apos;`, `&lt;`, `&gt;`, `&nbsp;`, `&reg;`, `&trade;`, `&copy;`
+   - Centralized so all consumers get clean strings
+2. **Image fallback `onError` handler** in ProductCard
+   - When Geiger CDN returns 404 for a product image (between monthly rebuilds), swap to placeholder
+   - Use `/public/placeholder-product.svg` or inline SVG with product name text
+   - Monthly auto-rebuild handles full product removal, this is the between-rebuild safety net
 
 ### Sub-module 3C: Product Grid (5h)
 
-- 60 products per page default (post-pagination)
-- Skeleton loading state
-- Empty state when zero match
-- Lazy loading below fold
+Responsive 4/3/2/1 cols. 60 products per page (pagination logic in M3-306).
 
-**Phase 3.1 status:** All products render in one view for the 35 demo roots (no pagination yet). Pagination wraps land in Phase 3.2.
+**Phase 3.1 status (Week 2 demo): PARTIAL.** All products in one view for demo. 60/page in Week 3.
 
-### Sub-module 3D: Filter Sidebar (16h)
+### Sub-module 3D: Filter Sidebar (18h, was 16h, +2h for Patrick additions)
 
-- Sticky on desktop, collapsible drawer on mobile
-- Facet sections rendered from Geiger data: Category (subcategories), Color, Material, Brand, Price range, Production time, Min Qty range
-- Counts shown next to each facet value
-- Multi-select within a facet
-- **Filter logic:**
-  - Single facet match (user adds Color=Pink on `/cat/water-bottles`) → check if static URL `/cat/water-bottles/color/pink` exists → navigate to it. Otherwise query param `?color=pink`
-  - Multi-facet (Color=Pink AND Material=Plastic) → always query params, because 22,180 static URLs sirf single-facet combinations cover karte hain
-- "Clear all filters" button
+Sticky on desktop, drawer on mobile. Patrick filter list confirmed 2026-05-25.
 
-**Phase 3.1 status: DEFERRED.** Filter sidebar implemented in Phase 3.3 (Week 3-4).
+**Universal filters:**
+
+- Category (subcategories within current root)
+- Color
+- Material
+- Brand
+- Price range
+- Production Time
+- **Minimum Quantity (NEW, Patrick's addition)** — Range buckets: 1-25, 26-50, 51-100, 101-250, 251-500, 500+
+- New Items toggle
+- Made in USA / Eco-Friendly / Deals (refine_by tags)
+- Full Color Print
+
+**Context-specific filters (render only on matching category):**
+
+- Apparel: Gender, Sleeve Length, Apparel Style
+- Drinkware: Ounces
+- Tech: USB Size
+- Writing Instruments: Pen Style
+
+**"Search within this category" input (NEW, Patrick addition 2026-05-25):**
+
+- At top of filter sidebar
+- Debounced 150ms, filters loaded product grid by name match
+- No server round-trip
+- Resets when filters change
+
+**Filter URL logic:**
+
+- Single facet match with existing static URL → navigate to that URL
+- Single facet without static URL → query param (`?color=blue`)
+- Multi-facet → always query params
+
+**Phase 3.1 status: DEFERRED.** Implemented Week 4 after full generation completes.
 
 ### Sub-module 3E: Sort Dropdown (3h)
 
-Options:
+Best Sellers (default), Price Low-High, Price High-Low, MOQ Low-High, Newest. Client-side sort.
 
-- Best Sellers (default)
-- Price Low to High
-- Price High to Low
-- MOQ Low to High
-- Newest
-
-Client-side sort over loaded SKU list (no server call).
-
-**Phase 3.1 status: DEFERRED to Phase 3.3.**
+**Phase 3.1 status: DEFERRED to Week 4.**
 
 ### Sub-module 3F: Static Pagination (6h)
 
-- URL pattern: `/cat/[slug]/page/N`
-- Previous, page numbers, Next buttons
-- 60 products per page
-- Prefetching for adjacent pages
-- All pagination URLs in sitemap
+URL pattern `/cat/[slug]/page/N`. 60 products per page. Previous/Next/numbered buttons. Adjacent page prefetch.
 
-**Phase 3.1 status: DEFERRED to Phase 3.2 (Week 3, alongside full route generation).**
+**Patrick feedback addition (2026-05-25): Page 2+ non-indexable.**
+
+- Page 1: indexable, canonical points to clean root URL (`/cat/water-bottles` NOT `/cat/water-bottles/page/1`)
+- Page 2+: `noindex,follow` meta robots tag + canonical pointing to page 1
+- Only page 1 URLs in sitemap
+
+**Phase 3.1 status: Week 3.**
 
 ### Sub-module 3G: Page Layout Assembly (10h)
 
-- Breadcrumb (Home > Department > Category > Subcategory)
-- H1 + intro paragraph from AI content
-- Product grid with filter sidebar
-- FAQs accordion (root pages only)
-- Lead capture form embedded
-- CTA banner
-- Schema.org markup: BreadcrumbList, FAQPage (root only), Product (for grid)
-- Reference layout match: `sample-category-layout.jpg`
+**Order on root pages:**
 
-**Phase 3.1 status: PARTIAL.** Breadcrumb, H1, AI intro (full introHtml), product grid (no filter), FAQs accordion, CTA banner (phone + email, not Sanity-wired yet) all built for Week 2 demo. Filter sidebar, lead form, schema markup deferred.
+1. Breadcrumb
+2. H1
+3. Hero intro (`introHtml`)
+4. Filter sidebar + product grid + sort + pagination
+5. **H2 "Custom [Category] Buying Guide"** (NEW, Patrick)
+6. **Buying guide content** (`buyingGuideHtml`) (NEW, Patrick)
+7. FAQs accordion
+8. **Related Blogs section** (NEW, Patrick) — see Sub-module 3K
+9. Lead capture form
+10. CTA banner
+
+Schema.org markup: BreadcrumbList, FAQPage (root only), Product (within grid).
+
+**Phase 3.1 status (Week 2 demo): PARTIAL.** Breadcrumb, H1, intro, grid, FAQs, CTA done. Buying guide, related blogs, lead form, schema deferred to Week 3-4.
 
 ### Sub-module 3H: Lead Capture Form (10h)
 
-- Fields: Name, Email, Company, Phone, Quantity needed, Message
-- Client component with inline validation
-- POST to `/app/api/leads/route.ts`
-- Route handler uses Nodemailer + Gmail SMTP
-- Sends to `patrick@perfectimprints.com`
-- Writes `leadSubmission` document to Sanity for record
-- Honeypot field + basic rate limiting
-- Success/error toast states
-- Env vars: `GMAIL_USER`, `GMAIL_APP_PASSWORD`, `LEAD_EMAIL_TO`
+Name, Email, Company, Phone, Quantity, Message. POST to `/app/api/leads/route.ts`. Nodemailer + Gmail SMTP to patrick@perfectimprints.com. leadSubmission document in Sanity. Honeypot + rate limit.
 
-**Phase 3.1 status: DEFERRED to Phase 3.4 (Week 4).** Week 2 demo uses basic phone + email CTA banner instead.
+**Phase 3.1 status: DEFERRED to Week 4.** Week 2 demo uses phone + email CTA banner.
 
 ### Sub-module 3I: CTA Banner (3h)
 
-- Reusable component, content editable in Sanity globalSettings
-- Default: "Need help finding the right product? Call 800-773-9472 or request a quote"
-- Used at bottom of category pages and blog pages
+Reusable, editable in Sanity globalSettings. Default: "Need help finding the right product? Call 800-773-9472 or request a quote".
 
 **Phase 3.1 status: PARTIAL.** Hardcoded version (phone + email) built for Week 2 demo. Sanity wiring in Module 5.
 
 ### Sub-module 3J: Polish + Edge Cases (15h)
 
-- 404 page (helpful suggestions)
-- Loading states
-- Error boundaries
-- Mobile responsiveness pass (375, 768, 1280)
-- Accessibility pass (keyboard nav, aria labels)
-- Performance pass on sample pages
+404 page, loading states, error boundaries, mobile responsiveness (375/768/1280), accessibility, performance pass.
 
-**Phase 3.1 status: PARTIAL.** Basic 404 page built. Full polish in Phase 3.4 / Module 5.
+**Phase 3.1 status: PARTIAL.** Basic 404 built. Full polish Phase 3.4 / Module 5.
+
+### Sub-module 3K: Related Blogs Section (4h) — NEW
+
+Added 2026-05-26 per Patrick feedback. Component `components/category/RelatedBlogsSection.tsx`.
+
+- H2: `Related Blogs About [Category Name]`
+- Up to 8 blog cards, blogs tagged with matching category
+- Card: thumbnail, title, excerpt (120 chars), date, link to `/blog/[slug]`
+- Hidden if zero matches
+- Server component, no client fetch
+- Renders only on `type=root` pages, below buying guide section
+
+Depends on M4-402 (blog migration with category tags).
 
 **Acceptance criteria for M3:**
 
-- [ ] `/cat/water-bottles` renders correctly with products + filters + sort + pagination
+- [ ] `/cat/water-bottles` renders correctly with all sections
 - [ ] `/cat/water-bottles/material/stainless-steel` shows correct filtered subset
-- [ ] Filter sidebar navigates to static URL when match exists, query param otherwise
-- [ ] Lead form delivers email to Patrick within 30 seconds
-- [ ] All 22,180 pages successfully build (Next.js build completes without errors)
+- [ ] Filter sidebar with Min Qty + search-within + context-specific filters
+- [ ] Page 1 indexable, page 2+ noindex
+- [ ] Lead form delivers email within 30 seconds
+- [ ] All 22,180 pages successfully build
 - [ ] Lighthouse > 85 on sample category pages
 - [ ] Mobile responsive on all breakpoints
 
 ---
 
-## Module 4: Blog System
-
-**Total: ~30 hours | Week 6 (June 19 - June 25)**
+## 6. Module 4: Blog System + Brand Pages (~36h, +6h for brand pages)
 
 ### Sub-module 4A: Blog Scrape (8h)
 
-- Attempt clean export from MPower dashboard first
-- If fails: Playwright fallback scraper for 731 URLs
-- Per blog: title, body HTML, header image, inline images, publish date, author, category tags
-- Output: `data/blogs/raw/[slug].json` + images at `data/blogs/images/`
+Attempt clean export from MPower at `app.mpowerpromo.com`. If fails, Playwright fallback for 731 URLs. Per blog: title, body HTML, header image, inline images, date, author, category tags. Output: `data/blogs/raw/[slug].json` + images.
 
-### Sub-module 4B: Blog Sanity Schemas (6h)
+### Sub-module 4B: Blog Sanity Schemas + Migration (6h)
 
-- `blogPost` schema (title, slug, hero image, body portable text, author, publish date, categories, related posts, meta tags)
-- `blogCategory` schema (slug, title, description)
-- `author` schema (name, bio, image)
-- Migration script: import scraped blogs as Sanity drafts
-- Patrick reviews and publishes
+`blogPost`, `blogCategory`, `author` schemas. Migration script: raw HTML → portable text, upload images, write drafts. **Each blogPost carries category tags mapping to PI root slugs** (needed for Related Blogs section M3-311 / 3K).
 
 ### Sub-module 4C: Blog Templates (10h)
 
-- Blog index `/blog`: featured posts, category filter, search, 3-4 column card grid, pagination at 24 posts
-- Blog post `/blog/[slug]`: breadcrumbs, hero image, title + metadata, article body, sidebar with categories + contact CTA, related posts grid
-- Blog category `/blog/cat/[slug]`: filtered listing
-- Match reference: `sample-blog-layout.jpg`
-- Schema.org BlogPosting markup
+`/blog` (index), `/blog/[slug]` (article), `/blog/cat/[slug]` (category filter). Reference: `sample-blog-layout.jpg`. BlogPosting schema markup.
 
-### Sub-module 4D: Sanity Content Management (6h)
+### Sub-module 4D: FAQ Library + Brand Schema (6h)
 
-- FAQ library schema
-- Brand schema (Geiger sub-brands: Carhartt, Igloo, Nike, etc — populated from products.json)
-- Patrick can author new blog from Sanity, appears on site after publish
-- ISR revalidation working
+`faq` schema for reusable FAQ items. `brand` schema auto-populated from `data/geiger/brands.json` (Phase E output). Logos imported from `data/geiger/brand-logos/` into Sanity assets.
+
+### Sub-module 4E: Brand Index + Per-Brand Pages (6h) — NEW
+
+Added 2026-05-26 per Patrick feedback.
+
+**`/brands` route (static index)**
+
+- All brands grouped A-Z, similar to Geiger's `/c/shop-by-brand`
+- Each brand: logo + link to `/brands/[slug]`
+- Generated from `data/geiger/brands.json`
+- Anchor links for A-Z scroll
+
+**`/brands/[slug]` route (per-brand)**
+
+- H1 like "Custom [Brand] Promotional Products"
+- Brief AI-generated intro about the brand
+- Full product grid filtered to that brand
+- Same ProductCard, affiliate links through normally
+
+Mega menu addition (handled in M5-503): "Brands" main menu item linking to `/brands`.
 
 **Acceptance criteria for M4:**
 
 - [ ] All 731 blogs render with original URLs preserved
 - [ ] Patrick can author + publish from Sanity
 - [ ] Blog search + category filter functional
-- [ ] No broken images or missing content
+- [ ] `/brands` and `/brands/[slug]` pages live
+- [ ] Brand logos display correctly
+- [ ] Related Blogs section data flow working
 
 ---
 
-## Module 5: Search, Forms, Home, Polish
-
-**Total: ~40 hours | Week 7 (June 26 - July 2)**
+## 7. Module 5: Search, Forms, Home, Deals, Polish (~51h, +5h for Deals page)
 
 ### Sub-module 5A: Home Page (8h)
 
-- Hero (Sanity-editable)
-- Featured categories grid
-- New products carousel (auto-populated from latest Geiger scrape)
-- Featured brands logos
-- Testimonial section
-- Blog preview section
-- CTA banners
-- All content from Sanity homePage singleton
+Sanity-driven hero, featured categories, new products carousel, brands grid, testimonials, blog preview, CTA banners. From `homePage` singleton.
 
 ### Sub-module 5B: Site-wide Search (Fuse.js) (8h)
 
-- Build-time index generation
-- Index covers: 22,180 categories + 731 blogs + brands + FAQs
-- `/public/search-index.json`
-- Header search bar with autocomplete dropdown
-- `/search?q=...` results page
-- Lazy load Fuse + index on first interaction
-- Fuzzy matching on title, description, keywords
+Build-time index. Covers 22,180 categories + 731 blogs + brands + FAQs. `/public/search-index.json`. Header search bar with autocomplete. `/search?q=...` results page. Lazy load Fuse + index on first interaction.
 
-### Sub-module 5C: Mega Menu Population (4h)
+### Sub-module 5C: Mega Menu Population (4h + new menu items)
 
-- Replace hardcoded shell with Sanity-driven structure
-- Patrick can reorder departments, edit labels, hide items
-- Default state matches Geiger's mega menu structure
+Replace hardcoded shell with Sanity-driven structure. **Adds two new main menu items per Patrick (2026-05-25):**
+
+- **Deals** link to `/deals` (see Sub-module 5H)
+- **Brands** link to `/brands` (see Sub-module 4E)
 
 ### Sub-module 5D: Custom Category/Product Schemas + AI Button (10h)
 
-- `customCategory` schema in Sanity (for PI-only categories not on Geiger)
-- `customProduct` schema (PI-only products with external URL field)
-- Render through same `/cat/[...slug]` route, Sanity wins over JSON when slug matches
-- **AI generation button:** Sanity Studio action at `/sanity/actions/GenerateWithAI.tsx`
-  - Button labeled "Generate with AI" on customCategory document
-  - Click triggers Sanity Studio action → custom API route `/app/api/sanity/generate-content/route.ts`
-  - Backend calls DeepSeek with root_category prompt template
-  - Auto-fills intro paragraph + 5 FAQs into document
-  - Patrick reviews and publishes
+`customCategory` and `customProduct` Sanity schemas. AI generation button calls DeepSeek with **v2 buying-guide prompt** to auto-fill intro + buying guide + FAQs.
 
-### Sub-module 5E: Performance Pass (6h)
+### Sub-module 5E: Performance Pass (8h, was 6h)
 
-- next/image where possible (for non-Geiger images: logo, hero, blog images)
-- Hot-linked Geiger images get `loading="lazy"` + explicit dimensions to prevent CLS
-- Prefetch links on hover
-- Bundle analysis, code splitting
+Per Patrick feedback (2026-05-25): mobile LCP + Speed Index improvements.
+
+- Preload hero image with `<link rel="preload" as="image">`
+- Preload primary font (Inter)
 - Defer non-critical scripts
-- Target Lighthouse > 90 on home + category + blog templates
+- Hot-linked Geiger images with explicit dimensions + sizing hints
+- Bundle analysis, code splitting
+- Target mobile Lighthouse 90 plus on home + root templates
+- Target Speed Index improvement 30%+ on previously tested URL
 
 ### Sub-module 5F: SEO Infrastructure (4h)
 
-- `sitemap.xml` generator: 22,180 categories + 731 blogs + static pages + paginated category pages
-- Split into multiple files if > 50k URLs
-- `robots.txt`: allow all, reference sitemap
-- Meta tags audit script (zero missing, zero duplicate)
-- Schema.org Organization (root layout)
-- Canonical URLs on every page
+Sitemap generator (22,180 categories + 731 blogs + brands + deals page + static, ONLY page 1 for paginated). Robots.txt. Meta tags audit. Schema.org Organization. Canonical URLs.
 
 ### Sub-module 5G: Large Data File Relocation (6h)
 
-**Added 2026-05-24.** `data/geiger/products.json` (9.6 MB) and `data/geiger/facet-memberships.json` (44.5 MB) need to move out of the main repo for build performance and developer onboarding sanity.
+Move `products.json` (9.6 MB) and `facet-memberships.json` (44.5 MB) out of main repo. Three options to evaluate. Documented at `docs/decisions/data-file-storage.md`.
 
-Three options to evaluate:
+### Sub-module 5H: Deals Page + Menu Button (5h) — NEW
 
-1. Separate data repo (`perfectimprints-data`) with build-time fetch via git submodule or GitHub Actions checkout
-2. Git LFS on the existing repo (1 GB storage free tier, 1 GB bandwidth/month)
-3. External object storage (Cloudflare R2 or AWS S3) with build-time download in CI
+Added 2026-05-26 per Patrick feedback.
 
-Decision criteria: build duration impact, developer onboarding friction, free-tier limits, integration with monthly auto-rebuild (Sub-module 6F).
+**`/deals` route (static landing page)**
 
-Documented at `docs/decisions/data-file-storage.md` after decision made.
+- Aggregates all on-sale and closeout products from `data/geiger/products.json`
+- Filter logic: `is_on_sale=true` OR badge tag in [`sale`, `deals`, `closeout`]
+- Same ProductCard, SALE/CLOSEOUT ribbons visible
+- AI-generated H1 and intro OR Sanity-editable hero copy
+- Pagination if more than 60 products
+- Mobile responsive
+- BreadcrumbList schema
+
+Mega menu addition (handled in 5C): "Deals" main menu item.
 
 **Acceptance criteria for M5:**
 
-- [ ] Home page complete + editable from Sanity
+- [ ] Home page complete + editable
 - [ ] Search finds categories/blogs/brands within 300ms
-- [ ] Sitemap validates against Google spec
-- [ ] Lighthouse > 90 on home + 3 sample category pages
-- [ ] Patrick can create custom category with AI-generated content from Sanity
-- [ ] Large data files relocated, monthly auto-rebuild updated
+- [ ] Sitemap validates
+- [ ] Lighthouse > 90 mobile on home + 3 sample category pages
+- [ ] Patrick can create custom category with AI-generated buying-guide content
+- [ ] Large data files relocated
+- [ ] `/deals` page live with proper aggregation
 
 ---
 
-## Module 6: QA, Migration, Launch
-
-**Total: ~25 hours | Week 8 (July 3 - July 9)**
+## 8. Module 6: QA, Migration, Launch (~26h)
 
 ### Sub-module 6A: URL Audit (4h)
 
-- Automated check: all 22,180 + 731 + static URLs return 200
-- 404 handling for invalid URLs (helpful suggestions, search prompt)
-- Old `/blog/cat/` taxonomy URLs (82 of them): decide redirect or 404
-- Build a check script that crawls staging and reports any 404/500
+All 22,180 + 731 + brands + deals + static URLs return 200. Custom 404 with suggestions.
 
 ### Sub-module 6B: Cross-browser Testing (5h)
 
-- Chrome, Firefox, Safari, Edge on desktop
-- iOS Safari, Chrome Android on mobile
-- Filter sidebar drawer, mega menu, forms all work
-- Document results at `/docs/qa-matrix.md`
+Chrome, Firefox, Safari, Edge on desktop. iOS Safari, Chrome Android on mobile. 375/768/1280/1920 viewports.
 
 ### Sub-module 6C: Pre-launch Setup (4h)
 
-- Google Search Console verification (both staging + production hostnames)
-- Google Analytics 4 setup (preserve existing GA4 property)
-- Events: lead form submit, search usage, outbound clicks to Geiger
-- Production Vercel env vars set
-- Sanity webhook pointing to production
-- Launch runbook at `/docs/launch-runbook.md`
+GA4, GSC verification, event tracking (lead form, search, outbound clicks). Production env vars. Launch runbook.
 
 ### Sub-module 6D: Final Scrape Refresh (3h)
 
-- One last scraper run for fresh data
-- Generate fresh AI content for any newly added Geiger categories
-- Final production build
+Run scraper Phases A, B, C, E one last time. Regenerate AI content for any new categories. Final production build.
 
 ### Sub-module 6E: DNS Cutover (3h)
 
-- Lower DNS TTL day before to 300 seconds
-- Cutover during low-traffic window (early morning ET)
-- Repoint perfectimprints.com apex to Vercel via Cloudflare DNS
-- SPF + DKIM records for Gmail SMTP
-- Monitor for 24 hours
-- Submit updated sitemap to Search Console
+Lower TTL 48h prior. Add SPF + DKIM for Gmail. Repoint apex day-of. Submit sitemap. Monitor 24h.
 
 ### Sub-module 6F: Monthly Auto-Rebuild Scheduler (4h)
 
-- GitHub Action workflow `.github/workflows/monthly-rebuild.yml`
-- Scheduled: 1st of every month at 00:00 UTC
-- Steps:
-  1. Run Python scraper (Phases A, B, C — Phase D mapping stable after first run)
-  2. Regenerate AI content for any new categories
-  3. Commit data changes (in their final location per M5-509 decision)
-  4. Trigger Vercel production build
-  5. Email Patrick summary stats (products count delta, new categories, etc)
-- Manual trigger button in Sanity for ad-hoc refresh
+GitHub Action 1st of every month, 00:00 UTC. Runs Phases A, B, C, E. Regenerates new AI content. Detects removed products. Email summary to Patrick. Manual trigger in Sanity.
 
 ### Sub-module 6G: Training + Handover (2h)
 
-- Screen-capture video walkthrough (under 20 min)
-- Topics: add curated category, custom category with AI button, custom product, blog post, edit home page, edit mega menu
-- Quick-reference notes at `/docs/sanity-quickstart.md`
+Screen-capture under 20 min. Quick-reference notes at `/docs/sanity-quickstart.md`.
 
 **Acceptance criteria for M6:**
 
 - [ ] Live at perfectimprints.com
-- [ ] Zero 404s on 22,180 + 731 + static URLs
+- [ ] Zero 404s on all URLs
 - [ ] Lead form working in production
-- [ ] Monthly auto-rebuild verified (manual trigger test)
+- [ ] Monthly auto-rebuild verified
+- [ ] Brand logos refreshing on monthly rebuild
 - [ ] Patrick signs off
 
 ---
 
-# Time + Payment Summary
+## 9. Time + Payment Summary (UPDATED 2026-05-26)
 
-| Module                        | Hours   | Weeks | End Date         |
-| ----------------------------- | ------- | ----- | ---------------- |
-| 1: Foundation + Data Pipeline | 50      | 1-2   | May 28           |
-| 2: AI Content Generation      | 35      | 2-3   | June 4           |
-| 3: Category Page Templates    | 80      | 2-5   | June 18          |
-| 4: Blog System                | 30      | 6     | June 25          |
-| 5: Search/Forms/Home/Polish   | 46      | 7     | July 2           |
-| 6: QA/Migration/Launch        | 25      | 8     | July 9           |
-| **Total**                     | **266** | **8** | **July 9, 2026** |
+| Module                            | Hours   | Weeks | End Date         |
+| --------------------------------- | ------- | ----- | ---------------- |
+| 1: Foundation + Data Pipeline     | 54      | 1-4   | (Phase E Week 4) |
+| 2: AI Content Generation          | 38      | 2-3   | June 4           |
+| 3: Category Page Templates        | 89      | 2-5   | June 18          |
+| 4: Blog System + Brand Pages      | 36      | 4     | June 11          |
+| 5: Search/Forms/Home/Deals/Polish | 51      | 5     | June 18          |
+| 6: QA/Migration/Launch            | 26      | 6     | June 25          |
+| **Total**                         | **294** | **6** | **June 25**      |
 
-**Rate analysis:**
+**Rate analysis (revised):**
 
-- $6000 / 266 hours = $22.55/hr effective
-- Original $6000 / 240 hours = $25/hr
-- Slight reduction acceptable given expanded scope already absorbed (added Sub-module 2D-prime mini-batch + M5-509 data file relocation)
+- Original budget: $6000 / 266 hours = $22.55/hr
+- New scope: $6000 / 294 hours = $20.40/hr
+- Scope additions absorbed: ~28 hours
+- Cost savings on Module 2 (DeepSeek): ~$25 vs $50 budget (~$25 saved)
+- Net impact: still profitable, no client conversation needed about scope creep
+
+**Scope additions tracked since contract signing:**
+
+1. Sub-module 2D-prime mini-batch (5h) — Week 2 demo
+2. Sub-module 5G data file relocation (6h) — added 2026-05-24
+3. **Phase E brand logo scrape (4h)** — added 2026-05-26
+4. **Sub-module 4E brand index + per-brand pages (6h)** — added 2026-05-26
+5. **Sub-module 5H deals page + menu button (5h)** — added 2026-05-26
+6. **Sub-module 3K related blogs section (4h)** — added 2026-05-26
+7. **Minimum Quantity filter + search-within-category (2h)** — added 2026-05-26
+8. **Mobile pagespeed extra optimization (2h)** — added 2026-05-26
+9. **Buying-guide v2 prompt upgrade (3h)** — added 2026-05-26
+
+Total scope addition: 37 hours. Absorbed into the $6000 contract.
 
 **Payment vs reality:**
 
 - Patrick's payment schedule ends June 19 with launch payment
-- Internal launch target: July 9 (3 weeks past)
+- Internal launch target: June 25 (1 week past)
 - **Risk:** Final 10% payment might be held if launch slips past June 19
-- **Mitigation:** Front-load critical milestones, deliver staging-ready by June 19, give Patrick walkthrough, get him excited. Last 3 weeks (June 19 - July 9) are polish + launch coordination. If Patrick wants to launch earlier with known polish caveats, doable.
-- **Week 2 mini-batch demo (May 25):** Shows real rendered category pages with AI content to Patrick. Builds confidence + buys goodwill. Worth the small extra cost (~$1) and few hours of scope carve-out.
+- **Mitigation:** Front-load critical milestones, deliver staging-ready by June 19, give Patrick walkthrough early. Last week is QA + polish + launch coordination.
+- **Week 2 demo (May 25):** Delivered. Patrick approved content quality. Confidence built.
 
 ---
 
-# Patrick Dependencies (Yeh Sab Pending)
+## 10. Patrick Dependencies (Track Status)
 
-| Item                                                           | Required By                      | Status                                                        |
-| -------------------------------------------------------------- | -------------------------------- | ------------------------------------------------------------- |
-| DeepSeek API key (he creates account at platform.deepseek.com) | Week 2 end (before M2)           | **RECEIVED 2026-05-24**                                       |
-| Gmail app password (for Nodemailer SMTP)                       | Week 3 end (before M3 lead form) | Pending                                                       |
-| Exact green hex shade confirmation                             | Week 1 (style guide review)      | Pending (OQ-4)                                                |
-| Lead form "from" address preference (patrick@ vs leads@)       | Week 3                           | Pending (OQ-1)                                                |
-| Image fallback policy (when Geiger lacks image)                | Week 4                           | **RESOLVED 2026-05-23** (Geiger homepage; 4-tier chain built) |
-| Sample content approval (35 root pages first, then 465)        | Week 2 end (Sunday May 25)       | Pending                                                       |
-| Mega menu structure final review                               | Week 7                           | Pending                                                       |
-| Final staging review                                           | Week 8 start                     | Pending                                                       |
-
----
-
-# Risks (Internal View)
-
-**1. Searchspring API changes during 8-week build**
-
-- Likelihood: Low
-- Impact: Phase B + C scrape ko adapt karna padega
-- Mitigation: One-time scrape + monthly auto-rebuild approach — agar API change hua, hum scraper update karke phir run karenge. Production site live data pe dependent nahi hai.
-
-**2. 21,715 facet API calls fail mid-run**
-
-- Likelihood: Medium → RESOLVED (already completed cleanly with 4-tier recovery)
-- Impact: Phase C resumable hai, checkpointing every 100 calls
-- Mitigation: Worst case ~6 hours dobara run
-
-**3. AI content quality unacceptable on facets**
-
-- Likelihood: Low (lite template, simple intro)
-- Impact: Rerun with adjusted prompts (~$20)
-- Mitigation: 35-page mini-batch reviewed Week 2 end, then 50 sample review of full run pehle commit
-
-**4. Launch slips past June 19**
-
-- Likelihood: Medium-High
-- Impact: Final 10% payment delayed
-- Mitigation: Communicate early with Patrick, show staging readiness mid-July, get him to agree to slight delay for quality. Week 2 demo with real rendered pages helps reset expectations realistically.
-
-**5. Geiger affiliate subdomain not ready at launch**
-
-- Likelihood: Medium (Patrick's email said "they haven't created my site yet")
-- Impact: Affiliate links broken
-- Mitigation: Use `www.geiger.com` as fallback until `patrickblack.geiger.com` live. Simple env var swap on launch day (NEXT_PUBLIC_GEIGER_HOST).
-
-**6. Vercel build timeout on 22,180 + 731 pages**
-
-- Likelihood: Medium
-- Impact: Failed deploys
-- Mitigation: Test build times early in M3 Phase 3.2. Big data files (~55 MB) currently in repo are close to Vercel Hobby 100 MB build size limit; M5-509 relocation addresses this. If build still too slow after relocation, switch to incremental static regeneration for facet pages, keeping roots fully static.
-
-**7. Video section scope creep (Patrick wants expanded video)**
-
-- Likelihood: High (Patrick mentioned this in writing)
-- Impact: 20-30 extra hours not budgeted
-- Mitigation: Scope it separately, quote as add-on after launch. Don't absorb silently.
-
-**8. Cloudflare Pages → Vercel migration disruption**
-
-- Likelihood: RESOLVED (migration completed Week 1)
-- Impact: Was a 1-day delay during Week 1
-- Mitigation: Already done. Patrick informed.
+| Dependency                             | Status            | Notes                       |
+| -------------------------------------- | ----------------- | --------------------------- |
+| DeepSeek API key                       | RECEIVED          | Working as of Week 2        |
+| Gmail app password                     | PENDING           | Needed for M3-308 lead form |
+| Sanity account                         | DONE              | Project under Patrick       |
+| Vercel account                         | DONE              | Patrick's account           |
+| GA4 measurement ID                     | PENDING           | Needed for M6-603           |
+| Final green hex shade                  | PENDING           | OQ-4                        |
+| Lead form "from" address               | PENDING           | OQ-1                        |
+| Old site cutover plan                  | PENDING           | OQ-3                        |
+| **patrickblack.geiger.com activation** | PENDING ON GEIGER | Patrick chasing them        |
 
 ---
 
-# Out of Scope (Internal Reminder)
+## 11. Risk Log (Track Throughout)
 
-Yeh sab v1 mein nahi hai. Post-launch quote separately:
-
-- Product detail pages on PI
-- Cart/checkout
-- User accounts/authentication
-- Real-time Geiger sync (we use monthly rebuild)
-- Per-product imprint/decoration data display
-- **Video section expansion** (Patrick wants this — scope separately, charge $XXX)
-- Custom CRM integration
-- Paid ad landing pages
-- A/B testing infrastructure
-- Multi-language/multi-currency
-
----
-
-# Daily Working Rhythm
-
-- Mon-Fri: 30-35 hours/week sustained pace
-- Sat: 8 hours catch-up + planning
-- Sun: off (except critical demos like May 25)
-- WhatsApp Patrick weekly with status updates
-- Push to staging end of every working day
-- Patrick can review staging anytime
+| Risk                                                          | Likelihood | Impact | Mitigation                                                                    |
+| ------------------------------------------------------------- | ---------- | ------ | ----------------------------------------------------------------------------- |
+| Geiger doesn't activate patrickblack.geiger.com before launch | MEDIUM     | LOW    | Env var `NEXT_PUBLIC_GEIGER_HOST` allows temporary fallback to www.geiger.com |
+| Patrick wants more scope additions Week 4-5                   | MEDIUM     | MEDIUM | 28h already absorbed; if more, propose post-launch quote separately           |
+| Large data files cause Vercel build issues                    | LOW        | HIGH   | M5-509 relocation planned, has 3 fallback options                             |
+| Buying-guide v2 prompt quality not great                      | LOW        | MEDIUM | Spot-check with Patrick after 35 regen before running on 22,145               |
+| Mobile pagespeed targets not hit                              | LOW        | LOW    | Sub-module 5E has 8h budgeted, multiple optimization avenues                  |
+| Blog migration discovers MPower export not available          | MEDIUM     | LOW    | Playwright fallback already budgeted                                          |

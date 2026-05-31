@@ -1,0 +1,30 @@
+{
+  "url": "/cat/fanny-packs/age/adult",
+  "type": "facet",
+  "h1": "Custom Adult Fanny Packs for Events & Promotions",
+  "metaTitle": "Custom Adult Fanny Packs | Perfect Imprints",
+  "metaDescription": "Order custom adult fanny packs with your logo. Perfect for events, teams, and promotions. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Adult fanny packs offer a practical, hands-free way to carry essentials at events, trade shows, or team outings. Unlike children's sizes, adult packs feature adjustable straps and larger compartments that fit phones, wallets, and keys. Choose from clear designs for security venues, neon styles for high-visibility events, or eco-friendly options like the Taurus Eco Fanny Pack. Customize with screen printing or embroidery to showcase your brand in any setting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adult fanny packs with logo printed on front, available in various colors and styles for promotional events",
+  "productSkus": [
+    "514432",
+    "514433",
+    "519201",
+    "522510",
+    "522705",
+    "522803",
+    "523655",
+    "524162",
+    "524500",
+    "525724"
+  ],
+  "generatedAt": "2026-05-31T08:28:54.912596+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

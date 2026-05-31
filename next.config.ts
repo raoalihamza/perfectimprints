@@ -74,6 +74,12 @@ const nextConfig: NextConfig = {
         destination: 'https://www.perfectimprints.com/:path*',
         permanent: true,
       },
+      // Canonicalize /cat/<slug>/page/1 -> /cat/<slug>. Page 1 has no /page/N suffix.
+      {
+        source: '/cat/:path*/page/1',
+        destination: '/cat/:path*',
+        permanent: true,
+      },
     ];
   },
 };

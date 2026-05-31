@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jewelry/industry/military",
+  "type": "facet",
+  "h1": "Custom Military Jewelry for Bulk Orders",
+  "metaTitle": "Custom Military Jewelry | Perfect Imprints",
+  "metaDescription": "Order custom military jewelry in bulk for your unit or organization. Perfect for morale, recognition, and gifts. Shop at Perfect Imprints.",
+  "introHtml": "<p>Custom military jewelry serves as a lasting symbol of service and camaraderie. Whether you need paracord bracelets for unit morale or mood watch bracelets for deployment gifts, these pieces are built to withstand daily wear. Choose from stainless steel, nylon, or silicone bands, and add unit insignias or branch logos through engraving or screen printing. Perfect for military bases, veteran organizations, and defense contractors ordering in bulk.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom military jewelry including paracord bracelets and mood watch bracelets with engraved unit insignias",
+  "productSkus": [
+    "516655",
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T09:52:09.841823+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

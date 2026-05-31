@@ -1,0 +1,21 @@
+{
+  "url": "/cat/candles/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Candles for Bulk Orders",
+  "metaTitle": "Custom Plastic Candles | Perfect Imprints",
+  "metaDescription": "Order custom plastic candles in bulk for events and promotions. Durable, flameless, and safe. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Plastic candles offer a safe, flameless alternative for corporate events, trade shows, and hospitality settings where open flames are prohibited. Unlike wax candles, custom plastic candles won't drip, melt, or cause fire hazards, making them ideal for long-duration use. Options like the Modern Sprout® Rooted Candle combine a realistic glow with a durable plastic shell, allowing for full-color imprinting of your logo. Choose plastic candles for reusable, low-maintenance promotional products that maintain their appearance event after event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Row of custom plastic candles with company logos imprinted, glowing softly on a table at a corporate event",
+  "productSkus": [
+    "526492"
+  ],
+  "generatedAt": "2026-05-31T08:51:38.278191+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

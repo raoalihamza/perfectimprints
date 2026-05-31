@@ -1,0 +1,21 @@
+{
+  "url": "/cat/lanyards/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Lanyards for Small Orders",
+  "metaTitle": "No-Minimum Custom Lanyards | Perfect Imprints",
+  "metaDescription": "Order small quantities of custom lanyards with no minimum. Perfect for small teams, events, or samples. Get started with Perfect Imprints today.",
+  "introHtml": "<p>No-minimum custom lanyards let you order exactly what you need—whether it's five lanyards for a small team, ten for a one-time event, or a handful of samples before committing to a larger run. Unlike traditional bulk orders, small quantities come with the same customization options, including full-color imprinting, custom attachments, and a variety of materials. Perfect for startups, small businesses, or any organization that values flexibility without sacrificing brand quality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A close-up of a no-minimum custom lanyard featuring a colorful printed design and a detachable clip, ideal for small orders.",
+  "productSkus": [
+    "528809"
+  ],
+  "generatedAt": "2026-05-31T09:53:58.626368+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

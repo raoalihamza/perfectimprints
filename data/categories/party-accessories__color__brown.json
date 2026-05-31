@@ -1,0 +1,29 @@
+{
+  "url": "/cat/party-accessories/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Party Accessories",
+  "metaTitle": "Custom Brown Party Accessories | Perfect Imprints",
+  "metaDescription": "Shop custom brown party accessories for your next event. Personalize napkins, coolies, and more with your logo. Bulk pricing available.",
+  "introHtml": "<p>Brown party accessories bring a natural, rustic feel to any event, from autumn harvest gatherings to eco-conscious corporate picnics. Unlike generic party supplies, brown accessories pair well with earth tones and kraft paper details, creating a cohesive look without feeling overdone. Items like burlap-neoprene coolies and linen bags offer a tactile, organic aesthetic that stands out. Decorate with screen printing or foil stamping for a branded finish that matches your company’s outdoor or sustainability-focused image.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown party accessories including beverage napkins, coolies, and linen bags with logo imprint",
+  "productSkus": [
+    "510028",
+    "514951 33A",
+    "515615 33A",
+    "518390 30A",
+    "519472",
+    "519473",
+    "524863",
+    "525861",
+    "526411"
+  ],
+  "generatedAt": "2026-05-31T09:59:48.868752+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

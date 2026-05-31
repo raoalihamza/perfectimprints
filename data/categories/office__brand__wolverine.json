@@ -1,0 +1,21 @@
+{
+  "url": "/cat/office/brand/wolverine",
+  "type": "facet",
+  "h1": "Custom Wolverine Office Products for Bulk Orders",
+  "metaTitle": "Custom Wolverine Office Products | Perfect Imprints",
+  "metaDescription": "Shop custom Wolverine office products at Perfect Imprints. Ideal for bulk orders, these rugged items are perfect for branding. Order today!",
+  "introHtml": "<p>Wolverine office products bring rugged durability to the workplace, making them a smart choice for companies that want to project a tough, dependable image. From coolers to desk accessories, these items stand up to daily use while keeping your logo front and center. Perfect for safety managers and HR directors equipping teams with gear that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Wolverine vertical 12 can cooler with company logo, ideal for bulk office branding",
+  "productSkus": [
+    "528158"
+  ],
+  "generatedAt": "2026-05-31T08:58:41.869481+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

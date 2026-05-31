@@ -1,0 +1,21 @@
+{
+  "url": "/cat/candles/material/steel",
+  "type": "facet",
+  "h1": "Custom Steel Candles for Bulk Orders",
+  "metaTitle": "Custom Steel Candles | Perfect Imprints",
+  "metaDescription": "Order custom steel candles in bulk at Perfect Imprints. Perfect for corporate gifts and events. Get started today!",
+  "introHtml": "<p>Steel candle tins offer a rugged, industrial look that stands out from standard glass or ceramic containers. They are lightweight, unbreakable, and ideal for trade shows, employee gifts, or safety kits. The screw-top metal tin design keeps the candle secure during shipping and allows for easy relighting. Customize with your logo using full-color labels or screen printing for a durable finish that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom steel candles in screw-top metal tins with lemon verbena scent, ideal for corporate gifts.",
+  "productSkus": [
+    "526341"
+  ],
+  "generatedAt": "2026-05-31T08:40:32.727179+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

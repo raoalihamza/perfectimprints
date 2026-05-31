@@ -1,0 +1,24 @@
+{
+  "url": "/cat/wine-glasses/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Wine Glasses",
+  "metaTitle": "Custom Purple Wine Glasses | Perfect Imprints",
+  "metaDescription": "Order custom purple wine glasses in bulk from Perfect Imprints. Ideal for events, gifts, and branding. Get a quote today!",
+  "introHtml": "<p>Purple wine glasses add a distinctive touch to any event or promotion, standing out from standard clear or stemmed options. Whether you're planning a corporate gala, a charity auction, or a VIP gift suite, these glasses in rich purple hues create instant brand recognition. Available in durable plastic for outdoor use or elegant stemless designs for indoor events, they can be decorated with screen printing or full-color digital transfers. Perfect for marketing directors and event planners seeking a memorable, functional giveaway that guests will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple wine glasses with screen-printed logo, perfect for promotional events and corporate gifts",
+  "productSkus": [
+    "511450",
+    "524524",
+    "524525",
+    "527252"
+  ],
+  "generatedAt": "2026-05-31T08:31:31.204446+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/barco",
+  "type": "facet",
+  "h1": "Custom Barco Products for Your Brand",
+  "metaTitle": "Custom Barco Products | Perfect Imprints",
+  "metaDescription": "Order custom Barco products from Perfect Imprints. Great for uniforms and corporate apparel. Bulk pricing available.",
+  "introHtml": "<p>Barco is known for durable, professional-grade apparel that holds up to repeated washing and wear. When you choose custom Barco products for your team, you get performance fabrics and consistent sizing that make uniform programs easy. Whether you need embroidered polos for a trade show or screen-printed work shirts for your crew, Barco's broad size range and color options give you flexibility. Bulk orders ship quickly, and we can handle decoration on even large quantities.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Barco products including embroidered polo shirts and screen-printed work apparel for corporate uniforms",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:24.079901+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

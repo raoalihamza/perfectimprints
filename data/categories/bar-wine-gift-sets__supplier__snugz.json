@@ -1,0 +1,32 @@
+{
+  "url": "/cat/bar-wine-gift-sets/supplier/snugz",
+  "type": "facet",
+  "h1": "Custom Snugz Bar Wine Gift Sets",
+  "metaTitle": "Custom Snugz Bar Wine Gift Sets | Perfect Imprints",
+  "metaDescription": "Shop custom Snugz bar wine gift sets for bulk orders. Perfect for client gifts and employee rewards. Get a quote today.",
+  "introHtml": "<p>Snugz gift sets combine premium drinkware with coordinated accessories, making them a go-to for corporate gifting. From the Speakeasy Gift Set with its retro-inspired glass to the Hot-N-Cold set featuring double-wall insulation, each option offers a polished unboxing experience. Ideal for client appreciation or holiday gifts, these sets can be decorated with your logo via screen printing or etching for a professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Snugz bar wine gift sets with branded glassware and accessories arranged on a table",
+  "productSkus": [
+    "512596",
+    "512693 64F",
+    "519672",
+    "521002",
+    "521897",
+    "522098",
+    "523898",
+    "523924",
+    "523950",
+    "525628",
+    "526748",
+    "527285"
+  ],
+  "generatedAt": "2026-05-31T09:35:24.050323+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

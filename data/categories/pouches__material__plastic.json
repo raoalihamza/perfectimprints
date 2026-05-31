@@ -1,0 +1,24 @@
+{
+  "url": "/cat/pouches/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Pouches for Bulk Orders",
+  "metaTitle": "Custom Plastic Pouches | Perfect Imprints",
+  "metaDescription": "Order custom plastic pouches for your next event or promotion. Durable, clear, and ready for your logo. Get a quote today!",
+  "introHtml": "<p>Plastic pouches offer a clear, durable, and cost-effective way to package your promotional items. Unlike fabric or paper pouches, clear plastic lets the contents speak for themselves, making them ideal for trade show giveaways, conference swag bags, or retail packaging. Customize them with your logo or message using screen printing or a label. Perfect for holding pens, USB drives, or small gifts, these pouches keep your brand visible and organized.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom clear plastic pouches with zipper closure, printed with a company logo, filled with promotional items.",
+  "productSkus": [
+    "521678",
+    "528914",
+    "528915",
+    "528918"
+  ],
+  "generatedAt": "2026-05-31T10:02:57.367346+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

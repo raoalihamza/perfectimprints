@@ -1,0 +1,26 @@
+{
+  "url": "/cat/aprons/supplier/ss",
+  "type": "facet",
+  "h1": "Custom SS Aprons for Bulk Orders",
+  "metaTitle": "Custom SS Aprons | Perfect Imprints",
+  "metaDescription": "Order custom SS aprons in bulk from Perfect Imprints. Perfect for restaurants, events, and branding. Get a quote today!",
+  "introHtml": "<p>SS aprons offer a durable, professional look for kitchens, grills, and events. Made from heavy-duty cotton or polyester blends, these aprons withstand frequent washing and daily wear. Customize with embroidery or screen printing for a lasting brand impression. Whether you need waist aprons for servers or full bibs for chefs, SS aprons provide reliable coverage and comfort.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom SS aprons with embroidered logo, durable fabric for kitchen and restaurant use",
+  "productSkus": [
+    "508541",
+    "509133 90A",
+    "515077",
+    "516543 01A",
+    "527339",
+    "528072"
+  ],
+  "generatedAt": "2026-05-31T08:23:56.370178+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

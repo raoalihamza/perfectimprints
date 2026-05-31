@@ -1,0 +1,33 @@
+{
+  "url": "/cat/office/material/glass",
+  "type": "facet",
+  "h1": "Custom Glass Office Items for Corporate Gifts",
+  "metaTitle": "Custom Glass Office Items | Perfect Imprints",
+  "metaDescription": "Shop custom glass office items for corporate gifts. Perfect for awards, desk decor, and client appreciation at Perfect Imprints.",
+  "introHtml": "<p>Glass office items offer a refined, professional look that standard plastic or metal alternatives can't match. Whether you're selecting engraved awards like the Wave Award or desk accessories such as the Hawick Clock, glass conveys quality and permanence. These pieces work well for executive gifts, retirement plaques, or client appreciation. With options like pint glasses for breakrooms or decanters for conference rooms, custom glass office items add a touch of elegance to any workspace.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom glass office items including engraved awards and desk clocks in a corporate setting",
+  "productSkus": [
+    "504695 25F",
+    "510958 90E",
+    "511044 90E",
+    "511053 90E",
+    "511113 90E",
+    "511125 90E",
+    "514834 01A",
+    "521842",
+    "523016",
+    "523017",
+    "525225",
+    "525453",
+    "528775"
+  ],
+  "generatedAt": "2026-05-31T08:23:16.000833+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/screwdrivers/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Screwdrivers for Bulk Orders",
+  "metaTitle": "Custom Set Screwdrivers | Perfect Imprints",
+  "metaDescription": "Order custom set screwdrivers in bulk. Ideal for trade shows, safety kits, and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Custom set screwdrivers give your recipients a complete tool solution in one convenient package. Whether you are assembling safety kits for your crew or preparing promotional giveaways for a trade show, a set ensures your brand is associated with practicality and preparedness. The Eyeglass Repair Kit is a popular example, offering precision tools in a compact case. Choose from multiple screwdriver types and case colors to match your logo perfectly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set screwdrivers in a compact kit with multiple bits, ideal for promotional giveaways.",
+  "productSkus": [
+    "501983 91A"
+  ],
+  "generatedAt": "2026-05-31T09:25:36.700664+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

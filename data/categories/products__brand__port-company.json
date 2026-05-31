@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/port-company",
+  "type": "facet",
+  "h1": "Custom Port Company Products for Your Brand",
+  "metaTitle": "Custom Port Company Products | Perfect Imprints",
+  "metaDescription": "Brand custom Port Company products with your logo. Shop polos, tees, and outerwear for uniform programs. Get started today.",
+  "introHtml": "<p>Port Company specializes in affordable, durable apparel like polos, tees, and outerwear that hold up to daily wear. These pieces are a smart choice for uniform programs or team outfitting because they offer consistent sizing and a professional look without the high price tag. Decorate with screen printing or embroidery for a clean finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Port Company products including embroidered polo shirts and screen printed t-shirts for corporate uniforms",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:37.909141+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/scarves/supplier/wovin",
+  "type": "facet",
+  "h1": "Custom Wovin Scarves for Bulk Orders",
+  "metaTitle": "Custom Wovin Scarves | Perfect Imprints",
+  "metaDescription": "Order custom Wovin scarves in bulk for your brand. Perfect for corporate gifts, events, and employee rewards. Get a quote today!",
+  "introHtml": "<p>Wovin scarves offer a blend of comfort and durability that makes them ideal for corporate gifting and promotional giveaways. Whether you choose the fleece scarves for warmth at outdoor events or the two-tone knit scarf with fringe for a stylish office gift, these accessories provide excellent branding opportunities with full-color digital printing or embroidery. Perfect for marketing directors and HR directors looking for a versatile, high-quality giveaway that recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Wovin scarves in fleece and knit styles, perfect for branding with logos and designs",
+  "productSkus": [
+    "514088",
+    "516838",
+    "516839",
+    "516872",
+    "520012",
+    "520863"
+  ],
+  "generatedAt": "2026-05-31T10:05:43.803799+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

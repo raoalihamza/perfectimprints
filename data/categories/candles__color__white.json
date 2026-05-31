@@ -1,0 +1,26 @@
+{
+  "url": "/cat/candles/color/white",
+  "type": "facet",
+  "h1": "Custom White Candles for Bulk Orders",
+  "metaTitle": "Custom White Candles | Perfect Imprints",
+  "metaDescription": "Order custom white candles in bulk for events, gifts, or brand promotion. Perfect Imprints offers eco-friendly options. Get a quote today.",
+  "introHtml": "<p>White candles offer a clean, versatile canvas for your brand logo or message, making them a popular choice for corporate gifts, event favors, and retail displays. Unlike colored candles, white pairs seamlessly with any decor or theme, from minimalist modern to classic elegance. Options like the Bamboo Soy Candle or Vanilla-Scented Soy Wax Candle in Glass Jar with Bamboo Lid provide eco-friendly, customizable bases. Decorate with screen printing or labels to create a polished, professional look that recipients will appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom white candles in glass jars with bamboo lids, perfect for corporate gifts and branding.",
+  "productSkus": [
+    "521842",
+    "525181",
+    "526443",
+    "526451",
+    "527052",
+    "528203"
+  ],
+  "generatedAt": "2026-05-31T08:51:37.216496+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

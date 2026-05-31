@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/paragon",
+  "type": "facet",
+  "h1": "Custom Paragon Products for Bulk Orders",
+  "metaTitle": "Custom Paragon Products – Perfect Imprints",
+  "metaDescription": "Order custom Paragon products for your brand. From drinkware to awards, find quality items at Perfect Imprints. Get started today.",
+  "introHtml": "<p>Paragon products are known for their high-quality construction and classic designs, making them a popular choice for corporate gifts and promotional events. Whether you need custom drinkware, awards, or desk accessories, Paragon offers a range of items that can be decorated with your logo or message. Choose Paragon for a polished, professional look that reflects well on your company.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Paragon products including a stainless steel travel mug and a crystal award with engraved logo",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:45.472768+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

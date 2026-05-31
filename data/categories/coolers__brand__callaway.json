@@ -1,0 +1,21 @@
+{
+  "url": "/cat/coolers/brand/callaway",
+  "type": "facet",
+  "h1": "Custom Callaway Coolers for Bulk Orders",
+  "metaTitle": "Custom Callaway Coolers | Perfect Imprints",
+  "metaDescription": "Order branded Callaway coolers in bulk. Perfect for golf events and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Callaway is a trusted name in golf, and custom Callaway coolers bring that same quality to your brand. Whether you're outfitting a corporate outing or rewarding top clients, these coolers offer durable insulation and a premium look. Choose from soft-sided or hard-shell options, and add your logo with embroidery or screen printing. They keep drinks cold on the course and your brand visible all day.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Callaway coolers with embroidered logo, perfect for golf events and corporate gifts.",
+  "productSkus": [
+    "529257"
+  ],
+  "generatedAt": "2026-05-31T09:41:37.097566+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

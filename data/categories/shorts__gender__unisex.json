@@ -1,0 +1,23 @@
+{
+  "url": "/cat/shorts/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Shorts for Bulk Orders",
+  "metaTitle": "Custom Unisex Shorts | Perfect Imprints",
+  "metaDescription": "Order custom unisex shorts in bulk for your team or event. Perfect for marketing, HR, and safety managers. Get started today!",
+  "introHtml": "<p>Unisex shorts offer a versatile fit that works for everyone, making them a practical choice for corporate events, team uniforms, or giveaways. With styles like the Champion® Adult Cotton Gym Short or the Sport-Tek® PosiCharge® Competitor™ 7” Pocketed Short, you can choose from moisture-wicking fabrics and pockets for added functionality. Decorate with your logo using screen printing or embroidery for a professional look that suits any active group.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom unisex shorts with embroidered logos",
+  "productSkus": [
+    "526128",
+    "526129",
+    "528875"
+  ],
+  "generatedAt": "2026-05-31T08:37:30.264325+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

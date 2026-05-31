@@ -1,0 +1,22 @@
+{
+  "url": "/cat/leggings/decoration/heat-transfer",
+  "type": "facet",
+  "h1": "Custom Heat Transfer Leggings",
+  "metaTitle": "Custom Heat Transfer Leggings | Perfect Imprints",
+  "metaDescription": "Order custom heat transfer leggings in bulk for your team. Perfect for fitness groups and corporate wellness programs. Get a quote today.",
+  "introHtml": "<p>Heat transfer decoration allows for vibrant, full-color logos and intricate designs on custom leggings, making them ideal for fitness teams, corporate wellness programs, and promotional giveaways. Unlike embroidery, heat transfer creates a smooth, non-abrasive finish that moves with the fabric, perfect for high-performance leggings like the Men's Wink® Premiere Flex™ Cargo Pant or Women’s Wink® Premiere Flex™ Cargo Pant. Choose this method when you need detailed artwork or photographic images that stand out during workouts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom heat transfer leggings with a full-color logo on the leg, ideal for team fitness apparel.",
+  "productSkus": [
+    "528795",
+    "529237"
+  ],
+  "generatedAt": "2026-05-31T09:54:22.814851+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/pencils/color/multi-color",
+  "type": "facet",
+  "h1": "Custom Multi Color Pencils for Bulk Orders",
+  "metaTitle": "Custom Multi Color Pencils | Perfect Imprints",
+  "metaDescription": "Order custom multi color pencils for your brand. Perfect for events, tradeshows, and giveaways. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom multi color pencils let you put your brand in a palette that catches attention. Unlike standard single-color pencils, these combine several hues in one barrel or set, making them ideal for school supply kits, art-themed events, or creative corporate gifts. Choose imprint methods like foil stamping or full-color printing to display your logo prominently. Whether you need a dozen for a small workshop or thousands for a back-to-school promotion, multi color pencils add a playful yet professional touch to any giveaway.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom multi color pencils with printed logos arranged on a desk, showcasing various barrel colors.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:30:12.816596+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

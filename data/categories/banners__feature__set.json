@@ -1,0 +1,27 @@
+{
+  "url": "/cat/banners/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Banners for Trade Shows & Events",
+  "metaTitle": "Custom Set Banners | Perfect Imprints",
+  "metaDescription": "Order custom set banners for trade shows. Perfect for coordinated displays. Fast turnaround. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom set banners give you a unified look across your trade show booth or event space. Instead of mixing mismatched sizes and styles, a banner set includes coordinated pieces like retractable stands, fabric backdrops, and base-mounted displays. This approach simplifies setup and ensures your branding appears consistent from every angle. Whether you need a 5-banner kit for a large exhibit or a compact retractable pair for a tabletop display, a set saves time and delivers a polished professional appearance.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set banners including retractable stands and fabric displays for trade show booth",
+  "productSkus": [
+    "519919",
+    "519921",
+    "520241",
+    "520243",
+    "522220",
+    "523311",
+    "528557"
+  ],
+  "generatedAt": "2026-05-31T08:28:05.215805+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

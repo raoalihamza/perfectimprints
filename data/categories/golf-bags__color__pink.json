@@ -1,0 +1,31 @@
+{
+  "url": "/cat/golf-bags/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Golf Bags for Bulk Orders",
+  "metaTitle": "Custom Pink Golf Bags | Perfect Imprints",
+  "metaDescription": "Shop custom pink golf bags for your team or event. Bulk pricing available at Perfect Imprints. Order now!",
+  "introHtml": "<p>Pink golf bags bring a vibrant, team-focused look to corporate outings, charity tournaments, or employee appreciation events. Unlike standard black or navy bags, pink stands out on the course and signals a fun, inclusive brand personality. These bags accommodate full club sets and offer ample storage for accessories like the Nike® Golf Ladies Tech Basic Dri Fit Polo or Bio-composite Golf Tees. Decorate with your logo using screen printing or embroidery to create a cohesive giveaway that participants will use season after season.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink golf bags with embroidered logo, displayed on a golf course with clubs and accessories",
+  "productSkus": [
+    "510303",
+    "511117",
+    "517777",
+    "519574",
+    "519683",
+    "522780",
+    "523540",
+    "524126",
+    "528009",
+    "528068",
+    "529204"
+  ],
+  "generatedAt": "2026-05-31T09:48:21.294619+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

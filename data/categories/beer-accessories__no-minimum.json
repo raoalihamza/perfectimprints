@@ -1,0 +1,30 @@
+{
+  "url": "/cat/beer-accessories/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Beer Accessories",
+  "metaTitle": "No-Minimum Custom Beer Accessories | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom beer accessories with no bulk requirements. Perfect for small teams, events, and samples. Get branded gear fast.",
+  "introHtml": "<p>No-minimum custom beer accessories let you order small quantities without the typical bulk requirements. Whether you need a handful of branded items for a small team, a one-off event, or product samples before committing to a larger run, this page is built for flexibility. From bandanas to bottle openers, you can personalize just a few pieces at competitive per-unit pricing. No minimums, no hassle.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted no-minimum custom beer accessories including branded bottle openers and koozies displayed on a wooden table",
+  "productSkus": [
+    "520886",
+    "521927",
+    "523655",
+    "524817",
+    "525724",
+    "527493",
+    "527554",
+    "528171",
+    "528870",
+    "529359"
+  ],
+  "generatedAt": "2026-05-31T09:36:40.401142+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

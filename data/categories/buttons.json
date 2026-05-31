@@ -1,0 +1,75 @@
+{
+  "url": "/cat/buttons",
+  "type": "root",
+  "h1": "Custom Buttons for Events, Campaigns & Branding",
+  "metaTitle": "Custom Buttons | Perfect Imprints",
+  "metaDescription": "Order custom buttons for events, campaigns, and branding. Perfect for giveaways, promotions, and more. Fast turnaround. Shop now!",
+  "introHtml": "<p>Custom buttons are one of the most versatile and cost-effective promotional products available. Typically made with a metal or plastic shell and a mylar or paper insert, these buttons can be produced in virtually any shape and size, from standard 1-inch rounds to larger 3-inch diameters. The durable construction ensures they withstand wear and tear, making them ideal for long-lasting brand exposure. Decoration options include full-color offset printing or digital transfer, allowing for intricate designs and vibrant colors that pop.</p><p>Marketing directors love buttons for trade shows and events because they are lightweight, easy to distribute, and instantly create a memorable connection. HR directors use them for employee onboarding, recognition programs, and safety campaigns. Small business owners find them perfect for fundraisers, grand openings, and community outreach. With low minimum order quantities and competitive wholesale pricing, bulk custom buttons are an accessible choice for any budget.</p>",
+  "buyingGuideHtml": "<p>When ordering custom buttons, the first consideration is size and shape. Standard round buttons (1\", 1.25\", 2.25\", 3\") are the most common and cost-effective, but specialty shapes like squares, hearts, or ribbons can make your design stand out. Think about where the button will be worn: lapel pins and small buttons work well on collars, while larger buttons are great for backpacks or bags. The button back (pin, safety pin, or magnet) also affects usability.</p>\n<h3>Materials and Build Quality</h3>\n<p>Most buttons use a tinplate or aluminum shell with a clear plastic dome or a paper insert covered by a mylar layer. For outdoor events or extended wear, consider buttons with a protective mylar coating to prevent scratching and fading. Dye-sublimated ribbon pins offer a soft, woven look with full-color detail, perfect for high-end giveaways. Plantable ribbon pins, made with seed paper, add an eco-friendly touch that aligns with sustainability goals.</p>\n<h3>Use Cases and Buyer Personas</h3>\n<p>Marketing directors often order branded buttons for conference swag, product launches, and promotional campaigns. HR directors use them for employee appreciation, safety recognition, and team-building events. Safety managers find custom buttons effective for hazard awareness programs or as rewards for safe behavior. Business owners use them for local events, fundraisers, and customer loyalty initiatives. Bulk orders are common for large-scale distribution at trade shows or community events.</p>\n<h3>Decoration and Customization</h3>\n<p>Full-color offset printing is the standard for custom buttons, allowing detailed logos and text with no setup fees for simple designs. For intricate artwork or photographs, digital transfer or dye sublimation provides high-resolution results. Embroidery and debossing are not typical for buttons, but laser engraving can be used on metal lapel pins. Always request a proof before production to ensure colors and alignment are correct.</p>\n<h3>Quantity Guidance and Pricing</h3>\n<p>Minimum order quantities for custom buttons typically start at 50 to 100 pieces, though some suppliers offer lower MOQs for smaller runs. Unit prices drop significantly as quantities increase, so ordering 500 or 1,000 pieces is common for events. Wholesale pricing makes bulk custom buttons very affordable, often under $0.50 each for larger quantities. If you need a sample to check quality, many suppliers offer single-piece samples at a small fee.</p>\n<h3>Avoiding Common Mistakes</h3>\n<p>One common mistake is choosing a button size that is too small for your design. Text and fine details can become unreadable on 1-inch buttons. Another pitfall is ignoring the back type: pin backs can snag fabric, while magnet backs are safer for delicate items. Also, consider the lead time: custom buttons typically take 5–10 business days, but rush options are available. Finally, always order a few extras to account for defects or last-minute additions.</p>",
+  "buyingGuideH2": "Custom Buttons Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom buttons?",
+      "a": "Minimum order quantities typically start at 50 to 100 pieces, but some suppliers offer lower MOQs for small runs. For the best pricing, consider ordering 500 or more."
+    },
+    {
+      "q": "What decoration methods are available for buttons?",
+      "a": "Full-color offset printing is standard for paper inserts. For metal lapel pins, laser engraving or dye sublimation are common. Digital transfer works well for small quantities with complex artwork."
+    },
+    {
+      "q": "How long does production take for custom buttons?",
+      "a": "Standard production time is 5–10 business days. Rush services may be available for an additional fee, reducing turnaround to 2–3 days."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, many suppliers offer single-piece samples at a small cost. This allows you to check size, color, and quality before committing to a large order."
+    },
+    {
+      "q": "What button back options are available?",
+      "a": "Common backings include pin backs (safety pin style), butterfly clasps, and magnets. Pin backs are standard, while magnets are better for delicate fabrics."
+    }
+  ],
+  "heroAltText": "Custom buttons with full-color printing on a metal shell, ideal for promotional giveaways and events.",
+  "productSkus": [
+    "502330 90A",
+    "502331 90A",
+    "502332 90A",
+    "502333 90A",
+    "502334 90A",
+    "502337 90A",
+    "502338 90A",
+    "510246 4BJ",
+    "510246 4BK",
+    "510246 4BL",
+    "510266 90A",
+    "512646 90A",
+    "512648 90A",
+    "513302 90A",
+    "513303 90A",
+    "517018 90A",
+    "519353 90A",
+    "519354 90A",
+    "522113",
+    "522114",
+    "522115",
+    "522116",
+    "522117",
+    "522118",
+    "522323",
+    "525577",
+    "525854",
+    "526616",
+    "526617",
+    "526678",
+    "526679",
+    "527144",
+    "528544"
+  ],
+  "generatedAt": "2026-05-30T11:12:29.441960+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "material_quality",
+  "skuFilterMode": "full",
+  "rawSkuCount": 33,
+  "filteredSkuCount": 33
+}

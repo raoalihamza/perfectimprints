@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/with-grommets",
+  "type": "facet",
+  "h1": "Custom Products with Grommets for Bulk Orders",
+  "metaTitle": "Custom Products with Grommets | Perfect Imprints",
+  "metaDescription": "Order custom products with grommets in bulk. Perfect for banners, signs, and more. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Grommets add durability and easy mounting to banners, tarps, and fabric signs. For trade shows, construction sites, or outdoor events, grommets prevent tearing and allow quick setup with ropes or stakes. Choose reinforced edges in vinyl or heavy-duty nylon for long-lasting displays that withstand wind and repeated use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom vinyl banner with reinforced metal grommets for outdoor display",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:55.617357+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

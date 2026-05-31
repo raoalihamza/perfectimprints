@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jewelry/search",
+  "type": "modifier",
+  "h1": "Custom Jewelry for Branded Promotions",
+  "metaTitle": "Custom Jewelry | Perfect Imprints",
+  "metaDescription": "Browse custom jewelry for your brand. Find bracelets, watches, and more at Perfect Imprints.",
+  "introHtml": "<p>Whether you are exploring promotional jewelry for the first time or expanding your current lineup, our custom jewelry collection offers a wide range of styles to suit any audience. From durable paracord bracelets to sleek mood watch bracelets, each piece can be imprinted with your logo or message. No special filters needed—just browse and find the perfect accessory for your next campaign, event, or employee recognition program.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom jewelry including paracord bracelets and mood watch bracelets with logo imprinting.",
+  "productSkus": [
+    "516655",
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T08:26:42.881544+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

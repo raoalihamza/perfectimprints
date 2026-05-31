@@ -1,0 +1,23 @@
+{
+  "url": "/cat/coasters/eco-friendly/recyclable",
+  "type": "facet",
+  "h1": "Custom Recyclable Coasters for Your Brand",
+  "metaTitle": "Custom Recyclable Coasters | Perfect Imprints",
+  "metaDescription": "Order custom recyclable coasters for your brand. Eco-friendly, bulk pricing, and fast turnaround. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Custom recyclable coasters let you promote your brand while reducing environmental impact. Whether you choose round or square coasters made from recycled paper or bamboo and felt sets, these coasters are perfect for trade shows, office use, or giveaways. They accept full-color printing and are easy to dispose of responsibly. A smart choice for businesses committed to sustainability.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recyclable coasters featuring a bamboo and recycled felt set with brand logo on a table",
+  "productSkus": [
+    "527429",
+    "529066",
+    "529067"
+  ],
+  "generatedAt": "2026-05-31T09:40:45.990330+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

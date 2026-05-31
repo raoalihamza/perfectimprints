@@ -1,0 +1,26 @@
+{
+  "url": "/cat/fun-unique-pencils/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Fun Unique Pencils",
+  "metaTitle": "Custom Pink Fun Unique Pencils | Perfect Imprints",
+  "metaDescription": "Order custom pink fun unique pencils for your next event. Perfect for giveaways, tradeshows, and more. Get a quote today!",
+  "introHtml": "<p>Pink fun unique pencils make your promotional giveaway stand out with a playful pop of color. Whether you choose mood-changing pencils that shift in your hand or glow-in-the-dark options, pink adds a friendly, eye-catching appeal. Great for school events, fundraisers, or any campaign targeting a creative audience. Custom imprinting is available on most styles.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink fun unique pencils with mood-changing and glow-in-the-dark features for promotional giveaways",
+  "productSkus": [
+    "502669",
+    "504680",
+    "508612",
+    "511849",
+    "516970",
+    "524813"
+  ],
+  "generatedAt": "2026-05-31T08:41:58.277697+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

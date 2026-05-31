@@ -1,0 +1,21 @@
+{
+  "url": "/cat/water-bottles/brand/welly",
+  "type": "facet",
+  "h1": "Custom Welly Water Bottles for Bulk Orders",
+  "metaTitle": "Custom Welly Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom Welly water bottles in bulk. Perfect for brand giveaways and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Welly water bottles combine rugged outdoor style with practical insulation, making them a favorite for corporate gifts, event giveaways, and employee appreciation. The 18 oz Welly Traveler Copper Vacuum Bottle, for example, features a durable copper vacuum insulation that keeps drinks hot or cold for hours. Customize with your logo using laser engraving or screen printing for a premium look that stands out at trade shows or in the office.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Welly water bottles with engraved logo, featuring the 18 oz Traveler Copper Vacuum Bottle in a brushed metal finish.",
+  "productSkus": [
+    "524871"
+  ],
+  "generatedAt": "2026-05-31T10:13:52.224977+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/household/material/hemp",
+  "type": "facet",
+  "h1": "Custom Hemp Household Items for Bulk Orders",
+  "metaTitle": "Custom Hemp Household | Perfect Imprints",
+  "metaDescription": "Shop custom hemp household items for eco-friendly branding. Perfect Imprints offers bulk pricing on sustainable products.",
+  "introHtml": "<p>Hemp is one of the most durable and sustainable materials available for household products, making it a smart choice for brands that want to reduce their environmental footprint. From jar openers with a natural grip to compact tool kits, hemp household items offer a tactile, earthy feel that stands out from plastic or metal alternatives. These products are ideal for eco-conscious corporate gifts, trade show giveaways, or employee appreciation kits that reflect a commitment to sustainability.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hemp household items including jar openers and tool kits with natural hemp texture",
+  "productSkus": [
+    "501793",
+    "501794",
+    "501795",
+    "501796",
+    "513063",
+    "528239"
+  ],
+  "generatedAt": "2026-05-31T09:51:17.567793+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

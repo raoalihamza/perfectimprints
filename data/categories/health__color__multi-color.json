@@ -1,0 +1,27 @@
+{
+  "url": "/cat/health/color/multi-color",
+  "type": "facet",
+  "h1": "Custom Multi Color Health Promotional Products",
+  "metaTitle": "Custom Multi Color Health Products | Perfect Imprints",
+  "metaDescription": "Order custom multi color health promotional products for your wellness program. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Multi color health products let you add vibrant branding to wellness initiatives, safety kits, and employee morale programs. From full color bandanas that pop at outdoor events to colorful stress balls that brighten a desk, these items stand out while promoting health and safety. Choose screen printing or full color decoration to match your logo exactly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom multi color health promotional products including bandanas and stress balls in assorted colors for wellness programs",
+  "productSkus": [
+    "514321",
+    "522111",
+    "524691",
+    "524692",
+    "524695",
+    "527032",
+    "527396"
+  ],
+  "generatedAt": "2026-05-31T08:29:19.925132+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

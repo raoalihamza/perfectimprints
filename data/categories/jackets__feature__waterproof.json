@@ -1,0 +1,31 @@
+{
+  "url": "/cat/jackets/feature/waterproof",
+  "type": "facet",
+  "h1": "Custom Waterproof Jackets for Bulk Orders",
+  "metaTitle": "Custom Waterproof Jackets | Perfect Imprints",
+  "metaDescription": "Order custom waterproof jackets in bulk from Perfect Imprints. Ideal for teams, events, and safety. Get a quote today.",
+  "introHtml": "<p>When outdoor conditions turn wet, custom waterproof jackets keep your team dry and your brand visible. Unlike standard rain gear, these jackets feature sealed seams and durable water-repellent finishes that stand up to heavy use. Options like the Nor'Easter Rain Jacket or The North Face® DryVent™ styles offer breathable protection for work crews, event staff, or promotional giveaways. Decorate with screen-printed logos or embroidered patches for a professional look that lasts through seasons of wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom waterproof jackets for bulk orders featuring waterproof shell and embroidered logo",
+  "productSkus": [
+    "510005",
+    "510007",
+    "511016",
+    "511120",
+    "520529",
+    "525904",
+    "526345",
+    "526346",
+    "528967",
+    "529244",
+    "529245"
+  ],
+  "generatedAt": "2026-05-31T08:23:36.129613+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

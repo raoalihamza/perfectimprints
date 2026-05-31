@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/harriton",
+  "type": "facet",
+  "h1": "Custom Harriton Products for Your Brand",
+  "metaTitle": "Custom Harriton Products | Perfect Imprints",
+  "metaDescription": "Browse custom Harriton products at Perfect Imprints. Ideal for corporate gifts, uniforms & giveaways. Order bulk today.",
+  "introHtml": "<p>Harriton specializes in high-quality outerwear and bags that combine durability with a clean, professional look. Choosing custom Harriton products means your team gets reliable gear that holds up to daily use, whether for uniform programs, corporate gifts, or trade show giveaways. With options like embroidered logos on jackets or screen-printed totes, you can create a cohesive brand presence that stands out. Perfect for businesses that value both style and function.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Harriton products including embroidered jackets and logo bags for corporate branding",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:43.003792+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

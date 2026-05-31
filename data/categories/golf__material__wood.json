@@ -1,0 +1,26 @@
+{
+  "url": "/cat/golf/material/wood",
+  "type": "facet",
+  "h1": "Custom Wood Golf Umbrellas",
+  "metaTitle": "Custom Wood Golf Umbrellas | Perfect Imprints",
+  "metaDescription": "Order custom wood golf umbrellas for your brand. Durable, stylish, and perfect for corporate gifts. Get a quote today!",
+  "introHtml": "<p>Wood-handled golf umbrellas offer a classic, premium feel that sets your brand apart from standard nylon or rubber grips. Perfect for corporate giveaways or tournament prizes, these umbrellas combine durability with an elegant touch. Choose from options like the 60-inch arc or recycled materials, and add your logo through screen printing or digital transfer for a polished, long-lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wood golf umbrella with wooden handle and arc canopy, perfect for branding",
+  "productSkus": [
+    "502102",
+    "505143",
+    "511017",
+    "523422",
+    "528154",
+    "529474"
+  ],
+  "generatedAt": "2026-05-31T08:42:29.847843+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

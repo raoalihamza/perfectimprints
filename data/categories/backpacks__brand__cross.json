@@ -1,0 +1,26 @@
+{
+  "url": "/cat/backpacks/brand/cross",
+  "type": "facet",
+  "h1": "Custom Cross Backpacks for Bulk Orders",
+  "metaTitle": "Custom Cross Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Cross backpacks in bulk for your team or event. Durable, stylish, and ready for your logo. Get a quote today!",
+  "introHtml": "<p>Cross backpacks bring a refined, professional look to your branded merchandise, whether you're outfitting a sales team or distributing swag at a trade show. The Navigator Laptop Backpack offers dedicated padded compartments for devices, while the Basecamp Apex Tech Backpack combines durability with modern organization. Choose from styles like the sleek Cross Body Backpack or the eco-friendly Brand Charger Eco Sling. With multiple pockets and ergonomic designs, these bags ensure your logo travels in comfort and style.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Cross backpacks in various styles including laptop backpacks and sling bags, ideal for corporate branding.",
+  "productSkus": [
+    "510197",
+    "516154",
+    "523785",
+    "526041",
+    "527055",
+    "527785"
+  ],
+  "generatedAt": "2026-05-31T09:06:21.019131+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

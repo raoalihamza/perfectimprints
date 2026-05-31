@@ -1,0 +1,28 @@
+{
+  "url": "/cat/beverage-glasses/material/glass",
+  "type": "facet",
+  "h1": "Custom Glass Beverage Glasses for Bulk Orders",
+  "metaTitle": "Custom Glass Beverage Glasses | Perfect Imprints",
+  "metaDescription": "Order custom glass beverage glasses for your brand. Perfect for bars, events, and corporate gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Glass beverage glasses offer a classic, premium feel that plastic or acrylic simply cannot match. Whether you need pint glasses for a brewery launch, footed mugs for a corporate event, or a custom etched set for employee gifts, glass provides crystal-clear clarity and a satisfying weight. Choose from standard pint shapes or elegant stemware, and add your logo with deep etching, screen printing, or full-color digital decoration for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom glass beverage glasses with etched logo on a table, including pint glasses and footed mugs.",
+  "productSkus": [
+    "510958 90E",
+    "511113 90E",
+    "511225 90E",
+    "516733 90E",
+    "522844",
+    "525965",
+    "527518",
+    "529514"
+  ],
+  "generatedAt": "2026-05-31T09:37:07.508104+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

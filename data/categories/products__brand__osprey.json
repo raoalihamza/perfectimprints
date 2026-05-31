@@ -1,0 +1,21 @@
+{
+  "url": "/cat/products/brand/osprey",
+  "type": "facet",
+  "h1": "Custom Osprey Products for Bulk Orders",
+  "metaTitle": "Custom Osprey Products | Perfect Imprints",
+  "metaDescription": "Order custom Osprey products in bulk. Perfect for corporate gifts and team outings. Shop premium branded gear at Perfect Imprints.",
+  "introHtml": "<p>Osprey products are known for their durability and ergonomic design, making them a top choice for outdoor enthusiasts and corporate teams alike. When you choose custom Osprey products, you are investing in high-performance gear that your team will use for years. From the iconic Daylite® Plus daypack to other versatile packs, each item offers ample storage and comfortable carry. Add your logo or message with embroidery or screen printing to create memorable branded giveaways for trade shows, employee rewards, or client appreciation.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Osprey products including Osprey Daylite Plus daypack with embroidered logo",
+  "productSkus": [
+    "525925"
+  ],
+  "generatedAt": "2026-05-31T10:03:35.946628+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

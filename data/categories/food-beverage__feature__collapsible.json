@@ -1,0 +1,29 @@
+{
+  "url": "/cat/food-beverage/feature/collapsible",
+  "type": "facet",
+  "h1": "Custom Collapsible Food Beverage Solutions",
+  "metaTitle": "Custom Collapsible Food Beverage | Perfect Imprints",
+  "metaDescription": "Shop custom collapsible food beverage items at Perfect Imprints. Ideal for branding at events, picnics, and tailgates. Order bulk today!",
+  "introHtml": "<p>Collapsible food beverage items let you serve drinks and snacks on the go without sacrificing storage space. These neoprene can coolers and insulator bags flatten when empty, making them easy to pack for company picnics, trade show giveaways, or team tailgates. Decorate them with your logo using full-color imprinting for a portable billboard that keeps cans cold and your brand top of mind.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom collapsible food beverage items like neoprene can coolers and insulator bags for branding at events",
+  "productSkus": [
+    "505524",
+    "507754",
+    "510680",
+    "513666",
+    "518767",
+    "521379",
+    "521390",
+    "528362",
+    "529164"
+  ],
+  "generatedAt": "2026-05-31T09:46:44.137121+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

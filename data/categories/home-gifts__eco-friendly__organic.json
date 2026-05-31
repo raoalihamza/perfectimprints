@@ -1,0 +1,25 @@
+{
+  "url": "/cat/home-gifts/eco-friendly/organic",
+  "type": "facet",
+  "h1": "Custom Organic Home Gifts",
+  "metaTitle": "Custom Organic Home Gifts | Perfect Imprints",
+  "metaDescription": "Shop custom organic home gifts for eco-conscious clients. Perfect for bulk orders. Browse our collection at Perfect Imprints.",
+  "introHtml": "<p>Organic home gifts are made from materials like cotton, hemp, or recycled fibers, ensuring your branded gifts align with sustainability goals. For marketing directors and business owners looking to impress eco-conscious clients, items like organic cotton desk organizers or recycled notebooks offer practical use while reducing environmental impact. These gifts work well for trade shows, client appreciation, or employee incentives, and they can be decorated with your logo using screen printing or embroidery for a professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom organic home gifts including a desk organizer and notebook with company logo",
+  "productSkus": [
+    "508373",
+    "522164",
+    "524200",
+    "525267",
+    "525443"
+  ],
+  "generatedAt": "2026-05-31T08:55:42.644164+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

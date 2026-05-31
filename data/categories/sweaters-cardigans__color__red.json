@@ -1,0 +1,24 @@
+{
+  "url": "/cat/sweaters-cardigans/color/red",
+  "type": "facet",
+  "h1": "Custom Red Sweaters & Cardigans",
+  "metaTitle": "Custom Red Sweaters & Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom red sweaters and cardigans for your team. Perfect for uniforms, gifts, or events. Bulk pricing available.",
+  "introHtml": "<p>Red sweaters and cardigans make a bold statement for your brand, whether you need holiday gifts, team uniforms, or promotional apparel that stands out. From washable merino v-necks to durable Pilbloc™ cardigans, these pieces offer comfort and a professional look. Decorating with a left-chest logo or sleeve imprint turns them into walking advertisements that your recipients will wear proudly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom red sweaters and cardigans with embroidered logos",
+  "productSkus": [
+    "520268",
+    "520269",
+    "527181",
+    "527182"
+  ],
+  "generatedAt": "2026-05-31T10:09:46.428482+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

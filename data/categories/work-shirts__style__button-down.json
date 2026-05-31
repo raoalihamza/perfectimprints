@@ -1,0 +1,24 @@
+{
+  "url": "/cat/work-shirts/style/button-down",
+  "type": "facet",
+  "h1": "Custom Button Down Work Shirts for Your Team",
+  "metaTitle": "Custom Button Down Work Shirts | Perfect Imprints",
+  "metaDescription": "Order custom button down work shirts for your team. Perfect for uniforms or corporate apparel. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Button down work shirts bring a polished yet practical look to any workplace. Unlike standard tees or polos, the button-down collar stays crisp under a jacket or worn alone, making it ideal for client-facing roles, field supervisors, or office staff who need to transition from desk to job site. Choose from durable fabrics like denim, eco-woven materials, or wrinkle-resistant dress shirt styles. Add your logo with embroidery or screen printing for a professional finish that lasts through repeated washes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom button down work shirts with embroidered logo in a professional setting",
+  "productSkus": [
+    "501740",
+    "515106",
+    "526247",
+    "527895"
+  ],
+  "generatedAt": "2026-05-31T08:48:06.623548+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

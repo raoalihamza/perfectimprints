@@ -1,0 +1,24 @@
+{
+  "url": "/cat/electronics/brand/jbl",
+  "type": "facet",
+  "h1": "Custom JBL Electronics for Bulk Orders",
+  "metaTitle": "Custom JBL Electronics | Perfect Imprints",
+  "metaDescription": "Order custom JBL electronics for your brand. Bulk pricing on speakers and earbuds. Get a quote today.",
+  "introHtml": "<p>JBL electronics deliver reliable audio performance and a trusted brand name that resonates with your audience. Whether you are outfitting a sales team with portable speakers or giving away earbuds at a trade show, custom JBL products offer recognized quality. Choose from waterproof speakers like the JBL Clip 5 or compact options like the JBL Go 4, all customizable with your logo through laser engraving or pad printing for a crisp, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom JBL electronics including portable speakers and earbuds with logos for corporate branding",
+  "productSkus": [
+    "529459",
+    "529460",
+    "529461",
+    "529462"
+  ],
+  "generatedAt": "2026-05-31T08:41:36.178835+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

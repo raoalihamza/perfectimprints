@@ -1,0 +1,24 @@
+{
+  "url": "/cat/beanies/feature/cuff",
+  "type": "facet",
+  "h1": "Custom Cuff Beanies for Bulk Orders",
+  "metaTitle": "Custom Cuff Beanies | Perfect Imprints",
+  "metaDescription": "Order custom cuff beanies in bulk with your logo. Perfect for giveaways, events, and employee gifts. Get a quote today!",
+  "introHtml": "<p>Custom cuff beanies offer a classic, snug fit that stays in place during outdoor events or daily commutes. The folded cuff provides extra warmth around the ears and a clean canvas for your logo. Whether you choose a solid knit or a style with reflective stripes for safety, these beanies deliver year-round comfort and brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cuff beanies with embroidered logo on the folded cuff, available in various colors for bulk orders.",
+  "productSkus": [
+    "506903",
+    "514093",
+    "516012",
+    "523881"
+  ],
+  "generatedAt": "2026-05-31T08:39:55.515801+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

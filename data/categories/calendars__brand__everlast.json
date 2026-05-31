@@ -1,0 +1,21 @@
+{
+  "url": "/cat/calendars/brand/everlast",
+  "type": "facet",
+  "h1": "Custom Everlast Calendars for Bulk Orders",
+  "metaTitle": "Custom Everlast Calendars | Perfect Imprints",
+  "metaDescription": "Order custom Everlast calendars in bulk for your business. Durable, spiral-bound designs ideal for year-long planning. Get a quote today.",
+  "introHtml": "<p>Everlast calendars are built to last through a full year of daily use, with sturdy spiral binding and thick paper that resists tearing. For businesses that distribute promotional calendars to clients or employees, the Everlast brand offers a professional look that stays intact from January through December. These calendars are especially practical for safety managers who need durable job-site planners or HR directors organizing company-wide scheduling. Decorate with your logo and key dates using full-color imprinting for maximum visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Everlast calendars with spiral binding and full-color imprinting, ideal for business promotions and year-long planning.",
+  "productSkus": [
+    "502039 90A"
+  ],
+  "generatedAt": "2026-05-31T09:38:59.464945+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

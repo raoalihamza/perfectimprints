@@ -1,0 +1,28 @@
+{
+  "url": "/cat/carabiners/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Carabiners for Bulk Orders",
+  "metaTitle": "Custom Blue Carabiners | Perfect Imprints",
+  "metaDescription": "Order custom blue carabiners in bulk at Perfect Imprints. Perfect for giveaways, events, and corporate gifts. Get your quote today!",
+  "introHtml": "<p>Blue carabiners offer a versatile and eye-catching option for your next promotional campaign or event giveaway. Whether you choose anodized aluminum for a sleek finish or direct-print designs for bold logos, blue stands out without being overwhelming. Ideal for trade shows, safety teams, or outdoor-themed branding, these carabiners can be paired with keyrings or tools for added utility. Customize with your logo to create a practical item that recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue carabiners with keyring and logo print for promotional giveaways.",
+  "productSkus": [
+    "501590",
+    "508958",
+    "510855",
+    "513263",
+    "517505",
+    "519904",
+    "520411",
+    "520857"
+  ],
+  "generatedAt": "2026-05-31T08:33:09.715678+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

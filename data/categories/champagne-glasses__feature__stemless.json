@@ -1,0 +1,22 @@
+{
+  "url": "/cat/champagne-glasses/feature/stemless",
+  "type": "facet",
+  "h1": "Custom Stemless Champagne Glasses",
+  "metaTitle": "Custom Stemless Champagne Glasses | Perfect Imprints",
+  "metaDescription": "Shop custom stemless champagne glasses for your next event. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Stemless champagne glasses offer a modern, stable alternative to traditional flutes, making them a smart choice for outdoor galas, trade show toasts, or corporate mixers where spills are a real risk. The wider bowl and shorter profile allow for easy stacking and storage, while the sturdy base provides balance on uneven surfaces. Decorate with your logo using full-color digital printing or classic engraving for a polished look that stands out on any event table.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom stemless champagne glasses with engraved logos, perfect for corporate events and bulk orders.",
+  "productSkus": [
+    "524525",
+    "524526"
+  ],
+  "generatedAt": "2026-05-31T08:40:38.981010+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

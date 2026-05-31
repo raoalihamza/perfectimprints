@@ -1,0 +1,28 @@
+{
+  "url": "/cat/coffee-mugs/activity/hiking",
+  "type": "facet",
+  "h1": "Custom Hiking Coffee Mugs",
+  "metaTitle": "Custom Hiking Coffee Mugs - Perfect Imprints",
+  "metaDescription": "Order custom hiking coffee mugs for your team or event. Durable, portable designs perfect for outdoor enthusiasts. Get a quote today!",
+  "introHtml": "<p>Custom hiking coffee mugs are built for the trail, not just the office. Unlike standard ceramic mugs, these designs prioritize durability and portability with features like vacuum insulation, spill-resistant lids, and rugged finishes. Whether you're outfitting a company hiking club or promoting an outdoor gear brand, options like the 16 oz Campfire Mug or 12 oz MiiR® Vacuum Insulated Camp Cup keep coffee hot during summit breaks. Choose double-wall stainless steel or speckled enamel for a look that matches your brand's outdoor identity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hiking coffee mugs featuring a stainless steel camp mug with lid and carabiner clip",
+  "productSkus": [
+    "511006",
+    "521050",
+    "521644",
+    "522392",
+    "523641",
+    "523761",
+    "524548",
+    "525495"
+  ],
+  "generatedAt": "2026-05-31T09:10:54.746292+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

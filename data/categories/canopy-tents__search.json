@@ -1,0 +1,31 @@
+{
+  "url": "/cat/canopy-tents/search",
+  "type": "modifier",
+  "h1": "Custom Canopy Tents for Branded Promotions",
+  "metaTitle": "Custom Canopy Tents | PerfectImprints.com",
+  "metaDescription": "Browse our selection of custom canopy tents. Perfect for events, trade shows, and promotions. Get started with Perfect Imprints today.",
+  "introHtml": "<p>Custom canopy tents offer a versatile and impactful way to promote your brand at outdoor events, trade shows, and community gatherings. Whether you need a compact 5' pop-up for a small booth or a full-color 10' x 10' tent with dye-sublimation printing, our selection provides options for every budget and requirement. Explore our range of custom canopy tents to find the perfect fit for your next event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A 10x10 custom canopy tent with full-color branding at an outdoor trade show event",
+  "productSkus": [
+    "502149",
+    "505271 90A",
+    "505272 90A",
+    "514160",
+    "521131",
+    "525706",
+    "525707",
+    "525708",
+    "525753",
+    "527116",
+    "529428"
+  ],
+  "generatedAt": "2026-05-31T08:28:27.480071+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

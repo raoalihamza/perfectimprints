@@ -1,0 +1,26 @@
+{
+  "url": "/cat/shirts/brand/comfort-colors",
+  "type": "facet",
+  "h1": "Custom Comfort Colors Shirts for Bulk Orders",
+  "metaTitle": "Custom Comfort Colors Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Comfort Colors shirts in bulk for your team. Soft, pre-shrunk fabrics perfect for embroidery or screen printing at Perfect Imprints.",
+  "introHtml": "<p>Comfort Colors shirts offer a soft, lived-in feel right out of the bag, making them a favorite for company uniforms, event giveaways, and team apparel. The garment-dyed process creates unique color variations that add character to every shirt. With a wide range of heather tones and a relaxed fit, these shirts work well for both screen printing and embroidery. Choose Comfort Colors when you want a casual, comfortable look that stands out from standard cotton tees.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Comfort Colors shirts in soft heather tones for bulk orders, perfect for company uniforms and team apparel.",
+  "productSkus": [
+    "515106",
+    "515107",
+    "525604",
+    "528758",
+    "528948",
+    "528949"
+  ],
+  "generatedAt": "2026-05-31T08:37:20.550389+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/bookmarks/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Bookmarks for Bulk Orders",
+  "metaTitle": "Custom Brown Bookmarks | Perfect Imprints",
+  "metaDescription": "Order custom brown bookmarks in bulk at Perfect Imprints. Ideal for branding with foil stamping or embossing. Get a quote today.",
+  "introHtml": "<p>Brown bookmarks offer a warm, natural aesthetic that stands out from standard white or black options. Whether you choose cork, kraft paper, or leather-like materials, the earthy tone pairs well with foil stamping or embossing for a refined look. Perfect for libraries, bookstores, or corporate gifts, these bookmarks reinforce your brand with every page turn.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown bookmarks with foil stamped logo on kraft paper material, bulk order display",
+  "productSkus": [
+    "521744"
+  ],
+  "generatedAt": "2026-05-31T09:37:40.109522+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

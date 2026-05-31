@@ -1,0 +1,22 @@
+{
+  "url": "/cat/pencils/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Pencils for Bulk Orders",
+  "metaTitle": "Custom Plastic Pencils - Perfect Imprints",
+  "metaDescription": "Order custom plastic pencils for your brand. Perfect for events and schools. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Plastic pencils offer a durable, lightweight alternative to traditional wood pencils, making them ideal for outdoor events, trade shows, and school giveaways. Unlike wood, they won't splinter and can withstand rough handling. Custom imprinting on plastic provides crisp, long-lasting logos. Choose from bright colors to match your brand, and consider the Flex Pencil for a unique bendable option that stands out in any crowd.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom plastic pencils with company logo in assorted bright colors on a white background",
+  "productSkus": [
+    "524547",
+    "526806"
+  ],
+  "generatedAt": "2026-05-31T08:36:14.268569+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

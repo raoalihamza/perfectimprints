@@ -1,0 +1,21 @@
+{
+  "url": "/cat/jackets/brand/nautica",
+  "type": "facet",
+  "h1": "Custom Nautica Jackets for Bulk Orders",
+  "metaTitle": "Custom Nautica Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Nautica jackets for your team or event. Perfect Imprints offers bulk pricing and professional decoration on Nautica outerwear.",
+  "introHtml": "<p>Nautica jackets bring a recognized brand name and classic nautical style to your corporate apparel program. Whether you need quarter-zip pullovers for a sales team or lightweight outerwear for a company outing, these jackets offer consistent sizing and a professional look that employees actually want to wear. Decorate with your logo using embroidery or screen printing for a polished finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Nautica jackets with embroidered logo, men's quarter-zip pullover in navy",
+  "productSkus": [
+    "525893"
+  ],
+  "generatedAt": "2026-05-31T09:51:39.711801+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

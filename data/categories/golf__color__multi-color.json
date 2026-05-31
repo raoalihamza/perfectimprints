@@ -1,0 +1,23 @@
+{
+  "url": "/cat/golf/color/multi-color",
+  "type": "facet",
+  "h1": "Custom Multi Color Golf Gear for Teams & Events",
+  "metaTitle": "Custom Multi Color Golf Gear | Perfect Imprints",
+  "metaDescription": "Shop custom multi color golf gear at Perfect Imprints. Great for tournaments, corporate outings, and team gifts. Order in bulk today.",
+  "introHtml": "<p>Multi color golf gear lets you match team colors, event themes, or brand palettes without compromise. From vibrant umbrellas to bold towels, these items stand out on the course. Perfect for corporate tournaments or employee gifts, multi color options ensure your logo pops against a backdrop of green fairways. Choose from polyester blends, microfiber, or recycled materials for a professional look that lasts through many rounds.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom multi color golf gear including umbrellas and towels with bold patterns and team colors",
+  "productSkus": [
+    "510644",
+    "527112",
+    "528005"
+  ],
+  "generatedAt": "2026-05-31T08:55:06.968476+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

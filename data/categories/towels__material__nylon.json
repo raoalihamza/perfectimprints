@@ -1,0 +1,21 @@
+{
+  "url": "/cat/towels/material/nylon",
+  "type": "facet",
+  "h1": "Custom Nylon Towels for Bulk Orders",
+  "metaTitle": "Custom Nylon Towels | Perfect Imprints",
+  "metaDescription": "Order custom nylon towels in bulk for your brand. Perfect for sports, outdoor events, and promotions. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Nylon towels are a top pick for active brands and outdoor promotions. Unlike cotton or microfiber, nylon dries quickly, resists mildew, and packs small—ideal for gym giveaways, sports teams, or corporate swag for field crews. These custom nylon towels can be screen-printed or embroidered with your logo, making them a durable, lightweight option that recipients will actually use. Whether you're outfitting a race team or handing out cooling towels at a summer event, nylon delivers performance and visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom nylon towels with printed logo, perfect for sports and outdoor promotional use",
+  "productSkus": [
+    "521013"
+  ],
+  "generatedAt": "2026-05-31T10:12:01.336934+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

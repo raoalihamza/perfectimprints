@@ -1,0 +1,22 @@
+{
+  "url": "/cat/golf-balls/color/white",
+  "type": "facet",
+  "h1": "Custom White Golf Balls",
+  "metaTitle": "Custom White Golf Balls | Perfect Imprints",
+  "metaDescription": "Order custom white golf balls with your logo. Perfect for corporate events and giveaways. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>White golf balls remain the standard for a reason: they offer the best visibility against green fairways and blue skies, making them ideal for corporate tournaments and client gifts. Whether you choose the high-performance Titleist Pro V1 or the durable Velocity model, our white golf balls provide a crisp canvas for your logo using pad printing or hot stamping. Bulk orders ensure consistent branding for your next event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom white golf balls with corporate logo, featuring Titleist Pro V1 and Velocity models",
+  "productSkus": [
+    "507565 90A",
+    "515618 90A"
+  ],
+  "generatedAt": "2026-05-31T09:14:22.799705+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

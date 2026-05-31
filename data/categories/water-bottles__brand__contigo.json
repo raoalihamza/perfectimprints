@@ -1,0 +1,21 @@
+{
+  "url": "/cat/water-bottles/brand/contigo",
+  "type": "facet",
+  "h1": "Custom Contigo Water Bottles for Bulk Orders",
+  "metaTitle": "Custom Contigo Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom Contigo water bottles in bulk. Perfect for branding with your logo. Fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Contigo water bottles are known for their durable, leak-proof designs and one-handed drinking lids. When you choose custom Contigo water bottles, you get a trusted brand that employees and customers already love. The 24 oz Contigo Jackson Chill is a popular choice for corporate giveaways, trade shows, and employee welcome kits. Decorate with a laser engraving or full-color wrap to make your logo stand out. Bulk ordering keeps costs low while delivering a premium branded product that gets used daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Contigo water bottles with engraved logo, including the 24 oz Contigo Jackson Chill",
+  "productSkus": [
+    "527504"
+  ],
+  "generatedAt": "2026-05-31T08:27:39.354170+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

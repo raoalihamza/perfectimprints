@@ -1,0 +1,26 @@
+{
+  "url": "/cat/scarves/supplier/ariel",
+  "type": "facet",
+  "h1": "Custom Ariel Scarves for Bulk Orders",
+  "metaTitle": "Custom Ariel Scarves | Perfect Imprints",
+  "metaDescription": "Order custom Ariel scarves in bulk for your brand. Perfect for corporate gifts and events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Ariel scarves offer a distinct blend of quality and style, making them a standout choice for corporate giveaways and employee appreciation. Unlike generic scarves, Ariel’s fleece and knit options provide warmth and durability ideal for outdoor events or winter promotions. Decorate with screen printing or full-color digital for a vibrant brand impression. Whether you choose the Two-Tone Knit Scarf with Fringe or the Sportsman Rugby Striped Knit Scarf, these accessories keep your logo visible and your recipients comfortable.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Ariel scarves in fleece and knit styles for bulk corporate orders and promotional events",
+  "productSkus": [
+    "514088",
+    "516838",
+    "516839",
+    "516872",
+    "520012",
+    "520863"
+  ],
+  "generatedAt": "2026-05-31T10:05:41.184910+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/banners/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Banners for Events & Branding",
+  "metaTitle": "Custom Purple Banners | Perfect Imprints",
+  "metaDescription": "Shop custom purple banners for events, trade shows, and branding. Order bulk printed banners with your logo at Perfect Imprints.",
+  "introHtml": "<p>Purple banners command attention while conveying creativity and professionalism. Whether you need a 60-inch large banner for a trade show backdrop or a 36-inch small banner for an office announcement, the rich purple hue pairs well with white or gold text for high contrast. Durable vinyl material resists fading, making these banners suitable for both indoor and outdoor use. Choose full-color digital printing or screen printing for crisp logos and messaging.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple banners displayed at an outdoor event, featuring a company logo and bold white text on a vibrant purple background.",
+  "productSkus": [
+    "502118",
+    "502119",
+    "502120"
+  ],
+  "generatedAt": "2026-05-31T08:49:55.049882+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/laptop-cases/feature/pocketed",
+  "type": "facet",
+  "h1": "Custom Pocketed Laptop Cases",
+  "metaTitle": "Custom Pocketed Laptop Cases | Perfect Imprints",
+  "metaDescription": "Order custom pocketed laptop cases for organized bulk giveaways. Perfect for trade shows and corporate gifts.",
+  "introHtml": "<p>Custom pocketed laptop cases offer the organized storage that busy professionals need. With multiple compartments for accessories, documents, and devices, these cases keep everything in its place during commutes and client meetings. Options like the Vertex Carbon Computer Backpack or The Goods 2.0 Recycled Mobile Office provide ample pockets for branding opportunities. Decorate with embroidery or screen printing for a polished look that reflects your company’s attention to detail.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pocketed laptop case with multiple compartments for organized storage and branding",
+  "productSkus": [
+    "513518 80D",
+    "519860",
+    "522054",
+    "529318"
+  ],
+  "generatedAt": "2026-05-31T08:43:39.055327+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

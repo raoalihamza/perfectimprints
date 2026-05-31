@@ -1,0 +1,26 @@
+{
+  "url": "/cat/coasters/material/wood",
+  "type": "facet",
+  "h1": "Custom Wood Coasters",
+  "metaTitle": "Custom Wood Coasters | Perfect Imprints",
+  "metaDescription": "Order custom wood coasters for your brand. Perfect for restaurants, offices, and events. Get a quote today.",
+  "introHtml": "<p>Custom wood coasters bring a natural, warm feel to any setting. Unlike standard paper or plastic coasters, wood offers durability and an organic texture that stands out on bar tops and conference tables. Choose from tree slice shapes, layered designs, or acacia wood with resin accents. Laser engraving produces crisp, lasting logos that won't fade. Ideal for restaurants, tasting rooms, and corporate gifts that leave a memorable impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wood coasters with laser-engraved logo on tree slice shape and acacia wood resin coaster",
+  "productSkus": [
+    "525326",
+    "525327",
+    "526254",
+    "528135",
+    "529143",
+    "529291"
+  ],
+  "generatedAt": "2026-05-31T09:10:46.074965+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

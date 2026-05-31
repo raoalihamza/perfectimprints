@@ -1,0 +1,25 @@
+{
+  "url": "/cat/mechanical-pencils/supplier/koozie",
+  "type": "facet",
+  "h1": "Custom Koozie Mechanical Pencils for Bulk Orders",
+  "metaTitle": "Custom Koozie Mechanical Pencils | Perfect Imprints",
+  "metaDescription": "Order custom Koozie mechanical pencils in bulk. Perfect for promotions. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Koozie mechanical pencils combine the durability and precision of a trusted brand with the versatility of custom imprinting. Whether you're outfitting a sales team with the Armadillo Mechanical Pencil or giving away Frosty Grip Mechanical Pencils at a trade show, these writing instruments offer a professional look and reliable performance. Choose from a variety of colors and imprint methods to match your brand perfectly. Ordering in bulk is simple and cost-effective for your next promotional campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Koozie mechanical pencils in assorted colors with company logo imprinted on barrel",
+  "productSkus": [
+    "510506",
+    "510906",
+    "514646",
+    "519577",
+    "525811"
+  ],
+  "generatedAt": "2026-05-31T08:44:03.484846+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

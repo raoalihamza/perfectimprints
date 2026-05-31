@@ -1,0 +1,22 @@
+{
+  "url": "/cat/sunglasses/feature/folding",
+  "type": "facet",
+  "h1": "Custom Folding Sunglasses",
+  "metaTitle": "Custom Folding Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom folding sunglasses for your next event or promotion. Compact, portable, and ready for your logo. Get a quote today.",
+  "introHtml": "<p>Custom folding sunglasses fold down to a compact size that fits easily in a pocket or bag, making them a smart choice for trade shows, outdoor events, and corporate gifts. Unlike standard sunglasses, these collapse without scratching the lenses and often come with a protective case. They offer practical UV protection while keeping your brand visible wherever your customers go.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom folding sunglasses on a table, folded and unfolded, showing compact design and logo imprint",
+  "productSkus": [
+    "510937",
+    "526781"
+  ],
+  "generatedAt": "2026-05-31T09:27:14.842522+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,33 @@
+{
+  "url": "/cat/gloves/supplier/pcna",
+  "type": "facet",
+  "h1": "Custom PCNA Gloves for Bulk Orders",
+  "metaTitle": "Custom PCNA Gloves | Perfect Imprints",
+  "metaDescription": "Order custom PCNA gloves for your team. Perfect for safety, events, and branding. Get a quote today.",
+  "introHtml": "<p>PCNA gloves combine durability with comfort, making them a reliable choice for safety managers and business owners who need branded work gloves that hold up on the job. Whether you choose fleece-lined styles for cold-weather crews or touch-screen-compatible options for field technicians, these gloves offer practical branding opportunities. Decorating with a screen-printed logo on the cuff ensures your company name stays visible while your team stays protected.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom PCNA gloves with logo on cuff, featuring fleece lining and touch screen compatibility for work use.",
+  "productSkus": [
+    "516831",
+    "516832",
+    "516833",
+    "516834",
+    "516839",
+    "516872",
+    "519076",
+    "520012",
+    "521335",
+    "522780",
+    "524376",
+    "527422",
+    "527493"
+  ],
+  "generatedAt": "2026-05-31T09:14:18.010253+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

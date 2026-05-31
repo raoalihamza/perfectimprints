@@ -1,0 +1,23 @@
+{
+  "url": "/cat/bbq-grilling/activity/camping",
+  "type": "facet",
+  "h1": "Custom Camping BBQ Grilling Gear",
+  "metaTitle": "Custom Camping BBQ Grilling | Perfect Imprints",
+  "metaDescription": "Brand custom camping BBQ grilling gear for your next outdoor event. Get bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Portable grills and tools designed for campsites demand durability and compact storage. Custom camping BBQ grilling gear like the 5-In-1 BBQ Multi Tool or the Weekend Explorer Grill & Cooler ensures your team can cook anywhere. Choose heat-resistant handles, lightweight materials, and easy-clean surfaces for tailgates or off-site retreats. Your logo on these items signals reliability in rugged conditions.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom camping BBQ grilling gear including a multi-tool and portable grill at a campsite",
+  "productSkus": [
+    "505898 02B",
+    "520463",
+    "527712"
+  ],
+  "generatedAt": "2026-05-31T09:36:13.588124+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/jackets/style/puffer",
+  "type": "facet",
+  "h1": "Custom Puffer Jackets for Bulk Orders",
+  "metaTitle": "Custom Puffer Jackets | Perfect Imprints",
+  "metaDescription": "Order custom puffer jackets for your team. Perfect for corporate gifts, events, and winter uniforms. Get a quote today!",
+  "introHtml": "<p>Custom puffer jackets offer the warmth and durability your team needs for outdoor events, winter giveaways, or branded uniforms. Unlike standard jackets, puffers provide lightweight insulation that packs away easily—perfect for travel or trade shows. Choose from men's and ladies' styles like the Stavanger Thermal or Microburst Puffer Hooded Jacket, and add your logo with embroidery or screen printing. Keep your team comfortable and your brand visible all season long.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom puffer jackets with embroidered logo, available in men's and ladies' styles for bulk orders.",
+  "productSkus": [
+    "520278",
+    "520279",
+    "525718",
+    "525719",
+    "527896",
+    "527897"
+  ],
+  "generatedAt": "2026-05-31T08:29:29.190694+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

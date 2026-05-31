@@ -1,0 +1,23 @@
+{
+  "url": "/cat/face-masks/color/white",
+  "type": "facet",
+  "h1": "Custom White Face Masks for Bulk Orders",
+  "metaTitle": "Custom White Face Masks | Perfect Imprints",
+  "metaDescription": "Order custom white face masks in bulk with your logo. Perfect for safety, events, and branding. Get a quote today!",
+  "introHtml": "<p>Custom white face masks offer a clean, professional canvas for your logo or message, making them a popular choice for corporate branding, safety compliance, and event giveaways. Unlike darker colors, white masks provide high contrast for screen printing or heat transfer decoration, ensuring your design stands out. Whether you choose a tubular bandana or a USA-made solid bandana, white masks pair well with any uniform or promotional outfit. Order in bulk for your team or next campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom white face masks with logo printed on front, stacked for bulk orders.",
+  "productSkus": [
+    "521602",
+    "524693",
+    "524695"
+  ],
+  "generatedAt": "2026-05-31T09:45:15.672160+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

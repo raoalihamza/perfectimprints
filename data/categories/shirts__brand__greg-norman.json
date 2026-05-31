@@ -1,0 +1,21 @@
+{
+  "url": "/cat/shirts/brand/greg-norman",
+  "type": "facet",
+  "h1": "Custom Greg Norman Shirts for Bulk Orders",
+  "metaTitle": "Custom Greg Norman Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Greg Norman shirts in bulk at Perfect Imprints. Perfect for corporate events, teams, and golf outings.",
+  "introHtml": "<p>Greg Norman shirts offer a premium blend of performance and style, making them a top choice for corporate golf events, team uniforms, and upscale promotional giveaways. The Play Dry® fabric wicks moisture to keep wearers cool and comfortable, while the classic polo silhouette ensures a professional look. Choose from a range of colors and add your logo with embroidery or screen printing for a polished finish that reflects your brand's commitment to quality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Greg Norman shirts with embroidered logo on a performance mesh polo",
+  "productSkus": [
+    "517777"
+  ],
+  "generatedAt": "2026-05-31T09:25:46.455081+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

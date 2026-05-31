@@ -1,0 +1,24 @@
+{
+  "url": "/cat/workwear/material/nylon",
+  "type": "facet",
+  "h1": "Custom Nylon Workwear for Your Team",
+  "metaTitle": "Custom Nylon Workwear | Perfect Imprints",
+  "metaDescription": "Order custom nylon workwear from Perfect Imprints. Durable, lightweight, and perfect for branding. Get a quote today.",
+  "introHtml": "<p>Nylon workwear combines durability with lightweight comfort, making it ideal for teams that need reliable gear without the bulk. Whether you're outfitting safety managers with reflective vests or providing soft shell jackets for outdoor crews, nylon offers water resistance and easy care. Customize with embroidery or screen printing for a professional look that lasts. From Carhartt vests to snap bands, nylon workwear keeps your brand visible and your team comfortable on the job.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom nylon workwear featuring a branded Carhartt Gilliam Vest with reflective trim and embroidered logo",
+  "productSkus": [
+    "521967",
+    "525387",
+    "526536",
+    "526545"
+  ],
+  "generatedAt": "2026-05-31T08:48:11.347697+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/shirts/activity/golf",
+  "type": "facet",
+  "h1": "Custom Golf Shirts for Corporate Events",
+  "metaTitle": "Custom Golf Shirts | Perfect Imprints",
+  "metaDescription": "Order custom golf shirts for your next corporate event or tournament. Bulk pricing and fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>Custom golf shirts offer a polished, professional look for corporate outings, charity tournaments, and team uniforms. Unlike standard polo shirts, golf-specific styles feature moisture-wicking fabrics, UV protection, and stretch fabrics for comfort on the course. The Vansport™ Pro Maui Shirt is a popular choice, available with embroidery or screen printing for your logo. Choose from a range of colors and sizes to outfit your entire group with branded apparel that performs as well as it looks.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom golf shirts with embroidered logo on a green, featuring moisture-wicking fabric and professional fit",
+  "productSkus": [
+    "523719"
+  ],
+  "generatedAt": "2026-05-31T08:23:47.266474+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

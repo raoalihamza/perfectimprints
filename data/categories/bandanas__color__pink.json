@@ -1,0 +1,28 @@
+{
+  "url": "/cat/bandanas/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Bandanas for Your Brand",
+  "metaTitle": "Custom Pink Bandanas | Perfect Imprints",
+  "metaDescription": "Order custom pink bandanas for your next event or promotion. Perfect for branding, giveaways, and more. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Pink bandanas offer a bold, eye-catching way to promote your brand at events, fundraisers, or employee giveaways. Whether you choose a classic cotton paisley or a lightweight fleece option, pink stands out in a crowd. Decorate with screen printing or embroidery for a polished look. From 100% USA-made solids to tubular styles, our pink bandanas are versatile for any campaign. Bulk orders ship quickly across the U.S.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom pink bandanas with screen-printed logo, perfect for promotional giveaways",
+  "productSkus": [
+    "506991",
+    "516836",
+    "516837",
+    "521602",
+    "522110",
+    "522111",
+    "524693",
+    "524817"
+  ],
+  "generatedAt": "2026-05-31T08:25:58.964831+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

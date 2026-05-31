@@ -1,0 +1,28 @@
+{
+  "url": "/cat/shirts/color/green",
+  "type": "facet",
+  "h1": "Custom Green Shirts for Bulk Orders",
+  "metaTitle": "Custom Green Shirts | Perfect Imprints",
+  "metaDescription": "Order custom green shirts for your team or event. Bulk pricing available. Call Perfect Imprints for a quote.",
+  "introHtml": "<p>Green shirts are a versatile choice for uniforms, outdoor events, or eco-conscious branding. Whether you need hunter green polos for a landscaping crew or soft sage button-downs for a company picnic, our selection covers a range of shades and fabrics. Decorate with embroidery or screen printing for a polished look that stands out. Browse our collection of custom green shirts for your next order.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom green shirts in various shades, including polo and button-down styles for bulk orders",
+  "productSkus": [
+    "517273",
+    "517274",
+    "519011",
+    "519684",
+    "519685",
+    "520266",
+    "524313",
+    "526291"
+  ],
+  "generatedAt": "2026-05-31T08:27:26.580968+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

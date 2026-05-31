@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/golftee",
+  "type": "facet",
+  "h1": "Custom Golftee Products for Branded Promotions",
+  "metaTitle": "Custom Golftee Products | Perfect Imprints",
+  "metaDescription": "Order custom Golftee products for your next promotion. Perfect Imprints offers bulk pricing on branded giveaways.",
+  "introHtml": "<p>Golftee provides a curated selection of promotional products that combine quality with practicality, making them ideal for corporate gifts, trade shows, and employee recognition. From drinkware and tech accessories to branded apparel, these items offer versatile decoration options like screen printing and laser engraving. Bulk buyers appreciate the consistent quality and on-time delivery that make Golftee a reliable partner for building brand awareness.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Golftee products including branded drinkware and tech accessories for corporate promotions",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:04:19.492295+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

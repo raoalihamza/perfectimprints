@@ -1,0 +1,21 @@
+{
+  "url": "/cat/nuts/color/silver",
+  "type": "facet",
+  "h1": "Custom Silver Nuts for Bulk Orders",
+  "metaTitle": "Custom Silver Nuts | Perfect Imprints",
+  "metaDescription": "Order custom silver nuts for corporate gifts or events. Browse our selection at Perfect Imprints.",
+  "introHtml": "<p>Silver nuts add a sleek, metallic finish to your custom packaging or gift boxes. Whether you're assembling welcome kits for a trade show or creating branded snack mixes for employee appreciation, the silver color conveys a modern, premium look. Pair them with custom-printed popcorn or pretzels for a cohesive color scheme that stands out in breakrooms or conference tables. Our silver nuts are available in bulk and can be decorated with your logo for consistent brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom silver nuts in a bulk packaging, ideal for corporate gifts and branded snack mixes",
+  "productSkus": [
+    "520248"
+  ],
+  "generatedAt": "2026-05-31T09:20:44.518216+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

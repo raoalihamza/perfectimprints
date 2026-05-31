@@ -1,0 +1,27 @@
+{
+  "url": "/cat/golf-polo-shirts/style/performance",
+  "type": "facet",
+  "h1": "Custom Performance Golf Polo Shirts",
+  "metaTitle": "Custom Performance Golf Polo Shirts | Perfect Imprints",
+  "metaDescription": "Order custom performance golf polo shirts for your team or event. Moisture-wicking, breathable fabrics from Perfect Imprints.",
+  "introHtml": "<p>Performance golf polo shirts are engineered with moisture-wicking fabrics that keep you dry and comfortable on the course or at corporate events. Unlike standard cotton polos, these shirts use advanced materials like micropique and recycled polyester to manage sweat and allow airflow. They're ideal for outdoor tournaments, company golf outings, or uniforms where all-day comfort matters. Choose from styles like the Sport Tek Micropique Sport-Wick Polo or the Port Authority Recycled Performance Polo, both available in men's and ladies' cuts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom performance golf polo shirts in moisture-wicking fabric, perfect for corporate golf events",
+  "productSkus": [
+    "510302",
+    "510303",
+    "517777",
+    "525937",
+    "525938",
+    "527677",
+    "527678"
+  ],
+  "generatedAt": "2026-05-31T09:14:44.159099+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

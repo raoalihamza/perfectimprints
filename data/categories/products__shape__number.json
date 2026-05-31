@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/shape/number",
+  "type": "facet",
+  "h1": "Custom Number Products for Bulk Orders",
+  "metaTitle": "Custom Number Products | Perfect Imprints",
+  "metaDescription": "Order custom number products in bulk. Perfect for team IDs, event markers, and more. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Number-shaped products add a functional, personalized touch to your branded merchandise. Whether you need custom number keychains for employee locker tags, number stress relievers for safety giveaways, or number-shaped notepads for event signage, these items help organize and identify while keeping your logo front and center. Choose from materials like soft foam or durable plastic, and decorate with screen printing or pad printing for crisp, lasting results.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom number products including keychains and stress relievers in various colors with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:58.397892+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/drinkware/color/gray",
+  "type": "facet",
+  "h1": "Custom Gray Drinkware for Your Brand",
+  "metaTitle": "Custom Gray Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom gray drinkware for your brand. Personalized mugs, tumblers, and can coolers in a versatile neutral tone. Get a quote today!",
+  "introHtml": "<p>Gray drinkware offers a sleek, neutral canvas that pairs well with any brand color palette. From the 16 oz Slat Series Mug to the 27 oz Hermosa Aluminum Water Bottle, gray tones add a modern, professional look to your company swag. Whether you're outfitting a sales team or creating giveaway sets, custom gray drinkware ensures your logo stands out without clashing. Choose from vacuum tumblers, can coolers, and more for a cohesive, polished brand impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gray drinkware including a mug, tumbler, and can cooler with company logos",
+  "productSkus": [
+    "510517",
+    "512613",
+    "522985",
+    "524419",
+    "529164",
+    "529400"
+  ],
+  "generatedAt": "2026-05-31T08:33:38.293959+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

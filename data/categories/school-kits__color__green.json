@@ -1,0 +1,24 @@
+{
+  "url": "/cat/school-kits/color/green",
+  "type": "facet",
+  "h1": "Custom Green School Kits for Bulk Orders",
+  "metaTitle": "Custom Green School Kits | Perfect Imprints",
+  "metaDescription": "Order custom green school kits in bulk from Perfect Imprints. Ideal for back-to-school promotions. Get a quote today!",
+  "introHtml": "<p>Green school kits offer a fresh, vibrant look that stands out in any back-to-school campaign. Whether you're outfitting students with nail care essentials or bundling supplies for safety kits, the green color adds a natural, eco-friendly feel that resonates with environmentally conscious buyers. These kits are ideal for school districts, PTA groups, or corporate giveaways where you want to promote organization and preparedness. Custom imprinting on the kit or its contents ensures your logo is visible throughout the school year.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green school kits with nail files and buffers in bulk packaging, perfect for back-to-school giveaways",
+  "productSkus": [
+    "505916",
+    "511519",
+    "516737",
+    "517165"
+  ],
+  "generatedAt": "2026-05-31T09:25:10.695064+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

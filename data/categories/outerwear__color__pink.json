@@ -1,0 +1,29 @@
+{
+  "url": "/cat/outerwear/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Outerwear for Teams & Events",
+  "metaTitle": "Custom Pink Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom pink outerwear for your team or event. Perfect for breast cancer awareness, walks, and more. Get a quote today.",
+  "introHtml": "<p>Custom pink outerwear makes a bold statement for breast cancer awareness campaigns, charity walks, or team-building events. From lightweight pullovers to rain jackets, pink outerwear ensures visibility and unity. Decorate with screen printing or embroidery for a polished look that stands out at any gathering.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom pink outerwear including pullovers and rain jackets at a charity event",
+  "productSkus": [
+    "510005",
+    "510006",
+    "510008",
+    "516836",
+    "516837",
+    "520299",
+    "523278",
+    "523281",
+    "526131"
+  ],
+  "generatedAt": "2026-05-31T09:59:06.536971+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

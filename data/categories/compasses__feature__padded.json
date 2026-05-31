@@ -1,0 +1,21 @@
+{
+  "url": "/cat/compasses/feature/padded",
+  "type": "facet",
+  "h1": "Custom Padded Compasses for Bulk Orders",
+  "metaTitle": "Custom Padded Compasses | Perfect Imprints",
+  "metaDescription": "Order custom padded compasses for your next event. Soft, durable, and perfect for branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Padded compasses offer the precision of a reliable navigation tool with the added comfort of a soft, cushioned exterior. Ideal for outdoor events, corporate retreats, or safety kits, these compasses provide a tactile branding surface that stands out. Decorate with your logo using screen printing or debossing for a professional finish that your team or clients will appreciate on every adventure.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom padded compass with soft cushioned exterior and printed logo, ideal for outdoor branding",
+  "productSkus": [
+    "515638"
+  ],
+  "generatedAt": "2026-05-31T09:41:32.478056+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

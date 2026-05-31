@@ -1,0 +1,22 @@
+{
+  "url": "/cat/stationery/style/frosted",
+  "type": "facet",
+  "h1": "Custom Frosted Stationery for Bulk Orders",
+  "metaTitle": "Custom Frosted Stationery | Perfect Imprints",
+  "metaDescription": "Order custom frosted stationery in bulk at Perfect Imprints. Ideal for unique, tactile brand impressions. Get your quote today.",
+  "introHtml": "<p>Frosted stationery adds a subtle, textured finish that stands out from standard paper goods. The soft, translucent look works well for thank-you cards, note pads, or unique mailers that leave a lasting tactile impression. Bulk orders let you coordinate this elegant style across multiple formats, from branded notepads to greeting cards. Decorate with foil stamping or screen printing for a refined, professional result that recipients will remember.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom frosted stationery with a soft translucent finish, perfect for bulk branded note cards and pads",
+  "productSkus": [
+    "525800",
+    "525801"
+  ],
+  "generatedAt": "2026-05-31T09:26:50.071040+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

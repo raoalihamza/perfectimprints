@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/snugz",
+  "type": "facet",
+  "h1": "Custom Snugz Products for Branding",
+  "metaTitle": "Custom Snugz Products | Perfect Imprints",
+  "metaDescription": "Shop custom Snugz products at Perfect Imprints. Perfect for bulk orders with your logo. Get a quote today!",
+  "introHtml": "<p>Snugz products are known for their soft, high-quality fleece material that keeps recipients warm and comfortable. Whether you are outfitting employees for a winter event or handing out branded blankets at a trade show, custom Snugz items offer a cozy way to promote your logo. Choose from throws, scarves, and more, all customizable with screen printing or embroidery for a professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Snugz products including branded fleece blankets and scarves with embroidered logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:24:27.423001+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

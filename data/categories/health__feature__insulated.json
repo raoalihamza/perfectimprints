@@ -1,0 +1,29 @@
+{
+  "url": "/cat/health/feature/insulated",
+  "type": "facet",
+  "h1": "Custom Insulated Health Products for Bulk Orders",
+  "metaTitle": "Custom Insulated Health Products | Perfect Imprints",
+  "metaDescription": "Order custom insulated health products for your team or event. Perfect Imprints offers bulk pricing on tumblers, bottles, and more.",
+  "introHtml": "<p>Insulated health products keep drinks at the right temperature during long shifts, outdoor events, or daily commutes. From stainless steel tumblers to neoprene coolies, adding your logo turns practical hydration into a walking billboard. Choose double-wall vacuum insulation for hot coffee or iced water that stays cold for hours. Perfect for employee wellness kits, trade show giveaways, or safety manager appreciation gifts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom insulated health products including tumblers and water bottles with company logos",
+  "productSkus": [
+    "504865",
+    "520476",
+    "521206",
+    "521390",
+    "523425",
+    "526267",
+    "526439",
+    "527135",
+    "528189"
+  ],
+  "generatedAt": "2026-05-31T09:50:33.122406+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/office-supplies/brand/out-of-the-woods",
+  "type": "facet",
+  "h1": "Custom Out of the Woods Office Supplies",
+  "metaTitle": "Custom Out of the Woods Office Supplies | Perfect Imprints",
+  "metaDescription": "Order custom Out of the Woods office supplies for your business. Perfect for eco-conscious branding. Get a quote today.",
+  "introHtml": "<p>Out of the Woods brings a rustic, eco-friendly aesthetic to your office supply lineup. Their recycled materials and nature-inspired designs make them a standout choice for brands that value sustainability. Whether you need custom coolers for breakrooms or totes for client gifts, these products carry your logo with authentic outdoor appeal.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Out of the Woods office supplies including a cooler and tote bag with company logo",
+  "productSkus": [
+    "525976",
+    "527206",
+    "528403"
+  ],
+  "generatedAt": "2026-05-31T08:58:35.044683+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

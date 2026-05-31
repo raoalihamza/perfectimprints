@@ -1,0 +1,30 @@
+{
+  "url": "/cat/pet-bowls/color/red",
+  "type": "facet",
+  "h1": "Custom Red Pet Bowls for Bulk Orders",
+  "metaTitle": "Custom Red Pet Bowls | Perfect Imprints",
+  "metaDescription": "Order custom red pet bowls in bulk for your brand. Durable, vibrant, and perfect for pet owners. Get started with Perfect Imprints.",
+  "introHtml": "<p>Red pet bowls stand out in any home or kennel, making them a bold choice for branded giveaways. Whether you choose collapsible silicone bowls for trade shows or stainless steel bowls for durability, the red color ensures your logo catches attention. Perfect for pet supply companies, vet clinics, or corporate gifts, these bowls combine function with brand visibility. Decorate with pad printing or laser engraving for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red pet bowls in collapsible silicone and stainless steel styles with logos, perfect for bulk branding",
+  "productSkus": [
+    "506366",
+    "506367",
+    "512329",
+    "520484",
+    "521770",
+    "524371",
+    "524414",
+    "524415",
+    "527080",
+    "527081"
+  ],
+  "generatedAt": "2026-05-31T10:01:14.169757+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

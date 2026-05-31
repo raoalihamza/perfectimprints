@@ -1,0 +1,25 @@
+{
+  "url": "/cat/paper-bags/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Paper Bags",
+  "metaTitle": "Custom Blue Paper Bags | Perfect Imprints",
+  "metaDescription": "Order custom blue paper bags for your brand. Perfect for retail, events, or packaging. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Blue paper bags offer a versatile and professional packaging solution that stands out from standard brown or white options. Whether you need small Munchkin bags for boutique purchases or large Euro totes for retail merchandise, blue conveys a sense of reliability and calm. Customize with your logo using screen printing or foil stamping for a polished look that aligns with your brand identity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue paper bags with handles, ideal for retail and promotional use, featuring a glossy finish and logo imprint.",
+  "productSkus": [
+    "503366",
+    "503367",
+    "504843",
+    "514521",
+    "522243"
+  ],
+  "generatedAt": "2026-05-31T08:36:03.868811+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

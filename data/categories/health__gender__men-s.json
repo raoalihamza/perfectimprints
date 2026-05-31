@@ -1,0 +1,25 @@
+{
+  "url": "/cat/health/gender/men-s",
+  "type": "facet",
+  "h1": "Custom Men's Health Products for Bulk Orders",
+  "metaTitle": "Custom Men's Health Products | Perfect Imprints",
+  "metaDescription": "Shop custom men's health items for bulk orders. Perfect for corporate wellness programs and safety kits at PerfectImprints.com.",
+  "introHtml": "<p>When ordering health products for men, you need items that fit and appeal to a male audience. Our selection includes men's t-shirts, quarter zips, and shaker bottles designed for active lifestyles. Whether you're outfitting a safety team with durable apparel or creating wellness kits with branded drinkware, these products offer practical, everyday use. Decoration options like embroidery or screen printing ensure your logo stays visible through repeated wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom men's health products including a men's quarter zip and a shaker bottle with a company logo",
+  "productSkus": [
+    "501556",
+    "501558",
+    "516240",
+    "521108",
+    "527248"
+  ],
+  "generatedAt": "2026-05-31T09:15:49.145087+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

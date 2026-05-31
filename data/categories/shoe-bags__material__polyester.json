@@ -1,0 +1,21 @@
+{
+  "url": "/cat/shoe-bags/material/polyester",
+  "type": "facet",
+  "h1": "Custom Polyester Shoe Bags",
+  "metaTitle": "Custom Polyester Shoe Bags | Perfect Imprints",
+  "metaDescription": "Order custom polyester shoe bags for your team or event. Durable, lightweight bags perfect for gym, travel, and promotion.",
+  "introHtml": "<p>Polyester shoe bags offer a durable, lightweight solution for storing and transporting footwear. Unlike vinyl or mesh alternatives, polyester resists tearing and holds up to frequent use, making it ideal for corporate gym programs, hotel amenities, or team giveaways. These bags can be screen printed or embroidered with your logo, providing a clean, professional look that stands out in a locker room or duffel.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom polyester shoe bags with embroidered logo, durable fabric, and drawstring closure for travel",
+  "productSkus": [
+    "512523"
+  ],
+  "generatedAt": "2026-05-31T09:26:02.594906+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,27 @@
+{
+  "url": "/cat/blankets/brand/field-co",
+  "type": "facet",
+  "h1": "Custom Field Co Blankets for Branded Giveaways",
+  "metaTitle": "Custom Field Co Blankets | Perfect Imprints",
+  "metaDescription": "Order custom Field Co blankets for your next promotion. Perfect for corporate gifts, trade shows, and employee rewards.",
+  "introHtml": "<p>Field Co blankets combine outdoor durability with cozy comfort, making them a standout choice for brands that want to give something both practical and memorable. Whether you choose the recycled PET sherpa blanket for eco-conscious campaigns or the classic buffalo plaid for winter events, each blanket offers generous sizing and soft texture. Decorate with your logo via embroidery or screen printing for a premium look that recipients will use for years.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Field Co blankets with embroidered logo, including sherpa and picnic styles displayed on grass",
+  "productSkus": [
+    "521988",
+    "523955",
+    "525346",
+    "525505",
+    "525844",
+    "525982",
+    "527170"
+  ],
+  "generatedAt": "2026-05-31T09:08:48.456772+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

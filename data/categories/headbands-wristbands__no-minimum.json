@@ -1,0 +1,21 @@
+{
+  "url": "/cat/headbands-wristbands/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Headbands & Wristbands",
+  "metaTitle": "No-Minimum Custom Headbands & Wristbands | Perfect Imprints",
+  "metaDescription": "Order small quantities of no-minimum custom headbands and wristbands. Perfect for small teams, events, and samples. Get started today!",
+  "introHtml": "<p>Not every promotion requires a bulk order. Our no-minimum custom headbands and wristbands let you order as few as a single bandana or wristband, making them ideal for small businesses, startup teams, one-off events, or sample runs before committing to larger quantities. You get the same quality and customization options without the typical minimum order requirements.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of no-minimum custom headbands and wristbands in various colors, ready for small orders",
+  "productSkus": [
+    "524817"
+  ],
+  "generatedAt": "2026-05-31T09:15:19.626722+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

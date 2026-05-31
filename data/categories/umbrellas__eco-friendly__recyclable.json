@@ -1,0 +1,28 @@
+{
+  "url": "/cat/umbrellas/eco-friendly/recyclable",
+  "type": "facet",
+  "h1": "Custom Recyclable Umbrellas",
+  "metaTitle": "Custom Recyclable Umbrellas | Perfect Imprints",
+  "metaDescription": "Order custom recyclable umbrellas for your brand. Eco-friendly and durable, perfect for corporate gifts. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Custom recyclable umbrellas are a practical choice for brands prioritizing sustainability. Made from recycled materials like rPET, these umbrellas reduce waste while providing reliable protection from rain. Options range from compact travel umbrellas to large golf umbrellas, all fully recyclable at end of life. Perfect for trade shows, employee gifts, or client appreciation, they demonstrate your commitment to the environment. Decorate with your logo via screen printing or digital transfer for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recyclable umbrellas with company logo, eco-friendly and durable for corporate gifts and events.",
+  "productSkus": [
+    "526046",
+    "527935",
+    "527936",
+    "527937",
+    "528117",
+    "528154",
+    "528280",
+    "529141"
+  ],
+  "generatedAt": "2026-05-31T09:29:40.267845+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

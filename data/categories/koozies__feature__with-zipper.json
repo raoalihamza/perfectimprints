@@ -1,0 +1,23 @@
+{
+  "url": "/cat/koozies/feature/with-zipper",
+  "type": "facet",
+  "h1": "Custom Koozies with Zipper for Bulk Orders",
+  "metaTitle": "Custom Koozies with Zipper | Perfect Imprints",
+  "metaDescription": "Order custom with zipper koozies in bulk. Secure, insulated bottle pouches with branding options. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom koozies with zipper offer a secure way to keep beverages cold while protecting the bottle from spills. Unlike open-top koozies, the zippered closure prevents cans or bottles from slipping out during transport, making them ideal for outdoor events, trade shows, or employee gifts. These insulated pouches can be decorated with screen printing or embroidery, and styles like the Kangaroo Bottle Pouch provide extra pocket space for a phone or keys.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom koozies with zipper in assorted colors, featuring a zippered closure and insulated bottle pouch for bulk branding.",
+  "productSkus": [
+    "511304",
+    "527142",
+    "528183"
+  ],
+  "generatedAt": "2026-05-31T08:35:02.480527+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

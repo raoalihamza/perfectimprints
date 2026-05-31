@@ -1,0 +1,33 @@
+{
+  "url": "/cat/school-work-backpacks/brand/miir",
+  "type": "facet",
+  "h1": "Custom Miir School Work Backpacks",
+  "metaTitle": "Custom Miir Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Miir school work backpacks for your team. Durable, sustainable, and perfect for branding at Perfect Imprints.",
+  "introHtml": "<p>Miir backpacks combine rugged durability with eco-conscious design, making them a smart choice for companies that value sustainability. The Olympus 2.0 15L Laptop Backpack offers a padded laptop compartment and sleek profile, ideal for commuters or field teams. Customize with screen-printed or embroidered logos to create branded gear that reflects your commitment to quality and the planet.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Miir school work backpacks with embroidered logo, featuring the Olympus 2.0 15L Laptop Backpack in black",
+  "productSkus": [
+    "523728",
+    "523729",
+    "523730",
+    "523761",
+    "525478",
+    "525481",
+    "525612",
+    "526419",
+    "526482",
+    "527194",
+    "527204",
+    "527938",
+    "527939"
+  ],
+  "generatedAt": "2026-05-31T10:06:00.980922+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

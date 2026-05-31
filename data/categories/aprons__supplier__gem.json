@@ -1,0 +1,26 @@
+{
+  "url": "/cat/aprons/supplier/gem",
+  "type": "facet",
+  "h1": "Custom Gem Aprons for Bulk Orders",
+  "metaTitle": "Custom Gem Aprons | Perfect Imprints",
+  "metaDescription": "Order custom Gem aprons for your team or event. Perfect Imprints offers quality bulk aprons from Gem. Get a quote today.",
+  "introHtml": "<p>Gem aprons are known for their durable construction and professional look, making them a popular choice for restaurants, catering companies, and trade shows. Whether you need waist aprons for waitstaff or full-length aprons for chefs, Gem offers styles that hold up to daily use. Decorate with your logo or text using screen printing or embroidery for a polished brand presence.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Gem aprons with embroidered logos on durable fabric for restaurant staff and events",
+  "productSkus": [
+    "508541",
+    "509133 90A",
+    "515077",
+    "516543 01A",
+    "527339",
+    "528072"
+  ],
+  "generatedAt": "2026-05-31T09:32:43.258748+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

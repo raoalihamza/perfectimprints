@@ -1,0 +1,33 @@
+{
+  "url": "/cat/buckets-pails/material/steel",
+  "type": "facet",
+  "h1": "Custom Steel Buckets & Pails",
+  "metaTitle": "Custom Steel Buckets & Pails | Perfect Imprints",
+  "metaDescription": "Order custom steel buckets & pails for heavy-duty branding. Durable, industrial-grade. Perfect for tradeshows and giveaways. Get a quote today.",
+  "introHtml": "<p>Steel buckets and pails offer unmatched durability for industrial and promotional use. Unlike plastic or fabric options, steel withstands heavy loads, harsh weather, and repeated use, making them ideal for construction giveaways, safety kits, or outdoor events. Decorate with screen printing or debossing for a rugged, long-lasting brand impression that stands out on job sites or at trade shows.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom steel buckets and pails with screen printed logo, durable metal construction for promotional use",
+  "productSkus": [
+    "525277",
+    "526242",
+    "526244",
+    "526316",
+    "526341",
+    "526494",
+    "526950",
+    "526951",
+    "526952",
+    "527566",
+    "527700",
+    "528251",
+    "528333"
+  ],
+  "generatedAt": "2026-05-31T08:40:15.949814+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

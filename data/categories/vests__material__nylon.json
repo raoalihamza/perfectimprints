@@ -1,0 +1,30 @@
+{
+  "url": "/cat/vests/material/nylon",
+  "type": "facet",
+  "h1": "Custom Nylon Vests for Bulk Orders",
+  "metaTitle": "Custom Nylon Vests | Perfect Imprints",
+  "metaDescription": "Order custom nylon vests in bulk for your team or event. Durable, wind-resistant, and perfect for branding. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Nylon vests offer a lightweight yet durable option for corporate apparel, providing wind resistance and a professional look that stands up to daily wear. Whether you need safety vests for your crew or branded outerwear for a company event, nylon fabric ensures longevity and easy care. Decorate with embroidery or screen printing for a polished finish that keeps your logo visible season after season.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A group of people wearing custom nylon vests with embroidered logos, showcasing durable and wind-resistant fabric for corporate branding.",
+  "productSkus": [
+    "525387",
+    "525721",
+    "526352",
+    "526353",
+    "526536",
+    "526545",
+    "527559",
+    "527560",
+    "528929",
+    "529213"
+  ],
+  "generatedAt": "2026-05-31T10:13:27.671966+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

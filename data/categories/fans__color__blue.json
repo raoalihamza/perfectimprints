@@ -1,0 +1,31 @@
+{
+  "url": "/cat/fans/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Fans for Bulk Orders",
+  "metaTitle": "Custom Blue Fans | Perfect Imprints",
+  "metaDescription": "Order custom blue fans for your next event or promotion. Choose from hand fans, clip-on fans, and more. Get a quote today!",
+  "introHtml": "<p>Blue fans offer a cool, calming presence at outdoor events, trade shows, and corporate giveaways. Whether you choose hand fans like the Circle Hand Fan or Square Hand Fan for easy branding, or opt for a battery-powered clip-on fan for desk use, blue conveys trust and professionalism. Custom imprinting with your logo turns these functional items into memorable promotional tools that recipients will keep using all summer long.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom blue fans including hand fans and clip-on fans with logo imprinting for promotional use",
+  "productSkus": [
+    "507687",
+    "510729",
+    "510731",
+    "510732",
+    "512550",
+    "513209",
+    "517241",
+    "523471",
+    "523727",
+    "528330",
+    "529058"
+  ],
+  "generatedAt": "2026-05-31T08:33:46.848197+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

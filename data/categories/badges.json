@@ -1,0 +1,41 @@
+{
+  "url": "/cat/badges",
+  "type": "root",
+  "h1": "Custom Badges for Events, Safety & Branding",
+  "metaTitle": "Custom Badges – Perfect Imprints",
+  "metaDescription": "Order custom badges for events, safety, and branding. Fast turnaround, low MOQs, and professional finishes. Get a quote today.",
+  "introHtml": "<p>Marketing directors planning a trade show need name badges that look professional and hold up through a long day of networking. HR directors rolling out an employee recognition program want pins that feel substantial and carry the company logo cleanly. Safety managers require durable badges that identify workers and withstand daily wear on a factory floor. Business owners ordering for a conference or fundraiser expect a finished product that reflects their organization without delays or hidden costs.</p><p>This collection covers all those use cases. You will find custom badges in metal, plastic, and woven materials, with options for screen printing, laser engraving, debossing, and full-color heat transfer. Whether you need 50 badges for a small event or 5,000 for a national rollout, our ordering process is built for bulk buyers who value consistency and clear communication. Browse the product grid below and use the buying guide to make an informed choice.</p>",
+  "buyingGuideHtml": "<p>When ordering custom badges, start by matching the material to the use case. Metal badges (brass, zinc, or stainless steel) convey permanence and work well for service awards or high-end event credentials. Plastic or PVC badges are lightweight and cost-effective for large trade shows or temporary access passes. Woven fabric badges with embroidered edges are ideal for uniforms and soft-goods branding where a sewn-on patch is appropriate.</p><h3>Decoration Methods and Quality</h3><p>Your logo can be applied through several methods. Screen printing is the most economical for simple designs on flat surfaces. Laser engraving produces a precise, permanent mark on metal that will not wear off. Debossing creates a recessed impression that looks premium and lasts. Full-color heat transfer is best for complex logos or photographic images on plastic or fabric badges. Always request a proof to verify color match and detail reproduction before production.</p><p>Common use cases for promotional badges include employee name tags, conference attendee badges, safety identification, and branded giveaways at fundraisers. Marketing directors often order personalized badges for VIP guests at product launches. HR directors use branded badges for onboarding kits and service anniversary gifts. Safety managers need bulk badges with clear text and durable attachments for hard hats or lanyards.</p><p>Quantity and MOQ matter for pricing. Most badge styles have a minimum of 50 to 100 pieces per design. As order volume increases, the per-unit cost drops significantly. For example, a 500-piece run of custom metal badges might cost half per badge compared to a 100-piece run. If your budget allows, ordering a higher quantity of wholesale badges from the start saves money on reorders later. Keep in mind that setup fees for tooling (like a debossing die) are a one-time cost, so spreading that fee across more units improves your unit price.</p><p>Common mistakes to avoid: selecting a material that cannot accept your chosen decoration method (e.g., trying to laser-engrave a plastic badge), ordering too few badges for an event where extras are needed, and forgetting to include attachment options like pin backs, magnetic backs, or lanyard slots. Always order 10-15% more than your expected headcount to cover last-minute additions and replacements. Also confirm lead times for custom logo badges, as some methods like embroidery or die-struck metal take longer than printed plastic.</p><p>If you are new to ordering custom badges, request a sample kit from your account manager. Seeing and feeling the material and finish options in person reduces surprises. For repeat orders, store your artwork and specifications with us so reordering is fast and consistent. Whether you need logo-printed badges for a one-day event or bulk badges for ongoing safety programs, we help you choose the right combination of material, decoration, and attachment to meet your budget and timeline.</p>",
+  "buyingGuideH2": "Custom Badges Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom badges?",
+      "a": "Minimum order quantities vary by style. Plastic and printed badges typically start at 50 pieces. Metal badges with debossing or engraving often require a minimum of 100 pieces. Woven fabric badges start at 100 pieces. Contact us for style-specific MOQs."
+    },
+    {
+      "q": "What decoration methods are available for badges?",
+      "a": "We offer screen printing, laser engraving, debossing, full-color heat transfer, and embroidery for woven badges. The best method depends on your badge material and design complexity. Laser engraving works on metal, while heat transfer is ideal for plastic and fabric."
+    },
+    {
+      "q": "How long does production take for custom badges?",
+      "a": "Standard production is 10-15 business days after artwork approval. Rush orders may be available for an additional fee. Woven badges with embroidery can take up to 20 business days. Always confirm lead times with your account manager before ordering."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, we recommend ordering a sample kit that includes different materials and finishes. This helps you evaluate the look and feel before committing to a large run. Sample fees may apply and are typically credited toward your first order."
+    },
+    {
+      "q": "What attachment options do you offer for badges?",
+      "a": "Common attachments include safety pin backs, butterfly clutch backs, magnetic backs, and lanyard slots. For hard hats, we offer adhesive backing or slot-in holders. Specify your preferred attachment when ordering to ensure compatibility with your use case."
+    }
+  ],
+  "heroAltText": "Custom badges with metal and plastic finishes, including name badges and safety pins, displayed on a table.",
+  "productSkus": [],
+  "generatedAt": "2026-05-30T11:28:12.264422+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "use_case",
+  "skuFilterMode": "full",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

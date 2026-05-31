@@ -1,0 +1,21 @@
+{
+  "url": "/cat/workwear/feature/easy-care",
+  "type": "facet",
+  "h1": "Custom Easy Care Workwear",
+  "metaTitle": "Custom Easy Care Workwear | Perfect Imprints",
+  "metaDescription": "Order custom easy care workwear for your team. Durable, low-maintenance uniforms with your logo. Get a quote today.",
+  "introHtml": "<p>Easy care workwear simplifies uniform management for busy teams. These garments resist wrinkles, hold their shape after repeated washing, and require little to no ironing. For safety managers and business owners, that means a polished, professional look without extra laundry labor. Decorate with screen printing or embroidery for a lasting brand impression on durable fabrics that keep your crew looking sharp shift after shift.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom easy care workwear with embroidered logo, wrinkle-resistant fabric for professional uniforms",
+  "productSkus": [
+    "512490 01N"
+  ],
+  "generatedAt": "2026-05-31T09:31:09.253074+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

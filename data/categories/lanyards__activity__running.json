@@ -1,0 +1,22 @@
+{
+  "url": "/cat/lanyards/activity/running",
+  "type": "facet",
+  "h1": "Custom Running Lanyards for Events & Teams",
+  "metaTitle": "Custom Running Lanyards | Perfect Imprints",
+  "metaDescription": "Order custom running lanyards for marathons, races, and events. Durable, adjustable, and perfect for bulk orders. Get a quote today.",
+  "introHtml": "<p>Running lanyards are designed for active use, featuring breakaway clasps and moisture-wicking materials that keep IDs and keys secure during marathons, 5Ks, or corporate fitness events. Unlike standard lanyards, these are built to withstand sweat and movement without irritating the neck. Customize with your event logo or team name using screen printing or dye sublimation for vibrant, long-lasting colors that hold up to repeated washing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom running lanyards with breakaway clasp and printed event logo for marathon participants",
+  "productSkus": [
+    "526213",
+    "526214"
+  ],
+  "generatedAt": "2026-05-31T08:56:54.795974+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

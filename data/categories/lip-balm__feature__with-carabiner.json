@@ -1,0 +1,22 @@
+{
+  "url": "/cat/lip-balm/feature/with-carabiner",
+  "type": "facet",
+  "h1": "Custom Lip Balm with Carabiner",
+  "metaTitle": "Custom Lip Balm with Carabiner | Perfect Imprints",
+  "metaDescription": "Order custom lip balm with carabiner for easy on-the-go access. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Custom lip balm with carabiner keeps your brand visible and your employees' lips protected wherever they go. The integrated clip attaches to backpacks, keychains, or belt loops, making it a practical giveaway for outdoor events, trade shows, or safety kits. Choose from durable plastic tubes with hook caps or rubber balm balls that clip on securely. Decorate with your logo using pad printing or foil stamping for a polished look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom lip balm with carabiner attached to a keychain, featuring a white tube with hook cap and printed logo.",
+  "productSkus": [
+    "503279",
+    "519430"
+  ],
+  "generatedAt": "2026-05-31T08:43:45.153060+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,30 @@
+{
+  "url": "/cat/markers/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Markers for Bulk Orders",
+  "metaTitle": "Custom Pink Markers | Perfect Imprints",
+  "metaDescription": "Order custom pink markers in bulk for your brand. Ideal for highlighting key info. Shop high-quality options at Perfect Imprints.",
+  "introHtml": "<p>Pink markers stand out on the page, making them a smart choice for highlighting important information in reports, training materials, or safety documents. Whether you choose a classic highlighter or a dual-tip pen, pink offers a soft yet noticeable accent that appeals to a wide audience. Perfect for trade shows, office giveaways, or promotional kits, these bulk markers can be imprinted with your logo for lasting brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom pink highlighters and markers with logo imprint for promotional giveaways",
+  "productSkus": [
+    "503179",
+    "503583",
+    "511192",
+    "522353",
+    "522354",
+    "522355",
+    "522988",
+    "528507",
+    "528508",
+    "528822"
+  ],
+  "generatedAt": "2026-05-31T09:55:43.966375+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

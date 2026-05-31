@@ -1,0 +1,21 @@
+{
+  "url": "/cat/golf-towels/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Golf Towels",
+  "metaTitle": "Custom Pink Golf Towels | Perfect Imprints",
+  "metaDescription": "Order custom pink golf towels in bulk for your team or event. Perfect for tournaments and giveaways. Get a quote today!",
+  "introHtml": "<p>Pink golf towels add a bold pop of color to your brand on the course, making them a favorite for breast cancer awareness events, women’s tournaments, or simply standing out in a sea of white towels. The Colorful Rally Towel, for example, offers a micro-fiber construction that wicks moisture quickly and clips easily to a golf bag. Screen printing or embroidery works well on the smooth fabric, giving you crisp logo visibility from tee to green.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink golf towels with embroidered logo clipped to a golf bag on a sunny course",
+  "productSkus": [
+    "524126"
+  ],
+  "generatedAt": "2026-05-31T09:49:10.844145+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

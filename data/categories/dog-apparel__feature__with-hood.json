@@ -1,0 +1,22 @@
+{
+  "url": "/cat/dog-apparel/feature/with-hood",
+  "type": "facet",
+  "h1": "Custom Dog Apparel with Hood for Bulk Orders",
+  "metaTitle": "Custom Dog Apparel with Hood | Perfect Imprints",
+  "metaDescription": "Order custom dog apparel with hood in bulk. Perfect for brand visibility. Contact Perfect Imprints for quotes.",
+  "introHtml": "<p>Hooded dog apparel offers extra warmth and a snug fit, making it ideal for outdoor events or cold-weather giveaways. Unlike standard dog apparel, the hood adds a cozy, functional element that stands out at pet-friendly promotions. Choose from styles like the New Englander Rain Jacket in men's and women's cuts, available for screen printing or embroidery. This feature ensures your logo stays visible while keeping dogs comfortable during walks or outdoor activities.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom dog apparel with hood featuring a cozy hooded jacket for dogs, perfect for branding and cold-weather promotions.",
+  "productSkus": [
+    "510005",
+    "510007"
+  ],
+  "generatedAt": "2026-05-31T09:42:53.729701+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

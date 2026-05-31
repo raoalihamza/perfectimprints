@@ -1,0 +1,25 @@
+{
+  "url": "/cat/health/feature/moisture-wicking",
+  "type": "facet",
+  "h1": "Custom Moisture Wicking Health Products for Your Team",
+  "metaTitle": "Custom Moisture Wicking Health Products | Perfect Imprints",
+  "metaDescription": "Order custom moisture wicking health products from Perfect Imprints. Ideal for employee wellness programs and corporate events.",
+  "introHtml": "<p>Custom moisture wicking health products keep your team cool and dry during outdoor events, wellness initiatives, or safety programs. Unlike standard giveaways, these items feature advanced fabrics that pull sweat away from the skin, making them ideal for active use. Choose from performance towels, quarter-zip pullovers, and wicking caps—all customizable with your logo for a professional, functional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom moisture wicking health products including a performance towel and quarter-zip pullover with logo",
+  "productSkus": [
+    "514841",
+    "521108",
+    "521109",
+    "526200",
+    "526306"
+  ],
+  "generatedAt": "2026-05-31T08:42:50.657056+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

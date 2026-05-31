@@ -1,0 +1,28 @@
+{
+  "url": "/cat/vests/brand/under-armour",
+  "type": "facet",
+  "h1": "Custom Under Armour Vests for Bulk Orders",
+  "metaTitle": "Custom Under Armour Vests | Perfect Imprints",
+  "metaDescription": "Order custom Under Armour vests in bulk. Perfect for teams, events & corporate gear. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Under Armour vests combine athletic performance with brand visibility, making them a smart pick for corporate teams, event staff, and outdoor safety crews. The moisture-wicking fabric keeps wearers comfortable during active use, while the full-zip or pullover styles allow easy layering over uniforms. Decorate with your logo using screen printing or embroidery for a professional finish that holds up to repeated washing. Choose from men's and ladies' cuts to fit your whole team.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Under Armour vests with embroidered logo displayed on a mannequin in a corporate setting",
+  "productSkus": [
+    "527121",
+    "527122",
+    "528095",
+    "528096",
+    "528105",
+    "528106",
+    "528108",
+    "529262"
+  ],
+  "generatedAt": "2026-05-31T09:04:12.827316+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

@@ -1,0 +1,27 @@
+{
+  "url": "/cat/health/material/kraft",
+  "type": "facet",
+  "h1": "Custom Kraft Health Products",
+  "metaTitle": "Custom Kraft Health Products | Perfect Imprints",
+  "metaDescription": "Order custom kraft health products for your business. Eco-friendly, natural look. Perfect for wellness programs and gifts.",
+  "introHtml": "<p>Kraft material brings a natural, eco-friendly aesthetic to health and wellness products, making them ideal for brands that emphasize sustainability and organic values. From bamboo toothbrushes to kraft paper bags for sample kits, these items appeal to environmentally conscious buyers. Custom imprinting on kraft surfaces often uses foil stamping or simple ink colors to maintain the rustic look, perfect for corporate wellness programs or trade show giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom kraft health products including bamboo toothbrush and kraft paper bag with natural finish",
+  "productSkus": [
+    "505818 90A",
+    "516622",
+    "524498",
+    "527481",
+    "527790",
+    "527910",
+    "529296"
+  ],
+  "generatedAt": "2026-05-31T09:50:38.859407+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

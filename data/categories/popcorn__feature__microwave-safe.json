@@ -1,0 +1,21 @@
+{
+  "url": "/cat/popcorn/feature/microwave-safe",
+  "type": "facet",
+  "h1": "Custom Microwave Safe Popcorn for Bulk Orders",
+  "metaTitle": "Custom Microwave Safe Popcorn | Perfect Imprints",
+  "metaDescription": "Order custom microwave safe popcorn for your next event. Perfect for gifts and corporate giveaways. Get a quote today!",
+  "introHtml": "<p>Microwave safe popcorn is a practical choice for corporate gifts and employee appreciation. Unlike stovetop or air-popped varieties, these pre-packaged kernels can be prepared in minutes with no mess. The Popcorn Kernel Set with Seasonings and Greeting Card is a popular option that combines convenience with a personal touch. Perfect for break rooms, trade shows, or holiday giveaways, custom microwave safe popcorn ensures your brand is remembered every time someone enjoys a quick snack.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom microwave safe popcorn set with seasonings and greeting card for corporate gifts",
+  "productSkus": [
+    "526237"
+  ],
+  "generatedAt": "2026-05-31T09:23:22.100696+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

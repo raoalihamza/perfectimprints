@@ -1,0 +1,26 @@
+{
+  "url": "/cat/bandanas/color/green",
+  "type": "facet",
+  "h1": "Custom Green Bandanas",
+  "metaTitle": "Custom Green Bandanas | Perfect Imprints",
+  "metaDescription": "Order custom green bandanas for your team or event. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Green bandanas are a versatile choice for outdoor events, safety teams, or brand giveaways. Whether you need solid green for a uniform look or a paisley pattern for a classic feel, our selection includes USA-made options and tubular designs. Choose from screen printing or embroidery to add your logo, and order in bulk to keep costs low.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom green bandanas with embroidered logo, perfect for promotional giveaways",
+  "productSkus": [
+    "506991",
+    "521602",
+    "522110",
+    "522111",
+    "524693",
+    "524817"
+  ],
+  "generatedAt": "2026-05-31T09:34:44.727664+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

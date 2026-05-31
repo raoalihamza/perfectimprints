@@ -1,0 +1,26 @@
+{
+  "url": "/cat/calculators/shape/heart",
+  "type": "facet",
+  "h1": "Custom Heart Calculators for Bulk Orders",
+  "metaTitle": "Custom Heart Calculators | Perfect Imprints",
+  "metaDescription": "Order custom heart calculators for bulk giveaways. Fun shape, full imprint area. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Heart-shaped calculators stand out from standard office calculators, making them a popular choice for Valentine’s Day promotions, health fairs, and employee appreciation gifts. The unique silhouette offers a generous imprint area for your logo or message, ensuring your brand is noticed. Choose from desk or flip models in bulk quantities to fit your budget and timeline.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom heart calculators in pink and red with logo imprint, arranged on a white surface",
+  "productSkus": [
+    "502790",
+    "503150",
+    "503253",
+    "508489",
+    "526359",
+    "526362"
+  ],
+  "generatedAt": "2026-05-31T09:38:56.961785+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

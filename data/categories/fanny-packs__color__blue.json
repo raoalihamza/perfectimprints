@@ -1,0 +1,26 @@
+{
+  "url": "/cat/fanny-packs/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Fanny Packs for Bulk Orders",
+  "metaTitle": "Custom Blue Fanny Packs | Perfect Imprints",
+  "metaDescription": "Order custom blue fanny packs in bulk for your team or event. Perfect for hands-free convenience. Get a quote today!",
+  "introHtml": "<p>Blue fanny packs offer a versatile color choice that works for corporate events, trade shows, or employee wellness programs. Whether you need neon blue for high visibility or a classic navy for a professional look, these hands-free accessories keep essentials secure. Decorate with screen printing or embroidery for a polished brand presence. Choose from sporty running belts or stylish deluxe packs to match your audience.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue fanny packs with zippered compartments and adjustable strap for branding",
+  "productSkus": [
+    "514432",
+    "514433",
+    "519201",
+    "522705",
+    "522803",
+    "524162"
+  ],
+  "generatedAt": "2026-05-31T08:26:27.058265+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

@@ -1,0 +1,31 @@
+{
+  "url": "/cat/napkins/supplier/bel",
+  "type": "facet",
+  "h1": "Custom Bel Napkins for Bulk Orders",
+  "metaTitle": "Custom Bel Napkins | Perfect Imprints",
+  "metaDescription": "Order custom Bel napkins in bulk for your business. Perfect for events, restaurants, and promotions. Get a quote today.",
+  "introHtml": "<p>Bel napkins offer reliable quality for businesses that need custom-printed paper napkins in bulk. Whether you are stocking a restaurant, planning a corporate event, or handing out branded napkins at a trade show, Bel provides consistent sizes and finishes from beverage to dinner napkins. Choose from white or colored stock and add your logo or message with full-color print. These napkins hold up well for everyday use while keeping your brand visible at every table.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Bel napkins with printed logo in white and assorted colors for events and restaurants",
+  "productSkus": [
+    "514577 90A",
+    "514579 90A",
+    "514580 90A",
+    "514581 90A",
+    "514583 90A",
+    "519472",
+    "519473",
+    "520634",
+    "520635",
+    "520636",
+    "520637"
+  ],
+  "generatedAt": "2026-05-31T09:57:31.658399+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

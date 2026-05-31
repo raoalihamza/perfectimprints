@@ -1,0 +1,24 @@
+{
+  "url": "/cat/coolers/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Coolers for Bulk Orders",
+  "metaTitle": "Custom Set Coolers | Perfect Imprints",
+  "metaDescription": "Order custom set coolers in bulk at Perfect Imprints. Perfect for corporate gifts, events, and promotions. Get a quote today!",
+  "introHtml": "<p>Custom set coolers bundle a cooler with matching accessories like tumblers, utensils, or grill tools, making them ideal for corporate gift-giving, employee appreciation, or summer event swag. Unlike single coolers, sets offer a complete branded experience that recipients use and remember. Choose from options like the Weekend Explorer Grill & Cooler for outdoor teams or the Urban Peak Gift Set for office gifting. Decoration methods include screen printing, pad printing, and debossing for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set coolers with branded cooler bag and matching accessories for corporate gifts",
+  "productSkus": [
+    "505898 02B",
+    "515957",
+    "519413",
+    "523898"
+  ],
+  "generatedAt": "2026-05-31T09:41:43.126141+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

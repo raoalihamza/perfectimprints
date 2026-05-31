@@ -1,0 +1,30 @@
+{
+  "url": "/cat/stationery/brand/uni-ball",
+  "type": "facet",
+  "h1": "Custom Uni Ball Stationery for Bulk Orders",
+  "metaTitle": "Custom Uni Ball Stationery | Perfect Imprints",
+  "metaDescription": "Order custom Uni Ball stationery in bulk. Pens, pencils & more with your logo. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Uni Ball pens and pencils are known for their smooth writing and reliable performance, making them a favorite for corporate gifts and promotional events. Whether you need retractable gel pens for a trade show or roller pens for office supply orders, custom Uni Ball stationery offers a polished, professional look. Choose from popular models like the Gel RT or Jetstream to keep your brand top of mind with every signature.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assortment of custom Uni Ball stationery including gel pens and roller pens with logo imprint",
+  "productSkus": [
+    "507227",
+    "507233",
+    "508066",
+    "508930",
+    "510260",
+    "525805",
+    "525810",
+    "525811",
+    "526876",
+    "527857"
+  ],
+  "generatedAt": "2026-05-31T10:08:28.499494+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

@@ -1,0 +1,33 @@
+{
+  "url": "/cat/gift-sets-bundles/brand/miir",
+  "type": "facet",
+  "h1": "Custom MiiR Gift Sets & Bundles",
+  "metaTitle": "Custom MiiR Gift Sets & Bundles | Perfect Imprints",
+  "metaDescription": "Order custom MiiR gift sets & bundles with your logo. Perfect for corporate gifts, employee rewards, and client appreciation.",
+  "introHtml": "<p>MiiR products combine sleek design with a commitment to sustainability, making them a standout choice for branded gift sets and bundles. Whether you're assembling care packages for remote employees or premium client appreciation gifts, MiiR's vacuum-insulated drinkware and durable backpacks offer lasting utility. Decorate with your logo using laser engraving or pad printing for a polished, professional look that aligns with eco-conscious brand values.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom MiiR gift sets and bundles featuring vacuum-insulated stainless steel drinkware with engraved logos",
+  "productSkus": [
+    "523728",
+    "523729",
+    "523730",
+    "523761",
+    "525478",
+    "525481",
+    "525612",
+    "526419",
+    "526482",
+    "527194",
+    "527204",
+    "527938",
+    "527939"
+  ],
+  "generatedAt": "2026-05-31T09:47:48.562077+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

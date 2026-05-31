@@ -1,0 +1,30 @@
+{
+  "url": "/cat/health/material/bamboo",
+  "type": "facet",
+  "h1": "Custom Bamboo Health Products for Bulk Orders",
+  "metaTitle": "Custom Bamboo Health Products | Perfect Imprints",
+  "metaDescription": "Order custom bamboo health products in bulk. Eco-friendly branding for wellness kits, corporate gifts, and more. Get a quote today!",
+  "introHtml": "<p>Bamboo health products offer a natural, sustainable alternative for corporate wellness programs and event giveaways. From bamboo toothbrushes and nail files to diffusers and bandages, these items appeal to eco-conscious recipients. Choosing bamboo over plastic aligns with green initiatives and adds a premium, tactile feel to your branded health kits. Decorate with laser engraving or screen printing for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom bamboo health products including toothbrush, nail file, and diffuser displayed on bamboo background",
+  "productSkus": [
+    "524427",
+    "524498",
+    "525181",
+    "526751",
+    "528132",
+    "528219",
+    "528286",
+    "528803",
+    "529296",
+    "529323"
+  ],
+  "generatedAt": "2026-05-31T09:50:36.164194+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

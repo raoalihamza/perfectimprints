@@ -1,0 +1,21 @@
+{
+  "url": "/cat/sportswear/feature/adjustable",
+  "type": "facet",
+  "h1": "Custom Adjustable Sportswear for Teams & Events",
+  "metaTitle": "Custom Adjustable Sportswear | Perfect Imprints",
+  "metaDescription": "Order custom adjustable sportswear for your team or event. Bulk pricing, fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>Custom adjustable sportswear gives your team or event attendees the flexibility to achieve a perfect fit, whether they prefer a snug or relaxed feel. Unlike standard sizes, adjustable features like drawstrings, elastic bands, or strap closures accommodate a wider range of body types. This makes them ideal for promotional giveaways, employee uniforms, or race-day gear where one size needs to fit many. Decorate with screen printing or embroidery for a polished look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adjustable sportswear with drawstring waist and embroidered logo for team events",
+  "productSkus": [
+    "505481"
+  ],
+  "generatedAt": "2026-05-31T09:02:38.363191+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

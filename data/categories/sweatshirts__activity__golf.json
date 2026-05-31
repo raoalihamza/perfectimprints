@@ -1,0 +1,21 @@
+{
+  "url": "/cat/sweatshirts/activity/golf",
+  "type": "facet",
+  "h1": "Custom Golf Sweatshirts for Your Team",
+  "metaTitle": "Custom Golf Sweatshirts | Perfect Imprints",
+  "metaDescription": "Shop custom golf sweatshirts for your team or event. Bulk pricing and fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>Custom golf sweatshirts are designed for comfort on the course and polish at the clubhouse. A quarter-zip style like the Crosswind Quarter Zip offers easy layering over a polo, with a sporty look that suits tournaments, corporate outings, and team uniforms. Choose polyester fleece for moisture-wicking performance or cotton-blend for casual warmth. Add your logo with screen printing or embroidery for a professional finish that stands out from standard sweatshirts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom golf sweatshirts featuring a quarter-zip design with embroidered logo, ideal for team uniforms and corporate events.",
+  "productSkus": [
+    "511117"
+  ],
+  "generatedAt": "2026-05-31T09:03:08.547524+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

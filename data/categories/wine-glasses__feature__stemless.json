@@ -1,0 +1,30 @@
+{
+  "url": "/cat/wine-glasses/feature/stemless",
+  "type": "facet",
+  "h1": "Custom Stemless Wine Glasses",
+  "metaTitle": "Custom Stemless Wine Glasses | Perfect Imprints",
+  "metaDescription": "Order custom stemless wine glasses for your next event. Perfect for branding at trade shows and corporate gifts. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Stemless wine glasses offer a modern, stable silhouette that resists tipping on crowded tables, making them a favorite for outdoor events, trade show giveaways, and employee appreciation gifts. Unlike traditional stemware, these glasses are easier to pack, ship, and customize with your logo using screen printing or etching. Options range from durable plastic for poolside parties to insulated stainless steel for tailgates, all designed to keep your brand top of mind every time someone takes a sip.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom stemless wine glasses with etched logo, perfect for corporate gifts and events.",
+  "productSkus": [
+    "511000 90E",
+    "511450",
+    "519468",
+    "522098",
+    "522955",
+    "524368",
+    "524524",
+    "524525",
+    "524526",
+    "527252"
+  ],
+  "generatedAt": "2026-05-31T08:38:22.323198+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

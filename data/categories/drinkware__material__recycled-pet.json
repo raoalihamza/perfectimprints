@@ -1,0 +1,22 @@
+{
+  "url": "/cat/drinkware/material/recycled-pet",
+  "type": "facet",
+  "h1": "Custom Recycled PET Drinkware",
+  "metaTitle": "Custom Recycled PET Drinkware | Perfect Imprints",
+  "metaDescription": "Shop custom recycled PET drinkware at Perfect Imprints. Eco-friendly bottles perfect for your brand. Order bulk today!",
+  "introHtml": "<p>Recycled PET drinkware turns post-consumer plastic bottles into durable, reusable bottles and cups. For brands committed to sustainability, this material offers the same clarity and toughness as virgin PET while reducing landfill waste. The 32 oz Hydration Mark Bottle and 20 oz UpCycled RPET Bottle with push-pull lid are popular choices for corporate gifts, trade shows, and employee wellness programs. Decorate with your logo using screen printing or a full-color wrap for maximum visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled PET drinkware including a 32 oz hydration bottle and a 20 oz RPET bottle with push-pull lid",
+  "productSkus": [
+    "523254",
+    "525600"
+  ],
+  "generatedAt": "2026-05-31T09:12:15.910366+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

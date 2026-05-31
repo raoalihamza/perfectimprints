@@ -1,0 +1,27 @@
+{
+  "url": "/cat/pens/style/frosted",
+  "type": "facet",
+  "h1": "Custom Frosted Pens for Bulk Orders",
+  "metaTitle": "Custom Frosted Pens | Perfect Imprints",
+  "metaDescription": "Order custom frosted pens with your logo. Ideal for giveaways and events. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Frosted pens offer a soft, translucent look that stands out from standard solid-color pens. The subtle texture provides a comfortable grip, making them a favorite for trade shows and corporate events. Options like the Grip Stick Pen and Bic Round Stic Ice Pen accept full-color imprinting, ensuring your logo appears crisp against the frosted barrel. Ideal for marketing directors seeking a modern, affordable giveaway that recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom frosted pens with logos displayed on a clean white surface",
+  "productSkus": [
+    "504979",
+    "506409",
+    "510155",
+    "514646",
+    "521043",
+    "521044",
+    "523491"
+  ],
+  "generatedAt": "2026-05-31T08:45:14.911321+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

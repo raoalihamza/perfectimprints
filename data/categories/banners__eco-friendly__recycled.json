@@ -1,0 +1,21 @@
+{
+  "url": "/cat/banners/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Banners",
+  "metaTitle": "Custom Recycled Banners | Perfect Imprints",
+  "metaDescription": "Order custom recycled banners for eco-friendly events. Durable, printed on recycled materials. Bulk pricing available.",
+  "introHtml": "<p>Custom recycled banners are printed on materials made from post-consumer waste, reducing landfill impact while delivering vibrant, durable signage. They are ideal for trade shows, corporate events, and construction site messaging where sustainability matters. Choose PVC-free media options like the 33.5\" Economy Retractor Kit to align with green initiatives. These banners accept full-color digital printing and are available in standard sizes for indoor or outdoor use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled banners for outdoor events with full-color printing on eco-friendly material",
+  "productSkus": [
+    "526788"
+  ],
+  "generatedAt": "2026-05-31T09:07:25.784176+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

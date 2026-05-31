@@ -1,0 +1,22 @@
+{
+  "url": "/cat/water-bottles/brand/otterbox",
+  "type": "facet",
+  "h1": "Custom Otterbox Water Bottles for Bulk Orders",
+  "metaTitle": "Custom Otterbox Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom Otterbox water bottles in bulk for your team. Durable stainless steel tumblers with your logo. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Otterbox water bottles combine rugged durability with sleek design, making them a top choice for businesses that want premium branded drinkware. These stainless steel tumblers, like the 28 oz Elevation Growler, keep drinks cold for hours and withstand daily wear. Perfect for corporate gifts, trade shows, or employee incentives, they offer excellent decoration space for your logo. Choose Otterbox for a trusted brand that reflects quality and reliability.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Otterbox water bottles with engraved logo on stainless steel tumbler",
+  "productSkus": [
+    "526311",
+    "526315"
+  ],
+  "generatedAt": "2026-05-31T09:04:24.636707+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/shorts/material/mesh",
+  "type": "facet",
+  "h1": "Custom Mesh Shorts for Bulk Orders",
+  "metaTitle": "Custom Mesh Shorts | Perfect Imprints",
+  "metaDescription": "Order custom mesh shorts in bulk for teams, events & giveaways. Breathable, moisture-wicking fabric. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Mesh shorts are a top pick for teams, corporate wellness programs, and outdoor events because the open-weave fabric delivers maximum breathability and quick drying. Unlike cotton shorts that trap heat, mesh keeps wearers cool during workouts, charity runs, or casual company outings. Decorate with screen printing or embroidery on styles like the Men's Sport-Tek® Club 7” Short or Champion® Adult Mesh Short with Pockets. Choose custom mesh shorts for a lightweight, professional look that moves with your crew.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom mesh shorts in bulk with breathable fabric, ideal for team uniforms and promotional giveaways.",
+  "productSkus": [
+    "526129",
+    "528874",
+    "528881",
+    "528882",
+    "528886"
+  ],
+  "generatedAt": "2026-05-31T10:06:52.215168+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

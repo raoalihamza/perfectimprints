@@ -1,0 +1,28 @@
+{
+  "url": "/cat/jackets/brand/under-armour",
+  "type": "facet",
+  "h1": "Custom Under Armour Jackets for Bulk Orders",
+  "metaTitle": "Custom Under Armour Jackets | Perfect Imprints",
+  "metaDescription": "Order premium custom Under Armour jackets with your logo. Perfect for teams, events, and corporate gifts. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Under Armour jackets combine athletic performance with durable construction, making them a top choice for corporate teams, event staff, and promotional giveaways. The moisture-wicking fabric and modern fit keep wearers comfortable in cool weather, while your logo stands out with crisp embroidery or screen printing. Choose from full-zip or pullover styles to match your brand's needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Under Armour jackets with embroidered logo, displayed in a corporate team setting.",
+  "productSkus": [
+    "527121",
+    "527122",
+    "528095",
+    "528096",
+    "528105",
+    "528106",
+    "528108",
+    "529262"
+  ],
+  "generatedAt": "2026-05-31T09:16:28.950370+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

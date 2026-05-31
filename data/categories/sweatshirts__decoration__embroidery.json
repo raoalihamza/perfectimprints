@@ -1,0 +1,25 @@
+{
+  "url": "/cat/sweatshirts/decoration/embroidery",
+  "type": "facet",
+  "h1": "Custom Embroidery Sweatshirts for Your Team",
+  "metaTitle": "Custom Embroidery Sweatshirts | Perfect Imprints",
+  "metaDescription": "Order custom embroidery sweatshirts for your team. Premium fabrics, professional stitching, and bulk pricing from Perfect Imprints.",
+  "introHtml": "<p>Embroidery adds a polished, professional finish to sweatshirts that lasts through countless washes. Unlike screen printing, stitched logos won't crack or fade, making them ideal for corporate uniforms, safety teams, and HR departments that need durable branding. From the classic Jerzees NuBlend Hoodie to performance zip hoodies, our embroidery options let you showcase your company logo or team name with crisp, dimensional detail that stands out in the office or on the job site.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom embroidery sweatshirts featuring a stitched logo on the chest of a hoodie",
+  "productSkus": [
+    "505528",
+    "521441",
+    "521443",
+    "521932",
+    "521933"
+  ],
+  "generatedAt": "2026-05-31T08:27:31.524736+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

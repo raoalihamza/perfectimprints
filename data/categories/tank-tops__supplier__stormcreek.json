@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tank-tops/supplier/stormcreek",
+  "type": "facet",
+  "h1": "Custom StormCreek Tank Tops for Bulk Orders",
+  "metaTitle": "Custom StormCreek Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom StormCreek tank tops in bulk. Perfect for events, teams, and promotions. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>StormCreek tank tops offer a premium fit and durable fabric that holds up to repeated wear and washing, making them a smart choice for corporate events, team uniforms, and promotional giveaways. Whether you need a classic jersey tank or a wicking performance style, StormCreek provides consistent sizing and color options that work well for screen printing or embroidery. Ordering through Perfect Imprints ensures your custom StormCreek tank tops arrive on time and on budget.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of custom StormCreek tank tops in various colors, ready for screen printing or embroidery.",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T10:10:42.706387+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/softbound",
+  "type": "facet",
+  "h1": "Custom Softbound Products for Branded Giveaways",
+  "metaTitle": "Custom Softbound Products | Perfect Imprints",
+  "metaDescription": "Order custom softbound products for your next event or campaign. Perfect for branded giveaways at Perfect Imprints.",
+  "introHtml": "<p>Softbound products offer a flexible, portable way to keep your brand top of mind. From notebooks and journals to planners and memo pads, these items are ideal for trade shows, client meetings, and employee onboarding. Choose from a variety of cover materials, paper types, and binding options to match your company's style. Add your logo, tagline, or artwork with full-color print or foil stamping for a professional finish that recipients will use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom softbound products with company logo, including notebooks and journals in various colors",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:53.425763+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

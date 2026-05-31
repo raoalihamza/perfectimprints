@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/reduce",
+  "type": "facet",
+  "h1": "Custom Reduce Products for Bulk Orders",
+  "metaTitle": "Custom Reduce Products | Perfect Imprints",
+  "metaDescription": "Order custom Reduce products in bulk at Perfect Imprints. Eco-friendly branded items perfect for giveaways and events.",
+  "introHtml": "<p>Reduce is a brand known for its commitment to sustainability, making it a smart choice for businesses that want to align their promotional products with eco-conscious values. From reusable water bottles to insulated drinkware, these items are designed for daily use and long-lasting brand exposure. Choosing Reduce for your custom products signals to clients and employees that your company prioritizes environmental responsibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Reduce products including reusable water bottles and insulated tumblers with company logo",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:38.015649+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

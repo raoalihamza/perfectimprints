@@ -34,7 +34,7 @@ URLS_PATH = DATA_DIR / "pi-urls" / "category-urls.json"
 MAPPINGS_PATH = DATA_DIR / "mappings" / "pi-to-geiger.json"
 PRODUCTS_PATH = DATA_DIR / "geiger" / "products.json"
 
-PROMPT_VERSION = "root-v1"
+PROMPT_VERSION = "root-v2"
 TOP_N_DEFAULT = 35
 TOP_PRODUCTS_PER_CATEGORY = 15
 BUYER_PERSONA = (
@@ -415,9 +415,44 @@ def post_process_lengths(content: dict[str, Any]) -> list[str]:
     return fixed
 
 
+def _word_count(s: str) -> int:
+    """Word count ignoring HTML tags."""
+    text = re.sub(r"<[^>]+>", " ", s or "")
+    return len([w for w in text.split() if w])
+
+
+_KEYWORD_PREFIXES = (
+    "custom",
+    "promotional",
+    "branded",
+    "personalized",
+    "logo",
+    "logo-printed",
+    "bulk",
+    "wholesale",
+)
+
+
+def count_keyword_derivatives(buying_guide_html: str) -> int:
+    """Return how many of the keyword prefixes appear at least once in the guide."""
+    if not buying_guide_html:
+        return 0
+    text = re.sub(r"<[^>]+>", " ", buying_guide_html).lower()
+    return sum(1 for kw in _KEYWORD_PREFIXES if kw in text)
+
+
 def validate_output(content: dict[str, Any]) -> list[str]:
     errors: list[str] = []
-    required = ["h1", "metaTitle", "metaDescription", "introHtml", "faqs", "heroAltText"]
+    required = [
+        "h1",
+        "metaTitle",
+        "metaDescription",
+        "introHtml",
+        "buyingGuideHtml",
+        "buyingGuideH2",
+        "faqs",
+        "heroAltText",
+    ]
     for key in required:
         if key not in content:
             errors.append(f"missing key: {key}")
@@ -438,6 +473,23 @@ def validate_output(content: dict[str, Any]) -> list[str]:
                 errors.append(f"faq {i} missing q/a")
     if "<p>" not in content["introHtml"]:
         errors.append("introHtml missing <p> tags")
+
+    intro_words = _word_count(content["introHtml"])
+    if not 130 <= intro_words <= 280:
+        errors.append(f"introHtml word count {intro_words} out of 150-250 (with margin)")
+
+    if "<p>" not in content["buyingGuideHtml"]:
+        errors.append("buyingGuideHtml missing <p> tags")
+    guide_words = _word_count(content["buyingGuideHtml"])
+    if not 370 <= guide_words <= 650:
+        errors.append(f"buyingGuideHtml word count {guide_words} out of 400-600 (with margin)")
+
+    kw_hits = count_keyword_derivatives(content["buyingGuideHtml"])
+    if kw_hits < 5:
+        errors.append(f"buyingGuideHtml keyword derivatives {kw_hits} < 5")
+
+    if not isinstance(content.get("buyingGuideH2"), str) or not content["buyingGuideH2"].strip():
+        errors.append("buyingGuideH2 empty")
     return errors
 
 
@@ -455,6 +507,8 @@ def write_output(
         "metaTitle": content["metaTitle"],
         "metaDescription": content["metaDescription"],
         "introHtml": content["introHtml"],
+        "buyingGuideHtml": content.get("buyingGuideHtml"),
+        "buyingGuideH2": content.get("buyingGuideH2"),
         "faqs": content["faqs"],
         "heroAltText": content["heroAltText"],
         "productSkus": persisted_skus,
@@ -585,7 +639,7 @@ def main(argv: list[str] | None = None) -> int:
             sys_p, usr_p = render_prompt(template, ctx)
 
             try:
-                result: GenerationResult = client.generate(sys_p, usr_p)
+                result: GenerationResult = client.generate(sys_p, usr_p, temperature=0.65)
             except DeepSeekError as exc:
                 logger.error("[fail] %s: %s", slug, exc)
                 failures.append((slug, str(exc)))

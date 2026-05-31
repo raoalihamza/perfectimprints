@@ -1,0 +1,28 @@
+{
+  "url": "/cat/drinkware/brand/eddie-bauer",
+  "type": "facet",
+  "h1": "Custom Eddie Bauer Drinkware for Bulk Orders",
+  "metaTitle": "Custom Eddie Bauer Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom Eddie Bauer drinkware in bulk. Perfect for corporate gifts, events, and brand promotion. Get a quote today.",
+  "introHtml": "<p>Eddie Bauer drinkware combines rugged outdoor style with reliable performance, making it a smart choice for corporate gifts, event giveaways, and employee recognition. These insulated bottles and mugs keep beverages at the right temperature during long meetings, trade shows, or outdoor team-building activities. With your logo imprinted via screen printing or laser engraving, each piece becomes a durable reminder of your brand. Choose from stainless steel tumblers, travel mugs, and water bottles that reflect the quality your team and clients deserve.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Eddie Bauer drinkware featuring a stainless steel travel mug with a company logo engraved on the front.",
+  "productSkus": [
+    "513811",
+    "513812",
+    "515290",
+    "515291",
+    "522094",
+    "522095",
+    "529196",
+    "529197"
+  ],
+  "generatedAt": "2026-05-31T09:43:29.963960+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

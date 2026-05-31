@@ -1,0 +1,22 @@
+{
+  "url": "/cat/workwear/material/canvas",
+  "type": "facet",
+  "h1": "Custom Canvas Workwear for Bulk Orders",
+  "metaTitle": "Custom Canvas Workwear | Perfect Imprints",
+  "metaDescription": "Order custom canvas workwear for your team. Durable, branded aprons and jackets perfect for tradeshows and daily use. Get a quote today!",
+  "introHtml": "<p>Canvas workwear brings rugged durability and a professional look that stands up to daily wear on job sites or in warehouses. Unlike synthetic blends, canvas breathes better and develops a natural patina over time. Perfect for branding with screen-printed logos, these aprons and jackets keep your team looking sharp while reinforcing your company identity. Whether you need heavy-duty aprons for your crew or custom jackets for a tradeshow, canvas delivers lasting value.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom canvas workwear featuring a branded canvas work jacket and apron for industrial use",
+  "productSkus": [
+    "509133 90A",
+    "519005"
+  ],
+  "generatedAt": "2026-05-31T09:31:14.087856+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

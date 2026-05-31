@@ -1,0 +1,23 @@
+{
+  "url": "/cat/babies-toddlers/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Babies & Toddlers Apparel",
+  "metaTitle": "Custom Unisex Babies & Toddlers | Perfect Imprints",
+  "metaDescription": "Shop custom unisex babies & toddlers apparel at Perfect Imprints. Perfect for bulk orders with screen printing options.",
+  "introHtml": "<p>For giveaways, employee family events, or retail inventory, unisex babies and toddlers apparel offers the broadest appeal. These soft cotton and cotton-poly blend tees from trusted brands like Gildan and Port & Company fit any child comfortably, regardless of gender. Choose screen printing or embroidery to add your logo or design in vibrant colors. Bulk ordering keeps costs low while ensuring consistent quality across every piece.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom unisex babies and toddlers cotton t-shirts with screen printed logo on front",
+  "productSkus": [
+    "515903",
+    "516048",
+    "516094"
+  ],
+  "generatedAt": "2026-05-31T08:49:08.590874+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

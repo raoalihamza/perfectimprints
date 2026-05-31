@@ -1,0 +1,22 @@
+{
+  "url": "/cat/apparel/color/gold",
+  "type": "facet",
+  "h1": "Custom Gold Apparel for Branded Uniforms & Events",
+  "metaTitle": "Custom Gold Apparel | Perfect Imprints",
+  "metaDescription": "Shop custom gold apparel for branding at Perfect Imprints. Bulk pricing, fast turnaround. Order your gold shirts, hats & more today!",
+  "introHtml": "<p>Gold apparel makes a bold statement for trade shows, team uniforms, and company events. Whether you need gold polo shirts for a sales team or gold hats for a product launch, this metallic hue grabs attention and conveys a premium feel. Decorate with screen printing, embroidery, or heat transfer for a lasting brand impression. Choose from performance fabrics or classic cotton blends to suit your industry and climate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gold apparel including polo shirts and hats with embroidered logos for corporate branding",
+  "productSkus": [
+    "512429",
+    "512466"
+  ],
+  "generatedAt": "2026-05-31T08:22:14.957520+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

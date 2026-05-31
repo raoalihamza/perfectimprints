@@ -1,0 +1,24 @@
+{
+  "url": "/cat/footwear/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Footwear for Branded Apparel & Giveaways",
+  "metaTitle": "Custom Orange Footwear | Perfect Imprints",
+  "metaDescription": "Shop custom orange footwear for your next event or employee gift. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Orange footwear stands out at trade shows, company picnics, and safety events where visibility matters. Whether you choose custom flip flops for a beach-themed giveaway or branded slipper socks for a winter promotion, orange adds a bold, energetic pop of color that attendees notice. Decorate with screen-printed logos or embroidered details to keep your brand front and center.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange footwear including flip flops and slipper socks with printed logos for brand promotion",
+  "productSkus": [
+    "501556",
+    "516800",
+    "520052",
+    "528311"
+  ],
+  "generatedAt": "2026-05-31T08:29:02.014841+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

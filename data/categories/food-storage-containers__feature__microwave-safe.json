@@ -1,0 +1,27 @@
+{
+  "url": "/cat/food-storage-containers/feature/microwave-safe",
+  "type": "facet",
+  "h1": "Custom Microwave Safe Food Storage Containers",
+  "metaTitle": "Custom Microwave Safe Food Storage Containers | Perfect",
+  "metaDescription": "Order custom microwave safe food storage containers for your team. Reusable, practical, and perfect for branding. Get a quote at Perfect Imprints!",
+  "introHtml": "<p>Microwave safe food storage containers let your team reheat leftovers right in the container, saving time and reducing dish duty. Unlike standard plastic containers that warp or stain, these options—like wheat straw bento boxes with utensils or reusable silicone bags—are built for daily reheating without leaching chemicals. Perfect for office lunchrooms, safety managers can promote sustainable habits while marketing directors keep the brand visible during every microwave run.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom microwave safe food storage containers with branded lids, including a three-compartment bento box and reusable silicone bags.",
+  "productSkus": [
+    "521364",
+    "522135",
+    "524406",
+    "524407",
+    "524849",
+    "525884",
+    "525885"
+  ],
+  "generatedAt": "2026-05-31T09:13:50.585846+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

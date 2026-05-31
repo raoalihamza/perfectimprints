@@ -1,0 +1,25 @@
+{
+  "url": "/cat/earbuds/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Earbuds",
+  "metaTitle": "Custom Recycled Earbuds | Perfect Imprints",
+  "metaDescription": "Order custom recycled earbuds in bulk for your brand. Eco-friendly and perfect for giveaways. Get a quote today.",
+  "introHtml": "<p>Custom recycled earbuds are an eco-conscious choice for brands looking to reduce waste while giving a useful gift. Made from post-consumer materials like the TerraTone™ Wireless Earbuds, these earbuds offer clear sound and a sustainable story. Ideal for trade shows, employee kits, or promotional events, they show your commitment to the environment. Decorate with your logo via pad printing or laser engraving for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled earbuds in eco-friendly packaging, perfect for promotional giveaways and brand awareness.",
+  "productSkus": [
+    "523427",
+    "527695",
+    "527806",
+    "528013",
+    "528014"
+  ],
+  "generatedAt": "2026-05-31T08:28:51.256691+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

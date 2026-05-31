@@ -1,0 +1,29 @@
+{
+  "url": "/cat/health/special-feature/on-sale",
+  "type": "facet",
+  "h1": "Custom On Sale Health Products",
+  "metaTitle": "Custom On Sale Health Products | Perfect Imprints",
+  "metaDescription": "Save on bulk custom health items at Perfect Imprints. Shop on sale health products like diffusers, pill cases, and more.",
+  "introHtml": "<p>When you need health-related promotional products but have a tight budget, our on sale selection delivers the same quality at a lower price. From diffusers and humidifiers to pill cases and stress relievers, these items are ideal for wellness fairs, safety kits, or corporate wellness programs. Decorate with your logo using screen printing or laser engraving to keep your brand top of mind while promoting health and safety.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom on sale health products including a diffuser, pill case, and stress reliever with logos.",
+  "productSkus": [
+    "508398 90A",
+    "512842 90A",
+    "515550",
+    "526720",
+    "527251",
+    "528217",
+    "528219",
+    "528541",
+    "528835"
+  ],
+  "generatedAt": "2026-05-31T09:15:50.812235+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

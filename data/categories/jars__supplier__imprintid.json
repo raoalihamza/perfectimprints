@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jars/supplier/imprintid",
+  "type": "facet",
+  "h1": "Custom ImprintID Jars for Bulk Orders",
+  "metaTitle": "Custom ImprintID Jars | Perfect Imprints",
+  "metaDescription": "Order custom ImprintID jars in bulk at Perfect Imprints. Perfect for branded giveaways and promotional events.",
+  "introHtml": "<p>ImprintID jars combine the classic charm of mason jar designs with reliable, customizable imprinting. These jars are ideal for promotional gifts, event favors, or corporate kits. With options like the 22 oz Fiesta Mason Jar Tumbler or the Arnold Palmer Kit in a Mason Jar, you can showcase your logo on a versatile product that recipients will use again and again. Choose ImprintID for consistent quality and decoration that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom ImprintID jars with logo imprint, including a mason jar tumbler and a drink mix kit",
+  "productSkus": [
+    "506911",
+    "525119"
+  ],
+  "generatedAt": "2026-05-31T08:56:15.956602+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

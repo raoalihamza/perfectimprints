@@ -1,0 +1,83 @@
+{
+  "url": "/cat/paper-hand-fans",
+  "type": "root",
+  "h1": "Custom Paper Hand Fans for Summer Events & Giveaways",
+  "metaTitle": "Custom Paper Hand Fans | Perfect Imprints",
+  "metaDescription": "Order custom paper hand fans for your next event. Perfect for summer giveaways, trade shows, and outdoor promotions. Fast turnaround. Shop now!",
+  "introHtml": "<p>As temperatures rise, so does the appeal of a thoughtful, functional giveaway. Custom paper hand fans are a budget-friendly way to keep your audience cool while keeping your brand top of mind. Whether you're planning a summer festival, a company picnic, or a grand opening, these lightweight fans offer high visibility in a portable format. Marketing directors love them for event swag bags, while HR directors use them for outdoor employee appreciation days. With several size options and full-color print capabilities, you can create a fan that matches your brand perfectly.</p><p>Perfect Imprints stocks a variety of paper hand fans, from the compact 6\" x 8 3/8\" Toto to the large 16\" x 12\" Judy. Each fan is made from durable paper stock with a wooden handle for comfortable gripping. Decorate them with your logo, event name, or a seasonal message using full-color offset printing. Minimum order quantities start low, making them accessible for small businesses and large corporations alike. Order early for peak summer events to ensure timely delivery.</p>",
+  "buyingGuideHtml": "<h3>What to Look for in Custom Paper Hand Fans</h3><p>When ordering custom paper hand fans, focus on size, paper weight, and handle construction. Larger fans like the 16\" x 12\" Judy offer more surface area for your logo, while smaller fans such as the 6\" x 8 3/8\" Toto are easier to distribute and carry. Choose a paper weight that holds up to humidity and repeated use. A wooden handle should be smooth and securely attached. Promotional paper hand fans with a thicker stock and reinforced handle will last longer at outdoor events.</p><h3>Materials and Build Quality</h3><p>Most paper hand fans use a sturdy paperboard or kraft paper for the fan body. The handle is typically wood or bamboo. For eco-friendly options, consider fans made from recycled paper, like the Eco Shopper Vogue. White kraft fans offer a clean canvas for vibrant full-color printing. Avoid fans with thin paper that may tear easily; instead, look for a minimum paper weight of 12 pt. The handle should be glued or riveted to prevent detachment during use.</p><h3>Common Use Cases for Branded Hand Fans</h3><p>Branded paper hand fans are ideal for outdoor summer events: fairs, parades, sports tournaments, and beach promotions. Marketing directors order them for product launches and trade shows where attendees appreciate a cooling tool. HR directors use them for company picnics or wellness days. Safety managers find them useful for outdoor safety briefings or heat stress prevention programs. They also make excellent church fan giveaways or wedding favors. For corporate gifting, personalized paper hand fans with a custom design can be a unique addition to welcome kits.</p><h3>Decoration and Customization Options</h3><p>Full-color offset printing is the most common decoration method for paper hand fans, allowing detailed logos and gradients. Screen printing works for simple designs with fewer colors. You can print on one or both sides. Some suppliers offer UV coating for added durability. When designing, keep critical elements away from the fold line and handle attachment point. For a premium feel, consider foil stamping or embossing on the handle. Bulk paper hand fans can be printed with different designs on each side, such as a logo on the front and a schedule on the back.</p><h3>Quantity Guidance and MOQ Context</h3><p>Minimum order quantities for custom paper hand fans typically start at 250 to 500 pieces. As you increase quantity, the unit price drops significantly. For example, ordering 1,000 fans often costs less per fan than 500. For large events or distribution campaigns, consider 5,000 or more to maximize ROI. Wholesale paper hand fans are available for orders above 10,000 pieces. Always order a few extra to account for damage or unexpected demand. Lead times range from 10 to 15 business days for standard orders; rush service may be available.</p><h3>Tips to Avoid Common Buying Mistakes</h3><p>One common mistake is choosing a fan size that is too small to display your logo clearly. Test your design on a template before ordering. Another pitfall is overlooking the handle quality: flimsy handles break easily, so request a sample first. For outdoor events in humid climates, fans with a glossy coating resist moisture better. Also, confirm that your artwork file meets the printer's specifications to avoid delays. Finally, plan ahead: order at least 3-4 weeks before your event to allow for production and shipping.</p>",
+  "buyingGuideH2": "Custom Paper Hand Fans Buying Guide",
+  "faqs": [
+    {
+      "q": "What sizes are available for custom paper hand fans?",
+      "a": "We offer several sizes, including 6\" x 8 3/8\" (Toto), 7 3/4\" x 9 3/4\" (Munchkin), and 16\" x 12\" (Judy). Each size suits different needs: smaller fans for easy distribution, larger fans for maximum logo visibility."
+    },
+    {
+      "q": "What printing methods are used for paper hand fans?",
+      "a": "Full-color offset printing is standard for detailed designs. Screen printing is available for simpler logos with fewer colors. Both methods produce vibrant results on kraft or white paper stock."
+    },
+    {
+      "q": "What is the minimum order quantity for custom fans?",
+      "a": "Minimum order quantities typically start at 250 to 500 pieces, depending on the size and style. Larger quantities offer lower per-unit costs. Contact us for exact MOQs on specific fan models."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, we recommend requesting a sample to evaluate paper quality, handle construction, and print finish. Samples can be ordered with or without your logo. This helps ensure the final product meets your expectations."
+    },
+    {
+      "q": "How long does production take for custom hand fans?",
+      "a": "Standard production takes 10 to 15 business days after artwork approval. Rush orders may be available for an additional fee. We advise ordering at least 3-4 weeks before your event to allow for shipping."
+    }
+  ],
+  "heroAltText": "Custom paper hand fans with full-color logo printing, ideal for summer events and outdoor giveaways",
+  "productSkus": [
+    "501030",
+    "503365",
+    "503366",
+    "503367",
+    "503371 91B",
+    "503373 91B",
+    "503397",
+    "503398",
+    "503399",
+    "504843",
+    "505815 30B",
+    "505816 90A",
+    "505817 33D",
+    "505818 90A",
+    "505819 33D",
+    "505820 90A",
+    "506541 01A",
+    "506542",
+    "511027",
+    "514513",
+    "514521",
+    "514533 90E",
+    "514950 33A",
+    "514951 33A",
+    "516221",
+    "516622",
+    "516623",
+    "516624",
+    "516763",
+    "517642 90A",
+    "517671 90A",
+    "517672 30A",
+    "517838",
+    "518246",
+    "521213",
+    "522516",
+    "523084",
+    "523626",
+    "524158",
+    "525175",
+    "526266"
+  ],
+  "generatedAt": "2026-05-30T10:56:36.405337+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "seasonal",
+  "skuFilterMode": "full",
+  "rawSkuCount": 41,
+  "filteredSkuCount": 41
+}

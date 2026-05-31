@@ -1,0 +1,32 @@
+{
+  "url": "/cat/blankets/feature/pocketed",
+  "type": "facet",
+  "h1": "Custom Pocketed Blankets for Branded Promotions",
+  "metaTitle": "Custom Pocketed Blankets | Perfect Imprints",
+  "metaDescription": "Order custom pocketed blankets with your logo. Perfect for outdoor events, giveaways, and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Custom pocketed blankets combine warmth with utility, giving your recipients a place to store their phone, keys, or snacks while they enjoy the outdoors. Whether you're outfitting a company picnic or rewarding employees with a cozy throw, the integrated pocket keeps essentials close at hand. Choose from fleece, sherpa, or packable designs that roll up into their own pocket for easy transport. Add your logo with screen printing or embroidery for a promotional item that gets used season after season.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pocketed blankets with logo, featuring a fleece blanket with a built-in storage pocket and rolled-up design for portability.",
+  "productSkus": [
+    "507150",
+    "510676",
+    "513485",
+    "515638",
+    "521875",
+    "521987",
+    "523955",
+    "525844",
+    "527170",
+    "527649",
+    "528856",
+    "529173"
+  ],
+  "generatedAt": "2026-05-31T09:37:22.396736+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

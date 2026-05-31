@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel/brand/tentree",
+  "type": "facet",
+  "h1": "Custom Tentree Apparel for Your Brand",
+  "metaTitle": "Custom Tentree Apparel | Perfect Imprints",
+  "metaDescription": "Shop custom Tentree apparel at Perfect Imprints. Eco-friendly, organic cotton options perfect for your brand. Bulk orders available.",
+  "introHtml": "<p>Tentree apparel offers a sustainable choice for brands that prioritize environmental responsibility. Made from organic cotton and other eco-friendly materials, each item contributes to reforestation efforts. Customize Tentree pieces like the Organic Cotton Juniper Blanket with embroidery or screen printing for corporate gifts, employee uniforms, or promotional events. Stand out with apparel that aligns with your company's green initiatives.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Tentree apparel featuring organic cotton Juniper Blanket with company logo",
+  "productSkus": [
+    "525984"
+  ],
+  "generatedAt": "2026-05-31T08:31:43.594607+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

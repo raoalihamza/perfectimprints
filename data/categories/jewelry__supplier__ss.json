@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jewelry/supplier/ss",
+  "type": "facet",
+  "h1": "Custom SS Jewelry for Bulk Orders",
+  "metaTitle": "Custom SS Jewelry | Perfect Imprints",
+  "metaDescription": "Order custom SS jewelry in bulk at Perfect Imprints. Perfect for employee recognition, safety rewards, or promotional giveaways.",
+  "introHtml": "<p>Custom SS jewelry offers a durable and stylish way to promote your brand. Stainless steel resists tarnish and corrosion, making it ideal for daily wear in demanding environments like construction sites or outdoor teams. From paracord bracelets to mood watch bracelets, these pieces can be laser engraved or debossed with your logo. Choose custom SS jewelry for a long-lasting, professional look that employees and customers will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom SS jewelry including paracord bracelet and mood watch bracelet with engraved logo",
+  "productSkus": [
+    "516655",
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T09:52:13.918965+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

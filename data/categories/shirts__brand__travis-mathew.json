@@ -1,0 +1,32 @@
+{
+  "url": "/cat/shirts/brand/travis-mathew",
+  "type": "facet",
+  "h1": "Custom Travis Mathew Shirts for Bulk Orders",
+  "metaTitle": "Custom Travis Mathew Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Travis Mathew shirts in bulk for your team. Premium performance polos and quarter-zips. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Travis Mathew brings a California-casual aesthetic to the workplace, blending premium fabrics with modern silhouettes that your team will actually want to wear. Their performance polos, like the Oceanside Heather Polo, feature moisture-wicking stretch fabric that holds up to repeated washing and screen printing. Quarter-zips such as the Crestview offer a polished layering piece for cooler offices or outdoor events. Ordering custom Travis Mathew shirts ensures your brand appears on apparel that feels as good as it looks.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Travis Mathew shirts for bulk orders, featuring a man wearing a navy polo with embroidered logo",
+  "productSkus": [
+    "527672",
+    "527673",
+    "527674",
+    "527675",
+    "527676",
+    "527677",
+    "527678",
+    "527679",
+    "527680",
+    "527681",
+    "527682",
+    "527683"
+  ],
+  "generatedAt": "2026-05-31T08:37:23.013038+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

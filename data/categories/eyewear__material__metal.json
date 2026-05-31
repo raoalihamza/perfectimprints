@@ -1,0 +1,21 @@
+{
+  "url": "/cat/eyewear/material/metal",
+  "type": "facet",
+  "h1": "Custom Metal Eyewear for Branded Safety & Style",
+  "metaTitle": "Custom Metal Eyewear | Perfect Imprints",
+  "metaDescription": "Order custom metal eyewear with your logo. Perfect for corporate gifts, safety programs, and promotional events. Bulk pricing available.",
+  "introHtml": "<p>Metal eyewear offers a polished, durable option for your branded safety glasses or promotional sunglasses. The sturdy metal frames provide a professional look that stands up to daily wear, making them ideal for corporate giveaways, trade shows, or employee recognition programs. Choose from sleek finishes like matte black or silver, and add your logo through pad printing or etching for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom metal eyewear with sleek metal frames and logo engraving, ideal for corporate branding and safety programs.",
+  "productSkus": [
+    "526686"
+  ],
+  "generatedAt": "2026-05-31T08:53:46.245816+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/material/ceramic",
+  "type": "facet",
+  "h1": "Custom Ceramic Products for Bulk Orders",
+  "metaTitle": "Custom Ceramic Products | Perfect Imprints",
+  "metaDescription": "Order custom ceramic products in bulk for your brand. Perfect for gifts and giveaways. Get a quote today!",
+  "introHtml": "<p>Ceramic products offer a premium feel that stands out from plastic or metal options. From custom ceramic mugs with full-color imprinting to branded ceramic coasters and planters, these items are ideal for corporate gifts, employee appreciation, or trade show giveaways. The smooth, durable surface provides excellent print quality for logos and designs, ensuring your brand looks polished and professional.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom ceramic products including branded mugs and coasters with logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:45:50.377602+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/beer-glasses/feature/insulated",
+  "type": "facet",
+  "h1": "Custom Insulated Beer Glasses",
+  "metaTitle": "Custom Insulated Beer Glasses | Perfect Imprints",
+  "metaDescription": "Order custom insulated beer glasses for your brand. Keep drinks cold with double-wall stainless steel. Perfect for events and gifts.",
+  "introHtml": "<p>Insulated beer glasses keep beverages cold longer than standard glassware, making them a practical choice for outdoor events, tailgates, and corporate gatherings. Unlike single-wall options, double-wall stainless steel tumblers like the 20 oz Coleman® Brewski resist condensation and breakage. Decorate with your logo using laser engraving or pad printing for a durable, branded giveaway that recipients will use repeatedly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom insulated beer glasses with double-wall stainless steel construction and engraved logo",
+  "productSkus": [
+    "521930",
+    "523495",
+    "523689"
+  ],
+  "generatedAt": "2026-05-31T09:08:34.636302+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

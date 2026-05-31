@@ -1,0 +1,28 @@
+{
+  "url": "/cat/products/brand/under-armour",
+  "type": "facet",
+  "h1": "Custom Under Armour Products for Bulk Orders",
+  "metaTitle": "Custom Under Armour Products | Perfect Imprints",
+  "metaDescription": "Order custom Under Armour products in bulk. Perfect for corporate branding. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Under Armour is a trusted brand known for performance and durability, making it a top choice for corporate apparel and giveaways. Whether you need polos for a sales team, fleece for a company retreat, or backpacks for a trade show, custom Under Armour products offer a premium look and feel that recipients actually use. Decoration options like embroidery or screen printing ensure your logo looks sharp on every item.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Under Armour products including polos and fleece sweatshirts with embroidered logos for corporate branding",
+  "productSkus": [
+    "527121",
+    "527122",
+    "528095",
+    "528096",
+    "528105",
+    "528106",
+    "528108",
+    "529262"
+  ],
+  "generatedAt": "2026-05-31T09:24:02.119557+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

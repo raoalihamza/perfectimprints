@@ -1,0 +1,19 @@
+{
+  "url": "/cat/flasks/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Flasks for Bulk Orders",
+  "metaTitle": "Custom Set Flasks | Perfect Imprints",
+  "metaDescription": "Shop custom set flasks for your next event or promotion. Perfect for bulk orders. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Ordering flasks as a set ensures your branded giveaways arrive ready for gifting or resale. Perfect for corporate welcome kits, wedding favors, or retail displays, custom set flasks allow you to present a coordinated look with your logo engraved or printed on each piece. Choose from stainless steel or pewter options, and select a set quantity that matches your event size. Bulk pricing makes set flasks a cost-effective promotional product that recipients will keep for years.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set flasks with engraved logos arranged in a gift box for corporate promotions",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:13:25.441378+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

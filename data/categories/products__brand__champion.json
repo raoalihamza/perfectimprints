@@ -1,0 +1,29 @@
+{
+  "url": "/cat/products/brand/champion",
+  "type": "facet",
+  "h1": "Custom Champion Products for Bulk Orders",
+  "metaTitle": "Custom Champion Products | Perfect Imprints",
+  "metaDescription": "Order custom Champion products for your team or event. Bulk pricing on tees, hoodies, shorts & more at PerfectImprints.com.",
+  "introHtml": "<p>Champion products bring instant brand recognition and quality that lasts. From the classic Reverse Weave hoodies to lightweight mesh shorts, each piece offers consistent sizing and durable construction ideal for corporate apparel programs, team uniforms, or promotional giveaways. Decorate with screen printing or embroidery to create a cohesive look your recipients will wear proudly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Champion products including hoodies, t-shirts, and shorts with company logo for bulk orders",
+  "productSkus": [
+    "526122",
+    "526123",
+    "526124",
+    "526126",
+    "526127",
+    "526128",
+    "526129",
+    "526130",
+    "526131"
+  ],
+  "generatedAt": "2026-05-31T08:45:46.042815+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

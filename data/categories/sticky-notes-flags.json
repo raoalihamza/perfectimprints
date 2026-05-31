@@ -1,0 +1,62 @@
+{
+  "url": "/cat/sticky-notes-flags",
+  "type": "root",
+  "h1": "Custom Sticky Notes & Flags for Brand Visibility",
+  "metaTitle": "Custom Sticky Notes & Flags | Perfect Imprints",
+  "metaDescription": "Order custom sticky notes flags for events, trade shows, and offices. Durable, full-color, and easy to order. Get a quote now.",
+  "introHtml": "<p>With trade show season and outdoor events ramping up, now is the perfect time to secure custom sticky notes flags that grab attention. Whether you need branded flags for a conference booth, safety flags for construction sites, or sticky notes for office use, our selection covers everything from car flags to full-size teardrop and razor sail signs. Marketing directors, HR teams, and safety managers trust Perfect Imprints for durable, weather-resistant flags that hold up in wind and sun.</p><p>Our flags come in single- and double-sided options with scissor, cross, and spike bases for easy setup. Full-color printing ensures your logo pops from any angle. For smaller-scale needs, custom sticky notes in assorted sizes help reinforce your brand daily. Browse the grid below to find the right size and style for your next campaign, then customize with your artwork. Fast turnaround and bulk pricing make ordering simple for any budget.</p>",
+  "buyingGuideHtml": "<p>When ordering custom sticky notes flags, start by considering your primary use case. For outdoor events like trade shows, parades, or job fairs, full-color polyester flags with UV-resistant inks are essential. Teardrop and razor sail signs offer excellent wind stability, while car flags work well for mobile advertising. For indoor office use, adhesive sticky notes in custom shapes or standard sizes keep your brand top-of-mind at desks and meeting rooms.</p><h3>Materials and Durability</h3><p>Most promotional flags are made from 200-denier polyester or heavier knits. Double-sided printing is recommended for high-traffic areas where viewers approach from both sides. Look for reinforced hems and sturdy pole pockets. For sticky notes, choose 3M or equivalent adhesive that sticks securely but removes cleanly. Quality paper stock prevents bleed-through when writing.</p><h3>Decoration Options</h3><p>Full-color heat transfer or dye sublimation is standard for flags, producing vibrant, fade-resistant graphics. Screen printing works for simple logos on fabric. For sticky notes, offset printing with your logo in spot or full color is common. Embroidery is not practical for flags in this category due to size, but patches can be sewn on for a textured look.</p><h3>Use Cases and Buyer Personas</h3><p>Marketing directors use branded flags to attract booth traffic at trade shows. HR directors order custom sticky notes for employee onboarding kits or office supplies. Safety managers deploy high-visibility flags for construction perimeters and safety briefings. Business owners often combine both products for a cohesive brand presence at events and in the workplace.</p><h3>Quantity and MOQ Guidance</h3><p>Minimum order quantities for flags typically start at 25 to 50 pieces, with lower per-unit costs as volume increases. Sticky notes have lower MOQs, often 100 pads or packs. For best pricing, consolidate your order into a single design and size. Bulk orders of 100+ flags qualify for tiered discounts. Wholesale pricing is available for larger runs.</p><p>Common mistakes include ordering single-sided flags for double-sided visibility, choosing the wrong base type for your ground surface, and underestimating wind exposure. For sticky notes, ensure your artwork fits the note dimensions and avoid dark background colors that make ink hard to read. Always request a proof before production to catch errors in color or placement.</p>",
+  "buyingGuideH2": "Custom Sticky Notes & Flags Buying Guide",
+  "faqs": [
+    {
+      "q": "What are the minimum order quantities for custom flags?",
+      "a": "Minimum order quantities for custom flags typically start at 25 to 50 pieces, depending on the size and style. Smaller items like sticky notes may have MOQs as low as 100 pads. Contact Perfect Imprints for exact MOQs on your desired product."
+    },
+    {
+      "q": "What decoration methods are used for flags?",
+      "a": "Flags are commonly decorated using full-color dye sublimation or heat transfer, which produces vibrant, fade-resistant graphics. Screen printing is also available for simple designs. These methods work well on polyester fabric and ensure your logo looks sharp from a distance."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, samples are available for most products. You can request a sample of the flag material, printing quality, and base type before committing to a full order. This helps ensure the product meets your expectations for color and durability."
+    },
+    {
+      "q": "What is the typical production lead time for custom flags?",
+      "a": "Production lead time for custom flags is usually 10 to 15 business days after artwork approval. Rush orders may be available for an additional fee. Sticky notes often have a shorter turnaround of 5 to 10 business days."
+    },
+    {
+      "q": "How do I choose the right base for my flag?",
+      "a": "The base type depends on your setup location. Cross bases are stable on hard surfaces like concrete. Spike bases work well on grass or soft ground. Scissor bases offer easy portability for indoor use. Consider wind conditions and surface type when selecting."
+    }
+  ],
+  "heroAltText": "Custom sticky notes flags displayed at an outdoor event with full-color printing and sturdy bases",
+  "productSkus": [
+    "502150 90A",
+    "504760 90A",
+    "504761 90A",
+    "505208 90A",
+    "505209 90A",
+    "505268 90A",
+    "505269 90A",
+    "508676 90A",
+    "510270 90A",
+    "516989 90A",
+    "516990 90A",
+    "516991 90A",
+    "520244",
+    "520245",
+    "520494",
+    "520495",
+    "520496",
+    "520497",
+    "521134",
+    "529427"
+  ],
+  "generatedAt": "2026-05-30T11:56:21.615922+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "seasonal",
+  "skuFilterMode": "full",
+  "rawSkuCount": 20,
+  "filteredSkuCount": 20
+}

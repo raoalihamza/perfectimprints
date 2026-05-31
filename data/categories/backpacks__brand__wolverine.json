@@ -1,0 +1,21 @@
+{
+  "url": "/cat/backpacks/brand/wolverine",
+  "type": "facet",
+  "h1": "Custom Wolverine Backpacks for Bulk Orders",
+  "metaTitle": "Custom Wolverine Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Wolverine backpacks in bulk. Durable, branded gear perfect for giveaways, employee gifts, and events. Get started today!",
+  "introHtml": "<p>Wolverine backpacks combine rugged durability with trusted craftsmanship, making them a smart choice for businesses that need branded gear that lasts. Whether you're outfitting a field crew or rewarding top performers, these packs hold up to daily wear while carrying your logo in style. The Wolverine Vertical 12 Can Cooler, for example, doubles as a backpack and cooler for team outings. Decorate with embroidery or screen printing for a professional finish that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Wolverine backpacks with embroidered logo, rugged design for outdoor use",
+  "productSkus": [
+    "528158"
+  ],
+  "generatedAt": "2026-05-31T09:33:37.700672+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

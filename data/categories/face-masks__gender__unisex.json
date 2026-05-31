@@ -1,0 +1,24 @@
+{
+  "url": "/cat/face-masks/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Face Masks",
+  "metaTitle": "Custom Unisex Face Masks | Perfect Imprints",
+  "metaDescription": "Order custom unisex face masks for your team or event. Bulk pricing and fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>Unisex face masks are designed to fit a wide range of face shapes, making them ideal for company giveaways, event swag, or employee safety kits. Options like the Winterdana and Full Color Tubular Bandana offer breathable fabric and all-over printing for bold branding. Choose from moisture-wicking materials and adjustable fits to ensure comfort for everyone in your organization.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom unisex face masks featuring full-color printed tubular bandanas in various colors",
+  "productSkus": [
+    "524691",
+    "524692",
+    "524693",
+    "524695"
+  ],
+  "generatedAt": "2026-05-31T09:45:16.098359+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

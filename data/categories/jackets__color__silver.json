@@ -1,0 +1,24 @@
+{
+  "url": "/cat/jackets/color/silver",
+  "type": "facet",
+  "h1": "Custom Silver Jackets for Bulk Orders",
+  "metaTitle": "Custom Silver Jackets | Perfect Imprints",
+  "metaDescription": "Order custom silver jackets in bulk for your team or event. Perfect for corporate branding with a sleek metallic look. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Silver jackets offer a polished, metallic finish that stands out from standard black or navy options. Whether you're outfitting a sales team with quilted vests or branding 1/4-zip pullovers for a company retreat, the silver color adds a modern, professional edge. These jackets pair well with screen-printed or embroidered logos and work across industries from construction to corporate events. Ordering in bulk ensures consistent color and sizing for your entire group.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom silver jackets for bulk orders featuring quilted vests and zip pullovers with embroidered logos",
+  "productSkus": [
+    "526297",
+    "526298",
+    "529192",
+    "529193"
+  ],
+  "generatedAt": "2026-05-31T09:51:42.467618+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

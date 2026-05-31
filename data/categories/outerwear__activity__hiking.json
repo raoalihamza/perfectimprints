@@ -1,0 +1,26 @@
+{
+  "url": "/cat/outerwear/activity/hiking",
+  "type": "facet",
+  "h1": "Custom Hiking Outerwear for Teams",
+  "metaTitle": "Custom Hiking Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom hiking outerwear for your team at Perfect Imprints. Durable jackets and vests with your logo. Bulk pricing available.",
+  "introHtml": "<p>Custom hiking outerwear needs to perform on the trail while representing your brand. Our selection includes insulated vests and hybrid jackets designed for movement and weather resistance. Whether you are outfitting a corporate hiking event or rewarding employees with high-performance gear, these pieces offer practical features like PrimaLoft insulation and sweater-knit comfort. Decorate with embroidery or screen printing for a professional finish that lasts through seasons of use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "custom hiking outerwear jackets and vests with embroidered logos for corporate teams",
+  "productSkus": [
+    "525738",
+    "525739",
+    "526811",
+    "526812",
+    "527559",
+    "527560"
+  ],
+  "generatedAt": "2026-05-31T09:58:57.041577+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

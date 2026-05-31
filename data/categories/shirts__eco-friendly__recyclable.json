@@ -1,0 +1,24 @@
+{
+  "url": "/cat/shirts/eco-friendly/recyclable",
+  "type": "facet",
+  "h1": "Custom Recyclable Shirts for Bulk Orders",
+  "metaTitle": "Custom Recyclable Shirts | Perfect Imprints",
+  "metaDescription": "Order custom recyclable shirts for your team or event. Eco-friendly, bulk pricing, and fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Choosing custom recyclable shirts means your branded apparel can be returned to the material stream rather than sent to a landfill. These shirts are made from fibers like recycled polyester or organic cotton blends that can be broken down and reprocessed. For companies with sustainability goals, recyclable shirts offer a practical way to align promotional merchandise with environmental commitments. Decorate with screen printing or embroidery to maintain recyclability. Options like the Men's Elemental Coffee Shirt or Ladies Montauk Henley provide professional style with a reduced environmental footprint.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recyclable shirts for bulk orders, featuring eco-friendly button-down dress shirts and henleys",
+  "productSkus": [
+    "526247",
+    "527304",
+    "527305",
+    "527895"
+  ],
+  "generatedAt": "2026-05-31T09:02:06.380240+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

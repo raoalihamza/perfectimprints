@@ -1,0 +1,24 @@
+{
+  "url": "/cat/towels/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Towels for Bulk Orders",
+  "metaTitle": "Custom Cotton Towels | Perfect Imprints",
+  "metaDescription": "Order custom cotton towels in bulk. Ideal for giveaways, sports, and promotions. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Cotton towels offer superior absorbency and a soft feel that synthetic blends can't match. Whether you're outfitting a sports team with rally towels or gifting branded golf towels to clients, cotton provides a premium canvas for screen printing or embroidery. The natural fibers hold vibrant colors wash after wash, making your logo stand out at every game or event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom cotton towels with embroidered logo, ideal for sports teams and corporate giveaways.",
+  "productSkus": [
+    "510644",
+    "522450",
+    "524126",
+    "528437"
+  ],
+  "generatedAt": "2026-05-31T08:38:03.228572+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

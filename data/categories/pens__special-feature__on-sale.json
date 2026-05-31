@@ -1,0 +1,26 @@
+{
+  "url": "/cat/pens/special-feature/on-sale",
+  "type": "facet",
+  "h1": "Custom On Sale Pens for Bulk Orders",
+  "metaTitle": "Custom On Sale Pens – Perfect Imprints",
+  "metaDescription": "Save on branded pens in bulk. Shop custom on sale pens at Perfect Imprints with fast turnaround and free setup.",
+  "introHtml": "<p>When you need to stretch your promotional budget further, custom on sale pens deliver the same quality and branding impact at a lower cost. Options like the Nash RPET Gel Stylus Pen or the Souvenir® Emblem Gel Pen let you choose eco-friendly materials or classic styles while keeping expenses in check. Whether you are stocking a trade show or equipping a sales team, these discounted writing instruments make it easy to order in volume without sacrificing durability or print quality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom on sale pens with brand logos, including gel pens and stylus pens",
+  "productSkus": [
+    "526715",
+    "526716",
+    "526789",
+    "527171",
+    "527220",
+    "527973"
+  ],
+  "generatedAt": "2026-05-31T08:59:40.449272+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

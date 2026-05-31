@@ -1,0 +1,25 @@
+{
+  "url": "/cat/cards/color/white",
+  "type": "facet",
+  "h1": "Custom White Cards for Bulk Orders",
+  "metaTitle": "Custom White Cards | Perfect Imprints",
+  "metaDescription": "Order custom white cards for your business. Perfect for branded playing decks. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>White cards offer a clean, classic canvas for your brand. Whether you're ordering custom playing cards for a casino night or branded decks for a corporate gift, white cardstock provides high contrast for logos and designs. Choose from solid backs or themed patterns like shiplap for a unique look. Decorate with full-color printing or foil stamping for added elegance.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom white playing cards with a branded deck and case for corporate gifts",
+  "productSkus": [
+    "513026 90E",
+    "524494",
+    "524496",
+    "525824",
+    "526834"
+  ],
+  "generatedAt": "2026-05-31T09:10:16.321330+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,29 @@
+{
+  "url": "/cat/rubber-ducks/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Rubber Ducks",
+  "metaTitle": "Custom Brown Rubber Ducks | Perfect Imprints",
+  "metaDescription": "Order custom brown rubber ducks for your next event or promotion. Fun, unique, and perfect for branding. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Brown rubber ducks offer a distinctive twist on the classic promotional giveaway. Whether you're organizing a nature-themed event, a wildlife conservation fundraiser, or simply want to stand out from the typical yellow duck, these custom brown ducks provide a unique branding opportunity. Add your logo or message with pad printing or screen printing for a memorable impression that attendees will keep for years.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown rubber ducks with logo imprint, perfect for promotional giveaways and branding",
+  "productSkus": [
+    "510028",
+    "514951 33A",
+    "515615 33A",
+    "518390 30A",
+    "519472",
+    "519473",
+    "524863",
+    "525861",
+    "526411"
+  ],
+  "generatedAt": "2026-05-31T10:05:16.437156+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/koi",
+  "type": "facet",
+  "h1": "Custom Koi Products for Bulk Orders",
+  "metaTitle": "Custom Koi Products | Perfect Imprints",
+  "metaDescription": "Order custom Koi products in bulk for your team or event. Perfect Imprints offers a wide selection of branded Koi gear.",
+  "introHtml": "<p>Koi products bring a touch of nature-inspired style to your promotional lineup. Whether you're outfitting a wellness retreat or a corporate giveaway, Koi's designs blend comfort and durability with a fresh aesthetic. Choose from apparel, bags, and accessories that can be decorated with your logo using screen printing or embroidery. These pieces hold up well to daily use and make a lasting impression on recipients who appreciate quality and design.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A group of custom Koi products including a hat, tote bag, and t-shirt with logos, displayed on a wooden table.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:33.558005+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

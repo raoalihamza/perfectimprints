@@ -1,0 +1,30 @@
+{
+  "url": "/cat/portfolios/brand/uni-ball",
+  "type": "facet",
+  "h1": "Custom Uni Ball Portfolios for Bulk Orders",
+  "metaTitle": "Custom Uni Ball Portfolios | Perfect Imprints",
+  "metaDescription": "Order custom Uni Ball portfolios for your team. Perfect for corporate gifts and events. Get a quote today.",
+  "introHtml": "<p>Uni Ball portfolios combine the trusted quality of Uni Ball pens with professional organization. Ideal for corporate training kits, client gifts, or employee onboarding, these portfolios feature durable construction and a sleek design that holds standard notepads. Choose from various colors and add your logo with foil stamping or screen printing for a polished look that reinforces your brand at every meeting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Uni Ball portfolios with branded pen and notepad, ideal for corporate gifts and business use",
+  "productSkus": [
+    "507227",
+    "507233",
+    "508066",
+    "508930",
+    "510260",
+    "525805",
+    "525810",
+    "525811",
+    "526876",
+    "527857"
+  ],
+  "generatedAt": "2026-05-31T10:02:41.886788+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

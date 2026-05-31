@@ -1,0 +1,19 @@
+{
+  "url": "/cat/picnic-items/search",
+  "type": "modifier",
+  "h1": "Custom Picnic Items for Branded Promotions",
+  "metaTitle": "Custom Picnic Items | Perfect Imprints",
+  "metaDescription": "Browse custom picnic items for your next event. Perfect for corporate outings, giveaways, and summer branding. Start your order today!",
+  "introHtml": "<p>Custom picnic items offer a fresh way to promote your brand at outdoor events, company picnics, and customer appreciation days. From coolers and blankets to portable utensils and bags, this category covers everything you need for a memorable al fresco experience. Whether you are a marketing director planning a summer campaign or a business owner looking for practical giveaways, our selection of custom picnic items provides versatile options that recipients will actually use. Explore our range and find the perfect match for your next event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom picnic items including branded coolers, blankets, and outdoor dining sets for promotional events",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:23:16.631610+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

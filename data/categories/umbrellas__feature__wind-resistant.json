@@ -1,0 +1,27 @@
+{
+  "url": "/cat/umbrellas/feature/wind-resistant",
+  "type": "facet",
+  "h1": "Custom Wind Resistant Umbrellas",
+  "metaTitle": "Custom Wind Resistant Umbrellas | Perfect Imprints",
+  "metaDescription": "Order custom wind resistant umbrellas for your team or event. Durable, branded umbrellas that withstand gusts. Get a quote today.",
+  "introHtml": "<p>Wind resistant umbrellas keep your brand visible even in blustery conditions. Unlike standard umbrellas that flip inside out, these models feature reinforced frames and vented canopies that release pressure. Ideal for outdoor events, corporate gifts, or employee safety kits, they combine durability with reliable performance. Choose from auto-open golf styles or compact folding options for everyday carry.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wind resistant umbrellas with reinforced frames and vented canopies for durability in windy conditions.",
+  "productSkus": [
+    "527935",
+    "527936",
+    "527937",
+    "528117",
+    "528154",
+    "529141",
+    "529473"
+  ],
+  "generatedAt": "2026-05-31T08:22:45.195244+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

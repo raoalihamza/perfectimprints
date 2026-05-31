@@ -1,0 +1,19 @@
+{
+  "url": "/cat/household/feature/set",
+  "type": "facet",
+  "h1": "Custom Household Sets for Bulk Orders",
+  "metaTitle": "Custom Household Sets | Perfect Imprints",
+  "metaDescription": "Order custom household sets in bulk from Perfect Imprints. Perfect for corporate gifts, client appreciation, and employee rewards.",
+  "introHtml": "<p>Custom household sets bundle everyday essentials like kitchen tools, cleaning supplies, or home organization items into one coordinated package. They offer more perceived value than individual products, making them ideal for corporate gifts, client appreciation, or employee rewards. Choose from pre-assembled sets or create your own combination, with decoration options like screen printing or engraving on each piece.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom household sets including kitchen utensils, cleaning tools, and home organization items with logo imprinting",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:22:35.198108+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

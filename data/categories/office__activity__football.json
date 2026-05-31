@@ -1,0 +1,25 @@
+{
+  "url": "/cat/office/activity/football",
+  "type": "facet",
+  "h1": "Custom Football Office Products for Bulk Orders",
+  "metaTitle": "Custom Football Office Products | Perfect Imprints",
+  "metaDescription": "Order custom football office products for your team or event. Perfect for bulk branding. Shop at Perfect Imprints today.",
+  "introHtml": "<p>For offices where football fandom runs deep, custom football office products bring team spirit directly to the workspace. From Pop Mags magnets that hold papers on filing cabinets to football-shaped car sign magnets for employee parking lots, these items let you brand everyday office essentials with your logo. Choose screen printing or full-color digital decoration to match your team colors. Perfect for game-day giveaways or year-round morale boosters.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom football office products including Pop Mags magnet and football car sign magnet with logo",
+  "productSkus": [
+    "519384",
+    "519385 2AJ",
+    "519386 2EN",
+    "519387 2EM",
+    "522292"
+  ],
+  "generatedAt": "2026-05-31T08:44:33.691112+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

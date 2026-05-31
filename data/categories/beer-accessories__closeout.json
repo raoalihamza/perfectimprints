@@ -1,0 +1,21 @@
+{
+  "url": "/cat/beer-accessories/closeout",
+  "type": "modifier",
+  "h1": "Closeout Custom Beer Accessories",
+  "metaTitle": "Closeout Custom Beer Accessories - Perfect Imprints",
+  "metaDescription": "Save on closeout custom beer accessories while supplies last. Limited stock at clearance prices. Order now at Perfect Imprints.",
+  "introHtml": "<p>Our closeout section features custom beer accessories at reduced pricing — but only while inventory lasts. These are the same high-quality items from past promotions, now available for a fraction of the cost. Because stock is limited and first-come, first-served, the selection changes quickly. If you see something that fits your next event, trade show, or employee gift, it pays to act fast. Great for budget-conscious marketing directors and business owners who still want a standout branded item.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Closeout custom beer accessories including a branded Anywhere Belt Bag on display at clearance pricing",
+  "productSkus": [
+    "526499"
+  ],
+  "generatedAt": "2026-05-31T09:08:32.477270+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

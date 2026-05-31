@@ -1,0 +1,25 @@
+{
+  "url": "/cat/pocket-utility-knives/search",
+  "type": "modifier",
+  "h1": "Custom Pocket Utility Knives for Branded Promotions",
+  "metaTitle": "Custom Pocket Utility Knives - Perfect Imprints",
+  "metaDescription": "Browse custom pocket utility knives for your brand. Find durable, everyday carry options. Request a quote today!",
+  "introHtml": "<p>Custom pocket utility knives are a practical and everyday carry item that keeps your brand top of mind. Whether you're looking for a sleek stainless steel option like the Leatherman® Skeletool KBX or a multi-piece set for gifting, we offer a wide range of styles to suit your promotional needs. From safety managers to marketing directors, our selection provides durable, functional items that recipients will use daily. Explore our collection and find the perfect branded knife for your next campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A collection of custom pocket utility knives including stainless steel and wooden handles, ideal for branded promotions.",
+  "productSkus": [
+    "516246 30A",
+    "524008",
+    "527494",
+    "527495",
+    "529396"
+  ],
+  "generatedAt": "2026-05-31T09:00:27.660523+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

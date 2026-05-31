@@ -1,0 +1,24 @@
+{
+  "url": "/cat/pens/brand/bettoni",
+  "type": "facet",
+  "h1": "Custom Bettoni Pens for Bulk Orders",
+  "metaTitle": "Custom Bettoni Pens | Perfect Imprints",
+  "metaDescription": "Order custom Bettoni pens for your brand. Premium writing instruments with your logo. Shop bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Bettoni pens are known for their smooth writing and durable construction, making them a favorite for corporate gifts and trade show giveaways. With options like the Mardi Gras Pen with its vibrant barrel or the Textari Stylus that combines writing and touchscreen functionality, Bettoni offers versatility for any promotional need. These pens accept full-color imprinting, so your logo stands out clearly. Ordering in bulk ensures you have branded pens ready for client meetings, conferences, or employee appreciation kits.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Bettoni pens with logo imprint, featuring the Mardi Gras Pen and Textari Stylus in assorted colors",
+  "productSkus": [
+    "504646",
+    "506049",
+    "508018",
+    "510655"
+  ],
+  "generatedAt": "2026-05-31T08:59:31.817572+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

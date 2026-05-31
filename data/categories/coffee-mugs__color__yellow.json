@@ -1,0 +1,21 @@
+{
+  "url": "/cat/coffee-mugs/color/yellow",
+  "type": "facet",
+  "h1": "Custom Yellow Coffee Mugs for Your Brand",
+  "metaTitle": "Custom Yellow Coffee Mugs | Perfect Imprints",
+  "metaDescription": "Order custom yellow coffee mugs in bulk for your brand. Bright, eye-catching designs with your logo. Get a quote today!",
+  "introHtml": "<p>Yellow coffee mugs bring warmth and visibility to your branded drinkware. Unlike standard white or black mugs, a yellow ceramic surface makes your logo pop and creates a cheerful impression in break rooms or at trade shows. The 11 oz Aztec Mug shape offers a comfortable grip, perfect for daily coffee or tea. Choose from screen printing or full-color wrap for your design.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom yellow coffee mugs with printed logo, 11 oz ceramic, bright yellow color for branding",
+  "productSkus": [
+    "504267"
+  ],
+  "generatedAt": "2026-05-31T08:52:21.677243+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

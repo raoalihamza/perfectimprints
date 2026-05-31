@@ -1,0 +1,27 @@
+{
+  "url": "/cat/kitchen-accessories/brand/arctic-zone",
+  "type": "facet",
+  "h1": "Custom Arctic Zone Kitchen Accessories",
+  "metaTitle": "Custom Arctic Zone Kitchen Accessories | Perfect Imprints",
+  "metaDescription": "Order custom Arctic Zone kitchen accessories for your business. Shop insulated mugs, coolers, and bottles with your logo at Perfect Imprints.",
+  "introHtml": "<p>Arctic Zone kitchen accessories combine rugged insulation with eco-conscious materials like Repreve recycled fabrics, making them a smart choice for businesses that want to reduce environmental impact. From the Titan Thermal HP Copper Mugs that keep drinks ice-cold to expandable coolers built for team lunches, these products hold up to daily use in break rooms and job sites. Custom imprinting on the durable exterior ensures your logo stays visible through countless washes and commutes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Arctic Zone kitchen accessories including insulated copper mugs and coolers with company logo",
+  "productSkus": [
+    "525341",
+    "525841",
+    "525842",
+    "525843",
+    "525921",
+    "525964",
+    "526694"
+  ],
+  "generatedAt": "2026-05-31T08:26:44.933270+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

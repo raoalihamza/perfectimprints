@@ -1,0 +1,28 @@
+{
+  "url": "/cat/golf-polo-shirts/brand/vineyard-vines",
+  "type": "facet",
+  "h1": "Custom Vineyard Vines Golf Polo Shirts",
+  "metaTitle": "Custom Vineyard Vines Golf Polo Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Vineyard Vines golf polo shirts for your team or event. Premium quality with your logo. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Vineyard Vines golf polo shirts bring a preppy, polished look to any corporate outing or charity tournament. The Edgartown Pique Polo, available for men and women, features a classic fit and moisture-wicking fabric that keeps you comfortable on the course. Embroider your company logo on the chest for a clean, professional finish that stands out. Whether you're outfitting a sales team or a foursome for a client appreciation day, these polos offer the quality and style your brand deserves.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Vineyard Vines golf polo shirts with embroidered logo on chest, available in multiple colors",
+  "productSkus": [
+    "526099",
+    "526100",
+    "526101",
+    "526102",
+    "526103",
+    "526106",
+    "526107",
+    "526108"
+  ],
+  "generatedAt": "2026-05-31T09:48:57.217361+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

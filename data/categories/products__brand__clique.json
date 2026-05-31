@@ -1,0 +1,24 @@
+{
+  "url": "/cat/products/brand/clique",
+  "type": "facet",
+  "h1": "Custom Clique Products for Bulk Orders",
+  "metaTitle": "Custom Clique Products | Perfect Imprints",
+  "metaDescription": "Order custom Clique products in bulk from Perfect Imprints. Perfect for corporate apparel, teams, and events. Shop now!",
+  "introHtml": "<p>Clique apparel is known for its modern fit, soft fabrics, and professional look, making it a top choice for corporate uniforms, team gear, and promotional events. Whether you need custom-embroidered polos or zip jackets, Clique offers consistent sizing and color options that appeal to both men and women. Choose Clique for a clean, contemporary style that represents your organization well.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Clique products including men's and women's polos and zip jackets for corporate apparel",
+  "productSkus": [
+    "509568",
+    "509569",
+    "526962",
+    "526963"
+  ],
+  "generatedAt": "2026-05-31T08:24:24.283715+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

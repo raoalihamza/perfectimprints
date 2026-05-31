@@ -1,0 +1,80 @@
+{
+  "url": "/cat/table-displays",
+  "type": "root",
+  "h1": "Custom Table Displays for Trade Shows & Events",
+  "metaTitle": "Custom Table Displays | Perfect Imprints",
+  "metaDescription": "Order custom table displays with your logo. Perfect for trade shows, events, and retail. Bulk pricing available. Fast turnaround.",
+  "introHtml": "<p>Marketing directors preparing for a trade show need table displays that make their booth stand out. HR directors stocking employee onboarding kits or safety managers setting up information tables also rely on branded table covers to create a professional presence. Whether you are exhibiting at a conference, running a registration table, or showcasing products at a retail event, custom table displays are a simple way to reinforce your brand identity.</p><p>Our selection includes table throws, fitted table cloths, and table runners in multiple sizes and materials. Choose from standard polyester, stain-resistant fabric, or outdoor-grade materials. Full-color printing and screen printing are available to match your logo or design exactly. With sizes ranging from 2' x 4' to 8' long and round options for 3' and 4' tables, you can outfit any standard table. Bulk orders keep unit costs low, making this an affordable upgrade for any event.</p>",
+  "buyingGuideHtml": "<p>When ordering custom table displays, start by measuring your tables. Standard lengths are 6' and 8', but 2' x 4' and 2' x 6' options also exist. Fitted cloths have elastic corners for a snug fit, while throws drape over the sides. Round tables require specific diameters and overhang lengths. Measure the table top and the drop distance to the floor to ensure full coverage.</p><h3>Materials and Durability</h3><p>Polyester is the most common material for table displays because it resists wrinkles and holds color well. For outdoor events, choose outdoor fitted table throws made from weather-resistant fabric. Stain-resistant table throws are ideal for food service or high-traffic areas where spills happen. Full-color dye-sublimation printing produces vivid, edge-to-edge graphics that last wash after wash.</p><h3>Decoration Options</h3><p>Screen printing works well for simple logos with few colors and is cost-effective for large runs. Full-color digital printing allows photographic images and gradients. Table runners offer a budget-friendly way to add branding without covering the entire table. For a cohesive look, order matching table throws and runners with your logo and event theme.</p><h3>Use Cases and Personas</h3><p>Marketing directors use branded table displays at trade shows and conferences to attract attendees and create a professional booth. HR directors order them for career fairs and onboarding events. Safety managers use them at safety training sessions and information tables. Business owners outfit their retail spaces or vendor booths at community events. Custom table displays also work well for fundraising galas, product launches, and registration desks.</p><h3>Quantity and MOQ Guidance</h3><p>Minimum order quantities vary by size and decoration method. Screen-printed table throws typically have a lower MOQ of 10-25 pieces, while full-color dye-sublimation may require 25-50 units per design. Bulk orders of 50 or more bring per-unit costs down significantly. If you need multiple sizes for different events, consider ordering a larger quantity of one size to maximize savings.</p><h3>Common Buying Mistakes</h3><p>One common mistake is ordering the wrong size. Always confirm your table dimensions before ordering. Another pitfall is choosing a material that doesn't suit the environment. Outdoor events require weather-resistant fabrics. Also, consider the decoration method: screen printing is durable but limited in colors, while full-color printing offers more design flexibility but may have a higher setup cost. Finally, check lead times — custom table displays typically take 2-3 weeks, so plan ahead.</p>",
+  "buyingGuideH2": "Custom Table Displays Buying Guide",
+  "faqs": [
+    {
+      "q": "What sizes of custom table displays are available?",
+      "a": "We offer rectangular table throws and fitted cloths in 2' x 4', 2' x 6', and 2' x 8' sizes, plus round throws for 3' and 4' tables. Standard table runners come in 28\" width. Always measure your table top and desired drop length before ordering."
+    },
+    {
+      "q": "What is the difference between a table throw and a fitted table cloth?",
+      "a": "A table throw is a rectangular piece that drapes over the table, covering the top and sides. A fitted table cloth has elastic corners that hug the table legs for a snug, tailored fit. Fitted cloths are less likely to shift during events."
+    },
+    {
+      "q": "Can I get full-color printing on table displays?",
+      "a": "Yes, we offer full-color dye-sublimation printing on polyester table throws and runners. This method produces vibrant, edge-to-edge graphics that are washable and durable. Screen printing is also available for simpler designs with fewer colors."
+    },
+    {
+      "q": "What is the minimum order quantity for custom table displays?",
+      "a": "Minimum order quantities vary by product and decoration method. Screen-printed table throws typically have an MOQ of 10-25 units. Full-color printed items may require 25-50 units. Contact us for specific MOQs on your chosen product."
+    },
+    {
+      "q": "How long does it take to produce custom table displays?",
+      "a": "Standard production lead time is 2-3 weeks from approval of the artwork proof. Rush orders may be available for an additional fee. We recommend ordering at least 4 weeks before your event to allow for shipping and any delays."
+    }
+  ],
+  "heroAltText": "Custom table displays with full-color printing at a trade show booth featuring branded table throws and runners.",
+  "productSkus": [
+    "506590",
+    "506592 90A",
+    "506747 90A",
+    "506748 90A",
+    "506749 90A",
+    "506750 90A",
+    "506751 90A",
+    "506752 90A",
+    "506802",
+    "506804 90A",
+    "506928",
+    "506930 90A",
+    "506943",
+    "506944 90A",
+    "506947",
+    "506949 90A",
+    "506956",
+    "506957 90A",
+    "507074",
+    "507076 90A",
+    "507081 90A",
+    "507113",
+    "507115 90A",
+    "507143",
+    "507146 90A",
+    "510140 90A",
+    "510141 90A",
+    "511861",
+    "511863",
+    "516995 90A",
+    "518457 90A",
+    "518458 90A",
+    "518459 90A",
+    "518460 90A",
+    "518461 90A",
+    "523290",
+    "523291",
+    "523293"
+  ],
+  "generatedAt": "2026-05-30T10:42:18.832657+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "use_case",
+  "skuFilterMode": "full",
+  "rawSkuCount": 38,
+  "filteredSkuCount": 38
+}

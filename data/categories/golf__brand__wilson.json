@@ -1,0 +1,22 @@
+{
+  "url": "/cat/golf/brand/wilson",
+  "type": "facet",
+  "h1": "Custom Wilson Golf for Bulk Orders",
+  "metaTitle": "Custom Wilson Golf | Perfect Imprints",
+  "metaDescription": "Order custom Wilson golf products for your next event. Branded balls and accessories perfect for corporate outings and client gifts.",
+  "introHtml": "<p>Wilson golf products bring a trusted name in sports to your corporate events and promotional campaigns. Whether you need custom golf balls for a tournament or branded accessories for client appreciation, Wilson's reputation for quality reinforces your message. Choose from clear tubes or tall tubes with Wilson Ultra golf balls, each customizable with your logo. These items work well for golf outings, trade show giveaways, or employee rewards. Wilson's heritage in golf equipment ensures recipients recognize the value of your gift.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Wilson golf balls in clear tube with logo for corporate events",
+  "productSkus": [
+    "506922 50D",
+    "506923 50D"
+  ],
+  "generatedAt": "2026-05-31T08:42:26.978493+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

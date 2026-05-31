@@ -1,0 +1,21 @@
+{
+  "url": "/cat/beanies/brand/callaway",
+  "type": "facet",
+  "h1": "Custom Callaway Beanies for Bulk Orders",
+  "metaTitle": "Custom Callaway Beanies | Perfect Imprints",
+  "metaDescription": "Order custom Callaway beanies in bulk from Perfect Imprints. Perfect for corporate gifts, golf events, and team uniforms.",
+  "introHtml": "<p>Custom Callaway beanies combine the trusted brand recognition of Callaway with practical cold-weather gear for your team or event. Whether outfitting staff at a golf tournament or rewarding employees with premium headwear, these beanies offer a professional look with Callaway's logo embroidered or screen printed. Choose from classic colors like black or navy to match your brand palette, and add your company logo for a cohesive, sporty aesthetic that resonates with golf enthusiasts and outdoor professionals alike.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Callaway beanies with embroidered logo for corporate gifts and golf events",
+  "productSkus": [
+    "529257"
+  ],
+  "generatedAt": "2026-05-31T08:50:42.050964+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

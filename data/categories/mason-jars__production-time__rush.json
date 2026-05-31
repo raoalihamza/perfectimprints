@@ -1,0 +1,22 @@
+{
+  "url": "/cat/mason-jars/production-time/rush",
+  "type": "facet",
+  "h1": "Custom Rush Mason Jars",
+  "metaTitle": "Custom Rush Mason Jars | Perfect Imprints",
+  "metaDescription": "Order custom rush mason jars for your next event. Fast turnaround on bulk orders. Get a quick quote today.",
+  "introHtml": "<p>When you need promotional mason jars in a hurry, our rush production service gets them to you fast without sacrificing quality. Whether it's last-minute event swag or an urgent employee gift, custom rush mason jars with your logo can be decorated via screen printing or engraving. Choose from popular options like the 22 oz Fiesta Mason Jar Tumbler or the Arnold Palmer Kit in a Mason Jar for a ready-to-give set. Perfect for marketing directors and HR managers who need branded drinkware on a tight timeline.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom rush mason jars with logo, screen printed in bulk for promotional events",
+  "productSkus": [
+    "506911",
+    "525119"
+  ],
+  "generatedAt": "2026-05-31T09:55:51.007441+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

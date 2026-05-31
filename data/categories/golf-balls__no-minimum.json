@@ -1,0 +1,23 @@
+{
+  "url": "/cat/golf-balls/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Golf Balls",
+  "metaTitle": "No-Minimum Custom Golf Balls | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom golf balls with no bulk requirements. Perfect for small teams, events, and sample orders at Perfect Imprints.",
+  "introHtml": "<p>No-minimum custom golf balls let you order as few as a single dozen without the typical bulk requirements. Whether you need sample sets to evaluate quality, branded balls for a small corporate outing, or personalized gifts for a tight-knit team, these low-MOQ options give you the flexibility to start small. No more overcommitting to large quantities before you're ready.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "No-minimum custom golf balls with full-color logo imprint, perfect for small orders and sample requests",
+  "productSkus": [
+    "507565 90A",
+    "515618 90A",
+    "521337"
+  ],
+  "generatedAt": "2026-05-31T09:48:28.219024+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

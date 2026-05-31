@@ -1,0 +1,22 @@
+{
+  "url": "/cat/golf-tees/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Golf Tees",
+  "metaTitle": "Custom Made in USA Golf Tees | Perfect Imprints",
+  "metaDescription": "Order custom made in USA golf tees for your next event or promotion. Perfect for tournaments, corporate gifts, and more.",
+  "introHtml": "<p>Choosing custom made in USA golf tees means supporting American manufacturing while ensuring high-quality materials and construction. These tees are ideal for golf tournaments, corporate outings, and promotional giveaways where durability and domestic production matter. With options like the 4-1 Golf Tee Packet, you can offer a practical, branded item that resonates with players who appreciate American-made products. Decorate with your logo using screen printing or hot stamping for a clean, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA golf tees with a company logo, displayed next to a golf ball on a green.",
+  "productSkus": [
+    "506896 90A",
+    "528437"
+  ],
+  "generatedAt": "2026-05-31T09:49:09.527089+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/dresses/feature/heavyweight",
+  "type": "facet",
+  "h1": "Custom Heavyweight Dresses for Bulk Orders",
+  "metaTitle": "Custom Heavyweight Dresses | Perfect Imprints",
+  "metaDescription": "Order custom heavyweight dresses for your team or event. Durable, warm, and perfect for cooler weather. Get a quote today from Perfect Imprints.",
+  "introHtml": "<p>Custom heavyweight dresses offer the warmth and durability needed for cooler-weather events, outdoor promotions, or corporate uniforms. Unlike lighter-weight options, these dresses are crafted from thicker fabrics like fleece or sweater knits, providing comfort and longevity. Whether you're outfitting a sales team for a winter trade show or creating branded apparel for a company retreat, heavyweight dresses deliver a professional look that stands up to repeated wear. Decorate with embroidery or screen printing for lasting visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom heavyweight dresses in fleece and sweater knits for corporate branding and team uniforms",
+  "productSkus": [
+    "515996",
+    "527957"
+  ],
+  "generatedAt": "2026-05-31T09:43:24.311232+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

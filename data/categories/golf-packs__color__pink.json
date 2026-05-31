@@ -1,0 +1,31 @@
+{
+  "url": "/cat/golf-packs/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Golf Packs for Women's Events",
+  "metaTitle": "Custom Pink Golf Packs | Perfect Imprints",
+  "metaDescription": "Order custom pink golf packs for your next tournament or corporate event. Perfect for women's golf outings. Get a quote today!",
+  "introHtml": "<p>Pink golf packs add a vibrant, gender-specific touch to your corporate golf events or charity tournaments. Whether you're outfitting a women's league or promoting breast cancer awareness, these sets combine apparel and accessories like gloves, polos, and tees in coordinated pink hues. With screen printing or embroidery, your logo stands out against the bright color, making each pack a memorable giveaway that players will actually use on the course.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink golf packs with branded pink glove, polo shirt, and tees arranged on green grass",
+  "productSkus": [
+    "510303",
+    "511117",
+    "517777",
+    "519574",
+    "519683",
+    "522780",
+    "523540",
+    "524126",
+    "528009",
+    "528068",
+    "529204"
+  ],
+  "generatedAt": "2026-05-31T09:48:43.011108+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

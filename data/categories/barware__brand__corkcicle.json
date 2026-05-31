@@ -1,0 +1,29 @@
+{
+  "url": "/cat/barware/brand/corkcicle",
+  "type": "facet",
+  "h1": "Custom Corkcicle Barware for Bulk Orders",
+  "metaTitle": "Custom Corkcicle Barware | Perfect Imprints",
+  "metaDescription": "Order custom Corkcicle barware in bulk. Perfect for gifts, events, and branding. Get your logo on premium drinkware at Perfect Imprints.",
+  "introHtml": "<p>Corkcicle barware combines award-winning triple-insulated stainless steel with sophisticated designs that keep drinks cold for hours or hot for just as long. For marketing directors planning corporate gifts or hospitality managers outfitting VIP lounges, these tumblers, stemless flutes, and whiskey wedges offer a premium canvas for laser engraving or full-color imprint. Unlike standard glassware, Corkcicle pieces maintain temperature without condensation, making them ideal for both indoor entertaining and outdoor events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Corkcicle barware including tumblers, stemless flutes, and whiskey wedges with engraved logo on stainless steel surface",
+  "productSkus": [
+    "524367",
+    "524368",
+    "525223",
+    "525225",
+    "525226",
+    "525791",
+    "526483",
+    "528115",
+    "528116"
+  ],
+  "generatedAt": "2026-05-31T09:35:51.106610+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pet-collars/feature/adjustable",
+  "type": "facet",
+  "h1": "Custom Adjustable Pet Collars",
+  "metaTitle": "Custom Adjustable Pet Collars | Perfect Imprints",
+  "metaDescription": "Order custom adjustable pet collars for your team or event. Perfect for branding with logos. Shop at Perfect Imprints.",
+  "introHtml": "<p>Adjustable pet collars give you the flexibility to fit dogs of various sizes with a single product, making them ideal for bulk orders for pet stores, rescue organizations, or company giveaways. The adjustable buckle lets wearers customize the fit, while the sturdy nylon material ensures durability. Add your logo via screen printing or embroidery for a professional look that stands out on walks or at adoption events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adjustable pet collars with logo embroidery in assorted colors for dogs",
+  "productSkus": [
+    "525324"
+  ],
+  "generatedAt": "2026-05-31T09:00:05.464377+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/backpacks/activity/biking",
+  "type": "facet",
+  "h1": "Custom Biking Backpacks for Bulk Orders",
+  "metaTitle": "Custom Biking Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom biking backpacks in bulk at Perfect Imprints. Ideal for cycling events, corporate gifts, and safety gear. Get a quote today!",
+  "introHtml": "<p>Custom biking backpacks are built for active commuters and weekend riders who need hands-free storage without sacrificing mobility. Unlike standard backpacks, biking-specific designs feature ergonomic straps, ventilated back panels, and hydration compatibility. Whether you are outfitting a corporate cycling team or distributing safety kits for a community ride, these packs offer practical branding space on the front panel or straps. Decoration methods like screen printing or embroidery keep your logo visible mile after mile.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom biking backpacks with ergonomic straps and hydration sleeve for cycling commuters",
+  "productSkus": [
+    "513619",
+    "525506"
+  ],
+  "generatedAt": "2026-05-31T08:39:04.358679+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

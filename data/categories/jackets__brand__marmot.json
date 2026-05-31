@@ -1,0 +1,21 @@
+{
+  "url": "/cat/jackets/brand/marmot",
+  "type": "facet",
+  "h1": "Custom Marmot Jackets for Bulk Orders",
+  "metaTitle": "Custom Marmot Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Marmot jackets in bulk from Perfect Imprints. Perfect for corporate gifts, teams, and events. Get a quote today!",
+  "introHtml": "<p>Marmot jackets combine outdoor durability with everyday comfort, making them a preferred choice for corporate apparel programs. Whether you need lightweight shells for a sales team or insulated options for field staff, these jackets offer reliable performance in varied conditions. Decorate with your logo using embroidery or screen printing for a polished, professional look that stands up to repeated wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Marmot jackets with embroidered logos, available in bulk for corporate orders",
+  "productSkus": [
+    "528443"
+  ],
+  "generatedAt": "2026-05-31T09:51:39.192746+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

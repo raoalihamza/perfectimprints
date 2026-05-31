@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/shape/rectangle",
+  "type": "facet",
+  "h1": "Custom Rectangle Products for Bulk Orders",
+  "metaTitle": "Custom Rectangle Products | Perfect Imprints",
+  "metaDescription": "Order custom rectangle products in bulk at Perfect Imprints. Ideal for branding with your logo. Get a quote today!",
+  "introHtml": "<p>Rectangle products offer a classic, versatile shape that maximizes print area for your logo or message. From promotional notepads and mouse pads to custom coasters and magnets, the rectangular form provides a clean, professional canvas for your branding. Whether you need office giveaways or trade show handouts, rectangle-shaped items ensure your design stands out with a familiar, easy-to-display format.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom rectangle products including notepads and mouse pads with company logos in a professional setting",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:17.406804+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

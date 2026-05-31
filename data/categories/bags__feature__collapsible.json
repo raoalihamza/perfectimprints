@@ -1,0 +1,29 @@
+{
+  "url": "/cat/bags/feature/collapsible",
+  "type": "facet",
+  "h1": "Custom Collapsible Bags for Bulk Orders",
+  "metaTitle": "Custom Collapsible Bags | Perfect Imprints",
+  "metaDescription": "Order custom collapsible bags in bulk at Perfect Imprints. Ideal for trade shows, retail, and corporate gifts. Get your quote today!",
+  "introHtml": "<p>Collapsible bags fold flat for easy storage and transport, making them a practical choice for trade show giveaways, retail packaging, or employee welcome kits. Unlike rigid totes, these bags save space in your inventory and are lightweight for shipping. Options like the Foldable RPET Backpack or the Carhartt 75L Heavy Haul Duffle offer eco-friendly materials and heavy-duty construction. Decorate with screen printing or embroidery for a branded bag that recipients will keep and reuse.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom collapsible bags folding flat for storage, ideal for bulk promotional orders",
+  "productSkus": [
+    "510112",
+    "515955",
+    "521391",
+    "525850",
+    "527961",
+    "528242",
+    "529215",
+    "529216",
+    "529517"
+  ],
+  "generatedAt": "2026-05-31T09:34:22.787622+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/bags/brand/hydro-flask",
+  "type": "facet",
+  "h1": "Custom Hydro Flask Bags for Bulk Orders",
+  "metaTitle": "Custom Hydro Flask Bags | Perfect Imprints",
+  "metaDescription": "Order custom Hydro Flask bags in bulk for your team or event. Durable, insulated totes and backpacks with your logo. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Hydro Flask bags combine the brand's signature insulation technology with durable, outdoor-ready construction. Whether you need branded totes for a company picnic or insulated backpacks for a sales team on the go, these bags keep contents cold and your logo visible. Choose from the Tag Along Tote or the 20L Insulated Tote Cooler for a premium giveaway that gets used daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hydro Flask bags including insulated tote cooler and backpack with logo imprint",
+  "productSkus": [
+    "527823",
+    "527961",
+    "528688"
+  ],
+  "generatedAt": "2026-05-31T09:06:53.471646+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

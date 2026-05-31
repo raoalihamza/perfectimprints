@@ -1,0 +1,28 @@
+{
+  "url": "/cat/pencils/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Pencils for Branding and Bulk Orders",
+  "metaTitle": "Custom Brown Pencils | Perfect Imprints",
+  "metaDescription": "Order custom brown pencils in bulk from Perfect Imprints. Ideal for eco-friendly branding, schools, and businesses.",
+  "introHtml": "<p>Brown pencils offer a natural, understated look that stands out from standard yellow or black options. Whether you choose classic round pencils like the Solo Pencil Round or eco-friendly FSC® Certified Carpenter Pencils, the warm brown hue conveys reliability and a connection to nature. Ideal for schools, construction companies, or any brand emphasizing sustainability, these pencils can be imprinted with your logo via foil stamping or screen printing for a professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown pencils with logo imprint, arranged on a wooden desk with natural lighting",
+  "productSkus": [
+    "510561",
+    "511380",
+    "511451",
+    "527684",
+    "527685",
+    "527686",
+    "527690",
+    "528631"
+  ],
+  "generatedAt": "2026-05-31T10:00:07.239790+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

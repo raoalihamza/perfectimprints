@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/age/infant",
+  "type": "facet",
+  "h1": "Custom Infant Products for Bulk Orders",
+  "metaTitle": "Custom Infant Products | Perfect Imprints",
+  "metaDescription": "Order custom infant products for your next promotion. Perfect for baby showers, hospitals, and corporate gifts. Bulk pricing available.",
+  "introHtml": "<p>Custom infant products are designed specifically for the youngest members of your audience, offering safe, soft, and non-toxic materials that meet strict safety standards. Whether you are creating welcome gifts for new parents at a hospital or promotional items for a parenting event, these products like organic cotton onesies and BPA-free teethers provide a thoughtful touch. Screen printing or embroidery ensures your logo stays vibrant through repeated washes and gentle use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom infant products including a soft organic cotton onesie and a BPA-free teether with a company logo",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:45:46.034167+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

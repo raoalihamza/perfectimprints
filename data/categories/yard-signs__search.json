@@ -1,0 +1,23 @@
+{
+  "url": "/cat/yard-signs/search",
+  "type": "modifier",
+  "h1": "Custom Yard Signs for Branded Promotions",
+  "metaTitle": "Custom Yard Signs - Perfect Imprints",
+  "metaDescription": "Browse our selection of custom yard signs for your next campaign. Get durable, full-color signs that make an impact. Start your order today.",
+  "introHtml": "<p>Custom yard signs are a simple, effective way to promote your brand, event, or message. Whether you need double-sided signs for high visibility or full-color prints that pop, our selection offers durable options for any outdoor campaign. Marketing directors, HR teams, safety managers, and business owners use yard signs for everything from grand openings to community events. Explore our range of sizes and find the right sign to get your message seen.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A double-sided custom yard sign with full-color printing, mounted on a metal stand in a grassy area, showcasing promotional messaging.",
+  "productSkus": [
+    "524859",
+    "524860",
+    "524861"
+  ],
+  "generatedAt": "2026-05-31T10:16:14.222336+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

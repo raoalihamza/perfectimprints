@@ -1,0 +1,19 @@
+{
+  "url": "/cat/robes/search",
+  "type": "modifier",
+  "h1": "Custom Robes for Branded Promotions",
+  "metaTitle": "Custom Robes | Perfect Imprints",
+  "metaDescription": "Browse our selection of custom robes for branding. Perfect for spas, hotels, and events. Get a quote today!",
+  "introHtml": "<p>Custom robes offer a versatile canvas for your brand, ideal for spas, hotels, resorts, and corporate gifts. Whether you need plush bathrobes for a luxury feel or lightweight options for events, our range of customizable robes can be embroidered or screen-printed with your logo. Start exploring the possibilities to find the perfect style, color, and fabric that aligns with your brand identity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of plush custom robes in various colors, ready for branding with embroidered logos.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:36:59.411166+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

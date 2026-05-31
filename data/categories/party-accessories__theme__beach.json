@@ -1,0 +1,22 @@
+{
+  "url": "/cat/party-accessories/theme/beach",
+  "type": "facet",
+  "h1": "Custom Beach Party Accessories",
+  "metaTitle": "Custom Beach Party Accessories | Perfect Imprints",
+  "metaDescription": "Shop custom beach party accessories for your next event. Bulk pricing, fast turnaround. Perfect for corporate beach parties.",
+  "introHtml": "<p>Beach-themed parties call for accessories that capture the sunny, carefree vibe of the shore. From custom beach balls to branded flyers, these items help your event stand out. Whether you are planning a company picnic, a team-building day, or a client appreciation gathering, choosing the right decorations and giveaways makes all the difference. Options like the 16\" Confetti Filled Round Clear Beach Ball add instant fun, while practical items keep guests comfortable. Focus on colors and motifs that evoke sand, surf, and sunshine to create a cohesive look that attendees will remember.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom beach party accessories including a clear beach ball with confetti and branded flyers on a sandy beach",
+  "productSkus": [
+    "504376",
+    "523996"
+  ],
+  "generatedAt": "2026-05-31T09:59:54.069316+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

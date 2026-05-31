@@ -1,0 +1,30 @@
+{
+  "url": "/cat/usb-accessories/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom USB Accessories",
+  "metaTitle": "No-Minimum Custom USB Accessories | Perfect Imprints",
+  "metaDescription": "Order small quantities of custom USB accessories with no minimum. Perfect for startups, events, and small teams. Get branded tech today.",
+  "introHtml": "<p>No-minimum custom USB accessories let you order exactly what you need—whether it's 10 flash drives for a small team or a handful of branded power banks for an event. Unlike bulk-only suppliers, we offer flexibility for small businesses, startups, and one-off promotions. You get quality promotional tech without overcommitting inventory or budget. Browse our selection of USB drives, charging cables, and more, all available with no order minimums.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Display of no-minimum custom USB accessories including branded flash drives and charging cables arranged on a desk",
+  "productSkus": [
+    "520886",
+    "521927",
+    "523655",
+    "524817",
+    "525724",
+    "527493",
+    "527554",
+    "528171",
+    "528870",
+    "529359"
+  ],
+  "generatedAt": "2026-05-31T08:38:14.616092+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

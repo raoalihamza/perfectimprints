@@ -1,0 +1,23 @@
+{
+  "url": "/cat/mirrors/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Mirrors for Bulk Orders",
+  "metaTitle": "Custom Pink Mirrors | Perfect Imprints",
+  "metaDescription": "Order custom pink mirrors in bulk for your brand. Perfect for giveaways and events. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Pink mirrors add a soft, eye-catching touch to any promotional giveaway. Whether you choose a compact mirror or a double-sided design, pink appeals to audiences looking for a fun yet practical accessory. Decorate with your logo using pad printing or foil stamping for a polished finish that stands out at events or in retail settings.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink compact mirrors with logo imprint, ideal for promotional giveaways and events.",
+  "productSkus": [
+    "514932",
+    "522025",
+    "522395"
+  ],
+  "generatedAt": "2026-05-31T09:56:48.873522+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

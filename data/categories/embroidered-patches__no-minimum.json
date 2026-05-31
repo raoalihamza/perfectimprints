@@ -1,0 +1,22 @@
+{
+  "url": "/cat/embroidered-patches/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Embroidered Patches",
+  "metaTitle": "No-Minimum Custom Embroidered Patches | Perfect Imprints",
+  "metaDescription": "Order small quantities of custom embroidered patches with no minimums. Perfect for small teams, events, and samples. Get your quote today!",
+  "introHtml": "<p>No-minimum custom embroidered patches let you order exactly what you need, whether it's a dozen for a small team, five for a startup launch, or just one sample to test a design. Unlike traditional suppliers that require bulk runs of 50 or more, this landing page is for buyers who want low quantities without sacrificing quality. Perfect for small businesses, HR departments ordering for a few employees, or marketing directors testing new patch designs before a larger rollout. Get the same premium embroidery on smaller orders with per-unit pricing that works for your budget.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of colorful no-minimum custom embroidered patches with intricate stitching, ideal for small orders and branding.",
+  "productSkus": [
+    "522323",
+    "525854"
+  ],
+  "generatedAt": "2026-05-31T09:12:49.955115+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/backpacks/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Backpacks",
+  "metaTitle": "Custom Brown Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom brown backpacks for your team or event. Durable, stylish, and ready for your logo. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Brown backpacks offer a rugged, professional look that stands out from standard black or navy. Whether you choose the earthy canvas of the Carhartt Two-Compartment Cooler or the sleek silhouette of the Bugatti Valentino, these bags pair well with outdoor brands, construction companies, and university merch. Decorating with screen printing or embroidery on brown fabric creates a warm, natural contrast that makes your logo pop. Order in bulk for trade shows, employee gifts, or retail resale.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown backpacks featuring earth-tone canvas and leather accents with embroidered logo",
+  "productSkus": [
+    "522834",
+    "526575",
+    "527965",
+    "528713",
+    "528728",
+    "529216"
+  ],
+  "generatedAt": "2026-05-31T09:06:25.663932+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

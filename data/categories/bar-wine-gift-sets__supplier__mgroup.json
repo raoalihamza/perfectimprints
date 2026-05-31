@@ -1,0 +1,32 @@
+{
+  "url": "/cat/bar-wine-gift-sets/supplier/mgroup",
+  "type": "facet",
+  "h1": "Custom Mgroup Bar Wine Gift Sets",
+  "metaTitle": "Custom Mgroup Bar Wine Gift Sets | Perfect Imprints",
+  "metaDescription": "Browse custom Mgroup bar wine gift sets for corporate gifting. Orders ship across the US. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Mgroup bar wine gift sets combine premium drinkware with thoughtful packaging, making them a standout choice for corporate gifts, client appreciation, or employee rewards. Sets like the Speakeasy Gift Set and Napa Stemless Wine Tumbler Set offer a polished, ready-to-gift presentation that saves you assembly time. Each set can be decorated with your logo via screen printing or engraving, ensuring your brand is front and center when the recipient unwraps it.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Mgroup bar wine gift set with branded stemless wine tumblers and packaging in a corporate gift setting",
+  "productSkus": [
+    "512596",
+    "512693 64F",
+    "519672",
+    "521002",
+    "521897",
+    "522098",
+    "523898",
+    "523924",
+    "523950",
+    "525628",
+    "526748",
+    "527285"
+  ],
+  "generatedAt": "2026-05-31T08:28:05.741657+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

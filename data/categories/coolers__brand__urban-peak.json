@@ -1,0 +1,32 @@
+{
+  "url": "/cat/coolers/brand/urban-peak",
+  "type": "facet",
+  "h1": "Custom Urban Peak Coolers for Bulk Orders",
+  "metaTitle": "Custom Urban Peak Coolers | Perfect Imprints",
+  "metaDescription": "Order custom Urban Peak coolers in bulk at Perfect Imprints. Ideal for corporate gifts, events, and brand visibility. Get a quote today.",
+  "introHtml": "<p>Urban Peak coolers combine rugged outdoor durability with sleek, modern design—perfect for corporate giveaways, trade shows, and employee appreciation. Choose from waterproof hinge coolers, reserve soft-sided options, and versatile tote-cooler hybrids. Decorate with your logo via screen printing or embroidery for a premium, long-lasting impression that stands up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Urban Peak coolers with company logo, including a 24-can cooler and waterproof hinge cooler, displayed outdoors.",
+  "productSkus": [
+    "522861",
+    "523504",
+    "523898",
+    "525802",
+    "525803",
+    "525804",
+    "526862",
+    "526863",
+    "526864",
+    "526866",
+    "526867",
+    "527188"
+  ],
+  "generatedAt": "2026-05-31T09:11:13.407734+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

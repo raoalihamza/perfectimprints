@@ -1,0 +1,28 @@
+{
+  "url": "/cat/sling-backpacks/brand/coleman",
+  "type": "facet",
+  "h1": "Custom Coleman Sling Backpacks for Bulk Orders",
+  "metaTitle": "Custom Coleman Sling Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Coleman sling backpacks in bulk. Perfect for outdoor events and corporate giveaways. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Coleman sling backpacks combine the trusted durability of the Coleman brand with the convenience of a single-strap design. Ideal for outdoor trade shows, company picnics, or safety team field kits, these bags offer quick access to essentials without the bulk of a full backpack. Customize them with your logo using screen printing or embroidery for a rugged, practical giveaway that recipients will use for years.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Coleman sling backpacks with logo printed on front, available in bulk from Perfect Imprints",
+  "productSkus": [
+    "509109",
+    "517874",
+    "521930",
+    "525375",
+    "525794",
+    "525795",
+    "525796",
+    "529517"
+  ],
+  "generatedAt": "2026-05-31T10:07:09.402083+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/bbq-grilling/theme/beach",
+  "type": "facet",
+  "h1": "Custom Beach BBQ Grilling Products",
+  "metaTitle": "Custom Beach BBQ Grilling | Perfect Imprints",
+  "metaDescription": "Order custom beach BBQ grilling products for your next event. Perfect for summer giveaways and brand exposure.",
+  "introHtml": "<p>Beach-themed BBQ grilling products bring a relaxed, coastal vibe to your summer events and promotions. Whether you are planning a company beach party or a branded giveaway for a seaside resort, these items evoke sunny days and outdoor fun. The Gourmet BBQ Set and Cuisinart Petite Gourmet Portable Gas Grill are ideal for tailgating, picnics, and beachside cookouts. Customize them with your logo for a memorable impression that lasts long after the coals cool down.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom beach BBQ grilling products like a portable gas grill and BBQ set with coastal-themed decorations",
+  "productSkus": [
+    "515339 43A",
+    "525763"
+  ],
+  "generatedAt": "2026-05-31T09:36:21.558277+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

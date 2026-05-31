@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/type/mood",
+  "type": "facet",
+  "h1": "Custom Mood Products for Team Engagement",
+  "metaTitle": "Custom Mood Products | Perfect Imprints",
+  "metaDescription": "Boost morale with custom mood products from Perfect Imprints. Perfect for HR directors and team building. Shop now!",
+  "introHtml": "<p>Custom mood products help you gauge team sentiment and boost engagement in real time. From mood rings to emoji stress balls, these items spark conversations and show employees you care. Perfect for wellness programs, onboarding kits, or daily check-ins, they make workplace culture tangible and fun.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom mood products including mood rings and emoji stress balls for team engagement",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:01:05.319819+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

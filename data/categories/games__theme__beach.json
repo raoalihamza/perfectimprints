@@ -1,0 +1,22 @@
+{
+  "url": "/cat/games/theme/beach",
+  "type": "facet",
+  "h1": "Custom Beach Games for Bulk Orders",
+  "metaTitle": "Custom Beach Games | Perfect Imprints",
+  "metaDescription": "Order custom beach games for your next event. Perfect for corporate giveaways, team building, and summer promotions.",
+  "introHtml": "<p>Beach-themed games bring a sense of fun and relaxation to any corporate event or company picnic. Whether you need branded beach balls for a summer giveaway or custom flying discs for a team-building day by the shore, these items are designed to stand out in the sun. With vibrant colors and playful designs, custom beach games create memorable experiences that keep your brand top of mind long after the event ends.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom beach games including a branded clear beach ball with confetti and a flying disc on sandy shore",
+  "productSkus": [
+    "504376",
+    "523996"
+  ],
+  "generatedAt": "2026-05-31T08:29:05.372466+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

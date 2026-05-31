@@ -1,0 +1,31 @@
+{
+  "url": "/cat/wine-tumblers/feature/with-a-lid",
+  "type": "facet",
+  "h1": "Custom Wine Tumblers with Lids",
+  "metaTitle": "Custom Wine Tumblers with Lids | Perfect Imprints",
+  "metaDescription": "Order custom wine tumblers with lids in bulk for events. Perfect for branding. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Wine tumblers with lids keep drinks secure and spill-free, making them ideal for outdoor events, trade shows, or corporate picnics. The tight-sealing lid also helps maintain temperature, so white wine stays chilled longer. Choose from insulated options like the 25 oz BrüMate Winesulator or the classic 12 oz Napa Stemless Wine Tumbler. Customize with your logo using screen printing or laser engraving for a polished look that stands up to repeated use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wine tumblers with lids in bulk for branding, featuring stainless steel insulated cups with secure lids.",
+  "productSkus": [
+    "520339",
+    "521101",
+    "522060",
+    "522955",
+    "523495",
+    "523689",
+    "523950",
+    "524419",
+    "525481",
+    "526191",
+    "527802"
+  ],
+  "generatedAt": "2026-05-31T08:38:24.633206+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

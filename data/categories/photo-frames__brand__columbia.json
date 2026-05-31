@@ -1,0 +1,25 @@
+{
+  "url": "/cat/photo-frames/brand/columbia",
+  "type": "facet",
+  "h1": "Custom Columbia Photo Frames for Bulk Orders",
+  "metaTitle": "Custom Columbia Photo Frames | Perfect Imprints",
+  "metaDescription": "Order custom Columbia photo frames in bulk for your team or event. Trusted brand, quality craftsmanship. Get a quote today.",
+  "introHtml": "<p>Columbia photo frames combine the trusted durability of an outdoor icon with customizable branding for your corporate gifts or team recognition. Whether you're outfitting a sales incentive program or celebrating a company milestone, these frames offer a classic look that suits any office or home. Choose from standard or custom sizes, and add your logo via screen printing or debossing for a professional finish that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Columbia photo frames with company logo displayed on a desk, showcasing durable design and personalization options.",
+  "productSkus": [
+    "523863",
+    "523865",
+    "523866",
+    "523867",
+    "523870"
+  ],
+  "generatedAt": "2026-05-31T10:01:53.323745+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,27 @@
+{
+  "url": "/cat/shirts/brand/dri-duck",
+  "type": "facet",
+  "h1": "Custom Dri Duck Shirts for Bulk Orders",
+  "metaTitle": "Custom Dri Duck Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Dri Duck shirts in bulk for your team or event. Durable, comfortable workwear from Perfect Imprints.",
+  "introHtml": "<p>Dri Duck shirts are built for performance and durability, making them a top choice for companies that need workwear that stands up to tough conditions. Whether you are outfitting a construction crew or a warehouse team, these shirts offer moisture-wicking fabrics and rugged construction. Choose from styles like the Poly Spandex Motion Softshell Jacket or the Challenger Full-Zip Waterproof Jacket for all-weather protection. Add your logo with screen printing or embroidery for a professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of custom Dri Duck shirts with embroidered logos, featuring moisture-wicking fabric and durable construction",
+  "productSkus": [
+    "522595",
+    "527125",
+    "527126",
+    "528099",
+    "528100",
+    "528838",
+    "529182"
+  ],
+  "generatedAt": "2026-05-31T08:25:34.208264+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

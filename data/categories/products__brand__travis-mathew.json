@@ -1,0 +1,32 @@
+{
+  "url": "/cat/products/brand/travis-mathew",
+  "type": "facet",
+  "h1": "Custom Travis Mathew Products for Your Brand",
+  "metaTitle": "Custom Travis Mathew Products | Perfect Imprints",
+  "metaDescription": "Order custom Travis Mathew products for your brand. Perfect for corporate gifts, events, and employee rewards. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Travis Mathew combines premium quality with a relaxed, modern aesthetic that resonates with professionals who value style and comfort. From polos and vests to caps and duffle bags, these custom products are ideal for corporate gifting, golf outings, or employee recognition programs. Decorate with your logo using embroidery or screen printing to create a polished, cohesive brand look that stands out in any setting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Travis Mathew products including polos, caps, and bags with logo embroidery for corporate branding.",
+  "productSkus": [
+    "527672",
+    "527673",
+    "527674",
+    "527675",
+    "527676",
+    "527677",
+    "527678",
+    "527679",
+    "527680",
+    "527681",
+    "527682",
+    "527683"
+  ],
+  "generatedAt": "2026-05-31T10:03:45.119820+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

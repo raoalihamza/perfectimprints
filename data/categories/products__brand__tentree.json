@@ -1,0 +1,21 @@
+{
+  "url": "/cat/products/brand/tentree",
+  "type": "facet",
+  "h1": "Custom Tentree Products for Sustainable Branding",
+  "metaTitle": "Custom Tentree Products | Perfect Imprints",
+  "metaDescription": "Eco-friendly custom Tentree products for sustainable branding. Bulk orders available with your logo. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Tentree products are crafted from sustainable materials like organic cotton and recycled fabrics, making them a smart choice for brands committed to environmental stewardship. Whether you need custom blankets, apparel, or accessories, these items resonate with eco-conscious audiences. Each product also plants ten trees, adding a tangible green impact to your promotional campaign. Perfect for trade shows, employee gifts, or retail partnerships, Tentree products help your brand stand out for the right reasons.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Tentree products including an organic cotton juniper blanket with a company logo embroidered in the corner",
+  "productSkus": [
+    "525984"
+  ],
+  "generatedAt": "2026-05-31T08:36:45.938795+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/golf-tees/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Golf Tees for Bulk Orders",
+  "metaTitle": "Custom Cotton Golf Tees | Perfect Imprints",
+  "metaDescription": "Order custom cotton golf tees for your next event or tournament. Soft, breathable, and perfect for logo embroidery. Shop at Perfect Imprints.",
+  "introHtml": "<p>Cotton golf tees offer a soft, natural feel that players appreciate, especially during long rounds. Unlike synthetic blends, cotton breathes well and provides comfort in warm weather. These tees are ideal for corporate tournaments or charity events where you want a premium, eco-friendly impression. Decorate with embroidery or screen printing for a lasting brand presence. Choose cotton for a classic, comfortable look that stands out on the course.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cotton golf tees with embroidered logo on a green golf course",
+  "productSkus": [
+    "510644",
+    "511117",
+    "515975",
+    "522450",
+    "524126",
+    "528437"
+  ],
+  "generatedAt": "2026-05-31T08:55:01.924688+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

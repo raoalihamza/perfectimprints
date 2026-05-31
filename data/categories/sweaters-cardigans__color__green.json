@@ -1,0 +1,23 @@
+{
+  "url": "/cat/sweaters-cardigans/color/green",
+  "type": "facet",
+  "h1": "Custom Green Sweaters & Cardigans",
+  "metaTitle": "Custom Green Sweaters & Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom green sweaters and cardigans in bulk at Perfect Imprints. Soft CTA for your team or event.",
+  "introHtml": "<p>Green sweaters and cardigans offer a versatile, professional look for team uniforms, corporate gifts, or event apparel. The color green conveys growth, balance, and reliability—ideal for companies in landscaping, environmental services, or any brand embracing sustainability. Options like the Harriton® Pilbloc™ V-Neck Button Cardigan provide warmth and a polished appearance, while the Ladies' Ogio® Luuma Flex Tunic adds a modern, athletic feel. Custom embroidery or screen printing ensures your logo stands out on these comfortable, bulk-order favorites.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green sweaters and cardigans for team uniforms, featuring embroidery options in bulk orders.",
+  "productSkus": [
+    "520268",
+    "520269",
+    "526291"
+  ],
+  "generatedAt": "2026-05-31T10:09:46.614432+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/sunhats/brand/columbia",
+  "type": "facet",
+  "h1": "Custom Columbia Sunhats",
+  "metaTitle": "Custom Columbia Sunhats | Perfect Imprints",
+  "metaDescription": "Shop custom Columbia sunhats for bulk orders. Perfect for outdoor events and employee gifts. Get a quote today.",
+  "introHtml": "<p>Columbia sunhats combine trusted outdoor performance with UPF sun protection, making them a top pick for corporate giveaways at company picnics, golf outings, or trade shows. Unlike generic hats, these carry the Columbia brand’s reputation for durability and comfort, so your logo appears on gear recipients actually use. Choose from styles like the Bora Bora Booney II or PFG Long-Bill for a hat that stays put in wind and blocks harmful rays.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Columbia sunhat with embroidered logo on a table at an outdoor corporate event",
+  "productSkus": [
+    "523863",
+    "523865",
+    "523866",
+    "523867",
+    "523870"
+  ],
+  "generatedAt": "2026-05-31T10:09:31.177562+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

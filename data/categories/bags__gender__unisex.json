@@ -1,0 +1,22 @@
+{
+  "url": "/cat/bags/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Bags for Bulk Orders",
+  "metaTitle": "Custom Unisex Bags | Perfect Imprints",
+  "metaDescription": "Order custom unisex bags for your team or event. Perfect for giveaways, trade shows, and corporate gifts from Perfect Imprints.",
+  "introHtml": "<p>Unisex bags offer a versatile option for corporate giveaways and team uniforms, appealing to all genders without sacrificing style or functionality. Whether you need durable totes for a trade show or branded backpacks for employee onboarding, these bags provide a neutral design that works for everyone. Choose from cotton canvas, polyester, or nylon materials, and add your logo with screen printing or embroidery for a professional finish that suits any audience.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom unisex bags with logo, including tote bags and backpacks for corporate events",
+  "productSkus": [
+    "515733",
+    "527493"
+  ],
+  "generatedAt": "2026-05-31T09:34:27.000442+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

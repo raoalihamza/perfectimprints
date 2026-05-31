@@ -1,0 +1,24 @@
+{
+  "url": "/cat/food-gifts/material/ceramic",
+  "type": "facet",
+  "h1": "Custom Ceramic Food Gifts for Bulk Orders",
+  "metaTitle": "Custom Ceramic Food Gifts | Perfect Imprints",
+  "metaDescription": "Order custom ceramic food gifts in bulk for your team or clients. Perfect for holidays, appreciation gifts, and more from Perfect Imprints.",
+  "introHtml": "<p>Ceramic food gifts offer a warm, personal touch that plastic or paper simply cannot match. Whether you are filling a classic mug with gourmet cookies or presenting a gift set with hot cocoa mix, ceramic vessels feel substantial and keepable. They work well for employee appreciation, client gifts, or holiday giveaways where you want recipients to remember your brand long after the treats are gone. Customize with full-color imprinting for a polished, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom ceramic food gifts including mugs and gift sets with branded imprints, perfect for corporate gifting.",
+  "productSkus": [
+    "516731 01A",
+    "525780",
+    "527814",
+    "528902"
+  ],
+  "generatedAt": "2026-05-31T09:46:58.163266+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

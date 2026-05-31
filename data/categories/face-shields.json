@@ -1,0 +1,87 @@
+{
+  "url": "/cat/face-shields",
+  "type": "root",
+  "h1": "Custom Face Shields for Safety & Branding",
+  "metaTitle": "Custom Face Shields - Perfect Imprints",
+  "metaDescription": "Order custom face shields from Perfect Imprints. Protect your team and promote your brand with bulk, personalized options. Fast turnaround.",
+  "introHtml": "<p>Safety managers and HR directors need reliable protective gear that also reinforces company identity. Custom face shields offer a practical solution for workplace safety, event staffing, and public-facing roles where visible protection is essential. Whether you're outfitting a manufacturing floor or distributing shields at a community health fair, the right face shield keeps your team safe and your logo visible.</p><p>Perfect Imprints provides a range of customizable face shields in bulk quantities. Choose from clear anti-fog visors with foam forehead bands for comfort, or adjustable headband styles that fit over hard hats. Add your logo via screen printing or pad printing for a professional look. With low minimum order quantities and fast production, you can get branded face shields quickly for any safety program or corporate giveaway.</p>",
+  "buyingGuideHtml": "<h3>What to Look for in Custom Face Shields</h3><p>When ordering custom face shields, focus on optical clarity, anti-fog properties, and secure fit. Look for shields made from PET or polycarbonate materials that resist scratching and provide clear vision. Foam forehead bands improve comfort during extended wear, while adjustable headbands ensure a snug fit for different head sizes. Anti-fog coatings are essential for environments with temperature changes, such as moving between indoors and outdoors.</p><h3>Materials and Build Quality</h3><p>Most promotional face shields use clear PET plastic for its lightweight and shatter-resistant properties. Polycarbonate offers higher impact resistance for industrial use. The forehead band should be soft foam or padded vinyl to prevent pressure points. Headbands with ratchet adjustments allow for easy sizing. Avoid shields with thin, flimsy visors that distort vision or crack easily. Request samples to verify material quality before placing a bulk order.</p><h3>Common Use Cases for Branded Face Shields</h3><p>Safety managers use custom face shields for construction sites, labs, and manufacturing floors where splash or particle protection is needed. HR directors distribute them for employee health initiatives or during flu season. Marketing teams hand them out at trade shows, community events, and school supply drives. They also work well for customer-facing staff in retail, hospitality, and healthcare settings. Personalized face shields with a logo reinforce brand presence while showing care for safety.</p><h3>Decoration and Customization Options</h3><p>Screen printing is the most common method for adding logos to the forehead band or visor edge. Pad printing works well for small logos on plastic components. Full-color heat transfer is available for complex designs on the band. Some suppliers offer UV printing directly on the visor, but this may affect optical clarity. Keep artwork simple with bold colors and limited text for best results. Avoid fine details that may blur during production.</p><h3>Quantity Guidance and MOQ Context</h3><p>Minimum order quantities for custom face shields typically start at 50 to 100 pieces. Bulk orders of 500 or more reduce per-unit costs significantly. For large safety programs, ordering 1,000+ shields is common. Wholesale pricing applies at higher volumes, making logo face shields cost-effective for ongoing use. Plan for lead times of 10-15 business days for screen printing, plus shipping. Rushed orders may be available for an additional fee.</p><h3>Tips to Avoid Common Buying Mistakes</h3><p>One frequent mistake is ordering shields without anti-fog coating for humid environments. Always confirm the coating type with your supplier. Another pitfall is choosing a visor thickness that is too thin for the intended use — 0.5mm PET is standard for general use, while 1mm polycarbonate suits heavy-duty applications. Ensure headband sizes accommodate all users, including those wearing hard hats. Finally, verify that decoration placement does not interfere with the shield's function or clarity.</p>",
+  "buyingGuideH2": "Custom Face Shields Buying Guide",
+  "faqs": [
+    {
+      "q": "What are the minimum order quantities for custom face shields?",
+      "a": "Minimum order quantities typically start at 50 to 100 pieces, depending on the decoration method. Screen printing may have a higher minimum than pad printing. Contact us for exact MOQs for your chosen style."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, we recommend ordering a sample to verify fit, clarity, and decoration quality. Samples are usually available for a small fee, which may be credited toward your bulk order."
+    },
+    {
+      "q": "What decoration methods are available for face shields?",
+      "a": "Common methods include screen printing on the forehead band and pad printing on plastic components. Full-color heat transfer is also available for detailed logos on the band. Direct visor printing is possible but may affect clarity."
+    },
+    {
+      "q": "How long does production take for custom face shields?",
+      "a": "Standard production takes 10-15 business days after artwork approval. Rushed orders can be completed in 5-7 business days for an additional fee. Shipping time depends on your location and chosen carrier."
+    },
+    {
+      "q": "Are there anti-fog options available?",
+      "a": "Yes, many of our face shields come with anti-fog coating on the visor. This is essential for environments with temperature changes or high humidity. Please specify anti-fog when ordering to ensure it's included."
+    }
+  ],
+  "heroAltText": "Custom face shields with clear visor and foam forehead band, printed with company logo for safety and branding",
+  "productSkus": [
+    "503360",
+    "503362 85T",
+    "503396",
+    "505312",
+    "506951",
+    "507398",
+    "508257",
+    "508598",
+    "509402",
+    "510552",
+    "510646",
+    "510647",
+    "510937",
+    "512277 90A",
+    "512336 90A",
+    "512466",
+    "512747",
+    "513293 90E",
+    "513338",
+    "517019 90A",
+    "517051 90A",
+    "517052 90A",
+    "517053 90A",
+    "517502 53P",
+    "518986 90A",
+    "519213",
+    "519707",
+    "520715",
+    "521013",
+    "521967",
+    "522186",
+    "522637",
+    "522772",
+    "523485",
+    "523554",
+    "523569",
+    "523657",
+    "524435",
+    "525624",
+    "526162",
+    "526334",
+    "526335",
+    "526337",
+    "526648",
+    "529484"
+  ],
+  "generatedAt": "2026-05-30T12:00:11.798516+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "buyer",
+  "skuFilterMode": "slug-filtered",
+  "rawSkuCount": 45,
+  "filteredSkuCount": 45
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/scarves/supplier/va",
+  "type": "facet",
+  "h1": "Custom VA Scarves for Bulk Orders",
+  "metaTitle": "Custom VA Scarves | Perfect Imprints",
+  "metaDescription": "Order custom VA scarves in bulk. Perfect for corporate gifts, events, and employee recognition. Get a quote today!",
+  "introHtml": "<p>Custom VA scarves offer a practical and stylish way to keep your team warm while promoting your brand. Whether you choose fleece scarves for comfort or knit options with fringe for a classic look, these accessories are ideal for outdoor events, holiday gifts, or employee appreciation. Decorate with your logo via embroidery or full-color digital printing for a standout result.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom VA scarves featuring a two-tone knit scarf with fringe and a fleece scarf with embroidered logo",
+  "productSkus": [
+    "514088",
+    "516838",
+    "516839",
+    "516872",
+    "520012",
+    "520863"
+  ],
+  "generatedAt": "2026-05-31T10:05:43.621753+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

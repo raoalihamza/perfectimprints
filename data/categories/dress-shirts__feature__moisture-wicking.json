@@ -1,0 +1,23 @@
+{
+  "url": "/cat/dress-shirts/feature/moisture-wicking",
+  "type": "facet",
+  "h1": "Custom Moisture Wicking Dress Shirts",
+  "metaTitle": "Custom Moisture Wicking Dress Shirts | Perfect Imprints",
+  "metaDescription": "Order custom moisture wicking dress shirts for your team. Perfect for all-day comfort. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Custom moisture wicking dress shirts keep your team looking professional while staying cool and dry, even during long days on the job. Unlike standard dress shirts, these fabrics pull sweat away from the skin, preventing stains and discomfort. Ideal for sales teams, field crews, or trade show staff who need a polished appearance in active environments. Decorate with embroidery or screen printing for a crisp, lasting logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom moisture wicking dress shirts for men and women, featuring breathable fabric and embroidered logos",
+  "productSkus": [
+    "523719",
+    "527895",
+    "529249"
+  ],
+  "generatedAt": "2026-05-31T08:28:48.528828+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

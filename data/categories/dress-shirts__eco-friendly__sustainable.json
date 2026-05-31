@@ -1,0 +1,26 @@
+{
+  "url": "/cat/dress-shirts/eco-friendly/sustainable",
+  "type": "facet",
+  "h1": "Custom Sustainable Dress Shirts for Bulk Orders",
+  "metaTitle": "Custom Sustainable Dress Shirts | Perfect Imprints",
+  "metaDescription": "Shop custom sustainable dress shirts for your team. Eco-friendly fabrics, bulk pricing. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Choosing sustainable dress shirts means your company uniforms reflect a commitment to the environment without sacrificing professional style. These shirts are made from organic cotton or recycled materials, offering the same crisp look as traditional dress shirts but with a lower ecological footprint. Ideal for corporate events, trade shows, or everyday office wear, they can be embroidered or screen-printed with your logo. Perfect for marketing directors and HR managers looking to align brand image with eco-conscious values.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom sustainable dress shirts made from organic cotton, displayed on a rack with a professional office background.",
+  "productSkus": [
+    "527304",
+    "527305",
+    "529246",
+    "529247",
+    "529248",
+    "529249"
+  ],
+  "generatedAt": "2026-05-31T09:12:03.685104+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

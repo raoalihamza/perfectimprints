@@ -1,0 +1,24 @@
+{
+  "url": "/cat/home-gifts/decoration/embroidery",
+  "type": "facet",
+  "h1": "Custom Embroidery Home Gifts",
+  "metaTitle": "Custom Embroidery Home Gifts | Perfect Imprints",
+  "metaDescription": "Order custom embroidery home gifts with your logo. Perfect for corporate gifts or client appreciation. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Embroidery adds a tactile, premium feel to home gifts that screen printing or debossing can't match. From cozy hoodies and sherpa blankets to fringed throws and slipper socks, stitched logos hold up wash after wash. Choose embroidery when you want a gift that feels substantial and personal — ideal for executive client gifts or employee milestone awards.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom embroidery home gifts including a hoodie and blanket with embroidered logos",
+  "productSkus": [
+    "505528",
+    "516800",
+    "521805",
+    "525462"
+  ],
+  "generatedAt": "2026-05-31T09:51:00.148729+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

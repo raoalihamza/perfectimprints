@@ -1,0 +1,22 @@
+{
+  "url": "/cat/golf-gloves/activity/golf",
+  "type": "facet",
+  "h1": "Custom Golf Gloves for Bulk Orders",
+  "metaTitle": "Custom Golf Gloves | Perfect Imprints",
+  "metaDescription": "Order custom golf gloves for your team or event. Perfect for corporate outings and tournaments. Bulk pricing available.",
+  "introHtml": "<p>Custom golf gloves designed specifically for the course give your brand a polished presence at tournaments, corporate outings, and charity events. Unlike general-purpose gloves, golf gloves prioritize grip, breathability, and a snug fit for swing control. Choose from styles like the Men's Zero Friction Golf Glove or the Zero Friction Women's Golf Glove, both available with your logo debossed or screen-printed. Perfect for marketing directors planning client appreciation gifts or HR directors outfitting company golf teams.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom golf gloves with logo displayed on a golf course, featuring a men's and women's glove pair.",
+  "productSkus": [
+    "521335",
+    "522780"
+  ],
+  "generatedAt": "2026-05-31T09:48:40.032616+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/t-shirts/brand/carhartt",
+  "type": "facet",
+  "h1": "Custom Carhartt T Shirts for Bulk Orders",
+  "metaTitle": "Custom Carhartt T Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Carhartt t shirts in bulk from Perfect Imprints. Durable, comfortable, and perfect for your team or event. Get a quote today!",
+  "introHtml": "<p>Carhartt t shirts are built for durability and comfort, making them a top choice for workwear, team uniforms, and promotional giveaways. The Force line features moisture-wicking fabric and odor control, ideal for long days on the job. Decorate with your logo using screen printing or embroidery for a professional look that lasts. Perfect for safety managers and business owners who need rugged apparel that stands up to daily wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Carhartt t shirts in bulk with embroidered logos, available in multiple colors and sizes for team uniforms.",
+  "productSkus": [
+    "526546",
+    "529304",
+    "529305",
+    "529306"
+  ],
+  "generatedAt": "2026-05-31T10:10:09.507337+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

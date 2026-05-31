@@ -1,0 +1,21 @@
+{
+  "url": "/cat/water-bottles/feature/non-slip",
+  "type": "facet",
+  "h1": "Custom Non Slip Water Bottles",
+  "metaTitle": "Custom Non Slip Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom non slip water bottles for your team. Durable, grippy surface reduces spills. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Custom non slip water bottles offer a secure grip that standard bottles lack, making them ideal for gyms, construction sites, or outdoor events where drops and spills are common. The textured surface stays put in wet hands or on slick surfaces, while the 16 oz Corkcicle Canteen shows how a premium option can combine non slip functionality with sleek stainless steel design. Bulk orders are perfect for safety-conscious teams or active promotional giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom non slip water bottles with textured grip surface, ideal for promotional giveaways and team use",
+  "productSkus": [
+    "524367"
+  ],
+  "generatedAt": "2026-05-31T10:13:54.558513+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

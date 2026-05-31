@@ -1,0 +1,19 @@
+{
+  "url": "/cat/playing-cards/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Playing Cards",
+  "metaTitle": "No-Minimum Custom Playing Cards | Perfect Imprints",
+  "metaDescription": "Order custom playing cards with no minimums. Perfect for small teams, events, or samples. Fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Ordering promotional playing cards in small quantities used to come with high minimums or per-unit premiums that made little sense for a small team or one-off event. Our no-minimum custom playing cards remove that barrier entirely. Whether you need 12 decks for a client meeting or 50 for a trade show, you get the same customization options and quality as a bulk order. No wasted inventory, no overcommitment. Just the exact quantity you need, when you need it.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of no-minimum custom playing cards with a professional design, showcasing full-color printing and custom branding options.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:23:16.576244+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/gender/men-s",
+  "type": "facet",
+  "h1": "Custom Men's Products for Bulk Orders",
+  "metaTitle": "Custom Men's Products | Perfect Imprints",
+  "metaDescription": "Shop custom men's products for bulk orders at Perfect Imprints. Find branded apparel, drinkware, and more for your team or event.",
+  "introHtml": "<p>When ordering promotional products for a male-skewed audience, choosing items specifically designed for men ensures better fit, comfort, and style. From polo shirts and hoodies to stainless steel shakers and grooming kits, our men's products offer tailored sizing and masculine aesthetics. Decorate with embroidery or screen printing for a polished look at trade shows, employee onboarding, or client gifts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom men's products including branded polo shirts, stainless steel water bottles, and hats arranged on a table.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:36:52.470419+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

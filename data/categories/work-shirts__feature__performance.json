@@ -1,0 +1,25 @@
+{
+  "url": "/cat/work-shirts/feature/performance",
+  "type": "facet",
+  "h1": "Custom Performance Work Shirts for Your Team",
+  "metaTitle": "Custom Performance Work Shirts | Perfect Imprints",
+  "metaDescription": "Order custom performance work shirts for your team. Moisture-wicking fabric ideal for active jobs. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Performance work shirts offer moisture-wicking fabric, stretch, and breathability for teams that stay active on the job. Whether you manage warehouse staff, field crews, or sales representatives, these shirts keep employees cool and comfortable during long shifts. Choose from styles like the Men's Storm Creek Influencer Eco-Woven Shirt or the Ladies' Point Grey Blouse, both compatible with embroidery or screen printing for a professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom performance work shirts with moisture-wicking fabric for active teams, available in multiple colors and sizes.",
+  "productSkus": [
+    "526247",
+    "529246",
+    "529247",
+    "529248",
+    "529249"
+  ],
+  "generatedAt": "2026-05-31T09:31:03.551079+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

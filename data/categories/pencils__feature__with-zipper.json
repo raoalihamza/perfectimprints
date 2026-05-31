@@ -1,0 +1,19 @@
+{
+  "url": "/cat/pencils/feature/with-zipper",
+  "type": "facet",
+  "h1": "Custom Pencils with Zipper for Bulk Orders",
+  "metaTitle": "Custom Pencils with Zipper | Perfect Imprints",
+  "metaDescription": "Order custom pencils with zipper for your next event. Perfect for trade shows and corporate gifts. Bulk pricing available.",
+  "introHtml": "<p>Custom pencils with zipper combine the classic appeal of a writing instrument with the convenience of a secure closure. Perfect for conference swag bags or corporate welcome kits, these pencils keep your brand front and center while ensuring the pencil stays protected. Choose from a variety of imprint colors to match your logo and make a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pencils with zipper featuring a branded logo on the barrel, ideal for promotional giveaways.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:00:09.780821+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

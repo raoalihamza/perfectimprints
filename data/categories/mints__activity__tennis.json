@@ -1,0 +1,21 @@
+{
+  "url": "/cat/mints/activity/tennis",
+  "type": "facet",
+  "h1": "Custom Tennis Mints for Bulk Orders",
+  "metaTitle": "Custom Tennis Mints | Perfect Imprints",
+  "metaDescription": "Order custom tennis mints in bulk for your next tournament or event. Perfect for teams and sponsors. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Custom tennis mints offer a fresh way to promote your brand at tournaments, clinics, and club events. Packaged in a sneaker-shaped tin, these mints stand out in gift bags and on concession counters. The playful design appeals to players and fans alike, making them a memorable giveaway that keeps your brand top of mind long after the match ends.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom tennis mints in a sneaker-shaped tin, perfect for bulk promotional giveaways at tennis events",
+  "productSkus": [
+    "518401 01A"
+  ],
+  "generatedAt": "2026-05-31T09:56:45.964777+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

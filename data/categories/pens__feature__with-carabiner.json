@@ -1,0 +1,22 @@
+{
+  "url": "/cat/pens/feature/with-carabiner",
+  "type": "facet",
+  "h1": "Custom Pens with Carabiner for On-the-Go Branding",
+  "metaTitle": "Custom Pens with Carabiner | Perfect Imprints",
+  "metaDescription": "Shop custom pens with carabiner for easy attachment. Ideal for trade shows and field teams. Order bulk branded pens at Perfect Imprints.",
+  "introHtml": "<p>Pens with carabiner clips let your recipients attach them to lanyards, belt loops, or bags for instant access. Unlike standard pens that get lost in pockets or drawers, these stay visible and ready to use. Models like the Push Pop Pen with Carabiner offer one-click retraction, while the Eclair 4-in-1 Multi-Function Pen combines a stylus and level for utility. Perfect for safety managers issuing gear or marketing directors distributing swag at trade shows.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pens with carabiner clip attached to a lanyard, showing a promotional logo on the barrel.",
+  "productSkus": [
+    "522674",
+    "525974"
+  ],
+  "generatedAt": "2026-05-31T08:59:36.455059+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

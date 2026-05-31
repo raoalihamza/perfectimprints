@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/type/calendar",
+  "type": "facet",
+  "h1": "Custom Calendar Products for Bulk Orders",
+  "metaTitle": "Custom Calendar Products - Perfect Imprints",
+  "metaDescription": "Order custom calendar products in bulk from Perfect Imprints. Perfect for promotions, gifts, and planning. Get your quote today.",
+  "introHtml": "<p>Custom calendar products keep your brand visible all year long. Whether you need wall calendars for client gifts, desk calendars for employee workspaces, or promotional planners for trade shows, our selection offers practical marketing tools that recipients use daily. Choose from spiral-bound, stapled, or easel-back styles with full-color imprinting on premium paper stock. Add your logo, company colors, and important dates to create a functional giveaway that reinforces your message every day of the year.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom calendar products with company logos, including wall and desk calendars in various sizes for bulk orders.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:27.960284+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/jackets/decoration/heat-transfer",
+  "type": "facet",
+  "h1": "Custom Heat Transfer Jackets for Bulk Orders",
+  "metaTitle": "Custom Heat Transfer Jackets | Perfect Imprints",
+  "metaDescription": "Order custom heat transfer jackets for your team. Durable decoration on fleece and outerwear. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Heat transfer decoration allows for vibrant, full-color logos and detailed designs on jackets without the setup costs of embroidery. It works especially well on smooth polyester and fleece fabrics found in popular styles like the Eddie Bauer Dash Full-Zip and The North Face Aim jackets. For companies needing a cost-effective way to add complex artwork to outerwear for events, uniforms, or promotional giveaways, heat transfer provides a durable, soft-hand finish that holds up through repeated wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom heat transfer jackets featuring a full-color logo on a fleece jacket zipped up, showing the decoration method.",
+  "productSkus": [
+    "522094",
+    "522095",
+    "528708",
+    "528709",
+    "529190",
+    "529191"
+  ],
+  "generatedAt": "2026-05-31T08:56:07.841734+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

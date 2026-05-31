@@ -1,0 +1,30 @@
+{
+  "url": "/cat/fanny-packs/supplier/gem",
+  "type": "facet",
+  "h1": "Custom Gem Fanny Packs",
+  "metaTitle": "Custom Gem Fanny Packs | Perfect Imprints",
+  "metaDescription": "Order custom gem fanny packs for your next event. Durable, stylish, and perfect for bulk branding. Get a quote today!",
+  "introHtml": "<p>Gem fanny packs bring a bold, vibrant look to your branded gear. Whether you're outfitting a festival team or giving away practical swag at a trade show, these packs offer hands-free convenience with a pop of color. The clear and neon options are especially popular for security-friendly events and high-visibility giveaways. Decorate with screen printing or embroidery for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gem fanny packs in neon and clear styles for promotional events and bulk branding",
+  "productSkus": [
+    "514432",
+    "514433",
+    "519201",
+    "522510",
+    "522705",
+    "522803",
+    "523655",
+    "524162",
+    "524500",
+    "525724"
+  ],
+  "generatedAt": "2026-05-31T09:45:31.513227+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

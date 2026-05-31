@@ -1,0 +1,29 @@
+{
+  "url": "/cat/pens/material/enamel",
+  "type": "facet",
+  "h1": "Custom Enamel Pens for Bulk Orders",
+  "metaTitle": "Custom Enamel Pens | Perfect Imprints",
+  "metaDescription": "Order custom enamel pens for your brand. Perfect for giveaways and corporate gifts. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Enamel pens offer a smooth, glossy finish that resists chipping and fading, making them a durable choice for daily use. Whether you choose the sleek Damali Pen or the versatile T. Macy Triple Function Stylus, the enamel coating provides a vibrant canvas for your logo. Ideal for trade shows or employee gifts, these pens combine professional appearance with long-lasting quality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom enamel pens with glossy finish and vibrant logo imprint for corporate giveaways",
+  "productSkus": [
+    "506766",
+    "510543",
+    "511341",
+    "514674",
+    "514786",
+    "520542",
+    "520730",
+    "520732",
+    "527457"
+  ],
+  "generatedAt": "2026-05-31T08:59:37.639488+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

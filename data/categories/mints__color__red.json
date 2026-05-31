@@ -1,0 +1,25 @@
+{
+  "url": "/cat/mints/color/red",
+  "type": "facet",
+  "h1": "Custom Red Mints for Bulk Orders",
+  "metaTitle": "Custom Red Mints | Perfect Imprints",
+  "metaDescription": "Order custom red mints with your logo. Perfect for events, holidays, and promotions. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Red mints stand out on any countertop or giveaway table, making them a natural choice for holiday promotions, Valentine's Day campaigns, or brand events where you want a pop of color. Unlike generic white mints, red mints signal festivity and energy without needing extra packaging. Choose from peppermint or buttermint flavors in tins or bulk bags, and imprint your logo directly on the tin or wrapper for a crisp, professional look that recipients will remember.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red mints in a tin with a company logo printed on the lid, perfect for branded giveaways",
+  "productSkus": [
+    "501791",
+    "501798",
+    "503070",
+    "517992",
+    "518415 16B"
+  ],
+  "generatedAt": "2026-05-31T09:19:57.644758+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

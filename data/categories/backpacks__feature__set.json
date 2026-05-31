@@ -1,0 +1,21 @@
+{
+  "url": "/cat/backpacks/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Backpacks for Bulk Orders",
+  "metaTitle": "Custom Set Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom set backpacks in bulk for your team or event. Get a free quote from Perfect Imprints today.",
+  "introHtml": "<p>Custom set backpacks offer a cohesive promotional solution when you need to outfit a team, event staff, or conference attendees with matching gear. Unlike individual backpacks, sets ensure consistent branding across multiple pieces—often including a main pack plus accessories like a lunch bag or tote. This is ideal for corporate gift programs or employee onboarding kits where uniformity matters. Decorate with screen printing or embroidery for a polished, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set backpacks with matching accessories for bulk promotional orders",
+  "productSkus": [
+    "512446"
+  ],
+  "generatedAt": "2026-05-31T08:49:13.102036+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

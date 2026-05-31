@@ -1,0 +1,29 @@
+{
+  "url": "/cat/beanies/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Beanies for Bulk Orders",
+  "metaTitle": "Custom Blue Beanies | Perfect Imprints",
+  "metaDescription": "Order custom blue beanies in bulk for your team or event. Choose from knit, fleece, and pom-pom styles. Get a quote today.",
+  "introHtml": "<p>Blue beanies are a versatile choice for corporate gifts, trade shows, and outdoor events. Whether you need acrylic knit hats for a winter promotion or fleece-lined beanies for employee appreciation, blue offers a professional yet approachable look. Decorate with embroidery or screen printing to showcase your logo. From classic Carhartt styles to pom-pom designs, blue beanies keep your brand visible and your team warm.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue beanies with embroidered logo, including Carhartt watch cap and pom-pom knit styles",
+  "productSkus": [
+    "514093",
+    "516012",
+    "516785",
+    "516872",
+    "520012",
+    "520922",
+    "521675",
+    "524211",
+    "526537"
+  ],
+  "generatedAt": "2026-05-31T08:39:53.363846+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

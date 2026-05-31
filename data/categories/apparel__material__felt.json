@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel/material/felt",
+  "type": "facet",
+  "h1": "Custom Felt Apparel for Branded Uniforms & Promo Wear",
+  "metaTitle": "Custom Felt Apparel | Perfect Imprints",
+  "metaDescription": "Order custom felt apparel for cozy, branded uniforms. Perfect Imprints offers bulk pricing on personalized felt garments.",
+  "introHtml": "<p>Felt apparel offers a distinct texture and warmth that sets it apart from standard cotton or polyester options. Ideal for fall and winter promotions, custom felt apparel provides a soft, durable surface that accepts embroidery and screen printing with crisp results. Whether you need branded scrub joggers for a medical team or cozy pullovers for a corporate retreat, felt garments give your logo a tactile, premium feel that recipients notice and remember.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom felt apparel featuring embroidered logo on soft felt fabric for branded uniforms",
+  "productSkus": [
+    "528786"
+  ],
+  "generatedAt": "2026-05-31T09:05:30.528118+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

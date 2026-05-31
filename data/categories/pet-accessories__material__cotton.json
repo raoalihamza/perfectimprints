@@ -1,0 +1,23 @@
+{
+  "url": "/cat/pet-accessories/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Pet Accessories",
+  "metaTitle": "Custom Cotton Pet Accessories | Perfect Imprints",
+  "metaDescription": "Order custom cotton pet accessories for your brand. Perfect for pet-friendly offices and events. Bulk pricing available.",
+  "introHtml": "<p>Cotton pet accessories offer a soft, breathable, and natural option for branding. Unlike synthetic materials, cotton feels comfortable for pets and is easy to decorate with embroidery or screen printing. Custom cotton bandanas, such as our Big Bandana or Lil' Bandana, are ideal for pet-friendly workplaces, adoption events, or retail giveaways. Choose cotton for a classic, eco-friendly look that pets and owners appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cotton pet accessories like a branded cotton bandana on a dog, showcasing embroidery decoration.",
+  "productSkus": [
+    "521602",
+    "522110",
+    "522111"
+  ],
+  "generatedAt": "2026-05-31T09:22:37.042777+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

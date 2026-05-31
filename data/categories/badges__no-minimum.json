@@ -1,0 +1,19 @@
+{
+  "url": "/cat/badges/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Badges for Small Orders",
+  "metaTitle": "No-Minimum Custom Badges | Perfect Imprints",
+  "metaDescription": "Order small quantities of no-minimum custom badges at Perfect Imprints. Perfect for small teams, events, or samples. Fast turnaround.",
+  "introHtml": "<p>Not every order needs to be a bulk run. Our no-minimum custom badges are designed for buyers who need small quantities — as few as one or two badges. Whether you are a small business owner stocking up for a team of five, a marketing director ordering samples for a client pitch, or an HR manager recognizing a single employee, you get the same product quality and customization options as large orders. No forced extras, no wasted inventory.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A close-up of several no-minimum custom badges featuring a company logo and name, available in small quantities.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:49:28.963172+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

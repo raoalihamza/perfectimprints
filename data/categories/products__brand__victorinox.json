@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/victorinox",
+  "type": "facet",
+  "h1": "Custom Victorinox Products for Bulk Orders",
+  "metaTitle": "Custom Victorinox Products | Perfect Imprints",
+  "metaDescription": "Order custom Victorinox products in bulk. Perfect for corporate gifts, safety kits, and brand loyalty programs.",
+  "introHtml": "<p>Victorinox products bring a legacy of Swiss precision and durability to your promotional strategy. From iconic Swiss Army Knives to multi-tools and cutlery, these items convey quality and reliability. Whether you're outfitting safety managers with practical tools or gifting top clients, Victorinox ensures your logo appears on items that people keep for years. Choose from laser engraving or pad printing for crisp, long-lasting branding on stainless steel surfaces.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Victorinox products including Swiss Army Knives and multi-tools with engraved logos, arranged on a wooden table",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:48.776809+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

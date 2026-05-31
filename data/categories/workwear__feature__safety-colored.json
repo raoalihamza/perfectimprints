@@ -1,0 +1,30 @@
+{
+  "url": "/cat/workwear/feature/safety-colored",
+  "type": "facet",
+  "h1": "Custom Safety Colored Workwear",
+  "metaTitle": "Custom Safety Colored Workwear | Perfect Imprints",
+  "metaDescription": "Order custom safety colored workwear for high-visibility branding. Perfect for construction crews, safety managers, and bulk orders.",
+  "introHtml": "<p>Safety colored workwear ensures your team stays visible on the job while promoting your brand. From high-visibility vests to reflective hats and gloves, these items combine OSHA-compliant colors with practical features like reflective stripes and durable fabrics. Ideal for construction sites, warehouses, or outdoor events, safety colored apparel keeps workers safe and your logo front and center. Customize with screen printing or embroidery for a professional look that stands out in any environment.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom safety colored workwear including high-visibility vests and reflective gear for workplace safety and branding.",
+  "productSkus": [
+    "506903",
+    "507978",
+    "509138",
+    "509382 09R",
+    "511795 10A",
+    "514056",
+    "518658 10A",
+    "519690",
+    "521089",
+    "525214"
+  ],
+  "generatedAt": "2026-05-31T10:15:43.196747+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

@@ -1,0 +1,32 @@
+{
+  "url": "/cat/outerwear/feature/quarter-zip",
+  "type": "facet",
+  "h1": "Custom Quarter Zip Outerwear for Your Team",
+  "metaTitle": "Custom Quarter Zip Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom quarter zip outerwear for your team. Perfect for corporate events, uniforms, and giveaways. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Quarter zip outerwear offers a versatile layering option that combines the comfort of a pullover with the adjustability of a jacket. Whether you need branded fleece for a company retreat or sweater knits for a uniform program, the quarter zip design provides easy on-off and a polished look. Choose from polyester fleece, sweater knit, or nylon shells with custom embroidery or screen printing to match your logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom quarter zip outerwear with embroidered logo on fleece pullover for corporate team uniforms",
+  "productSkus": [
+    "509568",
+    "509569",
+    "511074",
+    "519612",
+    "520270",
+    "521110",
+    "521111",
+    "523169",
+    "523170",
+    "524043",
+    "525893",
+    "528443"
+  ],
+  "generatedAt": "2026-05-31T09:21:20.573302+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

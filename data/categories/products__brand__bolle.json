@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/bolle",
+  "type": "facet",
+  "h1": "Custom Bolle Products for Bulk Orders",
+  "metaTitle": "Custom Bolle Products - Perfect Imprints",
+  "metaDescription": "Order custom Bolle products in bulk. Perfect for safety glasses, sunglasses, and more. Get a quote today!",
+  "introHtml": "<p>Bolle is a trusted brand in safety eyewear, known for its durable lenses and comfortable fit. When you order custom Bolle products from Perfect Imprints, you get the reliability of a top safety brand combined with your company logo or message. Whether you need custom safety glasses for your crew or branded sunglasses for a corporate event, Bolle offers the quality and style that recipients will appreciate. Choose from a range of frame colors and lens tints to match your brand perfectly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Bolle products including branded safety glasses and sunglasses with logo imprint",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:25.214850+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

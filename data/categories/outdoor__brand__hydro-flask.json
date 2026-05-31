@@ -1,0 +1,32 @@
+{
+  "url": "/cat/outdoor/brand/hydro-flask",
+  "type": "facet",
+  "h1": "Custom Hydro Flask Outdoor Gear for Bulk Orders",
+  "metaTitle": "Custom Hydro Flask Outdoor | Perfect Imprints",
+  "metaDescription": "Order custom Hydro Flask outdoor gear in bulk. Perfect for brand giveaways, corporate gifts, and events. Get a quote today.",
+  "introHtml": "<p>Custom Hydro Flask outdoor gear combines the brand's legendary insulation with your logo, making it a premium choice for corporate gifts, team outings, and promotional events. Unlike generic stainless steel bottles, Hydro Flask's TempShield™ technology keeps drinks cold for 24 hours or hot for 12, and the wide range of styles from tumblers to coolers means you can pick the perfect fit for your audience. Whether you're outfitting a sales team or rewarding employees, these products offer lasting value and everyday visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hydro Flask outdoor products including insulated water bottles, tumblers, and coolers with logo imprint",
+  "productSkus": [
+    "526267",
+    "526268",
+    "526269",
+    "526270",
+    "526271",
+    "527823",
+    "527859",
+    "527961",
+    "528582",
+    "528583",
+    "528688",
+    "529393"
+  ],
+  "generatedAt": "2026-05-31T09:21:06.671226+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

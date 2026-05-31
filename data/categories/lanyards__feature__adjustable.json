@@ -1,0 +1,27 @@
+{
+  "url": "/cat/lanyards/feature/adjustable",
+  "type": "facet",
+  "h1": "Custom Adjustable Lanyards",
+  "metaTitle": "Custom Adjustable Lanyards | Perfect Imprints",
+  "metaDescription": "Order custom adjustable lanyards for your team or event. Perfect for IDs, keys, and phones. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Adjustable lanyards let you set the drop length to suit different users or situations—ideal for trade shows where attendees come in all sizes, or for safety managers who need a breakaway option at a specific length. Choose from polyester, cotton, or woven styles, and add your logo with screen printing, dye sublimation, or full-color imprint. The adjustable cord makes them versatile for IDs, keys, or phone holders.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adjustable lanyards with printed logos and metal clips for holding IDs and keys.",
+  "productSkus": [
+    "508245",
+    "513236",
+    "522290",
+    "527185",
+    "527268",
+    "527412",
+    "529495"
+  ],
+  "generatedAt": "2026-05-31T09:17:56.556216+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pens/activity/yoga",
+  "type": "facet",
+  "h1": "Custom Yoga Pens for Bulk Orders",
+  "metaTitle": "Custom Yoga Pens | Perfect Imprints",
+  "metaDescription": "Order custom yoga pens in bulk for your studio or event. Perfect Imprints offers branded pens with a yoga twist.",
+  "introHtml": "<p>Custom yoga pens combine the practicality of a writing instrument with the mindful spirit of yoga. They are ideal for studios, wellness retreats, or corporate wellness programs. The Yoga Stylus Pen And Phone Stand, for example, doubles as a phone holder, making it a functional giveaway for yogis who want to stay centered on and off the mat. Choose from vibrant colors and add your logo through screen printing or engraving to create a memorable branded pen.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom yoga pens with stylus and phone stand feature in assorted colors for bulk branding",
+  "productSkus": [
+    "523248"
+  ],
+  "generatedAt": "2026-05-31T10:00:18.529773+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

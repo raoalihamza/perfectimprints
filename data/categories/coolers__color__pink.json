@@ -1,0 +1,21 @@
+{
+  "url": "/cat/coolers/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Coolers for Bulk Orders",
+  "metaTitle": "Custom Pink Coolers | Perfect Imprints",
+  "metaDescription": "Order custom pink coolers in bulk at Perfect Imprints. Personalize with your logo for giveaways, events, and more.",
+  "introHtml": "<p>Pink coolers stand out at outdoor events, breast cancer awareness campaigns, and company picnics. Unlike standard neutral tones, pink adds a bold, recognizable pop of color that signals your brand's personality. Options like the Ice River Seat Cooler combine practical insulation with a vibrant finish, making them ideal for trade shows or employee appreciation gifts. Decorate with screen printing or embroidery to create a memorable promotional item your recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink coolers for bulk orders featuring a seat cooler with logo decoration",
+  "productSkus": [
+    "514187"
+  ],
+  "generatedAt": "2026-05-31T08:33:22.705175+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

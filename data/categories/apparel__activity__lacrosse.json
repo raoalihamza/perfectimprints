@@ -1,0 +1,22 @@
+{
+  "url": "/cat/apparel/activity/lacrosse",
+  "type": "facet",
+  "h1": "Custom Lacrosse Apparel for Teams & Events",
+  "metaTitle": "Custom Lacrosse Apparel | Perfect Imprints",
+  "metaDescription": "Shop custom lacrosse apparel for your team or event. Bulk pricing, fast turnaround. Order from Perfect Imprints today!",
+  "introHtml": "<p>Custom lacrosse apparel goes beyond standard team gear. From pre-game warm-ups to tournament sidelines, lacrosse-specific apparel like beanies and performance tees offers the right fit and durability for players and fans. Decoration options include screen printing and embroidery that hold up to frequent washing and active wear. Whether you need matching hats for a youth clinic or branded hoodies for a college team, lacrosse apparel built for the sport helps your group look cohesive and professional.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of athletes wearing custom lacrosse apparel including beanies and jerseys on the field",
+  "productSkus": [
+    "520922",
+    "521675"
+  ],
+  "generatedAt": "2026-05-31T08:38:39.947542+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

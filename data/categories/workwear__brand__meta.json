@@ -1,0 +1,21 @@
+{
+  "url": "/cat/workwear/brand/meta",
+  "type": "facet",
+  "h1": "Custom Meta Workwear for Branded Uniforms",
+  "metaTitle": "Custom Meta Workwear | Perfect Imprints",
+  "metaDescription": "Order custom Meta workwear for your team. Branded uniforms with your logo. Fast turnaround. Get a quote at PerfectImprints.com.",
+  "introHtml": "<p>Meta workwear offers a modern, professional look for teams that need durable uniforms with a contemporary edge. Whether you are outfitting warehouse staff or field technicians, these garments pair well with screen printing or embroidery for a crisp logo display. The dark color palette hides dirt and wear, making them a practical choice for daily use in demanding environments.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Meta workwear with embroidered logo on a dark polo shirt, suitable for team uniforms",
+  "productSkus": [
+    "525214"
+  ],
+  "generatedAt": "2026-05-31T10:15:36.764692+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/reusable-straws/feature/collapsible",
+  "type": "facet",
+  "h1": "Custom Collapsible Reusable Straws",
+  "metaTitle": "Custom Collapsible Reusable Straws | Perfect Imprints",
+  "metaDescription": "Order custom collapsible reusable straws for your brand. Portable, eco-friendly, and perfect for giveaways. Get a quote today.",
+  "introHtml": "<p>Collapsible reusable straws offer a practical solution for on-the-go use, shrinking down to fit in a pocket or bag. Ideal for trade shows, employee gifts, or eco-conscious branding, these straws combine portability with sustainability. The stainless steel construction ensures durability and easy cleaning, while custom imprinting keeps your logo visible. Choose collapsible straws for a giveaway that aligns with green initiatives and daily utility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom collapsible reusable straws in stainless steel with a carrying case, perfect for branded giveaways",
+  "productSkus": [
+    "522307"
+  ],
+  "generatedAt": "2026-05-31T08:36:57.463932+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

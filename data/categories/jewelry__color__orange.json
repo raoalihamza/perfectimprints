@@ -1,0 +1,21 @@
+{
+  "url": "/cat/jewelry/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Jewelry for Bulk Orders",
+  "metaTitle": "Custom Orange Jewelry | Perfect Imprints",
+  "metaDescription": "Order custom orange jewelry in bulk for your team or event. Perfect for safety visibility and brand awareness. Get a quote today.",
+  "introHtml": "<p>Orange jewelry stands out for safety visibility and vibrant brand promotion. From silicone bracelets to mood watches, orange accessories ensure your logo is seen in low-light environments or at outdoor events. Ideal for construction crews, running clubs, or company picnics. Decorate with pad printing or laser engraving for a durable finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange jewelry featuring a mood watch bracelet with a vibrant orange band and subtle branding",
+  "productSkus": [
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T09:52:06.920471+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

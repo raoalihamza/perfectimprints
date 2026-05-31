@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/color/gold",
+  "type": "facet",
+  "h1": "Custom Gold Products for Branded Merchandise",
+  "metaTitle": "Custom Gold Products | Perfect Imprints",
+  "metaDescription": "Order custom gold products for your brand. Perfect Imprints offers gold promotional items with foil stamping, engraving, and more.",
+  "introHtml": "<p>Gold products bring a sense of prestige and sophistication to corporate gifts, employee awards, and event giveaways. Whether you choose gold-plated pens, metallic tumblers, or foil-stamped notebooks, the warm luster of gold commands attention and conveys quality. For safety managers rewarding milestone achievements or marketing directors launching a premium client campaign, gold merchandise elevates your brand without overwhelming your budget. Pair with debossing or engraving for a timeless finish that recipients keep and use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gold products including a gold pen, gold tumbler, and gold notebook with foil stamping on a desk.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:36:49.030765+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

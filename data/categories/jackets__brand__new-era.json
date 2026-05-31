@@ -1,0 +1,21 @@
+{
+  "url": "/cat/jackets/brand/new-era",
+  "type": "facet",
+  "h1": "Custom New Era Jackets for Bulk Orders",
+  "metaTitle": "Custom New Era Jackets | Perfect Imprints",
+  "metaDescription": "Order custom New Era jackets in bulk at Perfect Imprints. Perfect for teams, events, and corporate branding.",
+  "introHtml": "<p>New Era jackets combine the brand's iconic sports heritage with modern design, making them a popular choice for corporate teams, event staff, and promotional giveaways. The Cage Short Sleeve 1/4-Zip Jacket offers a lightweight, athletic fit that works well for outdoor events or uniformed staff. Choose from multiple colorways and add your logo via screen printing or embroidery for a polished, professional look that stands out from generic outerwear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom New Era jackets with embroidered logo on the chest, available in bulk for corporate branding.",
+  "productSkus": [
+    "529309"
+  ],
+  "generatedAt": "2026-05-31T09:51:39.937953+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

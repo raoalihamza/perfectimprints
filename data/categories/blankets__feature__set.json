@@ -1,0 +1,23 @@
+{
+  "url": "/cat/blankets/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Blankets for Bulk Orders",
+  "metaTitle": "Custom Set Blankets | Perfect Imprints",
+  "metaDescription": "Order custom set blankets in bulk for corporate gifts, events, or employee rewards. Browse sets with blankets and accessories at Perfect Imprints.",
+  "introHtml": "<p>Ordering custom set blankets means you get more than just a blanket—each set pairs a quality throw with complementary items like coffee kits, fuzzy socks, or sleep masks. These bundled products are ideal for corporate gift-giving, employee appreciation, or promotional events where you want a cohesive, memorable package. Choose from curated sets that combine comfort and practicality, all customizable with your logo or message.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set blankets with a cozy throw, coffee mug, and socks arranged on a wooden table",
+  "productSkus": [
+    "526239",
+    "526899",
+    "529107"
+  ],
+  "generatedAt": "2026-05-31T09:08:49.601435+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

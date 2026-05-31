@@ -1,0 +1,21 @@
+{
+  "url": "/cat/shirts/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Shirts for Your Team",
+  "metaTitle": "Custom Brown Shirts | Perfect Imprints",
+  "metaDescription": "Order custom brown shirts for your team or event. Bulk pricing and fast turnaround at PerfectImprints.com.",
+  "introHtml": "<p>Brown shirts offer a grounded, professional look that stands out from standard black or navy options. Whether you're outfitting a warehouse crew or a field service team, brown tones complement earth-tone logos and provide excellent contrast for screen-printed designs. The Women's Preston Long Sleeve Shirt is a popular choice for its durable fabric and comfortable fit. Customize with your company name or safety slogan for a cohesive brand image.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom brown shirts with printed logos at a company event",
+  "productSkus": [
+    "517274"
+  ],
+  "generatedAt": "2026-05-31T08:25:35.213687+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

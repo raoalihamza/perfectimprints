@@ -1,0 +1,21 @@
+{
+  "url": "/cat/compasses/feature/with-zipper",
+  "type": "facet",
+  "h1": "Custom Compasses with Zipper for Bulk Orders",
+  "metaTitle": "Custom Compasses with Zipper | Perfect Imprints",
+  "metaDescription": "Order custom compasses with zipper for your next promotion. Perfect for outdoor events and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Custom compasses with zipper combine navigation functionality with secure storage. The zippered closure keeps the compass protected during transport, making them ideal for outdoor corporate events, hiking giveaways, or safety kits. Choose from various colors and imprint areas to showcase your logo. These compasses offer practical value that recipients will use again and again.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom compasses with zipper featuring a secure zippered closure and company logo imprint",
+  "productSkus": [
+    "521250"
+  ],
+  "generatedAt": "2026-05-31T09:41:33.228003+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

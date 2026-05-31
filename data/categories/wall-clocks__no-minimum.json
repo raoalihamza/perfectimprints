@@ -1,0 +1,33 @@
+{
+  "url": "/cat/wall-clocks/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Wall Clocks",
+  "metaTitle": "No-Minimum Custom Wall Clocks | Perfect Imprints",
+  "metaDescription": "Order small quantities of custom wall clocks with no minimum. Perfect for small businesses. Shop no-minimum custom wall clocks at Perfect Imprints.",
+  "introHtml": "<p>No-minimum custom wall clocks let you order as few as one or a handful of branded timepieces without the bulk requirements typical of promotional products. Whether you need a single clock for a reception desk, a few for a small team, or samples to evaluate before a larger order, these low-MOQ options give you flexibility. Choose from styles like the Oslo Clock or Titan Clock, each imprintable with your logo. Perfect for small businesses, startups, or one-off events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A group of no-minimum custom wall clocks featuring the Oslo and Titan models with company logos imprinted on the faces.",
+  "productSkus": [
+    "512640 64F",
+    "514585 43A",
+    "514834 01A",
+    "515134 90E",
+    "520887",
+    "527550",
+    "528133",
+    "528216",
+    "528765",
+    "528766",
+    "528774",
+    "528775",
+    "528776"
+  ],
+  "generatedAt": "2026-05-31T10:13:40.499977+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

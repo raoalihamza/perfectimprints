@@ -1,0 +1,71 @@
+{
+  "url": "/cat/fans",
+  "type": "root",
+  "h1": "Custom Fans for Events, Giveaways & Promotions",
+  "metaTitle": "Custom Fans | Perfect Imprints",
+  "metaDescription": "Order custom fans for your next event. Perfect for outdoor giveaways, trade shows, and corporate promotions. Fast turnaround. Shop now.",
+  "introHtml": "<p>With summer heat and outdoor event season approaching, custom fans are a practical giveaway that keeps your brand in hand. Whether you're a marketing director planning a state fair activation, an HR manager organizing a company picnic, or a safety manager providing cooling relief at a construction site, a well-designed fan offers immediate utility. From classic hand fans to spinning novelty styles, these promotional items are lightweight, easy to distribute, and highly visible in crowds.</p><p>Perfect Imprints stocks a wide range of fan styles to match any budget or campaign goal. Stock shape hand fans and round paper fans deliver a low-cost, high-volume option for large giveaways. For a more memorable impression, consider the Vortex Spinning Fan or the E-Z Breezy Mini Travel Fan, which add motion and fun. All fans can be customized with your logo using screen printing or full-color heat transfer, ensuring crisp branding on both sides.</p>",
+  "buyingGuideHtml": "<p>When ordering custom fans, the first decision is style. Flat hand fans (like the 7\" Flyer or Circle Hand Fan) are economical and easy to print on, making them ideal for bulk giveaways. Spinning or novelty fans (like the Vortex Spinning Fan) attract more attention but may have higher unit costs. Consider your audience: corporate events may favor a clean, classic shape, while a summer festival crowd might enjoy an emoji or thumbs-up design.</p><h3>Materials & Build Quality</h3><p>Most promotional fans are made from sturdy paper or cardstock, with a plastic or wooden handle. Look for fans with reinforced handles to prevent bending during use. For outdoor events, opt for fans with a coating that resists moisture. The E-Z Breezy Mini Travel Fan includes a battery-operated motor, so check battery life and replacement options. Always request a sample to verify durability before placing a large order.</p><h3>Use Cases & Personas</h3><p>Marketing directors use branded fans at trade shows, parades, and outdoor product launches to keep attendees cool while building brand recall. HR directors order fans for employee appreciation days, summer picnics, or wellness fairs. Safety managers distribute fans at construction sites or outdoor work areas as a low-cost heat stress mitigation tool. Business owners give them as customer thank-yous or store opening giveaways.</p><h3>Decoration & Customization</h3><p>Screen printing works well for simple logos with few colors on flat fans. Full-color heat transfer or digital print is better for photographic images or gradients. For spinning fans, decoration is usually limited to the front face, so plan your design accordingly. Some fans allow printing on both sides, doubling your exposure. Personalized fans with individual names or dates are possible for special events like weddings or anniversaries.</p><h3>Quantity & MOQ Guidance</h3><p>Bulk fan orders typically start at 250 to 500 pieces for stock shapes, with lower per-unit costs at higher quantities. Wholesale pricing improves significantly above 1,000 units. For novelty or spinning fans, MOQs may be higher (500–1,000). If your budget is tight, consider a smaller run of a simpler fan style. Plan for 4–6 weeks lead time for custom orders, though rush service may be available.</p><h3>Avoiding Common Mistakes</h3><p>One common mistake is choosing a fan that is too small for effective branding. A 7\" fan offers limited space, while a 9\" value flyer gives more room for your logo and message. Another pitfall is neglecting handle quality – a flimsy handle breaks quickly, negating your investment. Finally, verify that your artwork is correctly sized for the fan shape; round and hourglass fans require different design layouts than square ones.</p>",
+  "buyingGuideH2": "Custom Fans Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom fans?",
+      "a": "Minimum order quantities vary by style. Stock shape hand fans typically have an MOQ of 250 pieces, while novelty or spinning fans may require 500 or more. Contact us for specific MOQs on your chosen fan style."
+    },
+    {
+      "q": "Can I print on both sides of a custom fan?",
+      "a": "Yes, many flat hand fans allow double-sided printing. This is a great way to feature your logo on one side and a message or schedule on the other. Spinning fans usually only print on the front face."
+    },
+    {
+      "q": "What decoration methods are available for fans?",
+      "a": "We offer screen printing for simple, one- or two-color designs and full-color heat transfer for detailed artwork or photographs. The best method depends on your design complexity and budget."
+    },
+    {
+      "q": "How long does production take for custom fans?",
+      "a": "Standard production takes 4 to 6 weeks from artwork approval. Rush orders may be available for an additional fee. We recommend ordering at least 8 weeks before your event to allow for shipping."
+    },
+    {
+      "q": "Are samples available before placing a bulk order?",
+      "a": "Yes, we can provide a sample of the blank fan style you are considering. For a small fee, we can also produce a printed sample to verify color and placement before full production."
+    }
+  ],
+  "heroAltText": "Custom printed hand fans with company logo for outdoor events and giveaways",
+  "productSkus": [
+    "507687",
+    "510729",
+    "510731",
+    "510732",
+    "511520 90A",
+    "512550",
+    "513209",
+    "516646 90A",
+    "516647 90A",
+    "516649 90A",
+    "516662 90A",
+    "517241",
+    "517555 97H",
+    "517556 97H",
+    "517585 90A",
+    "517640 90A",
+    "517652 90A",
+    "518166",
+    "521058",
+    "521642",
+    "523471",
+    "523727",
+    "527151",
+    "528197",
+    "528330",
+    "528632",
+    "528896",
+    "529031",
+    "529058"
+  ],
+  "generatedAt": "2026-05-30T11:21:16.278783+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "seasonal",
+  "skuFilterMode": "full",
+  "rawSkuCount": 29,
+  "filteredSkuCount": 29
+}

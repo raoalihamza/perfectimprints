@@ -1,0 +1,27 @@
+{
+  "url": "/cat/apparel/sleeve-length/sleeveless",
+  "type": "facet",
+  "h1": "Custom Sleeveless Apparel for Bulk Orders",
+  "metaTitle": "Custom Sleeveless Apparel | Perfect Imprints",
+  "metaDescription": "Order custom sleeveless apparel for your team or event. Perfect for warm weather and active use. Bulk pricing available.",
+  "introHtml": "<p>Sleeveless apparel offers a practical choice for warm-weather events, outdoor teams, and active work environments. Unlike short-sleeve or long-sleeve styles, sleeveless tops provide maximum airflow and freedom of movement, making them ideal for charity runs, summer picnics, or warehouse staff. Choose from popular blanks like Bella + Canvas jersey tanks or Sport-Tek sleeveless tees, and add your logo with screen printing or embroidery. Bulk orders ensure consistent branding across your entire group.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom sleeveless apparel with printed logos, perfect for summer events and teams.",
+  "productSkus": [
+    "505073",
+    "506864",
+    "528871",
+    "528872",
+    "528878",
+    "528883",
+    "528884"
+  ],
+  "generatedAt": "2026-05-31T09:05:32.446389+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

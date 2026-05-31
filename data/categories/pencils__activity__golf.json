@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pencils/activity/golf",
+  "type": "facet",
+  "h1": "Custom Golf Pencils for Bulk Orders",
+  "metaTitle": "Custom Golf Pencils | Perfect Imprints",
+  "metaDescription": "Order custom golf pencils for your course or event. Perfect for scorecards and giveaways. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Custom golf pencils are a practical giveaway for golf tournaments, corporate outings, and country clubs. These short, round pencils fit neatly into scorecards and are easy to brand with your logo or event name via one-color imprinting. Choose from classic #2 graphite or vibrant colored leads to match your brand. Order in bulk for your next event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom golf pencils with imprinted logos, perfect for scorecards and tournament giveaways.",
+  "productSkus": [
+    "501981"
+  ],
+  "generatedAt": "2026-05-31T08:59:25.089811+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

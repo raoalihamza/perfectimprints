@@ -1,0 +1,25 @@
+{
+  "url": "/cat/coffee-mugs/brand/columbia",
+  "type": "facet",
+  "h1": "Custom Columbia Coffee Mugs for Bulk Orders",
+  "metaTitle": "Custom Columbia Coffee Mugs | Perfect Imprints",
+  "metaDescription": "Order custom Columbia coffee mugs in bulk. Perfect for branded giveaways. Get a quote today.",
+  "introHtml": "<p>Columbia coffee mugs combine reliable outdoor brand recognition with everyday drinkware utility. Perfect for corporate swag bags, trade show giveaways, or employee appreciation gifts, these mugs keep beverages hot while showcasing your logo. Choose from ceramic or insulated stainless steel options, with full-color imprinting available. Durable and dishwasher safe, they offer lasting brand visibility for your next campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Columbia coffee mugs featuring a branded ceramic mug with the Columbia logo and a handle.",
+  "productSkus": [
+    "523863",
+    "523865",
+    "523866",
+    "523867",
+    "523870"
+  ],
+  "generatedAt": "2026-05-31T08:33:17.475439+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

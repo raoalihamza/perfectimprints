@@ -1,0 +1,33 @@
+{
+  "url": "/cat/bar-wine/brand/miir",
+  "type": "facet",
+  "h1": "Custom MiiR Bar Wine for Bulk Orders",
+  "metaTitle": "Custom MiiR Bar Wine | Perfect Imprints",
+  "metaDescription": "Order custom MiiR bar wine with your logo. Perfect for events and gifts. Get a quote today.",
+  "introHtml": "<p>MiiR bar wine products combine award-winning design with vacuum-insulated stainless steel to keep beverages at the perfect temperature. Whether you need custom 10 oz wine tumblers for a tasting event or 16 oz camp cups for a corporate retreat, MiiR's durable construction and modern aesthetic make them a premium choice for branded drinkware. Each piece is built to last and pairs well with laser engraving or screen printing for a polished logo presentation.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom MiiR bar wine tumblers and cups with engraved logos on a table",
+  "productSkus": [
+    "523728",
+    "523729",
+    "523730",
+    "523761",
+    "525478",
+    "525481",
+    "525612",
+    "526419",
+    "526482",
+    "527194",
+    "527204",
+    "527938",
+    "527939"
+  ],
+  "generatedAt": "2026-05-31T09:07:36.300250+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/gift-sets-bundles/material/fleece",
+  "type": "facet",
+  "h1": "Custom Fleece Gift Sets & Bundles",
+  "metaTitle": "Custom Fleece Gift Sets | Perfect Imprints",
+  "metaDescription": "Order custom fleece gift sets and bundles for corporate gifting. Soft, cozy, and perfect for employee appreciation or client gifts.",
+  "introHtml": "<p>Fleece gift sets and bundles offer a warm, tactile experience that standard promotional gifts can't match. Whether you're rewarding employees with a Foxhill Throw™ and matching accessories or assembling safety-incentive kits with a Heathered Fleece Blanket, the softness and durability of fleece make every recipient feel valued. These sets are ideal for winter campaigns, holiday gifting, or year-round appreciation programs where comfort counts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom fleece gift sets and bundles with soft blankets and accessories for corporate gifting",
+  "productSkus": [
+    "521873",
+    "522004",
+    "523955",
+    "527646"
+  ],
+  "generatedAt": "2026-05-31T09:47:58.902388+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

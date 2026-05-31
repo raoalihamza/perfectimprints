@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/cannabis",
+  "type": "facet",
+  "h1": "Custom Cannabis Products for Bulk Orders",
+  "metaTitle": "Custom Cannabis Products | Perfect Imprints",
+  "metaDescription": "Order custom cannabis products in bulk. Perfect for dispensaries and brands. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Custom cannabis products let dispensaries and brands promote their business with items that resonate with their audience. From branded lighters and rolling trays to custom grinders and storage containers, these products are designed for everyday use. Choose from materials like metal, glass, or silicone, and add your logo through screen printing or engraving. Bulk orders ensure consistent branding across your marketing efforts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cannabis products including branded lighters, grinders, and rolling trays for dispensaries",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:22.972249+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/special-feature/best-sellers",
+  "type": "facet",
+  "h1": "Custom Best Sellers Products for Your Brand",
+  "metaTitle": "Custom Best Sellers Products | Perfect Imprints",
+  "metaDescription": "Shop custom best sellers products at Perfect Imprints. Bulk pricing on top-rated promo items. Get a quote today!",
+  "introHtml": "<p>Choosing from our best sellers means you're picking promotional products that have proven their appeal across industries. These top-rated items combine high demand with reliable quality, making them a safe bet for trade shows, employee rewards, or client gifts. From stainless steel drinkware to custom tote bags, each product has earned its spot through consistent performance and positive feedback. Skip the guesswork and start with what works.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom best sellers products including drinkware, bags, and tech accessories",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:04:11.753501+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

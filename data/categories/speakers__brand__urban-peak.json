@@ -1,0 +1,21 @@
+{
+  "url": "/cat/speakers/brand/urban-peak",
+  "type": "facet",
+  "h1": "Custom Urban Peak Speakers for Bulk Orders",
+  "metaTitle": "Custom Urban Peak Speakers | Perfect Imprints",
+  "metaDescription": "Order custom Urban Peak speakers for your brand. Perfect for events, giveaways, and corporate gifts. Shop now at PerfectImprints.com.",
+  "introHtml": "<p>Urban Peak speakers combine rugged portability with clear audio, making them a smart choice for outdoor events, trade shows, and employee gifts. Their compact designs and durable builds ensure your logo travels well. Decorate with screen printing or laser engraving for a crisp, long-lasting brand impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Urban Peak speaker with engraved logo, portable Bluetooth speaker for outdoor events",
+  "productSkus": [
+    "527497"
+  ],
+  "generatedAt": "2026-05-31T10:07:29.291358+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

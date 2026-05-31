@@ -1,0 +1,19 @@
+{
+  "url": "/cat/suits/search",
+  "type": "modifier",
+  "h1": "Custom Suits for Branded Promotions",
+  "metaTitle": "Custom Suits | Perfect Imprints",
+  "metaDescription": "Browse our selection of custom suits for your next event. Perfect for promotions and corporate wear. Start your order today.",
+  "introHtml": "<p>Looking for custom suits to elevate your brand? Our collection offers a wide range of options suitable for corporate events, trade shows, and uniform programs. Whether you need tailored blazers or full suits, we provide quality apparel that makes a lasting impression. Explore our inventory and find the perfect fit for your promotional needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A rack of custom suits in various colors and sizes for branded promotions and corporate events.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:02:55.856426+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

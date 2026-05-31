@@ -1,0 +1,29 @@
+{
+  "url": "/cat/carabiners/search",
+  "type": "modifier",
+  "h1": "Custom Carabiners for Branded Promotions",
+  "metaTitle": "Custom Carabiners | Perfect Imprints",
+  "metaDescription": "Browse our selection of custom carabiners for your next promotion. Find durable, branded options at Perfect Imprints.",
+  "introHtml": "<p>Whether you need a practical giveaway for a trade show or a useful gift for employees, custom carabiners offer a versatile solution. From keyring carabiners to multi-tool designs, our selection covers a range of styles and budgets. Explore our inventory to find the right carabiner for your next branded promotion.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom carabiners with keyrings and clips, featuring company logos for promotional giveaways.",
+  "productSkus": [
+    "501590",
+    "508958",
+    "510855",
+    "513263",
+    "515706 01A",
+    "517505",
+    "519904",
+    "520411",
+    "520857"
+  ],
+  "generatedAt": "2026-05-31T09:10:13.594864+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/beanies/brand/rabbit-skins",
+  "type": "facet",
+  "h1": "Custom Rabbit Skins Beanies for Bulk Orders",
+  "metaTitle": "Custom Rabbit Skins Beanies | Perfect Imprints",
+  "metaDescription": "Order custom Rabbit Skins beanies in bulk. Perfect for company swag, events, and team uniforms. Get a quote today!",
+  "introHtml": "<p>Rabbit Skins beanies offer a soft, comfortable fit with a consistent shape that holds up to screen printing or embroidery. When you need a reliable blank for your company logo or event giveaway, these beanies provide a smooth surface for crisp decoration. Choose from a variety of colors to match your brand palette, and order in bulk to keep per-unit costs low. Marketing directors and HR teams appreciate the unisex sizing and durable construction that makes these beanies a year-round favorite.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Rabbit Skins beanies in assorted colors with embroidered logos, perfect for corporate giveaways",
+  "productSkus": [
+    "529077"
+  ],
+  "generatedAt": "2026-05-31T09:36:33.871443+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

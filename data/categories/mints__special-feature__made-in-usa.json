@@ -1,0 +1,31 @@
+{
+  "url": "/cat/mints/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Mints for Bulk Orders",
+  "metaTitle": "Custom Made in USA Mints | Perfect Imprints",
+  "metaDescription": "Order custom made in USA mints for your business. Perfect for corporate gifts and events. Soft peppermints, buttermints, and more. Get a quote today!",
+  "introHtml": "<p>Choosing custom made in USA mints ensures your promotional gift supports American manufacturing while delivering a classic, refreshing treat. Whether you opt for soft peppermints or creamy buttermints, these mints are ideal for corporate events, client appreciation, or employee recognition. Decorate them with your logo using custom wrappers or tins for a polished, professional look that recipients will remember.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom made in USA mints in custom wrappers and tins with company logos",
+  "productSkus": [
+    "501791",
+    "501798",
+    "506293 90A",
+    "507533",
+    "507534",
+    "509358",
+    "512214 90A",
+    "512215 90A",
+    "519340 90A",
+    "519431",
+    "519971"
+  ],
+  "generatedAt": "2026-05-31T09:56:48.137499+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

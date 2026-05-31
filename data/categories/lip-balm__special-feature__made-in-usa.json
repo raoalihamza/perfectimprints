@@ -1,0 +1,32 @@
+{
+  "url": "/cat/lip-balm/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Lip Balm",
+  "metaTitle": "Custom Made in USA Lip Balm | Perfect Imprints",
+  "metaDescription": "Order custom made in USA lip balm for your brand. Perfect for corporate gifts and promotions. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Choosing custom made in USA lip balm means supporting American manufacturing while giving your clients and employees a high-quality product they'll actually use. These balms are crafted with domestically sourced ingredients like beeswax and organic oils, ensuring a smooth, moisturizing feel without the greasy residue. Whether you're ordering for a safety giveaway or a corporate welcome kit, options like the 4 Pack Beeswax Lip Balm or SPF 15 Lip Balm in White Tube offer practical sun protection and lasting hydration. Decorating with your logo is straightforward via pad printing or foil stamping, and the compact size makes them easy to distribute at trade shows or pack into swag bags.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA lip balm with a company logo printed on a white tube, displayed on a wooden background.",
+  "productSkus": [
+    "502594",
+    "505503",
+    "505826 90A",
+    "506825 90A",
+    "508584",
+    "509402",
+    "513294 01A",
+    "519745",
+    "520997",
+    "521609",
+    "521806",
+    "527790"
+  ],
+  "generatedAt": "2026-05-31T09:18:26.480303+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

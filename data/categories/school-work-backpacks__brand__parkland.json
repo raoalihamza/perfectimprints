@@ -1,0 +1,23 @@
+{
+  "url": "/cat/school-work-backpacks/brand/parkland",
+  "type": "facet",
+  "h1": "Custom Parkland School Work Backpacks",
+  "metaTitle": "Custom Parkland Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Parkland school work backpacks for your team. Durable, professional designs with your logo. Bulk pricing available.",
+  "introHtml": "<p>Parkland backpacks combine durable construction with professional styling, making them a top choice for corporate giveaways, school staff, and tradeshow attendees. Models like the Graphite Deluxe and Elleven Lunar feature padded laptop compartments and ergonomic straps, ideal for daily commutes or campus use. Customize with embroidery or screen printing to showcase your brand on a bag that gets carried everywhere.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Parkland school work backpacks with logo embroidery, featuring the Graphite Deluxe 15 Computer Backpack",
+  "productSkus": [
+    "519540",
+    "519541",
+    "519879"
+  ],
+  "generatedAt": "2026-05-31T08:30:48.912596+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

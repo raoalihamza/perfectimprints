@@ -1,0 +1,25 @@
+{
+  "url": "/cat/apparel-accessories/brand/all-sport",
+  "type": "facet",
+  "h1": "Custom All Sport Apparel Accessories for Bulk Orders",
+  "metaTitle": "Custom All Sport Apparel Accessories | Perfect Imprints",
+  "metaDescription": "Order custom All Sport apparel accessories in bulk at Perfect Imprints. Perfect for giveaways, events, and employee incentives.",
+  "introHtml": "<p>All Sport accessories bring a sporty, active look to your promotional gear. From polarized sunglasses to reflective snap bands and knit scarves, these items are built for durability and everyday use. Whether you're outfitting a race team or stocking a company store, the All Sport brand ensures consistent quality across caps, eyewear, and cold-weather accessories. Choose screen printing or debossing for a clean, lasting logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom All Sport apparel accessories including sunglasses, snap bands, and scarves with logo imprint",
+  "productSkus": [
+    "512432",
+    "514088",
+    "520336",
+    "520715",
+    "521967"
+  ],
+  "generatedAt": "2026-05-31T09:31:44.444328+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

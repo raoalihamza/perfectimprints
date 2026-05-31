@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jackets/brand/brooks-brothers",
+  "type": "facet",
+  "h1": "Custom Brooks Brothers Jackets for Corporate Orders",
+  "metaTitle": "Custom Brooks Brothers Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Brooks Brothers jackets with your logo. Premium quality for corporate gifts and uniforms. Get a quote today.",
+  "introHtml": "<p>Brooks Brothers jackets bring instant recognition and a reputation for quality that few brands can match. When you choose custom Brooks Brothers jackets for your corporate apparel program, you are investing in pieces that your team will wear with pride. The Diamond Quilt 1/4-Zip and Full-Zip styles offer a classic, tailored look that works for both office and casual settings. Decorate with your logo using embroidery for a polished finish that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Brooks Brothers jackets with embroidered corporate logo, showing a man wearing a Diamond Quilt 1/4-Zip jacket",
+  "productSkus": [
+    "529192",
+    "529193"
+  ],
+  "generatedAt": "2026-05-31T09:51:36.285998+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

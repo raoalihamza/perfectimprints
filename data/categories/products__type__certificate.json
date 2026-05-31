@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/type/certificate",
+  "type": "facet",
+  "h1": "Custom Certificate Products for Bulk Orders",
+  "metaTitle": "Custom Certificate Products | Perfect Imprints",
+  "metaDescription": "Order custom certificate products in bulk with fast turnaround. Perfect for awards, diplomas, and recognition. Get a quote today!",
+  "introHtml": "<p>Custom certificate products are ideal for recognizing achievements, whether for employee milestones, academic completion, or safety awards. Unlike generic paper certificates, these can be personalized with foil stamping, embossing, or custom logos to create a lasting impression. Bulk ordering ensures consistency across your organization, with options for pre-printed templates or fully custom designs. Perfect for HR directors and business owners who value professional recognition.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom certificate products with foil stamping and embossed logos for corporate awards",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:28.087085+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,30 @@
+{
+  "url": "/cat/pouches/feature/with-zipper",
+  "type": "facet",
+  "h1": "Custom With Zipper Pouches",
+  "metaTitle": "Custom With Zipper Pouches | Perfect Imprints",
+  "metaDescription": "Order custom with zipper pouches for your team or event. Perfect for storing swag, supplies, and more. Get a quote today!",
+  "introHtml": "<p>Custom with zipper pouches offer secure, organized storage for promotional giveaways, employee kits, and event essentials. Unlike open-top totes or drawstring bags, zippered pouches keep contents safe during transit and daily use. Options like the Zippered Pencil Case or Mobile Office Pencil Pouch are ideal for branded school supplies, while the School Pouch works well for safety kits and travel accessories. Choose screen printing or embroidery to add your logo on durable polyester or canvas materials.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom with zipper pouches in assorted colors with printed logos, ideal for promotional giveaways and corporate gifts.",
+  "productSkus": [
+    "507409",
+    "507856",
+    "510926",
+    "512016",
+    "519777",
+    "521678",
+    "522164",
+    "524593",
+    "525308",
+    "526829"
+  ],
+  "generatedAt": "2026-05-31T09:23:30.334863+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

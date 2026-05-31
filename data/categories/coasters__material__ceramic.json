@@ -1,0 +1,21 @@
+{
+  "url": "/cat/coasters/material/ceramic",
+  "type": "facet",
+  "h1": "Custom Ceramic Coasters",
+  "metaTitle": "Custom Ceramic Coasters | Perfect Imprints",
+  "metaDescription": "Order custom ceramic coasters for your brand. Durable, absorbent, and perfect for promotional giveaways. Get a quote today!",
+  "introHtml": "<p>Ceramic coasters offer a classic, absorbent surface that protects desks and tables from condensation while showcasing your logo in crisp detail. Unlike paper or plastic options, ceramic provides a substantial feel that signals quality to clients and employees. Decorate with full-color imprint or a simple one-color logo for a polished look. Perfect for trade shows, office welcome kits, or hospitality settings.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom ceramic coasters with printed logo, set on a wooden table, showing absorbent ceramic surface",
+  "productSkus": [
+    "511267 90A"
+  ],
+  "generatedAt": "2026-05-31T09:40:49.446844+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

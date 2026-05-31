@@ -1,0 +1,28 @@
+{
+  "url": "/cat/pet-leashes/feature/with-carabiner",
+  "type": "facet",
+  "h1": "Custom Pet Leashes with Carabiner",
+  "metaTitle": "Custom Pet Leashes with Carabiner | Perfect Imprints",
+  "metaDescription": "Order custom pet leashes with carabiner for easy walks. Perfect for giveaways and events. Shop at Perfect Imprints.",
+  "introHtml": "<p>Custom pet leashes with carabiner clips offer a practical upgrade for dog owners who value convenience. The carabiner lets you attach keys, waste bag dispensers, or a collapsible water bowl like the H2Ogo Pet Bowl directly to the leash. This keeps essentials within reach during walks or at trade shows where branded pet gear stands out. Choose nylon or woven styles with your logo imprinted in bold colors for a functional giveaway that gets daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pet leashes with carabiner featuring a dog wearing a branded leash with a collapsible water bowl attached",
+  "productSkus": [
+    "516906",
+    "517505",
+    "520484",
+    "521770",
+    "527080",
+    "527081",
+    "528199",
+    "529207"
+  ],
+  "generatedAt": "2026-05-31T10:01:20.669986+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

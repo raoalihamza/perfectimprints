@@ -1,0 +1,22 @@
+{
+  "url": "/cat/vests/material/jersey",
+  "type": "facet",
+  "h1": "Custom Jersey Vests for Bulk Orders",
+  "metaTitle": "Custom Jersey Vests | Perfect Imprints",
+  "metaDescription": "Order custom jersey vests for your team or event. Breathable, durable fabric perfect for layering. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Jersey vests offer a lightweight, breathable layer that works well for outdoor events, trade shows, and team uniforms. Unlike heavier materials, jersey fabric keeps wearers comfortable during active use while still providing a professional look. Decorate with screen printing or embroidery for a crisp logo that stands out. The Men's Mesa Vest and Women's Mesa Vest are popular choices for their tailored fit and moisture-wicking performance.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom jersey vests in bulk with embroidered logos, ideal for corporate events and team uniforms.",
+  "productSkus": [
+    "528952",
+    "528953"
+  ],
+  "generatedAt": "2026-05-31T09:04:15.250620+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

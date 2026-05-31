@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/color/green",
+  "type": "facet",
+  "h1": "Custom Green Products for Your Brand",
+  "metaTitle": "Custom Green Products | Perfect Imprints",
+  "metaDescription": "Shop custom green products for your brand at Perfect Imprints. Great for eco-friendly giveaways and events. Order bulk today.",
+  "introHtml": "<p>Green is a versatile color that conveys growth, health, and environmental consciousness. Whether you are promoting a sustainability initiative, celebrating St. Patrick's Day, or simply refreshing your corporate color palette, custom green products make a strong visual statement. From green pens and notebooks to drinkware and bags, imprinting your logo on a green background offers high contrast and visibility. Our selection includes a range of shades from lime to forest, so you can match your exact brand requirements.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom green products including pens, notebooks, and water bottles with imprinted logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:27:13.240438+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

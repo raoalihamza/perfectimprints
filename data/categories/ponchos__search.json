@@ -1,0 +1,19 @@
+{
+  "url": "/cat/ponchos/search",
+  "type": "modifier",
+  "h1": "Custom Ponchos for Branded Promotions",
+  "metaTitle": "Custom Ponchos – Perfect Imprints",
+  "metaDescription": "Browse our selection of custom ponchos for events, giveaways, and outdoor promotions. Get a quote today.",
+  "introHtml": "<p>Custom ponchos are a practical and memorable promotional item for outdoor events, trade shows, and corporate giveaways. Whether you need protection from rain or a branded layer for a festival, our range of customizable ponchos offers options in various materials, colors, and sizes. Start exploring to find the right style for your next campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A group of people wearing custom ponchos with logos at an outdoor event, showcasing branded promotional ponchos.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:28.503591+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,28 @@
+{
+  "url": "/cat/address-books/color/green",
+  "type": "facet",
+  "h1": "Custom Green Address Books",
+  "metaTitle": "Custom Green Address Books - Perfect Imprints",
+  "metaDescription": "Order custom green address books in bulk from Perfect Imprints. Ideal for eco-conscious branding. Shop now.",
+  "introHtml": "<p>Green address books offer a subtle way to align your brand with environmental values. Whether you choose a rich forest shade or a soft sage, these books stand out on any desk. Perfect for tradeshow giveaways or employee gifts, they pair well with a stylus for convenient note-taking. Our selection includes durable options like the Original Tally Book and the Wire-O Flexible Tally Book, both available in green.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green address books with embossed logo, open on a desk, showing alphabetical tabs.",
+  "productSkus": [
+    "508958",
+    "515145",
+    "515146",
+    "525806",
+    "526012",
+    "526203",
+    "526204",
+    "526205"
+  ],
+  "generatedAt": "2026-05-31T09:31:40.844895+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

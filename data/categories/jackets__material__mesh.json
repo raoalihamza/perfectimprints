@@ -1,0 +1,28 @@
+{
+  "url": "/cat/jackets/material/mesh",
+  "type": "facet",
+  "h1": "Custom Mesh Jackets for Your Team",
+  "metaTitle": "Custom Mesh Jackets | Perfect Imprints",
+  "metaDescription": "Order custom mesh jackets for your team. Breathable, durable, and perfect for branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Mesh jackets offer breathability and lightweight comfort, making them ideal for outdoor events, team uniforms, or safety gear in warmer conditions. Unlike heavier outerwear, mesh construction allows air circulation while still providing a professional canvas for screen-printed or embroidered logos. Whether you need high-visibility safety jackets for a construction crew or promotional jackets for a summer marketing campaign, custom mesh jackets keep your team cool and your brand visible.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom mesh jackets with embroidered logo, breathable fabric for outdoor team events",
+  "productSkus": [
+    "505577",
+    "505578",
+    "510005",
+    "510007",
+    "511120",
+    "520529",
+    "529244",
+    "529245"
+  ],
+  "generatedAt": "2026-05-31T09:16:35.873608+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

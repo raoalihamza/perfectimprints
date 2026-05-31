@@ -1,0 +1,21 @@
+{
+  "url": "/cat/photo-frames/feature/folding",
+  "type": "facet",
+  "h1": "Custom Folding Photo Frames for Bulk Orders",
+  "metaTitle": "Custom Folding Photo Frames | Perfect Imprints",
+  "metaDescription": "Order custom folding photo frames for your next event or promotion. Perfect for bulk branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom folding photo frames offer a unique way to display photos while saving space. Unlike standard frames, these collapsible designs can stand on a desk or fold flat for easy shipping and storage. They are ideal for trade show giveaways, employee recognition, or retail displays where portability matters. Decorate them with your logo using screen printing or debossing for a professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom folding photo frames with logo imprint displayed on a desk showing a team photo",
+  "productSkus": [
+    "516382 50A"
+  ],
+  "generatedAt": "2026-05-31T10:01:55.771087+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

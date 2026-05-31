@@ -1,0 +1,21 @@
+{
+  "url": "/cat/shirts/brand/brooks-brothers",
+  "type": "facet",
+  "h1": "Custom Brooks Brothers Shirts for Bulk Orders",
+  "metaTitle": "Custom Brooks Brothers Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Brooks Brothers shirts in bulk for your team. Premium quality with your logo. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Brooks Brothers shirts bring a legacy of American tailoring to your corporate apparel program. Choosing this brand means your team wears a recognized name in quality dress shirts and casual oxfords. Whether you need embroidered logos for client meetings or screen-printed designs for company events, these shirts hold decoration cleanly and maintain their crisp look wash after wash. Perfect for professional services firms, hospitality teams, or any organization that values a polished uniform.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Brooks Brothers shirts with embroidered logo on a classic oxford cloth shirt",
+  "productSkus": [
+    "526629"
+  ],
+  "generatedAt": "2026-05-31T09:25:46.460218+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

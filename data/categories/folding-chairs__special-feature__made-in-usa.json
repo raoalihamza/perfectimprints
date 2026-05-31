@@ -1,0 +1,21 @@
+{
+  "url": "/cat/folding-chairs/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Folding Chairs",
+  "metaTitle": "Custom Made in USA Folding Chairs | Perfect Imprints",
+  "metaDescription": "Order custom made in USA folding chairs for your event or facility. Durable, American-made seating with your logo. Get a quote today!",
+  "introHtml": "<p>When you need seating that supports American manufacturing, custom made in USA folding chairs deliver on both quality and brand pride. These chairs are built with domestic materials and rigorous standards, ideal for trade shows, corporate events, or facility seating. Options like the Director Chair - Bar Height offer a sturdy frame and comfortable design, perfect for high-top tables or reception areas. Add your logo via screen printing or debossing for a professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA folding chairs with company logo, durable and stackable for events",
+  "productSkus": [
+    "505166"
+  ],
+  "generatedAt": "2026-05-31T09:13:38.067177+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

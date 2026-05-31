@@ -1,0 +1,23 @@
+{
+  "url": "/cat/tools/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Tools",
+  "metaTitle": "Custom Full Color Tools | Perfect Imprints",
+  "metaDescription": "Order custom full color tools with your logo. Perfect for giveaways and employee gifts. Get a quote today!",
+  "introHtml": "<p>Full color decoration brings your logo to life on practical tools like tape measures and laser levels. Unlike single-color imprints, full color allows for gradients, photographs, and intricate details that make your brand stand out. Ideal for trade show giveaways or safety incentives, these tools are both useful and visually striking. Choose full color for maximum impact on everyday carry items.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color tools with printed logos on tape measures and laser levels for brand promotion",
+  "productSkus": [
+    "521080",
+    "521668",
+    "522797"
+  ],
+  "generatedAt": "2026-05-31T09:28:40.752548+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

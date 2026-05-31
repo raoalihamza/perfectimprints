@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/adar",
+  "type": "facet",
+  "h1": "Custom Adar Products for Bulk Orders",
+  "metaTitle": "Custom Adar Products | Perfect Imprints",
+  "metaDescription": "Order custom Adar products in bulk at Perfect Imprints. Perfect for corporate giveaways and promotional events.",
+  "introHtml": "<p>Adar is known for durable, high-quality promotional items that stand up to daily use. Whether you need custom drinkware, bags, or outdoor gear, Adar products offer reliable branding opportunities with a rugged, professional look. Decorate with screen printing, embroidery, or laser engraving to match your company colors. Ideal for safety managers and HR directors looking for long-lasting giveaways that employees will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom Adar products including drinkware and bags with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:23:49.604417+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

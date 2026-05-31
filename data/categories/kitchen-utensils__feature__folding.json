@@ -1,0 +1,21 @@
+{
+  "url": "/cat/kitchen-utensils/feature/folding",
+  "type": "facet",
+  "h1": "Custom Folding Kitchen Utensils",
+  "metaTitle": "Custom Folding Kitchen Utensils | Perfect Imprints",
+  "metaDescription": "Get branded folding kitchen utensils for your team. Compact, practical, and customizable with your logo. Perfect for giveaways and corporate gifts.",
+  "introHtml": "<p>Custom folding kitchen utensils combine the convenience of compact storage with the functionality of full-sized tools. Ideal for corporate gifts, trade show giveaways, or employee appreciation, these space-saving utensils are easy to pack for camping, lunch breaks, or travel. Choose from options like the La Cuisine Silicone Baking Utensils, which feature heat-resistant silicone heads and foldable handles for efficient storage. Personalize them with your logo using pad printing or laser engraving for a polished, professional look that keeps your brand top of mind on the go.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom folding kitchen utensils with silicone heads and foldable handles, displayed for corporate branding",
+  "productSkus": [
+    "526594"
+  ],
+  "generatedAt": "2026-05-31T09:17:21.447903+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

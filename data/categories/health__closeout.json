@@ -1,0 +1,21 @@
+{
+  "url": "/cat/health/closeout",
+  "type": "modifier",
+  "h1": "Closeout Custom Health Promotional Products",
+  "metaTitle": "Closeout Custom Health Promotional Products | Perfect",
+  "metaDescription": "Shop closeout custom health promotional products at clearance prices. Limited stock on cooling towels and more. Order now while supplies last!",
+  "introHtml": "<p>Closeout custom health promotional products offer a rare opportunity to score top-tier branded wellness gear at clearance prices. Whether you need cooling towels for your next safety fair or hydration items for a corporate wellness program, these closeout deals deliver big savings on limited stock. Selection changes quickly as inventory moves, so timing is everything. Secure your order now before these one-time offers disappear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Closeout custom health promotional products including a branded cooling towel displayed on a gym bench",
+  "productSkus": [
+    "521013"
+  ],
+  "generatedAt": "2026-05-31T09:15:46.709088+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

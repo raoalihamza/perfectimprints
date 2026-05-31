@@ -1,0 +1,28 @@
+{
+  "url": "/cat/bags/brand/solo",
+  "type": "facet",
+  "h1": "Custom Solo Bags for Bulk Orders",
+  "metaTitle": "Custom Solo Bags | Perfect Imprints",
+  "metaDescription": "Order custom Solo bags in bulk at Perfect Imprints. Ideal for corporate gifts and employee swag. Get a quote today!",
+  "introHtml": "<p>Solo bags bring a professional, modern look to any corporate uniform or event giveaway. With styles like the Ace Slim Brief and Re:move Duffle, these bags offer durable materials and smart organization for laptops and daily essentials. Customize with your logo via embroidery or screen printing to create a polished, cohesive brand image for your team or clients.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Solo bags with embroidered logo, including briefcases and duffles in various colors",
+  "productSkus": [
+    "524395",
+    "524396",
+    "524397",
+    "524398",
+    "524400",
+    "524401",
+    "524403",
+    "524404"
+  ],
+  "generatedAt": "2026-05-31T09:06:55.054780+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

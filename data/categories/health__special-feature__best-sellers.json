@@ -1,0 +1,19 @@
+{
+  "url": "/cat/health/special-feature/best-sellers",
+  "type": "facet",
+  "h1": "Custom Best Sellers Health Products",
+  "metaTitle": "Custom Best Sellers Health Products | Perfect Imprints",
+  "metaDescription": "Shop custom best sellers health products at Perfect Imprints. Ideal for corporate wellness programs. Order bulk today!",
+  "introHtml": "<p>Custom best sellers health products combine proven popularity with practical wellness benefits, making them a reliable choice for corporate wellness programs, safety initiatives, and employee appreciation. These top-rated items, such as hand sanitizers, first aid kits, and wellness accessories, are selected based on consistent demand and positive feedback from buyers like you. Choosing from best sellers reduces guesswork and ensures your branded health products will be well-received by your team or event attendees.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom best sellers health products including hand sanitizers and first aid kits with logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:50:42.522872+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

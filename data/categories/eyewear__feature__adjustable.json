@@ -1,0 +1,23 @@
+{
+  "url": "/cat/eyewear/feature/adjustable",
+  "type": "facet",
+  "h1": "Custom Adjustable Eyewear for Bulk Orders",
+  "metaTitle": "Custom Adjustable Eyewear | Perfect Imprints",
+  "metaDescription": "Order custom adjustable eyewear for your team or event. Perfect for safety and branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom adjustable eyewear gives your team a comfortable, secure fit whether they're on the job site or at a trade show. Adjustable sunglass straps and eyewear retainers keep branded glasses in place during active use, making them a practical giveaway for outdoor events or construction crews. Choose from cotton or polyester straps with custom imprinting to match your company colors and logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adjustable eyewear with branded sunglass straps and retainers for bulk orders",
+  "productSkus": [
+    "508245",
+    "513236",
+    "517494"
+  ],
+  "generatedAt": "2026-05-31T09:45:01.292823+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

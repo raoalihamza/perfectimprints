@@ -1,0 +1,26 @@
+{
+  "url": "/cat/ornaments/color/black",
+  "type": "facet",
+  "h1": "Custom Black Ornaments for Bulk Orders",
+  "metaTitle": "Custom Black Ornaments | Perfect Imprints",
+  "metaDescription": "Order custom black ornaments in bulk for your brand. Perfect for corporate gifts and promotions. Shop at Perfect Imprints today.",
+  "introHtml": "<p>Black ornaments offer a sleek, modern look that stands out on any tree or display. Whether you need shatterproof flat rounds or satin-finished styles, black provides a versatile backdrop for your logo or message. Ideal for corporate holiday gifts or year-round promotions, these ornaments can be decorated with screen printing or engraving for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black ornaments with company logo printed on shatterproof flat round ornament",
+  "productSkus": [
+    "503213",
+    "504613",
+    "508896",
+    "519584",
+    "519593",
+    "525277"
+  ],
+  "generatedAt": "2026-05-31T09:21:01.127580+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

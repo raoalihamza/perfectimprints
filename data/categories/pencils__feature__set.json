@@ -1,0 +1,23 @@
+{
+  "url": "/cat/pencils/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Pencils for Bulk Orders",
+  "metaTitle": "Custom Set Pencils | Perfect Imprints",
+  "metaDescription": "Order custom set pencils in bulk from Perfect Imprints. Perfect for giveaways, schools, and corporate events. Get a free quote today.",
+  "introHtml": "<p>Custom set pencils bundle multiple writing tools into a single branded package, making them ideal for back-to-school promotions, new hire kits, or event giveaways. Unlike single pencils, sets like the Scholar Kit or Twice as Nice Pencil give recipients more value and increase your brand exposure. Choose from crayon and pencil combos or multi-pencil packs, each customizable with your logo via screen printing or foil stamping for a polished, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set pencils with printed logos, including a Scholar Kit and Twice as Nice Pencil, arranged on a desk.",
+  "productSkus": [
+    "508772",
+    "526804",
+    "528631"
+  ],
+  "generatedAt": "2026-05-31T08:59:26.990123+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

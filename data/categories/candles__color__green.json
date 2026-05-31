@@ -1,0 +1,23 @@
+{
+  "url": "/cat/candles/color/green",
+  "type": "facet",
+  "h1": "Custom Green Candles",
+  "metaTitle": "Custom Green Candles | Perfect Imprints",
+  "metaDescription": "Order custom green candles for your brand. Perfect for eco-friendly gifts and events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Green candles make a strong visual statement for brands focused on sustainability or nature-inspired themes. Whether you choose a bamboo soy candle with a matching custom box or a set like the Pamper Me Set, the green hue reinforces an eco-conscious message. These candles work well for trade show giveaways, employee appreciation, or retail packaging. Add your logo via screen printing or a custom label for a polished look that aligns with your brand's values.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green candles in bamboo soy wax with custom box and logo",
+  "productSkus": [
+    "526451",
+    "526492",
+    "527052"
+  ],
+  "generatedAt": "2026-05-31T08:51:36.264786+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

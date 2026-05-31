@@ -1,0 +1,23 @@
+{
+  "url": "/cat/face-masks/material/polyester",
+  "type": "facet",
+  "h1": "Custom Polyester Face Masks",
+  "metaTitle": "Custom Polyester Face Masks | Perfect Imprints",
+  "metaDescription": "Order custom polyester face masks for your team. Breathable, durable, and perfect for branding. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Polyester face masks offer a lightweight, breathable option for daily wear, making them a practical choice for companies needing bulk branded face coverings. Unlike cotton or disposable masks, polyester resists moisture and dries quickly, which is ideal for active environments like warehouses or outdoor events. Customize with your logo using full-color dye sublimation on styles like the tubular bandana for a seamless, vibrant print that won't fade. Perfect for safety managers and HR directors equipping teams with comfortable, professional-grade masks.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom polyester face masks with full-color logo print, breathable fabric for bulk orders",
+  "productSkus": [
+    "524691",
+    "524692",
+    "524693"
+  ],
+  "generatedAt": "2026-05-31T09:45:17.034159+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

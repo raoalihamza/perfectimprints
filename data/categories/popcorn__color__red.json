@@ -1,0 +1,21 @@
+{
+  "url": "/cat/popcorn/color/red",
+  "type": "facet",
+  "h1": "Custom Red Popcorn for Bulk Orders",
+  "metaTitle": "Custom Red Popcorn - Perfect Imprints",
+  "metaDescription": "Order custom red popcorn for your next event. Choose from branded tins and boxes. Perfect for promotions and gifts.",
+  "introHtml": "<p>Red popcorn packaging stands out in any setting, making it a popular choice for holiday promotions, branded giveaways, and corporate events. The bold color pairs well with festive themes or brand colors that demand attention. Whether you choose a classic tin or a custom box, red packaging adds a cheerful, memorable touch that recipients will appreciate. Perfect for marketing directors planning seasonal campaigns or HR directors assembling employee appreciation gifts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red popcorn in a branded tin with a festive bow, perfect for corporate gifts.",
+  "productSkus": [
+    "507901"
+  ],
+  "generatedAt": "2026-05-31T08:45:38.275831+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

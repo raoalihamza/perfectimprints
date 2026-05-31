@@ -1,0 +1,21 @@
+{
+  "url": "/cat/footwear/theme/beach",
+  "type": "facet",
+  "h1": "Custom Beach Footwear for Bulk Orders",
+  "metaTitle": "Custom Beach Footwear | Perfect Imprints",
+  "metaDescription": "Order custom beach footwear in bulk at Perfect Imprints. Ideal for giveaways, events, and summer promotions.",
+  "introHtml": "<p>Custom beach footwear, like our Deluxe Flip Flop, is a natural fit for summer giveaways, resort events, and beachside promotions. Unlike standard promotional shoes, beach-specific styles prioritize lightweight materials, water resistance, and easy slip-on convenience. Whether you are outfitting a hotel staff or preparing swag for a coastal conference, these products keep your brand visible in casual, high-traffic settings. Choose screen printing or debossing for a clean logo that lasts through sand and surf.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom beach footwear with logo, Deluxe Flip Flop on sandy beach",
+  "productSkus": [
+    "520052"
+  ],
+  "generatedAt": "2026-05-31T09:47:12.563129+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

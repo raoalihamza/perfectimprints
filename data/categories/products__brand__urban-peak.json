@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/urban-peak",
+  "type": "facet",
+  "h1": "Custom Urban Peak Products for Bulk Orders",
+  "metaTitle": "Custom Urban Peak Products | Perfect Imprints",
+  "metaDescription": "Order custom Urban Peak products in bulk. Perfect for giveaways, events, and employee gifts. Get a quote today.",
+  "introHtml": "<p>Urban Peak products combine modern design with everyday functionality, making them a standout choice for corporate gifts, trade show giveaways, and employee recognition programs. From insulated drinkware to tech accessories, each item features clean lines and durable construction that reflect well on your brand. Decorate with your logo using screen printing, laser engraving, or full-color pad printing for a polished, professional finish that recipients will use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Urban Peak products including insulated water bottles and tech accessories with company logo",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:45.331285+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

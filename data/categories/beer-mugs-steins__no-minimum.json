@@ -1,0 +1,28 @@
+{
+  "url": "/cat/beer-mugs-steins/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Beer Mugs & Steins",
+  "metaTitle": "No-Minimum Custom Beer Mugs & Steins | Perfect Imprints",
+  "metaDescription": "Order custom beer mugs and steins with no minimum quantity. Perfect for small teams, events, or samples. Get low MOQ pricing at Perfect Imprints.",
+  "introHtml": "<p>Ordering custom beer mugs and steins shouldn't require a bulk commitment. Our no-minimum program lets you buy as few as one or two pieces, making it ideal for small businesses, startup swag, team gifts, or one-off events. You get the same high-quality customization options—like full-color logos and durable imprint methods—without being forced into large quantities. Perfect for sample orders or tight budgets, our low-MOQ pricing keeps your per-unit cost reasonable even at small volumes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "No-minimum custom beer mugs and steins with engraved logos, perfect for small orders and promotional gifts.",
+  "productSkus": [
+    "524548",
+    "525226",
+    "525341",
+    "525495",
+    "525612",
+    "525843",
+    "526242",
+    "526317"
+  ],
+  "generatedAt": "2026-05-31T09:36:55.134027+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/notepads/brand/post-it",
+  "type": "facet",
+  "h1": "Custom Post-It Notepads for Bulk Orders",
+  "metaTitle": "Custom Post-It Notepads | Perfect Imprints",
+  "metaDescription": "Order custom Post-It notepads for your business. Perfect for office supplies, giveaways, and promotions. Shop bulk at Perfect Imprints.",
+  "introHtml": "<p>Post-It notepads are the undisputed standard for office communication, and custom-printing them with your logo or message turns a desk staple into a daily brand impression. Unlike generic notepads, Post-It products offer the reliable adhesive and paper quality your team or clients already trust. Choose from classic 4 x 8 or 5 x 7 lined pads, transparent notes for a modern look, or even adult coloring pads for a creative twist. Full-color printing on the cover or individual sheets ensures your brand stays top-of-mind with every note.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom Post-It notepads with company logo printed on cover, including 4x8 and 5x7 sizes.",
+  "productSkus": [
+    "528272",
+    "528273",
+    "528274",
+    "528275"
+  ],
+  "generatedAt": "2026-05-31T09:57:47.192691+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

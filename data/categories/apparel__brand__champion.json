@@ -1,0 +1,29 @@
+{
+  "url": "/cat/apparel/brand/champion",
+  "type": "facet",
+  "h1": "Custom Champion Apparel for Bulk Orders",
+  "metaTitle": "Custom Champion Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Champion apparel for your team. Perfect for uniforms, events, and giveaways. Get a quote today.",
+  "introHtml": "<p>Champion apparel offers a heritage of quality and comfort that resonates with teams and employees alike. From the iconic Reverse Weave® crewnecks to durable mesh shorts, custom Champion gear provides a premium look that stands up to frequent wear. Whether you need uniforms for a safety crew or promotional apparel for a corporate event, decorating these garments with your logo creates a cohesive, professional appearance that people are proud to wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Champion apparel featuring embroidered logos on hooded sweatshirts and t-shirts for corporate teams",
+  "productSkus": [
+    "526122",
+    "526123",
+    "526124",
+    "526126",
+    "526127",
+    "526128",
+    "526129",
+    "526130",
+    "526131"
+  ],
+  "generatedAt": "2026-05-31T09:05:24.129504+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

@@ -1,0 +1,28 @@
+{
+  "url": "/cat/banners/color/black",
+  "type": "facet",
+  "h1": "Custom Black Banners",
+  "metaTitle": "Custom Black Banners | Perfect Imprints",
+  "metaDescription": "Order custom black banners for events, trade shows, and retail. Bold contrast with white or metallic ink. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Black banners offer a bold, professional backdrop for high-contrast branding. Whether you need a 36\" small banner for countertop displays or a 60\" large banner for trade shows, black fabric or vinyl media makes white, metallic, or neon graphics pop. Choose retractable banner stands with no-curl opaque fabric for crisp indoor presentations or PVC-free media for eco-friendly outdoor use. Perfect for safety signage, event backdrops, or retail promotions.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black banners with white lettering on a retractable stand at a trade show",
+  "productSkus": [
+    "502118",
+    "502119",
+    "502120",
+    "521132",
+    "521133",
+    "521973",
+    "521974",
+    "526788"
+  ],
+  "generatedAt": "2026-05-31T09:35:11.583124+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

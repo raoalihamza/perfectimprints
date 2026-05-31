@@ -1,0 +1,28 @@
+{
+  "url": "/cat/pencils/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Pencils",
+  "metaTitle": "Custom Made in USA Pencils | Perfect Imprints",
+  "metaDescription": "Proudly American-made custom pencils for bulk orders. Perfect for branding. Shop custom made in USA pencils at Perfect Imprints.",
+  "introHtml": "<p>Choosing custom made in USA pencils means supporting domestic manufacturing while getting a reliable writing instrument for your brand. These pencils are crafted with quality materials and strict production standards, making them ideal for corporate gifts, event giveaways, or promotional kits. Options like the Mood Pencil or Jo-Bee Recycled Denim Pencil offer unique finishes that stand out. With imprint methods like foil stamping or silk screening, your logo stays sharp on every pencil. Perfect for buyers who value American craftsmanship and want to make a patriotic statement.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA pencils with imprinted logos, including Mood Pencil and Jo-Bee Recycled Denim Pencil",
+  "productSkus": [
+    "502662",
+    "502663",
+    "502669",
+    "502672",
+    "505746 6MH",
+    "508612",
+    "511382",
+    "520375"
+  ],
+  "generatedAt": "2026-05-31T10:00:13.085740+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

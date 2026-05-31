@@ -1,0 +1,25 @@
+{
+  "url": "/cat/products/brand/untuckit",
+  "type": "facet",
+  "h1": "Custom UNTUCKit Products for Bulk Orders",
+  "metaTitle": "Custom UNTUCKit Products – Perfect Imprints",
+  "metaDescription": "Order custom UNTUCKit products in bulk. Perfect for corporate apparel with wrinkle-free options. Request a quote today.",
+  "introHtml": "<p>UNTUCKit shirts are built for a polished, untucked look that suits modern offices and field teams alike. Their wrinkle-free fabrics and tailored fits make them a practical choice for companies that want employees to look sharp without constant maintenance. From long sleeves to polos, these custom products accept embroidery and screen printing, giving you a consistent brand presence across your crew.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom UNTUCKit products including wrinkle-free men's and women's shirts for corporate branding",
+  "productSkus": [
+    "525602",
+    "525603",
+    "525604",
+    "525605",
+    "525606"
+  ],
+  "generatedAt": "2026-05-31T09:24:02.237719+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

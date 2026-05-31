@@ -1,0 +1,24 @@
+{
+  "url": "/cat/mice/feature/folding",
+  "type": "facet",
+  "h1": "Custom Folding Mice for Bulk Orders",
+  "metaTitle": "Custom Folding Mice | Perfect Imprints",
+  "metaDescription": "Order custom folding mice for your team. Compact, portable, and fully customizable with your logo at Perfect Imprints.",
+  "introHtml": "<p>Custom folding mice offer a space-saving solution for professionals on the go. Unlike standard mice, these models collapse flat for easy storage in laptop bags or desk drawers. Ideal for trade shows, remote workers, or corporate gifts, they combine portability with full functionality. Choose from laser or optical sensors and add your logo via pad printing or laser engraving for a sleek, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A custom folding mouse collapsed flat next to a laptop, showing portability and logo imprint area.",
+  "productSkus": [
+    "520059",
+    "524465",
+    "529162",
+    "529413"
+  ],
+  "generatedAt": "2026-05-31T09:19:55.356899+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

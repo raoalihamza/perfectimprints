@@ -1,0 +1,24 @@
+{
+  "url": "/cat/backpacks/brand/elleven",
+  "type": "facet",
+  "h1": "Custom Elleven Backpacks for Bulk Orders",
+  "metaTitle": "Custom Elleven Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Elleven backpacks with your logo. Perfect for corporate gifts or employee swag. Get a quote today.",
+  "introHtml": "<p>Elleven backpacks are built for professionals who need durability and style. With features like padded laptop compartments and checkpoint-friendly designs, these bags keep your team organized on the go. Add your logo through embroidery or screen printing for a polished corporate look that stands out at trade shows or daily commutes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Elleven backpacks with embroidered logo, featuring a 17-inch laptop compartment and sleek black design.",
+  "productSkus": [
+    "510716",
+    "519541",
+    "524471",
+    "527056"
+  ],
+  "generatedAt": "2026-05-31T09:33:32.929754+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

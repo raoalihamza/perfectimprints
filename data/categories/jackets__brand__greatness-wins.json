@@ -1,0 +1,25 @@
+{
+  "url": "/cat/jackets/brand/greatness-wins",
+  "type": "facet",
+  "h1": "Custom Greatness Wins Jackets for Bulk Orders",
+  "metaTitle": "Custom Greatness Wins Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Greatness Wins jackets in bulk. Perfect for corporate apparel. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Greatness Wins jackets combine premium quality with a brand that stands for achievement and team spirit. Whether you need polyfleece pullovers for a company retreat or rain jackets for an outdoor event, these jackets offer reliable performance and a polished look. With decoration options like embroidery or screen printing, your logo will look sharp on every piece. Ideal for employee uniforms, sales incentives, or trade show giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Greatness Wins jackets for bulk orders, including fleece and rain jackets with logo embroidery",
+  "productSkus": [
+    "510007",
+    "520271",
+    "520298",
+    "527896",
+    "527897"
+  ],
+  "generatedAt": "2026-05-31T08:56:03.063439+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

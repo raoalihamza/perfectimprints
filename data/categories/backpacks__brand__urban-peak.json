@@ -1,0 +1,23 @@
+{
+  "url": "/cat/backpacks/brand/urban-peak",
+  "type": "facet",
+  "h1": "Custom Urban Peak Backpacks for Bulk Orders",
+  "metaTitle": "Custom Urban Peak Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Urban Peak backpacks in bulk. Durable, waterproof designs perfect for corporate gifts and employee swag. Get a quote today!",
+  "introHtml": "<p>Urban Peak backpacks combine rugged waterproof construction with modern style, making them a favorite for outdoor events, field teams, and corporate giveaways. The 29L Flow Dry Bag and 46L waterproof duffle offer reliable protection for gear in wet conditions, while the Traveling Sounds Kit adds audio functionality. Choose custom Urban Peak backpacks for a promotional item that stands up to real use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Urban Peak backpacks in bulk with waterproof dry bag and duffle options for corporate branding",
+  "productSkus": [
+    "523502",
+    "527497",
+    "528445"
+  ],
+  "generatedAt": "2026-05-31T09:06:24.242258+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

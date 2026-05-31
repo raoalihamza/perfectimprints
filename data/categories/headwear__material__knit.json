@@ -1,0 +1,21 @@
+{
+  "url": "/cat/headwear/material/knit",
+  "type": "facet",
+  "h1": "Custom Knit Headwear for Bulk Orders",
+  "metaTitle": "Custom Knit Headwear | Perfect Imprints",
+  "metaDescription": "Order custom knit headwear in bulk for your team or event. Perfect Imprints offers quality, warmth, and your logo. Get started today!",
+  "introHtml": "<p>Knit headwear offers warmth and comfort that other materials can't match, making it a top choice for winter events, outdoor teams, and corporate gifts. The textured fabric holds embroidery and screen-printed logos with crisp detail, as seen in styles like the Two-Tone Knit Pom Beanie With Cuff. Whether you're outfitting a safety crew or rewarding employees, custom knit headwear delivers a soft, durable feel that recipients actually wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom knit headwear with embroidered logo on a pom beanie, perfect for bulk orders",
+  "productSkus": [
+    "514093"
+  ],
+  "generatedAt": "2026-05-31T09:15:41.143791+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

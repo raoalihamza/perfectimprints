@@ -1,0 +1,24 @@
+{
+  "url": "/cat/health/activity/football",
+  "type": "facet",
+  "h1": "Custom Football Health Products for Bulk Orders",
+  "metaTitle": "Custom Football Health Products | Perfect Imprints",
+  "metaDescription": "Order custom football health products for your team or event. Stress balls, fidget toys, and more from Perfect Imprints.",
+  "introHtml": "<p>Football-themed health products bring a sporty edge to wellness initiatives. Whether you need stress balls for a corporate giveaway or push pop fidget toys for a trade show, these items combine the appeal of America's favorite sport with practical stress relief. Customize with your logo to create memorable giveaways that stand out in any setting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom football stress balls and fidget toys for bulk orders, perfect for team giveaways and corporate events.",
+  "productSkus": [
+    "502806 2AJ",
+    "509182",
+    "513042",
+    "529176"
+  ],
+  "generatedAt": "2026-05-31T08:42:49.775981+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

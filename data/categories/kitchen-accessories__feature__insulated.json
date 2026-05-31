@@ -1,0 +1,25 @@
+{
+  "url": "/cat/kitchen-accessories/feature/insulated",
+  "type": "facet",
+  "h1": "Custom Insulated Kitchen Accessories",
+  "metaTitle": "Custom Insulated Kitchen Accessories | Perfect Imprints",
+  "metaDescription": "Shop custom insulated kitchen accessories for bulk orders. Keep food hot or cold with branded items from Perfect Imprints.",
+  "introHtml": "<p>Insulated kitchen accessories keep meals at the right temperature from prep to lunch break. Whether you need portion control sets for employee cafeterias or branded food jars for safety managers on the go, these items combine thermal performance with practical design. Options like stainless steel food containers and bento boxes with carrying cases make temperature-sensitive transport easy, while custom logos turn everyday gear into mobile brand impressions.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom insulated kitchen accessories including a stainless steel food jar and bento box with carrying case",
+  "productSkus": [
+    "520706",
+    "524266",
+    "524385",
+    "525296",
+    "525839"
+  ],
+  "generatedAt": "2026-05-31T09:17:11.313482+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

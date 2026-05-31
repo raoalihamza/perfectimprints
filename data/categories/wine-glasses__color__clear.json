@@ -1,0 +1,28 @@
+{
+  "url": "/cat/wine-glasses/color/clear",
+  "type": "facet",
+  "h1": "Custom Clear Wine Glasses for Bulk Orders",
+  "metaTitle": "Custom Clear Wine Glasses | Perfect Imprints",
+  "metaDescription": "Order custom clear wine glasses for your next event. Perfect for corporate gifts, weddings, and more. Bulk pricing available.",
+  "introHtml": "<p>Clear wine glasses let your logo or design take center stage without color distractions. Whether you choose a classic stemless shape or a durable plastic option, the transparent material ensures your imprint stays crisp and visible. Perfect for trade shows, corporate gifts, or wedding favors, these glasses offer a clean, professional look that pairs with any table setting. Decorate with full-color digital print or simple engraving for a polished result.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom clear wine glasses with engraved logo, stemless design on white background",
+  "productSkus": [
+    "511000 90E",
+    "520339",
+    "522955",
+    "523950",
+    "524419",
+    "524524",
+    "524525",
+    "524526"
+  ],
+  "generatedAt": "2026-05-31T09:30:40.294022+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

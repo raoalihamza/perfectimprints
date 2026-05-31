@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jackets/brand/bayside",
+  "type": "facet",
+  "h1": "Custom Bayside Jackets for Bulk Orders",
+  "metaTitle": "Custom Bayside Jackets - Perfect Imprints",
+  "metaDescription": "Order custom Bayside jackets in bulk from Perfect Imprints. Ideal for corporate uniforms, team wear, and promotional events. Get a quote today!",
+  "introHtml": "<p>Bayside jackets are a reliable choice for bulk orders because of their consistent sizing, durable construction, and professional appearance. Whether you need full-zip fleece jackets for a company uniform or a promotional giveaway for a trade show, Bayside offers styles that accept screen printing and embroidery easily. The brushed micro-fleece material provides warmth without bulk, making these jackets suitable for indoor and outdoor events year-round.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Bayside jackets with embroidered logo on front chest, available in multiple colors for bulk orders",
+  "productSkus": [
+    "505577",
+    "505578"
+  ],
+  "generatedAt": "2026-05-31T09:16:25.393364+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

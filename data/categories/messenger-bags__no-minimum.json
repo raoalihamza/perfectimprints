@@ -1,0 +1,33 @@
+{
+  "url": "/cat/messenger-bags/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Messenger Bags",
+  "metaTitle": "No-Minimum Custom Messenger Bags | Perfect Imprints",
+  "metaDescription": "Order custom messenger bags with no minimum quantities. Perfect for small teams, events, and samples. Get branded bags in low volumes at Perfect Imprints.",
+  "introHtml": "<p>Not every order needs to be a bulk run. If you need custom messenger bags for a small team, a one-time event, or just a few samples, our no-minimum program lets you order as few as one bag. No forced overstock, no inflated minimums. You get the same high-quality imprinting and fast turnaround as larger orders, with the flexibility to buy exactly what you need. Whether it's a single bag for a client gift or a dozen for your sales team, we make small orders easy and affordable.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A professional no-minimum custom messenger bag with a company logo imprint, ideal for small orders and corporate gifts.",
+  "productSkus": [
+    "513686",
+    "515567 01A",
+    "516801",
+    "519860",
+    "523948",
+    "524395",
+    "524396",
+    "524397",
+    "524400",
+    "527196",
+    "527860",
+    "529217",
+    "529352"
+  ],
+  "generatedAt": "2026-05-31T09:56:41.238163+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

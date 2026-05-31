@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/collapsible",
+  "type": "facet",
+  "h1": "Custom Collapsible Products for Bulk Orders",
+  "metaTitle": "Custom Collapsible Products | Perfect Imprints",
+  "metaDescription": "Order custom collapsible products in bulk. Perfect for giveaways, travel, and storage. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Collapsible products are a smart choice for bulk buyers who need portable, space-saving giveaways. From collapsible water bottles that flatten when empty to foldable tote bags and silicone cups, these items are ideal for trade shows, corporate events, and employee kits. Their compact design reduces shipping costs and makes them easy for recipients to carry. Decorate with your logo using screen printing or laser engraving for a durable, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom collapsible products including a foldable water bottle and silicone cup with corporate logo",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:51.501154+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

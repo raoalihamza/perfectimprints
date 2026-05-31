@@ -1,0 +1,22 @@
+{
+  "url": "/cat/coffee-mugs/color/gold",
+  "type": "facet",
+  "h1": "Custom Gold Coffee Mugs",
+  "metaTitle": "Custom Gold Coffee Mugs | Perfect Imprints",
+  "metaDescription": "Order custom gold coffee mugs in bulk for your brand. Perfect for offices and events. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Gold coffee mugs bring a touch of elegance to your daily coffee break, making them a standout choice for corporate gifts or upscale office kitchens. Whether you choose a ceramic mug with a cork base for a modern look or a sublimation mug for vibrant full-color logos, the gold finish adds a premium feel that standard mugs lack. Perfect for rewarding employees or impressing clients at events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gold coffee mugs with cork base and gold finish, perfect for branded corporate gifts.",
+  "productSkus": [
+    "506670 90A",
+    "520433"
+  ],
+  "generatedAt": "2026-05-31T09:10:56.694624+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,28 @@
+{
+  "url": "/cat/shirts/brand/under-armour",
+  "type": "facet",
+  "h1": "Custom Under Armour Shirts for Bulk Orders",
+  "metaTitle": "Custom Under Armour Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Under Armour shirts for your team or event. Perfect Imprints offers bulk pricing and professional decoration.",
+  "introHtml": "<p>Under Armour shirts combine moisture-wicking performance with a fit that keeps your team comfortable all day. Whether you are outfitting a sales crew with polos or branding fleece for a company giveaway, these shirts hold up to frequent wear and washing. Add your logo with embroidery or screen printing for a polished, long-lasting look that reflects your company's commitment to quality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Under Armour shirts with embroidered logo on a polo and a fleece sweatshirt",
+  "productSkus": [
+    "527121",
+    "527122",
+    "528095",
+    "528096",
+    "528105",
+    "528106",
+    "528108",
+    "529262"
+  ],
+  "generatedAt": "2026-05-31T08:30:55.080452+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

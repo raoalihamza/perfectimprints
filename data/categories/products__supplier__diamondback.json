@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/diamondback",
+  "type": "facet",
+  "h1": "Custom Diamondback Products for Bulk Orders",
+  "metaTitle": "Custom Diamondback Products | Perfect Imprints",
+  "metaDescription": "Order custom Diamondback products in bulk. Perfect for branding, giveaways, and promotions. Get a quote today.",
+  "introHtml": "<p>Diamondback is known for rugged, high-performance gear, making their branded products a natural fit for outdoor-themed promotions, safety incentives, or corporate gifts that convey durability. Whether you choose a tactical backpack, a hydration pack, or a utility tool, imprinting your logo on Diamondback merchandise associates your brand with reliability and adventure. These items hold up to heavy use, so your message stays visible longer.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Diamondback products including backpacks and hydration packs with company logos for bulk orders",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:04:17.387840+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

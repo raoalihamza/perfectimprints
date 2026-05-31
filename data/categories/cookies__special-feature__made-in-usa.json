@@ -1,0 +1,19 @@
+{
+  "url": "/cat/cookies/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Cookies for Bulk Orders",
+  "metaTitle": "Custom Made in USA Cookies | Perfect Imprints",
+  "metaDescription": "Order custom made in USA cookies for your next event. Perfect Imprints offers bulk pricing on branded cookies made domestically.",
+  "introHtml": "<p>Choosing custom made in USA cookies means supporting local bakers while getting fresh, high-quality treats for your corporate events or employee appreciation. Unlike imported alternatives, these cookies are baked with domestic ingredients and can be decorated with your logo using edible ink or custom packaging. Perfect for trade show giveaways, holiday gifts, or client appreciation boxes where American-made quality matters.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom made in USA cookies with company logo printed on each cookie, arranged on a wooden tray.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:41:35.335869+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

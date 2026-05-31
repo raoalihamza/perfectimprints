@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/elleven",
+  "type": "facet",
+  "h1": "Custom Elleven Products for Your Brand",
+  "metaTitle": "Custom Elleven Products | Perfect Imprints",
+  "metaDescription": "Shop custom Elleven products at Perfect Imprints. Perfect for corporate gifts, events, and brand promotions.",
+  "introHtml": "<p>Elleven products combine sleek design with practical functionality, making them a smart choice for corporate gifting and promotional campaigns. From insulated drinkware to tech accessories, Elleven items offer a modern look that resonates with professional audiences. Choose from a variety of decoration methods including screen printing and laser engraving to personalize your order. Whether you're outfitting a sales team or planning a trade show giveaway, custom Elleven products deliver a polished, branded experience.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Elleven products including insulated water bottles and tech accessories with brand logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:29.176713+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

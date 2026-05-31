@@ -1,0 +1,22 @@
+{
+  "url": "/cat/bags/style/euro-tote",
+  "type": "facet",
+  "h1": "Custom Euro Tote Bags for Bulk Orders",
+  "metaTitle": "Custom Euro Tote Bags | Perfect Imprints",
+  "metaDescription": "Order custom euro tote bags in bulk from Perfect Imprints. Ideal for events, trade shows, and corporate gifts.",
+  "introHtml": "<p>Euro tote bags combine sleek European styling with practical functionality, making them a favorite for trade shows and corporate events. Their structured shape and reinforced handles offer a polished look that standard totes lack. With laminate finishes and full-color print options, these bags display your logo with crisp clarity while standing up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom euro tote bags with glossy laminate finish, featuring a corporate logo and reinforced handles.",
+  "productSkus": [
+    "504843",
+    "514521"
+  ],
+  "generatedAt": "2026-05-31T08:21:00.320350+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

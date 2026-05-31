@@ -1,0 +1,32 @@
+{
+  "url": "/cat/wine-glasses/material/steel",
+  "type": "facet",
+  "h1": "Custom Steel Wine Glasses for Bulk Orders",
+  "metaTitle": "Custom Steel Wine Glasses | Perfect Imprints",
+  "metaDescription": "Shop custom steel wine glasses at Perfect Imprints. Durable, insulated, and perfect for bulk branding. Get a quote today.",
+  "introHtml": "<p>Steel wine glasses combine the elegance of traditional stemware with the durability needed for outdoor events, corporate parties, and trade shows. Unlike glass, these insulated tumblers keep wine chilled longer and resist breakage, making them ideal for field marketing teams and client gifts. Options like the 12 oz Corkcicle Stemless Wine Cup or the 10 oz MiiR Vacuum Insulated Tumbler offer excellent surfaces for laser engraving or full-color imprinting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom steel wine glasses with insulated design, perfect for outdoor events and brand logo engraving",
+  "productSkus": [
+    "520339",
+    "521101",
+    "522955",
+    "523186",
+    "523495",
+    "523689",
+    "523950",
+    "524368",
+    "525481",
+    "527802",
+    "528731",
+    "528732"
+  ],
+  "generatedAt": "2026-05-31T10:14:58.526518+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

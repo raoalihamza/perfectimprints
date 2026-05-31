@@ -1,0 +1,85 @@
+{
+  "url": "/cat/mints",
+  "type": "root",
+  "h1": "Custom Mints for Brand Recognition & Employee Morale",
+  "metaTitle": "Custom Mints | Perfect Imprints",
+  "metaDescription": "Order custom mints with your logo. Perfect for events, employee gifts, and client appreciation. Low MOQs, fast turnaround. Shop now.",
+  "introHtml": "<p>Marketing directors looking for a low-cost, high-impact giveaway, HR directors assembling employee appreciation kits, and business owners wanting a unique touch at client meetings all turn to custom mints. These small but memorable promotional products fit naturally into conference swag bags, office break rooms, and welcome packets. With options ranging from soft peppermints to buttermints and micromints in branded tins, you can choose a format that matches your event or program.</p><p>Perfect Imprints offers a wide selection of mints in various flavors, shapes, and packaging. Whether you need individually wrapped buttermints for hygiene-conscious environments or domed tins with your logo for a polished corporate gift, this category delivers. Bulk pricing keeps per-unit costs low, making custom mints one of the most affordable ways to keep your brand top of mind.</p>",
+  "buyingGuideHtml": "<h3>What to Look for in Custom Mints</h3><p>When ordering promotional mints, focus on three things: flavor appeal, packaging durability, and decoration quality. Soft peppermints and buttermints are crowd-pleasers, while micromints offer a modern twist. Packaging matters because it carries your logo. Tins, pill bottles, and snap-top containers protect mints and provide a surface for full-color printing or debossing. Avoid flimsy packaging that can crush or open in transit.</p><h3>Materials and Quality Signals</h3><p>Most custom mints are sugar-based with natural or artificial flavors. Buttermints have a creamy texture, while peppermints provide a strong, refreshing taste. Micromints are small, hard candies that dissolve slowly. For bulk orders, verify that mints are manufactured in FDA-compliant facilities. Wrapped mints add hygiene and are ideal for shared spaces. Unwrapped mints in tins work best for individual giveaways.</p><h3>Use Cases and Buyer Personas</h3><p>Marketing directors use branded mints at trade shows and product launches to drive booth traffic. HR directors include them in employee onboarding kits or wellness programs. Safety managers order them for safety incentive programs or as small rewards. Business owners give custom mints to clients as thank-you gifts or place them in waiting areas. The low cost per unit makes them suitable for high-volume distribution.</p><h3>Decoration and Customization Options</h3><p>Packaging is the primary canvas for your logo. Tins can be screen-printed, debossed, or fitted with full-color heat-transfer labels. Pill bottles accept screen printing or adhesive labels. For wrapped mints, the wrapper itself can be printed with your design. Micromints in domed tins often feature a full-color lid insert. Choose a method that matches your budget and desired look. Screen printing is cost-effective for large runs; full-color offers photo-quality detail.</p><h3>Quantity Guidance and MOQ Context</h3><p>Minimum order quantities for custom mints typically start around 100 to 250 units for tins and 500 for wrapped mints. Bulk orders of 1,000 or more significantly reduce per-unit cost. For example, a run of 500 custom peppermints in tins might cost $1.50 each, while 5,000 could drop to $0.75. Plan ahead for lead times of 2 to 4 weeks, depending on customization complexity. Ordering extra ensures you have stock for future events.</p><h3>Common Buying Mistakes to Avoid</h3><p>One common mistake is choosing a flavor that doesn't appeal to a broad audience. Stick with peppermint or buttermint for universal appeal. Another pitfall is underestimating packaging size. Ensure tins or bottles fit comfortably in gift bags or pockets. Also, verify decoration placement: logos on domed lids may distort if not properly aligned. Finally, check expiration dates if ordering well in advance. Mints have a shelf life of 12 to 18 months.</p>",
+  "buyingGuideH2": "Custom Mints Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom mints?",
+      "a": "Minimums vary by product. Tins typically start at 100 units, while wrapped mints require 500 or more. Contact us for specific MOQs on your chosen item."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, we offer samples of our standard mints and packaging. Customized samples may be available for a fee. Reach out to your account manager for details."
+    },
+    {
+      "q": "What decoration methods work best for mint tins?",
+      "a": "Screen printing is common for tins and offers good durability. Full-color heat transfer or adhesive labels allow detailed artwork. Debossing creates an elegant, permanent mark."
+    },
+    {
+      "q": "How long does production take for custom mints?",
+      "a": "Typical lead time is 2 to 4 weeks from art approval. Complex decoration or large orders may take longer. Rush production is sometimes available for an additional fee."
+    },
+    {
+      "q": "Are custom mints suitable for outdoor events?",
+      "a": "Yes, but consider packaging. Tins protect mints from heat and humidity better than plastic bags. Avoid unwrapped mints in hot weather as they may melt or stick together."
+    }
+  ],
+  "heroAltText": "Custom mints in branded tins with your logo, ideal for corporate gifts and promotional events.",
+  "productSkus": [
+    "501791",
+    "501798",
+    "503070",
+    "506293 90A",
+    "506454",
+    "506510",
+    "507533",
+    "507534",
+    "509358",
+    "509372",
+    "510142",
+    "512214 90A",
+    "512215 90A",
+    "512837",
+    "513214",
+    "513298",
+    "517988",
+    "517992",
+    "518206 90A",
+    "518401 01A",
+    "518402 90A",
+    "518406 10A",
+    "518415 16B",
+    "518424 16A",
+    "518425 90A",
+    "518426 90A",
+    "518443",
+    "519199",
+    "519340 90A",
+    "519431",
+    "519618",
+    "519764",
+    "519971",
+    "520136",
+    "520209",
+    "520770",
+    "520771",
+    "520774",
+    "520775",
+    "520776",
+    "520823",
+    "522186",
+    "525856"
+  ],
+  "generatedAt": "2026-05-30T11:47:40.189629+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "use_case",
+  "skuFilterMode": "full",
+  "rawSkuCount": 43,
+  "filteredSkuCount": 43
+}

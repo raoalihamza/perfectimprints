@@ -1,0 +1,22 @@
+{
+  "url": "/cat/sportswear/activity/hiking",
+  "type": "facet",
+  "h1": "Custom Hiking Sportswear",
+  "metaTitle": "Custom Hiking Sportswear | Perfect Imprints",
+  "metaDescription": "Shop custom hiking sportswear for your team or event. Perfect for outdoor promotions. Get a quote today!",
+  "introHtml": "<p>When your team hits the trail, they need gear that moves with them. Custom hiking sportswear combines moisture-wicking fabrics, reinforced stitching, and practical features like zippered pockets and UPF protection. Whether you're outfitting a corporate hiking club or supplying safety managers with high-visibility trail wear, these pieces perform better than standard cotton tees. Add reflective accents or a front chest print to keep your brand visible from trailhead to summit.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of hikers wearing custom hiking sportswear with company logos on a mountain trail",
+  "productSkus": [
+    "520378",
+    "521089"
+  ],
+  "generatedAt": "2026-05-31T09:26:29.971563+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

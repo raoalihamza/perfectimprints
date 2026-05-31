@@ -1,0 +1,21 @@
+{
+  "url": "/cat/shirts/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Shirts for Every Occasion",
+  "metaTitle": "Custom Unisex Shirts | Perfect Imprints",
+  "metaDescription": "Shop custom unisex shirts for your team or event. Bulk orders available at Perfect Imprints. Order now!",
+  "introHtml": "<p>Unisex shirts offer a versatile fit that works well for both men and women, making them a practical choice for company uniforms, promotional giveaways, or event apparel. Unlike gender-specific styles, unisex cuts provide a consistent look across your entire team, simplifying ordering and sizing. Whether you choose a classic cotton tee or a durable work shirt like the Carhartt® Rugged Flex® Plaid Long Sleeve Shirt, screen printing or embroidery can add your logo for a polished finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom unisex shirts with screen printed logo on front, featuring a classic fit and comfortable fabric.",
+  "productSkus": [
+    "529218"
+  ],
+  "generatedAt": "2026-05-31T08:23:47.231299+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

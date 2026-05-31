@@ -1,0 +1,30 @@
+{
+  "url": "/cat/unique-desk-accessories/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Unique Desk Accessories",
+  "metaTitle": "No-Minimum Custom Unique Desk Accessories | Perfect Imprints",
+  "metaDescription": "Order small quantities of custom unique desk accessories with no minimums. Perfect for small teams or events. Get branded gear from Perfect Imprints.",
+  "introHtml": "<p>No-minimum custom unique desk accessories let you order exactly what you need, whether it's a single item for a new hire or a handful for a small team. Unlike typical bulk orders, this option gives you flexibility for small budgets, trial runs, or one-off events. From branded desk organizers to personalized tech gadgets, you can customize just a few pieces without sacrificing quality or design. Perfect for small businesses, startups, or any team that wants branded desk accessories without the commitment of large quantities.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "No-minimum custom unique desk accessories including a branded desk organizer and personalized tech gadgets displayed on a modern desk",
+  "productSkus": [
+    "520886",
+    "521927",
+    "523655",
+    "524817",
+    "525724",
+    "527493",
+    "527554",
+    "528171",
+    "528870",
+    "529359"
+  ],
+  "generatedAt": "2026-05-31T08:23:00.939745+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

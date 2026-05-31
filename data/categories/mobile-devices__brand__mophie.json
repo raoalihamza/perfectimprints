@@ -1,0 +1,25 @@
+{
+  "url": "/cat/mobile-devices/brand/mophie",
+  "type": "facet",
+  "h1": "Custom Mophie Mobile Devices for Bulk Orders",
+  "metaTitle": "Custom Mophie Mobile Devices | Perfect Imprints",
+  "metaDescription": "Order custom Mophie mobile devices for your brand. Bulk pricing on power banks and wireless chargers. Get a quote today.",
+  "introHtml": "<p>Mophie power banks and wireless chargers deliver reliable, high-capacity portable power for your team or event attendees. With options like the 10,000 mAh Power Boost and the Snap+ Wireless Power Bank, these devices keep smartphones and tablets charged on the go. Customize with your logo using full-color pad printing or laser engraving for a sleek, professional look that aligns with your brand's commitment to quality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Mophie mobile devices including a power bank and wireless charger with engraved logo",
+  "productSkus": [
+    "526699",
+    "526700",
+    "526879",
+    "527169",
+    "527970"
+  ],
+  "generatedAt": "2026-05-31T09:56:54.823422+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

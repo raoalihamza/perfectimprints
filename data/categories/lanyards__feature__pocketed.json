@@ -1,0 +1,21 @@
+{
+  "url": "/cat/lanyards/feature/pocketed",
+  "type": "facet",
+  "h1": "Custom Pocketed Lanyards for Bulk Orders",
+  "metaTitle": "Custom Pocketed Lanyards | Perfect Imprints",
+  "metaDescription": "Order custom pocketed lanyards with built-in pockets for badges, cards, or phones. Perfect for events and daily use. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Pocketed lanyards add functionality beyond simple badge holders. The built-in pocket securely stores ID cards, keys, or even a phone, making them ideal for employees who need quick access to small items. Options like the 2-in-1 Charging Cable Lanyard with Phone Holder combine storage with charging capability, perfect for trade shows or tech-forward workplaces. Choose custom pocketed lanyards to keep essentials organized while displaying your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pocketed lanyards with a phone holder and charging cable, featuring a built-in pocket for secure storage",
+  "productSkus": [
+    "522188"
+  ],
+  "generatedAt": "2026-05-31T08:43:34.387696+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

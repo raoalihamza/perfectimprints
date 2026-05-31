@@ -1,0 +1,25 @@
+{
+  "url": "/cat/awards/material/glass",
+  "type": "facet",
+  "h1": "Custom Glass Awards for Bulk Orders",
+  "metaTitle": "Custom Glass Awards | Perfect Imprints",
+  "metaDescription": "Order custom glass awards for your recognition program. Etched, engraved, and personalized. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Glass awards offer a sleek, modern look that stands out on any desk or shelf. The clarity and weight of glass convey prestige and durability, making them ideal for corporate recognition, sales milestones, or service anniversaries. Options like the Wave Award or Vertical Gem Cut Award can be customized with etching or full-color digital print for a polished, professional finish that recipients proudly display.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom glass awards with etched designs and polished edges for corporate recognition programs",
+  "productSkus": [
+    "504695 25F",
+    "514834 01A",
+    "523016",
+    "523017",
+    "525453"
+  ],
+  "generatedAt": "2026-05-31T09:06:12.478150+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

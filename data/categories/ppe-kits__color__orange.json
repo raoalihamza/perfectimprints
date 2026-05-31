@@ -1,0 +1,31 @@
+{
+  "url": "/cat/ppe-kits/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange PPE Kits",
+  "metaTitle": "Custom Orange PPE Kits | Perfect Imprints",
+  "metaDescription": "Order custom orange PPE kits for high-visibility safety. Bulk pricing & fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>Orange PPE kits provide high-visibility protection for construction sites, road crews, and warehouse environments. Choose from orange bandanas, antimicrobial lanyards, or Class 2 safety shirts to keep your team seen and safe. Custom imprint your logo for branding that stands out in low-light conditions.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange PPE kit with high-visibility bandana and safety accessories for bulk orders",
+  "productSkus": [
+    "506445",
+    "506991",
+    "519430",
+    "521602",
+    "522110",
+    "522111",
+    "524609",
+    "524693",
+    "524758",
+    "524817",
+    "524945"
+  ],
+  "generatedAt": "2026-05-31T09:00:37.932774+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

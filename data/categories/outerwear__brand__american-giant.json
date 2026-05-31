@@ -1,0 +1,24 @@
+{
+  "url": "/cat/outerwear/brand/american-giant",
+  "type": "facet",
+  "h1": "Custom American Giant Outerwear for Your Brand",
+  "metaTitle": "Custom American Giant Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom American Giant outerwear with your logo. Premium quality, bulk discounts. Get a quote today.",
+  "introHtml": "<p>American Giant outerwear is built in the USA from heavyweight cotton fleece that holds its shape wash after wash. For companies that want their logo on premium hoodies and crewnecks that employees will actually wear, this brand delivers durability and a clean, structured look. Decorate with embroidery or screen printing on the chest or sleeve for a professional finish that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom American Giant outerwear with embroidered logo on a full zip hoodie, front view",
+  "productSkus": [
+    "528594",
+    "528595",
+    "529338",
+    "529339"
+  ],
+  "generatedAt": "2026-05-31T09:58:57.672530+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

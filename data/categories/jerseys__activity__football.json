@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jerseys/activity/football",
+  "type": "facet",
+  "h1": "Custom Football Jerseys",
+  "metaTitle": "Custom Football Jerseys | Perfect Imprints",
+  "metaDescription": "Order custom football jerseys for your team or event. Perfect for sports teams, corporate leagues, and spirit wear.",
+  "introHtml": "<p>Custom football jerseys are essential for teams, corporate leagues, and fan events. Whether you need durable game-day uniforms or comfortable sideline gear like the LAT Adult Football Fine Jersey Tee, these jerseys offer moisture-wicking fabric and full-color decoration options. Choose from adult and women's cuts to outfit your entire roster with a cohesive, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom football jerseys with team logo and numbers printed on the front",
+  "productSkus": [
+    "524039",
+    "524040"
+  ],
+  "generatedAt": "2026-05-31T09:52:02.334326+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/portfolios/brand/wenger",
+  "type": "facet",
+  "h1": "Custom Wenger Portfolios for Bulk Orders",
+  "metaTitle": "Custom Wenger Portfolios | Perfect Imprints",
+  "metaDescription": "Order custom Wenger portfolios in bulk at Perfect Imprints. Durable, professional designs ideal for corporate gifts. Shop now!",
+  "introHtml": "<p>Wenger portfolios combine Swiss-inspired durability with sleek professional styling, making them a preferred choice for corporate gift programs and executive onboarding kits. Unlike generic portfolios, Wenger models feature reinforced stitching, RFID-blocking pockets, and padded tablet sleeves that protect devices during daily commutes. These details matter when your logo represents a company committed to quality. Bulk buyers appreciate the consistent craftsmanship across large orders, ensuring every branded portfolio meets the same high standard. Decorate with foil stamping or embroidered patches for a polished finish that reflects your brand's attention to detail.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Wenger portfolio with embossed logo, zippered closure and padded interior for business professionals.",
+  "productSkus": [
+    "526883",
+    "526884",
+    "526885"
+  ],
+  "generatedAt": "2026-05-31T08:45:39.579590+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

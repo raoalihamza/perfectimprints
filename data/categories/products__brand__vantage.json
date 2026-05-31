@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/vantage",
+  "type": "facet",
+  "h1": "Custom Vantage Products for Bulk Orders",
+  "metaTitle": "Custom Vantage Products | Perfect Imprints",
+  "metaDescription": "Order custom Vantage products for your brand. Perfect for giveaways and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Vantage products are known for their durable construction and professional appearance, making them a popular choice for corporate giveaways and employee recognition. Whether you need custom drinkware, bags, or writing instruments, Vantage offers reliable options that hold up to daily use. Decorating with your logo is straightforward using screen printing or laser engraving, ensuring your brand stands out at events or in the office.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Vantage products including drinkware and bags with company logos for corporate giveaways",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:45.369687+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

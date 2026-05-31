@@ -1,0 +1,26 @@
+{
+  "url": "/cat/sweatpants/material/polyester",
+  "type": "facet",
+  "h1": "Custom Polyester Sweatpants",
+  "metaTitle": "Custom Polyester Sweatpants | Perfect Imprints",
+  "metaDescription": "Order custom polyester sweatpants for your team or event. Bulk pricing, fast turnaround. Perfect for branding.",
+  "introHtml": "<p>Polyester sweatpants offer a lightweight, moisture-wicking alternative to traditional cotton fleece, making them ideal for active teams, outdoor events, and corporate wellness programs. The fabric holds vibrant screen-printed or embroidered logos without fading, and its quick-dry properties keep wearers comfortable during workouts or casual wear. Whether you're outfitting a sales team for a charity run or supplying uniform bottoms for a summer camp, custom polyester sweatpants provide durable, professional-looking apparel that moves with your crew.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom polyester sweatpants with embroidered logo on the left leg, shown on a model walking outdoors.",
+  "productSkus": [
+    "509482",
+    "526129",
+    "528875",
+    "528881",
+    "528882",
+    "528886"
+  ],
+  "generatedAt": "2026-05-31T10:09:59.270820+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

@@ -1,0 +1,33 @@
+{
+  "url": "/cat/memo-boards/material/glass",
+  "type": "facet",
+  "h1": "Custom Glass Memo Boards for Bulk Orders",
+  "metaTitle": "Custom Glass Memo Boards | Perfect Imprints",
+  "metaDescription": "Order custom glass memo boards in bulk at Perfect Imprints. Perfect for offices and giveaways. Get a quote today!",
+  "introHtml": "<p>Glass memo boards offer a sleek, modern alternative to traditional cork or whiteboard surfaces. Their tempered glass surface resists stains and ghosting, making them ideal for high-traffic offices or conference rooms. Customize with full-color UV printing or etching to display your logo, schedule, or key messages. Perfect for corporate gifts or branded office supplies that look professional and last for years.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom glass memo board with a branded logo printed on a sleek whiteboard surface in a modern office setting.",
+  "productSkus": [
+    "504695 25F",
+    "510958 90E",
+    "511044 90E",
+    "511053 90E",
+    "511113 90E",
+    "511125 90E",
+    "514834 01A",
+    "521842",
+    "523016",
+    "523017",
+    "525225",
+    "525453",
+    "528775"
+  ],
+  "generatedAt": "2026-05-31T09:19:48.607676+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

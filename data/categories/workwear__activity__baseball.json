@@ -1,0 +1,21 @@
+{
+  "url": "/cat/workwear/activity/baseball",
+  "type": "facet",
+  "h1": "Custom Baseball Workwear",
+  "metaTitle": "Custom Baseball Workwear | Perfect Imprints",
+  "metaDescription": "Order custom baseball workwear for your team or staff. Durable, breathable fabrics with full decoration options. Get a quote today!",
+  "introHtml": "<p>Custom baseball workwear combines the classic diamond-style jersey with durable fabrics built for long days on the field or job site. Choose moisture-wicking polyester or cotton blends in team colors, with full front and back decoration for logos, names, and numbers. The Port Authority® Enhanced Visibility Cap adds safety with reflective trim, making these uniforms practical for construction crews, grounds crews, or tournament staff who need visibility and comfort.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Baseball workwear jersey with embroidered logo and reflective cap for team uniforms",
+  "productSkus": [
+    "509138"
+  ],
+  "generatedAt": "2026-05-31T08:48:06.727454+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

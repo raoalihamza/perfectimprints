@@ -1,0 +1,24 @@
+{
+  "url": "/cat/shirts/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Shirts for Eco-Conscious Brands",
+  "metaTitle": "Custom Recycled Shirts | Perfect Imprints",
+  "metaDescription": "Order custom recycled shirts for your team. Eco-friendly fabrics, bulk pricing. Get a quote at PerfectImprints.com.",
+  "introHtml": "<p>Recycled shirts let you outfit your team or promote your brand without adding virgin materials to the supply chain. These button-downs and henleys are made from post-consumer plastic bottles or recycled polyester, giving them a soft hand and professional drape. Whether you need embroidered polos for a trade show or screen-printed tees for a company picnic, recycled fabrics perform like conventional cotton with a lower environmental footprint. Choose recycled shirts to align your swag with your sustainability goals.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom recycled shirts in various colors featuring embroidered logos on the chest",
+  "productSkus": [
+    "526247",
+    "527304",
+    "527305",
+    "527895"
+  ],
+  "generatedAt": "2026-05-31T08:25:36.331253+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pens/feature/waterproof",
+  "type": "facet",
+  "h1": "Custom Waterproof Pens for Dependable Branding",
+  "metaTitle": "Custom Waterproof Pens | Perfect Imprints",
+  "metaDescription": "Order custom waterproof pens for reliable branding. Perfect for outdoor use. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Custom waterproof pens are built for environments where standard ink smudges or washes away. Whether your team works outdoors, on job sites, or in high-humidity conditions, these pens keep your message legible. The uni-ball Jetstream Sport Roller Pen, for example, uses waterproof ink that resists fading and running. Ideal for safety managers and field crews who need writing tools that stand up to the elements.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom waterproof pens with durable ink, ideal for outdoor use and branding.",
+  "productSkus": [
+    "507227"
+  ],
+  "generatedAt": "2026-05-31T08:45:12.781415+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

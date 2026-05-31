@@ -1,0 +1,77 @@
+{
+  "url": "/cat/lighters",
+  "type": "root",
+  "h1": "Custom Lighters for Promotional & Everyday Use",
+  "metaTitle": "Custom Lighters | Perfect Imprints",
+  "metaDescription": "Order custom lighters for your next promotion. Perfect for tradeshows, events, and giveaways. Fast turnaround. Get a quote today.",
+  "introHtml": "<p>Marketing directors and business owners know that a reliable, everyday item keeps your brand top of mind. Custom lighters are a classic promotional product that gets used daily, ensuring repeated exposure. Whether you need lighters for a tradeshow giveaway, a retail promotion, or a fundraiser, we have options that fit your budget and timeline. From sleek metal designs to colorful disposables, our selection offers variety in style, finish, and customization potential.</p><p>Safety managers and HR directors also appreciate custom lighters for safety-themed campaigns or employee incentives. With options for full-color imprinting, laser engraving, or debossing, you can create a cohesive look that aligns with your brand. Our bulk ordering process is straightforward, and we guide you through decoration choices to ensure your logo looks sharp. Let us help you select the right lighter for your next event or program.</p>",
+  "buyingGuideHtml": "<p>When ordering custom lighters, focus on build quality and reliability. A lighter that fails to ignite or runs out of fuel quickly will reflect poorly on your brand. Look for lighters with sturdy metal or high-impact plastic bodies and adjustable flame controls. Many promotional lighters use butane fuel and offer visible fuel windows so users know when to refill. For a premium feel, consider brushed metal or matte finishes that resist fingerprints and scratches.</p><h3>Materials and Durability</h3><p>The material of your custom lighter affects both durability and decoration options. Metal lighters, often made from brass or zinc alloy, provide a substantial weight and can be laser engraved or debossed for a permanent mark. Plastic lighters are lighter and more cost-effective for large quantities, and they accept full-color heat transfer or screen printing. Some lighters come in eco-friendly materials like recycled plastic, which appeals to environmentally conscious buyers. Always request a sample to test the feel and ignition quality before placing a bulk order.</p><h3>Use Cases and Buyer Personas</h3><p>Custom lighters are versatile promotional items. Marketing directors use them as tradeshow giveaways, retail freebies, or event merchandise. HR directors may include them in employee welcome kits or safety programs. Business owners often order lighters for restaurant promotions, bar giveaways, or as customer appreciation gifts. Fundraisers and nonprofits also use branded lighters for donor recognition or event souvenirs. The key is matching the lighter style to the audience: a sleek metal lighter suits corporate clients, while a colorful disposable works for casual giveaways.</p><h3>Customization Options</h3><p>Decoration methods vary by lighter material and shape. Metal lighters are ideal for laser engraving or debossing, which creates a subtle, upscale look. Plastic lighters accept screen printing, pad printing, or full-color heat transfers for vibrant logos. Some lighters offer wrap-around printing for maximum brand visibility. When choosing a decoration method, consider the logo complexity and color count. For fine details, laser engraving or pad printing works best. For photographic images, full-color heat transfer is recommended. Always request a proof to ensure the design aligns with your expectations.</p><h3>Quantity Guidance and MOQ</h3><p>Minimum order quantities for custom lighters typically start at 100 to 500 units, depending on the style and decoration method. Bulk orders of 1,000 or more yield the best per-unit pricing. If you need a small run for a limited event, ask about in-stock items that can be imprinted quickly. Lead times range from 10 to 20 business days, but rush options may be available. When ordering promotional lighters, factor in shipping and handling time to ensure your lighters arrive before the event. It's wise to order a few extras to cover unexpected demand or giveaways.</p><h3>Common Buying Mistakes</h3><p>A common mistake is choosing a lighter that is too small or flimsy for the intended audience. Always consider the user experience: a lighter that is hard to ignite or uncomfortable to hold won't be used. Another pitfall is overlooking safety regulations. Ensure your lighters meet CPSC guidelines for child-resistant features if required. Also, verify that the fuel type (butane or lighter fluid) is legal for shipping to your location. Finally, don't forget to request a sample before placing a large order. A sample lets you evaluate the feel, flame quality, and imprint accuracy, helping you avoid costly errors.</p>",
+  "buyingGuideH2": "Custom Lighters Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom lighters?",
+      "a": "Minimum order quantities vary by style and decoration method, typically starting at 100 to 500 units. Contact us for specific MOQ for your chosen lighter and imprint method."
+    },
+    {
+      "q": "Can I get a sample of a custom lighter before ordering?",
+      "a": "Yes, we recommend requesting a sample to evaluate the quality, feel, and imprint. Samples are usually available for a small fee, which may be credited toward your bulk order."
+    },
+    {
+      "q": "What decoration methods are available for lighters?",
+      "a": "Common methods include screen printing, pad printing, laser engraving, debossing, and full-color heat transfer. The best method depends on the lighter material and design complexity."
+    },
+    {
+      "q": "How long does production and shipping take?",
+      "a": "Standard production takes 10-20 business days after proof approval. Shipping time depends on the destination and carrier. Rush production may be available for an additional fee."
+    },
+    {
+      "q": "Are custom lighters safe for shipping and handling?",
+      "a": "Yes, but they must comply with shipping regulations for hazardous materials. We ensure all lighters are properly packaged and labeled. Check with your carrier for any restrictions."
+    }
+  ],
+  "heroAltText": "Custom lighters with logo imprint for promotional giveaways and events",
+  "productSkus": [
+    "503179",
+    "503583",
+    "506095",
+    "507333",
+    "507535",
+    "508521 49B",
+    "508522 49B",
+    "508569",
+    "510017 91A",
+    "511192",
+    "512204",
+    "512257 90A",
+    "514818",
+    "515421 20A",
+    "515422",
+    "516589",
+    "516591",
+    "517287",
+    "518853",
+    "521175",
+    "522353",
+    "522354",
+    "522355",
+    "522472",
+    "522479",
+    "522988",
+    "525233",
+    "525234",
+    "526804",
+    "527952",
+    "528507",
+    "528508",
+    "528509",
+    "528822",
+    "528823"
+  ],
+  "generatedAt": "2026-05-30T11:13:25.551226+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "buyer",
+  "skuFilterMode": "full",
+  "rawSkuCount": 35,
+  "filteredSkuCount": 35
+}

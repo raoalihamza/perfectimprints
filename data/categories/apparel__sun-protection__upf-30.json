@@ -1,0 +1,32 @@
+{
+  "url": "/cat/apparel/sun-protection/upf-30",
+  "type": "facet",
+  "h1": "Custom UPF 30 Apparel for Sun Protection",
+  "metaTitle": "Custom UPF 30 Apparel | Perfect Imprints",
+  "metaDescription": "Order custom UPF 30 apparel for sun-safe branding. Perfect for outdoor teams. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>UPF 30 apparel blocks 96.7% of UV rays, making it a smart choice for outdoor workers, event staff, and field crews who need sun protection without sacrificing comfort. Unlike standard clothing, these polos, hoodies, and shirts are tested and rated for UV resistance, so your logo stays visible while your team stays safe. From performance polos to lightweight hoodies, decorate with embroidery or screen printing for a professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom UPF 30 apparel including polo shirts and hoodies for sun protection",
+  "productSkus": [
+    "527121",
+    "527122",
+    "527174",
+    "527175",
+    "527895",
+    "528038",
+    "528039",
+    "528948",
+    "528949",
+    "529202",
+    "529203",
+    "529434"
+  ],
+  "generatedAt": "2026-05-31T08:48:29.223754+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

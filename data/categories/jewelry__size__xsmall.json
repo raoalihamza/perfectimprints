@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jewelry/size/xsmall",
+  "type": "facet",
+  "h1": "Custom XSmall Jewelry for Bulk Orders",
+  "metaTitle": "Custom XSmall Jewelry | Perfect Imprints",
+  "metaDescription": "Order custom xsmall jewelry in bulk for giveaways, events, and branding. Perfect for subtle, lightweight accessories.",
+  "introHtml": "<p>Xsmall jewelry offers a subtle branding opportunity for recipients who prefer lightweight, understated accessories. Items like paracord bracelets or mood watch bracelets fit comfortably on smaller wrists and are ideal for trade shows, employee gifts, or event giveaways. Decorate with screen printing or debossing to keep your logo visible without overwhelming the piece.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom xsmall jewelry including paracord bracelets and mood watch bracelets for branding",
+  "productSkus": [
+    "516655",
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T09:52:12.156493+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

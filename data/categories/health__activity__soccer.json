@@ -1,0 +1,23 @@
+{
+  "url": "/cat/health/activity/soccer",
+  "type": "facet",
+  "h1": "Custom Soccer Health Promotional Products",
+  "metaTitle": "Custom Soccer Health Gifts | Perfect Imprints",
+  "metaDescription": "Shop custom soccer health products at Perfect Imprints. Great for sports events, teams, and patient giveaways. Order bulk today!",
+  "introHtml": "<p>Soccer-themed health products combine the energy of the pitch with practical wellness tools. Whether you need stress balls shaped like soccer balls for a tournament giveaway or fidget toys for a physical therapy clinic, these items resonate with players, coaches, and fans. They are easy to imprint with your logo or message, making them ideal for sports medicine practices, team sponsorships, or health fairs targeting active communities.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom soccer health stress ball in the shape of a soccer ball with imprint, perfect for team giveaways.",
+  "productSkus": [
+    "502806 2AN",
+    "513047 90A",
+    "529177"
+  ],
+  "generatedAt": "2026-05-31T09:50:27.988385+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

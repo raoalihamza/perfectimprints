@@ -1,0 +1,21 @@
+{
+  "url": "/cat/shirts/decoration/heat-transfer",
+  "type": "facet",
+  "h1": "Custom Heat Transfer Shirts for Teams & Events",
+  "metaTitle": "Custom Heat Transfer Shirts | Perfect Imprints",
+  "metaDescription": "Order custom heat transfer shirts for your team or event. Vibrant, durable prints with no minimums. Get a quote today.",
+  "introHtml": "<p>Heat transfer decoration gives you the freedom to print full-color designs, logos, and photos on shirts without the setup costs of screen printing. This method works especially well for small runs, complex artwork, or last-minute orders where you need quick turnaround. Whether you are outfitting a charity 5K team or creating staff uniforms for a product launch, custom heat transfer shirts deliver crisp, vibrant results on fabrics like the Ladies' Ogio Luuma Flex Tunic. No minimum quantities mean you can order exactly what you need.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom heat transfer shirts with full-color logo print on a polo shirt for corporate events",
+  "productSkus": [
+    "526291"
+  ],
+  "generatedAt": "2026-05-31T08:37:23.363199+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

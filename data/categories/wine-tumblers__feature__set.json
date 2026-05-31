@@ -1,0 +1,24 @@
+{
+  "url": "/cat/wine-tumblers/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Wine Tumblers for Bulk Orders",
+  "metaTitle": "Custom Set Wine Tumblers | Perfect Imprints",
+  "metaDescription": "Shop custom set wine tumblers at Perfect Imprints. Ideal for corporate gifts, events, and promotions. Order bulk sets today.",
+  "introHtml": "<p>Custom set wine tumblers offer a polished, ready-to-gift solution for corporate events, client appreciation, and employee recognition. Unlike single tumblers, a set provides a cohesive, high-value impression that recipients appreciate. Choose from stemless designs or multi-piece sets like the Napa Stemless Wine Tumbler Set or the 12 oz Corzo Cup 4 in 1 Gift Set. Decorate with your logo using screen printing or engraving for a lasting brand presence.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set wine tumblers in a gift box with company logo, perfect for bulk corporate gifts and promotional events.",
+  "productSkus": [
+    "511053 90E",
+    "522098",
+    "523186",
+    "523950"
+  ],
+  "generatedAt": "2026-05-31T08:48:02.541643+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

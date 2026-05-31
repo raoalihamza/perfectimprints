@@ -1,0 +1,21 @@
+{
+  "url": "/cat/personal-care-items/activity/golf",
+  "type": "facet",
+  "h1": "Custom Golf Personal Care Items",
+  "metaTitle": "Custom Golf Personal Care Items | Perfect Imprints",
+  "metaDescription": "Order custom golf personal care items for your next tournament or event. Perfect for giveaways and corporate gifts.",
+  "introHtml": "<p>Golf outings and tournaments demand giveaways that are both practical and tailored to the course. Custom golf personal care items like the Alpha Fitness Towel offer a functional solution that keeps players refreshed between holes. Choose from microfiber towels, sunscreen packets, or lip balm, all imprinted with your logo in a single color for a clean, professional look. These items are lightweight for easy distribution and fit naturally into swag bags or as tee prizes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom golf personal care items including a branded microfiber towel with a golf theme",
+  "productSkus": [
+    "528644"
+  ],
+  "generatedAt": "2026-05-31T09:22:18.067321+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

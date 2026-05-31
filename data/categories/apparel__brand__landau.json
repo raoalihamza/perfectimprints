@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel/brand/landau",
+  "type": "facet",
+  "h1": "Custom Landau Apparel for Bulk Orders",
+  "metaTitle": "Custom Landau Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Landau apparel in bulk for your team. Perfect Imprints offers quality decoration options. Get a quote today!",
+  "introHtml": "<p>Landau is a trusted brand known for durable, comfortable work apparel, especially in healthcare and hospitality. Choosing custom Landau apparel means your team gets scrubs, lab coats, or uniforms that hold up to daily wear while featuring your logo or design. Decorate with embroidery or screen printing for a professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Landau apparel with embroidered logo on a scrub top, perfect for healthcare teams",
+  "productSkus": [
+    "528171"
+  ],
+  "generatedAt": "2026-05-31T08:38:42.202440+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

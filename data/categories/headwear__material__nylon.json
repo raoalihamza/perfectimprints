@@ -1,0 +1,21 @@
+{
+  "url": "/cat/headwear/material/nylon",
+  "type": "facet",
+  "h1": "Custom Nylon Headwear for Bulk Orders",
+  "metaTitle": "Custom Nylon Headwear | Perfect Imprints",
+  "metaDescription": "Order custom nylon headwear for your team or event. Durable, lightweight, and perfect for logo embroidery or screen printing.",
+  "introHtml": "<p>Nylon headwear offers a lightweight, quick-drying alternative to cotton or polyester, making it ideal for outdoor events, trade shows, and employee uniforms. Unlike heavier fabrics, nylon resists moisture and retains its shape through repeated wear. The Wanderlust Packable Bucket Hat, for example, folds easily for travel and provides UPF protection. Customize with embroidered logos or screen-printed designs for a crisp, long-lasting finish that stands up to sun and sweat.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom nylon headwear including packable bucket hats with embroidered logos for outdoor events",
+  "productSkus": [
+    "529157"
+  ],
+  "generatedAt": "2026-05-31T08:25:08.974081+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

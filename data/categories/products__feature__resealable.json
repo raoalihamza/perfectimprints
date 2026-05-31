@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/resealable",
+  "type": "facet",
+  "h1": "Custom Resealable Products for Your Brand",
+  "metaTitle": "Custom Resealable Products | Perfect Imprints",
+  "metaDescription": "Order custom resealable products with your logo. Great for giveaways, samples, and more. Shop at PerfectImprints.com.",
+  "introHtml": "<p>Resealable products keep contents fresh and prevent spills, making them ideal for food packaging, giveaways, and promotional samples. From resealable bags and pouches to containers, these items offer practical convenience that recipients appreciate. Choose from custom-printed stand-up pouches, slider bags, or screw-top containers in various sizes to fit your brand's needs. Perfect for trade shows, corporate gifts, or product launches.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom resealable products including pouches and bags with brand logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:53.431151+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

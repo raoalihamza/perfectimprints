@@ -1,0 +1,25 @@
+{
+  "url": "/cat/webcam-covers/search",
+  "type": "modifier",
+  "h1": "Custom Webcam Covers for Branded Promotions",
+  "metaTitle": "Custom Webcam Covers | Perfect Imprints",
+  "metaDescription": "Browse our selection of custom webcam covers for branded promotions. Perfect for privacy and marketing. Get started with Perfect Imprints today.",
+  "introHtml": "<p>Custom webcam covers combine practical privacy protection with effective brand exposure. Whether you are equipping a remote workforce or distributing giveaways at a trade show, these simple accessories keep cameras secure while displaying your logo. Our range includes slider-style covers and adhesive tabs designed for laptops, monitors, and mobile devices. Explore the options below to find the right fit for your next campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom webcam covers with logos, including slider and adhesive styles, for laptop and monitor privacy protection.",
+  "productSkus": [
+    "520547",
+    "520548",
+    "520946",
+    "521604",
+    "524062"
+  ],
+  "generatedAt": "2026-05-31T10:14:14.438469+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

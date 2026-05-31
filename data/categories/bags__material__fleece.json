@@ -1,0 +1,22 @@
+{
+  "url": "/cat/bags/material/fleece",
+  "type": "facet",
+  "h1": "Custom Fleece Bags for Branded Promotions",
+  "metaTitle": "Custom Fleece Bags | Perfect Imprints",
+  "metaDescription": "Get custom fleece bags for your next event or corporate gift. Soft, warm, and perfect for branding. Order bulk at Perfect Imprints.",
+  "introHtml": "<p>Fleece bags offer a soft, cozy feel that sets them apart from standard canvas or polyester options. They are ideal for corporate gifts, trade show giveaways, or employee appreciation during colder months. The plush material accepts screen printing or embroidery cleanly, making your logo stand out. Whether you choose a fleece string backpack or a cooler bag with a fleece blanket, these items provide warmth and utility that recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom fleece bags with embroidered logo, soft material, perfect for corporate gifts and winter promotions.",
+  "productSkus": [
+    "521873",
+    "526444"
+  ],
+  "generatedAt": "2026-05-31T09:34:27.510738+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

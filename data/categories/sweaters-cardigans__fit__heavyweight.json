@@ -1,0 +1,32 @@
+{
+  "url": "/cat/sweaters-cardigans/fit/heavyweight",
+  "type": "facet",
+  "h1": "Custom Heavyweight Sweaters & Cardigans",
+  "metaTitle": "Custom Heavyweight Sweaters & Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom heavyweight sweaters and cardigans for your team. Durable, warm, and perfect for branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Heavyweight sweaters and cardigans offer the warmth and durability that lighter knits can't match, making them ideal for outdoor events, chilly offices, or company uniforms. The dense fabric holds embroidery and screen printing exceptionally well, ensuring your logo stays crisp through repeated wear. Whether you need rugged crewnecks for a construction crew or polished cardigans for a retail team, these substantial garments provide year-round comfort and professional appearance.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom heavyweight sweaters and cardigans with embroidered logos, warm and durable for corporate branding",
+  "productSkus": [
+    "520268",
+    "520269",
+    "523604",
+    "526198",
+    "526291",
+    "526292",
+    "527181",
+    "527182",
+    "527833",
+    "527957",
+    "528757",
+    "528758"
+  ],
+  "generatedAt": "2026-05-31T09:27:31.226179+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/apparel/brand/dri-duck",
+  "type": "facet",
+  "h1": "Custom Dri Duck Apparel for Branded Workwear",
+  "metaTitle": "Custom Dri Duck Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Dri Duck apparel for your team. Durable workwear perfect for branding. Get a quote today.",
+  "introHtml": "<p>Dri Duck apparel is built for durability and comfort on the job, making it a smart choice for companies that need branded workwear that holds up. From the Mining Cap to the Challenger waterproof jackets, each piece features rugged construction and practical design. Decorate with embroidery or screen printing for a professional look that keeps your brand visible in the field. Whether you outfit a safety crew or a sales team, Dri Duck delivers reliable gear your people will actually wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Dri Duck apparel including jackets and caps with company logos for workwear branding",
+  "productSkus": [
+    "522595",
+    "527126",
+    "528099",
+    "528100"
+  ],
+  "generatedAt": "2026-05-31T08:48:23.528888+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

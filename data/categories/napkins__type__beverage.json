@@ -1,0 +1,31 @@
+{
+  "url": "/cat/napkins/type/beverage",
+  "type": "facet",
+  "h1": "Custom Beverage Napkins for Branded Events",
+  "metaTitle": "Custom Beverage Napkins | Perfect Imprints",
+  "metaDescription": "Order custom beverage napkins for your next event. Perfect for cocktail parties, trade shows, and corporate gatherings. Get a quote today.",
+  "introHtml": "<p>Whether you are hosting a cocktail hour, a networking reception, or a corporate happy hour, custom beverage napkins add a polished, branded touch to every drink. Unlike full-size dinner napkins, beverage napkins are compact and designed to accompany glasses or bottles without overwhelming the table. Choose from white or colored stock, and add your logo or message with one-color or full-color imprinting. These napkins are a low-cost, high-impact giveaway that keeps your brand in guests' hands throughout the event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom beverage napkins with printed logo on a bar table, perfect for corporate events",
+  "productSkus": [
+    "514577 90A",
+    "514579 90A",
+    "514580 90A",
+    "514581 90A",
+    "514583 90A",
+    "519472",
+    "519473",
+    "520634",
+    "520635",
+    "520636",
+    "520637"
+  ],
+  "generatedAt": "2026-05-31T08:21:38.874489+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

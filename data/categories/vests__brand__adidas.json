@@ -1,0 +1,31 @@
+{
+  "url": "/cat/vests/brand/adidas",
+  "type": "facet",
+  "h1": "Custom Adidas Vests for Bulk Orders",
+  "metaTitle": "Custom Adidas Vests | Perfect Imprints",
+  "metaDescription": "Order custom Adidas vests for your team or event. Perfect for corporate branding. Get a quote today.",
+  "introHtml": "<p>Adidas vests combine athletic performance with professional style, making them a top choice for corporate uniforms, event staff, and team giveaways. The Men's Adidas Puffer Vest offers lightweight warmth and a sleek silhouette, ideal for layering with polo shirts or hoodies. With options for embroidery or screen printing, these vests provide ample branding space on the chest or back. Choose Adidas for a recognized brand that signals quality and active lifestyle.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Adidas vests for corporate branding, featuring a men's puffer vest with embroidered logo",
+  "productSkus": [
+    "527061",
+    "527063",
+    "527066",
+    "527067",
+    "527068",
+    "527069",
+    "527070",
+    "529075",
+    "529076",
+    "529184",
+    "529185"
+  ],
+  "generatedAt": "2026-05-31T10:13:22.534437+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

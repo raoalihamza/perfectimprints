@@ -1,0 +1,19 @@
+{
+  "url": "/cat/mints/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Mints for Bulk Orders",
+  "metaTitle": "Custom Set Mints | Perfect Imprints",
+  "metaDescription": "Order custom set mints in bulk for your next event. Perfect Imprints offers high-quality promotional mints with your logo.",
+  "introHtml": "<p>Custom set mints bundle multiple rolls or tins in a single package, making them ideal for giveaways at trade shows, conferences, or employee appreciation events. Choose from peppermint, spearmint, or wintergreen flavors, and imprint your logo via foil stamping or full-color labels. Sets create a bigger brand impression than single mints, and they keep your company name front of mind long after the mint is gone.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set mints in bulk packaging with imprinted logo, perfect for promotional giveaways and corporate events.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:56:46.993813+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

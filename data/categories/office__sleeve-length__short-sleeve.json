@@ -1,0 +1,21 @@
+{
+  "url": "/cat/office/sleeve-length/short-sleeve",
+  "type": "facet",
+  "h1": "Custom Short Sleeve Office Apparel",
+  "metaTitle": "Custom Short Sleeve Office Apparel - Perfect Imprints",
+  "metaDescription": "Order custom short sleeve office apparel with your logo. Perfect for uniform programs, team events, and client gifts. Free quotes.",
+  "introHtml": "<p>Short sleeve office apparel keeps your team comfortable during warmer months or in temperature-controlled environments. From branded polo shirts to casual button-downs, these pieces work well for uniform programs, client meetings, and team events. Decorate with embroidery or screen printing for a professional finish that lasts through repeated washes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom short sleeve office polo shirts with embroidered logo, perfect for corporate uniforms and team events",
+  "productSkus": [
+    "520125"
+  ],
+  "generatedAt": "2026-05-31T09:58:17.828233+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

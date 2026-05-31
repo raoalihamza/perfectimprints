@@ -1,0 +1,22 @@
+{
+  "url": "/cat/tote-bags/color/rainbow",
+  "type": "facet",
+  "h1": "Custom Rainbow Tote Bags",
+  "metaTitle": "Custom Rainbow Tote Bags | Perfect Imprints",
+  "metaDescription": "Order custom rainbow tote bags in bulk at Perfect Imprints. Perfect for pride events, giveaways, and eco-friendly promotions.",
+  "introHtml": "<p>Rainbow tote bags make a bold statement for pride events, diversity initiatives, or any campaign celebrating inclusion. The Large Rainbow Laminated Tote offers a durable, water-resistant surface that holds up to daily use, while the Metro Enviro-Shopper provides a lightweight, reusable option for grocery runs or trade shows. Both styles are available for full-color screen printing or heat transfer decoration, ensuring your logo pops against the vibrant stripes. Choose custom rainbow tote bags to show your brand's commitment to equality and sustainability.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of custom rainbow tote bags with colorful stripes, perfect for pride events and promotional giveaways.",
+  "productSkus": [
+    "508787",
+    "524409"
+  ],
+  "generatedAt": "2026-05-31T09:28:51.473490+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

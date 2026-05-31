@@ -1,0 +1,24 @@
+{
+  "url": "/cat/school-work-backpacks/brand/work",
+  "type": "facet",
+  "h1": "Custom Work School Work Backpacks",
+  "metaTitle": "Custom Work School Work Backpacks | PerfectImprints.com",
+  "metaDescription": "Order custom Work school work backpacks in bulk at Perfect Imprints. Ideal for employee gifts and trade shows. Get a quote today!",
+  "introHtml": "<p>Work backpacks combine professional styling with everyday utility, making them a smart choice for corporate gifts or employee onboarding kits. Models like the Hive Compu-Backpack and High Sierra Pilsen Backpack offer padded laptop compartments and organized pockets, while the Breckenridge Classic delivers a sleek, minimalist look. These bags are built for daily commutes and business travel, with durable materials and comfortable straps. Perfect for companies that want a practical, branded item that employees will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Work school work backpacks in bulk, featuring padded laptop compartments and professional styling.",
+  "productSkus": [
+    "518365",
+    "520571",
+    "521963",
+    "528088"
+  ],
+  "generatedAt": "2026-05-31T10:06:01.884593+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

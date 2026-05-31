@@ -1,0 +1,21 @@
+{
+  "url": "/cat/t-shirts/brand/new-era",
+  "type": "facet",
+  "h1": "Custom New Era T Shirts for Bulk Orders",
+  "metaTitle": "Custom New Era T Shirts - Perfect Imprints",
+  "metaDescription": "Order custom New Era t shirts for your team or event. Bulk pricing and fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>New Era is known for its iconic headwear, but their t shirts bring the same quality and fit. The Heritage Blend Crew Tee offers a classic look with a soft cotton-poly blend that holds up to frequent washing. For marketing directors or safety managers, these shirts provide a consistent, professional appearance across your crew. Decorate with screen printing or embroidery for durable branding that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom New Era t shirts in bulk with screen printed logo on front",
+  "productSkus": [
+    "529310"
+  ],
+  "generatedAt": "2026-05-31T10:10:14.073309+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,31 @@
+{
+  "url": "/cat/napkins/supplier/admatch",
+  "type": "facet",
+  "h1": "Custom Admatch Napkins for Your Brand",
+  "metaTitle": "Custom Admatch Napkins | Perfect Imprints",
+  "metaDescription": "Order custom Admatch napkins in bulk for your business. Perfect for events, restaurants, and promotions. Get a quote today!",
+  "introHtml": "<p>Admatch napkins offer consistent quality and absorbency, making them a reliable choice for restaurants, caterers, and corporate events. Whether you need white or colored options in beverage, luncheon, or dinner sizes, these napkins accept crisp logo imprints to reinforce your brand with every use. Choose from 1/4 or 1/8 fold dinner napkins for a polished presentation at banquets or trade shows.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom Admatch napkins with printed logo, available in white and colored options for beverage, luncheon, and dinner sizes.",
+  "productSkus": [
+    "514577 90A",
+    "514579 90A",
+    "514580 90A",
+    "514581 90A",
+    "514583 90A",
+    "519472",
+    "519473",
+    "520634",
+    "520635",
+    "520636",
+    "520637"
+  ],
+  "generatedAt": "2026-05-31T09:57:31.221598+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

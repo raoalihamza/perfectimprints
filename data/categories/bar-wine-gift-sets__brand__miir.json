@@ -1,0 +1,33 @@
+{
+  "url": "/cat/bar-wine-gift-sets/brand/miir",
+  "type": "facet",
+  "h1": "Custom Miir Bar Wine Gift Sets",
+  "metaTitle": "Custom Miir Bar Wine Gift Sets | Perfect Imprints",
+  "metaDescription": "Shop custom Miir bar wine gift sets at Perfect Imprints. Ideal for corporate gifts and events. Get a quote today!",
+  "introHtml": "<p>Miir bar wine gift sets combine award-winning vacuum-insulated drinkware with the brand’s commitment to sustainability. These sets, featuring wine tumblers and straw cups, keep beverages at the perfect temperature for hours. Ideal for corporate holiday gifts or client appreciation, each piece can be laser engraved or screen printed with your logo. Miir’s clean design and durable construction make these sets a premium choice that recipients will use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Miir bar wine gift sets with vacuum insulated wine tumbler and straw cup, laser engraved with logo",
+  "productSkus": [
+    "523728",
+    "523729",
+    "523730",
+    "523761",
+    "525478",
+    "525481",
+    "525612",
+    "526419",
+    "526482",
+    "527194",
+    "527204",
+    "527938",
+    "527939"
+  ],
+  "generatedAt": "2026-05-31T08:24:50.831215+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

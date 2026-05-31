@@ -1,0 +1,23 @@
+{
+  "url": "/cat/sunglasses/style/matte",
+  "type": "facet",
+  "h1": "Custom Matte Sunglasses for Bulk Orders",
+  "metaTitle": "Custom Matte Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom matte sunglasses in bulk. Perfect for events, giveaways, and branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Matte finishes give custom sunglasses a sophisticated, non-reflective look that stands out from glossy alternatives. Whether you choose the Two Tone Matte Sunglasses for a modern two-color design, the Velvet Touch Malibu Sunglasses for a soft-touch feel, or the Nike Circuit Polarized Sunglasses for performance and style, matte frames reduce glare and fingerprints. Ideal for outdoor events, trade shows, or employee gifts, these shades offer a premium tactile experience that keeps your logo front and center.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom matte sunglasses with sleek black frames and UV400 lenses, perfect for branding and promotional giveaways.",
+  "productSkus": [
+    "510937",
+    "512573",
+    "526685"
+  ],
+  "generatedAt": "2026-05-31T09:27:18.852461+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

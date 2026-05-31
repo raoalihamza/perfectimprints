@@ -1,0 +1,29 @@
+{
+  "url": "/cat/folding-chairs/material/mesh",
+  "type": "facet",
+  "h1": "Custom Mesh Folding Chairs",
+  "metaTitle": "Custom Mesh Folding Chairs | Perfect Imprints",
+  "metaDescription": "Order custom mesh folding chairs with your logo. Breathable, durable, and perfect for outdoor events. Get a quote today.",
+  "introHtml": "<p>Mesh folding chairs offer breathable comfort for outdoor events, trade shows, and tailgates. Unlike solid fabric chairs, mesh keeps you cool on hot days while providing sturdy support. Our selection includes stadium seats and rockers, all customizable with your logo via screen printing or embroidery. Perfect for giveaways or seating at corporate functions.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom mesh folding chairs with logo, breathable mesh fabric, and carrying bag for outdoor events",
+  "productSkus": [
+    "505894",
+    "512246",
+    "513930",
+    "519774",
+    "520195",
+    "525794",
+    "526522",
+    "526651",
+    "527459"
+  ],
+  "generatedAt": "2026-05-31T08:26:29.690387+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

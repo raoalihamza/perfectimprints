@@ -1,0 +1,28 @@
+{
+  "url": "/cat/jackets/style/pullover",
+  "type": "facet",
+  "h1": "Custom Pullover Jackets for Bulk Orders",
+  "metaTitle": "Custom Pullover Jackets | Perfect Imprints",
+  "metaDescription": "Order custom pullover jackets for your team or event. Perfect for corporate gifting, uniforms, and giveaways. Fast turnaround & free quotes.",
+  "introHtml": "<p>Pullover jackets offer a clean, professional look without the bulk of a full-zip style. Quarter-zip and half-zip designs are popular for corporate uniforms, outdoor events, and employee rewards because they provide easy layering and a polished silhouette. Choose from fleece, knit, or performance fabrics in men’s and women’s cuts, and add your logo with embroidery or screen printing. Perfect for safety managers needing durable cold-weather gear or marketing directors creating cohesive brand apparel.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pullover jackets with embroidered logo, quarter-zip design, and fleece fabric for corporate branding",
+  "productSkus": [
+    "509568",
+    "509569",
+    "511074",
+    "519612",
+    "520270",
+    "521110",
+    "521111",
+    "525893"
+  ],
+  "generatedAt": "2026-05-31T08:29:29.460674+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

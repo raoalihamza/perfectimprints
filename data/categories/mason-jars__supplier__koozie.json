@@ -1,0 +1,22 @@
+{
+  "url": "/cat/mason-jars/supplier/koozie",
+  "type": "facet",
+  "h1": "Custom Koozie Mason Jars for Bulk Orders",
+  "metaTitle": "Custom Koozie Mason Jars | Perfect Imprints",
+  "metaDescription": "Order custom Koozie mason jars for your brand. Durable, insulated, and perfect for events. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Koozie brand mason jars combine the classic mason jar silhouette with practical insulation, keeping drinks cold longer at outdoor events, corporate picnics, or trade shows. The 22 oz Fiesta Mason Jar Tumbler offers a vibrant, shatter-resistant option for custom screen printing or laser engraving, while the Arnold Palmer Kit in a Mason Jar adds a ready-to-gift twist. Choose Koozie for reliable quality that stands up to repeated use and dishwasher cleaning.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Koozie mason jars with insulated design and promotional logo, perfect for bulk corporate gifts",
+  "productSkus": [
+    "506911",
+    "525119"
+  ],
+  "generatedAt": "2026-05-31T09:55:51.746929+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

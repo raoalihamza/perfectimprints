@@ -1,0 +1,21 @@
+{
+  "url": "/cat/outerwear/brand/marmot",
+  "type": "facet",
+  "h1": "Custom Marmot Outerwear for Bulk Orders",
+  "metaTitle": "Custom Marmot Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom Marmot outerwear in bulk from Perfect Imprints. Perfect for corporate gifts and employee rewards.",
+  "introHtml": "<p>Marmot outerwear combines technical performance with a clean, professional look, making it a top choice for companies that want their logo on gear that actually gets worn. Whether you are outfitting a field crew with the Men's Sweater Knit Jacket or rewarding top performers with a premium fleece, Marmot's reputation for durability and comfort ensures your brand is associated with quality. Decorate with embroidery or screen printing for a polished finish that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Marmot outerwear with embroidered logo on a Men's Sweater Knit Jacket",
+  "productSkus": [
+    "528443"
+  ],
+  "generatedAt": "2026-05-31T09:59:01.681134+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

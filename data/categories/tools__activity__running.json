@@ -1,0 +1,21 @@
+{
+  "url": "/cat/tools/activity/running",
+  "type": "facet",
+  "h1": "Custom Running Tools for Bulk Orders",
+  "metaTitle": "Custom Running Tools | Perfect Imprints",
+  "metaDescription": "Order custom running tools for your next race or event. Perfect Imprints offers bulk pricing on branded gear.",
+  "introHtml": "<p>Running tools like the Mustang Pocket Knife give participants a practical keepsake they will actually use. Whether you are organizing a 5K, marathon, or company fitness challenge, branded running tools keep your logo visible long after the finish line. Choose metal finishes and laser engraving for a durable, professional look that stands up to daily carry.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom running tools including a branded pocket knife with laser engraving",
+  "productSkus": [
+    "513693"
+  ],
+  "generatedAt": "2026-05-31T08:47:26.368843+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

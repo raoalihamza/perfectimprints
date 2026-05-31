@@ -1,0 +1,56 @@
+{
+  "url": "/cat/cards",
+  "type": "root",
+  "h1": "Custom Cards for Branded Giveaways & Events",
+  "metaTitle": "Custom Cards | Perfect Imprints",
+  "metaDescription": "Order custom playing cards for events, trade shows, and gifts. High-quality, fully customizable decks with your logo. Get a quote today!",
+  "introHtml": "<p>Marketing directors planning trade show giveaways, HR directors assembling employee welcome kits, and business owners looking for unique customer thank-you gifts all find value in custom cards. A branded deck of playing cards is a functional, memorable item that recipients keep and use repeatedly. Whether you need standard playing cards for conference swag, themed decks for a promotional campaign, or travel-friendly card games with dice, this category offers versatile options for every budget and use case.</p><p>Perfect Imprints provides fully customizable playing cards with your logo, artwork, or message. Choose from solid backs, custom backs, or themed designs like chalkboard, shiplap, flag, poker night, and vintage wood. Each deck comes in a protective case that can be personalized as well. With low minimum order quantities and competitive wholesale pricing, ordering branded cards is straightforward for bulk buyers. Explore the selection below and find the deck that fits your next event or program.</p>",
+  "buyingGuideHtml": "<p>When ordering custom cards, the first consideration is the intended use. For corporate events and trade shows, standard playing cards with a full-color custom back design are a popular choice. They are lightweight, easy to distribute, and offer ample space for your logo and contact information. Themed decks, such as poker night or vintage wood, add a fun twist that aligns with specific event themes or brand personality. For employee onboarding or safety programs, a deck with a custom message or safety tips printed on the cards can reinforce training in an engaging way.</p><p>Material quality matters. Playing cards are typically printed on coated paper or plastic-coated cardstock. Plastic-coated cards resist wear and bending, making them ideal for repeated use. The finish can be smooth or linen-textured, affecting how cards shuffle and feel in hand. If you plan to use the cards for actual gameplay, opt for a durable finish that won't stick or warp. For giveaways where the deck is a keepsake rather than a playing tool, standard cardstock is sufficient and more cost-effective.</p><p>Decoration and customization options vary by product. Most custom decks allow full-color printing on the card backs, with the face cards remaining standard. Some products also offer customization on the card faces, such as adding your logo to the ace of spades or replacing the jokers. The card case can be printed with your design using offset printing or full-color heat transfer. For a premium look, consider foil stamping or embossing on the case. Discuss your design with your account manager to ensure the best decoration method for your artwork.</p><p>Quantity and pricing are key factors. Bulk custom cards orders typically start at 100 to 250 decks, with unit prices decreasing as quantity increases. For large events or multi-location programs, ordering 1,000 or more decks can bring significant savings. Wholesale pricing on branded cards makes them an affordable giveaway item compared to many other promotional products. If you need a small run for a VIP client gift or a limited event, check the minimum order quantity for each product, as some themed decks may have higher minimums.</p><p>Common buying mistakes include overlooking the card size and case quality. Standard poker-size cards (2.5 x 3.5 inches) are the most common, but bridge-size cards are narrower. Confirm the size that fits your audience. Also, ensure the case is sturdy enough to protect the deck during shipping and handling. A flimsy case can lead to damaged corners and a poor unboxing experience. Finally, order a physical sample before placing a large run to verify color accuracy and print quality. This step is especially important for full-color custom backs where your logo colors must match your brand guidelines.</p>",
+  "buyingGuideH2": "Custom Cards Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom playing cards?",
+      "a": "Minimum order quantities vary by product but typically start at 100 to 250 decks. Some themed decks may have higher minimums. Contact your account manager for specific product MOQs."
+    },
+    {
+      "q": "Can I customize the card faces or just the backs?",
+      "a": "Most custom decks allow full-color printing on the backs only, with standard face cards. Some products offer customization on the ace of spades or jokers. Check product details or ask your account manager for face customization options."
+    },
+    {
+      "q": "What decoration methods are available for the card case?",
+      "a": "Common decoration methods for card cases include offset printing, full-color heat transfer, foil stamping, and embossing. The best method depends on your design complexity and budget."
+    },
+    {
+      "q": "How long does production take for custom cards?",
+      "a": "Production lead time typically ranges from 10 to 15 business days after artwork approval. Rush options may be available for an additional fee. Always confirm timelines with your account manager."
+    },
+    {
+      "q": "Can I order a sample before placing a large quantity?",
+      "a": "Yes, we recommend ordering a physical sample to verify print quality, color accuracy, and card feel. Samples can be ordered through your account manager for a nominal fee."
+    }
+  ],
+  "heroAltText": "Custom playing cards with a full-color custom back design in a branded case",
+  "productSkus": [
+    "512116",
+    "513026 90E",
+    "522393",
+    "524494",
+    "524496",
+    "525824",
+    "526561",
+    "526562",
+    "526787",
+    "526831",
+    "526832",
+    "526833",
+    "526834",
+    "526835"
+  ],
+  "generatedAt": "2026-05-30T11:28:35.157372+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "use_case",
+  "skuFilterMode": "full",
+  "rawSkuCount": 14,
+  "filteredSkuCount": 14
+}

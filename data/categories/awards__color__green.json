@@ -1,0 +1,33 @@
+{
+  "url": "/cat/awards/color/green",
+  "type": "facet",
+  "h1": "Custom Green Awards for Recognition Programs",
+  "metaTitle": "Custom Green Awards | Perfect Imprints",
+  "metaDescription": "Order custom green awards for recognition programs. Perfect for eco-conscious branding. Bulk pricing available.",
+  "introHtml": "<p>Green awards offer a distinctive way to honor achievements while aligning with sustainability values. Whether you choose a concrete award like the Pulsar or Mercury for a modern look, or a classic certificate folder with a green accent, these pieces make recognition memorable. The green color symbolizes growth and renewal, making it ideal for employee milestones, safety achievements, or environmental initiatives. Customize with your logo and message for a polished, professional presentation.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green awards including concrete plaques and certificate holders for recognition programs",
+  "productSkus": [
+    "508502",
+    "509824",
+    "518284",
+    "518742",
+    "522113",
+    "522114",
+    "522115",
+    "522116",
+    "522117",
+    "522118",
+    "525447",
+    "525448",
+    "525449"
+  ],
+  "generatedAt": "2026-05-31T09:06:10.117128+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jackets/brand/devon-jones",
+  "type": "facet",
+  "h1": "Custom Devon Jones Jackets for Bulk Orders",
+  "metaTitle": "Custom Devon Jones Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Devon Jones jackets in bulk. Perfect for teams, events, and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Devon Jones jackets deliver the professional polish your team needs, with sweater fleece options like the Bristol Quarter Zip that combine warmth and a tailored fit. Ideal for corporate uniforms or client gifts, these jackets accept full-color embroidery and screen printing. Choose Devon Jones for consistent sizing and a look that transitions from the office to off-site events without losing brand presence.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Devon Jones jackets for bulk orders featuring a men's quarter zip sweater fleece in navy with embroidered logo",
+  "productSkus": [
+    "520270",
+    "520271"
+  ],
+  "generatedAt": "2026-05-31T09:51:37.280594+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/color/gray",
+  "type": "facet",
+  "h1": "Custom Gray Products for Your Brand",
+  "metaTitle": "Custom Gray Products | Perfect Imprints",
+  "metaDescription": "Order custom gray products in bulk from Perfect Imprints. Great for corporate gifts, events, and uniforms.",
+  "introHtml": "<p>Gray is a versatile neutral that works across industries — from tech companies to healthcare facilities. It pairs well with bold logos and offers a professional, understated look. Whether you need branded apparel, drinkware, or desk accessories, gray products provide a clean canvas for your imprint. Choose from options like soft-touch finishes or classic matte to match your brand's aesthetic.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom gray products including a water bottle, notebook, and pen with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:48.027813+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

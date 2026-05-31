@@ -1,0 +1,19 @@
+{
+  "url": "/cat/shirts/activity/hunting",
+  "type": "facet",
+  "h1": "Custom Hunting Shirts for Outdoor Teams",
+  "metaTitle": "Custom Hunting Shirts | Perfect Imprints",
+  "metaDescription": "Order custom hunting shirts with camo prints and safety options. Perfect for outdoor teams. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Custom hunting shirts combine durability, comfort, and visibility for outdoor work and recreation. Choose moisture-wicking fabrics, camo patterns, or high-visibility colors to keep your team safe and comfortable in the field. Perfect for corporate hunting events, conservation groups, or outdoor crew uniforms.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom hunting shirts with camo and safety features in a forest setting",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:06:26.597429+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

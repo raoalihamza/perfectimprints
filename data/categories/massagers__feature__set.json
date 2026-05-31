@@ -1,0 +1,23 @@
+{
+  "url": "/cat/massagers/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Massagers for Bulk Orders",
+  "metaTitle": "Custom Set Massagers | Perfect Imprints",
+  "metaDescription": "Order branded set massagers in bulk at Perfect Imprints. Great for wellness gifts and corporate events.",
+  "introHtml": "<p>Custom set massagers offer a complete wellness solution in one package, making them ideal for corporate gift boxes, employee appreciation kits, or event giveaways. Unlike single massagers, sets like the Malmo Massage Set or the Calm and Relax Cozy Kit provide variety and perceived higher value. Choose from curated combinations of handheld massagers, rollers, and accessories, all customizable with your logo. Perfect for HR directors and safety managers promoting workplace wellness programs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set massagers including a massage gun and roller in a gift box with logo imprint",
+  "productSkus": [
+    "526751",
+    "526913",
+    "528286"
+  ],
+  "generatedAt": "2026-05-31T09:19:13.364829+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

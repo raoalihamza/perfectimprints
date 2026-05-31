@@ -1,0 +1,27 @@
+{
+  "url": "/cat/golf-balls/supplier/golftee",
+  "type": "facet",
+  "h1": "Custom Golftee Golf Balls for Branded Giveaways",
+  "metaTitle": "Custom Golftee Golf Balls | Perfect Imprints",
+  "metaDescription": "Order custom Golftee golf balls for your next event. Perfect Imprints offers bulk pricing and fast turnaround.",
+  "introHtml": "<p>Custom Golftee golf balls let you hand out premium branded balls that recipients will actually use on the course. Golftee offers a range of top-tier options like Titleist Pro V1 and Volvik Vivid, giving you the flexibility to choose a ball that matches your brand's quality. Whether you need a dozen for a corporate tournament or hundreds for a product launch, Golftee's selection ensures your logo stands out with crisp, durable imprinting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Golftee golf balls with company logo in a display box",
+  "productSkus": [
+    "506922 50D",
+    "506923 50D",
+    "507565 90A",
+    "515618 90A",
+    "521337",
+    "527050",
+    "528245"
+  ],
+  "generatedAt": "2026-05-31T09:14:24.919873+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

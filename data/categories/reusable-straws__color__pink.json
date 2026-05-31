@@ -1,0 +1,23 @@
+{
+  "url": "/cat/reusable-straws/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Reusable Straws",
+  "metaTitle": "Custom Pink Reusable Straws | Perfect Imprints",
+  "metaDescription": "Order custom pink reusable straws for your brand. Perfect for eco-friendly promotions. Bulk pricing available.",
+  "introHtml": "<p>Pink reusable straws add a pop of color to any drink while reducing single-use plastic waste. Whether you're promoting a breast cancer awareness event, a women's networking group, or a fun summer campaign, these straws offer a vibrant, practical giveaway. Choose from silicone or stainless steel options, and customize with your logo using screen printing or engraving. Perfect for trade shows, corporate gifts, or retail packaging.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom pink reusable straws with logos, including silicone bent straws and straight stainless steel straws.",
+  "productSkus": [
+    "521867",
+    "522455",
+    "523997"
+  ],
+  "generatedAt": "2026-05-31T10:05:00.258493+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

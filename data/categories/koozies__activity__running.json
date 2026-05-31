@@ -1,0 +1,21 @@
+{
+  "url": "/cat/koozies/activity/running",
+  "type": "facet",
+  "h1": "Custom Running Koozies for On-the-Go Hydration",
+  "metaTitle": "Custom Running Koozies | Perfect Imprints",
+  "metaDescription": "Shop custom running koozies at Perfect Imprints. Keep drinks cool during races or workouts. Bulk pricing available.",
+  "introHtml": "<p>Custom running koozies are designed for athletes who need to keep their drinks cold while on the move. Unlike standard koozies, running-specific options like the Koozie® britePix® Jersey Can Cooler feature a slim profile and secure fit that won't slip during a jog or race. They're perfect for race giveaways, marathon swag bags, or team gear. Choose from vibrant colors and full-color decoration to make your brand stand out at the finish line.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom running koozies with a slim jersey design, perfect for keeping drinks cold during exercise",
+  "productSkus": [
+    "529400"
+  ],
+  "generatedAt": "2026-05-31T09:53:27.732251+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

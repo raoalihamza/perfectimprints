@@ -1,0 +1,21 @@
+{
+  "url": "/cat/napkins/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Napkins for Events & Promotions",
+  "metaTitle": "Custom Purple Napkins | Perfect Imprints",
+  "metaDescription": "Order custom purple napkins for your next event. Perfect for branding, parties, and promotions. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Purple napkins add a bold pop of color to any event, from corporate galas to university alumni dinners. Whether you're coordinating with a branded color palette or celebrating a specific theme, custom purple napkins offer a simple yet effective way to reinforce your message. Choose from beverage napkins or luncheon sizes, and add your logo through screen printing or foil stamping for a polished look that guests will remember.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom purple napkins with a company logo printed in white, ideal for promotional events and parties.",
+  "productSkus": [
+    "520634"
+  ],
+  "generatedAt": "2026-05-31T08:58:19.579278+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

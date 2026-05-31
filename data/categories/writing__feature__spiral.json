@@ -1,0 +1,19 @@
+{
+  "url": "/cat/writing/feature/spiral",
+  "type": "facet",
+  "h1": "Custom Spiral Writing for Bulk Orders",
+  "metaTitle": "Custom Spiral Writing | Perfect Imprints",
+  "metaDescription": "Order custom spiral writing for your brand. Perfect for journals, notebooks, and pads. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Spiral writing products offer the convenience of lay-flat pages and easy tear-out, making them ideal for meeting notes, training manuals, or safety logs. Unlike bound notebooks, spiral-bound pads allow users to fold covers back or remove pages without damaging the binding. Customize with your logo using full-color imprint or foil stamping for a professional look that stands up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom spiral writing notebooks and pads with logo imprint for corporate branding",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:31:27.062150+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

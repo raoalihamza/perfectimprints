@@ -1,0 +1,23 @@
+{
+  "url": "/cat/personal-care-items/material/metal",
+  "type": "facet",
+  "h1": "Custom Metal Personal Care Items",
+  "metaTitle": "Custom Metal Personal Care Items | Perfect Imprints",
+  "metaDescription": "Order durable custom metal personal care items for your brand. Perfect for corporate gifts, trade shows, and employee appreciation.",
+  "introHtml": "<p>Metal personal care items offer a durable, premium feel that plastic simply cannot match. From sleek aluminum stylus pens to stainless steel back scratchers, these products project quality and longevity. They are ideal for corporate gift sets, safety awards, or trade show giveaways where you want recipients to remember your brand. Engraving or debossing on metal surfaces creates a crisp, lasting impression that won't wear off.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom metal personal care items including a stylus pen and back scratcher on a desk",
+  "productSkus": [
+    "514322",
+    "524508",
+    "528512"
+  ],
+  "generatedAt": "2026-05-31T10:00:38.743141+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,30 @@
+{
+  "url": "/cat/fanny-packs/supplier/goldstar",
+  "type": "facet",
+  "h1": "Custom Goldstar Fanny Packs for Bulk Orders",
+  "metaTitle": "Custom Goldstar Fanny Packs | Perfect Imprints",
+  "metaDescription": "Order custom Goldstar fanny packs in bulk. Perfect for events, teams, and promotions. Get fast quotes at Perfect Imprints.",
+  "introHtml": "<p>Goldstar fanny packs combine durability with a sleek, low-profile design that works for concerts, corporate events, and outdoor promotions. Whether you need clear packs for stadium security or neon styles for high-visibility giveaways, Goldstar offers reliable zippers and adjustable straps that hold up to daily use. Decorate with screen printing or embroidery to keep your logo front and center.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Goldstar fanny packs in various colors and styles for bulk promotional orders",
+  "productSkus": [
+    "514432",
+    "514433",
+    "519201",
+    "522510",
+    "522705",
+    "522803",
+    "523655",
+    "524162",
+    "524500",
+    "525724"
+  ],
+  "generatedAt": "2026-05-31T08:41:41.846593+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

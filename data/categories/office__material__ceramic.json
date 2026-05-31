@@ -1,0 +1,31 @@
+{
+  "url": "/cat/office/material/ceramic",
+  "type": "facet",
+  "h1": "Custom Ceramic Office Products for Branding",
+  "metaTitle": "Custom Ceramic Office Products | Perfect Imprints",
+  "metaDescription": "Order custom ceramic office products like mugs and planters. Perfect for branded giveaways. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Ceramic office products bring a classic, professional feel to your brand. Unlike plastic or metal, ceramic offers a smooth, high-quality surface that showcases detailed logos and vibrant colors with excellent print clarity. Whether you're outfitting a breakroom with custom mugs or adding branded planters to a reception area, ceramic items feel substantial and thoughtful. They're a popular choice for employee gifts, client appreciation, and trade show giveaways where a durable, everyday item keeps your brand visible.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom ceramic office products including mugs and planters with company logo for branded giveaways",
+  "productSkus": [
+    "511006",
+    "516731 01A",
+    "519132",
+    "521879",
+    "523195",
+    "524477",
+    "524478",
+    "525279",
+    "525715",
+    "525780",
+    "528901"
+  ],
+  "generatedAt": "2026-05-31T09:20:54.908746+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

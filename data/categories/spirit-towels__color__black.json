@@ -1,0 +1,32 @@
+{
+  "url": "/cat/spirit-towels/color/black",
+  "type": "facet",
+  "h1": "Custom Black Spirit Towels for Bulk Orders",
+  "metaTitle": "Custom Black Spirit Towels | Perfect Imprints",
+  "metaDescription": "Order custom black spirit towels in bulk. Perfect for sports teams, events, and corporate giveaways. Fast turnaround available.",
+  "introHtml": "<p>Black spirit towels offer a sleek, neutral canvas that makes your logo or message stand out without competing colors. Whether you choose a cooling towel for outdoor events, a waffle weave golf towel for tournament swag, or a velour hemmed towel for gym promotions, black provides a professional look that matches any brand palette. These towels are popular for team giveaways, trade show handouts, and employee appreciation gifts because they resist showing dirt and maintain a crisp appearance through repeated use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black spirit towels with embroidered logo, perfect for sports teams and corporate events.",
+  "productSkus": [
+    "510188",
+    "510325",
+    "510644",
+    "513098",
+    "513733",
+    "521013",
+    "522450",
+    "524126",
+    "527643",
+    "528005",
+    "528436",
+    "528644"
+  ],
+  "generatedAt": "2026-05-31T09:02:30.689857+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

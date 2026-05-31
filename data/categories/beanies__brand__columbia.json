@@ -1,0 +1,25 @@
+{
+  "url": "/cat/beanies/brand/columbia",
+  "type": "facet",
+  "h1": "Custom Columbia Beanies for Bulk Orders",
+  "metaTitle": "Custom Columbia Beanies | Perfect Imprints",
+  "metaDescription": "Order custom Columbia beanies for your team or event. Durable, branded headwear at Perfect Imprints. Get a quote today.",
+  "introHtml": "<p>Columbia beanies combine outdoor durability with everyday comfort, making them a smart choice for companies that want reliable, branded headwear. Whether you're outfitting a winter sales team or giving gifts at a ski resort event, these beanies hold up to cold weather and repeated wear. Decorate with your logo using embroidery or screen printing for a crisp, professional look that lasts. Choose from classic colors that match your brand palette.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Columbia beanies with embroidered logo in black and gray colors for corporate branding",
+  "productSkus": [
+    "523863",
+    "523865",
+    "523866",
+    "523867",
+    "523870"
+  ],
+  "generatedAt": "2026-05-31T08:39:52.350473+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/vests/activity/baseball",
+  "type": "facet",
+  "h1": "Custom Baseball Vests for Teams & Events",
+  "metaTitle": "Custom Baseball Vests | Perfect Imprints",
+  "metaDescription": "Shop custom baseball vests in bulk for your team or event. Perfect for dugouts, coaches, and fans. Fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Custom baseball vests give your team a polished, unified look without the weight of a full jacket. Whether you're outfitting a little league dugout, a college coaching staff, or a corporate softball team, a vest layers easily over jerseys or long sleeves. The Men's Mercer+Mettle™ Puffy Vest offers a quilted finish that holds up to frequent wear and washing. Add your team name, logo, or sponsor artwork with screen printing or embroidery for a professional finish that keeps everyone looking sharp from warm-ups to post-game.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom baseball vests for teams and events featuring embroidered logos on quilted puffy vests",
+  "productSkus": [
+    "526296"
+  ],
+  "generatedAt": "2026-05-31T09:29:54.381897+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/dress-shirts/brand/brooks-brothers",
+  "type": "facet",
+  "h1": "Custom Brooks Brothers Dress Shirts for Your Team",
+  "metaTitle": "Custom Brooks Brothers Dress Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Brooks Brothers dress shirts for your team. Premium quality with your logo. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Brooks Brothers dress shirts bring a level of heritage and quality that sets your team apart. Whether you need wrinkle-resistant oxford cloth shirts for daily wear or classic button-downs for client meetings, these shirts hold up to repeated laundering and maintain a crisp look. Add your embroidered logo to create a uniform that signals professionalism and attention to detail. Ideal for sales teams, executive staff, or anyone representing your brand in person.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Brooks Brothers dress shirts with embroidered logo, displayed on a mannequin in a professional setting.",
+  "productSkus": [
+    "526629"
+  ],
+  "generatedAt": "2026-05-31T08:41:24.309798+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

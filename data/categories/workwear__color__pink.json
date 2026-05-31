@@ -1,0 +1,21 @@
+{
+  "url": "/cat/workwear/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Workwear for Your Team",
+  "metaTitle": "Custom Pink Workwear | Perfect Imprints",
+  "metaDescription": "Shop custom pink workwear for your team. Great for breast cancer awareness or brand visibility. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Pink workwear stands out on the job site and makes a statement about your company's values. Whether you're supporting breast cancer awareness month or simply want a high-visibility color that's easy to spot, custom pink workwear offers a practical and meaningful option. From safety vests to reflective snap bands, choose screen printing or embroidery to add your logo. Bulk orders ship quickly across the US.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink workwear including a nylon reflective snap band with a company logo printed on the band.",
+  "productSkus": [
+    "521967"
+  ],
+  "generatedAt": "2026-05-31T10:15:39.485972+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

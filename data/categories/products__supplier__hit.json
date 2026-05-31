@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/hit",
+  "type": "facet",
+  "h1": "Custom Hit Promotional Products for Bulk Orders",
+  "metaTitle": "Custom Hit Products | Perfect Imprints",
+  "metaDescription": "Browse custom Hit promotional products for your next campaign. Perfect Imprints offers bulk ordering and decoration options.",
+  "introHtml": "<p>Hit promotional products give you access to a curated selection of items designed for effective brand exposure. Whether you need custom pens, drinkware, or tech accessories, Hit's product line offers reliable quality that resonates with corporate audiences. Ordering in bulk from this supplier ensures consistent branding across all items, with options for screen printing, engraving, or full-color decoration to match your logo perfectly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hit promotional products including pens and drinkware with company logos for corporate giveaways",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:27:17.299177+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

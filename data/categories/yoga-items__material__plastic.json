@@ -1,0 +1,23 @@
+{
+  "url": "/cat/yoga-items/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Yoga Items",
+  "metaTitle": "Custom Plastic Yoga Items | Perfect Imprints",
+  "metaDescription": "Order custom plastic yoga items for your wellness program. Perfect for corporate gifts and employee morale.",
+  "introHtml": "<p>Plastic yoga items offer durability and affordability for corporate wellness programs. From massage guns to sound machines, these lightweight products are easy to customize with your logo using pad printing or laser engraving. They withstand daily use in gyms or offices, making them a practical choice for HR directors and safety managers looking to promote employee well-being without compromising on quality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom plastic yoga items including a massage gun and sound machine with company logos",
+  "productSkus": [
+    "525617",
+    "526004",
+    "527791"
+  ],
+  "generatedAt": "2026-05-31T10:16:20.618049+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,27 @@
+{
+  "url": "/cat/folders/color/black",
+  "type": "facet",
+  "h1": "Custom Black Folders for Professional Branding",
+  "metaTitle": "Custom Black Folders | Perfect Imprints",
+  "metaDescription": "Order branded black folders for your next event. Perfect for presentations, training kits, and more. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Black folders offer a sleek, professional look that works for any industry. Whether you need custom two-pocket folders for a sales presentation or embossed linen folders for a client welcome kit, black provides a neutral backdrop that makes your logo stand out. Choose foil stamping or screen printing for a crisp, high-contrast finish on dark paperstock. Perfect for trade shows, onboarding packets, and corporate meetings.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom black presentation folders with foil logo imprint, perfect for corporate branding",
+  "productSkus": [
+    "503818",
+    "510428",
+    "513066",
+    "520162",
+    "520163",
+    "521541",
+    "528657"
+  ],
+  "generatedAt": "2026-05-31T09:46:27.008040+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

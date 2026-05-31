@@ -1,0 +1,30 @@
+{
+  "url": "/cat/pouches/color/black",
+  "type": "facet",
+  "h1": "Custom Black Pouches for Bulk Orders",
+  "metaTitle": "Custom Black Pouches | Perfect Imprints",
+  "metaDescription": "Order custom black pouches in bulk at Perfect Imprints. Ideal for branding with screen printing or embroidery. Get a quote today!",
+  "introHtml": "<p>Black pouches offer a versatile, professional canvas for your logo. Whether you need zippered pencil cases for school kits or mobile office pouches for corporate giveaways, black provides a sleek, neutral backdrop that makes your imprint stand out. Choose from styles like the School Pouch or Zip-It™ PEVA options, all available for decoration with screen printing or embroidery for a crisp, lasting brand impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black pouches with zippered closures, ideal for branding with screen printing or embroidery in bulk orders.",
+  "productSkus": [
+    "507409",
+    "507856",
+    "510536",
+    "516854",
+    "516864",
+    "521678",
+    "522164",
+    "524593",
+    "527072",
+    "527073"
+  ],
+  "generatedAt": "2026-05-31T10:02:54.157578+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

@@ -1,0 +1,28 @@
+{
+  "url": "/cat/headphones/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Headphones for Bulk Orders",
+  "metaTitle": "Custom Set Headphones | Perfect Imprints",
+  "metaDescription": "Order custom set headphones in bulk for your team or event. Perfect for corporate gifts and employee kits. Get a quote today.",
+  "introHtml": "<p>When you need a complete audio solution for your team or event, custom set headphones offer everything in one package. These bundles typically include earbuds, charging cases, and accessories, making them ideal for corporate onboarding kits, trade show giveaways, or employee appreciation gifts. Options like the Scholar Kit or Juice Tech Kit provide reliable performance with your logo imprinted, ensuring your brand is heard clearly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set headphones in bulk packaging with earbuds and charging case, perfect for corporate branding.",
+  "productSkus": [
+    "511481",
+    "515807",
+    "526802",
+    "526804",
+    "527695",
+    "527710",
+    "528013",
+    "529360"
+  ],
+  "generatedAt": "2026-05-31T09:49:57.871632+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

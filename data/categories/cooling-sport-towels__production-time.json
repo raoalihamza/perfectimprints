@@ -1,0 +1,30 @@
+{
+  "url": "/cat/cooling-sport-towels/production-time",
+  "type": "modifier",
+  "h1": "Rush Custom Cooling Sport Towels with Fast Production",
+  "metaTitle": "Rush Custom Cooling Sport Towels | Perfect Imprints",
+  "metaDescription": "Need cooling sport towels fast? Rush production available. Order custom cooling towels with quick turnaround from Perfect Imprints.",
+  "introHtml": "<p>When your event or promotion is just days away, standard lead times won't cut it. That's why Perfect Imprints offers rush production on custom cooling sport towels — with turnaround as fast as 1–5 business days after artwork approval. Whether you need branded rally towels for an upcoming trade show or cooling towels for a last-minute employee appreciation event, our rush service ensures you get high-quality, decorated towels in time. Lead times depend on your artwork and decoration method, so contact us to confirm your deadline.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Rush custom cooling sport towels with fast production, featuring a blue cooling towel with a white logo, ready for quick turnaround.",
+  "productSkus": [
+    "510188",
+    "510644",
+    "510934 90A",
+    "517740 90A",
+    "521013",
+    "522450",
+    "528005",
+    "528436",
+    "528437",
+    "528644"
+  ],
+  "generatedAt": "2026-05-31T09:42:01.996843+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

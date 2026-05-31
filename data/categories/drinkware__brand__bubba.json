@@ -1,0 +1,25 @@
+{
+  "url": "/cat/drinkware/brand/bubba",
+  "type": "facet",
+  "h1": "Custom Bubba Drinkware for Bulk Orders",
+  "metaTitle": "Custom Bubba Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom Bubba drinkware in bulk. Perfect for brands seeking durable, insulated drinkware. Get a quote today.",
+  "introHtml": "<p>Bubba drinkware is built for performance, with double-wall insulation that keeps beverages cold or hot for hours. For marketing directors and safety managers looking to hand out rugged, reusable cups and bottles, Bubba offers a trusted brand name that recipients actually keep using. Choose from styles like the 16 oz Frosted Pint Glass or the 16 oz PolySure Inspire Bottle, and add your logo with full-color digital printing or screen printing for maximum visibility at events, job sites, or trade shows.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Bubba drinkware with double-wall insulation and a printed logo, perfect for bulk promotional orders.",
+  "productSkus": [
+    "510162",
+    "514145 90E",
+    "525965",
+    "527245",
+    "528732"
+  ],
+  "generatedAt": "2026-05-31T08:22:18.315633+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

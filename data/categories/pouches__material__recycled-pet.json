@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pouches/material/recycled-pet",
+  "type": "facet",
+  "h1": "Custom Recycled PET Pouches",
+  "metaTitle": "Custom Recycled PET Pouches | Perfect Imprints",
+  "metaDescription": "Order custom recycled PET pouches for eco-friendly branding. Perfect for trade shows and gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Recycled PET pouches offer a sustainable alternative to traditional polyester without sacrificing durability or print quality. Made from post-consumer plastic bottles, these pouches appeal to environmentally conscious buyers at trade shows, corporate events, and employee onboarding. The RPET Pencil Box is a popular example, showcasing how recycled materials can be transformed into a polished, professional product. Choose custom recycled PET pouches to align your brand with sustainability goals while keeping your logo front and center.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled PET pouches in a variety of colors, featuring a zippered closure and printed logo, ideal for eco-friendly branding.",
+  "productSkus": [
+    "527038"
+  ],
+  "generatedAt": "2026-05-31T10:02:58.543300+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

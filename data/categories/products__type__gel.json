@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/type/gel",
+  "type": "facet",
+  "h1": "Custom Gel Products for Your Brand",
+  "metaTitle": "Custom Gel Products | Perfect Imprints",
+  "metaDescription": "Shop custom gel products at Perfect Imprints. Perfect for giveaways and events. Order bulk gel items today.",
+  "introHtml": "<p>Gel products offer a unique tactile experience that sets your brand apart from standard promotional items. From gel pens that glide smoothly to squishy stress relievers that soothe tired hands, these items create a memorable impression. Marketing directors often choose gel products for trade show giveaways because their distinctive feel encourages recipients to keep them within reach. HR directors also appreciate gel-based stress balls for employee wellness kits. Whether you need a functional writing instrument or a fun desk accessory, custom gel products deliver both utility and brand recall.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom gel products including gel pens and stress relievers with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:29.769693+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

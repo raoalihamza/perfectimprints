@@ -1,0 +1,24 @@
+{
+  "url": "/cat/stationery/brand/parker",
+  "type": "facet",
+  "h1": "Custom Parker Stationery for Bulk Orders",
+  "metaTitle": "Custom Parker Stationery | Perfect Imprints",
+  "metaDescription": "Order custom Parker stationery with your logo. Premium pens for bulk corporate gifts. Get a quote today.",
+  "introHtml": "<p>Parker pens have been a symbol of quality and craftsmanship for over a century. When you choose custom Parker stationery for your corporate gifts or promotional giveaways, you are selecting a brand that recipients recognize and value. The smooth writing experience of a Parker IM or Sonnet rollerball makes a lasting impression on clients and employees alike. Personalize each pen with your logo through pad printing or laser engraving for a sophisticated finish that aligns with your professional image.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Parker stationery with engraved logo on a desk next to a notebook and coffee cup",
+  "productSkus": [
+    "528410",
+    "528411",
+    "528412",
+    "528413"
+  ],
+  "generatedAt": "2026-05-31T10:08:27.213159+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

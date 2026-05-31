@@ -1,0 +1,31 @@
+{
+  "url": "/cat/cafe-mugs/color/white",
+  "type": "facet",
+  "h1": "Custom White Cafe Mugs for Your Brand",
+  "metaTitle": "Custom White Cafe Mugs | Perfect Imprints",
+  "metaDescription": "Order custom white cafe mugs for your next event. Perfect for coffee lovers. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>White cafe mugs offer a clean, classic canvas for your logo or design, ensuring high contrast and readability. Whether you're outfitting an office breakroom with 11 oz Budget Mugs or creating a premium giveaway with 15 oz Full Color Mugs, white ceramic provides a crisp backdrop that works with any decoration method, from screen printing to full-color wrap. Ideal for corporate gifts, trade shows, or employee appreciation, these mugs make your brand part of the daily coffee ritual.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom white cafe mugs with company logo, perfect for corporate gifts and office breakroom use.",
+  "productSkus": [
+    "510100 90A",
+    "510964",
+    "510998",
+    "511030 90E",
+    "512770",
+    "512771",
+    "514870",
+    "515507",
+    "522392",
+    "522465",
+    "524786"
+  ],
+  "generatedAt": "2026-05-31T08:28:24.208140+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

@@ -1,0 +1,29 @@
+{
+  "url": "/cat/koozies/brand/corkcicle",
+  "type": "facet",
+  "h1": "Custom Corkcicle Koozies for Branded Drinkware",
+  "metaTitle": "Custom Corkcicle Koozies | Perfect Imprints",
+  "metaDescription": "Order custom Corkcicle koozies with your logo. Perfect for branded drinkware at events and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Corkcicle koozies combine the brand's signature triple-insulated technology with custom branding, making them ideal for corporate gifts and event giveaways. Unlike standard koozies, Corkcicle options like the 16 oz Canteen or Tumbler keep drinks cold for hours while displaying your logo with precision. Choose from stainless steel finishes and decorate with laser engraving or screen printing for a polished look that stands out at trade shows or client appreciation events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Corkcicle koozies with engraved logo on a stainless steel tumbler",
+  "productSkus": [
+    "524367",
+    "524368",
+    "525223",
+    "525225",
+    "525226",
+    "525791",
+    "526483",
+    "528115",
+    "528116"
+  ],
+  "generatedAt": "2026-05-31T09:53:29.124420+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

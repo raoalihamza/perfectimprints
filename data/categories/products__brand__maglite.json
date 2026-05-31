@@ -1,0 +1,28 @@
+{
+  "url": "/cat/products/brand/maglite",
+  "type": "facet",
+  "h1": "Custom Maglite Products for Bulk Orders",
+  "metaTitle": "Custom Maglite Products | Perfect Imprints",
+  "metaDescription": "Order custom Maglite flashlights in bulk at Perfect Imprints. Ideal for safety teams and promotional giveaways.",
+  "introHtml": "<p>Maglite flashlights are known for their rugged aluminum construction and reliable performance, making them a preferred choice for safety managers and outdoor professionals. When you order custom Maglite products, you get a durable, American-made tool that can be imprinted with your logo using laser engraving or pad printing. From the compact Solitaire to the heavy-duty 3 D-cell model, these flashlights offer long-lasting visibility and a professional look for corporate gifts, trade shows, or employee safety kits.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Maglite products including Mini Maglite and Solitaire flashlights with engraved logos for bulk orders",
+  "productSkus": [
+    "508507",
+    "513632",
+    "513634",
+    "513636",
+    "519606",
+    "525769",
+    "525770",
+    "528092"
+  ],
+  "generatedAt": "2026-05-31T10:03:35.121221+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

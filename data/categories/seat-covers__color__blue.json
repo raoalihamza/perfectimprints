@@ -1,0 +1,24 @@
+{
+  "url": "/cat/seat-covers/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Seat Covers for Bulk Orders",
+  "metaTitle": "Custom Blue Seat Covers | Perfect Imprints",
+  "metaDescription": "Order custom blue seat covers in bulk at Perfect Imprints. Ideal for branding events, trade shows, or office seating. Get a quote today.",
+  "introHtml": "<p>Blue seat covers offer a versatile and professional look for trade shows, corporate events, and office environments. Whether you need table throws or full seat covers, the blue color provides a calm, trustworthy aesthetic that complements many brand palettes. Our custom blue seat covers are available in various sizes and can be decorated with your logo or message using full-color printing. Perfect for creating a cohesive brand presence at your next event or in your workspace.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue seat covers with full-color logo printing for event branding",
+  "productSkus": [
+    "506947",
+    "507074",
+    "510137",
+    "510139"
+  ],
+  "generatedAt": "2026-05-31T09:25:37.736902+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

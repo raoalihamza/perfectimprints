@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/activity/basketball",
+  "type": "facet",
+  "h1": "Custom Basketball Products for Bulk Orders",
+  "metaTitle": "Custom Basketball Products | Perfect Imprints",
+  "metaDescription": "Shop custom basketball products for teams and events. Perfect Imprints offers bulk pricing on branded gear. Order now!",
+  "introHtml": "<p>Custom basketball products let you promote your brand or team with gear that fits the court and the crowd. From branded basketballs to premium jerseys and water bottles, these items work well for tournaments, school spirit events, and corporate sports leagues. Decorate with screen printing, embroidery, or debossing for a clean, durable look that holds up through seasons of use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom basketball products including a branded basketball and personalized jersey on a court",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:38.419346+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

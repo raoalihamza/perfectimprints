@@ -1,0 +1,23 @@
+{
+  "url": "/cat/buckets-pails/brand/nautica",
+  "type": "facet",
+  "h1": "Custom Nautica Buckets & Pails for Branded Promotions",
+  "metaTitle": "Custom Nautica Buckets & Pails | Perfect Imprints",
+  "metaDescription": "Order custom Nautica buckets & pails for your brand. Perfect for giveaways and events. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Nautica buckets and pails bring a coastal, preppy aesthetic to your promotional lineup, making them a standout choice for beach-themed events, summer campaigns, or lifestyle brands aiming for a relaxed nautical vibe. These items pair well with Nautica apparel like the Deck Polo for a cohesive giveaway set. Choose from screen printing or debossing to add your logo on the sturdy plastic or metal surface, ensuring your brand stays visible at tailgates, pool parties, or outdoor gatherings.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Nautica buckets and pails with printed logo, ideal for beach or outdoor promotional events",
+  "productSkus": [
+    "525547",
+    "525548",
+    "525893"
+  ],
+  "generatedAt": "2026-05-31T08:32:55.943517+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

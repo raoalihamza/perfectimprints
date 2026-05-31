@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tote-bags/eco-friendly/organic",
+  "type": "facet",
+  "h1": "Custom Organic Tote Bags",
+  "metaTitle": "Custom Organic Tote Bags | Perfect Imprints",
+  "metaDescription": "Shop custom organic tote bags for eco-friendly branding. Perfect for trade shows and giveaways. Request a quote at Perfect Imprints.",
+  "introHtml": "<p>Organic tote bags let you promote your brand while showing your commitment to sustainability. Made from GOTS-certified organic cotton, these totes appeal to eco-conscious customers at trade shows, farmers markets, or corporate events. Choose from styles like the Cove 5oz Organic Cotton Tote or the FEED Organic Cotton Convention Tote, and customize with screen printing or embroidery for a professional look that aligns with your green initiatives.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom organic tote bags made from organic cotton, perfect for eco-friendly branding and trade show giveaways.",
+  "productSkus": [
+    "503823",
+    "505840",
+    "505852",
+    "510720",
+    "511613",
+    "521019",
+    "524403",
+    "525639",
+    "525889",
+    "526581",
+    "527261",
+    "528906",
+    "529234"
+  ],
+  "generatedAt": "2026-05-31T10:11:44.926995+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

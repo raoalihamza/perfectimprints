@@ -1,0 +1,21 @@
+{
+  "url": "/cat/puzzles/color/rainbow",
+  "type": "facet",
+  "h1": "Custom Rainbow Puzzles",
+  "metaTitle": "Custom Rainbow Puzzles | Perfect Imprints",
+  "metaDescription": "Order custom rainbow puzzles for your next event. Personalize with your logo at Perfect Imprints. Fast turnaround.",
+  "introHtml": "<p>Rainbow puzzles bring a vibrant, playful touch to any promotional campaign, making them a standout choice for pride events, children's programs, or team-building activities. Unlike standard solid-color puzzles, the rainbow palette adds energy and inclusivity to your branded giveaway, encouraging engagement from recipients of all ages. These custom puzzles are printed with your logo using full-color sublimation, ensuring crisp details and lasting vibrancy. Perfect for corporate gift bags, school events, or festival swag, they offer a memorable hands-on experience that reinforces your brand message.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom rainbow puzzles with vibrant multicolor design and company logo printed on each piece",
+  "productSkus": [
+    "508865"
+  ],
+  "generatedAt": "2026-05-31T10:04:52.001123+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/water-bottles/material/glass",
+  "type": "facet",
+  "h1": "Custom Glass Water Bottles",
+  "metaTitle": "Custom Glass Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom glass water bottles for your brand. Perfect for eco-conscious giveaways. Bulk pricing available.",
+  "introHtml": "<p>Glass water bottles offer a premium, eco-friendly alternative to plastic or stainless steel. They preserve taste without metallic or plastic flavors, making them ideal for corporate gifts, wellness events, or retail merchandise. The 18 oz h2go® Rincon is a popular choice, featuring a sleek design suitable for screen printing or laser engraving. Choose glass for a sophisticated, reusable bottle that aligns with sustainability goals.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom glass water bottles with engraved logo, 18 oz h2go Rincon style, on a wooden table",
+  "productSkus": [
+    "526063"
+  ],
+  "generatedAt": "2026-05-31T08:22:45.418435+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

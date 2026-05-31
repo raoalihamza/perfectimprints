@@ -1,0 +1,24 @@
+{
+  "url": "/cat/pullovers/brand/next-level",
+  "type": "facet",
+  "h1": "Custom Next Level Pullovers for Your Team",
+  "metaTitle": "Custom Next Level Pullovers | Perfect Imprints",
+  "metaDescription": "Order custom Next Level pullovers for your team. Quality bulk apparel from Perfect Imprints. Fast turnaround.",
+  "introHtml": "<p>Next Level pullovers combine soft tri-blend fabrics with a modern fit that employees actually want to wear. Whether you need uniform pullovers for a retail team or promotional apparel for a trade show, these garments accept screen printing and embroidery cleanly. The moisture-wicking options also work well for outdoor events or active teams. Choose Next Level for consistent sizing and a professional look that lasts through repeated washes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Next Level pullovers with embroidered logo on front chest, available in multiple colors for bulk orders",
+  "productSkus": [
+    "526133",
+    "526134",
+    "529307",
+    "529308"
+  ],
+  "generatedAt": "2026-05-31T10:04:34.420551+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

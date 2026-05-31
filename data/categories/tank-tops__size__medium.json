@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tank-tops/size/medium",
+  "type": "facet",
+  "h1": "Custom Medium Tank Tops for Bulk Orders",
+  "metaTitle": "Custom Medium Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom medium tank tops in bulk from Perfect Imprints. Great for teams, events, and giveaways. Get your quote today!",
+  "introHtml": "<p>Medium tank tops offer a versatile fit that works well for both men and women, making them a smart choice for team uniforms, event giveaways, or corporate wellness programs. Whether you choose a classic jersey tank or a moisture-wicking mesh style, screen printing or embroidery adds your logo without compromising comfort. Ordering medium sizes in bulk ensures your message reaches a wide audience with a consistent, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom medium tank tops in a variety of colors and styles for bulk orders with logo imprint",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T08:27:33.637867+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

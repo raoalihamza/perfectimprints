@@ -1,0 +1,22 @@
+{
+  "url": "/cat/apparel/brand/bayside",
+  "type": "facet",
+  "h1": "Custom Bayside Apparel for Bulk Orders",
+  "metaTitle": "Custom Bayside Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Bayside apparel in bulk from Perfect Imprints. Perfect for teams, events, and promotional giveaways.",
+  "introHtml": "<p>Bayside apparel is known for its durable construction and comfortable fit, making it a reliable choice for corporate uniforms, team outfitting, and promotional events. Whether you need embroidered fleece jackets for a company retreat or screen-printed polos for a trade show, Bayside offers consistent sizing and a professional look that holds up to repeated wear. Choose from micro-fleece full-zip jackets in men's and women's cuts, ideal for layering with your logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom Bayside apparel with embroidered logos, including fleece jackets and polos.",
+  "productSkus": [
+    "505577",
+    "505578"
+  ],
+  "generatedAt": "2026-05-31T08:38:39.959411+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/tools/brand/zippo",
+  "type": "facet",
+  "h1": "Custom Zippo Tools for Bulk Orders",
+  "metaTitle": "Custom Zippo Tools | Perfect Imprints",
+  "metaDescription": "Order custom Zippo tools in bulk at Perfect Imprints. Ideal for corporate gifts, safety rewards, and brand recognition.",
+  "introHtml": "<p>Zippo tools combine legendary durability with practical functionality, making them a standout choice for corporate gifts and employee rewards. Whether you need branded hand warmers for outdoor safety kits or rechargeable lighters for promotional events, Zippo offers reliable products that recipients actually use. Custom engraving or imprinting ensures your logo stays visible for years, reinforcing brand loyalty with every use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Zippo tools including rechargeable hand warmers and candle lighters with engraved logos",
+  "productSkus": [
+    "528350",
+    "528351",
+    "528964"
+  ],
+  "generatedAt": "2026-05-31T09:03:36.509326+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

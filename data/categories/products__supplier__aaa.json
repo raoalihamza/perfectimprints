@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/aaa",
+  "type": "facet",
+  "h1": "Custom AAA Products for Bulk Orders",
+  "metaTitle": "Custom AAA Products | Perfect Imprints",
+  "metaDescription": "Browse custom AAA products for bulk orders. Perfect for branding and giveaways. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Orders from AAA suppliers ensure consistent quality and reliable lead times for your promotional campaigns. Whether you need custom logoed drinkware, tech accessories, or apparel, AAA-sourced products come with verified manufacturing standards. Perfect for corporate events, trade shows, or employee gifts where you want dependable branding without surprises. Choose from multiple decoration methods including screen printing, laser engraving, or full-color digital print.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom AAA products including branded drinkware and tech accessories for corporate giveaways",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:04:14.801527+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

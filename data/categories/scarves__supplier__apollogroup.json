@@ -1,0 +1,26 @@
+{
+  "url": "/cat/scarves/supplier/apollogroup",
+  "type": "facet",
+  "h1": "Custom Apollogroup Scarves for Bulk Orders",
+  "metaTitle": "Custom Apollogroup Scarves | Perfect Imprints",
+  "metaDescription": "Order custom Apollogroup scarves in bulk. Perfect for corporate gifts, events, and promotional giveaways. Fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Apollogroup scarves are a popular choice for corporate gifts and promotional giveaways because of their consistent quality and versatile styles. Whether you need fleece scarves for a winter event or knit scarves with fringe for a branded uniform, Apollogroup offers options that hold up well to screen printing or embroidery. Bulk ordering ensures you get a cohesive look across your team or event attendees without sacrificing comfort or durability.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Apollogroup scarves in fleece and knit styles for corporate gifts and promotional events",
+  "productSkus": [
+    "514088",
+    "516838",
+    "516839",
+    "516872",
+    "520012",
+    "520863"
+  ],
+  "generatedAt": "2026-05-31T10:05:41.002323+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

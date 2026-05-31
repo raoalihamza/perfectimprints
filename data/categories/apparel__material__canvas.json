@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel/material/canvas",
+  "type": "facet",
+  "h1": "Custom Canvas Apparel for Your Team",
+  "metaTitle": "Custom Canvas Apparel | Perfect Imprints",
+  "metaDescription": "Order custom canvas apparel for your team. Durable, comfortable, and perfect for branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Canvas apparel offers a rugged, durable feel that stands up to daily wear while providing a classic look for your brand. Whether you're outfitting a construction crew or a retail team, custom canvas hats like The North Face® Ultimate Trucker Cap combine breathability with a structured fit. Choose screen printing or embroidery to add your logo, and enjoy a garment that holds its shape wash after wash.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom canvas apparel featuring a branded trucker cap with mesh back and embroidered logo",
+  "productSkus": [
+    "526535"
+  ],
+  "generatedAt": "2026-05-31T09:32:17.697531+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

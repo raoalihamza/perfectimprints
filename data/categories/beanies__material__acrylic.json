@@ -1,0 +1,29 @@
+{
+  "url": "/cat/beanies/material/acrylic",
+  "type": "facet",
+  "h1": "Custom Acrylic Beanies for Bulk Orders",
+  "metaTitle": "Custom Acrylic Beanies | Perfect Imprints",
+  "metaDescription": "Order custom acrylic beanies in bulk for your team or event. Soft, warm, and embroiderable. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Acrylic beanies offer a soft, warm feel that mimics wool without the itch, making them a popular choice for company giveaways and winter uniforms. The knit construction holds embroidery and screen printing cleanly, so your logo stands out on the cuff or crown. Whether you need a classic cuff beanie for a trade show or a pom-pom style for a holiday promotion, acrylic provides consistent color and shape wash after wash.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom acrylic beanies with embroidered logo on cuff, available in various colors for bulk orders.",
+  "productSkus": [
+    "506903",
+    "516012",
+    "520012",
+    "520922",
+    "521675",
+    "522632",
+    "523881",
+    "524211",
+    "526537"
+  ],
+  "generatedAt": "2026-05-31T08:23:07.686621+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/wall-calendars/material/paper",
+  "type": "facet",
+  "h1": "Custom Paper Wall Calendars for Bulk Orders",
+  "metaTitle": "Custom Paper Wall Calendars | Perfect Imprints",
+  "metaDescription": "Order custom paper wall calendars for your business. Perfect for year-round branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Paper wall calendars offer a classic, cost-effective way to keep your brand visible all year. Unlike digital calendars, a printed paper calendar hangs in offices, break rooms, and workspaces, delivering daily impressions. Choose from stapled or window styles, and add your logo with full-color imprinting. Ideal for safety reminders or marketing messages, these calendars combine utility with consistent brand exposure.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom paper wall calendars with spiral binding and monthly grids, ready for branding",
+  "productSkus": [
+    "522709",
+    "523057",
+    "523058",
+    "527283",
+    "529403"
+  ],
+  "generatedAt": "2026-05-31T10:13:38.325560+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/pet-bowls/color/green",
+  "type": "facet",
+  "h1": "Custom Green Pet Bowls for Bulk Orders",
+  "metaTitle": "Custom Green Pet Bowls | Perfect Imprints",
+  "metaDescription": "Order custom green pet bowls in bulk from Perfect Imprints. Ideal for giveaways, pet events, and branding. Get a quote today!",
+  "introHtml": "<p>Green custom pet bowls are a natural fit for eco-conscious brands, pet adoption events, or veterinary practices. The color signals health, growth, and sustainability, making these bowls a thoughtful giveaway that resonates with pet owners. Whether you choose the durable H2Ogo Pet Bowl or the classic Stainless Steel Pet Bowl, your logo imprints cleanly on the surface for lasting visibility. These bowls pair well with matching green leashes or collars for a cohesive brand package.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green pet bowls with logo imprint, including H2Ogo and stainless steel options for bulk orders",
+  "productSkus": [
+    "506366",
+    "506367",
+    "520484",
+    "524371",
+    "529207"
+  ],
+  "generatedAt": "2026-05-31T10:01:13.049467+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

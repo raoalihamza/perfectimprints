@@ -1,0 +1,21 @@
+{
+  "url": "/cat/yo-yos/material/wood",
+  "type": "facet",
+  "h1": "Custom Wood Yo-Yos for Bulk Orders",
+  "metaTitle": "Custom Wood Yo-Yos | Perfect Imprints",
+  "metaDescription": "Order custom wood yo-yos in bulk for your next promotion. High-quality, eco-friendly fun from Perfect Imprints. Get a quote today!",
+  "introHtml": "<p>Wood yo-yos offer a classic, eco-friendly alternative to plastic promotional items. Their natural finish and smooth feel make them a hit at trade shows, school events, and employee giveaways. Customize with your logo or message via screen printing or engraving for a durable, nostalgic keepsake that recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of custom wood yo-yos with engraved logos, displayed on a wooden table for bulk promotional use.",
+  "productSkus": [
+    "526411"
+  ],
+  "generatedAt": "2026-05-31T09:05:06.340379+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

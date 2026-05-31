@@ -1,0 +1,28 @@
+{
+  "url": "/cat/beer-mugs-steins/color/red",
+  "type": "facet",
+  "h1": "Custom Red Beer Mugs & Steins",
+  "metaTitle": "Custom Red Beer Mugs & Steins | Perfect Imprints",
+  "metaDescription": "Order custom red beer mugs and steins for your brand. Perfect for bars, events, and gifts. Bulk pricing available.",
+  "introHtml": "<p>Red beer mugs and steins stand out at any bar, tailgate, or company event. The bold color catches the eye and pairs well with nearly any logo or design. Whether you choose a classic 15 oz Campfire Mug or a taller 18 oz option, these drinkware pieces offer a durable, dishwasher-safe surface for screen printing or full-color decoration. Ideal for promotional giveaways, holiday gifts, or branded barware for your taproom or restaurant.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red beer mugs and steins with engraved logos, arranged on a wooden bar counter.",
+  "productSkus": [
+    "511006",
+    "521050",
+    "521401",
+    "521644",
+    "521896",
+    "522392",
+    "524786",
+    "529464"
+  ],
+  "generatedAt": "2026-05-31T09:36:50.687229+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

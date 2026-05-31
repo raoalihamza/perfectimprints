@@ -1,0 +1,21 @@
+{
+  "url": "/cat/sunglasses/style/wayfarer",
+  "type": "facet",
+  "h1": "Custom Wayfarer Sunglasses",
+  "metaTitle": "Custom Wayfarer Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom wayfarer sunglasses for your next event. Perfect for outdoor giveaways and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Wayfarer sunglasses offer a classic silhouette that suits a wide range of face shapes and style preferences. For corporate events, trade shows, or safety programs, custom wayfarer sunglasses provide a timeless look while keeping your brand visible. Choose from polarized lenses for outdoor comfort or add your logo via screen printing or etching. Options like the Bamboo Sunglasses combine eco-friendly materials with the iconic wayfarer shape, making them a standout giveaway for environmentally conscious recipients.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wayfarer sunglasses with logo on temple, displayed on a wooden surface",
+  "productSkus": [
+    "526680"
+  ],
+  "generatedAt": "2026-05-31T10:09:27.157275+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

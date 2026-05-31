@@ -1,0 +1,32 @@
+{
+  "url": "/cat/coolers/theme/beach",
+  "type": "facet",
+  "h1": "Custom Beach Coolers for Your Brand",
+  "metaTitle": "Custom Beach Coolers | Perfect Imprints",
+  "metaDescription": "Order custom beach coolers with your logo. Perfect for summer events and giveaways. Shop bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Beach coolers combine portability with insulation to keep drinks and snacks cold during a day by the water. Options like insulated totes, backpack coolers, and collapsible organizers let you choose the right fit for your audience. Decorate with screen printing or embroidery for a durable, sun-ready logo. Whether you need a lightweight tote or a larger wheeled cooler, these designs are built for sand, sun, and surf.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom beach coolers with logo, including insulated totes and backpack coolers for summer events",
+  "productSkus": [
+    "515964",
+    "515965",
+    "516104",
+    "517456",
+    "517874",
+    "518746",
+    "519771",
+    "521734",
+    "522446",
+    "527129",
+    "527612",
+    "528733"
+  ],
+  "generatedAt": "2026-05-31T08:52:39.168856+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

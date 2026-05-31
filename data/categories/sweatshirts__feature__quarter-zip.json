@@ -1,0 +1,24 @@
+{
+  "url": "/cat/sweatshirts/feature/quarter-zip",
+  "type": "facet",
+  "h1": "Custom Quarter Zip Sweatshirts for Bulk Orders",
+  "metaTitle": "Custom Quarter Zip Sweatshirts | Perfect Imprints",
+  "metaDescription": "Order custom quarter zip sweatshirts for your team or event. Premium styles, bulk pricing, and fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>Quarter zip sweatshirts offer a versatile layering option that combines the comfort of a pullover with the adjustability of a zip-front. They are ideal for corporate gifts, team uniforms, or employee appreciation programs where you want a polished yet relaxed look. Styles like the Crosswind Quarter Zip or Men's Heathered Eco-Logic Stretch Quarter Zip provide ample space for screen printing or embroidery on the chest, back, or sleeves. Choose quarter zip sweatshirts for a modern, functional garment that your recipients will actually wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom quarter zip sweatshirts stacked on a table, featuring embroidered logos and a variety of colors for bulk orders.",
+  "productSkus": [
+    "511117",
+    "521535",
+    "526103",
+    "527948"
+  ],
+  "generatedAt": "2026-05-31T09:27:45.844190+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

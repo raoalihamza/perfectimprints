@@ -1,0 +1,24 @@
+{
+  "url": "/cat/journals-notebooks/brand/clique",
+  "type": "facet",
+  "h1": "Custom Clique Journals & Notebooks for Bulk Orders",
+  "metaTitle": "Custom Clique Journals Notebooks - Perfect Imprints",
+  "metaDescription": "Order custom Clique journals and notebooks in bulk. Perfect for corporate gifts, events, and employee appreciation. Fast turnaround.",
+  "introHtml": "<p>Clique journals and notebooks combine premium paper quality with durable covers, making them a reliable choice for branded giveaways at trade shows, employee onboarding kits, or client appreciation packages. Unlike generic notebooks, Clique products offer consistent color accuracy for logo imprinting and a professional feel that reflects well on your business. Whether you need spiral-bound notepads or hardcover journals, these items hold up to daily use while keeping your brand front and center.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Clique journals and notebooks with embossed logos on durable covers for corporate branding",
+  "productSkus": [
+    "509568",
+    "509569",
+    "526962",
+    "526963"
+  ],
+  "generatedAt": "2026-05-31T09:16:53.020081+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

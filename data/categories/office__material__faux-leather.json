@@ -1,0 +1,25 @@
+{
+  "url": "/cat/office/material/faux-leather",
+  "type": "facet",
+  "h1": "Custom Faux Leather Office Products",
+  "metaTitle": "Custom Faux Leather Office | Perfect Imprints",
+  "metaDescription": "Order custom faux leather office products like journals and organizers. Get your brand in bulk at Perfect Imprints.",
+  "introHtml": "<p>Faux leather brings a professional look to office giveaways without the cost of genuine leather. Whether you are ordering branded journals for a sales kickoff or bank deposit bags for a financial services client, this material offers durability and a soft-touch finish that stands up to daily use. Decorate with foil stamping or screen printing for a polished result.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom faux leather office products including journals and organizers with foil stamping",
+  "productSkus": [
+    "513307",
+    "522280",
+    "524058",
+    "526468",
+    "529349"
+  ],
+  "generatedAt": "2026-05-31T08:44:37.759135+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

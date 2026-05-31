@@ -1,0 +1,19 @@
+{
+  "url": "/cat/barware/search",
+  "type": "modifier",
+  "h1": "Custom Barware for Branded Promotions",
+  "metaTitle": "Custom Barware | Perfect Imprints",
+  "metaDescription": "Browse custom barware for your next event. Perfect Imprints offers a wide selection of branded drinkware and bar accessories. Request a quote today.",
+  "introHtml": "<p>Whether you are outfitting a corporate event, a company store, or a trade show giveaway, custom barware makes a memorable impression. At Perfect Imprints, we provide a broad range of promotional barware—from pint glasses and wine tumblers to bottle openers and coasters—all customizable with your logo. Our selection covers various materials, styles, and price points, so you can find the right fit for your brand. Start exploring our collection to see what works for your next campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom barware including branded pint glasses, wine tumblers, and bottle openers on a wooden table.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:36:00.761681+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

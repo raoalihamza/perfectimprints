@@ -1,0 +1,22 @@
+{
+  "url": "/cat/headphones/feature/with-zipper",
+  "type": "facet",
+  "h1": "Custom Headphones with Zipper for Bulk Orders",
+  "metaTitle": "Custom Headphones with Zipper | Perfect Imprints",
+  "metaDescription": "Order custom headphones with zipper for your team. Perfect for events and giveaways. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Headphones with built-in zipper compartments keep cords organized and earbuds tangle-free, making them ideal for trade show giveaways or employee welcome kits. Unlike standard earbuds, these combine audio functionality with practical storage. Choose from recycled materials or colorful finishes to align with your brand's sustainability or style goals. Perfect for safety managers or HR directors looking to distribute a useful, clutter-free promotional item.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom headphones with zipper storage compartment for organized earbuds and cords",
+  "productSkus": [
+    "528013",
+    "528014"
+  ],
+  "generatedAt": "2026-05-31T08:25:07.327928+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

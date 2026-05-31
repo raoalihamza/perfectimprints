@@ -1,0 +1,19 @@
+{
+  "url": "/cat/towels/feature/packable",
+  "type": "facet",
+  "h1": "Custom Packable Towels for Bulk Orders",
+  "metaTitle": "Custom Packable Towels | Perfect Imprints",
+  "metaDescription": "Order custom packable towels for your brand. Perfect for travel, gym, and outdoor events. Bulk pricing available.",
+  "introHtml": "<p>Packable towels are the practical choice for brands that want to stay visible on the go. Made from quick-dry microfiber, they fold into a compact size that fits easily in a gym bag, beach tote, or glove compartment. Marketing directors and safety managers choose these towels for trade shows, corporate fitness challenges, and outdoor safety kits because they offer real utility without taking up space. Add your logo through screen printing or debossing for a clean, professional look that travels well.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom packable towels in assorted colors, neatly folded and stacked, with a branded logo visible on the top towel.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:28:59.583341+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

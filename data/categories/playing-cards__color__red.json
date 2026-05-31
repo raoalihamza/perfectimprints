@@ -1,0 +1,25 @@
+{
+  "url": "/cat/playing-cards/color/red",
+  "type": "facet",
+  "h1": "Custom Red Playing Cards",
+  "metaTitle": "Custom Red Playing Cards | Perfect Imprints",
+  "metaDescription": "Order custom red playing cards for your brand. Perfect for events, promotions, and giveaways. Get a quote today.",
+  "introHtml": "<p>Red playing cards stand out in a crowd, making them an excellent choice for branded decks used at poker nights, trade shows, or employee gifts. The vibrant color ensures your logo and messaging pop against the classic card layout. Options like solid backs or themed designs let you match your brand identity while keeping the deck functional and fun. Whether you need 144 decks for a company event or larger quantities for a promotional campaign, custom red playing cards offer a memorable way to keep your brand in hand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red playing cards with branded logo in a decorative case on a table",
+  "productSkus": [
+    "512116",
+    "524494",
+    "526561",
+    "526787",
+    "526833"
+  ],
+  "generatedAt": "2026-05-31T08:27:09.335597+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

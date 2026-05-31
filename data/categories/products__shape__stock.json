@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/shape/stock",
+  "type": "facet",
+  "h1": "Custom Stock Products for Bulk Orders",
+  "metaTitle": "Custom Stock Products | Perfect Imprints",
+  "metaDescription": "Order custom stock products in bulk from Perfect Imprints. Perfect for giveaways and events. Fast turnaround on popular shapes.",
+  "introHtml": "<p>Stock-shaped products offer a reliable, cost-effective option for bulk promotional orders. Unlike custom-molded items, stock shapes are readily available, reducing production lead times and per-unit costs. Whether you need classic rectangles, circles, or stars for a trade show giveaway or employee appreciation kit, stock shapes ensure consistent quality and faster delivery. Decorate with screen printing, pad printing, or laser engraving to match your branding.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom stock products including rectangular keychains, circular coasters, and star-shaped stress relievers with logo imprinting",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:58.646021+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

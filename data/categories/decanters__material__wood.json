@@ -1,0 +1,23 @@
+{
+  "url": "/cat/decanters/material/wood",
+  "type": "facet",
+  "h1": "Custom Wood Decanters for Corporate Gifts",
+  "metaTitle": "Custom Wood Decanters | Perfect Imprints",
+  "metaDescription": "Order custom wood decanters for your next corporate gift. Perfect for client appreciation and executive gifts. Shop now!",
+  "introHtml": "<p>Custom wood decanters bring a warm, natural elegance to corporate gifting that glass or crystal alone cannot match. The grain of the wood makes each piece unique, while the rich finish complements any office or home bar. Whether you choose a wood wine stopper or an executive wine collector set, these pieces convey thoughtfulness and quality. They are ideal for client appreciation, holiday gifts, or executive recognition programs where you want something distinctive and memorable.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wood decanters with rich wood grain and elegant finish for corporate gifts",
+  "productSkus": [
+    "523165",
+    "523546",
+    "526459"
+  ],
+  "generatedAt": "2026-05-31T09:11:33.857092+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

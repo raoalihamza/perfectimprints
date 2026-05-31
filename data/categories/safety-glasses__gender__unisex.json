@@ -1,0 +1,22 @@
+{
+  "url": "/cat/safety-glasses/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Safety Glasses",
+  "metaTitle": "Custom Unisex Safety Glasses | Perfect Imprints",
+  "metaDescription": "Order custom unisex safety glasses for your team. Perfect for any workplace. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Unisex safety glasses offer a versatile fit that works for all employees, simplifying ordering and inventory. Whether you need clear lenses for indoor work or tinted options for outdoor crews, our customizable frames can be imprinted with your logo. Choose from wraparound styles for full coverage or sleek designs for a professional look. Perfect for safety managers and HR directors equipping diverse teams with reliable eye protection.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom unisex safety glasses with clear lenses and logo imprint on temple, suitable for industrial use.",
+  "productSkus": [
+    "526162",
+    "526648"
+  ],
+  "generatedAt": "2026-05-31T10:05:28.841537+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

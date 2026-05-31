@@ -1,0 +1,26 @@
+{
+  "url": "/cat/skirts/color/green",
+  "type": "facet",
+  "h1": "Custom Green Skirts for Bulk Orders",
+  "metaTitle": "Custom Green Skirts | Perfect Imprints",
+  "metaDescription": "Order custom green skirts in bulk for your team or event. Perfect for uniforms, giveaways, and brand promotion. Get a quote today!",
+  "introHtml": "<p>Green skirts offer a fresh, professional look for uniforms, team events, and promotional giveaways. Whether you choose a vibrant lime for high visibility or a deep forest green for a polished appearance, this color pairs well with white or black tops for a cohesive brand identity. Our selection includes performance fabrics with moisture-wicking technology, ideal for active staff or outdoor events. Add your logo with screen printing or embroidery for a durable, standout design that reinforces your brand every time it's worn.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green skirts for bulk orders featuring moisture-wicking fabric and embroidered logo",
+  "productSkus": [
+    "526129",
+    "528865",
+    "528873",
+    "528875",
+    "528876",
+    "528886"
+  ],
+  "generatedAt": "2026-05-31T09:26:10.788796+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

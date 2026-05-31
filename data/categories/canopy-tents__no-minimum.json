@@ -1,0 +1,31 @@
+{
+  "url": "/cat/canopy-tents/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Canopy Tents for Small Orders",
+  "metaTitle": "No-Minimum Custom Canopy Tents | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom canopy tents with low quantities. Perfect for small teams, events, and samples. Get branded tents without bulk minimums.",
+  "introHtml": "<p>No-minimum custom canopy tents let you order exactly what you need—whether it's a single 10' pop up tent for a weekend event or a handful of 5' tents for a small team. This page is for buyers who want branded shade solutions without being forced into large bulk orders. Small businesses, startups, and local event organizers can get professional-quality tents with no minimum order quantity. Enjoy the flexibility to test designs, equip small crews, or cover one-off promotions without overcommitting inventory or budget.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A no-minimum custom canopy tent set up outdoors with a company logo printed on the top panel, ideal for small orders and events.",
+  "productSkus": [
+    "502149",
+    "505271 90A",
+    "505272 90A",
+    "514160",
+    "521131",
+    "525706",
+    "525707",
+    "525708",
+    "525753",
+    "527116",
+    "529428"
+  ],
+  "generatedAt": "2026-05-31T08:51:44.680783+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

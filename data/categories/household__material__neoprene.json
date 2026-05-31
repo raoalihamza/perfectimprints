@@ -1,0 +1,29 @@
+{
+  "url": "/cat/household/material/neoprene",
+  "type": "facet",
+  "h1": "Custom Neoprene Household Products",
+  "metaTitle": "Custom Neoprene Household Items | Perfect Imprints",
+  "metaDescription": "Order custom neoprene household products for your brand. Durable, flexible items perfect for giveaways. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Neoprene brings a distinct combination of flexibility, durability, and soft-touch feel that sets it apart from rigid materials like plastic or metal. For household items such as drink coolies, key fobs, and card holders, neoprene offers a comfortable grip and excellent insulation. Whether you need branded pint coolies for a brewery promotion or custom key holders for a real estate client gift, neoprene products stand up to daily use while keeping your logo visible through full-color sublimation or debossed prints.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom neoprene household products including a drink coolie and key fob with full-color imprint",
+  "productSkus": [
+    "520616",
+    "520618",
+    "520621",
+    "521381",
+    "521382",
+    "521387",
+    "521388",
+    "526412",
+    "529416"
+  ],
+  "generatedAt": "2026-05-31T09:16:15.148881+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

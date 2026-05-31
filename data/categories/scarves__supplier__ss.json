@@ -1,0 +1,26 @@
+{
+  "url": "/cat/scarves/supplier/ss",
+  "type": "facet",
+  "h1": "Custom SS Scarves for Bulk Orders",
+  "metaTitle": "Custom SS Scarves | Perfect Imprints",
+  "metaDescription": "Order custom SS scarves in bulk at Perfect Imprints. Perfect for corporate gifts and events. Get a quote today!",
+  "introHtml": "<p>SS scarves offer a versatile canvas for your brand, combining comfort with style. Whether you choose fleece scarves for outdoor events or knit scarves with fringe for a classic look, these accessories keep your logo visible in colder months. Decorate with embroidery or full-color digital print for a polished finish that stands out at trade shows or employee appreciation gifts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom SS scarves in fleece and knit styles with embroidered logos, perfect for corporate gifts and winter events.",
+  "productSkus": [
+    "514088",
+    "516838",
+    "516839",
+    "516872",
+    "520012",
+    "520863"
+  ],
+  "generatedAt": "2026-05-31T09:01:37.858292+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

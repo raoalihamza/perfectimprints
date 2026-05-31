@@ -1,0 +1,25 @@
+{
+  "url": "/cat/bandages/supplier/tekweld",
+  "type": "facet",
+  "h1": "Custom Tekweld Bandages for Bulk Orders",
+  "metaTitle": "Custom Tekweld Bandages | Perfect Imprints",
+  "metaDescription": "Order custom Tekweld bandages in bulk. Brand your first aid supplies with your logo. Shop at Perfect Imprints today.",
+  "introHtml": "<p>Tekweld bandages offer a durable, reliable foundation for your branded first aid kits. Whether you're a safety manager stocking breakrooms or a marketing director distributing promotional health packs, these bandages hold up to daily use while carrying your logo. Choose from dispenser options or individual packs to match your distribution style.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Tekweld bandages with logo in a dispenser, ideal for first aid kits and promotional giveaways",
+  "productSkus": [
+    "502343",
+    "506843",
+    "510131",
+    "528559",
+    "529323"
+  ],
+  "generatedAt": "2026-05-31T08:32:14.477833+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

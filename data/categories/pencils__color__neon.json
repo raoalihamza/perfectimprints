@@ -1,0 +1,22 @@
+{
+  "url": "/cat/pencils/color/neon",
+  "type": "facet",
+  "h1": "Custom Neon Pencils for Bulk Orders",
+  "metaTitle": "Custom Neon Pencils | Perfect Imprints",
+  "metaDescription": "Order custom neon pencils in bulk for vibrant branding. Get a free quote from Perfect Imprints today!",
+  "introHtml": "<p>Neon pencils stand out in any setting, making them a smart choice for trade shows, back-to-school promotions, or safety giveaways. The bright, fluorescent colors grab attention and keep your brand visible on desks or in toolboxes. Perfect for imprinting with your logo or message, these pencils offer a fun yet functional way to promote your business. Choose from classic hex or round shapes, all with vivid neon barrels that won't fade.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bright custom neon pencils with logos, perfect for promotional giveaways and bulk orders.",
+  "productSkus": [
+    "501104",
+    "504680"
+  ],
+  "generatedAt": "2026-05-31T10:00:07.361842+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

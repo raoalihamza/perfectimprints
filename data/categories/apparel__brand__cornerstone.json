@@ -1,0 +1,24 @@
+{
+  "url": "/cat/apparel/brand/cornerstone",
+  "type": "facet",
+  "h1": "Custom Cornerstone Apparel for Your Team",
+  "metaTitle": "Custom Cornerstone Apparel | Perfect Imprints",
+  "metaDescription": "Shop custom Cornerstone apparel at Perfect Imprints. Perfect for uniforms, safety gear, and team wear. Bulk orders available.",
+  "introHtml": "<p>Cornerstone apparel combines durability with professional style, making it a top choice for uniforms, promotional wear, and safety gear. From snag-proof polos that resist wear in busy workplaces to ANSI-compliant high-visibility vests and hoodies, Cornerstone offers reliable options that hold up to daily use. Whether you need custom embroidered polos for a trade show or screen-printed safety vests for a construction crew, Cornerstone's consistent sizing and wide color range make bulk ordering straightforward. Choose Cornerstone for apparel that looks good and works hard.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Cornerstone apparel including snag-proof polo shirts and high-visibility safety vests for team uniforms",
+  "productSkus": [
+    "515284",
+    "515285",
+    "528678",
+    "529301"
+  ],
+  "generatedAt": "2026-05-31T08:48:23.062439+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

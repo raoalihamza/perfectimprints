@@ -1,0 +1,25 @@
+{
+  "url": "/cat/coasters/color/black",
+  "type": "facet",
+  "h1": "Custom Black Coasters for Your Brand",
+  "metaTitle": "Custom Black Coasters | Perfect Imprints",
+  "metaDescription": "Order custom black coasters for your brand. Perfect for offices and events. Get a quote today.",
+  "introHtml": "<p>Black coasters offer a sleek, professional look that complements any office decor or event setting. Whether you choose slate for a natural matte finish or brass for a touch of elegance, black provides a neutral backdrop that makes your logo stand out. Ideal for corporate gifts, trade shows, or hospitality, custom black coasters protect surfaces while keeping your brand top of mind.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black coasters with engraved logo on slate material, placed on a wooden table",
+  "productSkus": [
+    "518270",
+    "518282 01A",
+    "518880",
+    "519140 01A",
+    "520338"
+  ],
+  "generatedAt": "2026-05-31T09:10:38.934265+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

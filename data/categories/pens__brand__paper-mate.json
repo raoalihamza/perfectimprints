@@ -1,0 +1,25 @@
+{
+  "url": "/cat/pens/brand/paper-mate",
+  "type": "facet",
+  "h1": "Custom Paper Mate Pens for Bulk Orders",
+  "metaTitle": "Custom Paper Mate Pens | Perfect Imprints",
+  "metaDescription": "Order custom Paper Mate pens in bulk from Perfect Imprints. Ideal for branding with logos and messages. Get a quote today.",
+  "introHtml": "<p>Paper Mate pens combine smooth writing with reliable performance, making them a top pick for corporate giveaways and promotional events. From the vibrant Flair to the comfortable InkJoy, these pens accept precise logo imprinting on barrels or clips. Choose Paper Mate for a writing instrument that recipients will actually use, keeping your brand top of mind with every note.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Paper Mate pens with logo imprint, including Flair and InkJoy models, for promotional giveaways",
+  "productSkus": [
+    "502707",
+    "504898",
+    "510273",
+    "521118",
+    "525230"
+  ],
+  "generatedAt": "2026-05-31T08:59:32.690238+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

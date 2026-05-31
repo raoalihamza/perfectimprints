@@ -1,0 +1,31 @@
+{
+  "url": "/cat/napkins/supplier/gpromomart",
+  "type": "facet",
+  "h1": "Custom Gpromomart Napkins for Bulk Orders",
+  "metaTitle": "Custom Gpromomart Napkins | Perfect Imprints",
+  "metaDescription": "Order custom Gpromomart napkins in bulk at Perfect Imprints. Ideal for events, restaurants, and branding. Quality paper napkins with your logo.",
+  "introHtml": "<p>Gpromomart napkins offer a reliable, cost-effective way to add your brand to everyday essentials. Whether you need white beverage napkins for a coffee shop or colored dinner napkins for a catered event, these paper napkins accept crisp logo imprinting in one or two colors. Choose from beverage, luncheon, or dinner sizes with various fold styles to match your serving needs. Bulk pricing makes them a smart choice for restaurants, offices, and promotional giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom Gpromomart napkins with printed logo, available in white and colored options for events and restaurants.",
+  "productSkus": [
+    "514577 90A",
+    "514579 90A",
+    "514580 90A",
+    "514581 90A",
+    "514583 90A",
+    "519472",
+    "519473",
+    "520634",
+    "520635",
+    "520636",
+    "520637"
+  ],
+  "generatedAt": "2026-05-31T09:57:31.904244+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

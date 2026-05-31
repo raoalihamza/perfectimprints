@@ -1,0 +1,22 @@
+{
+  "url": "/cat/sunglasses/style/two-tone",
+  "type": "facet",
+  "h1": "Custom Two Tone Sunglasses",
+  "metaTitle": "Custom Two Tone Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom two tone sunglasses for your next event. Perfect Imprints offers bulk pricing and fast turnaround.",
+  "introHtml": "<p>Two tone sunglasses combine two complementary colors in one frame, giving your brand a modern, sporty look that stands out at outdoor events, trade shows, and company picnics. Whether you choose matte finishes for a subtle edge or glossy accents for maximum visibility, these shades offer excellent UV protection and a comfortable fit. Decorate the temples with your logo using pad printing or a custom deboss for a sleek, professional finish that recipients will wear all season long.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom two tone sunglasses with matte black and white frame temples displayed on a bright sunny day",
+  "productSkus": [
+    "510937",
+    "512560"
+  ],
+  "generatedAt": "2026-05-31T10:09:26.879323+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

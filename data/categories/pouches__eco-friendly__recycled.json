@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pouches/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Pouches for Bulk Orders",
+  "metaTitle": "Custom Recycled Pouches | Perfect Imprints",
+  "metaDescription": "Order custom recycled pouches in bulk at Perfect Imprints. Eco-friendly and perfect for branding. Get a quote today!",
+  "introHtml": "<p>Custom recycled pouches are made from post-consumer materials like RPET, reducing waste without sacrificing durability. Whether you need branded pencil pouches for a school giveaway or zippered utility pouches for corporate gifts, recycled options help your organization meet sustainability goals. These pouches accept screen printing and embroidery, giving you a professional look that aligns with green initiatives.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled pouches made from RPET material, ideal for eco-friendly promotional products and bulk branding.",
+  "productSkus": [
+    "527038"
+  ],
+  "generatedAt": "2026-05-31T09:00:30.931164+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

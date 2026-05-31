@@ -1,0 +1,31 @@
+{
+  "url": "/cat/balloons/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Balloons for Branded Events",
+  "metaTitle": "Custom Blue Balloons | Perfect Imprints",
+  "metaDescription": "Order custom blue balloons for your next event. Perfect for branding, grand openings, and celebrations. Bulk pricing available.",
+  "introHtml": "<p>Blue balloons are a versatile choice for corporate events, brand launches, and celebrations. Whether you need 9-inch latex balloons for table decorations or 17-inch XtraLife® helium balloons for eye-catching displays, custom printing in blue offers a crisp, professional look that complements any color scheme. Decorate with your logo in one or two colors for maximum impact.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue balloons with printed logo at a corporate event",
+  "productSkus": [
+    "527576",
+    "527577",
+    "527578",
+    "527579",
+    "527580",
+    "527581",
+    "527582",
+    "527583",
+    "527584",
+    "527585",
+    "527586"
+  ],
+  "generatedAt": "2026-05-31T09:34:39.301998+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

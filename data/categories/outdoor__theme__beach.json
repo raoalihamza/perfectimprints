@@ -1,0 +1,22 @@
+{
+  "url": "/cat/outdoor/theme/beach",
+  "type": "facet",
+  "h1": "Custom Beach Outdoor Promotional Products",
+  "metaTitle": "Custom Beach Outdoor Products | Perfect Imprints",
+  "metaDescription": "Order custom beach outdoor promotional products for your next event. Perfect for giveaways and brand visibility. Get a quote today!",
+  "introHtml": "<p>Beach-themed outdoor products are ideal for summer events, resort giveaways, and coastal promotions. Unlike generic outdoor items, these are specifically designed for sand and sun—think sand-repellent blankets that shake clean easily. Perfect for marketing directors planning beach cleanups or HR directors organizing company picnics, these products keep your brand visible in relaxed, high-traffic settings. Decorate with screen printing or embroidery for lasting impressions.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom beach outdoor promotional products like picnic blankets and sand repellent blankets for summer events",
+  "productSkus": [
+    "515638",
+    "520308"
+  ],
+  "generatedAt": "2026-05-31T09:58:56.481616+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

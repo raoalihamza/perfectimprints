@@ -1,0 +1,27 @@
+{
+  "url": "/cat/apparel/brand/harriton",
+  "type": "facet",
+  "h1": "Custom Harriton Apparel for Bulk Orders",
+  "metaTitle": "Custom Harriton Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Harriton apparel in bulk from Perfect Imprints. Durable fleece, jackets, and denim shirts with your logo. Get a quote today.",
+  "introHtml": "<p>Harriton apparel is a top choice for businesses that need durable, work-ready clothing that stands up to daily wear. From the rugged Harriton Auxiliary Canvas Work Jacket to the lightweight Packable Nylon Jacket, these pieces offer reliable performance for field crews, warehouse teams, and outdoor events. Add your logo with screen printing or embroidery to create a cohesive, professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Harriton apparel including fleece jackets and denim shirts with embroidered logos for corporate teams",
+  "productSkus": [
+    "501740",
+    "501741",
+    "505165",
+    "515736",
+    "519005",
+    "520268",
+    "520269"
+  ],
+  "generatedAt": "2026-05-31T09:05:24.720779+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

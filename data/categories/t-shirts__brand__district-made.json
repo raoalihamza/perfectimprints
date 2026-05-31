@@ -1,0 +1,25 @@
+{
+  "url": "/cat/t-shirts/brand/district-made",
+  "type": "facet",
+  "h1": "Custom District Made T Shirts for Bulk Orders",
+  "metaTitle": "Custom District Made T Shirts | Perfect Imprints",
+  "metaDescription": "Order custom District Made t shirts in bulk. Soft, premium tees perfect for branding. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>District Made t shirts are known for their exceptional softness and consistent fit, making them a top choice for companies that want their logo to feel as good as it looks. Whether you are outfitting a sales team for a trade show or creating employee uniforms, these tees offer a reliable canvas for screen printing or embroidery. The modern cuts and fade-resistant fabrics ensure your brand stays sharp wash after wash.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom District Made t shirts for bulk orders featuring soft cotton fabric and screen printed logos.",
+  "productSkus": [
+    "515949",
+    "515950",
+    "515966",
+    "516166",
+    "516167"
+  ],
+  "generatedAt": "2026-05-31T10:10:11.251245+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

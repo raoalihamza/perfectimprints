@@ -1,0 +1,24 @@
+{
+  "url": "/cat/face-masks/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Face Masks for Bulk Orders",
+  "metaTitle": "Custom Pink Face Masks | Perfect Imprints",
+  "metaDescription": "Order custom pink face masks in bulk for your team or event. Choose from bandana styles with your logo. Fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>Pink face masks offer a distinctive way to promote your brand while showing support for causes like breast cancer awareness. Perfect Imprints offers custom pink masks in several styles, including the Big Bandana and Traditional USA Paisley Bandana. These masks are ideal for marketing events, employee wellness programs, or charity campaigns. Decorate with your logo using screen printing or heat transfer for a professional finish that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink face masks with logo in bandana style, ideal for bulk promotional orders",
+  "productSkus": [
+    "506991",
+    "521602",
+    "522111",
+    "524693"
+  ],
+  "generatedAt": "2026-05-31T09:45:15.105154+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

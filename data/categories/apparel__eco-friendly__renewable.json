@@ -1,0 +1,22 @@
+{
+  "url": "/cat/apparel/eco-friendly/renewable",
+  "type": "facet",
+  "h1": "Custom Renewable Apparel for Bulk Orders",
+  "metaTitle": "Custom Renewable Apparel | Perfect Imprints",
+  "metaDescription": "Order custom renewable apparel for your team. Perfect Imprints offers eco-friendly bulk apparel with your logo.",
+  "introHtml": "<p>Renewable apparel is made from materials like organic cotton or recycled fibers that can be replenished naturally. Choosing custom renewable apparel for your staff or event reduces environmental impact while maintaining comfort and durability. Whether you need aprons for a restaurant or T-shirts for a company picnic, these garments support sustainability goals without sacrificing quality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom renewable apparel featuring organic cotton T-shirts and aprons with logo imprinting",
+  "productSkus": [
+    "515077",
+    "516239"
+  ],
+  "generatedAt": "2026-05-31T09:32:12.712619+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

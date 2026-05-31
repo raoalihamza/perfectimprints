@@ -1,0 +1,22 @@
+{
+  "url": "/cat/work-shirts/feature/moisture-wicking",
+  "type": "facet",
+  "h1": "Custom Moisture Wicking Work Shirts",
+  "metaTitle": "Custom Moisture Wicking Work Shirts - Perfect Imprints",
+  "metaDescription": "Order custom moisture wicking work shirts for your team. Stay cool and dry on the job. Fast turnaround & bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Moisture wicking work shirts keep your crew dry and comfortable during physically demanding shifts or hot outdoor conditions. Unlike basic cotton, these fabrics pull sweat away from the skin to reduce chafing and overheating. Options like the Ladies Montauk Henley and Ladies' Point Grey Blouse offer professional style with performance fabric. Ideal for construction crews, warehouse teams, and field service staff who need to stay focused in warm environments.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom moisture wicking work shirts in performance fabric for team uniforms and company apparel",
+  "productSkus": [
+    "527895",
+    "529249"
+  ],
+  "generatedAt": "2026-05-31T09:31:03.552359+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

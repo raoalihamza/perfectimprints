@@ -1,0 +1,22 @@
+{
+  "url": "/cat/shot-glasses/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Shot Glasses",
+  "metaTitle": "Custom Purple Shot Glasses | Perfect Imprints",
+  "metaDescription": "Order custom purple shot glasses for your brand. Perfect for events, bars, and promotions. Get a quote today!",
+  "introHtml": "<p>Purple shot glasses bring a bold, regal touch to any event or bar promotion. Whether you are outfitting a nightclub with branded glassware or creating giveaway sets for a corporate party, purple stands out on the shelf and in photos. Choose from frosted or clear finishes, and add your logo with screen printing or etching. Custom purple shot glasses make every pour memorable.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple shot glasses with frosted finish and engraved logo for brand promotion",
+  "productSkus": [
+    "525816",
+    "525817"
+  ],
+  "generatedAt": "2026-05-31T08:46:46.411945+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

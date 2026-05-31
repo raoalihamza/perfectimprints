@@ -1,0 +1,26 @@
+{
+  "url": "/cat/water-bottles/activity/camping",
+  "type": "facet",
+  "h1": "Custom Camping Water Bottles",
+  "metaTitle": "Custom Camping Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom camping water bottles for your next outdoor event or promotion. Perfect for trade shows, giveaways, and corporate gifts.",
+  "introHtml": "<p>Custom camping water bottles are designed for durability and convenience in the great outdoors. Whether you need lightweight aluminum canteens or rugged Tritan bottles with carabiner clips, these bottles stand up to trail use while keeping your brand front and center. Ideal for outdoor gear giveaways, company camping trips, or promotional events at parks and recreation centers, they offer ample space for logos and come in a variety of colors and finishes. Choose from options like the 24 oz Outdoorsman Tritan Bottle with Drink Thru Lid for easy sipping on the go.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom camping water bottles with outdoor-themed designs and durable construction for hiking and camping",
+  "productSkus": [
+    "506439",
+    "509269",
+    "509876",
+    "518850",
+    "520936",
+    "524246"
+  ],
+  "generatedAt": "2026-05-31T08:47:53.749357+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/school-work-backpacks/feature/with-zipper",
+  "type": "facet",
+  "h1": "Custom School Work Backpacks with Zipper",
+  "metaTitle": "Custom School Work Backpacks with Zipper | Perfect Imprints",
+  "metaDescription": "Order custom with zipper school work backpacks for your team. Durable, branded backpacks ideal for commuters and students. Get a quote today!",
+  "introHtml": "<p>Zippered school work backpacks offer secure storage for laptops, books, and daily essentials, making them a reliable choice for commuters and students alike. Unlike open-top totes, these backpacks keep contents protected during transit and can be easily locked for added security. Perfect for corporate giveaways or school programs, they provide a clean canvas for screen printing or embroidery. The Hive Compu-Backpack and Breckenridge Classic Backpack are popular examples that combine durability with a professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom with zipper school work backpacks featuring padded laptop compartments and embroidered logos",
+  "productSkus": [
+    "518365",
+    "521963"
+  ],
+  "generatedAt": "2026-05-31T08:46:20.510019+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

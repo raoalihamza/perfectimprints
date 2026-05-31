@@ -1,0 +1,21 @@
+{
+  "url": "/cat/coffee-mugs/material/metal",
+  "type": "facet",
+  "h1": "Custom Metal Coffee Mugs for Bulk Orders",
+  "metaTitle": "Custom Metal Coffee Mugs | Perfect Imprints",
+  "metaDescription": "Order custom metal coffee mugs in bulk for your brand. Durable, stylish, and perfect for offices or events. Get a quote today!",
+  "introHtml": "<p>Metal coffee mugs offer a durable alternative to ceramic, ideal for outdoor events, corporate gifts, or daily office use. The 16 oz Campfire Mug, for example, provides a rugged, double-wall insulated design that keeps drinks hot longer. Choose from various finishes and imprint methods to match your brand's aesthetic, whether you need a sleek stainless steel look or a powder-coated color. Perfect for safety managers seeking unbreakable options or marketing directors wanting a premium giveaway that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom metal coffee mugs with double-wall insulation and imprint logo, perfect for bulk orders",
+  "productSkus": [
+    "521644"
+  ],
+  "generatedAt": "2026-05-31T08:40:55.420480+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

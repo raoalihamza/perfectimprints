@@ -1,0 +1,26 @@
+{
+  "url": "/cat/writing/special-feature/on-sale",
+  "type": "facet",
+  "h1": "Custom On Sale Writing Products",
+  "metaTitle": "Custom On Sale Writing Products - Perfect Imprints",
+  "metaDescription": "Find custom on sale writing products at Perfect Imprints. Shop discounted pens and journals for bulk orders.",
+  "introHtml": "<p>Buying custom writing products on sale lets you stretch your promotional budget further without sacrificing quality. Whether you need gel pens for a trade show or branded journals for employee gifts, our discounted selection includes eco-friendly options like the Recycled Stainless Steel Rollerball Pen and the FSC Bamboo Bound JournalBook Bundle Set. These are real deals on items that get used daily, keeping your brand top of mind. Order in bulk and save even more.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A display of custom on sale writing products including gel pens and a bamboo journal, perfect for promotional use.",
+  "productSkus": [
+    "526715",
+    "526716",
+    "526789",
+    "527171",
+    "527220",
+    "527973"
+  ],
+  "generatedAt": "2026-05-31T10:16:08.608922+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

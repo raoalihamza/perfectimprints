@@ -1,0 +1,29 @@
+{
+  "url": "/cat/workwear/sleeve-length/long-sleeve",
+  "type": "facet",
+  "h1": "Custom Long Sleeve Workwear for Your Team",
+  "metaTitle": "Custom Long Sleeve Workwear | Perfect Imprints",
+  "metaDescription": "Order custom long sleeve workwear for your team. Durable jackets and sweatshirts with your logo. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Long sleeve workwear provides full-arm coverage for safety and comfort on the job. From insulated duck active jackets to midweight sweatshirts, these styles offer durability and warmth for outdoor crews, warehouse staff, and field technicians. Decorate with embroidery or screen printing for a professional, cohesive look that stands up to daily wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom long sleeve workwear including jackets and sweatshirts with embroidered logos",
+  "productSkus": [
+    "523765",
+    "523772",
+    "523774",
+    "524208",
+    "524210",
+    "525386",
+    "525899",
+    "526199",
+    "528798"
+  ],
+  "generatedAt": "2026-05-31T08:24:40.677076+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/barware/brand/zippo",
+  "type": "facet",
+  "h1": "Custom Zippo Barware for Bulk Orders",
+  "metaTitle": "Custom Zippo Barware | Perfect Imprints",
+  "metaDescription": "Order custom Zippo barware in bulk at Perfect Imprints. Perfect for giveaways, events, and corporate gifts with your logo.",
+  "introHtml": "<p>Zippo barware combines the iconic brand's rugged reliability with practical tools for entertaining. From rechargeable candle lighters to hand warmers that double as powerbanks, these pieces offer real utility at bars, tailgates, or outdoor events. Custom engraving or debossing your logo onto Zippo products creates a premium giveaway that recipients will use for years. Whether you're outfitting a hospitality suite or rewarding employees, Zippo barware stands out from standard promotional drinkware.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Zippo barware including a rechargeable candle lighter and hand warmer with logo engraving, displayed on a bar counter.",
+  "productSkus": [
+    "528350",
+    "528351",
+    "528964"
+  ],
+  "generatedAt": "2026-05-31T09:35:53.838531+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,27 @@
+{
+  "url": "/cat/personal-care-items/feature/with-zipper",
+  "type": "facet",
+  "h1": "Custom Personal Care Items with Zipper",
+  "metaTitle": "Custom Personal Care Items with Zipper | Perfect Imprints",
+  "metaDescription": "Order custom personal care items with zipper for your team. Bulk pricing, fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>Zippered personal care items keep essentials secure and organized, whether you are packing toiletries for a business trip or distributing hygiene kits at a company event. From the Claro Travel Bag to the Sadie Satin Clear Cosmetic Bag, these products offer easy access and spill-proof storage. Choose from cotton pouches, clear cosmetics bags, or travel duffles to match your brand. Decorating with a screen-printed logo or embroidered patch turns a simple zippered pouch into a memorable giveaway for trade shows, employee wellness programs, or client appreciation gifts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom personal care items with zipper, including travel bags and pouches for branded giveaways.",
+  "productSkus": [
+    "514184",
+    "514433",
+    "519201",
+    "521035",
+    "522416",
+    "527548",
+    "528640"
+  ],
+  "generatedAt": "2026-05-31T10:00:35.303877+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

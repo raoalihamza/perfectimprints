@@ -1,0 +1,21 @@
+{
+  "url": "/cat/kitchen-utensils/feature/microwave-safe",
+  "type": "facet",
+  "h1": "Custom Microwave Safe Kitchen Utensils",
+  "metaTitle": "Custom Microwave Safe Kitchen Utensils | Perfect Imprints",
+  "metaDescription": "Order custom microwave safe kitchen utensils for your breakroom or office. Perfect for bulk branding. Get a quote at Perfect Imprints!",
+  "introHtml": "<p>Microwave safe kitchen utensils are essential for breakrooms and office kitchens where employees heat meals throughout the day. Unlike standard utensils that may warp or melt, these heat-resistant tools handle repeated microwave use without damage. The Harvest Utensil Set, for example, features durable plastic construction that stands up to daily reheating. Customize them with your logo for a practical branded addition to any workplace kitchen.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom microwave safe kitchen utensils including spoons and spatulas with a logo, placed on a kitchen counter",
+  "productSkus": [
+    "523884"
+  ],
+  "generatedAt": "2026-05-31T09:17:21.303413+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

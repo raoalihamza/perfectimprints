@@ -1,0 +1,25 @@
+{
+  "url": "/cat/reusable-straws/color/green",
+  "type": "facet",
+  "h1": "Custom Green Reusable Straws",
+  "metaTitle": "Custom Green Reusable Straws | Perfect Imprints",
+  "metaDescription": "Order custom green reusable straws in bulk. Perfect for eco-friendly branding. Get a quote today!",
+  "introHtml": "<p>Green reusable straws are a natural fit for brands that want to highlight their environmental commitment. Whether you choose durable silicone or stainless steel with a green finish, these straws offer a vibrant, eco-conscious alternative to single-use plastic. Ideal for cafes, corporate gift bags, or trade show giveaways, they can be personalized with your logo through screen printing or engraving. Their bold color ensures your brand stands out while promoting sustainability.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green reusable straws in silicone and stainless steel with engraved logos, displayed on a wooden table.",
+  "productSkus": [
+    "521867",
+    "522032",
+    "522455",
+    "523997",
+    "524107"
+  ],
+  "generatedAt": "2026-05-31T09:24:47.310419+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

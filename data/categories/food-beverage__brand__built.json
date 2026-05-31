@@ -1,0 +1,21 @@
+{
+  "url": "/cat/food-beverage/brand/built",
+  "type": "facet",
+  "h1": "Custom Built Food & Beverage Products",
+  "metaTitle": "Custom Built Food Beverage | Perfect Imprints",
+  "metaDescription": "Shop custom Built food and beverage products at Perfect Imprints. Ideal for bulk orders with your logo. Get a quote today!",
+  "introHtml": "<p>Built products are known for their durable, insulated designs that keep drinks at the perfect temperature for hours. Whether you need custom travel mugs for a corporate event or branded bottles for a safety team, Built offers reliable, everyday performance. Add your logo with pad printing or laser engraving for a clean, professional look that stands up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Built food and beverage products including insulated travel mugs and bottles with logo imprint",
+  "productSkus": [
+    "528839"
+  ],
+  "generatedAt": "2026-05-31T09:46:40.875822+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

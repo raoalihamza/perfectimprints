@@ -1,0 +1,30 @@
+{
+  "url": "/cat/pens/brand/moptoppers",
+  "type": "facet",
+  "h1": "Custom MopToppers Pens for Bulk Orders",
+  "metaTitle": "Custom MopToppers Pens | Perfect Imprints",
+  "metaDescription": "Order custom MopToppers pens with your logo. Perfect for giveaways and events. Fast turnaround. Shop now at PerfectImprints.com.",
+  "introHtml": "<p>MopToppers pens bring a playful, character-driven touch to your promotional giveaways, featuring unique designs like superheroes, thumbs-up gestures, and stylus tips that work on touchscreens. These pens are a hit at trade shows, school events, and employee appreciation days because they stand out from standard logo pens. Choose from skin tone stylus options or fun spinner tops to match your audience. Decorate with your logo via pad printing or laser engraving for a memorable brand impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom MopToppers pens with colorful character tops and stylus tips, displayed on a white background.",
+  "productSkus": [
+    "514321",
+    "514497",
+    "516448 16A",
+    "519437",
+    "520582",
+    "521174",
+    "521702",
+    "521703",
+    "524068",
+    "525339"
+  ],
+  "generatedAt": "2026-05-31T09:22:06.670033+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

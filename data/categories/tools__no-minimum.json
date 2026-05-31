@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tools/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Tools for Small Orders",
+  "metaTitle": "No-Minimum Custom Tools | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom tools with no bulk requirements. Perfect for small teams, events, or samples. Get branded tools today at Perfect Imprints.",
+  "introHtml": "<p>Not every promotional campaign needs a bulk order. Our no-minimum custom tools let you order as few as a single unit, making it easy to outfit a small team, create sample kits, or hand out branded tools at a one-time event. From multi-tools to pocket knives, you get the same high-quality imprinting and product selection without the pressure of a large minimum quantity. Small order flexibility, real business value.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted no-minimum custom tools including multi-tools and pocket knives with custom logos, ideal for small orders and giveaways.",
+  "productSkus": [
+    "508848 01A",
+    "508912 01A",
+    "513640 03W",
+    "513649 03W",
+    "513653 64F",
+    "513654 03W",
+    "518074 01N",
+    "522336",
+    "522979",
+    "527492",
+    "528971",
+    "529091",
+    "529397"
+  ],
+  "generatedAt": "2026-05-31T08:47:28.325952+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

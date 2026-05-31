@@ -1,0 +1,22 @@
+{
+  "url": "/cat/coasters/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Coasters for Small Orders",
+  "metaTitle": "No-Minimum Custom Coasters - Perfect Imprints",
+  "metaDescription": "Order as few as 4 custom coasters with no minimum. Perfect for small businesses, events, and samples. Get branded coasters today at Perfect Imprints.",
+  "introHtml": "<p>No-minimum custom coasters let you order small quantities without the typical bulk requirements. Whether you need a set for a small team, a sample to test quality, or a limited run for a one-time event, this page is designed for buyers who want flexibility. With no MOQ, you can get branded coasters like the Coaster Desk Caddy or Set Of 4 Midland Coaster Set in low volumes while still enjoying professional imprinting and fast turnaround.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A set of no-minimum custom coasters featuring the Set Of 4 Midland Coaster Set with a company logo imprinted on each coaster.",
+  "productSkus": [
+    "514300 90E",
+    "518282 01A"
+  ],
+  "generatedAt": "2026-05-31T09:40:52.636453+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/lip-balm/color/red",
+  "type": "facet",
+  "h1": "Custom Red Lip Balm for Branded Promotions",
+  "metaTitle": "Custom Red Lip Balm - Perfect Imprints",
+  "metaDescription": "Order custom red lip balm in bulk. Perfect for giveaways, events, and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Red lip balm stands out in any crowd, making it a smart choice for brand visibility. Whether you choose a glossy metallic finish for holiday events or a practical squeeze tube with a key ring for everyday carry, red gives your logo a vibrant pop. Customize with full-color digital printing or debossing for a professional look that marketing directors and HR teams appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red lip balm with company logo, perfect for promotional giveaways and corporate gifts.",
+  "productSkus": [
+    "512747",
+    "519430",
+    "528465",
+    "528502",
+    "529055",
+    "529479"
+  ],
+  "generatedAt": "2026-05-31T08:57:11.372817+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

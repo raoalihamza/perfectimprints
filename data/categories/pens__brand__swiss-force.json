@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pens/brand/swiss-force",
+  "type": "facet",
+  "h1": "Custom Swiss Force Pens for Bulk Orders",
+  "metaTitle": "Custom Swiss Force Pens | Perfect Imprints",
+  "metaDescription": "Order custom Swiss Force pens in bulk. Free setup & art. Perfect for events, offices, or giveaways. Get a quote today!",
+  "introHtml": "<p>Swiss Force pens combine rugged durability with a sleek, professional look, making them a reliable choice for companies that value long-lasting promotional products. Whether you need a smooth-writing pen for trade shows or a sturdy daily driver for office staff, Swiss Force offers metal-barrel options with comfortable grips and precise ink flow. Decorate with your logo via pad printing or laser engraving for a clean, lasting impression that stands up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Swiss Force pens with engraved logo displayed on a desk alongside notepads and business cards",
+  "productSkus": [
+    "510596"
+  ],
+  "generatedAt": "2026-05-31T09:22:07.966613+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

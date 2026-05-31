@@ -1,0 +1,27 @@
+{
+  "url": "/cat/badge-reels/material/vinyl",
+  "type": "facet",
+  "h1": "Custom Vinyl Badge Reels for Bulk Orders",
+  "metaTitle": "Custom Vinyl Badge Reels | Perfect Imprints",
+  "metaDescription": "Order custom vinyl badge reels in bulk. Durable and vibrant, perfect for security and branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Vinyl badge reels offer a durable, lightweight option for daily ID badge use. Unlike plastic or metal reels, vinyl provides flexibility and resistance to cracking, making it ideal for high-traffic environments like hospitals or warehouses. Customize with full-color logos and text on the badge holder itself, ensuring your brand is visible at every security checkpoint. Choose from styles with bulldog clips, pin attachments, or hang holes for versatile wearing options.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom vinyl badge reels with full-color logo imprint on durable badge holder",
+  "productSkus": [
+    "511176 90E",
+    "522106",
+    "522107",
+    "522108",
+    "528551",
+    "528552",
+    "528553"
+  ],
+  "generatedAt": "2026-05-31T08:49:26.118578+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

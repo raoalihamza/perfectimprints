@@ -1,0 +1,24 @@
+{
+  "url": "/cat/skirts/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Skirts for Bulk Orders",
+  "metaTitle": "Custom Pink Skirts | Perfect Imprints",
+  "metaDescription": "Shop custom pink skirts for teams and events. Bulk pricing available. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Pink skirts make a bold, unified statement for corporate teams, charity runs, or spirit days. Our selection includes performance fabrics like moisture-wicking jersey knit and tri-blend options, ideal for logo embroidery or screen printing. Whether you need Women's TriDri Maria Jogger Shorts or Sport-Tek® Squad Shorts, pink adds visibility and team cohesion. Order custom pink skirts in bulk for your next event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of women wearing custom pink skirts with printed logos at a corporate team event",
+  "productSkus": [
+    "528865",
+    "528873",
+    "528874",
+    "528876"
+  ],
+  "generatedAt": "2026-05-31T09:26:10.701466+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

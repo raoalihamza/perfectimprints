@@ -1,0 +1,28 @@
+{
+  "url": "/cat/laundry-bags/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Laundry Bags for Bulk Orders",
+  "metaTitle": "Custom Blue Laundry Bags | Perfect Imprints",
+  "metaDescription": "Order custom blue laundry bags in bulk for your team or event. Durable styles from dry bags to mesh wet/dry bags. Get a quote today!",
+  "introHtml": "<p>Blue laundry bags offer a practical and professional way to manage uniforms, linens, or gear in any facility. Whether you need waterproof dry bags for outdoor crews or mesh wet/dry bags for gyms and pools, blue provides a clean, recognizable color that stands out. Customize with screen printing or embroidery to add your logo for easy identification and brand consistency across departments.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom blue laundry bags including dry bags and mesh wet/dry bags with logo imprint",
+  "productSkus": [
+    "518753",
+    "520673",
+    "521607",
+    "522058",
+    "522543",
+    "522667",
+    "525515",
+    "525813"
+  ],
+  "generatedAt": "2026-05-31T08:57:07.774553+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

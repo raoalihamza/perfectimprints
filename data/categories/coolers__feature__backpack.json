@@ -1,0 +1,33 @@
+{
+  "url": "/cat/coolers/feature/backpack",
+  "type": "facet",
+  "h1": "Custom Backpack Coolers for Bulk Orders",
+  "metaTitle": "Custom Backpack Coolers | Perfect Imprints",
+  "metaDescription": "Order custom backpack coolers in bulk at Perfect Imprints. Great for events, teams, and giveaways. Get a quote today!",
+  "introHtml": "<p>Custom backpack coolers combine the convenience of a hands-free backpack with insulated storage, making them ideal for outdoor events, corporate picnics, and safety teams on the go. Choose from styles like the 20 Can Backpack Cooler or the PEVA Lined Backpack Cooler, and add your logo with screen printing or embroidery for a functional giveaway that keeps drinks cold and your brand visible.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom backpack cooler with insulated compartment and adjustable straps, perfect for outdoor events and branded giveaways.",
+  "productSkus": [
+    "515964",
+    "516332",
+    "517456",
+    "518746",
+    "522742",
+    "525573",
+    "525923",
+    "526613",
+    "527079",
+    "527129",
+    "527375",
+    "527613",
+    "527619"
+  ],
+  "generatedAt": "2026-05-31T09:11:18.181770+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

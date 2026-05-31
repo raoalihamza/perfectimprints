@@ -1,0 +1,21 @@
+{
+  "url": "/cat/speakers/brand/tangle",
+  "type": "facet",
+  "h1": "Custom Tangle Speakers for Bulk Orders",
+  "metaTitle": "Custom Tangle Speakers | Perfect Imprints",
+  "metaDescription": "Order custom Tangle speakers in bulk. Perfect for corporate gifts, events, and branding. Get a quote today from Perfect Imprints.",
+  "introHtml": "<p>Tangle speakers combine Bluetooth audio with a built-in charging station, making them a practical giveaway for trade shows or employee appreciation. The iHome Powerplant model, for example, lets recipients charge their devices while enjoying crisp sound. Customize the surface with your logo using pad printing or laser engraving for a sleek, professional finish that stands out in any office or home setting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Tangle speakers with logo imprint, featuring a Bluetooth speaker and charging station",
+  "productSkus": [
+    "529458"
+  ],
+  "generatedAt": "2026-05-31T10:07:29.641731+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

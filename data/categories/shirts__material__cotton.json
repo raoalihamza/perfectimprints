@@ -1,0 +1,31 @@
+{
+  "url": "/cat/shirts/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Shirts for Your Team",
+  "metaTitle": "Custom Cotton Shirts | Perfect Imprints",
+  "metaDescription": "Order custom cotton shirts for your team. Perfect for uniforms or events. Shop premium styles at Perfect Imprints.",
+  "introHtml": "<p>Cotton shirts offer breathability and comfort that synthetics can't match, making them a top choice for team uniforms, trade shows, and daily wear. From classic oxfords to durable denim and wrinkle-free options, our cotton shirts can be embroidered or screen printed with your logo. Choose short or long sleeves, and styles for men and women that keep your team looking sharp all day.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cotton shirts including oxford, denim, and plaid styles for men and women with embroidery options",
+  "productSkus": [
+    "501740",
+    "501741",
+    "513877",
+    "513878",
+    "513879",
+    "513880",
+    "525604",
+    "525605",
+    "525606",
+    "526629",
+    "529218"
+  ],
+  "generatedAt": "2026-05-31T08:37:23.146547+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

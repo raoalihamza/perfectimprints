@@ -1,0 +1,66 @@
+{
+  "url": "/cat/shorts",
+  "type": "root",
+  "h1": "Custom Shorts for Teams, Events & Promotions",
+  "metaTitle": "Custom Shorts | Perfect Imprints",
+  "metaDescription": "Order custom shorts for your team or event. Perfect for corporate outings, sports teams, and giveaways. Fast turnaround & bulk discounts.",
+  "introHtml": "<p>Custom shorts are a practical and versatile promotional item for any organization. From moisture-wicking performance fabrics to comfortable cotton blends, the range of materials ensures you can find the right fit for your audience. Whether you need jogger shorts for a corporate 5K, compression shorts for a gym giveaway, or casual flannel shorts for a company picnic, the options are extensive. Decoration methods like screen printing and embroidery allow your logo to stand out while maintaining durability through repeated washing. With a variety of sizes from youth to adult, custom shorts serve as a functional piece of apparel that recipients will actually use.</p><p>Marketing directors, HR directors, safety managers, and business owners all find value in custom shorts for different scenarios. Use them as part of a new hire welcome kit, as rewards for safety milestones, or as giveaways at trade shows and community events. The unisex and gender-specific styles available, such as the Women's TriDri Maria Jogger Shorts or the Men's Sport-Tek Club 7\" Short, ensure you can cater to diverse groups. Ordering in bulk keeps unit costs low, making custom shorts an affordable choice for large teams or multi-event campaigns.</p>",
+  "buyingGuideHtml": "<p>When ordering custom shorts, start by considering the primary use case. For active events like charity runs or sports tournaments, choose performance fabrics such as polyester blends with moisture-wicking properties. Styles like the Women's Badger 3\" Pro-Compression Shorts or the Men's Sport-Tek Club 7\" Short are designed for movement and breathability. For casual office events or company picnics, cotton or flannel shorts like the Men's Boxercraft Flannel Short offer comfort and a relaxed look. Matching the material to the activity ensures recipients appreciate and wear the shorts, maximizing your branding exposure.</p><h3>Materials and Durability</h3><p>Fabric quality directly impacts the longevity of your logo. Polyester blends resist shrinking and fading, making them ideal for frequent washing. Cotton blends are softer but may require more care. For heavy-use scenarios, reinforced stitching and double-needle hems, common in brands like Champion and Gildan, add durability. If your audience includes outdoor workers or athletes, consider moisture-wicking or antimicrobial finishes. These features add value and make your custom shorts a preferred choice over generic apparel.</p><h3>Decoration Options</h3><p>Screen printing works well on most shorts for bold, vibrant logos. Embroidery adds a premium feel, especially on flannel or heavier fabrics. For performance shorts, heat transfer or sublimation can cover larger areas without affecting breathability. Keep in mind the fabric type: screen printing on mesh shorts may require special inks to prevent bleeding. Always request a proof before production to ensure colors match your brand. Personalized shorts with a small logo on the leg or a larger design on the back can suit different branding goals.</p><h3>Use Cases and Buyer Personas</h3><p>Marketing directors often use promotional shorts as giveaways at sports events or summer festivals. HR directors might include them in employee welcome kits or as part of a wellness program. Safety managers can reward teams with branded shorts for achieving safety goals, reinforcing a positive culture. Business owners order bulk shorts for company outings, team-building events, or as uniforms for seasonal staff. Each scenario benefits from choosing the right style and fit for the audience.</p><h3>Quantity and MOQ Considerations</h3><p>Most suppliers have minimum order quantities (MOQs) of 24 to 48 pieces per style and size run. Ordering more units per design lowers the per-piece cost. For large events, consider ordering a mix of sizes to accommodate different body types. If you need small quantities for a pilot program, look for no-minimum options or ready-to-ship stock. Wholesale custom shorts pricing typically decreases at quantities of 100 or more, making bulk orders cost-effective for recurring needs.</p><p>A common mistake is neglecting size charts. Always provide a size chart to recipients and order a few samples beforehand to check fit. Another pitfall is choosing a decoration method that doesn't suit the fabric. For example, embroidery on thin compression shorts may cause puckering. Also, account for lead times: screen printing can add 2-3 weeks, while heat transfer may be faster. Planning ahead ensures your custom shorts arrive in time for your event. Finally, consider care instructions: polyester shorts can be machine washed, while flannel may require gentle cycles. Communicate these to your recipients to keep your logo looking great.</p>",
+  "buyingGuideH2": "Custom Shorts Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom shorts?",
+      "a": "Minimum order quantities vary by style and supplier, but typically range from 24 to 48 pieces per design. Some vendors offer no-minimum options for stock styles. For bulk orders, quantities of 100 or more often provide the best per-unit pricing."
+    },
+    {
+      "q": "What decoration methods work best on shorts?",
+      "a": "Screen printing is common for bold logos on cotton or polyester shorts. Embroidery adds a premium look on flannel or heavier fabrics. For performance fabrics, heat transfer or sublimation are better to maintain breathability. Always test the method on the fabric to avoid cracking or fading."
+    },
+    {
+      "q": "How long does production take for custom shorts?",
+      "a": "Typical production time is 2-3 weeks for screen printing, while heat transfer or embroidery may take 1-2 weeks. Rush services are often available for an additional fee. Always confirm lead times with your supplier before placing an order."
+    },
+    {
+      "q": "Can I order samples before placing a bulk order?",
+      "a": "Yes, most suppliers offer sample orders. You can request a blank sample to check fabric and fit, or a decorated sample to see logo placement and print quality. Sample costs are usually deducted from your final order."
+    },
+    {
+      "q": "What sizes are available for custom shorts?",
+      "a": "Custom shorts are available in a wide range from youth to adult sizes, including unisex and gender-specific fits. Common sizes include XS to 3XL. Always review the size chart for each style, as fits vary between brands like Champion, Gildan, and Sport-Tek."
+    }
+  ],
+  "heroAltText": "Custom shorts for teams and events with screen printed logos",
+  "productSkus": [
+    "506401",
+    "506402",
+    "509482",
+    "526128",
+    "526129",
+    "527831",
+    "527832",
+    "527834",
+    "527835",
+    "527836",
+    "528786",
+    "528788",
+    "528789",
+    "528795",
+    "528865",
+    "528869",
+    "528873",
+    "528874",
+    "528875",
+    "528876",
+    "528881",
+    "528882",
+    "528886",
+    "529237"
+  ],
+  "generatedAt": "2026-05-30T11:05:05.439666+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "material_quality",
+  "skuFilterMode": "full",
+  "rawSkuCount": 24,
+  "filteredSkuCount": 24
+}

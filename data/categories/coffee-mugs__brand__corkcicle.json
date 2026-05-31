@@ -1,0 +1,21 @@
+{
+  "url": "/cat/coffee-mugs/brand/corkcicle",
+  "type": "facet",
+  "h1": "Custom Corkcicle Coffee Mugs for Bulk Orders",
+  "metaTitle": "Custom Corkcicle Coffee Mugs | Perfect Imprints",
+  "metaDescription": "Order custom Corkcicle coffee mugs in bulk. Perfect for corporate gifts and branded merchandise. Browse our selection at Perfect Imprints.",
+  "introHtml": "<p>Corkcicle coffee mugs are triple-insulated to keep beverages hot for hours, making them a premium choice for corporate gifts and employee appreciation. Unlike standard ceramic mugs, these stainless steel mugs feature a sweat-free exterior and a splash-proof lid, ideal for commuters and desk workers. Customize with your logo using laser engraving or screen printing for a sleek, professional look that stands out in any office.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Corkcicle coffee mugs with engraved logo, stainless steel, 16 oz size",
+  "productSkus": [
+    "525226"
+  ],
+  "generatedAt": "2026-05-31T08:52:19.251911+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

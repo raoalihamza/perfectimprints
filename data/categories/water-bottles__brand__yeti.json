@@ -1,0 +1,22 @@
+{
+  "url": "/cat/water-bottles/brand/yeti",
+  "type": "facet",
+  "h1": "Custom Yeti Water Bottles for Bulk Orders",
+  "metaTitle": "Custom Yeti Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom Yeti water bottles with your logo for bulk corporate gifts and events. Shop premium insulated bottles at Perfect Imprints.",
+  "introHtml": "<p>Yeti water bottles are known for their rugged double-wall vacuum insulation, keeping drinks cold for hours. When you order custom Yeti water bottles for your team or event, you get premium stainless steel construction that holds up to daily use and outdoor adventures. The 18 oz Rambler with Chug Cap is a popular choice for trade shows, while the Color-Matched Straw Cap version adds a polished look for corporate gifts. Laser engraving or screen printing your logo on these bottles creates a durable, high-end branded giveaway that recipients will use for years.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Yeti water bottles with engraved logos, double-wall insulated stainless steel",
+  "productSkus": [
+    "528845",
+    "528846"
+  ],
+  "generatedAt": "2026-05-31T10:13:52.369379+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

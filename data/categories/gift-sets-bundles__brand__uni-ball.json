@@ -1,0 +1,30 @@
+{
+  "url": "/cat/gift-sets-bundles/brand/uni-ball",
+  "type": "facet",
+  "h1": "Custom Uni Ball Gift Sets & Bundles",
+  "metaTitle": "Custom Uni Ball Gift Sets Bundles | Perfect Imprints",
+  "metaDescription": "Order custom Uni Ball gift sets and bundles for your brand. Shop premium pens in bulk at Perfect Imprints.",
+  "introHtml": "<p>Uni Ball gift sets and bundles give you a polished way to distribute branded writing instruments that recipients actually use. Unlike mixed-brand giveaways, a Uni Ball set signals consistent quality across every pen, pencil, and marker inside. Choose from retractable gels like the Gel RT or the 207 PLUS+, pair them with a Vision Roller or Jetstream Sport, and add your logo through pad printing or laser engraving. These sets work well for corporate welcome kits, client appreciation packages, or conference handouts where first impressions matter.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Uni Ball gift sets and bundles featuring branded gel pens and roller pens in a gift box",
+  "productSkus": [
+    "507227",
+    "507233",
+    "508066",
+    "508930",
+    "510260",
+    "525805",
+    "525810",
+    "525811",
+    "526876",
+    "527857"
+  ],
+  "generatedAt": "2026-05-31T09:47:49.505324+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

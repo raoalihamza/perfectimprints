@@ -1,0 +1,28 @@
+{
+  "url": "/cat/pet-waste-bags/supplier/tekweld",
+  "type": "facet",
+  "h1": "Custom Tekweld Pet Waste Bags",
+  "metaTitle": "Custom Tekweld Pet Waste Bags | Perfect Imprints",
+  "metaDescription": "Order custom Tekweld pet waste bags for your business. Perfect for parks, offices, and pet-friendly spaces. Soft CTA included.",
+  "introHtml": "<p>Tekweld pet waste bags offer a reliable, heavy-duty solution for businesses that manage high-traffic pet areas. Unlike standard bags, Tekweld's material resists tears and leaks, making them ideal for parks, apartment complexes, and corporate campuses. Custom imprint your logo on the dispenser or individual bags to promote responsible pet ownership while keeping your brand visible. Choose from dispenser styles like the Fire Hydrant or Dog House design to match your location's aesthetic.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Tekweld pet waste bags with branded dispenser in a park setting",
+  "productSkus": [
+    "501626",
+    "512311",
+    "513078",
+    "514957",
+    "516804",
+    "516905",
+    "516906",
+    "528199"
+  ],
+  "generatedAt": "2026-05-31T09:00:11.000041+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

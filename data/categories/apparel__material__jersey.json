@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel/material/jersey",
+  "type": "facet",
+  "h1": "Custom Jersey Apparel for Bulk Orders",
+  "metaTitle": "Custom Jersey Apparel | Perfect Imprints",
+  "metaDescription": "Order custom jersey apparel for your team or event. Perfect Imprints offers bulk pricing and fast turnaround on branded polos and more.",
+  "introHtml": "<p>Jersey fabric delivers a lightweight, breathable feel that drapes neatly without clinging, making it a popular choice for uniform polos and event shirts. Unlike cotton or performance mesh, jersey offers a soft hand and easy care that holds up to frequent washing. Whether you are outfitting a trade show staff or a company picnic, custom jersey apparel prints cleanly with embroidery or screen printing, keeping your logo sharp and professional all day long.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom jersey apparel with embroidered logo on a women's polo shirt, perfect for corporate uniforms and events.",
+  "productSkus": [
+    "526963"
+  ],
+  "generatedAt": "2026-05-31T08:31:45.320382+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/tank-tops/brand/next-level",
+  "type": "facet",
+  "h1": "Custom Next Level Tank Tops for Bulk Orders",
+  "metaTitle": "Custom Next Level Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom Next Level tank tops in bulk. Perfect for teams, events, and promotions. Get a quote today!",
+  "introHtml": "<p>Next Level Apparel tank tops combine premium tri-blend and cotton fabrics with a modern, athletic fit that sets them apart from standard bulk tank tops. These tops hold screen-printed and embroidered logos cleanly, making them ideal for event staff uniforms, fitness giveaways, or branded merchandise that recipients will actually wear. Choose from heather gray, navy, or black for a professional look that keeps your logo visible.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Next Level tank tops in heather gray with a screen-printed logo, displayed on a model.",
+  "productSkus": [
+    "526133",
+    "526134",
+    "529307",
+    "529308"
+  ],
+  "generatedAt": "2026-05-31T09:28:10.632933+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

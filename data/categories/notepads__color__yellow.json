@@ -1,0 +1,26 @@
+{
+  "url": "/cat/notepads/color/yellow",
+  "type": "facet",
+  "h1": "Custom Yellow Notepads for Branded Stationery",
+  "metaTitle": "Custom Yellow Notepads | Perfect Imprints",
+  "metaDescription": "Order custom yellow notepads in bulk for your office. Perfect for branded stationery and promotional giveaways. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Yellow notepads stand out on any desk, making them a practical choice for capturing quick notes or reminders. Whether you choose classic Post-It® pop-up dispensers or sticky note cubes, imprinting your logo in a contrasting color ensures your brand stays visible throughout the workday. These notepads are a cost-effective promotional item that keeps your company top-of-mind with every jot.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom yellow notepads with branded logo on a desk, including sticky note cubes and pop-up dispensers",
+  "productSkus": [
+    "512674 90E",
+    "512702",
+    "512998",
+    "513089 32E",
+    "519560",
+    "528569"
+  ],
+  "generatedAt": "2026-05-31T08:58:25.414542+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

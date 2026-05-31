@@ -1,0 +1,26 @@
+{
+  "url": "/cat/towels/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Towels for Your Brand",
+  "metaTitle": "Custom Orange Towels | Perfect Imprints",
+  "metaDescription": "Order custom orange towels for your brand. Perfect for sports teams, events, and promotions. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Orange towels stand out in a crowd, making them an ideal choice for sports teams, outdoor events, and safety applications. Whether you need cooling towels for marathon runners or rally towels for game day giveaways, custom orange towels offer high visibility and brand recognition. Decorate with screen printing or embroidery on styles like the Sport Terry Velour or Golf/Sports Towel for a durable, vibrant finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom orange towels with company logo, including cooling towels and sports towels for promotional use.",
+  "productSkus": [
+    "510325",
+    "514841",
+    "520178",
+    "521013",
+    "522450",
+    "524126"
+  ],
+  "generatedAt": "2026-05-31T08:24:36.653746+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

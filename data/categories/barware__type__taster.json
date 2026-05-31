@@ -1,0 +1,19 @@
+{
+  "url": "/cat/barware/type/taster",
+  "type": "facet",
+  "h1": "Custom Taster Barware for Bulk Orders",
+  "metaTitle": "Custom Taster Barware | Perfect Imprints",
+  "metaDescription": "Order custom taster barware for events, tastings, or gifts. Perfect Imprints offers bulk pricing on personalized glassware.",
+  "introHtml": "<p>Custom taster barware is designed for small pours, making it ideal for wine tastings, brewery events, or corporate gift sets. These compact glasses allow recipients to sample multiple varieties without committing to a full serving. Choose from shot-style or stemmed tasters, and add your logo with screen printing or etching for a polished look that stands out at any tasting event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom taster barware with logo, small glass for wine or beer tasting",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:39:43.946987+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

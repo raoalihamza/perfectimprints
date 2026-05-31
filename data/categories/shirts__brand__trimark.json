@@ -1,0 +1,19 @@
+{
+  "url": "/cat/shirts/brand/trimark",
+  "type": "facet",
+  "h1": "Custom Trimark Shirts for Bulk Orders",
+  "metaTitle": "Custom Trimark Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Trimark shirts for your team. Perfect Imprints offers bulk pricing and reliable decoration. Get a quote today.",
+  "introHtml": "<p>Trimark shirts are a favorite among promotional product buyers who need durable, comfortable apparel that holds up to repeated washing and everyday wear. Their consistent sizing and wide range of colors make them ideal for corporate uniforms, event staff, or safety teams. Whether you choose screen printing or embroidery, these shirts provide a clean, professional look that your crew will actually want to wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Trimark shirts with company logo printed on the chest, stacked in bulk for corporate orders.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:02:04.015594+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

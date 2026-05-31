@@ -1,0 +1,19 @@
+{
+  "url": "/cat/household/feature/with-a-lid",
+  "type": "facet",
+  "h1": "Custom Household Products with a Lid",
+  "metaTitle": "Custom Household with a Lid | Perfect Imprints",
+  "metaDescription": "Browse custom household products with a lid at Perfect Imprints. Perfect for bulk orders. Get a quote today!",
+  "introHtml": "<p>Choosing household products with a lid means your branded items keep contents secure and fresh, whether it's a tumbler for coffee on the go or a storage container for office snacks. Lids reduce spills and maintain temperature, making these items practical for daily use. Perfect for corporate gifts, breakroom essentials, or client appreciation, they combine utility with brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom household products with a lid including tumblers and containers for corporate gifts",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:55:49.654164+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

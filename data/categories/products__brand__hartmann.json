@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/hartmann",
+  "type": "facet",
+  "h1": "Custom Hartmann Products for Bulk Orders",
+  "metaTitle": "Custom Hartmann Products | Perfect Imprints",
+  "metaDescription": "Order custom Hartmann products in bulk from Perfect Imprints. Ideal for corporate gifts and employee recognition.",
+  "introHtml": "<p>Hartmann is a trusted name in premium luggage and leather goods, making it a standout choice for corporate gifts and executive appreciation. Choosing Hartmann for your branded products signals quality and attention to detail. From leather portfolios to travel bags, these items offer ample space for logo imprinting or embossing, ensuring your brand is associated with durability and sophistication. Perfect for client gifts or milestone rewards.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hartmann products including leather portfolios and travel bags with logo imprinting for corporate gifts.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:43.276026+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

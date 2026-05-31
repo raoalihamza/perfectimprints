@@ -1,0 +1,23 @@
+{
+  "url": "/cat/aprons/feature/adjustable",
+  "type": "facet",
+  "h1": "Custom Adjustable Aprons",
+  "metaTitle": "Custom Adjustable Aprons - Perfect Imprints",
+  "metaDescription": "Order custom adjustable aprons for your team or event. Bulk pricing and fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Custom adjustable aprons offer a one-size-fits-most solution for restaurants, trade shows, and corporate kitchens. The adjustable neck strap and waist ties ensure a comfortable fit for any body type, making them a practical choice for staff uniforms or promotional giveaways. Choose from cotton or polyester blends, and add your logo with screen printing or embroidery for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adjustable aprons with logo embroidery, featuring an adjustable neck strap and waist ties for a comfortable fit.",
+  "productSkus": [
+    "516543 01A",
+    "527339",
+    "528072"
+  ],
+  "generatedAt": "2026-05-31T08:38:47.424705+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

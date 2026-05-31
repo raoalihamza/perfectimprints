@@ -1,0 +1,22 @@
+{
+  "url": "/cat/apparel/color/yellow",
+  "type": "facet",
+  "h1": "Custom Yellow Apparel for Your Team",
+  "metaTitle": "Custom Yellow Apparel | Perfect Imprints",
+  "metaDescription": "Shop custom yellow apparel for teams and events. Perfect for branding with your logo. Bulk orders available at Perfect Imprints.",
+  "introHtml": "<p>Yellow apparel stands out in a crowd, making it a smart choice for safety vests, event staff uniforms, or promotional giveaways. High-visibility yellow ensures your team is seen, whether on a job site or at a trade show. Our selection includes durable safety vests and comfortable jersey tanks, all customizable with your logo or message. Choose screen printing or embroidery for a lasting finish that keeps your brand visible.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom yellow apparel including safety vests and jersey tanks with printed logos.",
+  "productSkus": [
+    "506864",
+    "511795 10A"
+  ],
+  "generatedAt": "2026-05-31T09:32:11.839871+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

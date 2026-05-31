@@ -1,0 +1,28 @@
+{
+  "url": "/cat/face-shields/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Face Shields for Bulk Orders",
+  "metaTitle": "Custom Pink Face Shields | Perfect Imprints",
+  "metaDescription": "Order custom pink face shields in bulk for your team. High-quality protection with your logo. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Pink face shields offer a distinctive way to combine safety with brand visibility. Whether you're coordinating with a breast cancer awareness campaign or adding a pop of color to a uniform, these shields provide full-face protection while making your logo stand out. Choose from clear or tinted shields with your imprint in a contrasting color for maximum impact. Perfect for trade shows, events, or daily use in healthcare and industrial settings.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink face shields with clear visor and adjustable headband, imprinted with a company logo for bulk orders.",
+  "productSkus": [
+    "505312",
+    "519707",
+    "520715",
+    "521810",
+    "521967",
+    "522110",
+    "522111",
+    "526162"
+  ],
+  "generatedAt": "2026-05-31T09:45:19.883783+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

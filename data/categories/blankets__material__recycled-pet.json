@@ -1,0 +1,24 @@
+{
+  "url": "/cat/blankets/material/recycled-pet",
+  "type": "facet",
+  "h1": "Custom Recycled PET Blankets",
+  "metaTitle": "Custom Recycled PET Blankets | Perfect Imprints",
+  "metaDescription": "Order custom recycled PET blankets from Perfect Imprints. Eco-friendly and soft, perfect for your next event or promotion.",
+  "introHtml": "<p>Custom recycled PET blankets offer a sustainable choice for your promotional needs. Made from recycled plastic bottles, these blankets are soft, durable, and eco-friendly. Ideal for outdoor events, corporate gifts, or trade show giveaways, they showcase your brand while supporting environmental responsibility. Choose from styles like the Alpine rPET Sherpa Blanket or the Field & Co. Recycled PET Oversized Picnic Blanket for a practical, memorable impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled PET blankets featuring a soft sherpa texture and eco-friendly material",
+  "productSkus": [
+    "525505",
+    "527170",
+    "528129",
+    "529132"
+  ],
+  "generatedAt": "2026-05-31T09:37:24.558507+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

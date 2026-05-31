@@ -1,0 +1,21 @@
+{
+  "url": "/cat/jewelry/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Jewelry for Bulk Orders",
+  "metaTitle": "Custom Pink Jewelry | Perfect Imprints",
+  "metaDescription": "Order custom pink jewelry in bulk for your next event or promotion. Perfect for breast cancer awareness campaigns and more.",
+  "introHtml": "<p>Pink jewelry stands out for its soft, approachable appeal, making it a go-to choice for breast cancer awareness events, women-focused conferences, and spring giveaways. Whether you choose a paracord bracelet or a simple charm, pink offers a versatile canvas for screen printing or engraving your logo. Bulk orders ensure consistent color matching across all pieces, so your brand message stays cohesive and recognizable.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom pink jewelry including paracord bracelets and charms for promotional events",
+  "productSkus": [
+    "516655"
+  ],
+  "generatedAt": "2026-05-31T09:52:06.921510+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

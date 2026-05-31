@@ -1,0 +1,21 @@
+{
+  "url": "/cat/backpacks/color/camo",
+  "type": "facet",
+  "h1": "Custom Camo Backpacks for Bulk Orders",
+  "metaTitle": "Custom Camo Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom camo backpacks in bulk for your team or event. Perfect for outdoor promotions. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Camo backpacks offer a rugged, outdoor-inspired look that stands out from standard solid-color bags. Whether you're outfitting a hunting crew, a construction safety team, or a brand targeting adventure enthusiasts, these backpacks combine utility with a distinctive pattern. The Solo® Re:vive Mini Backpack is a popular option, featuring a 15-liter capacity and multiple compartments for daily carry. Decorate with your logo via screen printing or embroidery for a durable, professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom camo backpacks featuring a camouflage pattern, perfect for bulk orders and promotional giveaways.",
+  "productSkus": [
+    "524401"
+  ],
+  "generatedAt": "2026-05-31T08:49:11.848718+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

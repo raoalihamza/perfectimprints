@@ -1,0 +1,32 @@
+{
+  "url": "/cat/medical-healthcare-items/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Medical Healthcare Items",
+  "metaTitle": "Custom Cotton Medical Healthcare Items | Perfect Imprints",
+  "metaDescription": "Order custom cotton medical healthcare items for your facility. Soft, breathable, and ideal for uniforms, bags & more. Get a quote today!",
+  "introHtml": "<p>Cotton medical healthcare items offer a soft, breathable, and hypoallergenic alternative to synthetic materials, making them ideal for patient comfort and staff uniforms. From custom-printed cotton tote bags for patient belongings to comfortable cotton lanyards with retractable badge reels for ID access, these items provide a natural feel that reduces skin irritation. Cotton is also highly absorbent, making it suitable for reusable towels and blankets in care settings. Choose cotton for a professional yet gentle touch that patients and staff appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cotton medical healthcare items including tote bags, lanyards, and t-shirts for healthcare facilities",
+  "productSkus": [
+    "505094",
+    "506023",
+    "508140 32E",
+    "512610",
+    "512737",
+    "513378",
+    "513402",
+    "515801",
+    "516167",
+    "521067",
+    "525353",
+    "528082"
+  ],
+  "generatedAt": "2026-05-31T09:19:37.002857+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/shot-glasses/color/red",
+  "type": "facet",
+  "h1": "Custom Red Shot Glasses",
+  "metaTitle": "Custom Red Shot Glasses | Perfect Imprints",
+  "metaDescription": "Order custom red shot glasses for your next event. Perfect for branding. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Red shot glasses bring instant visual energy to any bar, tailgate, or promotional event. Whether you choose the frosted glass finish for a classic look or the durable Silipint® silicone for outdoor use, the bold red color makes your logo pop. These are ideal for branded giveaways at sports bars, holiday parties, or fundraising events where you want your message to stand out. Pair them with matching red koozies or napkins for a cohesive bar setup.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red shot glasses with a company logo printed in white, arranged on a bar counter.",
+  "productSkus": [
+    "525816",
+    "525817",
+    "526428"
+  ],
+  "generatedAt": "2026-05-31T10:06:54.124429+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

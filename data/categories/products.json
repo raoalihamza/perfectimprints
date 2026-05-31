@@ -1,0 +1,41 @@
+{
+  "url": "/cat/products",
+  "type": "root",
+  "h1": "Custom Promotional Products for Every Business Need",
+  "metaTitle": "Custom Promotional Products - Perfect Imprints",
+  "metaDescription": "Browse our selection of custom promotional products. Perfect for giveaways, events, and branding. Fast turnaround. Order today!",
+  "introHtml": "<p>As we head into peak conference and event season, marketing directors and HR leaders are finalizing their promotional product orders for trade shows, employee appreciation events, and client gifts. Whether you need branded giveaways for a product launch, useful safety items for your workforce, or memorable customer appreciation gifts, the right custom products make a lasting impression. At Perfect Imprints, we offer a vast selection of promotional merchandise that can be customized with your logo and message.</p><p>From practical everyday items like custom water bottles and branded tote bags to unique giveaways like personalized stress relievers and custom tech accessories, our product range covers all your promotional needs. Safety managers can find high-visibility gear and custom first aid kits, while HR directors can choose from employee recognition gifts and onboarding kits. Business owners appreciate our competitive wholesale pricing and low minimum order quantities. Browse our categories below to find the perfect products for your next campaign.</p>",
+  "buyingGuideHtml": "<h3>What to Look for When Ordering Custom Promotional Products</h3><p>When selecting custom promotional products, start by considering your target audience and the event context. A trade show giveaway should be lightweight and easy to carry, while an employee gift can be more substantial. Quality matters: choose items that will be used repeatedly, as each use reinforces brand recall. Durable materials like stainless steel for drinkware or 600-denier polyester for bags signal that your brand values longevity.</p><h3>Materials and Build Quality</h3><p>Material choice directly impacts perceived value. For drinkware, double-wall vacuum insulation keeps drinks hot or cold for hours. For apparel, 100% combed ring-spun cotton offers a soft feel and better print surface. Polyester blends wick moisture for activewear. Avoid thin plastics or flimsy fabrics that cheapen your brand. Ask about BPA-free, lead-free, and FDA-compliant materials when applicable.</p><h3>Common Use Cases and Buyer Personas</h3><p>Marketing directors often choose promotional products for lead generation at trade shows, favoring items like custom pens, notepads, and reusable bags. HR directors use branded products for employee onboarding kits, service awards, and safety incentives. Safety managers look for custom high-visibility vests, hard hats, and first aid kits. Business owners purchase customer appreciation gifts such as personalized gift sets or custom wine bags for holidays or milestones.</p><h3>Decoration and Customization Options</h3><p>Decoration methods vary by product surface and material. Screen printing works well on flat surfaces like bags and apparel, offering vibrant colors at low per-unit costs. Embroidery gives a premium feel on hats and polos. Laser engraving is permanent and ideal for metal items like pens or drinkware. Full-color heat transfer allows photographic images on hard surfaces. For budget-conscious orders, pad printing is a cost-effective option for small items like keychains.</p><h3>Quantity Guidance and Pricing</h3><p>Minimum order quantities (MOQs) typically range from 50 to 500 units depending on the product and decoration method. Higher quantities lower the per-unit cost significantly. For example, ordering 500 custom water bottles instead of 100 can cut the unit price by 30-40%. If you need a small run for a niche event, look for products with low MOQs like custom buttons or temporary tattoos. For large campaigns, bulk orders maximize your promotional budget.</p><h3>Common Buying Mistakes to Avoid</h3><p>One frequent mistake is ignoring sizing and fit for apparel. Always request a size chart and order a sample before committing to a large run. Another pitfall is choosing a decoration method that doesn't suit the material: screen printing on rough textures can crack, while embroidery on thin fabrics may pucker. Lead time is another factor: rush orders can double costs, so plan 4-6 weeks ahead. Finally, verify the imprint area and artwork specifications to avoid last-minute redesigns.</p>",
+  "buyingGuideH2": "Custom Promotional Products Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the typical minimum order quantity for custom products?",
+      "a": "Minimum order quantities vary by product, but many items start at 50 to 100 units. Products like custom pens or buttons may have lower MOQs, while embroidered apparel often requires 50+ pieces. Contact us for specific product MOQs."
+    },
+    {
+      "q": "What decoration methods are available for custom products?",
+      "a": "We offer screen printing, embroidery, laser engraving, full-color heat transfer, pad printing, and debossing. The best method depends on the product material and design complexity. Screen printing is popular for bags and apparel, while laser engraving works well on metal and wood."
+    },
+    {
+      "q": "How long does production take for custom promotional products?",
+      "a": "Standard production lead times range from 10 to 15 business days after artwork approval. Rush orders can be expedited for an additional fee. We recommend ordering 4-6 weeks before your event to allow for shipping and any unforeseen delays."
+    },
+    {
+      "q": "Can I request a sample before placing a bulk order?",
+      "a": "Yes, we offer samples for most products. You can order a blank sample to check quality and size, or a decorated sample to see the imprint. Sample costs vary and are typically refunded with a qualifying bulk order."
+    },
+    {
+      "q": "What file formats do you accept for artwork?",
+      "a": "We accept vector files like AI, EPS, and PDF for best results. High-resolution raster files (300 dpi) in PNG or JPEG are also acceptable. Our design team can help convert your logo to the required format if needed."
+    }
+  ],
+  "heroAltText": "Assorted custom promotional products including branded water bottles, tote bags, pens, and stress relievers displayed on a table.",
+  "productSkus": [],
+  "generatedAt": "2026-05-30T10:24:38.309472+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "seasonal",
+  "skuFilterMode": "full-capped-60",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

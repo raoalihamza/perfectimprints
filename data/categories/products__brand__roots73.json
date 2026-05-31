@@ -1,0 +1,30 @@
+{
+  "url": "/cat/products/brand/roots73",
+  "type": "facet",
+  "h1": "Custom Roots73 Products for Corporate Apparel",
+  "metaTitle": "Custom Roots73 Products | Perfect Imprints",
+  "metaDescription": "Order custom Roots73 products for your team. Perfect Imprints offers bulk pricing on jackets, hoodies, and more.",
+  "introHtml": "<p>Roots73 is known for its durable, comfortable outerwear that stands up to demanding work environments. When you choose custom Roots73 products for your corporate apparel program, you get softshell jackets, full-zip hoodies, and microfleece options that your employees will actually wear. Decorate with embroidery or screen printing to add your logo. These pieces work well for safety managers needing high-visibility gear or marketing directors outfitting a field team.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Roots73 products including softshell jackets and hoodies with embroidered logos",
+  "productSkus": [
+    "517041",
+    "517042",
+    "517232",
+    "517233",
+    "517320",
+    "517321",
+    "524273",
+    "524274",
+    "525378",
+    "525379"
+  ],
+  "generatedAt": "2026-05-31T10:03:40.506693+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

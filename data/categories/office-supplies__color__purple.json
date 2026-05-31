@@ -1,0 +1,30 @@
+{
+  "url": "/cat/office-supplies/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Office Supplies",
+  "metaTitle": "Custom Purple Office Supplies | Perfect Imprints",
+  "metaDescription": "Order branded purple office supplies in bulk. Perfect for adding brand color to planners, calendars, and more. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Purple office supplies offer a distinctive way to incorporate your brand or team colors into everyday workplace essentials. From planners and calendars to pocket organizers, adding your logo in a coordinating ink or foil stamp creates a cohesive, professional look that stands out on desks and in meetings. Whether you're outfitting a sales team or supplying a corporate office, custom purple office supplies ensure your branding is visible all year long.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple office supplies including branded planners and calendars with company logo",
+  "productSkus": [
+    "503402",
+    "503403",
+    "503415",
+    "503416",
+    "504086",
+    "505573",
+    "507269",
+    "509123",
+    "509193",
+    "523058"
+  ],
+  "generatedAt": "2026-05-31T09:57:57.078677+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

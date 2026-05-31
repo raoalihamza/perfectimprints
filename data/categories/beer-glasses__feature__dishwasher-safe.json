@@ -1,0 +1,24 @@
+{
+  "url": "/cat/beer-glasses/feature/dishwasher-safe",
+  "type": "facet",
+  "h1": "Custom Dishwasher Safe Beer Glasses",
+  "metaTitle": "Custom Dishwasher Safe Beer Glasses | Perfect Imprints",
+  "metaDescription": "Order custom dishwasher safe beer glasses for your business. Durable, easy-care glassware perfect for bars, restaurants, and events.",
+  "introHtml": "<p>For bars, restaurants, and corporate events, choosing custom dishwasher safe beer glasses means less breakage and easier maintenance. Unlike standard glassware that can crack or cloud in commercial dishwashers, these pint glasses are built to withstand repeated high-temperature cycles. Whether you need 16 oz pint glasses for a sports bar or 20 oz British pints for a pub, the dishwasher safe feature ensures your logo stays crisp and your glassware lasts longer. Perfect for high-volume environments where durability matters.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom dishwasher safe beer glasses with printed logo, 16 oz pint glasses stacked in a commercial kitchen",
+  "productSkus": [
+    "528812",
+    "528814",
+    "528815",
+    "529514"
+  ],
+  "generatedAt": "2026-05-31T09:36:43.011878+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

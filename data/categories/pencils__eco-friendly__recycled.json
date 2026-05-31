@@ -1,0 +1,23 @@
+{
+  "url": "/cat/pencils/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Pencils for Eco-Friendly Branding",
+  "metaTitle": "Custom Recycled Pencils | Perfect Imprints",
+  "metaDescription": "Order custom recycled pencils in bulk for eco-friendly branding. Perfect Imprints offers sustainable promotional pencils with your logo.",
+  "introHtml": "<p>Recycled pencils turn waste materials like newspaper and denim into functional, branded giveaways that align with your company's sustainability goals. Unlike standard wood pencils, these options reduce landfill impact while providing a smooth writing experience. Perfect for trade shows, school supply drives, or office welcome kits, custom recycled pencils show your commitment to the environment. Decorate with your logo using foil stamping or full-color imprint to make an impression that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled pencils with logos, made from newspaper and denim, displayed on a wooden desk",
+  "productSkus": [
+    "505592",
+    "505746 6MH",
+    "527688"
+  ],
+  "generatedAt": "2026-05-31T08:36:14.152171+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

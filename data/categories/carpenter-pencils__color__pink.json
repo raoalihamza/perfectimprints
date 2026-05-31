@@ -1,0 +1,26 @@
+{
+  "url": "/cat/carpenter-pencils/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Carpenter Pencils",
+  "metaTitle": "Custom Pink Carpenter Pencils | Perfect Imprints",
+  "metaDescription": "Order custom pink carpenter pencils in bulk. Ideal for branding, safety, and promotions. Get a quote today!",
+  "introHtml": "<p>Pink carpenter pencils stand out on any job site, making them perfect for safety-conscious teams or breast cancer awareness campaigns. These durable, flat-shaped pencils resist rolling and feature bold pink color for high visibility. Decorate with your logo using imprint methods like pad printing or hot stamping. Ideal for construction crews, trade shows, or promotional giveaways, custom pink carpenter pencils combine practicality with a distinctive look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom pink carpenter pencils with printed logos, ideal for construction branding and safety promotions.",
+  "productSkus": [
+    "502669",
+    "504680",
+    "508612",
+    "511849",
+    "516970",
+    "524813"
+  ],
+  "generatedAt": "2026-05-31T09:40:06.832856+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

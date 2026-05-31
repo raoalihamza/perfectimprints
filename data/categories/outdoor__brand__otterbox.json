@@ -1,0 +1,22 @@
+{
+  "url": "/cat/outdoor/brand/otterbox",
+  "type": "facet",
+  "h1": "Custom Otterbox Outdoor Products for Bulk Orders",
+  "metaTitle": "Custom Otterbox Outdoor | Perfect Imprints",
+  "metaDescription": "Order custom Otterbox outdoor products in bulk. Perfect for giveaways, events, and brand loyalty. Get started today!",
+  "introHtml": "<p>Otterbox outdoor products bring rugged durability to your branded merchandise. From the 28 oz Elevation Growler Tumbler to the 10 oz stainless steel tumbler, each item is built to withstand the elements. Ideal for trade shows, employee gifts, or outdoor events, these products keep drinks hot or cold for hours. Decorate with your logo using laser engraving or screen printing for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Otterbox outdoor tumbler with engraved logo, perfect for bulk branding and outdoor events.",
+  "productSkus": [
+    "526311",
+    "526315"
+  ],
+  "generatedAt": "2026-05-31T08:35:56.524190+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

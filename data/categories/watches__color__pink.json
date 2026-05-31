@@ -1,0 +1,21 @@
+{
+  "url": "/cat/watches/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Watches for Bulk Orders",
+  "metaTitle": "Custom Pink Watches | Perfect Imprints",
+  "metaDescription": "Order custom pink watches for your team or event. Stylish and functional. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Custom pink watches make a bold, friendly statement at charity runs, breast cancer awareness events, or any occasion where you want your brand to stand out with a pop of color. Pink offers a soft yet visible hue that pairs well with both casual and professional attire. Whether you choose a silicone band for durability or a fabric strap for comfort, these watches can be imprinted with your logo using pad printing or laser engraving. They work great as giveaways, employee gifts, or fundraising items that recipients will actually wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of custom pink watches with logo imprint on display, perfect for branded giveaways",
+  "productSkus": [
+    "516655"
+  ],
+  "generatedAt": "2026-05-31T10:13:42.560109+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/apparel-accessories/material/bamboo",
+  "type": "facet",
+  "h1": "Custom Bamboo Apparel Accessories",
+  "metaTitle": "Custom Bamboo Apparel Accessories | Perfect Imprints",
+  "metaDescription": "Order custom bamboo apparel accessories for your brand. Eco-friendly socks, sunglasses & more. Perfect for bulk orders at Perfect Imprints.",
+  "introHtml": "<p>Bamboo fabric brings natural softness, moisture-wicking properties, and eco-friendly appeal to branded apparel accessories. Unlike synthetic materials, bamboo is renewable and biodegradable, making it a smart choice for companies with sustainability goals. Custom bamboo socks offer comfort for trade show giveaways or employee gifts, while bamboo sunglasses provide a stylish, lightweight option for outdoor events. Screen printing or embroidery works well on these accessories to showcase your logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom bamboo apparel accessories including eco-friendly sunglasses and socks with logo",
+  "productSkus": [
+    "524427",
+    "526680",
+    "527216"
+  ],
+  "generatedAt": "2026-05-31T09:05:16.525571+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

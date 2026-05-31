@@ -1,0 +1,21 @@
+{
+  "url": "/cat/lotion/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Lotion for Branded Giveaways",
+  "metaTitle": "Custom Full Color Lotion | Perfect Imprints",
+  "metaDescription": "Order custom full color lotion bottles with your logo. Perfect for corporate gifts and events. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Full color decoration on lotion bottles lets you reproduce logos, photos, or intricate designs with vivid detail. Unlike single-color imprints, full color gives you the freedom to showcase gradients, skin tones, or product imagery directly on the bottle. The Rest and Relax lotion is a popular choice for spa giveaways and employee wellness kits, where a calming visual matches the soothing product inside. This method works well for small to medium runs where brand storytelling matters more than budget constraints.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color lotion bottles with colorful floral design and company logo, perfect for promotional gifts",
+  "productSkus": [
+    "526510"
+  ],
+  "generatedAt": "2026-05-31T08:43:46.712495+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

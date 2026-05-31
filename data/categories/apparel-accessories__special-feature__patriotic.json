@@ -1,0 +1,23 @@
+{
+  "url": "/cat/apparel-accessories/special-feature/patriotic",
+  "type": "facet",
+  "h1": "Custom Patriotic Apparel Accessories",
+  "metaTitle": "Custom Patriotic Apparel Accessories - Perfect Imprints",
+  "metaDescription": "Order custom patriotic apparel accessories for your next event. Perfect for Memorial Day, July 4th, and veteran appreciation.",
+  "introHtml": "<p>Patriotic apparel accessories let you show your American pride while keeping your brand visible. Whether you're planning a Memorial Day giveaway, a July 4th company picnic, or a veteran appreciation event, items like custom paracord bracelets, camouflage bandanas, and red-white-blue sunglasses make a strong impression. These accessories work well for outdoor events, parades, and employee appreciation programs. Decorate with screen printing or debossing to add your logo in patriotic colors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom patriotic apparel accessories including paracord bracelet, camouflage bandana, and red white blue sunglasses",
+  "productSkus": [
+    "506990",
+    "516655",
+    "516695 97H"
+  ],
+  "generatedAt": "2026-05-31T09:05:19.603285+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

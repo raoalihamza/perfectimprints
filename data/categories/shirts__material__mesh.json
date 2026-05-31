@@ -1,0 +1,19 @@
+{
+  "url": "/cat/shirts/material/mesh",
+  "type": "facet",
+  "h1": "Custom Mesh Shirts for Bulk Orders",
+  "metaTitle": "Custom Mesh Shirts | Perfect Imprints",
+  "metaDescription": "Order custom mesh shirts in bulk at Perfect Imprints. Ideal for teams, events, and uniforms. Get a quote today!",
+  "introHtml": "<p>Mesh shirts are the go-to choice for outdoor events, sports teams, and work crews who need breathable, lightweight apparel. The open-weave fabric allows maximum airflow, keeping wearers cool under the sun or during physical activity. Customize with screen-printed logos or heat-transfer graphics for high visibility. Whether you need team jerseys or company uniforms, custom mesh shirts offer durable comfort that stands up to repeated washing and active use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom mesh shirts with printed logos in various colors for team uniforms",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:06:32.057852+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

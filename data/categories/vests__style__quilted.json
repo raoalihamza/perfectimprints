@@ -1,0 +1,33 @@
+{
+  "url": "/cat/vests/style/quilted",
+  "type": "facet",
+  "h1": "Custom Quilted Vests for Bulk Orders",
+  "metaTitle": "Custom Quilted Vests | Perfect Imprints",
+  "metaDescription": "Order custom quilted vests for your team. Perfect for outdoor work or events. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Quilted vests offer a classic, functional layering piece that provides warmth without restricting arm movement. Unlike standard fleece or softshell vests, the quilted construction adds durability and a timeless look that works for construction crews, outdoor events, or casual corporate wear. Popular styles like the Carhartt Duck Vest and the Men's Radius Quilted Vest accept embroidery or screen printing on the chest or back, making them ideal for branding your team or promoting your business at trade shows.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of custom quilted vests with embroidered logos, featuring Carhartt and other styles",
+  "productSkus": [
+    "524209",
+    "525387",
+    "526071",
+    "526072",
+    "526295",
+    "526297",
+    "526298",
+    "526545",
+    "527559",
+    "527679",
+    "527680",
+    "528952",
+    "528953"
+  ],
+  "generatedAt": "2026-05-31T08:38:14.611155+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

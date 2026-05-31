@@ -1,33 +1,35 @@
 {
   "url": "/cat/apparel",
   "type": "root",
-  "h1": "Custom Apparel for Your Team or Event",
+  "h1": "Custom Apparel for Teams, Events & Giveaways",
   "metaTitle": "Custom Apparel | Perfect Imprints",
-  "metaDescription": "Shop custom apparel for teams, events, and uniforms. Bulk orders with embroidery or screen printing. Fast turnaround. Get a quote at Perfect Imprints.",
-  "introHtml": "<p>Marketing directors, HR managers, safety coordinators, and business owners all face the same challenge: finding apparel that represents their organization effectively while meeting practical needs. Whether you need uniforms that project professionalism, safety gear that keeps your team visible, or promotional clothing that builds brand recognition, the right custom apparel makes a difference.</p><p>Perfect Imprints offers a wide selection of custom apparel suitable for every scenario. Choose from classic items like the Rugby Polo or Pro-Lite Cap for corporate events, or opt for the Safety Tee and Fleece Gloves for workwear that prioritizes visibility and comfort. Our bandanas (Bandana, Big Bandana, Lil' Bandana) and headwear (The Visor) provide versatile options for giveaways and outdoor events. We also carry specialty items like the BeWell™ Socks and COB Headlamp for health and safety initiatives.</p><p>All apparel can be decorated with your logo using screen printing, embroidery, or full-color heat transfer. We work with you to choose the right decoration method based on fabric, design complexity, and quantity. Minimum order quantities vary by product but are designed to accommodate both small team orders and large-scale distributions.</p>",
+  "metaDescription": "Order custom apparel for your team, event, or promotion. Polos, caps, tees & more. Fast turnaround. Get a quote today.",
+  "introHtml": "<p>Marketing directors planning a product launch, HR directors assembling employee onboarding kits, safety managers sourcing high-visibility gear for crew recognition, and business owners outfitting their teams for trade shows all turn to custom apparel. A branded polo, cap, or tee turns your team into walking billboards and creates a cohesive look that builds brand recognition. Whether you need 50 safety tees for a construction crew or 500 Rugby Polos for a conference giveaway, this category covers the essentials.</p><p>From the classic Pro-Lite Cap and rugged Safety Tee to cozy Fleece Gloves and the versatile BeWell™ Socks, each piece can be decorated with your logo using embroidery, screen printing, or heat transfer. Choose moisture-wicking fabrics for outdoor events, soft cotton for everyday wear, or high-visibility materials for safety programs. With bulk ordering, you keep unit costs low while delivering quality apparel your recipients will actually use.</p>",
+  "buyingGuideHtml": "<h3>What to Look for in Custom Apparel</h3><p>When ordering custom apparel, start with the fabric and fit. Cotton tees are comfortable for casual giveaways, while polyester blends offer moisture-wicking and durability for active use. For safety programs, look for ANSI-rated high-visibility materials. Fit matters too: unisex sizing works for general audiences, but women-specific cuts improve wear rates. Always request a size run chart and consider ordering a sample to verify quality before placing a bulk order.</p><h3>Materials and Build Quality</h3><p>The material determines how long the garment lasts and how it feels. Cotton-poly blends resist shrinking and hold color well after washing. Performance fabrics like those in the Rugby Polo wick sweat and are ideal for outdoor events. For cold weather, Fleece Gloves and Winterdana provide warmth without bulk. Check seams and stitching: double-needle hems and reinforced stress points indicate better construction. A well-made piece reflects positively on your brand.</p><h3>Common Use Cases for Branded Apparel</h3><p>Custom apparel fits nearly every buyer persona. Marketing directors use logo-printed polos and caps at trade shows to draw booth traffic. HR directors include branded tees in new-hire welcome kits to build team spirit. Safety managers order high-visibility Safety Tees for crew recognition and compliance. Business owners outfit their staff with Pro-Lite Caps for client meetings or company picnics. Promotional apparel also works for customer thank-you gifts and fundraising events.</p><h3>Decoration and Customization Options</h3><p>Embroidery is best for polos, caps, and jackets — it looks premium and lasts. Screen printing works well on cotton tees and tote bags for full-color designs at lower cost. Heat transfer is ideal for small runs or complex artwork. For performance fabrics, consider sublimation for all-over prints that won't crack. When choosing a method, consider the fabric and the number of colors in your logo. Embroidery has a stitch count limit, while screen printing charges per color.</p><h3>Quantity Guidance and MOQ Context</h3><p>Most custom apparel items have a minimum order quantity of 12 to 24 pieces per style and size. Bulk orders of 100 or more significantly reduce per-unit pricing. For large events like a 5K run or company picnic, ordering 500 to 1,000 pieces is common. If you need multiple sizes, order in proportion to your audience — typically 30% small, 40% medium, 20% large, 10% XL. Wholesale pricing applies at higher quantities, so plan ahead to maximize your budget.</p><h3>Tips to Avoid Common Buying Mistakes</h3><p>One frequent mistake is ordering the wrong size range. Always provide a size breakdown based on your recipients; generic one-size-fits-most often fails. Another pitfall is choosing a decoration method that doesn't match the fabric — for example, embroidering on very thin knits can cause puckering. Also, check lead times: embroidery and screen printing add 5-10 business days. Finally, order a pre-production sample to approve colors and placement before the full run. This simple step prevents costly reprints.</p>",
+  "buyingGuideH2": "Custom Apparel Buying Guide",
   "faqs": [
     {
-      "q": "What are the minimum order quantities for custom apparel?",
-      "a": "Minimum order quantities vary by product. For most items like t-shirts and polos, the minimum is 12 pieces. For accessories like bandanas or caps, the minimum may be lower, often 6 to 12 units. Contact us for specific product MOQs."
+      "q": "What is the minimum order quantity for custom apparel?",
+      "a": "Minimum order quantities vary by item but typically start at 12 to 24 pieces per style. Some items like caps may have a lower MOQ. Contact us for specific product MOQs."
     },
     {
-      "q": "Which decoration methods are available for apparel?",
-      "a": "We offer screen printing for bold, solid-color designs, embroidery for a professional look on polos and caps, and full-color heat transfer for detailed logos. The best method depends on your fabric and design. We'll recommend the right option."
+      "q": "Which decoration method is best for polos?",
+      "a": "Embroidery is the most popular choice for polos because it looks professional and holds up well to washing. Screen printing is also possible but less common on knit fabrics."
     },
     {
-      "q": "How long does production typically take?",
-      "a": "Standard production takes 7-10 business days after artwork approval, plus shipping time. Rush orders may be available for an additional fee. We'll provide a precise timeline when you place your order."
+      "q": "How long does production take for custom apparel?",
+      "a": "Standard production takes 5-10 business days after artwork approval. Screen printing and embroidery may add a few days. Rush orders are often available for an additional fee."
     },
     {
-      "q": "Can I get a sample before placing a bulk order?",
-      "a": "Yes, we offer samples of blank garments for a nominal fee, which is often credited back on your bulk order. You can also request a decorated proof or mockup to ensure your logo looks perfect."
+      "q": "Can I order a sample before placing a bulk order?",
+      "a": "Yes, we recommend ordering a sample to verify fabric quality, fit, and decoration. Sample fees are typically deducted from your final bulk order."
     },
     {
       "q": "What sizes are available for custom apparel?",
-      "a": "Most apparel items range from XS to 3XL, with select styles available up to 5XL. We also offer youth sizes for certain products. Check the product page for specific size charts."
+      "a": "Most items range from XS to 3XL, with some styles offering up to 5XL. We provide a size chart for each product. Be sure to order a proportional mix based on your recipients."
     }
   ],
-  "heroAltText": "Custom apparel including polo shirts, caps, and safety tees with embroidered logos for corporate teams and events.",
+  "heroAltText": "Group of people wearing custom apparel with logos including a polo, cap, and safety tee",
   "productSkus": [
     "501556",
     "501558",
@@ -862,10 +864,10 @@
     "529463",
     "529482"
   ],
-  "generatedAt": "2026-05-24T13:50:21.779461+00:00",
+  "generatedAt": "2026-05-29T21:41:52.436277+00:00",
   "model": "deepseek-chat",
-  "promptVersion": "root-v1",
-  "openingStyle": "buyer",
+  "promptVersion": "root-v2",
+  "openingStyle": "use_case",
   "skuFilterMode": "full",
   "rawSkuCount": 832,
   "filteredSkuCount": 832

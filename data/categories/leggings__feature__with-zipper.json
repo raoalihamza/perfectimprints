@@ -1,0 +1,24 @@
+{
+  "url": "/cat/leggings/feature/with-zipper",
+  "type": "facet",
+  "h1": "Custom Leggings with Zipper for Bulk Orders",
+  "metaTitle": "Custom Leggings with Zipper | Perfect Imprints",
+  "metaDescription": "Order custom leggings with zipper for your team. Stylish, functional, and perfect for branding. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Leggings with zippers add convenience and security for active professionals who need secure pockets during long shifts or workouts. Whether you're outfitting a medical team or a fitness crew, zippered leggings keep phones, keys, and badges safe without sacrificing comfort. Decorate with your logo via screen printing or embroidery for a polished, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom leggings with zipper featuring a secure side pocket and embroidered logo on the hip",
+  "productSkus": [
+    "528786",
+    "528788",
+    "528789",
+    "529237"
+  ],
+  "generatedAt": "2026-05-31T09:54:23.397798+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

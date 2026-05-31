@@ -1,0 +1,30 @@
+{
+  "url": "/cat/gloves/color/red",
+  "type": "facet",
+  "h1": "Custom Red Gloves for Branded Promotions",
+  "metaTitle": "Custom Red Gloves | Perfect Imprints",
+  "metaDescription": "Order custom red gloves in bulk for your team or event. Perfect for safety, outdoor work, or branded giveaways.",
+  "introHtml": "<p>Red gloves stand out on the job site or at a winter event, making your logo easy to spot. Whether you need touch screen gloves for outdoor staff or fleece gloves for a promotional giveaway, the red color adds visibility and brand recognition. Decorate with screen printing or embroidery for a professional look that lasts through repeated use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom red fleece gloves with embroidered logo for brand promotion",
+  "productSkus": [
+    "516831",
+    "516832",
+    "516833",
+    "516834",
+    "516839",
+    "516872",
+    "519076",
+    "521335",
+    "522780",
+    "527493"
+  ],
+  "generatedAt": "2026-05-31T09:48:11.552107+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

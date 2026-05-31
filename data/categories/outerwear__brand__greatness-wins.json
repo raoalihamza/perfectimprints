@@ -1,0 +1,27 @@
+{
+  "url": "/cat/outerwear/brand/greatness-wins",
+  "type": "facet",
+  "h1": "Custom Greatness Wins Outerwear for Bulk Orders",
+  "metaTitle": "Custom Greatness Wins Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom Greatness Wins outerwear in bulk from Perfect Imprints. Ideal for teams, events, and corporate gifts.",
+  "introHtml": "<p>Greatness Wins outerwear combines performance fabrics with a brand that stands for achievement. Whether you need lightweight rain protection like the Shed Rain™ Poncho or insulated warmth from the Men's Microburst Puffer Hooded Jacket, these pieces are built for durability and comfort. Decorate with embroidery or screen printing to reinforce your message. Perfect for employee rewards, team uniforms, or client gifts that inspire.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Greatness Wins outerwear including jackets and ponchos with logo decoration for corporate branding",
+  "productSkus": [
+    "505114",
+    "510007",
+    "514721",
+    "520271",
+    "520298",
+    "527896",
+    "527897"
+  ],
+  "generatedAt": "2026-05-31T09:58:59.671387+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

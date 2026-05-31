@@ -1,0 +1,30 @@
+{
+  "url": "/cat/personal-care-items/color/gray",
+  "type": "facet",
+  "h1": "Custom Gray Personal Care Items",
+  "metaTitle": "Custom Gray Personal Care Items | Perfect Imprints",
+  "metaDescription": "Order branded gray personal care items in bulk. Perfect for corporate gifts, safety kits, and HR giveaways. Get your quote today!",
+  "introHtml": "<p>Gray personal care items offer a neutral, professional look that works across industries—from corporate wellness kits to safety manager giveaways. Choose custom gray towels, nail files, or compact mirrors to create a cohesive, understated brand presence. Add your logo via screen printing or debossing for a clean finish that complements any company color scheme.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom gray personal care items including towels, nail files, and compact mirrors with logos",
+  "productSkus": [
+    "501030",
+    "501187",
+    "516737",
+    "517165",
+    "521018",
+    "522395",
+    "526751",
+    "527418",
+    "527659",
+    "528644"
+  ],
+  "generatedAt": "2026-05-31T10:00:30.475926+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

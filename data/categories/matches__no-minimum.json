@@ -1,0 +1,31 @@
+{
+  "url": "/cat/matches/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Matches for Small Orders",
+  "metaTitle": "No-Minimum Custom Matches | Perfect Imprints",
+  "metaDescription": "Order small quantities of custom matches with no minimums. Perfect for small businesses, events, and samples. Get branded matches today!",
+  "introHtml": "<p>Not every business needs a thousand matchbooks. Whether you're ordering for a small team, a one-time event, or just want to test a design before committing to bulk, no-minimum custom matches let you order as few as you need. No forced overstock, no wasted budget. You get the same high-quality imprint, the same durable packaging, and the same personalized service — just in quantities that make sense for your size. It's promotional products on your terms.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "No-minimum custom matches in small quantities for branding and promotions",
+  "productSkus": [
+    "507250 90A",
+    "507997",
+    "510827",
+    "511826 90A",
+    "514579 90A",
+    "514580 90A",
+    "514583 90A",
+    "520815",
+    "520851",
+    "525816",
+    "526411"
+  ],
+  "generatedAt": "2026-05-31T08:23:14.737921+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

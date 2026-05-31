@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/tran",
+  "type": "facet",
+  "h1": "Custom Tran Products for Bulk Orders",
+  "metaTitle": "Custom Tran Products | Perfect Imprints",
+  "metaDescription": "Order custom Tran products for your team or event. Perfect Imprints offers bulk pricing and fast turnaround.",
+  "introHtml": "<p>Tran products are known for their durable construction and practical designs, making them a reliable choice for corporate gifts, trade shows, and employee incentives. Whether you need custom drinkware, bags, or tech accessories, Tran's consistent quality ensures your logo looks sharp and lasts. Bulk ordering from Perfect Imprints gives you access to a wide selection of Tran items with professional decoration options like screen printing and laser engraving.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Tran products including drinkware and bags with company logos for corporate events",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:24:28.075539+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

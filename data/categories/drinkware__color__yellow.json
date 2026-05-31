@@ -1,0 +1,22 @@
+{
+  "url": "/cat/drinkware/color/yellow",
+  "type": "facet",
+  "h1": "Custom Yellow Drinkware for Bulk Orders",
+  "metaTitle": "Custom Yellow Drinkware | Perfect Imprints",
+  "metaDescription": "Shop custom yellow drinkware for your next event or promotion. Perfect for branding at trade shows, offices, and more. Order bulk today!",
+  "introHtml": "<p>Yellow drinkware stands out in any crowd, making it a smart choice for brands that want to grab attention. Whether you choose sunny mugs for the breakroom or bold bottles for a trade show, yellow adds a pop of energy that standard colors can't match. From 11 oz Aztec Mugs to 16 oz PolySure™ Inspire Bottles, these items pair well with full-color logo imprinting. Order in bulk to keep your brand visible all day long.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom yellow drinkware including mugs and water bottles with company logos",
+  "productSkus": [
+    "504267",
+    "510162"
+  ],
+  "generatedAt": "2026-05-31T09:43:33.762640+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

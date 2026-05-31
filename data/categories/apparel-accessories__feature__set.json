@@ -1,0 +1,29 @@
+{
+  "url": "/cat/apparel-accessories/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Apparel Accessories",
+  "metaTitle": "Custom Set Apparel Accessories | Perfect Imprints",
+  "metaDescription": "Order custom set apparel accessories in bulk for your team. Perfect for corporate gifts, events, and employee rewards from Perfect Imprints.",
+  "introHtml": "<p>Custom set apparel accessories combine coordinated items like hats, gloves, and tech kits into a single branded package. These sets simplify gifting for safety managers outfitting crews with hard hat and accessory combos, or marketing directors creating premium client welcome kits. Choose full-color digital printing for knit sets or embroidery for fleece gifts. Sets reduce per-item handling and ensure a cohesive brand presentation at trade shows or employee appreciation events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set apparel accessories including a knit hat, gloves, and scarf set with logo branding on a table",
+  "productSkus": [
+    "508541",
+    "516872",
+    "520012",
+    "520125",
+    "521927",
+    "522514",
+    "525806",
+    "526802",
+    "526803"
+  ],
+  "generatedAt": "2026-05-31T09:31:52.528544+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

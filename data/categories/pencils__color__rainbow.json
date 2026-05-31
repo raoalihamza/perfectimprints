@@ -1,0 +1,22 @@
+{
+  "url": "/cat/pencils/color/rainbow",
+  "type": "facet",
+  "h1": "Custom Rainbow Pencils for Bulk Orders",
+  "metaTitle": "Custom Rainbow Pencils | Perfect Imprints",
+  "metaDescription": "Order custom rainbow pencils in bulk for schools and events. Eco-friendly options available. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Rainbow pencils add a vibrant, playful touch to any promotional giveaway, making them popular for school supply drives, art events, and pride celebrations. The multicolor design stands out on desks and in pencil cases, ensuring your logo gets repeated exposure. Options like the Arcus™ Rainbow Recycled Newspaper Pencil offer an eco-friendly choice that aligns with sustainability goals. Customize with your imprint in a single color for a crisp, professional look against the colorful barrel.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom rainbow pencils with colorful barrels and personalized imprint",
+  "productSkus": [
+    "526804",
+    "527688"
+  ],
+  "generatedAt": "2026-05-31T10:00:07.747127+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

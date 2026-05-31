@@ -1,0 +1,32 @@
+{
+  "url": "/cat/sweaters-cardigans/age/adult",
+  "type": "facet",
+  "h1": "Custom Adult Sweaters & Cardigans",
+  "metaTitle": "Custom Adult Sweaters Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom adult sweaters and cardigans for your team. Perfect for corporate gifts, uniforms, and events. Bulk pricing available.",
+  "introHtml": "<p>When ordering promotional apparel for your workforce, adult sizing ensures a proper fit for most employees. From open-front cardigans perfect for office layering to durable sweater blazers for client meetings, adult sweaters and cardigans offer versatile options for uniform programs and corporate gifts. Choose from merino wool, fleece, or cotton blends and decorate with embroidery or screen printing for a polished, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of adults wearing custom embroidered sweaters and cardigans in a corporate setting",
+  "productSkus": [
+    "520268",
+    "520269",
+    "523604",
+    "526198",
+    "526291",
+    "526292",
+    "527181",
+    "527182",
+    "527833",
+    "527957",
+    "528757",
+    "528758"
+  ],
+  "generatedAt": "2026-05-31T10:09:45.712291+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

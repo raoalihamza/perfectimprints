@@ -1,0 +1,22 @@
+{
+  "url": "/cat/sports-gear/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Sports Gear for Teams & Events",
+  "metaTitle": "Custom Unisex Sports Gear | Perfect Imprints",
+  "metaDescription": "Shop custom unisex sports gear at Perfect Imprints. Perfect for teams, events, and giveaways. Order bulk today!",
+  "introHtml": "<p>Unisex sports gear offers a versatile fit that works well for mixed-gender teams, corporate wellness programs, and community events. Unlike gendered options, unisex designs simplify ordering and inventory management while ensuring comfort for everyone. From the Shed Rain™ Poncho for outdoor events to Nike® Skylon Ace Sunglasses for race day, these items pair well with screen printing or embroidery for a cohesive branded look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom unisex sports gear including ponchos and sunglasses at an outdoor event",
+  "productSkus": [
+    "505114",
+    "526687"
+  ],
+  "generatedAt": "2026-05-31T10:07:56.496716+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

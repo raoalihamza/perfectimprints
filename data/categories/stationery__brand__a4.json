@@ -1,0 +1,30 @@
+{
+  "url": "/cat/stationery/brand/a4",
+  "type": "facet",
+  "h1": "Custom A4 Stationery for Bulk Orders",
+  "metaTitle": "Custom A4 Stationery | Perfect Imprints",
+  "metaDescription": "Order custom A4 stationery for your business. Perfect for branded greeting cards, envelopes, and paper goods in bulk.",
+  "introHtml": "<p>Custom A4 stationery gives your business a polished, professional edge when sending correspondence, greeting cards, or promotional mailers. The standard A4 size ensures compatibility with office printers and standard envelopes, making it ideal for bulk branded greeting cards, currency envelopes, and seeded paper cards. Whether you need holiday assortments or everyday appreciation cards, A4 stationery offers a consistent format that looks cohesive in any corporate mailing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom A4 stationery featuring branded greeting cards and currency envelopes for corporate bulk orders.",
+  "productSkus": [
+    "513768 2EX",
+    "524481",
+    "525800",
+    "525801",
+    "526989",
+    "526990",
+    "526991",
+    "526992",
+    "526993",
+    "526994"
+  ],
+  "generatedAt": "2026-05-31T09:26:41.631771+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

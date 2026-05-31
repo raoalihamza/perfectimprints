@@ -1,0 +1,22 @@
+{
+  "url": "/cat/watches/size/xlarge",
+  "type": "facet",
+  "h1": "Custom Xlarge Watches for Bulk Orders",
+  "metaTitle": "Custom Xlarge Watches | Perfect Imprints",
+  "metaDescription": "Order custom xlarge watches in bulk for your team or event. Perfect for visibility and style. Get a quote today!",
+  "introHtml": "<p>Xlarge watches offer a bold, oversized face that ensures time and branding are visible from across the room. Ideal for safety managers coordinating outdoor teams or event staff needing quick glances, these watches provide durability with resin or metal cases. Decorate with your logo via pad printing or laser engraving for a professional look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom xlarge watches with bold dials and logo branding, ideal for bulk corporate orders",
+  "productSkus": [
+    "516655",
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T09:04:22.180431+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

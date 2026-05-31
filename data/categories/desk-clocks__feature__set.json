@@ -1,0 +1,25 @@
+{
+  "url": "/cat/desk-clocks/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Desk Clocks in Bulk",
+  "metaTitle": "Custom Set Desk Clocks | Perfect Imprints",
+  "metaDescription": "Order custom set desk clocks in bulk for corporate gifts. Personalize with your logo. Fast turnaround. Get a quote today!",
+  "introHtml": "<p>Custom set desk clocks combine timekeeping with additional features like wireless charging, alarms, or ambient lighting, making them more than just a clock. Perfect for corporate gift sets or executive welcome kits, these multifunctional pieces ensure your brand is seen and used daily. Choose from styles like the Fabric & Bamboo Wireless Charger With Clock or the Rise & Shine Clock with Light-Up Speaker & Charger for a practical, high-value promotional item.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set desk clocks with wireless charging and alarm features, ideal for corporate gifts and branding",
+  "productSkus": [
+    "524026",
+    "527550",
+    "528133",
+    "528216",
+    "528699"
+  ],
+  "generatedAt": "2026-05-31T09:11:37.561041+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

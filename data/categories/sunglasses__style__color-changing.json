@@ -1,0 +1,21 @@
+{
+  "url": "/cat/sunglasses/style/color-changing",
+  "type": "facet",
+  "h1": "Custom Color Changing Sunglasses",
+  "metaTitle": "Custom Color Changing Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom color changing sunglasses for your next event. UV-reactive lenses shift in sunlight. Perfect for giveaways and outdoor promotions.",
+  "introHtml": "<p>Color changing sunglasses react to UV light, shifting from clear to dark or from one tint to another as the sun intensifies. This dynamic feature makes them a standout giveaway for outdoor events, trade shows, and summer brand activations. Unlike standard sunglasses, they offer an interactive element that grabs attention and sparks conversation. Decorate the frames with your logo using pad printing or laser engraving for a lasting impression. The Sun Fun Sunglasses are a popular choice for this category.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom color changing sunglasses with UV-reactive lenses, ideal for outdoor promotional events and brand giveaways.",
+  "productSkus": [
+    "511850"
+  ],
+  "generatedAt": "2026-05-31T10:09:26.222681+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

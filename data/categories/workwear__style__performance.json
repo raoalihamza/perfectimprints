@@ -1,0 +1,22 @@
+{
+  "url": "/cat/workwear/style/performance",
+  "type": "facet",
+  "h1": "Custom Performance Workwear for Your Team",
+  "metaTitle": "Custom Performance Workwear | Perfect Imprints",
+  "metaDescription": "Order custom performance workwear for your team. Moisture-wicking, durable fabrics with your logo. Bulk pricing available.",
+  "introHtml": "<p>Performance workwear is engineered for teams that work hard and stay active. Unlike standard cotton uniforms, these styles use moisture-wicking, breathable fabrics that keep employees cool and dry on the job. Options like the Class 2 Short Sleeve 50+ UPF T-Shirt offer sun protection, while snag-proof polos maintain a professional look through repeated wear. Ideal for outdoor crews, warehouse staff, or any team that needs durability and comfort in one uniform.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom performance workwear with moisture-wicking fabric and embroidered logo, shown on a worker in an industrial setting.",
+  "productSkus": [
+    "515285",
+    "524758"
+  ],
+  "generatedAt": "2026-05-31T09:31:19.907326+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

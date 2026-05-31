@@ -1,0 +1,31 @@
+{
+  "url": "/cat/golf-polo-shirts/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Golf Polo Shirts",
+  "metaTitle": "Custom Pink Golf Polo Shirts | Perfect Imprints",
+  "metaDescription": "Order custom pink golf polo shirts in bulk for your team or event. Fast turnaround, expert decoration. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Pink golf polo shirts add a vibrant, energetic look to any corporate golf outing or team uniform. Whether you choose a performance mesh style like the Greg Norman Women's Play Dry or a classic Dri-FIT from Nike, pink stands out on the course and pairs well with neutral bottoms. These polos are ideal for breast cancer awareness events, spring tournaments, or simply adding a pop of color to your company apparel. Decorate with your logo using embroidery or screen printing for a polished finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink golf polo shirts with embroidered logo on a sunny golf course",
+  "productSkus": [
+    "510303",
+    "511117",
+    "517777",
+    "519574",
+    "519683",
+    "522780",
+    "523540",
+    "524126",
+    "528009",
+    "528068",
+    "529204"
+  ],
+  "generatedAt": "2026-05-31T08:42:18.882007+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

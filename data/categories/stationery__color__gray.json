@@ -1,0 +1,19 @@
+{
+  "url": "/cat/stationery/color/gray",
+  "type": "facet",
+  "h1": "Custom Gray Stationery for Your Business",
+  "metaTitle": "Custom Gray Stationery | Perfect Imprints",
+  "metaDescription": "Order custom gray stationery in bulk at Perfect Imprints. Ideal for professional branding. Get your quote today!",
+  "introHtml": "<p>Gray stationery offers a neutral, professional look that works well in any corporate environment. Whether you need notepads, pens, or folders, gray conveys reliability and sophistication. Perfect for branded office supplies that complement any color scheme without overwhelming your logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom gray stationery including notepads, pens, and folders with company logo",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:26:43.369081+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/shirts/brand/landau",
+  "type": "facet",
+  "h1": "Custom Landau Shirts for Bulk Orders",
+  "metaTitle": "Custom Landau Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Landau shirts in bulk for your team. Durable, professional uniforms from Perfect Imprints. Get a quote today.",
+  "introHtml": "<p>Landau shirts are built for demanding work environments, with reinforced seams and wrinkle-resistant fabrics that keep your team looking sharp through long shifts. Whether you need scrub tops for healthcare staff or uniform shirts for industrial crews, these garments hold up to frequent washing and heavy use. Add your logo or department identifier via screen printing or embroidery for a cohesive, professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Landau shirts for bulk orders featuring durable fabric and embroidery options for team uniforms.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:25:35.164889+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

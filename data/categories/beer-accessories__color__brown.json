@@ -1,0 +1,30 @@
+{
+  "url": "/cat/beer-accessories/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Beer Accessories",
+  "metaTitle": "Custom Brown Beer Accessories - Perfect Imprints",
+  "metaDescription": "Shop custom brown beer accessories for bulk orders. Perfect for brand giveaways. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Brown beer accessories bring a warm, earthy aesthetic that stands out at tailgates and brewery events. From bandanas and wallets to fanny packs and socks, these items pair naturally with amber ales and stouts. Decorate with your logo using screen printing or embroidery for a cohesive brand look that feels both rugged and refined.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown beer accessories including bandanas, wallets, and fanny packs with logo for brand giveaways",
+  "productSkus": [
+    "506991",
+    "520886",
+    "521602",
+    "521927",
+    "522514",
+    "524500",
+    "524817",
+    "525740",
+    "528344",
+    "529300"
+  ],
+  "generatedAt": "2026-05-31T09:36:38.799955+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

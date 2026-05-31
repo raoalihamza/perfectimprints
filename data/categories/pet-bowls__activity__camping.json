@@ -1,0 +1,23 @@
+{
+  "url": "/cat/pet-bowls/activity/camping",
+  "type": "facet",
+  "h1": "Custom Camping Pet Bowls for Outdoor Adventures",
+  "metaTitle": "Custom Camping Pet Bowls | Perfect Imprints",
+  "metaDescription": "Order custom camping pet bowls for outdoor events. Perfect for hiking, camping, and on-the-go hydration. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Camping with your dog means packing light and smart. Custom camping pet bowls are designed for durability and portability, whether you choose collapsible silicone bowls that tuck into a pack or combination water bottle and bowl sets like the 20 oz Springland Pet Flip Dog Water Bottle. These bowls handle rough terrain and keep your pet hydrated at the campsite. Decorating them with your logo makes them ideal giveaways for outdoor gear brands, pet supply companies, or any business that loves the outdoors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom camping pet bowls featuring a collapsible silicone bowl and a water bottle with attached bowl for outdoor use",
+  "productSkus": [
+    "521770",
+    "524414",
+    "529207"
+  ],
+  "generatedAt": "2026-05-31T09:22:40.141918+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

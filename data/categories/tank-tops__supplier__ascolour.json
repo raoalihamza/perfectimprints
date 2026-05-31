@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tank-tops/supplier/ascolour",
+  "type": "facet",
+  "h1": "Custom Ascolour Tank Tops for Bulk Orders",
+  "metaTitle": "Custom Ascolour Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom Ascolour tank tops in bulk. Perfect for events, teams, or uniforms. Fast turnaround and decoration options.",
+  "introHtml": "<p>Ascolour tank tops offer a sustainable choice for bulk apparel orders, made from high-quality organic cotton and recycled materials. Ideal for eco-conscious brands, these tanks provide a soft hand feel and consistent sizing across unisex and ladies' styles. Decorate with screen printing or embroidery for a polished look at your next event or team uniform.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Ascolour tank tops in assorted colors stacked on a table for bulk orders",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T08:47:19.514834+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

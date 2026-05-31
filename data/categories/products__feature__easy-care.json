@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/easy-care",
+  "type": "facet",
+  "h1": "Custom Easy Care Products for Bulk Orders",
+  "metaTitle": "Custom Easy Care Products | Perfect Imprints",
+  "metaDescription": "Order custom easy care products in bulk from Perfect Imprints. Ideal for corporate gifts and giveaways that require minimal upkeep.",
+  "introHtml": "<p>Custom easy care products are designed for recipients who value convenience and low maintenance. From wrinkle-resistant apparel to stain-resistant bags, these items stay looking sharp with minimal effort. Perfect for corporate gift sets or event swag that won't burden your audience with special washing instructions. Choose from materials like polyester blends, coated fabrics, and treated surfaces that resist dirt and wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom easy care products including wrinkle-resistant shirts and stain-resistant bags for corporate branding",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:30:33.668933+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

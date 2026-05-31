@@ -1,0 +1,26 @@
+{
+  "url": "/cat/candy/color/green",
+  "type": "facet",
+  "h1": "Custom Green Candy for Bulk Orders",
+  "metaTitle": "Custom Green Candy | Perfect Imprints",
+  "metaDescription": "Order custom green candy in bulk for branding. Perfect for St. Patrick's Day or green-themed events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Green candy adds a pop of color to any event or promotional campaign. Whether you're planning a St. Patrick's Day giveaway, a eco-friendly brand activation, or a themed office party, custom green candy creates a cohesive look that ties your message together. Options like gummy bears, sour balls, and chocolate buttons can be personalized with your logo or message. Choose from glass jars, digibags, or custom packaging to match your budget and branding needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom green candy in glass jars and bags for promotional giveaways",
+  "productSkus": [
+    "506292 90A",
+    "518500",
+    "518506",
+    "518507 90E",
+    "519765",
+    "527907"
+  ],
+  "generatedAt": "2026-05-31T09:39:17.848232+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

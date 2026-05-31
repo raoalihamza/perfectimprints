@@ -1,0 +1,23 @@
+{
+  "url": "/cat/drinkware/brand/pelican",
+  "type": "facet",
+  "h1": "Custom Pelican Drinkware for Bulk Orders",
+  "metaTitle": "Custom Pelican Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom Pelican drinkware for your brand. Durable stainless steel tumblers and bottles perfect for corporate gifts and events.",
+  "introHtml": "<p>Pelican drinkware combines rugged durability with sleek design, making it a top choice for brands that want premium promotional products. Whether you're outfitting a sales team with 22 oz travel tumblers or gifting recycled stainless steel water bottles at a trade show, Pelican's double-wall insulation keeps drinks cold for hours. Customize with your logo using laser engraving or full-color pad printing for a polished look that stands up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Pelican drinkware including double wall stainless steel tumblers and water bottles with logo engraving",
+  "productSkus": [
+    "527482",
+    "527483",
+    "527484"
+  ],
+  "generatedAt": "2026-05-31T09:12:11.012328+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/napkins/material/kraft",
+  "type": "facet",
+  "h1": "Custom Kraft Napkins for Bulk Orders",
+  "metaTitle": "Custom Kraft Napkins | Perfect Imprints",
+  "metaDescription": "Order custom kraft napkins for your business. Eco-friendly and perfect for branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Kraft napkins bring a natural, eco-conscious look to any event or food service setting. Made from unbleached, recycled materials, they offer a rustic aesthetic that works well for coffee shops, delis, catered lunches, and trade shows. Unlike white or patterned napkins, kraft napkins communicate sustainability and simplicity. They accept screen-printed logos clearly, making your brand visible while reinforcing an environmentally responsible image.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom kraft napkins with printed logo, ideal for eco-friendly branding at events",
+  "productSkus": [
+    "519473"
+  ],
+  "generatedAt": "2026-05-31T09:57:31.194838+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

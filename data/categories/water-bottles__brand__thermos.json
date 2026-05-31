@@ -1,0 +1,22 @@
+{
+  "url": "/cat/water-bottles/brand/thermos",
+  "type": "facet",
+  "h1": "Custom Thermos Water Bottles for Bulk Orders",
+  "metaTitle": "Custom Thermos Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom Thermos water bottles for your team or event. Bulk pricing & free setup. Shop now at PerfectImprints.com.",
+  "introHtml": "<p>Thermos water bottles are built for performance, with vacuum insulation that keeps drinks cold for up to 24 hours or hot for 12. For marketing directors and HR leaders, these bottles offer a durable canvas for your logo using screen printing or laser engraving, making them a practical giveaway that employees will use daily. Whether you choose the 24 oz Hydration Bottle with a rotating intake meter or the classic Stainless King, you get a brand that stands for reliability.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Thermos water bottles with logo, including 24 oz stainless steel hydration bottle and Stainless King direct drink bottle.",
+  "productSkus": [
+    "525293",
+    "525297"
+  ],
+  "generatedAt": "2026-05-31T09:30:07.761532+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

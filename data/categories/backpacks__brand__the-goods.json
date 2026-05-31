@@ -1,0 +1,21 @@
+{
+  "url": "/cat/backpacks/brand/the-goods",
+  "type": "facet",
+  "h1": "Custom The Goods Backpacks for Bulk Orders",
+  "metaTitle": "Custom The Goods Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom The Goods backpacks in bulk from Perfect Imprints. Ideal for corporate giveaways and employee gifts.",
+  "introHtml": "<p>The Goods backpacks are built from recycled PET materials, making them a smart choice for sustainability-focused companies. Whether you are outfitting your sales team with branded gear or giving eco-friendly gifts at a trade show, these backpacks offer a durable, professional look. Decorate with your logo using screen printing or embroidery for a polished finish that aligns with your green initiatives.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom The Goods backpacks in recycled PET material with company logo, ideal for bulk corporate orders",
+  "productSkus": [
+    "525888"
+  ],
+  "generatedAt": "2026-05-31T09:33:37.283227+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

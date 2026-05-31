@@ -1,0 +1,21 @@
+{
+  "url": "/cat/gift-sets-bundles/material/mesh",
+  "type": "facet",
+  "h1": "Custom Mesh Gift Sets & Bundles",
+  "metaTitle": "Custom Mesh Gift Sets & Bundles | Perfect Imprints",
+  "metaDescription": "Order custom mesh gift sets and bundles for your next event. Perfect for sports teams and outdoor promotions.",
+  "introHtml": "<p>Mesh gift sets and bundles offer a breathable, lightweight packaging solution ideal for outdoor events, sports tournaments, and summer giveaways. The open-weave material provides visibility of contents while keeping items secure, making it a practical choice for bulk orders. Customize with screen-printed logos for a cohesive brand look that stands out at trade shows or company picnics.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom mesh gift sets and bundles featuring a branded pickleball set in a mesh bag",
+  "productSkus": [
+    "526639"
+  ],
+  "generatedAt": "2026-05-31T09:14:12.202272+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

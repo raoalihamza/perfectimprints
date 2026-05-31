@@ -1,0 +1,33 @@
+{
+  "url": "/cat/pens/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Pens",
+  "metaTitle": "No-Minimum Custom Pens | Perfect Imprints",
+  "metaDescription": "Order custom pens with no minimum quantity. Perfect for small teams and events. Get branded pens in low volumes at Perfect Imprints.",
+  "introHtml": "<p>No-minimum custom pens let you order branded writing instruments in small quantities without being forced into bulk. Whether you need a dozen pens for a small team, a handful for a startup launch, or just a few samples before committing to a larger run, our no-minimum program gives you that flexibility. Choose from premium options like Parker IM or Waterman rollerballs and personalize them with your logo. Perfect for marketing directors, HR directors, and business owners who want professional-quality pens without the inventory commitment.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted no-minimum custom pens including Parker and Waterman ballpoints and rollerballs with personalized logos",
+  "productSkus": [
+    "527719",
+    "528404",
+    "528405",
+    "528406",
+    "528407",
+    "528408",
+    "528409",
+    "528410",
+    "528411",
+    "528412",
+    "528413",
+    "528579",
+    "529551"
+  ],
+  "generatedAt": "2026-05-31T08:30:16.651001+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

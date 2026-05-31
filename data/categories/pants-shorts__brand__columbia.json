@@ -1,0 +1,25 @@
+{
+  "url": "/cat/pants-shorts/brand/columbia",
+  "type": "facet",
+  "h1": "Custom Columbia Pants Shorts for Bulk Orders",
+  "metaTitle": "Custom Columbia Pants Shorts | Perfect Imprints",
+  "metaDescription": "Order custom Columbia pants shorts in bulk for your team. Durable, branded apparel from Perfect Imprints. Get a quote today!",
+  "introHtml": "<p>Columbia pants shorts combine outdoor durability with professional style, making them a top pick for corporate teams, field crews, and event staff. The fabric technology ensures comfort during long hours, while your logo stands out on the leg or hip. Choose from cargo or flat-front styles for a look that fits your industry.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Columbia pants shorts with embroidered logo, featuring durable fabric and cargo pockets.",
+  "productSkus": [
+    "523863",
+    "523865",
+    "523866",
+    "523867",
+    "523870"
+  ],
+  "generatedAt": "2026-05-31T08:36:02.353167+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/shot-glasses/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Shot Glasses",
+  "metaTitle": "Custom Pink Shot Glasses | Perfect Imprints",
+  "metaDescription": "Order custom pink shot glasses for your next event or promotion. Perfect for bachelorette parties, breast cancer awareness, and more.",
+  "introHtml": "<p>Pink shot glasses bring a playful, eye-catching pop of color to any event or promotion. Whether you're planning a bachelorette party, a breast cancer awareness fundraiser, or a festive company happy hour, these custom shot glasses make a memorable impression. Choose from frosted or clear glass finishes, and add your logo or message with screen printing or etching for a personalized touch that stands out on the bar or gift table.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink shot glasses with frosted glass finish, perfect for bachelorette parties and promotions.",
+  "productSkus": [
+    "525816",
+    "525817"
+  ],
+  "generatedAt": "2026-05-31T09:02:19.092444+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

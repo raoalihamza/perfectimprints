@@ -1,0 +1,26 @@
+{
+  "url": "/cat/pants/color/green",
+  "type": "facet",
+  "h1": "Custom Green Pants for Bulk Orders",
+  "metaTitle": "Custom Green Pants - Perfect Imprints",
+  "metaDescription": "Order custom green pants for your team or event. Perfect for uniforms, spirit wear, and more. Get a quote today!",
+  "introHtml": "<p>Green pants offer a versatile and professional look for uniforms, team apparel, or promotional giveaways. Whether you need lightweight mesh shorts for a summer event or durable joggers for a corporate team, green provides a fresh alternative to standard black or navy. Customize with embroidery, screen printing, or heat transfer logos to match your brand colors. Perfect for safety managers equipping crews with high-visibility gear or HR directors ordering company spirit wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green pants for bulk orders, including mesh shorts and joggers with logo decoration",
+  "productSkus": [
+    "526129",
+    "528865",
+    "528873",
+    "528875",
+    "528876",
+    "528886"
+  ],
+  "generatedAt": "2026-05-31T08:59:17.228607+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

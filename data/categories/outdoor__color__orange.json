@@ -1,0 +1,22 @@
+{
+  "url": "/cat/outdoor/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Outdoor Products for Branding",
+  "metaTitle": "Custom Orange Outdoor | Perfect Imprints",
+  "metaDescription": "Shop custom orange outdoor products at Perfect Imprints. Perfect for safety visibility and brand promotion. Order bulk today!",
+  "introHtml": "<p>Orange is a high-visibility color that stands out in outdoor environments, making it ideal for safety managers and event marketers who need branded gear that gets noticed. Custom orange outdoor products like the Roll-Up Picnic Blanket or Brookfield Picnic Blanket offer a practical canvas for screen-printed logos, turning everyday essentials into mobile advertisements. Whether you're outfitting a construction crew or promoting a fall festival, orange ensures your brand stays visible from a distance.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange outdoor products including a rolled picnic blanket with a printed logo in a grassy field",
+  "productSkus": [
+    "507150",
+    "514085"
+  ],
+  "generatedAt": "2026-05-31T08:44:46.766972+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

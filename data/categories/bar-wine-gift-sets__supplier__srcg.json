@@ -1,0 +1,32 @@
+{
+  "url": "/cat/bar-wine-gift-sets/supplier/srcg",
+  "type": "facet",
+  "h1": "Custom SRCG Bar Wine Gift Sets",
+  "metaTitle": "Custom SRCG Bar Wine Gift Sets | Perfect Imprints",
+  "metaDescription": "Order custom SRCG bar wine gift sets for corporate gifting. Perfect for client appreciation and employee recognition.",
+  "introHtml": "<p>SRCG bar wine gift sets combine premium drinkware with thoughtful packaging, making them ideal for corporate gifts and client appreciation. Choose from sets like the Speakeasy Gift Set or the Napa Stemless Wine Tumbler Set, each designed to leave a lasting impression. These sets offer a polished, ready-to-gift solution that stands out from individual items.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom SRCG bar wine gift sets with stemless tumblers and branded packaging",
+  "productSkus": [
+    "512596",
+    "512693 64F",
+    "519672",
+    "521002",
+    "521897",
+    "522098",
+    "523898",
+    "523924",
+    "523950",
+    "525628",
+    "526748",
+    "527285"
+  ],
+  "generatedAt": "2026-05-31T08:39:34.708115+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

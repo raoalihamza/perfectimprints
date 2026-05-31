@@ -1,0 +1,30 @@
+{
+  "url": "/cat/wine-stoppers/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Wine Stoppers",
+  "metaTitle": "Custom Pink Wine Stoppers | Perfect Imprints",
+  "metaDescription": "Order custom pink wine stoppers for your next event. Perfect for breast cancer awareness or branding. Get a quote today!",
+  "introHtml": "<p>Custom pink wine stoppers add a pop of color to any gathering while keeping your wine fresh. Ideal for breast cancer awareness campaigns, bridal showers, or brand giveaways, these stoppers can be imprinted with your logo using pad printing or engraving. Choose from materials like stainless steel or silicone for a durable, stylish accessory that recipients will use again and again.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink wine stoppers with logo imprint, perfect for promotional events and gift giving.",
+  "productSkus": [
+    "506991",
+    "519430",
+    "521602",
+    "522110",
+    "522111",
+    "524609",
+    "524693",
+    "524817",
+    "525261",
+    "525272"
+  ],
+  "generatedAt": "2026-05-31T09:04:44.197646+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

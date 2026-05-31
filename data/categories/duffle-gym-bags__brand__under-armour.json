@@ -1,0 +1,28 @@
+{
+  "url": "/cat/duffle-gym-bags/brand/under-armour",
+  "type": "facet",
+  "h1": "Custom Under Armour Duffle Gym Bags",
+  "metaTitle": "Custom Under Armour Duffle Gym Bags | Perfect Imprints",
+  "metaDescription": "Order custom Under Armour duffle gym bags for your team or event. Perfect for bulk branding with your logo. Shop at Perfect Imprints.",
+  "introHtml": "<p>Under Armour duffle gym bags combine the trusted athletic brand with durable, functional design for your team or corporate event. Whether you're outfitting a sales team for a conference or rewarding employees with premium gym gear, these bags offer ample storage and a sporty look. Decorate with your logo using embroidery or screen printing for a polished finish that stands out in the locker room or on the road.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Under Armour duffle gym bags with embroidered logo, perfect for bulk orders and corporate branding.",
+  "productSkus": [
+    "527121",
+    "527122",
+    "528095",
+    "528096",
+    "528105",
+    "528106",
+    "528108",
+    "529262"
+  ],
+  "generatedAt": "2026-05-31T09:44:00.764434+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

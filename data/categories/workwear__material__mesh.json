@@ -1,0 +1,22 @@
+{
+  "url": "/cat/workwear/material/mesh",
+  "type": "facet",
+  "h1": "Custom Mesh Workwear for Safety & Comfort",
+  "metaTitle": "Custom Mesh Workwear | Perfect Imprints",
+  "metaDescription": "Order custom mesh workwear for high-visibility jobs. Breathable, durable, and perfect for branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Mesh workwear keeps your team cool and visible in warm environments. Unlike solid fabrics, mesh allows airflow while meeting ANSI safety standards for high-visibility apparel. Whether you need Class 2 vests for road crews or UPF-rated shirts for outdoor teams, mesh construction combines breathability with durability. Decorate with your logo using screen printing or embroidery for a professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom mesh workwear with high-visibility safety vest featuring reflective stripes and breathable mesh fabric",
+  "productSkus": [
+    "524758",
+    "528678"
+  ],
+  "generatedAt": "2026-05-31T10:15:46.553759+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

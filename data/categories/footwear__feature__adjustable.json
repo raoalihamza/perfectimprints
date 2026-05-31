@@ -1,0 +1,23 @@
+{
+  "url": "/cat/footwear/feature/adjustable",
+  "type": "facet",
+  "h1": "Custom Adjustable Footwear for Bulk Orders",
+  "metaTitle": "Custom Adjustable Footwear | Perfect Imprints",
+  "metaDescription": "Order custom adjustable footwear in bulk from Perfect Imprints. Ideal for promos, safety, and comfort. Get your quote today.",
+  "introHtml": "<p>Custom adjustable footwear offers flexibility for employees and event attendees who need a comfortable, one-size-fits-most option. Whether you choose slide flip flops for the pool deck or terry velour slippers for hospitality, adjustable straps or closures ensure a secure fit. These are perfect for safety managers requiring quick-release footwear for factory visitors or marketing directors looking for a branded giveaway that suits all foot sizes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adjustable footwear including slide flip flops and terry velour slippers with adjustable straps for bulk orders",
+  "productSkus": [
+    "526782",
+    "526905",
+    "528171"
+  ],
+  "generatedAt": "2026-05-31T08:29:01.989312+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

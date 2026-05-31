@@ -1,0 +1,24 @@
+{
+  "url": "/cat/outdoor/color/green",
+  "type": "facet",
+  "h1": "Custom Green Outdoor Gear for Your Brand",
+  "metaTitle": "Custom Green Outdoor Gear - Perfect Imprints",
+  "metaDescription": "Shop custom green outdoor gear at Perfect Imprints. Perfect for giveaways and events. Order bulk branded items today.",
+  "introHtml": "<p>Green outdoor gear stands out in natural settings, making it ideal for environmental brands, park events, or eco-conscious campaigns. From picnic blankets that repel sand to roll-up blankets with handles, these items offer practical branding opportunities with high visibility. Decorate with your logo using screen printing or embroidery for a durable, professional look that your recipients will use season after season.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green outdoor gear including picnic blankets and roll-up blankets with handles for branding",
+  "productSkus": [
+    "507150",
+    "512997",
+    "514085",
+    "520308"
+  ],
+  "generatedAt": "2026-05-31T08:24:19.824100+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

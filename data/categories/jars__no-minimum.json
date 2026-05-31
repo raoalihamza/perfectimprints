@@ -1,0 +1,21 @@
+{
+  "url": "/cat/jars/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Jars for Small Orders",
+  "metaTitle": "No-Minimum Custom Jars | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom jars with low MOQs. Perfect for small teams, events, or samples. Get branded jars without bulk commitments.",
+  "introHtml": "<p>No-minimum custom jars let you order small quantities without the typical bulk requirements. Whether you need a dozen for a small team, a handful for a client gift, or just one to test a design, this page is for buyers who want flexibility. Perfect for small businesses, startups, one-off events, or sample orders, our no-minimum jars offer the same customization options as larger runs. You pay only for what you need, with per-unit pricing that reflects the smaller volume.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "No-minimum custom jars with personalized labels, ideal for small orders and promotional gifts",
+  "productSkus": [
+    "525119"
+  ],
+  "generatedAt": "2026-05-31T09:52:00.536906+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

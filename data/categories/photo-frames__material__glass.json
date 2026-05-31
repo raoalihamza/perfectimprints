@@ -1,0 +1,25 @@
+{
+  "url": "/cat/photo-frames/material/glass",
+  "type": "facet",
+  "h1": "Custom Glass Photo Frames for Bulk Orders",
+  "metaTitle": "Custom Glass Photo Frames | Perfect Imprints",
+  "metaDescription": "Order custom glass photo frames in bulk for your next event or promotion. Perfect for corporate gifts and recognition awards.",
+  "introHtml": "<p>Glass photo frames offer a classic, polished look that elevates any photograph or certificate. Unlike acrylic or metal frames, glass provides a clear, scratch-resistant surface that showcases your image without distortion. Whether you are honoring employee achievements or creating timeless corporate gifts, custom glass photo frames deliver a premium feel that recipients appreciate. Personalize them with your company logo, event date, or a short message using screen printing or etching for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom glass photo frames with engraved logo for corporate gifts and recognition awards",
+  "productSkus": [
+    "502584",
+    "513441 90E",
+    "514919 90E",
+    "515188 90E",
+    "515189 90E"
+  ],
+  "generatedAt": "2026-05-31T10:01:56.088205+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

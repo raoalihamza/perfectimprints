@@ -1,0 +1,24 @@
+{
+  "url": "/cat/health/style/two-tone",
+  "type": "facet",
+  "h1": "Custom Two Tone Health Products",
+  "metaTitle": "Custom Two Tone Health Products | Perfect Imprints",
+  "metaDescription": "Shop custom two tone health products at Perfect Imprints. Perfect for corporate wellness programs. Get a quote today!",
+  "introHtml": "<p>Two tone health products offer a stylish twist on standard wellness giveaways, combining two complementary colors to create a cohesive brand look. Whether you are outfitting a safety team with dual-hued lip balms or promoting a wellness fair with two tone tumblers, this color-blocked aesthetic stands out in break rooms and office kitchens. The contrasting shades let you match your logo colors precisely, making every item a subtle but effective brand reminder.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A two tone health product, such as a matte sunglass or tumbler, with contrasting color panels for custom branding.",
+  "productSkus": [
+    "510937",
+    "519430",
+    "521206",
+    "526239"
+  ],
+  "generatedAt": "2026-05-31T09:50:43.000612+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/photo-frames/color/gray",
+  "type": "facet",
+  "h1": "Custom Gray Photo Frames for Bulk Orders",
+  "metaTitle": "Custom Gray Photo Frames | Perfect Imprints",
+  "metaDescription": "Order custom gray photo frames in bulk for your next event. Perfect for corporate gifts and employee recognition at Perfect Imprints.",
+  "introHtml": "<p>Gray photo frames offer a neutral, modern look that complements any office decor or corporate gift set. Unlike black or white, gray provides a subtle contrast that makes photos stand out without overwhelming the space. Choose from materials like wood or metal finishes, and add your company logo via screen printing or engraving. These frames work well for employee awards, trade show giveaways, or client appreciation gifts. The Wooden Letter Message Board is a popular option that combines functionality with a sleek gray finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gray photo frames with corporate logo displayed on a desk in an office setting",
+  "productSkus": [
+    "522144"
+  ],
+  "generatedAt": "2026-05-31T10:01:55.242051+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

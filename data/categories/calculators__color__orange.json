@@ -1,0 +1,23 @@
+{
+  "url": "/cat/calculators/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Calculators",
+  "metaTitle": "Custom Orange Calculators | Perfect Imprints",
+  "metaDescription": "Shop custom orange calculators for bulk orders. Ideal for safety teams and events. Get a quick quote at PerfectImprints.com.",
+  "introHtml": "<p>Orange calculators stand out in any setting, making them a smart choice for safety managers who need visibility on job sites or for marketing directors running high-visibility giveaways. The bright color ensures your logo is seen, whether imprinted on a Value Calculator or a slim model. Order in bulk to keep your brand top of mind with every calculation.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange calculators with logo imprint, perfect for bulk promotional giveaways and safety teams.",
+  "productSkus": [
+    "502790",
+    "503150",
+    "503253"
+  ],
+  "generatedAt": "2026-05-31T09:38:54.774027+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

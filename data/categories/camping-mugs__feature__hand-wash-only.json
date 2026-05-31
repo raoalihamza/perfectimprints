@@ -1,0 +1,31 @@
+{
+  "url": "/cat/camping-mugs/feature/hand-wash-only",
+  "type": "facet",
+  "h1": "Custom Hand Wash Only Camping Mugs",
+  "metaTitle": "Custom Hand Wash Only Camping Mugs | Perfect Imprints",
+  "metaDescription": "Order custom hand wash only camping mugs for your team or event. Durable speckled finish, perfect for coffee or cocoa. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Hand wash only camping mugs require a bit of care, but they reward you with a durable, high-quality finish that stands up to outdoor use. The speckled enamel coating on these mugs resists chipping and fading better than standard dishwasher-safe alternatives, making them a smart choice for promotional gifts that will be used for years. Perfect for company camping trips, employee appreciation kits, or branded gift sets paired with hot cocoa bombs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hand wash only camping mugs with speckled enamel finish, perfect for coffee or hot cocoa outdoors.",
+  "productSkus": [
+    "521050",
+    "521644",
+    "521896",
+    "522392",
+    "522462",
+    "523641",
+    "524786",
+    "526096",
+    "526242",
+    "526317",
+    "529464"
+  ],
+  "generatedAt": "2026-05-31T09:39:05.962252+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

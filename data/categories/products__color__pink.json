@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Products for Branded Giveaways",
+  "metaTitle": "Custom Pink Products for Bulk Orders | Perfect Imprints",
+  "metaDescription": "Shop custom pink products for your next event or campaign. Perfect for breast cancer awareness, spring promotions, and more.",
+  "introHtml": "<p>Pink products stand out in any crowd, making them ideal for breast cancer awareness campaigns, spring promotions, or adding a pop of color to your brand. Whether you choose custom pink pens, tote bags, or water bottles, the vibrant hue ensures high visibility and a memorable impression. Decorate with screen printing or debossing for a polished look that aligns with your message.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom pink products including pens, tote bags, and water bottles for branded giveaways",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:45:48.504387+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

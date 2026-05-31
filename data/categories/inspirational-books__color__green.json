@@ -1,0 +1,21 @@
+{
+  "url": "/cat/inspirational-books/color/green",
+  "type": "facet",
+  "h1": "Custom Green Inspirational Books",
+  "metaTitle": "Custom Green Inspirational Books | Perfect Imprints",
+  "metaDescription": "Order custom green inspirational books in bulk. Perfect for wellness campaigns. Get a free quote from Perfect Imprints today.",
+  "introHtml": "<p>Green custom inspirational books offer a calming, nature-inspired palette that reinforces themes of growth, healing, and resilience. Ideal for wellness initiatives, mental health awareness campaigns, or eco-conscious corporate gifts, these books stand out in break rooms or at events. Choose from titles like the Awareness Ribbon Coloring Book with Pencil Set, which combines reflective activities with a soothing green cover. Decorate with your logo via full-color printing for a professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green inspirational books with Awareness Ribbon Coloring Book and pencil set on a table",
+  "productSkus": [
+    "520655"
+  ],
+  "generatedAt": "2026-05-31T09:16:22.987035+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/bandages/supplier/gary",
+  "type": "facet",
+  "h1": "Custom Gary Bandages for Bulk Orders",
+  "metaTitle": "Custom Gary Bandages | Perfect Imprints",
+  "metaDescription": "Order custom Gary bandages in bulk from Perfect Imprints. Ideal for first aid kits, events, and workplace safety.",
+  "introHtml": "<p>Custom Gary bandages offer a reliable and branded solution for first aid kits and workplace safety. Gary is known for quality adhesive bandages that stay put during active use, making them a practical choice for construction sites, warehouses, and outdoor events. Decorate them with your logo or safety message using screen printing or pad printing. Choose from skin-tone, bright colors, or patterned options like the First Line Bamboo Bandages 10 Pack for an eco-friendly twist.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Gary bandages in assorted sizes and colors, perfect for branded first aid kits and corporate safety giveaways.",
+  "productSkus": [
+    "502343",
+    "506843",
+    "510131",
+    "528559",
+    "529323"
+  ],
+  "generatedAt": "2026-05-31T09:34:41.827718+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

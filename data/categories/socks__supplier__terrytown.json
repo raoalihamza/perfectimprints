@@ -1,0 +1,29 @@
+{
+  "url": "/cat/socks/supplier/terrytown",
+  "type": "facet",
+  "h1": "Custom Terrytown Socks for Bulk Orders",
+  "metaTitle": "Custom Terrytown Socks | Perfect Imprints",
+  "metaDescription": "Order custom Terrytown socks in bulk from Perfect Imprints. Perfect for corporate gifts, events, and branded apparel.",
+  "introHtml": "<p>Terrytown socks combine the plush comfort of terry cloth with the durability needed for everyday wear, making them a smart choice for branded apparel programs. Whether you are outfitting a sales team with cozy Fuzzy Feet Slipper Socks or handing out Midcalf Jacquard Socks with Bamboo Thread at a wellness fair, the looped terry interior wicks moisture and cushions each step. These socks accept embroidery, screen printing, or full-color sublimation, giving your logo a soft, wearable canvas that recipients actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Terrytown socks in bulk with embroidered logo, featuring cushioned terry cloth and moisture-wicking fabric",
+  "productSkus": [
+    "516800",
+    "521927",
+    "522251",
+    "524427",
+    "525740",
+    "526360",
+    "526361",
+    "526363",
+    "526896"
+  ],
+  "generatedAt": "2026-05-31T09:26:16.639437+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/health/material/glass",
+  "type": "facet",
+  "h1": "Custom Glass Health Products for Bulk Orders",
+  "metaTitle": "Custom Glass Health Products | Perfect Imprints",
+  "metaDescription": "Order custom glass health products for your wellness program. Perfect for bulk branding. Get a quote today!",
+  "introHtml": "<p>Glass health products offer a premium, eco-friendly alternative to plastic. Whether you're stocking a corporate wellness center or gifting employees, custom glass items like the 16 oz Bamboo Arcoroc Glass provide a sleek, reusable option. Glass is non-porous and easy to clean, making it ideal for health-focused giveaways. Choose from frosted or full-color decoration to match your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom glass health products including a clear glass candle and a bamboo-lid glass jar for wellness programs",
+  "productSkus": [
+    "526407",
+    "527481"
+  ],
+  "generatedAt": "2026-05-31T09:50:37.898750+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

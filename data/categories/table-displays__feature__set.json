@@ -1,0 +1,31 @@
+{
+  "url": "/cat/table-displays/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Table Displays for Branded Events",
+  "metaTitle": "Custom Set Table Displays | Perfect Imprints",
+  "metaDescription": "Order custom set table displays from Perfect Imprints. Full-color throws and runners for trade shows, conferences, and events. Bulk pricing available.",
+  "introHtml": "<p>Custom set table displays give you a coordinated, professional look at trade shows and conferences. Instead of mixing mismatched pieces, a set includes table throws and runners designed to work together. Choose from round throws with precise overhang for cocktail tables or standard throws for 6- and 8-foot tables. Full-color front panels let you print logos, graphics, or messaging across the entire surface. These sets are easy to pack, set up, and store, making them a practical choice for frequent exhibitors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set table displays featuring full-color printed table throws and runners for trade show booths",
+  "productSkus": [
+    "506590",
+    "506802",
+    "506943",
+    "506944 90A",
+    "506956",
+    "506957 90A",
+    "518457 90A",
+    "518458 90A",
+    "518459 90A",
+    "518460 90A",
+    "518461 90A"
+  ],
+  "generatedAt": "2026-05-31T09:03:15.752288+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

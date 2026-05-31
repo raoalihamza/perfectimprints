@@ -1,0 +1,24 @@
+{
+  "url": "/cat/beanies/color/green",
+  "type": "facet",
+  "h1": "Custom Green Beanies for Bulk Orders",
+  "metaTitle": "Custom Green Beanies | Perfect Imprints",
+  "metaDescription": "Order custom green beanies in bulk for your team. Perfect for branding with logos. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Green beanies offer a versatile choice for corporate gifts, team uniforms, or promotional giveaways. The color green conveys growth, balance, and reliability—qualities that resonate with outdoor brands, eco-conscious companies, or any organization looking to stand out. Whether you choose a classic knit beanie with a cuff or a Carhartt Watch Cap 2.0, these hats provide ample space for embroidery or screen printing your logo. Custom green beanies keep your brand visible and your team warm during colder months.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green beanies with embroidered logos on a display table, featuring knit and fleece styles.",
+  "productSkus": [
+    "514093",
+    "516012",
+    "516872",
+    "526537"
+  ],
+  "generatedAt": "2026-05-31T08:39:54.082954+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

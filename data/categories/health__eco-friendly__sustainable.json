@@ -1,0 +1,27 @@
+{
+  "url": "/cat/health/eco-friendly/sustainable",
+  "type": "facet",
+  "h1": "Custom Sustainable Health Products",
+  "metaTitle": "Custom Sustainable Health Products | Perfect Imprints",
+  "metaDescription": "Order custom sustainable health products for your wellness program. Eco-friendly items like cork rollers and bamboo bandages.",
+  "introHtml": "<p>Sustainable health products let you promote wellness while reducing environmental impact. From cork wellness rollers to bamboo bandages, these eco-friendly options are ideal for corporate wellness kits, safety incentives, or promotional giveaways. Choose recycled materials, natural fibers, and refillable containers to align your brand with sustainability. Decorate with your logo via screen printing or debossing for a professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom sustainable health products including a cork wellness roller and bamboo bandages",
+  "productSkus": [
+    "526128",
+    "526720",
+    "527228",
+    "527790",
+    "528835",
+    "528890",
+    "529323"
+  ],
+  "generatedAt": "2026-05-31T09:50:32.825847+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

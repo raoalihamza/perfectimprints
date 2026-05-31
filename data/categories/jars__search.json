@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jars/search",
+  "type": "modifier",
+  "h1": "Custom Jars for Branded Promotions",
+  "metaTitle": "Custom Jars - Perfect Imprints",
+  "metaDescription": "Browse our selection of custom jars for promotions, events, and gifts. Find the perfect branded jar at Perfect Imprints.",
+  "introHtml": "<p>Custom jars offer a versatile and memorable way to showcase your brand, whether for giveaways, corporate gifts, or retail packaging. From classic mason jar tumblers to themed kits, our selection of custom jars spans a range of styles and uses. Explore our collection to find the right shape, size, and customization option for your next campaign. With easy ordering and expert support, starting your branded jar project is simple.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom jars with branded logos, including a 22 oz Fiesta Mason Jar Tumbler and a Arnold Palmer Kit in a Mason Jar",
+  "productSkus": [
+    "506911",
+    "525119"
+  ],
+  "generatedAt": "2026-05-31T09:52:00.676947+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

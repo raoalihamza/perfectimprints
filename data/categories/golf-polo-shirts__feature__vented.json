@@ -1,0 +1,26 @@
+{
+  "url": "/cat/golf-polo-shirts/feature/vented",
+  "type": "facet",
+  "h1": "Custom Vented Golf Polo Shirts",
+  "metaTitle": "Custom Vented Golf Polo Shirts | Perfect Imprints",
+  "metaDescription": "Order custom vented golf polo shirts for breathable comfort. Perfect for teams and events. Shop at Perfect Imprints.",
+  "introHtml": "<p>Vented golf polo shirts offer built-in airflow through mesh panels or laser-cut perforations, keeping wearers cool during hot days on the course or at outdoor corporate events. Unlike standard polos, these designs prioritize breathability without sacrificing a professional look. Popular options like the Vansport™ Omega Solid Mesh Tech Polo or the Greg Norman® Women's Play Dry® Performance Mesh Polo combine moisture-wicking fabric with targeted ventilation. Ideal for tournament giveaways, employee uniforms, or charity outings where comfort matters as much as branding.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom vented golf polo shirts with mesh panels for breathability, ideal for corporate events",
+  "productSkus": [
+    "510317",
+    "517777",
+    "524309",
+    "524310",
+    "525937",
+    "525938"
+  ],
+  "generatedAt": "2026-05-31T09:48:59.068894+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

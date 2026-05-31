@@ -1,0 +1,30 @@
+{
+  "url": "/cat/pencils/brand/uni-ball",
+  "type": "facet",
+  "h1": "Custom Uni Ball Pencils for Bulk Orders",
+  "metaTitle": "Custom Uni Ball Pencils | Perfect Imprints",
+  "metaDescription": "Order custom Uni Ball pencils in bulk from Perfect Imprints. Ideal for giveaways, events, and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Uni Ball pencils combine precise writing performance with trusted brand recognition, making them a smart choice for corporate giveaways and event promotions. Whether you need fine-point 0.5mm mechanical pencils for note-taking or retractable gel pens for daily office use, custom Uni Ball pencils offer reliable quality that recipients will appreciate. Decorate them with your logo using pad printing or engraving for a polished, professional look that stands out in any setting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Uni Ball pencils in bulk with logo imprint, perfect for corporate gifts and promotional giveaways.",
+  "productSkus": [
+    "507227",
+    "507233",
+    "508066",
+    "508930",
+    "510260",
+    "525805",
+    "525810",
+    "525811",
+    "526876",
+    "527857"
+  ],
+  "generatedAt": "2026-05-31T08:36:13.930280+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

@@ -1,0 +1,31 @@
+{
+  "url": "/cat/napkins/supplier/carlsoncraft",
+  "type": "facet",
+  "h1": "Custom Carlsoncraft Napkins for Bulk Orders",
+  "metaTitle": "Custom Carlsoncraft Napkins | Perfect Imprints",
+  "metaDescription": "Order custom Carlsoncraft napkins in bulk. Perfect for events, restaurants, and corporate branding. Get a quote today!",
+  "introHtml": "<p>Carlsoncraft napkins are a trusted choice for businesses that need durable, absorbent paper napkins with reliable quality. Whether you are stocking a breakroom, setting up a trade show booth, or outfitting a restaurant, these napkins accept crisp logo imprints in one or two colors. Choose from white or colored beverage, luncheon, and dinner napkins in various folds to match your serving style. Bulk orders ensure consistent branding across all locations.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom Carlsoncraft napkins with printed logo in white and colored options for events and restaurants.",
+  "productSkus": [
+    "514577 90A",
+    "514579 90A",
+    "514580 90A",
+    "514581 90A",
+    "514583 90A",
+    "519472",
+    "519473",
+    "520634",
+    "520635",
+    "520636",
+    "520637"
+  ],
+  "generatedAt": "2026-05-31T09:57:31.747559+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

@@ -1,0 +1,29 @@
+{
+  "url": "/cat/outdoor/material/fleece",
+  "type": "facet",
+  "h1": "Custom Fleece Outdoor Blankets for Events",
+  "metaTitle": "Custom Fleece Outdoor Blankets | Perfect Imprints",
+  "metaDescription": "Shop custom fleece outdoor blankets at Perfect Imprints. Perfect for events and promos. Order bulk fleece blankets today.",
+  "introHtml": "<p>Fleece outdoor blankets offer warmth and comfort for camping trips, tailgates, and outdoor festivals. Unlike standard picnic blankets, fleece provides soft insulation that traps heat without adding bulk. Choose from plaid patterns, heathered solids, or laser-etched designs to match your brand. Roll-up styles with handles make distribution easy at corporate events or charity walks.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom fleece outdoor blankets with plaid pattern and roll-up handle for easy carrying",
+  "productSkus": [
+    "503799",
+    "505863",
+    "510676",
+    "512997",
+    "513485",
+    "515638",
+    "522004",
+    "523079",
+    "525470"
+  ],
+  "generatedAt": "2026-05-31T08:30:06.854351+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

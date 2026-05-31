@@ -1,0 +1,25 @@
+{
+  "url": "/cat/mechanical-pencils/supplier/zing",
+  "type": "facet",
+  "h1": "Custom Zing Mechanical Pencils for Bulk Orders",
+  "metaTitle": "Custom Zing Mechanical Pencils | Perfect Imprints",
+  "metaDescription": "Order custom Zing mechanical pencils in bulk. Perfect for giveaways and events. Get a quote today from Perfect Imprints.",
+  "introHtml": "<p>Zing mechanical pencils bring a playful pop of color and reliable performance to any promotional campaign. Whether you choose the Armadillo with its durable clip or the Frosty Grip for comfortable writing, each pencil features a smooth twist mechanism and vibrant barrel options. These are ideal for school events, trade shows, or employee appreciation kits where you want a fun yet functional giveaway that stands out. Custom imprinting with your logo or message is available on the barrel.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom Zing mechanical pencils with colorful barrels and clips on a white background",
+  "productSkus": [
+    "510506",
+    "510906",
+    "514646",
+    "519577",
+    "525811"
+  ],
+  "generatedAt": "2026-05-31T09:56:08.787164+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

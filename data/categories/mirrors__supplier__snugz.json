@@ -1,0 +1,27 @@
+{
+  "url": "/cat/mirrors/supplier/snugz",
+  "type": "facet",
+  "h1": "Custom Snugz Mirrors for Bulk Orders",
+  "metaTitle": "Custom Snugz Mirrors | Perfect Imprints",
+  "metaDescription": "Order custom Snugz mirrors in bulk from Perfect Imprints. Great for giveaways, swag bags, and corporate gifts.",
+  "introHtml": "<p>Snugz mirrors combine sleek design with practical portability, making them a popular choice for corporate gifts, trade show giveaways, and employee appreciation. These compact mirrors feature durable construction and options like LED lighting, dual magnification, and phone stands. Whether you need a simple pocket mirror or a multifunctional cosmetic mirror, Snugz offers reliable quality that keeps your brand visible daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Snugz mirrors with LED light and dual magnification for corporate branding",
+  "productSkus": [
+    "514661",
+    "514932",
+    "522025",
+    "522395",
+    "529298",
+    "529387",
+    "529413"
+  ],
+  "generatedAt": "2026-05-31T09:56:52.303417+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

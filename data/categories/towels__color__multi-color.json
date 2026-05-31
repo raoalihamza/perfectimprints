@@ -1,0 +1,22 @@
+{
+  "url": "/cat/towels/color/multi-color",
+  "type": "facet",
+  "h1": "Custom Multi Color Towels for Events & Promotions",
+  "metaTitle": "Custom Multi Color Towels | Perfect Imprints",
+  "metaDescription": "Order custom multi color towels for your next event. Perfect for giveaways, sports promotions, and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Multi color towels make a bold statement at any event or promotion. Whether you need rally towels for a sports game or branded golf towels for a corporate outing, the combination of vibrant hues ensures your logo stands out. Choose from options like the Go Go Rally Towel with its eye-catching color blocks or the Maggy Magnetic Waffle Golf Towel for a practical, premium feel. Screen printing or embroidery both work well on these cotton or microfiber blends.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom multi color towels with bold stripes and embroidered logo displayed on a rack",
+  "productSkus": [
+    "510644",
+    "528005"
+  ],
+  "generatedAt": "2026-05-31T10:11:59.736501+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

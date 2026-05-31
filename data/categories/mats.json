@@ -1,0 +1,60 @@
+{
+  "url": "/cat/mats",
+  "type": "root",
+  "h1": "Custom Mats for Branding, Safety & Durability",
+  "metaTitle": "Custom Mats – Perfect Imprints",
+  "metaDescription": "Order custom mats with your logo. Durable, anti-fatigue, and slip-resistant. Perfect for offices, lobbies, and safety zones. Bulk pricing available.",
+  "introHtml": "<p>Marketing directors, HR managers, and safety professionals all need floor mats that do more than just catch dirt. You want a mat that reinforces your brand, protects employees from fatigue, and keeps entryways safe. Whether you're outfitting a corporate lobby, a warehouse breakroom, or a trade show booth, the right mat can make a lasting impression while serving a practical purpose.</p><p>At Perfect Imprints, we carry a wide range of custom mats built for high-traffic environments. From logo-printed Berber rugs and Waterhog inlay mats to anti-fatigue floor mats and decorative home plate designs, each product is available in multiple sizes and materials. You can choose from carpet, rubber, vinyl, and scrape surfaces, all customizable with full-color logos, screen printing, or embossing. With low MOQs and fast turnaround, ordering branded mats for your team or event is straightforward.</p>",
+  "buyingGuideHtml": "<h3>What to Look for in Custom Mats</h3><p>When ordering custom mats, start with the location. Entryway mats need scrape-and-wipe action to trap dirt and moisture. Anti-fatigue mats reduce joint strain for employees who stand all day. Logo mats for lobbies should be plush and vibrant. Match the mat type to the foot traffic and purpose. High-traffic areas need dense, durable fibers or rubber. Low-traffic spaces can use softer carpet.</p><h3>Materials and Build Quality</h3><p>Most promotional mats use nylon, polypropylene, or rubber. Nylon offers the best color clarity for logo printing. Polypropylene resists moisture and mildew, making it ideal for outdoor entries. Rubber mats are slip-resistant and hold up in industrial settings. Pay attention to backing: vinyl or latex backs prevent curling and sliding. The Waterhog inlay rugs, for example, use a unique channel design that traps water and dirt while drying quickly.</p><h3>Common Use Cases and Buyer Personas</h3><p>Safety managers often order branded anti-fatigue mats for warehouse floors and assembly lines. HR directors use custom logo mats at employee entrances to reinforce company culture. Marketing directors place high-end logo rugs in lobbies and conference rooms for a professional look. Event planners order custom floor mats for trade show booths and registration areas. Even small business owners use personalized mats for storefronts and waiting areas.</p><h3>Decoration and Customization Options</h3><p>Screen printing works well for simple logos on rubber and vinyl mats. Full-color heat transfer or dye-sublimation is best for carpet mats with detailed artwork or photographs. Embroidery is an option for plush logo rugs like the Berber series. For a subtle look, consider debossing or embossing on rubber mats. Always request a proof to see how your logo will look on the chosen material. Some textures can distort fine details.</p><h3>Quantity Guidance and MOQ Context</h3><p>Minimum order quantities for custom mats typically start at 1 to 5 pieces, depending on the style. Bulk orders of 50 or more significantly reduce per-unit costs. If you need matched sets for multiple locations, ordering a single larger run ensures color consistency. Wholesale pricing applies to quantities over 100. Plan ahead: production lead times range from 5 to 15 business days, plus shipping. Rushed orders may be available for an extra fee.</p><h3>Common Buying Mistakes to Avoid</h3><p>One frequent mistake is ordering the wrong size. Measure your entryway or workspace carefully, allowing for door clearance. Another pitfall is choosing a mat that is too thin for heavy traffic. Check the thickness and weight rating. Also, avoid using outdoor mats indoors: they may not have the right backing for hard floors. Finally, confirm that your logo file meets resolution requirements to avoid fuzzy prints.</p>",
+  "buyingGuideH2": "Custom Mats Buying Guide",
+  "faqs": [
+    {
+      "q": "What sizes are available for custom mats?",
+      "a": "We offer a wide range of sizes from 18\" x 24\" up to 4' x 6'. Common sizes like 3' x 5' and 36\" x 52\" are available. Custom sizes may be possible for bulk orders."
+    },
+    {
+      "q": "What is the minimum order quantity for custom mats?",
+      "a": "MOQs vary by style. Many mats have an MOQ of 1 to 5 pieces. For logo rugs and specialty mats, the MOQ may be higher. Contact us for specific product MOQs."
+    },
+    {
+      "q": "What decoration methods are used for mats?",
+      "a": "Common methods include screen printing, full-color heat transfer, dye-sublimation, and embroidery. The best method depends on the mat material and artwork complexity."
+    },
+    {
+      "q": "How long does production take?",
+      "a": "Standard production takes 5 to 10 business days. Lead times may be longer for custom sizes or complex decorations. Rush orders are available for an additional fee."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, we can provide a sample of the mat material and a digital proof of your logo. Physical samples may be available for a small fee, refundable with a qualifying order."
+    }
+  ],
+  "heroAltText": "Custom logo floor mats for branding and safety, including Berber rugs and anti-fatigue mats",
+  "productSkus": [
+    "515934 90A",
+    "515935 90A",
+    "515936 90A",
+    "515937 90A",
+    "515938 90A",
+    "515939 90A",
+    "515940 90A",
+    "519274 01A",
+    "519275 01A",
+    "519276 01A",
+    "519277 01A",
+    "519278 01A",
+    "519279 01A",
+    "522789",
+    "524721",
+    "524756",
+    "524757",
+    "526438"
+  ],
+  "generatedAt": "2026-05-30T10:45:50.587791+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "buyer",
+  "skuFilterMode": "full",
+  "rawSkuCount": 18,
+  "filteredSkuCount": 18
+}

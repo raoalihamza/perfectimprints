@@ -1,0 +1,21 @@
+{
+  "url": "/cat/candles/eco-friendly/organic",
+  "type": "facet",
+  "h1": "Custom Organic Candles for Branded Gifts",
+  "metaTitle": "Custom Organic Candles | Perfect Imprints",
+  "metaDescription": "Order custom organic candles for eco-friendly branded gifts. Perfect for corporate events and employee appreciation.",
+  "introHtml": "<p>Organic candles offer a clean burn with natural ingredients, making them a thoughtful choice for brands that prioritize sustainability. Unlike standard candles, organic versions use plant-based waxes and essential oils, avoiding synthetic additives. The Modern Sprout® Rooted Candle is a popular example, featuring recyclable packaging. These candles work well for wellness-focused corporate gifts or eco-conscious trade show giveaways. Customize with your logo using foil stamping or a paper label to maintain the natural aesthetic.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom organic candles with natural wax and essential oils, perfect for branded corporate gifts",
+  "productSkus": [
+    "526492"
+  ],
+  "generatedAt": "2026-05-31T08:23:30.462170+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

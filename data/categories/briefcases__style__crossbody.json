@@ -1,0 +1,23 @@
+{
+  "url": "/cat/briefcases/style/crossbody",
+  "type": "facet",
+  "h1": "Custom Crossbody Briefcases",
+  "metaTitle": "Custom Crossbody Briefcases | Perfect Imprints",
+  "metaDescription": "Shop custom crossbody briefcases at Perfect Imprints. Ideal for hands-free commuting. Bulk orders available.",
+  "introHtml": "<p>Crossbody briefcases offer a hands-free carry solution for professionals who commute by transit or walk between meetings. Unlike traditional briefcases, the strap distributes weight across the body, reducing shoulder strain. Made from durable materials like polyester and canvas, these bags keep documents and a tablet secure while leaving your arms free. Decorate with your logo via screen printing or embroidery for a polished look that travels well.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom crossbody briefcases with adjustable strap and logo embroidery, perfect for commuting professionals",
+  "productSkus": [
+    "527860",
+    "528726",
+    "529217"
+  ],
+  "generatedAt": "2026-05-31T09:09:14.334494+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

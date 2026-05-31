@@ -1,0 +1,66 @@
+{
+  "url": "/cat/joggers",
+  "type": "root",
+  "h1": "Custom Joggers for Teams, Events & Employee Apparel",
+  "metaTitle": "Custom Joggers | Perfect Imprints",
+  "metaDescription": "Shop custom joggers with your logo. Perfect for teams, events, and employee uniforms. Bulk pricing available. Order today!",
+  "introHtml": "<p>Marketing directors and HR managers looking to outfit their teams with comfortable, unified apparel will find that custom joggers offer a versatile solution. Whether you need scrub joggers for medical staff, warm flannel pants for a winter event, or moisture-wicking shorts for a company 5K, the right pair of joggers can reinforce your brand while keeping your team comfortable. Our selection includes styles for men, women, and youth, with materials ranging from cotton fleece to performance polyester.</p><p>Safety managers and business owners appreciate that custom joggers can be decorated with screen printing or embroidery to display logos, department names, or safety slogans. Bulk ordering ensures consistent sizing and color across your entire group, and our team can help you choose fabrics and cuts that suit your specific climate and activity level. From casual Fridays to outdoor company picnics, branded joggers create a cohesive look that employees actually want to wear.</p>",
+  "buyingGuideHtml": "<h3>What to Look for in Custom Joggers</h3><p>When ordering custom joggers, consider the primary use case. For medical or hospitality staff, scrub joggers like the Women's Jaanuu Rubi Ultrasoft Scrub Joggers offer stretch and pockets designed for long shifts. For casual team events, cotton sweatpants or flannel pants provide warmth and comfort. Performance shorts with moisture-wicking fabric are ideal for active outings. Always check fabric weight and pocket configuration to match your audience's needs.</p><h3>Materials and Build Quality</h3><p>Fabric choice directly affects durability and comfort. Cotton-polyester blends offer breathability and easy care. Fleece-lined joggers provide insulation for cooler weather. For athletic use, look for polyester blends with moisture-wicking properties. Reinforced seams and elastic waistbands with drawstrings improve longevity and fit. Avoid thin materials that may pill or fade after repeated washing, especially for logo-printed items.</p><h3>Use Cases and Buyer Personas</h3><p>Marketing directors often order custom joggers for trade show giveaways or company store inventory. HR directors use them for employee onboarding kits or wellness program incentives. Safety managers might choose high-visibility cargo pants for outdoor crews. Business owners appreciate logo joggers for team building events or customer appreciation gifts. Each persona benefits from choosing a style that reflects their brand's image and the activity level of the wearer.</p><h3>Decoration and Customization Options</h3><p>Screen printing works well for large logos on cotton or cotton-blend joggers and shorts. Embroidery is ideal for flannel pants and cargo pants, giving a professional, durable finish. For performance fabrics, consider heat transfer or sublimation to avoid cracking. Keep in mind that pocket placement and fabric texture can affect decoration placement. Request a mockup before ordering to ensure your design looks great on the chosen garment.</p><h3>Quantity Guidance and MOQ Context</h3><p>Minimum order quantities for custom joggers typically start at 12 to 24 pieces per style and color. Bulk orders of 50+ units often qualify for lower per-unit pricing. If you need multiple sizes, order in proportion to your team's size distribution. For large events, consider ordering extras for replacements or future needs. Wholesale pricing is available for quantities over 100 pieces, making it cost-effective for company-wide uniforms.</p><h3>Common Buying Mistakes to Avoid</h3><p>One frequent mistake is ordering the wrong size range. Always request a sizing kit or compare your group's measurements to the brand's size chart. Another pitfall is choosing a fabric that doesn't suit the climate; heavy fleece may be too warm for summer events. Finally, confirm decoration placement on pockets or seams — some garments have limited flat areas for logos. Ordering samples first can prevent costly errors.</p>",
+  "buyingGuideH2": "Custom Joggers Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom joggers?",
+      "a": "Minimum order quantities typically start at 12 to 24 pieces per style and color. Some items may have lower MOQs. Contact our team for specific product requirements."
+    },
+    {
+      "q": "What decoration methods work best on joggers?",
+      "a": "Screen printing is common for cotton joggers, while embroidery works well on flannel and cargo pants. For performance fabrics, heat transfer or sublimation are recommended to avoid cracking."
+    },
+    {
+      "q": "Can I order different sizes and colors in one order?",
+      "a": "Yes, you can mix sizes and colors within the same style to reach the minimum order quantity. Each color and size combination counts toward the total."
+    },
+    {
+      "q": "How long does production take for custom joggers?",
+      "a": "Typical production time is 10-15 business days after artwork approval. Rush orders may be available for an additional fee. Shipping time depends on your location."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, we offer sample orders so you can check fabric, fit, and print quality. Samples are charged at cost and shipped within a few days. The cost is often credited back for large orders."
+    }
+  ],
+  "heroAltText": "Group of people wearing custom joggers with logos, including scrub joggers and flannel pants",
+  "productSkus": [
+    "506401",
+    "506402",
+    "509482",
+    "526128",
+    "526129",
+    "527831",
+    "527832",
+    "527834",
+    "527835",
+    "527836",
+    "528786",
+    "528788",
+    "528789",
+    "528795",
+    "528865",
+    "528869",
+    "528873",
+    "528874",
+    "528875",
+    "528876",
+    "528881",
+    "528882",
+    "528886",
+    "529237"
+  ],
+  "generatedAt": "2026-05-30T11:25:50.457222+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "buyer",
+  "skuFilterMode": "full-capped-60",
+  "rawSkuCount": 24,
+  "filteredSkuCount": 24
+}

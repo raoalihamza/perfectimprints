@@ -1,0 +1,22 @@
+{
+  "url": "/cat/mints/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Mints for Bulk Orders",
+  "metaTitle": "Custom Brown Mints | Perfect Imprints",
+  "metaDescription": "Order custom brown mints for your brand. Perfect for corporate gifts and events. Get a quote today.",
+  "introHtml": "<p>Brown mints offer a warm, neutral color that works well for corporate gifts, trade shows, or employee appreciation. Unlike standard white or pastel mints, brown can complement earth-toned branding or seasonal themes like autumn. Customize with your logo using foil stamping or edible ink. Choose from buttermints or other soft mints that melt smoothly and leave a refreshing taste.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom brown mints in bulk packaging with a company logo imprinted on each mint.",
+  "productSkus": [
+    "501791",
+    "501798"
+  ],
+  "generatedAt": "2026-05-31T09:56:46.223344+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

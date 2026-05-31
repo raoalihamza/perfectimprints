@@ -1,0 +1,28 @@
+{
+  "url": "/cat/coolers/brand/under-armour",
+  "type": "facet",
+  "h1": "Custom Under Armour Coolers for Bulk Orders",
+  "metaTitle": "Custom Under Armour Coolers | Perfect Imprints",
+  "metaDescription": "Order custom Under Armour coolers in bulk for your team or event. Durable, branded coolers from Perfect Imprints.",
+  "introHtml": "<p>Under Armour coolers combine the durability and performance you expect from the brand with ample space for drinks and snacks. Whether you're outfitting a sales team for outdoor events or providing employee gifts for summer picnics, these coolers offer reliable insulation and a professional look. Decorate with your logo using screen printing or embroidery for a polished finish that stands up to repeated use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Under Armour coolers with team logo, insulated and durable for outdoor events",
+  "productSkus": [
+    "527121",
+    "527122",
+    "528095",
+    "528096",
+    "528105",
+    "528106",
+    "528108",
+    "529262"
+  ],
+  "generatedAt": "2026-05-31T09:11:13.515615+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

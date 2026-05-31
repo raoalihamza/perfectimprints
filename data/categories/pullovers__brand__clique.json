@@ -1,0 +1,24 @@
+{
+  "url": "/cat/pullovers/brand/clique",
+  "type": "facet",
+  "h1": "Custom Clique Pullovers for Bulk Orders",
+  "metaTitle": "Custom Clique Pullovers | Perfect Imprints",
+  "metaDescription": "Order custom Clique pullovers in bulk from Perfect Imprints. Ideal for teams, events, and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Clique pullovers combine modern styling with durable performance fabrics, making them a top choice for corporate uniforms, event staff, and team apparel. The Summit ½ Zip series features moisture-wicking material and a clean look that works for both indoor and outdoor settings. With a full line of men's and women's options, you can outfit your entire group in matching pullovers that carry your logo with confidence.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Clique pullovers with embroidered logo on front, available in multiple colors for bulk orders",
+  "productSkus": [
+    "509568",
+    "509569",
+    "526962",
+    "526963"
+  ],
+  "generatedAt": "2026-05-31T10:04:33.022290+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,27 @@
+{
+  "url": "/cat/apparel-accessories/gender/men-s",
+  "type": "facet",
+  "h1": "Custom Men's Apparel Accessories",
+  "metaTitle": "Custom Men's Apparel Accessories | Perfect Imprints",
+  "metaDescription": "Shop custom men's apparel accessories for bulk orders. Perfect for corporate gifts, events, and uniforms. Get a quote today!",
+  "introHtml": "<p>Men's apparel accessories like fleece gloves, flip flops, and socks are essential for corporate branding that fits active lifestyles. Whether you need cold-weather gear for outdoor workers or casual giveaways for company picnics, these items offer practical everyday use. Choose from decoration methods like screen printing or embroidery to add your logo on fleece gloves or socks. Perfect for safety managers equipping crews or HR directors selecting employee gifts that get used.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom men's apparel accessories including fleece gloves and socks with embroidered logo",
+  "productSkus": [
+    "501556",
+    "516831",
+    "516832",
+    "516834",
+    "520052",
+    "526363",
+    "528344"
+  ],
+  "generatedAt": "2026-05-31T09:05:15.300384+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

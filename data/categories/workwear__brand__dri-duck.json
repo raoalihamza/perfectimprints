@@ -1,0 +1,27 @@
+{
+  "url": "/cat/workwear/brand/dri-duck",
+  "type": "facet",
+  "h1": "Custom Dri Duck Workwear for Bulk Orders",
+  "metaTitle": "Custom Dri Duck Workwear | Perfect Imprints",
+  "metaDescription": "Order custom Dri Duck workwear in bulk. Durable jackets, hats, and more. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Dri Duck workwear combines rugged durability with practical features like waterproof shells and insulated mugs, making it a go-to choice for outdoor crews and industrial teams. From the Men's Challenger Full-Zip Waterproof Jacket to the 32 oz Maverick Insulated Stainless Steel Mug, each piece can be decorated with your logo via screen printing or embroidery. Perfect for safety managers equipping field workers or marketing directors outfitting brand ambassadors at trade shows.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Dri Duck workwear including jackets and hats with logo embroidery for bulk orders",
+  "productSkus": [
+    "522595",
+    "527125",
+    "527126",
+    "528099",
+    "528100",
+    "528838",
+    "529182"
+  ],
+  "generatedAt": "2026-05-31T08:48:06.947646+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

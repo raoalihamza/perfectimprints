@@ -1,0 +1,33 @@
+{
+  "url": "/cat/visors/feature/adjustable",
+  "type": "facet",
+  "h1": "Custom Adjustable Visors",
+  "metaTitle": "Custom Adjustable Visors | Perfect Imprints",
+  "metaDescription": "Order custom adjustable visors for your team or event. Bulk pricing, fast turnaround. Get a quote today!",
+  "introHtml": "<p>Custom adjustable visors give you the flexibility of a universal fit with the comfort of a breathable, open-top design. Whether you need promotional gear for a golf tournament, employee uniforms for outdoor crews, or giveaways at a summer trade show, the adjustable snapback or hook-and-loop closure ensures one size works for nearly everyone. Choose from structured or unstructured fronts, cotton or performance fabrics, and decorate with screen printing or embroidery for a crisp, lasting logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adjustable visors with embroidered logo on structured front, snapback closure, perfect for outdoor events and team uniforms.",
+  "productSkus": [
+    "505481",
+    "507562",
+    "509238",
+    "512748 37A",
+    "512764",
+    "516041",
+    "521617",
+    "522099",
+    "522530",
+    "522625",
+    "522627",
+    "522628",
+    "525630"
+  ],
+  "generatedAt": "2026-05-31T10:13:33.432783+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

@@ -1,0 +1,31 @@
+{
+  "url": "/cat/wine-glasses/feature/with-a-lid",
+  "type": "facet",
+  "h1": "Custom Wine Glasses with Lids",
+  "metaTitle": "Custom Wine Glasses with Lids | Perfect Imprints",
+  "metaDescription": "Order custom wine glasses with lids for spill-proof branding. Perfect for events and giveaways. Shop at Perfect Imprints.",
+  "introHtml": "<p>Wine glasses with lids combine the elegance of a wine glass with the practicality of a travel tumbler. Perfect for outdoor events, trade shows, or corporate picnics, these insulated or stemless options keep drinks secure and at the right temperature. Decorate them with your logo using screen printing or laser engraving for a polished, functional giveaway that stands out from standard stemware.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wine glasses with lids featuring a branded 25 oz insulated tumbler and a 10 oz stemless cup",
+  "productSkus": [
+    "520339",
+    "521101",
+    "522060",
+    "522955",
+    "523495",
+    "523689",
+    "523950",
+    "524419",
+    "525481",
+    "526191",
+    "527802"
+  ],
+  "generatedAt": "2026-05-31T10:14:56.371497+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

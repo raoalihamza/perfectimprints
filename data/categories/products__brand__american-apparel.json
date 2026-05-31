@@ -1,0 +1,21 @@
+{
+  "url": "/cat/products/brand/american-apparel",
+  "type": "facet",
+  "h1": "Custom American Apparel Products for Bulk Orders",
+  "metaTitle": "Custom American Apparel Products | Perfect Imprints",
+  "metaDescription": "Order custom American Apparel products in bulk from Perfect Imprints. Get premium blanks with your logo. Fast turnaround.",
+  "introHtml": "<p>American Apparel products are known for their soft, comfortable fabrics and consistent sizing, making them a top choice for companies that want their branded apparel to feel as good as it looks. The Unisex Triblend Short-Sleeve Track T-Shirt, for example, offers a vintage look with modern durability. When you choose custom American Apparel products, you get blanks that hold up to screen printing and embroidery alike, ensuring your logo stays sharp through repeated washes. Perfect for employee uniforms or giveaway tees that recipients will actually wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom American Apparel products including a unisex triblend short-sleeve track t-shirt with screen-printed logo",
+  "productSkus": [
+    "526600"
+  ],
+  "generatedAt": "2026-05-31T10:03:22.987958+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/drinkware/activity/running",
+  "type": "facet",
+  "h1": "Custom Running Drinkware for Athletes & Events",
+  "metaTitle": "Custom Running Drinkware | Perfect Imprints",
+  "metaDescription": "Shop custom running drinkware for your team or event. Perfect for hydration on the go. Order bulk bottles and cups at Perfect Imprints.",
+  "introHtml": "<p>Running drinkware is designed for athletes who need quick hydration without breaking stride. These bottles and cups feature ergonomic shapes, secure lids, and easy-carry handles or loops. Whether you're outfitting a marathon team or giving branded gear at a 5K event, custom running drinkware keeps your logo visible mile after mile. Choose from squeeze bottles, handheld water bottles, or insulated cups that fit standard cup holders. Decorate with your logo using screen printing or full-color wraps, and make every run a brand impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom running drinkware with ergonomic design and brand logo, perfect for athletes and race events",
+  "productSkus": [
+    "529400"
+  ],
+  "generatedAt": "2026-05-31T09:43:29.017913+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

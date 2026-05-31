@@ -1,0 +1,26 @@
+{
+  "url": "/cat/aprons/supplier/sm",
+  "type": "facet",
+  "h1": "Custom SM Aprons for Bulk Orders",
+  "metaTitle": "Custom SM Aprons | Perfect Imprints",
+  "metaDescription": "Order custom SM aprons in bulk at Perfect Imprints. Great for restaurants, events, and branding. Get a quote today.",
+  "introHtml": "<p>SM aprons offer a reliable choice for businesses needing durable, cost-effective promotional apparel. Whether you run a restaurant, catering service, or retail chain, these aprons hold up to daily use and provide a clean canvas for screen-printed logos or embroidered names. The 10 oz cotton options give a professional look, while waist aprons work well for quick-service environments. Ordering custom SM aprons in bulk ensures consistent branding across your team.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom SM aprons with embroidered logo on cotton fabric for restaurant staff",
+  "productSkus": [
+    "508541",
+    "509133 90A",
+    "515077",
+    "516543 01A",
+    "527339",
+    "528072"
+  ],
+  "generatedAt": "2026-05-31T08:38:48.749982+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

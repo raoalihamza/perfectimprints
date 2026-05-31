@@ -1,0 +1,21 @@
+{
+  "url": "/cat/fitness-gifts/closeout",
+  "type": "modifier",
+  "h1": "Closeout Custom Fitness Gifts",
+  "metaTitle": "Closeout Custom Fitness Gifts | Perfect Imprints",
+  "metaDescription": "Save on closeout custom fitness gifts while supplies last. Perfect for corporate wellness. Shop clearance deals now.",
+  "introHtml": "<p>Closeout custom fitness gifts offer a rare opportunity to stock premium branded merchandise at clearance prices. These items are in limited supply and sell quickly, making them ideal for budget-conscious marketing directors and HR managers looking to stretch their promotional dollars. From cooling towels to other workout essentials, each closeout item carries the same quality as our full-price inventory but at a reduced cost. Act fast, because once these are gone, the selection changes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Closeout custom fitness gifts including a branded cooling towel, displayed on a gym bench",
+  "productSkus": [
+    "521013"
+  ],
+  "generatedAt": "2026-05-31T09:45:45.588967+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

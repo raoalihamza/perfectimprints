@@ -1,0 +1,21 @@
+{
+  "url": "/cat/backpacks/brand/ogio",
+  "type": "facet",
+  "h1": "Custom Ogio Backpacks for Bulk Orders",
+  "metaTitle": "Custom Ogio Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Ogio backpacks for your team. Durable, branded bags with premium decoration. Get a quote today.",
+  "introHtml": "<p>Ogio backpacks are built for durability and performance, making them a smart choice for corporate gifts, employee onboarding, or trade show giveaways. The Ogio Epic Pack offers a padded laptop compartment and multiple organizer pockets, ideal for professionals who carry tech on the go. Customize with your logo using embroidery or screen printing for a polished, long-lasting impression that stands out from standard backpack options.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Ogio backpacks with embroidered logo, featuring the Ogio Epic Pack in black with multiple compartments.",
+  "productSkus": [
+    "515082 01A"
+  ],
+  "generatedAt": "2026-05-31T09:33:35.244102+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

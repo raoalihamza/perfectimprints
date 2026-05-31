@@ -1,0 +1,32 @@
+{
+  "url": "/cat/products/brand/hydro-flask",
+  "type": "facet",
+  "h1": "Custom Hydro Flask Products for Bulk Orders",
+  "metaTitle": "Custom Hydro Flask Products | Perfect Imprints",
+  "metaDescription": "Order custom Hydro Flask products in bulk at Perfect Imprints. Perfect for corporate gifts, events, and employee rewards.",
+  "introHtml": "<p>Hydro Flask products are known for their TempShield insulation, keeping drinks cold for 24 hours or hot for 12. When you choose custom Hydro Flask bottles, tumblers, or coolers for your team or event, you get durable stainless steel construction and a range of sizes from the 6.7 oz Micro Mini to the 32 oz Wide Mouth. Add your logo with laser engraving or screen printing for a premium look that lasts. Whether you need branded coffee mugs for a morning meeting or custom water bottles for a trade show, Hydro Flask offers the quality your recipients will use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hydro Flask products including water bottles and tumblers with company logo",
+  "productSkus": [
+    "526267",
+    "526268",
+    "526269",
+    "526270",
+    "526271",
+    "527823",
+    "527859",
+    "527961",
+    "528582",
+    "528583",
+    "528688",
+    "529393"
+  ],
+  "generatedAt": "2026-05-31T09:23:55.972919+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

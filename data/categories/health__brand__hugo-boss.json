@@ -1,0 +1,23 @@
+{
+  "url": "/cat/health/brand/hugo-boss",
+  "type": "facet",
+  "h1": "Custom Hugo Boss Health Products for Bulk Orders",
+  "metaTitle": "Custom Hugo Boss Health Products | Perfect Imprints",
+  "metaDescription": "Order custom Hugo Boss health products for your corporate wellness program. Pill boxes and more with your logo. Bulk pricing available.",
+  "introHtml": "<p>Hugo Boss brings a refined aesthetic to corporate wellness. Their health accessories, like the Oval Pill Box and Tri-Minder Pill Box, combine sleek design with practical functionality. For HR directors and marketing teams, these items offer a premium way to show employees or clients you care about their well-being. The brushed metal finishes and compact profiles make them easy to carry, while your logo adds a professional touch. Choose Hugo Boss health products for a gift that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hugo Boss health products including pill boxes with brushed metal finish and logo imprint",
+  "productSkus": [
+    "505121",
+    "509086",
+    "529001"
+  ],
+  "generatedAt": "2026-05-31T09:15:45.419657+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

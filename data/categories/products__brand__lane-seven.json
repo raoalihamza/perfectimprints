@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/lane-seven",
+  "type": "facet",
+  "h1": "Custom Lane Seven Products for Bulk Orders",
+  "metaTitle": "Custom Lane Seven Products | Perfect Imprints",
+  "metaDescription": "Order custom Lane Seven products in bulk. Perfect Imprints offers fast turnaround and expert decoration for your brand.",
+  "introHtml": "<p>Lane Seven products are crafted with a focus on durability and modern style, making them a smart choice for corporate gifts, trade show giveaways, and employee incentives. From sleek drinkware and tech accessories to premium bags, each item offers a clean canvas for your logo or message. Choose screen printing, embroidery, or laser engraving to create a polished, professional look that reflects your brand's attention to quality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Lane Seven products including drinkware and bags with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:34.705902+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

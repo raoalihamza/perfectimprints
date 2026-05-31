@@ -1,0 +1,22 @@
+{
+  "url": "/cat/office/theme/halloween",
+  "type": "facet",
+  "h1": "Custom Halloween Office Supplies",
+  "metaTitle": "Custom Halloween Office Supplies | Perfect Imprints",
+  "metaDescription": "Shop custom Halloween office supplies at Perfect Imprints. Great for seasonal promotions, giveaways, and themed events.",
+  "introHtml": "<p>Halloween-themed office supplies let you turn a standard workplace giveaway into a seasonal conversation starter. Whether you are handing out branded Pop Mags notebooks with a spooky cover or garden seed matchbooks with a pumpkin label, these items add a festive touch that recipients remember. Perfect for trade shows, employee appreciation, or client gifts, they show you put thought into your promotion.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom Halloween office supplies including notebooks and matchbooks with festive designs",
+  "productSkus": [
+    "522294",
+    "524553"
+  ],
+  "generatedAt": "2026-05-31T09:21:01.261843+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

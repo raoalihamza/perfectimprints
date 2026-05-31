@@ -1,0 +1,23 @@
+{
+  "url": "/cat/apparel/material/steel",
+  "type": "facet",
+  "h1": "Custom Steel Apparel for Bulk Orders",
+  "metaTitle": "Custom Steel Apparel | Perfect Imprints",
+  "metaDescription": "Order custom steel apparel in bulk. Durable, stylish, and perfect for branding. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Steel apparel offers a unique metallic finish that stands out from traditional cotton or polyester garments. Perfect for industrial trade shows, safety teams, or brands aiming for an edgy, modern look, these pieces combine durability with style. Decorate with screen printing or embroidery for a long-lasting impression. Choose steel for a distinctive uniform that reflects strength and innovation.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom steel apparel featuring a metallic gray Hanes T-shirt with a printed logo",
+  "productSkus": [
+    "516011",
+    "516018",
+    "516279"
+  ],
+  "generatedAt": "2026-05-31T09:32:20.796418+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

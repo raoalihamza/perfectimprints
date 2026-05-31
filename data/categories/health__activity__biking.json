@@ -1,0 +1,33 @@
+{
+  "url": "/cat/health/activity/biking",
+  "type": "facet",
+  "h1": "Custom Biking Health Products for Teams & Events",
+  "metaTitle": "Custom Biking Health Products | Perfect Imprints",
+  "metaDescription": "Order custom biking health products for your team or event. Choose from reflective gear, hydration, and safety items at Perfect Imprints.",
+  "introHtml": "<p>Cycling presents unique safety and health needs that standard promotional items don't address. Whether you're outfitting a corporate bike-to-work program or distributing giveaways at a charity ride, these products combine visibility, protection, and practicality. From reflective snap bands and LED strobe lights to SPF 30 sunscreen and cooling towels, each item supports cyclists in staying safe and comfortable on the road. Decorate with your logo to promote wellness and safety awareness.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom biking health products including reflective safety bands, cooling towels, and LED lights with logos.",
+  "productSkus": [
+    "501590",
+    "503360",
+    "506864",
+    "507398",
+    "512764",
+    "513338",
+    "517497",
+    "519201",
+    "520715",
+    "521013",
+    "521117",
+    "521967",
+    "525150"
+  ],
+  "generatedAt": "2026-05-31T09:15:45.222829+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

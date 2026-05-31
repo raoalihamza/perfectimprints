@@ -1,0 +1,23 @@
+{
+  "url": "/cat/drawstring-backpacks/feature/pocketed",
+  "type": "facet",
+  "h1": "Custom Pocketed Drawstring Backpacks",
+  "metaTitle": "Custom Pocketed Drawstring Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom pocketed drawstring backpacks for your team or event. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Pocketed drawstring backpacks keep small essentials organized without the bulk of a traditional backpack. The extra zippered or slip pockets are ideal for phones, keys, or wallets, making them a practical giveaway for trade shows, employee onboarding, or school events. Materials range from recycled PET to polyester, and decoration options include screen printing or embroidery. Whether you need an insulated pocket for snacks or a secure compartment for valuables, pocketed drawstring bags combine convenience with brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pocketed drawstring backpacks with multiple compartments and zippered pockets for organized storage.",
+  "productSkus": [
+    "517456",
+    "521162",
+    "525890"
+  ],
+  "generatedAt": "2026-05-31T09:43:07.046147+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

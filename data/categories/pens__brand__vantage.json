@@ -1,0 +1,22 @@
+{
+  "url": "/cat/pens/brand/vantage",
+  "type": "facet",
+  "h1": "Custom Vantage Pens for Bulk Orders",
+  "metaTitle": "Custom Vantage Pens - Perfect Imprints",
+  "metaDescription": "Order custom Vantage pens for your business. Perfect for giveaways and daily use. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Vantage pens combine smooth writing with a professional look, making them a smart choice for corporate giveaways and office supply orders. The Attache Pen offers a sleek metal barrel, while the Luxwood Comfort Pen adds a warm wood finish. Both accept full-color imprinting, so your logo stands out clearly. Ordering in bulk keeps per-unit costs low, and Vantage's reliable ink ensures every recipient gets a pen they'll actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Vantage pens with logo imprint in blue and black ink for promotional giveaways",
+  "productSkus": [
+    "523982",
+    "529282"
+  ],
+  "generatedAt": "2026-05-31T10:00:20.787734+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/pet-waste-bags/color/white",
+  "type": "facet",
+  "h1": "Custom White Pet Waste Bags",
+  "metaTitle": "Custom White Pet Waste Bags | Perfect Imprints",
+  "metaDescription": "Order custom white pet waste bags for your business. Ideal for parks, offices, and events. Get a quote today!",
+  "introHtml": "<p>White pet waste bags offer a clean, professional look for parks, office campuses, and pet-friendly businesses. The bright color makes waste easy to spot, simplifying cleanup for staff and visitors. Custom print your logo on these bags to promote responsible pet ownership while reinforcing your brand. Dispensers like the Pet Waste Bag Dispenser or Fire Hydrant model pair perfectly with white bags for a cohesive, branded waste station.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom white pet waste bags with printed logo in a dispenser at a park",
+  "productSkus": [
+    "501626",
+    "512311",
+    "513078",
+    "514957",
+    "516906",
+    "528199"
+  ],
+  "generatedAt": "2026-05-31T10:01:27.124391+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

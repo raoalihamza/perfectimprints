@@ -1,0 +1,23 @@
+{
+  "url": "/cat/folding-chairs/theme/beach",
+  "type": "facet",
+  "h1": "Custom Beach Folding Chairs",
+  "metaTitle": "Custom Beach Folding Chairs | Perfect Imprints",
+  "metaDescription": "Order custom beach folding chairs with your logo. Perfect for events, giveaways, and brand visibility. Get a quote today!",
+  "introHtml": "<p>Custom beach folding chairs combine portability with coastal style, making them a standout choice for outdoor events, corporate giveaways, or resort promotions. Unlike standard folding chairs, beach-themed options often feature mesh backs, cup holders, and weather-resistant frames that hold up to sand and sun. Decorate them with your logo using pad printing or screen printing for a memorable impression at your next beachside activation or company picnic.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom beach folding chairs with logo printed on mesh back, set up on sandy shore with ocean view",
+  "productSkus": [
+    "526660",
+    "526663",
+    "527459"
+  ],
+  "generatedAt": "2026-05-31T08:17:58.186731+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

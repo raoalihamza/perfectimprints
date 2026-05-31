@@ -1,0 +1,21 @@
+{
+  "url": "/cat/first-aid-kits/activity/golf",
+  "type": "facet",
+  "h1": "Custom Golf First Aid Kits for Tournaments & Events",
+  "metaTitle": "Custom Golf First Aid Kits | Perfect Imprints",
+  "metaDescription": "Order custom golf first aid kits for your next tournament or corporate event. Perfect for branding with your logo. Get a quote today.",
+  "introHtml": "<p>Custom golf first aid kits are designed for the unique needs of golfers and event organizers. From sun exposure to minor cuts and blisters, these kits include essentials like sunscreen and adhesive bandages. Ideal for charity tournaments, corporate outings, or league giveaways, they offer practical value while keeping your brand visible on the course. Personalize with your logo for a memorable impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom golf first aid kit with sunscreen and bandages, perfect for tournaments and corporate events",
+  "productSkus": [
+    "510552"
+  ],
+  "generatedAt": "2026-05-31T09:45:41.867233+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

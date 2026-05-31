@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jewelry/supplier/sj",
+  "type": "facet",
+  "h1": "Custom SJ Jewelry for Bulk Orders",
+  "metaTitle": "Custom SJ Jewelry | Perfect Imprints",
+  "metaDescription": "Order custom SJ jewelry in bulk from Perfect Imprints. Perfect for events and promotions with fast turnaround.",
+  "introHtml": "<p>Custom SJ jewelry offers a versatile way to promote your brand with accessories that recipients will actually wear. Whether you need paracord bracelets for outdoor enthusiasts or mood watch bracelets for a trendy give-away, SJ's product line fits active lifestyles and casual settings. These pieces can be decorated with your logo using pad printing or engraving, making them suitable for corporate events, safety incentives, or employee appreciation. Bulk ordering ensures cost-effective pricing for your next campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom SJ jewelry including paracord bracelet and mood watch bracelet with logo engraving",
+  "productSkus": [
+    "516655",
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T09:52:14.239345+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

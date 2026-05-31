@@ -1,0 +1,28 @@
+{
+  "url": "/cat/eyewear/brand/under-armour",
+  "type": "facet",
+  "h1": "Custom Under Armour Eyewear for Bulk Orders",
+  "metaTitle": "Custom Under Armour Eyewear | Perfect Imprints",
+  "metaDescription": "Order custom Under Armour eyewear in bulk. Perfect for safety teams and brand giveaways. Shop at Perfect Imprints.",
+  "introHtml": "<p>Under Armour eyewear combines performance-focused design with durable materials, making it a top choice for safety managers equipping workers or marketing directors building brand loyalty. These sunglasses and safety glasses feature anti-fog lenses and lightweight frames, ideal for outdoor events or industrial settings. Add your logo with pad printing or etching for a professional look that stands up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Under Armour eyewear with logo, featuring polarized lenses and durable frame for bulk orders",
+  "productSkus": [
+    "527121",
+    "527122",
+    "528095",
+    "528096",
+    "528105",
+    "528106",
+    "528108",
+    "529262"
+  ],
+  "generatedAt": "2026-05-31T09:44:59.704709+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/writing/special-feature/best-sellers",
+  "type": "facet",
+  "h1": "Custom Best Sellers Writing Products for Bulk Orders",
+  "metaTitle": "Custom Best Sellers Writing | Perfect Imprints",
+  "metaDescription": "Shop custom best sellers writing products at Perfect Imprints. Ideal for bulk orders. Get a quote today.",
+  "introHtml": "<p>Choosing from our best sellers in writing means you're selecting products that have proven their popularity and reliability across industries. From sleek metal pens to eco-friendly options, these items deliver consistent quality and high brand visibility. Perfect for corporate gifts, trade shows, or employee appreciation, they ensure your logo gets noticed. Explore our top-rated writing instruments that combine functionality with style, and simplify your bulk ordering process with proven favorites.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Array of custom best sellers writing products including pens and pencils with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:38:32.062719+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

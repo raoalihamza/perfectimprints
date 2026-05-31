@@ -1,0 +1,28 @@
+{
+  "url": "/cat/beanies/brand/under-armour",
+  "type": "facet",
+  "h1": "Custom Under Armour Beanies for Bulk Orders",
+  "metaTitle": "Custom Under Armour Beanies | Perfect Imprints",
+  "metaDescription": "Order custom Under Armour beanies for your team or event. Bulk pricing, fast turnaround. Get a quote today.",
+  "introHtml": "<p>Under Armour beanies combine the trusted performance fabric technology the brand is known for with the warmth and comfort needed for cold-weather gear. Whether you are outfitting a sales team for a winter trade show or providing promotional apparel for an outdoor company event, these beanies offer a professional look with moisture-wicking properties and a snug fit. Decorate with your logo using embroidery or heat transfer for a crisp, durable finish that holds up wash after wash.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Under Armour beanies with embroidered logo on a dark background for bulk promotional orders.",
+  "productSkus": [
+    "527121",
+    "527122",
+    "528095",
+    "528096",
+    "528105",
+    "528106",
+    "528108",
+    "529262"
+  ],
+  "generatedAt": "2026-05-31T09:08:26.903054+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

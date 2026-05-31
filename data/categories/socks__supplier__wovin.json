@@ -1,0 +1,29 @@
+{
+  "url": "/cat/socks/supplier/wovin",
+  "type": "facet",
+  "h1": "Custom Wovin Socks for Bulk Orders",
+  "metaTitle": "Custom Wovin Socks | Perfect Imprints",
+  "metaDescription": "Order custom Wovin socks in bulk. Perfect for employee gifts, trade shows, and branded merchandise. Fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Wovin socks offer a unique combination of comfort and durability, making them a top choice for corporate gifts and promotional events. Whether you choose the BeWell™ Socks for wellness programs or the Fuzzy Feet Slipper Socks for hospitality, Wovin's quality ensures your logo stays visible through repeated wear and washing. Ideal for marketing directors and HR managers looking for practical, high-appeal giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Wovin socks in assorted colors and styles, including ankle and crew lengths, with printed logos.",
+  "productSkus": [
+    "516800",
+    "521927",
+    "522251",
+    "524427",
+    "525740",
+    "526360",
+    "526361",
+    "526363",
+    "526896"
+  ],
+  "generatedAt": "2026-05-31T10:07:25.481165+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

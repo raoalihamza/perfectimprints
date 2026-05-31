@@ -1,0 +1,23 @@
+{
+  "url": "/cat/face-masks/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Face Masks for Bulk Orders",
+  "metaTitle": "Custom Purple Face Masks | Perfect Imprints",
+  "metaDescription": "Order custom purple face masks for your team or event. Bulk pricing, fast turnaround. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Purple face masks offer a distinctive look for corporate teams, healthcare facilities, or event giveaways. Whether you choose a tubular bandana for lightweight comfort or a traditional paisley bandana for a classic style, purple stands out in a crowd. Custom imprinting with your logo or message is available on all styles. Perfect for safety managers and HR directors equipping staff with branded PPE that aligns with company colors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom purple face masks with logo imprint, including tubular bandanas and traditional paisley bandanas.",
+  "productSkus": [
+    "506991",
+    "521602",
+    "524693"
+  ],
+  "generatedAt": "2026-05-31T09:45:16.805915+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

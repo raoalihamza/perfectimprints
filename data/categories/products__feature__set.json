@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Products for Branded Promotions",
+  "metaTitle": "Custom Set Products | Perfect Imprints",
+  "metaDescription": "Browse custom set products for bulk orders at Perfect Imprints. Perfect for branded giveaways and corporate gifts.",
+  "introHtml": "<p>Custom set products bundle multiple items into one cohesive package, making them ideal for corporate gift bags, event swag kits, or employee welcome packs. Whether you pair a branded notebook with a pen or a water bottle with a stress reliever, sets increase perceived value and ensure consistent branding across items. Choose from pre-assembled combos or build your own custom set to match your budget and audience.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom set products including branded notebooks, pens, and water bottles in a gift box",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:30:33.715770+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

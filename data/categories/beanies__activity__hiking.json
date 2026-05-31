@@ -1,0 +1,21 @@
+{
+  "url": "/cat/beanies/activity/hiking",
+  "type": "facet",
+  "h1": "Custom Hiking Beanies for Outdoor Enthusiasts",
+  "metaTitle": "Custom Hiking Beanies | Perfect Imprints",
+  "metaDescription": "Order custom hiking beanies for your outdoor team or event. Durable, warm knit caps perfect for trail use. Get a quote today!",
+  "introHtml": "<p>Custom hiking beanies combine warmth and durability for outdoor enthusiasts who need reliable gear on the trail. Unlike standard knit caps, these beanies are designed to handle moisture and wind, making them ideal for marketing giveaways at outdoor events or employee appreciation gifts for hiking clubs. The Kati Breakup 8\" Knit Cap offers a snug fit and classic style that pairs well with any outdoor uniform.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hiking beanies for outdoor enthusiasts, featuring a durable knit cap with a snug fit for trail use",
+  "productSkus": [
+    "519125"
+  ],
+  "generatedAt": "2026-05-31T08:32:40.789270+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

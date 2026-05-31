@@ -1,0 +1,21 @@
+{
+  "url": "/cat/umbrellas/color/gray",
+  "type": "facet",
+  "h1": "Custom Gray Umbrellas for Branded Promotions",
+  "metaTitle": "Custom Gray Umbrellas | Perfect Imprints",
+  "metaDescription": "Order custom gray umbrellas for your brand. Perfect for corporate gifts and events. Shop bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Gray umbrellas offer a neutral, professional look that works well for corporate branding without clashing with company colors. Whether you need auto-open models for commuters or compact options for trade shows, gray provides a subtle backdrop that makes your logo stand out. The Spotlight RPET Auto Open 50\" Arc Umbrella, for example, combines eco-friendly materials with a sleek gray canopy ideal for employee gifts or client appreciation.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gray umbrellas with a professional look, featuring a company logo on a neutral gray canopy.",
+  "productSkus": [
+    "527110"
+  ],
+  "generatedAt": "2026-05-31T10:12:56.315431+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

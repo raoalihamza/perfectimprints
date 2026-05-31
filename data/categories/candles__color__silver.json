@@ -1,0 +1,22 @@
+{
+  "url": "/cat/candles/color/silver",
+  "type": "facet",
+  "h1": "Custom Silver Candles for Bulk Orders",
+  "metaTitle": "Custom Silver Candles | Perfect Imprints",
+  "metaDescription": "Order custom silver candles in bulk for your brand. Perfect for events and gifts. Get a quote today at PerfectImprints.com.",
+  "introHtml": "<p>Silver candles offer a sleek, metallic finish that stands out at corporate events, trade shows, or as client gifts. The reflective surface catches light beautifully, making your logo or message pop when decorated with foil stamping or screen printing. Yankee Candle® Large Tumbler Candles in silver provide a premium look that feels modern and sophisticated, ideal for companies wanting a polished brand impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom silver candles with metallic finish, perfect for corporate gifts and branded events.",
+  "productSkus": [
+    "529022",
+    "529024"
+  ],
+  "generatedAt": "2026-05-31T09:09:53.387836+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

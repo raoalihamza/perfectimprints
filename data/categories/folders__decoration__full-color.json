@@ -1,0 +1,22 @@
+{
+  "url": "/cat/folders/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Folders",
+  "metaTitle": "Custom Full Color Folders | Perfect Imprints",
+  "metaDescription": "Order custom full color folders for your brand. Perfect for presentations, events, and more. Get a quote today!",
+  "introHtml": "<p>Full color printing on folders lets you reproduce logos, photos, and detailed graphics with vibrant accuracy. Unlike standard one- or two-color imprinting, full color gives you the freedom to showcase complex designs, gradients, and photographic images across the entire folder surface. Marketing directors often use these for product launches or sales kits, while HR directors order them for onboarding packets that need to make a strong first impression. The Full Color Presentation Folder, for example, offers a glossy finish that makes colors pop, ensuring your materials stand out in any stack.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color folders with vibrant printing for presentations and branding",
+  "productSkus": [
+    "521328",
+    "528672"
+  ],
+  "generatedAt": "2026-05-31T09:46:29.448261+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

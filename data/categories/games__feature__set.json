@@ -1,0 +1,22 @@
+{
+  "url": "/cat/games/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Games for Bulk Orders",
+  "metaTitle": "Custom Set Games | Perfect Imprints",
+  "metaDescription": "Order custom set games in bulk. Perfect for giveaways and team building. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Custom set games bundle multiple activities into one branded package, giving recipients more value than a single game. Whether you need deck of cards and case combos or adult coloring book sets with pencils, these coordinated kits keep your logo front and center. They are ideal for conference swag bags, employee appreciation gifts, or safety training incentives. Choose from various components and customize each piece with your imprint.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set games including a branded deck of cards and a coloring book with colored pencils",
+  "productSkus": [
+    "520654",
+    "525824"
+  ],
+  "generatedAt": "2026-05-31T08:54:23.866062+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

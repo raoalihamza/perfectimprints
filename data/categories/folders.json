@@ -1,0 +1,56 @@
+{
+  "url": "/cat/folders",
+  "type": "root",
+  "h1": "Custom Folders for Branded Organization & Impact",
+  "metaTitle": "Custom Folders | Perfect Imprints",
+  "metaDescription": "Order custom folders for events, onboarding, and safety. Fast turnaround, low MOQ, and professional finishing options. Get yours today!",
+  "introHtml": "<p>Marketing directors preparing conference materials, HR managers assembling new-hire packets, and safety coordinators distributing compliance documents all face the same challenge: making information memorable and organized. Custom folders solve this by turning a simple paper holder into a branded touchpoint. Whether you need Splash Folders for a trade show giveaway or foil-stamped Small Qty Folders for an executive presentation, this category gives you the flexibility to match your event, budget, and brand standards.</p><p>From one-color foil on classic paperstock to full-color splash designs, each folder can carry your logo, tagline, or safety message. Business owners appreciate the low minimum order quantities that make small runs affordable, while marketing directors value the professional finish that elevates their materials. Browse the options below to find the right size, paperstock, and decoration method for your next project.</p>",
+  "buyingGuideHtml": "<p>When ordering custom folders, start by considering how the folder will be used. A conference folder handed to hundreds of attendees needs a different construction than a folder for executive board materials. Look for folders with reinforced edges or heavier paperstock if they will travel in bags. Splash Folders offer full-color print for high visual impact, while foil-stamped options on classic or designer paperstock convey a premium feel.</p><h3>Materials & Build Quality</h3><p>Paperstock weight and finish directly affect durability. Standard 12-14 pt paperstock works well for most office and event uses. For folders that will be handled repeatedly, consider a heavier stock or a laminated finish that resists scuffs and moisture. Foil stamping adds a metallic accent that catches light and reinforces a luxury image. Always request a paper swatch or sample before placing a large order to confirm the tactile quality meets your expectations.</p><h3>Use Cases & Buyer Personas</h3><p>Marketing directors use branded folders for press kits and product launches. HR directors rely on them for employee handbooks and benefits packets. Safety managers need durable folders for SDS sheets and training materials. Business owners often order personalized folders for client proposals and investor meetings. Each use case benefits from a different decoration approach: full-color print for visual campaigns, foil stamping for prestige, and simple one-color print for budget-conscious bulk orders.</p><h3>Decoration & Customization</h3><p>Common decoration methods for custom folders include screen printing, foil stamping, and full-color digital print. Screen printing works well for large quantities with one or two colors. Foil stamping is ideal for logos and text on small runs, especially on dark or textured paperstock. Full-color print allows photographic images and gradients, perfect for splash designs. For the most professional result, request a proof before production to verify color accuracy and placement.</p><h3>Quantity & MOQ Guidance</h3><p>Minimum order quantities for promotional folders vary by decoration type. Foil-stamped folders often have low MOQs of 50-100 pieces, making them accessible for small teams or pilot programs. Full-color splash folders typically require higher MOQs due to setup costs. As order volume increases, the per-unit price drops significantly. For large events or ongoing programs, ordering in bulk can save 20-40% compared to small runs. Always confirm lead times with your account manager, as foil stamping and custom paperstock may add a few days.</p><p>A common buying mistake is selecting a paperstock that is too thin for the intended use. A folder that looks great on a desk may not survive a trade show floor. Another pitfall is neglecting to check whether the folder accommodates standard 8.5x11 sheets without folding. Always measure your inserts and request a template if needed. Finally, proofread your artwork carefully — once foil is stamped or full-color print is applied, corrections are costly. Order a sample first to avoid surprises.</p>",
+  "buyingGuideH2": "Custom Folders Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom folders?",
+      "a": "Minimum order quantities vary by decoration method. Foil-stamped folders can be ordered in quantities as low as 50-100 pieces. Full-color splash folders typically require a minimum of 250-500 pieces. Contact your account manager for exact MOQs on specific products."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, samples are available for most folder styles. You can request a blank sample to evaluate paperstock and size, or a decorated sample if you need to check color and foil quality. Samples usually ship within 2-3 business days."
+    },
+    {
+      "q": "What sizes do custom folders come in?",
+      "a": "Standard folders fit 8.5x11 inch sheets and have a 1/2 inch expansion. Some products offer larger sizes for legal documents or presentation materials. Check the product specifications for exact dimensions and pocket capacities."
+    },
+    {
+      "q": "How long does production take for custom folders?",
+      "a": "Production time depends on the decoration method and order size. Simple one-color print or foil stamping can ship in 5-7 business days. Full-color splash folders may take 10-14 business days. Rush services are often available for an additional fee."
+    },
+    {
+      "q": "What paperstock options are available?",
+      "a": "Common options include white paperstock, classic paperstock (available in several colors), and designer paperstock with textured finishes. Weights range from 12 pt to 14 pt. Heavier stocks are recommended for folders that will be handled frequently."
+    }
+  ],
+  "heroAltText": "Custom folders with foil stamping and full-color print for branded organization at conferences and events",
+  "productSkus": [
+    "503818",
+    "508322",
+    "508686",
+    "508687",
+    "510428",
+    "513066",
+    "520161",
+    "520162",
+    "520163",
+    "521328",
+    "521541",
+    "521542",
+    "528657",
+    "528672"
+  ],
+  "generatedAt": "2026-05-30T11:36:26.507751+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "use_case",
+  "skuFilterMode": "full",
+  "rawSkuCount": 14,
+  "filteredSkuCount": 14
+}

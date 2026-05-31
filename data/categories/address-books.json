@@ -1,0 +1,68 @@
+{
+  "url": "/cat/address-books",
+  "type": "root",
+  "h1": "Custom Address Books for Business & Promotional Use",
+  "metaTitle": "Custom Address Books | Perfect Imprints",
+  "metaDescription": "Order custom address books for your business. Perfect for corporate gifts, trade shows & employee kits. Low MOQs, fast turnaround.",
+  "introHtml": "<p>Marketing directors planning client appreciation gifts, HR managers assembling new-hire welcome kits, and business owners looking for practical trade show giveaways all reach for custom address books. These compact organizers keep contacts at your recipients' fingertips while featuring your logo on the cover. Whether you need a simple spiral-bound book for field reps or a leather-look volume for executive gifts, address books offer lasting brand visibility. They are also a smart choice for safety managers who want a giveaway that workers actually carry and use daily. With options like the Original Tally Book or the flexible Trifold Tally Book, you can match the format to your audience's habits.</p><p>Every custom address book from Perfect Imprints can be decorated with your company logo, tagline, or contact info. Choose from screen printing, foil stamping, or embossing on the cover to create a polished look. These books are available in multiple sizes, page counts, and cover materials including leatherette, poly, and hardcover. Because they are small and lightweight, they ship easily and fit into conference swag bags, employee onboarding kits, or direct-mail packages. Bulk ordering keeps per-unit costs low, making custom address books a cost-effective promotional product that delivers daily exposure for your brand.</p>",
+  "buyingGuideHtml": "<p>When ordering custom address books for your organization, focus on cover durability and page layout. A sturdy cover made of leatherette or thick polyurethane protects the pages and resists wear in a bag or briefcase. Inside, look for tabbed sections for A-Z contacts plus extra pages for notes or emergency numbers. Products like the Original Tally Book offer a classic alphabetical layout, while the Trifold Tally Book folds compactly for pocket carry.</p><p>Materials and build quality vary widely. Leatherette covers with stitched binding feel premium and last for years, making them ideal for executive gifts or customer appreciation. Poly covers are lighter and more affordable, suited for large trade show giveaways or employee onboarding kits. Spiral binding allows the book to lay flat for easy writing, while perfect binding gives a sleek, book-like appearance. Choose a material that matches your brand image and the recipient's expected use.</p><p>Common use cases for promotional address books include corporate event swag, conference attendee gifts, new-hire welcome packets, and year-end client thank-you presents. Safety managers and HR directors often include them in safety program kits because they are practical and keep important numbers accessible. Business owners hand them out at networking events or chamber mixers. The key is selecting a format that fits the setting: a pocket-sized book for field workers, a larger desk version for office staff.</p><p>Decoration options include screen printing, foil stamping, embossing, and full-color heat transfer on the cover. Screen printing works best for simple logos with few colors on poly covers. Foil stamping adds a metallic finish that looks professional on leatherette. Embossing creates a raised logo for a tactile, high-end feel. For full-color artwork, heat transfer provides vibrant results. Always request a proof to verify logo placement and color accuracy before production begins.</p><p>Minimum order quantities (MOQs) for custom address books typically start at 100-250 units, depending on the style and decoration method. Higher quantities lower the per-unit price significantly. If you need a small run for a limited event, ask about stock options that can be personalized with a foil stamp or label. Bulk orders of 500 or more often qualify for the best wholesale pricing. Plan for a production lead time of 2-3 weeks for decorated books, plus shipping.</p><p>A common buying mistake is choosing a book with too few pages for the recipient's needs. Check the number of contact entries per page and total capacity. Another pitfall is overlooking the closure type: elastic bands keep the book closed, while snap closures add a secure feel. Also verify that the paper is fountain-pen friendly if your audience includes writers. Request a sample before placing a large order to confirm size, feel, and page quality.</p>",
+  "buyingGuideH2": "Custom Address Books Buying Guide",
+  "faqs": [
+    {
+      "q": "What are the MOQs for custom address books?",
+      "a": "Minimum order quantities typically start at 100-250 units, depending on the style and decoration method. Higher volumes lower the per-unit cost. For smaller quantities, ask about stock options with foil stamping or label personalization."
+    },
+    {
+      "q": "What decoration methods work best on address books?",
+      "a": "Screen printing is cost-effective for poly covers with simple logos. Foil stamping adds a metallic finish on leatherette. Embossing creates a raised logo for a premium feel. Full-color heat transfer works for complex artwork. Always request a proof."
+    },
+    {
+      "q": "How long does production take for custom address books?",
+      "a": "Typical production lead time is 2-3 weeks after artwork approval, plus shipping. Rush orders may be available for an additional fee. Shipping time depends on the destination and method selected."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, we recommend requesting a sample of the address book style you are considering. This lets you check cover material, page quality, and size before committing to a large quantity."
+    },
+    {
+      "q": "What sizes are available for custom address books?",
+      "a": "Sizes range from pocket-sized (3.5\" x 5.5\") to desk-sized (5.5\" x 8.5\"). Pocket books are ideal for field workers, while desk books suit office use. Check the product page for exact dimensions."
+    }
+  ],
+  "heroAltText": "Custom address books with company logo on leatherette covers, perfect for corporate gifts and trade show giveaways",
+  "productSkus": [
+    "507247",
+    "508958",
+    "509382 09R",
+    "510856",
+    "512336 90A",
+    "513774",
+    "514036",
+    "515145",
+    "515146",
+    "515552",
+    "515706 01A",
+    "517648 90A",
+    "517731 90A",
+    "517735 90A",
+    "519690",
+    "523765",
+    "524208",
+    "525212",
+    "525213",
+    "525806",
+    "525899",
+    "526012",
+    "526202",
+    "526203",
+    "526204",
+    "526205"
+  ],
+  "generatedAt": "2026-05-30T11:38:37.782891+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "use_case",
+  "skuFilterMode": "full",
+  "rawSkuCount": 26,
+  "filteredSkuCount": 26
+}

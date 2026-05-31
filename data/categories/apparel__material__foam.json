@@ -1,0 +1,27 @@
+{
+  "url": "/cat/apparel/material/foam",
+  "type": "facet",
+  "h1": "Custom Foam Apparel for Branded Promotions",
+  "metaTitle": "Custom Foam Apparel | Perfect Imprints Promotional Gear",
+  "metaDescription": "Shop custom foam apparel for promotions. Perfect for events, giveaways, and bulk orders at Perfect Imprints.",
+  "introHtml": "<p>Foam apparel offers a unique, lightweight option for promotional events where comfort and visibility matter. From foam flip flops perfect for poolside giveaways to foam trucker caps that keep your brand top of mind, these items stand out without adding bulk. Ideal for trade shows, company picnics, or safety team gear, foam materials provide a soft touch and vibrant color reproduction for screen printing or embroidery. Choose custom foam apparel to make your next promotion memorable and practical.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom foam apparel including flip flops and trucker caps for promotional events and corporate giveaways.",
+  "productSkus": [
+    "501556",
+    "504865",
+    "518658 10A",
+    "520052",
+    "522530",
+    "525806",
+    "526805"
+  ],
+  "generatedAt": "2026-05-31T09:32:18.645358+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

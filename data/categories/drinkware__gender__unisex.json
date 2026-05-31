@@ -1,0 +1,21 @@
+{
+  "url": "/cat/drinkware/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Drinkware for Bulk Orders",
+  "metaTitle": "Custom Unisex Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom unisex drinkware in bulk at Perfect Imprints. Great for events, offices, and giveaways. Get your quote today!",
+  "introHtml": "<p>Unisex drinkware works for any audience, making it a smart choice for corporate events, trade shows, or employee gifts. From stainless steel tumblers to BPA-free plastic bottles, these designs fit comfortably in any hand and suit any style. Decorate with your logo using screen printing, engraving, or full-color wraps. Skip the guesswork of gendered sizing and order drinkware that appeals to everyone on your list.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom unisex drinkware featuring a stainless steel tumbler with a corporate logo",
+  "productSkus": [
+    "515733"
+  ],
+  "generatedAt": "2026-05-31T09:12:14.740828+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

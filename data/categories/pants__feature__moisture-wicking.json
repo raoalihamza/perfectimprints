@@ -1,0 +1,25 @@
+{
+  "url": "/cat/pants/feature/moisture-wicking",
+  "type": "facet",
+  "h1": "Custom Moisture Wicking Pants for Bulk Orders",
+  "metaTitle": "Custom Moisture Wicking Pants | Perfect Imprints",
+  "metaDescription": "Order custom moisture wicking pants in bulk from Perfect Imprints. Ideal for uniforms, teams, and events. Fast turnaround.",
+  "introHtml": "<p>Moisture wicking pants are a practical choice for teams, staff uniforms, and outdoor events where staying dry matters. Unlike standard cotton pants, these pull sweat away from the skin to keep wearers comfortable during physical activity. Common decoration methods include screen printing and embroidery on the leg or hip. The Sport-Tek PosiCharge Mesh shorts are a popular option for their lightweight feel and quick-dry performance.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom moisture wicking pants for bulk orders, featuring moisture wicking fabric and screen printed logo on leg",
+  "productSkus": [
+    "528874",
+    "528875",
+    "528881",
+    "528882",
+    "528886"
+  ],
+  "generatedAt": "2026-05-31T09:59:35.042808+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

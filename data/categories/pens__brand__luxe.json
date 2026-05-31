@@ -1,0 +1,22 @@
+{
+  "url": "/cat/pens/brand/luxe",
+  "type": "facet",
+  "h1": "Custom Luxe Pens for Bulk Orders",
+  "metaTitle": "Custom Luxe Pens | Perfect Imprints",
+  "metaDescription": "Order custom Luxe pens in bulk for your brand. Perfect for corporate gifts and events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Luxe pens combine refined design with reliable performance, making them a preferred choice for corporate gifting and client appreciation. The sleek metal barrel and smooth writing experience set them apart from standard promotional pens. Whether you choose the Elvado Pen with its elegant twist mechanism or the comfortable grip of the LuxGel Pen, customizing with your logo in a subtle imprint creates a sophisticated brand impression that recipients will use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Luxe pens with metal barrels and engraved logos displayed on a desk",
+  "productSkus": [
+    "520530",
+    "526014"
+  ],
+  "generatedAt": "2026-05-31T08:36:16.344516+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/pennants/search",
+  "type": "modifier",
+  "h1": "Custom Pennants for Branded Promotions",
+  "metaTitle": "Custom Pennants | Perfect Imprints",
+  "metaDescription": "Browse our selection of custom pennants for your next promotion. Perfect for events, giveaways, and more. Get started today!",
+  "introHtml": "<p>Custom pennants are a versatile and eye-catching promotional product that can be used for events, trade shows, employee recognition, and more. Whether you need a bold design for a sports team or a professional look for a corporate event, our selection offers a range of styles, materials, and sizes. Start exploring to find the perfect pennants that represent your brand and make a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of colorful custom pennants with printed logos and designs, ideal for promotional events and giveaways.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:22:40.309703+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

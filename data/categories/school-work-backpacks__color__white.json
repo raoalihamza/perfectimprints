@@ -1,0 +1,25 @@
+{
+  "url": "/cat/school-work-backpacks/color/white",
+  "type": "facet",
+  "h1": "Custom White School Work Backpacks",
+  "metaTitle": "Custom White School Work Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom white school work backpacks with your logo. Perfect for promotions or employee gifts. Bulk pricing available.",
+  "introHtml": "<p>White school work backpacks offer a clean, professional look that stands out in both academic and corporate settings. The light color provides a high-contrast canvas for screen-printed or embroidered logos, making your brand visible from a distance. Options like the Under Armour® Team Hustle Backpack 6.0 combine durability with a sleek white finish, ideal for safety managers or HR directors outfitting teams with reliable, branded gear. Choose white for a crisp, modern aesthetic that stays sharp through daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom white school work backpacks with embroidered logo, like the Under Armour Team Hustle Backpack 6.0 in white",
+  "productSkus": [
+    "523627",
+    "527471",
+    "528108",
+    "528636",
+    "528727"
+  ],
+  "generatedAt": "2026-05-31T10:06:03.847066+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

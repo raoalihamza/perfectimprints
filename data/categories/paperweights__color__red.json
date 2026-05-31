@@ -1,0 +1,21 @@
+{
+  "url": "/cat/paperweights/color/red",
+  "type": "facet",
+  "h1": "Custom Red Paperweights for Bulk Orders",
+  "metaTitle": "Custom Red Paperweights | Perfect Imprints",
+  "metaDescription": "Order custom red paperweights in bulk. Ideal for corporate gifts or office branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Red paperweights make a bold statement on any desk, conveying energy and passion for your brand. Whether you're rewarding employees or thanking clients, these custom pieces offer a sleek, professional look that stands out. Choose from glass or acrylic options, and add your logo with full-color imprint or etching for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red paperweights with engraved corporate logo on a desk, featuring the Veronese Award design",
+  "productSkus": [
+    "514774 90E"
+  ],
+  "generatedAt": "2026-05-31T09:21:39.882740+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

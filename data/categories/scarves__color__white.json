@@ -1,0 +1,21 @@
+{
+  "url": "/cat/scarves/color/white",
+  "type": "facet",
+  "h1": "Custom White Scarves",
+  "metaTitle": "Custom White Scarves | Perfect Imprints",
+  "metaDescription": "Order custom white scarves for your team or event. Bulk pricing and free setup at Perfect Imprints.",
+  "introHtml": "<p>White scarves offer a clean, versatile canvas for your logo or message, making them a popular choice for winter giveaways, corporate gifts, and uniform accessories. Unlike darker colors that can hide details, white allows your imprint to stand out with crisp contrast. Options like the Two-Tone Knit Scarf With Fringe combine soft acrylic comfort with a classic look that suits any workplace or event. Add your brand through screen printing or embroidery for a polished finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom white scarves with fringe, perfect for corporate gifts and team branding.",
+  "productSkus": [
+    "514088"
+  ],
+  "generatedAt": "2026-05-31T10:05:38.536514+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/bar-wine/brand/out-of-the-woods",
+  "type": "facet",
+  "h1": "Custom Out of the Woods Bar Wine for Bulk Orders",
+  "metaTitle": "Custom Out of the Woods Bar Wine | Perfect Imprints",
+  "metaDescription": "Order custom Out of the Woods bar wine for your next event. Perfect for gifts and promotions. Shop now!",
+  "introHtml": "<p>Out of the Woods bar wine products combine rustic style with practical design, making them ideal for corporate gifts, trade shows, and hospitality branding. From the Connoisseur Wine Tote to the Seagull Cooler, each piece features durable construction and natural aesthetics that stand out. Decorate with your logo using screen printing or debossing for a memorable impression. Whether you're outfitting a sales team or rewarding clients, these items offer lasting utility and brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Out of the Woods bar wine products like wine totes and coolers with logo decoration for corporate gifts.",
+  "productSkus": [
+    "525976",
+    "527206",
+    "528403"
+  ],
+  "generatedAt": "2026-05-31T09:07:36.195452+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

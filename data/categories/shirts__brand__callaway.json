@@ -1,0 +1,21 @@
+{
+  "url": "/cat/shirts/brand/callaway",
+  "type": "facet",
+  "h1": "Custom Callaway Shirts for Bulk Orders",
+  "metaTitle": "Custom Callaway Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Callaway shirts in bulk at Perfect Imprints. Great for golf events, corporate outings, and team uniforms.",
+  "introHtml": "<p>Callaway shirts combine performance fabrics with a polished look, making them a top choice for corporate golf tournaments, charity outings, and team uniforms. The moisture-wicking material keeps wearers comfortable on and off the course, while the classic styling works for casual Fridays or client meetings. Whether you need embroidered logos or screen-printed designs, these shirts hold up well to decoration and repeated wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Callaway shirts with embroidered logo displayed on a golf course, ideal for corporate events and team uniforms.",
+  "productSkus": [
+    "529257"
+  ],
+  "generatedAt": "2026-05-31T08:30:54.721913+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

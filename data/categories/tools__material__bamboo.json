@@ -1,0 +1,23 @@
+{
+  "url": "/cat/tools/material/bamboo",
+  "type": "facet",
+  "h1": "Custom Bamboo Tools for Bulk Orders",
+  "metaTitle": "Custom Bamboo Tools | Perfect Imprints",
+  "metaDescription": "Order custom bamboo tools with your logo. Eco-friendly, sustainable, and perfect for trade shows. Get a quote today.",
+  "introHtml": "<p>Bamboo tools offer a sustainable alternative to plastic or metal giveaways, making them a smart choice for brands that prioritize environmental responsibility. Whether you need a bamboo multi-tool for a trade show or a branded tape measure for a corporate gift, these items combine functionality with natural aesthetics. Decorate with a laser engraving for a clean, professional look that highlights your logo without adding waste.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom bamboo tools including a multi-tool and tape measure with laser-engraved logos on a wooden table",
+  "productSkus": [
+    "527147",
+    "528997",
+    "529056"
+  ],
+  "generatedAt": "2026-05-31T09:28:43.622365+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/buttons/material/metal",
+  "type": "facet",
+  "h1": "Custom Metal Buttons for Bulk Orders",
+  "metaTitle": "Custom Metal Buttons | Perfect Imprints",
+  "metaDescription": "Order custom metal buttons in bulk for events, promotions, or branding. Fast turnaround and free setup at Perfect Imprints.",
+  "introHtml": "<p>Metal buttons offer a polished, durable alternative to standard plastic pins. They resist scratching and fading, making them ideal for trade shows, retail tags, or premium giveaways. With a smooth finish and secure pin back, these buttons hold up to daily use while keeping your logo or message looking sharp. Choose from single-button cards or multi-panel collage layouts for more design space.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom metal buttons with smooth finish and pin back, ideal for branding and promotions",
+  "productSkus": [
+    "526678",
+    "526679"
+  ],
+  "generatedAt": "2026-05-31T09:38:40.995352+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

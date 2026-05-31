@@ -1,0 +1,23 @@
+{
+  "url": "/cat/backpacks/feature/anti-theft",
+  "type": "facet",
+  "h1": "Custom Anti Theft Backpacks for Bulk Orders",
+  "metaTitle": "Custom Anti Theft Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom anti theft backpacks in bulk. Secure RFID-blocking designs ideal for corporate gifts and events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom anti theft backpacks combine security with everyday functionality, making them a smart choice for corporate giveaways and employee appreciation. These bags feature hidden zippers, slash-resistant materials, and RFID-blocking pockets to protect valuables during commutes or travel. Options like the Bugatti Valentino Backpack offer a professional look, while the Brand Charger Eco Sling Backpack adds USB charging convenience. For bulk buyers, these backpacks provide a practical branded item that recipients will use daily. Decorate with a logo via embroidery or screen printing for lasting brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom anti theft backpacks with RFID protection and hidden zippers displayed on a model.",
+  "productSkus": [
+    "521883",
+    "527055",
+    "528728"
+  ],
+  "generatedAt": "2026-05-31T08:49:12.900519+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

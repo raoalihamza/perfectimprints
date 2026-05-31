@@ -1,0 +1,22 @@
+{
+  "url": "/cat/beverage-glasses/color/red",
+  "type": "facet",
+  "h1": "Custom Red Beverage Glasses",
+  "metaTitle": "Custom Red Beverage Glasses | Perfect Imprints",
+  "metaDescription": "Order custom red beverage glasses in bulk from Perfect Imprints. Ideal for branded events, bars, and promotions.",
+  "introHtml": "<p>Red beverage glasses make a bold statement at any event, from holiday parties to branded bar promotions. Whether you choose durable 16 oz plastic pint glasses for outdoor gatherings or full-color digital printing for vibrant logos, red stands out on shelves and in photos. Perfect for marketing directors and event planners looking to match team colors or seasonal campaigns.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom red beverage glasses with printed logos, perfect for promotional events and branded merchandise.",
+  "productSkus": [
+    "524527",
+    "524528"
+  ],
+  "generatedAt": "2026-05-31T09:37:04.653933+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/lip-balm/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Lip Balm for Bulk Orders",
+  "metaTitle": "Custom Set Lip Balm | Perfect Imprints",
+  "metaDescription": "Order custom set lip balm in bulk for your brand. Perfect for giveaways and events. Personalize with your logo at Perfect Imprints.",
+  "introHtml": "<p>Sets of lip balm offer more than a single tube—they give recipients a lasting impression of your brand. A 4-pack beeswax lip balm set, for example, provides multiple uses and a higher perceived value. Ideal for corporate gifts, trade show swag, or employee wellness kits, these sets can be customized with your logo and messaging. Choose from natural ingredients and eco-friendly packaging to align with your company's values while keeping your brand top-of-mind.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set lip balm in bulk with logo imprint, featuring a 4-pack beeswax lip balm set.",
+  "productSkus": [
+    "519745"
+  ],
+  "generatedAt": "2026-05-31T08:35:14.942862+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

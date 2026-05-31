@@ -1,0 +1,29 @@
+{
+  "url": "/cat/candles/material/glass",
+  "type": "facet",
+  "h1": "Custom Glass Candles for Branded Promotions",
+  "metaTitle": "Custom Glass Candles | Perfect Imprints",
+  "metaDescription": "Order custom glass candles with your logo in bulk. Perfect for corporate gifts, events, and client appreciation at Perfect Imprints.",
+  "introHtml": "<p>Glass candles offer a clean, premium look that makes them a popular choice for corporate gifts and event favors. The transparent container showcases the wax color and allows for elegant branding with a custom label or etched logo. Whether you choose a classic tumbler or a modern hourglass shape, glass candles provide a versatile canvas for your company's message. They are also easy to coordinate with any color scheme or décor, making them a safe yet sophisticated option for client appreciation or employee recognition programs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom glass candles with branded labels in various sizes and scents for corporate gifts",
+  "productSkus": [
+    "521842",
+    "526355",
+    "526356",
+    "526357",
+    "526407",
+    "528203",
+    "529022",
+    "529023",
+    "529024"
+  ],
+  "generatedAt": "2026-05-31T08:51:37.532035+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

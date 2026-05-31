@@ -1,0 +1,27 @@
+{
+  "url": "/cat/bandanas/color/red",
+  "type": "facet",
+  "h1": "Custom Red Bandanas for Bulk Orders",
+  "metaTitle": "Custom Red Bandanas | Perfect Imprints",
+  "metaDescription": "Order custom red bandanas in bulk from Perfect Imprints. Ideal for promotions, events, and safety. Get a quote today.",
+  "introHtml": "<p>Red bandanas are a bold choice for promotions, team uniforms, or safety identification. Whether you need classic paisley or solid colors, our USA-made options offer durability and vibrant shades. Perfect for outdoor events, fundraisers, or workplace visibility, these bandanas can be screen-printed or embroidered with your logo. Choose from standard or oversized sizes to fit your needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom red bandanas with embroidered logos, ideal for promotional giveaways and team events.",
+  "productSkus": [
+    "506991",
+    "516837",
+    "521602",
+    "522110",
+    "522111",
+    "524693",
+    "524817"
+  ],
+  "generatedAt": "2026-05-31T09:34:46.121454+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

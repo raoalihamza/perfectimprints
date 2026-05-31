@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/color/yellow",
+  "type": "facet",
+  "h1": "Custom Yellow Products for Bulk Orders",
+  "metaTitle": "Custom Yellow Products | Perfect Imprints",
+  "metaDescription": "Shop custom yellow products for your brand. Perfect for high-visibility safety or bright promotional giveaways. Bulk pricing available.",
+  "introHtml": "<p>Yellow is a high-visibility color that commands attention, making it a smart choice for safety managers ordering PPE or marketing directors looking for promotional items that stand out. From custom yellow hard hats to bright stress relievers, this color ensures your logo is seen. Ideal for trade shows, safety events, or any campaign where visibility matters.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom yellow products including a branded hard hat, stress reliever, and tote bag for promotional use",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:22:57.230769+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

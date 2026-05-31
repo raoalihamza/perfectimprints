@@ -1,0 +1,23 @@
+{
+  "url": "/cat/workwear/decoration/embroidery",
+  "type": "facet",
+  "h1": "Custom Embroidery Workwear for Professional Teams",
+  "metaTitle": "Custom Embroidery Workwear | Perfect Imprints",
+  "metaDescription": "Order custom embroidery workwear from Perfect Imprints. Embroidered logos on polos and jackets for a polished, durable look.",
+  "introHtml": "<p>Embroidery adds a textured, professional finish to workwear that stands up to frequent washing and rugged use. Unlike screen printing, embroidered logos won't crack or fade, making them ideal for uniforms in construction, manufacturing, and field service. Whether you choose snag-proof polos like the Cornerstone Select or a durable canvas work jacket from Harriton, your team gets a clean, stitched look that reinforces your brand every shift.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom embroidery workwear featuring embroidered logos on a polo shirt and a canvas work jacket",
+  "productSkus": [
+    "515284",
+    "515285",
+    "519005"
+  ],
+  "generatedAt": "2026-05-31T08:48:09.134189+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

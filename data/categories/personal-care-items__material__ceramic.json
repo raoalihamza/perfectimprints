@@ -1,0 +1,23 @@
+{
+  "url": "/cat/personal-care-items/material/ceramic",
+  "type": "facet",
+  "h1": "Custom Ceramic Personal Care Items",
+  "metaTitle": "Custom Ceramic Personal Care Items | Perfect Imprints",
+  "metaDescription": "Order custom ceramic personal care items for your team. Perfect for gifts and giveaways. Fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>Ceramic personal care items bring a natural, tactile quality to your branded giveaways. Whether you choose a classic 17 oz Gale Ceramic Mug for morning coffee or a Modern Sprout® Garden Vibes Candle/Planter for desk-friendly relaxation, ceramic surfaces hold vibrant full-color logos and intricate designs. These items feel substantial in hand and resist wear, making them ideal for employee appreciation gifts or client thank-you packages that get daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom ceramic personal care items like mugs and planters with full-color logos on a clean background",
+  "productSkus": [
+    "521330",
+    "527501",
+    "528830"
+  ],
+  "generatedAt": "2026-05-31T10:00:38.131351+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

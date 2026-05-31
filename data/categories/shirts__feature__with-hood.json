@@ -1,0 +1,21 @@
+{
+  "url": "/cat/shirts/feature/with-hood",
+  "type": "facet",
+  "h1": "Custom With Hood Shirts for Bulk Orders",
+  "metaTitle": "Custom With Hood Shirts | Perfect Imprints",
+  "metaDescription": "Order custom with hood shirts for your team. Perfect for layering and branding. Bulk discounts available at Perfect Imprints.",
+  "introHtml": "<p>Custom with hood shirts offer the versatility of a hoodie with the lightweight feel of a t-shirt. Perfect for outdoor events, trade shows, or employee uniforms, these shirts provide extra coverage without bulk. The Ladies' Ogio® Luuma Flex Tunic is a popular option, featuring a flattering fit and moisture-wicking fabric. Decorate with embroidery or screen printing for a polished look that keeps your team comfortable and visible.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom with hood shirts featuring a Ladies' Ogio® Luuma Flex Tunic with embroidered logo",
+  "productSkus": [
+    "526291"
+  ],
+  "generatedAt": "2026-05-31T08:21:56.632037+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

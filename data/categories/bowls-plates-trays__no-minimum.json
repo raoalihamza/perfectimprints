@@ -1,0 +1,22 @@
+{
+  "url": "/cat/bowls-plates-trays/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Bowls, Plates & Trays",
+  "metaTitle": "No-Minimum Custom Bowls Plates Trays | Perfect Imprints",
+  "metaDescription": "Order small quantities of custom bowls, plates & trays with no minimums. Perfect for small businesses. Get a quote today!",
+  "introHtml": "<p>No-minimum custom bowls, plates, and trays let you order exactly what you need—whether it's a handful of branded pet bowls for a client gift or a small set of plates for a team lunch. Skip the bulk requirements and per-unit pricing that works for low volumes. Ideal for small businesses, startups, or sample orders before scaling up.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "No-minimum custom bowls plates trays featuring a stainless steel pet bowl with a company logo",
+  "productSkus": [
+    "524371",
+    "529534"
+  ],
+  "generatedAt": "2026-05-31T09:38:08.676024+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/age/adult",
+  "type": "facet",
+  "h1": "Custom Adult Products for Corporate Gifting",
+  "metaTitle": "Custom Adult Products | Perfect Imprints",
+  "metaDescription": "Browse custom adult products for corporate gifting at Perfect Imprints. Shop bulk orders for your team today.",
+  "introHtml": "<p>Adult-focused promotional products are designed with the professional in mind, offering practical items that fit seamlessly into the workday. From tech accessories to desk organizers, these products prioritize functionality and style. Whether you are outfitting a trade show booth or rewarding employees, adult-oriented merchandise ensures your brand is associated with quality and maturity. Choose from a range of items that appeal to grown-up tastes, like premium pens, stainless steel drinkware, and leather goods.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assortment of custom adult products including pens, notebooks, and drinkware with logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:30:31.441424+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

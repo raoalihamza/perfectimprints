@@ -1,0 +1,87 @@
+{
+  "url": "/cat/safety-glasses",
+  "type": "root",
+  "h1": "Custom Safety Glasses for Branded Eye Protection",
+  "metaTitle": "Custom Safety Glasses | Perfect Imprints",
+  "metaDescription": "Order custom safety glasses with your logo. Perfect for workplaces, events, and giveaways. Durable, stylish, and affordable bulk pricing.",
+  "introHtml": "<p>Safety managers need eye protection that employees will actually wear. Marketing directors want giveaways that get noticed. HR directors look for branded gear that reinforces safety culture. Custom safety glasses check all those boxes. Whether you're outfitting a construction crew, handing out shades at a summer picnic, or adding PPE to your onboarding kit, the right pair of custom safety glasses keeps your team safe and your brand visible.</p><p>Our lineup includes retro styles, aviators, matte finishes, and tinted lenses — all customizable with your logo. Options like the Retro Sunglasses or the Two Tone Matte Sunglasses combine protection with a look people want to wear. For evening events, the Safety Light Wristband adds visibility. Bulk ordering keeps unit costs low, and our decoration team handles screen printing or pad printing to match your brand colors. Let's find the right pair for your program.</p>",
+  "buyingGuideHtml": "<h3>What to Look for in Custom Safety Glasses</h3><p>When ordering custom safety glasses, start with impact resistance. Look for polycarbonate lenses that meet ANSI Z87.1 standards. This ensures basic protection for most workplace and event settings. For outdoor use, UV-blocking lenses add value. Frame material matters too: lightweight nylon or TR-90 frames hold up better over time than basic plastic. If your team works in bright conditions, consider polarized or tinted lenses to reduce glare.</p><h3>Materials and Build Quality</h3><p>Polycarbonate lenses are standard for promotional safety glasses because they're shatter-resistant and lightweight. Frames made from flexible nylon or acetate offer durability without sacrificing comfort. Rubberized temple tips or nose pads improve fit for all-day wear. For a premium feel, the Aviator Sunglasses feature metal frames with adjustable nose pieces. Always request samples to verify lens clarity and frame sturdiness before placing a bulk order.</p><h3>Common Use Cases and Buyer Personas</h3><p>Safety managers often order promotional safety glasses for construction crews, warehouse staff, or lab technicians. Marketing directors use branded sunglasses as giveaways at outdoor events, trade shows, or company picnics. HR directors include custom safety glasses in employee onboarding kits to reinforce safety culture from day one. Business owners appreciate that logo-printed safety glasses serve double duty: protecting eyes and promoting the brand every time they're worn.</p><h3>Decoration and Customization Options</h3><p>Screen printing works well for logo placement on the temple arms of most frames. Pad printing is ideal for curved surfaces or smaller logos on the lens corner. For a more permanent look, some frames accept laser engraving. Full-color heat transfer is available for designs with gradients or multiple colors. Keep in mind that small text may not print clearly on narrow temples. Most decoration methods require a minimum of 50 to 100 pieces per color.</p><h3>Quantity Guidance and MOQ Context</h3><p>Bulk custom safety glasses typically start at 50 to 100 units per design. Wholesale pricing drops significantly as quantities increase. A typical bulk run for a company safety program might be 200 to 500 pairs. For large events, orders of 1,000+ units offer the best per-unit cost. If you need multiple frame colors, each color may have its own minimum. Plan ahead — standard production takes 10 to 15 business days, and rush orders may be available for an additional fee.</p><h3>Common Buying Mistakes to Avoid</h3><p>Don't assume one size fits all. Offer multiple frame styles and colors so employees or event attendees can choose what they like. Check that the lens tint is appropriate for the environment: dark tints for outdoor use, clear or light tints for indoor work. Verify that your logo placement won't interfere with vision or safety certifications. Finally, order samples first to confirm fit, comfort, and print quality before committing to a large run.</p>",
+  "buyingGuideH2": "Custom Safety Glasses Buying Guide",
+  "faqs": [
+    {
+      "q": "What safety standards do your safety glasses meet?",
+      "a": "Our custom safety glasses feature polycarbonate lenses that meet ANSI Z87.1 impact resistance standards. This ensures basic protection for workplace and event use. Always verify specific requirements for your industry."
+    },
+    {
+      "q": "What is the minimum order quantity for custom safety glasses?",
+      "a": "Minimum order quantities typically start at 50 to 100 pieces per design. If you need multiple frame colors, each color may have its own minimum. Contact us for exact MOQs based on your chosen style."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, we recommend ordering a sample of your chosen frame style first. This lets you check fit, lens clarity, and comfort. Samples can be ordered without decoration or with a simple logo print for approval."
+    },
+    {
+      "q": "What decoration methods work best for safety glasses?",
+      "a": "Screen printing on the temple arms is the most common and cost-effective option. Pad printing works well for curved surfaces or smaller logos. Laser engraving is available for certain frames and offers a permanent mark."
+    },
+    {
+      "q": "How long does production take for custom safety glasses?",
+      "a": "Standard production takes 10 to 15 business days after artwork approval. Rush orders may be available for an additional fee. Shipping time depends on your location and chosen method."
+    }
+  ],
+  "heroAltText": "Custom safety glasses with logo on temple arm, available in retro and aviator styles",
+  "productSkus": [
+    "503360",
+    "503362 85T",
+    "503396",
+    "505312",
+    "506951",
+    "507398",
+    "508257",
+    "508598",
+    "509402",
+    "510552",
+    "510646",
+    "510647",
+    "510937",
+    "512277 90A",
+    "512336 90A",
+    "512466",
+    "512747",
+    "513293 90E",
+    "513338",
+    "517019 90A",
+    "517051 90A",
+    "517052 90A",
+    "517053 90A",
+    "517502 53P",
+    "518986 90A",
+    "519213",
+    "519707",
+    "520715",
+    "521013",
+    "521967",
+    "522186",
+    "522637",
+    "522772",
+    "523485",
+    "523554",
+    "523569",
+    "523657",
+    "524435",
+    "525624",
+    "526162",
+    "526334",
+    "526335",
+    "526337",
+    "526648",
+    "529484"
+  ],
+  "generatedAt": "2026-05-30T11:14:05.759638+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "use_case",
+  "skuFilterMode": "full",
+  "rawSkuCount": 45,
+  "filteredSkuCount": 45
+}

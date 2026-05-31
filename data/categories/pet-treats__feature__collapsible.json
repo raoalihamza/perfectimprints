@@ -1,0 +1,19 @@
+{
+  "url": "/cat/pet-treats/feature/collapsible",
+  "type": "facet",
+  "h1": "Custom Collapsible Pet Treats for Bulk Orders",
+  "metaTitle": "Custom Collapsible Pet Treats | Perfect Imprints",
+  "metaDescription": "Order custom collapsible pet treats in bulk. Perfect for trade shows and events. Get your brand in front of pet owners today.",
+  "introHtml": "<p>Collapsible pet treats offer a unique, space-saving solution for your promotional giveaways. These treats are designed to be easily stored and transported, making them ideal for trade shows, corporate events, and client appreciation gifts. With custom branding options like screen printing or foil stamping, you can showcase your logo on a practical item that pet owners will love. Choose from a variety of flavors and packaging to suit your campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom collapsible pet treats with company logo displayed on a table at a trade show.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:08.881100+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

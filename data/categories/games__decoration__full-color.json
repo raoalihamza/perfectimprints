@@ -1,0 +1,22 @@
+{
+  "url": "/cat/games/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Games",
+  "metaTitle": "Custom Full Color Games | Perfect Imprints",
+  "metaDescription": "Order custom full color games for your next event or promotion. Perfect Imprints offers high-quality, branded game products.",
+  "introHtml": "<p>Full color printing on games brings your branding to life with vibrant, photo-quality graphics. Whether you are customizing poker chips for a casino night or creating branded adult coloring books for a wellness event, full color decoration ensures your logo stands out with crisp detail and rich color. This option is ideal for marketing directors looking to create memorable giveaways that engage employees or customers. Choose full color for games that double as keepsakes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color games like branded poker chips and coloring books with vibrant logos",
+  "productSkus": [
+    "512801",
+    "520654"
+  ],
+  "generatedAt": "2026-05-31T08:26:30.357891+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,28 @@
+{
+  "url": "/cat/vests/style/soft-shell",
+  "type": "facet",
+  "h1": "Custom Soft Shell Vests for Teams & Events",
+  "metaTitle": "Custom Soft Shell Vests | Perfect Imprints",
+  "metaDescription": "Order custom soft shell vests for your team. Durable, wind-resistant, and perfect for embroidery or screen printing. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Soft shell vests combine the warmth of a fleece with the wind resistance of a shell, making them ideal for outdoor events, trade shows, and crew uniforms. Unlike standard polyester vests, soft shell fabrics stretch for comfort and repel light rain. Add your logo with embroidery or screen printing for a professional look that holds up through seasons of wear. Whether you need men's or ladies' styles, these vests offer a polished, athletic appearance that works from the job site to the golf course.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom soft shell vests with embroidered logos, featuring men's and ladies' styles in multiple colors",
+  "productSkus": [
+    "511082",
+    "511083",
+    "520280",
+    "520281",
+    "526536",
+    "528112",
+    "528113",
+    "529213"
+  ],
+  "generatedAt": "2026-05-31T08:47:47.889593+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

@@ -1,0 +1,32 @@
+{
+  "url": "/cat/speakers/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Speakers",
+  "metaTitle": "Custom Full Color Speakers | Perfect Imprints",
+  "metaDescription": "Order custom full color speakers with vibrant logo printing. Perfect for promotions, events, and corporate gifts at Perfect Imprints.",
+  "introHtml": "<p>Full color decoration on speakers lets you reproduce detailed logos, photographs, or gradients with remarkable clarity. Whether you choose the Colorwav Soundbar or the IllumiBeat Speaker, the result is a vivid, high-impact promotional item that stands out at trade shows, company events, or as client gifts. This printing method is ideal for brands that require precise color matching and intricate artwork, ensuring your message is delivered with maximum visual appeal.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color speakers with vibrant logo printing for promotional events and corporate gifts.",
+  "productSkus": [
+    "520745",
+    "520760",
+    "524296",
+    "525999",
+    "526069",
+    "527152",
+    "527599",
+    "527804",
+    "527805",
+    "527954",
+    "528399",
+    "529160"
+  ],
+  "generatedAt": "2026-05-31T09:26:18.635048+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

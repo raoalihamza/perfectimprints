@@ -1,0 +1,22 @@
+{
+  "url": "/cat/apparel/activity/hockey",
+  "type": "facet",
+  "h1": "Custom Hockey Apparel for Teams & Events",
+  "metaTitle": "Custom Hockey Apparel | Perfect Imprints",
+  "metaDescription": "Order custom hockey apparel for your team or event. Perfect for bulk orders with your logo. Fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Hockey apparel needs to stand up to cold rinks and team pride. Whether you're outfitting a youth league, corporate tournament, or fan giveaway, custom hockey apparel like knit beanies and pom-pom hats keeps your brand visible in the stands and on the ice. Choose durable materials and bold decoration that won't fade after repeated wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hockey apparel including a knit beanie hat with embroidered logo for team events",
+  "productSkus": [
+    "520922",
+    "521675"
+  ],
+  "generatedAt": "2026-05-31T09:05:22.239852+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

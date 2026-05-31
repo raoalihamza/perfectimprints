@@ -1,0 +1,21 @@
+{
+  "url": "/cat/shirts/brand/russell-athletic",
+  "type": "facet",
+  "h1": "Custom Russell Athletic Shirts for Teams & Events",
+  "metaTitle": "Custom Russell Athletic Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Russell Athletic shirts for your team or event. Bulk pricing, fast turnaround, and quality decoration. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Russell Athletic shirts are built for durability and comfort, making them a reliable choice for uniform programs, team apparel, and corporate giveaways. The brand's athletic fit and moisture-wicking fabrics keep wearers comfortable during long days on the job or at the event. Whether you need screen-printed tees for a company picnic or embroidered polos for a sales team, Russell Athletic offers consistent sizing and a range of colors that work well with most decoration methods. Ordering in bulk from Perfect Imprints ensures you get the same quality your recipients expect from this trusted brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Russell Athletic shirts with screen-printed logo on chest, available in multiple colors for teams and events.",
+  "productSkus": [
+    "527745"
+  ],
+  "generatedAt": "2026-05-31T09:02:02.619107+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

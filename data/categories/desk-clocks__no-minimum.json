@@ -1,0 +1,33 @@
+{
+  "url": "/cat/desk-clocks/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Desk Clocks",
+  "metaTitle": "No-Minimum Custom Desk Clocks | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom desk clocks with no bulk requirements. Perfect for small teams, events, and gifts. Get branded desk clocks today.",
+  "introHtml": "<p>No-minimum custom desk clocks let you order as few as one or two units without facing typical bulk requirements. Perfect for small businesses, startups, or one-off client gifts, these clocks offer the same personalization options as larger orders. Choose from styles like the Oslo or Titan Clock, and add your logo with no minimum quantity. Ideal for testing designs or outfitting a small team, our low-MOQ desk clocks make branded timepieces accessible for any budget.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A no-minimum custom desk clock with a company logo on a wooden desk, featuring a classic design and clear numerals.",
+  "productSkus": [
+    "512640 64F",
+    "514585 43A",
+    "514834 01A",
+    "515134 90E",
+    "520887",
+    "527550",
+    "528133",
+    "528216",
+    "528765",
+    "528766",
+    "528774",
+    "528775",
+    "528776"
+  ],
+  "generatedAt": "2026-05-31T08:41:18.794552+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

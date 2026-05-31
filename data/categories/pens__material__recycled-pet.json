@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pens/material/recycled-pet",
+  "type": "facet",
+  "h1": "Custom Recycled PET Pens for Bulk Orders",
+  "metaTitle": "Custom Recycled PET Pens | Perfect Imprints",
+  "metaDescription": "Order custom recycled PET pens for your brand. Eco-friendly and affordable. Get a quote at PerfectImprints.com today.",
+  "introHtml": "<p>Recycled PET pens are made from post-consumer plastic bottles, giving a second life to materials that would otherwise end up in landfills. For businesses committed to sustainability, these pens offer a tangible way to showcase eco-conscious values at trade shows, client meetings, or in office supply kits. The Javalina® Revive Pen is a popular example, featuring a smooth writing experience and a clear barrel that highlights the recycled material. Custom imprinting with your logo or message is straightforward, making these pens a practical and responsible giveaway.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled PET pens with logo imprint, eco-friendly ballpoint pens made from recycled plastic bottles",
+  "productSkus": [
+    "525979"
+  ],
+  "generatedAt": "2026-05-31T08:59:39.347888+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

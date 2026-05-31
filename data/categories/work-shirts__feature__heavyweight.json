@@ -1,0 +1,21 @@
+{
+  "url": "/cat/work-shirts/feature/heavyweight",
+  "type": "facet",
+  "h1": "Custom Heavyweight Work Shirts for Durability",
+  "metaTitle": "Custom Heavyweight Work Shirts | Perfect Imprints",
+  "metaDescription": "Order custom heavyweight work shirts for lasting durability. Bulk pricing available at Perfect Imprints. Get a quote today!",
+  "introHtml": "<p>Custom heavyweight work shirts are built to withstand the rigors of daily wear on job sites, in warehouses, and in the field. Unlike standard-weight shirts, heavyweight fabrics resist tearing and hold up to repeated washing, making them a smart investment for teams that need durable, professional uniforms. Choose from options like the Ladies' Sweater Blazer for a polished look that doesn't sacrifice toughness.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom heavyweight work shirts for men and women in durable fabric, ideal for bulk orders",
+  "productSkus": [
+    "527957"
+  ],
+  "generatedAt": "2026-05-31T10:15:30.135682+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

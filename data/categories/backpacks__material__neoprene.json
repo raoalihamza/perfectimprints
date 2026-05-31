@@ -1,0 +1,23 @@
+{
+  "url": "/cat/backpacks/material/neoprene",
+  "type": "facet",
+  "h1": "Custom Neoprene Backpacks for Bulk Orders",
+  "metaTitle": "Custom Neoprene Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom neoprene backpacks in bulk for your team or event. Durable, water-resistant, and perfect for daily commutes. Get a quote today.",
+  "introHtml": "<p>Neoprene backpacks offer a flexible, water-resistant alternative to traditional canvas or nylon packs. The material’s slight stretch and cushioning protect laptops and tablets from bumps, while the smooth surface accepts full-color screen printing or heat transfer decoration with sharp detail. Ideal for corporate giveaways, trade show swag, or employee welcome kits, these bags combine everyday practicality with a soft, modern feel. Choose custom neoprene backpacks when you want a lightweight carry that stands out without bulk.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom neoprene backpacks with screen-printed logo in vibrant colors, displayed on a desk with laptop and water bottle.",
+  "productSkus": [
+    "520399",
+    "521883",
+    "522037"
+  ],
+  "generatedAt": "2026-05-31T08:39:06.372570+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

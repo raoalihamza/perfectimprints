@@ -1,0 +1,31 @@
+{
+  "url": "/cat/mobile-devices/brand/built",
+  "type": "facet",
+  "h1": "Custom Built Mobile Devices for Bulk Orders",
+  "metaTitle": "Custom Built Mobile Devices | Perfect Imprints",
+  "metaDescription": "Order custom Built mobile devices for your brand. Perfect for corporate gifts and events. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Built Mobile Devices combine rugged durability with modern charging technology, making them ideal for corporate giveaways and employee recognition. From Bluetooth speakers and wireless charging pads to portable power kits, these products keep your team connected and powered up on the go. Customize with your logo using laser engraving or pad printing for a professional finish that stands out at trade shows or in the office.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Built mobile devices including Bluetooth speakers and wireless charging pads with logo engraving",
+  "productSkus": [
+    "515347",
+    "518979",
+    "520745",
+    "520760",
+    "521630",
+    "521635",
+    "521760",
+    "521845",
+    "521924",
+    "522782",
+    "528397"
+  ],
+  "generatedAt": "2026-05-31T09:20:00.291691+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

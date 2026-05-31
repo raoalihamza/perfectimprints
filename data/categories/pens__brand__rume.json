@@ -1,0 +1,22 @@
+{
+  "url": "/cat/pens/brand/rume",
+  "type": "facet",
+  "h1": "Custom Rume Pens for Bulk Orders",
+  "metaTitle": "Custom Rume Pens | Perfect Imprints",
+  "metaDescription": "Order custom Rume pens for your next promotion. High-quality, eco-friendly pens perfect for branding. Get a quote today!",
+  "introHtml": "<p>Rume pens combine eco-conscious materials with smooth writing performance, making them a smart choice for brands that value sustainability. Whether you're equipping your team with reliable office supplies or handing them out at trade shows, these custom Rume pens offer a durable, refillable design that keeps your logo visible for the long haul. Choose from a range of barrel colors and imprint options to match your brand identity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Rume pens in assorted colors with corporate logos, ideal for bulk promotional orders",
+  "productSkus": [
+    "524196",
+    "528962"
+  ],
+  "generatedAt": "2026-05-31T09:22:07.016142+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

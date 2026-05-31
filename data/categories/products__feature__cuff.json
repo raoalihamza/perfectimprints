@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/cuff",
+  "type": "facet",
+  "h1": "Custom Cuff Products for Bulk Orders",
+  "metaTitle": "Custom Cuff Products | Perfect Imprints",
+  "metaDescription": "Order custom cuff products in bulk at Perfect Imprints. Ideal for events, teams, and promotions. Get your quote today.",
+  "introHtml": "<p>Custom cuff products, such as silicone wristbands and metal cuffs, offer a versatile way to promote your brand at events or as giveaways. Unlike standard promotional items, cuffs provide a wearable option that recipients can keep on hand, ensuring repeated exposure. Choose from a variety of colors, sizes, and imprint methods like debossing or screen printing to match your logo perfectly. Whether for a charity run, company milestone, or trade show, custom cuffs create a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom cuff products including silicone wristbands and metal cuffs with logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:36:49.094689+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

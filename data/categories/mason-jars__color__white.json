@@ -1,0 +1,21 @@
+{
+  "url": "/cat/mason-jars/color/white",
+  "type": "facet",
+  "h1": "Custom White Mason Jars for Bulk Orders",
+  "metaTitle": "Custom White Mason Jars | Perfect Imprints",
+  "metaDescription": "Order custom white mason jars for your next event. Perfect for branded drinkware or gift kits. Fast turnaround on bulk orders.",
+  "introHtml": "<p>White mason jars offer a crisp, clean canvas for your brand logo or event message, standing out from the classic clear glass. Whether you're assembling Arnold Palmer kits for a corporate golf outing or creating custom beverage sets for a trade show, the white finish provides a modern look that pairs well with any lid color or decoration method. Screen printing or etching shows up sharply against the opaque surface, making your branding the focal point of each jar.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom white mason jars with screen-printed logo, perfect for branded drinkware and gift kits",
+  "productSkus": [
+    "525119"
+  ],
+  "generatedAt": "2026-05-31T08:57:40.720078+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/screwdrivers/color/green",
+  "type": "facet",
+  "h1": "Custom Green Screwdrivers for Bulk Orders",
+  "metaTitle": "Custom Green Screwdrivers - Perfect Imprints",
+  "metaDescription": "Order custom green screwdrivers in bulk. Perfect for safety teams and giveaways. Get a quote today at PerfectImprints.com.",
+  "introHtml": "<p>Green screwdrivers are a smart choice for safety managers who want tools that stand out on a cluttered workbench or in a toolkit. The bright color makes them easy to spot, reducing the chance of loss. Whether you choose the versatile 5-In-1 Work Pen or the compact Pocket Screwdriver, adding your logo turns a practical item into a daily reminder of your brand. Custom imprinting on the handle or barrel keeps your company top of mind with every use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green screwdrivers with logo imprint, including a 5-in-1 work pen and pocket screwdriver",
+  "productSkus": [
+    "501004",
+    "516294"
+  ],
+  "generatedAt": "2026-05-31T10:06:13.686092+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

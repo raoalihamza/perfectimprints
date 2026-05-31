@@ -1,0 +1,22 @@
+{
+  "url": "/cat/mirrors/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Mirrors for Bulk Orders",
+  "metaTitle": "Custom Set Mirrors | Perfect Imprints",
+  "metaDescription": "Order custom set mirrors in bulk from Perfect Imprints. Ideal for events, gifts, and branding. Get a quote today.",
+  "introHtml": "<p>Custom set mirrors offer a practical and stylish way to keep your brand in front of your audience daily. Whether you opt for a Mirror With LED Light for desk use or a Reflections LED Light Cosmetic Mirror for on-the-go touch-ups, these sets make thoughtful corporate gifts or event giveaways. Bulk ordering ensures consistent branding across all pieces, with options for pad printing or laser engraving to match your logo perfectly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set mirrors including LED light mirrors for branding and corporate gifts",
+  "productSkus": [
+    "529298",
+    "529387"
+  ],
+  "generatedAt": "2026-05-31T09:19:59.923328+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

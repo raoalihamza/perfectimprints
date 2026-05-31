@@ -1,0 +1,25 @@
+{
+  "url": "/cat/office/activity/soccer",
+  "type": "facet",
+  "h1": "Custom Soccer Office Supplies",
+  "metaTitle": "Custom Soccer Office Supplies | Perfect Imprints",
+  "metaDescription": "Brand custom soccer office supplies for your team. Perfect for sports-themed workplaces. Order bulk from Perfect Imprints.",
+  "introHtml": "<p>For offices that live and breathe soccer, standard desk accessories just won’t cut it. Custom soccer office supplies let you bring the energy of the pitch to your workspace with branded magnets, notepads, and more. Ideal for sports marketing agencies, athletic departments, or fan-centric businesses, these items keep your logo visible while showing off team spirit. Decorate with full-color logos on our Soccer Ball Sports Magnet or other fan favorites for a cohesive look that resonates with employees and visitors alike.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom soccer office supplies including a branded Soccer Ball Sports Magnet on a metal filing cabinet",
+  "productSkus": [
+    "504235 2AC",
+    "504235 2AK",
+    "504235 2AM",
+    "504235 2AN",
+    "504235 2KI"
+  ],
+  "generatedAt": "2026-05-31T08:44:34.863656+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

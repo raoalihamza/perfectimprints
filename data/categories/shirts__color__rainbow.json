@@ -1,0 +1,19 @@
+{
+  "url": "/cat/shirts/color/rainbow",
+  "type": "facet",
+  "h1": "Custom Rainbow Shirts for Bold Branding",
+  "metaTitle": "Custom Rainbow Shirts | Perfect Imprints",
+  "metaDescription": "Shop custom rainbow shirts for vibrant branding. Bulk orders available at Perfect Imprints. Get a quote today!",
+  "introHtml": "<p>Rainbow shirts make a bold statement for Pride events, diversity campaigns, or any occasion where you want your brand to stand out with color. Unlike single-color shirts, rainbow designs let you showcase a full spectrum that catches attention and communicates inclusivity. Perfect for team uniforms, giveaways, or fundraisers, these shirts are available in styles from polo to t-shirt, with screen printing or embroidery options that pop against the multicolor fabric.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom rainbow shirts with screen-printed logos at a corporate event",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:25:35.527420+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

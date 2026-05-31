@@ -1,0 +1,23 @@
+{
+  "url": "/cat/coffee-mugs/material/glass",
+  "type": "facet",
+  "h1": "Custom Glass Coffee Mugs for Branded Drinkware",
+  "metaTitle": "Custom Glass Coffee Mugs | Perfect Imprints",
+  "metaDescription": "Order custom glass coffee mugs in bulk. Perfect for offices, cafes, and events. Get a quote today at PerfectImprints.com.",
+  "introHtml": "<p>Glass coffee mugs offer a premium, heat-resistant alternative to ceramic, showcasing your logo with crystal clarity. Ideal for corporate breakrooms, coffee shops, or trade shows, these mugs provide a clean, modern look that ceramic cannot match. With options like the 16 oz Bistro or 10 oz Haworth mugs, you can choose a shape that fits your brand's personality. Decorate with screen printing or etching for a lasting impression that customers and employees will appreciate daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom glass coffee mugs with company logo, clear glass design for branded drinkware",
+  "productSkus": [
+    "511030 90E",
+    "511051 90E",
+    "516733 90E"
+  ],
+  "generatedAt": "2026-05-31T08:22:48.952842+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

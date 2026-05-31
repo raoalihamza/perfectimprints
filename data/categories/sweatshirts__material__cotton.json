@@ -1,0 +1,31 @@
+{
+  "url": "/cat/sweatshirts/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Sweatshirts",
+  "metaTitle": "Custom Cotton Sweatshirts | Perfect Imprints",
+  "metaDescription": "Order custom cotton sweatshirts for your team or event. Soft, breathable, and perfect for embroidery or screen printing. Get a quote today!",
+  "introHtml": "<p>Cotton sweatshirts offer natural breathability and a soft hand feel that synthetic blends can't match, making them a go-to for comfort-focused corporate apparel, team uniforms, or promotional giveaways. Whether you choose the classic Camden Crew Neck or the versatile Crosswind Quarter Zip, cotton fabric provides a smooth surface for crisp embroidery or vibrant screen printing. Perfect for trade shows, employee rewards, or casual Fridays, these sweatshirts keep your brand feeling as good as it looks.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom cotton sweatshirts with embroidered logos, including crew necks and quarter zips.",
+  "productSkus": [
+    "511025",
+    "511117",
+    "522160",
+    "526103",
+    "526530",
+    "526531",
+    "527947",
+    "528221",
+    "528222",
+    "528594",
+    "528595"
+  ],
+  "generatedAt": "2026-05-31T09:27:45.743190+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

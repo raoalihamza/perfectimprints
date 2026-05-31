@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel/brand/greatness-wins",
+  "type": "facet",
+  "h1": "Custom Greatness Wins Apparel for Bulk Orders",
+  "metaTitle": "Custom Greatness Wins Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Greatness Wins apparel for your team or event. Bulk pricing available from Perfect Imprints.",
+  "introHtml": "<p>Greatness Wins apparel combines motivational branding with performance-ready fabric, making it a strong choice for corporate teams, fundraising events, and employee recognition programs. The Sport-Tek Competitor Youth Tee, for example, offers moisture-wicking comfort that holds up to repeated wear and washing. Whether you need polos, tees, or outerwear, this collection gives your group a unified, professional look with an inspiring message that resonates in any workplace or community setting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Greatness Wins apparel featuring a branded Sport-Tek Competitor Youth Tee in team colors",
+  "productSkus": [
+    "504869"
+  ],
+  "generatedAt": "2026-05-31T08:31:41.106804+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

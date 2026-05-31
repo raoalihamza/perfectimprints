@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel/material/paper",
+  "type": "facet",
+  "h1": "Custom Paper Apparel for Bulk Orders",
+  "metaTitle": "Custom Paper Apparel | Perfect Imprints",
+  "metaDescription": "Order custom paper apparel for promotional events. Perfect for one-time use. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Custom paper apparel offers a disposable alternative for promotional events, trade shows, and product launches where convenience and cost control matter. Made from lightweight paper materials, these items are designed for single-use scenarios—think branded paper vests for race volunteers or paper hats for food service staff. Unlike traditional fabric apparel, paper options eliminate laundering costs and are recyclable. The Taurus Eco Fanny Pack exemplifies how paper can be functional and eco-conscious for short-term branding needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom paper apparel including a Taurus Eco Fanny Pack made from paper material",
+  "productSkus": [
+    "524500"
+  ],
+  "generatedAt": "2026-05-31T08:48:28.113298+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

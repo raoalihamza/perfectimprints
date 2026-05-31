@@ -1,0 +1,25 @@
+{
+  "url": "/cat/bandages/supplier/evans",
+  "type": "facet",
+  "h1": "Custom Evans Bandages for Bulk Orders",
+  "metaTitle": "Custom Evans Bandages | Perfect Imprints",
+  "metaDescription": "Order custom Evans bandages in bulk from Perfect Imprints. Ideal for safety kits, first aid, and promotional giveaways.",
+  "introHtml": "<p>Evans bandages are a trusted choice for first aid and safety kits, offering reliable adhesion and durable construction. When you add your logo or message to these bandages, you turn a practical medical supply into a branded touchpoint that shows you care. Perfect for safety managers equipping work crews or HR directors preparing emergency kits, custom Evans bandages keep your brand visible even in a pinch.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Evans bandages in assorted sizes with a printed logo, arranged on a white surface.",
+  "productSkus": [
+    "502343",
+    "506843",
+    "510131",
+    "528559",
+    "529323"
+  ],
+  "generatedAt": "2026-05-31T08:32:14.353300+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

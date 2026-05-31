@@ -1,0 +1,30 @@
+{
+  "url": "/cat/fanny-packs/supplier/koozie",
+  "type": "facet",
+  "h1": "Custom Koozie Fanny Packs for Bulk Orders",
+  "metaTitle": "Custom Koozie Fanny Packs | Perfect Imprints",
+  "metaDescription": "Order custom Koozie fanny packs in bulk from Perfect Imprints. Perfect for events, promotions, and giveaways.",
+  "introHtml": "<p>Koozie is known for durable, lightweight fanny packs that keep essentials secure during outdoor events, trade shows, and company outings. From the neon and clear styles to the eco-friendly Taurus model, these packs offer full-color imprint areas for your logo. Choose from running belts, organizers, or classic hip packs to match your brand's needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Koozie fanny packs in various colors and styles for promotional bulk orders",
+  "productSkus": [
+    "514432",
+    "514433",
+    "519201",
+    "522510",
+    "522705",
+    "522803",
+    "523655",
+    "524162",
+    "524500",
+    "525724"
+  ],
+  "generatedAt": "2026-05-31T09:45:32.402046+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/tank-tops/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Tank Tops",
+  "metaTitle": "Custom Unisex Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom unisex tank tops for your team or event. Bulk pricing, fast turnaround. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Unisex tank tops offer a versatile, one-size-fits-most fit that works for any gender, making them ideal for company picnics, charity runs, or summer giveaways. Unlike gender-specific cuts, these tanks provide a relaxed silhouette that suits everyone in your group. Choose from styles like the Bella+Canvas Jersey Tank, available in multiple colors, and decorate with screen printing or embroidery for a cohesive, branded look that keeps your team comfortable in warm weather.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom unisex tank tops with printed logos at an outdoor event",
+  "productSkus": [
+    "506864",
+    "528866"
+  ],
+  "generatedAt": "2026-05-31T10:10:41.633848+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

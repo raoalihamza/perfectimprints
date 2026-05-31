@@ -1,0 +1,27 @@
+{
+  "url": "/cat/pullovers/material/cotton-poly",
+  "type": "facet",
+  "h1": "Custom Cotton Poly Pullovers",
+  "metaTitle": "Custom Cotton Poly Pullovers | Perfect Imprints",
+  "metaDescription": "Order custom cotton poly pullovers for your team or event. Durable, comfortable, and perfect for screen printing. Get a quote today!",
+  "introHtml": "<p>Cotton poly pullovers combine the softness of cotton with the durability of polyester, making them a top choice for bulk orders. The blend resists shrinking and wrinkles, while holding vibrant screen-printed logos wash after wash. Whether you're outfitting a safety crew or launching a company store, these hooded sweatshirts offer year-round comfort and a professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of custom cotton poly pullovers with embroidered logos, available in various colors for bulk orders.",
+  "productSkus": [
+    "505528",
+    "509487",
+    "509488",
+    "515928",
+    "515946",
+    "515996",
+    "516009"
+  ],
+  "generatedAt": "2026-05-31T09:24:37.589871+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

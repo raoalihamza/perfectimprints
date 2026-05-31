@@ -1,0 +1,26 @@
+{
+  "url": "/cat/outerwear/eco-friendly/sustainable",
+  "type": "facet",
+  "h1": "Custom Sustainable Outerwear for Your Brand",
+  "metaTitle": "Custom Sustainable Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom sustainable outerwear for your team or event. Eco-friendly jackets, vests, and fleeces with your logo. Bulk pricing available.",
+  "introHtml": "<p>Custom sustainable outerwear lets you promote your brand while supporting environmentally responsible manufacturing. From recycled polyester fleeces like the Cotopaxi Amado to PrimaLoft Eco insulated vests by Cutter & Buck, these pieces are made with post-consumer materials and low-impact processes. Perfect for corporate gifts, trade show giveaways, or employee uniforms, they combine warmth, durability, and a clear commitment to sustainability. Decorate with embroidery or screen printing for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom sustainable outerwear including eco-friendly fleece jackets and insulated vests with company logos",
+  "productSkus": [
+    "527559",
+    "527560",
+    "528931",
+    "528932",
+    "529196",
+    "529197"
+  ],
+  "generatedAt": "2026-05-31T08:23:41.383174+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

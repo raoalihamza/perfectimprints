@@ -1,0 +1,29 @@
+{
+  "url": "/cat/backpacks/brand/mission",
+  "type": "facet",
+  "h1": "Custom Mission Backpacks for Bulk Orders",
+  "metaTitle": "Custom Mission Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Mission backpacks in bulk. Ideal for corporate gifts, events, and teams. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Mission backpacks combine rugged durability with modern organization, making them a top pick for corporate giveaways and employee gear. With padded laptop compartments, multiple pockets, and water-resistant materials, these packs handle daily commutes and outdoor tasks alike. Choose from styles like the Basecamp Ascent or Sherpa Backpack and add your logo via embroidery or screen printing for a professional finish that stands up to heavy use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Mission backpacks with embroidered logo, featuring padded laptop sleeve and multiple compartments for daily use.",
+  "productSkus": [
+    "510197",
+    "520232",
+    "520859",
+    "521471",
+    "521499",
+    "521508",
+    "526041",
+    "527783",
+    "527785"
+  ],
+  "generatedAt": "2026-05-31T08:49:10.810255+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

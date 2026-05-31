@@ -1,0 +1,22 @@
+{
+  "url": "/cat/sweatshirts/brand/under-armour",
+  "type": "facet",
+  "h1": "Custom Under Armour Sweatshirts for Bulk Orders",
+  "metaTitle": "Custom Under Armour Sweatshirts | Perfect Imprints",
+  "metaDescription": "Order custom Under Armour sweatshirts in bulk from Perfect Imprints. Perfect for corporate apparel, teams, and events.",
+  "introHtml": "<p>Under Armour sweatshirts combine athletic performance with everyday comfort, making them a top choice for corporate apparel, team uniforms, and promotional events. The Rival Fleece series offers a soft, durable fabric that stands up to frequent washing, while the Moisture Transport System keeps wearers dry. Decorate with your logo using screen printing or embroidery for a professional look that your employees or clients will actually wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Under Armour sweatshirts with embroidered logo on front, available in bulk from Perfect Imprints",
+  "productSkus": [
+    "528105",
+    "528106"
+  ],
+  "generatedAt": "2026-05-31T10:10:01.591389+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

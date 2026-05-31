@@ -1,0 +1,21 @@
+{
+  "url": "/cat/tools/feature/with-zipper",
+  "type": "facet",
+  "h1": "Custom Tools with Zipper for Bulk Orders",
+  "metaTitle": "Custom Tools with Zipper | Perfect Imprints",
+  "metaDescription": "Order custom tools with zipper for bulk giveaways and corporate gifts. Perfect for safety managers and HR directors.",
+  "introHtml": "<p>Custom tools with zipper offer a practical and organized solution for corporate giveaways and employee kits. The zippered closure keeps contents secure, making these kits ideal for safety managers who need to distribute compact tool sets for worksites or road emergencies. Whether you choose the Zip Executive Tool Kit or another style, these branded tools combine utility with a professional appearance that recipients appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom tools with zipper in a compact executive tool kit for corporate gifts",
+  "productSkus": [
+    "513063"
+  ],
+  "generatedAt": "2026-05-31T09:28:43.354793+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

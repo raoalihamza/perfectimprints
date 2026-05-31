@@ -1,0 +1,29 @@
+{
+  "url": "/cat/socks/supplier/ascolour",
+  "type": "facet",
+  "h1": "Custom Ascolour Socks for Bulk Orders",
+  "metaTitle": "Custom Ascolour Socks | Perfect Imprints",
+  "metaDescription": "Order custom Ascolour socks in bulk from Perfect Imprints. Ideal for promotions, corporate gifts, and events. Soft CTA.",
+  "introHtml": "<p>Ascolour socks offer a premium canvas for your brand, combining comfort and durability with a wide range of styles from ankle highs to jacquard knits. Whether you need custom socks for a corporate wellness program or a trade show giveaway, the Ascolour line provides consistent quality and decoration-friendly surfaces. Choose from features like bamboo thread blends or trifold packaging to make your logo stand out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Ascolour socks in various styles including ankle high and crew socks with logo imprint",
+  "productSkus": [
+    "516800",
+    "521927",
+    "522251",
+    "524427",
+    "525740",
+    "526360",
+    "526361",
+    "526363",
+    "526896"
+  ],
+  "generatedAt": "2026-05-31T09:26:16.064833+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

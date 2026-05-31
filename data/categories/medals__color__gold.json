@@ -1,0 +1,21 @@
+{
+  "url": "/cat/medals/color/gold",
+  "type": "facet",
+  "h1": "Custom Gold Medals for Bulk Orders",
+  "metaTitle": "Custom Gold Medals | Perfect Imprints",
+  "metaDescription": "Order custom gold medals for your next event. Perfect for awards, competitions, and recognition programs. Bulk pricing available.",
+  "introHtml": "<p>Gold medals convey a sense of achievement and prestige that other finishes cannot match. Whether you are honoring top performers in a sales contest, recognizing winners at a corporate sports day, or celebrating student achievements, a gold finish adds a timeless, premium look. Customize with your logo, event name, or year using engraving or full-color printing on the ribbon. The Laurel Wreath Medal is a classic design that pairs perfectly with a gold finish for a distinguished award.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gold medals with ribbon and engraved text, displayed on a dark background",
+  "productSkus": [
+    "513818"
+  ],
+  "generatedAt": "2026-05-31T08:57:46.008565+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

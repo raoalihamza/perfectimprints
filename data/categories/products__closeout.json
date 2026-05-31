@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/closeout",
+  "type": "modifier",
+  "h1": "Closeout Custom Products for Budget-Conscious Buyers",
+  "metaTitle": "Closeout Custom Products | Perfect Imprints",
+  "metaDescription": "Shop closeout custom products at clearance prices. Limited stock on promotional items. Grab deals before they're gone at Perfect Imprints.",
+  "introHtml": "<p>Closeout custom products offer marketing directors, HR directors, safety managers, and business owners a chance to stock up on branded merchandise at clearance prices. These items are priced to move because inventory is limited or being discontinued. Selection changes frequently, so buying decisions need to be made quickly. Whether you need promotional giveaways for an upcoming event or employee gifts on a tight budget, closeout pricing makes it possible to order more without stretching your spend. Act fast to secure the best deals before stock runs out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A display of closeout custom products including branded pens, mugs, and tote bags with clearance price tags.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:45:48.496454+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

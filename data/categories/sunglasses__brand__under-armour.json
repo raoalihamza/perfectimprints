@@ -1,0 +1,28 @@
+{
+  "url": "/cat/sunglasses/brand/under-armour",
+  "type": "facet",
+  "h1": "Custom Under Armour Sunglasses for Bulk Orders",
+  "metaTitle": "Custom Under Armour Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom Under Armour sunglasses in bulk at Perfect Imprints. Ideal for teams, events, and corporate gifts. Get your quote today!",
+  "introHtml": "<p>Under Armour sunglasses combine sporty styling with durable construction, making them a smart choice for corporate giveaways, team events, and safety incentives. Unlike generic promotional shades, these polarized options offer UV protection and a secure fit for active use. Decorate with your logo using pad printing or laser engraving for a clean, professional look that stands out at outdoor company picnics or trade shows.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Under Armour sunglasses with polarized lenses and logo imprint, perfect for bulk corporate orders",
+  "productSkus": [
+    "527121",
+    "527122",
+    "528095",
+    "528096",
+    "528105",
+    "528106",
+    "528108",
+    "529262"
+  ],
+  "generatedAt": "2026-05-31T09:27:12.652639+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

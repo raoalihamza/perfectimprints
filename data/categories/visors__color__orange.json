@@ -1,0 +1,29 @@
+{
+  "url": "/cat/visors/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Visors for Bulk Orders",
+  "metaTitle": "Custom Orange Visors | Perfect Imprints",
+  "metaDescription": "Order custom orange visors in bulk from Perfect Imprints. Great for events, teams, and safety. Fast turnaround and free quotes.",
+  "introHtml": "<p>Orange visors offer high visibility and a bold, energetic look, making them a smart choice for outdoor events, sports teams, and safety-conscious organizations. Unlike standard visor colors, orange stands out in a crowd and aligns with safety guidelines for construction crews or event staff. These custom visors can be decorated with screen printing or embroidery, and the Port Authority Enhanced Visibility Cap is a popular option for those needing extra reflectivity. Perfect for summer giveaways, race day promotions, or uniform programs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange visors with embroidered logo on a white background, ideal for bulk orders and promotional events.",
+  "productSkus": [
+    "506903",
+    "509138",
+    "516537",
+    "522635",
+    "525630",
+    "526162",
+    "526537",
+    "527215",
+    "527366"
+  ],
+  "generatedAt": "2026-05-31T09:04:15.931707+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

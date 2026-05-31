@@ -1,0 +1,22 @@
+{
+  "url": "/cat/bookmarks/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Bookmarks",
+  "metaTitle": "Custom Pink Bookmarks | Perfect Imprints",
+  "metaDescription": "Order custom pink bookmarks for your brand. Perfect for libraries, schools, and promotions. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Pink bookmarks offer a soft, eye-catching way to keep your brand top of mind. Whether you're promoting a breast cancer awareness campaign, a spring reading program, or a women's leadership event, pink magnetic bookmarks like the Big MagneticMark or Standard MagneticMark provide a functional giveaway that recipients will use daily. Choose full-color imprinting with your logo and message on durable card stock or plastic, and add a magnetic closure for secure page marking. These custom pink bookmarks are ideal for libraries, schools, and corporate events where a thoughtful, lasting impression matters.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink bookmarks with magnetic closure, featuring a company logo and colorful design, placed on an open book.",
+  "productSkus": [
+    "501529",
+    "501530"
+  ],
+  "generatedAt": "2026-05-31T09:37:41.911267+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

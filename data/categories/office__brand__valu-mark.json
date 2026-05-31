@@ -1,0 +1,22 @@
+{
+  "url": "/cat/office/brand/valu-mark",
+  "type": "facet",
+  "h1": "Custom Valu Mark Office Supplies for Bulk Orders",
+  "metaTitle": "Custom Valu Mark Office Supplies | Perfect Imprints",
+  "metaDescription": "Order custom Valu Mark office supplies in bulk. Perfect for branded notebooks and more at Perfect Imprints.",
+  "introHtml": "<p>Choosing Valu Mark office supplies means you get reliable, budget-friendly products that your team will use daily. From custom branded notebooks to essential desk accessories, Valu Mark offers a practical canvas for your logo. Ideal for large-scale corporate orders, these items hold up to frequent use while keeping your brand visible in the workplace. Decorate with foil stamping or screen printing for a professional finish that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Valu Mark office supplies including branded notebooks and pens for bulk corporate orders",
+  "productSkus": [
+    "515371 01A",
+    "515376 01A"
+  ],
+  "generatedAt": "2026-05-31T08:35:48.475549+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

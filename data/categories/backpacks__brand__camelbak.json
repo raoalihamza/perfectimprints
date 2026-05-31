@@ -1,0 +1,31 @@
+{
+  "url": "/cat/backpacks/brand/camelbak",
+  "type": "facet",
+  "h1": "Custom CamelBak Backpacks for Bulk Orders",
+  "metaTitle": "Custom CamelBak Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom CamelBak backpacks in bulk from Perfect Imprints. Great for corporate gifts, events, and teams. Get your quote today.",
+  "introHtml": "<p>CamelBak backpacks deliver hydration and storage in one durable package, making them a practical choice for outdoor events, corporate giveaways, and employee safety kits. Unlike generic backpacks, CamelBak models like the DEN 15\" Laptop Backpack or Eco-Hydrobak offer built-in reservoirs or insulated pockets, so your logo goes on gear that gets used long after the event. Choose screen printing or embroidery for a clean, lasting mark on the front panel or straps.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom CamelBak backpacks with embroidered logo, featuring a hydration reservoir and laptop compartment",
+  "productSkus": [
+    "525013",
+    "525506",
+    "525680",
+    "525681",
+    "526211",
+    "526695",
+    "527057",
+    "527058",
+    "527966",
+    "528153",
+    "528684"
+  ],
+  "generatedAt": "2026-05-31T09:33:32.892799+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

@@ -1,0 +1,29 @@
+{
+  "url": "/cat/coasters/material/cork",
+  "type": "facet",
+  "h1": "Custom Cork Coasters",
+  "metaTitle": "Custom Cork Coasters | Perfect Imprints",
+  "metaDescription": "Shop custom cork coasters for bulk orders at Perfect Imprints. Durable, natural material perfect for branding. Get a quote today!",
+  "introHtml": "<p>Cork coasters offer a natural, eco-friendly surface that protects desks and tables from moisture and heat. Unlike stone or porcelain, cork is lightweight, non-slip, and absorbs condensation without sticking to glassware. Ideal for breweries, wineries, or any brand emphasizing sustainability, these coasters can be debossed or screen-printed with your logo for a subtle, textured look that stands out in bars or office break rooms.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cork coasters with debossed logo on a wooden table, showcasing natural texture and branding.",
+  "productSkus": [
+    "510544 32B",
+    "510545 32B",
+    "511267 90A",
+    "512285 32B",
+    "512328 32B",
+    "512392 32B",
+    "518880",
+    "520562",
+    "525571"
+  ],
+  "generatedAt": "2026-05-31T08:28:33.440113+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

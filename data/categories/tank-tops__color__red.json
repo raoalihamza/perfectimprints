@@ -1,0 +1,25 @@
+{
+  "url": "/cat/tank-tops/color/red",
+  "type": "facet",
+  "h1": "Custom Red Tank Tops for Bulk Orders",
+  "metaTitle": "Custom Red Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom red tank tops for your team or event. Bulk pricing, fast turnaround, and quality decoration from Perfect Imprints.",
+  "introHtml": "<p>Red tank tops make a bold statement for team uniforms, charity runs, or promotional giveaways. The vibrant color stands out in crowds, ensuring your logo or message gets noticed. Options like the Bella+Canvas Jersey Tank offer a soft, breathable fit ideal for activewear, while the Gildan Softstyle Tank provides a comfortable choice for casual events. Screen printing or embroidery both work well on these lightweight fabrics.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom red tank tops with printed logos at a outdoor event",
+  "productSkus": [
+    "505073",
+    "506864",
+    "528866",
+    "528871",
+    "528872"
+  ],
+  "generatedAt": "2026-05-31T08:25:42.762078+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

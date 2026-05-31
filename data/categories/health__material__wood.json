@@ -1,0 +1,25 @@
+{
+  "url": "/cat/health/material/wood",
+  "type": "facet",
+  "h1": "Custom Wood Health Products for Bulk Orders",
+  "metaTitle": "Custom Wood Health Products | Perfect Imprints",
+  "metaDescription": "Order custom wood health products in bulk from Perfect Imprints. Ideal for corporate wellness and safety programs.",
+  "introHtml": "<p>Wood health products bring a natural, tactile quality to corporate wellness initiatives. Unlike plastic or metal alternatives, wood offers a warm, eco-friendly feel that aligns with sustainability goals. From beechwood massage rollers to full-color emery boards, these items are ideal for safety managers and HR directors looking to promote well-being with a premium, natural touch. Customize with your logo via debossing, screen printing, or laser engraving for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wood health products including wooden massage roller and dry body brush with engraved logo",
+  "productSkus": [
+    "526411",
+    "526780",
+    "528332",
+    "529295",
+    "529487"
+  ],
+  "generatedAt": "2026-05-31T09:15:49.467319+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

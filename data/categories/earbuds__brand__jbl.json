@@ -1,0 +1,24 @@
+{
+  "url": "/cat/earbuds/brand/jbl",
+  "type": "facet",
+  "h1": "Custom JBL Earbuds for Bulk Orders",
+  "metaTitle": "Custom JBL Earbuds | Perfect Imprints",
+  "metaDescription": "Order custom JBL earbuds in bulk for your team or event. Reliable sound and branding from Perfect Imprints.",
+  "introHtml": "<p>Custom JBL earbuds deliver the audio quality your team expects, paired with your logo for a professional finish. Whether you're outfitting a sales force or gifting attendees at a corporate event, JBL's true wireless models like the Vibe Beam 2 offer secure fit and clear sound. Choose from several color options and add your brand via laser engraving or pad printing for a clean, lasting look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom JBL earbuds with a company logo engraved on the charging case",
+  "productSkus": [
+    "529459",
+    "529460",
+    "529461",
+    "529462"
+  ],
+  "generatedAt": "2026-05-31T09:44:13.032229+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

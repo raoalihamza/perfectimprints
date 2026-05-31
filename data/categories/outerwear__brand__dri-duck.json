@@ -1,0 +1,23 @@
+{
+  "url": "/cat/outerwear/brand/dri-duck",
+  "type": "facet",
+  "h1": "Custom Dri Duck Outerwear for Bulk Orders",
+  "metaTitle": "Custom Dri Duck Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom Dri Duck outerwear in bulk. Perfect for teams, events, and uniforms. Get a quote today at PerfectImprints.com.",
+  "introHtml": "<p>Dri Duck outerwear combines waterproof protection with professional styling, making it a top choice for companies that need durable, weather-resistant apparel. Whether you're outfitting a construction crew or a sales team, these jackets offer reliable performance and a polished look. Decorate with your logo using embroidery or screen printing for maximum visibility and long-lasting wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Dri Duck outerwear jackets with logo embroidery for corporate teams",
+  "productSkus": [
+    "527126",
+    "528099",
+    "528100"
+  ],
+  "generatedAt": "2026-05-31T08:44:51.553648+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

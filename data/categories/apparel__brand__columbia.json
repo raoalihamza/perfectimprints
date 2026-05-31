@@ -1,0 +1,25 @@
+{
+  "url": "/cat/apparel/brand/columbia",
+  "type": "facet",
+  "h1": "Custom Columbia Apparel for Bulk Orders",
+  "metaTitle": "Custom Columbia Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Columbia apparel for your team or event. Perfect for corporate uniforms, giveaways, and more. Get a quote today!",
+  "introHtml": "<p>Columbia apparel combines outdoor performance with a trusted brand name, making it a top choice for corporate uniforms, team gear, and promotional giveaways. From the durable Men's Columbia Ascender Soft Shell to the lightweight Tamiami shirts, each piece offers reliable comfort and style. Decorate with your logo using embroidery or screen printing for a professional look that lasts. Whether you need fleece jackets for a company retreat or polos for a trade show, Columbia delivers quality your recipients will wear again and again.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom Columbia apparel including soft shell jackets and fleece with embroidered logos",
+  "productSkus": [
+    "523863",
+    "523865",
+    "523866",
+    "523867",
+    "523870"
+  ],
+  "generatedAt": "2026-05-31T09:05:24.606015+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

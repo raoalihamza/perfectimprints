@@ -1,0 +1,23 @@
+{
+  "url": "/cat/apparel-accessories/feature/cuff",
+  "type": "facet",
+  "h1": "Custom Cuff Apparel Accessories",
+  "metaTitle": "Custom Cuff Apparel Accessories | Perfect Imprints",
+  "metaDescription": "Order custom cuff apparel accessories for your team. Perfect for safety gloves and more. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Cuff apparel accessories, like fleece mittens with extended cuffs, provide extra warmth and protection for outdoor workers and event attendees. A ribbed or elasticized cuff keeps gloves secure, preventing snow or debris from entering. Customize with your logo for a practical giveaway that gets used all winter. Perfect for safety managers equipping crews or marketers promoting winter events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cuff apparel accessories including embroidered fleece mittens with ribbed cuffs",
+  "productSkus": [
+    "516832",
+    "516833",
+    "527493"
+  ],
+  "generatedAt": "2026-05-31T09:31:50.812565+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

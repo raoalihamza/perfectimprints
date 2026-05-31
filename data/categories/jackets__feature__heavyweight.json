@@ -1,0 +1,30 @@
+{
+  "url": "/cat/jackets/feature/heavyweight",
+  "type": "facet",
+  "h1": "Custom Heavyweight Jackets for Bulk Orders",
+  "metaTitle": "Custom Heavyweight Jackets | Perfect Imprints",
+  "metaDescription": "Order custom heavyweight jackets in bulk for your team. Durable, warm, and perfect for branding. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Heavyweight jackets provide the warmth and durability needed for outdoor work, winter events, and team uniforms. Unlike lightweight shells, these jackets feature thick fleece, soft shells, or insulated linings that stand up to cold conditions. Decorate with embroidery or screen printing for a polished look. Whether you need safety-compliant options like ANSI-rated fleece hoodies or premium brand jackets, custom heavyweight jackets keep your team comfortable and your logo visible all season long.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of custom heavyweight jackets with embroidered logos, including fleece and soft shell styles for winter branding.",
+  "productSkus": [
+    "511016",
+    "523279",
+    "523280",
+    "526245",
+    "526246",
+    "526347",
+    "526348",
+    "528167",
+    "528168",
+    "529301"
+  ],
+  "generatedAt": "2026-05-31T08:56:08.679252+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

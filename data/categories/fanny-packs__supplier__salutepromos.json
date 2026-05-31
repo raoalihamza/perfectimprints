@@ -1,0 +1,30 @@
+{
+  "url": "/cat/fanny-packs/supplier/salutepromos",
+  "type": "facet",
+  "h1": "Custom Salutepromos Fanny Packs for Bulk Orders",
+  "metaTitle": "Custom Salutepromos Fanny Packs | Perfect Imprints",
+  "metaDescription": "Order custom Salutepromos fanny packs in bulk. Ideal for events, giveaways, and branded merch. Get a quote today!",
+  "introHtml": "<p>Salutepromos fanny packs combine durability with a sleek, modern look, making them a top pick for corporate events, trade shows, and employee gifts. Whether you need clear bags for stadium security or neon options for high-visibility runs, Salutepromos offers reliable materials and multiple decoration methods like screen printing and embroidery. Ordering through Perfect Imprints ensures your logo stands out on every pack.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Salutepromos fanny packs with branded logo in various colors, including neon and clear styles.",
+  "productSkus": [
+    "514432",
+    "514433",
+    "519201",
+    "522510",
+    "522705",
+    "522803",
+    "523655",
+    "524162",
+    "524500",
+    "525724"
+  ],
+  "generatedAt": "2026-05-31T09:45:34.878860+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

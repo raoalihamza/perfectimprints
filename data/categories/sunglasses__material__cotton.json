@@ -1,0 +1,22 @@
+{
+  "url": "/cat/sunglasses/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Sunglasses for Bulk Orders",
+  "metaTitle": "Custom Cotton Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom cotton sunglasses for your next event. Perfect for trade shows and giveaways. Get a quote today!",
+  "introHtml": "<p>Cotton sunglasses offer a unique, eco-friendly alternative to standard plastic frames. The soft cotton material provides a comfortable fit and a natural look that stands out at outdoor events, trade shows, or company picnics. Customize them with your logo using screen printing or embroidery for a branded giveaway that recipients will actually wear. Perfect for corporate gifts or promotional swag that aligns with sustainability goals.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cotton sunglasses with embroidered logo on temple, displayed on a wooden surface",
+  "productSkus": [
+    "513236",
+    "520125"
+  ],
+  "generatedAt": "2026-05-31T08:27:30.584730+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

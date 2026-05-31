@@ -1,0 +1,19 @@
+{
+  "url": "/cat/household/activity/running",
+  "type": "facet",
+  "h1": "Custom Running Household Items for Events",
+  "metaTitle": "Custom Running Household Items | Perfect Imprints",
+  "metaDescription": "Order custom running household items for your next race or event. Perfect Imprints offers bulk pricing on branded gear.",
+  "introHtml": "<p>Running-themed household products bring the energy of race day into everyday life. Whether you're organizing a corporate 5K, a charity fun run, or a team-building event, items like custom water bottles, towels, and storage bins help participants remember the experience. Choose from durable materials that withstand frequent use and imprint your logo or event name with screen printing or embroidery for long-lasting visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom running household items including water bottles and towels with event logos for race participants",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:51:07.427275+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

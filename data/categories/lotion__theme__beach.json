@@ -1,0 +1,21 @@
+{
+  "url": "/cat/lotion/theme/beach",
+  "type": "facet",
+  "h1": "Custom Beach Lotion for Branded Giveaways",
+  "metaTitle": "Custom Beach Lotion | Perfect Imprints",
+  "metaDescription": "Order custom beach lotion for your next event. Sun Bum kits available. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Beach-themed lotion is a natural fit for summer events, resort giveaways, and outdoor company picnics. Unlike generic moisturizer, custom beach lotion signals sun, sand, and relaxation — making it an instant hit with employees or guests. Whether you choose a branded Sun Bum kit or a custom-labeled sunscreen, your logo on beach lotion keeps your brand top-of-mind all season long. Silkscreen or label decoration options let you match your brand colors perfectly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom beach lotion bottles with Sun Bum branding and tropical design for summer giveaways",
+  "productSkus": [
+    "525624"
+  ],
+  "generatedAt": "2026-05-31T09:18:29.267333+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

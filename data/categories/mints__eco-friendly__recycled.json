@@ -1,0 +1,21 @@
+{
+  "url": "/cat/mints/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Mints",
+  "metaTitle": "Custom Recycled Mints | Perfect Imprints",
+  "metaDescription": "Order custom recycled mints for eco-friendly branding. Perfect for green initiatives. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Custom recycled mints offer a sustainable way to keep your brand top of mind. Made with recycled materials and packaged in eco-conscious tins like the MicroMints® Domed Tin, these mints are ideal for trade shows, offices, or client gifts. Choose recycled mints to demonstrate your commitment to the environment while providing a refreshing treat that recipients will appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled mints in a domed tin with company logo, eco-friendly promotional product",
+  "productSkus": [
+    "510142"
+  ],
+  "generatedAt": "2026-05-31T08:58:02.272057+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

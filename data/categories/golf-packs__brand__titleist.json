@@ -1,0 +1,27 @@
+{
+  "url": "/cat/golf-packs/brand/titleist",
+  "type": "facet",
+  "h1": "Custom Titleist Golf Packs for Corporate Events",
+  "metaTitle": "Custom Titleist Golf Packs | Perfect Imprints",
+  "metaDescription": "Order custom Titleist golf packs for your next event. Choose from Pro V1, TruFeel, and more. Call us for bulk pricing.",
+  "introHtml": "<p>Titleist golf packs give your corporate event or tournament a premium feel that attendees will remember. Whether you choose Pro V1, TruFeel, or Velocity balls, each pack can be custom imprinted with your logo using foil stamping or pad printing. Perfect for client gifts, player appreciation, or employee rewards, these packs combine brand recognition with performance. Order in bulk and make your next outing stand out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Titleist golf packs with Pro V1 balls and corporate logo imprint for bulk orders",
+  "productSkus": [
+    "507565 90A",
+    "515618 90A",
+    "528008",
+    "529251",
+    "529255",
+    "529256",
+    "529258"
+  ],
+  "generatedAt": "2026-05-31T08:42:13.722032+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

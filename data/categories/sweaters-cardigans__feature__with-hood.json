@@ -1,0 +1,21 @@
+{
+  "url": "/cat/sweaters-cardigans/feature/with-hood",
+  "type": "facet",
+  "h1": "Custom Hooded Sweaters & Cardigans",
+  "metaTitle": "Custom Hooded Sweaters & Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom hooded sweaters and cardigans in bulk. Perfect for company apparel, teams, and events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Hooded sweaters and cardigans combine the comfort of a classic knit layer with the casual utility of a hood. Perfect for outdoor events, team uniforms, or company gifts, these garments keep your team warm while offering a modern, relaxed look. The Women's District® Perfect Tri® Hooded Cardigan is a popular choice for its soft tri-blend fabric and flattering fit. Decorate with embroidery or screen printing for a polished, branded finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hooded sweaters and cardigans with embroidery, like the Women's District Perfect Tri Hooded Cardigan in heather colors.",
+  "productSkus": [
+    "526198"
+  ],
+  "generatedAt": "2026-05-31T08:47:10.418219+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

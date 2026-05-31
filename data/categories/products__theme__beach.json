@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/theme/beach",
+  "type": "facet",
+  "h1": "Custom Beach Products for Branded Giveaways",
+  "metaTitle": "Custom Beach Products | Perfect Imprints",
+  "metaDescription": "Shop custom beach products for your next event. Bulk pricing and fast turnaround available at Perfect Imprints.",
+  "introHtml": "<p>Custom beach products are ideal for summer promotions, company picnics, or client appreciation gifts. From branded beach towels and coolers to sunscreen and sand toys, these items keep your logo visible at the shore or pool. Durable materials and vibrant colors ensure long-lasting impressions. Choose from screen printing, embroidery, or pad printing to match your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom beach products including towels, coolers, and sunscreen with logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:23:45.289723+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

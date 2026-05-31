@@ -1,0 +1,22 @@
+{
+  "url": "/cat/products/brand/samsonite",
+  "type": "facet",
+  "h1": "Custom Samsonite Products for Bulk Orders",
+  "metaTitle": "Custom Samsonite Products | Perfect Imprints",
+  "metaDescription": "Order custom Samsonite products in bulk. Perfect for corporate gifts and employee rewards. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Samsonite is synonymous with durable, professional luggage and bags. When you choose custom Samsonite products for your corporate giveaways or employee incentives, you are selecting items that recipients will use for years. From wheeled duffles to laptop backpacks, these products offer ample space for travel and daily commutes. Add your logo through embroidery or screen printing to create a lasting brand impression. Perfect for trade shows, client gifts, or recognition programs, Samsonite products combine practicality with a premium feel that reflects well on your company.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Samsonite products including a wheeled duffle and laptop backpack with logo embroidery",
+  "productSkus": [
+    "527869",
+    "528124"
+  ],
+  "generatedAt": "2026-05-31T08:27:12.641283+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

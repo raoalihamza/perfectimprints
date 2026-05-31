@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/good-value",
+  "type": "facet",
+  "h1": "Custom Good Value Products for Bulk Orders",
+  "metaTitle": "Custom Good Value Products | Perfect Imprints",
+  "metaDescription": "Order custom Good Value products in bulk at Perfect Imprints. Get quality promotional items that fit your budget. Shop now!",
+  "introHtml": "<p>Good Value products deliver reliable quality at competitive prices, making them a smart choice for budget-conscious bulk buyers. Whether you need promotional pens, tote bags, or drinkware, this range offers consistent performance without premium markups. Ideal for trade shows, employee kits, or client gifts, these items accept standard decoration methods like screen printing or pad printing. Choose Good Value to stretch your marketing dollars while still providing recipients with functional, usable merchandise.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom Good Value products including pens, tote bags, and water bottles for promotional use",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:23:54.193826+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

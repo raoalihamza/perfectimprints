@@ -1,0 +1,23 @@
+{
+  "url": "/cat/lip-balm/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Lip Balm",
+  "metaTitle": "Custom Recycled Lip Balm | Perfect Imprints",
+  "metaDescription": "Order custom recycled lip balm in bulk. Eco-friendly, branded lip balms for your next event or promotion. Perfect Imprints.",
+  "introHtml": "<p>Choose custom recycled lip balm to align your brand with sustainability. Made from post-consumer recycled materials, these balms offer a tangible way to showcase your environmental commitment. Perfect for trade shows, corporate gifts, or employee wellness kits, they leave a positive impression while moisturizing dry lips. Options like the rABS Pickleball Lip Moisturizer demonstrate how recycled content can be stylish and functional.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled lip balm in a white tube with a blue label, perfect for eco-friendly branding",
+  "productSkus": [
+    "508584",
+    "527790",
+    "528629"
+  ],
+  "generatedAt": "2026-05-31T08:26:47.880221+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

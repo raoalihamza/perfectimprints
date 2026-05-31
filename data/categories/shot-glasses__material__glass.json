@@ -1,0 +1,27 @@
+{
+  "url": "/cat/shot-glasses/material/glass",
+  "type": "facet",
+  "h1": "Custom Glass Shot Glasses",
+  "metaTitle": "Custom Glass Shot Glasses | Perfect Imprints",
+  "metaDescription": "Order custom glass shot glasses for your brand. Perfect for bars, events, and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Glass shot glasses offer a classic, premium feel that plastic or ceramic alternatives can't match. Their crystal-clear surface provides an excellent canvas for crisp logos or intricate designs through screen printing or etching. Whether you're outfitting a new bar, promoting a spirits brand, or creating memorable wedding favors, custom glass shot glasses deliver a sophisticated look that resonates with recipients. Choose from standard 1.5 oz sizes or larger 2 oz shooters to suit your specific pour.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom glass shot glasses with engraved logos on a bar counter",
+  "productSkus": [
+    "522845",
+    "522847",
+    "525816",
+    "525817",
+    "525916",
+    "525967",
+    "529515"
+  ],
+  "generatedAt": "2026-05-31T09:02:19.647760+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

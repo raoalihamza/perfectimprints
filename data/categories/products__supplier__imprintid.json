@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/imprintid",
+  "type": "facet",
+  "h1": "Custom Imprintid Products for Bulk Orders",
+  "metaTitle": "Custom Imprintid Products - Perfect Imprints",
+  "metaDescription": "Order custom Imprintid products for your brand. Perfect for corporate gifts and events. Get a quote today.",
+  "introHtml": "<p>Imprintid products are known for their reliable quality and consistent imprint area, making them a favorite for corporate logos and event giveaways. Whether you need pens, drinkware, or tech accessories, these items provide a professional canvas for your brand. Bulk ordering ensures you get the best value for your marketing budget.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Imprintid products including pens and drinkware with corporate logos for bulk orders",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:27:17.172025+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

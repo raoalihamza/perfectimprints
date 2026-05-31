@@ -1,0 +1,31 @@
+{
+  "url": "/cat/jackets/feature/half-zip",
+  "type": "facet",
+  "h1": "Custom Half Zip Jackets for Bulk Orders",
+  "metaTitle": "Custom Half Zip Jackets | Perfect Imprints",
+  "metaDescription": "Order custom half zip jackets in bulk for your team. Perfect for corporate events, uniforms, and promotional giveaways.",
+  "introHtml": "<p>Half zip jackets offer a versatile layering option that combines the ease of a pullover with the adjustable ventilation of a zip closure. Whether you need lightweight fleece for indoor events or insulated knit for outdoor promotions, the half zip design provides a polished look that works for both casual and professional settings. Decorate with embroidery or screen printing for a lasting brand impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom half zip jackets in various colors and fabrics for corporate branding and team uniforms",
+  "productSkus": [
+    "509568",
+    "509569",
+    "511074",
+    "520270",
+    "520271",
+    "521110",
+    "521111",
+    "523169",
+    "523170",
+    "529192",
+    "529193"
+  ],
+  "generatedAt": "2026-05-31T08:56:08.569371+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

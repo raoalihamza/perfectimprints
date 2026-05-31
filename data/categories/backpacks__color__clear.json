@@ -1,0 +1,23 @@
+{
+  "url": "/cat/backpacks/color/clear",
+  "type": "facet",
+  "h1": "Custom Clear Backpacks for Events & Security",
+  "metaTitle": "Custom Clear Backpacks | Perfect Imprints",
+  "metaDescription": "Shop custom clear backpacks for stadiums, schools, and corporate events. Logo printing available. Bulk orders at Perfect Imprints.",
+  "introHtml": "<p>Clear backpacks offer a practical solution for venues with strict bag policies, such as stadiums, arenas, and corporate campuses. Unlike opaque backpacks, these transparent designs allow for quick visual inspection while still providing ample storage for laptops, notebooks, and personal items. Customize them with your company logo or event branding using screen printing or debossing. The Rally Clear Backpack, for example, features reinforced stitching and padded straps for comfort during long days on site.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom clear backpacks with logo imprint for stadium events and corporate security",
+  "productSkus": [
+    "512446",
+    "521467",
+    "523502"
+  ],
+  "generatedAt": "2026-05-31T08:23:05.011285+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

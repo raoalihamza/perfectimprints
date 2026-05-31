@@ -1,0 +1,23 @@
+{
+  "url": "/cat/pens/material/bamboo",
+  "type": "facet",
+  "h1": "Custom Bamboo Pens for Bulk Orders",
+  "metaTitle": "Custom Bamboo Pens | Perfect Imprints",
+  "metaDescription": "Order custom bamboo pens for eco-friendly branding. Perfect for bulk orders at Perfect Imprints.",
+  "introHtml": "<p>Bamboo pens offer a sustainable alternative to plastic writing instruments, making them ideal for brands focused on environmental responsibility. The natural wood grain provides a warm, organic look that stands out on desks. Options like the Bamboozle Comfort Pen combine ergonomic design with eco-friendly materials. Decorate with your logo using pad printing or laser engraving for a refined finish. Perfect for trade shows, corporate gifts, or retail packaging.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom bamboo pens with engraved logos displayed on a wooden desk, showcasing eco-friendly promotional products",
+  "productSkus": [
+    "527171",
+    "527776",
+    "527959"
+  ],
+  "generatedAt": "2026-05-31T09:22:11.778050+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

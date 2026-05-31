@@ -1,0 +1,24 @@
+{
+  "url": "/cat/tools/color/safety",
+  "type": "facet",
+  "h1": "Custom Safety Tools for Bulk Orders",
+  "metaTitle": "Custom Safety Tools | Perfect Imprints",
+  "metaDescription": "Order custom safety tools in bulk for your team. Perfect for safety managers and businesses. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Safety-colored tools stand out on job sites and in emergency kits, making them easy to locate when needed most. Whether you choose the Kershaw® “Chive” Knife or the Swiss Force Protector Emergency Safety Tool, imprinting your logo on these high-visibility items reinforces your commitment to workplace safety. Ideal for safety managers and HR directors ordering branded giveaways for safety training events or employee recognition programs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom safety tools including pocket knives and emergency tools in bright safety colors for bulk orders",
+  "productSkus": [
+    "513654 03W",
+    "515334 01A",
+    "515340 01A",
+    "515798 43A"
+  ],
+  "generatedAt": "2026-05-31T10:11:25.892971+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,28 @@
+{
+  "url": "/cat/caps/brand/under-armour",
+  "type": "facet",
+  "h1": "Custom Under Armour Caps for Bulk Orders",
+  "metaTitle": "Custom Under Armour Caps | Perfect Imprints",
+  "metaDescription": "Order custom Under Armour caps in bulk. Perfect for teams, events, and corporate giveaways. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Under Armour caps combine athletic performance with everyday style, making them a top choice for corporate events, sports teams, and safety crews. The moisture-wicking fabric and structured fit keep wearers comfortable during long days on the job or at the game. Add your logo with embroidery or screen printing for a crisp, professional look that stands out. Whether you need 50 or 500, custom Under Armour caps deliver durability and brand recognition that generic hats can't match.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Under Armour caps with embroidered logo on a table at a corporate event",
+  "productSkus": [
+    "527121",
+    "527122",
+    "528095",
+    "528096",
+    "528105",
+    "528106",
+    "528108",
+    "529262"
+  ],
+  "generatedAt": "2026-05-31T08:51:45.876337+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

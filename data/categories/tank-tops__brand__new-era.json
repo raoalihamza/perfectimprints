@@ -1,0 +1,28 @@
+{
+  "url": "/cat/tank-tops/brand/new-era",
+  "type": "facet",
+  "h1": "Custom New Era Tank Tops",
+  "metaTitle": "Custom New Era Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom New Era tank tops for your team or event. Bulk pricing, fast turnaround. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>New Era is known for premium headwear and apparel, and their tank tops bring the same quality to warm-weather gear. Made from heavyweight cotton or performance blends, these tank tops hold up to frequent washing and active use. They are ideal for company picnics, charity runs, or summer giveaways where you need a comfortable top that displays your logo cleanly. Decorate with screen printing or embroidery for a durable, professional finish that recipients will wear all season.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom New Era tank tops in black and white with printed logos on front",
+  "productSkus": [
+    "527747",
+    "529309",
+    "529310",
+    "529311",
+    "529312",
+    "529313",
+    "529314",
+    "529315"
+  ],
+  "generatedAt": "2026-05-31T08:47:17.253664+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/toys/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Toys for Branded Giveaways",
+  "metaTitle": "Custom Brown Toys | Perfect Imprints",
+  "metaDescription": "Order custom brown toys for your next promotion. Perfect for giveaways and events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Brown custom toys offer a natural, earthy aesthetic that stands out from standard bright colors. Whether you choose a wooden look or rich chocolate tones, brown works well for eco-friendly brands or autumn-themed campaigns. The Robo-Cube Puzzle Fidget Toy in brown provides a tactile, screen-free stress reliever that recipients can keep at their desk. Decorate with your logo using pad printing or laser engraving for a professional finish that aligns with your brand's values.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown toys like the Robo-Cube Puzzle Fidget Toy in a warm brown finish with logo imprint",
+  "productSkus": [
+    "524558"
+  ],
+  "generatedAt": "2026-05-31T10:12:24.588075+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

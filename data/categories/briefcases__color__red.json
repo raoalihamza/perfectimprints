@@ -1,0 +1,24 @@
+{
+  "url": "/cat/briefcases/color/red",
+  "type": "facet",
+  "h1": "Custom Red Briefcases for Bulk Orders",
+  "metaTitle": "Custom Red Briefcases | Perfect Imprints",
+  "metaDescription": "Order custom red briefcases in bulk for your team. Stand out with branded red briefcases from Perfect Imprints.",
+  "introHtml": "<p>Red briefcases make a bold statement for professionals who want their brand to stand out. Whether you're equipping a sales team or gifting clients, a red messenger bag or computer briefcase ensures visibility in crowded business settings. Choose from styles like the A Step Ahead Messenger Bag or the All Day Computer Briefcase, available with custom logo imprinting to match your company colors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red briefcases with embroidered logos, perfect for corporate gifts and branded promotional products.",
+  "productSkus": [
+    "508023",
+    "513948",
+    "527201",
+    "529217"
+  ],
+  "generatedAt": "2026-05-31T09:38:12.857819+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

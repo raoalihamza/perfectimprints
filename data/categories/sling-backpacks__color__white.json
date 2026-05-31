@@ -1,0 +1,25 @@
+{
+  "url": "/cat/sling-backpacks/color/white",
+  "type": "facet",
+  "h1": "Custom White Sling Backpacks",
+  "metaTitle": "Custom White Sling Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom white sling backpacks in bulk. Perfect for events, giveaways, and corporate branding. Get a quote today!",
+  "introHtml": "<p>White sling backpacks offer a clean, modern look that stands out at outdoor events, trade shows, and corporate giveaways. The light color provides a crisp canvas for full-color sublimation or screen-printed logos, making your brand visible from a distance. Whether you're outfitting a race team or distributing swag at a conference, these single-strap bags combine style and utility without the bulk of a traditional backpack.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom white sling backpacks with printed logos, ideal for corporate giveaways and promotional events.",
+  "productSkus": [
+    "523627",
+    "527471",
+    "528108",
+    "528636",
+    "528727"
+  ],
+  "generatedAt": "2026-05-31T10:07:09.779412+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

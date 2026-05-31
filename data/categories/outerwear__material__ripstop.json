@@ -1,0 +1,23 @@
+{
+  "url": "/cat/outerwear/material/ripstop",
+  "type": "facet",
+  "h1": "Custom Ripstop Outerwear for Bulk Orders",
+  "metaTitle": "Custom Ripstop Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom ripstop outerwear in bulk. Durable, lightweight jackets and vests perfect for branding. Get a quote today.",
+  "introHtml": "<p>Ripstop outerwear is built for durability without the bulk, thanks to a reinforcing grid that prevents tears from spreading. For safety managers and field crews who need reliable gear, ripstop fabric resists abrasion while remaining lightweight enough for layering. Decorate with screen printing or embroidery on the chest or back for high-visibility branding. From thermal jackets to down vests, custom ripstop outerwear keeps your team comfortable and your logo visible through tough conditions.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom ripstop outerwear jackets and vests with embroidered logos for corporate branding",
+  "productSkus": [
+    "525728",
+    "525729",
+    "528929"
+  ],
+  "generatedAt": "2026-05-31T08:59:07.723157+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

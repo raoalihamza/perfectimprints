@@ -1,0 +1,31 @@
+{
+  "url": "/cat/napkins/supplier/beistle",
+  "type": "facet",
+  "h1": "Custom Beistle Napkins for Bulk Orders",
+  "metaTitle": "Custom Beistle Napkins | Perfect Imprints",
+  "metaDescription": "Order custom Beistle napkins in bulk for your event or business. Perfect for branding with your logo. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Beistle napkins offer a reliable choice for businesses ordering in bulk, whether for luncheons, catered events, or everyday breakroom use. Available in beverage, luncheon, and dinner sizes with white or colored options, these napkins are easy to customize with your logo or message using screen printing or foil stamping. Choose Beistle for consistent quality and fast turnaround on branded napkins.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom Beistle napkins with printed logo, available in white and colored options for bulk orders",
+  "productSkus": [
+    "514577 90A",
+    "514579 90A",
+    "514580 90A",
+    "514581 90A",
+    "514583 90A",
+    "519472",
+    "519473",
+    "520634",
+    "520635",
+    "520636",
+    "520637"
+  ],
+  "generatedAt": "2026-05-31T09:57:31.405043+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

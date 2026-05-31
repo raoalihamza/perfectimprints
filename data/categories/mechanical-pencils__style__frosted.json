@@ -1,0 +1,21 @@
+{
+  "url": "/cat/mechanical-pencils/style/frosted",
+  "type": "facet",
+  "h1": "Custom Frosted Mechanical Pencils",
+  "metaTitle": "Frosted Mechanical Pencils | Perfect Imprints",
+  "metaDescription": "Order custom frosted mechanical pencils in bulk. Soft-touch finish perfect for corporate gifts and events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Frosted mechanical pencils offer a soft, matte finish that feels premium in hand and reduces glare under office lighting. Unlike standard glossy pencils, the frosted texture resists fingerprints and smudges, keeping your logo crisp during daily use. Ideal for corporate welcome kits or trade show giveaways, these pencils from the Build-It™ series allow full-color imprinting on the barrel. Choose from multiple lead sizes to suit your team's writing preferences.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom frosted mechanical pencils with soft matte finish and printed logo, ideal for corporate giveaways",
+  "productSkus": [
+    "514646"
+  ],
+  "generatedAt": "2026-05-31T09:56:07.428948+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

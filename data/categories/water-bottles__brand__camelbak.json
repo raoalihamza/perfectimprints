@@ -1,0 +1,31 @@
+{
+  "url": "/cat/water-bottles/brand/camelbak",
+  "type": "facet",
+  "h1": "Custom Camelbak Water Bottles for Bulk Orders",
+  "metaTitle": "Custom Camelbak Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom Camelbak water bottles in bulk. Perfect for corporate gifts, events, and employee recognition. Get your quote today.",
+  "introHtml": "<p>Camelbak water bottles are built for performance and durability, making them a top choice for outdoor events, corporate wellness programs, and employee safety kits. Their Tritan Renew construction and leakproof designs like the Chute Mag and Thrive Flip Straw ensure long-lasting use. Decorate with your logo using screen printing or laser engraving for a premium look that stands up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Camelbak water bottles with logo engraving, including 25 oz Chute Mag and 20 oz Thrive Tumbler.",
+  "productSkus": [
+    "525013",
+    "525506",
+    "525680",
+    "525681",
+    "526211",
+    "526695",
+    "527057",
+    "527058",
+    "527966",
+    "528153",
+    "528684"
+  ],
+  "generatedAt": "2026-05-31T10:13:47.686355+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

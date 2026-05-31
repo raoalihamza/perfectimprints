@@ -1,0 +1,24 @@
+{
+  "url": "/cat/tank-tops/feature/performance",
+  "type": "facet",
+  "h1": "Custom Performance Tank Tops for Bulk Orders",
+  "metaTitle": "Custom Performance Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom performance tank tops in bulk from Perfect Imprints. Moisture-wicking fabrics ideal for teams, events, and giveaways.",
+  "introHtml": "<p>Performance tank tops are engineered with moisture-wicking fabrics that keep wearers cool and dry during intense activity. Unlike standard cotton tanks, these use materials like polyester or tri-blends with PosiCharge technology to lock in colors and prevent fading. Ideal for sports teams, corporate fitness challenges, and outdoor events where comfort and durability matter.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom performance tank tops in moisture-wicking fabric for teams and events",
+  "productSkus": [
+    "526200",
+    "528867",
+    "528880",
+    "528885"
+  ],
+  "generatedAt": "2026-05-31T08:31:18.812406+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

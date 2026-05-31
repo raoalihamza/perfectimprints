@@ -1,0 +1,22 @@
+{
+  "url": "/cat/candy/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Candy for Branded Gifts",
+  "metaTitle": "Custom Brown Candy | Perfect Imprints",
+  "metaDescription": "Order custom brown candy for branded gifts and events. Perfect for corporate gifting and promotions from Perfect Imprints.",
+  "introHtml": "<p>Brown candy offers a rich, sophisticated look for corporate gifts and event favors. Options like Sugarfina's Champagne Bears and Heavenly Sours bring a touch of elegance with their warm caramel and chocolate tones. Customize with your logo for a memorable branded treat at trade shows, client appreciation, or employee rewards.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom brown candy in branded gift bags for corporate events",
+  "productSkus": [
+    "529019",
+    "529020"
+  ],
+  "generatedAt": "2026-05-31T09:39:16.827481+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

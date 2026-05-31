@@ -1,0 +1,29 @@
+{
+  "url": "/cat/face-masks/supplier/sj",
+  "type": "facet",
+  "h1": "Custom SJ Face Masks for Bulk Orders",
+  "metaTitle": "Custom SJ Face Masks | Perfect Imprints",
+  "metaDescription": "Order custom SJ face masks in bulk for your team. Perfect for branding, safety, and comfort. Get a quote today.",
+  "introHtml": "<p>Custom SJ face masks combine comfort and style with versatile options like bandanas and eye masks. Whether you need branded tubular bandanas for outdoor events or weighted eye masks for wellness programs, these items offer a soft, breathable fabric that suits all-day wear. Ideal for corporate giveaways, trade shows, or employee safety kits, SJ face masks provide a comfortable fit and ample space for logo imprinting. Choose from patterns like camouflage or solid colors to match your brand identity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom SJ face masks including tubular bandanas and weighted eye masks for branding and safety.",
+  "productSkus": [
+    "506990",
+    "506991",
+    "521602",
+    "522111",
+    "524691",
+    "524692",
+    "524693",
+    "524695",
+    "526912"
+  ],
+  "generatedAt": "2026-05-31T09:45:18.393652+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

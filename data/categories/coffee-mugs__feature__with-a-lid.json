@@ -1,0 +1,32 @@
+{
+  "url": "/cat/coffee-mugs/feature/with-a-lid",
+  "type": "facet",
+  "h1": "Custom Coffee Mugs with Lids for Bulk Orders",
+  "metaTitle": "Custom Coffee Mugs with Lids | Perfect Imprints",
+  "metaDescription": "Order custom coffee mugs with lids for your brand. Perfect for commuters and office use. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Lidded coffee mugs keep drinks hot longer and prevent spills during commutes or busy workdays. Whether you choose vacuum-insulated stainless steel options like the 16 oz Corkcicle® Coffee Mug or ceramic styles with cork bases, adding a lid makes your promo item more functional. Ideal for corporate gifts, employee incentives, or trade show giveaways. Customize with your logo using screen printing or laser engraving for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom coffee mugs with lids featuring stainless steel and ceramic options with logo engraving",
+  "productSkus": [
+    "519826",
+    "520433",
+    "521050",
+    "521896",
+    "523195",
+    "523761",
+    "525226",
+    "525341",
+    "525495",
+    "525612",
+    "525843",
+    "526096"
+  ],
+  "generatedAt": "2026-05-31T08:40:55.419321+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

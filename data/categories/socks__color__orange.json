@@ -1,0 +1,21 @@
+{
+  "url": "/cat/socks/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Socks for Bulk Orders",
+  "metaTitle": "Custom Orange Socks | Perfect Imprints",
+  "metaDescription": "Order custom orange socks for your team or event. Perfect for branding with your logo. Get a quote today.",
+  "introHtml": "<p>Custom orange socks make a bold statement for your brand, whether you're outfitting a sports team, a safety crew, or a promotional giveaway. Orange stands out in a crowd and pairs well with other high-visibility gear. From cushioned crew socks to cozy slipper socks like Fuzzy Feet, you can choose from various styles and decoration methods including embroidery or screen printing. Perfect for trade shows, employee gifts, or safety incentives.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange socks with embroidered logo, perfect for bulk promotional orders",
+  "productSkus": [
+    "516800"
+  ],
+  "generatedAt": "2026-05-31T10:07:20.092421+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

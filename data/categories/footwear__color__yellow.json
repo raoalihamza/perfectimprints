@@ -1,0 +1,19 @@
+{
+  "url": "/cat/footwear/color/yellow",
+  "type": "facet",
+  "h1": "Custom Yellow Footwear for Bulk Orders",
+  "metaTitle": "Custom Yellow Footwear | Perfect Imprints",
+  "metaDescription": "Order custom yellow footwear for your team or event. Perfect Imprints offers bulk pricing on branded shoes, sneakers, and more.",
+  "introHtml": "<p>Yellow footwear stands out on any job site or event floor. Safety managers often choose high-visibility yellow for construction crews, while marketing directors use branded yellow sneakers for promotional giveaways that grab attention. Our selection includes slip-resistant work shoes and casual sneakers that can be decorated with your logo through screen printing or embroidery. Durable outsoles and breathable materials keep your team comfortable all day.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bright custom yellow footwear with logos, including work boots and sneakers for bulk orders",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:41:57.518163+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

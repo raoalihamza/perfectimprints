@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/type/podium",
+  "type": "facet",
+  "h1": "Custom Podium Products for Professional Events",
+  "metaTitle": "Custom Podium Products | Perfect Imprints",
+  "metaDescription": "Order custom podium products for your events. Perfect Imprints offers branded podiums for conferences, ceremonies, and more.",
+  "introHtml": "<p>Custom podium products give your speakers a professional platform that reinforces your brand at every event. Whether you need a portable tabletop lectern for training sessions or a full-size wooden podium for a keynote address, imprinting your logo or message ensures your organization stands out. Choose from materials like acrylic, wood, or lightweight plastic, and add custom graphics or text to match your brand colors. Perfect for corporate meetings, graduation ceremonies, or trade show presentations.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom podium products with engraved logo, wooden finish, placed on stage for a professional event.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:04:28.087670+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

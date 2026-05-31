@@ -1,0 +1,24 @@
+{
+  "url": "/cat/beanies/feature/pom",
+  "type": "facet",
+  "h1": "Custom Pom Beanies for Teams & Events",
+  "metaTitle": "Custom Pom Beanies | Perfect Imprints",
+  "metaDescription": "Order custom pom beanies with your logo. Perfect for winter events, teams, and giveaways. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Pom beanies add a playful, cozy touch to winter giveaways and team gear. Unlike standard beanies, the pom-pom topper creates a distinct silhouette that stands out at outdoor events, ski trips, or holiday parties. Choose from solid knits like the Aura Pom Beanie or striped styles like the Sportsman 12\" Striped Pom-Pom Knit Cap. Decorate with embroidery or patch for a crisp logo look your recipients will actually wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pom beanies with embroidered logo and colorful pom-pom on top, displayed on a model outdoors in winter.",
+  "productSkus": [
+    "514093",
+    "520922",
+    "522632",
+    "523881"
+  ],
+  "generatedAt": "2026-05-31T08:39:56.440379+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

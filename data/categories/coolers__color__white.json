@@ -1,0 +1,28 @@
+{
+  "url": "/cat/coolers/color/white",
+  "type": "facet",
+  "h1": "Custom White Coolers",
+  "metaTitle": "Custom White Coolers | Perfect Imprints",
+  "metaDescription": "Order custom white coolers for your brand. Durable, stylish, and perfect for events, promotions, and employee gifts.",
+  "introHtml": "<p>White coolers offer a clean, crisp look that stands out at outdoor events, trade shows, and corporate picnics. Unlike darker colors, white reflects heat, keeping contents cooler longer under direct sun. Perfect for screen printing or embroidery, white fabric coolers like the Maui Pacific Cooler Tote provide a bright canvas for your logo. Whether you need soft-sided totes or hard-sided chests, white coolers convey a fresh, professional image that aligns with health-conscious or summer-themed campaigns.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom white coolers with logos, including soft-sided totes and hard-sided chests, displayed outdoors.",
+  "productSkus": [
+    "517874",
+    "520406",
+    "521835",
+    "522446",
+    "522861",
+    "525768",
+    "527188",
+    "528730"
+  ],
+  "generatedAt": "2026-05-31T08:33:23.040435+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

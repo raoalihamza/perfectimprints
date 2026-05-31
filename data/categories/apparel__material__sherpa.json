@@ -1,0 +1,24 @@
+{
+  "url": "/cat/apparel/material/sherpa",
+  "type": "facet",
+  "h1": "Custom Sherpa Apparel for Cozy Branding",
+  "metaTitle": "Custom Sherpa Apparel | Perfect Imprints",
+  "metaDescription": "Order custom sherpa apparel for your team. Soft, warm fleece perfect for winter events and employee gifts. Bulk pricing available.",
+  "introHtml": "<p>Sherpa apparel offers a plush, warm texture that standard fleece or cotton can't match. Ideal for outdoor winter events, holiday gifts, or cold-weather employee uniforms, sherpa-lined vests and pullovers provide comfort that your team will appreciate. Decorate with embroidery or screen printing for a soft-touch finish that stands out. Whether you choose a sherpa fleece vest or a lined pullover, this material signals coziness and quality to your audience.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom sherpa apparel with embroidered logos, including sherpa vests and pullovers",
+  "productSkus": [
+    "521535",
+    "525730",
+    "525731",
+    "526927"
+  ],
+  "generatedAt": "2026-05-31T08:48:28.802034+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

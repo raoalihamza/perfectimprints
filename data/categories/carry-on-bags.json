@@ -1,0 +1,66 @@
+{
+  "url": "/cat/carry-on-bags",
+  "type": "root",
+  "h1": "Custom Carry On Bags for Travel & Events",
+  "metaTitle": "Custom Carry On Bags | Perfect Imprints",
+  "metaDescription": "Order custom carry on bags for travel, events, and employee gifts. Bulk pricing, free setup, and fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>Marketing directors planning conference swag, HR directors assembling travel-friendly employee kits, and business owners looking for practical client gifts all need one thing: a bag that travels well. Custom carry on bags meet that need with clear-view designs that speed through TSA checkpoints and durable construction that holds up trip after trip. Whether you are outfitting a sales team for a trade show or sending a thank-you gift to top customers, this category offers options that combine utility with brand visibility.</p><p>The collection includes clear totes, backpacks, and crossbody bags that make security screening effortless. Products like the Clear Game Tote and Rally Clear Backpack offer spacious interiors with transparent panels, while the Anywhere Clear Belt Bag and Clear Fanny Pack provide hands-free convenience for day trips. All items are customizable with your logo or design, making them effective promotional items that recipients actually use. Browse the selection below to find the right fit for your next order.</p>",
+  "buyingGuideHtml": "<h3>What to Look For in Custom Carry On Bags</h3><p>When ordering custom carry on bags, focus on materials and construction. Most clear bags are made from PVC or EVA, which are durable and easy to clean. Check zipper quality: metal zippers last longer than plastic ones. For non-clear bags, look for reinforced stitching at stress points like handles and straps. A bag that feels flimsy empty will not hold up when packed.</p><h3>Materials and Build Quality</h3><p>Clear bags like the Claro Travel Bag and Urban Clear Tote use thick-gauge PVC that resists cracking. EVA bags are lighter and more flexible. For fabric bags, polyester with a water-resistant coating adds durability. Pay attention to weight limits: most clear totes hold 15-20 pounds, while backpacks can handle more. If you need bags for heavy items like laptops, choose reinforced designs.</p><h3>Common Use Cases and Buyer Personas</h3><p>Marketing directors order promotional carry on bags for trade show giveaways and event attendees. HR directors use them for employee onboarding kits or travel-friendly wellness packages. Safety managers appreciate clear bags for workplace security compliance. Business owners give them as client gifts or include them in loyalty programs. The clear designs are especially popular for stadium events and conferences where bag policies restrict opaque bags.</p><h3>Decoration and Customization Options</h3><p>Screen printing works well on smooth PVC and polyester surfaces. For clear bags, full-color heat transfer allows detailed logos without blocking visibility. Embroidery is best for fabric bags like totes with a canvas panel. Pad printing is ideal for small areas on zippered compartments. Always request a proof to see how your logo appears on the bag material. Some clear bags accept inside-print options for a subtle branded look.</p><h3>Quantity Guidance and MOQ Context</h3><p>Minimum order quantities for custom carry on bags typically start at 50-100 pieces for screen printing. Larger orders of 250-500 units lower the per-piece cost significantly. If you need fewer than 50, look for bags that accept heat transfer or pad printing, which have lower MOQs. Bulk orders of 1,000+ pieces offer the best wholesale pricing. Plan for a 2-3 week lead time for standard orders; rush service may be available for an extra fee.</p><h3>Tips to Avoid Common Buying Mistakes</h3><p>One common mistake is choosing a bag that is too small for the intended use. Check dimensions carefully: a clear tote for a conference should hold a tablet, water bottle, and notebook. Another pitfall is selecting a decoration method that does not adhere well to the bag material. For example, screen printing on textured fabric can crack. Finally, verify TSA compliance if the bags will be used for air travel: clear bags must have a transparent front and be under specific size limits.</p>",
+  "buyingGuideH2": "Custom Carry On Bags Buying Guide",
+  "faqs": [
+    {
+      "q": "What are the minimum order quantities for custom carry on bags?",
+      "a": "Minimum order quantities typically start at 50-100 pieces for screen printing. For heat transfer or pad printing, MOQs may be lower, around 25-50 pieces. Contact us for exact minimums based on your chosen bag and decoration method."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, we offer sample orders. You can request a blank sample to evaluate material and size, or a decorated sample with your logo. Sample costs are usually deducted from the final bulk order."
+    },
+    {
+      "q": "What decoration methods work best on clear PVC bags?",
+      "a": "Full-color heat transfer is the most common method for clear PVC bags. It allows detailed logos without blocking visibility. Screen printing also works well on smooth surfaces. Pad printing is suitable for small areas or zipper pulls."
+    },
+    {
+      "q": "How long does production take for custom carry on bags?",
+      "a": "Standard production takes 2-3 weeks from proof approval. Rush orders may be available for an additional fee, reducing lead time to 5-7 business days. Shipping time is extra."
+    },
+    {
+      "q": "Are these bags TSA-compliant for airport security?",
+      "a": "Yes, many clear bags in this category are designed to be TSA-compliant. They have a transparent front panel that allows contents to be seen without opening. However, check size limits as some airlines have specific dimensions for carry-on bags."
+    }
+  ],
+  "heroAltText": "Custom clear carry on bags with logo printing for travel and events",
+  "productSkus": [
+    "511437 01A",
+    "511532",
+    "512446",
+    "512523",
+    "512984",
+    "513100 90E",
+    "513445",
+    "513944",
+    "515747",
+    "517657 90E",
+    "517658 90E",
+    "521467",
+    "521680",
+    "521722",
+    "522416",
+    "523655",
+    "524162",
+    "525639",
+    "526895",
+    "527049",
+    "527343",
+    "528640",
+    "528999",
+    "529232"
+  ],
+  "generatedAt": "2026-05-30T11:39:31.021971+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "use_case",
+  "skuFilterMode": "full",
+  "rawSkuCount": 24,
+  "filteredSkuCount": 24
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/mason-jars/search",
+  "type": "modifier",
+  "h1": "Custom Mason Jars for Branded Promotions",
+  "metaTitle": "Custom Mason Jars | Perfect Imprints",
+  "metaDescription": "Browse custom mason jars for your brand. From tumblers to gift kits, find the perfect promotional product at Perfect Imprints.",
+  "introHtml": "<p>Custom mason jars offer a versatile and memorable way to promote your brand at events, trade shows, or as corporate gifts. Whether you need drinkware like the 22 oz Fiesta Mason Jar Tumbler or creative gift sets like the Arnold Palmer Kit in a Mason Jar, our selection covers a wide range of styles and uses. Start exploring to find the ideal custom mason jar that fits your promotional goals and budget.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom mason jars with engraved logos, including a tumbler and a gift kit, displayed on a rustic wooden table.",
+  "productSkus": [
+    "506911",
+    "525119"
+  ],
+  "generatedAt": "2026-05-31T09:55:50.733078+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

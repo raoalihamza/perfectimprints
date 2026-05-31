@@ -1,0 +1,24 @@
+{
+  "url": "/cat/koozies/color/gray",
+  "type": "facet",
+  "h1": "Custom Gray Koozies for Bulk Orders",
+  "metaTitle": "Custom Gray Koozies | Perfect Imprints",
+  "metaDescription": "Order custom gray koozies in bulk from Perfect Imprints. Perfect for events, giveaways, and branding. Get a quote today!",
+  "introHtml": "<p>Gray koozies offer a neutral, professional look that works well for corporate events, trade shows, and employee gifts. Unlike bright colors, gray complements any logo or design without clashing. Choose from slim can coolers or standard sizes, and add your imprint with screen printing or full-color dye sublimation for a crisp, lasting finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gray koozies with a company logo printed on a slim can cooler, perfect for bulk branding.",
+  "productSkus": [
+    "510517",
+    "524419",
+    "529164",
+    "529400"
+  ],
+  "generatedAt": "2026-05-31T08:43:24.615172+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/sunglasses/feature/shatterproof",
+  "type": "facet",
+  "h1": "Custom Shatterproof Sunglasses for Bulk Orders",
+  "metaTitle": "Custom Shatterproof Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom shatterproof sunglasses in bulk. Durable, safe, and perfect for events, safety programs, and outdoor promotions.",
+  "introHtml": "<p>Custom shatterproof sunglasses offer the durability and safety your team or event needs. Unlike standard sunglasses, these lenses resist impact and cracking, making them ideal for outdoor giveaways, safety gear, or corporate swag at sporting events. Choose from styles like the Reflective Rimless Sunglasses for a sleek, protective option that keeps your brand visible and your recipients safe.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom shatterproof sunglasses with reflective rimless design, ideal for bulk promotional orders",
+  "productSkus": [
+    "526792"
+  ],
+  "generatedAt": "2026-05-31T10:09:23.850920+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

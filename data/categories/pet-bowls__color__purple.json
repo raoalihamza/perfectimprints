@@ -1,0 +1,23 @@
+{
+  "url": "/cat/pet-bowls/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Pet Bowls for Bulk Orders",
+  "metaTitle": "Custom Purple Pet Bowls | Perfect Imprints",
+  "metaDescription": "Order custom purple pet bowls in bulk for your brand. Perfect for pet-friendly giveaways. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Purple custom pet bowls stand out at adoption events, pet expos, or as employee gifts for pet-loving teams. The color adds a playful yet professional touch that works well for veterinary clinics, pet supply stores, or any brand looking to connect with pet owners. Our collapsible options in purple are easy to carry on walks, while stainless steel bowls offer durability for home use. Imprint your logo with pad printing or laser engraving for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple pet bowls with logo imprint, collapsible and stainless steel options for pet giveaways",
+  "productSkus": [
+    "524371",
+    "527080",
+    "527081"
+  ],
+  "generatedAt": "2026-05-31T08:45:21.756610+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

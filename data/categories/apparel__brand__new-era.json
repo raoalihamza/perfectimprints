@@ -1,0 +1,27 @@
+{
+  "url": "/cat/apparel/brand/new-era",
+  "type": "facet",
+  "h1": "Custom New Era Apparel for Teams & Events",
+  "metaTitle": "Custom New Era Apparel | Perfect Imprints",
+  "metaDescription": "Order custom New Era apparel for your team or event. Polos, caps, hoodies & more with your logo. Bulk pricing from Perfect Imprints.",
+  "introHtml": "<p>New Era is the official cap of Major League Baseball and a trusted name in headwear and apparel. When you choose custom New Era apparel, you get the same quality worn by professional athletes. Perfect for corporate teams, retail staff, or event giveaways, these pieces hold up to repeated wear and washing. Decorate with embroidery or screen printing for a crisp, lasting logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom New Era apparel featuring embroidered logos on polo shirts and caps for corporate teams",
+  "productSkus": [
+    "529309",
+    "529310",
+    "529311",
+    "529312",
+    "529313",
+    "529314",
+    "529315"
+  ],
+  "generatedAt": "2026-05-31T08:23:02.293871+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

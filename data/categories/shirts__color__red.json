@@ -1,0 +1,27 @@
+{
+  "url": "/cat/shirts/color/red",
+  "type": "facet",
+  "h1": "Custom Red Shirts for Bulk Orders",
+  "metaTitle": "Custom Red Shirts | Perfect Imprints",
+  "metaDescription": "Order custom red shirts for your team or event. Perfect Imprints offers bulk pricing and professional decoration. Shop now.",
+  "introHtml": "<p>Red shirts make a bold statement for your brand, whether you are outfitting a safety crew, a marketing team, or a charity event. Unlike basic neutral colors, red demands attention and pairs well with white or black imprinting for high contrast. Our selection includes long-sleeve twill, gingham check, and solid broadcloth options from trusted brands like Core365 and Devon & Jones. These shirts are ideal for embroidery or screen printing, ensuring your logo stays vibrant wash after wash.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom red shirts with embroidered logos ready for bulk order",
+  "productSkus": [
+    "513877",
+    "513878",
+    "517273",
+    "517274",
+    "519011",
+    "520265",
+    "520266"
+  ],
+  "generatedAt": "2026-05-31T08:22:01.156911+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

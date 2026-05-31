@@ -1,0 +1,66 @@
+{
+  "url": "/cat/pants-shorts",
+  "type": "root",
+  "h1": "Custom Pants & Shorts for Teams and Events",
+  "metaTitle": "Custom Pants & Shorts | Perfect Imprints",
+  "metaDescription": "Order custom pants and shorts for your team or event. Choose from sweatpants, joggers, scrub pants, and athletic shorts with your logo.",
+  "introHtml": "<p>Marketing directors, HR directors, safety managers, and business owners often need apparel that works as hard as their teams. Whether you are outfitting a crew for a company picnic, providing uniform bottoms for a retail or healthcare staff, or stocking a safety incentive program with comfortable gear, pants and shorts are a practical choice. They offer year-round versatility, from lightweight jogger shorts for summer events to cozy sweatpants for winter giveaways or employee appreciation kits.</p><p>Perfect Imprints carries a range of styles including Gildan Heavy Blend Sweat Pants, Women's TriDri Maria Jogger Shorts, and scrub pants from Jaanuu. Options for men, women, and youth ensure every team member finds a fit. Decorate with screen printing or embroidery to add your logo, and choose from multiple colors to match your brand. Bulk ordering keeps per-unit costs low, making this category ideal for large-scale programs and events.</p>",
+  "buyingGuideHtml": "<h3>What to Look for When Ordering Custom Pants and Shorts</h3><p>When selecting custom pants and shorts for your organization, focus on fabric weight, fit, and intended use. Sweatpants and joggers made from cotton-polyester blends offer warmth and durability for casual giveaways or employee incentives. Athletic shorts in moisture-wicking fabrics suit active teams, summer events, or trade show staff. Scrub pants require a different set of priorities: antimicrobial finishes, multiple pockets, and stretch fabric for healthcare workers. Always request a sizing chart and consider offering unisex or gender-specific options to accommodate all body types.</p><h3>Materials and Build Quality</h3><p>Fabric quality directly affects how recipients perceive your brand. Heavy blends (like 50/50 cotton-poly) resist shrinking and hold screen prints well. Tri-blends or performance knits wick sweat and feel soft against the skin. For scrub pants, look for wrinkle-resistant, fluid-repellent materials that withstand frequent washing. Check seam construction: double-stitched seams last longer, especially in high-motion areas like knees and seat. If your order includes youth sizes, verify that fabric blends meet flammability standards for children's sleepwear if applicable.</p><h3>Common Use Cases and Buyer Personas</h3><p>Marketing directors often order branded shorts and sweatpants for company picnics, team-building retreats, or promotional giveaways at consumer events. HR directors use them in employee onboarding kits or year-end appreciation packages. Safety managers may include durable pants in uniform programs for warehouse or field staff, where comfort and mobility matter. Business owners purchase scrub pants for medical or veterinary practices and joggers for fitness center staff. Each persona values different features: moisture management for active roles, professional appearance for client-facing teams, and easy care for high-turnover uniforms.</p><h3>Decoration and Customization Options</h3><p>Screen printing is the most cost-effective method for large logos on pants and shorts, especially on cotton-rich fabrics. Embroidery works well on waistbands or leg cuffs for a polished look, but avoid heavy stitching on stretchy materials that may pucker. Heat transfer vinyl is suitable for small runs or multi-color designs. For scrub pants, consider direct-to-garment printing or woven labels to maintain fabric integrity. Always test decoration on a sample before full production to ensure adhesion and wash durability.</p><h3>Quantity Guidance and MOQ Context</h3><p>Minimum order quantities for pants and shorts typically start at 24 to 48 pieces per style and color. Bulk orders of 100+ units significantly reduce per-item costs. If your program requires multiple sizes, order a balanced size run to avoid shortages. For large events or uniform programs, consider ordering 10-15% extra to accommodate exchanges or last-minute additions. Wholesale pricing applies at higher quantities, so plan your budget accordingly. Remember that custom-cut styles like scrub pants may have longer lead times due to specialized manufacturing.</p><h3>Tips to Avoid Common Buying Mistakes</h3><p>One frequent error is assuming all sizes run the same across brands. Always provide a size chart and encourage recipients to try samples. Another pitfall is choosing a fabric that doesn't suit the climate: heavy fleece for summer events leads to unused items. For decorated items, avoid placing logos over seams or pockets where the print may distort. Finally, check the care label: some performance fabrics require cold wash and no bleach, which may conflict with institutional laundry practices. Ordering a pre-production sample helps catch these issues before the full run.</p>",
+  "buyingGuideH2": "Custom Pants & Shorts Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom pants and shorts?",
+      "a": "Minimum order quantities typically start at 24 to 48 pieces per style and color. Some popular styles may have lower MOQs. Contact us for specific product MOQs and we can help you find options that fit your budget."
+    },
+    {
+      "q": "How should I choose between screen printing and embroidery?",
+      "a": "Screen printing is best for large, simple logos on cotton-blend fabrics and offers lower per-unit costs for bulk orders. Embroidery gives a premium look on waistbands or cuffs but works best on stable fabrics. We can provide samples to help you decide."
+    },
+    {
+      "q": "Can I order a mix of men's, women's, and youth sizes in one order?",
+      "a": "Yes, you can mix sizes within the same style and color to meet your team's needs. Keep in mind that youth sizes may have different fabric blends and decoration specifications. We recommend ordering a balanced size distribution."
+    },
+    {
+      "q": "How long does production take for custom pants and shorts?",
+      "a": "Typical production time is 10-15 business days after artwork approval, depending on order size and decoration complexity. Rush services may be available for an additional fee. Scrub pants and specialty styles may require longer lead times."
+    },
+    {
+      "q": "What fabric options are best for athletic shorts?",
+      "a": "Moisture-wicking polyester or polyester-spandex blends are ideal for athletic shorts as they dry quickly and allow movement. For casual shorts, cotton or cotton-poly blends offer comfort. Avoid 100% cotton for high-activity use as it retains sweat."
+    }
+  ],
+  "heroAltText": "Custom pants and shorts with logos, including sweatpants and jogger shorts, for team uniforms and promotional giveaways.",
+  "productSkus": [
+    "506401",
+    "506402",
+    "509482",
+    "526128",
+    "526129",
+    "527831",
+    "527832",
+    "527834",
+    "527835",
+    "527836",
+    "528786",
+    "528788",
+    "528789",
+    "528795",
+    "528865",
+    "528869",
+    "528873",
+    "528874",
+    "528875",
+    "528876",
+    "528881",
+    "528882",
+    "528886",
+    "529237"
+  ],
+  "generatedAt": "2026-05-30T10:31:54.397894+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "buyer",
+  "skuFilterMode": "full",
+  "rawSkuCount": 24,
+  "filteredSkuCount": 24
+}

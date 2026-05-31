@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Products for Your Brand",
+  "metaTitle": "Custom Recycled Products | Perfect Imprints",
+  "metaDescription": "Order custom recycled products for your brand. Eco-friendly promotional items made from recycled materials at Perfect Imprints.",
+  "introHtml": "<p>Recycled promotional products let you market your brand while reducing environmental impact. From notebooks made of post-consumer waste to bags crafted from recycled PET, these items show your commitment to sustainability. Perfect for trade shows, employee gifts, or eco-conscious campaigns, recycled products are durable, functional, and tell a story that resonates with your audience.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom recycled products including notebooks, bags, and water bottles made from recycled materials",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:22:10.873192+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

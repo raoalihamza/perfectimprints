@@ -1,0 +1,19 @@
+{
+  "url": "/cat/pants/color/gold",
+  "type": "facet",
+  "h1": "Custom Gold Pants for Bulk Orders",
+  "metaTitle": "Custom Gold Pants | Perfect Imprints",
+  "metaDescription": "Order custom gold pants in bulk for your team or event. Perfect Imprints offers quality gold pants with your logo. Get a quote today!",
+  "introHtml": "<p>Gold pants make a bold statement for teams, events, or promotional campaigns. Whether you need custom embroidery for a company sports league or screen-printed logos for a trade show giveaway, gold pants stand out from standard colors. Choose from performance fabrics for active use or comfortable cotton blends for casual wear. Bulk ordering ensures consistent color and sizing across all units.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gold pants with embroidered company logo displayed on a model, perfect for team uniforms and promotional events",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:30:10.262488+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

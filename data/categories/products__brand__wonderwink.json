@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/wonderwink",
+  "type": "facet",
+  "h1": "Custom Wonderwink Products for Bulk Orders",
+  "metaTitle": "Custom Wonderwink Products | Perfect Imprints",
+  "metaDescription": "Order custom Wonderwink products in bulk with your logo. Perfect for healthcare, hospitality, and service teams.",
+  "introHtml": "<p>Wonderwink is known for durable, comfortable scrubs and healthcare apparel that stand up to long shifts. When you add your logo or custom embroidery, these garments become a professional uniform that builds team identity. Whether you are outfitting a hospital floor or a veterinary clinic, custom Wonderwink products give your staff a cohesive, polished look that patients recognize and trust.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Wonderwink products like embroidered scrubs and medical uniforms in various colors for healthcare teams.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:02.381642+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

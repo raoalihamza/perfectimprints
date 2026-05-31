@@ -1,0 +1,24 @@
+{
+  "url": "/cat/face-masks/color/multi-color",
+  "type": "facet",
+  "h1": "Custom Multi Color Face Masks",
+  "metaTitle": "Custom Multi Color Face Masks | Perfect Imprints",
+  "metaDescription": "Order custom multi color face masks for your team or event. Vibrant, bulk-printed options available at Perfect Imprints.",
+  "introHtml": "<p>Multi color face masks let your organization stand out with bold, full-coverage designs that single-color masks can't match. Whether you're outfitting a festival crew with Full Color Tubular Bandanas or giving away Big Bandanas at a trade show, these masks offer maximum visibility for your logo. Decorate with full-color dye sublimation for photorealistic results that resist fading through repeated washes. Perfect for safety managers and marketing directors who want both protection and brand impact.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom multi color face masks with vibrant full-color prints, ideal for bulk orders and promotional events",
+  "productSkus": [
+    "522111",
+    "524691",
+    "524692",
+    "524695"
+  ],
+  "generatedAt": "2026-05-31T09:13:02.259766+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

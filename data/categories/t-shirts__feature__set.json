@@ -1,0 +1,25 @@
+{
+  "url": "/cat/t-shirts/feature/set",
+  "type": "facet",
+  "h1": "Custom Set T Shirts for Teams & Events",
+  "metaTitle": "Custom Set T Shirts | Perfect Imprints",
+  "metaDescription": "Order custom set t shirts in bulk for your team or event. Fast turnaround & free setup at Perfect Imprints.",
+  "introHtml": "<p>Ordering custom set t shirts means every shirt in your order shares the same design, color, and style, creating a uniform look for your team, event, or company. Whether you need performance tees for a charity run or ring-spun cotton shirts for a company picnic, selecting a set ensures consistency across all sizes and quantities. Decorate with screen printing or embroidery for a professional finish that aligns with your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom set t shirts in assorted colors arranged in stacks, ready for screen printing or embroidery.",
+  "productSkus": [
+    "514720",
+    "515832",
+    "516170",
+    "516171",
+    "516172"
+  ],
+  "generatedAt": "2026-05-31T10:10:23.158621+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

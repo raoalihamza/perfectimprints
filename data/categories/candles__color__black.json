@@ -1,0 +1,25 @@
+{
+  "url": "/cat/candles/color/black",
+  "type": "facet",
+  "h1": "Custom Black Candles for Bulk Orders",
+  "metaTitle": "Custom Black Candles | Perfect Imprints",
+  "metaDescription": "Order custom black candles for your brand. Perfect for corporate gifts, events, and promotions. Bulk pricing available.",
+  "introHtml": "<p>Black candles offer a sleek, sophisticated look that stands out in any setting. Whether you're branding a vanilla-scented soy wax candle in a glass jar with a bamboo lid or a bamboo soy candle with a matching custom box, the black color adds a touch of elegance. Perfect for corporate gift sets, event favors, or retail displays, these candles can be customized with your logo using screen printing or labels. Choose black to convey professionalism and style.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black candles in glass jars with bamboo lids, perfect for corporate gifts and branding.",
+  "productSkus": [
+    "521842",
+    "525181",
+    "526451",
+    "527052",
+    "528203"
+  ],
+  "generatedAt": "2026-05-31T08:33:05.922528+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

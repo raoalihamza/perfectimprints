@@ -1,0 +1,22 @@
+{
+  "url": "/cat/pullovers/feature/midweight",
+  "type": "facet",
+  "h1": "Custom Midweight Pullovers for Bulk Orders",
+  "metaTitle": "Custom Midweight Pullovers | Perfect Imprints",
+  "metaDescription": "Order custom midweight pullovers in bulk. Perfect for year-round comfort. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Midweight pullovers strike the ideal balance between lightweight layering and heavy winter insulation, making them a versatile choice for corporate apparel, team uniforms, or employee gifts. With a 7–9 oz fleece or tri-blend construction, these pullovers provide warmth without bulk, suitable for indoor events, outdoor activities, or casual office wear. Decoration options like screen printing or embroidery pair well with the smooth fabric surface, ensuring your logo looks crisp and professional. Choose from styles like the Women's Willow Scallop Hem Hoodie or the New Era Tri-Blend Fleece Pullover Hoodie for a modern, comfortable fit.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom midweight pullovers with embroidered logo on front, available in bulk for corporate branding.",
+  "productSkus": [
+    "528890",
+    "529312"
+  ],
+  "generatedAt": "2026-05-31T09:24:37.834048+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

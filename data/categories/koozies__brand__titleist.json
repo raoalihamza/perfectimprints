@@ -1,0 +1,28 @@
+{
+  "url": "/cat/koozies/brand/titleist",
+  "type": "facet",
+  "h1": "Custom Titleist Koozies for Golf Events",
+  "metaTitle": "Custom Titleist Koozies | Perfect Imprints",
+  "metaDescription": "Order custom Titleist koozies for your golf tournament or corporate event. Perfect for keeping drinks cool on the course. Bulk pricing available.",
+  "introHtml": "<p>Custom Titleist koozies pair the trusted golf brand with practical drinkware for your next tournament, charity outing, or corporate golf event. Whether you are outfitting a foursome or a full field, these koozies keep cans and bottles cold while displaying your logo or event details. Choose from foam or neoprene styles, and add one-color or full-color imprinting to match your branding. Titleist’s reputation for quality extends beyond the course, making these koozies a welcome giveaway for any golfer.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Titleist koozies with a corporate logo printed on a white neoprene can cooler",
+  "productSkus": [
+    "507565 90A",
+    "515618 90A",
+    "528008",
+    "529251",
+    "529255",
+    "529256",
+    "529258",
+    "529259"
+  ],
+  "generatedAt": "2026-05-31T09:17:29.387599+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/cocktail-glasses/material/glass",
+  "type": "facet",
+  "h1": "Custom Glass Cocktail Glasses",
+  "metaTitle": "Custom Glass Cocktail Glasses | Perfect Imprints",
+  "metaDescription": "Order custom glass cocktail glasses for your brand. Perfect for bars, events, and corporate gifts. Bulk pricing available.",
+  "introHtml": "<p>Glass cocktail glasses offer a classic, upscale look that plastic or acrylic simply cannot match. Whether you are stocking a company bar, planning a holiday party, or creating a memorable gift set, the clarity and weight of glass convey quality and attention to detail. Options like the 6 oz Napa Valley Flute or the 15 oz Stemless White Wine Glass can be laser engraved or screen printed with your logo for a polished finish. These glasses work well for both formal events and everyday use in break rooms or hospitality suites.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom glass cocktail glasses with engraved logos, including flutes and stemless wine glasses",
+  "productSkus": [
+    "510995 90E",
+    "511000 90E",
+    "511046 90E",
+    "511053 90E"
+  ],
+  "generatedAt": "2026-05-31T09:41:03.812854+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

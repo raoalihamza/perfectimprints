@@ -1,0 +1,32 @@
+{
+  "url": "/cat/coffee-mug-sets/supplier/gs",
+  "type": "facet",
+  "h1": "Custom GS Coffee Mug Sets",
+  "metaTitle": "Custom GS Coffee Mug Sets | Perfect Imprints",
+  "metaDescription": "Order custom GS coffee mug sets for your team or event. Bulk pricing and fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>GS coffee mug sets combine premium drinkware with coordinated gift packaging, making them ideal for employee recognition, client gifts, or promotional events. These sets often include matching mugs, tumblers, or accessories like coasters and lids, ensuring a polished, ready-to-present solution. Choose from options like the Hot-N-Cold Gift Set or the 20 oz Infinity Tumbler and Coaster Set, and customize with your logo using screen printing or laser engraving for a professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom GS coffee mug sets featuring branded drinkware and gift packaging for corporate gifting",
+  "productSkus": [
+    "512596",
+    "512693 64F",
+    "519672",
+    "521002",
+    "521897",
+    "522098",
+    "523898",
+    "523924",
+    "523950",
+    "525628",
+    "526748",
+    "527285"
+  ],
+  "generatedAt": "2026-05-31T09:41:14.159878+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

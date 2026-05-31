@@ -1,0 +1,21 @@
+{
+  "url": "/cat/outdoor/decoration/etched",
+  "type": "facet",
+  "h1": "Custom Etched Outdoor Products",
+  "metaTitle": "Custom Etched Outdoor Items | Perfect Imprints",
+  "metaDescription": "Order custom etched outdoor products for your brand. Perfect for corporate gifts and events. Get a quote today.",
+  "introHtml": "<p>Etched outdoor products offer a sophisticated, permanent branding option that stands up to the elements. Unlike printed designs that can fade or peel, etching creates a crisp, engraved look on materials like metal, wood, and glass. Perfect for corporate retreats, trade show giveaways, or employee appreciation gifts, these items carry your logo with a premium feel. Whether it's a laser etched fleece blanket for campouts or an engraved flask for tailgating, etched outdoor gear makes your brand part of the adventure.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom etched outdoor products including a laser etched fleece blanket with a company logo",
+  "productSkus": [
+    "503799"
+  ],
+  "generatedAt": "2026-05-31T09:58:42.503961+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

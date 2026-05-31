@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jewelry/shape/heart",
+  "type": "facet",
+  "h1": "Custom Heart Jewelry for Bulk Orders",
+  "metaTitle": "Custom Heart Jewelry | Perfect Imprints",
+  "metaDescription": "Order custom heart jewelry in bulk for your team or event. Perfect for gifts and giveaways at Perfect Imprints.",
+  "introHtml": "<p>Heart-shaped jewelry adds a personal touch that standard shapes can't match. Whether you're ordering paracord bracelets for a charity run or mood watch bracelets for a wellness event, the heart shape signals care and appreciation. These pieces work well for employee recognition, Valentine's promotions, or breast cancer awareness campaigns. Choose from silicone, metal, or fabric finishes, and add your logo with pad printing or engraving for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom heart jewelry including paracord bracelets and mood watches with logo imprint",
+  "productSkus": [
+    "516655",
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T09:52:11.977845+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,29 @@
+{
+  "url": "/cat/lip-balm/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Lip Balm",
+  "metaTitle": "Custom Blue Lip Balm | Perfect Imprints",
+  "metaDescription": "Order custom blue lip balm for your brand. Great for trade shows and employee gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Blue lip balm stands out in a crowd, making it a smart choice for brands that want a pop of color in their giveaway or employee care package. Whether you choose a neon cube for high visibility or a metallic ball for a sleek finish, blue adds a playful yet professional touch. Decorate with your logo using full-color digital printing or foil stamping for a polished look that recipients will reach for again and again.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue lip balm in various styles: neon cube, metallic ball, and squeeze tube with key ring",
+  "productSkus": [
+    "512747",
+    "519430",
+    "519746",
+    "520997",
+    "525626",
+    "528465",
+    "528502",
+    "529055",
+    "529479"
+  ],
+  "generatedAt": "2026-05-31T08:23:38.326069+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

@@ -1,0 +1,33 @@
+{
+  "url": "/cat/golf-gloves/search",
+  "type": "modifier",
+  "h1": "Custom Golf Gloves for Branded Promotions",
+  "metaTitle": "Custom Golf Gloves | Perfect Imprints",
+  "metaDescription": "Explore custom golf gloves for your brand. Perfect for corporate events and giveaways. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Custom golf gloves are a premium promotional item that combines practicality with brand exposure. Whether you are outfitting a corporate golf tournament, rewarding employees, or creating a memorable giveaway, branded gloves offer a unique way to showcase your logo. With options ranging from high-performance leather to affordable fleece, there is a glove to fit every budget and use case. Browse our selection to find the right style, color, and customization level for your next event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom golf gloves with embroidered logo displayed on a golf tee, showcasing premium leather and performance design.",
+  "productSkus": [
+    "516831",
+    "516832",
+    "516833",
+    "516834",
+    "516839",
+    "516872",
+    "519076",
+    "520012",
+    "521335",
+    "522780",
+    "524376",
+    "527422",
+    "527493"
+  ],
+  "generatedAt": "2026-05-31T08:42:12.954590+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

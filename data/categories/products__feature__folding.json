@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/folding",
+  "type": "facet",
+  "h1": "Custom Folding Products for Bulk Orders",
+  "metaTitle": "Custom Folding Products | Perfect Imprints",
+  "metaDescription": "Order custom folding products in bulk at Perfect Imprints. Ideal for trade shows and events. Get a quote today.",
+  "introHtml": "<p>Custom folding products offer a smart solution for businesses that need portable, space-saving promotional items. From folding chairs and tables to compact fans and umbrellas, these products are designed for easy transport and storage. Perfect for outdoor events, trade shows, or corporate giveaways, they combine practicality with brand visibility. Choose from various colors and imprint options to match your logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom folding products including a folding chair and table with company logo at an outdoor event",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:36:49.115662+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

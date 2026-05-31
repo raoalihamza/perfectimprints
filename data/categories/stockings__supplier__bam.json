@@ -1,0 +1,29 @@
+{
+  "url": "/cat/stockings/supplier/bam",
+  "type": "facet",
+  "h1": "Custom Bam Stockings for Bulk Orders",
+  "metaTitle": "Custom Bam Stockings | Perfect Imprints",
+  "metaDescription": "Order custom Bam stockings in bulk from Perfect Imprints. Ideal for corporate gifts and events. Get a quote today.",
+  "introHtml": "<p>Bam stockings combine comfort and durability, making them a top choice for corporate gifts and promotional events. Whether you choose the plush Fuzzy Feet Slipper Socks for a cozy winter campaign or the performance-minded Midcalf Jacquard Socks with Bamboo Thread, each pair offers excellent decoration space for your logo. These stockings are perfect for employee appreciation, holiday giveaways, or client thank-you gifts that recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom Bam stockings including Fuzzy Feet Slipper Socks and Jacquard Athletic Sock with logos",
+  "productSkus": [
+    "516800",
+    "521927",
+    "522251",
+    "524427",
+    "525740",
+    "526360",
+    "526361",
+    "526363",
+    "526896"
+  ],
+  "generatedAt": "2026-05-31T08:47:01.709005+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

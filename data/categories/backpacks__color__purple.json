@@ -1,0 +1,22 @@
+{
+  "url": "/cat/backpacks/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Backpacks for Bulk Orders",
+  "metaTitle": "Custom Purple Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom purple backpacks in bulk for your team. Durable, stylish, and perfect for branding. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Purple backpacks offer a distinctive look that stands out in a sea of standard black and navy bags. Whether you're outfitting a marketing team for a conference or providing safety managers with branded gear, purple adds a vibrant touch while maintaining professionalism. From sleek Multi-Function Backpacks with padded laptop compartments to lightweight Sublimated Non-Woven Drawstring Backpacks for giveaways, these bags can be decorated with screen printing, embroidery, or full sublimation for maximum brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple backpacks with embroidery and screen printing, including a multi-function backpack and a sublimated drawstring backpack.",
+  "productSkus": [
+    "510077",
+    "527471"
+  ],
+  "generatedAt": "2026-05-31T08:27:55.657950+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

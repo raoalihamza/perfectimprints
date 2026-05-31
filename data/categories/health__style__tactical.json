@@ -1,0 +1,21 @@
+{
+  "url": "/cat/health/style/tactical",
+  "type": "facet",
+  "h1": "Custom Tactical Health Products for Bulk Orders",
+  "metaTitle": "Custom Tactical Health Products | Perfect Imprints",
+  "metaDescription": "Order custom tactical health products for safety teams and HR. Perfect Imprints offers bulk branded wellness gear with a rugged edge.",
+  "introHtml": "<p>Tactical health products combine the durability and utility of outdoor gear with wellness essentials, making them ideal for safety managers outfitting field crews or HR directors building rugged corporate gift kits. From stress relievers designed to withstand heavy use to first-aid accessories with MOLLE-compatible attachments, these items hold up in demanding environments while keeping your brand visible. Decoration options like epoxy doming or laser engraving ensure your logo stays intact through daily wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom tactical health products including rugged stress relievers and branded wellness gear for bulk orders",
+  "productSkus": [
+    "517186 60A"
+  ],
+  "generatedAt": "2026-05-31T08:34:29.379427+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

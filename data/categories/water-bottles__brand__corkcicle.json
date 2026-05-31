@@ -1,0 +1,22 @@
+{
+  "url": "/cat/water-bottles/brand/corkcicle",
+  "type": "facet",
+  "h1": "Custom Corkcicle Water Bottles",
+  "metaTitle": "Custom Corkcicle Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom Corkcicle water bottles for your brand. Premium stainless steel, triple-insulated, and perfect for corporate gifts.",
+  "introHtml": "<p>Corkcicle water bottles combine premium triple-insulated stainless steel with award-winning design, keeping drinks cold for 25 hours or hot for 12. Unlike standard promotional bottles, Corkcicle's signature tapered shape and soft-touch finish make them a coveted choice for high-end corporate gifts, trade show giveaways, and employee recognition programs. Decorate with your logo using laser engraving or pad printing for a sleek, lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Corkcicle water bottles with engraved logo, stainless steel, triple-insulated, perfect for corporate gifts and branding.",
+  "productSkus": [
+    "524367",
+    "526483"
+  ],
+  "generatedAt": "2026-05-31T10:13:48.038752+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/leggings/color/green",
+  "type": "facet",
+  "h1": "Custom Green Leggings for Teams & Events",
+  "metaTitle": "Custom Green Leggings | PerfectImprints.com",
+  "metaDescription": "Order custom green leggings for your team or event. Durable, moisture-wicking fabrics with your logo. Perfect for bulk orders.",
+  "introHtml": "<p>Custom green leggings offer a vibrant way to outfit your team for wellness events, fitness challenges, or corporate sports leagues. The green hue stands out in group photos and aligns with themes of health and sustainability. Choose moisture-wicking fabrics and full-color decoration to keep your brand visible during any activity. Whether you need a consistent look for a company 5K or branded apparel for a charity run, green leggings make a memorable impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green leggings with a logo printed on the hip, worn by a model in a fitness setting",
+  "productSkus": [
+    "526129",
+    "528865",
+    "528873",
+    "528875",
+    "528876",
+    "528886"
+  ],
+  "generatedAt": "2026-05-31T09:54:22.177681+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

@@ -1,0 +1,29 @@
+{
+  "url": "/cat/bar-wine-gift-sets/brand/corkcicle",
+  "type": "facet",
+  "h1": "Custom Corkcicle Bar Wine Gift Sets",
+  "metaTitle": "Custom Corkcicle Bar Wine Gift Sets | Perfect Imprints",
+  "metaDescription": "Order custom Corkcicle bar wine gift sets for your brand. Perfect for corporate gifts and events. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Corkcicle brings premium triple-insulated stainless steel to bar and wine gift sets, keeping drinks perfectly chilled without condensation. From stemless wine cups to whiskey wedges, these sets offer a sophisticated unboxing experience for client gifts, employee rewards, or event swag. Custom engraving or color-matching lets you align each piece with your brand identity, making every toast a memorable impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Corkcicle bar wine gift sets with stemless cups and tumblers in a branded gift box",
+  "productSkus": [
+    "524367",
+    "524368",
+    "525223",
+    "525225",
+    "525226",
+    "525791",
+    "526483",
+    "528115",
+    "528116"
+  ],
+  "generatedAt": "2026-05-31T08:39:32.678405+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

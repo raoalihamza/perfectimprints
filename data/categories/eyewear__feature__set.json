@@ -1,0 +1,21 @@
+{
+  "url": "/cat/eyewear/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Eyewear for Bulk Orders",
+  "metaTitle": "Custom Set Eyewear - Perfect Imprints",
+  "metaDescription": "Order custom set eyewear for your next event or promotion. Perfect for corporate gifts and safety kits. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Custom set eyewear bundles sunglasses or safety glasses with matching accessories like t-shirts or cases, creating a complete branded package. These sets are ideal for corporate gift boxes, event swag, or safety kits where you want a coordinated look. Choose from options like the T-Shirt And Sunglasses Combo Set With Custom Box, which allows for imprinting on both items. Bulk ordering ensures consistent branding across your entire team or event attendees.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set eyewear bundle including sunglasses and a t-shirt in a custom box, perfect for corporate gifts.",
+  "productSkus": [
+    "520125"
+  ],
+  "generatedAt": "2026-05-31T09:45:02.237884+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

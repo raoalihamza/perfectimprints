@@ -1,0 +1,22 @@
+{
+  "url": "/cat/pens/eco-friendly/organic",
+  "type": "facet",
+  "h1": "Custom Organic Pens for Eco-Conscious Brands",
+  "metaTitle": "Custom Organic Pens | Perfect Imprints",
+  "metaDescription": "Order custom organic pens for your brand. Eco-friendly and stylish, perfect for sustainable giveaways. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom organic pens offer a tangible way to show your commitment to sustainability. Made from materials like recycled paper or biodegradable cornstarch, these pens reduce plastic waste while keeping your brand front and center. Whether you choose the sleek Piper Pen or the stylish Vienna Vibe, each pen can be imprinted with your logo using eco-friendly inks. Ideal for trade shows, client gifts, or office supplies, organic pens align your brand with environmental responsibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom organic pens in natural tones with company logo, including Piper Pen and Vienna Vibe models",
+  "productSkus": [
+    "505830",
+    "510190"
+  ],
+  "generatedAt": "2026-05-31T08:30:16.603605+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

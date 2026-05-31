@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/size/full-size",
+  "type": "facet",
+  "h1": "Custom Full Size Products for Bulk Orders",
+  "metaTitle": "Custom Full Size Products | Perfect Imprints",
+  "metaDescription": "Order custom full size products for your business. Perfect for giveaways and events. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Full size products offer maximum visibility and utility for your brand. Unlike smaller giveaways, these items — such as full-size umbrellas, duffel bags, or apparel — make a lasting impression. They are ideal for trade shows, corporate gifts, or employee recognition programs where you want recipients to use and display your logo prominently. With ample surface area, full size products allow for large, detailed imprints using embroidery or screen printing, ensuring your message stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full size products including a branded duffel bag and umbrella displayed on a table",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:17.951347+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

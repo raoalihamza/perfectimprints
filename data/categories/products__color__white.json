@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/color/white",
+  "type": "facet",
+  "h1": "Custom White Products for Your Brand",
+  "metaTitle": "Custom White Products | Perfect Imprints",
+  "metaDescription": "Order custom white products for your brand. Perfect for events, giveaways, and corporate gifts. Shop now at Perfect Imprints.",
+  "introHtml": "<p>White products offer a clean, versatile canvas for your logo or message, making them a popular choice for corporate giveaways, trade shows, and employee appreciation. Whether you need custom white T-shirts, drinkware, or tech accessories, the neutral color ensures your branding stands out without clashing with other colors. White also pairs well with any decoration method, from screen printing to embroidery, giving you flexibility in design. Choose white for a crisp, professional look that appeals to a wide audience.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom white products including T-shirts, water bottles, and tote bags with printed logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:45:48.508559+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

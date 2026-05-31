@@ -1,0 +1,25 @@
+{
+  "url": "/cat/outerwear/brand/columbia",
+  "type": "facet",
+  "h1": "Custom Columbia Outerwear for Bulk Orders",
+  "metaTitle": "Custom Columbia Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom Columbia outerwear with your logo. Perfect for corporate gifts and team uniforms. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Columbia outerwear combines performance fabrics with reliable construction, making it a top choice for corporate apparel programs. Whether you need soft shells for outdoor events or fleece jackets for employee rewards, these pieces hold up to frequent wear and washing. Decoration options like embroidery or screen printing let you add your logo cleanly to chest or sleeve areas. Ordering in bulk ensures consistent sizing and color across your team.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Columbia outerwear with embroidered logo, including soft shell jackets and fleece pullovers for corporate branding.",
+  "productSkus": [
+    "523863",
+    "523865",
+    "523866",
+    "523867",
+    "523870"
+  ],
+  "generatedAt": "2026-05-31T09:58:59.307316+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel/brand/red-kap",
+  "type": "facet",
+  "h1": "Custom Red Kap Apparel for Bulk Orders",
+  "metaTitle": "Custom Red Kap Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Red Kap apparel for your team. Durable workwear perfect for branding. Get a quote today.",
+  "introHtml": "<p>Red Kap apparel is built for the demands of the workplace, from automotive shops to warehouses. When you need custom workwear that holds up to daily wear and tear, Red Kap offers durable fabrics and professional silhouettes that keep your team looking sharp. Add your logo or company name with screen printing or embroidery for a cohesive brand presence on the job.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Red Kap apparel with embroidered logo on a work shirt",
+  "productSkus": [
+    "506023"
+  ],
+  "generatedAt": "2026-05-31T08:48:23.383526+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

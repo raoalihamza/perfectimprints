@@ -1,0 +1,27 @@
+{
+  "url": "/cat/martini-glasses/color/red",
+  "type": "facet",
+  "h1": "Custom Red Martini Glasses",
+  "metaTitle": "Custom Red Martini Glasses | Perfect Imprints",
+  "metaDescription": "Shop custom red martini glasses for your brand. Perfect for events and promotions. Order bulk at Perfect Imprints today.",
+  "introHtml": "<p>Red martini glasses make a bold statement at any event, from holiday parties to brand launches. Their vibrant color ensures your logo stands out whether you choose stemless designs like the 12 oz Plastic Vinello Stemless Wine Glass or classic stems. Perfect for imprinting with screen printing or digital decoration, these custom red martini glasses are a memorable giveaway that guests will reuse long after the event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red martini glasses with a company logo printed on the glass, set on a table at a cocktail party.",
+  "productSkus": [
+    "511450",
+    "522060",
+    "524419",
+    "524524",
+    "524525",
+    "526191",
+    "527252"
+  ],
+  "generatedAt": "2026-05-31T08:57:38.428217+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

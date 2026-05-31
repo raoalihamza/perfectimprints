@@ -1,0 +1,23 @@
+{
+  "url": "/cat/pet-waste-bags/color/green",
+  "type": "facet",
+  "h1": "Custom Green Pet Waste Bags for Bulk Orders",
+  "metaTitle": "Custom Green Pet Waste Bags | Perfect Imprints",
+  "metaDescription": "Order custom green pet waste bags with your logo. Ideal for parks, pet stores, and events. Request a quote today.",
+  "introHtml": "<p>Green pet waste bags are a practical choice for parks, pet stores, and community events where eco-friendly messaging aligns with your brand. The green color signals environmental consciousness, making these bags a natural fit for outdoor-focused businesses or sustainability campaigns. Custom imprint your logo on dispensers or individual bags to keep your brand visible while promoting responsible pet ownership. Whether you need bulk rolls or dispenser-compatible bags, green offers a clean, recognizable look that stands out in public spaces.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green pet waste bags in a dispenser with carabiner, ready for outdoor use",
+  "productSkus": [
+    "513078",
+    "516905",
+    "516906"
+  ],
+  "generatedAt": "2026-05-31T10:01:27.120762+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

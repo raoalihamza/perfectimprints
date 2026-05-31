@@ -1,0 +1,21 @@
+{
+  "url": "/cat/sandals/theme/beach",
+  "type": "facet",
+  "h1": "Custom Beach Sandals for Bulk Orders",
+  "metaTitle": "Custom Beach Sandals | Perfect Imprints",
+  "metaDescription": "Order custom beach sandals in bulk. Great for giveaways, events, and summer promotions. Perfect for branding with your logo.",
+  "introHtml": "<p>Custom beach sandals are a practical giveaway for summer events, resort promotions, or employee appreciation. Unlike generic sandals, beach-themed styles like the Deluxe Flip Flop feature comfortable footbeds and durable straps that hold up to sand and water. They offer a large printing surface for your logo, making them ideal for brand visibility at beach cleanups, company picnics, or vacation giveaways. Choose from multiple colors to match your brand palette.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom beach sandals with logo imprint, perfect for summer events and promotional giveaways",
+  "productSkus": [
+    "520052"
+  ],
+  "generatedAt": "2026-05-31T10:05:34.738926+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

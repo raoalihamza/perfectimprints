@@ -1,0 +1,22 @@
+{
+  "url": "/cat/outerwear/feature/moisture-wicking",
+  "type": "facet",
+  "h1": "Custom Moisture Wicking Outerwear",
+  "metaTitle": "Custom Moisture Wicking Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom moisture wicking outerwear for your team. Perfect for outdoor events and active work environments. Get a quote today!",
+  "introHtml": "<p>Moisture wicking outerwear keeps your team dry and comfortable during outdoor work or events. Unlike standard jackets, these fabrics pull sweat away from the skin, making them ideal for safety managers and crews working in variable weather. Decorate with your logo using embroidery or screen printing for a professional look that performs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom moisture wicking outerwear with embroidered logo, featuring a fleece vest and shep vest for outdoor work",
+  "productSkus": [
+    "526106",
+    "526108"
+  ],
+  "generatedAt": "2026-05-31T08:59:06.170036+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

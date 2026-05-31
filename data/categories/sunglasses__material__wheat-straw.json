@@ -1,0 +1,21 @@
+{
+  "url": "/cat/sunglasses/material/wheat-straw",
+  "type": "facet",
+  "h1": "Custom Wheat Straw Sunglasses",
+  "metaTitle": "Custom Wheat Straw Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom wheat straw sunglasses for your brand. Eco-friendly and stylish. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Wheat straw sunglasses offer a sustainable alternative to traditional plastic frames, made from agricultural byproducts that reduce waste. Perfect for eco-conscious brands, these lightweight sunglasses can be decorated with your logo through screen printing or laser engraving. Ideal for outdoor events, trade shows, or corporate gifts, they combine style with environmental responsibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wheat straw sunglasses with eco-friendly frames and polarized lenses on a beach setting",
+  "productSkus": [
+    "524800"
+  ],
+  "generatedAt": "2026-05-31T09:27:17.127447+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

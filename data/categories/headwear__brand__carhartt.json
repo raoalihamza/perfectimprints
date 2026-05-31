@@ -1,0 +1,23 @@
+{
+  "url": "/cat/headwear/brand/carhartt",
+  "type": "facet",
+  "h1": "Custom Carhartt Headwear for Bulk Orders",
+  "metaTitle": "Custom Carhartt Headwear | Perfect Imprints",
+  "metaDescription": "Order custom Carhartt headwear in bulk. Perfect for teams, events, and branded gear. Get a quote today.",
+  "introHtml": "<p>Carhartt headwear brings rugged durability and timeless style to your branded merchandise. Whether you need knit beanies for winter giveaways or mesh-back caps for outdoor crews, these pieces hold up to daily wear while keeping your logo front and center. Decorate with embroidery or screen printing for a professional finish that lasts. Ideal for construction teams, trade shows, or employee appreciation.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Carhartt headwear including knit beanies and mesh back caps with embroidered logos",
+  "productSkus": [
+    "524211",
+    "526537",
+    "527011"
+  ],
+  "generatedAt": "2026-05-31T08:29:19.376509+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/t-shirts/color/rainbow",
+  "type": "facet",
+  "h1": "Custom Rainbow T Shirts for Bulk Orders",
+  "metaTitle": "Custom Rainbow T Shirts | Perfect Imprints",
+  "metaDescription": "Order custom rainbow t shirts in bulk for your next event. Perfect for pride, team spirit, or fun giveaways. Get a quote today!",
+  "introHtml": "<p>Rainbow t shirts make a bold statement of inclusivity, team spirit, or brand personality. Whether you're planning a Pride event, a company fun run, or a colorful team-building day, these shirts stand out. The Gildan Ultra Cotton 6 oz tee offers a reliable, heavy-weight canvas for full-color screen printing or vibrant embroidery. Choose rainbow for instant recognition and a positive message that resonates with your audience.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom rainbow t shirts in a variety of bright colors, smiling together at an outdoor event.",
+  "productSkus": [
+    "506058"
+  ],
+  "generatedAt": "2026-05-31T10:10:18.834846+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

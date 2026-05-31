@@ -1,0 +1,25 @@
+{
+  "url": "/cat/magnifying-glasses/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Magnifying Glasses",
+  "metaTitle": "Custom Blue Magnifying Glasses | Perfect Imprints",
+  "metaDescription": "Order custom blue magnifying glasses with your logo. Perfect for trade shows, safety inspections, and reading aids. Bulk pricing available.",
+  "introHtml": "<p>Blue magnifying glasses add a pop of color to your promotional giveaways while providing practical magnification for reading small print, inspecting parts, or examining documents. The blue tint reduces glare and eye strain, making these a thoughtful choice for safety managers or HR directors distributing them as reading aids or inspection tools. Choose from pocket-sized folding designs or full-size handles, and add your logo via pad printing or laser engraving for a crisp, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue magnifying glasses with logo imprint, ideal for trade shows and safety inspections",
+  "productSkus": [
+    "515153",
+    "521930",
+    "523689",
+    "524527",
+    "524528"
+  ],
+  "generatedAt": "2026-05-31T09:55:41.508387+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

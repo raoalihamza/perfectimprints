@@ -1,0 +1,22 @@
+{
+  "url": "/cat/portfolios/brand/samsonite",
+  "type": "facet",
+  "h1": "Custom Samsonite Portfolios for Bulk Orders",
+  "metaTitle": "Custom Samsonite Portfolios | Perfect Imprints",
+  "metaDescription": "Order custom Samsonite portfolios in bulk from Perfect Imprints. Durable, professional designs perfect for corporate gifts and events.",
+  "introHtml": "<p>Samsonite portfolios combine the trusted durability of a global luggage leader with professional styling that stands up to daily use. Unlike standard portfolios, Samsonite’s materials resist wear from commuting and travel, making them a smart choice for sales teams or conference attendees who need a polished presentation that lasts. Choose from padded laptop compartments, business card slots, and full-zip closures to keep materials secure and organized.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Samsonite portfolios with black nylon exterior and zippered compartments for business use",
+  "productSkus": [
+    "527869",
+    "528124"
+  ],
+  "generatedAt": "2026-05-31T10:02:41.713207+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

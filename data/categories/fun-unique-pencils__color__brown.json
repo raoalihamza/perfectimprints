@@ -1,0 +1,31 @@
+{
+  "url": "/cat/fun-unique-pencils/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Fun Unique Pencils",
+  "metaTitle": "Custom Brown Fun Unique Pencils | Perfect Imprints",
+  "metaDescription": "Order custom brown fun unique pencils for your brand. Perfect for eco-friendly giveaways. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Brown pencils offer a natural, earthy aesthetic that stands out from standard yellow or black options. Whether you choose recycled wood barrels or bamboo, this warm tone complements organic branding for trade shows or corporate gifts. Add your logo with foil stamping or screen printing for a subtle, professional look that appeals to environmentally conscious clients.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown fun unique pencils with logo imprint, natural wood finish, perfect for branded giveaways.",
+  "productSkus": [
+    "510561",
+    "511380",
+    "511451",
+    "519676",
+    "519961",
+    "527629",
+    "527684",
+    "527685",
+    "527686",
+    "527690",
+    "528631"
+  ],
+  "generatedAt": "2026-05-31T09:47:18.688868+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/blankets/material/flannel",
+  "type": "facet",
+  "h1": "Custom Flannel Blankets for Your Brand",
+  "metaTitle": "Custom Flannel Blankets | Perfect Imprints",
+  "metaDescription": "Order custom flannel blankets with your logo. Soft, warm, and perfect for corporate gifts or events. Get a quote today.",
+  "introHtml": "<p>Flannel blankets offer a soft, warm feel that stands out from standard fleece or polyester options. The brushed cotton fabric provides a cozy texture ideal for corporate gifts, holiday promotions, or employee appreciation. Decorate with your logo using embroidery or screen printing for a lasting impression. Whether you are outfitting a company retreat or creating a branded giveaway, custom flannel blankets deliver comfort and visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom flannel blankets with embroidered logo, soft brushed fabric for cozy corporate gifts",
+  "productSkus": [
+    "529107"
+  ],
+  "generatedAt": "2026-05-31T08:40:07.100554+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

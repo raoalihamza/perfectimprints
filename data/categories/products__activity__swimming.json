@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/activity/swimming",
+  "type": "facet",
+  "h1": "Custom Swimming Products for Branded Giveaways",
+  "metaTitle": "Custom Swimming Products | Perfect Imprints",
+  "metaDescription": "Shop custom swimming products for your next event. Bulk pricing on branded towels, goggles, and more at Perfect Imprints.",
+  "introHtml": "<p>Swimming-themed promotional products are ideal for summer events, pool parties, and swim team sponsorships. Whether you need custom towels for a resort giveaway or branded swim caps for a triathlon, these items keep your logo poolside all season long. Choose from quick-dry materials, vibrant color options, and screen printing or embroidery to match your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom swimming products including branded towels and swim caps displayed by a pool",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:23:49.536828+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

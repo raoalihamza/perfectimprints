@@ -1,0 +1,33 @@
+{
+  "url": "/cat/briefcases/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Briefcases",
+  "metaTitle": "No-Minimum Custom Briefcases | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom briefcases with no bulk requirements. Perfect for small teams or one-off gifts. Get a free quote today.",
+  "introHtml": "<p>No-minimum custom briefcases let you order as few as one or two pieces without facing high MOQs. This is ideal for small businesses, startups, or managers needing just a few branded bags for a new hire kit, a small sales team, or a one-time client gift. You still get professional customization—logos, colors, and materials—without committing to large quantities. Browse our selection of messenger bags, slim briefs, and hybrid styles, and order exactly what you need, when you need it.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A no-minimum custom briefcase with a company logo, suitable for small orders and business professionals",
+  "productSkus": [
+    "513686",
+    "515567 01A",
+    "516801",
+    "519860",
+    "523948",
+    "524395",
+    "524396",
+    "524397",
+    "524400",
+    "527196",
+    "527860",
+    "529217",
+    "529352"
+  ],
+  "generatedAt": "2026-05-31T08:40:15.074454+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

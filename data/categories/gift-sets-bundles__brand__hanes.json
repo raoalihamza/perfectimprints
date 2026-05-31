@@ -1,0 +1,22 @@
+{
+  "url": "/cat/gift-sets-bundles/brand/hanes",
+  "type": "facet",
+  "h1": "Custom Hanes Gift Sets & Bundles",
+  "metaTitle": "Custom Hanes Gift Sets & Bundles | Perfect Imprints",
+  "metaDescription": "Order custom Hanes gift sets and bundles in bulk. Perfect for employee rewards and corporate gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Hanes gift sets and bundles give you the comfort and quality of a trusted apparel brand in one convenient package. Whether you are putting together employee welcome kits or client appreciation gifts, pairing Hanes T-shirts with other items creates a cohesive, branded experience. Choose full-color imprinting on the shirts to make your logo stand out, and select bundle components that fit your budget and audience. Bulk orders keep per-unit costs low while delivering a polished, professional gift.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hanes gift sets and bundles with embroidered logo on T-shirts and assorted apparel items",
+  "productSkus": [
+    "506068 90A",
+    "506455"
+  ],
+  "generatedAt": "2026-05-31T09:47:46.645460+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

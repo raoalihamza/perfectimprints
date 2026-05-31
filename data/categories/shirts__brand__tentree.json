@@ -1,0 +1,21 @@
+{
+  "url": "/cat/shirts/brand/tentree",
+  "type": "facet",
+  "h1": "Custom Tentree Shirts for Eco-Conscious Branding",
+  "metaTitle": "Custom Tentree Shirts - Perfect Imprints",
+  "metaDescription": "Order custom Tentree shirts for your brand. Eco-friendly apparel that plants trees. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Tentree shirts are made from sustainable materials like organic cotton and recycled polyester, with every purchase planting ten trees. For marketing directors and business owners committed to environmental responsibility, these custom shirts offer a tangible way to align your brand with conservation. Decorate with screen printing or embroidery to create uniforms or giveaways that reflect your company's green values.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Tentree shirts with eco-friendly branding, featuring organic cotton fabric and tree-planting mission",
+  "productSkus": [
+    "525984"
+  ],
+  "generatedAt": "2026-05-31T09:02:03.490171+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

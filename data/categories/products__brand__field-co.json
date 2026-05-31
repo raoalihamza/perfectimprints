@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/field-co",
+  "type": "facet",
+  "h1": "Custom Field Co Products for Your Brand",
+  "metaTitle": "Custom Field Co Products | Perfect Imprints",
+  "metaDescription": "Order custom Field Co products for your brand. Perfect for giveaways, events, and employee recognition. Get a quote today.",
+  "introHtml": "<p>Field Co products bring a rugged, outdoorsy aesthetic to your branded merchandise, making them ideal for trade shows, corporate retreats, or employee appreciation kits. Their durable materials and classic designs ensure your logo stands out on items that recipients will actually use. Whether you need custom hats, bags, or drinkware, Field Co’s quality construction and timeless style offer a reliable choice for bulk orders that reflect your brand’s commitment to durability and authenticity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Field Co products including hats, bags, and drinkware with embroidered logos for outdoor and corporate events.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:29.922418+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

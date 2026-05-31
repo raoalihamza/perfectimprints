@@ -1,0 +1,23 @@
+{
+  "url": "/cat/koozies/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Koozies for Bulk Orders",
+  "metaTitle": "Custom Set Koozies | Perfect Imprints",
+  "metaDescription": "Order custom set koozies in bulk at Perfect Imprints. Perfect for gifts and events. Get a quote today!",
+  "introHtml": "<p>Custom set koozies bundle drink insulators with matching accessories like bottle openers or glassware, making them ideal for corporate gifts, event swag, or employee appreciation. Sets offer a coordinated, premium feel that single koozies can't match. Options like the Basecamp ICEY Gift Set or Vinglace Wine Bottle Insulator with glasses let you tailor the combo to your audience. Decorate with your logo via screen printing or debossing for a polished, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set koozies with koozie and bottle opener in a gift box",
+  "productSkus": [
+    "525709",
+    "526609",
+    "526805"
+  ],
+  "generatedAt": "2026-05-31T08:43:25.395031+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

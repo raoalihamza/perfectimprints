@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pens/brand/moleskine",
+  "type": "facet",
+  "h1": "Custom Moleskine Pens for Bulk Orders",
+  "metaTitle": "Custom Moleskine Pens | Perfect Imprints",
+  "metaDescription": "Order custom Moleskine pens for your brand. High-quality writing instruments with your logo. Get a quote today.",
+  "introHtml": "<p>Moleskine pens combine the brand's iconic design with reliable writing performance, making them a premium choice for corporate gifts and promotional giveaways. Unlike standard promotional pens, Moleskine models offer a refined look that resonates with professionals who appreciate quality. Whether you're outfitting a sales team or assembling welcome kits, these pens pair naturally with Moleskine notebooks for a cohesive branded set. Choose from ballpoint or rollerball styles and add your logo via pad printing or engraving for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Moleskine pens with engraved logo, black ballpoint and rollerball styles on a desk",
+  "productSkus": [
+    "527719"
+  ],
+  "generatedAt": "2026-05-31T09:22:06.463355+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

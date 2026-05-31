@@ -1,0 +1,25 @@
+{
+  "url": "/cat/door-hangers/search",
+  "type": "modifier",
+  "h1": "Custom Door Hangers for Branded Promotions",
+  "metaTitle": "Custom Door Hangers | Perfect Imprints",
+  "metaDescription": "Explore custom door hangers for branding at Perfect Imprints. Easy ordering, fast turnaround, and wide selection. Start your order today!",
+  "introHtml": "<p>Custom door hangers offer a direct way to put your message in front of your target audience. Whether you are a marketing director planning a neighborhood campaign, a safety manager distributing emergency notices, or a business owner promoting a local sale, our selection of door hangers gives you the flexibility to choose the right size, material, and finish. From classic paper card hangers to durable Superseal options, we make it easy to find the perfect starting point for your next project.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of custom door hangers with a bright design and die-cut shape, showcasing promotional branding options.",
+  "productSkus": [
+    "503106 91A",
+    "509177 90A",
+    "517730 90A",
+    "524827",
+    "524830"
+  ],
+  "generatedAt": "2026-05-31T09:42:57.769182+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

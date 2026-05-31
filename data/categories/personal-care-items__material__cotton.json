@@ -1,0 +1,28 @@
+{
+  "url": "/cat/personal-care-items/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Personal Care Items",
+  "metaTitle": "Custom Cotton Personal Care Items | Perfect Imprints",
+  "metaDescription": "Order custom cotton personal care items for your brand. Soft, absorbent, and ideal for giveaways. Get a quote today!",
+  "introHtml": "<p>Cotton personal care items offer a soft, natural feel that synthetic materials can't match. From cotton aprons for spa staff to beach towels for hospitality guests, these items provide comfort and absorbency. Decorate with screen printing or embroidery for a professional look that aligns with wellness-focused branding. Perfect for employee appreciation or client gifts that feel thoughtful and premium.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cotton personal care items including a folded beach towel and a branded cotton tote bag",
+  "productSkus": [
+    "516240",
+    "522878",
+    "523623",
+    "524126",
+    "525624",
+    "526128",
+    "527339",
+    "528435"
+  ],
+  "generatedAt": "2026-05-31T09:22:22.320573+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

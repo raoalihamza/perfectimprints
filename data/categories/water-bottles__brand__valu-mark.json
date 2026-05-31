@@ -1,0 +1,24 @@
+{
+  "url": "/cat/water-bottles/brand/valu-mark",
+  "type": "facet",
+  "h1": "Custom Valu Mark Water Bottles for Bulk Orders",
+  "metaTitle": "Custom Valu Mark Water Bottles | Perfect Imprints",
+  "metaDescription": "Browse custom Valu Mark water bottles at Perfect Imprints. Perfect for bulk orders. Get a quote today!",
+  "introHtml": "<p>Valu Mark water bottles offer a budget-friendly way to brand your organization at events or in the workplace. These durable bottles come in translucent and opaque styles with snap caps or push-pull lids, making them suitable for both indoor and outdoor use. Decorate them with your logo using screen printing or pad printing for a clean, professional look that stands out without breaking your budget.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Valu Mark water bottles with logo imprint, including translucent sport bottle with snap cap and value cycle bottles with helmet designs.",
+  "productSkus": [
+    "507021",
+    "519778",
+    "520936",
+    "525150"
+  ],
+  "generatedAt": "2026-05-31T10:13:51.930867+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

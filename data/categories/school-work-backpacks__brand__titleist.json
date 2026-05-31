@@ -1,0 +1,28 @@
+{
+  "url": "/cat/school-work-backpacks/brand/titleist",
+  "type": "facet",
+  "h1": "Custom Titleist School Work Backpacks",
+  "metaTitle": "Custom Titleist School Work Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Titleist school work backpacks for your team or event. Perfect for golf-themed giveaways. Get a quote today!",
+  "introHtml": "<p>Titleist backpacks combine the brand's trusted quality with practical design for students and professionals. Ideal for corporate golf outings or school spirit events, these bags offer durable construction and ample storage for books or gear. Customize with your logo using embroidery or screen printing for a polished look that resonates with golf enthusiasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Titleist school work backpacks with embroidered logo, perfect for golf-themed corporate gifts",
+  "productSkus": [
+    "507565 90A",
+    "515618 90A",
+    "528008",
+    "529251",
+    "529255",
+    "529256",
+    "529258",
+    "529259"
+  ],
+  "generatedAt": "2026-05-31T10:06:01.344255+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/suits/feature/pocketed",
+  "type": "facet",
+  "h1": "Custom Pocketed Suits for Bulk Orders",
+  "metaTitle": "Custom Pocketed Suits | Perfect Imprints",
+  "metaDescription": "Order custom pocketed suits for your team. Perfect for trade shows and events. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Pocketed suits offer practical storage for pens, phones, and business cards without sacrificing a polished look. For marketing directors and safety managers, these suits keep essential tools accessible during long trade shows or site visits. Choose from multiple pocket configurations and durable fabrics that hold up to daily wear. Add your logo with embroidery or screen printing for a professional, branded uniform that works as hard as your team.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pocketed suits with multiple pockets for storage, ideal for tradeshow and corporate events",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:27:06.268336+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

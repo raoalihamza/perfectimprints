@@ -1,0 +1,24 @@
+{
+  "url": "/cat/blankets/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Blankets",
+  "metaTitle": "Custom Full Color Blankets | Perfect Imprints",
+  "metaDescription": "Order custom full color blankets for your brand. Vibrant, all-over printing for events, gifts, and promotions. Get a quote today!",
+  "introHtml": "<p>Full color blankets let you print logos, photos, or intricate designs across the entire fabric — no color limits, no fade worries. Whether you're creating a staff gift with a team photo or a promotional blanket for a trade show giveaway, the Roll-Up Fleece Blanket and Foto Vision™ Plush Throw offer sharp, vibrant results. Dye sublimation ensures your artwork stays bright wash after wash, making these blankets a lasting reminder of your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color blankets with vibrant all-over print design, perfect for promotional gifts and corporate events.",
+  "productSkus": [
+    "513485",
+    "521136",
+    "521875",
+    "529107"
+  ],
+  "generatedAt": "2026-05-31T09:37:21.280694+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

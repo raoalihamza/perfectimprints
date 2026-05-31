@@ -1,0 +1,22 @@
+{
+  "url": "/cat/sling-backpacks/brand/solo",
+  "type": "facet",
+  "h1": "Custom Solo Sling Backpacks for Bulk Orders",
+  "metaTitle": "Custom Solo Sling Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Solo sling backpacks in bulk. Perfect for corporate gifts and events. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Solo sling backpacks combine the sleek, professional look of a modern backpack with the convenience of a single-strap carry. The Solo Re:vive Mini Backpack, made from recycled materials, appeals to eco-conscious companies, while the Parker Hybrid Backpack Tote offers a versatile 2-in-1 design for commuters. Whether you're outfitting a sales team or rewarding employees, custom Solo sling backpacks provide a durable, branded solution that stands out in any corporate setting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Solo sling backpacks with logo imprint, featuring the Solo Re:vive Mini Backpack in black",
+  "productSkus": [
+    "524398",
+    "524401"
+  ],
+  "generatedAt": "2026-05-31T09:26:11.110942+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

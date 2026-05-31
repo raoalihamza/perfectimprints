@@ -1,0 +1,29 @@
+{
+  "url": "/cat/backpacks/feature/waterproof",
+  "type": "facet",
+  "h1": "Custom Waterproof Backpacks for Bulk Orders",
+  "metaTitle": "Custom Waterproof Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom waterproof backpacks in bulk from Perfect Imprints. Perfect for trade shows, outdoor events, and corporate gifts.",
+  "introHtml": "<p>When you need branded gear that withstands rain, splashes, or full submersion, custom waterproof backpacks deliver reliable protection for electronics and valuables. From dry bag roll-tops like the Urban Peak Flow 29L to laptop-ready options like the Elleven Lunar, these backpacks keep contents dry during commutes, outdoor events, or field work. Decorate with screen printing or embroidery for a durable logo that lasts as long as the bag.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom waterproof backpacks with roll-top closure and screen-printed logo displayed outdoors in rain",
+  "productSkus": [
+    "515082 01A",
+    "519541",
+    "522667",
+    "523502",
+    "527497",
+    "527639",
+    "527640",
+    "528352",
+    "528445"
+  ],
+  "generatedAt": "2026-05-31T09:06:28.557832+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/lip-balm/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Lip Balm for Bulk Orders",
+  "metaTitle": "Custom Pink Lip Balm | Perfect Imprints",
+  "metaDescription": "Order custom pink lip balm in bulk for your brand. Perfect for giveaways and events. Get a quote today.",
+  "introHtml": "<p>Pink lip balm stands out as a fun, vibrant choice for brand giveaways, especially for women-focused events, breast cancer awareness campaigns, or spring promotions. Options like the Rubber Lip Balm Ball or DivaZ™ Lip Shine with Applicator Wand offer unique formats that complement the playful color. Custom imprinting lets you add your logo in a contrasting color for maximum visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink lip balm with logo imprint, available in bulk for promotional giveaways and events.",
+  "productSkus": [
+    "508499 88H",
+    "519430",
+    "520997",
+    "528465",
+    "529479"
+  ],
+  "generatedAt": "2026-05-31T08:43:44.333265+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

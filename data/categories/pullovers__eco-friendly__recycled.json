@@ -1,0 +1,25 @@
+{
+  "url": "/cat/pullovers/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Pullovers for Eco-Conscious Branding",
+  "metaTitle": "Custom Recycled Pullovers | Perfect Imprints",
+  "metaDescription": "Shop custom recycled pullovers at Perfect Imprints. Eco-friendly branding for your team or event. Bulk orders available.",
+  "introHtml": "<p>Recycled pullovers offer the same comfort and durability as traditional fleece, but with a lower environmental footprint. Made from post-consumer or post-industrial recycled polyester, these garments appeal to eco-conscious employees and customers. Whether you choose a full-zip hoodie from Hanes or a quarter-zip from Eco-Logic, each piece can be custom embroidered or screen printed with your logo. Ideal for corporate uniforms, trade shows, or sustainability-focused giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled pullovers in heather gray with company logo embroidered on chest",
+  "productSkus": [
+    "509487",
+    "509488",
+    "516009",
+    "527948",
+    "528707"
+  ],
+  "generatedAt": "2026-05-31T09:01:10.916949+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

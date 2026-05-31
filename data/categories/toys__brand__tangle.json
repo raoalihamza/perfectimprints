@@ -1,0 +1,21 @@
+{
+  "url": "/cat/toys/brand/tangle",
+  "type": "facet",
+  "h1": "Custom Tangle Toys for Bulk Orders",
+  "metaTitle": "Custom Tangle Toys | Perfect Imprints",
+  "metaDescription": "Order custom Tangle toys in bulk. Perfect for trade shows, giveaways, and stress relief. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom Tangle toys offer a tactile, fidget-friendly experience that keeps hands busy and minds focused. Unlike generic stress toys, the patented Tangle design twists and turns in endless configurations, making it a standout promotional item for trade shows, employee wellness kits, or conference swag. Available in a range of colors and customizable with your logo via pad printing or laser engraving, these durable, BPA-free plastic puzzles appeal to all ages. Order bulk Tangle toys to give your recipients a satisfying, screen-free break that they'll reach for again and again.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Tangle toys in assorted colors with a company logo printed on the side, arranged on a table",
+  "productSkus": [
+    "508353"
+  ],
+  "generatedAt": "2026-05-31T10:12:24.784647+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

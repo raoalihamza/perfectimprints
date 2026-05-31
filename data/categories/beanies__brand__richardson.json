@@ -1,0 +1,30 @@
+{
+  "url": "/cat/beanies/brand/richardson",
+  "type": "facet",
+  "h1": "Custom Richardson Beanies for Bulk Orders",
+  "metaTitle": "Custom Richardson Beanies | Perfect Imprints",
+  "metaDescription": "Order custom Richardson beanies in bulk. Perfect for branded winter gear. Fast turnaround. Get a quote today.",
+  "introHtml": "<p>Richardson beanies are built for durability and comfort, making them a top choice for corporate winter gear. With a classic knit construction and consistent sizing, they take embroidery and screen printing cleanly for a polished look. Safety managers and HR directors often choose Richardson for uniform programs because the fit stays reliable wash after wash. Whether you are outfitting a crew for a cold-weather event or stocking a company store, these beanies keep your logo visible and your team warm.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom embroidered Richardson beanie in charcoal gray with company logo, worn by a person outdoors in winter.",
+  "productSkus": [
+    "522099",
+    "522624",
+    "522625",
+    "522627",
+    "526934",
+    "526935",
+    "529238",
+    "529239",
+    "529240",
+    "529316"
+  ],
+  "generatedAt": "2026-05-31T09:36:34.447832+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

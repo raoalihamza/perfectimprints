@@ -1,0 +1,29 @@
+{
+  "url": "/cat/writing/material/enamel",
+  "type": "facet",
+  "h1": "Custom Enamel Writing Pens",
+  "metaTitle": "Custom Enamel Writing Pens | Perfect Imprints",
+  "metaDescription": "Order custom enamel writing pens for your business. Smooth writing with a glossy finish. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Enamel writing pens offer a smooth, glossy finish that sets your logo apart from standard printed pens. The raised enamel coating adds a tactile, premium feel that resists fading and chipping, making them ideal for trade shows, client gifts, and employee recognition. Pens like the Damali or Santorini Pen showcase this finish beautifully, giving your brand a polished look that recipients will keep and use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom enamel writing pens with glossy finish and raised logo, perfect for corporate gifts and promotional use.",
+  "productSkus": [
+    "506766",
+    "510543",
+    "511341",
+    "514674",
+    "514786",
+    "520542",
+    "520730",
+    "520732",
+    "527457"
+  ],
+  "generatedAt": "2026-05-31T09:31:27.664949+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

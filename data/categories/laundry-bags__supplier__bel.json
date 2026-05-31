@@ -1,0 +1,33 @@
+{
+  "url": "/cat/laundry-bags/supplier/bel",
+  "type": "facet",
+  "h1": "Custom Bel Laundry Bags for Bulk Orders",
+  "metaTitle": "Custom Bel Laundry Bags | Perfect Imprints",
+  "metaDescription": "Shop custom Bel laundry bags at Perfect Imprints. Ideal for corporate gifts and team gear. Order bulk branded bags today.",
+  "introHtml": "<p>Bel laundry bags combine rugged waterproof construction with versatile carrying options, making them a practical choice for corporate giveaways, event swag, or employee appreciation. The Bel lineup includes dry bags, backpacks, and pouches that keep contents dry in wet conditions—perfect for tradeshow attendees or outdoor teams. Decorate with screen printing or embroidery for a durable, professional look that stands up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Bel laundry bags featuring waterproof dry bags and backpacks with brand logos for bulk corporate orders.",
+  "productSkus": [
+    "518013 01N",
+    "518753",
+    "520673",
+    "520888",
+    "521607",
+    "522058",
+    "522326",
+    "522543",
+    "522667",
+    "523502",
+    "525515",
+    "525813",
+    "528445"
+  ],
+  "generatedAt": "2026-05-31T09:18:16.568280+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/tools/feature/flashlight",
+  "type": "facet",
+  "h1": "Custom Flashlight Tools for Bulk Orders",
+  "metaTitle": "Custom Flashlight Tools | Perfect Imprints",
+  "metaDescription": "Order custom flashlight tools with your logo. Perfect for safety teams, promotions, and giveaways. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Custom flashlight tools combine the utility of a multi-tool with the practicality of an integrated LED light. Ideal for safety managers equipping field crews or marketing directors assembling promotional kits, these tools ensure recipients always have light and essential functions on hand. Decorate with your logo via pad printing or laser engraving for long-lasting brand visibility on items like the Multi Tool with Flash Light or the Tape Measure with LED Flashlight.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom flashlight tools with LED light and multi-tool functions, imprinted with a logo",
+  "productSkus": [
+    "518913 10A",
+    "522797",
+    "525944"
+  ],
+  "generatedAt": "2026-05-31T10:11:27.010907+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

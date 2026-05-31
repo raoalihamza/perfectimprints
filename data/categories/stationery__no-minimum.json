@@ -1,0 +1,19 @@
+{
+  "url": "/cat/stationery/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Stationery for Small Orders",
+  "metaTitle": "No-Minimum Custom Stationery | Perfect Imprints",
+  "metaDescription": "Order small quantities of no-minimum custom stationery with no bulk requirements. Perfect for small teams, events, and samples.",
+  "introHtml": "<p>No-minimum custom stationery gives you the flexibility to order small quantities without the typical bulk requirements. Whether you need branded notepads for a small team, personalized letterhead for a startup launch, or a handful of custom folders for a one-time event, we accommodate orders as low as a few pieces. This means you can test designs, supply specific departments, or stay within tight budgets while maintaining professional branding. Our no-minimum policy ensures that even the smallest business or project can access high-quality custom stationery.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of no-minimum custom stationery including notepads and letterhead with a company logo, perfect for small orders.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:47:00.309627+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/koozies/feature/adjustable",
+  "type": "facet",
+  "h1": "Custom Adjustable Koozies",
+  "metaTitle": "Custom Adjustable Koozies | Perfect Imprints",
+  "metaDescription": "Order custom adjustable koozies for your next event or promotion. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Adjustable koozies offer a versatile fit for cans, bottles, and even larger tumblers, making them a practical choice for giveaways at outdoor events, trade shows, or employee appreciation. Unlike standard koozies, the adjustable design ensures a snug hold on various sizes while still allowing easy access. Decorate with your logo using screen printing or embroidery for a polished look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adjustable koozies featuring a branded kangaroo bottle pouch with adjustable strap",
+  "productSkus": [
+    "527142",
+    "528183"
+  ],
+  "generatedAt": "2026-05-31T08:56:38.665327+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

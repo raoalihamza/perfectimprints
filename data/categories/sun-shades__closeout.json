@@ -1,0 +1,22 @@
+{
+  "url": "/cat/sun-shades/closeout",
+  "type": "modifier",
+  "h1": "Closeout Custom Sun Shades",
+  "metaTitle": "Closeout Custom Sun Shades | Perfect Imprints",
+  "metaDescription": "Save on closeout custom sun shades while stock lasts. Perfect for outdoor events and promotions. Order now at Perfect Imprints.",
+  "introHtml": "<p>Closeout custom sun shades offer a limited-time opportunity to stock up on premium promotional shade solutions at clearance prices. These are end-of-run or overstock items from top brands, available while quantities last. Marketing directors and safety managers can secure high-visibility shade coverage for outdoor events, job sites, or giveaways without the standard pricing. Selection changes frequently, so the best deals go fast. Act now to lock in value-priced shade inventory before it's gone.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Closeout custom sun shades featuring a cooling towel and a 2027 adult coloring book planner in an outdoor setting.",
+  "productSkus": [
+    "520614",
+    "521013"
+  ],
+  "generatedAt": "2026-05-31T09:27:07.842551+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

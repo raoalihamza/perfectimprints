@@ -1,0 +1,33 @@
+{
+  "url": "/cat/balloons/shape/round",
+  "type": "facet",
+  "h1": "Custom Round Balloons for Bulk Orders",
+  "metaTitle": "Custom Round Balloons | Perfect Imprints",
+  "metaDescription": "Order custom round balloons for your next event. Perfect for branding, grand openings, and parties. Bulk pricing available.",
+  "introHtml": "<p>Round balloons are a classic choice for events and promotions, offering a simple yet effective canvas for your logo or message. Whether you need 9-inch latex balloons for a product launch or 17-inch helium-saver rounds for a grand opening, the round shape provides consistent, easy-to-read branding. Available in metallic, standard, and USA-themed options, these balloons work well with single-color imprinting for high visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom round balloons with company logo, metallic and standard latex options for events",
+  "productSkus": [
+    "518390 30A",
+    "519461",
+    "527576",
+    "527577",
+    "527578",
+    "527579",
+    "527580",
+    "527581",
+    "527582",
+    "527583",
+    "527584",
+    "527585",
+    "527586"
+  ],
+  "generatedAt": "2026-05-31T08:49:39.293470+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

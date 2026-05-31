@@ -1,0 +1,22 @@
+{
+  "url": "/cat/apparel/brand/omni",
+  "type": "facet",
+  "h1": "Custom Omni Apparel for Your Team",
+  "metaTitle": "Custom Omni Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Omni apparel for your team. Perfect for uniforms, events, and giveaways. Fast turnaround.",
+  "introHtml": "<p>Omni apparel from Columbia offers moisture-wicking performance and UPF sun protection, making it ideal for outdoor events, uniform programs, and safety teams working in the sun. Whether you need polo shirts for a company picnic or long-sleeve button-downs for field crews, these custom embroidered or screen-printed garments keep your brand visible and your team comfortable.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Omni apparel featuring embroidered logo on Columbia Tamiami shirt for team uniforms",
+  "productSkus": [
+    "523867",
+    "523870"
+  ],
+  "generatedAt": "2026-05-31T08:38:42.439687+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

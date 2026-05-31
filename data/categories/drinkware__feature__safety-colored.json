@@ -1,0 +1,28 @@
+{
+  "url": "/cat/drinkware/feature/safety-colored",
+  "type": "facet",
+  "h1": "Custom Safety Colored Drinkware",
+  "metaTitle": "Custom Safety Colored Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom safety colored drinkware for your team. Perfect for safety managers and HR directors. Shop at Perfect Imprints today.",
+  "introHtml": "<p>Safety colored drinkware helps your team stay hydrated while reinforcing your commitment to workplace safety. Choose high-visibility hues like neon yellow or orange that are easy to spot on job sites. Options include the 28 oz Poly-Clean Plastic Bottle, which withstands daily use and can be imprinted with your logo. Perfect for safety managers equipping crews or HR directors promoting wellness programs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom safety colored drinkware featuring a bright neon yellow 28 oz plastic bottle with a company logo",
+  "productSkus": [
+    "519778",
+    "520369",
+    "520411",
+    "520936",
+    "521736",
+    "521737",
+    "522032",
+    "522270"
+  ],
+  "generatedAt": "2026-05-31T08:53:17.558880+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

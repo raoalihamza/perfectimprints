@@ -1,0 +1,28 @@
+{
+  "url": "/cat/lighters/color/black",
+  "type": "facet",
+  "h1": "Custom Black Lighters for Bulk Orders",
+  "metaTitle": "Custom Black Lighters | Perfect Imprints",
+  "metaDescription": "Order custom black lighters in bulk for your brand. Perfect for giveaways and promotions. Shop at Perfect Imprints today.",
+  "introHtml": "<p>Black lighters offer a sleek, professional look that appeals to a wide audience, making them a popular choice for corporate giveaways and promotional events. The classic black color pairs well with any logo or design, and the smooth surface provides excellent print clarity for your branding. Whether you're outfitting a trade show or stocking a company store, custom black lighters deliver practical value and brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom black lighters with printed logo for promotional use",
+  "productSkus": [
+    "503179",
+    "507333",
+    "512204",
+    "516589",
+    "518853",
+    "525234",
+    "526804",
+    "528509"
+  ],
+  "generatedAt": "2026-05-31T08:57:10.770913+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/shirts/color/gold",
+  "type": "facet",
+  "h1": "Custom Gold Shirts for Bulk Orders",
+  "metaTitle": "Custom Gold Shirts | Perfect Imprints",
+  "metaDescription": "Order custom gold shirts in bulk from Perfect Imprints. Ideal for events, teams, and promotions. Get a quote today!",
+  "introHtml": "<p>Gold shirts create a bold, memorable look for corporate events, team uniforms, or promotional giveaways. The Vansport Pro Maui Shirt offers a performance fabric that keeps wearers comfortable during outdoor activities. Screen printing or embroidery works well on gold fabric, ensuring your logo stands out. Choose custom gold shirts when you want a color that signals achievement and visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gold shirts with embroidered logo on front, displayed on a model at a corporate event",
+  "productSkus": [
+    "523719"
+  ],
+  "generatedAt": "2026-05-31T08:24:31.445227+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

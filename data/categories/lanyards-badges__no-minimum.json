@@ -1,0 +1,21 @@
+{
+  "url": "/cat/lanyards-badges/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Lanyards & Badges",
+  "metaTitle": "No-Minimum Custom Lanyards & Badges | Perfect Imprints",
+  "metaDescription": "Shop no-minimum custom lanyards and badges. Perfect for small teams and events. Order low quantities with no bulk minimums at Perfect Imprints.",
+  "introHtml": "<p>Not every order needs to fill a warehouse. Our no-minimum custom lanyards and badges let you order as few as one or two pieces, ideal for small businesses, startups, one-off events, or testing a design before committing to larger quantities. You get the same professional quality and personalization options as bulk orders, with the flexibility to buy exactly what you need.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A close-up of a no-minimum custom lanyard with an attached badge holder, featuring a colorful printed design and metal clip.",
+  "productSkus": [
+    "528809"
+  ],
+  "generatedAt": "2026-05-31T08:25:14.099988+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

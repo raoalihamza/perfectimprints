@@ -1,0 +1,30 @@
+{
+  "url": "/cat/bags/activity/basketball",
+  "type": "facet",
+  "h1": "Custom Basketball Bags for Bulk Orders",
+  "metaTitle": "Custom Basketball Bags | Perfect Imprints",
+  "metaDescription": "Order custom basketball bags in bulk for your team or event. Perfect for gear, gifts, and giveaways. Get a quote today!",
+  "introHtml": "<p>When you need bags that carry basketball gear and show team spirit, custom basketball bags deliver. From drawstring backpacks printed with a basketball graphic to luggage tags that identify players' bags, these items are designed for athletes and fans. Decorate with your team logo, school name, or event branding using screen printing or embroidery. Durable nylon construction holds up to daily use at practice or tournaments.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom basketball bags with team logo printed on drawstring backpack and luggage tag",
+  "productSkus": [
+    "509291 2AC",
+    "509291 2AK",
+    "509291 2AN",
+    "509291 2CI",
+    "510125",
+    "519478",
+    "519479",
+    "519480",
+    "519481",
+    "519482"
+  ],
+  "generatedAt": "2026-05-31T09:34:15.312828+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

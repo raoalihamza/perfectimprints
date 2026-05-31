@@ -1,0 +1,28 @@
+{
+  "url": "/cat/backpacks/feature/with-cooler",
+  "type": "facet",
+  "h1": "Custom With Cooler Backpacks for Bulk Orders",
+  "metaTitle": "Custom With Cooler Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom with cooler backpacks in bulk at Perfect Imprints. Ideal for outdoor events, branded giveaways, and employee gifts. Get a quote today!",
+  "introHtml": "<p>Custom with cooler backpacks combine the convenience of a backpack with insulated storage for food and drinks. Perfect for corporate picnics, outdoor team-building events, or safety managers equipping field crews, these bags keep perishables cold while leaving hands free. Choose from designs like the Carhartt Two-Compartment Cooler Backpack or the All-In-One Insulated Beach Backpack, with options for screen printing or embroidery on durable polyester or PEVA-lined exteriors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom with cooler backpacks featuring insulated compartments and branded logos for outdoor events and corporate giveaways.",
+  "productSkus": [
+    "516332",
+    "517456",
+    "521836",
+    "523627",
+    "525573",
+    "527444",
+    "528091",
+    "529216"
+  ],
+  "generatedAt": "2026-05-31T08:24:45.790278+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

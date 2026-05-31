@@ -1,0 +1,24 @@
+{
+  "url": "/cat/bar-wine/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Bar Wine Glasses & Tumblers",
+  "metaTitle": "Custom Brown Bar Wine | Perfect Imprints",
+  "metaDescription": "Order custom brown bar wine glasses and tumblers for your brand. Perfect for events and gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Brown bar wine items offer a warm, sophisticated look that stands out from standard clear glassware. Whether you choose a 12 oz Corkcicle® Stemless Wine Cup for outdoor events or a 10 oz Viking Lowball Tumbler for corporate gifts, the rich brown hue adds a touch of earthiness to your branding. These pieces are ideal for fall promotions, harvest-themed gatherings, or any occasion where you want a subtle, professional color that complements your logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown bar wine glasses and tumblers with company logo, including a stemless wine cup and lowball tumbler",
+  "productSkus": [
+    "520339",
+    "524368",
+    "528731",
+    "528732"
+  ],
+  "generatedAt": "2026-05-31T09:35:28.744383+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

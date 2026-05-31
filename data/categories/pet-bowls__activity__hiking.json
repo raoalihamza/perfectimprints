@@ -1,0 +1,23 @@
+{
+  "url": "/cat/pet-bowls/activity/hiking",
+  "type": "facet",
+  "h1": "Custom Hiking Pet Bowls for Active Brands",
+  "metaTitle": "Custom Hiking Pet Bowls | Perfect Imprints",
+  "metaDescription": "Order custom hiking pet bowls for your active brand. Durable, portable designs perfect for outdoor promotions. Get a quote today.",
+  "introHtml": "<p>Custom hiking pet bowls are built for on-the-go hydration and feeding during outdoor adventures. Unlike standard pet bowls, these designs prioritize portability and durability—think collapsible silicone bowls that pack flat, or integrated water bottles like the Asobu® Dog Bowl Bottle Lite that combine hydration and feeding in one. Ideal for brands targeting active pet owners, these bowls can be imprinted with logos via pad printing or debossing. Perfect for giveaways at outdoor expos, trail runs, or employee wellness kits.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Collapsible silicone custom hiking pet bowl with brand logo, packed for outdoor use",
+  "productSkus": [
+    "521770",
+    "524414",
+    "529207"
+  ],
+  "generatedAt": "2026-05-31T10:01:12.371966+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/mechanical-pencils/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Mechanical Pencils",
+  "metaTitle": "Custom Plastic Mechanical Pencils | Perfect Imprints",
+  "metaDescription": "Order custom plastic mechanical pencils for your team or event. Budget-friendly and easy to personalize with your logo.",
+  "introHtml": "<p>Plastic mechanical pencils are a practical, budget-friendly choice for trade shows, office giveaways, and school supply kits. Unlike metal options, plastic bodies keep costs low while still offering a clean surface for logo imprinting. The Frosty Grip Mechanical Pencil features a rubberized grip for comfort, making it a popular pick for long writing sessions. Whether you need a simple pen-style pencil or a colorful set like the Build-It™ Mechanical Pencil Set, plastic construction allows for vibrant color matching and quick turnaround on bulk orders.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom plastic mechanical pencils with printed logos, featuring comfort grips and assorted colors.",
+  "productSkus": [
+    "510506",
+    "514646"
+  ],
+  "generatedAt": "2026-05-31T09:19:24.374567+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

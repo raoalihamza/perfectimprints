@@ -1,0 +1,21 @@
+{
+  "url": "/cat/jewelry/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Jewelry",
+  "metaTitle": "Custom Full Color Jewelry | Perfect Imprints",
+  "metaDescription": "Order custom full color jewelry for your team or event. Vibrant designs on bracelets and more. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Full color decoration brings your logo or artwork to life on custom jewelry with photographic detail and vibrant gradients. Unlike single-color imprints, full color allows for complex designs, making it ideal for commemorative events, branded paracord bracelets, or promotional giveaways where visual impact matters. This method works well on silicone or fabric surfaces and gives you the flexibility to match your brand's exact colors without compromise.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color jewelry featuring a paracord bracelet with a vibrant, detailed printed design",
+  "productSkus": [
+    "516655"
+  ],
+  "generatedAt": "2026-05-31T09:52:07.947395+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/jackets/brand/nike",
+  "type": "facet",
+  "h1": "Custom Nike Jackets for Bulk Orders",
+  "metaTitle": "Custom Nike Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Nike jackets for your team. Perfect for corporate apparel, events, and promotions. Get a quote today.",
+  "introHtml": "<p>Nike jackets offer instant brand recognition and a reputation for quality that resonates with employees and clients alike. Whether you need lightweight track jackets for a company 5K or insulated bombers for a winter product launch, these jackets combine performance fabrics with your logo. Decorate with screen printing or embroidery for a polished look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom Nike jackets with embroidered logos at a corporate event",
+  "productSkus": [
+    "528938",
+    "528939",
+    "528940"
+  ],
+  "generatedAt": "2026-05-31T08:56:04.870647+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

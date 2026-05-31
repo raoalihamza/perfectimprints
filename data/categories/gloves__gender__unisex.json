@@ -1,0 +1,23 @@
+{
+  "url": "/cat/gloves/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Gloves for Bulk Orders",
+  "metaTitle": "Custom Unisex Gloves | Perfect Imprints",
+  "metaDescription": "Shop custom unisex gloves for your team or event. Perfect for safety, branding, or giveaways. Order bulk from Perfect Imprints.",
+  "introHtml": "<p>Custom unisex gloves offer a versatile fit for any team or event, combining comfort and durability in one package. Whether you need promotional gloves for a trade show or safety gloves for your crew, unisex sizing ensures broad appeal without the hassle of separate men's and women's options. Choose from knit styles or full-color digital prints for a branded look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom unisex gloves in various colors and styles for promotional or safety use",
+  "productSkus": [
+    "520012",
+    "527493",
+    "529557"
+  ],
+  "generatedAt": "2026-05-31T09:48:13.123600+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

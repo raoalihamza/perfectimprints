@@ -1,0 +1,27 @@
+{
+  "url": "/cat/sling-backpacks/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Sling Backpacks",
+  "metaTitle": "Custom Orange Sling Backpacks | Perfect Imprints",
+  "metaDescription": "Shop custom orange sling backpacks for bulk orders. Perfect for giveaways and events. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Orange sling backpacks offer a bold, high-visibility option for your next promotional campaign. Whether you're outfitting a safety team or distributing swag at a fall festival, the bright color ensures your logo stands out. Choose from lightweight drawstring styles for cost-effective giveaways or insulated cooler backpacks for outdoor events. Decorate with screen printing or embroidery for a lasting impression on recipients.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange sling backpacks with logo printed on front, ideal for promotional giveaways and events.",
+  "productSkus": [
+    "502862",
+    "517456",
+    "521466",
+    "525573",
+    "527471",
+    "528445",
+    "528636"
+  ],
+  "generatedAt": "2026-05-31T10:07:09.331484+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

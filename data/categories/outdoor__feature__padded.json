@@ -1,0 +1,22 @@
+{
+  "url": "/cat/outdoor/feature/padded",
+  "type": "facet",
+  "h1": "Custom Padded Outdoor Gear for Branded Comfort",
+  "metaTitle": "Custom Padded Outdoor Gear | Perfect Imprints",
+  "metaDescription": "Order custom padded outdoor gear for your next event. Perfect for picnics, tailgates, and corporate outings. Get a quote today!",
+  "introHtml": "<p>Padded outdoor gear adds a layer of comfort that standard outdoor products can't match. Whether you're outfitting a company picnic or a team-building retreat, custom padded outdoor items like our Field & Co.® Picnic Blanket provide cushioning against hard ground and cold surfaces. With your logo embroidered or screen printed, they become a practical giveaway that recipients will use season after season.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom padded outdoor picnic blanket with embroidered logo, ideal for corporate events and tailgates",
+  "productSkus": [
+    "515638",
+    "525844"
+  ],
+  "generatedAt": "2026-05-31T09:58:44.949451+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

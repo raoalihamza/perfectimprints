@@ -1,0 +1,21 @@
+{
+  "url": "/cat/bags/feature/with-hood",
+  "type": "facet",
+  "h1": "Custom With Hood Bags",
+  "metaTitle": "Custom With Hood Bags | Perfect Imprints",
+  "metaDescription": "Shop custom with hood bags for bulk orders. Perfect for branding your team or event. Get a quote today.",
+  "introHtml": "<p>Custom with hood bags combine the utility of a backpack with the added protection of a built-in hood. Whether you need to shield gear from light rain or keep contents secure during commutes, these bags offer practical versatility for corporate giveaways, trade shows, or employee rewards. The hood design adds a distinctive look that stands out from standard bags, making your logo more visible. Decorate with embroidery or screen printing for lasting brand exposure.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom with hood bag featuring a laptop backpack with a protective hood, ideal for corporate branding.",
+  "productSkus": [
+    "527224"
+  ],
+  "generatedAt": "2026-05-31T09:34:26.302622+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

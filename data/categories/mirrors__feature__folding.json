@@ -1,0 +1,22 @@
+{
+  "url": "/cat/mirrors/feature/folding",
+  "type": "facet",
+  "h1": "Custom Folding Mirrors for Bulk Orders",
+  "metaTitle": "Custom Folding Mirrors | Perfect Imprints",
+  "metaDescription": "Order custom folding mirrors for your next promotion. Perfect for trade shows and giveaways. Get a quote today!",
+  "introHtml": "<p>Folding mirrors offer a compact, portable solution that stands out from standard promotional mirrors. Ideal for trade shows and on-the-go use, these mirrors often double as phone stands or pocket mirrors, providing practical utility that keeps your brand visible. With options like the Stand Up Pocket Mirror or the BioBlend™ Phone Stand with Mirror, you can choose a style that fits your audience's daily routine while maximizing logo exposure.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom folding mirrors with logo imprint, compact and portable for promotional giveaways",
+  "productSkus": [
+    "514661",
+    "529413"
+  ],
+  "generatedAt": "2026-05-31T09:56:49.555468+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/health/brand/tentree",
+  "type": "facet",
+  "h1": "Custom Tentree Health Products for Bulk Orders",
+  "metaTitle": "Custom Tentree Health | Perfect Imprints",
+  "metaDescription": "Order custom Tentree health products for your brand. Eco-friendly items that promote wellness. Shop bulk at Perfect Imprints.",
+  "introHtml": "<p>Tentree health products combine sustainable materials with practical wellness items, making them a top choice for brands that value environmental responsibility. From organic cotton blankets to reusable accessories, each item supports tree-planting initiatives. Perfect for corporate wellness programs or eco-conscious giveaways, these products align your brand with a greener mission while promoting health and relaxation.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Tentree health products including organic cotton blanket with embroidered logo, eco-friendly corporate giveaway",
+  "productSkus": [
+    "525984"
+  ],
+  "generatedAt": "2026-05-31T09:50:28.777276+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

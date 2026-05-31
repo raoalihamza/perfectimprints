@@ -1,0 +1,26 @@
+{
+  "url": "/cat/magnets/activity/baseball",
+  "type": "facet",
+  "h1": "Custom Baseball Magnets",
+  "metaTitle": "Custom Baseball Magnets | Perfect Imprints",
+  "metaDescription": "Order custom baseball magnets for dugouts, press boxes, or fan giveaways. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Custom baseball magnets let you turn America's pastime into a branded keepsake. Whether you're outfitting a dugout, stocking a pro shop, or handing out promos at a little league tournament, these magnets stick to any metal surface and keep your logo front and center. Choose from classic pennant shapes or sporty pop-art styles that capture the energy of the game. They're a home run for team sponsors, booster clubs, and baseball-themed events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom baseball magnets in pop art style and pennant shape with team logos",
+  "productSkus": [
+    "504235 2AC",
+    "504235 2AK",
+    "504235 2AM",
+    "504235 2AN",
+    "504235 2KI",
+    "522292"
+  ],
+  "generatedAt": "2026-05-31T09:18:55.427883+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

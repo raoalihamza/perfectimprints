@@ -1,0 +1,24 @@
+{
+  "url": "/cat/aprons/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Aprons for Bulk Orders",
+  "metaTitle": "Custom Blue Aprons | Perfect Imprints",
+  "metaDescription": "Order custom blue aprons in bulk for your team or event. Durable cotton and poly blends. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Blue aprons offer a professional, clean look that hides stains well, making them a smart choice for restaurants, breweries, and trade show staff. Whether you choose a 10 oz cotton bib apron for front-of-house or a Grill Master Apron Kit for outdoor events, screen printing or embroidery adds your logo without fading. Bulk orders keep your team uniform and your brand visible.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue aprons with embroidered logo displayed on a mannequin in a professional kitchen setting",
+  "productSkus": [
+    "508541",
+    "515077",
+    "527339",
+    "528072"
+  ],
+  "generatedAt": "2026-05-31T09:05:45.280021+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,33 @@
+{
+  "url": "/cat/outerwear/style/puffer",
+  "type": "facet",
+  "h1": "Custom Puffer Outerwear for Corporate Teams",
+  "metaTitle": "Custom Puffer Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom puffer outerwear for your team. Perfect for cold weather branding with vests and jackets in men's and ladies' styles.",
+  "introHtml": "<p>Puffer outerwear offers a modern, insulated look that stands up to cold weather while providing ample space for your logo. Unlike standard fleece or softshell jackets, puffers use quilted baffles filled with synthetic down or PrimaLoft to trap heat without bulk. These packable designs are ideal for outdoor events, trade shows, or employee gifts. Decorate the chest or back with embroidery for a crisp, professional finish that lasts season after season.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom puffer outerwear with embroidered logo on a men's puffer vest, quilted design, insulated for cold weather",
+  "productSkus": [
+    "520278",
+    "520279",
+    "524461",
+    "524462",
+    "525718",
+    "525719",
+    "527066",
+    "527559",
+    "527560",
+    "527679",
+    "527680",
+    "527896",
+    "527897"
+  ],
+  "generatedAt": "2026-05-31T09:21:25.737495+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/leggings/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Leggings for Small Orders",
+  "metaTitle": "No-Minimum Custom Leggings | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom leggings with low quantities. Perfect for small teams and events. Get started with Perfect Imprints today.",
+  "introHtml": "<p>No-minimum custom leggings let you order as few as you need—no bulk requirements, no wasted inventory. Whether you're outfitting a small team, testing a design for an event, or need just a few pairs for a giveaway, our low MOQ policy gives you the flexibility to buy exactly what you want. We offer a range of styles including Men's Boxercraft Flannel Short and Women's Boxercraft Flannel Short, all customizable with your logo. Perfect for marketing directors, HR directors, and small-business owners who want quality branded apparel without the large commitment.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of no-minimum custom leggings in various colors and sizes, perfect for small orders and branded promotions.",
+  "productSkus": [
+    "527831",
+    "527832",
+    "527834",
+    "527835",
+    "527836"
+  ],
+  "generatedAt": "2026-05-31T09:54:25.852087+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

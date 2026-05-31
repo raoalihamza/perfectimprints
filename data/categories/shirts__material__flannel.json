@@ -1,0 +1,22 @@
+{
+  "url": "/cat/shirts/material/flannel",
+  "type": "facet",
+  "h1": "Custom Flannel Shirts for Bulk Orders",
+  "metaTitle": "Custom Flannel Shirts | Perfect Imprints",
+  "metaDescription": "Order custom flannel shirts for your team or event. Durable, comfortable, and perfect for cooler weather. Get a quote today.",
+  "introHtml": "<p>Flannel shirts bring a rugged, classic look that stands out from standard cotton or polyester tees. Made from soft brushed cotton or poly-blend fabric, they offer warmth and durability for outdoor events, trade shows, or employee uniforms. Customize with embroidery or screen printing on the chest or back for a professional finish that lasts. Whether you need branded shirts for a fall giveaway or winter workwear, flannel delivers both comfort and visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom flannel shirts with embroidered logo, featuring classic plaid pattern and long sleeves for cooler weather",
+  "productSkus": [
+    "525732",
+    "525733"
+  ],
+  "generatedAt": "2026-05-31T10:06:32.443591+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

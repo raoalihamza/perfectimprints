@@ -1,0 +1,24 @@
+{
+  "url": "/cat/phone-tablet-cases/search",
+  "type": "modifier",
+  "h1": "Custom Phone Tablet Cases for Branded Promotions",
+  "metaTitle": "Custom Phone Tablet Cases | Perfect Imprints",
+  "metaDescription": "Browse custom phone tablet cases for your brand. Find durable, stylish cases from Perfect Imprints. Start your order today.",
+  "introHtml": "<p>Custom phone tablet cases are a practical promotional product that keeps your brand visible on devices your audience uses daily. Whether you need rugged protection or sleek designs, we offer a wide range of options including portfolios, water-resistant pouches, and wallet cases. This is your starting point to explore styles, materials, and customization possibilities for your next campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom phone tablet cases including a leather portfolio and a clear protective case with logo imprint",
+  "productSkus": [
+    "515643 33A",
+    "518272",
+    "524248",
+    "525515"
+  ],
+  "generatedAt": "2026-05-31T09:22:55.442013+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

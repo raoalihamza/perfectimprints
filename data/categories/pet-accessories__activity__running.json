@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pet-accessories/activity/running",
+  "type": "facet",
+  "h1": "Custom Running Pet Accessories for Active Owners",
+  "metaTitle": "Custom Running Pet Accessories | Perfect Imprints",
+  "metaDescription": "Order custom running pet accessories for your team. Perfect Imprints offers bulk branded gear for active pet owners.",
+  "introHtml": "<p>Custom running pet accessories help you connect with employees or customers who bring their dogs on morning jogs or trail runs. A branded running belt fanny pack, for example, gives active pet owners a hands-free way to carry treats, waste bags, or a phone while keeping their pet secure. These items work well for outdoor company events, wellness programs, or client gifts that show you understand an active lifestyle. Choose screen printing or embroidery to add your logo to durable, moisture-wicking materials built for movement.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom running pet accessories including a branded running belt fanny pack for active dog owners",
+  "productSkus": [
+    "519201"
+  ],
+  "generatedAt": "2026-05-31T09:22:35.777683+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

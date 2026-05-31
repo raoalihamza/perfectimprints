@@ -1,0 +1,25 @@
+{
+  "url": "/cat/apparel/brand/untuckit",
+  "type": "facet",
+  "h1": "Custom Untuckit Apparel for Branded Uniforms",
+  "metaTitle": "Custom Untuckit Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Untuckit apparel for your team. Perfect for uniforms and corporate gifts. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Untuckit shirts are designed to look great untucked, offering a polished yet relaxed fit that suits modern workplaces. For companies seeking branded apparel that employees actually want to wear, Untuckit's wrinkle-free fabrics and versatile styles—like the Damaschino polo or Castello button-down—provide a premium canvas for embroidery or screen printing. Whether outfitting a sales team or creating executive gifts, custom Untuckit apparel delivers a sharp, consistent look without sacrificing comfort.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Untuckit apparel featuring embroidered logo on a Men's UNTUCKit Petrus Wrinkle-Free Short Sleeve Shirt",
+  "productSkus": [
+    "525602",
+    "525603",
+    "525604",
+    "525605",
+    "525606"
+  ],
+  "generatedAt": "2026-05-31T09:32:10.700143+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

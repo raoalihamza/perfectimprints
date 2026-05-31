@@ -1,0 +1,24 @@
+{
+  "url": "/cat/office/feature/quarter-zip",
+  "type": "facet",
+  "h1": "Custom Quarter Zip Office Apparel",
+  "metaTitle": "Custom Quarter Zip Office Apparel | Perfect Imprints",
+  "metaDescription": "Order custom quarter zip office apparel for your team. Professional, comfortable, and ready for your logo. Shop at Perfect Imprints today.",
+  "introHtml": "<p>Quarter zip office apparel offers a polished yet comfortable look for your team, bridging the gap between casual and formal. Whether you need embroidered pullovers for a company retreat or screen-printed fleeces for daily wear, these garments provide a versatile canvas for your brand. Styles like the Men's Dege Eco Knit Half Zip and Ladies' Vega Tech Half Zip combine performance fabrics with a professional silhouette, making them ideal for trade shows, client meetings, or everyday office wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom quarter zip office apparel with embroidered logo on a professional fleece pullover",
+  "productSkus": [
+    "521108",
+    "521109",
+    "524448",
+    "524449"
+  ],
+  "generatedAt": "2026-05-31T08:35:50.177039+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

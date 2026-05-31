@@ -1,0 +1,21 @@
+{
+  "url": "/cat/backpacks/brand/vertex",
+  "type": "facet",
+  "h1": "Custom Vertex Backpacks for Bulk Orders",
+  "metaTitle": "Custom Vertex Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Vertex backpacks in bulk for your team. Durable, tech-ready designs with full imprint options. Get a quote today!",
+  "introHtml": "<p>Vertex backpacks combine rugged construction with smart tech organization, making them a top pick for corporate teams and field crews. The Vertex Carbon Computer Backpack, for example, features a padded laptop compartment and multiple utility pockets. Customize these bags with your logo using embroidery or screen printing for a professional look that lasts. Ideal for tradeshows, employee onboarding, or client gifts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Vertex backpacks with embroidered logo on front pocket, durable nylon material",
+  "productSkus": [
+    "522054"
+  ],
+  "generatedAt": "2026-05-31T09:33:37.859978+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

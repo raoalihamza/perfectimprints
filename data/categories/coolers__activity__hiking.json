@@ -1,0 +1,28 @@
+{
+  "url": "/cat/coolers/activity/hiking",
+  "type": "facet",
+  "h1": "Custom Hiking Coolers for Bulk Orders",
+  "metaTitle": "Custom Hiking Coolers | Perfect Imprints",
+  "metaDescription": "Order custom hiking coolers for your team or event. Durable, portable designs perfect for outdoor promotions. Get a quote today!",
+  "introHtml": "<p>When your team hits the trail, a standard cooler won't cut it. Custom hiking coolers are built for mobility and durability, with features like backpack straps, waterproof construction, and lightweight insulation. Whether you need a branded cooler backpack for a company hike or a compact cooler for a safety crew in the field, these designs keep contents cold without weighing you down. Decorate with your logo using screen print or embroidery for a professional finish that lasts season after season.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hiking cooler backpack with logo, designed for outdoor adventures and team events",
+  "productSkus": [
+    "505898 02B",
+    "515964",
+    "516332",
+    "520397",
+    "520406",
+    "522742",
+    "522861",
+    "524297"
+  ],
+  "generatedAt": "2026-05-31T09:41:35.503247+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

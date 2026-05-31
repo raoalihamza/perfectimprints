@@ -1,0 +1,24 @@
+{
+  "url": "/cat/shirts/brand/untuckit",
+  "type": "facet",
+  "h1": "Custom Untuckit Shirts for Bulk Orders",
+  "metaTitle": "Custom Untuckit Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Untuckit shirts for your team. Perfect for a polished, untucked look. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Untuckit shirts are designed specifically to be worn untucked, offering a clean, modern silhouette that stays in place. For businesses, these wrinkle-free styles from the Bella and Petrus collections mean your team looks sharp from morning meetings to evening events, without constant adjustment. Custom embroidery on the chest or sleeve adds your logo seamlessly to a shirt built for movement and comfort.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Untuckit shirts for bulk orders featuring wrinkle-free long sleeve styles with embroidered logos",
+  "productSkus": [
+    "525602",
+    "525604",
+    "525605",
+    "525606"
+  ],
+  "generatedAt": "2026-05-31T09:02:04.420569+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

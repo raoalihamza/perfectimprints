@@ -1,0 +1,29 @@
+{
+  "url": "/cat/shirts/brand/champion",
+  "type": "facet",
+  "h1": "Custom Champion Shirts for Bulk Orders",
+  "metaTitle": "Custom Champion Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Champion shirts in bulk for your team or event. Quality apparel with your logo from Perfect Imprints.",
+  "introHtml": "<p>Champion shirts combine athletic heritage with everyday comfort, making them a popular choice for corporate uniforms, team apparel, and promotional giveaways. From the classic Reverse Weave® crewneck to durable 6 oz short-sleeve tees, these shirts hold up to frequent washing and retain their shape. Screen printing and embroidery both work well on Champion's cotton-rich fabrics, giving you crisp logo visibility. Whether you need matching polo shirts for a trade show or hooded sweatshirts for employee rewards, ordering custom Champion shirts ensures your brand looks sharp and feels great.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Champion shirts with embroidered logo on a navy Reverse Weave crewneck sweatshirt",
+  "productSkus": [
+    "526122",
+    "526123",
+    "526124",
+    "526126",
+    "526127",
+    "526128",
+    "526129",
+    "526130",
+    "526131"
+  ],
+  "generatedAt": "2026-05-31T08:46:33.703827+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

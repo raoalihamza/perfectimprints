@@ -1,0 +1,28 @@
+{
+  "url": "/cat/caps/brand/titleist",
+  "type": "facet",
+  "h1": "Custom Titleist Caps for Bulk Orders",
+  "metaTitle": "Custom Titleist Caps | Perfect Imprints",
+  "metaDescription": "Order custom Titleist caps in bulk. Perfect for corporate events, golf tournaments, and team branding. Get a quote today.",
+  "introHtml": "<p>Custom Titleist caps combine premium golf brand recognition with practical headwear for your team or event. Whether you're outfitting staff for a company golf outing or rewarding top clients, these caps offer the same quality associated with Titleist's performance gear. Choose from structured or unstructured styles and add your logo via embroidery for a polished, professional look that stands out on and off the course.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Titleist caps with embroidered logo on front panel, ideal for corporate golf events and team uniforms.",
+  "productSkus": [
+    "507565 90A",
+    "515618 90A",
+    "528008",
+    "529251",
+    "529255",
+    "529256",
+    "529258",
+    "529259"
+  ],
+  "generatedAt": "2026-05-31T08:40:36.669862+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

@@ -1,0 +1,31 @@
+{
+  "url": "/cat/apparel/brand/adidas",
+  "type": "facet",
+  "h1": "Custom Adidas Apparel for Teams & Events",
+  "metaTitle": "Custom Adidas Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Adidas apparel for your team or event. Polos, jackets, hoodies and more with your logo. Bulk pricing available.",
+  "introHtml": "<p>Custom Adidas apparel brings the trusted performance and style of a global sportswear brand to your corporate uniforms, team gear, or event giveaways. From the classic fit of the Men's Adidas Performance Polo to the warmth of the Men's Adidas Puffer Jacket, each piece offers durable construction and a professional look. Decorate with embroidery or screen printing to add your logo, and choose from a range of colors that align with your brand identity. Whether outfitting a sales team or a company picnic, Adidas apparel delivers quality your recipients will appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Adidas apparel featuring embroidered logos on polos and jackets for corporate branding.",
+  "productSkus": [
+    "527061",
+    "527063",
+    "527066",
+    "527067",
+    "527068",
+    "527069",
+    "527070",
+    "529075",
+    "529076",
+    "529184",
+    "529185"
+  ],
+  "generatedAt": "2026-05-31T09:05:23.639134+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

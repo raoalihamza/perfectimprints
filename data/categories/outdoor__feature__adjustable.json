@@ -1,0 +1,21 @@
+{
+  "url": "/cat/outdoor/feature/adjustable",
+  "type": "facet",
+  "h1": "Custom Adjustable Outdoor Products",
+  "metaTitle": "Custom Adjustable Outdoor Products | Perfect Imprints",
+  "metaDescription": "Shop custom adjustable outdoor products with your logo. Bulk orders for events, giveaways & more. Perfect for branding.",
+  "introHtml": "<p>Adjustable outdoor products offer flexibility for events, trade shows, and corporate giveaways. Whether it's a picnic blanket with adjustable straps for easy carrying or a portable chair that adapts to any terrain, these items provide practical comfort. Customizing them with your logo ensures your brand stands out during outdoor activities. Perfect for marketing directors and safety managers looking for functional swag that recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adjustable outdoor products like picnic blankets with adjustable straps for easy carrying and branding.",
+  "productSkus": [
+    "507150"
+  ],
+  "generatedAt": "2026-05-31T08:25:25.498224+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

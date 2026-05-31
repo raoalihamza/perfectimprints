@@ -1,0 +1,25 @@
+{
+  "url": "/cat/coins/material/acrylic",
+  "type": "facet",
+  "h1": "Custom Acrylic Coins for Bulk Orders",
+  "metaTitle": "Custom Acrylic Coins | Perfect Imprints",
+  "metaDescription": "Order custom acrylic coins for awards, promotions, or giveaways. Durable, clear acrylic in bulk. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Acrylic coins offer a modern, lightweight alternative to metal or plastic coins. Their crystal-clear finish allows for vibrant full-color printing, making them ideal for commemorative awards, promotional giveaways, or event souvenirs. Whether you need custom-shaped key tags or coin-style drink tokens, acrylic provides a durable, scratch-resistant surface that showcases your logo beautifully. Perfect for trade shows or employee recognition programs, these coins add a polished touch to any campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom acrylic coins with full-color logo print on clear acrylic surface, ideal for promotional giveaways",
+  "productSkus": [
+    "521719",
+    "523540",
+    "527621",
+    "528030",
+    "528703"
+  ],
+  "generatedAt": "2026-05-31T08:23:30.956272+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

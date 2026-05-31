@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Products for Branded Giveaways",
+  "metaTitle": "Custom Orange Products | Perfect Imprints",
+  "metaDescription": "Shop custom orange products for high-visibility branding. Perfect for safety giveaways and bold promotions. Order bulk from Perfect Imprints.",
+  "introHtml": "<p>Orange is a color that commands attention, making it a smart choice for branded giveaways focused on safety or visibility. Whether you need custom orange safety vests for a construction crew or orange water bottles for a campus event, the color signals energy and caution in equal measure. Decoration options like screen printing or full-color embroidery stand out sharply against the bright background, ensuring your logo is seen from a distance. Bulk orders are processed quickly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom orange products including water bottles, pens, and safety vests with logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:25:27.986329+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

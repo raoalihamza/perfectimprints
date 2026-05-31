@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel/brand/american-apparel",
+  "type": "facet",
+  "h1": "Custom American Apparel Apparel",
+  "metaTitle": "Custom American Apparel Apparel | Perfect Imprints",
+  "metaDescription": "Order custom American Apparel apparel for your team. Soft triblend tees and more. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>American Apparel blank apparel is known for its soft, ring-spun fabrics and consistent sizing, making it a top choice for custom printing. Whether you need uniform tees for a retail crew or promotional shirts for a campus event, the triblend material offers a vintage feel that holds up to screen printing and embroidery. Ordering in bulk from this brand ensures your logo looks sharp on a reliable, everyday garment.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom American Apparel apparel featuring a unisex triblend short-sleeve t-shirt with screen-printed logo",
+  "productSkus": [
+    "526600"
+  ],
+  "generatedAt": "2026-05-31T09:32:02.198636+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

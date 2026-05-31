@@ -1,0 +1,22 @@
+{
+  "url": "/cat/aprons/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Aprons for Your Team",
+  "metaTitle": "Custom Brown Aprons | Perfect Imprints",
+  "metaDescription": "Order custom brown aprons in bulk from Perfect Imprints. Ideal for restaurants, workshops, and events. Get your quote today!",
+  "introHtml": "<p>Brown aprons are a practical choice for businesses that want a professional look that hides stains and wear. Whether you run a coffee shop, a woodworking studio, or a catering company, brown aprons keep your team looking sharp through messy tasks. Our 10 oz cotton aprons offer durability and comfort, while the medium length apron with pouch provides convenient storage for tools or order pads. Customize with embroidery or screen printing for a cohesive brand image.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown aprons for restaurant staff and workshop workers, featuring front pockets and adjustable neck straps.",
+  "productSkus": [
+    "527339",
+    "528072"
+  ],
+  "generatedAt": "2026-05-31T09:32:35.740977+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

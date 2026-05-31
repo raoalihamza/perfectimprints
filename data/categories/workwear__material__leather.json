@@ -1,0 +1,21 @@
+{
+  "url": "/cat/workwear/material/leather",
+  "type": "facet",
+  "h1": "Custom Leather Workwear for Bulk Orders",
+  "metaTitle": "Custom Leather Workwear | Perfect Imprints",
+  "metaDescription": "Order custom leather workwear in bulk at Perfect Imprints. Perfect for mechanics, welders, and heavy-duty jobs.",
+  "introHtml": "<p>Leather workwear offers unmatched durability and heat resistance for demanding jobs like welding, mechanics, and construction. Unlike synthetic materials, leather molds to the user over time for a custom fit while protecting against sparks, abrasions, and cuts. Whether you need branded mechanics gloves or aprons, screen printing or embossing adds your logo without compromising toughness. Bulk orders ensure consistent quality across your team.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom leather workwear mechanics gloves with embossed logo on a workbench",
+  "productSkus": [
+    "509382 09R"
+  ],
+  "generatedAt": "2026-05-31T09:31:14.194394+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

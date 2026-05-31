@@ -1,0 +1,28 @@
+{
+  "url": "/cat/briefcases/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Briefcases for Bulk Orders",
+  "metaTitle": "Custom Blue Briefcases | Perfect Imprints",
+  "metaDescription": "Order custom blue briefcases in bulk for your team. Durable, professional, and ready for your logo. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Blue briefcases offer a professional alternative to black or brown, adding a subtle pop of color that stands out in a corporate setting. Whether you choose a sleek messenger bag like the Access Messenger Bag or a structured computer briefcase, blue conveys confidence and reliability. Perfect for tradeshows or employee gifts, these bags feature ample padded compartments for laptops and documents. Decorate with your logo using embroidery or screen printing for a polished look that reinforces your brand identity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue briefcases with embroidery, organized compartments for laptops and documents, professional style",
+  "productSkus": [
+    "506126",
+    "508023",
+    "513686",
+    "513948",
+    "522130",
+    "523948",
+    "527201",
+    "529352"
+  ],
+  "generatedAt": "2026-05-31T08:51:12.285694+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

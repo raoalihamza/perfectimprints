@@ -1,0 +1,21 @@
+{
+  "url": "/cat/sunglasses/special-feature/patriotic",
+  "type": "facet",
+  "h1": "Custom Patriotic Sunglasses",
+  "metaTitle": "Custom Patriotic Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom patriotic sunglasses for your next event. Perfect for July 4th, parades, and corporate giveaways. Bulk pricing available.",
+  "introHtml": "<p>Custom patriotic sunglasses are a go-to giveaway for Independence Day celebrations, company picnics, and any event that calls for red, white, and blue flair. Unlike standard promotional sunglasses, patriotic styles feature bold star patterns or flag motifs that instantly communicate team spirit and national pride. They are lightweight, UV-protective, and easy to customize with your logo on the frame or temple. Whether you are outfitting a parade float team or filling swag bags for a summer company outing, these sunglasses keep your brand visible in the sun.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom patriotic sunglasses with red, white, and blue star pattern and logo on temple",
+  "productSkus": [
+    "516695 97H"
+  ],
+  "generatedAt": "2026-05-31T08:47:06.030621+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,29 @@
+{
+  "url": "/cat/socks/age/kids",
+  "type": "facet",
+  "h1": "Custom Kids Socks for Bulk Orders",
+  "metaTitle": "Custom Kids Socks | Perfect Imprints",
+  "metaDescription": "Order custom kids socks in bulk for your next event or promotion. Fun designs, durable materials, and fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>When you need branded socks for children, you want designs that appeal to younger tastes and fabrics that stand up to active play. Custom kids socks from Perfect Imprints come in bright colors, playful patterns, and soft blends like bamboo thread for comfort. Whether you are outfitting a youth sports team, filling swag bags for a family-friendly event, or creating employee appreciation gifts that include the whole family, our kids sock options like the Fuzzy Feet Slipper Socks or Ankle High Jacquard Socks offer full-color decoration and durable construction. Choose from crew, ankle, or slipper styles to match your program.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom kids socks with colorful jacquard patterns and full-color logo decoration",
+  "productSkus": [
+    "516800",
+    "521927",
+    "522251",
+    "524427",
+    "525740",
+    "526360",
+    "526361",
+    "526363",
+    "526896"
+  ],
+  "generatedAt": "2026-05-31T10:07:18.522872+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

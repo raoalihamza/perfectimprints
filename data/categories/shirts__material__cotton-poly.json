@@ -1,0 +1,26 @@
+{
+  "url": "/cat/shirts/material/cotton-poly",
+  "type": "facet",
+  "h1": "Custom Cotton Poly Shirts for Bulk Orders",
+  "metaTitle": "Custom Cotton Poly Shirts | Perfect Imprints",
+  "metaDescription": "Order custom cotton poly shirts in bulk from Perfect Imprints. Durable, comfortable blends ideal for uniforms, events, and branding.",
+  "introHtml": "<p>Cotton poly shirts combine the breathability of cotton with the durability and wrinkle resistance of polyester, making them a top choice for uniforms, team apparel, and promotional giveaways. This blend holds up to frequent washing while keeping your team comfortable throughout the day. Whether you need embroidered logo shirts for a trade show or screen-printed staff uniforms, the cotton-poly fabric delivers consistent color and a polished look. Explore styles like the Port Authority Superpro Oxford or the OGIO Commuter Woven for a professional appearance that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom cotton poly shirts in various colors, featuring embroidered logos on the chest.",
+  "productSkus": [
+    "501558",
+    "501559",
+    "519684",
+    "519685",
+    "525388",
+    "525389"
+  ],
+  "generatedAt": "2026-05-31T08:20:58.687390+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

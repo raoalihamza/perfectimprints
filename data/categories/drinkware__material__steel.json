@@ -1,0 +1,26 @@
+{
+  "url": "/cat/drinkware/material/steel",
+  "type": "facet",
+  "h1": "Custom Steel Drinkware for Bulk Orders",
+  "metaTitle": "Custom Steel Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom steel drinkware in bulk at Perfect Imprints. Great for events, promos, and gifts. Get a quote today!",
+  "introHtml": "<p>Steel drinkware offers durability and insulation that plastic or glass cannot match, making it ideal for corporate events, outdoor promotions, and employee gifts. From steel chill cups that keep beverages cold to sleek tumblers and stemless wine glasses, these items withstand heavy use while maintaining a professional look. Decorate with your logo using screen printing or laser engraving for a lasting impression. Choose steel drinkware when you need reusable, eco-friendly products that perform well in any setting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom steel drinkware including steel chill cups and tumblers with company logos for bulk orders",
+  "productSkus": [
+    "526242",
+    "526244",
+    "526316",
+    "526940",
+    "527566",
+    "528449"
+  ],
+  "generatedAt": "2026-05-31T08:26:24.256357+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

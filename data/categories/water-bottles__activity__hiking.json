@@ -1,0 +1,26 @@
+{
+  "url": "/cat/water-bottles/activity/hiking",
+  "type": "facet",
+  "h1": "Custom Hiking Water Bottles for Bulk Orders",
+  "metaTitle": "Custom Hiking Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom hiking water bottles for your team or event. Durable, lightweight designs perfect for the trail. Bulk pricing available.",
+  "introHtml": "<p>Designed for rugged trails and long treks, custom hiking water bottles offer the durability and functionality outdoor enthusiasts need. From lightweight aluminum options like the 28 oz h2go Surge to BPA-free Tritan bottles with carry loops, these bottles are built to withstand drops and keep hydration accessible. Decorate with your logo using screen printing or full-color wraps to create branded gear that your team or event attendees will actually use on their next adventure.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hiking water bottles with durable aluminum and Tritan designs, ideal for outdoor branding",
+  "productSkus": [
+    "506439",
+    "509269",
+    "509876",
+    "515314",
+    "518850",
+    "524246"
+  ],
+  "generatedAt": "2026-05-31T10:13:47.015426+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/search",
+  "type": "modifier",
+  "h1": "Custom Products for Branded Promotions",
+  "metaTitle": "Custom Products - Perfect Imprints",
+  "metaDescription": "Browse our wide selection of custom products for branding. From drinkware to apparel, find the perfect promotional items for your business.",
+  "introHtml": "<p>Whether you are looking for custom water bottles, branded tote bags, or personalized pens, our extensive catalog of custom products gives you a starting point for any promotional campaign. Explore thousands of items across categories like drinkware, apparel, office supplies, and more. With no minimums on most products and fast turnaround times, finding the right custom product for your next event or employee gift is straightforward. Start browsing our collection to see what fits your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom products including branded water bottles, tote bags, and pens for promotional giveaways",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:25:30.396153+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

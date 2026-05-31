@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/zagg",
+  "type": "facet",
+  "h1": "Custom Zagg Products for Bulk Orders",
+  "metaTitle": "Custom Zagg Products | Perfect Imprints",
+  "metaDescription": "Order custom Zagg products for your brand. Shop phone cases, screen protectors & more at Perfect Imprints.",
+  "introHtml": "<p>Zagg is known for durable screen protection and phone accessories that keep devices safe. When you choose custom Zagg products for your team or event, you get the reliability of a trusted brand paired with your logo. From branded screen protectors to custom phone cases, Zagg offers a premium way to keep your brand visible on everyday essentials.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Zagg products including branded phone cases and screen protectors with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:03.020440+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

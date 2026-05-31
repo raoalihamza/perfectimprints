@@ -1,0 +1,24 @@
+{
+  "url": "/cat/bags/material/aluminum",
+  "type": "facet",
+  "h1": "Custom Aluminum Bags for Bulk Orders",
+  "metaTitle": "Custom Aluminum Bags | Perfect Imprints",
+  "metaDescription": "Order custom aluminum bags for your brand. Durable, lightweight, and perfect for promotional giveaways. Get a quote today.",
+  "introHtml": "<p>Aluminum bags offer a sleek, modern alternative to traditional fabric totes. Their reflective surface provides a premium look that stands out at trade shows or corporate events. Perfect for insulated options like the Big Kahuna Grocery Bag, these bags keep contents cool while showcasing your logo. Durable and lightweight, custom aluminum bags are a practical choice for safety managers or HR directors seeking long-lasting promotional merchandise.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom aluminum bags with company logo, featuring a metallic finish and sturdy handles for promotional use.",
+  "productSkus": [
+    "510724",
+    "513138",
+    "515955",
+    "527493"
+  ],
+  "generatedAt": "2026-05-31T09:06:58.345346+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

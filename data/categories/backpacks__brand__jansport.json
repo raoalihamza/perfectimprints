@@ -1,0 +1,21 @@
+{
+  "url": "/cat/backpacks/brand/jansport",
+  "type": "facet",
+  "h1": "Custom JanSport Backpacks for Bulk Orders",
+  "metaTitle": "Custom JanSport Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom JanSport backpacks in bulk for your team. Durable, iconic style with your logo. Get a quote today.",
+  "introHtml": "<p>JanSport backpacks are a trusted choice for schools, corporate teams, and event giveaways. Their durable construction and classic silhouette ensure your logo travels well, whether on campus or at a trade show. Custom embroidery or screen printing adds a polished, professional touch that recipients will use daily. Order bulk custom JanSport backpacks and give your brand lasting visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom JanSport backpacks with embroidered logo in bulk for corporate giveaways",
+  "productSkus": [
+    "526585"
+  ],
+  "generatedAt": "2026-05-31T08:49:10.340517+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

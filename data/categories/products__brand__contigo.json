@@ -1,0 +1,23 @@
+{
+  "url": "/cat/products/brand/contigo",
+  "type": "facet",
+  "h1": "Custom Contigo Products for Bulk Orders",
+  "metaTitle": "Custom Contigo Products | Perfect Imprints",
+  "metaDescription": "Order custom Contigo products for your brand. Perfect for giveaways, corporate gifts, and promotional events. Get a quote today!",
+  "introHtml": "<p>Contigo is known for its durable, leak-proof drinkware that keeps beverages hot or cold for hours. When you choose custom Contigo products for your next promotion, you're giving recipients a trusted brand they'll use daily. From the 14 oz Streeterville to the 24 oz Jackson Chill, these bottles and mugs offer excellent decoration space for your logo or message. Ideal for corporate gifts, trade shows, or employee appreciation, custom Contigo products combine quality with practicality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Contigo products including 14 oz Streeterville and 24 oz Jackson Chill with engraved logos",
+  "productSkus": [
+    "526058",
+    "527504",
+    "527505"
+  ],
+  "generatedAt": "2026-05-31T08:36:45.434923+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

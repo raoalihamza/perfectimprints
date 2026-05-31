@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/type/convertible",
+  "type": "facet",
+  "h1": "Custom Convertible Products for Branded Giveaways",
+  "metaTitle": "Custom Convertible Products | Perfect Imprints",
+  "metaDescription": "Shop custom convertible products at Perfect Imprints. Ideal for trade shows and events. Order branded items that transform with your logo.",
+  "introHtml": "<p>Convertible products offer a unique twist for brand promotions, transforming from one useful item into another. Whether it's a bag that folds into a pouch or a jacket that converts into a pillow, these versatile pieces capture attention and spark conversations. Ideal for trade shows, outdoor events, or employee gifts, custom convertible products ensure your logo stands out in a memorable way. Choose from options like convertible backpacks, travel blankets, or multi-use tools that recipients will appreciate and use repeatedly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Person holding a custom convertible product that transforms from a bag into a compact pouch, with logo imprint visible.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:36:55.333235+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

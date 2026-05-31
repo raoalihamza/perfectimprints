@@ -1,0 +1,22 @@
+{
+  "url": "/cat/sweaters-cardigans/feature/pocketed",
+  "type": "facet",
+  "h1": "Custom Pocketed Sweaters & Cardigans",
+  "metaTitle": "Custom Pocketed Sweaters & Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom pocketed sweaters and cardigans at Perfect Imprints. Bulk pricing, embroidery, and screen printing available.",
+  "introHtml": "<p>Pocketed sweaters and cardigans combine comfort with utility, giving your team a place to store a phone, badge, or pen while keeping a polished look. The Women's Boxercraft Cuddle Cardigan offers a soft, cozy feel with front pockets, while the Ladies' Mercer+Mettle Open Front Cardigan Sweater provides a professional drape and handy side pockets. Whether you need employee uniforms or client gifts, these styles accept embroidery or screen printing for a clean branded finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pocketed sweaters cardigans with embroidered logo on front pocket, ideal for corporate apparel.",
+  "productSkus": [
+    "526292",
+    "527833"
+  ],
+  "generatedAt": "2026-05-31T10:09:48.300158+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,27 @@
+{
+  "url": "/cat/wine-glasses/feature/shatterproof",
+  "type": "facet",
+  "h1": "Custom Shatterproof Wine Glasses",
+  "metaTitle": "Custom Shatterproof Wine Glasses | Perfect Imprints",
+  "metaDescription": "Order custom shatterproof wine glasses for safe, durable branding. Perfect for events and gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>For outdoor events, poolside parties, or corporate functions where glass is a hazard, custom shatterproof wine glasses offer a smart alternative. Made from durable plastic or Tritan, these glasses mimic the clarity and feel of real glass without the risk of breakage. Choose from stemless designs like the Govino® 12 oz Wine/Beverage Glass for a comfortable grip, or opt for full-color digital printing on the 12 oz Plastic Stemless Wine Glass. Ideal for safety managers and event planners who need branded drinkware that survives drops and bumps.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom shatterproof wine glasses in clear plastic with full-color digital print, stacked for event use",
+  "productSkus": [
+    "511450",
+    "516380 90E",
+    "519468",
+    "524524",
+    "524525",
+    "524526",
+    "527252"
+  ],
+  "generatedAt": "2026-05-31T08:38:21.616361+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

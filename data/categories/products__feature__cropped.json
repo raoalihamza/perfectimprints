@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/cropped",
+  "type": "facet",
+  "h1": "Custom Cropped Products for Branded Promotions",
+  "metaTitle": "Custom Cropped Products | Perfect Imprints",
+  "metaDescription": "Order custom cropped products for your brand. Perfect for giveaways and events. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Custom cropped products offer a modern, tailored look that stands out in promotional campaigns. Whether you need cropped apparel for a trade show or cropped bags for a retail launch, this style provides a fresh aesthetic that appeals to younger demographics. Bulk orders ensure consistent sizing and branding across all items.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cropped products including cropped t-shirts and bags for promotional use",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:49.358843+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

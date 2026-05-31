@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/wovin",
+  "type": "facet",
+  "h1": "Custom Wovin Products for Bulk Orders",
+  "metaTitle": "Custom Wovin Products - Perfect Imprints",
+  "metaDescription": "Order custom Wovin products in bulk from Perfect Imprints. Perfect for corporate gifts and promotional events.",
+  "introHtml": "<p>Wovin products are known for their durable construction and sleek designs, making them a popular choice for corporate gifts and promotional giveaways. From custom notebooks to tech accessories, Wovin offers a range of items that can be imprinted with your logo for a professional look. Whether you need branded journals for a conference or customized desk accessories for employee appreciation, Wovin products provide a reliable option that recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Wovin products including notebooks and tech accessories with logo imprint for corporate gifting",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:22:42.764338+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/products/brand/tervis",
+  "type": "facet",
+  "h1": "Custom Tervis Products for Bulk Orders",
+  "metaTitle": "Custom Tervis Products | Perfect Imprints",
+  "metaDescription": "Order custom Tervis products for your brand. Perfect for corporate gifts and events. Get a quote today!",
+  "introHtml": "<p>Tervis products are known for their double-wall insulation that keeps drinks hot or cold longer than standard tumblers. Whether you choose the classic 16 oz tumbler with full-color insert or the 26 oz stainless steel Venture bottle, each item offers a durable, dishwasher-safe surface ideal for screen printing or wrap decoration. Bulk buyers often select Tervis for employee appreciation gifts or trade show giveaways because the brand carries a trusted, premium reputation that recipients actually use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Tervis products including classic tumblers and stainless steel bottles with logo imprint",
+  "productSkus": [
+    "528147",
+    "528235",
+    "528342",
+    "528343",
+    "529163"
+  ],
+  "generatedAt": "2026-05-31T10:03:45.043054+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

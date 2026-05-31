@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/type/can",
+  "type": "facet",
+  "h1": "Custom Can Products for Bulk Orders",
+  "metaTitle": "Custom Can Products | Perfect Imprints",
+  "metaDescription": "Order custom can products in bulk for your brand. Perfect for giveaways, events, and promotions. Get a quote today!",
+  "introHtml": "<p>Custom can products offer a unique and durable way to package your brand message. Whether you're looking for custom aluminum water bottles, stainless steel drinkware, or promotional tins, cans provide a sleek and portable option. Ideal for trade shows, corporate gifts, or employee incentives, these products can be customized with your logo using screen printing or full-color wrap. Choose from various sizes and finishes to match your brand's aesthetic.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom can products including aluminum water bottles and promotional tins with printed logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:28.367677+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

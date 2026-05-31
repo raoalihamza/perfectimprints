@@ -1,0 +1,23 @@
+{
+  "url": "/cat/shirts/feature/moisture-wicking",
+  "type": "facet",
+  "h1": "Custom Moisture Wicking Shirts for Your Team",
+  "metaTitle": "Custom Moisture Wicking Shirts | Perfect Imprints",
+  "metaDescription": "Order custom moisture wicking shirts for your team. Perfect for outdoor events, uniforms, and giveaways. Get a quote today.",
+  "introHtml": "<p>Moisture wicking shirts keep your team cool and dry during outdoor events, trade shows, or physical work. Unlike standard cotton tees, these fabrics pull sweat away from the skin and dry quickly. Choose from styles like the Ladies Montauk Henley or Vansport Pro Maui Shirt for a professional, comfortable uniform that performs in the heat. Decorate with embroidery or screen printing for lasting brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom moisture wicking shirts for team uniforms with moisture-wicking fabric and embroidered logo",
+  "productSkus": [
+    "523719",
+    "527895",
+    "529249"
+  ],
+  "generatedAt": "2026-05-31T08:21:56.446981+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

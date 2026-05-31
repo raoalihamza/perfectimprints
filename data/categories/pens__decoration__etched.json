@@ -1,0 +1,30 @@
+{
+  "url": "/cat/pens/decoration/etched",
+  "type": "facet",
+  "h1": "Custom Etched Pens for Bulk Orders",
+  "metaTitle": "Custom Etched Pens | Perfect Imprints",
+  "metaDescription": "Order custom etched pens for a sleek, permanent brand impression. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Etched pens offer a sophisticated alternative to printed pens, with designs laser-etched directly into the barrel for a durable, scratch-resistant finish. This technique works exceptionally well on metal styles like the Guillox® 8 Ballpoint or the sleek Amesbury Pen, creating a subtle, professional look that won't wear off over time. Ideal for corporate gifts or executive giveaways, etched pens convey attention to detail and quality. Choose from stylus options like the Textari Stylus for added functionality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom etched pens with laser-engraved logos on metal barrels for corporate gifts",
+  "productSkus": [
+    "510655",
+    "514786",
+    "520542",
+    "520727",
+    "520729",
+    "520730",
+    "520732",
+    "526741",
+    "527454",
+    "529008"
+  ],
+  "generatedAt": "2026-05-31T08:30:16.549071+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

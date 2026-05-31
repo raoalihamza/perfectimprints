@@ -1,0 +1,21 @@
+{
+  "url": "/cat/cutting-boards/activity/basketball",
+  "type": "facet",
+  "h1": "Custom Basketball Cutting Boards",
+  "metaTitle": "Custom Basketball Cutting Boards - Perfect Imprints",
+  "metaDescription": "Order custom basketball cutting boards for your team or event. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Custom basketball cutting boards combine the love of the game with everyday kitchen utility. Made from durable bamboo or hardwood, these boards feature engraved basketball court lines, team logos, or player numbers. Ideal for sports bars, team gifts, or promotional giveaways, they offer a unique way to keep your brand courtside. Choose from multiple sizes and add a personalized message for a memorable touch.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom basketball cutting board with engraved court design and team logo, perfect for sports-themed kitchens",
+  "productSkus": [
+    "527997"
+  ],
+  "generatedAt": "2026-05-31T09:42:13.387287+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

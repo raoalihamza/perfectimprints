@@ -1,0 +1,28 @@
+{
+  "url": "/cat/bookmarks/material/paper",
+  "type": "facet",
+  "h1": "Custom Paper Bookmarks for Bulk Orders",
+  "metaTitle": "Custom Paper Bookmarks | Perfect Imprints",
+  "metaDescription": "Order custom paper bookmarks in bulk at Perfect Imprints. Ideal for libraries, schools, and promotions. Get a quote today!",
+  "introHtml": "<p>Paper bookmarks offer a lightweight, cost-effective promotional tool that can be fully customized with your logo or message. Unlike plastic or metal options, paper bookmarks are eco-friendly and easy to print on both sides, making them perfect for libraries, bookstores, and educational events. Choose from unique shapes like seed-shaped bookmarks that double as a giveaway or the classic adult coloring bookmark for a creative touch.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom paper bookmarks with colorful printed designs, including seed shapes and adult coloring patterns.",
+  "productSkus": [
+    "512302 90A",
+    "512395 90A",
+    "512396 90A",
+    "512398 90A",
+    "512399 90A",
+    "512408 90A",
+    "512409 90A",
+    "520640"
+  ],
+  "generatedAt": "2026-05-31T09:37:43.558023+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

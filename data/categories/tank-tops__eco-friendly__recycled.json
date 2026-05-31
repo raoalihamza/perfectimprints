@@ -1,0 +1,24 @@
+{
+  "url": "/cat/tank-tops/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Tank Tops",
+  "metaTitle": "Custom Recycled Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom recycled tank tops in bulk from Perfect Imprints. Eco-friendly branding for your next event or team.",
+  "introHtml": "<p>Custom recycled tank tops combine sustainability with comfort for your next event or team uniform. Made from recycled materials, these tanks reduce waste while providing a soft, breathable fit. Perfect for eco-conscious marketing campaigns, charity runs, or company picnics, they can be screen printed or embroidered with your logo. Offer your team or customers a branded top that reflects your commitment to the environment.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom recycled tank tops in various colors at an outdoor event",
+  "productSkus": [
+    "528866",
+    "528878",
+    "528883",
+    "528884"
+  ],
+  "generatedAt": "2026-05-31T09:03:19.265789+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

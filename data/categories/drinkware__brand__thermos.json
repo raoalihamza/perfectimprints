@@ -1,0 +1,26 @@
+{
+  "url": "/cat/drinkware/brand/thermos",
+  "type": "facet",
+  "h1": "Custom Thermos Drinkware for Bulk Orders",
+  "metaTitle": "Custom Thermos Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom Thermos drinkware for your team or event. Perfect for branding with logos. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Thermos drinkware is synonymous with temperature retention and rugged durability, making it a top choice for companies that want branded items employees will actually use. Whether you're outfitting a field crew with vacuum-insulated tumblers or providing sales teams with travel mugs that keep coffee hot for hours, Thermos products perform. The stainless steel construction stands up to daily abuse, and the wide range of sizes from 16 oz to 24 oz means you can match the vessel to the task. Decorate with your logo via laser engraving or pad printing for a clean, professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Thermos drinkware including stainless steel tumblers and travel mugs with company logos",
+  "productSkus": [
+    "525293",
+    "525294",
+    "525295",
+    "525296",
+    "525297",
+    "525298"
+  ],
+  "generatedAt": "2026-05-31T08:22:32.975323+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

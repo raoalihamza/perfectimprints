@@ -1,0 +1,31 @@
+{
+  "url": "/cat/office/feature/non-slip",
+  "type": "facet",
+  "h1": "Custom Non-Slip Office Products",
+  "metaTitle": "Custom Non-Slip Office Products | Perfect Imprints",
+  "metaDescription": "Shop custom non-slip office products from Perfect Imprints. Ideal for desks and workspaces. Order bulk today!",
+  "introHtml": "<p>Non-slip office products keep your branded items firmly in place on desks, counters, and conference tables. From phone stands and mouse pads to drinkware and charging pads, adding a non-slip base prevents sliding and tipping. This small feature makes a big difference for busy workspaces where stability matters. Choose custom non-slip office products to give your team or clients reliable, branded gear that stays put.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom non-slip office products including phone stands and mouse pads with grippy bases",
+  "productSkus": [
+    "510793 90A",
+    "512037",
+    "516800",
+    "521206",
+    "521986",
+    "522070",
+    "524367",
+    "524368",
+    "524768",
+    "525020",
+    "527197"
+  ],
+  "generatedAt": "2026-05-31T09:58:11.635995+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

@@ -1,0 +1,66 @@
+{
+  "url": "/cat/pants",
+  "type": "root",
+  "h1": "Custom Pants for Teams, Events & Workwear",
+  "metaTitle": "Custom Pants | Perfect Imprints",
+  "metaDescription": "Order custom pants for your team or event. Bulk pricing on sweatpants, scrubs & more. Fast turnaround. Get a quote today.",
+  "introHtml": "<p>Custom pants start with fabric that holds up to daily wear. Our selection includes Gildan® Heavy Blend™ Sweat Pants made from a cotton-polyester blend that resists shrinking and pilling, plus scrub pants from Jaanuu in stretchy, wrinkle-resistant fabrics. These materials take screen printing and embroidery well, giving you crisp logos that last through repeated washing. Whether you need sweatpants for a company wellness program or scrubs for a medical team, the right fabric choice ensures your branding stays visible and professional.</p><p>Marketing directors often order custom pants for employee uniforms or giveaway items that recipients actually use. Safety managers prefer durable scrub pants for industrial or healthcare settings where comfort and mobility matter. HR directors use branded sweatpants for onboarding kits or team-building events. With bulk ordering, you can mix styles and sizes to fit your group while keeping per-unit costs low. Every pair is decorated to your specifications, with no minimums that force you into unnecessary inventory.</p>",
+  "buyingGuideHtml": "<p>When ordering custom pants, start with the fabric and construction. Sweatpants like the Gildan® Heavy Blend™ use a 50/50 cotton-polyester fleece that holds color well and resists pilling. Scrub pants from Jaanuu feature four-way stretch and moisture-wicking fabrics. For outdoor or industrial use, look for reinforced seams and heavier weights. The material directly affects how decoration adheres and how the garment wears over time.</p><h3>Materials and Build Quality</h3><p>Cotton-polyester blends are the most common for sweatpants because they balance comfort with durability. Scrub pants often use a polyester-spandex blend that moves with the body and dries quickly. For workwear, consider ripstop nylon or canvas if you need abrasion resistance. Always check the care instructions: most promotional pants are machine-washable, but some prints require cold water and low heat to prevent cracking.</p><h3>Use Cases and Buyer Personas</h3><p>Promotional pants fit a range of scenarios. Marketing directors order custom sweatpants for brand giveaways at winter events or as part of a “swag pack” for new hires. HR directors use branded pants for employee wellness challenges or uniform programs. Safety managers select logo-printed scrub pants for medical or lab staff who need both comfort and a professional look. Business owners often buy bulk pants for their entire team to create a cohesive appearance.</p><h3>Decoration and Customization</h3><p>Screen printing works well on cotton-rich sweatpants for bold logos. Embroidery is ideal for scrub pants or higher-end garments, offering a polished, long-lasting finish. For full-color designs, heat transfer or sublimation (on polyester fabrics) gives you photographic detail. Keep in mind that pocket areas and waistbands can complicate decoration; work with your supplier to position the logo where it will be visible and flat during production.</p><h3>Quantity Guidance and MOQ</h3><p>Bulk pants orders typically start at 12 pieces per style and size. As quantities increase, per-unit pricing drops significantly. A run of 50 or more often qualifies for volume discounts. If you need multiple sizes, ordering a balanced mix helps avoid leftovers. Wholesale custom pants pricing is competitive, but you pay more for rush orders or complex decorations. Plan ahead to get the best value.</p><h3>Common Buying Mistakes</h3><p>One frequent mistake is ignoring size charts. Sweatpants and scrubs fit differently across brands; always request a sample or review the size guide before placing a large order. Another pitfall is choosing a decoration method that doesn’t suit the fabric. Heavy embroidery on thin fleece can cause puckering. Finally, don’t forget lead times: custom pants can take 2-4 weeks depending on decoration complexity and order size. Order early to avoid last-minute stress.</p>",
+  "buyingGuideH2": "Custom Pants Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom pants?",
+      "a": "Minimum order quantities typically start at 12 pieces per style and size. Some products may have lower MOQs, but larger orders reduce per-unit costs."
+    },
+    {
+      "q": "Can I get a sample before ordering in bulk?",
+      "a": "Yes, we offer sample orders so you can check fabric, fit, and print quality. Samples are charged at cost and shipped quickly."
+    },
+    {
+      "q": "What decoration methods work best on pants?",
+      "a": "Screen printing is common for cotton sweatpants, while embroidery is preferred for scrub pants. Heat transfer and sublimation work well on polyester blends."
+    },
+    {
+      "q": "How long does production take for custom pants?",
+      "a": "Standard production takes 2-4 weeks from art approval. Rush orders can be expedited for an additional fee."
+    },
+    {
+      "q": "What if the pants don't fit my team?",
+      "a": "We recommend using our size charts and ordering a sample first. If sizing issues arise, we can exchange unprinted items within 30 days."
+    }
+  ],
+  "heroAltText": "Custom pants with embroidered logos, including Gildan sweatpants and Jaanuu scrub pants for teams and workwear.",
+  "productSkus": [
+    "506401",
+    "506402",
+    "509482",
+    "526128",
+    "526129",
+    "527831",
+    "527832",
+    "527834",
+    "527835",
+    "527836",
+    "528786",
+    "528788",
+    "528789",
+    "528795",
+    "528865",
+    "528869",
+    "528873",
+    "528874",
+    "528875",
+    "528876",
+    "528881",
+    "528882",
+    "528886",
+    "529237"
+  ],
+  "generatedAt": "2026-05-30T11:01:53.167473+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "material_quality",
+  "skuFilterMode": "full",
+  "rawSkuCount": 24,
+  "filteredSkuCount": 24
+}

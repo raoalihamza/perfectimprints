@@ -1,0 +1,25 @@
+{
+  "url": "/cat/camping-mugs/feature/hand-wash-recommended",
+  "type": "facet",
+  "h1": "Custom Hand Wash Recommended Camping Mugs",
+  "metaTitle": "Custom Hand Wash Recommended Camping Mugs | Perfect Imprints",
+  "metaDescription": "Order custom hand wash recommended camping mugs for your team or event. Perfect for campsites and outdoor branding.",
+  "introHtml": "<p>Hand wash recommended camping mugs are built for durability and lasting print quality. Unlike dishwasher-safe alternatives that can fade or peel over time, these mugs maintain their custom logo or design through years of campfire mornings. Choose from insulated options like the 14 oz Rover Vacuum Insulated Camp Mug or classic enamel-style 15 oz Campfire Mugs. Ideal for outdoor teams, corporate retreats, or promotional giveaways where the mug becomes a keepsake.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hand wash recommended camping mugs with logos on a rustic table near a campfire",
+  "productSkus": [
+    "522392",
+    "522462",
+    "524786",
+    "526096",
+    "529464"
+  ],
+  "generatedAt": "2026-05-31T08:51:33.122737+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

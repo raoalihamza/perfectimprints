@@ -1,0 +1,24 @@
+{
+  "url": "/cat/backpacks/brand/travis-wells",
+  "type": "facet",
+  "h1": "Custom Travis Wells Backpacks for Bulk Orders",
+  "metaTitle": "Custom Travis Wells Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Travis Wells backpacks in bulk. Perfect for corporate gifts or employee rewards. Get a quote today.",
+  "introHtml": "<p>Travis Wells backpacks combine premium leather and durable materials, making them ideal for corporate gifting or employee recognition programs. The Lennox Laptop Backpack offers a professional look with padded compartments for devices, while the crossbody and pouch styles provide versatile options. Choose from embroidery or debossing to add your logo, and ensure your brand stands out with these sophisticated bags.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Travis Wells backpacks featuring leather laptop backpack and crossbody bag for corporate branding",
+  "productSkus": [
+    "524212",
+    "527195",
+    "527307",
+    "528123"
+  ],
+  "generatedAt": "2026-05-31T09:06:23.744389+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

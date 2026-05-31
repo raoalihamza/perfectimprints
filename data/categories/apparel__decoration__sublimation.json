@@ -1,0 +1,26 @@
+{
+  "url": "/cat/apparel/decoration/sublimation",
+  "type": "facet",
+  "h1": "Custom Sublimation Apparel for Bulk Orders",
+  "metaTitle": "Custom Sublimation Apparel | Perfect Imprints",
+  "metaDescription": "Order custom sublimation apparel for your team or event. Vibrant, all-over prints on bulk apparel. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Sublimation printing allows for full-color, all-over designs that won't crack or peel, making it ideal for custom apparel with intricate patterns or photo-quality graphics. From performance shirts like the Vansport™ Pro Maui Shirt to full-color socks and headbands, sublimation delivers vibrant, durable results on polyester fabrics. Perfect for teams, events, or branded merchandise that needs to stand out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom sublimation apparel featuring a full-color printed performance shirt and matching socks",
+  "productSkus": [
+    "507311 90A",
+    "513304 90A",
+    "521927",
+    "522251",
+    "523719",
+    "526803"
+  ],
+  "generatedAt": "2026-05-31T08:31:43.645054+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

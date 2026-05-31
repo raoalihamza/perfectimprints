@@ -1,0 +1,27 @@
+{
+  "url": "/cat/hand-sanitizer/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Hand Sanitizer for Bulk Orders",
+  "metaTitle": "Custom Made in USA Hand Sanitizer | Perfect Imprints",
+  "metaDescription": "Order custom made in USA hand sanitizer for your business. Perfect for safety kits, events, and employee wellness. Get a quote today!",
+  "introHtml": "<p>Choosing custom made in USA hand sanitizer supports domestic manufacturing and ensures reliable quality for your branded giveaways. Whether you need small gel packets for event swag bags or spray bottles for office breakrooms, these products meet strict safety standards while keeping your logo front and center. Decorate with full-color printing or foil stamping for a professional look that reflects your commitment to American-made goods.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom made in USA hand sanitizer packets and spray bottles with logos",
+  "productSkus": [
+    "524667",
+    "524847",
+    "525094",
+    "525261",
+    "525262",
+    "525263",
+    "525417"
+  ],
+  "generatedAt": "2026-05-31T08:42:34.394369+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

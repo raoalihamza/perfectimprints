@@ -1,0 +1,21 @@
+{
+  "url": "/cat/jewelry/color/black",
+  "type": "facet",
+  "h1": "Custom Black Jewelry for Bulk Orders",
+  "metaTitle": "Custom Black Jewelry | Perfect Imprints",
+  "metaDescription": "Order custom black jewelry in bulk from Perfect Imprints. Ideal for corporate gifts and events. Get a quote today.",
+  "introHtml": "<p>Black jewelry offers a sleek, professional look that pairs well with any outfit, making it a versatile choice for corporate gifts or team uniforms. Whether you choose paracord bracelets for a rugged outdoor event or sleek black pendants for a formal occasion, the neutral tone ensures broad appeal. Decoration options like engraving or screen printing stand out clearly on dark surfaces, keeping your logo visible and memorable.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black jewelry including paracord bracelets with engraved logos for corporate gifting",
+  "productSkus": [
+    "516655"
+  ],
+  "generatedAt": "2026-05-31T09:16:48.091505+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

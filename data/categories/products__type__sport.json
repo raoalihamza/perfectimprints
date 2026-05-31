@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/type/sport",
+  "type": "facet",
+  "h1": "Custom Sport Products for Teams & Events",
+  "metaTitle": "Custom Sport Products | Perfect Imprints",
+  "metaDescription": "Shop custom sport products for your team or event. Bulk pricing, fast turnaround, and free proofing at Perfect Imprints.",
+  "introHtml": "<p>Custom sport products go beyond basic team gear. Whether you need branded water bottles for a 5K, custom towels for a corporate wellness fair, or personalized bags for a company sports league, these items keep your logo visible in active settings. Choose from durable materials like stainless steel or polyester, and decorate with screen printing, embroidery, or full-color dye sublimation for a crisp, lasting look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom sport products including branded water bottles, towels, and bags for teams and events.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:01:06.060904+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

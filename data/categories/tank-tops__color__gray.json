@@ -1,0 +1,21 @@
+{
+  "url": "/cat/tank-tops/color/gray",
+  "type": "facet",
+  "h1": "Custom Gray Tank Tops for Bulk Orders",
+  "metaTitle": "Custom Gray Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom gray tank tops for your team or event. Perfect for summer giveaways, bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Gray tank tops are a versatile choice for summer events, team outings, or promotional giveaways. The neutral tone pairs well with any logo color and hides minor stains better than lighter shades. Our unisex Bella + Canvas Jersey Tank offers a soft, ring-spun fabric that screen prints beautifully. Order in bulk for your next corporate picnic or charity run.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gray tank tops for bulk orders with screen printed logo on soft jersey fabric",
+  "productSkus": [
+    "506864"
+  ],
+  "generatedAt": "2026-05-31T09:28:10.936690+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

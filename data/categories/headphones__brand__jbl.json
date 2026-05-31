@@ -1,0 +1,24 @@
+{
+  "url": "/cat/headphones/brand/jbl",
+  "type": "facet",
+  "h1": "Custom JBL Headphones for Bulk Orders",
+  "metaTitle": "Custom JBL Headphones | Perfect Imprints",
+  "metaDescription": "Order custom JBL headphones in bulk for your team or event. Branded audio gear that delivers premium sound. Get a quote today.",
+  "introHtml": "<p>JBL headphones and speakers are known for their powerful sound and rugged durability, making them a favorite for corporate gifts, trade show giveaways, and employee rewards. Whether you choose the compact JBL Go 4 for easy portability or the waterproof JBL Clip 5 for outdoor use, each unit can be custom-branded with your logo using laser engraving or pad printing. Perfect for marketing directors and HR managers who want to give a premium audio experience that recipients will actually use every day.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom JBL headphones and speakers with engraved logos arranged on a table for corporate branding",
+  "productSkus": [
+    "529459",
+    "529460",
+    "529461",
+    "529462"
+  ],
+  "generatedAt": "2026-05-31T09:15:24.817772+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

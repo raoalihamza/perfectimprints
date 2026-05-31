@@ -1,0 +1,25 @@
+{
+  "url": "/cat/t-shirts/material/ringspun",
+  "type": "facet",
+  "h1": "Custom Ringspun T Shirts for Bulk Orders",
+  "metaTitle": "Custom Ringspun T Shirts | Perfect Imprints",
+  "metaDescription": "Order custom ringspun t shirts for your team or event. Soft, durable fabric perfect for screen printing. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Ringspun cotton t shirts offer a softer feel and smoother print surface than standard cotton tees. The ringspun process twists the fibers into finer, stronger yarns, resulting in a fabric that drapes well and holds up to repeated washing. For corporate events, team uniforms, or promotional giveaways, these shirts provide a comfortable fit that recipients actually want to wear. Popular styles like the Gildan Softstyle and Bella & Canvas tees are available in multiple colors and sizes for bulk orders.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom ringspun t shirts in various colors, soft cotton fabric with printed logo",
+  "productSkus": [
+    "506022",
+    "506191",
+    "524031",
+    "524039",
+    "524040"
+  ],
+  "generatedAt": "2026-05-31T10:10:24.165761+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

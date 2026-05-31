@@ -1,0 +1,21 @@
+{
+  "url": "/cat/inspirational-books/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Inspirational Books",
+  "metaTitle": "No-Minimum Custom Inspirational Books | Perfect Imprints",
+  "metaDescription": "Order small batches of custom inspirational books with no minimums. Perfect for startups, events, or gifts. Get a quote today!",
+  "introHtml": "<p>For small businesses, startups, or one-time events, ordering custom inspirational books in bulk isn't always practical. That's why we offer no-minimum quantities on our selection of branded books. Whether you need just a handful for a team morale boost, a client gift, or a sample run, you can order exactly what you need without being forced into large minimums. Enjoy the same quality and customization options as larger orders, with per-unit pricing that respects your budget. No inventory overhang, no waste—just the right amount of inspiration for your recipients.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of no-minimum custom inspirational books with motivational quotes on the covers, perfect for small orders",
+  "productSkus": [
+    "525628"
+  ],
+  "generatedAt": "2026-05-31T08:56:00.926345+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

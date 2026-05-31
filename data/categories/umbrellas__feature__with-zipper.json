@@ -1,0 +1,22 @@
+{
+  "url": "/cat/umbrellas/feature/with-zipper",
+  "type": "facet",
+  "h1": "Custom Umbrellas with Zipper for Bulk Orders",
+  "metaTitle": "Custom Umbrellas with Zipper | Perfect Imprints",
+  "metaDescription": "Order custom umbrellas with zipper in bulk. Perfect for corporate gifts and events. Get your logo on durable, compact umbrellas.",
+  "introHtml": "<p>Umbrellas with zippers offer a smart solution for keeping your branded umbrella secure and organized. The zippered closure prevents the umbrella from flopping open in a bag or briefcase, making it ideal for commuters and travelers. Whether you choose a compact folding style or a larger golf umbrella, the zipper adds a layer of protection and convenience. Decorate with your logo using screen printing or digital transfer for a polished look that stands up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom umbrellas with zipper featuring a zippered closure and company logo printed on the canopy",
+  "productSkus": [
+    "510157",
+    "520887"
+  ],
+  "generatedAt": "2026-05-31T10:12:58.875089+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

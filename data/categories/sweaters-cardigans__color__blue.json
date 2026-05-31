@@ -1,0 +1,28 @@
+{
+  "url": "/cat/sweaters-cardigans/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Sweaters & Cardigans",
+  "metaTitle": "Custom Blue Sweaters & Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom blue sweaters and cardigans in bulk for your team. Perfect for uniforms, events, and corporate gifts. Fast turnaround.",
+  "introHtml": "<p>Blue sweaters and cardigans offer a versatile foundation for corporate apparel that works across industries. Whether you choose a classic V-neck cardigan for a polished office look or a cozy cuddle cardigan for casual team events, blue provides a neutral yet distinctive color that pairs well with most logos. Decoration options like embroidery or screen printing look sharp on cotton, merino wool, and fleece blends. Perfect for sales teams, trade shows, or employee uniforms where you want a unified appearance without sacrificing comfort.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue sweaters and cardigans for corporate branding, featuring embroidered logos on a stack of folded cardigans.",
+  "productSkus": [
+    "520268",
+    "520269",
+    "527181",
+    "527182",
+    "527833",
+    "527957",
+    "528757",
+    "528758"
+  ],
+  "generatedAt": "2026-05-31T08:47:09.007510+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/golf/material/recycled-pet",
+  "type": "facet",
+  "h1": "Custom Recycled PET Golf Products",
+  "metaTitle": "Custom Recycled PET Golf | Perfect Imprints",
+  "metaDescription": "Shop custom recycled PET golf products at Perfect Imprints. Eco-friendly branded umbrellas and accessories for your next event.",
+  "introHtml": "<p>Recycled PET golf products let you showcase your brand while supporting sustainability. Made from post-consumer plastic bottles, these umbrellas and accessories offer the same durability as virgin materials but with a smaller environmental footprint. Perfect for corporate golf outings, tournaments, or eco-conscious giveaways, recycled PET items send a clear message that your organization values both performance and the planet. Choose from styles like the 60\" Arc Cutter & Buck® rPET Golf Umbrella or the compact 38\" Totes Mini Travel Umbrella for versatile branding options.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled PET golf umbrellas with company logo, eco-friendly promotional products",
+  "productSkus": [
+    "528280",
+    "529141"
+  ],
+  "generatedAt": "2026-05-31T09:49:16.333812+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

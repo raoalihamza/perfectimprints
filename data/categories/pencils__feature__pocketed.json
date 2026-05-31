@@ -1,0 +1,19 @@
+{
+  "url": "/cat/pencils/feature/pocketed",
+  "type": "facet",
+  "h1": "Custom Pocketed Pencils",
+  "metaTitle": "Custom Pocketed Pencils | Perfect Imprints",
+  "metaDescription": "Order custom pocketed pencils with your logo. Perfect for trade shows and events. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Custom pocketed pencils are designed to hold a small card, note, or photo inside a clear sleeve built into the pencil barrel. This unique feature makes them a functional giveaway for trade shows, conferences, and registration desks where attendees can insert their business card or a personalized message. Unlike standard imprinted pencils, pocketed pencils offer two branding surfaces: the barrel imprint and the insert card. Choose from round or hexagonal shapes in classic #2 graphite or colored leads to match your campaign theme.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pocketed pencils with a clear sleeve holding a business card, displayed on a table at a trade show.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:00:10.347303+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

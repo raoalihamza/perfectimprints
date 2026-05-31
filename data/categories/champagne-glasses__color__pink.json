@@ -1,0 +1,26 @@
+{
+  "url": "/cat/champagne-glasses/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Champagne Glasses for Events & Gifts",
+  "metaTitle": "Custom Pink Champagne Glasses | Perfect Imprints",
+  "metaDescription": "Shop custom pink champagne glasses for weddings, galas & promotions. Perfect for bulk orders. Get a quote today!",
+  "introHtml": "<p>Pink champagne glasses add a festive, elegant touch to any event. Whether you're planning a bachelorette party, breast cancer awareness campaign, or Valentine's Day gala, these glasses stand out with their rosy hue. Choose from colored flutes or frosted shot glasses for toasting. They're ideal for imprinting logos, monograms, or event dates. Perfect for bulk orders, they make memorable favors or promotional giveaways that guests will keep.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink champagne glasses with engraved logos, perfect for weddings and corporate events.",
+  "productSkus": [
+    "519574",
+    "520634",
+    "525816",
+    "525817",
+    "528811",
+    "528816"
+  ],
+  "generatedAt": "2026-05-31T09:40:16.712993+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

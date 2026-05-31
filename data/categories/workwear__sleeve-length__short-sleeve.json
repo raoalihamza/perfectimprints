@@ -1,0 +1,27 @@
+{
+  "url": "/cat/workwear/sleeve-length/short-sleeve",
+  "type": "facet",
+  "h1": "Custom Short Sleeve Workwear",
+  "metaTitle": "Custom Short Sleeve Workwear | Perfect Imprints",
+  "metaDescription": "Order custom short sleeve workwear for your team. Perfect for safety, comfort, and branding. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Short sleeve workwear keeps your team cool and comfortable in warm environments while maintaining a professional appearance. Whether you need high-visibility safety shirts like Class 2 50+ UPF T-Shirts or durable polos for client-facing roles, short sleeve options offer breathability and ease of movement. Decorate with embroidery, screen printing, or heat transfer for a lasting brand impression. Ideal for construction crews, warehouse staff, or field service teams who need to stay safe and look sharp.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom short sleeve workwear featuring a safety shirt with reflective stripes and embroidered logo",
+  "productSkus": [
+    "523867",
+    "523870",
+    "524758",
+    "526546",
+    "528785",
+    "528796",
+    "528797"
+  ],
+  "generatedAt": "2026-05-31T09:31:19.148708+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

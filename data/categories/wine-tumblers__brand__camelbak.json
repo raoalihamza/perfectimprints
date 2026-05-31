@@ -1,0 +1,31 @@
+{
+  "url": "/cat/wine-tumblers/brand/camelbak",
+  "type": "facet",
+  "h1": "Custom Camelbak Wine Tumblers for Bulk Orders",
+  "metaTitle": "Custom Camelbak Wine Tumblers | Perfect Imprints",
+  "metaDescription": "Order custom Camelbak wine tumblers in bulk from Perfect Imprints. Great for corporate gifts and events. Get a quote today.",
+  "introHtml": "<p>Camelbak wine tumblers combine the brand's signature durability with a design tailored for wine lovers. These stainless steel, double-wall insulated tumblers keep beverages at the perfect temperature for hours, making them ideal for outdoor events, corporate retreats, or client appreciation gifts. With a spill-resistant lid and easy-grip finish, they are a practical upgrade over standard promotional drinkware. Customize with your logo using laser engraving or full-color printing for a polished, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Camelbak wine tumblers with laser-engraved logo, stainless steel insulated design for corporate gifts",
+  "productSkus": [
+    "525013",
+    "525506",
+    "525680",
+    "525681",
+    "526211",
+    "526695",
+    "527057",
+    "527058",
+    "527966",
+    "528153",
+    "528684"
+  ],
+  "generatedAt": "2026-05-31T10:15:20.529946+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

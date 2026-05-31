@@ -1,0 +1,31 @@
+{
+  "url": "/cat/coloring-books/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Coloring Books",
+  "metaTitle": "Custom Full Color Coloring Books | Perfect Imprints",
+  "metaDescription": "Order custom full color coloring books for your brand. Perfect for employee wellness or event giveaways. Get a quote at PerfectImprints.com.",
+  "introHtml": "<p>Full color coloring books let you print vibrant, detailed artwork on every page, making them ideal for adult relaxation sets or branded planners. Unlike black-and-white interiors, full color pages showcase intricate designs like those in Zen Doodle or animal themes, and they pair well with a custom cover and pencil set for a premium giveaway that marketing directors and HR teams use for wellness initiatives or client appreciation.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color coloring books with intricate designs and a set of colored pencils for creative relaxation",
+  "productSkus": [
+    "520576",
+    "520577",
+    "520578",
+    "520579",
+    "520614",
+    "520654",
+    "520733",
+    "520734",
+    "524559",
+    "528275",
+    "528543"
+  ],
+  "generatedAt": "2026-05-31T09:41:30.075329+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

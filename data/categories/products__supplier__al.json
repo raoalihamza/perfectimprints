@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/al",
+  "type": "facet",
+  "h1": "Custom Al Products for Bulk Orders",
+  "metaTitle": "Custom Al Products | Perfect Imprints",
+  "metaDescription": "Order custom Al products in bulk from Perfect Imprints. Perfect for branded giveaways and corporate gifts.",
+  "introHtml": "<p>Al products offer a lightweight yet durable option for your promotional needs, ideal for outdoor events or trade shows where portability matters. Whether you choose aluminum water bottles or branded coolers, these items provide ample space for logo imprinting using screen printing or laser engraving. Perfect for safety managers equipping crews with reusable hydration solutions or marketing directors seeking eco-friendly giveaways that stand up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Al products including aluminum water bottles and coolers with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:36:52.440874+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

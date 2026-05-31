@@ -1,0 +1,27 @@
+{
+  "url": "/cat/workwear/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Workwear for Bulk Orders",
+  "metaTitle": "Custom Set Workwear | Perfect Imprints",
+  "metaDescription": "Order custom set workwear in bulk at Perfect Imprints. Perfect for uniform programs and promotional kits.",
+  "introHtml": "<p>When you need coordinated workwear that makes an immediate impression, custom set workwear delivers a polished, uniform look. Sets combine matching tops, bottoms, or outerwear into a single SKU, simplifying ordering and distribution for safety managers and HR directors. Whether you are outfitting a construction crew or a hospitality team, sets ensure consistent branding across all employees. Choose from durable fabrics and multiple decoration options to create a cohesive appearance that reflects your company's professionalism.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set workwear including matching jacket and pants with embroidered logo for a professional uniform look",
+  "productSkus": [
+    "508541",
+    "512490 01N",
+    "516543 01A",
+    "518658 10A",
+    "521089",
+    "525212",
+    "525806"
+  ],
+  "generatedAt": "2026-05-31T09:31:11.732734+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

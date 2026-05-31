@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/special-feature/on-sale",
+  "type": "facet",
+  "h1": "Custom On Sale Products for Bulk Orders",
+  "metaTitle": "Custom On Sale Products | Perfect Imprints",
+  "metaDescription": "Save on bulk orders of custom on sale products at Perfect Imprints. Get branded items your team will love.",
+  "introHtml": "<p>Budget-conscious buyers can stretch their marketing dollars with custom on sale products from Perfect Imprints. Whether you need promotional giveaways for a trade show or employee gifts for the holidays, our sale section offers quality items at discounted prices. Choose from popular categories like drinkware, apparel, and tech accessories, all available with your logo or message. Decoration options include screen printing, embroidery, and laser engraving to match your brand identity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom on sale products including drinkware and apparel with logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:04:11.826962+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

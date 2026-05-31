@@ -1,0 +1,66 @@
+{
+  "url": "/cat/sweatpants",
+  "type": "root",
+  "h1": "Custom Sweatpants for Teams, Events & Promotions",
+  "metaTitle": "Custom Sweatpants | Perfect Imprints",
+  "metaDescription": "Order custom sweatpants for your team or event. Perfect for corporate gifts, employee rewards, and promotional giveaways. Free setup & proofs.",
+  "introHtml": "<p>Marketing directors and HR managers know that comfortable apparel builds team spirit and brand recognition. Whether you are outfitting a sales team for a winter conference, rewarding employees with cozy company swag, or creating a uniform look for a charity run, custom sweatpants deliver both comfort and visibility. Our catalog includes fleece pants, joggers, cargo pants, and shorts for men, women, and youth in a range of colors and sizes.</p><p>From the classic Gildan Heavy Blend sweatpants to the moisture-wicking Sport-Tek Club shorts, each style offers reliable quality for everyday wear. Decorate with your logo using screen printing or embroidery to create a cohesive look that your team will actually want to wear. Bulk orders start at just 12 pieces, making it easy to outfit a small department or a large event staff. Browse our selection below and request a quote for your next program.</p>",
+  "buyingGuideHtml": "<h3>What to Look for in Custom Sweatpants</h3><p>When ordering custom sweatpants, fabric weight and construction matter most. Fleece sweatpants like the Gildan Heavy Blend provide warmth and durability for casual wear. For active use, consider performance fabrics such as the Sport-Tek Club shorts that wick moisture and offer stretch. Check seam reinforcement and waistband quality — these areas often show wear first on bulk orders.</p><h3>Materials and Build Quality</h3><p>Cotton-polyester blends are standard for comfort and printability. 50/50 blends hold screen prints well and resist shrinking. 100% cotton fleece offers a softer hand but may shrink more. For joggers and cargo pants like the Wink Premiere Flex, look for a touch of spandex for mobility. Mesh shorts like the Champion Adult Mesh Short with Pockets are lightweight and breathable for warm-weather events.</p><h3>Common Use Cases and Buyer Personas</h3><p>HR directors often choose branded sweatpants for employee appreciation gifts or wellness program incentives. Marketing directors use them for trade show giveaways or team uniforms at corporate sporting events. Safety managers may order flame-resistant or high-visibility styles for work uniforms. Small business owners love promotional sweatpants for customer loyalty programs or holiday gifts that get repeated wear.</p><h3>Decoration and Customization Options</h3><p>Screen printing is the most cost-effective method for large logos and text on cotton or blend fabrics. Embroidery works well on waistbands, leg cuffs, or left chest areas for a premium look. For full-color designs or photographs, consider heat transfer or sublimation on polyester-rich garments. Always request a proof to see how your logo sits on the fabric — busy patterns may reduce legibility.</p><h3>Quantity Guidance and MOQ Context</h3><p>Minimum order quantities for custom sweatpants typically start at 12 pieces per style and size run. As order volume increases, per-unit pricing drops significantly. For example, ordering 50 pairs instead of 25 can cut per-piece cost by 20% or more. If your budget allows, consolidate sizes into a single order to maximize savings. Wholesale pricing is available for orders over 144 pieces.</p><h3>Tips to Avoid Common Buying Mistakes</h3><p>Order a size sample before placing a bulk run — sizing varies widely between brands and between men's, women's, and youth cuts. Confirm the decoration method with your garment choice: heavy fleece can distort some prints, and performance fabrics may require low-temperature curing. Allow 2–3 weeks for production and shipping, especially for embroidered orders. Avoid last-minute orders for seasonal events.</p>",
+  "buyingGuideH2": "Custom Sweatpants Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order for custom sweatpants?",
+      "a": "Minimum order quantities typically start at 12 pieces per style and size. Some styles may have higher minimums for certain colors or decoration methods. Contact us for specific MOQ details on your chosen product."
+    },
+    {
+      "q": "What decoration methods work best on sweatpants?",
+      "a": "Screen printing is popular for large, bold logos on cotton or blend sweatpants. Embroidery is ideal for smaller logos on waistbands or cuffs. Full-color heat transfer works well on polyester or performance fabrics."
+    },
+    {
+      "q": "How long does production take for custom sweatpants?",
+      "a": "Standard production takes 2-3 weeks from art approval. Rush orders may be available for an additional fee. Shipping time adds 3-7 business days depending on the destination."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, we recommend ordering a blank sample to check sizing and fabric. Samples are available for most styles. Contact your account manager to arrange a sample order."
+    },
+    {
+      "q": "What sizes are available for custom sweatpants?",
+      "a": "Most styles range from XS to 3XL. Some brands offer extended sizes up to 5XL. Youth sizes are also available. Check the product page for specific size charts."
+    }
+  ],
+  "heroAltText": "Group of people wearing custom sweatpants with logos, standing together at a corporate event",
+  "productSkus": [
+    "506401",
+    "506402",
+    "509482",
+    "526128",
+    "526129",
+    "527831",
+    "527832",
+    "527834",
+    "527835",
+    "527836",
+    "528786",
+    "528788",
+    "528789",
+    "528795",
+    "528865",
+    "528869",
+    "528873",
+    "528874",
+    "528875",
+    "528876",
+    "528881",
+    "528882",
+    "528886",
+    "529237"
+  ],
+  "generatedAt": "2026-05-30T11:30:36.853631+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "buyer",
+  "skuFilterMode": "full-capped-60",
+  "rawSkuCount": 24,
+  "filteredSkuCount": 24
+}

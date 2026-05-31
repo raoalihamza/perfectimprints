@@ -1,0 +1,32 @@
+{
+  "url": "/cat/sweaters-cardigans/supplier/charles",
+  "type": "facet",
+  "h1": "Custom Charles Sweaters & Cardigans for Bulk Orders",
+  "metaTitle": "Custom Charles Sweaters & Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom Charles sweaters and cardigans in bulk. Perfect for corporate apparel. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Charles-branded sweaters and cardigans offer a refined look for corporate uniforms, team events, or employee gifts. With styles like the Men's Journey Overshirt and Women's Boxercraft Cuddle Cardigan, you get quality knits that hold up to repeated wear and washing. Decorate with your logo using embroidery or screen printing for a professional finish that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Charles sweaters and cardigans in bulk for corporate apparel, featuring embroidered logos on knit fabrics.",
+  "productSkus": [
+    "520268",
+    "520269",
+    "523604",
+    "526198",
+    "526291",
+    "526292",
+    "527181",
+    "527182",
+    "527833",
+    "527957",
+    "528757",
+    "528758"
+  ],
+  "generatedAt": "2026-05-31T10:09:54.122285+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

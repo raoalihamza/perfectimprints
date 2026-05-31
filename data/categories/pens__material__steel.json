@@ -1,0 +1,26 @@
+{
+  "url": "/cat/pens/material/steel",
+  "type": "facet",
+  "h1": "Custom Steel Pens for Bulk Orders",
+  "metaTitle": "Custom Steel Pens | Perfect Imprints",
+  "metaDescription": "Order custom steel pens for your brand. Durable, sleek, and perfect for bulk corporate gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Steel pens offer a distinct combination of weight, durability, and professional finish that sets them apart from plastic or aluminum alternatives. Whether you choose a classic ballpoint like the Tuscany Executive Pen or a refined rollerball from recycled stainless steel, these pens make a lasting impression on clients and employees. Ideal for corporate gifts, trade shows, or executive welcome kits, custom steel pens convey quality and reliability. Engraving or imprinting your logo on a steel barrel ensures your brand stands out with every signature.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom steel pens with engraved logos, featuring a sleek metallic finish and professional design for corporate gifts.",
+  "productSkus": [
+    "507803",
+    "518921",
+    "521174",
+    "526715",
+    "528410",
+    "528579"
+  ],
+  "generatedAt": "2026-05-31T08:59:40.066057+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

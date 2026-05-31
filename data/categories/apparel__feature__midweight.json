@@ -1,0 +1,30 @@
+{
+  "url": "/cat/apparel/feature/midweight",
+  "type": "facet",
+  "h1": "Custom Midweight Apparel for Bulk Orders",
+  "metaTitle": "Custom Midweight Apparel | Perfect Imprints",
+  "metaDescription": "Order custom midweight apparel for your team. Perfect for layering or standalone wear. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Midweight apparel offers the ideal balance of warmth and flexibility, making it a top choice for corporate uniforms, team gear, and promotional giveaways. Unlike lightweight tees or heavy outerwear, these pieces work well for layering or standalone wear in moderate climates. Choose from fleece hoodies, crewneck sweatshirts, and zip-front jackets from trusted brands like Carhartt and The North Face. Decorate with embroidery or screen printing for a polished, professional look that stands up to frequent washing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom midweight apparel including fleece hoodies and crewneck sweatshirts for corporate branding",
+  "productSkus": [
+    "515736",
+    "523772",
+    "523774",
+    "525899",
+    "526533",
+    "526534",
+    "527558",
+    "528890",
+    "529303",
+    "529312"
+  ],
+  "generatedAt": "2026-05-31T09:32:13.092766+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

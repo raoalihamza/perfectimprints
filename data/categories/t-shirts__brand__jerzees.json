@@ -1,0 +1,22 @@
+{
+  "url": "/cat/t-shirts/brand/jerzees",
+  "type": "facet",
+  "h1": "Custom Jerzees T Shirts for Bulk Orders",
+  "metaTitle": "Custom Jerzees T Shirts | Perfect Imprints",
+  "metaDescription": "Shop custom Jerzees t shirts at Perfect Imprints. Bulk pricing, fast turnaround. Perfect for teams and events. Order now!",
+  "introHtml": "<p>Jerzees t shirts are a go-to for companies that need durable, comfortable apparel without a high price tag. The Heavyweight Blend 50/50 cotton-poly fabric resists shrinking and pilling, making it ideal for uniforms, event staff, or giveaway stacks that get washed often. Whether you screen print a team logo or embroider a company crest, the smooth surface delivers crisp results. Order custom Jerzees t shirts for your next bulk order and get reliable quality that your crew will actually wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Jerzees t shirts in assorted colors with screen printed logos, stacked for bulk orders",
+  "productSkus": [
+    "515903",
+    "515983"
+  ],
+  "generatedAt": "2026-05-31T10:10:11.892026+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

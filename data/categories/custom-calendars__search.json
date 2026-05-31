@@ -1,0 +1,19 @@
+{
+  "url": "/cat/custom-calendars/search",
+  "type": "modifier",
+  "h1": "Custom Calendars for Branded Promotions",
+  "metaTitle": "Custom Calendars | Perfect Imprints",
+  "metaDescription": "Browse our selection of custom calendars for branded promotions. Find the perfect design for your business at Perfect Imprints.",
+  "introHtml": "<p>Custom calendars are a staple of promotional marketing, offering year-round visibility for your brand. Whether you need wall calendars, desk calendars, or planners, our collection provides a wide range of styles and customization options. As a B2B distributor, Perfect Imprints helps you find the right calendar to keep your brand top-of-mind every day of the year. Start exploring our selection to find the perfect fit for your next campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assortment of custom calendars with company logos, including wall and desk styles for promotional use",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:41:10.779279+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/pants-shorts/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Pants & Shorts",
+  "metaTitle": "Custom Unisex Pants & Shorts | Perfect Imprints",
+  "metaDescription": "Order custom unisex pants shorts for your team or event. Bulk pricing, fast turnaround. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Unisex pants and shorts are designed to fit a wide range of body types, making them a practical choice for corporate uniforms, event staff, or promotional giveaways. Unlike gender-specific cuts, these styles offer a relaxed fit that works for everyone, reducing the need to order separate men's and women's options. Popular choices like the Champion Adult Cotton Gym Short or Sport-Tek PosiCharge Competitor 7” Pocketed Short can be embroidered or screen printed with your logo for a cohesive look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom unisex pants shorts with embroidered logo on pocket, available in multiple colors for bulk orders",
+  "productSkus": [
+    "526128",
+    "526129",
+    "528875"
+  ],
+  "generatedAt": "2026-05-31T08:27:03.427750+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

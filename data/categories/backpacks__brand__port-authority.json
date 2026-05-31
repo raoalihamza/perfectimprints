@@ -1,0 +1,21 @@
+{
+  "url": "/cat/backpacks/brand/port-authority",
+  "type": "facet",
+  "h1": "Custom Port Authority Backpacks for Bulk Orders",
+  "metaTitle": "Custom Port Authority Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Port Authority backpacks in bulk. Ideal for corporate giveaways and employee gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Port Authority backpacks are a trusted choice for corporate branding because they combine durable construction with a professional look. The Original Pack features a padded laptop compartment and multiple zippered pockets, making it practical for daily commutes or trade show giveaways. Choose screen printing or embroidery to display your logo prominently. These bags hold up well to frequent use, so your brand stays visible longer.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Port Authority backpacks with embroidered logo, black nylon, padded laptop compartment, zippered pockets.",
+  "productSkus": [
+    "527746"
+  ],
+  "generatedAt": "2026-05-31T09:33:35.499484+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/buckets-pails/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Buckets and Pails",
+  "metaTitle": "Custom Set Buckets & Pails | Perfect Imprints",
+  "metaDescription": "Order custom set buckets and pails in bulk for your team or event. Perfect for giveaways, promotions, and gifts. Get a quote today!",
+  "introHtml": "<p>Choosing custom set buckets and pails means you get a coordinated package that simplifies bulk ordering for events, employee gifts, or promotional campaigns. Instead of sourcing individual items, these ready-made sets combine a bucket or pail with complementary accessories like lids, handles, or smaller containers. This option is ideal for safety managers needing standardized kits or marketing directors who want a complete giveaway that feels more substantial than a single item. Decoration options include screen printing or pad printing on the bucket exterior for your logo or message.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set buckets and pails with lids and handles, ready for branding with a company logo.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:26:11.059246+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

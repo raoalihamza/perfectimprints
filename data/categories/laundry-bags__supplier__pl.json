@@ -1,0 +1,33 @@
+{
+  "url": "/cat/laundry-bags/supplier/pl",
+  "type": "facet",
+  "h1": "Custom PL Laundry Bags",
+  "metaTitle": "Custom PL Laundry Bags | Perfect Imprints",
+  "metaDescription": "Order custom PL laundry bags in bulk for your business. Durable, waterproof options perfect for facilities and teams. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>PL laundry bags combine the durability of polypropylene (PP) material with lightweight construction, making them ideal for high-volume laundry operations in hotels, gyms, and healthcare facilities. Unlike standard cotton or mesh bags, PL bags resist mildew and odors, and they stand up to repeated industrial washing. Choose custom imprinting with screen printing or heat transfer to add your logo or department labels. These bags are also available in waterproof dry bag styles for outdoor or aquatic environments.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom PL laundry bags in waterproof dry bag styles with logo imprint, suitable for bulk orders",
+  "productSkus": [
+    "518013 01N",
+    "518753",
+    "520673",
+    "520888",
+    "521607",
+    "522058",
+    "522326",
+    "522543",
+    "522667",
+    "523502",
+    "525515",
+    "525813",
+    "528445"
+  ],
+  "generatedAt": "2026-05-31T09:54:21.187885+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

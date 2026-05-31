@@ -1,0 +1,27 @@
+{
+  "url": "/cat/golf-balls/supplier/mixie",
+  "type": "facet",
+  "h1": "Custom Mixie Golf Balls for Branded Promotions",
+  "metaTitle": "Custom Mixie Golf Balls | Perfect Imprints",
+  "metaDescription": "Order custom Mixie golf balls from Perfect Imprints. Perfect for corporate gifts and events. Get your quote today.",
+  "introHtml": "<p>Mixie golf balls offer a unique way to showcase your brand on the course, combining vibrant colors and high visibility. Whether you're planning a company tournament or need corporate gifts for clients, these custom-printed balls stand out. Mixie's selection includes options like the Volvik Vivid and Titleist Pro V1, allowing you to choose the right feel and durability for your event. Decorate with your logo in full color for a professional look that golfers will appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Mixie golf balls with full-color logo printing in bright colors for corporate events and tournaments",
+  "productSkus": [
+    "506922 50D",
+    "506923 50D",
+    "507565 90A",
+    "515618 90A",
+    "521337",
+    "527050",
+    "528245"
+  ],
+  "generatedAt": "2026-05-31T09:48:29.951214+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

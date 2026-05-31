@@ -1,0 +1,28 @@
+{
+  "url": "/cat/pens/eco-friendly/sustainable",
+  "type": "facet",
+  "h1": "Custom Sustainable Pens for Bulk Orders",
+  "metaTitle": "Custom Sustainable Pens | Perfect Imprints",
+  "metaDescription": "Order custom sustainable pens for your brand. Eco-friendly materials, bulk pricing, fast turnaround. Get a quote today.",
+  "introHtml": "<p>Custom sustainable pens let you promote your brand while reducing environmental impact. Made from recycled aluminum, bamboo, or compostable materials, these pens appeal to eco-conscious clients and employees. Options like the Ecometal Denim Stylus Pen or Bamboozle Comfort Pen offer a refined writing experience with low minimums. Perfect for trade shows, corporate gifts, or office supply orders, they combine functionality with sustainability.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A collection of custom sustainable pens made from recycled aluminum and bamboo, displayed on a desk.",
+  "productSkus": [
+    "524085",
+    "525187",
+    "527264",
+    "527776",
+    "527777",
+    "528233",
+    "528395",
+    "528513"
+  ],
+  "generatedAt": "2026-05-31T08:36:18.457465+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

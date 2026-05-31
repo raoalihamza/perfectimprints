@@ -1,0 +1,28 @@
+{
+  "url": "/cat/products/brand/eddie-bauer",
+  "type": "facet",
+  "h1": "Custom Eddie Bauer Products for Bulk Orders",
+  "metaTitle": "Custom Eddie Bauer Products | Perfect Imprints",
+  "metaDescription": "Order custom Eddie Bauer products in bulk at Perfect Imprints. Ideal for corporate gifts and employee rewards.",
+  "introHtml": "<p>Eddie Bauer fleece jackets and vests combine outdoor durability with a professional look, making them a top choice for corporate apparel programs. When you choose custom Eddie Bauer products for your team, you get reliable cold-weather gear that employees actually want to wear. Decorate the chest or back with your logo using embroidery or screen printing for a polished finish that lasts through seasons of use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Eddie Bauer products including men's and women's fleece jackets and vests with logo decoration",
+  "productSkus": [
+    "513811",
+    "513812",
+    "515290",
+    "515291",
+    "522094",
+    "522095",
+    "529196",
+    "529197"
+  ],
+  "generatedAt": "2026-05-31T08:30:30.882462+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

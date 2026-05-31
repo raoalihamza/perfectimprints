@@ -1,0 +1,26 @@
+{
+  "url": "/cat/aprons/size/small",
+  "type": "facet",
+  "h1": "Custom Small Aprons for Bulk Orders",
+  "metaTitle": "Custom Small Aprons | Perfect Imprints",
+  "metaDescription": "Order custom small aprons in bulk from Perfect Imprints. Ideal for staff or events. Get a fast quote today!",
+  "introHtml": "<p>Custom small aprons offer a tailored fit for shorter statures or tasks where a full-length apron would be cumbersome. From the 10 oz Cotton Apron for light-duty hospitality to the Pro'S Choice Kitchen Apron for food prep, these aprons provide comfort and mobility. Perfect for restaurants, cafes, or event staff who need a professional look without excess fabric. Decorate with embroidery or screen printing for lasting brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom small aprons in bulk for restaurant staff, featuring a cotton waist apron with logo embroidery.",
+  "productSkus": [
+    "508541",
+    "509133 90A",
+    "515077",
+    "516543 01A",
+    "527339",
+    "528072"
+  ],
+  "generatedAt": "2026-05-31T08:48:33.295256+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

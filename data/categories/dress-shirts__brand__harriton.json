@@ -1,0 +1,22 @@
+{
+  "url": "/cat/dress-shirts/brand/harriton",
+  "type": "facet",
+  "h1": "Custom Harriton Dress Shirts for Bulk Orders",
+  "metaTitle": "Custom Harriton Dress Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Harriton dress shirts in bulk for your team. Reliable quality and decoration options at Perfect Imprints.",
+  "introHtml": "<p>Harriton dress shirts combine durable fabric construction with a classic fit that works for both uniform programs and corporate events. The 6.5 oz denim options, available for men and women, offer a rugged yet professional look that stands up to daily wear. With multiple decoration methods including embroidery and screen printing, these shirts let you add your logo or team name without compromising comfort. Bulk buyers appreciate the consistent sizing and colorfast materials that keep your brand looking sharp shift after shift.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Harriton dress shirts for bulk orders featuring durable denim fabric and professional styling for corporate uniforms.",
+  "productSkus": [
+    "501740",
+    "501741"
+  ],
+  "generatedAt": "2026-05-31T09:12:01.050190+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

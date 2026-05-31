@@ -1,0 +1,26 @@
+{
+  "url": "/cat/golf/gender/men-s",
+  "type": "facet",
+  "h1": "Custom Men's Golf Apparel",
+  "metaTitle": "Custom Men's Golf Apparel | Perfect Imprints",
+  "metaDescription": "Order custom men's golf apparel for your team or event. Perfect Imprints offers bulk pricing on polos, quarter-zips, and more.",
+  "introHtml": "<p>When outfitting your team or event participants, custom men's golf apparel delivers a polished, cohesive look that stands out on the course. Men's-specific fits from brands like Nike and TravisMathew ensure comfort and performance during play, while decoration methods like embroidery or screen printing allow for crisp logo placement on chests, sleeves, or collars. Whether you need moisture-wicking polos for a tournament or quarter-zips for a corporate outing, this collection offers durable, professional options that keep your brand visible from tee to green.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom men's golf polo shirts with embroidered logo on chest, available for bulk orders.",
+  "productSkus": [
+    "510317",
+    "517777",
+    "519683",
+    "524310",
+    "527677",
+    "527678"
+  ],
+  "generatedAt": "2026-05-31T09:14:54.666391+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

@@ -1,0 +1,27 @@
+{
+  "url": "/cat/golf/brand/titleist",
+  "type": "facet",
+  "h1": "Custom Titleist Golf Balls for Corporate Events",
+  "metaTitle": "Custom Titleist Golf Balls | Perfect Imprints",
+  "metaDescription": "Order custom Titleist golf balls with your logo. Perfect for corporate events and client gifts. Get a quote today!",
+  "introHtml": "<p>Titleist golf balls are a top choice for corporate golf tournaments and client appreciation gifts. With options like the Pro V1 and TruFeel, you get a premium feel and performance that resonates with serious golfers. Customize them with your company logo using pad printing or hot stamping for a polished, professional look that stands out on the course.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Titleist golf balls with company logo, including Pro V1 and TruFeel models",
+  "productSkus": [
+    "507565 90A",
+    "515618 90A",
+    "528008",
+    "529251",
+    "529255",
+    "529256",
+    "529258"
+  ],
+  "generatedAt": "2026-05-31T08:55:05.879724+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

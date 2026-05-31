@@ -1,0 +1,21 @@
+{
+  "url": "/cat/backpacks/brand/econscious",
+  "type": "facet",
+  "h1": "Custom Econscious Backpacks for Your Brand",
+  "metaTitle": "Custom Econscious Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Econscious backpacks with your logo. Eco-friendly, bulk pricing. Get a quote today!",
+  "introHtml": "<p>Econscious backpacks are crafted from recycled materials, making them a smart choice for brands focused on sustainability. The rPET Grove Rolltop Backpack, for example, combines eco-friendly construction with a modern design that appeals to outdoor enthusiasts and commuters alike. Customize these backpacks with your logo using screen printing or embroidery to create durable, promotional gear that aligns with your green initiatives.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Econscious backpacks featuring the rPET Grove Rolltop Backpack with a company logo embroidered on the front.",
+  "productSkus": [
+    "527128"
+  ],
+  "generatedAt": "2026-05-31T09:06:21.515427+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

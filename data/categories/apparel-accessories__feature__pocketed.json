@@ -1,0 +1,32 @@
+{
+  "url": "/cat/apparel-accessories/feature/pocketed",
+  "type": "facet",
+  "h1": "Custom Pocketed Apparel Accessories",
+  "metaTitle": "Custom Pocketed Apparel Accessories | Perfect Imprints",
+  "metaDescription": "Brand custom pocketed apparel accessories for your team. Shop fanny packs, aprons, and wallets with pockets at Perfect Imprints.",
+  "introHtml": "<p>Pocketed apparel accessories keep essentials secure and within reach. Whether your team needs hands-free storage with a branded fanny pack or a chef's apron with utensil pockets, these items combine utility with brand visibility. Choose from zippered wallets, running belts, or clear stadium-friendly designs. Decorate with embroidery or screen printing for a professional look that works at tradeshows, events, or daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pocketed apparel accessories including fanny packs and aprons with multiple pockets for storage",
+  "productSkus": [
+    "508541",
+    "512933",
+    "514433",
+    "515077",
+    "516839",
+    "517208 01A",
+    "517267 01A",
+    "519201",
+    "522510",
+    "522705",
+    "522803",
+    "523655"
+  ],
+  "generatedAt": "2026-05-31T09:31:52.275181+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

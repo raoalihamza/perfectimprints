@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tank-tops/age/kids",
+  "type": "facet",
+  "h1": "Custom Kids Tank Tops for Bulk Orders",
+  "metaTitle": "Custom Kids Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom kids tank tops for your next event or team. Perfect for summer camps, sports teams, and family reunions. Get a quote today!",
+  "introHtml": "<p>Custom kids tank tops are a practical choice for summer camps, youth sports teams, and family reunions where comfort and breathability matter. Made from soft cotton or moisture-wicking blends, these tops keep kids cool during outdoor activities. Options like the Youth Sport-Tek PosiCharge Reversible Mesh Tank offer easy decoration with screen printing or heat transfer, ensuring your logo stays vibrant through repeated wear and washing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of children wearing custom kids tank tops with printed logos at a summer camp event",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T09:28:08.161253+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/work-pants/color/green",
+  "type": "facet",
+  "h1": "Custom Green Work Pants",
+  "metaTitle": "Custom Green Work Pants | Perfect Imprints",
+  "metaDescription": "Order custom green work pants for your team. Durable, professional, and perfect for branding. Get a quote today!",
+  "introHtml": "<p>Green work pants offer a professional alternative to traditional khaki or navy, ideal for landscaping, maintenance, and outdoor crews. The earthy tone hides dirt well while maintaining a sharp look. Our green work pants are available in durable cotton blends and performance fabrics, with options for screen-printed or embroidered logos. Whether you need men's or women's styles, these pants keep your team comfortable and on-brand throughout the workday.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green work pants for team uniforms with embroidered logo, durable fabric for professional use",
+  "productSkus": [
+    "526129",
+    "528865",
+    "528873",
+    "528875",
+    "528876",
+    "528886"
+  ],
+  "generatedAt": "2026-05-31T09:30:58.395993+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

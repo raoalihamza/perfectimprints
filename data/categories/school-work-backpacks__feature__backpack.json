@@ -1,0 +1,24 @@
+{
+  "url": "/cat/school-work-backpacks/feature/backpack",
+  "type": "facet",
+  "h1": "Custom Backpack School Work Backpacks for Bulk Orders",
+  "metaTitle": "Custom Backpack School Work Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom backpack school work backpacks in bulk. Perfect for employees, students, or events. Free quotes at Perfect Imprints.",
+  "introHtml": "<p>Whether you need branded backpacks for a back-to-school promotion or employee welcome kits, selecting a backpack style ensures your recipients get a versatile, hands-free carry option. Backpacks distribute weight evenly, making them ideal for commuters carrying laptops and books. Popular models like the Hive Compu-Backpack or High Sierra Pilsen Backpack offer padded compartments and ergonomic straps. Add your logo via screen printing or embroidery for maximum visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom backpack school work backpacks in black with embroidered logo, featuring padded laptop compartment",
+  "productSkus": [
+    "518365",
+    "520571",
+    "521963",
+    "528088"
+  ],
+  "generatedAt": "2026-05-31T08:37:13.345509+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/sheet-calendars/search",
+  "type": "modifier",
+  "h1": "Custom Sheet Calendars for Branded Promotions",
+  "metaTitle": "Custom Sheet Calendars | Perfect Imprints",
+  "metaDescription": "Browse a wide selection of custom sheet calendars for your brand. Easy ordering and fast turnaround. Start designing today!",
+  "introHtml": "<p>Custom sheet calendars offer a simple, cost-effective way to keep your brand visible all year long. Whether you need wall calendars, desk pads, or pocket planners, our extensive collection gives you plenty of options to match your budget and design preferences. Start exploring today and find the perfect calendar to promote your business.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of custom sheet calendars with colorful designs, showcasing personalized branding options for businesses.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:25:43.906700+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

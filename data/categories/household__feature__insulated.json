@@ -1,0 +1,19 @@
+{
+  "url": "/cat/household/feature/insulated",
+  "type": "facet",
+  "h1": "Custom Insulated Household Products for Bulk Orders",
+  "metaTitle": "Custom Insulated Household | Perfect Imprints",
+  "metaDescription": "Order custom insulated household products in bulk. Perfect for giveaways and employee gifts. Get a quote today!",
+  "introHtml": "<p>Insulated household products keep drinks hot or cold for hours, making them ideal for corporate gifts, employee appreciation, and client giveaways. Choose from stainless steel tumblers, travel mugs, and food containers that maintain temperature while showcasing your logo with full-color imprinting. Perfect for outdoor events, office use, or promotional campaigns.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom insulated household products including stainless steel tumblers and travel mugs with logo imprint",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:51:14.832558+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

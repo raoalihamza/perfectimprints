@@ -1,0 +1,23 @@
+{
+  "url": "/cat/backpacks/brand/meta",
+  "type": "facet",
+  "h1": "Custom Meta Backpacks for Bulk Orders",
+  "metaTitle": "Custom Meta Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Meta backpacks in bulk. Perfect for corporate giveaways, trade shows & employee gifts. Get a quote today!",
+  "introHtml": "<p>Meta-branded backpacks offer a premium option for companies seeking high-quality promotional gear that resonates with tech-savvy audiences. Whether you're outfitting your team for a conference or rewarding loyal customers, these backpacks combine durable construction with modern style. Choose from styles like the TravisMathew Duration Backpack or the Port Authority Original Pack, and add your logo with embroidery or screen printing for a polished, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Meta backpacks with embroidered logo, displayed in a corporate setting",
+  "productSkus": [
+    "527471",
+    "527672",
+    "527746"
+  ],
+  "generatedAt": "2026-05-31T09:33:34.966350+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

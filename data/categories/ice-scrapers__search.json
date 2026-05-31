@@ -1,0 +1,27 @@
+{
+  "url": "/cat/ice-scrapers/search",
+  "type": "modifier",
+  "h1": "Custom Ice Scrapers for Branded Promotions",
+  "metaTitle": "Custom Ice Scrapers | Perfect Imprints",
+  "metaDescription": "Browse our selection of custom ice scrapers for your brand. Perfect for winter promotions. Get started with Perfect Imprints today.",
+  "introHtml": "<p>Custom ice scrapers are a practical and memorable promotional item for winter giveaways. Whether you need a compact visor scraper for commuters or a heavy-duty model for fleet drivers, our range of branded ice scrapers offers options for every budget and use case. As a B2B distributor, we help marketing directors, HR directors, safety managers, and business owners find the right product to keep their brand visible during cold months. Explore our selection and request a quote to get started.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom ice scrapers with logos, including visor and polar models, for winter promotional giveaways",
+  "productSkus": [
+    "503216",
+    "503217",
+    "506006",
+    "513053",
+    "514833",
+    "522046",
+    "524289"
+  ],
+  "generatedAt": "2026-05-31T08:43:02.671436+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

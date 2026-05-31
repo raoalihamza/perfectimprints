@@ -1,0 +1,21 @@
+{
+  "url": "/cat/health/brand/callaway",
+  "type": "facet",
+  "h1": "Custom Callaway Health Products for Corporate Wellness",
+  "metaTitle": "Custom Callaway Health | Perfect Imprints",
+  "metaDescription": "Order custom Callaway health products for corporate wellness. Perfect for golf-themed events and employee appreciation. Get a quote today.",
+  "introHtml": "<p>Callaway is a trusted name in golf, and their health-focused products bring that same quality to your wellness initiatives. From branded Callaway Supersoft Golf Balls to other health accessories, these items resonate with golf enthusiasts and promote an active lifestyle. Perfect for corporate tournaments, employee wellness programs, or client gifts, Callaway health products offer a premium touch that standard promotional items can't match.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Callaway health products including branded golf balls for corporate wellness and events",
+  "productSkus": [
+    "529257"
+  ],
+  "generatedAt": "2026-05-31T08:34:26.978232+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

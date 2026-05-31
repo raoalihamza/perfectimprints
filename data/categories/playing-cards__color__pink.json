@@ -1,0 +1,22 @@
+{
+  "url": "/cat/playing-cards/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Playing Cards for Bulk Orders",
+  "metaTitle": "Custom Pink Playing Cards | Perfect Imprints",
+  "metaDescription": "Order custom pink playing cards in bulk. Perfect for events, branding, or giveaways. Get a quick quote at Perfect Imprints.",
+  "introHtml": "<p>Custom pink playing cards offer a bold, eye-catching alternative to standard decks. Whether you're planning a charity poker night, a breast cancer awareness event, or a brand activation, pink decks stand out on the table. Choose from solid backs or full-color custom printing to match your logo or theme. Durable card stock ensures they hold up through repeated use, making them a memorable giveaway item that recipients actually keep and use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink playing cards with solid backs featuring a promotional logo, displayed on a table.",
+  "productSkus": [
+    "524494",
+    "526561"
+  ],
+  "generatedAt": "2026-05-31T09:00:23.962404+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

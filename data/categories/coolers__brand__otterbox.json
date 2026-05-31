@@ -1,0 +1,22 @@
+{
+  "url": "/cat/coolers/brand/otterbox",
+  "type": "facet",
+  "h1": "Custom Otterbox Coolers for Bulk Orders",
+  "metaTitle": "Custom Otterbox Coolers | Perfect Imprints",
+  "metaDescription": "Order custom Otterbox coolers in bulk. Perfect for corporate gifts and events. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Otterbox coolers are built to last, with rugged insulation that keeps drinks cold all day. Whether you're outfitting a sales team with custom-branded tumblers or sending durable growlers to top clients, Otterbox's reputation for toughness adds instant credibility to your logo. Choose from stainless steel options like the Elevation Growler Tumbler for a premium feel that stands up to job sites, tailgates, and outdoor events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Otterbox coolers with engraved logo on a stainless steel tumbler",
+  "productSkus": [
+    "526311",
+    "526315"
+  ],
+  "generatedAt": "2026-05-31T09:41:38.135495+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

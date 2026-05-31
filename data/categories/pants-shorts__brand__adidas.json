@@ -1,0 +1,31 @@
+{
+  "url": "/cat/pants-shorts/brand/adidas",
+  "type": "facet",
+  "h1": "Custom Adidas Pants & Shorts for Bulk Orders",
+  "metaTitle": "Custom Adidas Pants & Shorts | Perfect Imprints",
+  "metaDescription": "Order custom Adidas pants & shorts with your logo. Perfect for teams or uniforms. Get a quote at PerfectImprints.com.",
+  "introHtml": "<p>Adidas pants and shorts combine athletic performance with professional style, making them a top choice for corporate teams, event staff, and uniform programs. The moisture-wicking fabric and comfortable fit keep your team looking sharp during outdoor events or daily work. Decorate with your logo using screen printing or embroidery for a polished look that lasts. Choose from classic 3-stripe designs or modern tapered fits to match your brand identity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Adidas pants and shorts with embroidered logo, featuring classic 3-stripe design and moisture-wicking fabric",
+  "productSkus": [
+    "527061",
+    "527063",
+    "527066",
+    "527067",
+    "527068",
+    "527069",
+    "527070",
+    "529075",
+    "529076",
+    "529184",
+    "529185"
+  ],
+  "generatedAt": "2026-05-31T09:59:24.642132+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

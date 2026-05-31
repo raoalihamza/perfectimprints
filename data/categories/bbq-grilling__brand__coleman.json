@@ -1,0 +1,28 @@
+{
+  "url": "/cat/bbq-grilling/brand/coleman",
+  "type": "facet",
+  "h1": "Custom Coleman BBQ Grilling Gear for Bulk Orders",
+  "metaTitle": "Custom Coleman BBQ Grilling | Perfect Imprints",
+  "metaDescription": "Order custom Coleman BBQ grilling gear for your next event. Perfect Imprints offers bulk branding on coolers, chairs, and more.",
+  "introHtml": "<p>Coleman is a trusted name in outdoor gear, and their BBQ grilling products bring that same reliability to your next company cookout or team-building event. From the 54-Quart Classic Steel Belted Cooler to the 20 oz Brewski Tumbler, these items are built for frequent use and easy branding with methods like pad printing or laser engraving. Choosing Coleman means your logo goes on gear that people actually reach for, season after season.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Coleman BBQ grilling gear including a cooler and tumbler with company logos for outdoor events",
+  "productSkus": [
+    "509109",
+    "517874",
+    "521930",
+    "525375",
+    "525794",
+    "525795",
+    "525796",
+    "529517"
+  ],
+  "generatedAt": "2026-05-31T09:36:13.937330+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

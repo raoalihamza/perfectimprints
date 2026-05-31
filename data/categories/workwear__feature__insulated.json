@@ -1,0 +1,22 @@
+{
+  "url": "/cat/workwear/feature/insulated",
+  "type": "facet",
+  "h1": "Custom Insulated Workwear for Bulk Orders",
+  "metaTitle": "Custom Insulated Workwear | Perfect Imprints",
+  "metaDescription": "Order custom insulated workwear for your team. Perfect Imprints offers bulk pricing on branded gear. Stay warm and professional.",
+  "introHtml": "<p>Custom insulated workwear keeps your team warm and productive in cold environments, from outdoor construction sites to refrigerated warehouses. Unlike standard workwear, insulated options add thermal lining without sacrificing mobility or safety compliance. Decorate with your logo using embroidery or screen printing for a cohesive look. Whether you need insulated vests, jackets, or bibs, bulk ordering ensures consistent branding across your crew.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom insulated workwear with thermal lining and embroidered logo for cold weather jobsites",
+  "productSkus": [
+    "508541",
+    "525806"
+  ],
+  "generatedAt": "2026-05-31T10:15:41.826845+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

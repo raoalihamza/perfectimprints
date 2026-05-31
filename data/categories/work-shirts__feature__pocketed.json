@@ -1,0 +1,29 @@
+{
+  "url": "/cat/work-shirts/feature/pocketed",
+  "type": "facet",
+  "h1": "Custom Pocketed Work Shirts",
+  "metaTitle": "Custom Pocketed Work Shirts | Perfect Imprints",
+  "metaDescription": "Order custom pocketed work shirts for your team. Reliable styles with chest pockets for pens, tools, and daily use. Bulk pricing available.",
+  "introHtml": "<p>Pocketed work shirts give your crew a place to keep pens, notepads, or small tools handy throughout the day. Whether you choose a rugged denim shirt for field crews or a twill overshirt for warehouse teams, the added chest pocket turns a uniform into a functional workstation. Decorate with your logo using embroidery or screen printing for a polished, professional look that holds up to daily wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pocketed work shirts on display, featuring chest pockets and embroidered logos for professional uniforms.",
+  "productSkus": [
+    "501740",
+    "501741",
+    "515106",
+    "527183",
+    "527184",
+    "527957",
+    "529218",
+    "529246",
+    "529247"
+  ],
+  "generatedAt": "2026-05-31T09:04:53.176852+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

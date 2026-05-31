@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pens/style/aviator",
+  "type": "facet",
+  "h1": "Custom Aviator Pens for Bulk Orders",
+  "metaTitle": "Custom Aviator Pens - Perfect Imprints",
+  "metaDescription": "Order custom aviator pens in bulk for your brand. Perfect for corporate gifts and giveaways. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Aviator pens bring a classic, streamlined look that stands out in the pen cup. Their sleek metal barrel and smooth retractable mechanism make them a favorite for corporate gift sets and executive giveaways. Choose from laser engraving or full-color imprint to showcase your logo. Whether you're outfitting a sales team or stocking the breakroom, these pens deliver a professional feel without the premium price tag.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom aviator pens with engraved logo on sleek metal barrels for corporate branding",
+  "productSkus": [
+    "519805"
+  ],
+  "generatedAt": "2026-05-31T08:45:14.692857+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

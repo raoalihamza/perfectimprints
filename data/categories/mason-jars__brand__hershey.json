@@ -1,0 +1,30 @@
+{
+  "url": "/cat/mason-jars/brand/hershey",
+  "type": "facet",
+  "h1": "Custom Hershey Mason Jars for Corporate Gifts",
+  "metaTitle": "Custom Hershey Mason Jars | Perfect Imprints",
+  "metaDescription": "Order custom Hershey mason jars for corporate gifts. Branded glass jars filled with Hershey's chocolates. Bulk pricing available.",
+  "introHtml": "<p>Custom Hershey mason jars combine the nostalgic charm of glass jars with the universally loved Hershey's candies. These branded jars make memorable corporate gifts, client appreciation tokens, or holiday party favors. Choose from options like the Gourmet Jar With Hershey Kisses or the Large Campfire S'mores Kit Tube, and personalize with your logo using full-color decoration or engraved lids. Perfect for marketing directors and HR managers looking for a sweet, high-perceived-value giveaway that recipients will actually use and remember.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hershey mason jar filled with Hershey's Kisses and branded with a company logo, perfect for corporate gifts",
+  "productSkus": [
+    "503478 43A",
+    "507505 91A",
+    "518381 90E",
+    "518509 90E",
+    "525122",
+    "525780",
+    "526317",
+    "526318",
+    "526980",
+    "527006"
+  ],
+  "generatedAt": "2026-05-31T09:55:47.763179+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

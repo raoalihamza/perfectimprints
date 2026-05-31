@@ -1,0 +1,21 @@
+{
+  "url": "/cat/koozies/color/rainbow",
+  "type": "facet",
+  "h1": "Custom Rainbow Koozies",
+  "metaTitle": "Custom Rainbow Koozies | Perfect Imprints",
+  "metaDescription": "Order custom rainbow koozies for your next event. Bright, eye-catching designs perfect for pride, parties, and promotions.",
+  "introHtml": "<p>Rainbow koozies bring a burst of color to any event or promotion. Unlike single-color options, rainbow koozies use a vibrant gradient that stands out in a crowd, making them ideal for pride celebrations, summer festivals, or company picnics. The Rainbow Kan-Tastic koozie, for example, offers a full spectrum that pairs well with screen printing or embossed logos. Keep drinks cool while your brand gets noticed from across the room.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom rainbow koozies with colorful gradient design, perfect for branding at events and promotions",
+  "productSkus": [
+    "522348"
+  ],
+  "generatedAt": "2026-05-31T08:56:38.708819+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

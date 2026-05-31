@@ -1,0 +1,23 @@
+{
+  "url": "/cat/fleece/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Fleece for Bulk Orders",
+  "metaTitle": "Custom Orange Fleece | Perfect Imprints",
+  "metaDescription": "Order custom orange fleece for your team or event. Perfect for safety, branding, or uniform needs. Get a quote today.",
+  "introHtml": "<p>Orange fleece stands out on job sites and at events, making it a top choice for safety managers and marketing directors alike. Hi-vis options like the CornerStone ANSI Class 3 hoodie meet safety standards while keeping your brand visible. Custom embroidery or screen printing adds your logo to these durable, warm jackets for a professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange fleece jackets with embroidered logos, including hi-vis safety fleece for bulk orders",
+  "productSkus": [
+    "520298",
+    "520299",
+    "529301"
+  ],
+  "generatedAt": "2026-05-31T09:46:18.594580+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

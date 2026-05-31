@@ -1,0 +1,27 @@
+{
+  "url": "/cat/babies-toddlers/brand/boxercraft",
+  "type": "facet",
+  "h1": "Custom Boxercraft Babies & Toddlers Apparel",
+  "metaTitle": "Custom Boxercraft Babies & Toddlers | Perfect Imprints",
+  "metaDescription": "Order custom Boxercraft babies & toddlers apparel for your brand. Soft, durable flannel and sherpa styles perfect for promotions.",
+  "introHtml": "<p>Boxercraft babies and toddlers apparel combines the brand's signature cozy fabrics with pint-sized fits that parents love. From sherpa pullovers to flannel pants, these pieces offer a plush, lived-in feel that stands up to repeated washing. For safety managers and HR directors ordering company-branded gifts for employee families, Boxercraft's soft cottons and poly-flannels make for a thoughtful, gender-neutral option. Decorate with screen-printed logos or embroidered chest designs to create memorable giveaways that families will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Boxercraft babies toddlers apparel including sherpa pullover and flannel pants for kids",
+  "productSkus": [
+    "521535",
+    "527831",
+    "527832",
+    "527833",
+    "527834",
+    "527835",
+    "527836"
+  ],
+  "generatedAt": "2026-05-31T08:49:04.868360+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

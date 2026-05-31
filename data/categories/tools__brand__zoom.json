@@ -1,0 +1,21 @@
+{
+  "url": "/cat/tools/brand/zoom",
+  "type": "facet",
+  "h1": "Custom Zoom Tools for Bulk Orders",
+  "metaTitle": "Custom Zoom Tools | Perfect Imprints",
+  "metaDescription": "Order personalized Zoom tools with your logo. Perfect for trade shows and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Custom Zoom tools combine the reliability of a trusted brand with your company logo for a practical giveaway. Ideal for trade shows, corporate gifts, or safety kits, these multi-tools with built-in flashlights offer everyday utility. Choose from several decoration methods like laser engraving or pad printing to display your brand clearly on the durable metal surface. Bulk ordering ensures you have enough for your entire team or event attendees.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Zoom multi-tool with flashlight and logo engraving for corporate branding",
+  "productSkus": [
+    "525944"
+  ],
+  "generatedAt": "2026-05-31T10:11:23.828914+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

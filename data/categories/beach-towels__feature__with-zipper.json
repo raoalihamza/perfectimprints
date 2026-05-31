@@ -1,0 +1,21 @@
+{
+  "url": "/cat/beach-towels/feature/with-zipper",
+  "type": "facet",
+  "h1": "Custom Beach Towels with Zipper",
+  "metaTitle": "Custom Beach Towels with Zipper | Perfect Imprints",
+  "metaDescription": "Order custom beach towels with zipper for secure storage. Perfect for pools, gyms, and events. Get a quote from Perfect Imprints.",
+  "introHtml": "<p>Custom beach towels with zipper offer a built-in storage solution that standard towels lack. The zippered pouch keeps keys, phones, and wallets secure while you swim or relax. Ideal for corporate pool parties, gym giveaways, or resort promotions, these towels combine absorbent microfiber or cotton with practical closure. Decorate with your logo via screen printing or embroidery for a branded item that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom zippered beach towel with logo, featuring a secure zipper pocket for storing valuables at the beach or pool.",
+  "productSkus": [
+    "522878"
+  ],
+  "generatedAt": "2026-05-31T09:08:20.227327+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/aprons/industry/contractor",
+  "type": "facet",
+  "h1": "Custom Contractor Aprons for Bulk Orders",
+  "metaTitle": "Custom Contractor Aprons | Perfect Imprints",
+  "metaDescription": "Order custom contractor aprons in bulk at Perfect Imprints. Durable, functional designs for your team. Get a quote today!",
+  "introHtml": "<p>Contractor aprons are built for rugged job sites where tools and materials need to stay within reach. Unlike standard aprons, these feature reinforced pockets for pencils, tape measures, and small hardware. Choose from heavy-duty cotton or blended fabrics that withstand daily wear. Perfect for contractors, electricians, and painters who need branded workwear that stays functional. Add your company logo via screen printing or embroidery for a professional look that keeps your team organized.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom contractor aprons with multiple pockets and a contractor brand logo, designed for heavy-duty use on job sites.",
+  "productSkus": [
+    "508541",
+    "509133 90A",
+    "515077",
+    "516543 01A",
+    "527339",
+    "528072"
+  ],
+  "generatedAt": "2026-05-31T09:05:45.250546+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

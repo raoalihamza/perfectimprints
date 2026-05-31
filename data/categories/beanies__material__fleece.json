@@ -1,0 +1,21 @@
+{
+  "url": "/cat/beanies/material/fleece",
+  "type": "facet",
+  "h1": "Custom Fleece Beanies for Bulk Orders",
+  "metaTitle": "Custom Fleece Beanies | Perfect Imprints",
+  "metaDescription": "Order custom fleece beanies in bulk from Perfect Imprints. Ideal for winter events, employee gifts, and brand visibility.",
+  "introHtml": "<p>Fleece beanies offer a softer, warmer alternative to standard acrylic knit caps, making them a preferred choice for outdoor winter events, ski trips, and corporate holiday gifts. The brushed interior provides extra comfort against the skin, while the smooth exterior accepts screen printing or embroidery cleanly. Whether you're outfitting a sales team for a January trade show or sending branded cold-weather gear to remote employees, custom fleece beanies keep your logo visible and your recipients comfortable in low temperatures.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom fleece beanies with embroidered logo on front, soft brushed interior, ideal for winter corporate gifts",
+  "productSkus": [
+    "516872"
+  ],
+  "generatedAt": "2026-05-31T08:28:14.184472+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

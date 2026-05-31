@@ -1,0 +1,22 @@
+{
+  "url": "/cat/footwear/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Footwear for Small Orders",
+  "metaTitle": "No-Minimum Custom Footwear | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom footwear in small quantities. Perfect for small teams, events, or samples. No bulk required. Get started today!",
+  "introHtml": "<p>No-minimum custom footwear is designed for buyers who need small quantities without the burden of bulk orders. Whether you are a small business outfitting a handful of employees, planning a one-off event, or ordering samples before a larger run, our no-minimum program gives you access to branded slides and more with low MOQ flexibility. You get the same quality and customization, but with the freedom to order what you actually need.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "No-minimum custom footwear including personalized slides and sandals for small orders or events",
+  "productSkus": [
+    "527554",
+    "528171"
+  ],
+  "generatedAt": "2026-05-31T09:13:52.588972+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

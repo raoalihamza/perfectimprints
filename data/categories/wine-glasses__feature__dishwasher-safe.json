@@ -1,0 +1,22 @@
+{
+  "url": "/cat/wine-glasses/feature/dishwasher-safe",
+  "type": "facet",
+  "h1": "Custom Dishwasher Safe Wine Glasses",
+  "metaTitle": "Custom Dishwasher Safe Wine Glasses | Perfect Imprints",
+  "metaDescription": "Order custom dishwasher safe wine glasses for your next event. Perfect for corporate gifts and promotions.",
+  "introHtml": "<p>Dishwasher safe wine glasses combine the elegance of stemware with the convenience of easy cleanup, making them ideal for corporate events, hospitality, and employee gifts. Unlike delicate crystal, these durable glasses withstand repeated commercial washing without clouding or cracking. Options like the 12 oz Oceanworks Stemless Wine Glass offer a modern, stable silhouette perfect for outdoor gatherings, while plastic versions like Here's to You are virtually unbreakable. Choose screen printing or etching for lasting brand visibility through hundreds of cycles.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom dishwasher safe wine glasses with etched logo on a stemless glass, ready for corporate events",
+  "productSkus": [
+    "506576 91A",
+    "527252"
+  ],
+  "generatedAt": "2026-05-31T10:14:54.847903+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

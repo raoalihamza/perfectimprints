@@ -1,0 +1,24 @@
+{
+  "url": "/cat/speakers/activity/hiking",
+  "type": "facet",
+  "h1": "Custom Hiking Speakers for Outdoor Adventures",
+  "metaTitle": "Custom Hiking Speakers | Perfect Imprints",
+  "metaDescription": "Order custom hiking speakers with your logo. Rugged, waterproof, and portable for outdoor events and promotions. Get a quote today!",
+  "introHtml": "<p>Custom hiking speakers are designed to withstand the rigors of the trail, with rugged construction, waterproof ratings, and long battery life. Whether you're outfitting a corporate hiking event or creating branded giveaways for outdoor enthusiasts, these speakers deliver clear audio in any environment. Options like the 5W Solar Waterproof Bluetooth® Speaker or the Basecamp® Rapids Waterproof Wireless Speaker offer practical features that align with an active lifestyle, making your logo a natural part of the adventure.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Rugged custom hiking speakers with logo, waterproof and portable for outdoor use",
+  "productSkus": [
+    "521630",
+    "522145",
+    "522868",
+    "524280"
+  ],
+  "generatedAt": "2026-05-31T09:26:16.640276+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

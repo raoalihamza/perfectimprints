@@ -1,0 +1,21 @@
+{
+  "url": "/cat/coolers/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Coolers for Everyday Use",
+  "metaTitle": "Custom Cotton Coolers | Perfect Imprints",
+  "metaDescription": "Order custom cotton coolers with your logo at Perfect Imprints. Ideal for picnics, events, and corporate gifts.",
+  "introHtml": "<p>Cotton coolers offer a soft, eco-friendly alternative to standard insulated bags. They are lightweight, machine-washable, and perfect for outdoor events, employee gifts, or promotional giveaways. Unlike vinyl or polyester options, cotton provides a natural look and feel that appeals to environmentally conscious buyers. The Pranzo Personal Cooler, for example, combines durable cotton canvas with effective insulation, making it a practical choice for picnics, lunches, or day trips. Customize with screen-printed logos for a soft-touch finish that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cotton coolers with embroidered logo, perfect for outdoor events and corporate gifts.",
+  "productSkus": [
+    "515957"
+  ],
+  "generatedAt": "2026-05-31T09:11:20.765562+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

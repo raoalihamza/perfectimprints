@@ -1,0 +1,23 @@
+{
+  "url": "/cat/folding-chairs/feature/collapsible",
+  "type": "facet",
+  "h1": "Custom Collapsible Folding Chairs",
+  "metaTitle": "Custom Collapsible Folding Chairs | Perfect Imprints",
+  "metaDescription": "Order custom collapsible folding chairs for events and giveaways. Perfect for branding on the go.",
+  "introHtml": "<p>Collapsible folding chairs combine portability with comfort, making them ideal for outdoor events, trade shows, and corporate picnics. Unlike standard folding chairs, collapsible models fold into compact bundles for easy transport and storage. Options like the Captain's Chair or Coleman ComfortSmart Suspension Chair offer padded seats and cup holders, providing a comfortable seating experience. Decorate with your logo using screen printing or heat transfer for brand visibility at any gathering.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom collapsible folding chairs with logo for outdoor events and corporate giveaways",
+  "productSkus": [
+    "505894",
+    "525794",
+    "525947"
+  ],
+  "generatedAt": "2026-05-31T09:46:33.785936+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

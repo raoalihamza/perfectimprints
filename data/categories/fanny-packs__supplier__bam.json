@@ -1,0 +1,30 @@
+{
+  "url": "/cat/fanny-packs/supplier/bam",
+  "type": "facet",
+  "h1": "Custom BAM Fanny Packs for Bulk Orders",
+  "metaTitle": "Custom BAM Fanny Packs | Perfect Imprints",
+  "metaDescription": "Order custom BAM fanny packs in bulk. Perfect for events, promotions & giveaways. Get a quote today!",
+  "introHtml": "<p>BAM fanny packs combine durability with a sleek, modern look that stands out at events and trade shows. Whether you choose the clear style for security venues or the neon option for high-visibility runs, these packs offer practical hands-free carrying. Customize with screen printing or embroidery to turn a simple giveaway into a memorable branded accessory your recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom BAM fanny packs in various colors and styles for bulk promotional orders",
+  "productSkus": [
+    "514432",
+    "514433",
+    "519201",
+    "522510",
+    "522705",
+    "522803",
+    "523655",
+    "524162",
+    "524500",
+    "525724"
+  ],
+  "generatedAt": "2026-05-31T09:45:29.715671+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

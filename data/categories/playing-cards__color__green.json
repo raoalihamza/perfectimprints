@@ -1,0 +1,24 @@
+{
+  "url": "/cat/playing-cards/color/green",
+  "type": "facet",
+  "h1": "Custom Green Playing Cards",
+  "metaTitle": "Custom Green Playing Cards | Perfect Imprints",
+  "metaDescription": "Order custom green playing cards for your brand. Perfect for events, giveaways, and promotions. Shop bulk decks at Perfect Imprints.",
+  "introHtml": "<p>Green custom playing cards stand out from standard decks with a vibrant, nature-inspired color that suits outdoor events, eco-friendly promotions, or St. Patrick’s Day giveaways. Whether you choose solid backs or printed cases, the green hue adds a fresh, recognizable look that reinforces your brand. Our decks accommodate full-color printing on both sides, making them ideal for marketing directors and HR teams looking for memorable, interactive promotional items that recipients actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green playing cards with branded back design and case, perfect for promotional giveaways and events.",
+  "productSkus": [
+    "512116",
+    "524494",
+    "526561",
+    "526787"
+  ],
+  "generatedAt": "2026-05-31T10:02:28.246772+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

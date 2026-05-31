@@ -1,0 +1,26 @@
+{
+  "url": "/cat/golf-polo-shirts/gender/men-s",
+  "type": "facet",
+  "h1": "Custom Men's Golf Polo Shirts",
+  "metaTitle": "Custom Men's Golf Polo Shirts | Perfect Imprints",
+  "metaDescription": "Order custom men's golf polo shirts for your team or event. Perfect for tournaments and corporate outings. Get a quote today!",
+  "introHtml": "<p>Men's golf polo shirts combine the classic look of a polo with performance fabrics designed for the course. Choose from moisture-wicking materials like those in the Vansport™ Omega Solid Mesh Tech Polo, which keeps players cool and dry during long rounds. These polos are ideal for corporate golf tournaments, team uniforms, or promotional giveaways. Decorate with your logo using embroidery or screen printing for a polished, professional appearance that stands out on and off the green.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom men's golf polo shirts with embroidered logo on a moisture-wicking performance fabric",
+  "productSkus": [
+    "510317",
+    "517777",
+    "519683",
+    "524310",
+    "527677",
+    "527678"
+  ],
+  "generatedAt": "2026-05-31T09:49:00.542020+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

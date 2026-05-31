@@ -1,0 +1,22 @@
+{
+  "url": "/cat/writing/feature/with-carabiner",
+  "type": "facet",
+  "h1": "Custom Writing Tools with Carabiner",
+  "metaTitle": "Custom Writing Tools with Carabiner | Perfect Imprints",
+  "metaDescription": "Shop custom writing tools with carabiner at Perfect Imprints. Perfect for on-the-go branding. Order bulk pens with carabiner clips today.",
+  "introHtml": "<p>Carabiner clips on pens and markers let your team or customers clip a branded writing tool to a belt loop, backpack, or keychain. Unlike standard pocket pens, these stay accessible during site walks, trade shows, or warehouse shifts. The Push Pop Pen with Carabiner offers a click-to-retract design, while the Eclair 4-in-1 Multi-Function Pen combines pen, stylus, and more in one durable body. Imprint your logo on the barrel for daily visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom writing tools with carabiner clip, including a push pop pen and a multi-function pen, displayed on a lanyard.",
+  "productSkus": [
+    "522674",
+    "525974"
+  ],
+  "generatedAt": "2026-05-31T08:48:12.131963+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

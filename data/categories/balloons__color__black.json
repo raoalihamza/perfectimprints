@@ -1,0 +1,26 @@
+{
+  "url": "/cat/balloons/color/black",
+  "type": "facet",
+  "h1": "Custom Black Balloons for Bulk Orders",
+  "metaTitle": "Custom Black Balloons | Perfect Imprints",
+  "metaDescription": "Order custom black balloons in bulk for events. Perfect for branding, grand openings, and parties. Fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Black balloons add a sleek, sophisticated touch to any event or promotion. Whether you're planning a black-tie gala, a corporate product launch, or a Halloween giveaway, custom black balloons create a bold, monochromatic statement. Available in standard latex and durable XtraLife® helium-saver options, these balloons can be imprinted with your logo or message in metallic or contrasting colors. Ideal for high-contrast branding that stands out in any setting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black balloons with white logo imprint arranged in a cluster for a corporate event",
+  "productSkus": [
+    "527576",
+    "527577",
+    "527579",
+    "527580",
+    "527583",
+    "527584"
+  ],
+  "generatedAt": "2026-05-31T09:07:02.449750+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

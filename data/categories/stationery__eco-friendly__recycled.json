@@ -1,0 +1,21 @@
+{
+  "url": "/cat/stationery/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Stationery for Bulk Orders",
+  "metaTitle": "Custom Recycled Stationery | Perfect Imprints",
+  "metaDescription": "Order custom recycled stationery in bulk at Perfect Imprints. Eco-friendly paper options with full-color imprint. Perfect for green branding.",
+  "introHtml": "<p>Custom recycled stationery lets you promote your brand while supporting sustainability. Made from post-consumer waste, these notebooks, notepads, and greeting cards offer the same professional look as virgin paper with a lower environmental footprint. Choose from a variety of sizes and paper weights, and add your logo or message with full-color imprint. Ideal for earth-conscious companies, trade show giveaways, or corporate gifts that reflect your commitment to the planet.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled stationery featuring a Premium Seeded Paper Greeting Card with embedded wildflower seeds",
+  "productSkus": [
+    "524481"
+  ],
+  "generatedAt": "2026-05-31T09:26:46.243114+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

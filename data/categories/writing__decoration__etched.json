@@ -1,0 +1,30 @@
+{
+  "url": "/cat/writing/decoration/etched",
+  "type": "facet",
+  "h1": "Custom Etched Writing Instruments for Bulk Orders",
+  "metaTitle": "Custom Etched Writing | Perfect Imprints",
+  "metaDescription": "Order custom etched writing pens with permanent laser engraving. Perfect for bulk corporate gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Etched writing instruments offer a permanent, high-end branding solution that stands out from printed logos. The laser engraving process creates crisp, lasting marks on metal or wood pens like the Aruba Pen or Guillox® 8 Ballpoint Pen, ensuring your company name won't fade or wear off. This decoration method is ideal for corporate gifts, trade show giveaways, or executive sets where durability and sophistication matter. Choose etched writing for a professional look that clients will notice and keep.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom etched writing pens with laser engraved logos, including metal ballpoint and rollerball pens for bulk orders.",
+  "productSkus": [
+    "510655",
+    "514786",
+    "520542",
+    "520727",
+    "520729",
+    "520730",
+    "520732",
+    "526741",
+    "527454",
+    "529008"
+  ],
+  "generatedAt": "2026-05-31T10:16:03.713032+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

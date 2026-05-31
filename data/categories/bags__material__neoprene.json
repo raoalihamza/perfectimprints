@@ -1,0 +1,33 @@
+{
+  "url": "/cat/bags/material/neoprene",
+  "type": "facet",
+  "h1": "Custom Neoprene Bags for Bulk Orders",
+  "metaTitle": "Custom Neoprene Bags | Perfect Imprints",
+  "metaDescription": "Order custom neoprene bags in bulk at Perfect Imprints. Ideal for lunches, wine, or laptops. Get a quote today!",
+  "introHtml": "<p>Neoprene bags offer a flexible, cushioned alternative to standard totes or canvas bags. The material’s slight stretch and water resistance make it a natural fit for wine totes, lunch bags, and laptop sleeves. Whether you need a branded wine tote for a client gift or a zippered lunch bag for a company picnic, neoprene holds up to daily use while providing a soft, modern look. Decoration options like screen printing or heat transfer work well on the smooth surface.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom neoprene bags including wine totes and lunch bags with company logo, displayed on a table",
+  "productSkus": [
+    "501369",
+    "510245",
+    "510380 2VF",
+    "512720 01A",
+    "513470",
+    "515040",
+    "515642 33A",
+    "515644 33A",
+    "515645 33A",
+    "520523",
+    "521383",
+    "521391",
+    "527301"
+  ],
+  "generatedAt": "2026-05-31T08:21:30.555339+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

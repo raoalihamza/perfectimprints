@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/core-365",
+  "type": "facet",
+  "h1": "Custom Core 365 Products for Bulk Orders",
+  "metaTitle": "Custom Core 365 Products - Perfect Imprints",
+  "metaDescription": "Order custom Core 365 products in bulk. Perfect for corporate gifts, events, and uniforms. Get a quote today.",
+  "introHtml": "<p>Core 365 offers a curated selection of apparel and accessories designed for comfort and durability. Their midweight fleece jackets, performance polos, and soft-shell vests are popular choices for corporate uniforms and outdoor events. With a range of colors and sizes, Core 365 products provide a consistent, professional look for your team. Customize with embroidery or screen printing to showcase your logo effectively.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Core 365 products including branded fleece jackets and performance polos for corporate teams",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:27.664224+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

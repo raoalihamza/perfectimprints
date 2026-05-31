@@ -1,0 +1,24 @@
+{
+  "url": "/cat/jackets/color/gray",
+  "type": "facet",
+  "h1": "Custom Gray Jackets for Corporate Orders",
+  "metaTitle": "Custom Gray Jackets | Perfect Imprints",
+  "metaDescription": "Order custom gray jackets for your team or event. Perfect for corporate branding with embroidery or screen printing. Shop at Perfect Imprints.",
+  "introHtml": "<p>Gray jackets offer a neutral, professional backdrop that makes your logo pop, whether embroidered on a Performer Jacket or screen printed on a Boundary Fleece. They pair well with any company color scheme and are a popular choice for safety managers and HR directors looking for versatile uniform options that work across seasons and job sites.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gray jackets for corporate branding, featuring embroidered logos on front",
+  "productSkus": [
+    "511016",
+    "511088",
+    "523279",
+    "523280"
+  ],
+  "generatedAt": "2026-05-31T09:16:30.750245+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

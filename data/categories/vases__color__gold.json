@@ -1,0 +1,23 @@
+{
+  "url": "/cat/vases/color/gold",
+  "type": "facet",
+  "h1": "Custom Gold Vases for Corporate Gifts",
+  "metaTitle": "Custom Gold Vases | Perfect Imprints",
+  "metaDescription": "Order custom gold vases for corporate gifts. Perfect for office decor or client appreciation. Bulk pricing available.",
+  "introHtml": "<p>Gold vases add a touch of elegance to any corporate setting, making them a popular choice for executive gifts, office decor, or client appreciation. Unlike standard vases, the gold finish catches light beautifully and pairs well with both fresh and artificial arrangements. These vases can be customized with your logo through etching or screen printing, creating a sophisticated branded piece that recipients will proudly display. Whether you're outfitting a new headquarters or thanking top clients, gold vases offer a premium look without the fragility of glass.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gold vases with engraved logo, elegant metallic finish for corporate gifts",
+  "productSkus": [
+    "515188 90E",
+    "515189 90E",
+    "526504"
+  ],
+  "generatedAt": "2026-05-31T09:29:51.246204+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,31 @@
+{
+  "url": "/cat/outerwear/material/mesh",
+  "type": "facet",
+  "h1": "Custom Mesh Outerwear for Bulk Orders",
+  "metaTitle": "Custom Mesh Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom mesh outerwear for your team. Breathable, high-vis vests and jackets perfect for events, safety, and branding.",
+  "introHtml": "<p>Mesh outerwear offers superior breathability and visibility, making it a top choice for outdoor events, safety crews, and promotional giveaways. Unlike solid fabrics, mesh keeps wearers cool while allowing for high-visibility prints and reflective accents. Our selection includes ANSI-compliant safety vests and lightweight jackets that can be decorated with your logo using screen printing or embroidery. Perfect for marketing directors equipping staff for trade shows or safety managers outfitting work crews.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom mesh outerwear including high-visibility safety vest with reflective stripes and logo",
+  "productSkus": [
+    "505577",
+    "505578",
+    "510005",
+    "510007",
+    "511120",
+    "520529",
+    "524043",
+    "527493",
+    "528678",
+    "529244",
+    "529245"
+  ],
+  "generatedAt": "2026-05-31T08:59:07.221894+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

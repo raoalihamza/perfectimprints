@@ -1,0 +1,21 @@
+{
+  "url": "/cat/popcorn/color/silver",
+  "type": "facet",
+  "h1": "Custom Silver Popcorn for Bulk Orders",
+  "metaTitle": "Custom Silver Popcorn - Perfect Imprints",
+  "metaDescription": "Order custom silver popcorn in bulk for events. Perfect for branding. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Silver packaging adds a sleek, modern touch to custom popcorn, making it ideal for corporate gifts, movie night promotions, or client appreciation. The metallic finish stands out on any desk or event table, and it pairs well with foil stamping or full-color labels. Whether you are filling tins with gourmet popcorn for a holiday gift or prepping snack packs for a trade show, silver containers give your brand a polished, premium look that recipients notice immediately.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom silver popcorn in a metallic tin with branded label, perfect for corporate gifts",
+  "productSkus": [
+    "520248"
+  ],
+  "generatedAt": "2026-05-31T10:02:39.223764+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

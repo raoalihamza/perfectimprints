@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/type/parade",
+  "type": "facet",
+  "h1": "Custom Parade Products for Bulk Orders",
+  "metaTitle": "Custom Parade Products | Perfect Imprints",
+  "metaDescription": "Order custom parade products for your next event. Perfect Imprints offers bulk pricing on branded items ideal for parades.",
+  "introHtml": "<p>Parades demand products that stand out in a crowd while being easy to distribute and carry. Custom parade products like foam hands, flags, and bracelets let you maximize visibility and engagement along the route. Whether you are outfitting a float team or handing out giveaways to spectators, these items are designed for high-impact branding in motion. Choose from bright colors and durable materials that hold up to outdoor conditions and keep your logo front and center.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom parade products including foam hands and flags with logos for bulk orders",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:04:28.103232+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/socks/color/black",
+  "type": "facet",
+  "h1": "Custom Black Socks for Bulk Orders",
+  "metaTitle": "Custom Black Socks | Perfect Imprints",
+  "metaDescription": "Order custom black socks in bulk from Perfect Imprints. Perfect for corporate gifts, events, and uniforms. Get your quote today!",
+  "introHtml": "<p>Black socks are a staple for any wardrobe, making them a smart choice for corporate gifts, event giveaways, or employee uniforms. Unlike trendy colors, black never goes out of style and pairs seamlessly with any outfit, from casual to formal. Whether you choose cozy Fuzzy Feet Slipper Socks for a winter promotion or classic crew socks for a branded uniform, black ensures your logo stands out while the socks stay practical. Decorate with embroidery or screen printing for a polished look that recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black socks with embroidered logo, displayed on a neutral background for a professional look.",
+  "productSkus": [
+    "516800",
+    "521927",
+    "525740"
+  ],
+  "generatedAt": "2026-05-31T08:46:48.741933+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

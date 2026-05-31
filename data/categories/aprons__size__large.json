@@ -1,0 +1,26 @@
+{
+  "url": "/cat/aprons/size/large",
+  "type": "facet",
+  "h1": "Custom Large Aprons for Bulk Orders",
+  "metaTitle": "Custom Large Aprons | Perfect Imprints",
+  "metaDescription": "Order custom large aprons in bulk for your team or event. Durable cotton and poly blends available with full-color imprint. Get a quote today.",
+  "introHtml": "<p>Large aprons provide extended coverage for chefs, grill masters, and workshop staff who need full front protection. Unlike standard sizes, large aprons accommodate taller or broader builds while keeping tools and phones accessible in front pockets. Cotton canvas options like the 10 oz Cotton Apron offer breathability for kitchen use, while poly-blend waist aprons suit retail or trade show staff. Add your logo via screen printing or embroidery for a professional look that lasts through repeated washes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom large aprons with embroidered logo, full front coverage, and multiple pockets for kitchen or workshop use.",
+  "productSkus": [
+    "508541",
+    "509133 90A",
+    "515077",
+    "516543 01A",
+    "527339",
+    "528072"
+  ],
+  "generatedAt": "2026-05-31T09:32:40.919245+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

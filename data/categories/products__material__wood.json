@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/material/wood",
+  "type": "facet",
+  "h1": "Custom Wood Products for Bulk Orders",
+  "metaTitle": "Custom Wood Products | Perfect Imprints",
+  "metaDescription": "Order custom wood products for your brand. Perfect for eco-friendly giveaways, awards, and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Custom wood products bring a natural, premium feel to your branded merchandise. Unlike plastic or metal alternatives, wood offers a warm, sustainable aesthetic that resonates with eco-conscious recipients. Whether you need engraved wooden pens for a conference, laser-etched coasters for a hospitality client, or personalized cutting boards for employee gifts, wood provides a durable, high-quality canvas for your logo. Choose from finishes like walnut, maple, or bamboo to match your brand's identity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom wood products including pens, coasters, and cutting boards with engraved logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:24:25.924393+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

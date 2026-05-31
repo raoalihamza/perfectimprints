@@ -1,0 +1,21 @@
+{
+  "url": "/cat/coasters/feature/insulated",
+  "type": "facet",
+  "h1": "Custom Insulated Coasters",
+  "metaTitle": "Custom Insulated Coasters | Perfect Imprints",
+  "metaDescription": "Order custom insulated coasters with your logo. Protect surfaces and keep drinks cold. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Custom insulated coasters combine drinkware functionality with surface protection, making them a practical giveaway for corporate events, trade shows, or client gifts. Unlike standard coasters, these feature a thermal barrier that prevents condensation rings and keeps beverages at the right temperature longer. The 20 oz Infinity Tumbler and Coaster Set is a popular example, pairing a reusable tumbler with a matching insulated coaster for a cohesive branded set. Choose from various materials like silicone or neoprene, and add your logo via screen printing or debossing for a professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom insulated coasters with logo, featuring a thermal barrier to protect surfaces and keep drinks cold.",
+  "productSkus": [
+    "519672"
+  ],
+  "generatedAt": "2026-05-31T09:40:47.241597+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

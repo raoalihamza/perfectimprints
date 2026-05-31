@@ -1,0 +1,21 @@
+{
+  "url": "/cat/food-beverage/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Food Beverage Promotional Products",
+  "metaTitle": "Custom Set Food Beverage - Perfect Imprints",
+  "metaDescription": "Order custom set food beverage promotional products from Perfect Imprints. Great for corporate gifts and events. Get a quote today!",
+  "introHtml": "<p>Custom set food beverage bundles offer a complete gifting solution for corporate events, trade shows, and employee appreciation. Instead of handing out single items, a coordinated set—like a reusable stainless steel straw set with a cleaning brush—shows recipients you put thought into the gift. These sets combine practicality with brand visibility, making them ideal for marketing directors and HR managers looking to make a lasting impression. Choose from various combinations that align with your brand message and budget.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set food beverage promotional products including a reusable stainless steel straw set with brush",
+  "productSkus": [
+    "523099"
+  ],
+  "generatedAt": "2026-05-31T09:13:43.180277+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

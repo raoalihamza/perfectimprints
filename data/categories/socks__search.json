@@ -1,0 +1,29 @@
+{
+  "url": "/cat/socks/search",
+  "type": "modifier",
+  "h1": "Custom Socks for Branded Promotions",
+  "metaTitle": "Custom Socks for Branded Promotions | Perfect Imprints",
+  "metaDescription": "Browse our selection of custom socks for branded promotions. Perfect for corporate gifts, events, and employee swag. Order from Perfect Imprints today.",
+  "introHtml": "<p>Custom socks are a versatile and practical promotional item that keeps your brand top of mind. Whether you need crew socks for a corporate event, slipper socks for a wellness program, or full-color designs for a trade show, our wide selection offers something for every audience. From BeWell socks to bamboo-thread jacquards, we help you find the perfect style to represent your brand. Start exploring our range of custom socks and make your next promotion a step in the right direction.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Display of various custom socks including crew socks, slipper socks, and jacquard socks with branded logos",
+  "productSkus": [
+    "516800",
+    "521927",
+    "522251",
+    "524427",
+    "525740",
+    "526360",
+    "526361",
+    "526363",
+    "526896"
+  ],
+  "generatedAt": "2026-05-31T08:24:32.180882+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

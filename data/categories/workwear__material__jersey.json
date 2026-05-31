@@ -1,0 +1,21 @@
+{
+  "url": "/cat/workwear/material/jersey",
+  "type": "facet",
+  "h1": "Custom Jersey Workwear for Bulk Orders",
+  "metaTitle": "Custom Jersey Workwear | Perfect Imprints",
+  "metaDescription": "Order custom jersey workwear in bulk for your team. Durable, comfortable, and perfect for branding. Get started at Perfect Imprints.",
+  "introHtml": "<p>Jersey fabric offers a soft, breathable feel that makes it a go-to choice for workwear that employees actually want to wear. Unlike heavier materials, jersey moves with the body and resists wrinkling, making it ideal for teams who need comfort during long shifts. Whether you are outfitting warehouse staff or field crews, custom jersey workwear like the Harriton® Adult Auxiliary Canvas Work Jacket combines durability with a polished look that takes screen printing or embroidery cleanly. It is a practical upgrade over basic cotton for active work environments.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of workers in custom jersey workwear jackets with embroidered logos, standing in a warehouse",
+  "productSkus": [
+    "519005"
+  ],
+  "generatedAt": "2026-05-31T10:15:46.851906+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

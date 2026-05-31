@@ -1,0 +1,21 @@
+{
+  "url": "/cat/ties/closeout",
+  "type": "modifier",
+  "h1": "Closeout Custom Ties",
+  "metaTitle": "Closeout Custom Ties | Perfect Imprints",
+  "metaDescription": "Save on closeout custom ties from Perfect Imprints. Limited stock at clearance prices. Shop now before they're gone.",
+  "introHtml": "<p>Closeout custom ties offer a rare opportunity to stock premium branded apparel at a fraction of the usual cost. Perfect Imprints is clearing select inventory, including popular styles like the Anywhere Belt Bag, to make room for new collections. Quantities are limited and pricing reflects the urgency of moving these items. If you need logoed ties for a corporate event, uniform update, or promotional giveaway, this is the most cost-effective window to buy. Act quickly, because once these ties sell out, the selection will not be replenished.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Closeout custom ties on display with discounted price tags, featuring a patterned tie and an Anywhere Belt Bag",
+  "productSkus": [
+    "526499"
+  ],
+  "generatedAt": "2026-05-31T09:28:28.173938+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

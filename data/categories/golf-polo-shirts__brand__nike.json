@@ -1,0 +1,25 @@
+{
+  "url": "/cat/golf-polo-shirts/brand/nike",
+  "type": "facet",
+  "h1": "Custom Nike Golf Polo Shirts for Bulk Orders",
+  "metaTitle": "Custom Nike Golf Polo Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Nike golf polo shirts in bulk. Perfect for corporate events, teams, and giveaways. Get a quote today.",
+  "introHtml": "<p>Choosing Nike for your custom golf polo shirts means pairing premium performance fabric with a brand your team already trusts. Nike Dri-FIT technology wicks moisture to keep wearers cool and dry on the course or at a company outing. These polos accept screen printing, embroidery, or heat transfer logos, making them a versatile choice for corporate uniforms or tournament giveaways. With a range of colors and sizes, Nike golf polos deliver a consistent, professional look that holds up wash after wash.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A group of people wearing custom Nike golf polo shirts with embroidered logos, standing on a golf course.",
+  "productSkus": [
+    "501805",
+    "515156",
+    "519683",
+    "524309",
+    "524310"
+  ],
+  "generatedAt": "2026-05-31T08:42:17.723097+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

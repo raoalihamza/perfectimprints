@@ -1,0 +1,24 @@
+{
+  "url": "/cat/photo-frames/color/gold",
+  "type": "facet",
+  "h1": "Custom Gold Photo Frames for Bulk Orders",
+  "metaTitle": "Custom Gold Photo Frames | Perfect Imprints",
+  "metaDescription": "Order custom gold photo frames in bulk for corporate gifts or employee recognition. Perfect Imprints offers quality frames with your logo.",
+  "introHtml": "<p>Gold photo frames add a touch of elegance to any office or event, making them a popular choice for corporate awards, retirement gifts, and employee recognition programs. Unlike standard silver or black frames, the warm metallic finish of gold complements both traditional and modern decor, ensuring your branded photos stand out. Choose from horizontal styles like the 4x6 Crescent frame or opt for larger 8x10 mounts to showcase team achievements or milestone moments with a premium look that recipients appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Gold photo frame with a company logo engraved on the bottom, displaying a professional team photo",
+  "productSkus": [
+    "507677 01A",
+    "507678 01A",
+    "515188 90E",
+    "515189 90E"
+  ],
+  "generatedAt": "2026-05-31T10:01:55.242753+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

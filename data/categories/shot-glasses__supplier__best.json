@@ -1,0 +1,30 @@
+{
+  "url": "/cat/shot-glasses/supplier/best",
+  "type": "facet",
+  "h1": "Custom Best Shot Glasses",
+  "metaTitle": "Custom Best Shot Glasses | Perfect Imprints",
+  "metaDescription": "Order custom best shot glasses from Perfect Imprints. Perfect for bars, events & gifts. Bulk pricing available.",
+  "introHtml": "<p>When you need shot glasses that make a statement, choosing from the Best supplier means you get reliable quality, consistent imprinting, and a wide selection of styles. Whether you are outfitting a bar with branded 1.75 oz clear glass shot glasses or handing out custom 2 oz plastic mood shot glasses at a corporate event, Best offers durable options that hold up to repeated use. Decorate with screen printing, full-color digital, or etching for a polished look that keeps your brand top of mind.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom best shot glasses featuring a clear glass shot with a full-color digital imprint of a company logo",
+  "productSkus": [
+    "513679",
+    "522845",
+    "522847",
+    "525816",
+    "525817",
+    "525916",
+    "525967",
+    "526428",
+    "529493",
+    "529515"
+  ],
+  "generatedAt": "2026-05-31T09:26:08.648976+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/health/feature/with-hood",
+  "type": "facet",
+  "h1": "Custom Hooded Health Products for Your Team",
+  "metaTitle": "Custom Hooded Health Products | Perfect Imprints",
+  "metaDescription": "Order custom hooded health products for your team. Perfect for safety and comfort. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Custom hooded health products combine the comfort of a hoodie with practical health features, making them ideal for outdoor workers, medical staff, or anyone needing sun protection or warmth. Choose from options like our Kid's Hooded Beach Towel for swim teams or the Women's Willow Scallop Hem Hoodie for a stylish uniform addition. These items offer easy decoration with screen printing or embroidery, ensuring your logo stands out while keeping your team comfortable.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hooded health products including hooded towels and hoodies for team use",
+  "productSkus": [
+    "524435",
+    "528890"
+  ],
+  "generatedAt": "2026-05-31T09:15:48.228533+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

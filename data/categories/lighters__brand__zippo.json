@@ -1,0 +1,23 @@
+{
+  "url": "/cat/lighters/brand/zippo",
+  "type": "facet",
+  "h1": "Custom Zippo Lighters for Bulk Orders",
+  "metaTitle": "Custom Zippo Lighters - Perfect Imprints",
+  "metaDescription": "Order custom Zippo lighters in bulk from Perfect Imprints. Ideal for branded giveaways and corporate gifts.",
+  "introHtml": "<p>Zippo lighters are an iconic American brand known for durability and reliability. When you choose custom Zippo lighters for your bulk order, you are selecting a premium product that recipients will keep for years. The windproof design and classic flip-top lid make them a practical everyday item, while laser engraving or color imprinting ensures your logo stands out. Perfect for corporate gifts, trade shows, or employee recognition programs, these lighters offer a timeless way to keep your brand in hand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Zippo lighters with engraved logo, classic windproof design, ideal for bulk corporate gifts and branded giveaways.",
+  "productSkus": [
+    "528350",
+    "528351",
+    "528964"
+  ],
+  "generatedAt": "2026-05-31T09:18:24.089690+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,28 @@
+{
+  "url": "/cat/bags/brand/valu-mark",
+  "type": "facet",
+  "h1": "Custom Valu Mark Bags for Bulk Orders",
+  "metaTitle": "Custom Valu Mark Bags | Perfect Imprints",
+  "metaDescription": "Order custom Valu Mark bags in bulk from Perfect Imprints. Ideal for promotions, events, and giveaways. Get your quote today!",
+  "introHtml": "<p>Valu Mark bags offer a practical and affordable option for bulk promotional orders. From non-woven totes to insulated coolers, these bags are designed for everyday use and high visibility. Choose Valu Mark when you need reliable branding without the premium price tag. Perfect for trade shows, employee gifts, or retail giveaways, they provide solid print areas for your logo or message.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Valu Mark bags including non-woven totes and coolers with printed logos for promotional use.",
+  "productSkus": [
+    "507456",
+    "510573",
+    "510840",
+    "522240",
+    "526974",
+    "528832",
+    "529547",
+    "529548"
+  ],
+  "generatedAt": "2026-05-31T09:34:19.761812+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

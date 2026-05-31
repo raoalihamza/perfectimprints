@@ -1,0 +1,21 @@
+{
+  "url": "/cat/towels/closeout",
+  "type": "modifier",
+  "h1": "Closeout Custom Towels",
+  "metaTitle": "Closeout Custom Towels | Perfect Imprints",
+  "metaDescription": "Save on closeout custom towels with limited stock at clearance prices. Perfect for events and promotions. Order now while supplies last.",
+  "introHtml": "<p>Closeout custom towels offer a rare opportunity to secure high-quality promotional products at clearance prices. This selection includes items like cooling towels that are being discontinued or overstocked, meaning quantities are limited and prices are reduced. Marketing directors, HR directors, safety managers, and business owners can stock up on branded towels for events, giveaways, or employee gifts without stretching the budget. Because stock moves quickly, the available styles and colors change frequently. Check back often or act fast to lock in the best deals on closeout custom towels before they are gone.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of colorful closeout custom towels with embroidered logos, including cooling towels, displayed on a shelf.",
+  "productSkus": [
+    "521013"
+  ],
+  "generatedAt": "2026-05-31T10:11:59.017051+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/backpacks/feature/safety-colored",
+  "type": "facet",
+  "h1": "Custom Safety Colored Backpacks",
+  "metaTitle": "Custom Safety Colored Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom safety colored backpacks for your team. High-visibility designs for safety, branding, and bulk orders at Perfect Imprints.",
+  "introHtml": "<p>Safety colored backpacks offer a practical way to keep your team visible in low-light environments, whether on construction sites, during evening commutes, or at outdoor events. These backpacks combine high-visibility hues like neon yellow or orange with reflective accents, making them ideal for safety managers and HR directors who prioritize both function and brand exposure. Choose from styles like the Globetrotter Laptop Backpack or the Rally Clear Backpack, and add your logo through screen printing or embroidery for a custom look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom safety colored backpacks in high-visibility neon yellow with reflective stripes and company logo",
+  "productSkus": [
+    "516526",
+    "521467"
+  ],
+  "generatedAt": "2026-05-31T09:33:42.808715+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

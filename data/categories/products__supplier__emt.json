@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/emt",
+  "type": "facet",
+  "h1": "Custom EMT Products for Bulk Orders",
+  "metaTitle": "Custom EMT Products | Perfect Imprints",
+  "metaDescription": "Order custom EMT products in bulk for your team. Perfect Imprints offers reliable branding on quality EMT items.",
+  "introHtml": "<p>EMT products are a trusted choice for first responders and medical professionals. By choosing custom EMT products from Perfect Imprints, you ensure your brand is seen on gear that stands up to demanding use. Whether you need branded stethoscopes, trauma shears, or durable bags, these items offer practical daily utility. Decorate with your logo via screen printing or laser engraving for a professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom EMT products including branded stethoscopes and trauma shears for first responders",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:24.448128+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

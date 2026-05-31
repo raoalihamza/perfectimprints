@@ -1,0 +1,21 @@
+{
+  "url": "/cat/products/brand/russell-athletic",
+  "type": "facet",
+  "h1": "Custom Russell Athletic Products for Bulk Orders",
+  "metaTitle": "Custom Russell Athletic Products - Perfect Imprints",
+  "metaDescription": "Order custom Russell Athletic products in bulk from Perfect Imprints. Perfect for teams, events, and corporate uniforms.",
+  "introHtml": "<p>Russell Athletic is a trusted name in durable, performance-driven apparel, making it a top choice for corporate uniforms, team gear, and promotional events. Customizing Russell Athletic products ensures your team or staff gets comfortable, long-lasting clothing that represents your brand. Whether you need embroidered polos for a trade show or screen-printed jackets for a company outing, these products offer reliable quality and a professional look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Russell Athletic products including embroidered jackets and polos for corporate branding",
+  "productSkus": [
+    "527745"
+  ],
+  "generatedAt": "2026-05-31T09:00:46.000628+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

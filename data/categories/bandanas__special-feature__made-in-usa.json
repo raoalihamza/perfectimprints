@@ -1,0 +1,24 @@
+{
+  "url": "/cat/bandanas/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Bandanas",
+  "metaTitle": "Custom Made in USA Bandanas | Perfect Imprints",
+  "metaDescription": "Order custom made in USA bandanas for your next event or promotion. Bulk pricing available.",
+  "introHtml": "<p>When you choose custom made in USA bandanas, you get premium quality cotton that holds up to repeated use and washing. Unlike imported alternatives, these bandanas feature tighter weaves and richer dye saturation, making them ideal for logo imprinting with screen printing or heat transfer. Safety managers and event organizers appreciate the consistent sizing and fade-resistant colors that keep your branding looking sharp through outdoor events, construction site giveaways, or patriotic promotions.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom made in USA bandanas in red, blue, and camouflage patterns with printed logos",
+  "productSkus": [
+    "506990",
+    "506991",
+    "521602",
+    "524817"
+  ],
+  "generatedAt": "2026-05-31T09:34:49.381374+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

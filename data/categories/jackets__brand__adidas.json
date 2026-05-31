@@ -1,0 +1,31 @@
+{
+  "url": "/cat/jackets/brand/adidas",
+  "type": "facet",
+  "h1": "Custom Adidas Jackets for Bulk Orders",
+  "metaTitle": "Custom Adidas Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Adidas jackets for your team or event. Perfect Imprints offers bulk pricing and professional decoration. Get a quote today.",
+  "introHtml": "<p>Custom Adidas jackets combine the trusted quality of a global sportswear brand with your company logo or message. Whether you need lightweight puffer vests for a trade show or insulated jackets for an employee rewards program, Adidas offers versatile styles that perform well in professional and casual settings. Decoration options like embroidery or screen printing let you brand these jackets without compromising the fabric's performance or comfort. Perfect for corporate uniforms, promotional giveaways, or safety incentives.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom Adidas jackets with embroidered logos at an outdoor corporate event",
+  "productSkus": [
+    "527061",
+    "527063",
+    "527066",
+    "527067",
+    "527068",
+    "527069",
+    "527070",
+    "529075",
+    "529076",
+    "529184",
+    "529185"
+  ],
+  "generatedAt": "2026-05-31T09:51:34.503739+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

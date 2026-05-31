@@ -1,0 +1,31 @@
+{
+  "url": "/cat/coasters/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Coasters for Branded Giveaways",
+  "metaTitle": "Custom Brown Coasters | Perfect Imprints",
+  "metaDescription": "Shop custom brown coasters for your next event. Perfect for branding with your logo. Bulk orders from Perfect Imprints.",
+  "introHtml": "<p>Brown coasters bring a natural, grounded feel to any tabletop. Whether you choose wood grain, leather, or stone, this earthy tone pairs well with office break rooms, brewery taprooms, or corporate lounges. Customize with your logo using engraving, debossing, or screen printing for a professional finish that stands up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown coasters with engraved logo on wooden and leather surfaces for corporate events",
+  "productSkus": [
+    "506094 33D",
+    "518880",
+    "520562",
+    "521742",
+    "525326",
+    "525327",
+    "526254",
+    "526757",
+    "527338",
+    "528135",
+    "529291"
+  ],
+  "generatedAt": "2026-05-31T09:40:44.994075+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

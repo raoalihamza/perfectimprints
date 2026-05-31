@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/type/photo-frame",
+  "type": "facet",
+  "h1": "Custom Photo Frame Products for Bulk Orders",
+  "metaTitle": "Custom Photo Frame Products | Perfect Imprints",
+  "metaDescription": "Order custom photo frame products in bulk from Perfect Imprints. Ideal for employee awards, client gifts, and event favors.",
+  "introHtml": "<p>Custom photo frame products let you turn a simple keepsake into a branded statement. Whether you are recognizing a top performer, celebrating a company milestone, or thanking a client, a personalized frame adds a lasting touch. Choose from wood, metal, or acrylic finishes that can be debossed, screen printed, or engraved with your logo. These frames work well for desk displays, lobby walls, or gift bags at corporate events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom photo frame products with engraved logo on a wooden frame displaying a team photo",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:30.444057+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/pants-shorts/color/green",
+  "type": "facet",
+  "h1": "Custom Green Pants Shorts",
+  "metaTitle": "Custom Green Pants Shorts | Perfect Imprints",
+  "metaDescription": "Order custom green pants shorts for your team or event. Bulk pricing and fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>Green pants shorts offer a fresh, professional look for corporate teams, event staff, and safety crews. Whether you choose moisture-wicking mesh for outdoor summer events or durable jersey knit for everyday wear, green stands out without being loud. Decorate with screen printing or embroidery on styles like the Men's Sport-Tek PosiCharge Mesh 7” Short or Women's TriDri Maria Jogger Shorts. Perfect for branding that keeps your team comfortable and visible.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green pants shorts for men and women, available in various styles from sport mesh to jogger shorts",
+  "productSkus": [
+    "526129",
+    "528865",
+    "528873",
+    "528875",
+    "528876",
+    "528886"
+  ],
+  "generatedAt": "2026-05-31T09:59:28.105808+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

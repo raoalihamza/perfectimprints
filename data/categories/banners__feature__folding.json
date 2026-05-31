@@ -1,0 +1,25 @@
+{
+  "url": "/cat/banners/feature/folding",
+  "type": "facet",
+  "h1": "Custom Folding Banners for Portable Displays",
+  "metaTitle": "Custom Folding Banners | Perfect Imprints",
+  "metaDescription": "Shop custom folding banners for portable displays. Perfect for trade shows and events. Bulk orders available at Perfect Imprints.",
+  "introHtml": "<p>Custom folding banners are designed for professionals who need portable, reusable signage that sets up in seconds without sacrificing print quality. Unlike rigid banners, folding banners collapse into compact kits for easy transport and storage, making them ideal for trade shows, safety briefings, or pop-up retail. Options like the FrameWorx Face Cutout kits allow for interchangeable graphics, while tabletop billboard banners fit smaller spaces. Durable vinyl construction ensures vibrant colors and crisp text, and full-color imprinting keeps your brand visible wherever you go.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom folding banner display with vibrant full-color imprint, portable stand for trade shows and events",
+  "productSkus": [
+    "510438 90A",
+    "520240",
+    "520976",
+    "521973",
+    "521974"
+  ],
+  "generatedAt": "2026-05-31T09:35:14.150959+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

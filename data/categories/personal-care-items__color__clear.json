@@ -1,0 +1,24 @@
+{
+  "url": "/cat/personal-care-items/color/clear",
+  "type": "facet",
+  "h1": "Custom Clear Personal Care Items",
+  "metaTitle": "Custom Clear Personal Care Items | Perfect Imprints",
+  "metaDescription": "Order custom clear personal care items for your business. Perfect for travel kits and safety compliance. Bulk pricing available.",
+  "introHtml": "<p>Clear personal care items offer a practical advantage for travel and safety compliance. Unlike opaque alternatives, transparent containers and bags allow quick visual inspection of contents, making them ideal for airport security lines or workplace safety kits. From clear cosmetic bags to nail files in sleeves, these items keep your brand visible while meeting TSA guidelines. Choose from satin-finished pouches or hard-sided travel bags for a professional look that puts your logo front and center.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom clear personal care items including a transparent travel bag and nail files in clear sleeves",
+  "productSkus": [
+    "511519",
+    "516737",
+    "522416",
+    "528640"
+  ],
+  "generatedAt": "2026-05-31T08:59:45.389280+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

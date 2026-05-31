@@ -1,0 +1,21 @@
+{
+  "url": "/cat/gift-boxes-ribbons/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Gift Boxes & Ribbons",
+  "metaTitle": "Custom Blue Gift Boxes & Ribbons | Perfect Imprints",
+  "metaDescription": "Order custom blue gift boxes and ribbons for your brand. Perfect for corporate gifts and events. Get a quote today!",
+  "introHtml": "<p>Blue gift boxes and ribbons convey trust, reliability, and professionalism—ideal for corporate gifts, client appreciation, or employee recognition. Whether you choose navy for a classic look or sky blue for a softer feel, blue packaging adds a polished touch. Pair with colored tissue paper for a complete unboxing experience that reinforces your brand identity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue gift boxes with matching blue ribbon and colored tissue paper for corporate gifting",
+  "productSkus": [
+    "507997"
+  ],
+  "generatedAt": "2026-05-31T09:47:33.952521+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

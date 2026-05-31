@@ -1,0 +1,23 @@
+{
+  "url": "/cat/products/brand/oakley",
+  "type": "facet",
+  "h1": "Custom Oakley Products for Bulk Orders",
+  "metaTitle": "Custom Oakley Products | Perfect Imprints",
+  "metaDescription": "Order custom Oakley products in bulk with your logo. Premium bags and backpacks for employees, events, and promotions.",
+  "introHtml": "<p>Oakley products are known for their rugged durability and modern style, making them a top choice for companies that want to give employees or clients gear that lasts. From the Oakley Messenger Bag to the 22L Enduro Backpack, each piece features quality construction and sleek design. Adding your logo via embroidery or screen printing turns these everyday carry items into branded tools that get noticed around the office and on the go.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Oakley products including messenger bags and backpacks with company logo for corporate gifts and promotions.",
+  "productSkus": [
+    "522669",
+    "523948",
+    "529181"
+  ],
+  "generatedAt": "2026-05-31T09:00:45.445020+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

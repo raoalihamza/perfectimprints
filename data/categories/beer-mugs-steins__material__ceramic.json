@@ -1,0 +1,24 @@
+{
+  "url": "/cat/beer-mugs-steins/material/ceramic",
+  "type": "facet",
+  "h1": "Custom Ceramic Beer Mugs & Steins",
+  "metaTitle": "Custom Ceramic Beer Mugs & Steins | Perfect Imprints",
+  "metaDescription": "Order custom ceramic beer mugs and steins in bulk. Perfect for breweries, events, or gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Ceramic beer mugs and steins offer a classic, hefty feel that plastic or glass simply can't match. The thick walls keep your beverage cold longer while providing a satisfying weight in hand. From the 15 oz Campfire Mug to the 18 oz Tall Camper Mug, these vessels are ideal for brewery branding, corporate gifts, or promotional giveaways. Decorate with full-color logos using screen printing or embossing for a lasting impression that stands out on any bar shelf.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom ceramic beer mugs and steins with embossed logos, displayed on a wooden table.",
+  "productSkus": [
+    "511006",
+    "521401",
+    "522392",
+    "524786"
+  ],
+  "generatedAt": "2026-05-31T09:36:53.258632+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,27 @@
+{
+  "url": "/cat/golf-polo-shirts/brand/boxercraft",
+  "type": "facet",
+  "h1": "Custom Boxercraft Golf Polo Shirts for Bulk Orders",
+  "metaTitle": "Custom Boxercraft Golf Polo Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Boxercraft golf polo shirts in bulk. Perfect for corporate events and teams. Get a quote today!",
+  "introHtml": "<p>Boxercraft golf polo shirts combine the classic polo silhouette with Boxercraft's signature comfort and durability, making them a top pick for corporate outings and promotional events. The moisture-wicking fabric keeps your team cool on the course, while the easy-care construction ensures they look crisp even after repeated wear. Ideal for embroidery or screen printing, these polos offer a polished look that stands up to active use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Boxercraft golf polo shirts in bulk for corporate events and team uniforms",
+  "productSkus": [
+    "521535",
+    "527831",
+    "527832",
+    "527833",
+    "527834",
+    "527835",
+    "527836"
+  ],
+  "generatedAt": "2026-05-31T08:42:15.339909+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

@@ -1,0 +1,32 @@
+{
+  "url": "/cat/bath-hand-towels/color/black",
+  "type": "facet",
+  "h1": "Custom Black Bath Hand Towels",
+  "metaTitle": "Custom Black Bath Hand Towels | Perfect Imprints",
+  "metaDescription": "Order custom black bath hand towels for your business. Perfect for gyms, spas, and hotels. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Black bath hand towels offer a sleek, professional look that hides stains and wear better than lighter colors, making them a smart choice for high-traffic facilities like gyms, salons, and hotels. Whether you need waffle weave for quick drying or velour for a soft touch, black towels pair well with any decor and provide a consistent, upscale appearance. Customize with your logo using embroidery or screen printing for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom black bath hand towels with embroidered logo, ideal for gyms and spas.",
+  "productSkus": [
+    "510188",
+    "510325",
+    "510644",
+    "513098",
+    "513733",
+    "521013",
+    "522450",
+    "524126",
+    "527643",
+    "528005",
+    "528436",
+    "528644"
+  ],
+  "generatedAt": "2026-05-31T09:36:11.414602+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

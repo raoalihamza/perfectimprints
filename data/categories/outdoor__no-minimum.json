@@ -1,0 +1,25 @@
+{
+  "url": "/cat/outdoor/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Outdoor Gear",
+  "metaTitle": "No-Minimum Custom Outdoor Gear | Perfect Imprints",
+  "metaDescription": "Shop no-minimum custom outdoor gear for small orders. Ideal for small teams, events, and samples. Get branded blankets and more with low MOQs.",
+  "introHtml": "<p>No-minimum custom outdoor gear lets you order small quantities of branded blankets, picnic sets, and camping accessories without the typical bulk minimums. Whether you need a handful of items for a small team, a one-off event, or sample orders before scaling up, this page is built for buyers who want flexibility. Skip the large MOQs and get quality promotional products in the exact quantities you need, with per-unit pricing that works for low volumes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A plaid picnic blanket and a KOOZIE Field Blanket displayed on grass, showcasing no-minimum custom outdoor gear for small orders.",
+  "productSkus": [
+    "503799",
+    "505863",
+    "509290",
+    "521841",
+    "525844"
+  ],
+  "generatedAt": "2026-05-31T08:58:59.975342+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

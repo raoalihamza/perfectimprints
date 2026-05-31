@@ -1,0 +1,25 @@
+{
+  "url": "/cat/tote-bags/material/cardboard",
+  "type": "facet",
+  "h1": "Custom Cardboard Tote Bags",
+  "metaTitle": "Custom Cardboard Tote Bags - Perfect Imprints",
+  "metaDescription": "Order custom cardboard tote bags for eco-friendly packaging. Perfect for trade shows and retail. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Cardboard tote bags offer a lightweight, recyclable alternative to traditional totes, making them a smart choice for eco-conscious businesses. Perfect for grocery stores, retail packaging, or event giveaways, these bags can be fully customized with your logo using offset or screen printing. Their sturdy construction handles moderate loads while keeping costs low for bulk orders.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cardboard tote bags with handles and printed logo, ideal for eco-friendly packaging and giveaways.",
+  "productSkus": [
+    "501336",
+    "501337",
+    "506554",
+    "508787",
+    "513449"
+  ],
+  "generatedAt": "2026-05-31T09:28:53.181099+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

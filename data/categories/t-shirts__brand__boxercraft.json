@@ -1,0 +1,27 @@
+{
+  "url": "/cat/t-shirts/brand/boxercraft",
+  "type": "facet",
+  "h1": "Custom Boxercraft T Shirts for Bulk Orders",
+  "metaTitle": "Custom Boxercraft T Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Boxercraft t shirts in bulk. Perfect for company events, teams, or giveaways. Get a quote today.",
+  "introHtml": "<p>Boxercraft t shirts offer a comfortable, relaxed fit that works well for casual company events, team outings, or employee appreciation. The brand is known for soft fabrics and consistent sizing, making them a reliable choice for bulk orders. Add your logo with screen printing or embroidery for a polished look that recipients will actually wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Person wearing a custom Boxercraft t shirt with a printed logo, showcasing the soft fabric and relaxed fit.",
+  "productSkus": [
+    "521535",
+    "527831",
+    "527832",
+    "527833",
+    "527834",
+    "527835",
+    "527836"
+  ],
+  "generatedAt": "2026-05-31T08:37:48.278949+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

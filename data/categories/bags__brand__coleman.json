@@ -1,0 +1,22 @@
+{
+  "url": "/cat/bags/brand/coleman",
+  "type": "facet",
+  "h1": "Custom Coleman Bags for Bulk Orders",
+  "metaTitle": "Custom Coleman Bags | Perfect Imprints",
+  "metaDescription": "Order custom Coleman bags for your next event or promotion. Perfect for outdoor giveaways and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Coleman bags bring instant recognition for durability and outdoor reliability. When you choose custom Coleman bags for your promotion, you're associating your brand with adventure and trusted quality. Whether you need soft-sided coolers for a company picnic or collapsible hard-sided coolers for a trade show, these bags offer ample space for your logo. Decorate with screen printing or embroidery for a lasting impression that stands up to years of use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Coleman bags with embroidered logo, featuring a soft-sided cooler and a collapsible hard-sided cooler in outdoor setting",
+  "productSkus": [
+    "525375",
+    "529517"
+  ],
+  "generatedAt": "2026-05-31T08:24:47.974076+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

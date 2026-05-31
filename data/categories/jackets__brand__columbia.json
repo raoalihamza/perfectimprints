@@ -1,0 +1,25 @@
+{
+  "url": "/cat/jackets/brand/columbia",
+  "type": "facet",
+  "h1": "Custom Columbia Jackets for Bulk Orders",
+  "metaTitle": "Custom Columbia Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Columbia jackets for your team. Perfect for corporate gifts, events, and uniforms. Get a quote today.",
+  "introHtml": "<p>Columbia jackets combine outdoor durability with professional style, making them a top choice for corporate apparel and employee uniforms. The soft shell and fleece options, like the Ascender and Steens Mountain, offer lightweight warmth and a polished look that works in the office or on the trail. Decorate with your logo using embroidery or screen printing for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Columbia jackets with embroidered logo, featuring a soft shell and fleece options for corporate teams.",
+  "productSkus": [
+    "523863",
+    "523865",
+    "523866",
+    "523867",
+    "523870"
+  ],
+  "generatedAt": "2026-05-31T09:51:36.777776+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

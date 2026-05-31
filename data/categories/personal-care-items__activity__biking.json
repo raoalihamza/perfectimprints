@@ -1,0 +1,22 @@
+{
+  "url": "/cat/personal-care-items/activity/biking",
+  "type": "facet",
+  "h1": "Custom Biking Personal Care Items",
+  "metaTitle": "Custom Biking Personal Care Items | Perfect Imprints",
+  "metaDescription": "Order custom biking personal care items for your team. Sunscreen, lip balm, and more from Perfect Imprints. Bulk pricing available.",
+  "introHtml": "<p>Biking personal care items are designed for cyclists who need compact, sweat-resistant products that fit in a jersey pocket or saddlebag. From SPF lip balms to mini sunscreens, these items help your team stay protected on long rides. Decoration options include pad printing or labels for a clean, professional look that stands out at group rides or corporate cycling events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom biking personal care items including sunscreen and lip balm in compact containers for cyclists",
+  "productSkus": [
+    "512764",
+    "519201"
+  ],
+  "generatedAt": "2026-05-31T10:00:27.971761+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

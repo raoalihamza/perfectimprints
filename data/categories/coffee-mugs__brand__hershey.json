@@ -1,0 +1,22 @@
+{
+  "url": "/cat/coffee-mugs/brand/hershey",
+  "type": "facet",
+  "h1": "Custom Hershey Coffee Mugs for Bulk Orders",
+  "metaTitle": "Custom Hershey Coffee Mugs | Perfect Imprints",
+  "metaDescription": "Order branded Hershey coffee mugs in bulk at Perfect Imprints. Perfect for corporate gifts, events, and promotions.",
+  "introHtml": "<p>Hershey coffee mugs bring the nostalgic appeal of America's favorite chocolate brand to your promotional merchandise. These mugs work especially well for employee gifts, client appreciation, or event giveaways tied to comfort and indulgence. Options like the S'mores Single Serve Stuffer combine a full-color mug with hot cocoa packets, creating a ready-to-gift set that resonates with any audience. Choose custom Hershey coffee mugs to pair your logo with a trusted name in treats.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hershey coffee mugs with logo imprint, featuring a white mug with Hershey branding and cocoa packets.",
+  "productSkus": [
+    "525780",
+    "526317"
+  ],
+  "generatedAt": "2026-05-31T08:52:20.092161+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

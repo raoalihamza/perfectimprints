@@ -1,0 +1,31 @@
+{
+  "url": "/cat/health/material/paper",
+  "type": "facet",
+  "h1": "Custom Paper Health Products",
+  "metaTitle": "Custom Paper Health Products | Perfect Imprints",
+  "metaDescription": "Order custom paper health products for wellness programs. Perfect for offices and events. Contact Perfect Imprints today.",
+  "introHtml": "<p>Paper health products offer a tactile, eco-friendly way to promote wellness in offices, clinics, and events. From pocket tissue packs for flu season to affirmation cards for mental health initiatives, paper items are lightweight, customizable, and budget-friendly. They provide a personal touch that digital giveaways lack, making them ideal for HR directors and safety managers focused on employee well-being. Choose from notebooks, scratch pads, or tissue canisters imprinted with your logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom paper health products including pocket tissue packs and affirmation cards with logo",
+  "productSkus": [
+    "505818 90A",
+    "523061",
+    "523938",
+    "525676",
+    "526276",
+    "526690",
+    "527653",
+    "527654",
+    "527655",
+    "527863",
+    "528541"
+  ],
+  "generatedAt": "2026-05-31T09:50:38.715324+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

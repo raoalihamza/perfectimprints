@@ -1,0 +1,30 @@
+{
+  "url": "/cat/sweaters-cardigans/color/black",
+  "type": "facet",
+  "h1": "Custom Black Sweaters & Cardigans for Your Team",
+  "metaTitle": "Custom Black Sweaters Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom black sweaters and cardigans in bulk. Perfect for uniforms, events, or gifts. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Black sweaters and cardigans offer a versatile, professional look that works across industries. Whether you need a polished uniform for your team or a cozy giveaway item, black is a neutral that pairs with any logo. Options range from the Ladies' Sweater Blazer to the Men's Brooks Brothers® Washable Merino V-Neck Sweater, with decoration methods like embroidery or screen printing. Choose black for a timeless, cohesive brand appearance.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom black sweaters and cardigans featuring embroidered logos on a table.",
+  "productSkus": [
+    "520268",
+    "520269",
+    "523604",
+    "526198",
+    "526291",
+    "526292",
+    "527181",
+    "527182",
+    "527833",
+    "527957"
+  ],
+  "generatedAt": "2026-05-31T09:27:28.723479+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

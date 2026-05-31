@@ -1,0 +1,22 @@
+{
+  "url": "/cat/headwear/special-feature/patriotic",
+  "type": "facet",
+  "h1": "Custom Patriotic Headwear for Bulk Orders",
+  "metaTitle": "Custom Patriotic Headwear | Perfect Imprints",
+  "metaDescription": "Order custom patriotic headwear in bulk. Perfect for events, teams, and promotions. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Custom patriotic headwear makes a strong statement at parades, fundraisers, and company events. Whether you choose a camo patriotic cap or a digital camouflage design, these hats show pride while keeping your brand front and center. Screen printing or embroidery in red, white, and blue ensures your logo stands out. Order in bulk for your next event or employee uniform program.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of custom patriotic headwear including camo caps with American flag designs for bulk orders",
+  "productSkus": [
+    "509366 93A",
+    "512748 37A"
+  ],
+  "generatedAt": "2026-05-31T09:50:21.519198+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

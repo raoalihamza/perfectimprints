@@ -1,0 +1,24 @@
+{
+  "url": "/cat/speakers/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Speakers for Bulk Orders",
+  "metaTitle": "Custom Purple Speakers | Perfect Imprints",
+  "metaDescription": "Order custom purple speakers for your next event or promotion. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Purple speakers stand out in a crowd, making them ideal for brand awareness campaigns at music festivals, college events, or employee appreciation programs. Whether you choose the portable JBL Flip 7 or the compact JBL Go 4, imprinting your logo on a vibrant purple shell creates a memorable giveaway that gets used daily. Purple also associates with creativity and luxury, giving your brand a distinctive edge over standard black or blue options.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple speakers like JBL Flip 7 and JBL Go 4 with imprinted logos for promotional giveaways",
+  "productSkus": [
+    "518979",
+    "529459",
+    "529460",
+    "529462"
+  ],
+  "generatedAt": "2026-05-31T10:07:31.013502+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

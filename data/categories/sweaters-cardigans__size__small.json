@@ -1,0 +1,32 @@
+{
+  "url": "/cat/sweaters-cardigans/size/small",
+  "type": "facet",
+  "h1": "Custom Small Sweaters & Cardigans",
+  "metaTitle": "Custom Small Sweaters & Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom small sweaters and cardigans for your team. Perfect for layering with your logo. Bulk pricing available.",
+  "introHtml": "<p>Small sizes in sweaters and cardigans are often overlooked, but they are essential for fitting your entire team comfortably. Whether you need petite women's cardigans or slim-fit men's sweaters, our selection includes styles like the Ladies' Sweater Blazer and Men's Journey Overshirt. These pieces can be embroidered with your logo, making them ideal for uniform programs or corporate gifts that prioritize a polished, tailored look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom small sweaters and cardigans in various styles, including cardigans and pullovers, with embroidered logos.",
+  "productSkus": [
+    "520268",
+    "520269",
+    "523604",
+    "526198",
+    "526291",
+    "526292",
+    "527181",
+    "527182",
+    "527833",
+    "527957",
+    "528757",
+    "528758"
+  ],
+  "generatedAt": "2026-05-31T10:09:53.686165+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/tank-tops/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Tank Tops for Your Brand",
+  "metaTitle": "Custom Pink Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom pink tank tops for your next event or promotion. Perfect for teams, charities, and giveaways. Bulk pricing available.",
+  "introHtml": "<p>Pink tank tops are a popular choice for breast cancer awareness events, summer team outings, and fitness promotions. The vibrant color stands out in any crowd, and our selection includes women's and youth sizes in soft jersey and moisture-wicking fabrics. Decorate with screen printing or embroidery to create a memorable giveaway that recipients will wear again and again.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom pink tank tops with printed logos at a charity run event.",
+  "productSkus": [
+    "505073",
+    "526200",
+    "528866"
+  ],
+  "generatedAt": "2026-05-31T09:03:18.550883+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/fans/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Fans for Bulk Orders",
+  "metaTitle": "Custom Pink Fans | Perfect Imprints",
+  "metaDescription": "Order custom pink fans in bulk from Perfect Imprints. Ideal for breast cancer awareness events, parties, and giveaways.",
+  "introHtml": "<p>Pink fans add a vibrant pop of color to any event or promotion. Whether you're planning a breast cancer awareness walk, a spring festival, or a company picnic, custom pink fans stand out in a crowd. Choose from handheld paper fans like the Circle Hand Fan for easy customization with your logo, or opt for battery-powered clip-on fans for practical giveaways that keep recipients cool. Pink is a bold, memorable color that signals fun and support for important causes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink fans with printed logos, including handheld paper fans and battery-powered clip-on fans for events and promotions",
+  "productSkus": [
+    "510731",
+    "523727",
+    "529058"
+  ],
+  "generatedAt": "2026-05-31T08:41:42.909083+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

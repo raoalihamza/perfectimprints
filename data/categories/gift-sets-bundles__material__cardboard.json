@@ -1,0 +1,24 @@
+{
+  "url": "/cat/gift-sets-bundles/material/cardboard",
+  "type": "facet",
+  "h1": "Custom Cardboard Gift Sets & Bundles",
+  "metaTitle": "Custom Cardboard Gift Sets & Bundles | Perfect Imprints",
+  "metaDescription": "Order custom cardboard gift sets bundles for eco-friendly bulk gifting. Perfect for corporate events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Cardboard gift sets offer a sustainable and cost-effective option for bulk corporate gifting. Unlike plastic or metal packaging, cardboard is lightweight, recyclable, and easily customizable with full-color printing. Perfect for eco-conscious brands, these sets can include items like branded s'mores kits or custom memo pads, all housed in sturdy mailer boxes that reduce shipping costs. Whether for trade shows or employee appreciation, cardboard bundles deliver a premium unboxing experience without the environmental footprint.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cardboard gift sets bundles with branded s'mores kit and memo pad in a mailer box",
+  "productSkus": [
+    "524480",
+    "525122",
+    "525835",
+    "528506"
+  ],
+  "generatedAt": "2026-05-31T09:47:57.042040+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

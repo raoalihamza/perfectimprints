@@ -1,0 +1,19 @@
+{
+  "url": "/cat/towels/brand/pro-towels",
+  "type": "facet",
+  "h1": "Custom Pro Towels for Bulk Orders",
+  "metaTitle": "Custom Pro Towels Towels | Perfect Imprints",
+  "metaDescription": "Order custom Pro Towels towels for your business. Perfect for gyms, hotels, and promotions. Get a quote today!",
+  "introHtml": "<p>Pro Towels are known for their high absorbency and durability, making them a reliable choice for businesses that need premium-quality towels. Whether you are outfitting a fitness center, a hotel, or a promotional event, custom Pro Towels offer a professional look that lasts. Decorate them with your logo using embroidery or screen printing for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of custom Pro Towels towels with embroidered logos, ready for bulk distribution.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:11:57.307015+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

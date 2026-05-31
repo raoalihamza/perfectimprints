@@ -1,0 +1,26 @@
+{
+  "url": "/cat/food-beverage/material/steel",
+  "type": "facet",
+  "h1": "Custom Steel Food & Beverage Products",
+  "metaTitle": "Custom Steel Food Beverage | Perfect Imprints",
+  "metaDescription": "Shop custom steel food and beverage products for your next event or promotion. Perfect for bulk orders. Get a quote today!",
+  "introHtml": "<p>Steel food and beverage items offer unmatched durability and insulation, making them ideal for outdoor events, trade shows, and corporate giveaways. Unlike plastic or glass, steel withstands drops and keeps drinks cold for hours. Customize steel cups, tumblers, and mugs with your logo using laser engraving or screen printing for a premium look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom steel food beverage products like engraved steel tumblers and cups for promotional events.",
+  "productSkus": [
+    "526242",
+    "526244",
+    "526316",
+    "526940",
+    "527566",
+    "528449"
+  ],
+  "generatedAt": "2026-05-31T09:46:50.572180+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

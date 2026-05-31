@@ -1,0 +1,19 @@
+{
+  "url": "/cat/apparel/brand/rtic",
+  "type": "facet",
+  "h1": "Custom RTIC Apparel for Bulk Orders",
+  "metaTitle": "Custom RTIC Apparel | Perfect Imprints",
+  "metaDescription": "Order custom RTIC apparel for your team or event. Perfect for outdoor workers and brand visibility. Bulk pricing available.",
+  "introHtml": "<p>RTIC apparel is built for durability and comfort, making it a smart choice for teams that work outdoors or spend time on the water. From fishing guides to construction crews, RTIC's performance fabrics hold up to tough conditions while keeping your logo front and center. Choose from long-sleeve shirts, hats, and outerwear that resist fading and shrinking after repeated washes. Heat-transfer or embroidery both work well on RTIC's cotton-poly blends, giving you crisp, lasting branding that matches your company colors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom RTIC apparel including shirts and hats with embroidered logos for outdoor teams",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:32:08.055913+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

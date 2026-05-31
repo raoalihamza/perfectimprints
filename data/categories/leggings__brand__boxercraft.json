@@ -1,0 +1,25 @@
+{
+  "url": "/cat/leggings/brand/boxercraft",
+  "type": "facet",
+  "h1": "Custom Boxercraft Leggings for Bulk Orders",
+  "metaTitle": "Custom Boxercraft Leggings | Perfect Imprints",
+  "metaDescription": "Shop custom Boxercraft leggings in bulk. Perfect for teams and events. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Boxercraft leggings combine the comfort of brushed fleece with the durability needed for corporate apparel and team uniforms. Available in flannel and solid styles for men, women, and youth, these leggings are ideal for casual Fridays, promotional gifts, or employee wellness programs. Decorate with embroidery or screen printing to showcase your logo on a soft, wearable item that recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Boxercraft leggings in flannel pattern with embroidered logo, ideal for corporate gift sets",
+  "productSkus": [
+    "527831",
+    "527832",
+    "527834",
+    "527835",
+    "527836"
+  ],
+  "generatedAt": "2026-05-31T09:18:16.894364+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

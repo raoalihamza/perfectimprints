@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/whizzie",
+  "type": "facet",
+  "h1": "Custom Whizzie Products for Bulk Orders",
+  "metaTitle": "Custom Whizzie Products | Perfect Imprints",
+  "metaDescription": "Browse custom Whizzie products for your next promotion. Perfect Imprints offers bulk pricing on branded giveaways. Order today!",
+  "introHtml": "<p>Whizzie products are known for their unique spinning action and playful design, making them a favorite at trade shows and events. Whether you're looking to add a fun element to your booth or create a memorable giveaway for employees, custom Whizzie items offer high visibility and engagement. Choose from a variety of colors and imprint options to match your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Whizzie products with brand logo imprint spinning in motion",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:45:48.077263+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

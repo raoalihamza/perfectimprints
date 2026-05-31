@@ -1,0 +1,28 @@
+{
+  "url": "/cat/pullovers/brand/brooks-brothers",
+  "type": "facet",
+  "h1": "Custom Brooks Brothers Pullovers for Corporate Branding",
+  "metaTitle": "Custom Brooks Brothers Pullovers | Perfect Imprints",
+  "metaDescription": "Order premium custom Brooks Brothers pullovers with your logo. Ideal for corporate gifts and team uniforms. Perfect for bulk orders.",
+  "introHtml": "<p>Brooks Brothers pullovers bring a level of quality and tradition that sets your branded apparel apart. When you choose custom Brooks Brothers pullovers, you're investing in garments that employees and clients will wear proudly — from the office to casual outings. The Diamond Quilt 1/4-Zip and Washable Merino V-Neck Sweater are popular choices that combine classic style with modern comfort. Decorate with your logo using embroidery for a polished, professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Brooks Brothers pullovers with embroidered logo, featuring a man in a Diamond Quilt 1/4-Zip and a woman in a Washable Merino V-Neck Sweater.",
+  "productSkus": [
+    "526629",
+    "526630",
+    "526631",
+    "526632",
+    "527181",
+    "527182",
+    "529192",
+    "529193"
+  ],
+  "generatedAt": "2026-05-31T09:01:08.230608+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

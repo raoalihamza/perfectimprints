@@ -1,0 +1,25 @@
+{
+  "url": "/cat/dress-shirts/brand/columbia",
+  "type": "facet",
+  "h1": "Custom Columbia Dress Shirts for Your Team",
+  "metaTitle": "Custom Columbia Dress Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Columbia dress shirts with your logo. Perfect for uniforms, events, and team apparel. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Columbia dress shirts combine outdoor durability with a polished look, making them a favorite for teams that need to transition from field to office. Whether you choose the classic Tamiami II short-sleeve for summer events or the Kruser Ridge soft shell for cooler weather, each shirt accepts embroidery or screen printing cleanly. Bulk orders ensure consistent sizing and color across your entire group, so your logo looks sharp on every shirt.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Columbia dress shirts with embroidered logo, featuring short-sleeve and soft shell styles for team uniforms",
+  "productSkus": [
+    "523863",
+    "523865",
+    "523866",
+    "523867",
+    "523870"
+  ],
+  "generatedAt": "2026-05-31T09:43:14.430320+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

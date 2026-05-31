@@ -1,0 +1,23 @@
+{
+  "url": "/cat/koozies/activity/golf",
+  "type": "facet",
+  "h1": "Custom Golf Koozies for Bulk Orders",
+  "metaTitle": "Custom Golf Koozies | Perfect Imprints",
+  "metaDescription": "Order custom golf koozies in bulk for your tournament or event. Perfect for keeping drinks cool on the course. Get a quote today.",
+  "introHtml": "<p>Custom golf koozies are a practical giveaway for tournaments, corporate outings, and charity events. These koozies keep beverages cold while players navigate the course, and they offer ample space for your logo or event branding. Options like the Golf Can Holder or 16 Oz. Tall Boy Coolie fit standard cans and bottles. Choose from foam or neoprene materials, and add full-color imprinting for maximum visibility. Order in bulk to outfit your entire field or send players home with a branded souvenir they will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom golf koozies with branded logo, perfect for keeping drinks cold on the course",
+  "productSkus": [
+    "514448 90A",
+    "519508",
+    "525848"
+  ],
+  "generatedAt": "2026-05-31T09:53:27.742040+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

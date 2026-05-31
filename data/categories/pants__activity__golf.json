@@ -1,0 +1,19 @@
+{
+  "url": "/cat/pants/activity/golf",
+  "type": "facet",
+  "h1": "Custom Golf Pants for Bulk Orders",
+  "metaTitle": "Custom Golf Pants | Perfect Imprints",
+  "metaDescription": "Order custom golf pants for your team or event. Perfect for corporate tournaments and employee uniforms. Fast turnaround.",
+  "introHtml": "<p>Custom golf pants combine professional style with on-course performance. Unlike standard dress pants, golf pants feature moisture-wicking fabric, stretch waistbands, and UV protection for hours of comfort. Perfect for corporate tournaments, pro shops, or team uniforms. Add your logo with embroidery or screen printing for a polished look that stands out from the fairway to the clubhouse.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom golf pants with embroidered logo, featuring moisture-wicking fabric and stretch waistband for comfort on the course.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:30:09.894269+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

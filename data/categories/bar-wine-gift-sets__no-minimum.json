@@ -1,0 +1,27 @@
+{
+  "url": "/cat/bar-wine-gift-sets/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Bar Wine Gift Sets",
+  "metaTitle": "No-Minimum Custom Bar Wine Gift Sets | Perfect Imprints",
+  "metaDescription": "Order small quantities of no-minimum custom bar wine gift sets. Perfect for small teams, events, or samples. Get a quote today.",
+  "introHtml": "<p>Ordering custom bar wine gift sets typically requires bulk quantities, but our no-minimum program changes that. Whether you need just a few sets for a small team, a one-time event, or to test a design before a larger order, we accommodate orders as low as one unit. Choose from curated sets like the Speakeasy Gift Set or the Urban Peak Gift Set, each customizable with your logo. No minimum means you get the same quality and personalization without the commitment of large volumes. Request a quote for your small-batch order today.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "No-minimum custom bar wine gift sets with branded logo, including bottles and glasses, perfect for small orders",
+  "productSkus": [
+    "512693 64F",
+    "521002",
+    "523898",
+    "523924",
+    "525628",
+    "526748",
+    "527285"
+  ],
+  "generatedAt": "2026-05-31T08:24:52.290279+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

@@ -1,0 +1,56 @@
+{
+  "url": "/cat/playing-cards",
+  "type": "root",
+  "h1": "Custom Playing Cards for Branded Promotions & Events",
+  "metaTitle": "Custom Playing Cards | Perfect Imprints",
+  "metaDescription": "Order custom playing cards with your logo. Perfect for trade shows, gifts, and events. Free setup & proof. Bulk pricing available.",
+  "introHtml": "<p>Marketing directors and business owners often look for promotional items that get repeated use and stay in people's hands. Custom playing cards fit that need perfectly. A branded deck gets pulled out for game nights, travel, and breaks, giving your logo repeated exposure. Whether you're promoting a casino night, a company anniversary, or just want a memorable giveaway, playing cards offer a classic format that appeals to all ages.</p><p>Perfect Imprints offers a range of options: from standard decks to themed designs like Poker Night or Vintage Wood. You can choose custom backs, solid backs, or full-color fronts. Decks come in cases for a polished look. With minimum order quantities that work for small businesses and large corporations alike, custom playing cards are a versatile addition to your promotional mix. Add your logo, tagline, or artwork to create a deck that represents your brand.</p>",
+  "buyingGuideHtml": "<p>When ordering custom playing cards, focus on card stock quality and finish. Standard playing cards use 310 gsm paper with a smooth finish. For a more durable feel, consider premium stock. A glossy or matte coating protects against wear and makes shuffling easier. If your deck will see heavy use, like at a casino event or as a travel companion, opt for a thicker stock and a coated finish to extend its life.</p><h3>Materials and Build Quality</h3><p>Most promotional playing cards are made from paper or plastic-coated paper. All materials are typically BPA-free and non-toxic. The finish affects handling: glossy cards slide easily, while matte offers better grip. For outdoor use or humid environments, plastic cards are more resistant to bending and moisture. Always request a sample to test the feel before placing a bulk order.</p><h3>Use Cases and Buyer Personas</h3><p>Marketing directors use branded playing cards as trade show giveaways that attendees keep. HR directors include them in employee welcome kits or holiday gifts. Safety managers can print safety tips on the cards for a fun training tool. Business owners use them as customer appreciation gifts or at company-sponsored game nights. They also work well for fundraising events and conference swag.</p><h3>Customization Options</h3><p>You can customize the card backs with full-color printing, one-color logos, or repeating patterns. Fronts can include your logo or be standard faces. Decoration methods include offset printing for sharp detail and foil stamping for a premium look. For themed decks like Shiplap or Chalkboard, you can add your message on the back or inside the case. Most orders include a free digital proof.</p><h3>Quantity and Pricing</h3><p>Typical bulk orders start at 100 decks. As quantity increases, per-unit cost drops significantly. For small runs, standard printing is cost-effective. For large orders, consider custom tuck boxes or foil stamping. Wholesale pricing is available for orders over 500 decks. Lead time is usually 10-15 business days after proof approval. Rush service may be available.</p><h3>Common Mistakes to Avoid</h3><p>One common mistake is choosing a finish that doesn't suit the use case. For example, glossy cards can be slippery for frequent shuffling. Another is ordering too few decks for a large event. Always estimate distribution needs and add 10%. Also, ensure your artwork fits the card size (2.5\" x 3.5\") with proper bleed. Finally, check the MOQ for custom backs vs. standard backs to avoid surprises.</p>",
+  "buyingGuideH2": "Custom Playing Cards Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom playing cards?",
+      "a": "The minimum order quantity is typically 100 decks. For small businesses, this is a cost-effective way to get started. Larger orders of 500+ decks qualify for wholesale pricing."
+    },
+    {
+      "q": "What customization options are available for the card backs?",
+      "a": "You can print full-color artwork, a single-color logo, or a repeating pattern on the back. Options include custom backs, solid backs, and themed designs. Foil stamping is also available for a premium look."
+    },
+    {
+      "q": "How long does production and shipping take?",
+      "a": "Production takes 10-15 business days after proof approval. Shipping time depends on the method chosen. Rush production may be available for an additional fee."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, we recommend requesting a sample of the card stock and finish to ensure it meets your expectations. Contact your sales representative to arrange a sample."
+    },
+    {
+      "q": "What is the difference between standard and premium card stock?",
+      "a": "Standard stock is 310 gsm paper with a smooth finish, suitable for general use. Premium stock is thicker and more durable, often with a coated finish for better handling and longevity."
+    }
+  ],
+  "heroAltText": "Custom playing cards with a branded logo in a tuck case, displayed on a table.",
+  "productSkus": [
+    "512116",
+    "513026 90E",
+    "522393",
+    "524494",
+    "524496",
+    "525824",
+    "526561",
+    "526562",
+    "526787",
+    "526831",
+    "526832",
+    "526833",
+    "526834",
+    "526835"
+  ],
+  "generatedAt": "2026-05-30T10:57:50.376202+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "buyer",
+  "skuFilterMode": "full",
+  "rawSkuCount": 14,
+  "filteredSkuCount": 14
+}

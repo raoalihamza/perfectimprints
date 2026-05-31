@@ -1,0 +1,32 @@
+{
+  "url": "/cat/jackets/brand/travis-mathew",
+  "type": "facet",
+  "h1": "Custom Travis Mathew Jackets",
+  "metaTitle": "Custom Travis Mathew Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Travis Mathew jackets for your team. Premium quality, bulk pricing, and fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Travis Mathew jackets combine premium materials with modern design, making them a top choice for corporate teams and golf outings. Whether you need lightweight windbreakers for spring events or insulated vests for cooler months, these jackets offer consistent sizing and durable construction. Add your logo via embroidery or screen printing for a polished, professional look that stands out from standard outerwear options.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Travis Mathew jackets with embroidered logo, ideal for corporate teams and golf events.",
+  "productSkus": [
+    "527672",
+    "527673",
+    "527674",
+    "527675",
+    "527676",
+    "527677",
+    "527678",
+    "527679",
+    "527680",
+    "527681",
+    "527682",
+    "527683"
+  ],
+  "generatedAt": "2026-05-31T08:43:06.652958+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

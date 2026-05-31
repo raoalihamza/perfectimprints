@@ -1,0 +1,31 @@
+{
+  "url": "/cat/portfolios/material/vinyl",
+  "type": "facet",
+  "h1": "Custom Vinyl Portfolios for Bulk Orders",
+  "metaTitle": "Custom Vinyl Portfolios | Perfect Imprints",
+  "metaDescription": "Order custom vinyl portfolios in bulk from Perfect Imprints. Durable, professional presentation folders for your brand.",
+  "introHtml": "<p>Vinyl portfolios offer durability and a professional look for presentations, training materials, or client proposals. The material resists wear and moisture, making it ideal for frequent use by sales teams or at trade shows. Choose from underarm portfolios, binders, or folders with foil stamping or screen printing for your logo. Custom vinyl portfolios keep your documents secure while reinforcing your brand at every meeting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom vinyl portfolios with embossed logo in black and blue, stacked for bulk orders",
+  "productSkus": [
+    "503818",
+    "504548",
+    "505602",
+    "508322",
+    "510428",
+    "517004",
+    "520516",
+    "525323",
+    "526997",
+    "528530",
+    "528531"
+  ],
+  "generatedAt": "2026-05-31T08:45:40.093413+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

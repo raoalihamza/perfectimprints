@@ -1,0 +1,64 @@
+{
+  "url": "/cat/hand-sanitizer",
+  "type": "root",
+  "h1": "Custom Hand Sanitizer for Bulk Orders & Giveaways",
+  "metaTitle": "Custom Hand Sanitizer | Perfect Imprints",
+  "metaDescription": "Order custom hand sanitizer in bulk with your logo. Perfect for offices, events, and safety programs. Fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>As cold and flu season ramps up, businesses across the U.S. are stocking up on custom hand sanitizer to keep employees and customers healthy. Whether you need a small run for an upcoming trade show or a large order for year-round office use, our selection of bulk hand sanitizer offers practical solutions for every budget. From pocket-sized sprays to desk-friendly gel bottles, each option can be imprinted with your company logo or message.</p><p>Marketing directors often choose promotional hand sanitizer as a high-utility giveaway that recipients actually keep and use. HR directors and safety managers rely on branded hand sanitizer for workplace safety kits and return-to-office initiatives. Business owners appreciate the low cost per unit and the lasting impression a useful product makes. Browse our top-selling styles below, then read our buying guide for tips on choosing the right size, formula, and decoration method for your next order.</p>",
+  "buyingGuideHtml": "<h3>What to Look for in Custom Hand Sanitizer</h3><p>When ordering custom hand sanitizer, start with the formula. Most bulk hand sanitizer options use an alcohol-based gel or spray with at least 60% ethanol, meeting CDC guidelines for effective germ killing. Check whether the product is labeled antibacterial or sanitizing, and confirm that the alcohol content suits your workplace or event needs. Gel formulas are less likely to drip and work well for desk-side dispensers, while sprays offer quick coverage for on-the-go use.</p><h3>Materials and Build Quality</h3><p>Bottle material matters for durability and appearance. Common choices include PET plastic, aluminum, and squeeze pouches. PET bottles are lightweight and clear, allowing full-color labels or screen printing to stand out. Aluminum bottles offer a premium feel and are often refillable. Squeeze pouches and packets are cost-effective for high-volume giveaways but may not hold up to repeated use. For outdoor events or construction sites, consider a neoprene sleeve or leash attachment to prevent loss.</p><h3>Common Use Cases and Buyer Personas</h3><p>Marketing directors typically order promotional hand sanitizer for trade shows, conference swag bags, and customer appreciation gifts. HR directors and safety managers use branded hand sanitizer for employee onboarding kits, health and safety programs, and year-end appreciation packages. Small business owners often buy personalized hand sanitizer for retail counters, waiting areas, and as low-cost giveaways at community events. Fundraisers and schools also use logo hand sanitizer for awareness campaigns and back-to-school kits.</p><h3>Decoration and Customization Options</h3><p>The most common decoration method for custom hand sanitizer is screen printing directly onto the bottle, which works well for simple logos and text. For full-color designs, consider full-color heat transfer labels or wrap-around decals that cover the entire bottle. Laser engraving is available for metal bottles and provides a permanent, upscale look. Pad printing is suitable for small, curved surfaces like pen-style sanitizers. Always request a proof before production to ensure your artwork aligns correctly with the bottle shape.</p><h3>Quantity Guidance and MOQ Context</h3><p>Minimum order quantities for wholesale hand sanitizer vary by product. Small items like packets and 0.5 oz bottles often have MOQs of 100 to 250 units, making them ideal for testing a design or small events. Larger bottles and custom sleeve options may require 250 or more pieces per order. Unit pricing drops significantly as quantities increase, so for company-wide distribution or multi-event use, ordering 500 to 1,000 units delivers the best value. Plan ahead — production typically takes 10 to 15 business days after art approval.</p><h3>Tips to Avoid Common Buying Mistakes</h3><p>One frequent mistake is choosing a size that is too large for the intended use. A 1 oz bottle fits easily in a pocket or purse, while a 2 oz bottle is better for desk or countertop placement. Another pitfall is overlooking alcohol content — verify that the sanitizer meets your state or industry regulations. Also, ensure your artwork is high resolution and correctly sized for the bottle's printable area. Finally, order a sample of the blank product before committing to a large run to confirm the feel and functionality meet expectations.</p>",
+  "buyingGuideH2": "Custom Hand Sanitizer Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom hand sanitizer?",
+      "a": "Minimum order quantities vary by product. Small packets and 0.5 oz bottles often start at 100 to 250 units, while larger bottles or those with sleeves may require 250 or more. Contact our team for specific MOQs on the item you choose."
+    },
+    {
+      "q": "What decoration methods are available for hand sanitizer bottles?",
+      "a": "Common methods include screen printing for simple logos, full-color heat transfer labels for detailed artwork, and laser engraving for metal bottles. Pad printing is used for small curved surfaces. We'll recommend the best option based on your design and bottle shape."
+    },
+    {
+      "q": "How long does production take for custom hand sanitizer?",
+      "a": "Typical production time is 10 to 15 business days after art approval. Rush services may be available for an additional fee. Shipping time varies by location. We recommend ordering at least 3 weeks before your event or distribution date."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, we offer blank samples of most products for a nominal fee. This allows you to check the size, feel, and quality before committing to a large order. Contact your account manager to request a sample."
+    },
+    {
+      "q": "Are there different sizes of custom hand sanitizer available?",
+      "a": "Yes, we offer sizes ranging from 0.5 oz pocket sprays and packets to 2 oz bottles. Popular choices include 1 oz bottles for giveaways and 2 oz bottles for desk use. Consider the portability and usage scenario when selecting a size."
+    }
+  ],
+  "heroAltText": "Custom hand sanitizer bottles with logo imprint in various sizes for bulk orders",
+  "productSkus": [
+    "503207 91A",
+    "506849",
+    "513275",
+    "514983 90A",
+    "521036",
+    "524667",
+    "524679",
+    "524847",
+    "524905",
+    "525093",
+    "525094",
+    "525261",
+    "525262",
+    "525263",
+    "525306",
+    "525307",
+    "525316",
+    "525417",
+    "526135",
+    "526354",
+    "528503",
+    "528735"
+  ],
+  "generatedAt": "2026-05-30T10:34:44.056026+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "seasonal",
+  "skuFilterMode": "full",
+  "rawSkuCount": 22,
+  "filteredSkuCount": 22
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/personal-care-items/decoration/embroidery",
+  "type": "facet",
+  "h1": "Custom Embroidery Personal Care Items",
+  "metaTitle": "Custom Embroidery Personal Care Items | Perfect Imprints",
+  "metaDescription": "Order custom embroidery personal care items for your team. Soft, durable fabrics with your logo. Bulk pricing at PerfectImprints.com.",
+  "introHtml": "<p>Embroidery adds a durable, professional finish to personal care items like caps and hoodies. Unlike screen printing, embroidered logos maintain their crisp look through repeated washes, making them ideal for employee uniforms or promotional giveaways that see daily use. Choose thread colors that match your brand exactly, and enjoy a textured, high-end appearance that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom embroidery personal care items like caps and hoodies with stitched logos for corporate branding",
+  "productSkus": [
+    "512764",
+    "527418"
+  ],
+  "generatedAt": "2026-05-31T10:00:31.235437+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

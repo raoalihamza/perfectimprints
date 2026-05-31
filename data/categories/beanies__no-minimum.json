@@ -1,0 +1,23 @@
+{
+  "url": "/cat/beanies/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Beanies for Small Orders",
+  "metaTitle": "No-Minimum Custom Beanies | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom beanies with no bulk requirements. Perfect for small teams, events, or samples. Get low-quantity pricing at Perfect Imprints.",
+  "introHtml": "<p>No-minimum custom beanies let you order as few as you need — no bulk commitments required. Whether you're outfitting a small team, preparing event swag for a limited group, or testing a design before a larger run, our no-minimum program gives you the flexibility to order exactly what you want. Popular styles like the Carhartt Watch Cap 2.0 and Acrylic Knit Hat are available in small quantities with per-unit pricing that works for any budget.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A group of no-minimum custom beanies in various colors, including the Carhartt Watch Cap 2.0, displayed for small-order branding.",
+  "productSkus": [
+    "521927",
+    "524211",
+    "526537"
+  ],
+  "generatedAt": "2026-05-31T08:50:47.028757+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

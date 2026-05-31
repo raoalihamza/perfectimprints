@@ -1,0 +1,24 @@
+{
+  "url": "/cat/outdoor/material/foam",
+  "type": "facet",
+  "h1": "Custom Foam Outdoor Products for Branded Events",
+  "metaTitle": "Custom Foam Outdoor | Perfect Imprints",
+  "metaDescription": "Shop custom foam outdoor products with your logo. Perfect for picnics, sports, and outdoor events. Order bulk branded foam gear.",
+  "introHtml": "<p>Foam outdoor products offer a lightweight, portable, and comfortable option for branding at picnics, sporting events, and outdoor gatherings. Unlike rigid materials, foam provides cushioning and insulation, making it ideal for blankets and seating. Custom imprinting on foam surfaces ensures your logo stays visible and durable in outdoor conditions. Whether you need branded picnic blankets for a company picnic or foam stadium seats for a client event, these products combine practicality with effective promotion.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom foam outdoor picnic blanket with company logo at a park event",
+  "productSkus": [
+    "505863",
+    "510676",
+    "515638",
+    "525844"
+  ],
+  "generatedAt": "2026-05-31T09:58:47.137698+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

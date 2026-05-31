@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/taylormade",
+  "type": "facet",
+  "h1": "Custom Taylormade Products for Bulk Orders",
+  "metaTitle": "Custom Taylormade Products - Perfect Imprints",
+  "metaDescription": "Order custom Taylormade products in bulk at Perfect Imprints. Perfect for corporate gifts and events. Shop now!",
+  "introHtml": "<p>Custom Taylormade products bring the trusted quality of a leading golf brand to your corporate events and promotional campaigns. Whether you need logo-embroidered hats for a tournament giveaway or personalized golf balls for client appreciation, Taylormade’s reputation for performance adds prestige to any branded item. Choose from a range of apparel and accessories that resonate with golf enthusiasts and elevate your brand’s visibility on and off the course.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Taylormade products including branded golf hats and balls for corporate gifts",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:42.990477+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

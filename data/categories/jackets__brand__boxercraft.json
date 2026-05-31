@@ -1,0 +1,27 @@
+{
+  "url": "/cat/jackets/brand/boxercraft",
+  "type": "facet",
+  "h1": "Custom Boxercraft Jackets for Bulk Orders",
+  "metaTitle": "Custom Boxercraft Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Boxercraft jackets in bulk from Perfect Imprints. Perfect for teams, events, and corporate gifts. Get your quote today!",
+  "introHtml": "<p>Boxercraft jackets combine the comfort of soft fleece and flannel with a relaxed, collegiate style that stands out in casual work environments. Whether you are outfitting a sales team for a winter retreat or creating cozy employee rewards, these jackets offer durable construction and easy decoration via screen printing or embroidery. Choose from sherpa pullovers, flannel button-downs, and cuddle cardigans that your recipients will actually wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of custom Boxercraft jackets in various colors and styles, including sherpa pullover and flannel button-down",
+  "productSkus": [
+    "521535",
+    "527831",
+    "527832",
+    "527833",
+    "527834",
+    "527835",
+    "527836"
+  ],
+  "generatedAt": "2026-05-31T08:56:02.779184+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

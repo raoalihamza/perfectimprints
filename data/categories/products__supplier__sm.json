@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/sm",
+  "type": "facet",
+  "h1": "Custom SM Products for Bulk Orders",
+  "metaTitle": "Custom SM Products - Perfect Imprints",
+  "metaDescription": "Order custom SM products for your brand. Perfect Imprints offers bulk pricing and fast turnaround on personalized items.",
+  "introHtml": "<p>When you choose custom SM products, you're selecting items sourced from a supplier known for reliable quality and consistent decoration results. Whether you need promotional giveaways for a trade show or employee recognition awards, SM's catalog offers versatile options that accept screen printing, embroidery, or full-color transfers. Bulk buyers appreciate the streamlined ordering process and predictable lead times that come with sticking to a single trusted supplier.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "custom SM products including branded pens and notebooks arranged on a desk",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:27:17.712557+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

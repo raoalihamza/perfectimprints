@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/color/red",
+  "type": "facet",
+  "h1": "Custom Red Products for Bulk Orders",
+  "metaTitle": "Custom Red Products | Perfect Imprints",
+  "metaDescription": "Browse our selection of custom red products for your next promotion. Perfect Imprints offers bulk pricing and fast turnaround.",
+  "introHtml": "<p>Red is a powerful color that commands attention and conveys energy, making it a top choice for promotional products that need to stand out. Whether you need custom red pens, stress relievers, or drinkware, selecting a consistent red across your items reinforces brand recognition. For safety managers, red products like first aid kits or safety whistles align with hazard signaling. Bulk ordering ensures your entire team or event audience gets the same vibrant shade, from corporate gifts to trade show giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom red products including pens, stress balls, and water bottles for promotional use",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:49.052749+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

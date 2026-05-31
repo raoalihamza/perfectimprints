@@ -1,0 +1,25 @@
+{
+  "url": "/cat/products/brand/out-of-the-ocean",
+  "type": "facet",
+  "h1": "Custom Out of the Ocean Products",
+  "metaTitle": "Custom Out of the Ocean Products | Perfect Imprints",
+  "metaDescription": "Order custom Out of the Ocean products made from recycled ocean plastics. Perfect for eco-conscious branding. Get a quote today!",
+  "introHtml": "<p>Out of the Ocean products are made from recycled ocean-bound plastics, turning pollution into functional promotional items. These reusable totes and shoppers are ideal for brands committed to sustainability. Each piece showcases your logo while supporting ocean cleanup efforts. Choose from styles like the Pocket Tote or XL Shopper with Click N' Stay closure for a practical, eco-friendly giveaway that resonates with environmentally aware audiences.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Out of the Ocean reusable tote bag made from recycled ocean plastics with company logo",
+  "productSkus": [
+    "526563",
+    "526564",
+    "526565",
+    "527716",
+    "527815"
+  ],
+  "generatedAt": "2026-05-31T10:03:35.719892+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

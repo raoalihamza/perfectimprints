@@ -1,0 +1,21 @@
+{
+  "url": "/cat/screen-cleaners/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Screen Cleaners",
+  "metaTitle": "No-Minimum Custom Screen Cleaners | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom screen cleaners for small teams or events. Low quantities available. Get branded wipes from Perfect Imprints today.",
+  "introHtml": "<p>No-minimum custom screen cleaners let you order exactly what you need—whether it's for a small team, a single event, or a sample run. Unlike bulk orders that require hundreds of units, this option gives you flexibility with low MOQs. Ideal for small businesses, startups, or departments needing branded wipes like the Aurora® Eco-Nation. You still get quality imprinting and competitive per-unit pricing, just without the inventory commitment.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "No-minimum custom screen cleaners in a branded wipe pack, perfect for small orders and team giveaways.",
+  "productSkus": [
+    "526011"
+  ],
+  "generatedAt": "2026-05-31T08:25:32.843725+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

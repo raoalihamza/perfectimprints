@@ -1,0 +1,23 @@
+{
+  "url": "/cat/koozies/material/copper",
+  "type": "facet",
+  "h1": "Custom Copper Koozies for Bulk Orders",
+  "metaTitle": "Custom Copper Koozies | Perfect Imprints",
+  "metaDescription": "Order custom copper koozies in bulk. Perfect for branding with laser engraving. Fast turnaround. Shop at Perfect Imprints.",
+  "introHtml": "<p>Copper koozies offer a distinctive metallic look that stands out from standard neoprene or foam options. The conductive copper material provides excellent insulation while giving your logo a premium, industrial aesthetic. Ideal for breweries, outdoor events, or corporate gifts, these koozies can be laser engraved for a permanent, high-contrast mark. The 2-In-1 Full Laser Copper Insulated Beverage Holder also doubles as a tumbler, adding extra utility for recipients.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom copper koozies with laser engraved logo, metallic finish, insulated beverage holder for cans and bottles",
+  "productSkus": [
+    "520377",
+    "522654",
+    "526709"
+  ],
+  "generatedAt": "2026-05-31T09:17:32.110870+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

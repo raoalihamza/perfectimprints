@@ -1,0 +1,19 @@
+{
+  "url": "/cat/bistro-mugs/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Bistro Mugs for Bulk Orders",
+  "metaTitle": "Custom Set Bistro Mugs | Perfect Imprints",
+  "metaDescription": "Order custom set bistro mugs in bulk to create coordinated drinkware sets for your team or events. Perfect for branding.",
+  "introHtml": "<p>Ordering custom bistro mugs as a set ensures every mug in your order shares the same design, color, and logo placement for a polished, uniform look. This is especially important when branding for corporate gift suites, trade show giveaways, or employee welcome kits where consistency matters. Sets simplify inventory management and gifting logistics, letting you present a cohesive brand message without mixing individual mug styles or sizes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A row of custom set bistro mugs with company logos in matching colors and coordinated designs.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:40:05.513645+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/mechanical-pencils/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Mechanical Pencils",
+  "metaTitle": "Custom Set Mechanical Pencils | Perfect Imprints",
+  "metaDescription": "Order branded custom set mechanical pencils in bulk. Perfect for giveaways and corporate gifts. Get a quote at PerfectImprints.com.",
+  "introHtml": "<p>Ordering mechanical pencils in sets gives you a ready-to-distribute branded package that recipients can use immediately. Sets like the Build-It™ Mechanical Pencil Set combine multiple pencils in one pack, making them ideal for trade shows, back-to-school promotions, or employee welcome kits. The set format increases perceived value while keeping per-unit costs low for bulk buyers. Custom imprinting on each pencil or the packaging ensures your logo reaches more people per giveaway.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set mechanical pencils in bulk packaging with company logo imprint, ideal for corporate giveaways.",
+  "productSkus": [
+    "514646"
+  ],
+  "generatedAt": "2026-05-31T09:56:06.445124+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/bar-wine-gift-sets/color/red",
+  "type": "facet",
+  "h1": "Custom Red Bar & Wine Gift Sets",
+  "metaTitle": "Custom Red Bar & Wine Gift Sets | Perfect Imprints",
+  "metaDescription": "Order custom red bar and wine gift sets in bulk. Perfect for corporate gifting. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Red bar and wine gift sets make a bold, festive impression that stands out in any corporate gifting program. The rich color conveys warmth and celebration, ideal for holiday gifts, client appreciation, or employee rewards. Sets like the Hot-N-Cold Gift Set or the Sip and Step Gift Set can be decorated with your logo via screen printing or etching, creating a cohesive branded experience. Choose red to add energy and sophistication to your next promotion.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red bar wine gift set with branded wine glasses and accessories in a gift box",
+  "productSkus": [
+    "512596",
+    "526748",
+    "527285"
+  ],
+  "generatedAt": "2026-05-31T09:35:21.371219+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

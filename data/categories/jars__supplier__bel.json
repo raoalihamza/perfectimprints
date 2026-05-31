@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jars/supplier/bel",
+  "type": "facet",
+  "h1": "Custom Bel Jars for Bulk Orders",
+  "metaTitle": "Custom Bel Jars | Perfect Imprints",
+  "metaDescription": "Order custom Bel jars in bulk for your next event. Perfect for gifts and giveaways. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Bel jars are known for their durable glass construction and classic shape, making them a popular choice for promotional gifts and corporate giveaways. Whether you're outfitting a trade show booth or assembling employee appreciation kits, custom Bel jars offer a versatile canvas for screen printing or etching your logo. From the 22 oz Fiesta Mason Jar Tumbler to the Arnold Palmer Kit in a Mason Jar, these jars are ideal for drinks, snacks, or DIY gift sets.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Bel jars with engraved logos displayed on a table, including a mason jar tumbler and a gift kit.",
+  "productSkus": [
+    "506911",
+    "525119"
+  ],
+  "generatedAt": "2026-05-31T09:16:44.368019+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

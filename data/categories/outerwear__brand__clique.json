@@ -1,0 +1,22 @@
+{
+  "url": "/cat/outerwear/brand/clique",
+  "type": "facet",
+  "h1": "Custom Clique Outerwear for Bulk Orders",
+  "metaTitle": "Custom Clique Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom Clique outerwear in bulk. Perfect for teams and events. Get your quote today at Perfect Imprints.",
+  "introHtml": "<p>Clique outerwear offers a modern, tailored fit that stands out from standard bulk apparel. The Summit ½ Zip styles for men and women are made with moisture-wicking fabric, making them ideal for outdoor events, corporate teams, or safety uniforms. Choose Clique for consistent sizing and a professional look that holds up to repeated wear and embroidery.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Clique outerwear including men's and women's Summit ½ Zip fleeces in various colors",
+  "productSkus": [
+    "509568",
+    "509569"
+  ],
+  "generatedAt": "2026-05-31T08:44:51.554477+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

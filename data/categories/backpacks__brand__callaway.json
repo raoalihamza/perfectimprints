@@ -1,0 +1,21 @@
+{
+  "url": "/cat/backpacks/brand/callaway",
+  "type": "facet",
+  "h1": "Custom Callaway Backpacks for Bulk Orders",
+  "metaTitle": "Custom Callaway Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Callaway backpacks in bulk. Perfect for golf events or corporate giveaways. Get a quote today at PerfectImprints.com.",
+  "introHtml": "<p>Custom Callaway backpacks combine the trusted quality of a leading golf brand with practical everyday use. Whether you are outfitting a corporate golf tournament or rewarding employees with premium gear, these backpacks offer durable construction, multiple compartments, and a clean canvas for your logo. Choose from various colors and sizes, with decoration options like embroidery or screen printing to match your brand. They are a step above generic bags, giving your recipients a recognizable name they already respect.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Callaway backpack with embroidered logo on front pocket, perfect for corporate gifts",
+  "productSkus": [
+    "529257"
+  ],
+  "generatedAt": "2026-05-31T09:33:32.894331+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,31 @@
+{
+  "url": "/cat/coffee-mugs/brand/camelbak",
+  "type": "facet",
+  "h1": "Custom CamelBak Coffee Mugs",
+  "metaTitle": "Custom CamelBak Coffee Mugs | Perfect Imprints",
+  "metaDescription": "Order branded CamelBak coffee mugs in bulk. Durable, double-wall insulation keeps drinks hot. Perfect for corporate gifts.",
+  "introHtml": "<p>CamelBak is known for rugged hydration gear, and their coffee mugs bring that same durability to your daily brew. Double-wall vacuum insulation keeps coffee hot for hours without the exterior getting too warm to hold. Whether you are outfitting a safety team with spill-resistant tumblers or gifting clients a premium 20 oz tumbler with your logo, these mugs hold up to job site conditions and long commutes. Choose from leakproof lids or magnetic cap designs for a polished, functional brand impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom CamelBak coffee mugs with double-wall insulation and a branded logo, perfect for corporate gifts",
+  "productSkus": [
+    "525013",
+    "525506",
+    "525680",
+    "525681",
+    "526211",
+    "526695",
+    "527057",
+    "527058",
+    "527966",
+    "528153",
+    "528684"
+  ],
+  "generatedAt": "2026-05-31T08:26:17.963537+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

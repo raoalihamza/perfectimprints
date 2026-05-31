@@ -1,0 +1,23 @@
+{
+  "url": "/cat/home-gifts/color/multi-color",
+  "type": "facet",
+  "h1": "Custom Multi Color Home Gifts",
+  "metaTitle": "Custom Multi Color Home Gifts | Perfect Imprints",
+  "metaDescription": "Shop custom multi color home gifts for your brand. Perfect for client appreciation or employee gifts. Order bulk today!",
+  "introHtml": "<p>Multi color home gifts bring versatility and visual appeal to any corporate gifting program. These vibrant items stand out in unboxing experiences and allow you to showcase your brand logo across a spectrum of hues. From the 16 oz Apache Mug to the 2027 Multi-Color Desk Pad, each product adds a cheerful touch to kitchens, desks, or living spaces. Bulk ordering ensures consistent quality for client appreciation or employee rewards.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom multi color home gifts including a mug and desk pad with colorful designs for branding.",
+  "productSkus": [
+    "511058 90A",
+    "518859",
+    "521879"
+  ],
+  "generatedAt": "2026-05-31T08:55:42.547953+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

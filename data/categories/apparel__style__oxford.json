@@ -1,0 +1,25 @@
+{
+  "url": "/cat/apparel/style/oxford",
+  "type": "facet",
+  "h1": "Custom Oxford Apparel for Corporate Uniforms",
+  "metaTitle": "Custom Oxford Apparel | Perfect Imprints",
+  "metaDescription": "Order custom oxford apparel for your team. Durable, professional oxford shirts perfect for uniforms or corporate events. Get a quote today!",
+  "introHtml": "<p>Oxford apparel offers a timeless, professional look that stands up to daily wear in corporate environments. Whether you need branded shirts for your sales team or uniform shirts for your staff, oxford cloth provides a crisp, durable finish that holds its shape wash after wash. With options like the Port Authority Superpro Oxford Shirt and Brooks Brothers Casual Oxford Cloth Shirt, you can choose from men's and ladies' styles in various colors. Add your logo with embroidery for a polished, long-lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom oxford apparel with embroidered logo on a blue oxford shirt, perfect for corporate uniforms",
+  "productSkus": [
+    "513879",
+    "513880",
+    "519684",
+    "519685",
+    "526629"
+  ],
+  "generatedAt": "2026-05-31T08:25:52.423011+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

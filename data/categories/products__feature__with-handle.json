@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/with-handle",
+  "type": "facet",
+  "h1": "Custom Products with Handle for Bulk Orders",
+  "metaTitle": "Custom Products with Handle | Perfect Imprints",
+  "metaDescription": "Order custom with handle products in bulk. Ideal for giveaways. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Products with handles offer built-in convenience for your recipients, making them easy to carry and use on the go. Whether you choose custom tote bags, insulated drinkware with handles, or handled gift sets, this feature adds practicality that encourages daily use. For trade shows or employee gifts, a handled item ensures your logo stays visible. Decorate with screen printing or debossing for a professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom with handle products including tote bags and mugs with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:07.765081+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

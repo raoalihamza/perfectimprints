@@ -1,0 +1,68 @@
+{
+  "url": "/cat/plastic-hand-fans",
+  "type": "root",
+  "h1": "Custom Plastic Hand Fans for Events & Promotions",
+  "metaTitle": "Custom Plastic Hand Fans | Perfect Imprints",
+  "metaDescription": "Order custom plastic hand fans for your next event. Perfect for outdoor promotions, trade shows, and heat relief. Bulk pricing available at Perfect",
+  "introHtml": "<p>Custom plastic hand fans are made from durable polypropylene or polystyrene, offering a rigid yet lightweight feel that holds up to repeated use. The smooth surface accepts full-color screen printing, pad printing, and heat transfers, allowing your logo or message to stand out with crisp detail. Many fans feature a rounded handle for comfortable grip, and some include a wrist strap for easy carrying. These fans are designed to provide instant relief at outdoor events, parades, fairs, and any occasion where heat and sun are factors.</p><p>Marketing directors use custom plastic hand fans to keep attendees cool while reinforcing brand visibility. HR directors order them for employee appreciation days and summer picnics. Safety managers distribute them at outdoor safety briefings or heat-stress awareness campaigns. Small business owners hand them out at local festivals and sidewalk sales. With low minimum order quantities and fast turnaround, custom plastic hand fans are a practical, low-cost promotional item that recipients actually use and keep.</p>",
+  "buyingGuideHtml": "<p>When ordering custom plastic hand fans, start with material thickness. Fans made from 0.5mm to 1.0mm polypropylene resist bending and cracking better than thinner stock, especially in high-heat conditions. Thicker fans also hold up to repeated opening and closing without warping. Check that the fan has a smooth, non-porous surface for the best decoration adhesion. Avoid fans with textured finishes, as they can cause ink to bleed or peel over time.</p><h3>Decoration Options</h3><p>Screen printing works well for simple one- or two-color logos on plastic hand fans. For full-color artwork with gradients or photos, use a full-color heat transfer. Pad printing is another option for small, detailed designs on the handle or edge. Make sure your artwork is high-resolution (300 dpi minimum) and that colors are set to CMYK. Some suppliers offer printing on both sides, which doubles your branding space but may increase the per-unit cost.</p><p>Common use cases include outdoor corporate events, trade shows, parades, county fairs, and sports stadium giveaways. Marketing directors often pair custom plastic hand fans with other summer swag like custom water bottles or stadium cups. HR directors use them for employee appreciation days and company picnics. Safety managers distribute them at heat-stress awareness events or outdoor safety training sessions. Business owners hand them out at local festivals and sidewalk sales to draw foot traffic.</p><p>Quantity guidance: most suppliers require a minimum order of 100 to 250 units for custom plastic hand fans. Per-unit pricing drops significantly at 500, 1,000, and 5,000 pieces. For a typical bulk run, 500 to 1,000 fans is a sweet spot that balances unit cost with distribution needs. If you need a small quantity for a local event, ask about low-MOQ options or stock fan shapes that can be printed quickly.</p><p>Common buying mistakes include ordering fans with a glossy finish when you plan to screen print (ink may not adhere well) and forgetting to specify a wrist strap or hole for a lanyard. Also, verify the fan size: a 6-inch fan is compact for handbags, while an 8-inch fan provides more surface area for branding. Always request a pre-production proof to confirm color placement and alignment before the full run.</p>",
+  "buyingGuideH2": "Custom Plastic Hand Fans Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order for custom plastic hand fans?",
+      "a": "Minimum order quantities typically range from 100 to 250 units depending on the supplier. Some offer lower MOQs for stock fan shapes. Always confirm with your account manager before placing an order."
+    },
+    {
+      "q": "What decoration methods work best on plastic hand fans?",
+      "a": "Screen printing is best for simple 1-2 color logos. Full-color heat transfers work well for complex artwork. Pad printing can be used for small details on the handle. Avoid foil stamping as it may not adhere to plastic."
+    },
+    {
+      "q": "How long does production take for custom plastic hand fans?",
+      "a": "Standard production time is 10-15 business days after artwork approval. Rush orders may be available for an additional fee. Shipping time depends on the carrier and destination."
+    },
+    {
+      "q": "Can I get a sample before ordering in bulk?",
+      "a": "Yes, most suppliers offer pre-production samples for a fee. Some may provide a stock sample for free. Requesting a sample ensures you are satisfied with the material, size, and print quality."
+    },
+    {
+      "q": "What sizes are available for custom plastic hand fans?",
+      "a": "Common sizes include 6-inch, 7-inch, and 8-inch diameters. The 6-inch size is compact and portable, while the 8-inch offers more branding area. Custom sizes may be available for larger orders."
+    }
+  ],
+  "heroAltText": "Custom plastic hand fans with full-color logo printing for outdoor events and promotions",
+  "productSkus": [
+    "501469",
+    "506677",
+    "509467",
+    "510067",
+    "510330",
+    "510559",
+    "510905",
+    "512015",
+    "512516",
+    "513774",
+    "515828",
+    "516165",
+    "521593",
+    "521707",
+    "521843",
+    "521959",
+    "522370",
+    "523237",
+    "524321",
+    "524373",
+    "525293",
+    "525423",
+    "525743",
+    "525971",
+    "527569",
+    "529294"
+  ],
+  "generatedAt": "2026-05-30T11:54:40.265865+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "material_quality",
+  "skuFilterMode": "full",
+  "rawSkuCount": 26,
+  "filteredSkuCount": 26
+}

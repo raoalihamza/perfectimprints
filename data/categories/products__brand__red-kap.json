@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/red-kap",
+  "type": "facet",
+  "h1": "Custom Red Kap Products for Your Team",
+  "metaTitle": "Custom Red Kap Products | Perfect Imprints",
+  "metaDescription": "Order custom Red Kap products for your team. Shop durable workwear, uniforms, and more from Perfect Imprints.",
+  "introHtml": "<p>Red Kap is a trusted name in industrial workwear, offering tough, comfortable apparel built for demanding jobs. Whether you need embroidered work shirts for a safety team or branded coveralls for a maintenance crew, custom Red Kap products combine durability with professional appearance. Choose from heavy-duty cotton blends, wrinkle-resistant fabrics, and multiple color options to match your company identity. Perfect for uniform programs, safety incentives, or trade show giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Red Kap products including embroidered work shirts and coveralls for industrial teams",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:30:31.043157+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

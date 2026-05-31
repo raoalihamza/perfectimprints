@@ -1,0 +1,27 @@
+{
+  "url": "/cat/drinkware/material/bamboo",
+  "type": "facet",
+  "h1": "Custom Bamboo Drinkware for Bulk Orders",
+  "metaTitle": "Custom Bamboo Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom bamboo drinkware for your brand. Eco-friendly mugs and coasters perfect for corporate gifts. Get your quote today!",
+  "introHtml": "<p>Bamboo drinkware offers a natural, eco-friendly alternative to plastic or metal options, making it a standout choice for brands committed to sustainability. The warm wood grain finish pairs well with etched or engraved logos, as seen on items like the 16 oz Earth Travel Mug. Ideal for corporate gifts or trade show giveaways, bamboo drinkware communicates environmental responsibility while providing durable, everyday use. Choose from mugs, coasters, and wine accessories to create a cohesive branded set.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom bamboo drinkware including a travel mug and coasters with engraved logos",
+  "productSkus": [
+    "520382",
+    "521742",
+    "524463",
+    "526757",
+    "526758",
+    "527338",
+    "527429"
+  ],
+  "generatedAt": "2026-05-31T09:12:15.842661+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

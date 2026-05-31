@@ -1,0 +1,26 @@
+{
+  "url": "/cat/pens/eco-friendly/renewable",
+  "type": "facet",
+  "h1": "Custom Renewable Pens for Eco-Friendly Branding",
+  "metaTitle": "Custom Renewable Pens - Perfect Imprints",
+  "metaDescription": "Order custom renewable pens from Perfect Imprints. Eco-friendly promotional pens made from sustainable materials. Bulk pricing available.",
+  "introHtml": "<p>Renewable pens are a smart choice for businesses that want to reduce their environmental footprint without sacrificing quality. Made from materials like bamboo, recycled paper, or plant-based plastics, these pens offer a natural look and feel that stands out from standard plastic giveaways. Whether you're outfitting a green team or promoting a sustainability initiative, custom renewable pens show your commitment to the planet. Options like the Javalina® Eco or Luxwood Comfort Pen pair well with eco-conscious messaging.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom renewable pens made from bamboo and recycled materials on a wooden desk",
+  "productSkus": [
+    "508125",
+    "509216",
+    "524085",
+    "525187",
+    "527959",
+    "529282"
+  ],
+  "generatedAt": "2026-05-31T09:22:09.695548+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

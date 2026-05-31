@@ -1,0 +1,32 @@
+{
+  "url": "/cat/lunch-bags-boxes-totes/feature/insulated",
+  "type": "facet",
+  "h1": "Custom Insulated Lunch Bags, Boxes & Totes",
+  "metaTitle": "Custom Insulated Lunch Bags & Totes | Perfect Imprints",
+  "metaDescription": "Keep meals fresh with custom insulated lunch bags and totes from Perfect Imprints. Perfect for corporate gifts and employee appreciation.",
+  "introHtml": "<p>Custom insulated lunch bags, boxes, and totes keep meals fresh and drinks cold for hours, making them ideal for employees who pack their lunch or crews working on-site. Unlike non-insulated options, these bags maintain safe food temperatures from morning break to afternoon shift. Choose from soft-sided neoprene totes like the Klutch Suede-Ish Neoprene Lunch Bag or hard-shell coolers such as the Igloo Day Chiller. Imprint your logo using screen printing or embroidery for lasting brand visibility every day.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom insulated lunch bags and totes with company logo, including neoprene lunch bags and hard-shell coolers",
+  "productSkus": [
+    "509458",
+    "520499",
+    "520523",
+    "520706",
+    "521383",
+    "521391",
+    "525839",
+    "525921",
+    "528723",
+    "529126",
+    "529236",
+    "529241"
+  ],
+  "generatedAt": "2026-05-31T08:57:25.871578+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

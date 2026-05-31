@@ -1,0 +1,24 @@
+{
+  "url": "/cat/office/material/acrylic",
+  "type": "facet",
+  "h1": "Custom Acrylic Office Products for Bulk Orders",
+  "metaTitle": "Custom Acrylic Office Products | Perfect Imprints",
+  "metaDescription": "Order custom acrylic office products in bulk from Perfect Imprints. Ideal for awards, desk accessories, and branded gifts.",
+  "introHtml": "<p>Acrylic office products offer a sleek, modern look that stands out on any desk. Unlike standard plastic or metal, acrylic provides a crystal-clear finish that pairs well with corporate branding. From custom awards like the Acrylic Crescent Award to functional items like the Clear Acrylic 15 Watt Wireless Charger, these pieces convey professionalism and attention to detail. They are a popular choice for recognition programs, trade show giveaways, and executive gifts. Acrylic can be laser engraved or screen printed with your logo for a polished, permanent mark.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom acrylic office products including clear acrylic awards and desk accessories with engraved logos",
+  "productSkus": [
+    "521592",
+    "521719",
+    "521805",
+    "527162"
+  ],
+  "generatedAt": "2026-05-31T08:58:46.685148+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

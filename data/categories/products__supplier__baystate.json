@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/baystate",
+  "type": "facet",
+  "h1": "Custom Baystate Products for Bulk Orders",
+  "metaTitle": "Custom Baystate Products | Perfect Imprints",
+  "metaDescription": "Shop custom Baystate products for bulk orders at Perfect Imprints. Get branded items that your team will use every day.",
+  "introHtml": "<p>Baystate products are known for their durable construction and practical designs, making them a reliable choice for corporate giveaways, safety incentives, and employee recognition programs. Whether you need custom drinkware, bags, or desk accessories, Baystate’s consistent quality ensures your logo looks great and lasts. Bulk orders of Baystate-branded items deliver value without sacrificing professionalism.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Baystate products including drinkware and bags with company logo for corporate gifts and promotions.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:22.387809+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

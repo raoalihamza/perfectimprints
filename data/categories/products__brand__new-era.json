@@ -1,0 +1,28 @@
+{
+  "url": "/cat/products/brand/new-era",
+  "type": "facet",
+  "h1": "Custom New Era Products for Bulk Orders",
+  "metaTitle": "Custom New Era Products | Perfect Imprints",
+  "metaDescription": "Custom New Era products for your brand. Perfect for teams, events, and promotional giveaways. Order bulk from Perfect Imprints today.",
+  "introHtml": "<p>New Era is the go-to brand for authentic headwear and apparel that resonates with sports fans and streetwear enthusiasts. When you choose custom New Era products, you get the same quality worn on the field and in the culture. From flat bill snapbacks to fleece hoodies, decorating these pieces with your logo or design creates merchandise that people actually want to wear. Perfect for team uniforms, retail shops, or event giveaways that leave a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom New Era products including caps, polos, and hoodies with embroidered logos.",
+  "productSkus": [
+    "527747",
+    "529309",
+    "529310",
+    "529311",
+    "529312",
+    "529313",
+    "529314",
+    "529315"
+  ],
+  "generatedAt": "2026-05-31T08:24:24.652754+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

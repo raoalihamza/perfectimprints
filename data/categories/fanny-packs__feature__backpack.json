@@ -1,0 +1,22 @@
+{
+  "url": "/cat/fanny-packs/feature/backpack",
+  "type": "facet",
+  "h1": "Custom Backpack Fanny Packs",
+  "metaTitle": "Custom Backpack Fanny Packs | Perfect Imprints",
+  "metaDescription": "Order custom backpack fanny packs with your logo. Bulk pricing, fast turnaround. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Backpack fanny packs combine the compact convenience of a waist pack with the carrying capacity of a small daypack. Ideal for trade show staff who need hands-free access to essentials while carrying a tablet or light layer, these hybrid packs keep your team organized and your brand visible. Choose clear styles for venues with bag policies or opaque fabrics for a more rugged look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom backpack fanny pack with logo, worn at waist, showing multiple zippered compartments and padded back panel.",
+  "productSkus": [
+    "523655",
+    "524162"
+  ],
+  "generatedAt": "2026-05-31T09:13:06.781519+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

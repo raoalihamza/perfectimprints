@@ -1,0 +1,22 @@
+{
+  "url": "/cat/products/brand/boompods",
+  "type": "facet",
+  "h1": "Custom Boompods Products for Bulk Orders",
+  "metaTitle": "Custom Boompods Products | Perfect Imprints",
+  "metaDescription": "Order custom Boompods products in bulk. Perfect for giveaways and events. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Boompods specializes in innovative audio accessories like wireless earbuds and headphones, making them ideal for tech-forward corporate gifts and event giveaways. Their compact designs, such as the Boomtag and TWS Sleep DreamBuds, allow for custom logo imprinting on a range of colors. Whether you need branded audio gear for a trade show or employee recognition, Boompods products offer a modern, functional option that recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Boompods products including wireless earbuds and headphones with logo imprinting for corporate giveaways",
+  "productSkus": [
+    "527893",
+    "529036"
+  ],
+  "generatedAt": "2026-05-31T10:03:25.274984+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

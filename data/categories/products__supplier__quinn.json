@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/quinn",
+  "type": "facet",
+  "h1": "Custom Quinn Products for Bulk Orders",
+  "metaTitle": "Custom Quinn Products | Perfect Imprints",
+  "metaDescription": "Order custom Quinn products in bulk from Perfect Imprints. Ideal for corporate gifts and branded merchandise. Get a quote today.",
+  "introHtml": "<p>Quinn is a trusted supplier known for durable, stylish promotional items that stand up to daily use. Whether you need custom drinkware, bags, or tech accessories, Quinn products offer consistent quality and on-trend designs that appeal to employees and clients alike. Bulk orders from Quinn ensure your logo looks sharp on every piece, making them a smart choice for corporate events, trade shows, and employee appreciation programs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom Quinn products including drinkware and bags with company logos for corporate branding.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:36:55.007050+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

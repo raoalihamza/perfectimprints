@@ -1,0 +1,23 @@
+{
+  "url": "/cat/water-bottles/color/safety",
+  "type": "facet",
+  "h1": "Custom Safety Water Bottles for Bulk Orders",
+  "metaTitle": "Custom Safety Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom safety water bottles in bulk for your team. Perfect for safety managers and HR directors. Shop at Perfect Imprints.",
+  "introHtml": "<p>Safety-colored water bottles — like high-visibility orange, lime green, or yellow — make it easy for crew members to spot their hydration on job sites or in warehouses. These 20 oz and 28 oz plastic bottles hold up to daily use and accept full-color imprinting for your company logo or safety slogan. Whether you're outfitting a construction crew or a manufacturing floor, these bottles help reinforce your safety culture while keeping everyone hydrated.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom safety water bottles in bright orange and green with company logos, ideal for construction sites and safety teams.",
+  "productSkus": [
+    "519778",
+    "520369",
+    "520936"
+  ],
+  "generatedAt": "2026-05-31T10:13:54.380123+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

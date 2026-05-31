@@ -1,0 +1,24 @@
+{
+  "url": "/cat/blankets/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Blankets for Promotional Giveaways",
+  "metaTitle": "Custom Orange Blankets | Perfect Imprints",
+  "metaDescription": "Order custom orange blankets for your next event or promotion. Perfect for outdoor giveaways and corporate gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Orange blankets stand out in a crowd, making them a smart choice for outdoor events, tailgates, and safety giveaways. Whether you choose a roll-up picnic blanket for summer festivals or a fleece-lined cooler bag set for winter promotions, the bold color ensures your logo gets noticed. Decorate with screen printing or full-color embroidery for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange blankets with embroidered logo, perfect for outdoor promotional giveaways and corporate gifts",
+  "productSkus": [
+    "507150",
+    "514085",
+    "526239",
+    "526444"
+  ],
+  "generatedAt": "2026-05-31T09:08:48.488494+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

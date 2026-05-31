@@ -1,0 +1,30 @@
+{
+  "url": "/cat/visors/brand/richardson",
+  "type": "facet",
+  "h1": "Custom Richardson Visors for Bulk Orders",
+  "metaTitle": "Custom Richardson Visors | Perfect Imprints",
+  "metaDescription": "Order custom Richardson visors for your team or event. Bulk pricing, fast turnaround. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Richardson visors combine the brand's signature structured fit with breathable mesh panels, making them a go-to for outdoor events and sports teams. The pre-curved visor and moisture-wicking sweatband keep wearers comfortable during long days in the sun. Customize with your logo using embroidery or screen printing for a crisp, professional look that holds up wash after wash.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Richardson visors with embroidered logo on front panel, perfect for outdoor events and team uniforms.",
+  "productSkus": [
+    "522099",
+    "522624",
+    "522625",
+    "522627",
+    "526934",
+    "526935",
+    "529238",
+    "529239",
+    "529240",
+    "529316"
+  ],
+  "generatedAt": "2026-05-31T10:13:32.421220+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/health/feature/hand-wash-recommended",
+  "type": "facet",
+  "h1": "Custom Hand Wash Recommended Health Products",
+  "metaTitle": "Custom Hand Wash Recommended Health | Perfect Imprints",
+  "metaDescription": "Order custom hand wash recommended health products for your team. Easy-care items that stay clean. Shop at Perfect Imprints.",
+  "introHtml": "<p>Hand wash recommended health products are ideal for items with special finishes or materials that need gentle care to maintain their look. Ceramic mugs, translucent bottles, and tumblers with iridescent or metallic coatings stay vibrant longer when washed by hand. For safety managers and HR directors, these products promote hygiene while preserving branding. Choose custom drinkware that keeps your logo looking fresh—no dishwasher fading.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hand wash recommended health products including ceramic mugs and stainless steel tumblers with personalized logos",
+  "productSkus": [
+    "521206",
+    "521330",
+    "522222",
+    "523425",
+    "527135",
+    "527501"
+  ],
+  "generatedAt": "2026-05-31T08:42:50.298600+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

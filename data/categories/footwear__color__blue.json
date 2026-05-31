@@ -1,0 +1,27 @@
+{
+  "url": "/cat/footwear/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Footwear for Bulk Orders",
+  "metaTitle": "Custom Blue Footwear | Perfect Imprints",
+  "metaDescription": "Order custom blue footwear for teams and events. Perfect Imprints offers bulk pricing on branded shoes and sandals.",
+  "introHtml": "<p>Blue footwear stands out in a crowd, making it a smart choice for corporate teams, event staff, or promotional giveaways. Whether you need custom flip-flops for a beachside retreat or branded shoe bags for a trade show, blue offers versatility that pairs well with most logos. Decorate with screen printing or embroidery for a polished look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue footwear including flip-flops and shoe bags with company logos",
+  "productSkus": [
+    "501556",
+    "516800",
+    "517496",
+    "520052",
+    "521340",
+    "526782",
+    "528311"
+  ],
+  "generatedAt": "2026-05-31T09:47:07.766991+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

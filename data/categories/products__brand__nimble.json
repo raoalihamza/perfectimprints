@@ -1,0 +1,21 @@
+{
+  "url": "/cat/products/brand/nimble",
+  "type": "facet",
+  "h1": "Custom Nimble Products for Bulk Orders",
+  "metaTitle": "Custom Nimble Products | Perfect Imprints",
+  "metaDescription": "Order custom Nimble products in bulk. Perfect for tech-forward brands. Get a quote today.",
+  "introHtml": "<p>Nimble is a brand known for its eco-friendly, high-quality tech accessories, including wireless chargers made from recycled materials. Choosing custom Nimble products signals your company's commitment to sustainability and innovation. Ideal for corporate gifts, trade shows, or employee onboarding, these items combine functionality with environmental responsibility. Decorate with your logo using laser engraving or pad printing for a sleek, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Nimble products including a branded Nimble Apollo 15W Magnetic Wireless Pad on a desk",
+  "productSkus": [
+    "526592"
+  ],
+  "generatedAt": "2026-05-31T08:45:46.040272+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

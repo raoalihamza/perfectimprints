@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/special-feature/staff-favorites",
+  "type": "facet",
+  "h1": "Custom Staff Favorites Products for Bulk Orders",
+  "metaTitle": "Custom Staff Favorites Products | Perfect Imprints",
+  "metaDescription": "Browse our curated collection of custom staff favorites products for your next bulk order. Shop at Perfect Imprints today.",
+  "introHtml": "<p>Our Staff Favorites collection represents the most popular promotional products chosen by customers like you. These items have proven to be reliable giveaways that recipients genuinely use and appreciate, from branded drinkware to tech accessories. By selecting from this curated set, you save time deciding and ensure your investment goes toward products with a track record of success.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom staff favorites products including branded water bottles, bags, and tech accessories",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:30:38.914374+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

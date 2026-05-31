@@ -1,0 +1,31 @@
+{
+  "url": "/cat/school-work-backpacks/brand/camelbak",
+  "type": "facet",
+  "h1": "Custom CamelBak School Work Backpacks",
+  "metaTitle": "Custom CamelBak Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom CamelBak school work backpacks for your team. Durable hydration-ready designs from Perfect Imprints. Get your quote today!",
+  "introHtml": "<p>CamelBak backpacks combine legendary hydration engineering with everyday carry functionality, making them a smart choice for commuters, students, and field teams. Unlike standard school bags, these packs feature integrated reservoir sleeves or bottle pockets, so your team stays hydrated without extra gear. The CamelBak DEN 15\" Laptop Backpack offers a padded computer compartment and organizational pockets, ideal for employees who move between office and campus. Customize with your logo via screen printing or embroidery for a professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom CamelBak school work backpacks with hydration features and logo embroidery for corporate teams",
+  "productSkus": [
+    "525013",
+    "525506",
+    "525680",
+    "525681",
+    "526211",
+    "526695",
+    "527057",
+    "527058",
+    "527966",
+    "528153",
+    "528684"
+  ],
+  "generatedAt": "2026-05-31T08:46:15.827292+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

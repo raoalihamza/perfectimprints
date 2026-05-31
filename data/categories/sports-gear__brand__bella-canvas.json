@@ -1,0 +1,27 @@
+{
+  "url": "/cat/sports-gear/brand/bella-canvas",
+  "type": "facet",
+  "h1": "Custom Bella Canvas Sports Gear for Bulk Orders",
+  "metaTitle": "Custom Bella Canvas Sports Gear | Perfect Imprints",
+  "metaDescription": "Order custom Bella Canvas sports gear for your team or event. Bulk pricing on soft, durable tees and tanks. Get a quote today.",
+  "introHtml": "<p>Bella Canvas sports gear is known for its ultra-soft, ring-spun fabrics that hold up wash after wash, making it a top choice for team uniforms and event apparel. Whether you need youth tanks for a summer camp or triblend tees for a corporate 5K, Bella Canvas offers consistent sizing and a wide color range. Decorate with screen printing or embroidery for a polished look that your group will be proud to wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Bella Canvas sports gear including soft t-shirts and tank tops for teams and events",
+  "productSkus": [
+    "506191",
+    "506864",
+    "526601",
+    "527377",
+    "528866",
+    "528887",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T09:02:33.133279+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

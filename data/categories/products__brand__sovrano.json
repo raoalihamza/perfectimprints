@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/sovrano",
+  "type": "facet",
+  "h1": "Custom Sovrano Products for Bulk Orders",
+  "metaTitle": "Custom Sovrano Products | Perfect Imprints",
+  "metaDescription": "Order custom Sovrano products from Perfect Imprints. Ideal for corporate gifts and promotional giveaways. Get a quote today.",
+  "introHtml": "<p>Sovrano products combine Italian-inspired design with practical functionality, making them a standout choice for corporate gifts and promotional giveaways. Whether you choose a sleek leather journal or a durable travel mug, each item carries an air of sophistication that resonates with discerning clients and employees. With custom imprinting options, you can add your logo to these premium pieces, ensuring your brand is associated with quality and elegance.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Sovrano products including a leather journal and travel mug with engraved logo.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:21:35.087894+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

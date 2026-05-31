@@ -1,0 +1,23 @@
+{
+  "url": "/cat/vests/brand/nautica",
+  "type": "facet",
+  "h1": "Custom Nautica Vests for Corporate Orders",
+  "metaTitle": "Custom Nautica Vests | Perfect Imprints",
+  "metaDescription": "Order custom Nautica vests for your team. Perfect for corporate events and uniforms. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Custom Nautica vests bring a crisp, nautical-inspired look to your corporate uniforms or event apparel. Unlike generic vests, the Nautica brand adds instant recognition for quality and style, making them ideal for trade shows, golf outings, or team-building events. Choose from quarter-zip or full-zip styles in navy or khaki, and add your logo with embroidery or screen printing for a polished finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Nautica vests with embroidered logo, navy quarter-zip style for corporate uniforms",
+  "productSkus": [
+    "525547",
+    "525548",
+    "525893"
+  ],
+  "generatedAt": "2026-05-31T09:04:12.242130+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

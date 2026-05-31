@@ -1,0 +1,23 @@
+{
+  "url": "/cat/golf-polo-shirts/material/wool",
+  "type": "facet",
+  "h1": "Custom Wool Golf Polo Shirts",
+  "metaTitle": "Custom Wool Golf Polo Shirts | Perfect Imprints",
+  "metaDescription": "Order custom wool golf polo shirts for a premium, breathable feel. Perfect for corporate events and team uniforms. Get a quote now!",
+  "introHtml": "<p>Wool golf polo shirts offer natural temperature regulation and moisture-wicking properties, making them ideal for cooler rounds or transitional weather. Unlike synthetic blends, wool provides a softer, more breathable feel that resists odors. Perfect for corporate golf outings or team uniforms, these polos can be embroidered with your logo for a polished, professional look. Choose wool for a performance fabric that stands out from standard cotton or polyester options.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wool golf polo shirts with embroidered logo on a green golf course",
+  "productSkus": [
+    "501805",
+    "525937",
+    "525938"
+  ],
+  "generatedAt": "2026-05-31T08:54:56.053268+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

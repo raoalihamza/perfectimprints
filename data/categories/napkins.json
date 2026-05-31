@@ -1,0 +1,53 @@
+{
+  "url": "/cat/napkins",
+  "type": "root",
+  "h1": "Custom Napkins for Events, Dining & Promotions",
+  "metaTitle": "Custom Napkins | Perfect Imprints",
+  "metaDescription": "Order custom napkins for your next event or promotion. Bulk pricing, fast turnaround. Perfect for restaurants, caterers, and corporate events.",
+  "introHtml": "<p>Marketing directors and business owners know that every detail counts when hosting an event or promoting a brand. Custom napkins offer a practical yet memorable way to leave a lasting impression. Whether you're planning a corporate luncheon, a trade show, or a company picnic, personalized napkins ensure your logo or message is seen by every guest. With options ranging from beverage napkins to full-size dinner napkins, you can choose the perfect size for your needs. Our selection includes white and colored stock, so you can match your brand colors or event theme effortlessly.</p><p>For HR directors and safety managers, custom napkins are also a great addition to employee appreciation events, safety luncheons, or wellness programs. They add a professional touch while keeping costs low. Bulk ordering is simple, and our team helps you through the decoration process to ensure your design looks crisp and vibrant. From screen printing to full-color heat transfer, we offer finishes that hold up through use. Explore our napkin options below and find the right fit for your next gathering.</p>",
+  "buyingGuideHtml": "<p>When ordering custom napkins, the first decision is size. Beverage napkins (about 5 x 5 inches) are ideal for cocktail hours, coffee breaks, or small bites. Luncheon napkins (about 6.5 x 6.5 inches) work well for catered meals and casual dining. Dinner napkins (about 17 x 17 inches) are best for formal events or restaurants where guests place them on their laps. Consider your typical use case and choose a size that matches the occasion.</p><h3>Materials and Quality</h3><p>Most promotional napkins are made from 2-ply or 3-ply paper. Ply count affects absorbency and durability. For events with heavy food or drink, 3-ply napkins hold up better. White napkins offer a clean, classic look and are often cheaper, while colored napkins let you match a brand palette without extra printing cost. All our napkins are disposable and recyclable, making them a practical choice for large gatherings.</p><h3>Decoration Options</h3><p>Customization is typically done via screen printing or flexographic printing. Screen printing works well for simple logos or text in one or two colors and provides good color opacity on both white and colored napkins. For full-color designs or photographic images, full-color heat transfer or offset printing may be available. Always request a proof to ensure colors appear as expected on the napkin material.</p><h3>Use Cases and Personas</h3><p>Marketing directors often order branded napkins for product launches, trade shows, and client appreciation events. HR directors use them for company picnics, holiday parties, and employee recognition luncheons. Safety managers might include custom napkins in safety training kits or award ceremonies. Small business owners can use them for grand openings, customer giveaways, or everyday use in their restaurant or café.</p><h3>Quantities and MOQ</h3><p>Napkins are typically sold in cases of 500 to 5,000 per design, with minimum order quantities around 500 to 1,000 pieces. Bulk orders lower the per-unit cost significantly. For example, ordering 10,000 beverage napkins can bring the price below $0.02 each. Plan ahead for lead times: production usually takes 5 to 10 business days after proof approval, plus shipping. Rush options may be available for an extra fee.</p><h3>Common Mistakes to Avoid</h3><p>One common mistake is choosing a napkin size that is too small for the intended use. Another is selecting a colored napkin with a dark logo that doesn't show up well. Always request a printed sample or digital mockup before finalizing. Also, consider the napkin's fold: quarter-fold napkins are common for dinner, while beverage napkins are often single-ply. Finally, check that your artwork meets the printer's file requirements (vector files preferred) to avoid delays.</p>",
+  "buyingGuideH2": "Custom Napkins Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom napkins?",
+      "a": "Minimum order quantities typically start at 500 to 1,000 napkins per design, depending on the size and decoration method. Beverage napkins may have lower MOQs than dinner napkins. Contact us for specific requirements."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, we can provide a printed proof or a physical sample of your custom napkin for approval. There may be a small fee for samples, which is often credited toward your final order."
+    },
+    {
+      "q": "What decoration methods are available for napkins?",
+      "a": "Common methods include screen printing for one- or two-color designs and flexographic printing for larger runs. Full-color heat transfer is available for complex artwork. Each method has different setup costs and lead times."
+    },
+    {
+      "q": "How long does production take?",
+      "a": "Standard production takes 5 to 10 business days after proof approval. Shipping time depends on your location and chosen method. Rush orders may be available with expedited fees."
+    },
+    {
+      "q": "What sizes of custom napkins are available?",
+      "a": "We offer beverage napkins (approx. 5x5 inches), luncheon napkins (approx. 6.5x6.5 inches), and dinner napkins (approx. 17x17 inches). Each size is available in white or colored stock."
+    }
+  ],
+  "heroAltText": "Custom napkins with logo print for corporate events and catering",
+  "productSkus": [
+    "514577 90A",
+    "514579 90A",
+    "514580 90A",
+    "514581 90A",
+    "514583 90A",
+    "519472",
+    "519473",
+    "520634",
+    "520635",
+    "520636",
+    "520637"
+  ],
+  "generatedAt": "2026-05-30T10:53:48.832173+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "buyer",
+  "skuFilterMode": "full",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

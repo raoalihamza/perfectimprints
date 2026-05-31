@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tank-tops/supplier/bam",
+  "type": "facet",
+  "h1": "Custom BAM Tank Tops for Bulk Orders",
+  "metaTitle": "Custom BAM Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom BAM tank tops for your team or event. Perfect for bulk branding with screen printing or embroidery. Get a quote today!",
+  "introHtml": "<p>BAM tank tops combine comfort and durability, making them a top choice for summer events, team uniforms, and promotional giveaways. The soft ring-spun cotton fabric ensures a great fit for all-day wear, while the wide range of colors allows you to match your brand perfectly. Whether you need screen-printed logos for a 5K race or embroidered designs for a corporate retreat, BAM tank tops deliver quality results that your recipients will appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom BAM tank tops in various colors with screen-printed logos, perfect for bulk promotional orders.",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T08:37:55.509310+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

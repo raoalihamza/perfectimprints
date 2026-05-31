@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/stitch",
+  "type": "facet",
+  "h1": "Custom Stitch Products for Your Brand",
+  "metaTitle": "Custom Stitch Products | Perfect Imprints",
+  "metaDescription": "Order custom Stitch products for your brand. Perfect Imprints offers bulk pricing and fast turnaround on branded merchandise.",
+  "introHtml": "<p>Stitch products bring a playful, Disney-inspired charm to your branded merchandise, making them a hit at trade shows, company events, and customer giveaways. Whether you choose custom plush toys, apparel, or drinkware, Stitch’s recognizable blue alien design resonates with audiences of all ages. Decorate with screen printing or embroidery to showcase your logo alongside this beloved character. Perfect for marketing directors and HR directors looking to add a touch of fun to their promotional campaigns.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Stitch products featuring the blue alien character with your logo printed on plush toys and apparel.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:42.538056+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

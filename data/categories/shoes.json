@@ -1,0 +1,66 @@
+{
+  "url": "/cat/shoes",
+  "type": "root",
+  "h1": "Custom Shoes for Corporate Gifts & Promotions",
+  "metaTitle": "Custom Shoes for Promotions | Perfect Imprints",
+  "metaDescription": "Order custom shoes for corporate gifts, safety programs, and events. Personalize with your logo. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>As summer events and back-to-school season approach, custom shoes make a memorable impression for corporate giveaways, employee appreciation, and safety programs. Whether you need branded flip flops for a beachside retreat, logo socks for a wellness initiative, or durable shoe bags for a conference swag bag, Perfect Imprints offers a wide selection of customizable footwear and accessories. Marketing directors can reinforce brand visibility with every step, while HR directors can boost team morale with personalized gifts. Safety managers will appreciate the durable options for uniform programs. With low minimums and fast turnaround, you can get quality custom shoes that align with your budget and timeline.</p><p>From adult flip flops and slippers to custom knit socks and shoelace clips, our product range covers casual and practical needs. Decoration options include screen printing, embroidery, and full-color heat transfer, ensuring your logo stands out. Bulk orders receive competitive wholesale pricing, making it easy to outfit large teams or events. Explore our collection below and find the perfect custom shoes for your next promotion.</p>",
+  "buyingGuideHtml": "<p>When ordering custom shoes, focus on material quality and comfort. For flip flops and slides, look for durable rubber or EVA foam that withstands outdoor use. Socks should feature moisture-wicking blends like cotton-polyester-spandex for all-day wear. Sherpa-lined slippers offer cozy warmth for winter giveaways. Always check sizing charts to avoid returns.</p><h3>Use Cases and Buyer Personas</h3><p>Marketing directors often choose branded flip flops for summer events, beach parties, or resort giveaways. HR directors use custom socks for employee wellness kits or year-end appreciation gifts. Safety managers prefer durable shoe bags for uniform storage or hygiene programs. Business owners order logo-printed slippers for hospitality guests or spa packages. Each persona benefits from high-visibility branding on a practical item.</p><h3>Decoration Options</h3><p>Most shoe styles accept screen printing or heat transfer for logos on the footbed or upper. Socks are best decorated with jacquard knitting (full-color pattern) or screen printed logos. Embroidery works well on shoe bags and some slippers. For flip flops, consider debossing or pad printing for a clean look. Always request a proof to confirm placement and color accuracy.</p><h3>Quantity and MOQ Guidance</h3><p>Minimum order quantities vary by product. Socks often have lower MOQs (50-100 pairs), while flip flops may require 100-300 units for bulk pricing. Wholesale pricing improves with larger quantities, so plan ahead for events like conference season or holiday giveaways. If you need a smaller run, check for ready-to-ship stock or low-MOQ options.</p><h3>Common Buying Mistakes</h3><p>One common mistake is ignoring sizing: flip flops and slides run large or small by brand, so request a sample first. Another is choosing the wrong decoration method for the material — avoid screen printing on textured surfaces. Lead times can extend during peak seasons, so order 4-6 weeks in advance. Finally, confirm care instructions for socks and slippers to maintain logo appearance after washing.</p>",
+  "buyingGuideH2": "Custom Shoes Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom shoes?",
+      "a": "MOQs vary by product. Socks typically start at 50-100 pairs, while flip flops and slides may require 100-300 units. Contact us for specific product MOQs."
+    },
+    {
+      "q": "What decoration methods are available for shoes?",
+      "a": "We offer screen printing, heat transfer, embroidery, debossing, and pad printing depending on the shoe material. Socks can be jacquard knitted for full-color designs."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, samples are available for most products. You can order a single sample with your logo to verify size, color, and decoration quality before committing to a bulk order."
+    },
+    {
+      "q": "How long does production take for custom shoes?",
+      "a": "Typical production time is 2-4 weeks after approval of the artwork proof. During peak seasons, allow 4-6 weeks. Rush orders may be available for an additional fee."
+    },
+    {
+      "q": "Do you offer sizing options for custom socks?",
+      "a": "Yes, we offer various sock sizes including unisex, men's, women's, and youth. Custom knit socks can be made in specific sizes to fit your recipients."
+    }
+  ],
+  "heroAltText": "Custom shoes with logo, including flip flops and socks, for corporate gifts and promotions",
+  "productSkus": [
+    "501556",
+    "513304 90A",
+    "516800",
+    "517496",
+    "520052",
+    "521340",
+    "522251",
+    "524427",
+    "525740",
+    "526360",
+    "526361",
+    "526363",
+    "526782",
+    "526905",
+    "526906",
+    "526927",
+    "527216",
+    "527554",
+    "527988",
+    "528171",
+    "528311",
+    "528344",
+    "528345",
+    "529443"
+  ],
+  "generatedAt": "2026-05-30T11:55:43.593088+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "seasonal",
+  "skuFilterMode": "full",
+  "rawSkuCount": 24,
+  "filteredSkuCount": 24
+}

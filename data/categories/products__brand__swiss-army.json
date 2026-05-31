@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/swiss-army",
+  "type": "facet",
+  "h1": "Custom Swiss Army Products for Bulk Orders",
+  "metaTitle": "Custom Swiss Army Products | Perfect Imprints",
+  "metaDescription": "Order custom Swiss Army products for your next corporate gift or event. Shop bulk pricing at Perfect Imprints today.",
+  "introHtml": "<p>Swiss Army products are synonymous with precision, durability, and practical design. When you choose custom Swiss Army knives, multi-tools, or watches for your corporate gifts or employee recognition programs, you are associating your brand with a legacy of quality that recipients trust and use daily. Our selection includes popular models like the Huntsman and Classic SD, which can be laser engraved with your logo for a polished, professional look. Bulk orders ensure consistent branding across your entire team or client list.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Swiss Army products including knives and multi-tools with engraved logos for corporate gifts",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:43.383544+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

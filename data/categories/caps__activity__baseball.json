@@ -1,0 +1,19 @@
+{
+  "url": "/cat/caps/activity/baseball",
+  "type": "facet",
+  "h1": "Custom Baseball Caps for Your Team",
+  "metaTitle": "Custom Baseball Caps | Perfect Imprints",
+  "metaDescription": "Order custom baseball caps for your team or event. Perfect for branding, giveaways, and uniforms. Bulk pricing available.",
+  "introHtml": "<p>Custom baseball caps are a staple for team uniforms, corporate events, and promotional giveaways. Made from structured fabrics with pre-curved visors, they offer a classic look that works for any group. Whether you need embroidered logos for a company softball league or screen-printed caps for a product launch, these hats provide a clean canvas for your branding. Choose from cotton twill, polyester mesh, or wool blends to match your style and budget.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of custom baseball caps with embroidered logos displayed on a table, ideal for team branding.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:24:03.511666+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

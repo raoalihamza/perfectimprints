@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel/theme/christmas",
+  "type": "facet",
+  "h1": "Custom Christmas Apparel for Bulk Orders",
+  "metaTitle": "Custom Christmas Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Christmas apparel for your team or event. Bulk pricing on holiday-themed shirts and sets at Perfect Imprints.",
+  "introHtml": "<p>Christmas-themed apparel lets your team celebrate the season while keeping your brand front and center. From office holiday parties to customer appreciation events, custom Christmas apparel like the Snowed In Set adds a festive touch that stands out. Choose from embroidered logos or screen-printed designs on comfortable, seasonal styles. Perfect for creating a unified look that spreads cheer and reinforces your company identity during the holidays.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom Christmas apparel including the Snowed In Set with festive holiday designs",
+  "productSkus": [
+    "521927"
+  ],
+  "generatedAt": "2026-05-31T09:32:31.691248+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

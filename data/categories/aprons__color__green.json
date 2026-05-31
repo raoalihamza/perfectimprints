@@ -1,0 +1,21 @@
+{
+  "url": "/cat/aprons/color/green",
+  "type": "facet",
+  "h1": "Custom Green Aprons for Your Team",
+  "metaTitle": "Custom Green Aprons | Perfect Imprints",
+  "metaDescription": "Order custom green aprons in bulk from Perfect Imprints. Perfect for branding, hospitality, or retail teams.",
+  "introHtml": "<p>Green aprons stand out in hospitality, retail, and event settings, giving your team a professional and cohesive look. Whether you choose a deep forest green for an upscale restaurant or a bright lime for a trade show, these aprons offer ample space for your logo or message. The Medium Length Apron with Pouch is a popular choice, providing convenient storage for pens, notepads, or tools. Customize with screen printing or embroidery to match your brand colors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green aprons with embroidered logos, worn by staff in a restaurant setting",
+  "productSkus": [
+    "528072"
+  ],
+  "generatedAt": "2026-05-31T08:31:49.500524+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

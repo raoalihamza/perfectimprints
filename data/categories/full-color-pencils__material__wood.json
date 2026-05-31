@@ -1,0 +1,33 @@
+{
+  "url": "/cat/full-color-pencils/material/wood",
+  "type": "facet",
+  "h1": "Custom Wood Full Color Pencils",
+  "metaTitle": "Custom Wood Full Color Pencils | Perfect Imprints",
+  "metaDescription": "Order custom wood full color pencils for your brand. Perfect for giveaways and events. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Wood full color pencils offer a classic writing experience with a vibrant, branded twist. Unlike plastic or mechanical alternatives, these natural wood pencils provide a warm, tactile feel that recipients appreciate. Ideal for trade shows, school supply drives, or corporate gift bags, they can be printed with your logo in full color across the barrel. Options like the Mood ABC Pencil or FSC Certified Round Workhorse Pencil ensure you get a sustainable, high-quality product that leaves a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wood full color pencils with printed logos arranged on a desk, showcasing vibrant barrel designs for promotional use.",
+  "productSkus": [
+    "502669",
+    "502672",
+    "510561",
+    "510562",
+    "510904",
+    "511380",
+    "511382",
+    "511451",
+    "524813",
+    "527684",
+    "527685",
+    "527686",
+    "528470"
+  ],
+  "generatedAt": "2026-05-31T09:13:55.280838+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

@@ -1,0 +1,32 @@
+{
+  "url": "/cat/headphones/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Headphones",
+  "metaTitle": "Custom Blue Headphones | Perfect Imprints",
+  "metaDescription": "Order custom blue headphones with your logo for corporate gifts or events. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Blue headphones stand out in a sea of black and white, making them a smart choice for brand visibility in corporate gift programs or trade show giveaways. From over-ear models like the Cleer Enduro 100 to compact earbuds in cases, blue options offer a vibrant canvas for your logo through pad printing or laser engraving. Whether you need noise-canceling for safety managers or colorful earbuds for marketing events, blue headphones deliver a consistent, professional look that employees and clients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue headphones with logo on ear cups, over-ear style, perfect for corporate branding",
+  "productSkus": [
+    "505390",
+    "511481",
+    "512230",
+    "512293",
+    "512294",
+    "515807",
+    "519980",
+    "526804",
+    "528013",
+    "528014",
+    "528125",
+    "528376"
+  ],
+  "generatedAt": "2026-05-31T08:55:23.957571+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

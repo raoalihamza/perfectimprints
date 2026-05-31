@@ -1,0 +1,22 @@
+{
+  "url": "/cat/outdoor/brand/samsonite",
+  "type": "facet",
+  "h1": "Custom Samsonite Outdoor Products for Bulk Orders",
+  "metaTitle": "Custom Samsonite Outdoor | Perfect Imprints",
+  "metaDescription": "Order custom Samsonite outdoor products in bulk. Durable duffles and backpacks with your logo. Fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Samsonite outdoor gear combines legendary durability with professional style, making it a smart choice for corporate gifts, team outings, and employee recognition. From wheeled duffles that travel well to laptop backpacks built for daily commutes, these pieces hold up to heavy use while keeping your brand visible. Choose custom embroidery or screen printing for a clean, lasting logo on rugged materials that reflect your company's commitment to quality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Samsonite outdoor duffle bag with embroidered logo, black fabric, wheeled base, and padded handles.",
+  "productSkus": [
+    "527869",
+    "528124"
+  ],
+  "generatedAt": "2026-05-31T08:44:44.800421+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/toys-games-party/brand/wilson",
+  "type": "facet",
+  "h1": "Custom Wilson Toys, Games & Party Products",
+  "metaTitle": "Custom Wilson Toys Games Party | Perfect Imprints",
+  "metaDescription": "Order custom Wilson toys, games, and party products for your next event. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Wilson is a trusted name in sports, and their golf balls make excellent custom giveaways for corporate outings, client appreciation, or tournament swag. Choose from clear or tall tubes to showcase your logo on a premium product that recipients will actually use. Perfect for marketing directors and HR managers looking for a sporty, memorable promotional item.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Wilson toys games party products including clear tube with Wilson Ultra golf balls",
+  "productSkus": [
+    "506922 50D",
+    "506923 50D"
+  ],
+  "generatedAt": "2026-05-31T10:12:09.481559+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

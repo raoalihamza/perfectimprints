@@ -1,0 +1,25 @@
+{
+  "url": "/cat/dress-shirts/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Dress Shirts",
+  "metaTitle": "Custom Purple Dress Shirts | Perfect Imprints",
+  "metaDescription": "Order custom purple dress shirts for your team. Bulk pricing, embroidery, and quick turnaround from Perfect Imprints.",
+  "introHtml": "<p>Purple dress shirts offer a distinctive alternative to standard white or blue, helping your team stand out at trade shows, client meetings, or company events. Whether you choose a classic oxford from Port Authority or a modern twill from Core365, these shirts pair well with navy or gray suits for a polished look. Add your logo with embroidery or screen printing for a professional finish that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple dress shirts with embroidered logo on a hanger, showcasing professional business attire.",
+  "productSkus": [
+    "517273",
+    "517274",
+    "519011",
+    "519684",
+    "519685"
+  ],
+  "generatedAt": "2026-05-31T08:41:24.105109+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

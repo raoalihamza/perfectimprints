@@ -1,0 +1,22 @@
+{
+  "url": "/cat/pens/material/paper",
+  "type": "facet",
+  "h1": "Custom Paper Pens for Bulk Orders",
+  "metaTitle": "Custom Paper Pens | Perfect Imprints",
+  "metaDescription": "Order custom paper pens for eco-friendly branding. Perfect for trade shows and giveaways. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Paper pens offer a sustainable alternative for businesses looking to reduce plastic waste without sacrificing functionality. Made from recycled paper barrels, these pens are lightweight, biodegradable, and fully customizable with your logo. Ideal for trade shows, eco-conscious campaigns, or corporate gifts, they provide a unique writing experience that aligns with green initiatives. Choose from styles like the Jumbo Pencil-Look Pen or the 100% Recycled Paper Barrel Ballpoint Pen to make an environmentally responsible impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom paper pens in assorted colors with printed logos, eco-friendly promotional giveaways",
+  "productSkus": [
+    "519108",
+    "528225"
+  ],
+  "generatedAt": "2026-05-31T08:59:38.824950+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

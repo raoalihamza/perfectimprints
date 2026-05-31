@@ -1,0 +1,33 @@
+{
+  "url": "/cat/apparel/brand/spyder",
+  "type": "facet",
+  "h1": "Custom Spyder Apparel for Bulk Orders",
+  "metaTitle": "Custom Spyder Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Spyder apparel in bulk from Perfect Imprints. Perfect for corporate teams and events. Get your quote today!",
+  "introHtml": "<p>Spyder apparel combines technical performance with a clean, professional look that stands out in corporate settings. From packable puffer jackets to fleece vests, these pieces are built for durability and comfort, making them ideal for outdoor events, trade shows, or employee uniforms. Embroidery or screen printing adds your logo seamlessly to the high-quality fabric. Choose Spyder when you need gear that performs as hard as your team does.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Spyder apparel with embroidered logo on a men's fleece vest, perfect for corporate branding.",
+  "productSkus": [
+    "508245",
+    "513236",
+    "516016",
+    "517494",
+    "520279",
+    "520280",
+    "520281",
+    "525404",
+    "525405",
+    "527130",
+    "527131",
+    "528103",
+    "528104"
+  ],
+  "generatedAt": "2026-05-31T09:32:08.218346+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

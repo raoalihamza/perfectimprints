@@ -1,0 +1,23 @@
+{
+  "url": "/cat/workwear/feature/vented",
+  "type": "facet",
+  "h1": "Custom Vented Workwear for Bulk Orders",
+  "metaTitle": "Custom Vented Workwear | Perfect Imprints",
+  "metaDescription": "Order custom vented workwear in bulk for comfort and breathability. Perfect Imprints offers quality options for your team.",
+  "introHtml": "<p>Vented workwear keeps your team cool and comfortable during long shifts in warm environments. Unlike standard work shirts, vented styles incorporate mesh panels or breathable fabrics that allow airflow without sacrificing durability. Whether you are outfitting a warehouse crew or an outdoor maintenance team, these garments reduce heat stress while maintaining a professional appearance. Customize with your logo using embroidery or screen printing for a cohesive brand look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom vented workwear with breathable mesh panels and embroidered logo for team uniforms",
+  "productSkus": [
+    "515284",
+    "515285",
+    "525213"
+  ],
+  "generatedAt": "2026-05-31T10:15:44.292310+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

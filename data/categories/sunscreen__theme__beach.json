@@ -1,0 +1,21 @@
+{
+  "url": "/cat/sunscreen/theme/beach",
+  "type": "facet",
+  "h1": "Custom Beach Sunscreen for Bulk Orders",
+  "metaTitle": "Custom Beach Sunscreen | Perfect Imprints",
+  "metaDescription": "Order custom beach sunscreen in bulk for your team or event. Perfect for outdoor giveaways. Fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>Custom beach sunscreen is the ideal giveaway for summer events, beach cleanups, or corporate outings. Unlike generic sunscreen, beach-themed packaging signals fun in the sun and makes your brand memorable. The Sun Bum® Beach Bum Kit, for example, combines SPF protection with a playful vibe that resonates with outdoor crowds. Choose from lotions, sprays, or lip balms with your logo printed directly on the tube or bottle. These are practical items your recipients will actually use at the beach, pool, or park.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom beach sunscreen bottles with logos arranged on sand near ocean waves",
+  "productSkus": [
+    "525624"
+  ],
+  "generatedAt": "2026-05-31T09:03:02.582236+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

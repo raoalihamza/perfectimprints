@@ -1,0 +1,25 @@
+{
+  "url": "/cat/clocks/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Clocks for Bulk Orders",
+  "metaTitle": "Custom Set Clocks | Perfect Imprints",
+  "metaDescription": "Order custom set clocks in bulk for your brand. Perfect for promotional giveaways and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Custom set clocks combine timekeeping with additional features like wireless charging, speakers, or alarm functions, making them a versatile promotional item. Whether you choose a sunrise alarm clock for wellness programs or a bamboo charger with a digital clock for desk giveaways, these multi-functional sets offer more value than standard clocks. Ideal for corporate gifts, trade show premiums, or employee recognition, they keep your brand visible throughout the day. Decorate with a laser-engraved logo or full-color imprint for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set clocks with branded alarm clocks and wireless chargers for promotional use",
+  "productSkus": [
+    "524026",
+    "527550",
+    "528133",
+    "528216",
+    "528699"
+  ],
+  "generatedAt": "2026-05-31T09:40:40.969264+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

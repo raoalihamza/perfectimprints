@@ -1,0 +1,30 @@
+{
+  "url": "/cat/spirit-towels/color/green",
+  "type": "facet",
+  "h1": "Custom Green Spirit Towels",
+  "metaTitle": "Custom Green Spirit Towels | Perfect Imprints",
+  "metaDescription": "Order custom green spirit towels for your team or event. Perfect for sports fans, rallies, and giveaways. Get a quote today.",
+  "introHtml": "<p>Green spirit towels stand out in a crowd, making them ideal for game days, charity runs, and corporate rallies. Whether you choose a lightweight microfiber golf towel with a hook or a velour hemmed towel for maximum absorbency, green conveys energy and loyalty. Decorate with screen printing or embroidery to showcase your logo or mascot. Bulk orders keep costs low while delivering a premium fan experience.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom green spirit towels with printed logo, perfect for sports fans and team giveaways.",
+  "productSkus": [
+    "510188",
+    "510325",
+    "512900",
+    "513098",
+    "514841",
+    "520178",
+    "521013",
+    "522450",
+    "524126",
+    "528644"
+  ],
+  "generatedAt": "2026-05-31T10:07:47.741422+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

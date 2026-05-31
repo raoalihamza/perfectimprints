@@ -1,0 +1,23 @@
+{
+  "url": "/cat/pet-collars/feature/reflective",
+  "type": "facet",
+  "h1": "Custom Reflective Pet Collars",
+  "metaTitle": "Custom Reflective Pet Collars | Perfect Imprints",
+  "metaDescription": "Order custom reflective pet collars from Perfect Imprints. Ideal for safety-conscious brands and bulk giveaways. Get a quote today!",
+  "introHtml": "<p>Reflective pet collars add a critical safety feature for dogs walked at dawn, dusk, or night. Unlike standard collars, these incorporate high-visibility materials that catch headlights and streetlights, helping drivers and cyclists spot pets from a distance. For businesses in pet care, outdoor recreation, or safety, custom reflective collars offer practical brand exposure while promoting responsible pet ownership. Decorate with woven labels or screen-printed logos for a durable, professional finish that stands up to daily wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom reflective pet collars with high-visibility stitching and printed logos for safety-conscious pet owners",
+  "productSkus": [
+    "506951",
+    "506952",
+    "525324"
+  ],
+  "generatedAt": "2026-05-31T10:01:17.209979+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

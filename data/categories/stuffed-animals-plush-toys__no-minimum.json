@@ -1,0 +1,21 @@
+{
+  "url": "/cat/stuffed-animals-plush-toys/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Stuffed Animals & Plush Toys",
+  "metaTitle": "No-Minimum Custom Stuffed Animals & Plush Toys | Perfect",
+  "metaDescription": "Order small quantities of custom stuffed animals & plush toys with no minimum. Perfect for small teams, events, and giveaways. Get started today.",
+  "introHtml": "<p>Ordering custom stuffed animals and plush toys typically requires bulk quantities, but our no-minimum program changes that. Whether you need just a handful for a small team, a one-time event, or a sample order before committing to larger volumes, you can order exactly what you need. No bulk commitments, no wasted inventory. Perfect for small businesses, startups, and targeted giveaways where every unit counts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A group of no-minimum custom stuffed animals and plush toys featuring the Aurora® Eco-Nation plush, ideal for small-order promotional giveaways.",
+  "productSkus": [
+    "526011"
+  ],
+  "generatedAt": "2026-05-31T10:09:13.551639+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

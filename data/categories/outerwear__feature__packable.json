@@ -1,0 +1,24 @@
+{
+  "url": "/cat/outerwear/feature/packable",
+  "type": "facet",
+  "h1": "Custom Packable Outerwear for Bulk Orders",
+  "metaTitle": "Custom Packable Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom packable outerwear in bulk from Perfect Imprints. Ideal for corporate gifts, events, and employee rewards.",
+  "introHtml": "<p>Packable outerwear offers the perfect blend of warmth and portability, making it a top choice for companies that need branded apparel for travel, outdoor events, or giveaways. Unlike bulky jackets, packable styles compress into their own pocket or pouch, saving space and weight. Options like the Silverton Packable Insulated Jacket and Core 365 Prevail Packable Puffer Jacket provide lightweight insulation with a polished look, suitable for screen printing or embroidery. Whether for a sales team on the go or a company outing, these jackets keep your logo visible without sacrificing comfort or convenience.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom packable outerwear jackets with company logo, including packable puffer and insulated styles",
+  "productSkus": [
+    "520278",
+    "520279",
+    "521114",
+    "521115"
+  ],
+  "generatedAt": "2026-05-31T08:59:06.718494+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

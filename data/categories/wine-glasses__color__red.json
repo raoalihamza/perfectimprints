@@ -1,0 +1,27 @@
+{
+  "url": "/cat/wine-glasses/color/red",
+  "type": "facet",
+  "h1": "Custom Red Wine Glasses for Branded Events",
+  "metaTitle": "Custom Red Wine Glasses | Perfect Imprints",
+  "metaDescription": "Order custom red wine glasses for your next event. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Red wine glasses make a bold statement at corporate mixers, fundraising galas, or employee appreciation events. The vibrant color stands out on buffet tables and bar carts, ensuring your logo gets noticed. Choose from durable plastic stemless options for outdoor use or glass varieties for upscale settings. Full-color digital decoration allows detailed artwork on the bowl, while laser engraving offers a sleek, permanent finish. Perfect for marketing directors planning holiday parties or HR directors organizing team celebrations.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red wine glasses with company logo, perfect for branded events and bulk orders",
+  "productSkus": [
+    "511450",
+    "522060",
+    "524419",
+    "524524",
+    "524525",
+    "526191",
+    "527252"
+  ],
+  "generatedAt": "2026-05-31T10:14:54.359262+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

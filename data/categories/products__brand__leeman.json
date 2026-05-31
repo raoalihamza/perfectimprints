@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/leeman",
+  "type": "facet",
+  "h1": "Custom Leeman Products for Bulk Orders",
+  "metaTitle": "Custom Leeman Products | Perfect Imprints",
+  "metaDescription": "Order custom Leeman products in bulk from Perfect Imprints. Perfect for corporate gifts and promotional events. Get a quote today!",
+  "introHtml": "<p>Leeman products are known for their durability and clean design, making them a popular choice for corporate giveaways, trade show handouts, and employee recognition programs. Whether you need custom logo drinkware, writing instruments, or desk accessories, Leeman offers a range of items that accept full-color imprinting, pad printing, or engraving. Bulk orders ensure consistent branding across your entire team or event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom Leeman products with company logos displayed on a table, including drinkware and pens.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:36:45.552298+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

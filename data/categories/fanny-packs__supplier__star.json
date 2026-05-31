@@ -1,0 +1,30 @@
+{
+  "url": "/cat/fanny-packs/supplier/star",
+  "type": "facet",
+  "h1": "Custom Star Fanny Packs",
+  "metaTitle": "Custom Star Fanny Packs | Perfect Imprints",
+  "metaDescription": "Order custom Star fanny packs for your next event or promotion. Bulk pricing available. Get a quote today!",
+  "introHtml": "<p>Star fanny packs offer a reliable, budget-friendly option for events, trade shows, and team giveaways. With durable materials and multiple compartments, they keep essentials secure while attendees stay hands-free. Choose from neon, clear, or eco-friendly styles to match your brand colors. Decorate with screen printing or embroidery for maximum visibility. These packs are lightweight and comfortable, making them a practical giveaway that recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Star fanny packs in various colors and styles for promotional events and giveaways.",
+  "productSkus": [
+    "514432",
+    "514433",
+    "519201",
+    "522510",
+    "522705",
+    "522803",
+    "523655",
+    "524162",
+    "524500",
+    "525724"
+  ],
+  "generatedAt": "2026-05-31T09:13:09.386054+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

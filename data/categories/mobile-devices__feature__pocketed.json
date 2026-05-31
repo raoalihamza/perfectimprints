@@ -1,0 +1,28 @@
+{
+  "url": "/cat/mobile-devices/feature/pocketed",
+  "type": "facet",
+  "h1": "Custom Pocketed Mobile Devices for Bulk Orders",
+  "metaTitle": "Custom Pocketed Mobile Devices | Perfect Imprints",
+  "metaDescription": "Order custom pocketed mobile devices in bulk at Perfect Imprints. Perfect for keeping cards and phones together. Get a quote today!",
+  "introHtml": "<p>Pocketed mobile devices add practical storage for cards, cash, or keys directly on your phone case or accessory. Ideal for trade shows, corporate gifts, or employee giveaways, these items keep essentials accessible without a separate wallet. Options like the Tuscany Dual Card Pocket or Silicone Card Holder combine phone protection with RFID security. Decorate with your logo via screen printing or debossing for a sleek, functional brand impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pocketed mobile devices with card slots and phone stand, ideal for branded corporate gifts",
+  "productSkus": [
+    "510024",
+    "520745",
+    "521471",
+    "521924",
+    "524065",
+    "524066",
+    "524133",
+    "525514"
+  ],
+  "generatedAt": "2026-05-31T09:57:00.471370+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

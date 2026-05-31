@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tank-tops/fit/slim-fit",
+  "type": "facet",
+  "h1": "Custom Slim Fit Tank Tops",
+  "metaTitle": "Custom Slim Fit Tank Tops | PerfectImprints.com",
+  "metaDescription": "Order custom slim fit tank tops for your team or event. Bulk pricing and fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>Slim fit tank tops offer a more tailored silhouette compared to standard cuts, making them a popular choice for events where you want a modern, fitted look. Whether you're outfitting a race team with moisture-wicking performance tanks or ordering branded apparel for a company picnic, the slim fit style ensures a sharp appearance without excess fabric. Decorate with screen printing or embroidery for a polished finish that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom slim fit tank tops in various colors with screen printed logos, perfect for teams and events.",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T08:25:43.956725+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

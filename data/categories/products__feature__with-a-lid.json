@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/with-a-lid",
+  "type": "facet",
+  "h1": "Custom Products with a Lid for Bulk Orders",
+  "metaTitle": "Custom Products with a Lid | Perfect Imprints",
+  "metaDescription": "Shop custom products with a lid for your brand. Perfect Imprints offers drinkware, food containers, and more with your logo.",
+  "introHtml": "<p>Products with a lid are essential for on-the-go lifestyles, keeping beverages hot or cold and preventing spills. From insulated coffee mugs to food storage containers, adding a lid to your custom promo items shows you care about functionality. Ideal for commuters, outdoor events, or corporate gifts, these items pair perfectly with screen printing or debossing for a clean, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom products with a lid, including insulated travel mugs and food containers with secure lids and logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:22:01.655843+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,66 @@
+{
+  "url": "/cat/sandals",
+  "type": "root",
+  "h1": "Custom Sandals for Branded Promotions & Events",
+  "metaTitle": "Custom Sandals | Perfect Imprints",
+  "metaDescription": "Order custom sandals with your logo. Perfect for corporate events, giveaways, and employee appreciation. Bulk pricing available.",
+  "introHtml": "<p>Custom sandals offer a unique way to keep your brand top of mind during warm-weather events and everyday relaxation. Made from durable materials like EVA foam, rubber, and synthetic leather, these sandals are built for comfort and longevity. Options range from simple flip-flops to plush slide sandals, each providing a canvas for your logo through screen printing, debossing, or full-color heat transfer. Whether you need a budget-friendly giveaway for a beachside conference or a premium gift for employee appreciation, the right sandal can elevate your brand presence.</p><p>Marketing directors and HR managers often choose custom sandals for summer corporate outings, trade show giveaways, or client appreciation packages. Safety managers can also use them as part of a comprehensive wellness program, offering comfortable footwear for break areas or company picnics. Business owners appreciate the versatility and relatively low cost per unit, making it easy to order in bulk for large events. With a variety of styles from athletic slides to cozy slippers, you can find the perfect fit for your audience.</p>",
+  "buyingGuideHtml": "<p>When ordering custom sandals, start by considering the primary use case. For outdoor events like company picnics or beach cleanups, durable flip-flops with slip-resistant soles are a smart choice. For indoor relaxation or spa-themed gifts, plush slippers or slide sandals with memory foam insoles offer a premium feel. Each style serves a different audience, so matching the sandal type to your recipients' needs ensures your promotional item is actually used and appreciated.</p><h3>Materials & Durability</h3><p>EVA foam is lightweight, waterproof, and comfortable, making it a popular material for promotional sandals. Rubber outsoles provide better traction and last longer on rough surfaces. For higher-end options, look for sandals with cushioned footbeds and breathable linings. These materials affect how well your logo adheres. Screen printing works well on smooth EVA surfaces, while debossing creates a lasting impression on rubber or leather-like materials. Full-color heat transfer is ideal for detailed logos on wider straps.</p><h3>Customization Options</h3><p>Common decoration methods for custom sandals include screen printing, pad printing, and debossing. Screen printing is cost-effective for large orders with simple designs. Debossing creates a recessed logo that won't wear off, perfect for premium sandals. Full-color heat transfer allows for complex artwork and photographs. For socks or slippers, embroidery or jacquard knitting can incorporate your logo directly into the fabric. Always request a proof before production to ensure color accuracy and placement.</p><h3>Quantities & MOQ</h3><p>Minimum order quantities for custom sandals typically start at 50 to 100 units, depending on the style and decoration method. As order size increases, unit prices drop significantly. For example, ordering 500 pairs of flip-flops can cost half as much per pair as ordering 100. If you need smaller quantities for a pilot program or executive gifts, consider styles with lower MOQs like premium slides or slippers. Bulk orders of 1,000+ units are common for large corporate events or retail giveaways.</p><p>Avoid common mistakes like ordering the wrong size range. Most sandals come in unisex sizing, but offering multiple sizes (S, M, L, XL) ensures a better fit for your recipients. Also, consider the season: order summer sandals in early spring to avoid rush shipping. For slippers, order before the holiday season for year-end gifts. Finally, check the lead time for custom decoration, which can range from 10 to 25 business days depending on complexity and order volume.</p>",
+  "buyingGuideH2": "Custom Sandals Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom sandals?",
+      "a": "Minimum order quantities vary by style, typically starting at 50 to 100 pairs. Flip-flops often have higher MOQs, while premium slides may have lower minimums. Contact us for specific product MOQs."
+    },
+    {
+      "q": "What decoration methods are available for sandals?",
+      "a": "Common methods include screen printing, pad printing, debossing, and full-color heat transfer. Screen printing is best for simple logos on flat surfaces, while debossing works well for a permanent, recessed logo."
+    },
+    {
+      "q": "How long does production take for custom sandals?",
+      "a": "Standard production lead time is 10 to 15 business days after approval of the design proof. Larger orders or complex decorations may require up to 25 business days. Rush orders are available for an additional fee."
+    },
+    {
+      "q": "Can I order samples before placing a bulk order?",
+      "a": "Yes, samples are available. You can order a blank sample to check size and material, or a decorated sample to see the logo placement and quality. Sample costs are usually deducted from the final order."
+    },
+    {
+      "q": "What sizes are available for custom sandals?",
+      "a": "Most sandals come in unisex sizing ranging from small (women's 5-6) to extra large (men's 13-14). Some styles offer specific men's and women's size ranges. We recommend ordering a size run to accommodate your audience."
+    }
+  ],
+  "heroAltText": "Custom sandals with logo, including flip-flops and slides for promotional events",
+  "productSkus": [
+    "501556",
+    "513304 90A",
+    "516800",
+    "517496",
+    "520052",
+    "521340",
+    "522251",
+    "524427",
+    "525740",
+    "526360",
+    "526361",
+    "526363",
+    "526782",
+    "526905",
+    "526906",
+    "526927",
+    "527216",
+    "527554",
+    "527988",
+    "528171",
+    "528311",
+    "528344",
+    "528345",
+    "529443"
+  ],
+  "generatedAt": "2026-05-30T11:11:09.108653+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "material_quality",
+  "skuFilterMode": "full",
+  "rawSkuCount": 24,
+  "filteredSkuCount": 24
+}

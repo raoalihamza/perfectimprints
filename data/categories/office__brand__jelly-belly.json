@@ -1,0 +1,26 @@
+{
+  "url": "/cat/office/brand/jelly-belly",
+  "type": "facet",
+  "h1": "Custom Jelly Belly Office Supplies for Bulk Orders",
+  "metaTitle": "Custom Jelly Belly Office - Perfect Imprints",
+  "metaDescription": "Order custom Jelly Belly office supplies for your team. Branded candy dispensers and gifts with your logo. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Custom Jelly Belly office products combine the universal appeal of gourmet jelly beans with practical desk accessories, making them ideal for breakrooms, reception desks, and employee gifts. From the Mug Drop with Jelly Belly to the Petite Treat Mini Dispenser, these branded items offer a sweet touch that boosts morale and keeps your logo visible. Perfect for marketing directors and HR managers looking to add a fun, memorable element to their office environment.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Jelly Belly office supplies including a branded candy dispenser and mug drop with jelly beans",
+  "productSkus": [
+    "518089 90A",
+    "518499",
+    "519766",
+    "526918",
+    "527005",
+    "529148"
+  ],
+  "generatedAt": "2026-05-31T09:20:51.504469+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

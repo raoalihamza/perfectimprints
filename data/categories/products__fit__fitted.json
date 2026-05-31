@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/fit/fitted",
+  "type": "facet",
+  "h1": "Custom Fitted Products for Branded Apparel",
+  "metaTitle": "Custom Fitted Products | Perfect Imprints",
+  "metaDescription": "Shop custom fitted products at Perfect Imprints. Perfect for branded apparel that fits well and promotes your brand.",
+  "introHtml": "<p>Fitted products offer a tailored look that standard sizing can't match. Whether you're outfitting a sales team with polo shirts or providing uniform polos for a trade show, fitted cuts provide a professional silhouette that enhances your brand image. Choose from popular decoration methods like embroidery or screen printing to add your logo. Fitted styles are especially popular for company events and employee uniforms where a sharp appearance matters.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom fitted products like branded polo shirts with embroidered logo",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:45:48.491273+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

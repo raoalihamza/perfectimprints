@@ -1,0 +1,22 @@
+{
+  "url": "/cat/coasters/color/green",
+  "type": "facet",
+  "h1": "Custom Green Coasters",
+  "metaTitle": "Custom Green Coasters | Perfect Imprints",
+  "metaDescription": "Order custom green coasters for your brand. Bulk pricing, fast turnaround. Perfect for bars and events.",
+  "introHtml": "<p>Green coasters bring a natural, eco-friendly feel to any bar, restaurant, or corporate event. Whether you choose a rich forest green for a luxury brand or a bright lime for a fun promotion, this color stands out on tabletops. Our green coasters pair well with leather or brass finishes, adding a touch of sophistication. Customize with your logo using debossing or screen printing for a durable, professional look that keeps your brand top of mind with every drink.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green coasters with debossed logo on a restaurant table, featuring a drink and natural lighting.",
+  "productSkus": [
+    "518270",
+    "518880"
+  ],
+  "generatedAt": "2026-05-31T08:33:15.051822+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

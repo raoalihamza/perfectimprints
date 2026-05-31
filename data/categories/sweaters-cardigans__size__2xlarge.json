@@ -1,0 +1,32 @@
+{
+  "url": "/cat/sweaters-cardigans/size/2xlarge",
+  "type": "facet",
+  "h1": "Custom 2X Large Sweaters & Cardigans",
+  "metaTitle": "Custom 2X Large Sweaters & Cardigans | Perfect Imprints",
+  "metaDescription": "Order bulk custom 2X large sweaters and cardigans for your team. Perfect for uniforms, gifts, or events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>When ordering sweaters and cardigans for your team, getting the right fit is essential. Our 2X large options ensure comfort and a professional appearance for employees who need extra room. From open-front cardigans to classic v-neck sweaters, these styles offer easy decoration with embroidery or screen printing. Whether you're outfitting a safety crew or rewarding top performers, 2X large sweaters and cardigans from trusted brands like Brooks Brothers and Harriton provide durability and a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of custom 2X large sweaters and cardigans in various colors, folded and stacked, showing embroidery options.",
+  "productSkus": [
+    "520268",
+    "520269",
+    "523604",
+    "526198",
+    "526291",
+    "526292",
+    "527181",
+    "527182",
+    "527833",
+    "527957",
+    "528757",
+    "528758"
+  ],
+  "generatedAt": "2026-05-31T09:27:33.857316+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

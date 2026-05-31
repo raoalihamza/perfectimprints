@@ -1,0 +1,22 @@
+{
+  "url": "/cat/sunglasses/color/gold",
+  "type": "facet",
+  "h1": "Custom Gold Sunglasses for Bulk Orders",
+  "metaTitle": "Custom Gold Sunglasses | Perfect Imprints",
+  "metaDescription": "Shop custom gold sunglasses for your next event or promotion. Perfect for bulk orders. Get a quote today!",
+  "introHtml": "<p>Gold sunglasses offer a timeless, premium look that stands out at corporate events, trade shows, or company picnics. Whether you choose classic aviator frames or sleek wayfarer styles, the gold finish adds a touch of sophistication that recipients appreciate. Custom imprint your logo on the temples or arms for lasting brand visibility. Perfect for outdoor giveaways, employee rewards, or VIP gifts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gold aviator sunglasses with mirrored lenses and logo imprint on temple",
+  "productSkus": [
+    "512429",
+    "512466"
+  ],
+  "generatedAt": "2026-05-31T10:09:21.393606+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

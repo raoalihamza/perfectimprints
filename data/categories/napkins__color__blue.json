@@ -1,0 +1,24 @@
+{
+  "url": "/cat/napkins/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Napkins for Bulk Orders",
+  "metaTitle": "Custom Blue Napkins | Perfect Imprints",
+  "metaDescription": "Order custom blue napkins for your event or business. Perfect for branding. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Blue napkins bring a sense of calm and professionalism to any event or workplace. Whether you're stocking breakrooms with lunch-sized napkins or setting tables for a corporate dinner, blue is a versatile color that complements most decor and logos. Choose from beverage, luncheon, or dinner napkins in 1/4 or 1/8 fold options. Custom imprint your company name or event details for a polished look that guests will notice.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom blue napkins with company logo printed on them for corporate events",
+  "productSkus": [
+    "520634",
+    "520635",
+    "520636",
+    "520637"
+  ],
+  "generatedAt": "2026-05-31T09:20:29.307232+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

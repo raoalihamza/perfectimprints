@@ -1,0 +1,25 @@
+{
+  "url": "/cat/outerwear/brand/mv-sport",
+  "type": "facet",
+  "h1": "Custom Mv Sport Outerwear for Bulk Orders",
+  "metaTitle": "Custom Mv Sport Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom Mv Sport outerwear in bulk. Perfect for teams and events. Get your quote today at Perfect Imprints.",
+  "introHtml": "<p>Mv Sport outerwear combines athletic performance with professional style, making it a top choice for corporate teams and event staff. Their reversible vests and waterproof jackets offer versatility for outdoor events or daily commutes. With decoration options like embroidery and screen printing, you can add your logo to fleece jackets or vests for a cohesive look that performs as hard as your team.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom Mv Sport outerwear with embroidered logos",
+  "productSkus": [
+    "506605",
+    "506606",
+    "520529",
+    "526071",
+    "526072"
+  ],
+  "generatedAt": "2026-05-31T09:59:03.496238+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

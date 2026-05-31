@@ -1,0 +1,27 @@
+{
+  "url": "/cat/blankets/material/knit",
+  "type": "facet",
+  "h1": "Custom Knit Blankets",
+  "metaTitle": "Custom Knit Blankets | Perfect Imprints",
+  "metaDescription": "Order custom knit blankets for your brand. Soft, durable, and perfect for events or gifts. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Knit blankets offer a textured, cozy feel that sets them apart from standard fleece or woven options. The cable knit and basketweave patterns add a touch of homey sophistication, making them ideal for employee gifts, client appreciation, or event giveaways. With options like the Cable Knit Chenille Throw or the Made*Here New York Basketweave Cotton Blanket, you can choose a style that matches your brand's warmth. Decorate with embroidery or screen printing for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of custom knit blankets in various colors, featuring cable knit and chenille textures, perfect for branding.",
+  "productSkus": [
+    "521988",
+    "523701",
+    "527392",
+    "527644",
+    "528129",
+    "528587",
+    "529071"
+  ],
+  "generatedAt": "2026-05-31T08:50:57.529095+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

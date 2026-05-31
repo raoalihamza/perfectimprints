@@ -1,0 +1,23 @@
+{
+  "url": "/cat/pullovers/feature/quarter-zip",
+  "type": "facet",
+  "h1": "Custom Quarter Zip Pullovers for Your Team",
+  "metaTitle": "Custom Quarter Zip Pullovers | Perfect Imprints",
+  "metaDescription": "Order custom quarter zip pullovers for corporate gifts, uniforms, and team apparel. Free quotes and bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Quarter zip pullovers offer a versatile layering option that combines the comfort of a sweatshirt with the polished look of a jacket. The half-zip front allows for easy temperature control, making them ideal for office casual dress codes, outdoor events, or trade shows. Customize with your logo using embroidery or screen printing on styles like the Boxercraft Sherpa Pullover or the Men's Heathered Eco-Logic Stretch Quarter Zip for a professional, cohesive appearance.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom quarter zip pullovers with embroidered logo, available in multiple colors for corporate apparel.",
+  "productSkus": [
+    "521535",
+    "526103",
+    "527948"
+  ],
+  "generatedAt": "2026-05-31T10:04:41.253410+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

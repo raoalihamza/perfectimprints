@@ -1,0 +1,22 @@
+{
+  "url": "/cat/office/activity/hockey",
+  "type": "facet",
+  "h1": "Custom Hockey Office Supplies & Promotional Items",
+  "metaTitle": "Custom Hockey Office Items | Perfect Imprints",
+  "metaDescription": "Shop custom hockey office supplies from Perfect Imprints. Great for sports-themed giveaways or team branding. Order bulk today!",
+  "introHtml": "<p>For marketing directors and HR managers looking to energize a sports-themed office or promote a hockey event, custom hockey office supplies offer a focused way to connect with fans. From branded lanyards with plastic clamshells to pop magnets featuring hockey motifs, these items bring team spirit to the workplace. Decorate with your logo using screen printing or full-color sublimation to create memorable giveaways that resonate with hockey enthusiasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hockey office supplies including branded lanyards and pop magnets with hockey motifs for team spirit.",
+  "productSkus": [
+    "503083",
+    "522292"
+  ],
+  "generatedAt": "2026-05-31T09:58:06.402513+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

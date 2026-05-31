@@ -1,0 +1,21 @@
+{
+  "url": "/cat/shirts/feature/vented",
+  "type": "facet",
+  "h1": "Custom Vented Shirts",
+  "metaTitle": "Custom Vented Shirts | Perfect Imprints",
+  "metaDescription": "Order custom vented shirts for breathable comfort. Perfect for outdoor teams and events. Get your quote at Perfect Imprints.",
+  "introHtml": "<p>Vented shirts add targeted airflow to keep your team cool during outdoor work, trade shows, or company picnics. Unlike standard shirts, vented panels reduce heat buildup without sacrificing a professional look. Options like the Ladies OGIO Commuter Woven Tunic combine mesh venting with a tailored silhouette, making them ideal for warm-weather uniforms. Decorate with embroidery or screen printing for a polished finish that breathes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom vented shirts with mesh panels for breathability, perfect for outdoor corporate uniforms",
+  "productSkus": [
+    "525389"
+  ],
+  "generatedAt": "2026-05-31T08:37:23.010204+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

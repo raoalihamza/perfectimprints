@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/pom",
+  "type": "facet",
+  "h1": "Custom Pom Products for Bulk Orders",
+  "metaTitle": "Custom Pom Products | Perfect Imprints",
+  "metaDescription": "Order custom pom products in bulk at Perfect Imprints. Ideal for giveaways, events, and branding. Get a quote today!",
+  "introHtml": "<p>Pom-pom products add a playful, tactile element to your branded merchandise, making them popular for trade shows, school events, and retail promotions. From keychains and hair ties to decorative accessories, the fluffy texture stands out and invites interaction. Customize with your logo using screen printing or embroidery for a soft, memorable giveaway that recipients love to keep and use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom pom products including keychains and hair ties with logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:53.067395+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

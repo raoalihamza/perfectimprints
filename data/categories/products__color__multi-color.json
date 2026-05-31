@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/color/multi-color",
+  "type": "facet",
+  "h1": "Custom Multi Color Products for Your Brand",
+  "metaTitle": "Custom Multi Color Products | Perfect Imprints",
+  "metaDescription": "Order custom multi color products for your next campaign. Perfect for branding with vibrant colors. Get a quote today!",
+  "introHtml": "<p>Multi color products let you showcase your brand in vivid detail, making them ideal for events, giveaways, or retail. Whether you need a striking logo on a pen or a full-color design on a stress reliever, these items offer maximum visibility. Decorate with pad printing or full-color digital transfer for crisp results. Bulk orders are common for trade shows and corporate gifts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom multi color products including pens, stress relievers, and keychains with vibrant logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:36:49.046234+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

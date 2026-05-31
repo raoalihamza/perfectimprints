@@ -1,0 +1,24 @@
+{
+  "url": "/cat/reusable-straws/color/red",
+  "type": "facet",
+  "h1": "Custom Red Reusable Straws",
+  "metaTitle": "Custom Red Reusable Straws | Perfect Imprints",
+  "metaDescription": "Order custom red reusable straws in bulk. Perfect for branding at events or eco-friendly giveaways. Get a quote today!",
+  "introHtml": "<p>Red reusable straws make a bold, eco-friendly impression at any event or promotional campaign. Whether you're outfitting a company picnic with branded silicone bent straws or packing drawstring pouches for a trade show, the vibrant color ensures your logo stands out. Perfect for reducing single-use plastic while keeping your brand top of mind.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red reusable straws with logos, ideal for branded eco-friendly giveaways",
+  "productSkus": [
+    "521867",
+    "522032",
+    "522455",
+    "523997"
+  ],
+  "generatedAt": "2026-05-31T09:24:47.269729+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

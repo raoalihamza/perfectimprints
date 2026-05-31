@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Products for Branded Giveaways",
+  "metaTitle": "Custom Purple Products | Perfect Imprints",
+  "metaDescription": "Browse custom purple products for branded giveaways. Shop bulk options with your logo at Perfect Imprints.",
+  "introHtml": "<p>Purple conveys creativity, royalty, and quality — making it a standout color for branded merchandise. Whether you need custom purple pens, stress relievers, or drinkware, this color grabs attention at trade shows and corporate events. Perfect for branding campaigns that aim to be memorable, purple products offer a unique alternative to standard corporate colors. Decorate with screen printing or laser engraving for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom purple products including pens, stress balls, and water bottles with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:30:32.324501+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

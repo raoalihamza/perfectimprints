@@ -1,0 +1,23 @@
+{
+  "url": "/cat/products/brand/zippo",
+  "type": "facet",
+  "h1": "Custom Zippo Products for Bulk Orders",
+  "metaTitle": "Custom Zippo Products | Perfect Imprints",
+  "metaDescription": "Order custom Zippo products for your brand. Personalized lighters, hand warmers & more. Get a quote today.",
+  "introHtml": "<p>Zippo products bring instant recognition and rugged reliability to your brand. From the iconic windproof lighter to rechargeable hand warmers and powerbanks, each item carries the trusted Zippo name. Ideal for corporate gifts, safety incentives, or trade show giveaways, these products offer high perceived value and lasting utility. Custom engraving or imprinting adds your logo or message, turning a practical item into a memorable brand ambassador.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Zippo products including a Zippo lighter and hand warmer with engraved logo",
+  "productSkus": [
+    "528350",
+    "528351",
+    "528964"
+  ],
+  "generatedAt": "2026-05-31T09:24:04.155093+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

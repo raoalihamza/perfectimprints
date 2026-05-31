@@ -1,0 +1,26 @@
+{
+  "url": "/cat/bags/color/rainbow",
+  "type": "facet",
+  "h1": "Custom Rainbow Bags for Bulk Orders",
+  "metaTitle": "Custom Rainbow Bags | Perfect Imprints",
+  "metaDescription": "Order custom rainbow bags in bulk from Perfect Imprints. Perfect for pride events, school spirit, and brand visibility.",
+  "introHtml": "<p>Rainbow bags make a bold, inclusive statement for pride parades, school events, or brand promotions. From the Large Rainbow Laminated Tote to the Jumbo Rainbow Drawstring Backpack, these bags offer high visibility in a spectrum of colors. Durable materials and full-color decoration options let you add your logo or message. Ideal for giveaways, retail, or team swag that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom rainbow bags in bulk for promotions and events, featuring colorful totes and backpacks.",
+  "productSkus": [
+    "501186",
+    "507456",
+    "508787",
+    "524409",
+    "524410",
+    "525431"
+  ],
+  "generatedAt": "2026-05-31T09:34:22.239957+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

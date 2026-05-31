@@ -1,0 +1,27 @@
+{
+  "url": "/cat/dress-shirts/brand/dri-duck",
+  "type": "facet",
+  "h1": "Custom Dri Duck Dress Shirts for Bulk Orders",
+  "metaTitle": "Custom Dri Duck Dress Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Dri Duck dress shirts in bulk. Perfect for uniforms or promotional wear. Get a quote at PerfectImprints.com today!",
+  "introHtml": "<p>Dri Duck dress shirts combine professional style with the durability and moisture-wicking performance that active teams need. Whether you are outfitting a sales crew or a field service team, these shirts resist wrinkles and keep wearers comfortable through long days. Decorate with an embroidered logo or screen-printed design for a crisp, lasting brand impression. Perfect for companies that demand a polished look that works as hard as their people.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Dri Duck dress shirts for bulk orders featuring moisture-wicking fabric and professional styling",
+  "productSkus": [
+    "522595",
+    "527125",
+    "527126",
+    "528099",
+    "528100",
+    "528838",
+    "529182"
+  ],
+  "generatedAt": "2026-05-31T09:12:00.646618+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

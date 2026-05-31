@@ -1,0 +1,26 @@
+{
+  "url": "/cat/tote-bags/feature/adjustable",
+  "type": "facet",
+  "h1": "Custom Adjustable Tote Bags",
+  "metaTitle": "Custom Adjustable Tote Bags | Perfect Imprints",
+  "metaDescription": "Order custom adjustable tote bags with your logo. Perfect for trade shows, employee gifts, and promotions. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Adjustable tote bags offer the flexibility of a backpack with the convenience of a tote. Whether you need a bag that converts from shoulder carry to a backpack like the KAPSTON™ Pierce Tote-Pack or a classic cotton tote with adjustable straps, these bags adapt to your recipients' needs. Ideal for commuters, trade show attendees, or employees who appreciate versatility, custom adjustable tote bags let you brand a practical item that fits different carrying preferences.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adjustable tote bags with logo, featuring adjustable straps and multiple carry options for promotional use.",
+  "productSkus": [
+    "501897",
+    "505840",
+    "505852",
+    "506826",
+    "513518 80D",
+    "521406"
+  ],
+  "generatedAt": "2026-05-31T10:11:45.293822+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

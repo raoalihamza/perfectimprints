@@ -1,0 +1,21 @@
+{
+  "url": "/cat/fleece/color/gray",
+  "type": "facet",
+  "h1": "Custom Gray Fleece for Bulk Orders",
+  "metaTitle": "Custom Gray Fleece | Perfect Imprints",
+  "metaDescription": "Order custom gray fleece jackets in bulk from Perfect Imprints. Perfect for teams, events, and corporate gifts.",
+  "introHtml": "<p>Gray fleece offers a neutral, professional look that works for any industry, from construction sites to corporate offices. The Boundary Fleece Jacket, for example, provides warmth and durability with a subtle color that hides dirt well. Customize with your logo using embroidery or screen printing for a cohesive team uniform or promotional giveaway.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gray fleece jacket with embroidered logo on front, perfect for corporate branding",
+  "productSkus": [
+    "511088"
+  ],
+  "generatedAt": "2026-05-31T08:33:51.531695+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

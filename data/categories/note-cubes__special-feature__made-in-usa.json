@@ -1,0 +1,24 @@
+{
+  "url": "/cat/note-cubes/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Note Cubes",
+  "metaTitle": "Custom Made in USA Note Cubes | Perfect Imprints",
+  "metaDescription": "Order custom made in USA note cubes for your office. Perfect for daily use with your logo. Get a quote today.",
+  "introHtml": "<p>Made in USA note cubes combine the reliability of domestic manufacturing with the practicality of a desk essential. When you choose custom note cubes produced stateside, you support American workers and often benefit from faster turnaround times. These cubes, like our Post-it® Note Cube with 300 sheets, offer ample space for your logo on each side. Ideal for offices looking to reinforce their brand with every scribbled reminder, they are a subtle yet constant presence on any desk.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA note cubes with company logo printed on sides, stacked on a desk",
+  "productSkus": [
+    "501343 90A",
+    "509193",
+    "512700 90A",
+    "512738 90A"
+  ],
+  "generatedAt": "2026-05-31T09:20:36.593316+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

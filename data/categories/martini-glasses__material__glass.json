@@ -1,0 +1,24 @@
+{
+  "url": "/cat/martini-glasses/material/glass",
+  "type": "facet",
+  "h1": "Custom Glass Martini Glasses for Bulk Orders",
+  "metaTitle": "Custom Glass Martini Glasses | Perfect Imprints",
+  "metaDescription": "Order custom glass martini glasses for your event or brand. Perfect Imprints offers bulk pricing and personalization.",
+  "introHtml": "<p>Glass martini glasses bring a classic elegance that plastic or acrylic simply cannot match. The clarity and weight of glass make them ideal for upscale corporate gifts, VIP client events, or holiday parties where presentation matters. Whether you choose a traditional V-shaped stem or a modern stemless design, these glasses offer a sophisticated canvas for screen-printed logos or etched branding. With options like the 10 oz Napa Valley Goblet or the 15 oz Stemless White Wine Glass, you can select a style that fits your event's tone while ensuring your brand stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom glass martini glasses with etched logo, clear glass, stemware for corporate gifts",
+  "productSkus": [
+    "510995 90E",
+    "511000 90E",
+    "511046 90E",
+    "511053 90E"
+  ],
+  "generatedAt": "2026-05-31T09:19:10.711772+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

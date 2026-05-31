@@ -1,0 +1,23 @@
+{
+  "url": "/cat/candles/brand/woodwick",
+  "type": "facet",
+  "h1": "Custom WoodWick Candles for Branded Promotions",
+  "metaTitle": "Custom WoodWick Candles | Perfect Imprints",
+  "metaDescription": "Shop custom WoodWick candles at Perfect Imprints. Perfect for corporate gifts with a unique crackling wick. Order in bulk today.",
+  "introHtml": "<p>WoodWick candles are known for their distinctive crackling wooden wick, creating a cozy ambiance that sets them apart from ordinary candles. For businesses looking to leave a lasting impression, custom WoodWick candles offer a sensory experience that recipients remember. Whether you choose the elegant Ellipse or the modern Hourglass design, these candles can be decorated with your logo using foil stamping or labels. Ideal for client appreciation gifts, holiday giveaways, or employee rewards, they combine premium quality with brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom WoodWick candles with crackling wick in Ellipse and Hourglass designs for corporate gifts",
+  "productSkus": [
+    "526355",
+    "526356",
+    "526357"
+  ],
+  "generatedAt": "2026-05-31T08:51:35.103357+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/coolers/brand/coleman",
+  "type": "facet",
+  "h1": "Custom Coleman Coolers for Bulk Orders",
+  "metaTitle": "Custom Coleman Coolers | Perfect Imprints",
+  "metaDescription": "Order custom Coleman coolers for your brand. Durable, trusted coolers with your logo. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Coleman coolers have been a trusted name for decades, known for their rugged durability and ice retention. When you choose custom Coleman coolers for your promotional needs, you're pairing a legendary brand with your company's logo. Whether you're outfitting a sales team for outdoor events or providing giveaways at a company picnic, these coolers offer practical value that recipients will use for years. Decorate with screen printing or debossing for a clean, lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Coleman coolers with company logo printed on the side, available in various sizes for bulk orders.",
+  "productSkus": [
+    "517874",
+    "525375"
+  ],
+  "generatedAt": "2026-05-31T08:22:18.171028+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

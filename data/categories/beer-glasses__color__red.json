@@ -1,0 +1,22 @@
+{
+  "url": "/cat/beer-glasses/color/red",
+  "type": "facet",
+  "h1": "Custom Red Beer Glasses",
+  "metaTitle": "Custom Red Beer Glasses | Perfect Imprints",
+  "metaDescription": "Shop custom red beer glasses for your next event or promotion. Perfect for branding. Order bulk from Perfect Imprints today.",
+  "introHtml": "<p>Red beer glasses stand out at tailgates, company picnics, and bar promotions where you want your logo to pop. Whether you choose 16 oz plastic pint glasses for outdoor events or full-color digital printing for intricate designs, the bold red hue ensures high visibility. Unlike clear glass, red plastic reduces the need for custom coloring and gives a unified team look. Perfect for breweries, sports bars, or corporate giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red beer glasses with logo printed on side, 16 oz plastic pint glasses for promotional events",
+  "productSkus": [
+    "524527",
+    "524528"
+  ],
+  "generatedAt": "2026-05-31T09:36:41.505686+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/sports-balls/feature/padded",
+  "type": "facet",
+  "h1": "Custom Padded Sports Balls for Bulk Orders",
+  "metaTitle": "Custom Padded Sports Balls | Perfect Imprints",
+  "metaDescription": "Order custom padded sports balls in bulk from Perfect Imprints. Ideal for safety-conscious events and giveaways.",
+  "introHtml": "<p>Padded sports balls offer a safer alternative for corporate events, school programs, and family-friendly promotions. The soft foam or fabric covering reduces impact risk while maintaining a realistic look and feel. Decorate them with your logo using screen printing or pad printing for a soft, durable imprint that lasts. Perfect for outdoor giveaways, team-building activities, or safety-focused campaigns where standard hard balls aren't appropriate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom padded sports balls with embroidered logos, soft foam construction for safe promotional giveaways",
+  "productSkus": [
+    "514871",
+    "515618 90A",
+    "516371 09A",
+    "521337"
+  ],
+  "generatedAt": "2026-05-31T10:07:52.211641+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

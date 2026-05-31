@@ -1,0 +1,26 @@
+{
+  "url": "/cat/tote-bags/feature/folding",
+  "type": "facet",
+  "h1": "Custom Folding Tote Bags for Easy Storage & Branding",
+  "metaTitle": "Custom Folding Tote Bags | Perfect Imprints",
+  "metaDescription": "Order custom folding tote bags from Perfect Imprints. Compact, portable, and perfect for trade shows, events, and employee gifts.",
+  "introHtml": "<p>Custom folding tote bags combine everyday utility with space-saving design. Unlike rigid totes, these bags collapse flat or fold into compact pouches, making them ideal for trade shows, conferences, and employee welcome kits. The Zippin Tote zips into a small pouch, while non-woven grocery totes with poly board inserts hold their shape when open yet fold flat for storage. Decorate with your logo using screen printing or full-color transfer for a portable billboard that attendees will keep and reuse.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom folding tote bags in various colors, folded and unfolded, with logo imprinting",
+  "productSkus": [
+    "504281",
+    "504937",
+    "504938",
+    "508787",
+    "510954",
+    "515955"
+  ],
+  "generatedAt": "2026-05-31T10:11:45.400478+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

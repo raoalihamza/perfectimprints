@@ -1,0 +1,22 @@
+{
+  "url": "/cat/outerwear/style/two-tone",
+  "type": "facet",
+  "h1": "Custom Two Tone Outerwear for Teams",
+  "metaTitle": "Custom Two Tone Outerwear | Perfect Imprints",
+  "metaDescription": "Shop custom two tone outerwear at Perfect Imprints. Bulk orders, free quotes, and fast shipping for your team.",
+  "introHtml": "<p>Two tone outerwear combines two contrasting colors in one jacket, creating a professional look that stands out while maintaining your brand identity. Whether you need the Narvik Hybrid Jacket for your field crew or a sleek windbreaker for your sales team, the dual-color design adds visual depth and makes your logo pop. Ideal for companies wanting a modern, coordinated appearance without sacrificing function.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom two tone outerwear jackets with contrasting panels and embroidered logo for corporate teams",
+  "productSkus": [
+    "525738",
+    "525739"
+  ],
+  "generatedAt": "2026-05-31T09:59:16.065887+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

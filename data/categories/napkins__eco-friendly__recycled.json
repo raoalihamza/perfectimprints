@@ -1,0 +1,25 @@
+{
+  "url": "/cat/napkins/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Napkins for Eco-Conscious Branding",
+  "metaTitle": "Custom Recycled Napkins | Perfect Imprints",
+  "metaDescription": "Order custom recycled napkins for your brand. Eco-friendly and customizable with your logo. Perfect for events and daily use.",
+  "introHtml": "<p>Choosing custom recycled napkins demonstrates your commitment to sustainability without sacrificing quality or style. Made from post-consumer recycled materials, these napkins offer the same absorbency and softness as virgin paper, making them ideal for corporate cafeterias, catered events, or branded giveaways. Decorate with your logo using flexographic or offset printing for a crisp, professional look. Whether you need beverage or luncheon sizes, recycled napkins let you promote your brand responsibly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom recycled napkins with a printed company logo, eco-friendly branding option",
+  "productSkus": [
+    "514577 90A",
+    "514579 90A",
+    "514580 90A",
+    "514581 90A",
+    "514583 90A"
+  ],
+  "generatedAt": "2026-05-31T09:20:30.421662+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

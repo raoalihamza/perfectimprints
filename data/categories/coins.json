@@ -1,33 +1,35 @@
 {
   "url": "/cat/coins",
   "type": "root",
-  "h1": "Custom Coins for Recognition, Safety & Branding",
-  "metaTitle": "Custom Coins • Perfect Imprints",
-  "metaDescription": "Order custom challenge coins or commemorative coins for corporate awards, safety milestones, and swag. Low MOQs, free art proofs, quick turnaround.",
-  "introHtml": "<p>Custom coins are die‑struck from brass, zinc alloy, or pewter to deliver a heft and finish that cheap plastic can’t match. Whether you need polished gold/silver, antique bronze, or a full‑color enamel infill, each coin is a miniature billboard for your brand. The raised or recessed design holds up to years of pocket carry, making these coins ideal for safety tokens, service awards, and trade‑show giveaways.</p><p>Because coins are compact and durable, they’re a favorite for HR directors launching employee‑recognition programs and for safety managers tracking milestone days without incident. Marketing directors also use custom coins as VIP credentials at events — they’re harder to counterfeit than paper badges and become collectibles that keep your logo in sight. Even small business owners can order runs as low as 100 pieces with a single‑sided imprint to stay on budget.</p><p>Production typically takes 10–15 business days after art approval, and we include free digital proofs. Decoration options include soft enamel, hard enamel, 3D stamping, and epoxy dome for extra scratch resistance. Add a custom velvet pouch or presentation box to turn a simple coin into a dignified award that recipients keep for years.</p>",
+  "h1": "Custom Coins for Recognition & Promotions",
+  "metaTitle": "Custom Coins | Perfect Imprints",
+  "metaDescription": "Order custom coins for corporate awards, employee recognition, and promotional giveaways. High-quality, engraved, and affordable bulk pricing.",
+  "introHtml": "<p>Custom coins are typically struck from brass, zinc alloy, or stainless steel, offering a solid feel and lasting durability. They come in various sizes (1.5 to 2 inches) and thicknesses, with options for antique silver, gold, or dual-tone finishes. The raised or recessed design is achieved through striking, which creates a permanent impression that won't wear off over time. For bulk orders, this makes custom coins a reliable choice for long-term use in recognition programs, employee awards, or promotional giveaways.</p><p>Marketing directors often use custom coins as branded giveaways at trade shows and corporate events, where their weight and finish convey a sense of quality. HR directors and safety managers find them effective for service awards, safety milestones, or onboarding kits. Business owners appreciate that custom coins can be fully personalized with logos, text, and even edge lettering, making them versatile for any occasion. With low minimum order quantities and competitive wholesale pricing, custom coins fit both small-batch appreciation gifts and large-scale promotional runs.</p>",
+  "buyingGuideHtml": "<p>When ordering custom coins, start by choosing the right material and finish. Brass and zinc alloy are the most common, offering a premium feel at a reasonable cost. Stainless steel is more durable but heavier. Finishes like antique silver, gold, or dual-tone affect the final look and can match your brand colors. For a polished appearance, consider a soft enamel fill in the recessed areas, which adds color contrast and makes your logo stand out.</p><p>Decoration options include die-struck designs (raised or recessed), which are permanent and ideal for logos or text. For added detail, you can combine striking with color filling using epoxy or enamel. Edge lettering is another customization that works well for mottos or dates. Screen printing is not typical for coins because it wears off; stick to struck or engraved methods for longevity.</p><p>Common use cases for custom coins include employee recognition (years of service, safety awards), corporate gifts (customer appreciation, holiday tokens), and promotional giveaways at trade shows. They also work well for fundraising events, where donors receive a commemorative coin. Business owners often order them as unique business cards or membership tokens.</p><p>Quantity guidance: Most suppliers have a minimum order of 100 to 250 pieces for custom coins. As quantities increase, unit price drops significantly. For example, ordering 500 coins might cost $2–$3 each, while 2,000 pieces could be under $1.50 each. Plan your budget accordingly and consider ordering extras for future events, as reorders may have higher per-unit costs.</p><p>Avoid common mistakes: Don't choose a finish that hides your logo detail. Light-colored logos on antique silver can be hard to read. Also, ensure your artwork is vector-based (AI or EPS) for clean striking. Check the coin size: a 1.5-inch coin is good for a lapel pin, but a 2-inch coin is better for a challenge coin. Finally, confirm lead times—custom coins typically take 2–4 weeks for production, so plan ahead for event dates.</p>",
+  "buyingGuideH2": "Custom Coins Buying Guide",
   "faqs": [
     {
-      "q": "What metals are custom coins made from?",
-      "a": "Most custom coins are die‑struck from brass, zinc alloy, or pewter. Brass offers a classic weight and is often plated in gold, silver, or antique finishes. Zinc alloy is lighter and more budget‑friendly while still accepting detailed stamping. Pewter gives a soft, matte look for premium awards."
+      "q": "What are the minimum order quantities for custom coins?",
+      "a": "Minimum order quantities typically start at 100 to 250 pieces, depending on the supplier and complexity of the design. Some may offer lower minimums for simple designs or higher minimums for dual-tone finishes."
     },
     {
-      "q": "What is the minimum order quantity for custom coins?",
-      "a": "Our standard minimum is 100 pieces per design. If you need a smaller test run, we can accommodate orders of 50 pieces with a simplified tooling setup. Larger quantities (500+) reduce the per‑unit cost, so pricing scales favorably for bulk recognition programs."
+      "q": "What decoration methods are available for custom coins?",
+      "a": "Common methods include die-struck (raised or recessed), soft enamel fill, and epoxy coating. For text or fine details, die-striking is best. Color fills add contrast but may wear over time. Edge lettering is also available."
+    },
+    {
+      "q": "How long does production take for custom coins?",
+      "a": "Production typically takes 2 to 4 weeks from artwork approval. Rush orders may be available for an additional fee. Always confirm lead times with your supplier before placing an order."
     },
     {
       "q": "Can I get a sample before placing a bulk order?",
-      "a": "Yes. We offer paid samples that include a blank coin in your chosen metal and finish. You’ll receive it within 5–7 business days. If you proceed with a production order, the sample cost is credited toward your invoice."
+      "a": "Yes, many suppliers offer sample coins for a fee, which is often credited toward your bulk order. Samples let you verify the finish, size, and detail quality before committing to a large run."
     },
     {
-      "q": "What decoration methods are available for coins?",
-      "a": "The most common are soft enamel (recessed color, raised metal lines) and hard enamel (polished flush surface). We also offer 3D stamping for a sculpted look and epoxy dome for a glossy, scratch‑resistant coating. Full‑color printed coins are available for photographic designs."
-    },
-    {
-      "q": "How long does production take?",
-      "a": "Typical production is 10–15 business days after you approve the art proof. Rush service (5–7 business days) is available for an additional fee. Shipping time varies by carrier and destination, so please allow extra days for transit."
+      "q": "What materials are custom coins made from?",
+      "a": "Custom coins are typically made from brass, zinc alloy, or stainless steel. Brass and zinc alloy are most common for their affordability and workability. Stainless steel is more durable but heavier and more expensive."
     }
   ],
-  "heroAltText": "Custom challenge coins with gold and silver finishes, featuring company logos and enamel colors, arranged on a dark surface.",
+  "heroAltText": "Custom coins with engraved logo and antique gold finish, ideal for corporate awards and promotional giveaways.",
   "productSkus": [
     "501004",
     "501118",
@@ -230,9 +232,9 @@
     "529060",
     "529407"
   ],
-  "generatedAt": "2026-05-24T14:17:14.869631+00:00",
+  "generatedAt": "2026-05-29T21:41:24.716798+00:00",
   "model": "deepseek-chat",
-  "promptVersion": "root-v1",
+  "promptVersion": "root-v2",
   "openingStyle": "material_quality",
   "skuFilterMode": "slug-filtered",
   "rawSkuCount": 1014,

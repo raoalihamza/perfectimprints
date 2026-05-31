@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jars/type/box",
+  "type": "facet",
+  "h1": "Custom Box Jars for Bulk Orders",
+  "metaTitle": "Custom Box Jars | Perfect Imprints",
+  "metaDescription": "Order custom box jars in bulk for your next event or promotion. Perfect for gifts and giveaways. Get a quote today!",
+  "introHtml": "<p>Box jars combine the charm of a mason jar with the practicality of a box, making them ideal for gift sets or hospitality kits. These containers offer a sturdy base and easy stacking for storage and shipping. Decorate with screen printing or labels to showcase your logo. Perfect for corporate gifts, welcome kits, or retail displays, custom box jars provide a unique way to present your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom box jars with branded lids and labels, ideal for bulk promotional gifts",
+  "productSkus": [
+    "506911",
+    "525119"
+  ],
+  "generatedAt": "2026-05-31T08:29:29.705993+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

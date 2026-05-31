@@ -1,0 +1,22 @@
+{
+  "url": "/cat/bar-wine/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Bar Wine for Promotional Events",
+  "metaTitle": "Custom Orange Bar Wine | Perfect Imprints",
+  "metaDescription": "Brand custom orange bar wine for your next event. Bulk pricing and fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>Orange bar wine items make a bold choice for promotional giveaways at college tailgates, fall festivals, or any event with a vibrant color scheme. Whether you choose a 10 oz vacuum insulated cup for hot coffee or cold drinks, the bright orange hue ensures your logo stands out. Screen printing or full-color wrap decoration works well on these items, giving you high visibility in any crowd.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange bar wine items like a 10 oz vacuum insulated cup in bright orange for promotional use",
+  "productSkus": [
+    "522060",
+    "526191"
+  ],
+  "generatedAt": "2026-05-31T09:35:29.840706+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

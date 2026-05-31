@@ -1,0 +1,22 @@
+{
+  "url": "/cat/blankets/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Blankets",
+  "metaTitle": "Custom Purple Blankets | Perfect Imprints",
+  "metaDescription": "Order custom purple blankets for your brand. Perfect for gifts, events, or employee appreciation. Shop at Perfect Imprints.",
+  "introHtml": "<p>Purple blankets stand out in a crowd, making them a smart choice for brand visibility at events or as employee gifts. Whether you choose the plush Micro Mink Sherpa Blanket for comfort or the Cozy Comfort Coffee Kit for a complete gift set, custom embroidery or screen printing adds your logo in high contrast. Ideal for marketing directors seeking memorable giveaways or HR directors planning wellness perks.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom purple blankets with embroidered logo, soft micro mink texture, perfect for branded giveaways",
+  "productSkus": [
+    "525694",
+    "526239"
+  ],
+  "generatedAt": "2026-05-31T09:37:19.955284+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

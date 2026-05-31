@@ -1,0 +1,22 @@
+{
+  "url": "/cat/inspirational-books/color/black",
+  "type": "facet",
+  "h1": "Custom Black Inspirational Books for Bulk Orders",
+  "metaTitle": "Custom Black Inspirational Books | Perfect Imprints",
+  "metaDescription": "Order custom black inspirational books in bulk at Perfect Imprints. Ideal for corporate gifts, wellness programs, and events.",
+  "introHtml": "<p>Black covers give inspirational books a professional, understated look that works well in corporate gift sets or employee wellness kits. Unlike brightly colored editions, black books blend into any setting while keeping the focus on the message inside. Pair them with a matching pen or journal for a coordinated giveaway that feels intentional and polished. Whether you are ordering for a mental health awareness campaign or a safety incentive program, black covers offer a neutral backdrop that suits any industry.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of custom black inspirational books with motivational titles, perfect for bulk corporate gifts and wellness programs.",
+  "productSkus": [
+    "520655",
+    "525628"
+  ],
+  "generatedAt": "2026-05-31T09:51:34.021489+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/mechanical-pencils/supplier/goldstar",
+  "type": "facet",
+  "h1": "Custom Goldstar Mechanical Pencils for Bulk Orders",
+  "metaTitle": "Custom Goldstar Mechanical Pencils | Perfect Imprints",
+  "metaDescription": "Order custom Goldstar mechanical pencils in bulk. Great for events, schools, and businesses. Get your quote at Perfect Imprints today.",
+  "introHtml": "<p>Goldstar mechanical pencils offer reliable performance and a comfortable grip, making them a popular choice for promotional giveaways and corporate events. Whether you choose the classic Armadillo design or the Frosty Grip for added comfort, these pencils are ideal for trade shows, school supply kits, or employee appreciation. Custom imprinting with your logo or message ensures your brand stays top of mind every time they're used.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Goldstar mechanical pencils in assorted colors with printed logos, displayed on a white background.",
+  "productSkus": [
+    "510506",
+    "510906",
+    "514646",
+    "519577",
+    "525811"
+  ],
+  "generatedAt": "2026-05-31T08:57:45.277246+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

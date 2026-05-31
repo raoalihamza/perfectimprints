@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tank-tops/size/4xlarge",
+  "type": "facet",
+  "h1": "Custom 4 XLarge Tank Tops",
+  "metaTitle": "Custom 4 XLarge Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom 4 xlarge tank tops for your team or event. Perfect for uniforms and giveaways. Get a quote today!",
+  "introHtml": "<p>When ordering bulk tank tops for your crew, getting the right fit for everyone matters. Choosing 4 xlarge sizes ensures that larger team members or event attendees have a comfortable, professional-looking option. These roomy tank tops work well for outdoor events, company picnics, or safety gear under uniforms. Decorate with screen printing or embroidery to add your logo. Perfect Imprints offers a variety of styles in 4 xlarge, from racerback to mesh tanks, so you can match your brand's needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A group of people wearing custom 4 xlarge tank tops with printed logos at a company event",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T08:47:19.962774+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

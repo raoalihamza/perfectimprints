@@ -1,0 +1,21 @@
+{
+  "url": "/cat/blankets/feature/waterproof",
+  "type": "facet",
+  "h1": "Custom Waterproof Blankets for Outdoor Events",
+  "metaTitle": "Custom Waterproof Blankets | Perfect Imprints",
+  "metaDescription": "Order custom waterproof blankets for outdoor events and promotions. Durable, branded blankets from Perfect Imprints.",
+  "introHtml": "<p>Custom waterproof blankets are essential for outdoor events, picnics, and promotional giveaways where moisture resistance matters. Unlike standard fleece or cotton blankets, these are designed to repel water, making them ideal for stadium seating, beach trips, or camping. The Plaid Picnic Blanket is a popular example, offering a classic look with a waterproof backing that keeps users dry. Decorate with your logo via screen printing or embroidery for a practical branded item.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom waterproof blanket with plaid design and waterproof backing, perfect for outdoor events and promotions.",
+  "productSkus": [
+    "505863"
+  ],
+  "generatedAt": "2026-05-31T09:37:21.958736+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

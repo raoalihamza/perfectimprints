@@ -1,0 +1,31 @@
+{
+  "url": "/cat/dress-shirts/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Dress Shirts for Bulk Orders",
+  "metaTitle": "Custom Cotton Dress Shirts | Perfect Imprints",
+  "metaDescription": "Order custom cotton dress shirts for your team or event. Bulk pricing, embroidery, and quick turnaround from Perfect Imprints.",
+  "introHtml": "<p>Cotton dress shirts offer breathable comfort and a crisp, professional appearance that synthetic blends can't match. Whether you're outfitting a sales team for client meetings or supplying uniforms for a hospitality staff, 100% cotton shirts like the Devon & Jones Oxford or UNTUCKit wrinkle-free styles provide a polished look that holds up to daily wear. Choose from oxford cloth, denim, or gingham checks, all available with your logo embroidered on the chest or sleeve.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cotton dress shirts with embroidered logo on oxford cloth and gingham styles for corporate uniforms",
+  "productSkus": [
+    "501740",
+    "501741",
+    "513877",
+    "513878",
+    "513879",
+    "513880",
+    "525604",
+    "525605",
+    "525606",
+    "526629",
+    "529218"
+  ],
+  "generatedAt": "2026-05-31T09:12:05.953917+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

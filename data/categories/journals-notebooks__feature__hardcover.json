@@ -1,0 +1,19 @@
+{
+  "url": "/cat/journals-notebooks/feature/hardcover",
+  "type": "facet",
+  "h1": "Custom Hardcover Journals & Notebooks",
+  "metaTitle": "Custom Hardcover Journals & Notebooks | Perfect Imprints",
+  "metaDescription": "Order custom hardcover journals and notebooks for your brand. Perfect for corporate gifts and promotional use.",
+  "introHtml": "<p>Hardcover journals and notebooks offer a professional, durable option for corporate gifts and promotional giveaways. Unlike softcover alternatives, the rigid covers protect pages from wear and tear, making them ideal for daily use by clients or employees. Choose from various sizes, paper types, and binding styles, and add your logo through foil stamping, screen printing, or debossing for a premium look that reflects quality and attention to detail.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom hardcover journals and notebooks with embossed logos in various colors",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:56:20.101530+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

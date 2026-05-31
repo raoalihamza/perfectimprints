@@ -1,0 +1,27 @@
+{
+  "url": "/cat/sportswear/brand/new-era",
+  "type": "facet",
+  "h1": "Custom New Era Sportswear for Teams & Events",
+  "metaTitle": "Custom New Era Sportswear | Perfect Imprints",
+  "metaDescription": "Order custom New Era sportswear for your team or event. Shop polos, caps, hoodies & more with your logo. Bulk discounts available.",
+  "introHtml": "<p>New Era sportswear brings the same quality trusted by professional sports leagues to your corporate team. From moisture-wicking polos like the Power Polo to structured caps with flat bill or stretch mesh, each piece holds up to frequent wear and washing. Decorate with embroidery, screen printing, or heat transfer for a clean, lasting logo. Whether outfitting a sales team for a trade show or building a uniform for your company softball league, New Era delivers consistent sizing and durable fabrics that keep your brand looking sharp.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom New Era sportswear including polo shirt and snapback cap with embroidered logo on a table",
+  "productSkus": [
+    "529309",
+    "529310",
+    "529311",
+    "529312",
+    "529313",
+    "529314",
+    "529315"
+  ],
+  "generatedAt": "2026-05-31T08:46:54.700569+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

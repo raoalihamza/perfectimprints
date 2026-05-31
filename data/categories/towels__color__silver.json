@@ -1,0 +1,21 @@
+{
+  "url": "/cat/towels/color/silver",
+  "type": "facet",
+  "h1": "Custom Silver Towels for Bulk Orders",
+  "metaTitle": "Custom Silver Towels | Perfect Imprints",
+  "metaDescription": "Order custom silver towels for your brand or event. Perfect for gyms, hotels, and promotions. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Silver towels offer a sleek, modern look that stands out from standard white or bright-colored options. Perfect for spas, gyms, or corporate events, these towels pair well with metallic logos or foil stamping for a sophisticated finish. Available in various sizes and fabric blends, custom silver towels give your brand a distinctive, upscale appearance that customers will notice and remember.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom silver towels with embroidered logo, perfect for promotional use",
+  "productSkus": [
+    "513098"
+  ],
+  "generatedAt": "2026-05-31T09:03:46.614650+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

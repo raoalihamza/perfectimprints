@@ -1,0 +1,49 @@
+{
+  "url": "/cat/golf-balls",
+  "type": "root",
+  "h1": "Custom Golf Balls for Branded Promotions & Events",
+  "metaTitle": "Custom Golf Balls | Perfect Imprints",
+  "metaDescription": "Order custom golf balls for corporate events, tournaments & giveaways. Logo printed. Bulk pricing. Fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Marketing directors and business owners planning golf tournaments, client appreciation events, or corporate outings know that the right promotional item makes a lasting impression. Custom golf balls offer a practical, high-perceived-value giveaway that recipients actually use. Whether you need a dozen for a VIP gift or hundreds for a charity tournament, personalized golf balls keep your brand on the green all season long.</p><p>At Perfect Imprints, we stock top brands like Titleist, Volvik, and Wilson in multiple quantities and packaging options. Choose single balls, two-ball tubes, three-ball clear tubes, or premium boxes. Each ball can be imprinted with your logo in one or two colors using pad printing or hot stamping. The result is a clean, professional look that stands out on the fairway.</p>",
+  "buyingGuideHtml": "<p>When ordering custom golf balls, the first decision is ball construction and performance. Tour-level balls like the Titleist Pro V1 offer multilayer urethane covers for spin and feel, while distance balls like the Volvik Vivid provide a softer core for extra yards. Match the ball to your audience: serious golfers appreciate premium models, while casual players are happy with a solid mid-range ball.</p><h3>Materials and Durability</h3><p>Golf ball covers are typically made from Surlyn or urethane. Surlyn is durable and cut-resistant, ideal for logo imprinting and recreational play. Urethane offers more spin but scuffs easier. For promotional use, Surlyn is the most practical choice as it holds the print well and withstands regular use.</p><h3>Decoration Options</h3><p>Most custom golf balls are pad printed or hot stamped. Pad printing works best for one or two colors and fine details. Hot stamping uses foil for a metallic look. Full-color logos are possible but require a special process and may have a higher minimum. Always request a proof to ensure alignment and color accuracy.</p><h3>Common Use Cases</h3><p>Corporate golf tournaments are the top use case, where balls are given as player gifts or used on the course. They also work for client appreciation, sales incentives, and trade show giveaways. Safety managers sometimes use them for safety program rewards. Business owners order custom golf balls for real estate closings or new client welcome kits.</p><h3>Quantity and MOQ Guidance</h3><p>Minimum order quantities for custom golf balls typically start at 48 to 144 pieces, depending on the brand and decoration method. Bulk orders of 500 or more reduce the per-ball cost significantly. For premium balls like Titleist Pro V1, MOQs are higher due to their cost. Plan ahead: lead times range from 10 to 20 business days for imprinting.</p><p>Common buying mistakes include ordering the wrong ball type for the audience, choosing a dark logo on a dark ball (low contrast), and not ordering enough for a tournament. Always order extras for replacements and spares. If you need samples, request an unprinted ball first to test feel and appearance.</p>",
+  "buyingGuideH2": "Custom Golf Balls Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom golf balls?",
+      "a": "Minimum order quantities vary by brand and decoration method, typically starting at 48 to 144 pieces. Premium balls like Titleist Pro V1 may require higher MOQs. Contact us for specific brand requirements."
+    },
+    {
+      "q": "What decoration methods are available for golf balls?",
+      "a": "We offer pad printing for one or two colors and hot stamping for metallic foil logos. Full-color printing is available on select balls but requires a higher minimum order. A proof is provided for approval before production."
+    },
+    {
+      "q": "How long does it take to produce custom golf balls?",
+      "a": "Standard lead time is 10 to 20 business days after proof approval, depending on order size and decoration complexity. Rush service may be available for an additional fee."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, we recommend requesting an unprinted sample ball to evaluate feel and appearance. Once you approve the ball type, we can produce a printed proof for final approval before full production."
+    },
+    {
+      "q": "What ball types are best for promotional use?",
+      "a": "Surlyn-covered balls are most popular for promotions due to their durability and printability. For tournaments, mid-range balls like Wilson Ultra or Volvik Vivid offer good performance at a reasonable cost. Premium balls like Titleist Pro V1 are ideal for high-end client gifts."
+    }
+  ],
+  "heroAltText": "Custom logo printed golf balls on a green, featuring Titleist and Volvik brands for corporate events.",
+  "productSkus": [
+    "506922 50D",
+    "506923 50D",
+    "507565 90A",
+    "515618 90A",
+    "521337",
+    "527050",
+    "528245"
+  ],
+  "generatedAt": "2026-05-30T11:03:58.321454+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "buyer",
+  "skuFilterMode": "full",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

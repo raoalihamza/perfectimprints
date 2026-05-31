@@ -1,0 +1,22 @@
+{
+  "url": "/cat/ornaments/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Ornaments",
+  "metaTitle": "Custom Orange Ornaments | Perfect Imprints",
+  "metaDescription": "Order custom orange ornaments in bulk for your holiday promotions. Perfect for branding at Perfect Imprints.",
+  "introHtml": "<p>Orange ornaments bring a warm, energetic pop of color to any holiday display. Whether you’re creating employee gifts or seasonal swag for a fall-themed event, these shatter-resistant ornaments offer a safe, durable option for decorating offices or distributing at trade shows. Choose from flat or rounded styles and add your logo with screen printing or pad printing for a vibrant, lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange shatterproof ornaments with company logo, displayed on a holiday tree",
+  "productSkus": [
+    "504613",
+    "506005"
+  ],
+  "generatedAt": "2026-05-31T09:58:28.564640+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

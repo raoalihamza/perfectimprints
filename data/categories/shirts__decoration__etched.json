@@ -1,0 +1,19 @@
+{
+  "url": "/cat/shirts/decoration/etched",
+  "type": "facet",
+  "h1": "Custom Etched Shirts for Bulk Orders",
+  "metaTitle": "Custom Etched Shirts | Perfect Imprints",
+  "metaDescription": "Order custom etched shirts in bulk. Perfect for teams and events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Etched shirts use a laser to remove fabric dye, creating a soft, breathable design that never cracks or peels. Unlike screen printing or embroidery, the artwork becomes part of the fabric itself, making it ideal for lightweight performance tees or moisture-wicking polos. Marketing directors and safety managers often choose etched logos for a modern, understated look that holds up wash after wash without adding bulk or weight.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of custom etched shirts with laser-removed dye logo designs on performance fabric",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:06:30.409583+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

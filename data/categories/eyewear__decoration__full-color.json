@@ -1,0 +1,21 @@
+{
+  "url": "/cat/eyewear/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Eyewear for Bulk Orders",
+  "metaTitle": "Custom Full Color Eyewear | Perfect Imprints",
+  "metaDescription": "Order custom full color eyewear in bulk. Perfect for events, promotions, and safety. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Full color decoration on eyewear allows you to reproduce logos, photos, or intricate designs with vibrant detail. Unlike single-color imprinting, full color gives you the flexibility to match brand palettes exactly or create eye-catching gradients. This makes custom full color eyewear ideal for promotional events, trade shows, or company uniforms where visual impact matters. Options like the T-Shirt And Sunglasses Combo Set With Custom Box show how full color can transform a simple accessory into a memorable branded package.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color eyewear with vibrant logo imprint on sunglasses, perfect for promotional events and bulk orders.",
+  "productSkus": [
+    "520125"
+  ],
+  "generatedAt": "2026-05-31T09:45:01.571202+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

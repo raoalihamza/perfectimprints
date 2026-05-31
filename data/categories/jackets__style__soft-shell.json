@@ -1,0 +1,24 @@
+{
+  "url": "/cat/jackets/style/soft-shell",
+  "type": "facet",
+  "h1": "Custom Soft Shell Jackets for Your Team",
+  "metaTitle": "Custom Soft Shell Jackets | Perfect Imprints",
+  "metaDescription": "Order custom soft shell jackets for your team with your logo. Durable, weather-resistant, and perfect for corporate or safety wear.",
+  "introHtml": "<p>Soft shell jackets offer a balance of weather resistance and breathability that hard shells can't match. Ideal for outdoor events, field workers, or team uniforms, these jackets block wind and light rain while remaining flexible for movement. Decorate with your logo using embroidery or screen printing on styles like the Men's Aspect Soft Shell Jacket or The North Face® Apex Barrier. Choose soft shells for a professional look that performs in changing conditions.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom soft shell jackets with embroidered logo on the chest, featuring a zippered front and adjustable cuffs.",
+  "productSkus": [
+    "520281",
+    "526245",
+    "526246",
+    "527926"
+  ],
+  "generatedAt": "2026-05-31T08:25:10.941097+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

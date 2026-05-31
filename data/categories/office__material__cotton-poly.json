@@ -1,0 +1,23 @@
+{
+  "url": "/cat/office/material/cotton-poly",
+  "type": "facet",
+  "h1": "Custom Cotton Poly Office Products",
+  "metaTitle": "Custom Cotton Poly Office Products | Perfect Imprints",
+  "metaDescription": "Order custom cotton poly office products like polos and hoodies. Perfect for team uniforms. Shop at Perfect Imprints.",
+  "introHtml": "<p>Cotton poly blends combine the softness of cotton with the durability of polyester, making them a smart choice for office apparel. These fabrics resist wrinkles and hold up to frequent washing, ideal for uniforms, polos, and hoodies worn daily. Whether you need branded Jerzees® NuBlend® Hoodies for a casual Friday or Gildan® 50/50 polos for client meetings, the cotton poly blend ensures comfort and a polished look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cotton poly office products including polos and hoodies with embroidered logos",
+  "productSkus": [
+    "505528",
+    "506146",
+    "524817"
+  ],
+  "generatedAt": "2026-05-31T08:58:47.328165+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

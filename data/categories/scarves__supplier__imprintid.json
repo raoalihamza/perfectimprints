@@ -1,0 +1,26 @@
+{
+  "url": "/cat/scarves/supplier/imprintid",
+  "type": "facet",
+  "h1": "Custom Imprintid Scarves for Bulk Orders",
+  "metaTitle": "Custom Imprintid Scarves | Perfect Imprints",
+  "metaDescription": "Order custom imprintid scarves in bulk for your team or event. Perfect for branding with logo embroidery or screen printing. Get a quote today.",
+  "introHtml": "<p>When you choose custom imprintid scarves, you're selecting from a curated collection of styles like fleece scarves, knit sets, and striped options that are ideal for corporate gifts, trade show giveaways, or employee appreciation. These scarves offer reliable decoration surfaces for your logo, whether through embroidery or screen printing, ensuring your brand stays visible in cold weather. Bulk ordering from this supplier means consistent quality across every piece, making them a practical choice for marketing directors and HR managers looking for a unified look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom imprintid scarves in fleece and knit styles with logo embroidery for corporate branding",
+  "productSkus": [
+    "514088",
+    "516838",
+    "516839",
+    "516872",
+    "520012",
+    "520863"
+  ],
+  "generatedAt": "2026-05-31T10:05:43.163671+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

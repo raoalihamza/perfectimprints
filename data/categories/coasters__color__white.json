@@ -1,0 +1,24 @@
+{
+  "url": "/cat/coasters/color/white",
+  "type": "facet",
+  "h1": "Custom White Coasters",
+  "metaTitle": "Custom White Coasters | Perfect Imprints",
+  "metaDescription": "Order custom white coasters for your brand. Bulk pricing, fast turnaround. Perfect for offices, events, and promotions.",
+  "introHtml": "<p>White coasters provide a clean, neutral canvas that makes your logo or message stand out with minimal distraction. Whether you choose durable neoprene for everyday office use or a set of four Midland coasters for client gifts, white offers crisp contrast for full-color imprinting. Perfect for trade shows, break rooms, or hospitality settings where a polished, professional look matters.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom white coasters with printed logo, set on a table in an office setting",
+  "productSkus": [
+    "511267 90A",
+    "514300 90E",
+    "519739",
+    "522685"
+  ],
+  "generatedAt": "2026-05-31T08:33:15.115745+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

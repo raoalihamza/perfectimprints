@@ -1,0 +1,22 @@
+{
+  "url": "/cat/sunglasses/feature/reflective",
+  "type": "facet",
+  "h1": "Custom Reflective Sunglasses",
+  "metaTitle": "Custom Reflective Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom reflective sunglasses for your team or event. Perfect for outdoor giveaways and safety. Get a quote today!",
+  "introHtml": "<p>Custom reflective sunglasses offer a sleek, modern look that stands out at outdoor events, trade shows, and company picnics. The mirrored lenses provide UV protection while adding a bold style that recipients love. Whether you choose the Mirrored Malibu Sunglasses for a classic aviator shape or the Reflective Rimless Sunglasses for a lightweight feel, these shades keep your brand visible and your audience protected.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom reflective sunglasses with mirrored lenses on a display rack at an outdoor event",
+  "productSkus": [
+    "513337",
+    "526792"
+  ],
+  "generatedAt": "2026-05-31T10:09:23.632849+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

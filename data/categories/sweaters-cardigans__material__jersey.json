@@ -1,0 +1,22 @@
+{
+  "url": "/cat/sweaters-cardigans/material/jersey",
+  "type": "facet",
+  "h1": "Custom Jersey Sweaters & Cardigans",
+  "metaTitle": "Custom Jersey Sweaters & Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom jersey sweaters and cardigans for your team. Soft, breathable fabric perfect for layering. Bulk pricing available.",
+  "introHtml": "<p>Jersey knit sweaters and cardigans offer a soft, breathable alternative to traditional wool or acrylic knits. The smooth texture and slight stretch make them comfortable for all-day wear, whether your team is in the office, at a trade show, or on a casual outing. These garments take embroidery and screen printing cleanly, so your logo or message stands out without distortion. Choose jersey when you want a polished but relaxed look that layers easily over button-downs or polos.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom jersey sweaters and cardigans in various colors with embroidered logos, displayed on models in office and outdoor settings.",
+  "productSkus": [
+    "520268",
+    "520269"
+  ],
+  "generatedAt": "2026-05-31T10:09:49.290745+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

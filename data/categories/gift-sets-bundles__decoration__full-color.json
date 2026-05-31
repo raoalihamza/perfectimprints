@@ -1,0 +1,23 @@
+{
+  "url": "/cat/gift-sets-bundles/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Gift Sets & Bundles",
+  "metaTitle": "Custom Full Color Gift Sets & Bundles | Perfect Imprints",
+  "metaDescription": "Order custom full color gift sets and bundles with vibrant digital print. Perfect for corporate gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Full color digital printing on gift sets and bundles lets you reproduce logos, photos, or intricate designs with photographic quality. Unlike single-color imprints, full color gives you the flexibility to match brand gradients or seasonal artwork exactly. Whether you are assembling a Mrs. Fields Mug & Cookies set or a custom T-shirt and sunglasses combo, the unboxing experience becomes a true brand moment. Perfect for employee rewards, client appreciation, or event swag that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assortment of custom full color gift sets and bundles with vibrant printed logos and designs",
+  "productSkus": [
+    "520012",
+    "520125",
+    "525715"
+  ],
+  "generatedAt": "2026-05-31T09:47:52.281486+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

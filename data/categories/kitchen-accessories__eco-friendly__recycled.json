@@ -1,0 +1,23 @@
+{
+  "url": "/cat/kitchen-accessories/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Kitchen Accessories",
+  "metaTitle": "Custom Recycled Kitchen Accessories | Perfect Imprints",
+  "metaDescription": "Order custom recycled kitchen accessories for your brand. Eco-friendly bulk options with logo imprint. Get a quote today!",
+  "introHtml": "<p>Recycled kitchen accessories let you stock breakrooms, give sustainable gifts, or outfit company kitchens with items made from post-consumer materials. From bamboo lunch boxes to reusable utensil sets, these products show your team and clients that you prioritize the planet. Choose recycled cutting boards or utensils for a practical, eco-conscious giveaway that gets daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled kitchen accessories including bamboo lunch box and reusable utensils with logo imprint",
+  "productSkus": [
+    "510025",
+    "527100",
+    "528020"
+  ],
+  "generatedAt": "2026-05-31T09:17:09.967960+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

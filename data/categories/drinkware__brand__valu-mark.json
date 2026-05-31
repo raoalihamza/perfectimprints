@@ -1,0 +1,33 @@
+{
+  "url": "/cat/drinkware/brand/valu-mark",
+  "type": "facet",
+  "h1": "Custom Valu Mark Drinkware for Bulk Orders",
+  "metaTitle": "Custom Valu Mark Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom Valu Mark drinkware in bulk from Perfect Imprints. Ideal for promotions, events, and employee gifts.",
+  "introHtml": "<p>Valu Mark drinkware offers a cost-effective way to keep your brand in hand without sacrificing quality. Perfect for trade shows, employee giveaways, or safety incentives, these tumblers, bottles, and mugs are available in a range of styles from the 16 oz Roadster Mug to the 20 oz Super Value Sipper. Decorate with your logo using screen printing or full-color wrap for maximum visibility. Choose Valu Mark for reliable, budget-friendly promotional drinkware that gets used every day.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Valu Mark drinkware including tumblers and water bottles with logo imprint for corporate promotions",
+  "productSkus": [
+    "501469",
+    "507021",
+    "519532",
+    "519778",
+    "520936",
+    "525150",
+    "526940",
+    "527813",
+    "527814",
+    "528153",
+    "529507",
+    "529508",
+    "529535"
+  ],
+  "generatedAt": "2026-05-31T08:53:17.617465+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

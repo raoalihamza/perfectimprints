@@ -1,0 +1,21 @@
+{
+  "url": "/cat/candy/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Candy",
+  "metaTitle": "Custom Made in USA Candy | Perfect Imprints",
+  "metaDescription": "Order custom made in USA candy for bulk giveaways. Perfect Imprints offers branded sweets made domestically.",
+  "introHtml": "<p>Choosing custom made in USA candy means supporting American manufacturing while treating your team or clients to a sweet, high-quality snack. These domestically produced candies are ideal for corporate gift baskets, employee appreciation, or trade show handouts where you want to emphasize American craftsmanship. With options like Assorted Fruit Balls, you can offer a nostalgic, all-natural treat that aligns with a made-in-USA promise. Decorate with your logo via custom-printed wrappers or branded packaging for a memorable, patriotic impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom made in USA candy in assorted fruit flavors with branded wrappers for corporate gifts",
+  "productSkus": [
+    "506292 90A"
+  ],
+  "generatedAt": "2026-05-31T09:39:21.986227+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

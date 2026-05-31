@@ -1,0 +1,24 @@
+{
+  "url": "/cat/backpacks/feature/hydration-pack-included",
+  "type": "facet",
+  "h1": "Custom Hydration Pack Included Backpacks",
+  "metaTitle": "Custom Hydration Pack Included Backpacks | Perfect Imprints",
+  "metaDescription": "Shop custom hydration pack included backpacks for events, teams, and corporate gifts. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Hydration pack included backpacks combine the convenience of a daypack with a built-in water reservoir, making them ideal for outdoor events, corporate wellness programs, and safety teams working in the field. Unlike standard backpacks, these models eliminate the need to carry a separate water bottle, keeping hands free and hydration accessible. Choose from brands like CamelBak or Osprey, and add your logo via screen printing or embroidery for a functional giveaway that gets used repeatedly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hydration pack included backpacks with built-in water reservoir and logo, perfect for outdoor events and corporate giveaways",
+  "productSkus": [
+    "514184",
+    "521836",
+    "525506",
+    "525925"
+  ],
+  "generatedAt": "2026-05-31T09:33:40.731878+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

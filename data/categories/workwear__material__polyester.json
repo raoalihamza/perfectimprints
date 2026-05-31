@@ -1,0 +1,30 @@
+{
+  "url": "/cat/workwear/material/polyester",
+  "type": "facet",
+  "h1": "Custom Polyester Workwear for Bulk Orders",
+  "metaTitle": "Custom Polyester Workwear | Perfect Imprints",
+  "metaDescription": "Order custom polyester workwear in bulk. High-vis, polos, and jackets with your logo. Fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>Polyester workwear offers the durability and moisture-wicking performance that active teams need. From hi-vis safety vests and jackets to snag-proof polos and UPF-rated tees, polyester fabrics resist wrinkles, hold color well, and dry quickly. Perfect for construction crews, warehouse staff, or outdoor events where comfort and consistent branding matter. Add your logo via embroidery or screen printing for a professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom polyester workwear including hi-vis jacket and polo shirts with embroidered logos for bulk orders",
+  "productSkus": [
+    "502892",
+    "507978",
+    "509138",
+    "511014",
+    "515284",
+    "515285",
+    "523867",
+    "523870",
+    "524758",
+    "528678"
+  ],
+  "generatedAt": "2026-05-31T09:04:55.907218+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

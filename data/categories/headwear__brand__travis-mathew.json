@@ -1,0 +1,32 @@
+{
+  "url": "/cat/headwear/brand/travis-mathew",
+  "type": "facet",
+  "h1": "Custom Travis Mathew Headwear for Corporate Orders",
+  "metaTitle": "Custom Travis Mathew Headwear | Perfect Imprints",
+  "metaDescription": "Order custom Travis Mathew headwear for your team. Premium caps and hats with your logo. Bulk pricing available from Perfect Imprints.",
+  "introHtml": "<p>Travis Mathew headwear blends modern style with performance fabrics, making it a popular choice for corporate golf events, sales teams, and casual office apparel programs. From structured caps to trucker hats, these designs offer a polished look that resonates with employees and clients who appreciate quality. Custom embroidery allows you to add your logo in thread colors that match your brand. Whether outfitting a trade show team or rewarding top performers, Travis Mathew caps deliver consistent comfort and a refined aesthetic that stands out from generic promotional hats.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Travis Mathew headwear with embroidered logo on a structured cap, ideal for corporate branding.",
+  "productSkus": [
+    "527672",
+    "527673",
+    "527674",
+    "527675",
+    "527676",
+    "527677",
+    "527678",
+    "527679",
+    "527680",
+    "527681",
+    "527682",
+    "527683"
+  ],
+  "generatedAt": "2026-05-31T09:50:09.847981+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

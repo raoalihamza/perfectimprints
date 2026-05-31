@@ -1,6 +1,7 @@
 import { affiliateUrl } from '@/lib/affiliate-url';
 import { cn } from '@/lib/utils';
 import type { GeigerProduct } from '@/lib/categories';
+import { ProductImage } from './ProductImage';
 
 interface ProductCardProps {
   product: GeigerProduct;
@@ -57,14 +58,12 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
     >
       <div className="relative aspect-square overflow-hidden bg-bg-soft">
         {imageSrc ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <ProductImage
             src={imageSrc}
             alt={product.name}
             width={IMAGE_W}
             height={IMAGE_H}
-            loading={priority ? 'eager' : 'lazy'}
-            decoding="async"
+            priority={priority}
             className="h-full w-full object-contain p-3 transition-transform duration-200 group-hover:scale-105"
           />
         ) : (

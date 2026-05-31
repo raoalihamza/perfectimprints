@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel/activity/basketball",
+  "type": "facet",
+  "h1": "Custom Basketball Apparel for Teams & Events",
+  "metaTitle": "Custom Basketball Apparel | Perfect Imprints",
+  "metaDescription": "Order custom basketball apparel for your team or event. Bulk pricing, fast turnaround. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom basketball apparel goes beyond team uniforms. Whether you need branded gear for a corporate tournament, a charity shootout, or branded sideline wear for your company team, choosing basketball-specific apparel means you get moisture-wicking fabrics, athletic cuts, and durable prints that hold up through games and practices. From custom jerseys to performance tees, decoration options include screen printing, embroidery, and heat transfer. Perfect for marketing directors outfitting a company team or HR directors planning a wellness event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom basketball apparel with printed logos, standing on a basketball court",
+  "productSkus": [
+    "527554"
+  ],
+  "generatedAt": "2026-05-31T08:22:30.053103+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

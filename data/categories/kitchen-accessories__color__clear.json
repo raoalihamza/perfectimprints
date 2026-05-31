@@ -1,0 +1,32 @@
+{
+  "url": "/cat/kitchen-accessories/color/clear",
+  "type": "facet",
+  "h1": "Custom Clear Kitchen Accessories",
+  "metaTitle": "Custom Clear Kitchen Accessories | Perfect Imprints",
+  "metaDescription": "Shop custom clear kitchen accessories for a sleek, modern look. Perfect for branding. Order bulk from Perfect Imprints today.",
+  "introHtml": "<p>Clear kitchen accessories offer a clean, modern aesthetic that blends seamlessly into any kitchen decor. Unlike opaque options, clear items like jar openers and cutting boards let the natural beauty of your food or countertop show through. They are ideal for businesses wanting a subtle yet visible brand presence in home kitchens or commercial spaces. Decorate with screen printing or etching for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom clear kitchen accessories including jar openers and cutting boards with screen printed logos",
+  "productSkus": [
+    "510171",
+    "520816",
+    "520817",
+    "520818",
+    "520819",
+    "524056",
+    "526167",
+    "527850",
+    "527997",
+    "527998",
+    "527999",
+    "528000"
+  ],
+  "generatedAt": "2026-05-31T09:53:03.365395+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

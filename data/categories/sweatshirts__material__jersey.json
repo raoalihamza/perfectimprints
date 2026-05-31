@@ -1,0 +1,29 @@
+{
+  "url": "/cat/sweatshirts/material/jersey",
+  "type": "facet",
+  "h1": "Custom Jersey Sweatshirts for Bulk Orders",
+  "metaTitle": "Custom Jersey Sweatshirts | Perfect Imprints",
+  "metaDescription": "Order custom jersey sweatshirts in bulk from Perfect Imprints. Soft, breathable fabric ideal for corporate apparel. Get a quote today.",
+  "introHtml": "<p>Jersey sweatshirts offer a lightweight, breathable alternative to heavy fleece, making them a smart choice for team uniforms, event giveaways, or corporate casual days. The smooth surface of jersey knit accepts screen printing and embroidery cleanly, ensuring your logo looks crisp. Whether you need a full-zip hoodie like the Men's Vansport Trek Hoodie or a pullover style, jersey fabric keeps your team comfortable in mild weather while showcasing your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom jersey sweatshirts in various colors with embroidered logos, perfect for corporate apparel and team uniforms.",
+  "productSkus": [
+    "517041",
+    "517042",
+    "524393",
+    "524394",
+    "525378",
+    "525379",
+    "527361",
+    "528998",
+    "529013"
+  ],
+  "generatedAt": "2026-05-31T09:03:09.980517+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

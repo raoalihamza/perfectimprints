@@ -1,0 +1,19 @@
+{
+  "url": "/cat/shirts/brand/district-made",
+  "type": "facet",
+  "h1": "Custom District Made Shirts",
+  "metaTitle": "Custom District Made Shirts | Perfect Imprints",
+  "metaDescription": "Order custom District Made shirts for your team. Premium quality, bulk pricing, and fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>District Made shirts are a top choice for businesses that want soft, consistent blanks with a modern fit. Made from ring-spun combed cotton, these shirts hold up to frequent washing and screen printing without shrinking or fading. Marketing directors and HR teams often choose District Made for employee uniforms, event giveaways, or company store inventory because the fabric feels premium against the skin and the colors stay vibrant after many wears.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom District Made shirts in various colors with screen-printed logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:01:59.843935+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

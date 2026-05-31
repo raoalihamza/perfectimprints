@@ -1,0 +1,25 @@
+{
+  "url": "/cat/tools/brand/columbia",
+  "type": "facet",
+  "h1": "Custom Columbia Tools for Bulk Orders",
+  "metaTitle": "Custom Columbia Tools - Perfect Imprints",
+  "metaDescription": "Order custom Columbia tools for your team or event. Perfect Imprints offers quality branding on bulk orders.",
+  "introHtml": "<p>Columbia tools bring the trusted quality of an outdoor lifestyle brand to your promotional merchandise. Whether you need custom Columbia apparel for a safety team or event staff, these items combine durability with brand recognition. Decorate with embroidery or screen printing to showcase your logo while recipients enjoy the comfort of Columbia's performance fabrics.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Columbia tools including soft shell jackets and fleece with embroidered logos for bulk orders",
+  "productSkus": [
+    "523863",
+    "523865",
+    "523866",
+    "523867",
+    "523870"
+  ],
+  "generatedAt": "2026-05-31T10:11:21.443364+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

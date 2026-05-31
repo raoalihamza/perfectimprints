@@ -1,0 +1,23 @@
+{
+  "url": "/cat/office/gender/women-s",
+  "type": "facet",
+  "h1": "Custom Women's Office Products for Bulk Orders",
+  "metaTitle": "Custom Women's Office Products | Perfect Imprints",
+  "metaDescription": "Shop custom women's office products for bulk orders. Perfect for employee gifts, client giveaways, and more at Perfect Imprints.",
+  "introHtml": "<p>Women's office products bring a tailored fit and style to workplace giveaways, from branded fleece mittens for chilly cubicles to the Eddie Bauer® Full Zip Microfleece Jacket for team outings. These items are sized specifically for women, ensuring comfort and a professional appearance. Decorate with your logo using embroidery or screen printing for a polished look that suits HR gifts, safety manager incentives, or marketing swag.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom women's office products including a ladies' microfleece jacket and fleece mittens with logo embroidery",
+  "productSkus": [
+    "513812",
+    "516832",
+    "520015"
+  ],
+  "generatedAt": "2026-05-31T08:23:40.305776+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

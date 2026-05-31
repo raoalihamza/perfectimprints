@@ -1,0 +1,30 @@
+{
+  "url": "/cat/golf/eco-friendly/recyclable",
+  "type": "facet",
+  "h1": "Custom Recyclable Golf Umbrellas & Promo Items",
+  "metaTitle": "Custom Recyclable Golf Items | Perfect Imprints",
+  "metaDescription": "Order custom recyclable golf umbrellas and promo products. Eco-friendly options for your brand. Get a quote today.",
+  "introHtml": "<p>Choosing recyclable golf products means your brand makes a statement at tournaments, corporate outings, and charity events without leaving a lasting footprint. These umbrellas, like the 58\" Recycled Golf Umbrella or the 60\" Arc Cutter & Buck® rPET model, are made from post-consumer materials and can be fully recycled at end of life. Decorate them with your logo using screen printing or digital transfer for a crisp, durable look that stands up to wind and rain.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recyclable golf umbrella with logo, eco-friendly promotional item for corporate events",
+  "productSkus": [
+    "525937",
+    "525938",
+    "526046",
+    "527935",
+    "527936",
+    "527937",
+    "528117",
+    "528154",
+    "528280",
+    "529141"
+  ],
+  "generatedAt": "2026-05-31T08:55:07.814819+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

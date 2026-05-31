@@ -1,0 +1,28 @@
+{
+  "url": "/cat/stickers/search",
+  "type": "modifier",
+  "h1": "Custom Stickers for Branded Promotions",
+  "metaTitle": "Custom Stickers | Perfect Imprints",
+  "metaDescription": "Browse our selection of custom stickers for your next promotion. Perfect Imprints offers quality and variety. Start your order today!",
+  "introHtml": "<p>Custom stickers are a versatile and cost-effective way to promote your brand at events, in packaging, or as giveaways. Whether you need die-cut shapes, weatherproof vinyl, or fun designs like the Shamrock Strobe or Slap Wrap® Combo, our selection offers something for every marketing campaign. Explore our range of custom stickers and find the perfect fit for your business needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A collection of custom stickers featuring colorful designs and shapes, including shamrock and heart strobe light stickers, ideal for brand promotions.",
+  "productSkus": [
+    "503360",
+    "503362 85T",
+    "503396",
+    "506951",
+    "513338",
+    "517502 53P",
+    "520715",
+    "521967"
+  ],
+  "generatedAt": "2026-05-31T08:23:49.630025+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

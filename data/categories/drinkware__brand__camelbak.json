@@ -1,0 +1,31 @@
+{
+  "url": "/cat/drinkware/brand/camelbak",
+  "type": "facet",
+  "h1": "Custom Camelbak Drinkware for Bulk Orders",
+  "metaTitle": "Custom Camelbak Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom Camelbak drinkware for your team or event. Choose from tumblers, bottles, and more at Perfect Imprints.",
+  "introHtml": "<p>Camelbak drinkware is built for hydration on the go, with features like leakproof lids and Tritan Renew material. For corporate gifts or employee appreciation, customizing Camelbak bottles and tumblers gives your team a durable, everyday essential that carries your logo. Choose from insulated tumblers or BPA-free bottles with easy-to-clean wide mouths.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Camelbak drinkware including a 20 oz tumbler and 25 oz Tritan Renew bottle with logo",
+  "productSkus": [
+    "525013",
+    "525506",
+    "525680",
+    "525681",
+    "526211",
+    "526695",
+    "527057",
+    "527058",
+    "527966",
+    "528153",
+    "528684"
+  ],
+  "generatedAt": "2026-05-31T08:23:30.872313+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

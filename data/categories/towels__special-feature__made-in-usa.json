@@ -1,0 +1,22 @@
+{
+  "url": "/cat/towels/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Towels",
+  "metaTitle": "Custom Made in USA Towels | Perfect Imprints",
+  "metaDescription": "Order custom made in USA towels for your brand. Perfect for promotions, events, and employee gifts with fast turnaround.",
+  "introHtml": "<p>Choosing custom made in USA towels means supporting domestic manufacturing while getting high-quality products for your brand. Whether you're a safety manager looking for durable shop towels or a marketing director ordering golf towels for a tournament, American-made options offer reliable construction and consistent decoration results. The Champions Golf Towel and Sport Terry Velour Towel Dobby Hem are popular choices that hold up to screen printing or embroidery, giving your logo a crisp, professional finish that lasts through repeated use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom made in USA towels with embroidered logos, including Champions Golf Towel and Sport Terry Velour Towel",
+  "productSkus": [
+    "522450",
+    "528437"
+  ],
+  "generatedAt": "2026-05-31T09:29:02.282231+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

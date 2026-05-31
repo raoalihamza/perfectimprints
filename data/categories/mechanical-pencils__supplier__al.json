@@ -1,0 +1,25 @@
+{
+  "url": "/cat/mechanical-pencils/supplier/al",
+  "type": "facet",
+  "h1": "Custom AL Mechanical Pencils",
+  "metaTitle": "Custom AL Mechanical Pencils | Perfect Imprints",
+  "metaDescription": "Order custom AL mechanical pencils for your brand. Perfect for giveaways and events. Get a quote today!",
+  "introHtml": "<p>AL mechanical pencils combine the reliability of automatic pencils with the affordability that makes them a staple for corporate giveaways and trade shows. Whether you choose the Armadillo Mechanical Pencil for its rugged design or the Frosty Grip for comfort, these writing instruments offer consistent performance without sharpening. Ideal for imprinting your logo, they keep your brand top of mind every time someone reaches for a pencil.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom AL mechanical pencils with printed logos, including Armadillo and Frosty Grip models, displayed on a desk.",
+  "productSkus": [
+    "510506",
+    "510906",
+    "514646",
+    "519577",
+    "525811"
+  ],
+  "generatedAt": "2026-05-31T09:19:24.281187+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

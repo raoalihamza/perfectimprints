@@ -1,0 +1,23 @@
+{
+  "url": "/cat/pants/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Pants for Bulk Orders",
+  "metaTitle": "Custom Recycled Pants | Perfect Imprints",
+  "metaDescription": "Order custom recycled pants in bulk from Perfect Imprints. Eco-friendly styles for your brand. Get a quote today!",
+  "introHtml": "<p>Custom recycled pants let you outfit your team or event in sustainable style. Made from post-consumer recycled polyester, these pants reduce waste while delivering performance. Whether you need jogger shorts for a company 5K or classic shorts for a retail uniform, recycled fabrics offer the same durability and comfort as traditional materials. Choose eco-friendly pants that align with your company's green initiatives.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled pants in eco-friendly fabric for corporate branding, featuring sporty jogger shorts with logo",
+  "productSkus": [
+    "528865",
+    "528881",
+    "528882"
+  ],
+  "generatedAt": "2026-05-31T09:59:34.524498+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

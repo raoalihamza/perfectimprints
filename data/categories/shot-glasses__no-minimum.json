@@ -1,0 +1,24 @@
+{
+  "url": "/cat/shot-glasses/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Shot Glasses",
+  "metaTitle": "No-Minimum Custom Shot Glasses | Perfect Imprints",
+  "metaDescription": "Order small quantities of custom shot glasses with no minimum. Perfect for small businesses, events, and teams. Get started today!",
+  "introHtml": "<p>Not every order needs a bulk quantity. Our no-minimum custom shot glasses give you the flexibility to order as few as a single unit, making them ideal for small businesses, startup swag bags, team gifts, or sampling before a larger run. Choose from clear glass, frosted finishes, or mini Moscow mule styles, each customizable with your logo or design. No hidden fees, no minimums—just quality promotional products that fit your exact needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A row of no-minimum custom shot glasses featuring clear glass and frosted designs with printed logos",
+  "productSkus": [
+    "525816",
+    "525817",
+    "529493",
+    "529515"
+  ],
+  "generatedAt": "2026-05-31T10:06:59.250945+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

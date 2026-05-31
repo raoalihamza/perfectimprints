@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/stojo",
+  "type": "facet",
+  "h1": "Custom Stojo Products for Bulk Orders",
+  "metaTitle": "Custom Stojo Products | Perfect Imprints",
+  "metaDescription": "Order custom Stojo products in bulk from Perfect Imprints. Collapsible cups & bottles perfect for branding events and eco-conscious giveaways.",
+  "introHtml": "<p>Stojo’s collapsible cups and bottles are a smart choice for brands that want to offer practical, space-saving drinkware. These silicone products compress flat for easy storage, making them ideal for trade shows, corporate gifts, or employee kits. Decorate with your logo using screen printing or laser engraving for a clean, lasting impression that stands out from standard promotional cups.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Stojo collapsible cup with company logo, compressed flat and ready for branding",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:42.783904+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

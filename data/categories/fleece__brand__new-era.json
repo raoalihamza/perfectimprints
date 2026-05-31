@@ -1,0 +1,28 @@
+{
+  "url": "/cat/fleece/brand/new-era",
+  "type": "facet",
+  "h1": "Custom New Era Fleece for Bulk Orders",
+  "metaTitle": "Custom New Era Fleece | Perfect Imprints",
+  "metaDescription": "Order custom New Era fleece in bulk. Perfect for teams, events, and corporate gifts. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>New Era fleece combines the brand's iconic sportswear heritage with premium comfort, making it a go-to for corporate apparel and team gear. Whether you choose the Comeback Fleece Pullover Hoodie or the Tri-Blend option, each piece offers consistent sizing and durable construction ideal for screen printing or embroidery. Bulk orders ensure your logo looks sharp across all sizes, from small to 3XL.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom New Era fleece pullover hoodie with embroidered logo on front chest",
+  "productSkus": [
+    "527747",
+    "529309",
+    "529310",
+    "529311",
+    "529312",
+    "529313",
+    "529314",
+    "529315"
+  ],
+  "generatedAt": "2026-05-31T09:46:17.561811+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

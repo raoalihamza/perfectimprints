@@ -1,0 +1,22 @@
+{
+  "url": "/cat/automotive/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Automotive Products for Bulk Orders",
+  "metaTitle": "Custom Unisex Automotive | Perfect Imprints",
+  "metaDescription": "Shop custom unisex automotive accessories for bulk orders. Perfect for giveaways. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Unisex automotive products work for any driver on your team or in your customer base. From roadside rescue kits to throw and sock sets, these items appeal to men and women equally. Choose a decoration method like screen printing or embroidery to add your logo. Bulk orders keep costs low while providing practical items that get used daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom unisex automotive products like a roadside rescue kit and a throw and fuzzy socks set with logos",
+  "productSkus": [
+    "526899",
+    "527493"
+  ],
+  "generatedAt": "2026-05-31T08:31:52.196158+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/school-work-backpacks/brand/samsonite",
+  "type": "facet",
+  "h1": "Custom Samsonite School Work Backpacks",
+  "metaTitle": "Custom Samsonite Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Samsonite school work backpacks for your team. Durable, professional designs with your logo. Get a quote today!",
+  "introHtml": "<p>Samsonite school work backpacks combine the durability and professional styling that busy commuters and students demand. Whether you're outfitting a sales team with the Classic Business 2.0 Everyday Laptop Backpack or equipping remote workers with a reliable carryall, Samsonite's trusted reputation ensures your logo appears on a bag built to last. Choose from padded laptop compartments, organizational pockets, and ergonomic straps that make daily travel easier. Perfect for corporate gifts, back-to-school programs, or employee appreciation.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Samsonite school work backpacks with logo embroidery, featuring a durable laptop backpack in black",
+  "productSkus": [
+    "527869",
+    "528124"
+  ],
+  "generatedAt": "2026-05-31T08:37:13.347482+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

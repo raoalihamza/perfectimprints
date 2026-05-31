@@ -1,0 +1,22 @@
+{
+  "url": "/cat/bookmarks/color/green",
+  "type": "facet",
+  "h1": "Custom Green Bookmarks",
+  "metaTitle": "Custom Green Bookmarks | Perfect Imprints",
+  "metaDescription": "Order custom green bookmarks for your brand. Durable and vibrant. Great for libraries, schools, and promotions. Get a quote today!",
+  "introHtml": "<p>Green bookmarks make a natural choice for eco-conscious brands, libraries, or any organization promoting sustainability. Our custom green bookmarks, like the Big MagneticMark Bookmark, offer a generous canvas for your logo while the strong magnet keeps pages secure. Ideal for trade shows, reading programs, or corporate gifts, these bookmarks combine utility with brand visibility. Choose from standard or jumbo sizes to match your budget and messaging needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green bookmarks with magnetic closure, featuring a company logo on a vibrant green background.",
+  "productSkus": [
+    "501529",
+    "501530"
+  ],
+  "generatedAt": "2026-05-31T09:08:55.659523+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

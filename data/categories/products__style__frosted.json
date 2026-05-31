@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/style/frosted",
+  "type": "facet",
+  "h1": "Custom Frosted Products for Your Brand",
+  "metaTitle": "Custom Frosted Products | Perfect Imprints",
+  "metaDescription": "Shop custom frosted products at Perfect Imprints. Ideal for a soft, elegant look. Bulk pricing available. Order now!",
+  "introHtml": "<p>Frosted products offer a subtle, sophisticated finish that diffuses light and adds a soft touch to your brand. Perfect for corporate gifts or retail giveaways, the frosted texture resists fingerprints and scratches better than clear alternatives. Common choices include frosted water bottles, acrylic awards, and drinkware. Decorate with screen printing, laser engraving, or full-color pad printing for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom frosted products like water bottles and acrylic awards with soft matte finish and engraved logo",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:58.870900+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

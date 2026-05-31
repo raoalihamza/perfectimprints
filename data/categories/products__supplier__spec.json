@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/spec",
+  "type": "facet",
+  "h1": "Custom Spec Products for Branded Giveaways",
+  "metaTitle": "Custom Spec Products | Perfect Imprints",
+  "metaDescription": "Order custom spec products for your next event. Perfect Imprints offers bulk pricing and fast turnaround on branded giveaways.",
+  "introHtml": "<p>Spec products are designed to meet specific client requirements, making them ideal for corporate gifts, trade shows, and employee recognition programs. By choosing custom spec products from Perfect Imprints, you ensure your branded items align with your exact standards for material, size, and decoration. Whether you need a unique color match or a particular imprint method, these products offer flexibility without compromising quality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom spec products including branded pens, notebooks, and drinkware arranged on a table",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:36:54.912971+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

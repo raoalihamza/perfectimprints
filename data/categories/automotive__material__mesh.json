@@ -1,0 +1,21 @@
+{
+  "url": "/cat/automotive/material/mesh",
+  "type": "facet",
+  "h1": "Custom Mesh Automotive Products for Bulk Orders",
+  "metaTitle": "Custom Mesh Automotive | Perfect Imprints",
+  "metaDescription": "Order custom mesh automotive products in bulk from Perfect Imprints. Ideal for promotional giveaways with breathable, durable materials.",
+  "introHtml": "<p>Mesh automotive products offer a breathable and lightweight alternative for promotional giveaways in the automotive industry. Unlike solid materials, mesh allows for airflow and flexibility, making it ideal for car accessories like seat organizers, trunk nets, or gear bags. Perfect for dealerships and auto shops looking to provide practical, branded items that stand up to daily use while keeping interiors organized.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom mesh automotive promotional products like breathable mesh seat organizers and trunk nets for bulk orders.",
+  "productSkus": [
+    "526639"
+  ],
+  "generatedAt": "2026-05-31T09:05:51.420675+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

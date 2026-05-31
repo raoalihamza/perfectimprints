@@ -1,0 +1,30 @@
+{
+  "url": "/cat/lighters/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Lighters for Bulk Orders",
+  "metaTitle": "Custom Pink Lighters | Perfect Imprints",
+  "metaDescription": "Order custom pink lighters for your next event or promotion. Perfect for breast cancer awareness campaigns and giveaways. Get a quote today!",
+  "introHtml": "<p>Pink lighters are a popular choice for breast cancer awareness events, women’s health initiatives, and spring-themed promotions. The vibrant color stands out on tables and in gift bags, making your brand visible every time someone reaches for a light. These lighters accept full-color imprinting, so your logo or message appears crisp and bright against the pink body. Whether you’re planning a corporate giveaway or a fundraising event, custom pink lighters offer a practical, memorable way to keep your brand in hand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink lighters with logo imprint, perfect for promotional giveaways and events",
+  "productSkus": [
+    "503179",
+    "503583",
+    "511192",
+    "522353",
+    "522354",
+    "522355",
+    "522988",
+    "528507",
+    "528508",
+    "528822"
+  ],
+  "generatedAt": "2026-05-31T09:54:34.771655+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

@@ -1,0 +1,32 @@
+{
+  "url": "/cat/flasks/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Flasks",
+  "metaTitle": "Custom Plastic Flasks | Perfect Imprints",
+  "metaDescription": "Order custom plastic flasks in bulk for your next event. Perfect for outdoor use and promotional giveaways. Get a quote today.",
+  "introHtml": "<p>Custom plastic flasks offer a lightweight, shatter-resistant alternative to traditional metal flasks, making them ideal for outdoor events, stadiums, and venues where glass and metal are restricted. Available in a range of sizes and colors, these flasks can be decorated with your logo using screen printing or pad printing. Whether you need a 2 oz shot glass for a tasting event or a 20 oz stein for a company picnic, plastic flasks provide a safe, customizable option for bulk orders.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom plastic flasks in various colors and sizes for promotional use",
+  "productSkus": [
+    "507948",
+    "509442",
+    "511450",
+    "513679",
+    "515689",
+    "518255 52K",
+    "518256 52K",
+    "519468",
+    "520183",
+    "527246",
+    "527252",
+    "529493"
+  ],
+  "generatedAt": "2026-05-31T08:26:29.464415+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

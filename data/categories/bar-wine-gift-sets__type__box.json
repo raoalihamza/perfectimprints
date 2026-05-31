@@ -1,0 +1,32 @@
+{
+  "url": "/cat/bar-wine-gift-sets/type/box",
+  "type": "facet",
+  "h1": "Custom Box Bar Wine Gift Sets",
+  "metaTitle": "Custom Box Bar Wine Gift Sets | Perfect Imprints",
+  "metaDescription": "Shop custom box bar wine gift sets for bulk orders. Perfect for corporate gifting. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Boxed bar and wine gift sets offer a polished, ready-to-present solution for corporate gifting, client appreciation, and employee recognition. The sturdy box packaging elevates the unboxing experience and protects contents like stemless wine tumblers or cocktail shakers. Choose from sets like the Speakeasy Gift Set or the Napa Stemless Wine Tumbler Set, each customizable with your logo via screen printing or engraving. Box sets simplify distribution and ensure a consistent, impressive presentation every time.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom box bar wine gift sets with branded stemless wine tumblers in a gift box",
+  "productSkus": [
+    "512596",
+    "512693 64F",
+    "519672",
+    "521002",
+    "521897",
+    "522098",
+    "523898",
+    "523924",
+    "523950",
+    "525628",
+    "526748",
+    "527285"
+  ],
+  "generatedAt": "2026-05-31T08:50:04.181385+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/office-supplies/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Office Supplies for Bulk Orders",
+  "metaTitle": "Custom Set Office Supplies | Perfect Imprints",
+  "metaDescription": "Order custom set office supplies for your team. Branded pens, notepads, and more in bulk. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Ordering custom set office supplies ensures your team starts with coordinated, branded essentials. Instead of sourcing pens, notepads, and desk accessories separately, a curated set delivers consistent colors and logos across every item. Marketing directors appreciate the polished unboxing experience for new hires, while HR directors find sets simplify onboarding kits. Choose from pre-assembled configurations or build your own combination of promotional products that reflect your company’s identity. Bulk pricing makes sets a cost-effective way to outfit an entire office with matching branded supplies.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set office supplies including branded pens, notepads, and sticky notes arranged on a desk",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:57:58.750953+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

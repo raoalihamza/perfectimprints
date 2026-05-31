@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/riedel",
+  "type": "facet",
+  "h1": "Custom Riedel Products for Bulk Orders",
+  "metaTitle": "Custom Riedel Products | Perfect Imprints",
+  "metaDescription": "Order custom Riedel products for your brand. Perfect for corporate gifts and events. Get a quote today.",
+  "introHtml": "<p>Riedel glassware is synonymous with precision and elegance, making it a standout choice for corporate gifts and promotional events. Whether you're outfitting a wine tasting with branded stemware or rewarding top clients with engraved decanters, Riedel's crystal-clear designs elevate your message. These products pair beautifully with laser engraving or screen printing, ensuring your logo looks refined on every surface.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Riedel products featuring engraved wine glasses and decanters for corporate gifts",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:40.027545+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

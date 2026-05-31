@@ -1,0 +1,27 @@
+{
+  "url": "/cat/shirts/brand/boxercraft",
+  "type": "facet",
+  "h1": "Custom Boxercraft Shirts for Bulk Orders",
+  "metaTitle": "Custom Boxercraft Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Boxercraft shirts in bulk. Perfect for teams, events, and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Boxercraft specializes in soft, comfortable flannel and fleece apparel that feels like a favorite worn-in shirt. For bulk buyers, this means your logo appears on pieces people actually want to wear — at game days, team outings, or casual Fridays. The Sherpa Pullover and Cuddle Cardigan offer cozy warmth, while the flannel shorts and pants provide a relaxed fit for lounging or outdoor events. Decorate with screen printing or embroidery for a durable, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom Boxercraft shirts with printed logos at a corporate event",
+  "productSkus": [
+    "521535",
+    "527831",
+    "527832",
+    "527833",
+    "527834",
+    "527835",
+    "527836"
+  ],
+  "generatedAt": "2026-05-31T08:46:33.434434+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

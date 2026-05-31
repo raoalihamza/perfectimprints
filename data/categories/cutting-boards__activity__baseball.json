@@ -1,0 +1,21 @@
+{
+  "url": "/cat/cutting-boards/activity/baseball",
+  "type": "facet",
+  "h1": "Custom Baseball Cutting Boards",
+  "metaTitle": "Custom Baseball Cutting Boards | Perfect Imprints",
+  "metaDescription": "Order custom baseball cutting boards for team gifts, tailgates, and BBQ events. Bulk pricing available.",
+  "introHtml": "<p>Custom baseball cutting boards bring the diamond to your kitchen or tailgate. Made from durable bamboo or hardwood, these boards feature engraved team logos, player names, or event details. Ideal for team gifts, sponsor appreciation, or concession stand use, they combine function with fan pride. Choose from various sizes and shapes to fit your branding needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom baseball cutting board with engraved team logo and bat-shaped handle",
+  "productSkus": [
+    "527998"
+  ],
+  "generatedAt": "2026-05-31T09:42:13.137944+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

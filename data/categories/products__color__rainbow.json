@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/color/rainbow",
+  "type": "facet",
+  "h1": "Custom Rainbow Products for Your Brand",
+  "metaTitle": "Custom Rainbow Products - Perfect Imprints",
+  "metaDescription": "Shop custom rainbow products at Perfect Imprints. Perfect for Pride events, diversity campaigns, and colorful branding. Order bulk today!",
+  "introHtml": "<p>Rainbow products let your brand celebrate diversity, inclusion, and vibrant energy. Whether you're planning a Pride parade, a company diversity initiative, or a fun team-building event, custom items in rainbow colors make a bold statement. From rainbow lanyards to silicone wristbands and tote bags, these products stand out with a full spectrum of hues. Decoration options like full-color dye sublimation or multicolor screen printing ensure your logo pops against the rainbow backdrop.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom rainbow products including lanyards, wristbands, and tote bags in bright spectrum colors.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:48.827881+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

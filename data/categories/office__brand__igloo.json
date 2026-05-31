@@ -1,0 +1,22 @@
+{
+  "url": "/cat/office/brand/igloo",
+  "type": "facet",
+  "h1": "Custom Igloo Office Products for Bulk Orders",
+  "metaTitle": "Custom Igloo Office Products | Perfect Imprints",
+  "metaDescription": "Order custom Igloo office products in bulk from Perfect Imprints. Perfect for branding break rooms, events, and corporate gifts.",
+  "introHtml": "<p>Choosing Igloo for your office promotional products means selecting a brand known for durability and reliable temperature control. Whether you are stocking a break room with customized coolers or providing branded lunch bags for employee appreciation, Igloo products hold up to daily use. The Igloo Seadrift Snap Down Cooler and Switch Backpack Cooler offer practical designs that keep items cold for hours, making them ideal for outdoor team-building events or on-the-go lunches. Imprint your logo using screen printing or pad printing for a clean, professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Igloo office cooler with company logo, perfect for branding break rooms and corporate events.",
+  "productSkus": [
+    "524266",
+    "525373"
+  ],
+  "generatedAt": "2026-05-31T08:58:41.839687+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

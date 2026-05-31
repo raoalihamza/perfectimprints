@@ -1,0 +1,27 @@
+{
+  "url": "/cat/dresses/material/cotton-poly",
+  "type": "facet",
+  "h1": "Custom Cotton Poly Dresses",
+  "metaTitle": "Custom Cotton Poly Dresses | Perfect Imprints",
+  "metaDescription": "Order custom cotton poly dresses in bulk from Perfect Imprints. Durable, breathable, and perfect for uniforms or promotions.",
+  "introHtml": "<p>Cotton poly dresses combine the softness of cotton with the durability of polyester, making them a practical choice for uniforms and promotional wear. The blend resists wrinkles and shrinkage while keeping wearers comfortable throughout the day. Whether you need embroidered tunics for a hospitality team or screen-printed dresses for a company event, this fabric holds decoration cleanly and washes well. Choose cotton poly dresses for a polished, long-lasting look that stands up to frequent use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cotton poly dresses in a variety of colors and styles for uniform or promotional use",
+  "productSkus": [
+    "501558",
+    "501559",
+    "515996",
+    "519684",
+    "519685",
+    "525388",
+    "525389"
+  ],
+  "generatedAt": "2026-05-31T08:41:26.442648+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

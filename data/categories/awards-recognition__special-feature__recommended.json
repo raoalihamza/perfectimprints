@@ -1,0 +1,21 @@
+{
+  "url": "/cat/awards-recognition/special-feature/recommended",
+  "type": "facet",
+  "h1": "Custom Recommended Awards Recognition",
+  "metaTitle": "Custom Recommended Awards Recognition | Perfect Imprints",
+  "metaDescription": "Order custom recommended awards recognition for your team. Shop top-rated designs at Perfect Imprints.",
+  "introHtml": "<p>When you need awards that truly stand out, our recommended selection features designs that have proven popular with corporate buyers. The Apple With Clear Leaf award, for example, combines elegant crystal with a polished apple motif, making it a fitting choice for service milestones or leadership honors. These picks are curated for their quality, visual impact, and recipient appreciation, saving you time while ensuring a meaningful presentation.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recommended awards recognition featuring an apple with clear leaf design on a crystal base",
+  "productSkus": [
+    "514835 90E"
+  ],
+  "generatedAt": "2026-05-31T09:06:06.205445+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

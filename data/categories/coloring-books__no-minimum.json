@@ -1,0 +1,19 @@
+{
+  "url": "/cat/coloring-books/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Coloring Books",
+  "metaTitle": "No-Minimum Custom Coloring Books | Perfect Imprints",
+  "metaDescription": "Order small quantities of custom coloring books with no minimum. Perfect for events, gift bags, or samples. Get a quote today.",
+  "introHtml": "<p>Ordering custom coloring books in small batches is straightforward with our no-minimum program. Whether you need a dozen for a local event, a handful for employee gift bags, or just a few to sample before a larger run, you can get exactly what you need without being forced to meet a bulk threshold. This flexibility makes it easy for small businesses, startups, and marketing teams to test branded giveaways or fulfill one-off requests without tying up budget in excess inventory. Per-unit pricing at low volumes is transparent, and we keep the process simple from quote to delivery.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of no-minimum custom coloring books with brand logos, ideal for small orders and promotional giveaways.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:52:30.707271+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/golf-bags/brand/nike",
+  "type": "facet",
+  "h1": "Custom Nike Golf Bags",
+  "metaTitle": "Custom Nike Golf Bags | Perfect Imprints",
+  "metaDescription": "Order custom Nike golf bags with your logo. Perfect for corporate gifts and tournaments. Bulk pricing available.",
+  "introHtml": "<p>Custom Nike golf bags combine the trusted quality of a top athletic brand with your company's logo, making them a standout choice for corporate golf outings, client gifts, and employee appreciation. Nike's reputation for performance and style ensures your branded bags will be used and admired on the course. Choose from stand bags, cart bags, or lightweight carry options, all available with custom embroidery or screen printing for a polished, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Nike golf bag with embroidered logo displayed on a golf course",
+  "productSkus": [
+    "501805",
+    "515156",
+    "519683",
+    "524309",
+    "524310"
+  ],
+  "generatedAt": "2026-05-31T08:42:10.387815+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

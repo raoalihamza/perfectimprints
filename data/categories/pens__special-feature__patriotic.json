@@ -1,0 +1,25 @@
+{
+  "url": "/cat/pens/special-feature/patriotic",
+  "type": "facet",
+  "h1": "Custom Patriotic Pens for Bulk Orders",
+  "metaTitle": "Custom Patriotic Pens for Bulk Orders | Perfect Imprints",
+  "metaDescription": "Order custom patriotic pens for your next event. Perfect for promotions, giveaways, and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Custom patriotic pens let you showcase American pride while keeping your brand top of mind. Whether you need red, white, and blue barrel colors or flag-shaped designs like the Star Shaped Inkbend Standard Pen, these pens are ideal for Independence Day events, veteran appreciation, or year-round patriotic campaigns. Choose from stylus options or classic ballpoints to match your audience. Bulk orders are easy to customize with your logo using pad printing or full-color imprinting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom patriotic pens with red, white, and blue designs including flag-shaped and stylus options for bulk orders.",
+  "productSkus": [
+    "513108 5FO",
+    "515518 19G",
+    "516968",
+    "519437",
+    "520582"
+  ],
+  "generatedAt": "2026-05-31T08:45:14.682256+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

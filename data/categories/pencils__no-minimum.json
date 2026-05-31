@@ -1,0 +1,19 @@
+{
+  "url": "/cat/pencils/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Pencils for Small Orders",
+  "metaTitle": "No-Minimum Custom Pencils | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom pencils with no bulk requirements. Perfect for small teams, events, and samples. Get started today!",
+  "introHtml": "<p>Ordering custom pencils for a small team or a one-time event often means facing high minimum quantities from traditional suppliers. Our no-minimum custom pencils eliminate that barrier, allowing you to order as few as a single pencil or a small batch. Perfect for startups, small businesses, and sample testing, this program gives you the flexibility to imprint your logo without committing to hundreds or thousands of units. You get the same quality imprinting and material options as large orders, with per-unit pricing that respects your budget.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A close-up of several no-minimum custom pencils with printed logos, showcasing small order flexibility for promotional use.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:21:58.986319+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

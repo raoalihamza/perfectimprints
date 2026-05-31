@@ -1,0 +1,31 @@
+{
+  "url": "/cat/napkins/type/box",
+  "type": "facet",
+  "h1": "Custom Box Napkins for Bulk Orders",
+  "metaTitle": "Custom Box Napkins | Perfect Imprints",
+  "metaDescription": "Order custom box napkins in bulk from Perfect Imprints. Ideal for events, restaurants, and corporate branding. Get started today!",
+  "introHtml": "<p>Custom box napkins offer a convenient and cost-effective way to add your brand to everyday essentials. Whether you need beverage, luncheon, or dinner napkins, box packaging keeps them clean and organized for high-traffic events, corporate cafeterias, or restaurant use. Choose from white or colored options with your logo imprinted in one or two colors for a professional look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom box napkins with printed logo, available in white and assorted colors for bulk orders.",
+  "productSkus": [
+    "514577 90A",
+    "514579 90A",
+    "514580 90A",
+    "514581 90A",
+    "514583 90A",
+    "519472",
+    "519473",
+    "520634",
+    "520635",
+    "520636",
+    "520637"
+  ],
+  "generatedAt": "2026-05-31T09:57:32.580423+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

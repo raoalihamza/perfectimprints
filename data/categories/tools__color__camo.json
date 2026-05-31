@@ -1,0 +1,25 @@
+{
+  "url": "/cat/tools/color/camo",
+  "type": "facet",
+  "h1": "Custom Camo Tools for Bulk Orders",
+  "metaTitle": "Custom Camo Tools - Perfect Imprints",
+  "metaDescription": "Order custom camo tools with your logo. Perfect for giveaways, hunting promotions, and outdoor events. Bulk pricing available.",
+  "introHtml": "<p>Camo tools offer a rugged, outdoorsy aesthetic that sets your brand apart from standard utility giveaways. Whether you're outfitting a hunting expo, a fishing tournament, or a construction crew that appreciates a tactical look, camo finishes on knives like the Buck Bantam BBW or Hawkeye Pocket Knife add instant visual interest. These branded camo tools pair well with other outdoor promotional items and make memorable corporate gifts for clients who spend time in the field.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom camo tools including Buck Bantam camo lockback knife with company logo",
+  "productSkus": [
+    "513655 01A",
+    "513656 01E",
+    "513657 01A",
+    "513658 01E",
+    "513695"
+  ],
+  "generatedAt": "2026-05-31T10:11:25.640170+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

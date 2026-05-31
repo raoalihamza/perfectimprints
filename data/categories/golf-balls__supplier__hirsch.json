@@ -1,0 +1,27 @@
+{
+  "url": "/cat/golf-balls/supplier/hirsch",
+  "type": "facet",
+  "h1": "Custom Hirsch Golf Balls for Branded Promotions",
+  "metaTitle": "Custom Hirsch Golf Balls | Perfect Imprints",
+  "metaDescription": "Order custom Hirsch golf balls for your next event. Perfect Imprints offers bulk discounts and fast turnaround on branded golf balls.",
+  "introHtml": "<p>Hirsch is a trusted supplier of premium promotional golf balls, offering options like the Volvik Vivid and Titleist Pro V1. Whether you need high-visibility balls for a tournament or classic logoed balls for client gifts, Hirsch provides consistent quality and fast turnaround. Custom imprinting with your company logo or message is available, making these ideal for corporate outings, trade shows, and employee appreciation.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hirsch golf balls with company logo imprinted, displayed in clear tube packaging for promotional events.",
+  "productSkus": [
+    "506922 50D",
+    "506923 50D",
+    "507565 90A",
+    "515618 90A",
+    "521337",
+    "527050",
+    "528245"
+  ],
+  "generatedAt": "2026-05-31T08:34:04.003522+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

@@ -1,0 +1,27 @@
+{
+  "url": "/cat/golf-balls/supplier/salutepromos",
+  "type": "facet",
+  "h1": "Custom Salutepromos Golf Balls for Bulk Orders",
+  "metaTitle": "Custom Salutepromos Golf Balls | Perfect Imprints",
+  "metaDescription": "Order custom Salutepromos golf balls in bulk. Perfect for tournaments, corporate gifts, and client appreciation. Get a quote today!",
+  "introHtml": "<p>Salutepromos offers a curated selection of golf balls from top brands like Titleist, Volvik, and Wilson, making them a reliable supplier for your branded promotional needs. Whether you are planning a corporate golf tournament, rewarding clients, or gifting employees, custom Salutepromos golf balls give you access to quality options like the Titleist Pro V1 or Volvik Vivid. You can imprint your logo with single or multicolor decoration, ensuring your brand stands out on the course.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Salutepromos golf balls with logo imprint, including Titleist Pro V1 and Volvik Vivid options",
+  "productSkus": [
+    "506922 50D",
+    "506923 50D",
+    "507565 90A",
+    "515618 90A",
+    "521337",
+    "527050",
+    "528245"
+  ],
+  "generatedAt": "2026-05-31T08:42:12.715758+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

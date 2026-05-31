@@ -1,0 +1,30 @@
+{
+  "url": "/cat/folding-chairs/activity/camping",
+  "type": "facet",
+  "h1": "Custom Camping Folding Chairs",
+  "metaTitle": "Custom Camping Folding Chairs | Perfect Imprints",
+  "metaDescription": "Order custom camping folding chairs for your next outdoor event. Perfect for brand visibility at campsites and tailgates. Get a quote today.",
+  "introHtml": "<p>Camping folding chairs are built for rugged outdoor use, with durable frames and weather-resistant fabrics that stand up to uneven terrain and changing conditions. Whether you're branding a fleet of Cooler Chairs for a company camping trip or outfitting a promotional giveaway with the Camp Throne, these chairs offer ample space for logo imprinting on seat backs or cup holders. Choose from rockers, recliners, and packable lounge chairs that make your brand part of the outdoor experience.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom camping folding chairs with company logo displayed on a durable outdoor chair at a campsite",
+  "productSkus": [
+    "505894",
+    "511015",
+    "513930",
+    "520195",
+    "520397",
+    "521504",
+    "522742",
+    "522743",
+    "526522",
+    "526653"
+  ],
+  "generatedAt": "2026-05-31T09:46:29.547039+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/gender/women-s",
+  "type": "facet",
+  "h1": "Custom Women's Products for Bulk Orders",
+  "metaTitle": "Custom Women's Products | Perfect Imprints",
+  "metaDescription": "Shop custom women's products for your next event or promotion. Perfect Imprints offers bulk ordering with fast turnaround.",
+  "introHtml": "<p>Women's products are designed with feminine appeal and practical functionality, making them ideal for corporate gifts, trade shows, and employee appreciation. From stylish apparel to useful accessories, these items resonate well with female audiences. Choose from a variety of colors and styles to match your brand identity, and add your logo with embroidery or screen printing for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom women's products including tote bags, water bottles, and apparel with company logo",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:53.581457+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

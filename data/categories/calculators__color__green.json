@@ -1,0 +1,23 @@
+{
+  "url": "/cat/calculators/color/green",
+  "type": "facet",
+  "h1": "Custom Green Calculators for Bulk Orders",
+  "metaTitle": "Custom Green Calculators | Perfect Imprints",
+  "metaDescription": "Order custom green calculators for your brand. Perfect for trade shows, schools, and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Green calculators offer a vibrant way to keep your brand top-of-mind while providing a practical tool. Whether you choose a value model for budget-friendly giveaways or a slim design for promotional events, green stands out in desk accessories. Imprint your logo on the face or bezel for maximum visibility. Perfect for school supply drives, eco-themed promotions, or any campaign where you want your message to pop.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green calculators with logo imprint on face, ideal for promotional giveaways and corporate gifts",
+  "productSkus": [
+    "502790",
+    "503150",
+    "503253"
+  ],
+  "generatedAt": "2026-05-31T08:51:30.294728+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

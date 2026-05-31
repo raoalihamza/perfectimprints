@@ -1,0 +1,23 @@
+{
+  "url": "/cat/bandanas/material/polyester",
+  "type": "facet",
+  "h1": "Custom Polyester Bandanas",
+  "metaTitle": "Custom Polyester Bandanas | Perfect Imprints",
+  "metaDescription": "Order custom polyester bandanas for your team or event. Durable, vibrant, and perfect for bulk orders. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Polyester bandanas offer a durable, moisture-wicking alternative to cotton, making them ideal for outdoor events, construction crews, or promotional giveaways where sweat and weather are factors. The fabric holds vibrant full-color prints exceptionally well, as seen in styles like the Tubular Bandana or Full Color Half Size Tubular Bandana. Choose polyester when you need a bandana that stands up to repeated use and washing without fading.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom polyester bandanas in assorted colors with full-color printed designs",
+  "productSkus": [
+    "524691",
+    "524692",
+    "524693"
+  ],
+  "generatedAt": "2026-05-31T08:49:39.427141+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

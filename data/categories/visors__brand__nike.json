@@ -1,0 +1,21 @@
+{
+  "url": "/cat/visors/brand/nike",
+  "type": "facet",
+  "h1": "Custom Nike Visors for Bulk Orders",
+  "metaTitle": "Custom Nike Visors - Perfect Imprints",
+  "metaDescription": "Order custom Nike visors in bulk for your team or event. Perfect for sports, corporate outings, and brand promotion.",
+  "introHtml": "<p>Nike visors combine athletic performance with brand visibility. Made with Dri-FIT moisture-wicking fabric, these visors keep wearers cool and dry during outdoor events, golf tournaments, or trade shows. The classic Nike logo adds instant recognition. Customize with your company logo or message using embroidery or screen printing for a professional finish that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Nike visors with embroidered logo in black and white, perfect for bulk corporate orders",
+  "productSkus": [
+    "527366"
+  ],
+  "generatedAt": "2026-05-31T08:47:49.271838+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

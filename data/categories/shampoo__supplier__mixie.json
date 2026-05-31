@@ -1,0 +1,19 @@
+{
+  "url": "/cat/shampoo/supplier/mixie",
+  "type": "facet",
+  "h1": "Custom Mixie Shampoo for Bulk Orders",
+  "metaTitle": "Custom Mixie Shampoo | Perfect Imprints",
+  "metaDescription": "Order custom Mixie shampoo in bulk for your brand. Perfect for corporate gifts and events. Get a quote today.",
+  "introHtml": "<p>Mixie shampoo offers a unique blend of gentle cleansing and moisturizing ingredients, making it ideal for promotional giveaways at fitness centers, hotels, or corporate wellness programs. The lightweight formula leaves hair feeling soft without residue, and the compact bottle design allows for easy customization with your logo or message. Choose Mixie for a practical, high-quality branded giveaway that recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Mixie shampoo bottles with logo imprint, ideal for bulk promotional orders.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:06:25.044104+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

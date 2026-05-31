@@ -1,0 +1,24 @@
+{
+  "url": "/cat/school-work-backpacks/activity/yoga",
+  "type": "facet",
+  "h1": "Custom Yoga School Work Backpacks",
+  "metaTitle": "Custom Yoga School Work Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom yoga school work backpacks with your logo. Perfect for commuters and active teams. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Custom yoga school work backpacks combine the comfort of a yoga bag with the functionality of a daily carry. Designed with padded straps and spacious compartments, these backpacks easily fit a yoga mat, laptop, and change of clothes. Ideal for employees who hit the studio before or after work, they offer a professional look with active-ready features. Choose from styles like the Hive Compu-Backpack or High Sierra Pilsen for durable, logo-ready options that keep your brand visible on the go.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom yoga school work backpacks with padded straps and room for a yoga mat, laptop, and gear.",
+  "productSkus": [
+    "518365",
+    "520571",
+    "521963",
+    "528088"
+  ],
+  "generatedAt": "2026-05-31T08:30:47.550092+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

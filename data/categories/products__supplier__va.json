@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/va",
+  "type": "facet",
+  "h1": "Custom VA Products for Bulk Orders",
+  "metaTitle": "Custom VA Products | Perfect Imprints",
+  "metaDescription": "Order custom VA products in bulk at Perfect Imprints. Get personalized items with your logo. Ideal for promotions and events.",
+  "introHtml": "<p>VA products bring a refined, professional look to your promotional merchandise, making them ideal for corporate gifts, trade shows, and employee recognition programs. Unlike standard options, these items feature a durable VA finish that resists wear and maintains its appearance over time. Whether you need custom notebooks, pens, or drinkware, the VA material ensures your logo stands out with a sleek, modern aesthetic. Perfect for bulk orders requiring consistent quality and a premium feel.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom VA products including pens, notebooks, and drinkware with logo imprint in a professional setting",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:21:54.916583+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

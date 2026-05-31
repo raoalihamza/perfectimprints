@@ -1,0 +1,22 @@
+{
+  "url": "/cat/sweatshirts/color/gray",
+  "type": "facet",
+  "h1": "Custom Gray Sweatshirts for Your Team",
+  "metaTitle": "Custom Gray Sweatshirts | Perfect Imprints",
+  "metaDescription": "Order custom gray sweatshirts for your team. Perfect for uniforms, events, or employee gifts. Bulk pricing available.",
+  "introHtml": "<p>Gray sweatshirts are a versatile base for any branded apparel program. They pair well with any logo color, from bright neons to classic black, and work for everything from corporate team uniforms to casual giveaway items. Hanes EcoSmart and Carhartt full-zip hoodies are popular options that take screen printing or embroidery cleanly. Whether you need 50 or 500, gray sweatshirts keep your team looking cohesive without the maintenance of lighter shades.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom gray sweatshirts for corporate teams, featuring screen-printed logos on Hanes and Carhartt hoodies.",
+  "productSkus": [
+    "502683",
+    "523772"
+  ],
+  "generatedAt": "2026-05-31T10:10:01.699290+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,32 @@
+{
+  "url": "/cat/sweaters-cardigans/neckline/v-neck",
+  "type": "facet",
+  "h1": "Custom V-Neck Sweaters & Cardigans",
+  "metaTitle": "Custom V-Neck Sweaters & Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom v-neck sweaters and cardigans in bulk for your team. Perfect for uniforms or gifts. Fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>A v-neckline offers a professional, flattering silhouette that works well under blazers or on its own. Whether you choose a classic merino wool sweater from Brooks Brothers or a cozy open-front cardigan, the v-neck styling adds a polished touch to any uniform or corporate gift. These pieces accept embroidery or screen printing on the chest, making them ideal for branding with your company logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom v-neck sweaters and cardigans with embroidered logos, available in various colors and sizes for bulk orders.",
+  "productSkus": [
+    "520268",
+    "520269",
+    "523604",
+    "526198",
+    "526291",
+    "526292",
+    "527181",
+    "527182",
+    "527833",
+    "527957",
+    "528757",
+    "528758"
+  ],
+  "generatedAt": "2026-05-31T09:03:05.179663+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

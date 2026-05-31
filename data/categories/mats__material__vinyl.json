@@ -1,0 +1,24 @@
+{
+  "url": "/cat/mats/material/vinyl",
+  "type": "facet",
+  "h1": "Custom Vinyl Mats for Your Business",
+  "metaTitle": "Custom Vinyl Mats | Perfect Imprints",
+  "metaDescription": "Order custom vinyl mats for high-traffic areas. Durable, slip-resistant, and branded with your logo at Perfect Imprints.",
+  "introHtml": "<p>Vinyl mats offer a durable, easy-to-clean surface that stands up to heavy foot traffic in entryways, lobbies, and workstations. Unlike carpet or rubber, vinyl resists moisture and stains, making it ideal for wet or muddy environments. Customize your vinyl mats with your logo or safety message using screen printing or digital transfer. Choose from surface grip circles or footprints for targeted slip protection indoors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom vinyl mats with logo for high-traffic indoor areas, featuring slip-resistant surface grip circles",
+  "productSkus": [
+    "522789",
+    "524721",
+    "524756",
+    "524757"
+  ],
+  "generatedAt": "2026-05-31T08:57:41.850408+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

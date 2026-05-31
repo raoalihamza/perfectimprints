@@ -1,0 +1,23 @@
+{
+  "url": "/cat/health/feature/resealable",
+  "type": "facet",
+  "h1": "Custom Resealable Health Products",
+  "metaTitle": "Custom Resealable Health Products | Perfect Imprints",
+  "metaDescription": "Order custom resealable health products for your team or event. Perfect for on-the-go wellness. Get a quote today!",
+  "introHtml": "<p>Resealable health products keep your branded items fresh and ready for use, whether you are stocking break rooms or distributing at wellness fairs. Mini tissue packets with resealable openings protect each tissue until needed, making them ideal for flu season giveaways or everyday office use. Choose custom resealable health products to combine practicality with brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom resealable health products including mini tissue packets with resealable openings for freshness",
+  "productSkus": [
+    "526775",
+    "526776",
+    "526777"
+  ],
+  "generatedAt": "2026-05-31T09:50:33.325403+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

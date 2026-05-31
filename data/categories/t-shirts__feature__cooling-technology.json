@@ -1,0 +1,22 @@
+{
+  "url": "/cat/t-shirts/feature/cooling-technology",
+  "type": "facet",
+  "h1": "Custom Cooling Technology T Shirts",
+  "metaTitle": "Custom Cooling Technology T Shirts | Perfect Imprints",
+  "metaDescription": "Order custom cooling technology t shirts for your team. Moisture-wicking and breathable for comfort in heat. Get a quote today.",
+  "introHtml": "<p>Custom cooling technology t shirts keep your team comfortable during hot workdays, outdoor events, or trade shows. Unlike standard cotton tees, these performance fabrics wick moisture and promote airflow, reducing heat stress for warehouse staff, field crews, or event volunteers. Add your logo with screen printing or embroidery for a professional look that stays cool under pressure.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cooling technology t shirts with moisture-wicking fabric for hot weather comfort",
+  "productSkus": [
+    "516170",
+    "516171"
+  ],
+  "generatedAt": "2026-05-31T10:10:19.988038+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

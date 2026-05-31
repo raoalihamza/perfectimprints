@@ -1,0 +1,27 @@
+{
+  "url": "/cat/food-gifts/color/red",
+  "type": "facet",
+  "h1": "Custom Red Food Gifts for Bulk Orders",
+  "metaTitle": "Custom Red Food Gifts | Perfect Imprints",
+  "metaDescription": "Order custom red food gifts in bulk at Perfect Imprints. Perfect for holidays, client gifts, and employee appreciation.",
+  "introHtml": "<p>Red food gifts stand out on any desk or doorstep, making them a natural choice for holiday gifting, client appreciation, or seasonal promotions. From the Cozy Comfort Coffee Kit to the Lindt Clearview Gift Box, these gifts pair a bold color with premium treats that recipients actually enjoy. Choose foil stamping or a custom label to add your logo without overpowering the packaging.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assortment of custom red food gifts including coffee kits, chocolate boxes, and snack tins with logo imprinting.",
+  "productSkus": [
+    "512883",
+    "518213",
+    "518434 16B",
+    "526239",
+    "526244",
+    "526746",
+    "528900"
+  ],
+  "generatedAt": "2026-05-31T09:46:57.749072+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/heavyweight",
+  "type": "facet",
+  "h1": "Custom Heavyweight Products for Bulk Orders",
+  "metaTitle": "Custom Heavyweight Products | Perfect Imprints",
+  "metaDescription": "Order custom heavyweight products with your logo. Durable items built for daily use. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Heavyweight products are built to withstand the rigors of daily use in demanding environments like construction sites, warehouses, and outdoor events. Unlike lightweight alternatives, these items offer superior durability and a premium feel that reinforces your brand’s commitment to quality. From thick-walled drinkware to rugged outerwear, custom heavyweight products ensure your logo stays visible and intact through repeated handling. Choose heavyweight for merchandise that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom heavyweight products including thick stainless steel water bottles and sturdy jackets with logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:51.516134+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,32 @@
+{
+  "url": "/cat/sweaters-cardigans/type/box",
+  "type": "facet",
+  "h1": "Custom Box Sweaters & Cardigans for Bulk Orders",
+  "metaTitle": "Custom Box Sweaters & Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom box sweaters and cardigans in bulk for your team. Perfect for uniforms, gifts, and events. Get a quote today!",
+  "introHtml": "<p>Box sweaters and cardigans offer a structured, polished look that sets them apart from open-front styles. Their clean lines and button-front closures make them ideal for corporate uniforms, trade show staff, or retail teams where a professional appearance matters. These versatile pieces can be embroidered with your logo on the chest or sleeve, and are available in classic colors like navy, black, and charcoal. Choose from cotton blends, merino wool, or fleece to match your climate and comfort needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom box sweaters and cardigans with embroidered logo on chest, available in navy and charcoal for corporate uniforms.",
+  "productSkus": [
+    "520268",
+    "520269",
+    "523604",
+    "526198",
+    "526291",
+    "526292",
+    "527181",
+    "527182",
+    "527833",
+    "527957",
+    "528757",
+    "528758"
+  ],
+  "generatedAt": "2026-05-31T09:27:40.196489+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

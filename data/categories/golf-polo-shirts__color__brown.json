@@ -1,0 +1,30 @@
+{
+  "url": "/cat/golf-polo-shirts/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Golf Polo Shirts",
+  "metaTitle": "Custom Brown Golf Polo Shirts | Perfect Imprints",
+  "metaDescription": "Order custom brown golf polo shirts for your team or event. Perfect for corporate outings and tournaments. Get a quote today!",
+  "introHtml": "<p>Brown golf polo shirts deliver a grounded, professional look that stands out on the course without being flashy. Whether you're outfitting a corporate tournament team or branding staff for a golf outing, brown polos pair well with khaki or charcoal pants. Choose from moisture-wicking fabrics like the Nike Golf Tech Basic Dri Fit Polo or the Vansport Omega Solid Mesh Tech Polo for all-day comfort. Add your logo with screen printing or embroidery for a finished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown golf polo shirts with embroidered logo on a white background",
+  "productSkus": [
+    "505143",
+    "507820",
+    "510186",
+    "510187",
+    "510317",
+    "514871",
+    "515156",
+    "515975",
+    "523540",
+    "528396"
+  ],
+  "generatedAt": "2026-05-31T09:14:37.105146+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

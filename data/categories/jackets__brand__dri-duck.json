@@ -1,0 +1,23 @@
+{
+  "url": "/cat/jackets/brand/dri-duck",
+  "type": "facet",
+  "h1": "Custom Dri Duck Jackets for Bulk Orders",
+  "metaTitle": "Custom Dri Duck Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Dri Duck jackets for your team. Durable softshells & waterproof options with your logo. Perfect for bulk orders. Get a quote now.",
+  "introHtml": "<p>Dri Duck jackets combine rugged construction with practical features like waterproof shells and stretch softshell panels, making them a top choice for outdoor crews, facility managers, and promotional events. Whether you need the flexibility of the Poly Spandex Motion Softshell for active teams or the full-zip protection of the Challenger waterproof jacket, these pieces hold up to daily wear while keeping your logo front and center. Bulk orders are easy to customize with embroidery or screen printing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Dri Duck jackets for bulk orders featuring a waterproof softshell with embroidered logo",
+  "productSkus": [
+    "527126",
+    "528099",
+    "528100"
+  ],
+  "generatedAt": "2026-05-31T09:16:25.889449+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

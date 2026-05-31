@@ -1,0 +1,21 @@
+{
+  "url": "/cat/workwear/activity/running",
+  "type": "facet",
+  "h1": "Custom Running Workwear for Your Team",
+  "metaTitle": "Custom Running Workwear | Perfect Imprints",
+  "metaDescription": "Shop custom running workwear at Perfect Imprints. Perfect for corporate teams and events. Order bulk branded gear today.",
+  "introHtml": "<p>Custom running workwear is ideal for corporate 5Ks, charity runs, or company fitness challenges. Unlike standard workwear, these pieces prioritize moisture-wicking fabrics, reflective details, and lightweight construction to keep your team comfortable and visible during active use. Add your logo with screen printing or embroidery for a professional look that stands out on the move.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom running workwear with reflective details and moisture-wicking fabric for corporate teams",
+  "productSkus": [
+    "520378"
+  ],
+  "generatedAt": "2026-05-31T10:15:34.338896+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

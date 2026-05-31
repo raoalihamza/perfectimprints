@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel/activity/fishing",
+  "type": "facet",
+  "h1": "Custom Fishing Apparel",
+  "metaTitle": "Custom Fishing Apparel | Perfect Imprints",
+  "metaDescription": "Order custom fishing apparel for your team. Perfect for tournaments, guides, and events. Shop Perfect Imprints today.",
+  "introHtml": "<p>Fishing apparel needs to perform under sun, spray, and long days on the water. Custom fishing apparel lets you outfit your tournament team, guide service, or brand event with gear that blocks UV rays and wicks moisture. The Men's Columbia Tamiami II Short-Sleeve Shirt is a popular choice, offering UPF 40 protection and a comfortable fit for casting all day. Add your logo with embroidery or screen printing for a professional look that holds up season after season.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom fishing apparel with embroidered logo on a Columbia Tamiami II short-sleeve shirt",
+  "productSkus": [
+    "523867"
+  ],
+  "generatedAt": "2026-05-31T08:22:30.454822+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

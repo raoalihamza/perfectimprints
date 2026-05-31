@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tank-tops/size/large",
+  "type": "facet",
+  "h1": "Custom Large Tank Tops",
+  "metaTitle": "Custom Large Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom large tank tops for your team or event. Perfect Imprints offers bulk pricing and fast turnaround.",
+  "introHtml": "<p>Large tank tops provide a comfortable, relaxed fit for a wide range of body types, making them a popular choice for corporate events, team uniforms, and promotional giveaways. Whether you choose a classic cotton jersey or a moisture-wicking performance fabric, large sizes ensure your branding looks great and feels even better. Decorate with screen printing or embroidery for a polished finish that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom large tank tops in assorted colors with screen-printed logo, ideal for bulk orders",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T08:31:19.440888+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

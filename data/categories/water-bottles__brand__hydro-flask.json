@@ -1,0 +1,27 @@
+{
+  "url": "/cat/water-bottles/brand/hydro-flask",
+  "type": "facet",
+  "h1": "Custom Hydro Flask Water Bottles for Bulk Orders",
+  "metaTitle": "Custom Hydro Flask Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom Hydro Flask water bottles in bulk. Perfect for branding with logos. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Hydro Flask water bottles are known for their TempShield insulation, keeping drinks cold for 24 hours or hot for 12. When you choose custom Hydro Flask bottles for your team or event, you get a premium product that recipients will use daily. Decorate with laser engraving or screen printing for a sleek, lasting logo. Perfect for corporate gifts, employee incentives, or trade show giveaways that stand out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hydro Flask water bottles with engraved logo in various colors",
+  "productSkus": [
+    "526267",
+    "526268",
+    "526269",
+    "527859",
+    "528582",
+    "528583",
+    "529393"
+  ],
+  "generatedAt": "2026-05-31T09:04:23.334941+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/performance",
+  "type": "facet",
+  "h1": "Custom Performance Products for Bulk Orders",
+  "metaTitle": "Custom Performance Products | Perfect Imprints",
+  "metaDescription": "Order custom performance products in bulk at Perfect Imprints. High-quality branded gear for your team or event. Get a quote today!",
+  "introHtml": "<p>Performance products are designed for active use, whether in the field, at the gym, or on the job site. From moisture-wicking apparel to durable drinkware, these items keep your brand visible during physical activity. Choose performance fabrics that breathe and stretch, or insulated bottles that maintain temperature. Perfect for corporate wellness programs, safety teams, or outdoor events, they combine functionality with brand exposure.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of custom performance products including moisture-wicking shirts and insulated water bottles with logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:53.069802+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/products/brand/feed",
+  "type": "facet",
+  "h1": "Custom FEED Products for Bulk Orders",
+  "metaTitle": "Custom FEED Products - Perfect Imprints",
+  "metaDescription": "Order custom FEED products for your brand. Shop branded tote bags and more with Perfect Imprints.",
+  "introHtml": "<p>FEED products combine purposeful style with charitable impact, making them a meaningful choice for corporate gifts, event giveaways, or employee recognition. Each custom FEED tote bag—like the Organic Cotton Market Tote or the Striped Carry Tote—supports hunger relief efforts, adding a story to your brand. Choose from organic cotton or recycled materials, and add your logo with screen printing or embroidery for a durable, eco-friendly promotional item that resonates with socially conscious audiences.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom FEED products including organic cotton tote bags with logo imprint for corporate gifts and events.",
+  "productSkus": [
+    "527261",
+    "527331",
+    "527667",
+    "527668",
+    "527669",
+    "529321"
+  ],
+  "generatedAt": "2026-05-31T10:03:29.932384+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

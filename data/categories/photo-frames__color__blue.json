@@ -1,0 +1,22 @@
+{
+  "url": "/cat/photo-frames/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Photo Frames for Bulk Orders",
+  "metaTitle": "Custom Blue Photo Frames | Perfect Imprints",
+  "metaDescription": "Order custom blue photo frames in bulk at Perfect Imprints. Perfect for corporate gifts, events, and employee recognition.",
+  "introHtml": "<p>Blue photo frames add a calm, professional touch to any desk or wall display. Whether you are recognizing employee achievements or creating branded gifts for clients, custom blue photo frames offer a versatile canvas for your logo. Choose from options like the 4\" x 6\" The Curve Photo Frame in a sleek blue finish, perfect for imprinting with your company name or event details. These frames work well for trade show giveaways, corporate anniversaries, or welcome kits that leave a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue photo frames with company logo displayed on a desk, featuring a 4x6 blue frame.",
+  "productSkus": [
+    "502584",
+    "516843"
+  ],
+  "generatedAt": "2026-05-31T10:01:55.239903+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

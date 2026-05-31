@@ -1,0 +1,23 @@
+{
+  "url": "/cat/pencils/material/paper",
+  "type": "facet",
+  "h1": "Custom Paper Pencils for Bulk Orders",
+  "metaTitle": "Custom Paper Pencils | Perfect Imprints",
+  "metaDescription": "Order custom paper pencils for eco-friendly branding. Perfect for bulk orders. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Paper pencils are an eco-friendly alternative to traditional wood pencils, made from recycled newspaper or other paper sources. They offer the same writing quality while reducing environmental impact, making them a smart choice for brands that want to align with sustainability values. Ideal for trade shows, schools, or corporate giveaways, these pencils can be printed with your logo using foil stamping or screen printing. The unique texture and story behind paper pencils often spark conversations, giving your brand extra visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom paper pencils with printed logo on a desk, eco-friendly promotional product",
+  "productSkus": [
+    "505592",
+    "526804",
+    "526806"
+  ],
+  "generatedAt": "2026-05-31T10:00:11.889523+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

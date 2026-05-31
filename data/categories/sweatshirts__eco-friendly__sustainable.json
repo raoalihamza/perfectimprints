@@ -1,0 +1,25 @@
+{
+  "url": "/cat/sweatshirts/eco-friendly/sustainable",
+  "type": "facet",
+  "h1": "Custom Sustainable Sweatshirts",
+  "metaTitle": "Custom Sustainable Sweatshirts | Perfect Imprints",
+  "metaDescription": "Order custom sustainable sweatshirts for your team. Eco-friendly materials, bulk pricing, and fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>Choosing custom sustainable sweatshirts means your brand supports eco-friendly manufacturing without sacrificing comfort or durability. These styles use recycled polyester blends, organic cotton, or low-impact dyes—ideal for companies prioritizing green initiatives. Whether you need quarter-zip pullovers for a corporate retreat or full-zip hoodies for a safety team, sustainable options offer the same decoration versatility as traditional fleece. Your logo stands out on fabrics that align with your values.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom sustainable sweatshirts with embroidered logos, featuring eco-friendly fleece hoodies and quarter-zip pullovers.",
+  "productSkus": [
+    "527948",
+    "528221",
+    "528222",
+    "528707",
+    "528890"
+  ],
+  "generatedAt": "2026-05-31T08:21:57.376051+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/barware/brand/thermos",
+  "type": "facet",
+  "h1": "Custom Thermos Barware for Bulk Orders",
+  "metaTitle": "Custom Thermos Barware | Perfect Imprints",
+  "metaDescription": "Shop custom Thermos barware at Perfect Imprints. Ideal for bulk orders with your logo. Durable stainless steel drinkware for events.",
+  "introHtml": "<p>Thermos barware brings legendary insulation to corporate events and employee gifts. Stainless steel tumblers, mugs, and bottles keep drinks hot or cold for hours — a practical upgrade over standard glassware. Perfect for outdoor brand activations, safety crew hydration, or client appreciation. Decorate with your logo via laser engraving or screen printing for a polished, lasting impression that stands up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Thermos barware including stainless steel tumblers and mugs with logo engraving",
+  "productSkus": [
+    "525293",
+    "525294",
+    "525295",
+    "525296",
+    "525297",
+    "525298"
+  ],
+  "generatedAt": "2026-05-31T09:35:52.963119+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

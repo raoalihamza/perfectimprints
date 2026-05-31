@@ -1,0 +1,28 @@
+{
+  "url": "/cat/tools/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Tools for Bulk Orders",
+  "metaTitle": "Custom Brown Tools - Perfect Imprints",
+  "metaDescription": "Order custom brown tools in bulk at Perfect Imprints. Ideal for giveaways, trade shows, and employee gifts. Get your quote today.",
+  "introHtml": "<p>Brown tools offer a natural, understated look that stands out from standard black or silver options. Whether you choose bamboo-handled multi-tools for an eco-friendly giveaway or brown paint paddles for hardware store promotions, the warm tone adds a touch of craftsmanship. Customize with your logo via pad printing or laser engraving for a professional finish that aligns with outdoor, gardening, or DIY brands.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown tools including bamboo multi-tools and paint paddles with engraved logos",
+  "productSkus": [
+    "517712 32E",
+    "517713 32E",
+    "517714 32E",
+    "517715 32E",
+    "521049",
+    "526442",
+    "527147",
+    "529056"
+  ],
+  "generatedAt": "2026-05-31T10:11:24.655328+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

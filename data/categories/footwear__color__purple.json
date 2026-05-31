@@ -1,0 +1,24 @@
+{
+  "url": "/cat/footwear/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Footwear for Bulk Orders",
+  "metaTitle": "Custom Purple Footwear | Perfect Imprints",
+  "metaDescription": "Order custom purple footwear in bulk at Perfect Imprints. Perfect for teams, events, and giveaways. Get a quote today!",
+  "introHtml": "<p>Purple footwear stands out without being overpowering, making it a smart choice for team uniforms, event giveaways, or employee incentives. Whether you need branded flip flops for a summer company picnic or cozy slipper socks for a holiday gift, purple adds a distinctive pop of color that recipients appreciate. Decorate with your logo using screen printing or embroidery for a professional finish that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple footwear including flip flops and slipper socks with company logo for bulk orders",
+  "productSkus": [
+    "501556",
+    "516800",
+    "520052",
+    "528311"
+  ],
+  "generatedAt": "2026-05-31T09:47:09.167380+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

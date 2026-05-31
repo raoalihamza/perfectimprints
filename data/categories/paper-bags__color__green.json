@@ -1,0 +1,25 @@
+{
+  "url": "/cat/paper-bags/color/green",
+  "type": "facet",
+  "h1": "Custom Green Paper Bags for Branded Packaging",
+  "metaTitle": "Custom Green Paper Bags | Perfect Imprints",
+  "metaDescription": "Order custom green paper bags with your logo. Eco-friendly, durable, and perfect for retail or events. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Green paper bags offer a natural, eco-friendly look that aligns with sustainability goals while standing out on shelves. Whether you need small bags for giveaways or larger laminated totes for retail, the green hue adds a fresh, organic feel to your branding. Customize with foil stamping or screen printing for a polished finish that reinforces your commitment to the environment.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green paper bags with company logo printed on front, ideal for retail or promotional use.",
+  "productSkus": [
+    "503365",
+    "503367",
+    "504843",
+    "514521",
+    "522243"
+  ],
+  "generatedAt": "2026-05-31T09:59:38.582628+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/coffee-mugs/feature/with-a-spoon",
+  "type": "facet",
+  "h1": "Custom Coffee Mugs with a Spoon",
+  "metaTitle": "Custom Coffee Mugs with a Spoon - Perfect Imprints",
+  "metaDescription": "Order custom coffee mugs with a spoon for your team. Perfect for branded gifts. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Custom coffee mugs with a spoon combine the convenience of a built-in stirring tool with your company logo. Whether you need branded giveaways for a coffee-themed promotion or practical office mugs for your breakroom, these mugs save time and reduce waste. The attached spoon is perfect for stirring creamer or sugar on the go, making them a favorite for commuters and desk workers alike.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom coffee mugs with a spoon featuring a built-in stirring spoon and company logo",
+  "productSkus": [
+    "514870"
+  ],
+  "generatedAt": "2026-05-31T09:10:57.978193+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

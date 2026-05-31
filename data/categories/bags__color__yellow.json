@@ -1,0 +1,28 @@
+{
+  "url": "/cat/bags/color/yellow",
+  "type": "facet",
+  "h1": "Custom Yellow Bags for Bulk Orders",
+  "metaTitle": "Custom Yellow Bags | Perfect Imprints",
+  "metaDescription": "Shop custom yellow bags for bulk orders at Perfect Imprints. Ideal for giveaways, events, and branding. Get a quote today!",
+  "introHtml": "<p>Yellow bags stand out in a crowd, making them a smart choice for promotional giveaways, event swag, and safety visibility. Whether you need drawstring backpacks for a school program, litter bags for outdoor campaigns, or die-cut Halloween bags for seasonal retail, yellow ensures your logo catches attention. Decorate with screen printing or embroidery for a lasting impression. Perfect for trade shows, employee incentives, or brand awareness.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom yellow bags for bulk orders including drawstring backpacks and die-cut Halloween bags with branding",
+  "productSkus": [
+    "502216",
+    "506809 5BP",
+    "506970 5BP",
+    "513336 01A",
+    "514536 10A",
+    "514537 10A",
+    "516345",
+    "529488"
+  ],
+  "generatedAt": "2026-05-31T08:27:59.070015+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

@@ -1,0 +1,30 @@
+{
+  "url": "/cat/shirts/brand/roots73",
+  "type": "facet",
+  "h1": "Custom Roots73 Shirts for Bulk Orders",
+  "metaTitle": "Custom Roots73 Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Roots73 shirts for your team. Perfect for uniforms or giveaways. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Roots73 shirts combine rugged outdoor style with durable construction, making them a smart pick for companies that want apparel that holds up to daily wear. Whether you are outfitting a field crew with the Men's Elkpoint Softshell or branding hoodies for a company retreat, these pieces accept embroidery and screen printing cleanly. The full-zip hoodies and microfleece jackets offer layering versatility, so your logo gets seen across seasons.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Roots73 shirts including softshell jackets and full-zip hoodies with company logo",
+  "productSkus": [
+    "517041",
+    "517042",
+    "517232",
+    "517233",
+    "517320",
+    "517321",
+    "524273",
+    "524274",
+    "525378",
+    "525379"
+  ],
+  "generatedAt": "2026-05-31T09:02:02.250362+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

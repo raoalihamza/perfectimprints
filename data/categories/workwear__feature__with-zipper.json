@@ -1,0 +1,22 @@
+{
+  "url": "/cat/workwear/feature/with-zipper",
+  "type": "facet",
+  "h1": "Custom Workwear with Zipper for Bulk Orders",
+  "metaTitle": "Custom Workwear with Zipper | Perfect Imprints",
+  "metaDescription": "Order custom workwear with zipper for your team. Durable, functional, and perfect for branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom workwear with zipper closures offers a secure, professional look that buttons can't match. Whether you need hi-vis jackets for safety crews or uniform shirts for field staff, a zipper front provides easy on/off and a clean finish. Decorate with your logo using screen printing or embroidery for a polished brand presence. Perfect for construction, logistics, or any team that values durability and quick changes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom workwear with zipper featuring a hi-vis jacket with reflective stripes and front zipper closure",
+  "productSkus": [
+    "511014",
+    "512490 01N"
+  ],
+  "generatedAt": "2026-05-31T08:22:14.331834+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

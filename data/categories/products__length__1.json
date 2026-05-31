@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/length/1",
+  "type": "facet",
+  "h1": "Custom 1 Products for Bulk Orders",
+  "metaTitle": "Custom 1 Products | Perfect Imprints",
+  "metaDescription": "Order custom 1 products in bulk at Perfect Imprints. Ideal for giveaways, events, and branding. Get a quote today.",
+  "introHtml": "<p>Custom 1 products offer a compact and practical option for businesses looking to distribute branded items at events, trade shows, or as part of a welcome kit. Their small size makes them easy to carry and hand out, ensuring your logo reaches a wide audience. Whether you choose imprinted stress relievers or personalized keychains, these items provide high visibility without taking up much space. Perfect for budget-friendly bulk orders that leave a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom 1 products including branded stress balls and keychains displayed on a table",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:25:29.291260+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

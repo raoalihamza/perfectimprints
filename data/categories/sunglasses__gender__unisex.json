@@ -1,0 +1,27 @@
+{
+  "url": "/cat/sunglasses/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Sunglasses for Bulk Orders",
+  "metaTitle": "Custom Unisex Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom unisex sunglasses for your team or event. Perfect for outdoor promotions and employee gifts. Get a quote today!",
+  "introHtml": "<p>Custom unisex sunglasses offer a versatile branding option that suits any recipient, regardless of gender. Whether you're outfitting a safety team with polarized lenses or giving away stylish shades at a summer festival, unisex styles provide a universal fit and broad appeal. Choose from sporty wraps like the Nike Skylon Ace or eco-friendly bamboo frames to match your brand's image. Add your logo with pad printing or laser engraving for a polished look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom unisex sunglasses with logo, available in various styles including polarized and bamboo frames for bulk orders.",
+  "productSkus": [
+    "520125",
+    "525620",
+    "526680",
+    "526685",
+    "526686",
+    "526687",
+    "526792"
+  ],
+  "generatedAt": "2026-05-31T10:09:24.387938+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

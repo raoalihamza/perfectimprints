@@ -1,0 +1,23 @@
+{
+  "url": "/cat/food-beverage/feature/insulated",
+  "type": "facet",
+  "h1": "Custom Insulated Food & Beverage Products",
+  "metaTitle": "Custom Insulated Food & Beverage | Perfect Imprints",
+  "metaDescription": "Order custom insulated food and beverage products for your team or event. Perfect for keeping drinks hot or cold. Get a quote today!",
+  "introHtml": "<p>Insulated food and beverage products keep your team's coffee hot during morning meetings and their water cold on outdoor job sites. Unlike standard drinkware, double-wall vacuum insulation maintains temperature for hours without condensation. Choose from stainless steel tumblers, travel mugs, and bottles that accept full-color digital printing or laser engraving for a polished, durable logo. These are ideal for corporate gifts, employee appreciation, or client giveaways where functionality matters as much as brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom insulated food and beverage products including stainless steel tumblers and travel mugs with logos",
+  "productSkus": [
+    "510003",
+    "520013",
+    "528839"
+  ],
+  "generatedAt": "2026-05-31T09:46:44.393228+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

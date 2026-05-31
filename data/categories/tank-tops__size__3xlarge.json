@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tank-tops/size/3xlarge",
+  "type": "facet",
+  "h1": "Custom 3X Large Tank Tops for Bulk Orders",
+  "metaTitle": "Custom 3X Large Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom 3X large tank tops in bulk from Perfect Imprints. Perfect for teams, events, and uniforms. Fast turnaround.",
+  "introHtml": "<p>When you need custom tank tops that fit your team or staff comfortably, 3X large sizes ensure everyone gets the right fit. Whether you're ordering for a summer event, a uniform program, or a promotional giveaway, these tank tops offer a roomy cut without sacrificing style. Decorate with screen printing or embroidery for a professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom 3X large tank tops for bulk orders with screen printing decoration",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T09:03:22.577800+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

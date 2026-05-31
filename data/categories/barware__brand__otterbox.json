@@ -1,0 +1,22 @@
+{
+  "url": "/cat/barware/brand/otterbox",
+  "type": "facet",
+  "h1": "Custom Otterbox Barware",
+  "metaTitle": "Custom Otterbox Barware | Perfect Imprints",
+  "metaDescription": "Shop custom Otterbox barware at Perfect Imprints. Durable drinkware perfect for corporate gifts and events. Order bulk today!",
+  "introHtml": "<p>Otterbox barware combines the rugged durability the brand is known for with the refined look of drinkware designed for entertaining. Whether you are outfitting a breakroom or sending branded gifts to clients, these stainless steel tumblers and growlers keep drinks at the right temperature for hours. The 28 oz Growler Tumbler is ideal for beer or iced coffee, while the 10 oz Core Colors Tumbler works for cocktails or water. Both offer ample space for your logo using laser engraving or screen printing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Otterbox barware including a 28 oz growler tumbler and a 10 oz stainless steel tumbler with logos",
+  "productSkus": [
+    "526311",
+    "526315"
+  ],
+  "generatedAt": "2026-05-31T08:26:02.605140+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

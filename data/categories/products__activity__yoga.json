@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/activity/yoga",
+  "type": "facet",
+  "h1": "Custom Yoga Products for Bulk Orders",
+  "metaTitle": "Custom Yoga Products | Perfect Imprints",
+  "metaDescription": "Order custom yoga products for your studio or event. Perfect Imprints offers bulk pricing and fast turnaround. Get started today.",
+  "introHtml": "<p>Custom yoga products allow studios, corporate wellness programs, and event organizers to extend their brand into every practice. From branded yoga mats and blocks to towels and bags, these items are used regularly and stay visible long after purchase. Choose screen printing or debossing for durable logos on mats, or embroidery for soft goods. Bulk ordering ensures consistent branding across your entire inventory.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom yoga products including a branded yoga mat, towel, and water bottle arranged on a studio floor.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:40.483387+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

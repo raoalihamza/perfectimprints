@@ -1,0 +1,23 @@
+{
+  "url": "/cat/awards-recognition/brand/oakley",
+  "type": "facet",
+  "h1": "Custom Oakley Awards Recognition",
+  "metaTitle": "Custom Oakley Awards | Perfect Imprints",
+  "metaDescription": "Order custom Oakley awards recognition for your team. Premium gear with your logo from Perfect Imprints.",
+  "introHtml": "<p>Oakley is a brand that stands for performance and durability, making it a top choice for employee recognition programs that reward hard work with gear that lasts. From the sleek Messenger Bag to the rugged Kitchen Sink Backpack, each piece carries the Oakley reputation for quality. Decorating these items with your company logo creates a meaningful award that recipients will use daily, reinforcing your brand with every wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Oakley awards recognition with logo on backpack and messenger bag",
+  "productSkus": [
+    "522669",
+    "523948",
+    "529181"
+  ],
+  "generatedAt": "2026-05-31T09:32:58.111819+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

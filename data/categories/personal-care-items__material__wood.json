@@ -1,0 +1,25 @@
+{
+  "url": "/cat/personal-care-items/material/wood",
+  "type": "facet",
+  "h1": "Custom Wood Personal Care Items",
+  "metaTitle": "Custom Wood Personal Care Items | Perfect Imprints",
+  "metaDescription": "Order custom wood personal care items for bulk giveaways. Eco-friendly, natural materials perfect for branding at Perfect Imprints.",
+  "introHtml": "<p>Wood personal care items offer a natural, eco-friendly alternative to plastic. From dry body brushes with smooth beechwood handles to full-color emery boards, these items convey sustainability and quality. Ideal for spa giveaways, wellness kits, or corporate gifts, wood products can be debossed or printed with your logo. Choose wood for a tactile, premium feel that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wood personal care items including a dry body brush and massage roller with engraved logos",
+  "productSkus": [
+    "526411",
+    "526780",
+    "528332",
+    "529295",
+    "529487"
+  ],
+  "generatedAt": "2026-05-31T10:00:40.684445+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

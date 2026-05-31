@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/type/bag",
+  "type": "facet",
+  "h1": "Custom Bag Products for Your Brand",
+  "metaTitle": "Custom Bag Products | Perfect Imprints",
+  "metaDescription": "Browse custom bag products at Perfect Imprints. Perfect for tradeshows, giveaways, and corporate gifts. Order bulk bags today.",
+  "introHtml": "<p>Custom bag products offer a versatile canvas for your brand, from tote bags and backpacks to duffels and coolers. Unlike single-use giveaways, bags provide repeated exposure as recipients carry them to the gym, grocery store, or office. Choose from materials like cotton, polyester, or recycled fabrics, and decorate with screen printing, embroidery, or heat transfer. Whether you need promotional bags for an event or employee welcome kits, this category delivers practical, high-visibility marketing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom bag products including tote bags and backpacks with printed logos for corporate branding",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:04:24.454393+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pants/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Pants for Bulk Orders",
+  "metaTitle": "Custom Brown Pants | Perfect Imprints",
+  "metaDescription": "Order custom brown pants for your team or event. Perfect Imprints offers bulk pricing and decoration options.",
+  "introHtml": "<p>Brown pants offer a professional, earthy alternative to standard black or navy uniforms. Whether you need durable work pants for a construction crew or stylish jogger shorts for a corporate wellness event, brown tones complement a wide range of company colors. Decorate with screen-printed logos or embroidered emblems for a polished look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown pants for bulk orders featuring embroidered logo on the leg",
+  "productSkus": [
+    "528865"
+  ],
+  "generatedAt": "2026-05-31T09:59:34.059327+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

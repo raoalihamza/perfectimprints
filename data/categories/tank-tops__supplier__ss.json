@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tank-tops/supplier/ss",
+  "type": "facet",
+  "h1": "Custom SS Tank Tops",
+  "metaTitle": "Custom SS Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom SS tank tops in bulk for your team or event. Perfect for branding with screen printing or embroidery.",
+  "introHtml": "<p>SS tank tops, often made from a cotton-polyester blend, offer a soft, durable surface that holds screen-printed logos and embroidery exceptionally well. Whether you're outfitting a summer sales team or creating giveaways for a 5K run, these tanks provide a comfortable, breathable option that recipients actually wear. Popular styles like the Bella+Canvas Jersey Tank and Gildan Softstyle come in a range of sizes from youth to adult, making them a versatile choice for any promotional campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom SS tank tops featuring a screen-printed logo on a soft cotton-polyester blend fabric",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T08:22:13.155486+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

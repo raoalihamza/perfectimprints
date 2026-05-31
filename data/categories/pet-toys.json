@@ -1,0 +1,41 @@
+{
+  "url": "/cat/pet-toys",
+  "type": "root",
+  "h1": "Custom Pet Toys for Branded Giveaways & Promotions",
+  "metaTitle": "Custom Pet Toys | Perfect Imprints",
+  "metaDescription": "Order custom pet toys for your next promotion. Perfect for pet expos, adoption events, and client gifts. Bulk pricing available.",
+  "introHtml": "<p>Pet owners love freebies for their furry friends, making custom pet toys a hit at pet expos, adoption events, and even corporate picnics. Marketing directors can use them to boost brand visibility at dog parks and vet offices, while HR directors might include them in pet-friendly workplace welcome kits. Business owners appreciate the low cost per unit and the high shareability — a dog with a branded toy is a walking advertisement.</p><p>Our selection includes durable chew toys, squeaky plushies, and interactive ropes, all available in various sizes and materials. Whether you need 100 toys for a local shelter fundraiser or 5,000 for a national pet brand campaign, we offer customization options like screen printing, debossing, and custom shapes. Each toy can feature your logo in bright, pet-safe colors that withstand rough play.</p>",
+  "buyingGuideHtml": "<h3>What to Look for in Custom Pet Toys</h3><p>When ordering custom pet toys, prioritize safety and durability. Look for non-toxic materials like natural rubber or certified BPA-free plastics. Avoid small parts that could detach, especially for aggressive chewers. For squeaky toys, ensure the squeaker is securely encased. Many promotional pet toys are made from recycled materials, which appeals to eco-conscious audiences.</p><h3>Materials and Build Quality</h3><p>Common materials include natural rubber, cotton rope, and polyester plush. Rubber toys are best for heavy chewers, while rope toys are ideal for interactive play. Plush toys work well for gentle dogs or as cat toys. Check stitching: double-stitched seams last longer. For outdoor use, consider UV-resistant materials to prevent fading.</p><h3>Common Use Cases and Buyer Personas</h3><p>Marketing directors often use branded pet toys at trade shows, pet expos, and as customer appreciation gifts. HR directors might include them in pet-friendly office onboarding kits or company picnics. Safety managers can use them as giveaways at pet safety events. Business owners order bulk pet toys for grand openings or as loyalty rewards. Nonprofits use them for adoption events and fundraising.</p><h3>Decoration and Customization Options</h3><p>Popular decoration methods include screen printing for flat surfaces, debossing for rubber toys, and full-color heat transfer for plush items. Embroidery works well on rope toys. For complex logos, full-color sublimation is available on polyester plush. Consider color matching to your brand palette. Minimum order quantities vary by method: screen printing typically requires 100+ units, while debossing may have lower MOQs.</p><h3>Quantity Guidance and MOQ Context</h3><p>Typical bulk orders range from 250 to 5,000 units. MOQs start at 50 for simple designs, but larger orders reduce per-unit cost significantly. For example, ordering 1,000 toys instead of 500 can cut cost by 20-30%. Plan ahead: production lead time is usually 2-4 weeks, plus shipping. Rush orders may be available for an extra fee.</p><h3>Tips to Avoid Common Buying Mistakes</h3><p>A common mistake is choosing a toy that's too small for the target pet size — always specify size ranges. Another is ignoring material toxicity; ensure all dyes and plastics are pet-safe. Check decoration durability: screen printing may wear off on high-contact areas. Finally, order samples before bulk production to verify quality and fit.</p>",
+  "buyingGuideH2": "Custom Pet Toys Buying Guide",
+  "faqs": [
+    {
+      "q": "What are the minimum order quantities for custom pet toys?",
+      "a": "Minimum order quantities vary by product and decoration method. Typically, screen-printed toys require at least 100 units, while debossed rubber toys may have a lower MOQ of 50. For custom shapes or full-color sublimation, MOQs can be higher, around 250 units. Contact us for specific product MOQs."
+    },
+    {
+      "q": "What decoration methods are available for pet toys?",
+      "a": "We offer screen printing for flat surfaces, debossing for rubber toys, embroidery for rope toys, and full-color heat transfer for plush items. For complex, multi-color logos, sublimation is available on polyester materials. Each method has different durability and cost considerations."
+    },
+    {
+      "q": "How long does production and shipping take?",
+      "a": "Standard production time is 2-4 weeks after artwork approval. Shipping within the US typically adds 3-7 days. Rush orders can be expedited to 1-2 weeks for an additional fee. We recommend ordering at least 6 weeks before your event to ensure timely delivery."
+    },
+    {
+      "q": "Can I order a sample before placing a bulk order?",
+      "a": "Yes, we recommend ordering a pre-production sample to verify size, material, and decoration quality. Sample costs vary but are usually deducted from the final order if placed within 30 days. Samples typically ship within 1-2 weeks."
+    },
+    {
+      "q": "Are the pet toys safe for all dog sizes and chew strengths?",
+      "a": "We categorize toys by size and chew strength. Small toys are suitable for dogs under 20 lbs, while large toys are for over 50 lbs. For aggressive chewers, choose rubber or rope toys over plush. Always supervise play and inspect toys regularly for wear. Our products meet US safety standards for pet toys."
+    }
+  ],
+  "heroAltText": "Custom pet toys with logo, including rubber bone and plush squeaky toy for dogs.",
+  "productSkus": [],
+  "generatedAt": "2026-05-30T11:41:39.798156+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "use_case",
+  "skuFilterMode": "full",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

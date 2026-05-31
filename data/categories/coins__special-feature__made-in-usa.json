@@ -1,0 +1,21 @@
+{
+  "url": "/cat/coins/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Coins",
+  "metaTitle": "Custom Made in USA Coins | Perfect Imprints",
+  "metaDescription": "Order custom made in USA coins for your next event. Bulk pricing, fast turnaround. Get a quote today.",
+  "introHtml": "<p>Choosing custom made in USA coins ensures your promotional pieces reflect American craftsmanship and quality. Whether you need challenge coins for a corporate event, commemorative tokens for a trade show, or branded giveaways for a company milestone, domestically produced coins offer faster lead times and support local manufacturing. Our selection includes options like the Coin Holder - Oval, perfect for presenting your logo with a polished finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA coins featuring a brushed gold finish and embossed logo, displayed in an oval coin holder.",
+  "productSkus": [
+    "502549"
+  ],
+  "generatedAt": "2026-05-31T09:11:03.552144+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

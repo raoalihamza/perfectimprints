@@ -1,0 +1,26 @@
+{
+  "url": "/cat/sling-backpacks/feature/padded",
+  "type": "facet",
+  "h1": "Custom Padded Sling Backpacks",
+  "metaTitle": "Custom Padded Sling Backpacks | Perfect Imprints",
+  "metaDescription": "Shop custom padded sling backpacks for bulk orders. Perfect for events & teams. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Custom padded sling backpacks offer the convenience of a crossbody bag with the protection of built-in cushioning. Whether you're outfitting a sales team with laptops or distributing swag at a trade show, the padding ensures electronics and valuables stay safe. Choose from eco-friendly options like the Slingshot rPET Sling Bag or the sleek Chris Crossbody Sling Bag, and add your logo via embroidery or screen printing for a professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom padded sling backpacks with logo embroidery, featuring padded compartments for secure storage.",
+  "productSkus": [
+    "519247 69V",
+    "523122",
+    "524237",
+    "527057",
+    "527158",
+    "528680"
+  ],
+  "generatedAt": "2026-05-31T08:37:32.371408+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

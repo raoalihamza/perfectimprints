@@ -1,0 +1,21 @@
+{
+  "url": "/cat/backpacks/brand/osprey",
+  "type": "facet",
+  "h1": "Custom Osprey Backpacks for Bulk Orders",
+  "metaTitle": "Custom Osprey Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Osprey backpacks in bulk. Durable, branded packs perfect for corporate gifts and events. Get a quote today.",
+  "introHtml": "<p>Osprey backpacks are built for durability and all-day comfort, making them a premium choice for corporate gifts, employee appreciation, or event swag. The Osprey Daylite Plus, for example, offers a padded laptop sleeve and breathable mesh back panel—ideal for commuters and hikers alike. Custom embroidery or screen printing on these packs gives your brand a rugged, outdoor-ready look that stands out from standard promotional bags.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Osprey backpacks with embroidered logo, featuring the Osprey Daylite Plus in a corporate outdoor setting.",
+  "productSkus": [
+    "525925"
+  ],
+  "generatedAt": "2026-05-31T09:33:35.334756+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

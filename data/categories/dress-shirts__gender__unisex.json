@@ -1,0 +1,21 @@
+{
+  "url": "/cat/dress-shirts/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Dress Shirts for Bulk Orders",
+  "metaTitle": "Custom Unisex Dress Shirts | PerfectImprints.com",
+  "metaDescription": "Order custom unisex dress shirts in bulk at Perfect Imprints. Great for teams and events. Get a quote today!",
+  "introHtml": "<p>Unisex dress shirts offer a streamlined fit that works well for both men and women, making them a practical choice for company uniforms, trade shows, and team events. Unlike gendered cuts, these shirts provide consistent sizing across your group, simplifying ordering and inventory. The Carhartt Rugged Flex Plaid Long Sleeve Shirt is a popular option, combining durability with a professional look that holds up to daily wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom unisex dress shirts in various colors at a corporate event",
+  "productSkus": [
+    "529218"
+  ],
+  "generatedAt": "2026-05-31T09:43:17.545279+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

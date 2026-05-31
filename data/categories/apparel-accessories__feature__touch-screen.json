@@ -1,0 +1,23 @@
+{
+  "url": "/cat/apparel-accessories/feature/touch-screen",
+  "type": "facet",
+  "h1": "Custom Touch Screen Apparel Accessories",
+  "metaTitle": "Custom Touch Screen Apparel Accessories | Perfect Imprints",
+  "metaDescription": "Shop custom touch screen apparel accessories for your team. Perfect for outdoor events and promotions. Order bulk from Perfect Imprints.",
+  "introHtml": "<p>Custom touch screen apparel accessories let your team stay connected without removing gloves or mittens. Perfect for outdoor winter events, trade shows, or field workers who need device access, these accessories feature conductive materials in the fingertips that work with smartphones and tablets. Options like the TechSmart Gloves or Touch Screen Gloves can be decorated with your logo using embroidery or screen printing, ensuring brand visibility in cold conditions.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom touch screen apparel accessories including gloves with conductive fingertips for smartphone use",
+  "productSkus": [
+    "519076",
+    "520012",
+    "524376"
+  ],
+  "generatedAt": "2026-05-31T08:48:18.190478+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

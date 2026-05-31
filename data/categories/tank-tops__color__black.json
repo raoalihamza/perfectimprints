@@ -1,0 +1,27 @@
+{
+  "url": "/cat/tank-tops/color/black",
+  "type": "facet",
+  "h1": "Custom Black Tank Tops",
+  "metaTitle": "Custom Black Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom black tank tops for your team or event. Perfect for branding with screen printing or embroidery. Shop bulk pricing now.",
+  "introHtml": "<p>Black tank tops are a staple for any promotional campaign or uniform program. The neutral color pairs well with any logo or design, making them ideal for company picnics, charity runs, or summer giveaways. Choose from youth and unisex styles like the Bella+Canvas Jersey Tank or the Gildan Softstyle Tank Top for comfort and durability. Decorate with screen printing or embroidery for a polished look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black tank tops with screen-printed logo on a unisex style, perfect for promotional events and team uniforms.",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872"
+  ],
+  "generatedAt": "2026-05-31T09:28:10.982383+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

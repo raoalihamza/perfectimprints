@@ -1,0 +1,27 @@
+{
+  "url": "/cat/bar-wine/color/red",
+  "type": "facet",
+  "h1": "Custom Red Bar Wine Glasses & Drinkware",
+  "metaTitle": "Custom Red Bar Wine Glasses | Perfect Imprints",
+  "metaDescription": "Shop custom red bar wine glasses for events, promotions & gifts. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Red bar wine glasses and drinkware make a bold statement at any event or promotion. Whether you choose a durable stemless plastic wine glass for outdoor gatherings or a sleek glass option for corporate gifts, the red color ensures your logo stands out. Perfect for branded giveaways, trade shows, or hospitality use, these custom pieces combine visibility with practicality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red bar wine glasses with logo imprint, perfect for promotional events and corporate gifts.",
+  "productSkus": [
+    "511450",
+    "522060",
+    "524419",
+    "524524",
+    "524525",
+    "526191",
+    "527252"
+  ],
+  "generatedAt": "2026-05-31T08:23:27.904153+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

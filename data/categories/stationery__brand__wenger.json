@@ -1,0 +1,23 @@
+{
+  "url": "/cat/stationery/brand/wenger",
+  "type": "facet",
+  "h1": "Custom Wenger Stationery for Bulk Orders",
+  "metaTitle": "Custom Wenger Stationery | Perfect Imprints",
+  "metaDescription": "Order custom Wenger stationery in bulk at Perfect Imprints. Durable, professional designs for your team.",
+  "introHtml": "<p>Custom Wenger stationery combines Swiss-inspired durability with everyday functionality, making it a reliable choice for corporate offices and field teams. Whether you need branded notebooks, pens, or desk accessories, Wenger products withstand daily use while projecting a polished, professional image. Their clean lines and practical features like reinforced stitching and secure closures ensure your logo looks sharp for years. Ideal for onboarding kits, client gifts, or trade show giveaways, Wenger stationery offers a premium feel without unnecessary bulk. Choose from a variety of styles that complement your brand identity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom Wenger stationery items including notebooks and pens with company logos",
+  "productSkus": [
+    "526883",
+    "526884",
+    "526885"
+  ],
+  "generatedAt": "2026-05-31T10:08:29.848762+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

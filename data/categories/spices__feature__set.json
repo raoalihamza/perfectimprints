@@ -1,0 +1,19 @@
+{
+  "url": "/cat/spices/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Spices for Bulk Orders",
+  "metaTitle": "Custom Set Spices | Perfect Imprints",
+  "metaDescription": "Order custom set spices in bulk for your brand. Perfect for gift bags, corporate events, and employee appreciation. Add your logo.",
+  "introHtml": "<p>Custom set spices offer a unique way to keep your brand top-of-mind in the kitchen. Unlike single spice jars, a curated set provides variety and perceived value, making it ideal for corporate gift bags, holiday presents, or employee appreciation kits. Choose from popular blends like BBQ rubs or seasoning samplers, and add your logo via label printing or engraved lids. These sets are compact enough for shipping yet substantial enough to stand out on a desk or countertop.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set spices in bulk with branded labels, featuring assorted seasoning jars arranged in a gift box",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:07:43.967386+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

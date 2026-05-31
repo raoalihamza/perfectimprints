@@ -1,0 +1,27 @@
+{
+  "url": "/cat/tote-bags/eco-friendly/sustainable",
+  "type": "facet",
+  "h1": "Custom Sustainable Tote Bags",
+  "metaTitle": "Custom Sustainable Tote Bags | Perfect Imprints",
+  "metaDescription": "Order custom sustainable tote bags for your brand. Eco-friendly options with recycled materials. Get a quote today.",
+  "introHtml": "<p>Custom sustainable tote bags let you promote your brand while reducing environmental impact. Made from recycled cotton, non-woven materials, or organic fibers, these totes offer a durable alternative to single-use plastics. Perfect for trade shows, employee gifts, or retail giveaways, they can be screen printed or embroidered with your logo. Choose from styles like the Terra Thread Fairtrade Executive Work Tote or the Large Laminated Non-Woven Shopper Tote for a responsible impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom sustainable tote bags made from recycled materials with screen printed logo, perfect for eco-friendly branding.",
+  "productSkus": [
+    "504281",
+    "504937",
+    "504938",
+    "510710",
+    "526581",
+    "528906",
+    "529471"
+  ],
+  "generatedAt": "2026-05-31T09:03:42.998918+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

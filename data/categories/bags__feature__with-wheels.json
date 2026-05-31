@@ -1,0 +1,32 @@
+{
+  "url": "/cat/bags/feature/with-wheels",
+  "type": "facet",
+  "h1": "Custom Bags with Wheels for Easy Travel",
+  "metaTitle": "Custom Bags with Wheels | Perfect Imprints",
+  "metaDescription": "Order custom bags with wheels from Perfect Imprints. Ideal for travel, trade shows, and employee gifts. Bulk pricing available.",
+  "introHtml": "<p>Custom bags with wheels combine the convenience of rolling luggage with the branding power of promotional bags. Whether for employees who travel frequently or as trade show giveaways, wheeled bags reduce strain and make transport effortless. Options range from rolling duffels to wheeled backpacks, all customizable with your logo via screen printing or embroidery. Choose durable fabrics and smooth-rolling wheels for a professional look that gets noticed.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom bags with wheels featuring a rolling duffel with smooth wheels and embroidered logo",
+  "productSkus": [
+    "510112",
+    "520445",
+    "524220",
+    "524325",
+    "527674",
+    "527869",
+    "527871",
+    "527872",
+    "527873",
+    "528064",
+    "528091",
+    "528729"
+  ],
+  "generatedAt": "2026-05-31T09:06:57.601786+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

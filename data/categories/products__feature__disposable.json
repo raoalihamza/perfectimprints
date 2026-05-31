@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/disposable",
+  "type": "facet",
+  "h1": "Custom Disposable Products for Bulk Orders",
+  "metaTitle": "Custom Disposable Products | Perfect Imprints",
+  "metaDescription": "Order custom disposable products in bulk at Perfect Imprints. Ideal for events, trade shows, and daily use. Get your quote today.",
+  "introHtml": "<p>Custom disposable products are essential for events, trade shows, and daily operations where convenience and hygiene matter. From compostable cups to branded napkins, these single-use items reduce cleanup time while keeping your logo visible. Choose from materials like paper, plastic, or eco-friendly options to match your sustainability goals. Perfect for cafeterias, conferences, or promotional giveaways, custom disposables ensure your brand is seen everywhere—without the commitment of reusable items.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom disposable products including cups, plates, and napkins printed with logos for events and promotions.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:50.118041+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

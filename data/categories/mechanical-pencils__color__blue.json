@@ -1,0 +1,25 @@
+{
+  "url": "/cat/mechanical-pencils/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Mechanical Pencils",
+  "metaTitle": "Custom Blue Mechanical Pencils | Perfect Imprints",
+  "metaDescription": "Order custom blue mechanical pencils in bulk from Perfect Imprints. Ideal for schools, offices, and events. Get a quote today!",
+  "introHtml": "<p>Blue mechanical pencils offer a crisp, professional look that stands out in any office or classroom. Whether you choose the sleek Armadillo or the comfortable Frosty Grip, these writing tools combine precision with your brand colors. Perfect for trade shows, school supply kits, or corporate welcome packets, they ensure your logo is seen every time someone writes. Add your imprint with full-color or single-color decoration for a polished finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom blue mechanical pencils with brand logos, including Armadillo and Frosty Grip models, displayed on a desk.",
+  "productSkus": [
+    "510506",
+    "510906",
+    "514646",
+    "519577",
+    "525811"
+  ],
+  "generatedAt": "2026-05-31T08:57:44.581302+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

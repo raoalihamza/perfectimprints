@@ -1,0 +1,28 @@
+{
+  "url": "/cat/golf/feature/with-carabiner",
+  "type": "facet",
+  "h1": "Custom Golf Products with Carabiner",
+  "metaTitle": "Custom Golf with Carabiner | Perfect Imprints",
+  "metaDescription": "Order custom golf products with carabiner clips for easy attachment. Perfect for tournaments and corporate gifts at Perfect Imprints.",
+  "introHtml": "<p>Carabiner clips turn standard golf gear into portable accessories that clip directly to a golf bag or belt loop. Whether you are outfitting a company tournament or rewarding top clients, these additions ensure the branded towel, tool, or tee carrier stays secure and accessible. From the Rugged 7-in-1 Golf Tool to the Maggy Magnetic Waffle Towel, each item gains practical convenience with the carabiner attachment.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom golf towel with carabiner clipped to a golf bag, featuring embroidered logo",
+  "productSkus": [
+    "513098",
+    "514871",
+    "521417",
+    "522450",
+    "524637",
+    "527643",
+    "528005",
+    "528437"
+  ],
+  "generatedAt": "2026-05-31T08:42:29.357624+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

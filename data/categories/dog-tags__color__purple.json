@@ -1,0 +1,26 @@
+{
+  "url": "/cat/dog-tags/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Dog Tags for Bulk Orders",
+  "metaTitle": "Custom Purple Dog Tags | Perfect Imprints",
+  "metaDescription": "Order custom purple dog tags in bulk. Perfect for brand visibility. Get a quote at Perfect Imprints today!",
+  "introHtml": "<p>Purple dog tags stand out in a crowd, making them a smart choice for trade shows, event giveaways, or employee ID badges. The bold color pairs well with white or metallic imprinting for high contrast. Whether you need luggage tags for a travel-themed promotion or identification tags for your team, purple offers a distinctive look that grabs attention without being overpowering.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom purple dog tags with white imprint on a dark purple background, displayed on a table.",
+  "productSkus": [
+    "505522",
+    "509674",
+    "512986",
+    "516345",
+    "521320",
+    "528560"
+  ],
+  "generatedAt": "2026-05-31T08:53:04.209646+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

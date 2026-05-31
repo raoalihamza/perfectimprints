@@ -1,0 +1,26 @@
+{
+  "url": "/cat/pet-bowls/feature/collapsible",
+  "type": "facet",
+  "h1": "Custom Collapsible Pet Bowls for Bulk Orders",
+  "metaTitle": "Custom Collapsible Pet Bowls | Perfect Imprints",
+  "metaDescription": "Order custom collapsible pet bowls in bulk. Perfect for pet-friendly giveaways. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Collapsible pet bowls are a practical choice for on-the-go pet owners. Made from flexible silicone, these bowls fold flat for easy storage in a pocket or bag. They are ideal for trade shows, pet adoption events, or corporate gifts for dog-loving employees. Decorate them with your logo using pad printing or laser engraving for a durable, travel-friendly promotional item that stands out from standard pet bowls.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom collapsible pet bowls in silicone, folded flat and open with logo, for promotional giveaways.",
+  "productSkus": [
+    "518465",
+    "520484",
+    "521770",
+    "527080",
+    "527081",
+    "529207"
+  ],
+  "generatedAt": "2026-05-31T08:27:07.128283+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

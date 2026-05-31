@@ -1,0 +1,29 @@
+{
+  "url": "/cat/jackets/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Jackets for Teams and Events",
+  "metaTitle": "Custom Set Jackets | Perfect Imprints",
+  "metaDescription": "Order custom set jackets in bulk for your team or event. Perfect Imprints offers matching styles for men and women. Get a quote today!",
+  "introHtml": "<p>Ordering jackets as a set ensures your team looks cohesive while allowing each member to choose the right fit. Our custom set jackets include matching men's and women's styles, from the Narvik Hybrid Jacket to North Face fleeces. Ideal for corporate events, safety crews, or marketing teams, these sets can be decorated with embroidery or screen printing to feature your logo. Pick a set that combines performance fabrics with a unified look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set jackets for men and women featuring matching North Face fleece jackets with embroidered logos",
+  "productSkus": [
+    "525738",
+    "525739",
+    "528167",
+    "528168",
+    "529016",
+    "529017",
+    "529190",
+    "529191",
+    "529245"
+  ],
+  "generatedAt": "2026-05-31T09:51:44.517427+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

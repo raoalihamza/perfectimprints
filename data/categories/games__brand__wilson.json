@@ -1,0 +1,22 @@
+{
+  "url": "/cat/games/brand/wilson",
+  "type": "facet",
+  "h1": "Custom Wilson Games for Bulk Orders",
+  "metaTitle": "Custom Wilson Games | Perfect Imprints",
+  "metaDescription": "Order custom Wilson games for your next event. Branded golf balls and more. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Wilson is a trusted name in sports, and their golf balls make excellent promotional items for corporate events, charity tournaments, or client gifts. Custom Wilson games like the Tall Tube with 2 Wilson Ultra Golf Balls or Clear Tube with 3 Wilson Ultra Golf Balls let you add your logo to a premium product that recipients will actually use. Choose Wilson for quality that reflects well on your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Wilson games featuring branded golf balls in clear tubes on a green background.",
+  "productSkus": [
+    "506922 50D",
+    "506923 50D"
+  ],
+  "generatedAt": "2026-05-31T09:47:20.293262+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

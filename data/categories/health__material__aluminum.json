@@ -1,0 +1,23 @@
+{
+  "url": "/cat/health/material/aluminum",
+  "type": "facet",
+  "h1": "Custom Aluminum Health Products for Bulk Orders",
+  "metaTitle": "Custom Aluminum Health Products | Perfect Imprints",
+  "metaDescription": "Order custom aluminum health products for your team or event. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Aluminum health products offer a durable, lightweight, and recyclable option for your promotional needs. Unlike plastic, aluminum provides a premium feel and better insulation for drinks. Perfect for safety managers equipping crews with reusable water bottles or HR directors gifting anodized carabiners for keychains. These items can be debossed or printed with your logo, ensuring lasting visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom aluminum health products including a 22 oz aluminum bottle and anodized carabiner",
+  "productSkus": [
+    "501590",
+    "513098",
+    "527447"
+  ],
+  "generatedAt": "2026-05-31T09:50:35.439300+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

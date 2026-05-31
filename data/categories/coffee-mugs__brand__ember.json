@@ -1,0 +1,21 @@
+{
+  "url": "/cat/coffee-mugs/brand/ember",
+  "type": "facet",
+  "h1": "Custom Ember Coffee Mugs for Bulk Orders",
+  "metaTitle": "Custom Ember Coffee Mugs | Perfect Imprints",
+  "metaDescription": "Order custom Ember coffee mugs in bulk. Perfect for branded corporate gifts. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Ember coffee mugs keep beverages at the perfect temperature from the first sip to the last. Unlike standard ceramic mugs, Ember mugs feature precise temperature control through a rechargeable base, making them a premium choice for corporate gifts or employee rewards. Customize with your logo using full-color printing or laser engraving for a sleek, professional look that recipients will use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Ember coffee mugs with temperature control and logo engraving for corporate gifts",
+  "productSkus": [
+    "529137"
+  ],
+  "generatedAt": "2026-05-31T09:10:55.936969+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

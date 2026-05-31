@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/pcna",
+  "type": "facet",
+  "h1": "Custom PCNA Products for Bulk Orders",
+  "metaTitle": "Custom PCNA Products | Perfect Imprints",
+  "metaDescription": "Browse custom PCNA products for your next promotion. Perfect for bulk orders. Get a quote today.",
+  "introHtml": "<p>PCNA is known for high-quality promotional products that perform well in corporate settings. By choosing PCNA-branded items, you ensure reliability and a professional look that reflects well on your company. From drinkware to writing instruments, these products offer consistent quality for large-scale giveaways or employee incentives. Whether you need custom logo water bottles or branded notebooks, PCNA's catalog provides dependable options that stand up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom PCNA products including branded water bottles and notebooks with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:22:25.488519+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

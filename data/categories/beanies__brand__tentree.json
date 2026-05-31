@@ -1,0 +1,21 @@
+{
+  "url": "/cat/beanies/brand/tentree",
+  "type": "facet",
+  "h1": "Custom Tentree Beanies for Bulk Orders",
+  "metaTitle": "Custom Tentree Beanies | Perfect Imprints",
+  "metaDescription": "Order custom Tentree beanies for your brand. Eco-friendly, organic cotton beanies perfect for bulk corporate gifts and events.",
+  "introHtml": "<p>Tentree beanies combine sustainable style with brand visibility. Made from organic cotton, each beanie supports Tentree's mission of planting ten trees per item. These beanies are ideal for eco-conscious companies seeking promotional apparel that aligns with their green values. Choose from a range of natural colors and add your logo via embroidery or screen printing for a soft, comfortable fit that your team and customers will wear proudly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Tentree beanies in organic cotton with embroidered logo, displayed on a model wearing a cozy knit hat",
+  "productSkus": [
+    "525984"
+  ],
+  "generatedAt": "2026-05-31T08:32:41.422517+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

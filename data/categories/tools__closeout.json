@@ -1,0 +1,19 @@
+{
+  "url": "/cat/tools/closeout",
+  "type": "modifier",
+  "h1": "Closeout Custom Tools",
+  "metaTitle": "Closeout Custom Tools | Perfect Imprints",
+  "metaDescription": "Shop our closeout custom tools for limited-stock deals on promotional tools. Act fast to secure value pricing before inventory runs out.",
+  "introHtml": "<p>Closeout custom tools offer a rare opportunity to stock up on branded promotional items at clearance pricing. These limited-availability products move quickly as inventory shrinks, making them ideal for budget-conscious buyers who need value without sacrificing quality. Whether you need multi-tools, tape measures, or flashlights, our closeout selection changes frequently, so early action ensures the best selection.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Closeout custom tools including multi-tools and tape measures displayed on a table",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:11:24.211547+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

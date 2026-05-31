@@ -1,0 +1,23 @@
+{
+  "url": "/cat/apparel-accessories/feature/heavyweight",
+  "type": "facet",
+  "h1": "Custom Heavyweight Apparel Accessories",
+  "metaTitle": "Custom Heavyweight Apparel Accessories | Perfect Imprints",
+  "metaDescription": "Order custom heavyweight apparel accessories for cold weather. Perfect for corporate gifts and uniforms. Shop at Perfect Imprints.",
+  "introHtml": "<p>Heavyweight apparel accessories are designed to withstand cold temperatures while maintaining comfort and durability. From fleece scarves to merino wool boot socks, these items offer superior insulation for outdoor workers, event attendees, or promotional giveaways during winter months. Choose heavyweight options when you need accessories that provide warmth without bulk, suitable for embroidery or screen printing your logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom heavyweight apparel accessories like fleece scarves and merino wool boot socks for cold weather branding.",
+  "productSkus": [
+    "516838",
+    "516839",
+    "526363"
+  ],
+  "generatedAt": "2026-05-31T09:31:51.717988+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

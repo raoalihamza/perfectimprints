@@ -1,0 +1,78 @@
+{
+  "url": "/cat/paper-bags",
+  "type": "root",
+  "h1": "Custom Paper Bags for Branding, Retail & Events",
+  "metaTitle": "Custom Paper Bags – Perfect Imprints",
+  "metaDescription": "Order custom paper bags with your logo for retail, events, and gifts. Eco-friendly options. Fast turnaround. Get a quote today.",
+  "introHtml": "<p>Marketing directors planning a retail launch or trade show giveaway need packaging that carries the brand message home. HR directors assembling employee welcome kits or safety managers distributing materials at training sessions often choose paper bags for their lightweight, recyclable nature. Small-business owners stocking boutique counters or preparing customer gift bags also rely on custom paper bags to present products professionally.</p><p>Perfect Imprints offers a wide range of paper bag styles: from small lunch sacks like the 6\" x 8 3/8\" Toto Paper Bag to large retail carriers such as the 16\" x 12\" Judy Paper Bag. For an eco-conscious look, try the Eco Shopper Vogue or Washable Kraft Paper Fabric Tote Bags that combine paper aesthetics with fabric durability. All bags can be decorated with your logo or message using full-color print, screen print, or heat transfer. Browse the selection below and find the right size, material, and decoration option for your next event or program.</p>",
+  "buyingGuideHtml": "<h3>What to Look for in Custom Paper Bags</h3><p>When ordering custom paper bags, consider the bag's intended use and the weight it must carry. A small bag like the 6\" x 8 1/4\" Pup is perfect for light items such as candy or small promotional gifts, while a 16\" x 12\" Judy bag handles heavier merchandise or multiple items. Check the paper weight and construction: reinforced handles and double-layered bottoms add durability for bulkier loads.</p><h3>Materials and Build Quality</h3><p>Standard paper bags are made from kraft paper, which is strong and recyclable. For a premium feel, choose white kraft or eco-friendly options like the Eco Shopper line. Washable Kraft Paper Fabric Tote Bags blend paper texture with fabric strength, making them reusable and water-resistant. These are ideal for promotional paper bags that recipients will keep and use repeatedly, extending your brand exposure.</p><h3>Common Use Cases and Buyer Personas</h3><p>Retail stores use branded paper bags to create a cohesive shopping experience. Trade show exhibitors fill them with brochures and giveaways. HR departments include them in employee onboarding kits with company swag. For customer appreciation gifts, a personalized paper bag with tissue paper elevates the unboxing. Safety managers can distribute training materials in bulk paper bags for easy transport.</p><h3>Decoration and Customization Options</h3><p>Screen printing works well for simple logos on flat bag surfaces. Full-color heat transfer or full-color print is better for detailed artwork or photographic images. The Washable Kraft Paper Fabric Tote Bags also accept sublimation for vibrant, all-over designs. For a subtle brand presence, consider a small logo on the bottom corner or a repeating pattern. Always request a proof to ensure colors and placement match your expectations.</p><h3>Quantity Guidance and MOQ Context</h3><p>Minimum order quantities for custom paper bags vary by style and decoration method. Simple screen-printed bags often have lower MOQs (250–500 units), while full-color printed bags may require 500–1,000 pieces. Bulk orders significantly reduce per-unit costs, making them cost-effective for large events or retail chains. If you need a small run for a limited promotion, ask about stock bags that can be personalized with a label or sticker.</p><h3>Tips to Avoid Common Buying Mistakes</h3><p>One frequent mistake is ordering the wrong size for the intended contents. Measure your items and add a few inches for comfort. Another pitfall is ignoring handle type: twisted paper handles are sturdy for heavy loads, while die-cut handles work for lighter items. Also, consider lead times: custom printed bags typically take 2–4 weeks, so plan ahead. Finally, verify that your artwork file meets the printer's specifications (300 dpi, CMYK) to avoid delays or reprints.</p>",
+  "buyingGuideH2": "Custom Paper Bags Buying Guide",
+  "faqs": [
+    {
+      "q": "What are the minimum order quantities for custom paper bags?",
+      "a": "MOQs vary by bag style and decoration method. Simple screen-printed bags may have MOQs as low as 250, while full-color printed bags often require 500–1,000 pieces. Contact us for exact MOQs on specific products."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, we can provide a sample of the blank bag for you to inspect size and material. For printed samples, we can create a proof or a pre-production sample for an additional fee."
+    },
+    {
+      "q": "What decoration methods are available for paper bags?",
+      "a": "We offer screen printing, full-color heat transfer, and full-color print. The Washable Kraft Paper Fabric Tote Bags also accept sublimation. Your choice depends on artwork complexity and budget."
+    },
+    {
+      "q": "How long does production and shipping take?",
+      "a": "Typical production time is 10–15 business days after approval of proof. Shipping adds 3–7 days depending on location. Rush orders may be available for an extra charge."
+    },
+    {
+      "q": "Are there eco-friendly paper bag options?",
+      "a": "Yes, our Eco Shopper line uses recycled kraft paper, and the Washable Kraft Paper Fabric Tote Bags are reusable and made from sustainable materials. All standard kraft bags are recyclable."
+    }
+  ],
+  "heroAltText": "Custom paper bags with logo for retail and events, featuring kraft and white options in various sizes",
+  "productSkus": [
+    "503365",
+    "503366",
+    "503367",
+    "504843",
+    "505815 30B",
+    "505816 90A",
+    "505817 33D",
+    "505818 90A",
+    "505819 33D",
+    "505820 90A",
+    "506541 01A",
+    "514278 32E",
+    "514279 90A",
+    "514521",
+    "514534 32E",
+    "514535 90A",
+    "516622",
+    "516623",
+    "516624",
+    "517671 90A",
+    "517672 30A",
+    "517673 30A",
+    "517686",
+    "517691 90A",
+    "517692 90A",
+    "517693 90A",
+    "519461",
+    "520510",
+    "520511",
+    "520512",
+    "520513",
+    "520514",
+    "522232",
+    "522243",
+    "524510",
+    "525264"
+  ],
+  "generatedAt": "2026-05-30T10:38:55.156752+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "use_case",
+  "skuFilterMode": "full",
+  "rawSkuCount": 36,
+  "filteredSkuCount": 36
+}

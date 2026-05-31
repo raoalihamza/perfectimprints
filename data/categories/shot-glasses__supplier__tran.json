@@ -1,0 +1,30 @@
+{
+  "url": "/cat/shot-glasses/supplier/tran",
+  "type": "facet",
+  "h1": "Custom Tran Shot Glasses for Bulk Orders",
+  "metaTitle": "Custom Tran Shot Glasses | Perfect Imprints",
+  "metaDescription": "Order custom Tran shot glasses in bulk from Perfect Imprints. Perfect for events, bars, and promotions. Get a quote today!",
+  "introHtml": "<p>Tran offers a diverse selection of shot glasses, from clear glass and frosted finish options to durable plastic and unique shapes like the Mini Moscow Mule. Whether you need a classic 1.5 oz glass for a bar promotion or a colorful plastic shot for a large event, Tran's quality and variety make them a reliable supplier for bulk custom orders. Decorate with screen printing, full-color digital, or etching to match your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Tran shot glasses in clear glass and plastic with printed logos, perfect for promotional events and bars.",
+  "productSkus": [
+    "513679",
+    "522845",
+    "522847",
+    "525816",
+    "525817",
+    "525916",
+    "525967",
+    "526428",
+    "529493",
+    "529515"
+  ],
+  "generatedAt": "2026-05-31T10:07:01.787134+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

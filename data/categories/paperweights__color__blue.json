@@ -1,0 +1,22 @@
+{
+  "url": "/cat/paperweights/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Paperweights for Branded Promotions",
+  "metaTitle": "Custom Blue Paperweights | Perfect Imprints",
+  "metaDescription": "Order custom blue paperweights for your brand. Perfect for corporate gifts and office giveaways. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Blue paperweights offer a calming, professional aesthetic that suits corporate offices, law firms, and financial institutions. Whether you choose a sleek Wave Award or a classic Release Perpetual Award, these custom pieces can be engraved with your logo for a lasting impression. Blue glass or acrylic options provide versatility for any desk setting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue paperweights with engraved logo on a desk, showcasing a Wave Award style",
+  "productSkus": [
+    "504695 25F",
+    "525453"
+  ],
+  "generatedAt": "2026-05-31T09:21:40.100652+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

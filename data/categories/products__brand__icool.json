@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/icool",
+  "type": "facet",
+  "h1": "Custom Icool Products for Bulk Orders",
+  "metaTitle": "Custom Icool Products | Perfect Imprints",
+  "metaDescription": "Order custom Icool products in bulk from Perfect Imprints. Perfect for giveaways, corporate gifts, and events. Get a quote today!",
+  "introHtml": "<p>Icool products are known for their innovative cooling technology, making them a standout choice for outdoor events, trade shows, and employee appreciation. From insulated water bottles to portable fans, these items keep your recipients comfortable while showcasing your logo. Decorate with screen printing or laser engraving for a polished look that lasts. Bulk orders ensure you get the best value for your investment.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Icool products with logo, including insulated water bottles and portable fans for corporate giveaways",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:31.747673+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

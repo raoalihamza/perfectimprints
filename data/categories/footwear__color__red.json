@@ -1,0 +1,25 @@
+{
+  "url": "/cat/footwear/color/red",
+  "type": "facet",
+  "h1": "Custom Red Footwear for Bulk Orders",
+  "metaTitle": "Custom Red Footwear | Perfect Imprints",
+  "metaDescription": "Order custom red footwear for your team or event. Perfect for safety managers and marketing directors. Get a quote today.",
+  "introHtml": "<p>Red footwear makes a bold statement, whether you're outfitting a safety team that needs high-visibility gear or distributing branded flip flops for a summer giveaway. From red adult flip flops to fuzzy feet slipper socks, each style offers a canvas for your logo through screen printing or debossing. Choose red to ensure your brand stands out in any crowd.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red footwear including flip flops and slipper socks with logo imprint for promotional use",
+  "productSkus": [
+    "501556",
+    "516800",
+    "517496",
+    "520052",
+    "528311"
+  ],
+  "generatedAt": "2026-05-31T09:13:51.235524+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

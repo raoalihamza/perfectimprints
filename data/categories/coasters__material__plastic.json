@@ -1,0 +1,21 @@
+{
+  "url": "/cat/coasters/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Coasters",
+  "metaTitle": "Custom Plastic Coasters | Perfect Imprints",
+  "metaDescription": "Order custom plastic coasters in bulk. Durable, lightweight, and perfect for bars, restaurants, and events. Get a quote today!",
+  "introHtml": "<p>Plastic coasters offer a durable and lightweight alternative to paper or cardboard, making them ideal for high-traffic bars, outdoor events, and promotional giveaways. They resist moisture and wear, so your logo stays visible through countless uses. Choose from custom shapes like our inflatable flamingo design or classic rounds. Screen printing delivers crisp, full-color branding that won't peel or fade. Perfect for businesses that need coasters to survive spills and repeated handling without losing their professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom plastic coasters with full-color logo printing, durable and moisture-resistant for bars and events.",
+  "productSkus": [
+    "523999"
+  ],
+  "generatedAt": "2026-05-31T09:10:44.956190+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

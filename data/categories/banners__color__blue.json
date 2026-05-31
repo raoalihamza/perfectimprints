@@ -1,0 +1,23 @@
+{
+  "url": "/cat/banners/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Banners for Your Brand",
+  "metaTitle": "Custom Blue Banners | Perfect Imprints",
+  "metaDescription": "Order custom blue banners for your next event or promotion. Durable, vibrant, and perfect for indoor or outdoor use at PerfectImprints.com.",
+  "introHtml": "<p>Blue banners stand out in any setting, from trade show booths to corporate lobbies. The color blue conveys trust, professionalism, and calm, making it a top choice for businesses wanting to make a solid impression. Whether you need a 36-inch tabletop banner or a 60-inch outdoor display, our custom blue banners are printed on durable vinyl or fabric with vibrant, fade-resistant inks. Add your logo, tagline, or event details with full-color digital printing. Perfect for safety campaigns, company milestones, or brand awareness.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue banner with company logo and tagline displayed on a trade show backdrop",
+  "productSkus": [
+    "502118",
+    "502119",
+    "502120"
+  ],
+  "generatedAt": "2026-05-31T08:49:59.172247+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

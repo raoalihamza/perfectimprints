@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pens/brand/good-value",
+  "type": "facet",
+  "h1": "Custom Good Value Pens for Bulk Orders",
+  "metaTitle": "Custom Good Value Pens | Perfect Imprints",
+  "metaDescription": "Order custom Good Value pens in bulk with your logo. Budget-friendly promotional pens from Perfect Imprints. Get a quote today.",
+  "introHtml": "<p>Good Value pens deliver reliable writing performance without straining your budget. For trade shows, employee onboarding, or customer giveaways, these pens keep your brand visible every time someone reaches for a pen. Choose from classic ballpoints or functional stylus pens like the Premium Pen with Stylus, which adds touchscreen utility. Decorate with your logo using pad printing or laser engraving for a clean, professional look that stands up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Good Value pens with logo imprint, including a Premium Pen with Stylus, displayed on a desk.",
+  "productSkus": [
+    "504660"
+  ],
+  "generatedAt": "2026-05-31T08:45:10.531196+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

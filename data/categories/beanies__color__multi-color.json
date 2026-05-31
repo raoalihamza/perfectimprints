@@ -1,0 +1,21 @@
+{
+  "url": "/cat/beanies/color/multi-color",
+  "type": "facet",
+  "h1": "Custom Multi Color Beanies for Bulk Orders",
+  "metaTitle": "Custom Multi Color Beanies | Perfect Imprints",
+  "metaDescription": "Order custom multi color beanies in bulk for your team or event. Perfect for branding with a vibrant, unified look.",
+  "introHtml": "<p>Multi color beanies let you incorporate multiple brand colors or create a festive look for events and giveaways. The Aura Pom Beanie with Cuff offers a versatile canvas for embroidery or patch decoration, making it easy to match your company's palette. Safety managers and marketing directors appreciate the visibility and team spirit that multiple colors provide, whether for outdoor crews or promotional campaigns.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom multi color beanies with embroidered logo, featuring a pom pom and ribbed cuff, available for bulk orders.",
+  "productSkus": [
+    "523881"
+  ],
+  "generatedAt": "2026-05-31T09:36:34.318756+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

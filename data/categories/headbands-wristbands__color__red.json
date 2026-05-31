@@ -1,0 +1,27 @@
+{
+  "url": "/cat/headbands-wristbands/color/red",
+  "type": "facet",
+  "h1": "Custom Red Headbands & Wristbands",
+  "metaTitle": "Custom Red Headbands & Wristbands | Perfect Imprints",
+  "metaDescription": "Order custom red headbands and wristbands for your team or event. Bulk pricing with fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Red custom headbands and wristbands make a bold statement for safety teams, sports events, or brand promotions. Whether you need cotton bandanas for a construction crew or moisture-wicking wristbands for a 5K run, red offers high visibility and a classic look. Decorate with screen printing or embroidery to add your logo. Perfect for bulk orders where color consistency matters.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red headbands and wristbands with printed logo, including bandanas and sweatbands for promotional use",
+  "productSkus": [
+    "506991",
+    "516837",
+    "521602",
+    "522110",
+    "522111",
+    "524693",
+    "524817"
+  ],
+  "generatedAt": "2026-05-31T08:25:06.909538+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

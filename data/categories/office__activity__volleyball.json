@@ -1,0 +1,25 @@
+{
+  "url": "/cat/office/activity/volleyball",
+  "type": "facet",
+  "h1": "Custom Volleyball Office Supplies",
+  "metaTitle": "Custom Volleyball Office Supplies | Perfect Imprints",
+  "metaDescription": "Shop custom volleyball office supplies for your team. Perfect for HR directors and marketing directors. Get a quote today.",
+  "introHtml": "<p>Volleyball-themed office supplies let you bring team spirit into the workplace. From branded volleyball magnets to desk accessories, these items are ideal for HR directors outfitting break rooms or marketing directors creating giveaway kits. Customize with your logo to reinforce company culture while keeping desks organized.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom volleyball office supplies including a branded volleyball sports magnet on a filing cabinet",
+  "productSkus": [
+    "504235 2AC",
+    "504235 2AK",
+    "504235 2AM",
+    "504235 2AN",
+    "504235 2KI"
+  ],
+  "generatedAt": "2026-05-31T08:44:34.689949+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

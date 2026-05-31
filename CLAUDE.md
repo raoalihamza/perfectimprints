@@ -50,10 +50,13 @@ Category URL breakdown:
 - Category modifier: `/cat/[root]/[modifier]` (**576** modifier pages, 2 segments). Six modifier types observed: `search` (258), `no-minimum` (216), `closeout` (93), `production-time` (6), `eco-friendly` (2), `material` (1)
 - Category facet: `/cat/[root]/[facet-type]/[facet-value]` (**21,137** standard facet pages, 3 segments, 36 facet types)
 - Category compound facet: `/cat/[root]/[type1]/[value1]/[type2]/[value2]` (**2** compound facet pages, 5 segments, two filter dimensions)
-- Category pagination: `/cat/[slug]/page/[n]` (static URLs for SEO)
+- Category pagination: `/cat/[slug]/page/[n]` (static URLs for SEO; page 1 canonical, page 2+ noindex)
 - Blog index: `/blog`
 - Blog post: `/blog/[slug]` (731 posts)
 - Blog category: `/blog/cat/[slug]`
+- Brand index: `/brands` (new, added 2026-05-26 per Patrick feedback)
+- Brand page: `/brands/[slug]` (new, per-brand product listings)
+- Deals page: `/deals` (new, aggregator of all on-sale/closeout products)
 - Rush products: `/rush-promotional-products`
 - Services pages: `/services/[slug]`
 - Videos index: `/videos`
@@ -74,7 +77,7 @@ The full URL list with classification lives at `data/pi-urls/category-urls.json`
 /lib                Utilities, Sanity client, scraper output loaders, affiliate URL helpers
 /data               Committed JSON for bulk pages
   /categories       One file per AI-generated category page (encoded slug as filename)
-  /geiger           Scraped Geiger data: categories.json, products.json, facet-memberships.json
+  /geiger           Scraped Geiger data: categories.json, products.json, facet-memberships.json, brands.json, brand-logos/
   /mappings         pi-to-geiger.json
   /blogs            Raw blog scrape output (pre-Sanity migration)
 /sanity             Sanity studio config and schemas
@@ -82,7 +85,7 @@ The full URL list with classification lives at `data/pi-urls/category-urls.json`
   /components       Custom Studio components (including AI generate button)
   /actions          Custom Studio actions
 /scripts            Build-time and one-off scripts
-  /scrapers/geiger  Python scraper (config.py, client.py, discover.py, products.py, memberships.py, mapping.py, run.py, checkpoint.py)
+  /scrapers/geiger  Python scraper (config.py, client.py, discover.py, products.py, memberships.py, mapping.py, brand_logos.py, run.py, checkpoint.py)
   /scrapers/blogs   Python Playwright blog scraper
   /ai-pipeline      DeepSeek content generation (deepseek_client.py, generate_content.py, prompts/)
   /search-index     Search index builder
@@ -105,7 +108,7 @@ Document types and what each holds:
 
 **curatedCategory.** Top-tier categories Patrick wants to manually edit. Fields: slug, title, hero copy, body sections, FAQs reference, hero image, mapped Geiger URL, related blog post references, meta title, meta description.
 
-**customCategory.** New categories Patrick creates that do not exist on Geiger. Same shape as curatedCategory plus an `isCustom` flag. Includes a custom Studio action "Generate with AI" that calls DeepSeek with the root category prompt template and auto-fills the intro paragraph and FAQs fields for Patrick to review.
+**customCategory.** New categories Patrick creates that do not exist on Geiger. Same shape as curatedCategory plus an `isCustom` flag. Includes a custom Studio action "Generate with AI" that calls DeepSeek with the root category prompt template and auto-fills the intro paragraph, buying guide, and FAQs fields for Patrick to review.
 
 **customProduct.** Products Patrick adds manually. Fields: title, image, description, external URL, parent category reference, display order. Used inside category page product grids when present.
 
@@ -117,7 +120,7 @@ Document types and what each holds:
 
 **homePage.** Singleton. Fields: hero, featured image blocks (six of them), text content sections, brands grid reference.
 
-**megaMenu.** Singleton. Fields: ordered list of menu items, each with label, link, optional dropdown items. Default state matches Geiger's mega menu structure.
+**megaMenu.** Singleton. Fields: ordered list of menu items, each with label, link, optional dropdown items. Default state matches Geiger's mega menu structure plus Deals link and Brands link.
 
 **globalSettings.** Singleton. Fields: phone number (default `800-773-9472`), contact email, social links, footer columns content, copyright text, CTA banner text.
 
@@ -125,7 +128,7 @@ Document types and what each holds:
 
 **video.** Fields: slug, title, YouTube URL, description, category, publish date.
 
-**brand.** Fields: name, logo image, optional URL. Auto-populated from Geiger products on first scrape, manually editable thereafter.
+**brand.** Fields: name, slug, logo image, optional URL, description. Auto-populated from Geiger products on first scrape (logos scraped from Geiger brand pages in Phase E), manually editable thereafter.
 
 **leadSubmission.** Read-only document type written by the lead form API route. Fields: name, email, phone, company, quantity, comments, source page, timestamp.
 
@@ -145,12 +148,16 @@ Key parameters:
 - `bgfilter.category_path=Home > Drinkware > Water Bottles` (category path with spaces and `>` separator)
 - `resultsFormat=native`
 - `page=N` (1-indexed)
-- `perPage=60` (Geiger's native page size; max is higher but pagination behavior matches `60` exactly)
+- `perPage=60` (Geiger's native page size; what we use to match Geiger pagination exactly)
 - `filter.[field]=[value]` (optional, for facet filtering)
 
 Response includes full product objects (sku, name, brand, low_price, high_price, msrp, min_qty, imageUrl, description, category_path[], badges, is_new_item, is_on_sale, product_type_unigram), aggregated facets array with counts, pagination metadata, and sort options.
 
 **Actual catalog size:** ~7,957 unique SKUs (verified 2026-05-24 via no-filter Searchspring query returning 7,971 total; our Phase B captured 99.82% of that). Note that summing per-category counts on Geiger's `/b/` pages produces inflated totals (around 13,500) because the average Geiger product appears in approximately 3.3 category paths (cross-listed across Apparel, Shop By > Brand Names, Shop By > Collections, etc). The 7,957 figure is the true unique-SKU count, not the sum of category page totals.
+
+**HTML entity handling.** Geiger's product names and descriptions contain HTML entities directly in the data (e.g. `4' Dynamo Trifecta Display &amp; Graphics`, `6&quot; Key Card Holder`). These must be decoded centrally at the data loader level (`lib/categories.ts` → `getProductsForCategorySlug`) so every consumer sees clean plain text. Do NOT decode in components individually; decode once at the source. Entities to handle at minimum: `&amp;`, `&quot;`, `&#039;`, `&apos;`, `&lt;`, `&gt;`, `&nbsp;`, `&reg;`, `&trade;`, `&copy;`.
+
+**Image fallback.** Hot-linked Geiger images may 404 if Geiger removes a product mid-month between auto-rebuilds. ProductCard must include an `onError` handler that swaps the broken image for a clean placeholder (a simple inline SVG or `/public/placeholder-product.svg` with the product name in plain text). The monthly auto-rebuild drops removed products entirely, so the placeholder is only a between-rebuild safety net.
 
 **Per-product attributes (color, material, size) are NOT on the product object.** They only appear in the aggregated facets array. To know which products belong to a facet URL like `/cat/water-bottles/material/stainless-steel`, the pipeline makes a filtered API call per facet URL (Phase C of the scraper). This is the 21,715 calls described in Section 16.
 
@@ -163,9 +170,11 @@ Helper function lives at `lib/affiliate-url.ts` and is the only place this trans
 
 **Product images:** Hot-linked from Geiger's CDN at `imgsirv.geiger.com`. Do NOT download to our origin. Patrick is an authorized Geiger distributor and hot-linking is permitted. Use explicit width and height on every image to prevent CLS. Use `loading="lazy"` on images below the fold.
 
+**Brand logos.** Scraped from Geiger's brand pages (linked from `https://www.geiger.com/c/shop-by-brand`) via Phase E of the scraper. Stored at `data/geiger/brand-logos/{slug}.{webp|png|jpg}`. Used on the brands index page and per-brand pages. Auto-refreshed during monthly rebuild.
+
 **Category mapping:** Each PI root category maps to one Geiger category via `data/mappings/pi-to-geiger.json`. Categories with no good match link to the closest Geiger top-level category. If absolutely nothing matches, fall back to `https://patrickblack.geiger.com/`.
 
-**Affiliate subdomain fallback:** Until Geiger activates `patrickblack.geiger.com`, the affiliate host is configurable via `NEXT_PUBLIC_GEIGER_HOST`. Default value is `https://patrickblack.geiger.com`. If Geiger has not activated the subdomain by launch, set this to `https://www.geiger.com` temporarily.
+**Affiliate subdomain status:** Until Geiger activates `patrickblack.geiger.com`, the affiliate host is configurable via `NEXT_PUBLIC_GEIGER_HOST`. Default value is `https://patrickblack.geiger.com`. If Geiger has not activated the subdomain by launch, set this to `https://www.geiger.com` temporarily. Patrick confirmed (2026-05-25) that Geiger has not activated the subdomain yet; this is being chased on Geiger's side.
 
 ## 9. AI Content Pipeline
 
@@ -173,80 +182,115 @@ Source of truth for what each category page needs: the entry in `data/mappings/p
 
 **Three-tier generation** based on URL type from `data/pi-urls/category-urls.json`:
 
-For the **465 root category pages** (`/cat/[slug]`, type=`root`), generate:
+### Root category pages (465 total, `type=root`)
 
-- SEO H1
+Format: **Buying guide** style (upgraded 2026-05-26 per Patrick feedback on the Week 2 demo).
+
+Generated fields:
+
+- SEO H1 (40-70 chars)
 - Meta title (under 60 characters)
 - Meta description (under 155 characters)
-- Two to three paragraphs of body content
-- Five FAQs with answers
-- Hero image alt text
+- **Hero intro (1-2 paragraphs, 150-250 words)** rendered at the top of the page above the product grid. Sets context and persona.
+- **Bottom buying guide content (400-600 words)** rendered under an H2 titled `Custom [Category Name] Buying Guide`. Structured as a buyer-research piece covering:
+  - What buyers should look for when ordering this category
+  - Materials, build quality, durability considerations
+  - Common use cases and which buyers each fits (corporate events, trade shows, employee gifts, safety programs, etc.)
+  - Decoration and customization options (screen print, embroidery, laser engraving, full-color, debossing, etc.)
+  - Quantity guidance and MOQ context
+  - Tips to avoid common buying mistakes
+- **Five FAQs** with answers (50-100 words each), specific to the category
+- Hero image alt text (60-120 chars, includes keyword)
 
-For the **576 modifier pages** (`/cat/[root]/[modifier]`, type=`modifier`), generate:
+**Keyword derivative injection.** The bottom buying guide must naturally include multiple plural keyword variations across its 400-600 words:
+
+- `custom [category]`
+- `promotional [category]`
+- `branded [category]`
+- `personalized [category]`
+- `logo [category]` or `logo-printed [category]`
+- `bulk [category]`
+- `wholesale [category]`
+
+Goal is natural, non-stuffed integration. Patrick's buying guide reference at `https://www.perfectimprints.com/blog/buying-guide-for-stadium-seat-cushions` shows the target tone and structure.
+
+### Modifier pages (576 total, `type=modifier`, `/cat/[root]/[modifier]`)
 
 - SEO H1 incorporating both the root category and the modifier (e.g. "Closeout Water Bottles", "Eco-Friendly Tote Bags", "Custom Pens With No Minimum")
-- Meta title and meta description tuned to the modifier intent (sale/closeout = price-sensitive, no-minimum = small-order buyers, eco-friendly = sustainability-conscious, etc)
+- Meta title and meta description tuned to the modifier intent (sale/closeout = price-sensitive, no-minimum = small-order buyers, eco-friendly = sustainability-conscious, etc.)
 - One short intro paragraph (60-80 words) explaining what makes this subset different (lower MOQ, sale pricing, eco materials, faster production)
-- No FAQs
+- No FAQs, no buying guide section (those live on root pages)
 
-For the **21,137 facet category pages** (`/cat/[root]/[type]/[value]`, type=`facet`), generate:
+### Facet pages (21,137 standard + 2 compound, `type=facet|compound-facet`)
 
 - SEO H1 optimized for the long-tail keyword
 - Meta title (under 60 characters)
 - Meta description (under 155 characters)
 - One short intro paragraph (60-80 words)
-- No FAQs (root pages handle this)
+- No FAQs, no buying guide section
 
-For the **2 compound facet pages** (type=`compound-facet`), use the same lite template as facets, with the H1 incorporating both filter dimensions.
+For compound facet pages, the H1 incorporates both filter dimensions.
 
-Prompt templates live at `scripts/ai-pipeline/prompts/`:
+### Prompt templates
 
-- `root_category.txt` for the full root template
-- `modifier_category.txt` for the modifier lite template
-- `facet_category.txt` for the standard facet lite template (also used for compound facets)
+Located at `scripts/ai-pipeline/prompts/`:
+
+- `root_category.txt` — buying-guide format root template (promptVersion `root-v2`)
+- `modifier_category.txt` — modifier lite template
+- `facet_category.txt` — facet lite template (also used for compound facets)
 
 All templates inject:
 
-- Top product names from Geiger
-- Target keywords (always plural form: custom water bottles, branded tote bags, personalized pens)
+- Top product names from Geiger (slug-token relevance filtered to stay on-topic)
+- Target keywords (always plural form)
 - Buyer personas (marketing directors, HR directors, safety managers, business owners)
 
-Root prompt varies opening structure to avoid sameness:
+Root prompt varies hero intro opening structure to avoid sameness across 465 pages:
 
 - 30 percent open with use cases
 - 30 percent open with target industry or buyer
 - 30 percent open with material or quality angle
 - 10 percent open with seasonal or trending angle
 
-**Phased generation:**
+### Phased generation
 
-- **Phase 2.1 (Week 2 end, demo deliverable):** Top 35 root categories by Geiger product count generated as a sample for client review. Output goes to `data/categories/{slug}.json`. See Section 22 for current state.
-- **Phase 2.2 (Week 3, after sample approval):** Remaining 430 root categories.
-- **Phase 2.3 (Week 3, after roots approved):** All 21,715 non-root pages (576 modifiers + 21,137 facets + 2 compound).
+- **Phase 2.1 (Week 2 end, COMPLETE):** Top 35 root categories generated as a demo sample. Patrick approved content tone on 2026-05-25 with the buying-guide upgrade as a follow-up.
+- **Phase 2.2 (Week 3 Day 1-2):** Upgrade `root_category.txt` to buying-guide format (promptVersion `root-v2`). Regenerate all 35 demo pages. Patrick spot-checks 2-3 outputs to validate.
+- **Phase 2.3 (Week 3 Day 2-3):** Generate the remaining 430 root pages with the new format.
+- **Phase 2.4 (Week 3 Day 3-5):** Generate all 21,715 non-root pages (modifiers + facets + compound facets) using their lite templates.
 
-Output is written to `data/categories/[encoded-slug].json` with a fixed schema:
+### Output schema
+
+Written to `data/categories/[encoded-slug].json`:
 
 ```json
 {
-  "url": "/cat/water-bottles/material/stainless-steel",
+  "url": "/cat/water-bottles",
   "type": "root|modifier|facet|compound-facet",
   "h1": "...",
   "metaTitle": "...",
   "metaDescription": "...",
   "introHtml": "...",
+  "buyingGuideHtml": "...",
+  "buyingGuideH2": "Custom Water Bottles Buying Guide",
   "faqs": [{ "q": "...", "a": "..." }],
   "heroAltText": "...",
   "productSkus": ["SKU1", "SKU2", ...],
+  "skuFilterMode": "full|slug-filtered|full-capped-60",
+  "rawSkuCount": 1738,
+  "filteredSkuCount": 56,
   "generatedAt": "ISO timestamp",
   "model": "deepseek-chat",
-  "promptVersion": "root-v1",
+  "promptVersion": "root-v2",
   "openingStyle": "use_case|buyer|material_quality|seasonal"
 }
 ```
 
+Note: `introHtml` holds the hero intro (above product grid). `buyingGuideHtml` holds the longer bottom content (under the H2 `buyingGuideH2`). Modifier and facet types only populate `introHtml`; the buyingGuide\* fields are null for those.
+
 Never overwrite a Sanity document, only the JSON files. DeepSeek is called build-time only, never at runtime.
 
-**Sanity AI button:** customCategory documents have a "Generate with AI" Studio action that POSTs to `/app/api/sanity/generate-content/route.ts`. The route calls DeepSeek with the root_category prompt and the customCategory's title and target keyword, then returns the generated intro and FAQs. The Studio action patches the document fields with the result. Patrick reviews and publishes.
+**Sanity AI button:** customCategory documents have a "Generate with AI" Studio action that POSTs to `/app/api/sanity/generate-content/route.ts`. The route calls DeepSeek with the root_category prompt and the customCategory's title and target keyword, then returns the generated intro, buying guide, and FAQs. The Studio action patches the document fields with the result. Patrick reviews and publishes.
 
 ## 10. Brand Tokens
 
@@ -287,7 +331,13 @@ Schema types in use:
 - Product (within category page grids, summarized)
 - VideoObject (every video page)
 
-Sitemap is auto-generated at build time, split into multiple files if it exceeds 50,000 URLs. Robots.txt allows all, references the sitemap.
+**Pagination indexing rule (added 2026-05-26 per Patrick feedback).** For paginated category URLs (`/cat/[slug]/page/N`):
+
+- Page 1 is fully indexable, with canonical pointing to itself (clean root URL like `/cat/water-bottles`, NOT `/cat/water-bottles/page/1`)
+- Pages 2 and beyond carry a `noindex,follow` meta robots tag AND a canonical pointing back to page 1
+- This prevents duplicate-content penalties while still letting Google discover product variations through follow links
+
+Sitemap is auto-generated at build time, split into multiple files if it exceeds 50,000 URLs. Robots.txt allows all, references the sitemap. **Only page 1 URLs appear in the sitemap**; paginated variants are excluded.
 
 Internal linking: every root category page links to at least three related category pages and three related blog posts. Every blog post links to at least one category page in its body where contextually relevant.
 
@@ -298,7 +348,7 @@ Internal linking: every root category page links to at least three related categ
 - INP under 200 milliseconds
 - Initial JS bundle under 100 KB compressed for static category and blog pages
 
-Geiger CDN images include explicit width and height attributes to prevent CLS. Non-Geiger images use Next.js Image component with responsive sizes, AVIF and WebP output, and lazy loading below the fold. Above-the-fold images use priority loading.
+Geiger CDN images include explicit width and height attributes to prevent CLS. Non-Geiger images use Next.js Image component with responsive sizes, AVIF and WebP output, and lazy loading below the fold. Above-the-fold images use priority loading. Hero category image (first product card or category banner) is preloaded via `<link rel="preload" as="image">` for fastest LCP.
 
 Fonts loaded with `font-display: swap` and preloaded for the main font weight. No more than two font weights total across the site.
 
@@ -316,12 +366,13 @@ DNS is managed by Cloudflare (DNS-only mode, no proxy). DNS cutover plan: lower 
 
 **Monthly auto-rebuild:** A GitHub Action runs on the 1st of every month at 00:00 UTC. Workflow steps:
 
-1. Run Python scraper Phases A, B, C (Phase D mapping is stable after first run)
+1. Run Python scraper Phases A, B, C, E (Phase D mapping is stable after first run; Phase E refreshes brand logos)
 2. Regenerate AI content for any new Geiger categories
-3. Commit data changes to repo on a `monthly-rebuild` branch
-4. Open auto-merge PR to `main`
-5. Vercel production build triggered on merge
-6. Email Patrick a summary report (products added, removed, price changes, new categories)
+3. Detect and drop removed products from existing category pages
+4. Commit data changes to repo on a `monthly-rebuild` branch
+5. Open auto-merge PR to `main`
+6. Vercel production build triggered on merge
+7. Email Patrick a summary report (products added, removed, price changes, new categories)
 
 Manual rebuild trigger lives in Sanity Studio as a custom action on globalSettings.
 
@@ -361,17 +412,21 @@ Geiger data integration is permitted. Patrick has confirmed (he is a Geiger dist
 
 Pipeline runs locally or in scheduled GitHub Actions, never in production runtime.
 
-Throttle: one request per second per worker against the Searchspring API. Use `httpx` HTTP/2 client with `tenacity` retry on transient failures.
+Throttle: one request per second per worker against the Searchspring API. Use `httpx` HTTP/2 client (and `curl_cffi` for Cloudflare bypass on the main geiger.com hostname) with `tenacity` retry on transient failures.
 
 Checkpointing: save state every 100 requests so partial runs resume. State file at `scripts/scrapers/geiger/.checkpoint/`.
 
-**Four-phase pipeline:**
+**Five-phase pipeline:**
 
 **Phase A: Taxonomy discovery.** One HTTP GET to a Geiger category page (e.g., `https://www.geiger.com/b/accessories`), parse the mega menu HTML with BeautifulSoup, extract the full category tree with parent-child relationships. Output: `data/geiger/categories.json` (544 categories, 482 leaves). Runtime: minutes.
 
-**Phase B: Product catalog.** For each Geiger leaf category, paginate the Searchspring API with `perPage=60` (Geiger's native page size). Deduplicate by SKU. Output: `data/geiger/products.json` (7,957 unique SKUs, 99.82% of Geiger's total catalog of 7,971). Runtime: 20-40 minutes.
+**Phase B: Product catalog.** For each Geiger leaf category, paginate the Searchspring API with `perPage=60`. Deduplicate by SKU. Output: `data/geiger/products.json` (7,957 unique SKUs, 99.82% of Geiger's total catalog of 7,971). Runtime: 20-40 minutes.
 
 **Phase C: Facet and modifier memberships.** For each of the 21,715 PI URLs that need product membership data (576 modifiers + 21,137 facets + 2 compound facets), one filtered Searchspring API call to capture the SKU list. Output: `data/geiger/facet-memberships.json`. Runtime: 6 hours unattended.
+
+**Phase D: PI-to-Geiger mapping.** Match each of the 465 PI root categories to a Geiger leaf via exact slug match (preferring non-aggregator leaves over `All <X>` aggregators), then fuzzy match with rapidfuzz (WRatio + token_set_ratio, threshold 80), then manual overrides in `scripts/scrapers/geiger/mapping_overrides.json`. Output: `data/mappings/pi-to-geiger.json` (465/465 mapped, 0 unmapped) plus a CSV report. Runtime: seconds.
+
+**Phase E: Brand logo scrape (added 2026-05-26 per Patrick feedback).** Visit `https://www.geiger.com/c/shop-by-brand` to enumerate brand pages, then download the logo image from each brand's page. Store at `data/geiger/brand-logos/{brand-slug}.{webp|png|jpg}`. Output also includes `data/geiger/brands.json` with brand metadata (name, slug, description, logo path, product count cross-referenced from products.json). Runtime: 30-60 minutes. Runs as part of monthly auto-rebuild.
 
 For **modifier URLs** (search, no-minimum, closeout, production-time, eco-friendly, material), the Searchspring filter mapping is (verified during the first end-to-end Phase C run, 2026-05-22):
 
@@ -384,39 +439,27 @@ For **modifier URLs** (search, no-minimum, closeout, production-time, eco-friend
 | `eco-friendly`             | `filter.refine_by=Eco Friendly` | Best when the root mapping is also `Home > Shop By > Eco-Friendly > <child>` where one exists            |
 | `material` (1 PI URL only) | no extra filter                 | Treat as a landing variant of the root                                                                   |
 
-For **compound facet URLs** (2 of them), send multiple `filter.[type]=[value]` params in one call. The request must use a list of tuples, not a dict, to preserve duplicate keys (e.g. two `filter.refine_by` values).
+For **compound facet URLs** (2 of them), send multiple `filter.[type]=[value]` params in one call. The request must use a list of tuples, not a dict, to preserve duplicate keys.
 
-**Searchspring vocabulary gotchas to remember:**
+**Searchspring vocabulary gotchas:**
 
-- `filter.refine_by` has only 3 valid values across the whole catalog: `Made in the USA`, `Eco Friendly`, `Deals`. Any other value returns 0.
-- Numeric fields require integer values, NOT human-readable strings:
-  `filter.drinkware_size=26` (not `=26 Oz`), `filter.production_time=5` (not `=5 Days`).
-  Numeric fields include `drinkware_size`, `production_time`, `min_qty`, `mah`, `page_count`, `match_count`, `liter_capacity`, `can_capacity`, `flash_drive_capacity`.
+- `filter.refine_by` has only 3 valid values: `Made in the USA`, `Eco Friendly`, `Deals`.
+- Numeric fields require integer values (`filter.production_time=5`, not `=5 Days`).
 - Range syntax uses dotted suffix: `filter.<field>.low=N`, `filter.<field>.high=N`.
-- Brand filter values use the human-readable form: `filter.brand=Vineyard Vines` (not the slug `vineyard-vines`).
+- Brand filter values use human-readable form: `filter.brand=Vineyard Vines` (not the slug).
 
-**Slug-based resolver (recommended before falling back to filters).** Many PI facet URLs map to a dedicated Geiger category SLUG instead of a filter combination. Example: PI `/cat/bags/material/eco-friendly` should hit `bgfilter.category_path=Home > Bags & Totes > Eco-Friendly Bags` (dedicated category), not `bgfilter=Home > Bags & Totes` + `filter.material=Eco Friendly` (returns 0). The resolver in `scripts/scrapers/geiger/memberships.py::resolve_slug_match` tries (in order) children-of-root name match, then `<value>-<root>` / `<root>-<value>` / bare `<value>` slug candidates restricted to the same top-level Geiger branch. Use `python -m scripts.scrapers.geiger.run --phase c --retry-zeros` to apply it to existing zero-result URLs.
+**Slug-based resolver.** Many PI facet URLs map to a dedicated Geiger category SLUG instead of a filter combination. The resolver in `scripts/scrapers/geiger/memberships.py::resolve_slug_match` tries children-of-root name match, then `<value>-<root>` / `<root>-<value>` / bare `<value>` slug candidates restricted to the same top-level Geiger branch.
 
-**Phase D: PI-to-Geiger mapping.** Match each of the 465 PI root categories to a Geiger leaf via exact slug match (preferring non-aggregator leaves over `All <X>` aggregators), then fuzzy match with rapidfuzz (WRatio + token_set_ratio, threshold 80), then manual overrides in `scripts/scrapers/geiger/mapping_overrides.json`. DeepSeek AI fallback was deferred — manual overrides covered every remaining root. Output: `data/mappings/pi-to-geiger.json` (465/465 mapped, 0 unmapped: 72 exact + 224 fuzzy + 169 manual) plus a CSV report with confidence scores. Runtime: seconds.
+**Empty-page handling (zero-result PI URLs).** Patrick confirmed (2026-05-23) that PI URLs with no Geiger match should link to the Geiger homepage. To minimize how many pages need that fallback, Phase C includes a 4-tier recovery chain:
 
-**Empty-page handling (zero-result PI URLs).** Patrick confirmed (2026-05-23) that PI URLs with no Geiger match should link to the Geiger homepage. To minimize how many pages need that fallback, Phase C includes a recovery chain. Apply in this order:
+1. **Tier 1 — brand fallback** (`--retry-brands`). Recovered 809 URLs.
+2. **Tier 2 — search-keyword fallback** (`--retry-search`). Recovered 2,625 URLs.
+3. **Tier 3 — parent-root fallback** (Module 3 template logic). Renders parent root's product grid with explanatory header.
+4. **Tier 4 — Geiger homepage CTA** (Module 3 template logic, last resort).
 
-1. **Tier 1 — brand fallback** (`--retry-brands`). For zero `/cat/<root>/brand/<brand>` URLs, query Searchspring with `filter.brand=<Brand Name>` and NO `bgfilter.category_path`. Recovers URLs where Geiger has the brand but not in PI's mapped category. Recovered 809 URLs.
-2. **Tier 2 — search-keyword fallback** (`--retry-search`). For remaining zero facet/compound-facet URLs, query Searchspring's `/api/search/search.json` endpoint with deslugified URL keywords (e.g. `q=blue water bottles`). Filter results to SKUs whose products.json `category_paths` includes the PI root's Geiger category — prevents semantic drift (e.g. "stadium table" appearing on a "folding chairs" page). Recovered 2,625 URLs.
-3. **Tier 3 — parent-root fallback** (Module 3 template logic, not scraper). For URLs whose membership list is STILL empty after Tier 1+2, the category page template renders the PI root's product grid with a header like "We don't have exact matches — here are popular [Root Category] products". Each card still affiliate-links to its real Geiger page. This is **not** baked into `facet-memberships.json`; it's resolved at render time so the data file stays normalized.
-4. **Tier 4 — Geiger homepage CTA** (Module 3 template logic, last resort). For pages where even the PI root has no products (rare), show AI-generated content + a single CTA: "Browse the full Geiger catalog → `https://patrickblack.geiger.com/`".
+**Final Phase C breakdown:** 13,968 with products (64.3%), 7,518 zero (34.6%), 229 errors (1.1%). Plus 465 roots (all mapped). Overall: 14,433 URLs (65%) render with real product grids, 7,747 (35%) use Tier 3/4 fallback at render time.
 
-**Final Phase C breakdown after Tiers 1+2 applied:**
-
-- 13,968 of 21,715 non-root URLs (64.3%) have direct Geiger product matches
-- 7,518 (34.6%) return zero products
-- 229 (1.1%) errored during scrape
-
-Plus 465 root URLs (all mapped, all have products). So overall: 14,433 URLs (65%) render with real product grids, 7,747 (35%) use Tier 3/4 fallback at render time.
-
-All four tiers preserve the SEO URL — every PI URL renders, every page has unique meta + H1 + AI intro. Module 3 must implement the Tier 3 + Tier 4 template behavior. Tier 1 and Tier 2 are scraper-side and are already applied to `facet-memberships.json` after a full pipeline run.
-
-For blog migration, attempt clean export from MPower dashboard at `app.mpowerpromo.com` first. If that fails, use the Playwright-based fallback scraper at `scripts/scrapers/blogs/` against perfectimprints.com using the URL list at `data/blogs/blog-urls.txt`.
+For blog migration, attempt clean export from MPower dashboard at `app.mpowerpromo.com` first. If that fails, use the Playwright-based fallback scraper at `scripts/scrapers/blogs/`.
 
 ## 17. Conventions
 
@@ -428,6 +471,7 @@ For blog migration, attempt clean export from MPower dashboard at `app.mpowerpro
 - All user-facing copy lives in Sanity or in JSON data files. No hardcoded marketing strings in components.
 - Image alt text is required, not optional. Lint rule enforces it.
 - Affiliate URL transformation lives only in `lib/affiliate-url.ts`. Never inline the replace.
+- HTML entity decoding lives only in `lib/categories.ts`. Never decode in components individually.
 - Commit messages follow Conventional Commits.
 
 ## 18. Never Do
@@ -435,14 +479,15 @@ For blog migration, attempt clean export from MPower dashboard at `app.mpowerpro
 - Do not introduce 301 redirects for any URL that exists in the GA4 export.
 - Do not put bulk AI-generated content into Sanity. Hybrid model only.
 - Do not use the geiger.com host in any link emitted by this site. Always rewrite to the affiliate host via `lib/affiliate-url.ts`.
-- Do not download Geiger images to our origin. Hot-link from `imgsirv.geiger.com` with explicit dimensions.
-- Do not call DeepSeek at runtime for bulk pages. Generation is build-time only. The Sanity AI button is the one runtime exception, and it only runs when Patrick clicks it.
+- Do not download Geiger images to our origin EXCEPT brand logos which are intentionally cached during Phase E.
+- Do not call DeepSeek at runtime for bulk pages. Generation is build-time only. The Sanity AI button is the one runtime exception.
 - Do not call the Searchspring API at runtime in production. Data is baked at build time.
-- Do not use Server Actions for the lead form. Use a Route Handler so we have explicit control over response codes and email delivery errors.
+- Do not use Server Actions for the lead form. Use a Route Handler.
 - Do not add e-commerce features (cart, checkout, inventory).
-- Do not add user accounts or authentication. The site is fully public.
+- Do not add user accounts or authentication.
 - Do not add tracking scripts beyond GA4 unless Patrick approves in writing.
-- Do not block the main thread with the search index. Lazy load Fuse and the index on first user interaction.
+- Do not block the main thread with the search index.
+- Do not index paginated category pages (page 2+). Add `noindex,follow` + canonical to page 1.
 
 ## 19. Definition of Done
 
@@ -460,83 +505,100 @@ A page or feature is done when:
 
 - Reference category layout: `/docs/references/category-layout.jpg`
 - Reference blog layout: `/docs/references/blog-layout.jpg`
+- Reference buying guide format: `https://www.perfectimprints.com/blog/buying-guide-for-stadium-seat-cushions`
 - Logo: `/public/logo.svg` (brand red `#E11F1E`, ink `#231F20`)
-- PI category URL list: `/data/pi-urls/category-urls.json` (22,180 valid URLs: 465 roots + 576 modifiers + 21,137 facets + 2 compound facets)
+- PI category URL list: `/data/pi-urls/category-urls.json` (22,180 valid URLs)
 - PI blog URL list: `/data/pi-urls/blog-urls.json` (731 valid blog post URLs)
 - Geiger source: `https://www.geiger.com/`
 - Geiger Searchspring API: `https://kfx28d.a.searchspring.io/api/search/category.json`
+- Geiger brand index: `https://www.geiger.com/c/shop-by-brand`
 - Affiliate target host: `https://patrickblack.geiger.com/`
 
 ## 21. Open Questions Resolved
 
 All five major architectural questions resolved as of May 15, 2026:
 
-1. **Pagination URL pattern:** Static `/cat/[slug]/page/N` (SEO friendly).
-2. **AI content depth:** Lite-on-facets. Full body plus 5 FAQs on 465 root pages, meta plus 1 short intro paragraph on 21,715 non-root pages (576 modifiers + 21,137 facets + 2 compound).
-3. **Sanity AI button:** Build it (Option A, approximately 8 hours of work). Custom Studio action on customCategory documents calling DeepSeek to auto-fill intro and FAQs.
-4. **Per-facet membership scrape:** One Searchspring API call per facet URL (Option A). 21,715 calls at 1 req/sec is approximately 6 hours unattended.
-5. **Product detail scraping:** No. PI does not have product detail pages. Searchspring API alone provides all data needed for product cards.
+1. **Pagination URL pattern:** Static `/cat/[slug]/page/N`. Page 1 indexable, page 2+ noindex + canonical to page 1 (per Patrick feedback 2026-05-26).
+2. **AI content depth:** Lite-on-facets. Buying-guide format on 465 root pages (400-600 words + 5 FAQs + keyword derivatives, upgraded 2026-05-26), meta plus 1 short intro paragraph on 21,715 non-root pages.
+3. **Sanity AI button:** Build it. Custom Studio action on customCategory documents calling DeepSeek to auto-fill intro, buying guide, and FAQs.
+4. **Per-facet membership scrape:** One Searchspring API call per facet URL (~6 hours unattended).
+5. **Product detail scraping:** No. PI does not have product detail pages.
 
 Remaining pending items (track in TASKS.md):
 
-- Exact green hex shade confirmation
-- Lead form "from" address (patrick@ direct vs leads@ alias)
-- Old site cutover timing (parallel period or immediate decommission)
+- Exact green hex shade confirmation (OQ-4)
+- Lead form "from" address (OQ-1)
+- Old site cutover timing (OQ-3)
 
-## 22. Current Project State (Week 2 mid-point)
+## 22. Current Project State (Week 3 start)
 
-Updated: 2026-05-24.
+Updated: 2026-05-26.
 
-**Module 1 (Data Pipeline): Complete.**
+**Module 1 (Data Pipeline): Complete (Phase A-D).**
 
-- Phase A: 544 Geiger categories, 482 leaves in `data/geiger/categories.json` (146 KB)
-- Phase B: 7,957 unique SKUs in `data/geiger/products.json` (9.6 MB) — 99.82% of Geiger's total catalog of 7,971
-- Phase C: 21,715 non-root URLs processed in `data/geiger/facet-memberships.json` (44.5 MB), with the 4-tier recovery chain applied (Tiers 1 and 2 in data, Tiers 3 and 4 in template). Final breakdown: 13,968 with products, 7,518 zero, 229 errors.
-- Phase D: 465 PI roots mapped in `data/mappings/pi-to-geiger.json` (90 KB) — 0 unmapped (72 exact + 224 fuzzy + 169 manual overrides). CSV review at `data/mappings/pi-to-geiger-review.csv`.
+- Phase A: 544 Geiger categories, 482 leaves
+- Phase B: 7,957 unique SKUs (99.82% of Geiger's 7,971 catalog)
+- Phase C: 21,715 non-root URLs processed with 4-tier recovery. 13,968 with products, 7,518 zero, 229 errors
+- Phase D: 465 PI roots mapped, 0 unmapped (72 exact + 224 fuzzy + 169 manual)
+- Phase E (brand logos): NOT yet run — scheduled Week 4 (M1-112)
 
-**Module 2 (AI Content): Sample batch in progress for Week 2 demo.**
+**Module 2 (AI Content): Demo sample complete, full run scheduled for Week 3.**
 
-For the Week 2 client demo we generate full AI content for **the top 35 PI roots by Geiger product count** rather than all 465. This is a deliberate scope cut to deliver something the client can actually click through and review by end of Week 2. The remaining 430 roots and all 21,715 non-root pages are scheduled for Week 3 once the sample is approved.
+- Week 2 demo: 35 root pages generated, $0.065 total DeepSeek cost
+- Patrick reviewed 2026-05-25, approved content tone and quality
+- Green light given for full 22,180-page generation
+- Patrick requested upgrade to **buying-guide format** for root pages: longer body (400-600 words), H2 "Custom [Category] Buying Guide" above bottom text, keyword derivatives (custom, promotional, branded, personalized, logo, bulk, wholesale), structured buyer-research content matching the Stadium Seat Cushions blog example
+- Week 3 plan: regenerate the 35 demo pages with new buying-guide prompt (Patrick spot-checks 2-3), then generate the remaining 430 root pages and all 21,715 non-root pages. Total expected cost ~$25-30.
 
-- Selection logic: load 465 PI roots, look up their mapped Geiger category, count unique SKUs from `products.json` containment, sort desc, take top 35.
-- Expected cost: ~$1 for the 35-page sample (vs ~$45-50 for the full 22,180 once Module 2 completes in Week 3).
-- Output: `data/categories/{slug}.json` per generated root.
+**Module 3 (Category Templates): Sample template done, building out filters and additions.**
 
-**Module 3 (Category Templates): Sample template in progress for Week 2 demo.**
+DONE for Week 2 demo (35 pages live at dev.perfectimprints.com):
 
-For the Week 2 demo, the category template renders the 35 generated roots with production-grade code that will extend to all 22,180 pages without rewrite. Today's scope:
+- Routing for 35 root slugs
+- Production ProductCard (image, name, price, MOQ, brand badge, NEW/SALE/CLOSEOUT ribbons, affiliate link)
+- Production ProductGrid
+- AI content rendering (H1, intro, FAQs, hero alt)
+- Breadcrumb, CTA banner (phone + email), 404 page
 
-INCLUDED:
+**PATRICK FEEDBACK FROM WEEK 2 DEMO** (scheduled across Weeks 3-5):
 
-- Routing for 35 root slugs (`generateStaticParams` filtered to JSON-backed slugs)
-- ProductCard (image, name, price range, MOQ, brand badge, NEW/SALE/CLOSEOUT ribbons, affiliate link)
-- ProductGrid (responsive 4/3/2/1 cols, all products in one view)
-- AI content rendering (H1, intro HTML, FAQs accordion, hero alt)
-- Breadcrumb
-- CTA banner (phone + email)
-- 404 page
+Week 3:
 
-DEFERRED to Week 3-4 (after client sees the sample):
+- HTML entity decoding bug in product titles (`&amp;`, `&quot;`) — quick loader fix
+- Image fallback when Geiger image 404s — `onError` handler in ProductCard
+- H2 "Custom [Category] Buying Guide" above bottom text — component + prompt update
+- Buying-guide format content (longer, keyword derivatives) — prompt rewrite + regenerate
+- Full 22,180-page content generation — green light received
+- Pagination with noindex on page 2+ — M3-306 implementation
 
-- Filter sidebar (M3-304, single + multi-facet)
-- Sort dropdown (M3-305)
-- Static pagination (M3-306)
-- Lead capture form (M3-308) — replaced with phone/email CTA for now
-- Schema.org markup
-- Multi-facet query param logic
-- Related blog posts section
+Week 4:
 
-These deferrals are intentional. The client review on layout + content + product cards is the most valuable signal at this stage. Filter UX adds complexity that gets reviewed once the foundation is approved.
+- Filter sidebar with new "Minimum Quantity" filter (Patrick's addition)
+- "Search within this category" input above filter sidebar
+- Context-specific filters (apparel/drinkware/tech show extra filters when relevant)
+- Brand logos scrape (Phase E)
+- Brands tab in main menu + `/brands` index + `/brands/[slug]` per-brand pages
+- Related Blogs section ("Related Blogs About [Category Name]" H2 with up to 8 related blog cards)
+- Lead capture form
 
-**Large data files note:** `products.json` (9.6 MB) and `facet-memberships.json` (44.5 MB) currently live in the main repo. We plan to move them to a separate data repo, Git LFS, or external object storage during the Module 5 performance pass. Tracked as M5-509.
+Week 5:
+
+- Deals main menu button + `/deals` aggregator page
+- Mega menu fully Sanity-driven
+- Mobile Pagespeed improvement (LCP + Speed Index)
+
+**Already built (just confirming to Patrick):**
+
+- Sale ribbon on product image (top-right corner) — will be visible on closeout pages once full generation completes
 
 **Infrastructure state:**
 
 - GitHub repo: `raoalihamza/perfectimprints` (linked to Vercel)
 - Vercel deployment live at `dev.perfectimprints.com` (staging)
-- Cloudflare DNS: `dev.perfectimprints.com` CNAME to Vercel-provided value (DNS-only mode, grey cloud)
-- Apex `perfectimprints.com` 301-redirects to `www.perfectimprints.com`
-- Sanity Studio working at both `localhost:3333` (`pnpm sanity:dev`) and `https://dev.perfectimprints.com/admin`. Project ID `ii96lcy9`, dataset `production`. Env vars set in Vercel.
-- DeepSeek API key on Patrick's account, received and ready for Module 2 run.
+- Sanity Studio at `localhost:3333` and `/admin`. Project ID `ii96lcy9`.
+- DeepSeek API key on Patrick's account, working
+- Affiliate URLs link to `patrickblack.geiger.com` but that subdomain isn't active yet on Geiger's side — Patrick is chasing them
 
-**Style guide live at `/style-guide` for Patrick review.** Brand red `#E11F1E` locked from logo SVG. Green CTA shade `#16A34A` pending confirmation.
+**Schedule note:** Eid-ul-Adha holiday on Wednesday May 27 and Thursday May 28, 2026. Ali offline those days. Active work resumes Friday May 29.
+
+**Large data files note:** `products.json` (9.6 MB) and `facet-memberships.json` (44.5 MB) currently live in the main repo. Relocation tracked as M5-509.

@@ -1,0 +1,27 @@
+{
+  "url": "/cat/golf-balls/shape/round",
+  "type": "facet",
+  "h1": "Custom Round Golf Balls for Your Brand",
+  "metaTitle": "Custom Round Golf Balls | Perfect Imprints",
+  "metaDescription": "Order custom round golf balls from Perfect Imprints. Ideal for tournaments, corporate gifts, and promotional events. Get your quote today.",
+  "introHtml": "<p>Round golf balls are the standard shape for professional and amateur play, ensuring consistent flight and roll on the green. When you choose custom round golf balls from Perfect Imprints, you get premium options like Titleist Pro V1 and Volvik Vivid that accept sharp logos and vibrant colors. Perfect for corporate tournaments, client gifts, or employee appreciation, these balls deliver a polished look that stands out in any golf bag. Decorate with your logo in one or multiple colors for a professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom round golf balls from Perfect Imprints featuring a Titleist Pro V1 with a printed logo, ideal for corporate gifts and tournaments.",
+  "productSkus": [
+    "506922 50D",
+    "506923 50D",
+    "507565 90A",
+    "515618 90A",
+    "521337",
+    "527050",
+    "528245"
+  ],
+  "generatedAt": "2026-05-31T08:42:11.984308+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

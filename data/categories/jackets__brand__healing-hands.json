@@ -1,0 +1,28 @@
+{
+  "url": "/cat/jackets/brand/healing-hands",
+  "type": "facet",
+  "h1": "Custom Healing Hands Jackets for Bulk Orders",
+  "metaTitle": "Custom Healing Hands Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Healing Hands jackets in bulk. Perfect for healthcare branding. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Healing Hands jackets offer a professional, comfortable look for healthcare teams, clinics, and medical practices. These jackets are designed with the needs of healthcare professionals in mind, featuring durable fabrics and a fit that allows for easy movement during long shifts. Choose from styles like the Gravity Thermal or Basecamp Thermal to keep your staff warm and branded. Decorate with your logo or text using embroidery or screen printing for a polished, cohesive appearance that builds trust with patients.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom Healing Hands jackets with embroidered logos, showcasing professional healthcare apparel.",
+  "productSkus": [
+    "525726",
+    "525727",
+    "525728",
+    "525729",
+    "527179",
+    "527180",
+    "529190",
+    "529191"
+  ],
+  "generatedAt": "2026-05-31T08:56:03.964662+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

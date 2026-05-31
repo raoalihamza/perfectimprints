@@ -1,0 +1,28 @@
+{
+  "url": "/cat/drinkware/color/silver",
+  "type": "facet",
+  "h1": "Custom Silver Drinkware for Bulk Orders",
+  "metaTitle": "Custom Silver Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom silver drinkware for your brand. Bulk pricing, fast turnaround. Perfect for events and corporate gifts.",
+  "introHtml": "<p>Silver drinkware offers a sleek, metallic finish that complements any logo or design. Whether you choose aluminum sports bottles for outdoor events or insulated tumblers for office giveaways, the neutral silver tone pairs well with full-color imprinting or one-color debossing. Ideal for trade shows, employee gifts, or promotional campaigns where a clean, professional look matters.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom silver drinkware including aluminum water bottles and tumblers with company logos",
+  "productSkus": [
+    "508733",
+    "512596",
+    "519160",
+    "520921",
+    "521100",
+    "521964",
+    "521965",
+    "526192"
+  ],
+  "generatedAt": "2026-05-31T09:12:12.472954+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

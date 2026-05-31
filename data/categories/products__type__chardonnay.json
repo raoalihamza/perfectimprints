@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/type/chardonnay",
+  "type": "facet",
+  "h1": "Custom Chardonnay Products for Branded Giveaways",
+  "metaTitle": "Custom Chardonnay Products | Perfect Imprints",
+  "metaDescription": "Order custom chardonnay products for your next event. Perfect for wine tastings and corporate gifts. Bulk pricing available.",
+  "introHtml": "<p>Custom chardonnay products are a refined choice for businesses hosting wine tastings, corporate retreats, or client appreciation events. Unlike generic promotional items, these products cater to an audience that appreciates quality and sophistication. Choose from wine glasses, bottle openers, and wine bags that can be laser engraved or screen printed with your logo. They make memorable gifts that reflect your brand's attention to detail.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom chardonnay products including engraved wine glasses and branded wine accessories for corporate gifts",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:04:25.497442+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

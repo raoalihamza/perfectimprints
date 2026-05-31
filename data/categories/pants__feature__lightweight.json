@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pants/feature/lightweight",
+  "type": "facet",
+  "h1": "Custom Lightweight Pants for Bulk Orders",
+  "metaTitle": "Custom Lightweight Pants | Perfect Imprints",
+  "metaDescription": "Order custom lightweight pants in bulk from Perfect Imprints. Ideal for uniforms and events. Get your quote today.",
+  "introHtml": "<p>Lightweight pants are a practical choice for outdoor events, summer uniforms, and active teams. Unlike heavier fabrics, they keep wearers cool and comfortable during warm weather or physical activity. Options like the Youth Competitor Short offer breathable performance for youth groups or staff. These pants can be decorated with screen printing or embroidery for a polished look that moves with your team.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom lightweight pants for bulk orders, breathable fabric ideal for summer uniforms and events",
+  "productSkus": [
+    "509482"
+  ],
+  "generatedAt": "2026-05-31T08:44:59.827247+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

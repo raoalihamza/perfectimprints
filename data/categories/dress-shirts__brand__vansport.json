@@ -1,0 +1,23 @@
+{
+  "url": "/cat/dress-shirts/brand/vansport",
+  "type": "facet",
+  "h1": "Custom Vansport Dress Shirts for Bulk Orders",
+  "metaTitle": "Custom Vansport Dress Shirts - Perfect Imprints",
+  "metaDescription": "Order custom Vansport dress shirts in bulk. Perfect for corporate uniforms and events. Get a quote at Perfect Imprints today!",
+  "introHtml": "<p>Vansport dress shirts combine professional style with performance fabrics that keep you comfortable all day. Whether you need embroidered logos for a corporate team or screen-printed designs for a trade show, these shirts offer a crisp look that resists wrinkles. Choose from men's and women's cuts in versatile colors to create a uniform that represents your brand with confidence.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Vansport dress shirts with embroidered logos, featuring men's and women's styles in professional colors.",
+  "productSkus": [
+    "523719",
+    "528948",
+    "528949"
+  ],
+  "generatedAt": "2026-05-31T09:43:16.314588+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/pet-bowls/feature/dishwasher-safe",
+  "type": "facet",
+  "h1": "Custom Dishwasher Safe Pet Bowls",
+  "metaTitle": "Custom Dishwasher Safe Pet Bowls | Perfect Imprints",
+  "metaDescription": "Order custom dishwasher safe pet bowls for your business. Durable, easy-to-clean bowls perfect for pet-related promotions.",
+  "introHtml": "<p>Dishwasher safe pet bowls make cleanup effortless for pet owners who value convenience. Unlike standard bowls that trap bacteria in scratches, these bowls withstand repeated high-temperature washes without fading or warping. Perfect for veterinary clinics, pet supply stores, or corporate gifts for pet-loving employees. Choose stainless steel or ceramic options that keep their finish after hundreds of cycles. Add your logo with laser engraving or full-color imprint for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom dishwasher safe pet bowls with logo imprint, featuring a stainless steel bowl and a collapsible silicone bowl.",
+  "productSkus": [
+    "529207",
+    "529534"
+  ],
+  "generatedAt": "2026-05-31T08:24:23.221825+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

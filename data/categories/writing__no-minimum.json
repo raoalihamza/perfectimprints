@@ -1,0 +1,33 @@
+{
+  "url": "/cat/writing/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Writing Instruments",
+  "metaTitle": "No-Minimum Custom Writing | Perfect Imprints",
+  "metaDescription": "Order custom pens with no minimums. Perfect for small teams, events, or gifts. Get premium no-minimum custom writing at Perfect Imprints.",
+  "introHtml": "<p>Not every order needs to fill a warehouse. With our no-minimum custom writing collection, you can order as few as a single pen or a small set of premium instruments like Parker and Waterman ballpoints and rollerballs. This flexibility is ideal for small businesses, startups, welcome gifts, or sampling before a larger run. You get the same high-quality engraving and personalization options without being forced into bulk quantities. Each piece arrives ready to impress, whether it's one or twenty-five.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A close-up of a personalized no-minimum custom writing pen with engraved text, showcasing premium detailing.",
+  "productSkus": [
+    "527719",
+    "528404",
+    "528405",
+    "528406",
+    "528407",
+    "528408",
+    "528409",
+    "528410",
+    "528411",
+    "528412",
+    "528413",
+    "528579",
+    "529551"
+  ],
+  "generatedAt": "2026-05-31T08:31:38.214773+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

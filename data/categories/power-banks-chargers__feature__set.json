@@ -1,0 +1,27 @@
+{
+  "url": "/cat/power-banks-chargers/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Power Banks & Chargers",
+  "metaTitle": "Custom Set Power Banks & Chargers | Perfect Imprints",
+  "metaDescription": "Order custom set power banks & chargers in bulk. Perfect for corporate gifts, events, and employee recognition. Get a quote today!",
+  "introHtml": "<p>Custom set power banks and chargers combine portable charging with complementary accessories like hand warmers, wireless pads, or clocks in a single branded package. These sets offer more perceived value than a standalone charger, making them ideal for corporate gift boxes, welcome kits, and safety giveaways. Choose a 3-in-1 hand warmer and power bank for outdoor teams or a bamboo wireless charger with clock for desk-ready sophistication. Each set can be decorated with your logo via laser engraving, pad printing, or full-color imprint.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set power banks and chargers in a branded gift box, including a wireless charger and hand warmer",
+  "productSkus": [
+    "527107",
+    "527550",
+    "527711",
+    "527719",
+    "528350",
+    "528699",
+    "529439"
+  ],
+  "generatedAt": "2026-05-31T10:03:08.731253+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

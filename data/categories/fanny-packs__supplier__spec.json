@@ -1,0 +1,30 @@
+{
+  "url": "/cat/fanny-packs/supplier/spec",
+  "type": "facet",
+  "h1": "Custom Spec Fanny Packs for Bulk Orders",
+  "metaTitle": "Custom Spec Fanny Packs | Perfect Imprints",
+  "metaDescription": "Order custom Spec fanny packs in bulk. Perfect for events, giveaways, and teams. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Spec fanny packs combine durability with a streamlined silhouette, making them ideal for outdoor events, trade shows, and corporate giveaways. These packs feature sturdy zippers, adjustable straps, and lightweight fabric that holds essentials without bulk. Whether you choose the clear design for stadium security or the neon option for high-visibility runs, Spec offers reliable construction that stands up to daily use. Add your logo via screen printing or embroidery for a polished brand impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Spec fanny packs in assorted colors with logo imprint, perfect for bulk promotional orders.",
+  "productSkus": [
+    "514432",
+    "514433",
+    "519201",
+    "522510",
+    "522705",
+    "522803",
+    "523655",
+    "524162",
+    "524500",
+    "525724"
+  ],
+  "generatedAt": "2026-05-31T09:45:34.409213+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

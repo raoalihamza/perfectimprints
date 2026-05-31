@@ -1,0 +1,22 @@
+{
+  "url": "/cat/electronics/feature/pocketed",
+  "type": "facet",
+  "h1": "Custom Pocketed Electronics",
+  "metaTitle": "Custom Pocketed Electronics | Perfect Imprints",
+  "metaDescription": "Order branded pocketed electronics for secure storage. Custom bulk options available at Perfect Imprints.",
+  "introHtml": "<p>Pocketed electronics provide a practical solution for storing and accessing devices like phones and power banks. The built-in pockets keep items secure and organized, making them ideal for trade shows, field workers, or promotional giveaways. Choose from options like the mophie® Snap+ Wireless Power Bank with a stand or the Leeman™ RFID Phone Pocket with a metal ring stand. These items combine utility with branding opportunities through screen printing or laser engraving.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pocketed electronics featuring a wireless power bank with a pocket and stand for convenient charging and storage.",
+  "productSkus": [
+    "524133",
+    "527970"
+  ],
+  "generatedAt": "2026-05-31T08:33:43.054789+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

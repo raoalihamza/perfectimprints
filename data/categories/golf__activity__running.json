@@ -1,0 +1,21 @@
+{
+  "url": "/cat/golf/activity/running",
+  "type": "facet",
+  "h1": "Custom Running Golf Products for Active Promotions",
+  "metaTitle": "Custom Running Golf | Perfect Imprints",
+  "metaDescription": "Order custom running golf products for your next event. Perfect for active giveaways. Get a quote today at PerfectImprints.com.",
+  "introHtml": "<p>Running golf combines the precision of golf with the energy of a run. For tournaments, charity races, or corporate wellness events, custom running golf products like the ColorFusion Golf Towel offer practical branding that stands out. These items appeal to active participants who appreciate functional gear. Choose from screen printing or embroidery to showcase your logo on towels, hats, or accessories that keep athletes cool and focused on the course or trail.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom running golf products including a ColorFusion Golf Towel with vibrant logo imprint, ideal for active promotional giveaways.",
+  "productSkus": [
+    "526028"
+  ],
+  "generatedAt": "2026-05-31T08:55:04.386723+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

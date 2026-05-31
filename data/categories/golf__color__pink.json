@@ -1,0 +1,31 @@
+{
+  "url": "/cat/golf/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Golf Gear for Teams & Events",
+  "metaTitle": "Custom Pink Golf Gear | Perfect Imprints",
+  "metaDescription": "Shop custom pink golf gear for your next event. Perfect for tournaments, giveaways, and branding. Bulk pricing available.",
+  "introHtml": "<p>Pink golf gear stands out on the course and supports causes like breast cancer awareness. From gloves to polos and accessories, custom pink golf items make a bold statement. Great for charity tournaments, corporate outings, or team uniforms. Add your logo with screen printing, embroidery, or debossing for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink golf gear including gloves, polos, and tees with ball markers for branding",
+  "productSkus": [
+    "510303",
+    "511117",
+    "517777",
+    "519574",
+    "519683",
+    "522780",
+    "523540",
+    "524126",
+    "528009",
+    "528068",
+    "529204"
+  ],
+  "generatedAt": "2026-05-31T08:34:12.434795+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

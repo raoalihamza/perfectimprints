@@ -1,0 +1,23 @@
+{
+  "url": "/cat/coolers/brand/nautica",
+  "type": "facet",
+  "h1": "Custom Nautica Coolers for Branded Promotions",
+  "metaTitle": "Custom Nautica Coolers - Perfect Imprints",
+  "metaDescription": "Order custom Nautica coolers for your next event. Premium brand recognition with bulk pricing. Shop Perfect Imprints today.",
+  "introHtml": "<p>Nautica brings its signature nautical style and quality to promotional coolers, making them a standout choice for corporate gifts, beach events, or outdoor employee appreciation. Unlike generic coolers, Nautica-branded options offer immediate brand recognition and a preppy aesthetic that resonates with upscale audiences. These coolers are ideal for companies wanting to associate their logo with a trusted lifestyle brand, and they pair well with Nautica apparel for a coordinated giveaway. Decoration options include screen printing or embroidery for a polished finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Nautica cooler with embroidered logo, navy blue with white trim, ideal for outdoor events and corporate gifts.",
+  "productSkus": [
+    "525547",
+    "525548",
+    "525893"
+  ],
+  "generatedAt": "2026-05-31T09:41:38.262904+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

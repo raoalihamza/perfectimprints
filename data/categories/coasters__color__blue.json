@@ -1,0 +1,24 @@
+{
+  "url": "/cat/coasters/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Coasters for Your Brand",
+  "metaTitle": "Custom Blue Coasters | Perfect Imprints",
+  "metaDescription": "Order custom blue coasters for your brand. Bulk pricing, fast turnaround. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Blue coasters add a pop of color to any desk or table setting while protecting surfaces from moisture and heat. Whether you choose the sleek bamboo and silicone set or the classic round brass design, imprinting your logo on these coasters creates a lasting impression at trade shows or in office break rooms. They are lightweight for easy shipping and available in various shapes to match your brand aesthetic.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue coasters with engraved logo, sitting on a wooden table, protecting the surface from a coffee mug.",
+  "productSkus": [
+    "518270",
+    "518880",
+    "519672",
+    "520382"
+  ],
+  "generatedAt": "2026-05-31T08:33:14.387219+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

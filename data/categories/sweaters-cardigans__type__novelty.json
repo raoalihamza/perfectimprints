@@ -1,0 +1,32 @@
+{
+  "url": "/cat/sweaters-cardigans/type/novelty",
+  "type": "facet",
+  "h1": "Custom Novelty Sweaters & Cardigans",
+  "metaTitle": "Custom Novelty Sweaters & Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom novelty sweaters and cardigans for your team or event. Unique designs, bulk pricing. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Novelty sweaters and cardigans let your brand stand out with playful patterns, bold colors, or unique textures that go beyond standard corporate apparel. Whether you need whimsical holiday designs for a seasonal giveaway or eye-catching prints for a trade show team, these pieces create memorable impressions. Decoration options like embroidery or screen printing work well on cotton blends and acrylic knits, ensuring your logo looks sharp on every sleeve or chest.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom novelty sweaters and cardigans with unique patterns and embroidered logos",
+  "productSkus": [
+    "520268",
+    "520269",
+    "523604",
+    "526198",
+    "526291",
+    "526292",
+    "527181",
+    "527182",
+    "527833",
+    "527957",
+    "528757",
+    "528758"
+  ],
+  "generatedAt": "2026-05-31T09:27:40.195707+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

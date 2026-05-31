@@ -1,0 +1,19 @@
+{
+  "url": "/cat/underwear/search",
+  "type": "modifier",
+  "h1": "Custom Underwear for Branded Promotions",
+  "metaTitle": "Custom Underwear | Perfect Imprints",
+  "metaDescription": "Browse our selection of custom underwear for your next promotion. Perfect for tradeshows and employee gifts. Get a quote today.",
+  "introHtml": "<p>Custom underwear makes a memorable and practical promotional item that your audience will actually use. Whether you need boxers, briefs, or performance styles, our catalog offers a wide range of options to fit any campaign. With no minimums and fast turnaround times available, you can start small or order in bulk. Explore our collection and find the perfect custom underwear to represent your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of custom printed boxer briefs in various colors, showcasing promotional underwear options",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:13:08.235372+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

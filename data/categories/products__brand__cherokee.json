@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/cherokee",
+  "type": "facet",
+  "h1": "Custom Cherokee Products for Your Brand",
+  "metaTitle": "Custom Cherokee Products | Perfect Imprints",
+  "metaDescription": "Brand your team with custom Cherokee products from Perfect Imprints. Shop bulk orders for uniforms and giveaways.",
+  "introHtml": "<p>Cherokee is a trusted brand known for durable, comfortable workwear, especially in healthcare and hospitality. When you choose custom Cherokee products, you get apparel that holds up to daily wear and tear while keeping your team looking professional. From scrub tops to lab coats, these items accept embroidery and screen printing cleanly, making them ideal for clinics, restaurants, and corporate teams that need a polished, unified look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Cherokee products including embroidered scrub tops and lab coats for healthcare teams",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:23:52.180611+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/vases/color/clear",
+  "type": "facet",
+  "h1": "Custom Clear Vases for Bulk Orders",
+  "metaTitle": "Custom Clear Vases | Perfect Imprints",
+  "metaDescription": "Order custom clear vases for your event or promotion. Perfect for bulk branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Clear vases offer a timeless, elegant look that complements any decor while keeping the focus on your floral arrangements or promotional inserts. Unlike colored glass, clear vases provide maximum versatility for events like corporate galas, trade show displays, or client appreciation gifts. They also allow for crisp, high-contrast logo etching or screen printing that stands out. Whether you're outfitting a hotel lobby or assembling gift sets, custom clear vases deliver a professional, polished impression that aligns with your brand's image.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom clear vases with etched logo, ideal for corporate events and promotional gifts.",
+  "productSkus": [
+    "518213",
+    "525816"
+  ],
+  "generatedAt": "2026-05-31T09:29:51.443715+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/door-hangers/supplier/bag",
+  "type": "facet",
+  "h1": "Custom Bag Door Hangers",
+  "metaTitle": "Custom Bag Door Hangers | Perfect Imprints",
+  "metaDescription": "Order custom bag door hangers for your next campaign. Fast turnaround and bulk pricing from Perfect Imprints.",
+  "introHtml": "<p>Bag door hangers combine the visibility of a traditional door hanger with the utility of a small pouch, making them ideal for distributing samples, coupons, or small promotional items directly to doorknobs. The sturdy bag construction holds contents securely while displaying your message prominently. Perfect for real estate agents, food delivery services, or local marketing campaigns, these hangers offer a unique way to deliver value alongside your brand. Customize with your logo and messaging to maximize engagement.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom bag door hangers with printed logo hanging on a doorknob, showing the bag pouch and sturdy design",
+  "productSkus": [
+    "503106 91A",
+    "509177 90A",
+    "517730 90A",
+    "524827",
+    "524830"
+  ],
+  "generatedAt": "2026-05-31T09:42:58.395071+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

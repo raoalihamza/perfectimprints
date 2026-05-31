@@ -1,0 +1,26 @@
+{
+  "url": "/cat/writing/brand/waterman",
+  "type": "facet",
+  "h1": "Custom Waterman Writing Instruments",
+  "metaTitle": "Custom Waterman Pens | Perfect Imprints",
+  "metaDescription": "Order custom Waterman writing instruments for your corporate gifts. Premium pens with your logo at Perfect Imprints.",
+  "introHtml": "<p>Waterman pens have set the standard for French craftsmanship since 1883, making them a distinguished choice for corporate gifts and executive rewards. When you choose custom Waterman writing instruments, you're selecting a brand recognized for precision and elegance. Ideal for client appreciation or employee milestones, these pens accept laser engraving on the barrel or cap for a refined, lasting impression. Available in ballpoint and rollerball models like the Expert and Hemisphere series, each pen delivers a smooth writing experience that reflects your organization's commitment to quality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Waterman writing instruments with engraved logo, including Expert and Hemisphere ballpoint pens",
+  "productSkus": [
+    "528404",
+    "528405",
+    "528406",
+    "528407",
+    "528408",
+    "528409"
+  ],
+  "generatedAt": "2026-05-31T10:16:00.999351+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

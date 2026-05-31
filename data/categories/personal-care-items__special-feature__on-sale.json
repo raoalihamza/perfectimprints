@@ -1,0 +1,22 @@
+{
+  "url": "/cat/personal-care-items/special-feature/on-sale",
+  "type": "facet",
+  "h1": "Custom On Sale Personal Care Items",
+  "metaTitle": "Custom On Sale Personal Care Items | Perfect Imprints",
+  "metaDescription": "Shop custom on sale personal care items at discounted prices. Perfect for bulk orders. Get a quote today!",
+  "introHtml": "<p>Save on bulk orders of custom personal care items currently on sale, including mini personal diffusers and salon boards with cases. These discounted products let you stretch your promotional budget further while still providing useful items your team or clients will appreciate. Ideal for HR directors and safety managers looking for practical giveaways that support wellness and hygiene.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom on sale personal care items including mini diffusers and salon boards",
+  "productSkus": [
+    "512842 90A",
+    "528835"
+  ],
+  "generatedAt": "2026-05-31T08:59:48.870069+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

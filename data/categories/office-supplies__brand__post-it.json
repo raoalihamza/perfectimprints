@@ -1,0 +1,24 @@
+{
+  "url": "/cat/office-supplies/brand/post-it",
+  "type": "facet",
+  "h1": "Custom Post It Office Supplies for Bulk Orders",
+  "metaTitle": "Custom Post It Office Supplies | Perfect Imprints",
+  "metaDescription": "Order custom Post It office supplies in bulk. Perfect for branding notes, pads, and more. Get a quote today!",
+  "introHtml": "<p>Custom Post It office supplies offer a practical way to keep your brand top of mind. From standard sticky notes to transparent notes and adult color pads, these products are used daily in offices, schools, and workspaces. Choose custom printing with your logo or message in your brand colors to turn everyday note-taking into a subtle marketing opportunity. Perfect for trade shows, employee onboarding, or client gifts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Post It office supplies with branded sticky notes and pads on a desk",
+  "productSkus": [
+    "528272",
+    "528273",
+    "528274",
+    "528275"
+  ],
+  "generatedAt": "2026-05-31T09:20:46.324797+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

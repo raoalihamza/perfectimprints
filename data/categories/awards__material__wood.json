@@ -1,0 +1,27 @@
+{
+  "url": "/cat/awards/material/wood",
+  "type": "facet",
+  "h1": "Custom Wood Awards for Bulk Orders",
+  "metaTitle": "Custom Wood Awards | Perfect Imprints",
+  "metaDescription": "Order custom wood awards for employee recognition and corporate events. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Wood awards bring a natural, warm aesthetic that stands out from standard crystal or metal trophies. The grain variations in materials like walnut or beech give each piece a unique character, making them ideal for service milestones or leadership recognition. Laser engraving on wood produces crisp, lasting text and logos, as seen in the Tagus Award or Lancaster Award. These awards pair well with corporate branding and are often chosen for annual banquets or retirement ceremonies.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wood awards with laser engraved text and logo, displayed on a shelf in an office setting.",
+  "productSkus": [
+    "512640 64F",
+    "524026",
+    "525452",
+    "525455",
+    "525456",
+    "525457",
+    "529407"
+  ],
+  "generatedAt": "2026-05-31T08:27:54.780329+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

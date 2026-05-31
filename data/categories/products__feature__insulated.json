@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/insulated",
+  "type": "facet",
+  "h1": "Custom Insulated Products for Your Brand",
+  "metaTitle": "Custom Insulated Products | Perfect Imprints",
+  "metaDescription": "Order custom insulated products for your brand. Perfect for giveaways and corporate gifts at Perfect Imprints.",
+  "introHtml": "<p>Insulated products keep drinks hot or cold for hours, making them a practical choice for outdoor events, trade shows, and employee gifts. From stainless steel water bottles to insulated tumblers and can coolers, these items offer year-round utility. Decorate with your logo using screen printing, laser engraving, or full-color wrap for maximum brand visibility. Choose custom insulated products to ensure your brand stays top-of-mind whether at a tailgate or in the office.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom insulated products including stainless steel water bottles and tumblers with logos.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:06.687425+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,31 @@
+{
+  "url": "/cat/apparel/brand/vansport",
+  "type": "facet",
+  "h1": "Custom Vansport Apparel for Bulk Orders",
+  "metaTitle": "Custom Vansport Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Vansport apparel in bulk for your team. Perfect for uniforms, events, and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Vansport apparel combines performance fabrics with a clean, professional look that works for both the office and the outdoors. Whether you need polos for a trade show, hoodies for employee rewards, or dress shirts for a uniform program, Vansport offers reliable quality with decoration options like embroidery and screen printing. Choose from moisture-wicking polos, soft pullovers, and durable outerwear that keep your logo looking sharp.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom Vansport apparel including polos and hoodies with embroidered logos",
+  "productSkus": [
+    "505561",
+    "505562",
+    "519869",
+    "519870",
+    "523719",
+    "524393",
+    "524394",
+    "528946",
+    "528947",
+    "528948",
+    "528949"
+  ],
+  "generatedAt": "2026-05-31T09:32:10.662444+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

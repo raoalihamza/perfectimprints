@@ -1,0 +1,30 @@
+{
+  "url": "/cat/clipboards/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Clipboards",
+  "metaTitle": "Custom Brown Clipboards | Perfect Imprints",
+  "metaDescription": "Order custom brown clipboards for your team. Perfect for offices, events, and field work. Get your quote at Perfect Imprints.",
+  "introHtml": "<p>Brown clipboards offer a professional, natural look that stands out from standard black or white options. Whether you choose rich leather-like finishes or durable textured materials, these clipboards convey warmth and reliability. Ideal for safety managers needing rugged field clipboards or HR directors organizing training materials, brown clipboards pair well with foil stamping or screen-printed logos. Customize your order with your company name or slogan for a polished, lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown clipboards with leather texture and company logo, ideal for office and field use",
+  "productSkus": [
+    "505602",
+    "517004",
+    "517891",
+    "518178",
+    "518179",
+    "518284",
+    "518285",
+    "521541",
+    "522167",
+    "526610"
+  ],
+  "generatedAt": "2026-05-31T08:52:02.477521+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

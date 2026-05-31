@@ -1,0 +1,23 @@
+{
+  "url": "/cat/tools/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Tools for Bulk Orders",
+  "metaTitle": "Custom Set Tools at Perfect Imprints",
+  "metaDescription": "Order custom set tools in bulk at Perfect Imprints. Perfect for giveaways, employee gifts, and promotional events.",
+  "introHtml": "<p>Custom set tools bundle multiple useful items into one convenient package, making them ideal for trade show giveaways, employee welcome kits, or safety manager appreciation gifts. Unlike single tools, sets offer greater perceived value and utility. Options like the Eyeglass Repair Kit or the All-In-One Tape Measure provide practical solutions recipients will keep and use. Decorate with your logo via screen printing or engraving for lasting brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set tools including an eyeglass repair kit and tape measure with logo imprint",
+  "productSkus": [
+    "501983 91A",
+    "515454 01A",
+    "521080"
+  ],
+  "generatedAt": "2026-05-31T09:03:37.858679+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,27 @@
+{
+  "url": "/cat/wine-tumblers/color/red",
+  "type": "facet",
+  "h1": "Custom Red Wine Tumblers for Bulk Orders",
+  "metaTitle": "Custom Red Wine Tumblers | Perfect Imprints",
+  "metaDescription": "Shop custom red wine tumblers in bulk at Perfect Imprints. Perfect for events, giveaways, and branding. Order now!",
+  "introHtml": "<p>Red wine tumblers make a bold statement at any event or corporate giveaway. Whether you choose the 12 oz Oceanworks Stemless Wine Glass for an eco-friendly appeal or the durable 12 oz Plastic Vinello Stemless Wine Glass for outdoor use, the vibrant red color ensures your logo stands out. Perfect for holiday parties, trade shows, or employee gifts, these tumblers are designed for both elegance and practicality. Decorate with screen printing or full-color digital for a crisp, lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red wine tumblers with a glossy red finish, perfect for branding and bulk orders.",
+  "productSkus": [
+    "511450",
+    "522060",
+    "524419",
+    "524524",
+    "524525",
+    "526191",
+    "527252"
+  ],
+  "generatedAt": "2026-05-31T10:15:20.611395+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

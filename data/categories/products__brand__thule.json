@@ -1,0 +1,23 @@
+{
+  "url": "/cat/products/brand/thule",
+  "type": "facet",
+  "h1": "Custom Thule Products for Bulk Orders",
+  "metaTitle": "Custom Thule Products | Perfect Imprints",
+  "metaDescription": "Order custom Thule products in bulk from Perfect Imprints. Ideal for corporate gifts and employee recognition. Get a quote today.",
+  "introHtml": "<p>Thule products are known for their durable construction and sleek Scandinavian design, making them a popular choice for corporate gifts and employee recognition programs. From laptop backpacks to travel organizers, customizing Thule gear with your logo adds a premium touch that recipients will use daily. Ideal for marketing directors and HR managers looking to reward top performers or welcome new hires with high-quality branded merchandise.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Thule products including backpacks and travel accessories with company logo",
+  "productSkus": [
+    "521628",
+    "524263",
+    "526734"
+  ],
+  "generatedAt": "2026-05-31T09:23:59.861278+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

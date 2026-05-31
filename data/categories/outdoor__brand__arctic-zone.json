@@ -1,0 +1,27 @@
+{
+  "url": "/cat/outdoor/brand/arctic-zone",
+  "type": "facet",
+  "h1": "Custom Arctic Zone Outdoor Products",
+  "metaTitle": "Custom Arctic Zone Outdoor | Perfect Imprints",
+  "metaDescription": "Order custom Arctic Zone outdoor products at Perfect Imprints. Perfect for branding coolers, mugs, and bottles for your team.",
+  "introHtml": "<p>Arctic Zone outdoor gear combines rugged durability with advanced thermal performance, making it a standout choice for corporate gifts, team outings, and promotional events. Whether you need insulated coolers for a tailgate or copper mugs for a branded bar setup, Arctic Zone’s Titan Thermal HP technology keeps drinks cold for hours. Choose from expandable coolers, tumblers, and bottles that are built to last and ready for your logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Arctic Zone outdoor coolers and mugs with company logo for promotional use",
+  "productSkus": [
+    "525341",
+    "525841",
+    "525842",
+    "525843",
+    "525921",
+    "525964",
+    "526694"
+  ],
+  "generatedAt": "2026-05-31T08:25:24.890496+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

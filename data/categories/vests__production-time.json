@@ -1,0 +1,23 @@
+{
+  "url": "/cat/vests/production-time",
+  "type": "modifier",
+  "h1": "Rush Custom Vests with Fast Production",
+  "metaTitle": "Rush Custom Vests – Fast Production | Perfect Imprints",
+  "metaDescription": "Need rush custom vests fast? We offer quick turnaround on decorated vests for last-minute events, safety needs, and giveaways. Request a quote today.",
+  "introHtml": "<p>When you need custom vests in a hurry, standard lead times won't cut it. Our rush production service delivers decorated vests in as little as 1–5 business days for qualifying orders. Whether you're preparing for an upcoming trade show, equipping a safety team on short notice, or fulfilling a last-minute client request, we prioritize speed without compromising quality. Keep in mind that final turnaround depends on artwork approval, so having print-ready files ready helps us move even faster.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Rush custom vests with fast production, including a heat panel vest and safety vest options for urgent branding needs.",
+  "productSkus": [
+    "523929",
+    "523930",
+    "527493"
+  ],
+  "generatedAt": "2026-05-31T10:13:28.299069+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

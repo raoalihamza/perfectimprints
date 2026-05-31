@@ -1,0 +1,24 @@
+{
+  "url": "/cat/reusable-straws/feature/with-pouch",
+  "type": "facet",
+  "h1": "Custom With Pouch Reusable Straws",
+  "metaTitle": "Custom With Pouch Reusable Straws | Perfect Imprints",
+  "metaDescription": "Order custom with pouch reusable straws from Perfect Imprints. Eco-friendly, branded straw sets for your next event or promotion.",
+  "introHtml": "<p>Custom with pouch reusable straws combine practicality and sustainability in one branded package. Each set typically includes multiple straws in a convenient drawstring pouch, making them easy to carry and store. Ideal for trade shows, corporate gifts, or eco-conscious branding, these straws can be debossed or printed with your logo. Choose from stainless steel or silicone options to match your message. Perfect for businesses looking to reduce single-use plastic while keeping their brand visible on the go.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom with pouch reusable straws set including stainless steel and silicone straws in a drawstring pouch",
+  "productSkus": [
+    "521867",
+    "522032",
+    "523099",
+    "523997"
+  ],
+  "generatedAt": "2026-05-31T08:46:01.631987+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

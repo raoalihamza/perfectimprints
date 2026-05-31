@@ -1,0 +1,26 @@
+{
+  "url": "/cat/golf-polo-shirts/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Golf Polo Shirts",
+  "metaTitle": "Custom Unisex Golf Polo Shirts | Perfect Imprints",
+  "metaDescription": "Shop custom unisex golf polo shirts for a versatile fit. Perfect for corporate events. Bulk orders available. Get your quote today!",
+  "introHtml": "<p>Unisex golf polo shirts offer a balanced fit that works well for both men and women, making them a smart choice for company golf outings or team uniforms. The Nike Golf Tech Basic Dri Fit Polo and Dri-Fit Classic Polo are popular options that combine moisture-wicking performance with a professional look. Choose from a range of colors and decoration methods to match your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom unisex golf polo shirts in various colors, perfect for corporate golf events and team uniforms.",
+  "productSkus": [
+    "505481",
+    "507820",
+    "515155",
+    "515156",
+    "527681",
+    "527682"
+  ],
+  "generatedAt": "2026-05-31T09:14:39.456394+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

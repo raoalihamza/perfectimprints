@@ -1,0 +1,32 @@
+{
+  "url": "/cat/bar-wine-gift-sets/supplier/galaxy",
+  "type": "facet",
+  "h1": "Custom Galaxy Bar Wine Gift Sets",
+  "metaTitle": "Custom Galaxy Bar Wine Gift Sets | Perfect Imprints",
+  "metaDescription": "Order custom Galaxy bar wine gift sets in bulk. Perfect for corporate gifting. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Galaxy gift sets offer a curated selection of premium bar and wine accessories, making them ideal for corporate gifts, client appreciation, or employee rewards. Choose from sets like the Speakeasy Gift Set or the Napa Stemless Wine Tumbler Set, each designed to impress. Personalize with your logo using engraving or screen printing to create a memorable brand experience.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Galaxy bar wine gift sets with branded logo on premium accessories",
+  "productSkus": [
+    "512596",
+    "512693 64F",
+    "519672",
+    "521002",
+    "521897",
+    "522098",
+    "523898",
+    "523924",
+    "523950",
+    "525628",
+    "526748",
+    "527285"
+  ],
+  "generatedAt": "2026-05-31T09:35:23.447341+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

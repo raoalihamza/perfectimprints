@@ -1,0 +1,23 @@
+{
+  "url": "/cat/coasters/color/red",
+  "type": "facet",
+  "h1": "Custom Red Coasters for Branded Promotions",
+  "metaTitle": "Custom Red Coasters | Perfect Imprints",
+  "metaDescription": "Order custom red coasters for your brand. Perfect for bars, restaurants, and events. Get a quote today!",
+  "introHtml": "<p>Red coasters make a bold statement at bars, restaurants, and corporate events. Whether you choose the metallic sheen of the Round Brass Coaster or the natural texture of the Bamboo And Silicone Coaster Set, red adds a vibrant pop that draws attention. Customize with your logo using screen printing or engraving for a memorable branded giveaway that stands out on any tabletop.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red coasters with embossed logo, including round brass, leather, and bamboo silicone sets.",
+  "productSkus": [
+    "518270",
+    "518880",
+    "520382"
+  ],
+  "generatedAt": "2026-05-31T08:28:33.134594+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

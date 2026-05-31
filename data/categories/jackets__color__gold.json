@@ -1,0 +1,19 @@
+{
+  "url": "/cat/jackets/color/gold",
+  "type": "facet",
+  "h1": "Custom Gold Jackets for Bulk Orders",
+  "metaTitle": "Custom Gold Jackets | Perfect Imprints",
+  "metaDescription": "Shop custom gold jackets for your team. Perfect for events, uniforms, and giveaways. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Gold jackets make a bold statement for corporate events, trade shows, or employee uniforms. Unlike standard black or navy, gold stands out in photos and reinforces a premium brand image. Choose from lightweight windbreakers for outdoor events or insulated options for cooler climates. Decorate with embroidery or screen printing for a polished look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gold jackets with embroidered logo on front, displayed on a mannequin in a corporate setting",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:16:30.498958+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/mechanical-pencils/supplier/evans",
+  "type": "facet",
+  "h1": "Custom Evans Mechanical Pencils for Bulk Orders",
+  "metaTitle": "Custom Evans Mechanical Pencils - Perfect Imprints",
+  "metaDescription": "Order custom Evans mechanical pencils in bulk. Perfect for giveaways and corporate gifts. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Evans mechanical pencils offer reliable performance and smooth writing, making them a smart choice for promotional giveaways. Whether you're equipping your team or stocking a trade show, these pencils can be customized with your logo using pad printing or engraving. The Armadillo and Frosty Grip models provide comfortable handling, while the Build-It™ set appeals to creative audiences. Choose Evans for durable, everyday writing tools that keep your brand top of mind.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Evans mechanical pencils with logo imprint, including Armadillo and Frosty Grip models",
+  "productSkus": [
+    "510506",
+    "510906",
+    "514646",
+    "519577",
+    "525811"
+  ],
+  "generatedAt": "2026-05-31T09:19:26.194541+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

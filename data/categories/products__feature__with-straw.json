@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/with-straw",
+  "type": "facet",
+  "h1": "Custom Products with Straw for Bulk Orders",
+  "metaTitle": "Custom Products with Straw | Perfect Imprints",
+  "metaDescription": "Shop custom products with straw for your brand. Perfect for drinks on the go. Bulk orders available at Perfect Imprints.",
+  "introHtml": "<p>Products with straws are a practical choice for businesses that want to keep their brand visible during coffee breaks, lunch hours, or outdoor events. From reusable stainless steel straws to insulated cups with built-in straws, these items encourage repeated use and daily exposure. Adding your logo to a straw or its accompanying lid ensures your message travels with every sip. Whether you're outfitting a corporate breakroom or distributing swag at a trade show, custom products with straw combine utility with brand reinforcement.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom products with straw including reusable straws and drinking cups with straws",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:55.618187+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

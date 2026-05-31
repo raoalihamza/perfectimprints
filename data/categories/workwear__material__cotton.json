@@ -1,0 +1,25 @@
+{
+  "url": "/cat/workwear/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Workwear for Your Team",
+  "metaTitle": "Custom Cotton Workwear | Perfect Imprints",
+  "metaDescription": "Order custom cotton workwear for your team at Perfect Imprints. Durable, breathable options with your logo. Bulk pricing available.",
+  "introHtml": "<p>Cotton workwear offers breathability and comfort for long days on the job, making it a practical choice for teams that need durable clothing without the stiffness of synthetic blends. Whether you outfit warehouse staff in denim shirts or provide aprons for hospitality workers, cotton fabrics hold up to repeated washing and maintain a professional appearance. Decoration methods like screen printing or embroidery adhere well to cotton, ensuring your logo stays crisp. Choose custom cotton workwear for a classic, comfortable uniform your employees will actually want to wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cotton workwear including denim shirts and aprons with embroidered logos",
+  "productSkus": [
+    "501740",
+    "501741",
+    "511025",
+    "526199",
+    "527339"
+  ],
+  "generatedAt": "2026-05-31T08:25:47.209814+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

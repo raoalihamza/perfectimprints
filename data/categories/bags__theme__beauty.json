@@ -1,0 +1,28 @@
+{
+  "url": "/cat/bags/theme/beauty",
+  "type": "facet",
+  "h1": "Custom Beauty Bags for Bulk Orders",
+  "metaTitle": "Custom Beauty Bags | Perfect Imprints",
+  "metaDescription": "Shop custom beauty bags for bulk orders at Perfect Imprints. Perfect for salons, spas, and beauty brands. Request a quote today.",
+  "introHtml": "<p>Custom beauty bags are designed specifically for the cosmetics and personal care industry, offering stylish and functional packaging for salons, spas, and beauty brands. Unlike generic bags, these options often feature water-resistant linings, multiple compartments, and durable materials like recycled felt or glossy laminated tote fabrics. Whether you need makeup bags for client gifts, promotional totes for product launches, or travel-friendly toiletry kits, beauty-themed bags provide a polished presentation that aligns with your brand's aesthetic.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom beauty bags in various styles including cosmetic bags and totes for salons and spas",
+  "productSkus": [
+    "504843",
+    "504981",
+    "510760",
+    "515747",
+    "516221",
+    "516781",
+    "527742",
+    "529106"
+  ],
+  "generatedAt": "2026-05-31T09:34:37.467495+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/footwear/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Footwear for Bulk Orders",
+  "metaTitle": "Custom Plastic Footwear | Perfect Imprints",
+  "metaDescription": "Order custom plastic footwear for events or safety gear. Durable, waterproof, and perfect for branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Plastic footwear offers a durable, waterproof solution for environments where fabric shoes would quickly wear out. From custom shoelaces to shoe caddies, plastic materials resist moisture and are easy to clean, making them ideal for trade shows, outdoor events, or industrial settings. Decorate with screen printing or sublimation for a lasting brand impression that stands up to heavy use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom plastic footwear including shoe caddies and sublimated shoelaces for branding",
+  "productSkus": [
+    "513304 90A",
+    "517496"
+  ],
+  "generatedAt": "2026-05-31T09:47:11.452340+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

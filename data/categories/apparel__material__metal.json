@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel/material/metal",
+  "type": "facet",
+  "h1": "Custom Metal Apparel for Branded Merchandise",
+  "metaTitle": "Custom Metal Apparel | Perfect Imprints",
+  "metaDescription": "Order custom metal apparel for a sleek, industrial look. Perfect for branded merchandise. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Metal apparel offers a distinctive, industrial aesthetic that stands out from traditional fabric-based merchandise. Whether you are branding sunglasses like the Nike® Chance or adding metal accents to hats and accessories, this material choice conveys durability and a modern edge. Ideal for trade shows, retail displays, or employee uniforms, custom metal apparel creates a memorable impression with its reflective finish and sturdy construction. Decoration options include etching, engraving, or embossing your logo directly onto the metal surface.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom metal apparel including branded sunglasses with metal frames and accessories with metallic accents",
+  "productSkus": [
+    "526686"
+  ],
+  "generatedAt": "2026-05-31T08:31:46.565983+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

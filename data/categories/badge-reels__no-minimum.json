@@ -1,0 +1,21 @@
+{
+  "url": "/cat/badge-reels/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Badge Reels",
+  "metaTitle": "No-Minimum Custom Badge Reels | Perfect Imprints",
+  "metaDescription": "Order small quantities of custom badge reels with no minimums. Perfect for small teams, events, or samples. Get branded badge reels fast.",
+  "introHtml": "<p>No-minimum custom badge reels let you order exactly what you need, whether that is five reels for a small team or a dozen for a one-off event. Unlike standard bulk orders, you are not forced to buy hundreds. This flexibility is ideal for small businesses, startups, HR directors ordering for a pilot group, or marketing managers testing a new design before a larger run. You still get professional imprinting and a choice of styles, including retractable badge reels and lanyard-style options like the SATECHI® OntheGo™ Crossbody Lanyard Cable.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A group of no-minimum custom badge reels with various colors and logo imprints, ideal for small orders and samples.",
+  "productSkus": [
+    "528809"
+  ],
+  "generatedAt": "2026-05-31T08:32:07.151632+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/office/brand/parker",
+  "type": "facet",
+  "h1": "Custom Parker Office Pens for Bulk Orders",
+  "metaTitle": "Custom Parker Office Pens | Perfect Imprints",
+  "metaDescription": "Order custom Parker office pens for your team. Choose from IM and Sonnet styles with your logo. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Parker pens bring a legacy of precision craftsmanship to any professional setting. Whether you choose the streamlined Parker IM or the classic Sonnet, these writing instruments make a refined statement at client meetings or employee onboarding. Engrave your company logo on the barrel or clip for a polished look that recipients will use daily. Ordering in bulk ensures consistent branding across your entire organization.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Parker office pens with engraved logos on a desk, including Parker IM and Sonnet ballpoint and rollerball styles.",
+  "productSkus": [
+    "528410",
+    "528411",
+    "528412",
+    "528413"
+  ],
+  "generatedAt": "2026-05-31T08:58:42.106619+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

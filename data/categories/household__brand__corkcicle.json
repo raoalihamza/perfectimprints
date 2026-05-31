@@ -1,0 +1,29 @@
+{
+  "url": "/cat/household/brand/corkcicle",
+  "type": "facet",
+  "h1": "Custom Corkcicle Household Products for Your Brand",
+  "metaTitle": "Custom Corkcicle Household Items | Perfect Imprints",
+  "metaDescription": "Brand your next event with custom Corkcicle household items from Perfect Imprints. Shop premium drinkware and coolers.",
+  "introHtml": "<p>Corkcicle household products combine triple-insulated stainless steel with sophisticated design, keeping drinks cold for hours or hot for just as long. Whether you're outfitting a corporate gift program with 16 oz Canteens or treating VIP clients to Stemless Wine Cups, the brand's signature style elevates any giveaway. Choose from custom engraving or full-color imprinting to match your logo perfectly. These are not everyday promotional items—they are premium pieces your recipients will actually use at home, in the office, and on the go.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Corkcicle household products including stainless steel canteens, tumblers, and coolers with company logo",
+  "productSkus": [
+    "524367",
+    "524368",
+    "525223",
+    "525225",
+    "525226",
+    "525791",
+    "526483",
+    "528115",
+    "528116"
+  ],
+  "generatedAt": "2026-05-31T09:51:10.058569+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

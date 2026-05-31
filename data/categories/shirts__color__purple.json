@@ -1,0 +1,25 @@
+{
+  "url": "/cat/shirts/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Shirts for Bulk Orders",
+  "metaTitle": "Custom Purple Shirts | Perfect Imprints",
+  "metaDescription": "Order custom purple shirts for your team or event. Bulk pricing, fast turnaround. Perfect Imprints.",
+  "introHtml": "<p>Purple shirts offer a distinctive look that stands out in a crowd while maintaining a professional appearance. Whether you're outfitting a safety team with high-visibility long sleeves or creating uniform shirts for a company event, purple adds a touch of sophistication. Options like the Port Authority Superpro Oxford Shirt in purple provide a crisp, wrinkle-resistant finish ideal for embroidered logos. Perfect for trade shows, corporate giveaways, or employee apparel.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple shirts for bulk orders featuring embroidered logos on long sleeve oxford and twill shirts",
+  "productSkus": [
+    "517273",
+    "517274",
+    "519011",
+    "519684",
+    "519685"
+  ],
+  "generatedAt": "2026-05-31T08:30:56.746903+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

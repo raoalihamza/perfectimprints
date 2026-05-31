@@ -1,0 +1,19 @@
+{
+  "url": "/cat/bar-wine/feature/set",
+  "type": "facet",
+  "h1": "Custom Bar & Wine Sets for Branded Gifts",
+  "metaTitle": "Custom Bar & Wine Sets | Perfect Imprints",
+  "metaDescription": "Order custom bar and wine sets for corporate gifts. Choose from engraved flasks, wine bags, and more at Perfect Imprints.",
+  "introHtml": "<p>Custom bar and wine sets bundle complementary drinkware and accessories into one polished gift. Whether you are outfitting sales teams with engraved flasks and shot glasses or thanking clients with a wine bag and corkscrew combo, these sets create a cohesive branded experience. They simplify gifting by pairing items that naturally go together, saving you time on sourcing individual pieces. Choose from metal, glass, or wood components and add your logo via etching or screen printing for a professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom bar and wine set with engraved flask, shot glasses, and corkscrew in a gift box",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:23:07.526753+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

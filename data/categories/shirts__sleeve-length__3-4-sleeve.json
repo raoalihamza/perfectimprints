@@ -1,0 +1,33 @@
+{
+  "url": "/cat/shirts/sleeve-length/3-4-sleeve",
+  "type": "facet",
+  "h1": "Custom 3/4 Sleeve Shirts",
+  "metaTitle": "Custom 3/4 Sleeve Shirts | Perfect Imprints",
+  "metaDescription": "Order custom 3/4 sleeve shirts for a professional look with extra coverage. Perfect for corporate events and uniforms. Get a quote today!",
+  "introHtml": "<p>Custom 3/4 sleeve shirts offer a polished yet relaxed silhouette that works well for team uniforms, trade shows, and casual office environments. The extended sleeve provides more coverage than a short sleeve while remaining cooler than a full long sleeve. Styles like the Ladies' Port Authority 3/4-Sleeve Tunic Blouse and the Men's Preston Long Sleeve Shirt (rolled) pair nicely with embroidery or screen printing for a clean, branded look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of professionals wearing custom 3/4 sleeve shirts with embroidered logos at a corporate event",
+  "productSkus": [
+    "501741",
+    "517273",
+    "517274",
+    "519011",
+    "523719",
+    "524313",
+    "525605",
+    "525606",
+    "525732",
+    "526291",
+    "527895",
+    "528949",
+    "528951"
+  ],
+  "generatedAt": "2026-05-31T10:06:32.990320+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

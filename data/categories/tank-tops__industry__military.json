@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tank-tops/industry/military",
+  "type": "facet",
+  "h1": "Custom Military Tank Tops for Bulk Orders",
+  "metaTitle": "Custom Military Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom military tank tops for your unit or event. Perfect for teams, morale, and giveaways. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Custom military tank tops offer a lightweight, breathable option for warm-weather training, unit morale events, or base giveaways. Choose moisture-wicking fabrics like the Sport-Tek PosiCharge mesh tanks for active duty or soft jersey cotton for casual wear. Screen printing or embroidery adds your unit insignia or slogan with lasting durability.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom military tank tops in camouflage colors with unit logo printed on front",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T08:27:32.939812+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

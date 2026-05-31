@@ -1,0 +1,32 @@
+{
+  "url": "/cat/sweaters-cardigans/supplier/pcna",
+  "type": "facet",
+  "h1": "Custom PCNA Sweaters & Cardigans",
+  "metaTitle": "Custom PCNA Sweaters & Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom PCNA sweaters and cardigans for your team. High-quality styles for corporate gifts or uniforms. Get a quote today.",
+  "introHtml": "<p>PCNA sweaters and cardigans offer a curated selection of branded apparel that balances professionalism with comfort. From the Ladies' Sweater Blazer to the Men's Journey Overshirt, each piece is designed for easy decoration with your logo. Perfect for corporate uniforms, retail staff, or promotional giveaways, these garments provide a polished look that stands out. Choose PCNA for consistent quality and style that your team will actually wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom PCNA sweaters and cardigans with embroidered logos, featuring Ladies' Sweater Blazer and Men's Journey Overshirt",
+  "productSkus": [
+    "520268",
+    "520269",
+    "523604",
+    "526198",
+    "526291",
+    "526292",
+    "527181",
+    "527182",
+    "527833",
+    "527957",
+    "528757",
+    "528758"
+  ],
+  "generatedAt": "2026-05-31T09:27:36.864315+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

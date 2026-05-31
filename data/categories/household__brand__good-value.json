@@ -1,0 +1,19 @@
+{
+  "url": "/cat/household/brand/good-value",
+  "type": "facet",
+  "h1": "Custom Good Value Household Products for Bulk Orders",
+  "metaTitle": "Custom Good Value Household Products | Perfect Imprints",
+  "metaDescription": "Order custom Good Value household products in bulk. Perfect for branding with logo imprint. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Good Value household products offer practical, budget-friendly options for businesses needing branded items like kitchen tools, cleaning supplies, and organizers. These items are ideal for corporate gifts, employee incentives, or promotional giveaways, as they provide everyday utility while showcasing your logo. Choose from mugs, towels, or storage solutions that can be decorated with screen printing or laser engraving for a professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Good Value household products including branded mugs and kitchen tools for bulk orders",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:34:34.270863+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jackets/brand/clique",
+  "type": "facet",
+  "h1": "Custom Clique Jackets for Bulk Orders",
+  "metaTitle": "Custom Clique Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Clique jackets in bulk from Perfect Imprints. Perfect for corporate apparel and team uniforms.",
+  "introHtml": "<p>Clique jackets combine modern styling with durable performance fabrics, making them a top choice for corporate apparel programs and team uniforms. The Clique Summit ½ Zip, available in both men's and ladies' cuts, offers a sleek silhouette with moisture-wicking properties and secure zippered pockets. Perfect for embroidered logos or screen-printed designs, these jackets keep your team looking professional during outdoor events, trade shows, or daily commutes. Choose Clique for consistent sizing and color options that align with your brand standards.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Clique jackets with embroidery, featuring the Clique Summit ½ Zip in navy blue",
+  "productSkus": [
+    "509568",
+    "509569"
+  ],
+  "generatedAt": "2026-05-31T09:51:36.411082+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/shirts/brand/stitch",
+  "type": "facet",
+  "h1": "Custom Stitch Shirts for Bulk Orders",
+  "metaTitle": "Custom Stitch Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Stitch shirts in bulk from Perfect Imprints. Perfect for teams and events. Get your quote today!",
+  "introHtml": "<p>Stitch shirts offer a modern, tailored fit that stands out in the corporate apparel market. Ideal for trade shows or employee uniforms, these shirts combine performance fabrics with a polished look. Decorate with embroidery or screen printing for a crisp, professional finish that lasts through repeated wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Stitch shirts with embroidered logo on a polo style shirt for corporate branding",
+  "productSkus": [
+    "525389"
+  ],
+  "generatedAt": "2026-05-31T10:06:29.506298+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

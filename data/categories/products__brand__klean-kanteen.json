@@ -1,0 +1,26 @@
+{
+  "url": "/cat/products/brand/klean-kanteen",
+  "type": "facet",
+  "h1": "Custom Klean Kanteen Products for Bulk Orders",
+  "metaTitle": "Custom Klean Kanteen Products | Perfect Imprints",
+  "metaDescription": "Order custom Klean Kanteen products in bulk from Perfect Imprints. Perfect for corporate gifts, trade shows, and brand giveaways.",
+  "introHtml": "<p>Klean Kanteen products are built from high-quality stainless steel, making them a durable and eco-friendly choice for your branded merchandise. Their insulated mugs and tumblers keep drinks at the perfect temperature for hours, ideal for office use or outdoor events. With a sleek, minimalist design, these items appeal to health-conscious audiences and align with sustainability goals. Choose from a range of sizes and cap options to suit your promotional needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Klean Kanteen products including insulated mugs and tumblers with company logo",
+  "productSkus": [
+    "525994",
+    "525995",
+    "526526",
+    "526582",
+    "526583",
+    "526718"
+  ],
+  "generatedAt": "2026-05-31T09:23:56.286209+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/socks/feature/with-zipper",
+  "type": "facet",
+  "h1": "Custom Socks with Zipper for Bulk Orders",
+  "metaTitle": "Custom Socks with Zipper | Perfect Imprints",
+  "metaDescription": "Order custom socks with zipper for bulk giveaways. Perfect for trade shows or corporate gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom socks with zipper combine the comfort of premium socks with the convenience of a hidden zipper pocket for storing keys, cash, or cards. Ideal for trade show giveaways, corporate wellness kits, or safety gear, these socks offer both utility and branding space. The BeWell™ Socks exemplify this design, providing a secure pocket without sacrificing comfort. Choose from various colors and sizes to match your logo and message.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom socks with zipper featuring a hidden pocket for keys and cards, perfect for corporate giveaways.",
+  "productSkus": [
+    "526896"
+  ],
+  "generatedAt": "2026-05-31T09:26:14.015257+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

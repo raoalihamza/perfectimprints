@@ -1,0 +1,27 @@
+{
+  "url": "/cat/golf-balls/supplier/pecksgraphics",
+  "type": "facet",
+  "h1": "Custom Pecksgraphics Golf Balls for Branded Promotions",
+  "metaTitle": "Custom Pecksgraphics Golf Balls | Perfect Imprints",
+  "metaDescription": "Order custom Pecksgraphics golf balls for your next event. Perfect for corporate gifts, tournaments, and client appreciation.",
+  "introHtml": "<p>Custom Pecksgraphics golf balls give you access to premium brands like Titleist and Volvik, decorated with your logo through precise pad printing or hot stamping. Whether you need a dozen for a client gift or hundreds for a charity tournament, these promotional golf balls deliver a polished, professional look that stands out on the course. Choose from bright Vivid colors or classic Pro V1 performance to match your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Pecksgraphics golf balls with company logo on a bright green background",
+  "productSkus": [
+    "506922 50D",
+    "506923 50D",
+    "507565 90A",
+    "515618 90A",
+    "521337",
+    "527050",
+    "528245"
+  ],
+  "generatedAt": "2026-05-31T09:14:25.425479+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

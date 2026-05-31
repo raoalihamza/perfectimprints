@@ -1,0 +1,31 @@
+{
+  "url": "/cat/wine-tumblers/color/green",
+  "type": "facet",
+  "h1": "Custom Green Wine Tumblers",
+  "metaTitle": "Custom Green Wine Tumblers | Perfect Imprints",
+  "metaDescription": "Order custom green wine tumblers for your next event. Perfect for branding with logos. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Green wine tumblers offer a distinctive look that stands out at corporate events, trade shows, or employee gifts. Whether you choose a deep forest green or a bright lime, these tumblers pair well with outdoor themes or eco-conscious branding. Options like the Napa Stemless Wine Tumbler Set provide a durable, insulated design, while plastic versions are ideal for poolside or tailgate giveaways. Add your logo through screen printing or full-color digital decoration for a polished finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green wine tumblers with logo, perfect for corporate gifts and events",
+  "productSkus": [
+    "511450",
+    "520339",
+    "522060",
+    "522098",
+    "522955",
+    "523950",
+    "524419",
+    "524524",
+    "524525",
+    "526191",
+    "527252"
+  ],
+  "generatedAt": "2026-05-31T09:30:53.397791+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/school-spirit/brand/american-giant",
+  "type": "facet",
+  "h1": "Custom American Giant School Spirit Apparel",
+  "metaTitle": "Custom American Giant School Spirit | Perfect Imprints",
+  "metaDescription": "Order custom American Giant school spirit apparel for your team. Premium USA-made hoodies and crewnecks with your logo. Bulk pricing available.",
+  "introHtml": "<p>American Giant's heavyweight fleece and lightweight French Terry fabrics are made in the USA, offering durability that stands up to daily wear. Perfect for alumni associations, booster clubs, or university departments that want premium quality with their logo. Decorate with screen printing or embroidery on these full-zip hoodies and crew sweatshirts for a polished, long-lasting look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom American Giant school spirit hoodie with embroidered logo on front, showing premium fleece fabric",
+  "productSkus": [
+    "528594",
+    "528595",
+    "529338",
+    "529339"
+  ],
+  "generatedAt": "2026-05-31T10:05:46.164445+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

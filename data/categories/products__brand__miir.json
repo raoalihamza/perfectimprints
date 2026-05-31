@@ -1,0 +1,33 @@
+{
+  "url": "/cat/products/brand/miir",
+  "type": "facet",
+  "h1": "Custom Miir Products for Branded Giveaways",
+  "metaTitle": "Custom Miir Products | Perfect Imprints",
+  "metaDescription": "Order custom Miir products for your brand. Perfect for eco-conscious corporate gifts and events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Miir products combine sustainable design with premium materials, making them a standout choice for brands that value quality and environmental responsibility. From vacuum-insulated stainless steel drinkware to durable laptop backpacks, each item offers exceptional durability and a clean canvas for your logo. Whether you're outfitting a corporate retreat or rewarding top performers, custom Miir products communicate a commitment to thoughtful design and lasting value.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Miir products including vacuum insulated tumblers and bottles with logo imprint for corporate branding",
+  "productSkus": [
+    "523728",
+    "523729",
+    "523730",
+    "523761",
+    "525478",
+    "525481",
+    "525612",
+    "526419",
+    "526482",
+    "527194",
+    "527204",
+    "527938",
+    "527939"
+  ],
+  "generatedAt": "2026-05-31T10:03:34.957206+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

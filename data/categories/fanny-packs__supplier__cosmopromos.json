@@ -1,0 +1,30 @@
+{
+  "url": "/cat/fanny-packs/supplier/cosmopromos",
+  "type": "facet",
+  "h1": "Custom Cosmopromos Fanny Packs",
+  "metaTitle": "Custom Cosmopromos Fanny Packs | Perfect Imprints",
+  "metaDescription": "Order custom Cosmopromos fanny packs for your event or team. Bulk pricing available. Get a quote today!",
+  "introHtml": "<p>Cosmopromos fanny packs combine durable materials with practical designs, making them ideal for trade shows, corporate events, and promotional giveaways. Whether you need neon colors for visibility or clear styles for security compliance, Cosmopromos offers options that can be customized with your logo. Choose from running belts, organizers, or budget-friendly styles to fit your audience and budget.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Cosmopromos fanny packs in various colors and styles for promotional use",
+  "productSkus": [
+    "514432",
+    "514433",
+    "519201",
+    "522510",
+    "522705",
+    "522803",
+    "523655",
+    "524162",
+    "524500",
+    "525724"
+  ],
+  "generatedAt": "2026-05-31T09:45:30.663010+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

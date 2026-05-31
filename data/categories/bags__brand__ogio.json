@@ -1,0 +1,22 @@
+{
+  "url": "/cat/bags/brand/ogio",
+  "type": "facet",
+  "h1": "Custom Ogio Bags for Branded Promotional Orders",
+  "metaTitle": "Custom Ogio Bags | Perfect Imprints",
+  "metaDescription": "Order custom Ogio bags for your brand. Durable, stylish promotional bags with your logo. Get a quote today.",
+  "introHtml": "<p>Ogio bags are built for durability and performance, making them a smart choice for branded giveaways that get used daily. From the Ogio Epic Pack’s padded laptop compartment to the Kickstart 22 Travel Bag’s organizational pockets, these bags offer real utility for employees or clients. Decorating with your logo is straightforward via embroidery or screen printing, and the high-quality materials ensure your brand stays visible for years. Whether you’re outfitting a sales team or rewarding loyal customers, custom Ogio bags deliver lasting impressions.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Ogio bags with embroidered logos, including the Ogio Epic Pack and Kickstart 22 Travel Bag.",
+  "productSkus": [
+    "510316",
+    "515082 01A"
+  ],
+  "generatedAt": "2026-05-31T09:06:55.010875+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

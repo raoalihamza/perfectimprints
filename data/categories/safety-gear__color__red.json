@@ -1,0 +1,22 @@
+{
+  "url": "/cat/safety-gear/color/red",
+  "type": "facet",
+  "h1": "Custom Red Safety Gear for Bulk Orders",
+  "metaTitle": "Custom Red Safety Gear | Perfect Imprints",
+  "metaDescription": "Order custom red safety gear in bulk for your team. Hard hats, snap bands, and more. Get your quote at Perfect Imprints.",
+  "introHtml": "<p>Red safety gear stands out on any job site, making it a smart choice for crews who need high visibility and a unified look. From custom-printed Kilimanjaro Ratchet Hard Hats to reflective snap bands, red gear helps your team stay seen and professional. Perfect for construction, warehouse, or event staff uniforms.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red safety gear including a ratchet hard hat and reflective snap band for high visibility",
+  "productSkus": [
+    "521967",
+    "525806"
+  ],
+  "generatedAt": "2026-05-31T10:05:24.991961+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

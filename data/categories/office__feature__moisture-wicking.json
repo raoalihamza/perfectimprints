@@ -1,0 +1,25 @@
+{
+  "url": "/cat/office/feature/moisture-wicking",
+  "type": "facet",
+  "h1": "Custom Moisture Wicking Office Apparel",
+  "metaTitle": "Custom Moisture Wicking Office Apparel | Perfect Imprints",
+  "metaDescription": "Order custom moisture wicking office apparel for your team. Perfect for comfort and professionalism. Call Perfect Imprints today!",
+  "introHtml": "<p>Moisture wicking office apparel keeps your team dry and comfortable during long workdays, trade shows, or outdoor company events. Unlike standard cotton polos, fabrics like the Dege Eco Knit Half Zip or Vega Tech Quarter Zip pull sweat away from the skin, reducing stains and odor. Choose custom embroidery or screen printing on performance polos, quarter zips, or half zips for a polished look that works as hard as your employees do.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A group of professionals wearing custom moisture wicking office polos and quarter zips with embroidered logos",
+  "productSkus": [
+    "506146",
+    "521108",
+    "521109",
+    "524448",
+    "524449"
+  ],
+  "generatedAt": "2026-05-31T08:58:44.343353+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

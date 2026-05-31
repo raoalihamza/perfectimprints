@@ -1,0 +1,26 @@
+{
+  "url": "/cat/outdoor/feature/auto-open",
+  "type": "facet",
+  "h1": "Custom Auto Open Outdoor Blankets",
+  "metaTitle": "Custom Auto Open Outdoor Blankets | Perfect Imprints",
+  "metaDescription": "Shop custom auto open outdoor blankets for easy setup at events. Perfect for giveaways and corporate gifts. Order bulk today!",
+  "introHtml": "<p>Auto open outdoor blankets save time and frustration at company picnics, trade shows, and team outings. With a simple toss, these blankets unfold themselves, so you can focus on your guests or clients. Choose from fleece, plaid, or roll-up styles with custom imprinting. Ideal for marketing directors who want a functional giveaway that gets used repeatedly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom auto open outdoor blanket with company logo spread on grass, featuring easy setup mechanism",
+  "productSkus": [
+    "505863",
+    "510676",
+    "512997",
+    "515638",
+    "522968",
+    "523732"
+  ],
+  "generatedAt": "2026-05-31T08:44:46.230503+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

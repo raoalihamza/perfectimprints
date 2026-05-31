@@ -1,0 +1,21 @@
+{
+  "url": "/cat/beanies/brand/kati",
+  "type": "facet",
+  "h1": "Custom Kati Beanies for Bulk Orders",
+  "metaTitle": "Custom Kati Beanies | Perfect Imprints",
+  "metaDescription": "Order custom Kati beanies in bulk for your team or event. High-quality knit caps with your logo. Get a quote today.",
+  "introHtml": "<p>Kati beanies offer a modern, tailored fit that stands out from standard knit caps. The Breakup 8\" Knit Cap features a sleek cuffless design, making it ideal for corporate gifts or retail displays. Decorate with embroidered logos for a polished look that employees and customers will wear all season. Perfect for winter giveaways or branded merchandise programs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Kati beanies in bulk, featuring a black knit cap with embroidered logo on a neutral background.",
+  "productSkus": [
+    "519125"
+  ],
+  "generatedAt": "2026-05-31T08:50:43.175211+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

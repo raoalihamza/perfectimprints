@@ -1,0 +1,26 @@
+{
+  "url": "/cat/pet-bowls/feature/with-carabiner",
+  "type": "facet",
+  "h1": "Custom Pet Bowls with Carabiner",
+  "metaTitle": "Custom Pet Bowls with Carabiner | Perfect Imprints",
+  "metaDescription": "Order custom pet bowls with carabiner for easy on-the-go hydration. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Custom pet bowls with carabiner are designed for active pet owners who need a portable, spill-proof solution for walks, hikes, and travel. The attached carabiner clips easily to a belt loop, backpack, or leash, ensuring your branded bowl is always within reach. Choose from collapsible silicone models or rigid bowls with a secure clip. Decorate with your logo using pad printing or laser engraving for a durable, professional look that keeps your brand visible wherever pets go.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pet bowls with carabiner clipped to a backpack, featuring collapsible silicone design and company logo.",
+  "productSkus": [
+    "519292 90A",
+    "520484",
+    "521770",
+    "527080",
+    "527081",
+    "529207"
+  ],
+  "generatedAt": "2026-05-31T10:01:14.624434+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/best",
+  "type": "facet",
+  "h1": "Custom Best Products for Your Brand",
+  "metaTitle": "Custom Best Products | Perfect Imprints",
+  "metaDescription": "Order custom best products for your brand at Perfect Imprints. Shop our curated selection of top-quality promotional items.",
+  "introHtml": "<p>Choosing the best products for your promotional campaign means selecting items that combine durability, functionality, and brand appeal. Our curated collection of custom best products features top-rated items from leading suppliers, ensuring your logo appears on merchandise your recipients will actually use. Whether you need premium drinkware, stylish apparel, or innovative tech accessories, this selection highlights the most popular and reliable options for bulk orders.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A display of custom best products including branded water bottles, pens, and tote bags for promotional use.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:22.746885+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

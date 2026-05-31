@@ -1,0 +1,25 @@
+{
+  "url": "/cat/outerwear/brand/spyder",
+  "type": "facet",
+  "h1": "Custom Spyder Outerwear for Corporate Orders",
+  "metaTitle": "Custom Spyder Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom Spyder outerwear for your team. Premium fleece vests and jackets with your logo. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Spyder outerwear brings ski-tested performance to corporate apparel. From the Men's North End Aura Sweater Fleece Vest to the Core 365 Prevail Packable Puffer Jacket, these pieces are engineered for warmth and mobility. Ideal for outdoor events, field teams, or branded uniforms that need to withstand cold conditions. Decorate with embroidery or screen printing for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Spyder outerwear including fleece vests and packable puffer jackets with corporate logos",
+  "productSkus": [
+    "520279",
+    "520280",
+    "520281",
+    "528103",
+    "528104"
+  ],
+  "generatedAt": "2026-05-31T08:30:07.405271+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

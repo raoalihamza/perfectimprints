@@ -1,0 +1,26 @@
+{
+  "url": "/cat/speakers/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Speakers for Bulk Orders",
+  "metaTitle": "Custom Set Speakers | Perfect Imprints",
+  "metaDescription": "Order custom set speakers in bulk for your next event or promotion. Perfect Imprints offers quality branded speaker sets.",
+  "introHtml": "<p>Custom set speakers bundle multiple audio devices into one cohesive package, making them ideal for corporate gifts, event swag, or employee incentives. Unlike single speakers, these sets often include karaoke microphones, sound machines, or clocks with integrated speakers, offering more value and versatility. Choose from options like the Magic Mic Karaoke Set or the Rise & Shine Clock with Light-Up Speaker for memorable branded experiences that recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set speakers including a karaoke microphone and portable Bluetooth speaker for branding",
+  "productSkus": [
+    "527549",
+    "527851",
+    "527954",
+    "528021",
+    "528132",
+    "528133"
+  ],
+  "generatedAt": "2026-05-31T10:07:35.060094+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

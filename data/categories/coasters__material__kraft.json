@@ -1,0 +1,25 @@
+{
+  "url": "/cat/coasters/material/kraft",
+  "type": "facet",
+  "h1": "Custom Kraft Coasters for Branded Drinkware",
+  "metaTitle": "Custom Kraft Coasters | Perfect Imprints",
+  "metaDescription": "Order custom kraft coasters for your business. Eco-friendly, absorbent, and perfect for branding. Get a quote today!",
+  "introHtml": "<p>Kraft coasters bring a natural, eco-friendly look to your brand. Made from absorbent stone, they handle condensation without sticking to glasses. Ideal for restaurants, cafes, or corporate gifts, these custom kraft coasters offer a subtle, organic surface for your logo. Choose from round or square shapes, or opt for the duo set. Decorate with screen printing or foil stamping for a clean, professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom kraft coasters with absorbent stone surface and branded logo on a wooden table",
+  "productSkus": [
+    "510544 32B",
+    "510545 32B",
+    "512285 32B",
+    "520562",
+    "529291"
+  ],
+  "generatedAt": "2026-05-31T09:40:50.172733+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

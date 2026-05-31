@@ -1,0 +1,25 @@
+{
+  "url": "/cat/mechanical-pencils/search",
+  "type": "modifier",
+  "h1": "Custom Mechanical Pencils for Branded Promotions",
+  "metaTitle": "Custom Mechanical Pencils | Perfect Imprints",
+  "metaDescription": "Browse our selection of custom mechanical pencils for your brand. Find the perfect promotional writing tool at Perfect Imprints.",
+  "introHtml": "<p>Custom mechanical pencils offer a precise and reliable writing experience that sets your brand apart. Whether you need a budget-friendly option like the Armadillo Mechanical Pencil or a more premium feel with the Frosty Grip Mechanical Pencil, our range provides ample choices for your next promotional campaign. Explore our collection to find the ideal pencil that reflects your brand's quality and attention to detail.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A display of various custom mechanical pencils including Armadillo, Frosty Grip, and Wild Smilez models for promotional use.",
+  "productSkus": [
+    "510506",
+    "510906",
+    "514646",
+    "519577",
+    "525811"
+  ],
+  "generatedAt": "2026-05-31T09:19:24.151234+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

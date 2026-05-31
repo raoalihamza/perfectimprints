@@ -1,0 +1,58 @@
+{
+  "url": "/cat/clocks",
+  "type": "root",
+  "h1": "Custom Clocks for Branded Gifts & Office Decor",
+  "metaTitle": "Custom Clocks | Perfect Imprints",
+  "metaDescription": "Browse custom clocks with your logo. Perfect for office gifts, trade shows, and employee appreciation. Bulk pricing available.",
+  "introHtml": "<p>Marketing directors looking for memorable trade show giveaways, HR directors planning employee appreciation gifts, and business owners outfitting their office with branded decor all turn to custom clocks. A clock is one of the few promotional items that people actually want to keep on their desk or wall, giving your logo daily visibility. Whether you need a sleek desk clock for client gifts, a large wall clock for a conference room, or a functional alarm clock for employee onboarding kits, this category has options to fit your audience and budget.</p><p>Our collection includes traditional analog designs like the Oslo Clock and Titan Clock, modern digital options like the Fabric &amp; Bamboo Wireless Charger With Clock, and specialty pieces such as the Mantel Skeleton Clock. Many clocks can be customized with screen printing, laser engraving, or full-color heat transfer to display your logo clearly. With bulk ordering, you can equip an entire office or event with consistent, high-quality timepieces that reinforce your brand every day.</p>",
+  "buyingGuideHtml": "<p>When selecting custom clocks for your next promotion, consider the environment where the clock will be used. Desk clocks like the Tuxedo Clock work well for office giveaways, while wall clocks such as the 16Inch Giant Wall Clock are better for common areas. For employee gifts, functional options like the Wellable™ White Noise Sunrise Alarm Clock or the Fabric &amp; Bamboo Wireless Charger With Clock offer added utility, increasing the likelihood they will be used and seen.</p><h3>Materials and Build Quality</h3><p>Clock construction varies widely. Wood clocks like the Cronus Wood Clock provide a premium feel, while metal and glass designs offer a modern aesthetic. For durability, look for quartz movements that ensure accurate timekeeping. Battery-operated clocks are standard and easy to maintain. If the clock will be placed in high-traffic areas, consider models with protective lenses or sturdy frames that resist wear.</p><h3>Decoration and Customization Options</h3><p>Screen printing works well for large, simple logos on flat clock faces. Laser engraving is ideal for wood or metal surfaces, giving a permanent, upscale look. For full-color logos, full-color heat transfer or pad printing can reproduce detailed artwork on various materials. Some clocks, like the Fabric &amp; Bamboo Wireless Charger With Clock, allow for UV printing on the fabric or bamboo surface. Always request a proof to see how your logo will appear on the chosen clock face.</p><h3>Common Use Cases and Buyer Personas</h3><p>Marketing directors often order branded clocks as trade show giveaways or client gifts that convey professionalism. HR directors use personalized clocks for employee service awards or retirement gifts. Safety managers might include clocks in safety program incentive kits to promote punctuality. Business owners can outfit their entire office with logo clocks for a cohesive brand environment. Fundraisers and conferences also use clocks as premium donor gifts or speaker presents.</p><h3>Quantity Guidance and MOQ Context</h3><p>Minimum order quantities (MOQs) for custom clocks typically range from 50 to 250 units, depending on the model and decoration method. Bulk orders of 500 or more significantly reduce per-unit cost. For small runs, consider stock designs that require minimal customization. For large events, ordering in higher quantities ensures you have enough for multiple touchpoints and future needs. Wholesale pricing is available for bulk clock orders, making them cost-effective for large-scale campaigns.</p><p>A common mistake is choosing a clock face that is too small for the intended space. Always measure the wall or desk area before ordering. Another pitfall is selecting a decoration method that doesn't adhere well to the clock material. For example, screen printing on textured surfaces may not produce clean lines. Finally, verify lead times: custom clocks often require 2-4 weeks for production plus shipping. Order samples first to confirm quality and appearance before placing a full bulk order.</p>",
+  "buyingGuideH2": "Custom Clocks Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom clocks?",
+      "a": "Minimum order quantities vary by model but typically start at 50 to 250 units. Some stock designs may have lower MOQs. Contact us for specific product requirements."
+    },
+    {
+      "q": "What decoration methods are available for clocks?",
+      "a": "Common methods include screen printing, laser engraving, full-color heat transfer, and pad printing. The best option depends on the clock material and your logo complexity."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, samples are available for most clock models. You can order a blank or decorated sample to evaluate quality and appearance before committing to a full order."
+    },
+    {
+      "q": "How long does production and shipping take?",
+      "a": "Production typically takes 2-4 weeks after artwork approval. Shipping time depends on the method selected. Rush services may be available for an additional fee."
+    },
+    {
+      "q": "What sizes of custom clocks are available?",
+      "a": "We offer a range from small desk clocks (around 4 inches) to large wall clocks (up to 16 inches or more). Choose a size that fits your intended use and space."
+    }
+  ],
+  "heroAltText": "Custom clocks with logo engraving for office desk and wall decor",
+  "productSkus": [
+    "512640 64F",
+    "514585 43A",
+    "514834 01A",
+    "515134 90E",
+    "516151",
+    "520887",
+    "524026",
+    "527550",
+    "528133",
+    "528216",
+    "528699",
+    "528765",
+    "528766",
+    "528774",
+    "528775",
+    "528776"
+  ],
+  "generatedAt": "2026-05-30T10:39:36.114573+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "use_case",
+  "skuFilterMode": "full",
+  "rawSkuCount": 16,
+  "filteredSkuCount": 16
+}

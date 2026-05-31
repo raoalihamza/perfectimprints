@@ -1,0 +1,22 @@
+{
+  "url": "/cat/desk-organizers/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Desk Organizers for Bulk Orders",
+  "metaTitle": "Custom Set Desk Organizers | Perfect Imprints",
+  "metaDescription": "Order custom set desk organizers in bulk. Perfect for branded desk accessories. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Bundled desk organizer sets combine multiple essential tools into one cohesive package, making them ideal for onboarding kits, corporate gifts, or trade show giveaways. Choosing a set ensures your recipients receive a coordinated collection rather than a single item, increasing perceived value and brand exposure. Options like the Tuscany™ Journal & Pen Gift Set pair a notebook with a writing instrument, while Post-it® Page Markers and Note Combos deliver practical note-taking accessories. Customize each component with your logo using screen printing, foil stamping, or embossing for a polished, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set desk organizers with branded journal and pen gift set on a clean office desk",
+  "productSkus": [
+    "518920",
+    "521666"
+  ],
+  "generatedAt": "2026-05-31T09:42:37.360059+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

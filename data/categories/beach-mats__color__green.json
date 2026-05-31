@@ -1,0 +1,33 @@
+{
+  "url": "/cat/beach-mats/color/green",
+  "type": "facet",
+  "h1": "Custom Green Beach Mats for Bulk Orders",
+  "metaTitle": "Custom Green Beach Mats | Perfect Imprints",
+  "metaDescription": "Order custom green beach mats in bulk at Perfect Imprints. Ideal for giveaways, events, and brand visibility. Get a quote today!",
+  "introHtml": "<p>Green beach mats offer a natural, eye-catching backdrop for your brand at outdoor events, company picnics, or beachside promotions. Unlike standard beach towels, these mats provide a dedicated space for lounging while showcasing your logo in a color that evokes freshness and eco-consciousness. Perfect for marketing directors seeking a practical giveaway that stands out on the sand, our green beach mats can be screen printed or embroidered with your design. Choose from styles like the Havasu Non-Woven Beach Tote or the Riviera Beach Towel to match your brand's aesthetic.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green beach mats with a company logo printed on them, laid out on a sunny beach.",
+  "productSkus": [
+    "510324",
+    "510327",
+    "510416",
+    "517456",
+    "517738",
+    "517739",
+    "519619",
+    "519759",
+    "520308",
+    "521576",
+    "523569",
+    "523960",
+    "525353"
+  ],
+  "generatedAt": "2026-05-31T09:36:29.122727+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

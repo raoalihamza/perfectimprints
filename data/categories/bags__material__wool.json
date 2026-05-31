@@ -1,0 +1,22 @@
+{
+  "url": "/cat/bags/material/wool",
+  "type": "facet",
+  "h1": "Custom Wool Bags for Bulk Orders",
+  "metaTitle": "Custom Wool Bags | Perfect Imprints",
+  "metaDescription": "Order custom wool bags in bulk from Perfect Imprints. Perfect for corporate gifts and promotional giveaways.",
+  "introHtml": "<p>Wool bags offer a natural, textured alternative to synthetic materials, making them a smart choice for brands aiming to convey warmth and durability. From duffels like the Field & Co.® Campster 22\" to craft coolers, wool absorbs screen printing or embroidery beautifully, creating a premium look for corporate gifts or employee swag. The material's natural insulation also adds practical value for outdoor events or trade shows.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wool bags with embroidered logo, featuring a wool duffel and cooler",
+  "productSkus": [
+    "525845",
+    "525850"
+  ],
+  "generatedAt": "2026-05-31T08:32:13.693145+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

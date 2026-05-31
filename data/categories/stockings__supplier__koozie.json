@@ -1,0 +1,29 @@
+{
+  "url": "/cat/stockings/supplier/koozie",
+  "type": "facet",
+  "h1": "Custom Koozie Stockings for Bulk Orders",
+  "metaTitle": "Custom Koozie Stockings | Perfect Imprints",
+  "metaDescription": "Order custom koozie stockings in bulk from Perfect Imprints. Perfect for corporate gifts and holiday promotions.",
+  "introHtml": "<p>Koozie brand stockings offer a unique combination of comfort and durability, making them ideal for corporate gift programs and holiday promotions. From cozy slipper socks to performance athletic styles, these stockings provide year-round branding opportunities. Choose from jacquard patterns or full-color designs with trifold packaging for a polished presentation. Decorate with your logo using embroidery or screen printing to create memorable giveaways that recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom koozie stockings in various styles including slipper socks and athletic socks with logo embroidery",
+  "productSkus": [
+    "516800",
+    "521927",
+    "522251",
+    "524427",
+    "525740",
+    "526360",
+    "526361",
+    "526363",
+    "526896"
+  ],
+  "generatedAt": "2026-05-31T08:47:01.854135+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

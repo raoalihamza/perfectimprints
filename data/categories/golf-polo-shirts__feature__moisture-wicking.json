@@ -1,0 +1,28 @@
+{
+  "url": "/cat/golf-polo-shirts/feature/moisture-wicking",
+  "type": "facet",
+  "h1": "Custom Moisture Wicking Golf Polo Shirts",
+  "metaTitle": "Custom Moisture Wicking Golf Polo Shirts | Perfect Imprints",
+  "metaDescription": "Order custom moisture wicking golf polo shirts for your team or event. Quick turnaround, bulk pricing, and free setup at Perfect Imprints.",
+  "introHtml": "<p>Moisture wicking golf polo shirts keep players cool and dry on the course by pulling sweat away from the skin. Unlike standard cotton polos, these performance fabrics resist clinging and odor, making them ideal for tournaments, corporate outings, or daily wear. Options like the Nike Dri-Fit or Sport-Tek Sport-Wick offer breathable mesh panels and UPF protection. Decorate with embroidery or screen printing for a polished, professional look that holds up wash after wash.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom moisture wicking golf polo shirts in various colors with embroidered logos, ideal for corporate golf events and teams.",
+  "productSkus": [
+    "510302",
+    "510303",
+    "510317",
+    "515155",
+    "515156",
+    "519683",
+    "525937",
+    "525938"
+  ],
+  "generatedAt": "2026-05-31T08:23:35.085229+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

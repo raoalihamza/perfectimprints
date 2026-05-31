@@ -1,0 +1,22 @@
+{
+  "url": "/cat/products/brand/wilson",
+  "type": "facet",
+  "h1": "Custom Wilson Products for Bulk Orders",
+  "metaTitle": "Custom Wilson Products - Perfect Imprints",
+  "metaDescription": "Order custom Wilson products for your brand. Perfect for golf events and corporate gifts. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Wilson products bring a legacy of quality and performance to your promotional lineup. Whether you are planning a corporate golf outing or rewarding top clients, custom Wilson items like the Tall Tube with 2 Ultra Golf Balls offer a premium, sporty appeal. These products are ideal for bulk orders, allowing you to imprint your logo on trusted gear that recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Wilson products including golf ball tubes with Ultra golf balls for corporate gifts",
+  "productSkus": [
+    "506922 50D",
+    "506923 50D"
+  ],
+  "generatedAt": "2026-05-31T10:03:47.262349+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

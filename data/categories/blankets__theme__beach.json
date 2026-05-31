@@ -1,0 +1,24 @@
+{
+  "url": "/cat/blankets/theme/beach",
+  "type": "facet",
+  "h1": "Custom Beach Blankets for Promotional Giveaways",
+  "metaTitle": "Custom Beach Blankets | Perfect Imprints",
+  "metaDescription": "Order custom beach blankets for your next promotion. Perfect for summer events, trade shows, and employee gifts. Get a quote today!",
+  "introHtml": "<p>Beach-themed blankets are a smart promotional investment for brands targeting outdoor enthusiasts, vacationers, and summer event attendees. Unlike generic fleece throws, these blankets feature sand-repellent fabrics, oversized dimensions for group seating, and vibrant coastal patterns that reinforce a sunny brand image. Decorate with your logo via screen printing or embroidery for a practical giveaway that gets used all season long.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom beach blankets spread on sandy shore with ocean waves in background, featuring printed logo and fringe details",
+  "productSkus": [
+    "515638",
+    "520308",
+    "526273",
+    "528626"
+  ],
+  "generatedAt": "2026-05-31T09:08:51.140375+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

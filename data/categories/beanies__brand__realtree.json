@@ -1,0 +1,21 @@
+{
+  "url": "/cat/beanies/brand/realtree",
+  "type": "facet",
+  "h1": "Custom Realtree Beanies for Bulk Orders",
+  "metaTitle": "Custom Realtree Beanies | Perfect Imprints",
+  "metaDescription": "Order custom Realtree beanies in bulk. Perfect for hunting teams, outdoor brands, and giveaways. Fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Realtree camouflage patterns are a trusted choice for outdoor enthusiasts, hunters, and brands that want to blend rugged style with brand visibility. Custom Realtree beanies let you display your logo on a premium knit cap that performs in cold weather. Whether you're outfitting a sales team for a hunting expo or creating employee gear for a company retreat, these beanies offer a durable, comfortable fit with a pattern that resonates with the outdoor lifestyle. Decorate with embroidered logos or screen-printed designs for a sharp, lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Realtree camouflage beanies with embroidered logo, knit cap for outdoor branding",
+  "productSkus": [
+    "519125"
+  ],
+  "generatedAt": "2026-05-31T09:36:34.062927+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

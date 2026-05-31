@@ -1,0 +1,29 @@
+{
+  "url": "/cat/jar-openers/search",
+  "type": "modifier",
+  "h1": "Custom Jar Openers for Branded Promotions",
+  "metaTitle": "Custom Jar Openers - Perfect Imprints",
+  "metaDescription": "Shop custom jar openers from Perfect Imprints. Great for giveaways and client gifts. Request a quote today.",
+  "introHtml": "<p>Custom jar openers make practical, memorable promotional products for any marketing campaign. Whether you're looking for hand-shaped openers, novelty designs like piggy or heart shapes, or classic oval and square styles, we offer a wide selection to fit your brand. Perfect for trade shows, client gifts, or employee appreciation, these giveaways get used daily. Browse our collection of customizable jar openers and find the right style for your next promotion.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom jar openers including hand, oval, heart, and piggy shapes for branded promotions",
+  "productSkus": [
+    "501793",
+    "501794",
+    "501795",
+    "501796",
+    "510171",
+    "511305",
+    "511309",
+    "524056",
+    "526167"
+  ],
+  "generatedAt": "2026-05-31T08:25:11.087312+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

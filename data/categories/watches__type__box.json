@@ -1,0 +1,22 @@
+{
+  "url": "/cat/watches/type/box",
+  "type": "facet",
+  "h1": "Custom Box Watches for Bulk Orders",
+  "metaTitle": "Custom Box Watches | Perfect Imprints",
+  "metaDescription": "Order custom box watches in bulk from Perfect Imprints. Ideal for corporate gifts and events. Get your quote today!",
+  "introHtml": "<p>Custom box watches offer a sleek, compact packaging solution for your promotional timepieces. Unlike standard watches, box watches come in a protective case that enhances the unboxing experience and makes them ideal for corporate gifts, event giveaways, or safety awards. Choose from styles like paracord or mood bracelet watches, each customizable with your logo or message. Perfect for bulk orders where presentation matters.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom box watches in bulk with logo engraving, featuring paracord and mood bracelet styles",
+  "productSkus": [
+    "516655",
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T09:30:04.529581+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

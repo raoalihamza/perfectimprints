@@ -1,0 +1,21 @@
+{
+  "url": "/cat/writing/material/glass",
+  "type": "facet",
+  "h1": "Custom Glass Writing Instruments for Bulk Orders",
+  "metaTitle": "Custom Glass Writing | Perfect Imprints",
+  "metaDescription": "Order custom glass writing instruments in bulk. Perfect for corporate gifts and events. Get a quote today.",
+  "introHtml": "<p>Glass writing instruments offer a sleek, modern alternative to standard pens and pencils. The smooth, cool feel of glass provides a unique writing experience that stands out on any desk. Perfect for corporate gifts, trade show giveaways, or executive sets, these writing tools can be laser engraved with your logo for a sophisticated, lasting impression. Choose glass for a premium look that elevates your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom glass writing instruments with laser engraved logos, ideal for corporate gifts and bulk orders.",
+  "productSkus": [
+    "526802"
+  ],
+  "generatedAt": "2026-05-31T10:16:06.730909+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

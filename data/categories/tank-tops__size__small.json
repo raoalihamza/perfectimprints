@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tank-tops/size/small",
+  "type": "facet",
+  "h1": "Custom Small Tank Tops for Bulk Orders",
+  "metaTitle": "Custom Small Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom small tank tops in bulk from Perfect Imprints. Perfect for teams, events, and promotions. Get a quote today!",
+  "introHtml": "<p>Small tank tops are a go-to choice for summer events, team uniforms, and promotional giveaways where a fitted, lightweight option is key. Whether you need youth sizes for camp groups or unisex cuts for race participants, our selection includes moisture-wicking fabrics, racerback styles, and tri-blend materials that keep wearers cool and comfortable. Decorate with screen printing or embroidery for a crisp, lasting logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of custom small tank tops in various colors, including youth and adult sizes, perfect for bulk branding.",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T08:23:21.355352+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

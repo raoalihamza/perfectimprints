@@ -1,0 +1,21 @@
+{
+  "url": "/cat/outerwear/brand/harriton",
+  "type": "facet",
+  "h1": "Custom Harriton Outerwear for Your Team",
+  "metaTitle": "Custom Harriton Outerwear | Perfect Imprints",
+  "metaDescription": "Shop custom Harriton outerwear at Perfect Imprints. Perfect for uniforms, giveaways, and more. Get your quote today!",
+  "introHtml": "<p>Harriton outerwear combines durable construction with classic styling, making it a favorite for corporate uniforms and employee rewards. The Harriton® Zippered Men's Fleece offers a comfortable midlayer that can be embroidered with your logo for a polished look. Whether you need lightweight jackets for a tradeshow or warm fleece for outdoor crews, Harriton's consistent sizing and reliable materials ensure your brand looks professional across the board.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Harriton outerwear including the Zippered Men's Fleece with embroidered logo",
+  "productSkus": [
+    "515736"
+  ],
+  "generatedAt": "2026-05-31T09:59:00.311004+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

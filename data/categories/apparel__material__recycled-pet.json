@@ -1,0 +1,23 @@
+{
+  "url": "/cat/apparel/material/recycled-pet",
+  "type": "facet",
+  "h1": "Custom Recycled PET Apparel",
+  "metaTitle": "Custom Recycled PET Apparel | Perfect Imprints",
+  "metaDescription": "Shop custom recycled PET apparel for eco-friendly branding. Bulk orders available at Perfect Imprints.",
+  "introHtml": "<p>Recycled PET apparel is made from post-consumer plastic bottles, transformed into durable polyester fabric. This material offers the same performance as virgin polyester—moisture-wicking, quick-drying, and colorfast—while reducing landfill waste. For companies committed to sustainability, custom recycled PET apparel like the RPET Boonie Hat or the Men's Radius Quilted Vest gives your brand a tangible environmental story. Decorate with embroidery or screen printing for a polished, professional look that aligns with your green initiatives.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled PET apparel including a Men's Radius Quilted Vest and RPET Boonie Hat displayed outdoors",
+  "productSkus": [
+    "526297",
+    "526298",
+    "526648"
+  ],
+  "generatedAt": "2026-05-31T08:48:28.330932+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

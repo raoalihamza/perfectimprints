@@ -1,0 +1,19 @@
+{
+  "url": "/cat/pet-treats/supplier/galaxy",
+  "type": "facet",
+  "h1": "Custom Galaxy Pet Treats for Bulk Orders",
+  "metaTitle": "Custom Galaxy Pet Treats | Perfect Imprints",
+  "metaDescription": "Order custom Galaxy pet treats in bulk for your brand. Perfect for giveaways and events. Get a quote today!",
+  "introHtml": "<p>Galaxy pet treats are made with natural ingredients and come in a variety of flavors that dogs love. When you add your logo through custom imprinting, these treats become a unique giveaway for pet owners attending your next trade show or company picnic. Choose from resealable pouches or single-serve packs to fit your budget and event needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Galaxy pet treats in bulk packaging with company logo, featuring dog-friendly flavors",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:10.699563+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

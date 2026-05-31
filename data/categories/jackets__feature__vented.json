@@ -1,0 +1,23 @@
+{
+  "url": "/cat/jackets/feature/vented",
+  "type": "facet",
+  "h1": "Custom Vented Jackets",
+  "metaTitle": "Custom Vented Jackets | Perfect Imprints",
+  "metaDescription": "Order custom vented jackets with your logo. Breathable, weather-ready designs for teams and events. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Vented jackets add breathability to weather protection, making them ideal for outdoor events, construction crews, or any team that works in changing conditions. Unlike standard rain jackets, vented styles use mesh-lined openings or DryVent™ technology to release heat without letting rain in. Choose from popular brands like The North Face® or Rains® and add your logo with screen printing or embroidery. These are jackets your team will actually want to wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom vented jackets with logo, featuring breathable mesh lining and waterproof shell for outdoor team wear",
+  "productSkus": [
+    "526345",
+    "526346",
+    "528967"
+  ],
+  "generatedAt": "2026-05-31T08:56:08.571174+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

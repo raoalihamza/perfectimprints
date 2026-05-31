@@ -1,0 +1,23 @@
+{
+  "url": "/cat/bags/brand/thule",
+  "type": "facet",
+  "h1": "Custom Thule Bags for Bulk Orders",
+  "metaTitle": "Custom Thule Bags | Perfect Imprints",
+  "metaDescription": "Order custom Thule bags in bulk for your team or event. Durable, stylish backpacks and laptop bags with your logo.",
+  "introHtml": "<p>Thule bags are built for professionals who need reliable gear that lasts. From the Subterra PowerShuttle to the Achiever and Accent backpacks, these bags feature padded laptop compartments, durable materials, and clean lines that look great with a logo. Perfect for corporate gifts, employee onboarding, or trade show giveaways, custom Thule bags combine premium quality with everyday utility. Decorate with embroidery or screen printing for a polished, long-lasting brand impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Thule bags with embroidered logo on a durable backpack, perfect for corporate bulk orders.",
+  "productSkus": [
+    "521628",
+    "524263",
+    "526734"
+  ],
+  "generatedAt": "2026-05-31T09:06:55.887278+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

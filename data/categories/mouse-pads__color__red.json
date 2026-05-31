@@ -1,0 +1,21 @@
+{
+  "url": "/cat/mouse-pads/color/red",
+  "type": "facet",
+  "h1": "Custom Red Mouse Pads for Bulk Orders",
+  "metaTitle": "Custom Red Mouse Pads | Perfect Imprints",
+  "metaDescription": "Order custom red mouse pads in bulk. Perfect for branding your office or event. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Red mouse pads add a bold pop of color to any desk, making your logo stand out while conveying energy and confidence. Whether you're outfitting a sales floor or distributing swag at a trade show, a custom red mouse pad offers a practical surface for precise cursor control. Choose from fabric or rubber textures, and decorate with full-color print or screen printing for crisp brand visibility that lasts through daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red mouse pad with a company logo printed on a smooth fabric surface, ideal for office branding.",
+  "productSkus": [
+    "526803"
+  ],
+  "generatedAt": "2026-05-31T08:44:14.480314+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

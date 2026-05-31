@@ -1,0 +1,26 @@
+{
+  "url": "/cat/scarves/supplier/edwards",
+  "type": "facet",
+  "h1": "Custom Edwards Scarves for Bulk Orders",
+  "metaTitle": "Custom Edwards Scarves | Perfect Imprints",
+  "metaDescription": "Order custom Edwards scarves for your team or event. Perfect for bulk branding. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Edwards scarves combine quality materials like fleece and knit with versatile designs, from two-tone fringe styles to cozy gift sets. Whether you need branded fleece scarves for a winter employee gift or striped knit scarves for a retail promotion, Edwards offers durable options that hold up to screen printing or full-color digital decoration. Bulk ordering ensures consistent branding across your entire order.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Edwards scarves including fleece scarves and knit scarves with fringe for branding",
+  "productSkus": [
+    "514088",
+    "516838",
+    "516839",
+    "516872",
+    "520012",
+    "520863"
+  ],
+  "generatedAt": "2026-05-31T10:05:42.933549+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

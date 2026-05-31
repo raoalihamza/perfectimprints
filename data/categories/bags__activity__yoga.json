@@ -1,0 +1,21 @@
+{
+  "url": "/cat/bags/activity/yoga",
+  "type": "facet",
+  "h1": "Custom Yoga Bags for Bulk Orders",
+  "metaTitle": "Custom Yoga Bags | Perfect Imprints",
+  "metaDescription": "Order custom yoga bags with your logo in bulk. Perfect for studios, retreats, and corporate wellness. Get a quote today!",
+  "introHtml": "<p>Custom yoga bags let you give wellness-minded clients and employees a practical carryall that matches their active lifestyle. The Yoga Retreat Cotton Tote, for example, offers a roomy interior for mats, blocks, and towels while providing a large surface for screen-printed or embroidered logos. Whether you're outfitting a studio, promoting a corporate wellness program, or distributing swag at a yoga retreat, these bags keep your brand visible during commutes and classes. Choose durable cotton or lightweight nylon in calming hues that reflect the yoga community's aesthetic.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom yoga bags with a printed logo, featuring a spacious cotton tote ideal for carrying yoga mats and accessories.",
+  "productSkus": [
+    "522878"
+  ],
+  "generatedAt": "2026-05-31T08:39:14.763083+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

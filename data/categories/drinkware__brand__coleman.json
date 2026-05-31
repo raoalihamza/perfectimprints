@@ -1,0 +1,22 @@
+{
+  "url": "/cat/drinkware/brand/coleman",
+  "type": "facet",
+  "h1": "Custom Coleman Drinkware for Bulk Orders",
+  "metaTitle": "Custom Coleman Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom Coleman drinkware in bulk for your brand. Perfect for outdoor events, giveaways, and corporate gifts at Perfect Imprints.",
+  "introHtml": "<p>Coleman drinkware brings rugged durability and outdoor heritage to your branded merchandise. From the iconic 1 Gallon Jug to the insulated 20 oz Brewski Tumbler, these products are built for job sites, tailgates, and camping trips. Choose custom Coleman drinkware when you need promotional items that hold up to heavy use and keep drinks cold or hot for hours. Decorate with your logo using screen printing or laser engraving for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Coleman drinkware including a 1 Gallon Jug and a 20 oz stainless steel tumbler with logos",
+  "productSkus": [
+    "509109",
+    "521930"
+  ],
+  "generatedAt": "2026-05-31T08:23:32.359793+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

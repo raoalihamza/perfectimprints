@@ -1,0 +1,27 @@
+{
+  "url": "/cat/sports-gear/brand/boxercraft",
+  "type": "facet",
+  "h1": "Custom Boxercraft Sports Gear for Teams & Events",
+  "metaTitle": "Custom Boxercraft Sports Gear | Perfect Imprints",
+  "metaDescription": "Order custom Boxercraft sports gear for your team or event. Bulk discounts available at Perfect Imprints.",
+  "introHtml": "<p>Boxercraft specializes in soft, comfortable fleece and flannel apparel that works as well on the sidelines as it does around the campfire. From the Sherpa Pullover to the Cuddle Cardigan, these pieces offer a relaxed fit and cozy feel that your group will actually wear again. Customize with screen-printed or embroidered logos for a branded look that stands out at company outings, trade shows, or charity runs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom Boxercraft sports gear including Sherpa Pullover and flannel pants",
+  "productSkus": [
+    "521535",
+    "527831",
+    "527832",
+    "527833",
+    "527834",
+    "527835",
+    "527836"
+  ],
+  "generatedAt": "2026-05-31T09:26:26.133226+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

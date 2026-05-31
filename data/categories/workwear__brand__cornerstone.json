@@ -1,0 +1,23 @@
+{
+  "url": "/cat/workwear/brand/cornerstone",
+  "type": "facet",
+  "h1": "Custom Cornerstone Workwear for Your Team",
+  "metaTitle": "Custom Cornerstone Workwear | Perfect Imprints",
+  "metaDescription": "Order custom Cornerstone workwear in bulk. Perfect for uniforms, safety vests, and more. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Cornerstone workwear is a trusted choice for companies that need durable, professional apparel for their teams. From snag-proof polos that hold up to daily wear to ANSI-rated safety vests for job site visibility, Cornerstone offers reliable options for uniform programs. Customize each piece with your logo using embroidery or screen printing to create a cohesive brand look that your employees will be proud to wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Cornerstone workwear including a snag-proof polo shirt and a hi-vis safety vest with logo",
+  "productSkus": [
+    "515284",
+    "515285",
+    "528678"
+  ],
+  "generatedAt": "2026-05-31T10:15:36.765831+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/tools/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Tools for Branded Giveaways",
+  "metaTitle": "Custom Purple Tools | Perfect Imprints",
+  "metaDescription": "Order custom purple tools for your next promotion. Perfect for branding and giveaways. Get a quote today!",
+  "introHtml": "<p>Purple tools stand out in any toolbox or office drawer, making them a smart choice for brand recognition. Whether you choose purple tape measures for a construction company or purple tool pens for a tech conference, the color adds a memorable pop. Decorate with your logo via pad printing or laser engraving to create a lasting impression that recipients will reach for daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple tools including tape measures and tool pens with logo imprint for promotional giveaways",
+  "productSkus": [
+    "509516",
+    "522310",
+    "522986",
+    "528239"
+  ],
+  "generatedAt": "2026-05-31T10:11:25.537407+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

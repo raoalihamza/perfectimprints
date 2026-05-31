@@ -1,0 +1,22 @@
+{
+  "url": "/cat/koozies/brand/yeti",
+  "type": "facet",
+  "h1": "Custom Yeti Koozies for Bulk Orders",
+  "metaTitle": "Custom Yeti Koozies | Perfect Imprints",
+  "metaDescription": "Order custom Yeti koozies in bulk at Perfect Imprints. Perfect for giveaways, events, and brand promotion.",
+  "introHtml": "<p>Yeti koozies are built to last, with double-wall vacuum insulation that keeps drinks cold for hours. When you choose custom Yeti koozies, you get the legendary durability of the Yeti brand combined with your logo or design. These are ideal for corporate gifts, trade show giveaways, or employee rewards where quality matters. Decorate with laser engraving or screen printing for a polished, long-lasting look that recipients will use again and again.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Yeti koozies with laser-engraved logo on a stainless steel can cooler",
+  "productSkus": [
+    "529532",
+    "529533"
+  ],
+  "generatedAt": "2026-05-31T08:43:24.924425+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

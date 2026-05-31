@@ -1,0 +1,23 @@
+{
+  "url": "/cat/products/brand/yankee-candle",
+  "type": "facet",
+  "h1": "Custom Yankee Candle Products for Bulk Orders",
+  "metaTitle": "Custom Yankee Candle Products | Perfect Imprints",
+  "metaDescription": "Order custom Yankee Candle products in bulk. Perfect for corporate gifts, employee appreciation, and client rewards. Get your quote today!",
+  "introHtml": "<p>Yankee Candle products offer a trusted brand name that recipients immediately recognize and appreciate. When you choose custom Yankee Candle products, you're giving a gift that evokes warmth, comfort, and lasting memories. These premium candles work exceptionally well for corporate holiday gifts, employee recognition programs, or client thank-you gestures. Decorate with your logo using custom labels or etched glass for a polished, professional look that stands out. The wide range of scents and sizes lets you tailor each gift to your brand's personality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Yankee Candle products with company logo on glass, including large tumbler and 3-wick candles in gift packaging.",
+  "productSkus": [
+    "529022",
+    "529023",
+    "529024"
+  ],
+  "generatedAt": "2026-05-31T10:03:47.749733+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

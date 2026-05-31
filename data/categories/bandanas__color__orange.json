@@ -1,0 +1,26 @@
+{
+  "url": "/cat/bandanas/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Bandanas",
+  "metaTitle": "Custom Orange Bandanas | Perfect Imprints",
+  "metaDescription": "Order custom orange bandanas for your team or event. High-visibility, washable, and perfect for branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Orange bandanas stand out in a crowd, making them a smart choice for safety crews, event staff, or promotional giveaways. Whether you need high-visibility accessories for outdoor workers or a bold color for a sports team, custom orange bandanas offer a durable, washable canvas for your logo. Choose from classic paisley or solid styles, and add screen-printed or embroidered branding that stays bright wash after wash.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange bandanas with printed logos, folded and displayed on a table, showing vibrant color and fabric texture.",
+  "productSkus": [
+    "506991",
+    "521602",
+    "522110",
+    "522111",
+    "524693",
+    "524817"
+  ],
+  "generatedAt": "2026-05-31T09:34:45.085481+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

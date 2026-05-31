@@ -1,0 +1,24 @@
+{
+  "url": "/cat/office/brand/post-it",
+  "type": "facet",
+  "h1": "Custom Post It Office Supplies for Bulk Orders",
+  "metaTitle": "Custom Post It Office Supplies | Perfect Imprints",
+  "metaDescription": "Order custom Post It notes for your office. Perfect for branding, reminders, and promotions. Bulk pricing available.",
+  "introHtml": "<p>Custom Post It notes are a staple in any office, offering a versatile way to keep your brand top of mind. Whether you need standard 4x8 lined notes for daily reminders or transparent notes for overlays, these sticky pads stick to desks, documents, and laptops. Ideal for marketing directors and safety managers looking to reinforce messages or safety protocols, they can be printed with your logo, contact info, or custom artwork. Choose from various sizes and sheet counts to fit your team's needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom printed Post It notes in assorted colors with a company logo displayed prominently",
+  "productSkus": [
+    "528272",
+    "528273",
+    "528274",
+    "528275"
+  ],
+  "generatedAt": "2026-05-31T08:30:00.307201+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

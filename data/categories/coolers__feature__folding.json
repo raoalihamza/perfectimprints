@@ -1,0 +1,26 @@
+{
+  "url": "/cat/coolers/feature/folding",
+  "type": "facet",
+  "h1": "Custom Folding Coolers for Branded Promotions",
+  "metaTitle": "Custom Folding Coolers | Perfect Imprints",
+  "metaDescription": "Shop custom folding coolers at Perfect Imprints. Perfect for outdoor events and giveaways. Order bulk folding coolers today.",
+  "introHtml": "<p>Custom folding coolers combine portability with brand visibility, making them ideal for trade shows, company picnics, and outdoor marketing events. Unlike rigid coolers, folding models collapse for easy storage and transport, letting your logo travel wherever your audience goes. Choose from options like the Camp Throne Folding Chair or the KOOZIE® Backpack Cooler Chair to offer seating and cooling in one. Decorate with screen printing or embroidery for a durable, professional look that keeps your brand top of mind.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom folding cooler with brand logo, collapsed for easy storage and transport at an outdoor event.",
+  "productSkus": [
+    "510827",
+    "514187",
+    "519984",
+    "520397",
+    "522742",
+    "527618"
+  ],
+  "generatedAt": "2026-05-31T08:52:35.005412+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

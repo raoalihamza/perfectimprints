@@ -1,0 +1,21 @@
+{
+  "url": "/cat/drinkware/feature/waterproof",
+  "type": "facet",
+  "h1": "Custom Waterproof Drinkware for Bulk Orders",
+  "metaTitle": "Custom Waterproof Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom waterproof drinkware for your team or event. Perfect for outdoor use. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Waterproof drinkware is built to withstand rain, splashes, and outdoor conditions without damage to the decoration or material. Whether you need branded bottles for a construction crew or insulated cups for a beachside event, waterproof construction ensures your logo stays sharp and the drinkware performs. Options like the Urban Peak® Gift Set combine durability with a premium feel, making them ideal for corporate gifts or safety team rewards.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom waterproof drinkware including bottles and cups with logos, suitable for outdoor use",
+  "productSkus": [
+    "523898"
+  ],
+  "generatedAt": "2026-05-31T09:12:14.508311+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

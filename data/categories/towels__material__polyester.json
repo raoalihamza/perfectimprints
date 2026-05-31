@@ -1,0 +1,26 @@
+{
+  "url": "/cat/towels/material/polyester",
+  "type": "facet",
+  "h1": "Custom Polyester Towels",
+  "metaTitle": "Custom Polyester Towels | Perfect Imprints",
+  "metaDescription": "Order custom polyester towels for your brand. Perfect for gyms, events, and promotions. Fast turnaround. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Polyester towels offer a practical balance of absorbency, durability, and quick drying, making them a popular choice for gyms, sports teams, and outdoor events. Unlike cotton, polyester resists mildew and holds up to repeated washing without shrinking. Options like the Waffle Weave Golf Towel or the Microfiber Scrubber Golf Towel provide textured surfaces for effective cleaning. Full-color sublimation printing allows vibrant, all-over designs that won't fade, ideal for branded giveaways or retail merchandise.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom polyester towels with full-color sublimated designs, including waffle weave and microfiber golf towels",
+  "productSkus": [
+    "510934 90A",
+    "523961",
+    "528005",
+    "528436",
+    "528644",
+    "529122"
+  ],
+  "generatedAt": "2026-05-31T09:29:01.481848+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

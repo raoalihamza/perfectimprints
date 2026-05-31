@@ -1,0 +1,21 @@
+{
+  "url": "/cat/highlighters/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Highlighters",
+  "metaTitle": "No-Minimum Custom Highlighters | Perfect Imprints",
+  "metaDescription": "Order small quantities of no-minimum custom highlighters with no bulk requirements. Perfect for small teams, events, or samples. Get a quote today!",
+  "introHtml": "<p>No-minimum custom highlighters let you order exactly what you need—whether it's a dozen for a small team, a handful for a startup event, or just a few samples to test before a larger order. Unlike traditional bulk requirements, we offer flexible quantities so you can brand your highlighters without overcommitting inventory or budget. Ideal for marketing directors, HR directors, and small business owners who want professional-quality promotional products in low volumes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A set of no-minimum custom highlighters in assorted neon colors with a company logo printed on the barrel.",
+  "productSkus": [
+    "529558"
+  ],
+  "generatedAt": "2026-05-31T09:50:52.803577+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

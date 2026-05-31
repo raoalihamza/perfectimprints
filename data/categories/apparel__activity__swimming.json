@@ -1,0 +1,19 @@
+{
+  "url": "/cat/apparel/activity/swimming",
+  "type": "facet",
+  "h1": "Custom Swimming Apparel for Teams & Events",
+  "metaTitle": "Custom Swimming Apparel | Perfect Imprints",
+  "metaDescription": "Order custom swimming apparel for your team or event. Perfect for swim meets, pool parties, and more. Get a quote today!",
+  "introHtml": "<p>Custom swimming apparel is designed for comfort and performance in the water. Whether you need branded swim caps for a swim meet, custom rash guards for a company pool party, or logoed swim trunks for a team event, these items are made from quick-drying, chlorine-resistant materials. Choose screen printing or embroidery for durable branding that stays vibrant even after repeated use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom swimming apparel including swim caps and rash guards at a pool event",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:05:22.089949+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

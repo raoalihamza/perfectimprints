@@ -1,0 +1,25 @@
+{
+  "url": "/cat/mechanical-pencils/supplier/lmrk",
+  "type": "facet",
+  "h1": "Custom LMRK Mechanical Pencils",
+  "metaTitle": "Custom LMRK Mechanical Pencils | Perfect Imprints",
+  "metaDescription": "Brand your business with custom LMRK mechanical pencils. Perfect for bulk orders. Get a quote today!",
+  "introHtml": "<p>LMRK mechanical pencils combine durable construction with smooth writing performance, making them a reliable choice for branded giveaways. Unlike generic pencils, LMRK models like the Armadillo and Frosty Grip offer unique textures and ergonomic grips that stand out in any office or trade show setting. Decorate them with your logo using pad printing or laser engraving for a professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom LMRK mechanical pencils with logo imprint, featuring Armadillo and Frosty Grip models",
+  "productSkus": [
+    "510506",
+    "510906",
+    "514646",
+    "519577",
+    "525811"
+  ],
+  "generatedAt": "2026-05-31T09:56:07.073351+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

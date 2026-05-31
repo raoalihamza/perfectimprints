@@ -1,0 +1,32 @@
+{
+  "url": "/cat/speakers/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Speakers for Bulk Orders",
+  "metaTitle": "Custom Blue Speakers | Perfect Imprints",
+  "metaDescription": "Order custom blue speakers for your next event or promotion. Perfect for giveaways and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Blue speakers stand out in a crowd, making them a smart choice for brand visibility at trade shows, corporate events, or employee gifts. Whether you choose a rugged waterproof model for outdoor use or a sleek mini Bluetooth aluminum speaker for desk giveaways, blue offers a vibrant yet professional look. Decorate with your logo via pad printing or laser engraving for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue Bluetooth speakers with company logo printed on the front, ideal for corporate gifts and promotional events.",
+  "productSkus": [
+    "507421",
+    "518979",
+    "521630",
+    "522300",
+    "524430",
+    "526637",
+    "527497",
+    "527861",
+    "528691",
+    "529459",
+    "529460",
+    "529462"
+  ],
+  "generatedAt": "2026-05-31T09:26:18.129557+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

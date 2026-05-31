@@ -1,0 +1,30 @@
+{
+  "url": "/cat/shot-glasses/supplier/ets",
+  "type": "facet",
+  "h1": "Custom ETS Shot Glasses for Bulk Orders",
+  "metaTitle": "Custom ETS Shot Glasses | Perfect Imprints",
+  "metaDescription": "Order custom ETS shot glasses in bulk. Perfect for events, bars, and promotions. Get a free quote from Perfect Imprints today.",
+  "introHtml": "<p>ETS shot glasses offer a reliable, budget-friendly option for bulk promotional orders. Whether you need clear glass for a classic look or durable plastic for outdoor events, ETS provides consistent quality across styles like the 2 oz Plastic Mood Shot Glasses or the 1.75 oz Clear Glass Shot Glasses. These shot glasses are ideal for imprinting your logo with screen printing or digital decoration, making them a practical giveaway for trade shows, bar promotions, or brand launches.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom ETS shot glasses with logo imprint, clear glass and plastic options for bulk promotional orders",
+  "productSkus": [
+    "513679",
+    "522845",
+    "522847",
+    "525816",
+    "525817",
+    "525916",
+    "525967",
+    "526428",
+    "529493",
+    "529515"
+  ],
+  "generatedAt": "2026-05-31T09:26:08.363827+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

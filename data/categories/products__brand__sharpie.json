@@ -1,0 +1,26 @@
+{
+  "url": "/cat/products/brand/sharpie",
+  "type": "facet",
+  "h1": "Custom Sharpie Products for Bulk Orders",
+  "metaTitle": "Custom Sharpie Products | Perfect Imprints",
+  "metaDescription": "Order custom Sharpie products in bulk for your team. Pens, markers, and more with your logo. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Sharpie products are a trusted choice for professionals who need reliable, high-quality markers and pens. When you choose custom Sharpie products for your next promotion or corporate gift, you're giving recipients a tool they'll actually use every day. From the fine point for precise writing to the bold Metallic for adding flair, each Sharpie item offers dependable performance. Decorate with your logo or message using screen printing or engraving for a polished look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom Sharpie products including markers and pens with company logos on a desk",
+  "productSkus": [
+    "503179",
+    "507333",
+    "525232",
+    "525233",
+    "525234",
+    "528419"
+  ],
+  "generatedAt": "2026-05-31T10:03:40.505614+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

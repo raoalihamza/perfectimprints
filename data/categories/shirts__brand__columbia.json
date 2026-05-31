@@ -1,0 +1,25 @@
+{
+  "url": "/cat/shirts/brand/columbia",
+  "type": "facet",
+  "h1": "Custom Columbia Shirts for Bulk Orders",
+  "metaTitle": "Custom Columbia Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Columbia shirts for your team. Reliable outdoor performance with your logo. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Custom Columbia shirts combine the trusted durability and outdoor performance of Columbia sportswear with your company branding. Whether you need soft shell jackets for field crews or moisture-wicking button-downs for trade show staff, Columbia's fabric technologies keep your team comfortable in changing conditions. Decorate with embroidery or screen printing for a professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Columbia shirts for bulk orders featuring a men's soft shell jacket with embroidered logo",
+  "productSkus": [
+    "523863",
+    "523865",
+    "523866",
+    "523867",
+    "523870"
+  ],
+  "generatedAt": "2026-05-31T09:01:58.339645+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/wine-glasses/material/copper",
+  "type": "facet",
+  "h1": "Custom Copper Wine Glasses",
+  "metaTitle": "Custom Copper Wine Glasses | Perfect Imprints",
+  "metaDescription": "Order custom copper wine glasses for your brand. Perfect for gifts or events. Shop bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Copper wine glasses bring a warm, distinctive look that stands out from standard stainless steel or glass. The copper finish on vacuum-insulated tumblers like the 12 oz Napa Stemless or 10 oz Viking Lowball not only looks premium but also keeps drinks at the perfect temperature. Ideal for corporate gifts, trade show giveaways, or hospitality branding, these mugs offer excellent decoration space for logos or custom artwork. Choose copper for a memorable, upscale impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom copper wine glasses with vacuum insulation and copper finish, ideal for branded corporate gifts",
+  "productSkus": [
+    "520339",
+    "521101",
+    "522955",
+    "523186",
+    "523495",
+    "523689"
+  ],
+  "generatedAt": "2026-05-31T09:30:42.912264+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

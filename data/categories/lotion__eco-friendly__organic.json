@@ -1,0 +1,21 @@
+{
+  "url": "/cat/lotion/eco-friendly/organic",
+  "type": "facet",
+  "h1": "Custom Organic Lotion for Bulk Orders",
+  "metaTitle": "Custom Organic Lotion | Perfect Imprints",
+  "metaDescription": "Order custom organic lotion in bulk for your team or event. Perfect Imprints offers eco-friendly options with your logo.",
+  "introHtml": "<p>Custom organic lotion is a smart choice for businesses that want to offer a natural, chemical-free product to employees or clients. Unlike standard lotions, organic formulas use plant-based ingredients and avoid synthetic fragrances, making them ideal for safety managers focused on workplace wellness or HR directors curating eco-friendly gift bags. These lotions absorb quickly without greasy residue, and they pair well with branded cotton pouches like the Avery Cotton Zippered Pouch for a cohesive, sustainable giveaway.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom organic lotion in bulk with natural ingredients, perfect for corporate gifts and eco-friendly branding.",
+  "productSkus": [
+    "521035"
+  ],
+  "generatedAt": "2026-05-31T08:43:46.544728+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

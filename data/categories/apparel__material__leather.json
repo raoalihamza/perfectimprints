@@ -1,0 +1,22 @@
+{
+  "url": "/cat/apparel/material/leather",
+  "type": "facet",
+  "h1": "Custom Leather Apparel for Your Brand",
+  "metaTitle": "Custom Leather Apparel | Perfect Imprints",
+  "metaDescription": "Order custom leather apparel for your brand. Perfect for corporate gifts and uniforms. Bulk pricing available. Shop now!",
+  "introHtml": "<p>Leather apparel offers a timeless, professional look that sets your brand apart from the crowd. Whether you are outfitting your sales team in custom leather jackets or gifting branded leather wallets to top clients, the natural durability and rich texture of leather make a lasting impression. Choose from full-grain or top-grain options and add your logo with foil stamping or embossing for a refined finish that stands up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom leather apparel including a leather wallet and jacket with embossed logo",
+  "productSkus": [
+    "529300",
+    "529359"
+  ],
+  "generatedAt": "2026-05-31T09:32:18.931966+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

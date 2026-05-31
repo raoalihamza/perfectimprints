@@ -1,0 +1,31 @@
+{
+  "url": "/cat/napkins/type/luncheon",
+  "type": "facet",
+  "h1": "Custom Luncheon Napkins for Bulk Orders",
+  "metaTitle": "Custom Luncheon Napkins | Perfect Imprints",
+  "metaDescription": "Order custom luncheon napkins for events and businesses. Perfect Imprints offers bulk printing with quick turnaround.",
+  "introHtml": "<p>Luncheon napkins are a step up from beverage napkins, offering more surface area for branding without the formality of dinner napkins. They are ideal for catered lunches, corporate picnics, and casual restaurant settings. Available in white and colors, these napkins accept crisp one- or two-color logo imprints that stand out on the table. Whether you need a custom design for a company barbecue or a trade show lunch service, luncheon napkins provide a practical, cost-effective way to keep your brand visible throughout the meal.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom luncheon napkins with a company logo printed in blue, perfect for corporate events and catering.",
+  "productSkus": [
+    "514577 90A",
+    "514579 90A",
+    "514580 90A",
+    "514581 90A",
+    "514583 90A",
+    "519472",
+    "519473",
+    "520634",
+    "520635",
+    "520636",
+    "520637"
+  ],
+  "generatedAt": "2026-05-31T08:22:23.364328+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

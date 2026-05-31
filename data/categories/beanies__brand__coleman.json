@@ -1,0 +1,28 @@
+{
+  "url": "/cat/beanies/brand/coleman",
+  "type": "facet",
+  "h1": "Custom Coleman Beanies for Bulk Orders",
+  "metaTitle": "Custom Coleman Beanies | Perfect Imprints",
+  "metaDescription": "Order custom Coleman beanies in bulk. Perfect for outdoor events and employee gifts. Get a quote today!",
+  "introHtml": "<p>Coleman is a trusted name in outdoor gear, and custom Coleman beanies bring that rugged, reliable brand identity to your promotional apparel. Whether you're outfitting a team for a winter sales event or providing branded gear for a corporate retreat, these beanies offer a classic knit look that pairs well with other Coleman accessories like coolers and lanterns. Choose from multiple colors and add your logo via embroidery for a clean, professional finish that stands up to repeated wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Coleman beanies with embroidered logo, available in bulk for promotional use",
+  "productSkus": [
+    "509109",
+    "517874",
+    "521930",
+    "525375",
+    "525794",
+    "525795",
+    "525796",
+    "529517"
+  ],
+  "generatedAt": "2026-05-31T08:32:41.158966+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

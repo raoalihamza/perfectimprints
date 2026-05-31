@@ -1,0 +1,21 @@
+{
+  "url": "/cat/stockings/color/green",
+  "type": "facet",
+  "h1": "Custom Green Stockings for Bulk Orders",
+  "metaTitle": "Custom Green Stockings | Perfect Imprints",
+  "metaDescription": "Order custom green stockings for your brand. Perfect for holidays, events, and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Green stockings bring a festive touch to any corporate gift program or holiday event. Whether you need branded Fuzzy Feet Slipper Socks for a winter wellness campaign or classic knit stockings for a client appreciation drive, green stands out as a versatile color that works for Christmas, St. Patrick's Day, or eco-friendly branding. Choose from custom embroidery or screen printing to add your logo, and order in bulk for your next promotion.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A pile of custom green stockings with embroidered logos, perfect for corporate holiday gifts and bulk orders.",
+  "productSkus": [
+    "516800"
+  ],
+  "generatedAt": "2026-05-31T10:09:00.727951+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

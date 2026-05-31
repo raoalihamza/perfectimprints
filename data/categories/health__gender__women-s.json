@@ -1,0 +1,23 @@
+{
+  "url": "/cat/health/gender/women-s",
+  "type": "facet",
+  "h1": "Custom Women's Health Products",
+  "metaTitle": "Custom Women's Health Products – Perfect Imprints",
+  "metaDescription": "Order custom women's health products for your employees or event. Perfect for wellness programs, HR giveaways, and more.",
+  "introHtml": "<p>Women’s health products go beyond generic wellness items by addressing specific needs like skin care, fitness, and personal care. From all-natural lip balm tins that soothe dry lips to moisture-packed lip treatments made in the USA, these products show you care about the details. Tank tops designed for a women’s fit make excellent gym giveaways or team uniforms. Whether you’re supporting a women’s health initiative or building a workplace wellness program, custom women’s health products let you promote your brand while promoting well-being.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom women's health products including lip balm tins and ladies' tank tops for corporate wellness giveaways",
+  "productSkus": [
+    "505073",
+    "505826 90A",
+    "528318"
+  ],
+  "generatedAt": "2026-05-31T09:50:35.107862+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/briefcases/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Briefcases for Bulk Orders",
+  "metaTitle": "Custom Orange Briefcases | Perfect Imprints",
+  "metaDescription": "Order custom orange briefcases in bulk at Perfect Imprints. Ideal for branding with your logo. Get a quote today.",
+  "introHtml": "<p>Orange briefcases make a bold statement in the corporate world, helping your team stand out while maintaining a professional look. Whether you're outfitting a sales force or creating a cohesive brand presence at trade shows, these bags offer high visibility and practical storage for laptops and documents. Customize with your logo using screen printing or embroidery for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange briefcase with embroidered logo, featuring padded laptop compartment and multiple pockets",
+  "productSkus": [
+    "508023"
+  ],
+  "generatedAt": "2026-05-31T08:51:14.081381+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

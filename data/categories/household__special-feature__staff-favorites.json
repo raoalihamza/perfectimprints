@@ -1,0 +1,19 @@
+{
+  "url": "/cat/household/special-feature/staff-favorites",
+  "type": "facet",
+  "h1": "Custom Staff Favorites Household Products",
+  "metaTitle": "Custom Staff Favorites Household | Perfect Imprints",
+  "metaDescription": "Shop custom staff favorites household items from Perfect Imprints. Perfect for employee gifts. Order bulk today!",
+  "introHtml": "<p>Staff favorites are the household products your team will actually use, from cozy blankets to stylish kitchen gadgets. These curated items go beyond typical promotional fare, offering real utility for home and daily life. Whether you're rewarding employees or showing appreciation, these pieces carry your brand into their personal space with warmth and practicality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom staff favorites household products like branded blankets and kitchen tools for employee gifts",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:51:19.748428+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

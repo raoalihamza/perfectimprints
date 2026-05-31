@@ -1,0 +1,24 @@
+{
+  "url": "/cat/bags/material/vinyl",
+  "type": "facet",
+  "h1": "Custom Vinyl Bags for Bulk Orders",
+  "metaTitle": "Custom Vinyl Bags | Perfect Imprints",
+  "metaDescription": "Order custom vinyl bags in bulk at Perfect Imprints. Durable, easy to clean, and perfect for branding. Get a quote today!",
+  "introHtml": "<p>Vinyl bags offer a durable, waterproof surface that stands up to daily wear and tear, making them ideal for trade shows, corporate gifts, and safety kits. Unlike fabric bags, vinyl can be wiped clean and resists stains, so your logo stays sharp. From RFID passport holders to roll-top backpacks, these bags are built for active use. Decorate with screen printing or debossing for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom vinyl bags in various styles including zip pouches and backpacks with screen-printed logos",
+  "productSkus": [
+    "513049 90A",
+    "516612",
+    "520888",
+    "522241"
+  ],
+  "generatedAt": "2026-05-31T09:34:29.691077+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

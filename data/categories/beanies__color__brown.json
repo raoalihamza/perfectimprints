@@ -1,0 +1,24 @@
+{
+  "url": "/cat/beanies/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Beanies",
+  "metaTitle": "Custom Brown Beanies | Perfect Imprints",
+  "metaDescription": "Order custom brown beanies for your team or event. Perfect for branding with embroidery or screen printing. Get a quote today!",
+  "introHtml": "<p>Brown beanies offer a natural, neutral look that pairs well with earth-tone uniforms or casual giveaways. Whether you choose a classic knit like the Carhartt Watch Cap or a stylish Haberdasher beanie with a leather patch, brown provides a warm backdrop for your logo. These custom beanies work well for outdoor events, winter promotions, or employee gifts where you want a subtle but branded accessory.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown beanies with embroidered logo on a neutral background, perfect for winter branding",
+  "productSkus": [
+    "521871",
+    "521927",
+    "524211",
+    "526537"
+  ],
+  "generatedAt": "2026-05-31T09:08:27.682995+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

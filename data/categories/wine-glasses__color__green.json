@@ -1,0 +1,31 @@
+{
+  "url": "/cat/wine-glasses/color/green",
+  "type": "facet",
+  "h1": "Custom Green Wine Glasses for Bulk Orders",
+  "metaTitle": "Custom Green Wine Glasses | Perfect Imprints",
+  "metaDescription": "Order custom green wine glasses in bulk for your next event. Perfect for weddings, corporate gifts, and more. Get a quote today!",
+  "introHtml": "<p>Green wine glasses offer a distinctive look that stands out at any event. Whether you are planning a St. Patrick's Day celebration, an eco-friendly corporate retreat, or a branded giveaway, these glasses in shades of emerald or forest green add a touch of sophistication. Our selection includes stemless designs and durable plastic options, ideal for outdoor gatherings or promotional use. Customize with your logo using screen printing or full-color digital decoration for a memorable impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Row of custom green wine glasses with logos, perfect for bulk corporate gifts and event giveaways.",
+  "productSkus": [
+    "511450",
+    "520339",
+    "522060",
+    "522098",
+    "522955",
+    "523950",
+    "524419",
+    "524524",
+    "524525",
+    "526191",
+    "527252"
+  ],
+  "generatedAt": "2026-05-31T10:14:53.874681+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

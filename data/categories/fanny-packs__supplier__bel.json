@@ -1,0 +1,30 @@
+{
+  "url": "/cat/fanny-packs/supplier/bel",
+  "type": "facet",
+  "h1": "Custom Bel Fanny Packs for Bulk Orders",
+  "metaTitle": "Custom Bel Fanny Packs | Perfect Imprints",
+  "metaDescription": "Order custom Bel fanny packs in bulk. Durable, affordable, and perfect for events, promotions, and giveaways. Get a quote today!",
+  "introHtml": "<p>Bel fanny packs offer a reliable, budget-friendly option for bulk promotional orders. Made with durable materials like polyester and nylon, these packs are ideal for trade shows, corporate events, and employee giveaways. Choose from clear styles for venue security or neon colors for high visibility. With Bel's consistent quality, you can confidently brand these packs with your logo using screen printing or embroidery.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Bel fanny packs in various colors and styles for promotional giveaways",
+  "productSkus": [
+    "514432",
+    "514433",
+    "519201",
+    "522510",
+    "522705",
+    "522803",
+    "523655",
+    "524162",
+    "524500",
+    "525724"
+  ],
+  "generatedAt": "2026-05-31T09:45:29.817886+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

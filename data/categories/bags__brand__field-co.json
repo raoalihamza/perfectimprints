@@ -1,0 +1,26 @@
+{
+  "url": "/cat/bags/brand/field-co",
+  "type": "facet",
+  "h1": "Custom Field Co Bags for Branded Giveaways",
+  "metaTitle": "Custom Field Co Bags | Perfect Imprints",
+  "metaDescription": "Order custom Field Co bags for your brand. Durable duffels, totes & backpacks. Perfect for employee gifts and trade shows.",
+  "introHtml": "<p>Field Co bags bring rugged, outdoorsy style to your branded merchandise. From the classic 20\" duffel to the Campster Compu Tablet Tote, these bags feature durable materials and thoughtful details like padded laptop compartments and insulated cooler sections. They're ideal for corporate retreats, safety incentive programs, or client appreciation gifts. Decorate with your logo using embroidery or screen printing for a professional finish that stands up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Field Co bags including duffel bags, backpacks, and totes with embroidered logos",
+  "productSkus": [
+    "513518 80D",
+    "520837",
+    "521847",
+    "525845",
+    "525850",
+    "525983"
+  ],
+  "generatedAt": "2026-05-31T09:06:53.319773+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

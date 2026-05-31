@@ -1,0 +1,24 @@
+{
+  "url": "/cat/footwear/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Footwear for Bulk Orders",
+  "metaTitle": "Custom Pink Footwear | Perfect Imprints",
+  "metaDescription": "Order custom pink footwear in bulk from Perfect Imprints. Perfect for events, giveaways, and branded apparel.",
+  "introHtml": "<p>Pink footwear stands out in a crowd, making it a popular choice for breast cancer awareness events, women's health initiatives, and springtime promotions. From custom flip flops with your logo to branded slipper socks for hospitality giveaways, pink adds a vibrant, approachable touch. Decorate with screen printing or embroidery for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink footwear including flip flops and slipper socks with logo imprint",
+  "productSkus": [
+    "501556",
+    "516800",
+    "520052",
+    "528311"
+  ],
+  "generatedAt": "2026-05-31T08:41:57.054655+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,29 @@
+{
+  "url": "/cat/bottle-openers/color/green",
+  "type": "facet",
+  "h1": "Custom Green Bottle Openers",
+  "metaTitle": "Custom Green Bottle Openers | Perfect Imprints",
+  "metaDescription": "Order custom green bottle openers for your brand. Perfect for giveaways and events. Bulk pricing available.",
+  "introHtml": "<p>Green bottle openers stand out at outdoor events, trade shows, and eco-themed promotions. Whether you choose a vinyl-wrapped pub style or a compact keychain design, the green color reinforces a fresh, environmentally conscious brand image. Our selection includes options like the Open Sesame Bottle Opener and the Bottle Opener/Phone Stand Key Chain, all customizable with your logo using pad printing or laser engraving. These functional giveaways keep your brand top of mind every time they are used.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green bottle openers with logo, including pub style and keychain designs, for promotional use.",
+  "productSkus": [
+    "509442",
+    "509541",
+    "510028",
+    "510575",
+    "514864",
+    "515689",
+    "519574",
+    "520183",
+    "520190"
+  ],
+  "generatedAt": "2026-05-31T08:32:53.541279+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

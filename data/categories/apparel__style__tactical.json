@@ -1,0 +1,19 @@
+{
+  "url": "/cat/apparel/style/tactical",
+  "type": "facet",
+  "h1": "Custom Tactical Apparel for Bulk Orders",
+  "metaTitle": "Custom Tactical Apparel | Perfect Imprints",
+  "metaDescription": "Order custom tactical apparel for your team. Perfect for safety managers and businesses. Shop bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Custom tactical apparel is built for durability and function, with reinforced seams, multiple pockets, and rugged fabrics that stand up to demanding work environments. Whether you need branded polo shirts for a security team or cargo pants for a field crew, these garments offer a professional look without sacrificing practicality. Decorate with embroidered logos or screen-printed names for a cohesive team appearance.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom tactical apparel featuring a rugged polo shirt with multiple pockets and embroidered logo",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:25:52.330326+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

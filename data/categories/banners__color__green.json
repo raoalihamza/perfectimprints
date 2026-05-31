@@ -1,0 +1,21 @@
+{
+  "url": "/cat/banners/color/green",
+  "type": "facet",
+  "h1": "Custom Green Banners",
+  "metaTitle": "Custom Green Banners | Perfect Imprints",
+  "metaDescription": "Order custom green banners for your next event or promotion. Durable vinyl, full-color print, bulk pricing available.",
+  "introHtml": "<p>Green banners stand out for eco-friendly campaigns, St. Patrick's Day events, or branding that emphasizes sustainability. Whether you need a 36-inch small banner for a trade show table or a large outdoor display, the vibrant green backdrop ensures your message grabs attention. Our green banners are printed on durable vinyl with weather-resistant inks, suitable for both indoor and outdoor use. Decorate with your logo, tagline, or event details using full-color digital printing for crisp, fade-resistant results.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green banner with white text and logo displayed outdoors on a fence",
+  "productSkus": [
+    "502118"
+  ],
+  "generatedAt": "2026-05-31T09:07:23.431366+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

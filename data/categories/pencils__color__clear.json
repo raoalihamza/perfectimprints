@@ -1,0 +1,19 @@
+{
+  "url": "/cat/pencils/color/clear",
+  "type": "facet",
+  "h1": "Custom Clear Pencils",
+  "metaTitle": "Custom Clear Pencils | Perfect Imprints",
+  "metaDescription": "Order custom clear pencils for your brand. Perfect for schools, offices, and events. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Clear pencils offer a sleek, modern look that standard colored pencils can't match. The transparent barrel showcases the graphite core and eraser, creating a unique writing experience. These are ideal for schools, offices, or promotional events where you want a clean, minimalist aesthetic. Custom imprinting with your logo or message is available using pad printing or laser engraving, ensuring your brand stands out on a see-through canvas.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom clear pencils with transparent barrels and custom logo imprinting",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:45:05.735950+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/drinkware/brand/columbia",
+  "type": "facet",
+  "h1": "Custom Columbia Drinkware for Branded Giveaways",
+  "metaTitle": "Custom Columbia Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom Columbia drinkware for your next event. Perfect Imprints offers bulk pricing on branded tumblers, bottles, and mugs.",
+  "introHtml": "<p>Columbia drinkware combines the trusted outdoor brand’s rugged durability with your company logo, making it a natural fit for trade shows, employee gifts, and customer appreciation campaigns. From insulated stainless steel tumblers that keep coffee hot during morning commutes to BPA-free water bottles for hiking teams, these pieces carry the quality reputation of Columbia while promoting your business. Decorate with screen printing or laser engraving for a clean, long-lasting imprint that stands up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Columbia drinkware including branded insulated tumblers and water bottles for corporate giveaways",
+  "productSkus": [
+    "523863",
+    "523865",
+    "523866",
+    "523867",
+    "523870"
+  ],
+  "generatedAt": "2026-05-31T08:33:37.668074+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/drinkware/material/paper",
+  "type": "facet",
+  "h1": "Custom Paper Drinkware for Bulk Orders",
+  "metaTitle": "Custom Paper Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom paper drinkware for your event or business. Perfect for coffee, tea, and cold drinks. Get a quote today!",
+  "introHtml": "<p>Paper drinkware is a practical choice for businesses that need disposable cups for coffee, tea, or cold beverages at events, break rooms, or trade shows. Unlike plastic or glass, paper cups are lightweight and can be fully customized with your logo or message using full-color printing. The 5 oz Full Color Paper Cup is a popular option for sample sizes or small servings. Choose paper drinkware for a cost-effective, eco-friendly solution that keeps your brand top of mind.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom paper drinkware with full-color logo printing on disposable cups for events and offices",
+  "productSkus": [
+    "528015"
+  ],
+  "generatedAt": "2026-05-31T08:33:39.826459+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

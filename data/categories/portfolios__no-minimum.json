@@ -1,0 +1,30 @@
+{
+  "url": "/cat/portfolios/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Portfolios for Small Orders",
+  "metaTitle": "No-Minimum Custom Portfolios | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom portfolios in small quantities. Perfect for small teams, events, or samples. Get professional portfolios without bulk minimums.",
+  "introHtml": "<p>No-minimum custom portfolios give you the flexibility to order the exact quantity you need—whether it's five for a small team, a dozen for a client meeting, or just one sample. Unlike traditional bulk orders that require hundreds, these portfolios let you start small and scale as needed. Perfect for small businesses, startups, or one-off events, you get the same professional quality and customization options without the inventory commitment.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of no-minimum custom portfolios in various colors, including a ring binder and certificate holder, showcasing small-order flexibility.",
+  "productSkus": [
+    "507719",
+    "516718 01A",
+    "516719 01A",
+    "517193 01A",
+    "517201 01A",
+    "518178",
+    "518179",
+    "518284",
+    "518285",
+    "526610"
+  ],
+  "generatedAt": "2026-05-31T09:23:25.623700+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

@@ -1,0 +1,27 @@
+{
+  "url": "/cat/wine-glasses/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Wine Glasses",
+  "metaTitle": "Custom Full Color Wine Glasses | Perfect Imprints",
+  "metaDescription": "Order custom full color wine glasses for your next event. Bulk pricing, fast turnaround. Perfect for branding.",
+  "introHtml": "<p>Full color printing on wine glasses lets you reproduce logos, photos, or complex artwork with vivid detail. Unlike single-color imprints, full color digital decoration captures gradients and fine lines, making it ideal for commemorative events, product launches, or hospitality branding. These stemless plastic glasses are shatter-resistant and lightweight, perfect for outdoor gatherings, trade shows, or corporate parties where glass is prohibited. Choose full color to make your design pop on a durable, reusable surface.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color wine glasses with vibrant logo imprint on stemless plastic design for events",
+  "productSkus": [
+    "511450",
+    "516380 90E",
+    "523495",
+    "523950",
+    "524524",
+    "524525",
+    "524526"
+  ],
+  "generatedAt": "2026-05-31T09:30:40.302697+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

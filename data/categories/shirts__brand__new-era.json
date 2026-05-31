@@ -1,0 +1,28 @@
+{
+  "url": "/cat/shirts/brand/new-era",
+  "type": "facet",
+  "h1": "Custom New Era Shirts for Bulk Orders",
+  "metaTitle": "Custom New Era Shirts | Perfect Imprints",
+  "metaDescription": "Order custom New Era shirts in bulk for your team or event. Premium quality, fast turnaround. Get a quote today.",
+  "introHtml": "<p>New Era shirts bring the same athletic heritage and durable construction found in their iconic caps. From the Heritage Blend Crew Tee to the Cage Short Sleeve 1/4-Zip Jacket, these styles offer consistent sizing and premium fabrics that hold up to frequent washing. Perfect for employee uniforms, event staff, or promotional giveaways where a sporty, professional look matters. Decorate with screen printing or embroidery for a crisp, lasting logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom New Era shirts with embroidered logos at a corporate event",
+  "productSkus": [
+    "527747",
+    "529309",
+    "529310",
+    "529311",
+    "529312",
+    "529313",
+    "529314",
+    "529315"
+  ],
+  "generatedAt": "2026-05-31T08:46:34.886117+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

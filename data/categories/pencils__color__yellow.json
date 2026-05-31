@@ -1,0 +1,22 @@
+{
+  "url": "/cat/pencils/color/yellow",
+  "type": "facet",
+  "h1": "Custom Yellow Pencils for Bulk Orders",
+  "metaTitle": "Custom Yellow Pencils | Perfect Imprints",
+  "metaDescription": "Order custom yellow pencils in bulk at Perfect Imprints. Perfect for schools, offices, and events. Get your quote today!",
+  "introHtml": "<p>Yellow pencils are a timeless classic, instantly recognizable and trusted for their reliability. Whether you need promotional giveaways for a school event, branded office supplies, or custom writing instruments for a trade show, yellow pencils offer a familiar and approachable look. With options like the Mood Pencil with Black Eraser or a 12 Piece Crayon And Pencil Set, you can choose a style that fits your budget and audience. Add your logo or message with crisp imprinting for a practical giveaway that gets used every day.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom yellow pencils with black erasers and printed logos arranged on a desk",
+  "productSkus": [
+    "502662",
+    "528631"
+  ],
+  "generatedAt": "2026-05-31T08:45:06.538801+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

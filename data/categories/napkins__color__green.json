@@ -1,0 +1,24 @@
+{
+  "url": "/cat/napkins/color/green",
+  "type": "facet",
+  "h1": "Custom Green Napkins for Your Next Event",
+  "metaTitle": "Custom Green Napkins | Perfect Imprints",
+  "metaDescription": "Order custom green napkins with your logo. Perfect for eco-conscious events and branding. Get a quote today!",
+  "introHtml": "<p>Green napkins bring a natural, fresh look to any event, making them a popular choice for eco-friendly branding, outdoor gatherings, or holiday parties. Whether you need beverage, luncheon, or dinner napkins, custom green napkins in 1/4 or 1/8 fold options offer plenty of space for your logo or message. Perfect for restaurants, corporate picnics, or trade shows, they add a cohesive color accent that ties your theme together.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom green napkins with company logo printed on them, perfect for events and branding",
+  "productSkus": [
+    "520634",
+    "520635",
+    "520636",
+    "520637"
+  ],
+  "generatedAt": "2026-05-31T08:44:21.442654+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

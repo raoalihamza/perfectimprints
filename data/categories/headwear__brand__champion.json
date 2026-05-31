@@ -1,0 +1,29 @@
+{
+  "url": "/cat/headwear/brand/champion",
+  "type": "facet",
+  "h1": "Custom Champion Headwear for Bulk Orders",
+  "metaTitle": "Custom Champion Headwear | Perfect Imprints",
+  "metaDescription": "Order custom Champion headwear in bulk for your team or event. Perfect for uniforms, giveaways, and branded apparel. Get a quote today!",
+  "introHtml": "<p>Champion headwear combines iconic sportswear heritage with reliable comfort, making it a popular choice for corporate uniforms, event giveaways, and employee rewards. Whether you need embroidered caps for a trade show or screen-printed beanies for a winter campaign, Champion offers durable fabrics and classic fits that recipients actually want to wear. Bulk orders benefit from consistent sizing and multiple decoration options, ensuring your logo looks sharp on every piece.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Champion headwear including embroidered caps and beanies for corporate branding and promotional giveaways.",
+  "productSkus": [
+    "526122",
+    "526123",
+    "526124",
+    "526126",
+    "526127",
+    "526128",
+    "526129",
+    "526130",
+    "526131"
+  ],
+  "generatedAt": "2026-05-31T09:50:03.418215+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

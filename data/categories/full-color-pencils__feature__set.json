@@ -1,0 +1,22 @@
+{
+  "url": "/cat/full-color-pencils/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Full Color Pencils for Bulk Orders",
+  "metaTitle": "Custom Set Full Color Pencils | Perfect Imprints",
+  "metaDescription": "Order custom set full color pencils for your next event or promotion. Great for schools, offices, and giveaways. Get a quote today!",
+  "introHtml": "<p>Custom set full color pencils are ideal for promotions where you want to provide a complete creative toolkit. Unlike single pencils, these sets offer variety and perceived value—perfect for school supply drives, back-to-school events, or office welcome kits. Choose from 6-piece colored pencil sets or 12-piece crayon and pencil sets, each customizable with your logo or message. Options include full-color imprinting on the packaging or individual pencils, ensuring your brand stands out. These sets are also excellent for safety programs or employee engagement initiatives, encouraging creativity while reinforcing your company name.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set full color pencils in a cardboard box with a company logo printed on the packaging",
+  "productSkus": [
+    "519961",
+    "528631"
+  ],
+  "generatedAt": "2026-05-31T09:47:16.665832+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

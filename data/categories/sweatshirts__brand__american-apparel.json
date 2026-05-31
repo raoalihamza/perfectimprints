@@ -1,0 +1,21 @@
+{
+  "url": "/cat/sweatshirts/brand/american-apparel",
+  "type": "facet",
+  "h1": "Custom American Apparel Sweatshirts",
+  "metaTitle": "Custom American Apparel Sweatshirts | Perfect Imprints",
+  "metaDescription": "Order custom American Apparel sweatshirts for your team. Soft, quality fabric with your logo. Bulk pricing available.",
+  "introHtml": "<p>American Apparel sweatshirts are known for their soft, tri-blend fabric and modern fit, making them a favorite for corporate apparel programs. When you choose custom American Apparel sweatshirts, you get a comfortable garment that employees actually want to wear, whether for a company retreat or a casual Friday uniform. The Triblend Short-Sleeve Track T-Shirt is a popular option for warmer months, while long-sleeve styles work year-round. Decorate with screen printing or embroidery for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom American Apparel sweatshirts with embroidered logo on soft tri-blend fabric for corporate teams",
+  "productSkus": [
+    "526600"
+  ],
+  "generatedAt": "2026-05-31T10:10:01.734198+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

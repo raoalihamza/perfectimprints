@@ -1,0 +1,22 @@
+{
+  "url": "/cat/playing-cards/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Playing Cards",
+  "metaTitle": "Custom Brown Playing Cards | Perfect Imprints",
+  "metaDescription": "Order custom brown playing cards for your brand. Perfect for giveaways and events. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Brown playing cards offer a warm, earthy alternative to standard decks, making them a memorable giveaway for trade shows, corporate gifts, or hospitality brands. Whether you choose solid backs for a clean look or a vintage wood theme that complements rustic or outdoor messaging, these cards stand out. Imprint your logo or tagline in one or two colors on the card backs for a subtle but effective brand touch.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown playing cards with solid backs and vintage wood theme design for branding",
+  "productSkus": [
+    "524494",
+    "526832"
+  ],
+  "generatedAt": "2026-05-31T09:23:13.767757+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/wine-glasses/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Wine Glasses for Bulk Orders",
+  "metaTitle": "Custom Set Wine Glasses | Perfect Imprints",
+  "metaDescription": "Order custom set wine glasses in bulk for corporate events. Personalize with your logo. Fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Choosing custom set wine glasses means you get coordinated drinkware that makes a polished impression at corporate gifts, client appreciation events, or holiday parties. Sets like the Napa Stemless Wine Tumbler Set or the Delight 2-Piece Thank You Gift Set ensure consistency in style and quality. They are easy to personalize with your logo using screen printing or etching, and they arrive ready to gift or use at your next company gathering.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set wine glasses with corporate logo, perfect for bulk gifting and events",
+  "productSkus": [
+    "511053 90E",
+    "522098",
+    "523186",
+    "523950"
+  ],
+  "generatedAt": "2026-05-31T10:14:56.254784+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

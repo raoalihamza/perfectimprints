@@ -1,0 +1,19 @@
+{
+  "url": "/cat/pajamas/search",
+  "type": "modifier",
+  "h1": "Custom Pajamas for Branded Promotions",
+  "metaTitle": "Custom Pajamas | Perfect Imprints",
+  "metaDescription": "Browse our selection of custom pajamas for your next promotion. Perfect for corporate gifts or employee rewards. Get started today!",
+  "introHtml": "<p>Whether you're looking for cozy flannel sets or soft cotton sleepwear, our custom pajamas offer a comfortable way to promote your brand. Marketing directors, HR teams, and business owners can choose from a wide range of styles, colors, and sizes to create memorable gifts for employees, clients, or events. With easy ordering and fast turnaround, starting your custom pajama project is simple. Explore our collection and find the perfect fit for your next campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of custom pajamas in various colors and patterns, showcasing comfortable branded sleepwear options for corporate promotions.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:21:27.982318+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

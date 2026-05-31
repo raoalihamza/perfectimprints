@@ -1,0 +1,28 @@
+{
+  "url": "/cat/stadium-blankets/color/green",
+  "type": "facet",
+  "h1": "Custom Green Stadium Blankets",
+  "metaTitle": "Custom Green Stadium Blankets | Perfect Imprints",
+  "metaDescription": "Order custom green stadium blankets for your team or event. Perfect for outdoor seating, these blankets are durable and comfortable.",
+  "introHtml": "<p>Green stadium blankets are a natural fit for outdoor events, from tailgates to soccer matches. The color evokes team spirit and blends seamlessly with grass or park settings. Whether you choose a fleece roll-up with handle for easy transport or a sand-repellent style for beachside promotions, your logo will stand out against the vibrant green fabric. Decorate with screen printing or embroidery for a polished look that your fans will use for seasons to come.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green stadium blankets with embroidered logo, rolled up with handle, perfect for outdoor events",
+  "productSkus": [
+    "507150",
+    "512997",
+    "514085",
+    "520308",
+    "525694",
+    "526239",
+    "526444",
+    "528626"
+  ],
+  "generatedAt": "2026-05-31T08:37:36.665110+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

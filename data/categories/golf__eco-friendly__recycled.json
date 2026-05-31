@@ -1,0 +1,30 @@
+{
+  "url": "/cat/golf/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Golf Umbrellas & Accessories",
+  "metaTitle": "Custom Recycled Golf Umbrellas | Perfect Imprints",
+  "metaDescription": "Eco-friendly custom recycled golf umbrellas for your brand. Bulk orders available at Perfect Imprints. Shop now.",
+  "introHtml": "<p>Recycled golf umbrellas let you promote your brand while supporting sustainability. Made from rPET materials, these 58\" and 60\" umbrellas offer ample coverage for golfers and outdoor events. Decorate with your logo using screen printing or digital transfer for a crisp, long-lasting impression. Ideal for corporate tournaments, charity events, or employee gifts that align with green initiatives.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled golf umbrella with company logo, 60-inch canopy in black and white, opened outdoors",
+  "productSkus": [
+    "525937",
+    "525938",
+    "526046",
+    "527935",
+    "527936",
+    "527937",
+    "528117",
+    "528154",
+    "528280",
+    "529141"
+  ],
+  "generatedAt": "2026-05-31T08:55:07.914655+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

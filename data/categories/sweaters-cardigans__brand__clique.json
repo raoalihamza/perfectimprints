@@ -1,0 +1,24 @@
+{
+  "url": "/cat/sweaters-cardigans/brand/clique",
+  "type": "facet",
+  "h1": "Custom Clique Sweaters & Cardigans for Bulk Orders",
+  "metaTitle": "Custom Clique Sweaters & Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom Clique sweaters and cardigans in bulk. Perfect for corporate gifts, team uniforms, and events. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Clique sweaters and cardigans offer a modern, professional look that stands out in the corporate world. Made from soft, durable fabrics like the Summit ½ Zip in men's and ladies' cuts, these pieces are ideal for team uniforms, employee gifts, or promotional events. Decorate with your logo using embroidery or screen printing for a polished finish that lasts. Choose Clique for consistent sizing and a fit your team will appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Clique sweaters and cardigans with embroidered logo on a Summit ½ Zip fleece",
+  "productSkus": [
+    "509568",
+    "509569",
+    "526962",
+    "526963"
+  ],
+  "generatedAt": "2026-05-31T08:37:45.424945+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

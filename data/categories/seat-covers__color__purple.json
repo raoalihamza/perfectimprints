@@ -1,0 +1,24 @@
+{
+  "url": "/cat/seat-covers/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Seat Covers for Bulk Orders",
+  "metaTitle": "Custom Purple Seat Covers | Perfect Imprints",
+  "metaDescription": "Order custom purple seat covers in bulk. Perfect for branding at events. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Purple seat covers make a bold statement at corporate events, trade shows, and sports venues. Whether you choose a full-color front panel or a three-sided wrap, these covers offer high visibility for your logo. They fit standard 6- and 8-foot tables, are easy to install, and are machine washable for repeated use. Ordering in bulk ensures consistent branding across all your event setups.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple seat covers on a table at a trade show with a company logo printed on the front panel.",
+  "productSkus": [
+    "506947",
+    "507074",
+    "510137",
+    "510139"
+  ],
+  "generatedAt": "2026-05-31T09:25:38.311750+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

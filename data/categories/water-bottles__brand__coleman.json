@@ -1,0 +1,21 @@
+{
+  "url": "/cat/water-bottles/brand/coleman",
+  "type": "facet",
+  "h1": "Custom Coleman Water Bottles",
+  "metaTitle": "Custom Coleman Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom Coleman water bottles for your team or event. Durable, branded hydration from Perfect Imprints.",
+  "introHtml": "<p>Coleman is a trusted name in outdoor gear, and their water bottles are built to handle rugged use on job sites, at events, or during team outings. The 1 Gallon Coleman Jug is a standout for crews that need serious hydration capacity. Customize these bottles with your logo or message using screen printing or laser engraving for a durable, professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Coleman water bottles with logo imprint, including the 1 Gallon Coleman Jug for bulk orders",
+  "productSkus": [
+    "509109"
+  ],
+  "generatedAt": "2026-05-31T10:13:47.490529+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/bar-wine/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Bar Wine for Events and Promotions",
+  "metaTitle": "Custom Purple Bar Wine | Perfect Imprints",
+  "metaDescription": "Shop custom purple bar wine for your next event. Order bulk branded stemless wine glasses at Perfect Imprints.",
+  "introHtml": "<p>Purple bar wine items bring a regal touch to corporate events, galas, and VIP receptions. Whether you choose the 12 oz Oceanworks Stemless Wine Glass for an eco-friendly message or the durable Plastic Vinello Stemless Wine Glass for outdoor gatherings, custom purple bar wine makes your brand stand out. Decorate with screen printing or full-color digital for a polished look that guests remember.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple bar wine glasses with corporate logo, stemless design for promotional events",
+  "productSkus": [
+    "511450",
+    "524524",
+    "524525",
+    "527252"
+  ],
+  "generatedAt": "2026-05-31T09:35:31.285288+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

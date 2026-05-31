@@ -1,0 +1,24 @@
+{
+  "url": "/cat/bottle-openers/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Bottle Openers",
+  "metaTitle": "Custom Orange Bottle Openers - Perfect Imprints",
+  "metaDescription": "Order custom orange bottle openers in bulk. Perfect for brand visibility at events. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Orange bottle openers stand out in a crowd, making them ideal for trade shows, tailgates, and company picnics. Whether you choose the classic Open Sesame design or a sleek Beverage Wrench, the bright color ensures your logo gets noticed. These durable metal openers can be debossed or printed with your brand for a lasting impression that recipients will reach for again and again.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange bottle openers with debossed logo, featuring a Beverage Wrench design on a bright orange background",
+  "productSkus": [
+    "509442",
+    "509541",
+    "510575",
+    "520183"
+  ],
+  "generatedAt": "2026-05-31T09:09:01.488649+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

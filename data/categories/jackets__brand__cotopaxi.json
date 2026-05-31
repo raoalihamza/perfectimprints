@@ -1,0 +1,25 @@
+{
+  "url": "/cat/jackets/brand/cotopaxi",
+  "type": "facet",
+  "h1": "Custom Cotopaxi Jackets for Bulk Orders",
+  "metaTitle": "Custom Cotopaxi Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Cotopaxi jackets for your team. Durable, sustainable outerwear with your logo. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Cotopaxi jackets combine vibrant colors with recycled materials, making them a standout choice for brands that value sustainability. Whether you choose the Fuego Down Jacket for cold-weather events or the Amado 1/2-Zip Fleece for casual giveaways, these pieces offer durability and style. Custom embroidery or screen printing lets you add your logo while keeping the jacket's signature look. Ideal for corporate gifts, trade shows, or employee rewards.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Cotopaxi jackets with embroidered logos, featuring colorful down vests and fleece jackets for corporate branding.",
+  "productSkus": [
+    "528928",
+    "528929",
+    "528930",
+    "528931",
+    "528932"
+  ],
+  "generatedAt": "2026-05-31T08:34:46.885956+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

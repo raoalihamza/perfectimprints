@@ -1,0 +1,23 @@
+{
+  "url": "/cat/health/color/gray",
+  "type": "facet",
+  "h1": "Custom Gray Health Products for Bulk Orders",
+  "metaTitle": "Custom Gray Health Products | Perfect Imprints",
+  "metaDescription": "Order custom gray health products in bulk from Perfect Imprints. Perfect for wellness programs, safety kits, and corporate gifts.",
+  "introHtml": "<p>Gray health products offer a neutral, professional look that fits seamlessly into any corporate wellness program or safety initiative. Whether you're stocking first aid kits with gray stress relievers or branding gray journals for employee mental health resources, this versatile color pairs well with any logo. Choose from items like the Scribe Journal, Home Stress Reliever, or Unisex Bella + Canvas Jersey Tank for a cohesive, understated aesthetic that works across industries.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gray health products including a stress reliever, journal, and tank top for corporate wellness programs.",
+  "productSkus": [
+    "506864",
+    "513044 09T",
+    "515915"
+  ],
+  "generatedAt": "2026-05-31T09:50:30.607877+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,33 @@
+{
+  "url": "/cat/cookies/color/white",
+  "type": "facet",
+  "h1": "Custom White Cookies",
+  "metaTitle": "Custom White Cookies - Perfect Imprints",
+  "metaDescription": "Order custom white cookies for your next event. Perfect for weddings, corporate gifts, and more. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>White cookies offer a clean, elegant canvas for your brand's logo or message. Perfect for weddings, corporate events, or holiday gifts, these treats stand out on any dessert table. Choose from snickerdoodle or chocolate chip varieties, each customizable with edible ink or custom labels. Impress clients and employees with a sweet treat that looks as good as it tastes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom white cookies with personalized logos on a serving platter.",
+  "productSkus": [
+    "502501 90A",
+    "518471 90A",
+    "518472 90A",
+    "520249",
+    "525717",
+    "527814",
+    "528493",
+    "528494",
+    "528605",
+    "529100",
+    "529365",
+    "529366",
+    "529367"
+  ],
+  "generatedAt": "2026-05-31T09:41:34.648909+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/business-card/search",
+  "type": "modifier",
+  "h1": "Custom Business Cards for Branded Promotions",
+  "metaTitle": "Custom Business Cards | PerfectImprints.com",
+  "metaDescription": "Browse custom business cards for professional branding. Perfect Imprints offers a wide selection to make your first impression count. Order today!",
+  "introHtml": "<p>Whether you need a fresh set for a new team member or a full rebrand, our custom business cards offer the versatility and quality you expect from a trusted promotional products distributor. From classic linen stocks to modern matte finishes, we provide options that suit any industry and budget. Explore our extensive collection and find the perfect card to represent your company with confidence.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom business cards with professional design and glossy finish for branding",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:51:22.115345+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

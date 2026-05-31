@@ -1,0 +1,22 @@
+{
+  "url": "/cat/umbrellas/material/metal",
+  "type": "facet",
+  "h1": "Custom Metal Umbrellas for Branded Promotions",
+  "metaTitle": "Custom Metal Umbrellas | Perfect Imprints",
+  "metaDescription": "Order custom metal umbrellas for your brand. Durable, wind-resistant, and perfect for outdoor events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Metal umbrellas offer the durability and wind resistance that standard umbrellas can't match, making them a reliable choice for outdoor corporate events, trade shows, and client gifts. The metal shaft and frame provide a sturdy structure that holds up in gusty conditions, while the canopy can be imprinted with your logo using screen printing or digital transfer. Whether you choose a 60-inch golf umbrella for maximum coverage or a compact option for daily commuters, custom metal umbrellas keep your brand visible in any weather.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom metal umbrellas with reinforced frame and printed logo, ideal for outdoor corporate events",
+  "productSkus": [
+    "529141",
+    "529472"
+  ],
+  "generatedAt": "2026-05-31T10:13:00.412467+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

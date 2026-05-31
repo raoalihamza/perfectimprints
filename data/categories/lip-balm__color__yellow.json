@@ -1,0 +1,21 @@
+{
+  "url": "/cat/lip-balm/color/yellow",
+  "type": "facet",
+  "h1": "Custom Yellow Lip Balm",
+  "metaTitle": "Custom Yellow Lip Balm | Perfect Imprints",
+  "metaDescription": "Order custom yellow lip balm for your brand. Perfect for giveaways, events, and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Yellow lip balm stands out in a crowd, making it an ideal choice for brands that want their logo to pop. Whether you're coordinating with a summer campaign or simply prefer a cheerful, sunny shade, custom yellow lip balm offers the same moisturizing protection as traditional balms with a vibrant twist. Decorate with your logo using pad printing or labels for a memorable giveaway that keeps your brand top-of-mind.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom yellow lip balm with a brand logo, perfect for corporate giveaways and promotional events",
+  "productSkus": [
+    "527509"
+  ],
+  "generatedAt": "2026-05-31T08:25:16.967016+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

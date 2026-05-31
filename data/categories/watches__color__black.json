@@ -1,0 +1,21 @@
+{
+  "url": "/cat/watches/color/black",
+  "type": "facet",
+  "h1": "Custom Black Watches for Bulk Orders",
+  "metaTitle": "Custom Black Watches | Perfect Imprints",
+  "metaDescription": "Order custom black watches for your team or event. Perfect Imprints offers bulk pricing and free logo engraving.",
+  "introHtml": "<p>Black watches offer a sleek, professional look that pairs well with any uniform or corporate attire. Whether you need branded timepieces for a sales team or custom paracord bracelets for a safety crew, black faces and bands provide a neutral canvas for your logo. Choose from silicone, leather, or metal bands to match your brand's aesthetic and budget.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black watches with engraved logo on black silicone band, perfect for corporate gifts",
+  "productSkus": [
+    "516655"
+  ],
+  "generatedAt": "2026-05-31T08:27:38.052278+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/shorts/material/polyester",
+  "type": "facet",
+  "h1": "Custom Polyester Shorts for Bulk Orders",
+  "metaTitle": "Custom Polyester Shorts | Perfect Imprints",
+  "metaDescription": "Order custom polyester shorts in bulk from Perfect Imprints. Great for uniforms, events, and teams. Fast turnaround.",
+  "introHtml": "<p>Polyester shorts are a popular choice for uniforms, events, and team apparel because they offer durability, moisture-wicking performance, and easy care. Unlike cotton or blended fabrics, polyester resists shrinking and fading, making it ideal for repeated washing in bulk orders. Our selection includes styles with pockets, mesh panels, and adjustable waistbands, suitable for everything from corporate picnics to athletic leagues. Decorate with screen printing or embroidery for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom polyester shorts with moisture-wicking fabric and embroidered logo for corporate events and teams.",
+  "productSkus": [
+    "509482",
+    "526129",
+    "528875",
+    "528881",
+    "528882",
+    "528886"
+  ],
+  "generatedAt": "2026-05-31T08:37:30.550078+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

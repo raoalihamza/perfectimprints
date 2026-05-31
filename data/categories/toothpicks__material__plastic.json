@@ -1,0 +1,32 @@
+{
+  "url": "/cat/toothpicks/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Toothpicks for Your Brand",
+  "metaTitle": "Custom Plastic Toothpicks | Perfect Imprints",
+  "metaDescription": "Order custom plastic toothpicks for your brand. Perfect for events and restaurants. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Plastic toothpicks offer a durable and uniform alternative to wood, making them ideal for bulk orders at restaurants, catered events, or promotional giveaways. Unlike wooden picks that can splinter or vary in shape, plastic toothpicks maintain a consistent size and strength, ensuring a clean presentation every time. Choose from a range of colors and imprint your logo for a branded touch that stands out at cocktail parties or sampling stations.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom plastic toothpicks with printed logo displayed on a table at a catering event",
+  "productSkus": [
+    "507948",
+    "509442",
+    "511450",
+    "513679",
+    "515689",
+    "518255 52K",
+    "518256 52K",
+    "519468",
+    "520183",
+    "527246",
+    "527252",
+    "529493"
+  ],
+  "generatedAt": "2026-05-31T10:11:37.808583+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

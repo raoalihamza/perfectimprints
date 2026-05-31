@@ -1,0 +1,27 @@
+{
+  "url": "/cat/sweatshirts/brand/nike",
+  "type": "facet",
+  "h1": "Custom Nike Sweatshirts for Bulk Orders",
+  "metaTitle": "Custom Nike Sweatshirts | Perfect Imprints",
+  "metaDescription": "Order custom Nike sweatshirts in bulk for your team or event. Premium quality with your logo. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Nike sweatshirts bring instant brand recognition and premium comfort to any corporate uniform, team event, or promotional campaign. From the classic Club Fleece crew to the lightweight Tech Fleece hoodie, these styles offer a polished look that holds up to repeated wear and washing. Decorate with your logo using embroidery or screen printing for a professional finish that employees and customers will wear proudly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Nike sweatshirts with embroidered logo on a Club Fleece crewneck in heather gray",
+  "productSkus": [
+    "527357",
+    "527358",
+    "527359",
+    "527360",
+    "527361",
+    "528941",
+    "528942"
+  ],
+  "generatedAt": "2026-05-31T10:10:01.607937+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

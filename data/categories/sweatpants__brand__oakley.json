@@ -1,0 +1,23 @@
+{
+  "url": "/cat/sweatpants/brand/oakley",
+  "type": "facet",
+  "h1": "Custom Oakley Sweatpants for Bulk Orders",
+  "metaTitle": "Custom Oakley Sweatpants | Perfect Imprints",
+  "metaDescription": "Order custom Oakley sweatpants in bulk for your team. Premium quality with your logo. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Oakley sweatpants combine the brand's signature athletic performance with everyday comfort, making them a top choice for corporate apparel programs. Built with moisture-wicking fabrics and durable construction, these pants are ideal for team uniforms, employee gifts, or promotional giveaways. Decorate with embroidery or screen printing on the leg or hip for a clean, professional look that stands out from standard sweatpants.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Oakley sweatpants with embroidered logo, black fabric, side pockets, and elastic cuffs",
+  "productSkus": [
+    "522669",
+    "523948",
+    "529181"
+  ],
+  "generatedAt": "2026-05-31T08:47:10.212752+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

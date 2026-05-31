@@ -1,0 +1,19 @@
+{
+  "url": "/cat/shirts/color/multi-color",
+  "type": "facet",
+  "h1": "Custom Multi Color Shirts for Bulk Orders",
+  "metaTitle": "Custom Multi Color Shirts | Perfect Imprints",
+  "metaDescription": "Order custom multi color shirts for your team or event. Bulk pricing available at PerfectImprints.com.",
+  "introHtml": "<p>Multi color shirts let you combine several brand colors into one garment, making them ideal for team uniforms, event staff, or promotional giveaways where you want maximum visibility. Unlike single-color shirts, multi color options allow you to match your logo exactly or create a vibrant design that stands out. Choose from styles like polos, tees, or button-downs with decoration methods such as screen printing or embroidery that handle multiple colors cleanly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom multi color shirts with colorful designs for promotional events",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:25:49.515790+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

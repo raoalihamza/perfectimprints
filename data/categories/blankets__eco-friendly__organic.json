@@ -1,0 +1,22 @@
+{
+  "url": "/cat/blankets/eco-friendly/organic",
+  "type": "facet",
+  "h1": "Custom Organic Blankets for Bulk Orders",
+  "metaTitle": "Custom Organic Blankets | Perfect Imprints",
+  "metaDescription": "Order custom organic blankets for your brand. Eco-friendly, bulk pricing, and fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Organic blankets let you offer comfort while staying true to sustainability goals. Made from GOTS-certified organic cotton, these throws avoid synthetic pesticides and dyes. The Field & Co. 100% Organic Cotton Check Throw Blanket works well for corporate gifts, trade show giveaways, or employee appreciation. Decorate with a subtle logo embroidery or screen print to keep the natural look intact. Choosing organic over conventional blankets signals a genuine commitment to eco-conscious branding.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom organic cotton blanket with embroidered logo, folded on a wooden table",
+  "productSkus": [
+    "525982",
+    "527258"
+  ],
+  "generatedAt": "2026-05-31T09:08:49.689329+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

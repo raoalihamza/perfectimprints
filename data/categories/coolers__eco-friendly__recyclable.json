@@ -1,0 +1,24 @@
+{
+  "url": "/cat/coolers/eco-friendly/recyclable",
+  "type": "facet",
+  "h1": "Custom Recyclable Coolers for Bulk Orders",
+  "metaTitle": "Custom Recyclable Coolers | Perfect Imprints",
+  "metaDescription": "Order custom recyclable coolers with your logo. Eco-friendly options from Perfect Imprints for bulk corporate gifts.",
+  "introHtml": "<p>Recyclable coolers let you offer branded promotional products that align with your company's sustainability goals. Made from materials like Repreve recycled fabric, these coolers are built to last while reducing environmental impact. Whether you need lunch pails for a safety incentive or backpack coolers for a trade show giveaway, choosing recyclable options shows your commitment to responsible sourcing without sacrificing durability or style.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recyclable coolers with company logo, featuring Repreve fabric and reusable design",
+  "productSkus": [
+    "525923",
+    "525924",
+    "525964",
+    "526487"
+  ],
+  "generatedAt": "2026-05-31T09:11:16.015598+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

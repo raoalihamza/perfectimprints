@@ -1,0 +1,22 @@
+{
+  "url": "/cat/beach-towels/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Beach Towels for Bulk Orders",
+  "metaTitle": "Custom Unisex Beach Towels | Perfect Imprints",
+  "metaDescription": "Order custom unisex beach towels for your next event. Perfect for promotions, giveaways, and brand visibility. Get a quote today!",
+  "introHtml": "<p>Unisex beach towels offer a versatile branding option for any audience. Made from soft, absorbent cotton or microfiber, these towels work equally well for men, women, and kids. Choose screen printing or embroidery to add your logo, then use them at company picnics, trade shows, or customer appreciation events. Their large size and vibrant colors make them a practical giveaway that gets repeated use at the beach, pool, or gym.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom unisex beach towels with printed logo in vibrant colors, perfect for bulk promotional orders.",
+  "productSkus": [
+    "515733",
+    "527493"
+  ],
+  "generatedAt": "2026-05-31T09:36:31.510630+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

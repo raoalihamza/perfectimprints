@@ -1,0 +1,19 @@
+{
+  "url": "/cat/candy/feature/microwave-safe",
+  "type": "facet",
+  "h1": "Custom Microwave Safe Candy for Bulk Orders",
+  "metaTitle": "Custom Microwave Safe Candy | Perfect Imprints",
+  "metaDescription": "Order custom microwave safe candy in bulk. Perfect for events, gifts, and promotions. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Microwave safe candy lets you serve warm, melty treats directly from the microwave without melting the wrapper or causing a mess. Ideal for concession stands, corporate break rooms, or event giveaways, these individually wrapped candies hold up to heat while keeping your logo visible. Choose from chocolate caramels, marshmallow treats, or nut clusters that soften but won't leak. Custom imprint options include foil stamping or printed wrappers that survive the microwave cycle. Perfect for branded snacks that feel like a warm welcome.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom microwave safe candy with branded wrappers, arranged on a table for bulk corporate gifting",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:09:56.129903+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

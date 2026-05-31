@@ -1,0 +1,22 @@
+{
+  "url": "/cat/shirts/brand/harriton",
+  "type": "facet",
+  "h1": "Custom Harriton Shirts for Bulk Orders",
+  "metaTitle": "Custom Harriton Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Harriton shirts in bulk from Perfect Imprints. Perfect for teams and events. Get your quote today!",
+  "introHtml": "<p>Harriton shirts offer a rugged, professional look that stands out from standard uniform shirts. Made with durable denim fabric, they provide lasting comfort and style for work crews, outdoor events, and promotional giveaways. Customize them with embroidered logos or screen-printed designs for a branded look that holds up wash after wash.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Harriton shirts in denim fabric with embroidered logo, ideal for bulk orders and corporate uniforms.",
+  "productSkus": [
+    "501740",
+    "501741"
+  ],
+  "generatedAt": "2026-05-31T08:25:35.148031+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/coasters/color/clear",
+  "type": "facet",
+  "h1": "Custom Clear Coasters for Bulk Orders",
+  "metaTitle": "Custom Clear Coasters | Perfect Imprints",
+  "metaDescription": "Order custom clear coasters for your brand. Perfect for events and offices. Shop at Perfect Imprints for bulk pricing.",
+  "introHtml": "<p>Clear coasters offer a sleek, modern look that lets your logo or design take center stage without visual clutter. Ideal for trade shows, corporate gifts, or office bars, these acrylic or glass coasters provide a durable surface that protects tabletops while showcasing your branding. Customize with full-color imprinting or etching for a polished finish that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom clear coasters with printed logo on a glossy surface, perfect for branding",
+  "productSkus": [
+    "528135",
+    "529143"
+  ],
+  "generatedAt": "2026-05-31T09:10:39.895724+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

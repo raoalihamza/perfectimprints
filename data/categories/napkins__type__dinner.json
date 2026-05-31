@@ -1,0 +1,31 @@
+{
+  "url": "/cat/napkins/type/dinner",
+  "type": "facet",
+  "h1": "Custom Dinner Napkins for Bulk Orders",
+  "metaTitle": "Custom Dinner Napkins | Perfect Imprints",
+  "metaDescription": "Order custom dinner napkins in bulk for your event or brand. Perfect for restaurants, caterers, and corporate functions. Get a quote today.",
+  "introHtml": "<p>Custom dinner napkins offer a larger surface area than beverage or luncheon sizes, making them ideal for sit-down meals, banquets, and corporate dining events. The generous dimensions allow for prominent logo imprinting or intricate designs that stand out on the table. Whether you prefer a classic 1/4 fold or a compact 1/8 fold, these napkins provide a polished look for any formal or casual setting. Choose from a wide range of colors to match your brand palette and leave a lasting impression on guests.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom dinner napkins with company logo printed in multiple colors",
+  "productSkus": [
+    "514577 90A",
+    "514579 90A",
+    "514580 90A",
+    "514581 90A",
+    "514583 90A",
+    "519472",
+    "519473",
+    "520634",
+    "520635",
+    "520636",
+    "520637"
+  ],
+  "generatedAt": "2026-05-31T08:26:53.471568+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

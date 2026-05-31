@@ -1,0 +1,24 @@
+{
+  "url": "/cat/pet-accessories/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Pet Accessories for Bulk Orders",
+  "metaTitle": "Custom Plastic Pet Accessories | Perfect Imprints",
+  "metaDescription": "Order custom plastic pet accessories in bulk at Perfect Imprints. Great for giveaways and events. Shop now!",
+  "introHtml": "<p>Plastic pet accessories offer a durable, lightweight, and cost-effective way to promote your brand at pet events or as employee gifts. From custom pet ID tags to collars and toys, plastic materials allow for vibrant colors and detailed decorations like pad printing or laser engraving. These accessories withstand outdoor use and are easy to clean, making them practical for pet owners. Bulk orders ensure your logo reaches a wide audience while keeping per-unit costs low.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom plastic pet accessories including pet ID tags and collars with colorful designs for branding",
+  "productSkus": [
+    "526145",
+    "527282",
+    "528134",
+    "528208"
+  ],
+  "generatedAt": "2026-05-31T10:01:07.286442+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

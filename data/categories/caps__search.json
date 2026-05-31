@@ -1,0 +1,19 @@
+{
+  "url": "/cat/caps/search",
+  "type": "modifier",
+  "h1": "Custom Caps for Branded Promotions",
+  "metaTitle": "Custom Caps | Perfect Imprints",
+  "metaDescription": "Browse our selection of custom caps for your next promotion. Find the perfect style for your brand at Perfect Imprints.",
+  "introHtml": "<p>Whether you need caps for a company giveaway, a trade show, or a uniform program, our collection of custom caps offers a wide range of styles, colors, and customization options. From classic baseball caps to modern snapbacks and beanies, we have something for every brand and budget. Start exploring our selection to find the perfect headwear for your next promotion.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A group of custom caps in various colors and styles, including baseball caps and snapbacks, for branded promotions.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:22:16.752157+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

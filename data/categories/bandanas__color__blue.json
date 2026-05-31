@@ -1,0 +1,28 @@
+{
+  "url": "/cat/bandanas/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Bandanas for Bulk Orders",
+  "metaTitle": "Custom Blue Bandanas | Perfect Imprints",
+  "metaDescription": "Order custom blue bandanas for your team or event. Bulk pricing, fast turnaround. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Blue bandanas are a versatile choice for companies seeking a recognizable giveaway that works across industries. Whether you choose a classic paisley pattern or a solid shade for screen printing, blue pairs well with most logos and color schemes. From construction crews needing sweat-wicking headwear to event organizers wanting a unified look, custom blue bandanas offer practical branding that employees and customers actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom blue bandanas with embroidered logos on a table, perfect for promotional giveaways and bulk orders.",
+  "productSkus": [
+    "506991",
+    "516837",
+    "521602",
+    "522110",
+    "522111",
+    "524693",
+    "524817",
+    "525555"
+  ],
+  "generatedAt": "2026-05-31T09:34:44.278914+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

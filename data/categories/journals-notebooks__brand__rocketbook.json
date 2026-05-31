@@ -1,0 +1,22 @@
+{
+  "url": "/cat/journals-notebooks/brand/rocketbook",
+  "type": "facet",
+  "h1": "Custom Rocketbook Journals & Notebooks",
+  "metaTitle": "Custom Rocketbook Journals & Notebooks | Perfect Imprints",
+  "metaDescription": "Order custom Rocketbook journals & notebooks for your team. Reusable, cloud-connected, and perfect for bulk branding. Get a quote today!",
+  "introHtml": "<p>Rocketbook notebooks combine the feel of pen on paper with digital convenience. Each page is reusable—just wipe clean with a damp cloth—and your handwritten notes automatically sync to cloud services like Google Drive, Dropbox, or Evernote. For marketing directors or HR teams looking for a sustainable, tech-forward giveaway, custom Rocketbook journals make a lasting impression. Decorate the cover with your logo via laser engraving or full-color printing to create a branded tool that recipients will use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom branded Rocketbook journals with reusable pages and cloud sync capability",
+  "productSkus": [
+    "526223",
+    "529172"
+  ],
+  "generatedAt": "2026-05-31T09:16:53.578432+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

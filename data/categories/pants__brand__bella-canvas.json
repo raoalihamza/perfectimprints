@@ -1,0 +1,27 @@
+{
+  "url": "/cat/pants/brand/bella-canvas",
+  "type": "facet",
+  "h1": "Custom Bella Canvas Pants for Bulk Orders",
+  "metaTitle": "Custom Bella Canvas Pants | Perfect Imprints",
+  "metaDescription": "Order custom Bella Canvas pants for your team. Soft, stylish, and perfect for branding. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Bella Canvas pants offer a modern fit and superior comfort, making them a top choice for companies that want their branded apparel to feel as good as it looks. The fabric blends are breathable and durable, ideal for employee uniforms or promotional giveaways. With a variety of colors and sizes, you can easily match your brand palette while ensuring a comfortable fit for your team. Decorate with screen printing, embroidery, or heat transfer for a polished finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Bella Canvas pants in a soft fabric blend, ideal for branding with screen printing or embroidery.",
+  "productSkus": [
+    "506191",
+    "506864",
+    "526601",
+    "527377",
+    "528866",
+    "528887",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T09:59:32.941867+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

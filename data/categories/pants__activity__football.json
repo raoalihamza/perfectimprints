@@ -1,0 +1,19 @@
+{
+  "url": "/cat/pants/activity/football",
+  "type": "facet",
+  "h1": "Custom Football Pants for Bulk Orders",
+  "metaTitle": "Custom Football Pants | Perfect Imprints",
+  "metaDescription": "Order custom football pants in bulk for your team or event. Perfect Imprints offers quality options with decoration. Get a quote today!",
+  "introHtml": "<p>Custom football pants are built for durability and performance on the field, with reinforced stitching and moisture-wicking fabrics that withstand game after game. Whether you need practice pants for your youth league or sideline gear for a corporate sports outing, these pants offer a professional look with room for your team logo or sponsor branding. Choose from integrated pad pockets or streamlined designs for a clean, athletic silhouette that keeps players comfortable and mobile.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom football pants with team logo printed on the leg, suitable for bulk orders",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:59:32.496477+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

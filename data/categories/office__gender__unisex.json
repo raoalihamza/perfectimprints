@@ -1,0 +1,25 @@
+{
+  "url": "/cat/office/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Office Apparel & Accessories",
+  "metaTitle": "Custom Unisex Office Gear | Perfect Imprints",
+  "metaDescription": "Shop custom unisex office apparel and accessories at Perfect Imprints. Ideal for teams, events, and daily wear.",
+  "introHtml": "<p>Unisex office apparel and accessories offer a versatile solution for teams of all genders. From Jerzees NuBlend hoodies to comfortable socks, these items provide a uniform look that suits everyone. Perfect for branding with your logo, they ensure your team looks cohesive while maintaining individual comfort.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom unisex office apparel including hoodie and socks with logo branding, ideal for team uniforms.",
+  "productSkus": [
+    "505528",
+    "520125",
+    "522251",
+    "524427",
+    "524817"
+  ],
+  "generatedAt": "2026-05-31T09:58:13.351925+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

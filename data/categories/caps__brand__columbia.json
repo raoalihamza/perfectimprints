@@ -1,0 +1,25 @@
+{
+  "url": "/cat/caps/brand/columbia",
+  "type": "facet",
+  "h1": "Custom Columbia Caps for Bulk Orders",
+  "metaTitle": "Custom Columbia Caps | Perfect Imprints",
+  "metaDescription": "Order custom Columbia caps for your team or event. Durable, branded caps from Perfect Imprints. Bulk pricing available.",
+  "introHtml": "<p>Columbia caps combine outdoor durability with a classic look, making them ideal for corporate teams, field crews, and promotional events. The brand’s reputation for quality ensures your logo stands up to daily wear and weather. Choose from structured or unstructured styles, and add your imprint with embroidery or screen printing for a professional finish that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Columbia caps with embroidered logo on a structured baseball cap in khaki color",
+  "productSkus": [
+    "523863",
+    "523865",
+    "523866",
+    "523867",
+    "523870"
+  ],
+  "generatedAt": "2026-05-31T09:39:31.476077+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

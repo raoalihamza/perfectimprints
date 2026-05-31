@@ -1,0 +1,30 @@
+{
+  "url": "/cat/outdoor/brand/yeti",
+  "type": "facet",
+  "h1": "Custom Yeti Outdoor Products for Your Brand",
+  "metaTitle": "Custom Yeti Outdoor | Perfect Imprints",
+  "metaDescription": "Brand custom Yeti outdoor products for your team or event. Shop drinkware, coolers & more at Perfect Imprints.",
+  "introHtml": "<p>Yeti outdoor gear is built for durability and performance, making it a premium choice for brands that want to give employees or clients something they will actually use. From the 26 oz Rambler water bottle with chug cap to the stackable lowball, each piece is designed for rugged environments. Laser engraving or color-fill decoration ensures your logo stands out on the brushed stainless steel finish. Whether you are outfitting a sales team or rewarding top performers, custom Yeti products convey quality and longevity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Yeti outdoor drinkware including Rambler tumblers and water bottles with engraved logos",
+  "productSkus": [
+    "528839",
+    "528840",
+    "528841",
+    "528844",
+    "528845",
+    "528846",
+    "528847",
+    "529532",
+    "529533",
+    "529534"
+  ],
+  "generatedAt": "2026-05-31T09:21:07.174793+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

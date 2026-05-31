@@ -1,0 +1,23 @@
+{
+  "url": "/cat/candy/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Candy for Bulk Orders",
+  "metaTitle": "Custom Set Candy | Perfect Imprints",
+  "metaDescription": "Order custom set candy in bulk for gifts, events, and promotions. Perfect Imprints offers branded candy sets with your logo.",
+  "introHtml": "<p>Custom set candy combines the universal appeal of sweets with the convenience of a curated gift. Whether you need corporate gifts for clients, welcome packages for new hires, or treats for a trade show, pre-assembled candy sets save time and ensure consistent presentation. Popular options like the Oh So Sweet Gift Set or the Fruit Cocktail Gift Set can be customized with your logo on the packaging, making them ready to hand out or ship. Choose from assorted chocolates, gummies, or themed combinations to match your brand’s personality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set candy gift boxes with assorted sweets and branded packaging for corporate promotions",
+  "productSkus": [
+    "526316",
+    "528146",
+    "529147"
+  ],
+  "generatedAt": "2026-05-31T08:51:42.083607+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

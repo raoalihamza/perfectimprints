@@ -1,0 +1,25 @@
+{
+  "url": "/cat/kitchen-utensils/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Kitchen Utensils for Your Brand",
+  "metaTitle": "Custom Blue Kitchen Utensils | Perfect Imprints",
+  "metaDescription": "Order custom blue kitchen utensils in bulk from Perfect Imprints. Ideal for branding with logos. Perfect for giveaways and events.",
+  "introHtml": "<p>Blue kitchen utensils offer a fresh, professional pop of color that stands out in breakrooms, company kitchens, or outdoor events. Whether you choose silicone baking utensils for heat resistance or a travel cutlery set with carabiner for on-the-go use, the blue hue adds a cohesive branded look. These items are popular for employee gifts, trade show giveaways, and corporate picnic kits. Decorating with your logo is straightforward on the smooth handles or silicone surfaces.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue kitchen utensils including silicone baking tools and travel cutlery set with carabiner",
+  "productSkus": [
+    "512260",
+    "513068",
+    "523884",
+    "525537",
+    "526594"
+  ],
+  "generatedAt": "2026-05-31T09:17:21.486323+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

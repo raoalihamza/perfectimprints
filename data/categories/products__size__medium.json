@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/size/medium",
+  "type": "facet",
+  "h1": "Custom Medium Products for Branded Giveaways",
+  "metaTitle": "Custom Medium Products | Perfect Imprints",
+  "metaDescription": "Shop custom medium products for your next event. Perfect for branded giveaways and corporate gifts. Bulk pricing available.",
+  "introHtml": "<p>Medium-sized products offer the perfect balance of visibility and practicality for your branded giveaways. Whether you need medium tote bags for a trade show or medium notebooks for employee onboarding, this size ensures your logo is seen without overwhelming the user. Choose from apparel, drinkware, office supplies, and more, all available with custom imprinting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom medium products including tote bags, notebooks, and drinkware with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:04:09.573199+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

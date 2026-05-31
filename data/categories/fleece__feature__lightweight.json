@@ -1,0 +1,28 @@
+{
+  "url": "/cat/fleece/feature/lightweight",
+  "type": "facet",
+  "h1": "Custom Lightweight Fleece Jackets for Your Team",
+  "metaTitle": "Custom Lightweight Fleece | Perfect Imprints",
+  "metaDescription": "Order custom lightweight fleece jackets for your team or event. Perfect for layering or mild weather. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Lightweight fleece jackets offer the warmth and comfort of traditional fleece without the bulk, making them ideal for team outings, trade shows, or corporate gifts in mild climates. Microfleece options like the Roots73 Briggspoint or The North Face Glacier 1/4-Zip provide easy layering under a shell or worn alone. With full-color embroidery or screen printing available, these jackets keep your logo visible while your team stays comfortable indoors or outdoors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom lightweight fleece jackets with embroidered logo, including microfleece pullovers and full-zip styles for corporate teams.",
+  "productSkus": [
+    "505577",
+    "505578",
+    "513811",
+    "513812",
+    "524273",
+    "524274",
+    "529016",
+    "529017"
+  ],
+  "generatedAt": "2026-05-31T08:33:52.929323+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/eco-friendly/organic",
+  "type": "facet",
+  "h1": "Custom Organic Products for Eco-Conscious Branding",
+  "metaTitle": "Custom Organic Products | Perfect Imprints",
+  "metaDescription": "Shop custom organic products for eco-friendly branding. Perfect for giveaways and corporate gifts at Perfect Imprints.",
+  "introHtml": "<p>Organic products are grown without synthetic pesticides or fertilizers, making them a responsible choice for brands that prioritize sustainability. From organic cotton tote bags and bamboo fiber notebooks to hemp-based accessories, these items appeal to environmentally aware audiences. Decorate with eco-friendly inks or embroidery to keep your messaging consistent with your values. Perfect for trade shows, employee gifts, or retail promotions.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom organic products including organic cotton tote bags and bamboo notebooks with eco-friendly branding",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:21:54.394871+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

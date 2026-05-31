@@ -1,0 +1,31 @@
+{
+  "url": "/cat/barware/brand/camelbak",
+  "type": "facet",
+  "h1": "Custom Camelbak Barware for Bulk Orders",
+  "metaTitle": "Custom Camelbak Barware | Perfect Imprints",
+  "metaDescription": "Order custom Camelbak barware in bulk. Perfect for corporate gifts and events. Get your brand on durable drinkware.",
+  "introHtml": "<p>Camelbak barware combines rugged hydration engineering with sleek, everyday drinkware design. For corporate gifting or event giveaways, these bottles and tumblers offer reliable insulation and leakproof performance. Choose from stainless steel or Tritan Renew options, then add your logo with screen printing or laser engraving. The 32 oz Chute Mag bottle is a popular choice for long-lasting brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Camelbak barware including tumblers and water bottles with company logos for corporate gifts",
+  "productSkus": [
+    "525013",
+    "525506",
+    "525680",
+    "525681",
+    "526211",
+    "526695",
+    "527057",
+    "527058",
+    "527966",
+    "528153",
+    "528684"
+  ],
+  "generatedAt": "2026-05-31T09:35:50.687208+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

@@ -1,0 +1,28 @@
+{
+  "url": "/cat/coolers/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Coolers for Branded Promotions",
+  "metaTitle": "Custom Orange Coolers | Perfect Imprints",
+  "metaDescription": "Order custom orange coolers in bulk at Perfect Imprints. Perfect for outdoor events, branding, and giveaways. Get your quote today!",
+  "introHtml": "<p>Orange coolers stand out in a crowd, making them ideal for outdoor events, safety teams, and summer promotions. Whether you choose a backpack cooler for trade shows or a duffle cooler for corporate picnics, the bright color ensures your logo gets noticed. Durable insulation keeps drinks cold, while custom imprinting turns each cooler into a mobile billboard for your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange coolers with logo imprint, including backpack and duffle styles for outdoor events",
+  "productSkus": [
+    "506050",
+    "517456",
+    "519413",
+    "519771",
+    "525573",
+    "527613",
+    "528730",
+    "528733"
+  ],
+  "generatedAt": "2026-05-31T08:28:38.499618+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

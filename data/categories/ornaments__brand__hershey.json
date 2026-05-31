@@ -1,0 +1,21 @@
+{
+  "url": "/cat/ornaments/brand/hershey",
+  "type": "facet",
+  "h1": "Custom Hershey Ornaments for Bulk Orders",
+  "metaTitle": "Custom Hershey Ornaments - Perfect Imprints",
+  "metaDescription": "Order custom Hershey ornaments for your holiday promotions. Perfect for bulk gifting. Get a quote today!",
+  "introHtml": "<p>Custom Hershey ornaments combine the nostalgic appeal of a classic holiday decoration with the universally loved taste of Hershey chocolate. These treat-filled ornaments are ideal for corporate holiday gifts, client appreciation, or employee rewards. Choose from various decoration methods to add your logo, and delight recipients with a sweet surprise that stands out from standard promotional items.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hershey ornaments with logo, treat-filled holiday ornament for corporate gifts",
+  "productSkus": [
+    "527006"
+  ],
+  "generatedAt": "2026-05-31T09:58:27.539469+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

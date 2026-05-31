@@ -1,0 +1,28 @@
+{
+  "url": "/cat/headwear/brand/vineyard-vines",
+  "type": "facet",
+  "h1": "Custom Vineyard Vines Headwear for Bulk Orders",
+  "metaTitle": "Custom Vineyard Vines Headwear | Perfect Imprints",
+  "metaDescription": "Order custom Vineyard Vines headwear in bulk from Perfect Imprints. Perfect for corporate gifts and events.",
+  "introHtml": "<p>Vineyard Vines headwear brings preppy style to your promotional gear. Known for their iconic whale logo and classic designs, these hats offer a premium look that stands out at corporate events, golf outings, and retail giveaways. Choose from embroidered logos on structured caps or relaxed dad hats to match your brand's image. Bulk orders ensure consistent quality and fast turnaround for your next campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom embroidered Vineyard Vines hats with whale logo on structured cap",
+  "productSkus": [
+    "526099",
+    "526100",
+    "526101",
+    "526102",
+    "526103",
+    "526106",
+    "526107",
+    "526108"
+  ],
+  "generatedAt": "2026-05-31T09:50:09.784265+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

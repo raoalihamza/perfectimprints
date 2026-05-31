@@ -1,0 +1,28 @@
+{
+  "url": "/cat/inspirational-books/material/paper",
+  "type": "facet",
+  "h1": "Custom Paper Inspirational Books",
+  "metaTitle": "Custom Paper Inspirational Books | Perfect Imprints",
+  "metaDescription": "Order custom paper inspirational books for your team or event. Perfect for employee gifts and safety incentives. Contact Perfect Imprints today.",
+  "introHtml": "<p>Paper inspirational books offer a tangible, screen-free way to share uplifting messages with your team or customers. Unlike digital downloads, these bound books can be branded on the cover and used repeatedly. They are ideal for employee morale programs, safety recognition, or client gifts. Options like coloring books with pencils combine relaxation with brand exposure, making them memorable giveaways that recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom paper inspirational books with colorful covers and pencil sets, perfect for corporate gifts and employee appreciation.",
+  "productSkus": [
+    "519884",
+    "523285",
+    "523286",
+    "523515",
+    "524559",
+    "526683",
+    "527349",
+    "529052"
+  ],
+  "generatedAt": "2026-05-31T08:34:44.203693+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

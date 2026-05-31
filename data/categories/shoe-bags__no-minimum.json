@@ -1,0 +1,21 @@
+{
+  "url": "/cat/shoe-bags/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Shoe Bags for Small Orders",
+  "metaTitle": "No-Minimum Custom Shoe Bags | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom shoe bags with no bulk requirements. Perfect for small teams, events, or samples. Get low MOQ flexibility from Perfect Imprints.",
+  "introHtml": "<p>No-minimum custom shoe bags let you order exactly what you need, whether it's five bags for a small team or a dozen for a weekend event. Unlike traditional bulk orders, there are no minimum quantities to meet, so you can try a style like our Clear Fanny Pack or simply keep your budget small. This flexibility makes it easy for startups, small businesses, and HR or marketing directors to get branded bags without overcommitting. Each bag is printed with your logo or design, and you pay only for the quantity you order.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "No-minimum custom shoe bags with a clear fanny pack style, showing small quantity orders for teams or events",
+  "productSkus": [
+    "523655"
+  ],
+  "generatedAt": "2026-05-31T10:06:39.112935+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

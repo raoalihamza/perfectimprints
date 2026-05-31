@@ -1,0 +1,23 @@
+{
+  "url": "/cat/outdoor/brand/pelican",
+  "type": "facet",
+  "h1": "Custom Pelican Outdoor Products for Bulk Orders",
+  "metaTitle": "Custom Pelican Outdoor | Perfect Imprints",
+  "metaDescription": "Order custom Pelican outdoor products in bulk. Perfect for corporate gifts, events, and brand exposure. Get a quote today!",
+  "introHtml": "<p>Pelican outdoor products combine rugged durability with sustainable materials, making them ideal for corporate giveaways at trade shows, company picnics, or employee appreciation events. Choose from double-wall stainless steel tumblers and water bottles that keep drinks at the perfect temperature while showcasing your logo. These high-quality items offer excellent decoration space for screen printing or laser engraving, ensuring your brand stands out in any outdoor setting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Pelican outdoor products including stainless steel tumblers and water bottles with engraved logos",
+  "productSkus": [
+    "527482",
+    "527483",
+    "527484"
+  ],
+  "generatedAt": "2026-05-31T08:58:56.138812+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

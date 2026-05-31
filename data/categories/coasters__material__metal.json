@@ -1,0 +1,21 @@
+{
+  "url": "/cat/coasters/material/metal",
+  "type": "facet",
+  "h1": "Custom Metal Coasters",
+  "metaTitle": "Custom Metal Coasters | Perfect Imprints",
+  "metaDescription": "Order custom metal coasters for your brand. Durable, stylish, and perfect for bars, restaurants, or corporate gifts. Get a quote today.",
+  "introHtml": "<p>Metal coasters offer a sleek, durable alternative to paper or cork options, making them ideal for bars, restaurants, and corporate offices. The weight and finish of metal provide a premium feel that complements modern decor. Customize with your logo using debossing, screen printing, or full-color digital printing for a polished look that withstands daily use. Whether you need a set for a trade show or a branded gift for clients, metal coasters deliver lasting impressions.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom metal coasters with engraved logo on a bar table, showcasing durable and stylish design",
+  "productSkus": [
+    "506094 33D"
+  ],
+  "generatedAt": "2026-05-31T09:40:50.929659+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

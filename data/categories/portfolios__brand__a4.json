@@ -1,0 +1,21 @@
+{
+  "url": "/cat/portfolios/brand/a4",
+  "type": "facet",
+  "h1": "Custom A4 Portfolios for Bulk Orders",
+  "metaTitle": "Custom A4 Portfolios | Perfect Imprints",
+  "metaDescription": "Order custom A4 portfolios for your brand. Perfect for conferences and training. Bulk pricing available at PerfectImprints.com.",
+  "introHtml": "<p>Custom A4 portfolios offer a professional way to present materials at conferences, training sessions, or client meetings. The A4 size accommodates standard documents without folding, making them ideal for business use. Choose from options like the Solutions Ring Binder, which allows for easy insertion and removal of pages. Add your logo through screen printing or foil stamping for a polished look that reinforces your brand identity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom A4 portfolios with branded logo, ideal for corporate gifts and business presentations",
+  "productSkus": [
+    "516719 01A"
+  ],
+  "generatedAt": "2026-05-31T10:02:40.055731+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

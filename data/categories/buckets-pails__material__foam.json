@@ -1,0 +1,30 @@
+{
+  "url": "/cat/buckets-pails/material/foam",
+  "type": "facet",
+  "h1": "Custom Foam Buckets & Pails",
+  "metaTitle": "Custom Foam Buckets & Pails - Perfect Imprints",
+  "metaDescription": "Order custom foam buckets & pails at Perfect Imprints. Lightweight, durable, and perfect for giveaways. Get your quote today!",
+  "introHtml": "<p>Foam buckets and pails offer a lightweight, durable alternative to traditional metal or plastic options, making them ideal for outdoor events, poolside promotions, or beach giveaways. Their soft material prevents dents and rust, while providing ample space for screen-printed logos or full-color designs. Perfect for branding at summer festivals, corporate picnics, or safety training sessions where portability matters.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom foam buckets and pails with printed logos, ideal for outdoor events and promotional giveaways.",
+  "productSkus": [
+    "508537",
+    "509180",
+    "511304",
+    "520688",
+    "523995",
+    "525861",
+    "526413",
+    "526880",
+    "526888",
+    "527764"
+  ],
+  "generatedAt": "2026-05-31T08:51:18.174653+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

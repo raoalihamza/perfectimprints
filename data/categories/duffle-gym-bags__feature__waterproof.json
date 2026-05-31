@@ -1,0 +1,27 @@
+{
+  "url": "/cat/duffle-gym-bags/feature/waterproof",
+  "type": "facet",
+  "h1": "Custom Waterproof Duffle Gym Bags",
+  "metaTitle": "Custom Waterproof Duffle Gym Bags | Perfect Imprints",
+  "metaDescription": "Order custom waterproof duffle gym bags for your team. Durable, branded gear perfect for daily commutes and travel. Get a quote today!",
+  "introHtml": "<p>Waterproof duffle gym bags keep gear dry in rain, snow, or splash zones. Unlike standard duffles, these bags feature sealed seams and water-resistant fabrics that protect electronics, clothes, and equipment. Ideal for corporate wellness programs, field crews, or outdoor events. Decorate with screen printing or embroidery on panels for lasting brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom waterproof duffle gym bags with sealed seams and water-resistant fabric, ideal for travel and gym use",
+  "productSkus": [
+    "515042",
+    "520888",
+    "523502",
+    "526860",
+    "526861",
+    "527498",
+    "527641"
+  ],
+  "generatedAt": "2026-05-31T08:53:26.850505+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

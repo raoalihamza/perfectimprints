@@ -1,0 +1,19 @@
+{
+  "url": "/cat/pretzels/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Pretzels",
+  "metaTitle": "Custom Orange Pretzels | Perfect Imprints",
+  "metaDescription": "Order custom orange pretzels for your next event. Branded snacks with your logo. Bulk pricing available at PerfectImprints.com.",
+  "introHtml": "<p>Orange pretzels bring a bold pop of color to any snack lineup, making them ideal for fall events, Halloween giveaways, or branded food items that stand out. The vibrant coating pairs well with classic salted or yogurt-covered pretzels, and your logo can be imprinted directly on the packaging for maximum visibility. Perfect for trade shows, corporate gifts, or break room treats.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom orange pretzels in a clear bag with a company logo printed on the package",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:23:47.812836+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

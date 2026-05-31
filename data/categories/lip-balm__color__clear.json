@@ -1,0 +1,23 @@
+{
+  "url": "/cat/lip-balm/color/clear",
+  "type": "facet",
+  "h1": "Custom Clear Lip Balm",
+  "metaTitle": "Custom Clear Lip Balm | Perfect Imprints",
+  "metaDescription": "Order custom clear lip balm for your team or event. Perfect for any season with no color constraints. Bulk pricing available.",
+  "introHtml": "<p>Clear lip balm is a versatile, no-fuss promotional product that works for any audience. Without added color, it suits all skin tones and preferences, making it ideal for company-wide giveaways or event swag. Choose from beeswax or butter formulas, and add your logo through screen printing or labels. Clear balm also pairs well with custom packaging for a polished, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom clear lip balm with label design, perfect for corporate giveaways and promotional events",
+  "productSkus": [
+    "519745",
+    "526331",
+    "527509"
+  ],
+  "generatedAt": "2026-05-31T08:35:14.063954+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

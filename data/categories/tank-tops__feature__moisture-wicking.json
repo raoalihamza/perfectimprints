@@ -1,0 +1,26 @@
+{
+  "url": "/cat/tank-tops/feature/moisture-wicking",
+  "type": "facet",
+  "h1": "Custom Moisture Wicking Tank Tops",
+  "metaTitle": "Custom Moisture Wicking Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom moisture wicking tank tops for your team or event. Perfect for outdoor work, races, and summer giveaways. Bulk pricing available.",
+  "introHtml": "<p>Moisture wicking tank tops keep your team cool and dry during outdoor events, trade shows, or summer giveaways. Unlike standard cotton tanks, these performance fabrics pull sweat away from the skin, making them ideal for safety managers outfitting crews in warm environments or marketing directors promoting a 5K run. Decorate with screen printing or embroidery for a professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom moisture wicking tank tops in various colors for promotional events and team uniforms",
+  "productSkus": [
+    "526200",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885"
+  ],
+  "generatedAt": "2026-05-31T08:37:52.444457+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

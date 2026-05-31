@@ -1,0 +1,22 @@
+{
+  "url": "/cat/umbrellas/brand/totes",
+  "type": "facet",
+  "h1": "Custom Totes Umbrellas for Bulk Orders",
+  "metaTitle": "Custom Totes Umbrellas | Perfect Imprints",
+  "metaDescription": "Order custom Totes umbrellas in bulk for your brand. Reliable, stylish, and perfect for giveaways. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Totes umbrellas combine a trusted brand name with dependable durability, making them a smart choice for corporate giveaways and employee recognition. From the compact 38\" Mini Travel Umbrella to the sturdy 42\" Auto Open model, these umbrellas offer full-color imprint areas for your logo. Choose Totes when you want a recognizable brand that recipients will actually use on rainy days. Our decoration options include screen printing and digital transfer to match your design needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Totes umbrellas with company logo, including a compact travel umbrella and a larger auto-open model",
+  "productSkus": [
+    "515606",
+    "528280"
+  ],
+  "generatedAt": "2026-05-31T08:22:13.794432+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

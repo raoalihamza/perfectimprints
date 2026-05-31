@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/type/champagne",
+  "type": "facet",
+  "h1": "Custom Champagne Products for Corporate Gifts",
+  "metaTitle": "Custom Champagne Products | Perfect Imprints",
+  "metaDescription": "Order custom champagne products for your next corporate event or celebration. Browse personalized champagne flutes, bottles & more at Perfect Imprints.",
+  "introHtml": "<p>Custom champagne products add a touch of elegance to corporate gifts, holiday parties, and milestone celebrations. From engraved champagne flutes to personalized mini bottles, these items help you toast achievements with style. Whether you're commemorating a product launch or rewarding top performers, branded champagne gifts create a memorable impression that standard drinkware cannot match.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom champagne products including personalized champagne flutes and mini bottles with engraved logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:28.903903+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

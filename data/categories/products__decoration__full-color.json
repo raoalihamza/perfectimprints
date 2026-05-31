@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Products for Bulk Orders",
+  "metaTitle": "Custom Full Color Products | Perfect Imprints",
+  "metaDescription": "Order custom full color products for your brand. Perfect for logos, photos, and detailed designs. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Full color decoration lets you reproduce logos, photos, and complex artwork with vibrant detail. Unlike one- or two-color imprints, full color uses CMYK printing to capture gradients and fine lines. Ideal for promotional giveaways, trade show handouts, or employee gifts where brand recognition matters. Choose full color on items like custom drinkware, apparel, or tech accessories for maximum visual impact.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom full color products including water bottles, notebooks, and bags with vibrant printed logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:50.672837+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

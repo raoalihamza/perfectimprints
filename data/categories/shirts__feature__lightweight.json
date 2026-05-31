@@ -1,0 +1,19 @@
+{
+  "url": "/cat/shirts/feature/lightweight",
+  "type": "facet",
+  "h1": "Custom Lightweight Shirts for Bulk Orders",
+  "metaTitle": "Custom Lightweight Shirts | Perfect Imprints",
+  "metaDescription": "Order custom lightweight shirts for your team or event. Perfect for layering or warm weather. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Lightweight shirts are ideal for outdoor events, trade shows, or uniform programs where comfort and breathability matter. Constructed from performance fabrics like polyester blends or lightweight cotton, they keep wearers cool without sacrificing durability. Decorate with screen printing or embroidery for a crisp, professional look that moves with your team.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom lightweight shirts for bulk orders featuring breathable fabric and embroidery",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:24:31.573954+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

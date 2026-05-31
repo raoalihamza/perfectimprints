@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/activity/tennis",
+  "type": "facet",
+  "h1": "Custom Tennis Products for Bulk Orders",
+  "metaTitle": "Custom Tennis Products | Perfect Imprints",
+  "metaDescription": "Order custom tennis products in bulk at Perfect Imprints. Perfect for tournaments, clubs, and corporate gifts.",
+  "introHtml": "<p>Custom tennis products let you brand gear that players actually use on and off the court. From personalized towels and sweatbands to custom water bottles and duffel bags, these items keep your logo visible during matches, tournaments, and training sessions. Whether you are outfitting a club, promoting a tournament, or giving corporate gifts to tennis-loving clients, imprinting with your logo adds a sporty, professional touch that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom tennis products including a branded towel, water bottle, and cap arranged on a tennis court",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:38.683790+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

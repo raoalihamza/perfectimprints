@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/ss",
+  "type": "facet",
+  "h1": "Custom SS Products for Your Business",
+  "metaTitle": "Custom SS Products | Perfect Imprints",
+  "metaDescription": "Order custom SS products for your brand. Perfect Imprints offers a wide selection of SS promotional items. Get a quote today!",
+  "introHtml": "<p>SS products are known for their durability and sleek appearance, making them a popular choice for corporate gifts and promotional events. Whether you need custom stainless steel water bottles for a trade show or branded drinkware for employee appreciation, our SS collection offers reliable options that keep your logo looking sharp. These items are ideal for outdoor events, office use, or client giveaways where quality matters.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom SS products including stainless steel water bottles and drinkware with company logo",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:25:30.172630+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

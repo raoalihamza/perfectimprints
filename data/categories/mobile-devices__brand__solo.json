@@ -1,0 +1,30 @@
+{
+  "url": "/cat/mobile-devices/brand/solo",
+  "type": "facet",
+  "h1": "Custom Solo Mobile Devices for Bulk Orders",
+  "metaTitle": "Custom Solo Mobile Devices | Perfect Imprints",
+  "metaDescription": "Order custom Solo mobile devices for your team. Logo-printed laptop bags and cases from Perfect Imprints. Get a quote today.",
+  "introHtml": "<p>Solo mobile devices combine professional style with practical durability, making them a smart choice for corporate teams and field employees. Unlike generic laptop bags, Solo cases offer structured compartments for tablets, chargers, and documents, with padded protection for daily commutes or client visits. Choose from briefcases, backpacks, and totes in leather-like finishes or recycled materials, then add your logo via screen printing or debossing for a polished, long-lasting brand impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Solo mobile devices with logo imprint on laptop briefcase and backpack for corporate branding",
+  "productSkus": [
+    "524395",
+    "524396",
+    "524397",
+    "524398",
+    "524400",
+    "524401",
+    "524403",
+    "524404",
+    "529455",
+    "529456"
+  ],
+  "generatedAt": "2026-05-31T08:58:05.242444+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

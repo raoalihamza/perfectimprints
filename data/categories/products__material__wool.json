@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/material/wool",
+  "type": "facet",
+  "h1": "Custom Wool Products for Bulk Orders",
+  "metaTitle": "Custom Wool Products | Perfect Imprints",
+  "metaDescription": "Order custom wool products in bulk from Perfect Imprints. Ideal for corporate gifts, trade shows, and employee appreciation.",
+  "introHtml": "<p>Wool offers natural insulation, moisture-wicking properties, and a premium feel that synthetic materials often lack. For brands seeking high-quality corporate gifts or trade show giveaways, custom wool products like blankets, scarves, and hats provide lasting warmth and durability. These items are perfect for outdoor events, winter promotions, or employee appreciation programs where comfort and quality matter.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wool products including a branded wool blanket and scarf displayed on a wooden table.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:22:11.361391+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

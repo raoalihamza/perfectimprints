@@ -1,0 +1,22 @@
+{
+  "url": "/cat/beer-glasses/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Beer Glasses",
+  "metaTitle": "Custom Purple Beer Glasses | Perfect Imprints",
+  "metaDescription": "Shop custom purple beer glasses for your brand. Perfect for events and giveaways. Order bulk at Perfect Imprints.",
+  "introHtml": "<p>Purple beer glasses offer a bold way to showcase your brand at tailgates, bar events, or corporate parties. Unlike clear glass, purple adds instant team spirit or royalty-themed flair. Choose durable 16 oz plastic pint glasses that resist breakage and keep drinks cold. Full-color digital printing lets you reproduce logos, names, or graphics with vibrant detail. These custom purple beer glasses make every toast memorable for your audience.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple beer glasses with full-color logo print, 16 oz plastic pint glasses for events and branding.",
+  "productSkus": [
+    "524527",
+    "524528"
+  ],
+  "generatedAt": "2026-05-31T09:08:34.933921+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

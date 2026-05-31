@@ -1,0 +1,26 @@
+{
+  "url": "/cat/scarves/supplier/snugz",
+  "type": "facet",
+  "h1": "Custom Snugz Scarves for Bulk Orders",
+  "metaTitle": "Custom Snugz Scarves | Perfect Imprints",
+  "metaDescription": "Order custom Snugz scarves in bulk for your team or event. Perfect for branding with fleece and knit styles available.",
+  "introHtml": "<p>Snugz scarves combine warmth with a reputation for quality that makes them a smart choice for corporate gifts, event giveaways, and employee incentives. From fleece scarves to knit sets with fringe, Snugz offers styles that feel substantial and look polished. Decorate with your logo using embroidery or full-color digital print to create a branded accessory your recipients will actually use. Whether you need a simple fleece scarf or a coordinated gift set, Snugz delivers consistent quality for bulk orders.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Snugz fleece scarves in assorted colors with embroidered logos displayed on a table",
+  "productSkus": [
+    "514088",
+    "516838",
+    "516839",
+    "516872",
+    "520012",
+    "520863"
+  ],
+  "generatedAt": "2026-05-31T10:05:43.757438+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

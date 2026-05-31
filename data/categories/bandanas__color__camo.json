@@ -1,0 +1,21 @@
+{
+  "url": "/cat/bandanas/color/camo",
+  "type": "facet",
+  "h1": "Custom Camo Bandanas",
+  "metaTitle": "Custom Camo Bandanas | Perfect Imprints",
+  "metaDescription": "Order custom camo bandanas for your team or event. Perfect for outdoor promotions, safety crews, and brand visibility.",
+  "introHtml": "<p>Custom camo bandanas bring a rugged, outdoor-ready look to your promotional gear. Whether you're outfitting a hunting lodge, construction crew, or outdoor event staff, the camouflage pattern adds instant recognition and a tactical feel. These bandanas work well with screen-printed logos or embroidered patches, and they hold up to repeated wear and washing. Choose camo to give your brand a durable, field-tested edge that stands out in outdoor settings.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom camo bandanas with printed logo, perfect for outdoor promotions and safety crews.",
+  "productSkus": [
+    "506990"
+  ],
+  "generatedAt": "2026-05-31T09:34:44.390373+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

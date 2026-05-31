@@ -1,0 +1,21 @@
+{
+  "url": "/cat/personal-care-items/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Personal Care Items",
+  "metaTitle": "Custom Recycled Personal Care Items | Perfect Imprints",
+  "metaDescription": "Order custom recycled personal care items for your brand. Eco-friendly giveaways that make an impact. Shop Perfect Imprints.",
+  "introHtml": "<p>Choosing recycled materials for your branded personal care items shows your commitment to sustainability without sacrificing quality. The Hands-Free Rechargeable Neck Fan 2.0, for example, uses recycled plastics and keeps your team cool during outdoor events or commutes. Custom imprinting with your logo turns these everyday essentials into conversation starters that reinforce your eco-conscious brand values.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled personal care items like a rechargeable neck fan with a logo imprint, made from recycled materials",
+  "productSkus": [
+    "527054"
+  ],
+  "generatedAt": "2026-05-31T08:36:23.248055+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

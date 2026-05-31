@@ -1,0 +1,24 @@
+{
+  "url": "/cat/shirts/brand/next-level",
+  "type": "facet",
+  "h1": "Custom Next Level Shirts for Bulk Orders",
+  "metaTitle": "Custom Next Level Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Next Level shirts for your team. Perfect for events, uniforms, and giveaways. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Next Level shirts are a favorite among businesses that want soft, comfortable apparel that holds up to frequent wear. Their tri-blend tees offer a vintage feel with modern durability, making them ideal for casual Fridays, team uniforms, or promotional events. With a wide range of colors and sizes, you can easily match your brand palette. Decorate with screen printing or embroidery for a polished look that employees will actually want to wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Next Level shirts stacked with screen-printed logos, soft tri-blend fabric, available in bulk for business branding.",
+  "productSkus": [
+    "526133",
+    "526134",
+    "529307",
+    "529308"
+  ],
+  "generatedAt": "2026-05-31T09:02:01.917196+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

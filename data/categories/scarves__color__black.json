@@ -1,0 +1,25 @@
+{
+  "url": "/cat/scarves/color/black",
+  "type": "facet",
+  "h1": "Custom Black Scarves for Branded Giveaways",
+  "metaTitle": "Custom Black Scarves | Perfect Imprints",
+  "metaDescription": "Order custom black scarves in bulk for your next promotion. Soft fleece, knit, and sets. Fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>Black scarves are a versatile choice for corporate gifts, winter employee appreciation, or outdoor event giveaways. Unlike brighter colors that may clash with uniforms or branding, black complements any logo and works for all genders. Choose from fleece scarves for warmth, knit scarves with fringe for a classic look, or coordinated gift sets like the Nice-N-Cozy Fleece Gift Set. Full-color digital printing allows detailed logos on select styles, making your brand visible in cold weather.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black scarves for bulk orders, featuring a soft fleece scarf with a printed logo",
+  "productSkus": [
+    "514088",
+    "516838",
+    "516839",
+    "516872",
+    "520012"
+  ],
+  "generatedAt": "2026-05-31T08:46:11.431890+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

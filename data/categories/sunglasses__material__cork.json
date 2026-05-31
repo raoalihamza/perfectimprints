@@ -1,0 +1,21 @@
+{
+  "url": "/cat/sunglasses/material/cork",
+  "type": "facet",
+  "h1": "Custom Cork Sunglasses",
+  "metaTitle": "Custom Cork Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom cork sunglasses for your brand. Eco-friendly, lightweight, and perfect for events. Get a quote today!",
+  "introHtml": "<p>Cork sunglasses offer a unique, sustainable alternative to traditional plastic frames. The natural cork material is lightweight, hypoallergenic, and provides a comfortable fit for all-day wear. Ideal for outdoor events, trade shows, or eco-conscious branding campaigns, these sunglasses can be customized with your logo using screen printing or debossing. The Cobra Recycled Sunglasses exemplify this eco-friendly style, combining recycled materials with a natural cork finish for a standout promotional item.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cork sunglasses with natural wood grain texture and polarized lenses for outdoor branding",
+  "productSkus": [
+    "528170"
+  ],
+  "generatedAt": "2026-05-31T09:27:16.847971+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

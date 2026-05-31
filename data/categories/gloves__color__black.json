@@ -1,0 +1,31 @@
+{
+  "url": "/cat/gloves/color/black",
+  "type": "facet",
+  "h1": "Custom Black Gloves for Bulk Orders",
+  "metaTitle": "Custom Black Gloves | Perfect Imprints",
+  "metaDescription": "Order custom black gloves for your team or event. Bulk pricing available at Perfect Imprints. Get a quote today.",
+  "introHtml": "<p>Black gloves are a versatile choice for any organization, from corporate giveaways to trade show swag. Whether you need touch-screen-compatible tech gloves for a tech-savvy audience or durable fleece-lined options for outdoor workers, black offers a professional, neutral look that matches any uniform or brand color. Our selection includes styles suited for both cold-weather comfort and everyday use, all available with your logo or custom imprint.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black gloves with embroidered logo, ideal for corporate gifts and promotional events",
+  "productSkus": [
+    "516831",
+    "516832",
+    "516833",
+    "516834",
+    "516839",
+    "516872",
+    "519076",
+    "520012",
+    "521335",
+    "524376",
+    "527493"
+  ],
+  "generatedAt": "2026-05-31T08:42:10.737388+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

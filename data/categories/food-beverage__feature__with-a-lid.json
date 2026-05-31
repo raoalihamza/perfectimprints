@@ -1,0 +1,27 @@
+{
+  "url": "/cat/food-beverage/feature/with-a-lid",
+  "type": "facet",
+  "h1": "Custom Food & Beverage Items with a Lid",
+  "metaTitle": "Custom Food & Beverage with a Lid | Perfect Imprints",
+  "metaDescription": "Browse custom food and beverage items with a lid at Perfect Imprints. Perfect for branding. Order bulk today!",
+  "introHtml": "<p>Choosing food and beverage items with a lid means less spills and better temperature retention for your team or event. From 20 oz YETI® Rambler® Travel Mugs to 40 oz straw tumblers, these products keep drinks hot or cold longer. Lids also make them ideal for commuters, outdoor crews, and trade show giveaways. Add your logo via laser engraving or full-color digital print for a polished look that stands up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom food and beverage items with a lid, including insulated tumblers and travel mugs with logo",
+  "productSkus": [
+    "507912",
+    "510003",
+    "520013",
+    "525823",
+    "526981",
+    "528220",
+    "528839"
+  ],
+  "generatedAt": "2026-05-31T08:54:12.659323+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

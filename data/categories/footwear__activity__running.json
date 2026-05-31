@@ -1,0 +1,22 @@
+{
+  "url": "/cat/footwear/activity/running",
+  "type": "facet",
+  "h1": "Custom Running Footwear for Bulk Orders",
+  "metaTitle": "Custom Running Footwear | PerfectImprints.com",
+  "metaDescription": "Order custom running footwear for your team or event. Perfect for corporate races and employee wellness programs.",
+  "introHtml": "<p>Custom running footwear offers a unique way to promote your brand during corporate 5Ks, charity runs, or employee fitness challenges. Unlike general promotional footwear, running-specific styles provide the comfort and support needed for active use. Decorate with your logo using sublimation on shoelaces or shoe caddies for a cohesive look. Choose durable materials that withstand miles of wear while keeping your brand visible.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom running footwear with branded shoelaces and shoe caddy for corporate race events",
+  "productSkus": [
+    "513304 90A",
+    "517496"
+  ],
+  "generatedAt": "2026-05-31T08:54:17.615863+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

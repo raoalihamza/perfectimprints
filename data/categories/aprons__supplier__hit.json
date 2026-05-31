@@ -1,0 +1,26 @@
+{
+  "url": "/cat/aprons/supplier/hit",
+  "type": "facet",
+  "h1": "Custom Hit Aprons for Bulk Orders",
+  "metaTitle": "Custom Hit Aprons | Perfect Imprints",
+  "metaDescription": "Order custom Hit aprons for your team or event. Bulk pricing, quality materials, and fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Hit aprons combine durable fabric with practical designs, making them a reliable choice for restaurants, kitchens, and trade shows. Whether you need cotton waist aprons for staff or full-length styles with pockets for tools, Hit offers consistent sizing and easy care. Decorate with your logo using screen printing or embroidery for a professional look that holds up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hit aprons with embroidered logo, available in bulk for restaurants and businesses.",
+  "productSkus": [
+    "508541",
+    "509133 90A",
+    "515077",
+    "516543 01A",
+    "527339",
+    "528072"
+  ],
+  "generatedAt": "2026-05-31T08:38:48.098468+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

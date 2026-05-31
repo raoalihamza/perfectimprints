@@ -1,0 +1,21 @@
+{
+  "url": "/cat/outdoor/special-feature/patriotic",
+  "type": "facet",
+  "h1": "Custom Patriotic Outdoor Products for Bulk Orders",
+  "metaTitle": "Custom Patriotic Outdoor Products | Perfect Imprints",
+  "metaDescription": "Order custom patriotic outdoor products for your next event. Bulk pricing on blankets, chairs, and more at Perfect Imprints.",
+  "introHtml": "<p>Patriotic outdoor products let you celebrate American pride while promoting your brand. Custom roll-up picnic blankets in red, white, and blue are crowd favorites at July 4th parades and company picnics. Screen-printed or embroidered logos stand out on durable polyester fabric. Ordering in bulk ensures you have enough for giveaways, employee gifts, or event swag that shows off your company's spirit.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom patriotic outdoor roll-up picnic blanket with red, white, and blue stripes and embroidered logo",
+  "productSkus": [
+    "514085"
+  ],
+  "generatedAt": "2026-05-31T09:58:49.831905+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/outdoor/activity/camping",
+  "type": "facet",
+  "h1": "Custom Camping Outdoor Gear for Bulk Orders",
+  "metaTitle": "Custom Camping Outdoor Gear - Perfect Imprints",
+  "metaDescription": "Order custom camping outdoor gear in bulk. Perfect for corporate events, giveaways, and promotions. Fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Custom camping outdoor gear is essential for brands that want to connect with customers who love the outdoors. Whether you're outfitting a company retreat or creating promotional giveaways for a camping expo, items like picnic blankets and fleece roll-up blankets offer practical utility and year-round visibility. Choose from options like the KOOZIE® Field Blanket or Brookfield Picnic Blanket, which can be custom-embroidered or screen-printed with your logo. These durable, portable products ensure your brand is seen at campsites, tailgates, and outdoor events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom camping outdoor gear including picnic blankets and fleece roll-up blankets with logo imprint",
+  "productSkus": [
+    "507150",
+    "512997",
+    "515638",
+    "521841"
+  ],
+  "generatedAt": "2026-05-31T09:58:38.289544+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

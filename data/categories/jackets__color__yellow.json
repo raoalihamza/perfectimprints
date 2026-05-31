@@ -1,0 +1,19 @@
+{
+  "url": "/cat/jackets/color/yellow",
+  "type": "facet",
+  "h1": "Custom Yellow Jackets for Your Team",
+  "metaTitle": "Custom Yellow Jackets | Perfect Imprints",
+  "metaDescription": "Order custom yellow jackets for high-visibility branding. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Yellow jackets offer high visibility and a bold, energetic look for your team. Whether you need safety gear for outdoor workers or standout apparel for a marketing event, custom yellow jackets ensure your brand gets noticed. Choose from lightweight windbreakers, insulated vests, or durable work jackets, and add your logo with screen printing or embroidery. Perfect for safety managers and marketing directors alike.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom yellow jackets with embroidered logo on front, worn by a team in an outdoor setting",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:56:07.025152+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

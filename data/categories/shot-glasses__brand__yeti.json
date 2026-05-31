@@ -1,0 +1,30 @@
+{
+  "url": "/cat/shot-glasses/brand/yeti",
+  "type": "facet",
+  "h1": "Custom Yeti Shot Glasses for Bulk Orders",
+  "metaTitle": "Custom Yeti Shot Glasses | Perfect Imprints",
+  "metaDescription": "Order custom Yeti shot glasses in bulk with your logo. Durable, insulated, and perfect for brand giveaways. Get a quote today!",
+  "introHtml": "<p>Yeti shot glasses bring the rugged durability and premium insulation the brand is known for into a compact, stackable design. Unlike standard glass shot glasses, these stainless steel options keep your drink at the perfect temperature while withstanding drops and outdoor use. Ideal for corporate events, tailgates, or trade show giveaways, custom Yeti shot glasses offer a long-lasting branded item your recipients will reach for again and again. Decorate with your logo via laser engraving for a clean, permanent mark.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom engraved Yeti shot glasses with a brand logo, stainless steel and stackable, on a wooden table.",
+  "productSkus": [
+    "528839",
+    "528840",
+    "528841",
+    "528844",
+    "528845",
+    "528846",
+    "528847",
+    "529532",
+    "529533",
+    "529534"
+  ],
+  "generatedAt": "2026-05-31T10:06:52.669801+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

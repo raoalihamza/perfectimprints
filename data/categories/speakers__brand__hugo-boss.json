@@ -1,0 +1,21 @@
+{
+  "url": "/cat/speakers/brand/hugo-boss",
+  "type": "facet",
+  "h1": "Custom Hugo Boss Speakers for Bulk Orders",
+  "metaTitle": "Custom Hugo Boss Speakers | Perfect Imprints",
+  "metaDescription": "Order custom Hugo Boss speakers for corporate gifts. Premium sound with your logo. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Hugo Boss speakers combine premium German design with high-quality audio, making them an ideal choice for corporate gifting or executive incentives. Unlike standard promotional speakers, these offer a sleek, professional aesthetic that aligns with luxury brand positioning. Choose from models like the JBL Go 4 for portable sound or explore larger options. Customize with your logo via laser engraving or pad printing for a refined finish that recipients will appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hugo Boss speakers with engraved logo, premium portable Bluetooth speaker for corporate gifts",
+  "productSkus": [
+    "529460"
+  ],
+  "generatedAt": "2026-05-31T08:46:48.616450+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

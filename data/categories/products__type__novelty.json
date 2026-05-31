@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/type/novelty",
+  "type": "facet",
+  "h1": "Custom Novelty Products for Bulk Orders",
+  "metaTitle": "Custom Novelty Products | Perfect Imprints",
+  "metaDescription": "Order custom novelty products in bulk at Perfect Imprints. Fun giveaways that grab attention. Get a quote today!",
+  "introHtml": "<p>Custom novelty products are the go-to choice for brands that want to stand out at trade shows, events, or in promotional mailers. Unlike standard pens or keychains, novelty items spark curiosity and conversation, making your logo memorable. From quirky stress relievers to unique desk toys, these products offer high perceived value at a low cost per unit, perfect for large-scale giveaways where you want maximum impact without breaking the budget.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom novelty products including stress relievers and toys for promotional giveaways",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:25:30.559694+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

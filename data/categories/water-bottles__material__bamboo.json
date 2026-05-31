@@ -1,0 +1,23 @@
+{
+  "url": "/cat/water-bottles/material/bamboo",
+  "type": "facet",
+  "h1": "Custom Bamboo Water Bottles",
+  "metaTitle": "Custom Bamboo Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom bamboo water bottles for your brand. Eco-friendly, stylish, and perfect for bulk orders. Get a quote today!",
+  "introHtml": "<p>Bamboo water bottles offer a natural, sustainable alternative to standard plastic or metal bottles. The warm wood grain finish pairs well with engraved or screen-printed logos, making them a favorite for eco-conscious corporate gifts and trade show giveaways. Models like the 21 oz Breckenridge or Tipton bottle with wood lid combine bamboo aesthetics with stainless steel insulation, keeping drinks cold while showcasing your brand's commitment to the environment.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom bamboo water bottles with engraved logos, featuring natural wood grain finish and stainless steel insulation.",
+  "productSkus": [
+    "522468",
+    "524291",
+    "524871"
+  ],
+  "generatedAt": "2026-05-31T09:04:25.589374+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

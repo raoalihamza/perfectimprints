@@ -1,0 +1,32 @@
+{
+  "url": "/cat/screwdrivers/color/black",
+  "type": "facet",
+  "h1": "Custom Black Screwdrivers",
+  "metaTitle": "Custom Black Screwdrivers | Perfect Imprints",
+  "metaDescription": "Order custom black screwdrivers with your logo. Perfect for trade shows and giveaways. Get a quote today.",
+  "introHtml": "<p>Black screwdrivers offer a sleek, professional look that fits any corporate environment. Whether you need compact pocket screwdrivers for field service teams or multi-tools for client gifts, black finishes hide smudges and wear better than lighter colors. Customize with your logo using pad printing or laser engraving for a durable mark that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black screwdrivers with logo imprint, including pocket screwdrivers and multi-tools with black finish",
+  "productSkus": [
+    "501004",
+    "502071",
+    "506627",
+    "506638",
+    "508874",
+    "510203",
+    "513063",
+    "516294",
+    "525944",
+    "526950",
+    "526951",
+    "526952"
+  ],
+  "generatedAt": "2026-05-31T10:06:13.781340+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

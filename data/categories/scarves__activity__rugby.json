@@ -1,0 +1,21 @@
+{
+  "url": "/cat/scarves/activity/rugby",
+  "type": "facet",
+  "h1": "Custom Rugby Scarves for Bulk Orders",
+  "metaTitle": "Custom Rugby Scarves | Perfect Imprints",
+  "metaDescription": "Order custom rugby scarves in bulk for your team or event. Perfect for branding. Fast turnaround. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom rugby scarves offer a classic way to showcase team spirit or brand loyalty. Unlike generic scarves, rugby scarves feature bold striped patterns and heavy-knit construction that stand out in cold weather. Whether you need matching scarves for a club, a promotional giveaway at a rugby tournament, or employee gifts with a sporty edge, these scarves provide generous space for screen-printed or embroidered logos. Choose traditional club stripes or custom colors to match your identity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom rugby scarves with striped knit pattern and embroidered logo, perfect for team branding and promotional giveaways.",
+  "productSkus": [
+    "520863"
+  ],
+  "generatedAt": "2026-05-31T10:05:35.661201+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/jerseys/activity/basketball",
+  "type": "facet",
+  "h1": "Custom Basketball Jerseys for Teams & Events",
+  "metaTitle": "Custom Basketball Jerseys | Perfect Imprints",
+  "metaDescription": "Order custom basketball jerseys for your team or event. Perfect Imprints offers quality decoration options and bulk pricing.",
+  "introHtml": "<p>Custom basketball jerseys are built for performance and team identity. Whether you need moisture-wicking fabrics for a corporate league or durable mesh for a charity tournament, these jerseys hold up to intense play while showcasing your logo or message. Add screen-printed numbers and names to create a unified look that stands out on the court.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of custom basketball jerseys in various colors with printed team logos and numbers",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:43:11.187584+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

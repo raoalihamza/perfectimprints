@@ -1,0 +1,27 @@
+{
+  "url": "/cat/office/material/enamel",
+  "type": "facet",
+  "h1": "Custom Enamel Office Products for Bulk Orders",
+  "metaTitle": "Custom Enamel Office Products - Perfect Imprints",
+  "metaDescription": "Order custom enamel office products in bulk at Perfect Imprints. Great for pens, mugs, and gift sets with your logo.",
+  "introHtml": "<p>Enamel office products offer a durable, glossy finish that resists chipping and fading, making them ideal for branded pens, mugs, and gift sets that see daily use. Unlike standard plastic or metal items, enamel adds a premium feel that stands out on desks. Whether you need custom enamel pens for a trade show or enamel mugs for a client gift, this material ensures long-lasting brand visibility with a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom enamel office products including branded pens and mugs with glossy finish",
+  "productSkus": [
+    "509197",
+    "511341",
+    "514786",
+    "520542",
+    "524548",
+    "526744",
+    "526745"
+  ],
+  "generatedAt": "2026-05-31T08:26:57.688297+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

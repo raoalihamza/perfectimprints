@@ -1,0 +1,22 @@
+{
+  "url": "/cat/lip-balm/theme/beach",
+  "type": "facet",
+  "h1": "Custom Beach Lip Balm for Bulk Orders",
+  "metaTitle": "Custom Beach Lip Balm | Perfect Imprints",
+  "metaDescription": "Order custom beach lip balm in bulk. Perfect for summer events, giveaways, and branded promotions. Get a quote at PerfectImprints.com.",
+  "introHtml": "<p>Custom beach lip balm is a seasonal favorite for summer events, resort giveaways, and outdoor promotions. Unlike standard lip balms, beach-themed options often include SPF protection and tropical scents like coconut or pineapple. Brands like Sun Bum® offer ready-made kits, while private-label balms can be printed with your logo and wrapped in ocean-inspired designs. It's a practical giveaway that keeps your brand top-of-mind all season long.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom beach lip balm in tropical packaging with SPF protection, perfect for summer giveaways and branded promotions.",
+  "productSkus": [
+    "519664",
+    "525624"
+  ],
+  "generatedAt": "2026-05-31T08:43:46.012619+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

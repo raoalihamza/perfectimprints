@@ -1,0 +1,23 @@
+{
+  "url": "/cat/headwear/brand/oakley",
+  "type": "facet",
+  "h1": "Custom Oakley Headwear for Bulk Orders",
+  "metaTitle": "Custom Oakley Headwear | Perfect Imprints",
+  "metaDescription": "Order custom Oakley headwear in bulk from Perfect Imprints. Premium hats and caps with your logo. Fast turnaround.",
+  "introHtml": "<p>Oakley headwear combines the brand's signature sport performance with durable materials and modern styling. For corporate teams, event staff, or outdoor crews, custom Oakley caps offer a recognized name that signals quality and active lifestyle. Choose from structured caps with moisture-wicking fabrics or relaxed fits with embroidered logos. Perfect for trade shows, company stores, or safety incentives where recipients value performance gear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Oakley headwear with embroidered logo on structured cap, front view on display.",
+  "productSkus": [
+    "522669",
+    "523948",
+    "529181"
+  ],
+  "generatedAt": "2026-05-31T09:50:07.507880+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

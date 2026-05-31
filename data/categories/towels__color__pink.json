@@ -1,0 +1,21 @@
+{
+  "url": "/cat/towels/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Towels for Promotional Giveaways",
+  "metaTitle": "Custom Pink Towels | Perfect Imprints",
+  "metaDescription": "Order custom pink towels for your next event or promotion. Soft, absorbent, and perfect for branding. Get a quick quote at Perfect Imprints.",
+  "introHtml": "<p>Pink towels stand out at any event, from breast cancer awareness walks to spring training giveaways. The Colorful Rally Towel, a top seller in this category, offers a vibrant pink shade that catches the eye and carries your logo with pride. Whether you're outfitting a team or supporting a cause, custom pink towels deliver high visibility and practical use that keeps your brand in hand long after the event ends.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of bright pink custom promotional towels with a company logo embroidered in white, perfect for giveaways.",
+  "productSkus": [
+    "524126"
+  ],
+  "generatedAt": "2026-05-31T08:31:22.618303+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

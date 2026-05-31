@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/footjoy",
+  "type": "facet",
+  "h1": "Custom FootJoy Products for Your Team",
+  "metaTitle": "Custom FootJoy Products | Perfect Imprints",
+  "metaDescription": "Order custom FootJoy products for your team or event. Perfect for golf outings, corporate gifts, and more. Get a quote today.",
+  "introHtml": "<p>FootJoy is a trusted name in golf apparel and accessories, known for quality and performance. Customizing FootJoy products for your corporate event, golf tournament, or employee rewards program adds a professional touch that resonates with recipients. Choose from polos, hats, gloves, and outerwear, all available with your logo or message. These items are built to last, making them a practical and appreciated giveaway that reflects your brand's commitment to excellence.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom FootJoy products including branded polo shirts and hats for corporate golf events",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:41.302166+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

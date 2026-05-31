@@ -1,0 +1,21 @@
+{
+  "url": "/cat/portfolios/feature/with-zipper",
+  "type": "facet",
+  "h1": "Custom With Zipper Portfolios",
+  "metaTitle": "Custom with Zipper Portfolios - Perfect Imprints",
+  "metaDescription": "Order custom with zipper portfolios for secure, professional branding. Ideal for bulk orders. Get a quote today!",
+  "introHtml": "<p>Zippered portfolios keep materials secure during travel and daily commutes. Unlike open-top options, the full zipper closure prevents papers, tablets, and accessories from falling out. This makes them a practical choice for sales teams, field representatives, and event attendees who need reliable organization. Decorate with debossed logos, foil stamping, or screen printing for a polished business look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom with zipper portfolios featuring a secure zipper closure and professional branding",
+  "productSkus": [
+    "516719 01A"
+  ],
+  "generatedAt": "2026-05-31T08:45:39.578398+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

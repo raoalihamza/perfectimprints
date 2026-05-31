@@ -1,0 +1,26 @@
+{
+  "url": "/cat/scarves/supplier/salutepromos",
+  "type": "facet",
+  "h1": "Custom Salutepromos Scarves for Bulk Orders",
+  "metaTitle": "Custom Salutepromos Scarves | Perfect Imprints",
+  "metaDescription": "Order custom Salutepromos scarves in bulk. Perfect for corporate gifts or promotional giveaways. Get a quote today.",
+  "introHtml": "<p>Salutepromos scarves combine the warmth of fleece and knit styles with the reliability of a trusted supplier. Whether you need fleece scarves for a winter safety giveaway or a two-tone knit scarf for a branded employee gift, these accessories offer a cozy canvas for your logo. Decorate with screen printing, embroidery, or full-color digital transfer for a crisp, lasting impression. Choose from striped, solid, or gift-set options to match your company's look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Salutepromos scarves with embroidered logo on a two-tone knit scarf",
+  "productSkus": [
+    "514088",
+    "516838",
+    "516839",
+    "516872",
+    "520012",
+    "520863"
+  ],
+  "generatedAt": "2026-05-31T10:05:42.972159+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

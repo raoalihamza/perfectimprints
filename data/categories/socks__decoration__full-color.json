@@ -1,0 +1,22 @@
+{
+  "url": "/cat/socks/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Socks for Bulk Orders",
+  "metaTitle": "Custom Full Color Socks | Perfect Imprints",
+  "metaDescription": "Order custom full color socks for your brand. Perfect for giveaways, events, and corporate gifts. Bulk pricing available.",
+  "introHtml": "<p>Full color printing on custom socks lets you reproduce logos, patterns, or photo-quality designs across the entire sock surface. Unlike standard one- or two-color knits, full color decoration captures gradients and fine details, making your branded socks stand out at trade shows or as employee gifts. The 18-inch trifold packaging option adds a premium unboxing experience for promotional giveaways or retail-ready displays.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color socks with detailed logo and colorful pattern, ideal for promotional giveaways",
+  "productSkus": [
+    "521927",
+    "522251"
+  ],
+  "generatedAt": "2026-05-31T10:07:21.799294+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

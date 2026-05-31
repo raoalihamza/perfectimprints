@@ -1,0 +1,27 @@
+{
+  "url": "/cat/koozies/feature/with-a-lid",
+  "type": "facet",
+  "h1": "Custom Koozies with a Lid for Bulk Orders",
+  "metaTitle": "Custom Koozies with a Lid | Perfect Imprints",
+  "metaDescription": "Order custom koozies with a lid for your brand. Perfect for events, giveaways, and bulk corporate gifts at Perfect Imprints.",
+  "introHtml": "<p>Koozies with a lid offer the dual benefit of keeping drinks cold while preventing spills, making them ideal for outdoor events, trade shows, and corporate giveaways. Unlike open-top koozies, these insulated holders with integrated lids are perfect for hot summer days or active settings where drinks need to stay secure. Choose from options like the 30 oz Frost Buddy To-Go Buddy or the 12 oz Urban Peak 3-in-1 Insulator, both customizable with your logo via screen printing or laser engraving.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom koozies with a lid featuring a branded insulated tumbler with a secure lid, perfect for corporate giveaways.",
+  "productSkus": [
+    "520377",
+    "522048",
+    "524419",
+    "526609",
+    "526709",
+    "527491",
+    "527562"
+  ],
+  "generatedAt": "2026-05-31T09:17:32.191882+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

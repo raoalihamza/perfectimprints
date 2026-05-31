@@ -1,0 +1,28 @@
+{
+  "url": "/cat/shirts/brand/vineyard-vines",
+  "type": "facet",
+  "h1": "Custom Vineyard Vines Shirts for Bulk Orders",
+  "metaTitle": "Custom Vineyard Vines Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Vineyard Vines shirts for your team or event. Bulk pricing available at Perfect Imprints. Get a quote today!",
+  "introHtml": "<p>Vineyard Vines shirts bring a preppy, coastal aesthetic that stands out at corporate events, golf outings, and team-building retreats. From the Edgartown Pique Polo to the Mountain Sweater Fleece Vest, these pieces offer a refined look that employees actually want to wear. Embroidery or screen printing on the chest or sleeve keeps your logo visible without overpowering the classic styling. Bulk ordering ensures consistent sizing and color across your entire group.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Vineyard Vines shirts featuring embroidered logos on polos and vests for corporate teams",
+  "productSkus": [
+    "526099",
+    "526100",
+    "526101",
+    "526102",
+    "526103",
+    "526106",
+    "526107",
+    "526108"
+  ],
+  "generatedAt": "2026-05-31T08:17:51.219099+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

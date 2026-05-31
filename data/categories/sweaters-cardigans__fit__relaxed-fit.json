@@ -1,0 +1,32 @@
+{
+  "url": "/cat/sweaters-cardigans/fit/relaxed-fit",
+  "type": "facet",
+  "h1": "Custom Relaxed Fit Sweaters & Cardigans",
+  "metaTitle": "Custom Relaxed Fit Sweaters & Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom relaxed fit sweaters and cardigans in bulk. Perfect for corporate gifts or team uniforms. Get a quote today!",
+  "introHtml": "<p>Relaxed fit sweaters and cardigans offer a comfortable, modern silhouette that suits a variety of body types and workplace settings. Unlike standard cuts, these garments provide extra room without looking oversized, making them ideal for casual dress codes, outdoor events, or layering over collared shirts. Options like the Women's Boxercraft Cuddle Cardigan or the Men's Brooks Brothers Washable Merino V-Neck Sweater combine easy wear with professional polish, while decoration methods such as embroidery or screen printing ensure your logo stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom relaxed fit sweaters and cardigans for bulk orders, featuring a comfortable silhouette perfect for corporate branding.",
+  "productSkus": [
+    "520268",
+    "520269",
+    "523604",
+    "526198",
+    "526291",
+    "526292",
+    "527181",
+    "527182",
+    "527833",
+    "527957",
+    "528757",
+    "528758"
+  ],
+  "generatedAt": "2026-05-31T10:09:48.984368+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

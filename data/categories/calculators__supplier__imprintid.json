@@ -1,0 +1,26 @@
+{
+  "url": "/cat/calculators/supplier/imprintid",
+  "type": "facet",
+  "h1": "Custom ImprintID Calculators for Bulk Orders",
+  "metaTitle": "Custom ImprintID Calculators | Perfect Imprints",
+  "metaDescription": "Order custom ImprintID calculators in bulk. Perfect for promotional giveaways. Get a quote today at PerfectImprints.com.",
+  "introHtml": "<p>ImprintID calculators offer a reliable, budget-friendly option for businesses looking to distribute branded calculators at trade shows, events, or as office giveaways. With models like the Desk Calculator and Value Calculator, you get functional tools that keep your logo in front of users daily. Choose from standard or 24-hour service for fast turnaround on your custom order.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom ImprintID calculators with company logo displayed on a desk alongside pens and notepads",
+  "productSkus": [
+    "502790",
+    "503150",
+    "503253",
+    "508489",
+    "526359",
+    "526362"
+  ],
+  "generatedAt": "2026-05-31T09:38:57.852249+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

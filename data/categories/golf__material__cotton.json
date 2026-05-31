@@ -1,0 +1,26 @@
+{
+  "url": "/cat/golf/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Golf Promotional Products",
+  "metaTitle": "Custom Cotton Golf | Perfect Imprints",
+  "metaDescription": "Order custom cotton golf towels, visors, and apparel for your next corporate event or tournament. Perfect Imprints has you covered.",
+  "introHtml": "<p>Cotton golf products offer a soft, absorbent, and comfortable feel that synthetic materials can't match. From tournament towels with dobby hems to brushed cotton twill visors, these items provide a premium touch for corporate outings and client gifts. Choose cotton for a classic, high-quality look that your recipients will appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cotton golf towel and visor set with embroidered logo on a green background",
+  "productSkus": [
+    "510644",
+    "511117",
+    "515975",
+    "522450",
+    "524126",
+    "528437"
+  ],
+  "generatedAt": "2026-05-31T08:34:13.221580+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

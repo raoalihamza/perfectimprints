@@ -1,0 +1,26 @@
+{
+  "url": "/cat/aprons/supplier/wovin",
+  "type": "facet",
+  "h1": "Custom Wovin Aprons for Bulk Orders",
+  "metaTitle": "Custom Wovin Aprons | Perfect Imprints",
+  "metaDescription": "Shop custom Wovin aprons at Perfect Imprints. Perfect for branding in bulk. Get a quote today!",
+  "introHtml": "<p>Wovin aprons are known for their durable construction and comfortable fit, making them a reliable choice for restaurants, kitchens, and trade shows. Whether you need cotton bib aprons for your staff or promotional grill master kits, Wovin offers consistent quality that holds up to daily use. Decorate with embroidery or screen printing for a polished look that keeps your brand front and center.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Wovin aprons featuring durable cotton fabric with embroidered logo, available in bulk for businesses.",
+  "productSkus": [
+    "508541",
+    "509133 90A",
+    "515077",
+    "516543 01A",
+    "527339",
+    "528072"
+  ],
+  "generatedAt": "2026-05-31T09:32:44.003224+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

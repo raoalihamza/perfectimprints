@@ -1,0 +1,22 @@
+{
+  "url": "/cat/watches/supplier/hit",
+  "type": "facet",
+  "h1": "Custom Hit Watches for Bulk Orders",
+  "metaTitle": "Custom Hit Watches | Perfect Imprints",
+  "metaDescription": "Order custom Hit watches in bulk from Perfect Imprints. Perfect for corporate gifts and promotional events.",
+  "introHtml": "<p>Hit watches combine reliable timekeeping with rugged durability, making them a smart choice for tradeshow giveaways, safety awards, or employee recognition programs. The Paracord Bracelet and Mood Watch Bracelet offer distinct styles—one built for outdoor utility, the other with color-changing fun. Both accept custom imprinting to keep your brand visible all day.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hit watches including Paracord Bracelet and Mood Watch Bracelet for promotional use",
+  "productSkus": [
+    "516655",
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T09:30:04.056205+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/outerwear/brand/devon-jones",
+  "type": "facet",
+  "h1": "Custom Devon Jones Outerwear for Your Team",
+  "metaTitle": "Custom Devon Jones Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom Devon Jones outerwear with your logo. Perfect for corporate uniforms and team apparel. Bulk pricing available.",
+  "introHtml": "<p>Devon Jones outerwear offers a professional, polished look that stands up to daily wear. From the Men's Bristol Sweater Fleece Quarter Zip to the Ladies' Full Zip version, these pieces feature soft fleece, clean lines, and ample space for embroidery or screen printing. Ideal for corporate uniforms, trade show giveaways, or employee rewards, Devon Jones delivers consistent quality across sizes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Devon Jones outerwear with embroidered logo, featuring men's and ladies' sweater fleece jackets",
+  "productSkus": [
+    "520270",
+    "520271"
+  ],
+  "generatedAt": "2026-05-31T09:21:16.979314+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

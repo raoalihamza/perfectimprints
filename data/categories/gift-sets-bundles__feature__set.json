@@ -1,0 +1,27 @@
+{
+  "url": "/cat/gift-sets-bundles/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Gift Sets & Bundles",
+  "metaTitle": "Custom Set Gift Sets & Bundles | Perfect Imprints",
+  "metaDescription": "Order custom set gift sets and bundles for your team or clients. Perfect for corporate gifting. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>When you need a ready-made gift that feels curated, custom set gift sets and bundles offer a cohesive solution. These pre-assembled kits combine items like gourmet snacks, teas, or mugs with hot cocoa bombs inside a single branded package. They simplify bulk ordering for HR directors planning employee appreciation or marketing directors sending client thank-you gifts. Choose from themed sets that coordinate well together, and add your logo via imprint or label for a polished, professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set gift sets and bundles with branded packaging and assorted items like cookies, cocoa, and tea",
+  "productSkus": [
+    "518074 01N",
+    "520012",
+    "520125",
+    "520344",
+    "525628",
+    "525715",
+    "525717"
+  ],
+  "generatedAt": "2026-05-31T08:54:35.839500+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

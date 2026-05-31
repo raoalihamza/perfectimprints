@@ -1,0 +1,33 @@
+{
+  "url": "/cat/water-bottles/brand/miir",
+  "type": "facet",
+  "h1": "Custom MiiR Water Bottles for Bulk Orders",
+  "metaTitle": "Custom MiiR Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom MiiR water bottles in bulk. Perfect for corporate gifts, events, and brand awareness. Free quotes at Perfect Imprints.",
+  "introHtml": "<p>MiiR water bottles combine premium vacuum-insulated stainless steel with a mission-driven brand that gives back to global communities. For corporate buyers, these bottles offer a sophisticated, eco-conscious option that stands out at trade shows, employee onboarding, or client appreciation events. The wide mouth and straw cup designs accommodate hot and cold beverages, while the durable powder-coated finish resists scratches and fingerprints. Custom laser engraving or full-color imprinting ensures your logo looks sharp and lasts for years of daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom MiiR water bottles with engraved logo, vacuum insulated stainless steel, assorted colors",
+  "productSkus": [
+    "523728",
+    "523729",
+    "523730",
+    "523761",
+    "525478",
+    "525481",
+    "525612",
+    "526419",
+    "526482",
+    "527194",
+    "527204",
+    "527938",
+    "527939"
+  ],
+  "generatedAt": "2026-05-31T10:13:50.063617+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

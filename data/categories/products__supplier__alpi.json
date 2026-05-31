@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/alpi",
+  "type": "facet",
+  "h1": "Custom Alpi Products for Bulk Orders",
+  "metaTitle": "Custom Alpi Products | Perfect Imprints",
+  "metaDescription": "Order custom Alpi products in bulk. Perfect for trade shows and employee gifts. Get a quote today.",
+  "introHtml": "<p>Alpi products are known for their sleek, modern designs and durable construction, making them a top choice for brands that want to stand out. Whether you need custom notebooks, drinkware, or tech accessories, Alpi offers a range of items that can be decorated with your logo using screen printing, engraving, or full-color imprint. Ideal for corporate gifts, trade show giveaways, and employee recognition programs, these products combine style with functionality to leave a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Alpi products including branded notebooks and drinkware with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:04:14.805122+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

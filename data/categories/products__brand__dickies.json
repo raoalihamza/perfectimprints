@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/dickies",
+  "type": "facet",
+  "h1": "Custom Dickies Products for Bulk Orders",
+  "metaTitle": "Custom Dickies Products | Perfect Imprints",
+  "metaDescription": "Order custom Dickies products for your team. Shop bulk branded apparel and accessories at Perfect Imprints.",
+  "introHtml": "<p>Dickies is known for durable workwear that holds up to daily use, making it a popular choice for uniform programs, construction crews, and industrial teams. By adding your logo to Dickies jackets, pants, or hats, you give employees gear they actually want to wear while reinforcing your brand. Options like embroidery or screen printing let you match your company colors exactly, and the rugged fabric ensures your logo stays visible for the long haul.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Dickies products with embroidered logos on work jackets and caps for uniform programs",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:23:52.990084+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

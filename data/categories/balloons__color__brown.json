@@ -1,0 +1,24 @@
+{
+  "url": "/cat/balloons/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Balloons for Branded Events",
+  "metaTitle": "Custom Brown Balloons | Perfect Imprints",
+  "metaDescription": "Order custom brown balloons for your next event. Perfect Imprints offers bulk pricing and fast turnaround on branded balloons.",
+  "introHtml": "<p>Brown balloons offer a natural, earthy look that stands out at corporate events, trade shows, and product launches. Unlike standard bright colors, brown conveys warmth and reliability, making it ideal for brands in the organic food, outdoor, or logistics industries. Decorate with your logo in one-color screen printing for a clean, professional finish. Our 11-inch standard latex balloons are a popular choice for bulk orders, ensuring consistent color and durability throughout your event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown balloons with a white logo at a corporate event, tied with ribbon",
+  "productSkus": [
+    "518390 30A",
+    "527581",
+    "527582",
+    "527584"
+  ],
+  "generatedAt": "2026-05-31T09:07:02.738928+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

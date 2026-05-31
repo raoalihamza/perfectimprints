@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/safety-colored",
+  "type": "facet",
+  "h1": "Custom Safety Colored Products for Bulk Orders",
+  "metaTitle": "Custom Safety Colored Products | Perfect Imprints",
+  "metaDescription": "Order custom safety colored products in bulk. Perfect for safety managers and HR directors. Get your quote today!",
+  "introHtml": "<p>Safety colored products help you reinforce safety protocols and maintain visibility in the workplace. From high-visibility vests to brightly colored hard hats and caution tape, these items are essential for safety managers and HR directors looking to promote a culture of safety. Custom imprinting with your company logo or safety messaging ensures your team stays visible and aligned with your brand. Choose from OSHA-standard safety colors like high-vis yellow, orange, and lime green for maximum impact.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of custom safety colored products including high-vis vests and hard hats with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:30:33.772109+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

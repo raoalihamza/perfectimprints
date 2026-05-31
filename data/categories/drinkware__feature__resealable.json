@@ -1,0 +1,21 @@
+{
+  "url": "/cat/drinkware/feature/resealable",
+  "type": "facet",
+  "h1": "Custom Resealable Drinkware for Bulk Orders",
+  "metaTitle": "Custom Resealable Drinkware | PerfectImprints.com",
+  "metaDescription": "Order custom resealable drinkware in bulk. Perfect for on-the-go branding. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Resealable drinkware keeps beverages fresh and spill-free, making it ideal for busy employees or outdoor events. Unlike standard cups, these lids lock tight to prevent leaks during commutes or job sites. Choose from options like the Reusable Mood Straw 6-Pack, which combines a reusable straw with a secure seal. Decorate with full-color imprinting for high-impact brand visibility at trade shows or corporate giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom resealable drinkware with secure lid and reusable straw, perfect for branding",
+  "productSkus": [
+    "528300"
+  ],
+  "generatedAt": "2026-05-31T09:43:36.772840+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

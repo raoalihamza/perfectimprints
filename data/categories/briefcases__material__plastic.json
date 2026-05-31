@@ -1,0 +1,23 @@
+{
+  "url": "/cat/briefcases/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Briefcases for Bulk Orders",
+  "metaTitle": "Custom Plastic Briefcases | Perfect Imprints",
+  "metaDescription": "Order custom plastic briefcases for your team. Durable, lightweight, and perfect for branding. Get a quote today!",
+  "introHtml": "<p>Plastic briefcases offer a lightweight, durable alternative to traditional leather or fabric options, making them ideal for outdoor events, tradeshows, and field teams. Materials like recycled poly and RPET provide eco-friendly choices without sacrificing strength. Customize with full-color screen printing or debossing for a professional look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom plastic briefcases in assorted colors with company logos, displayed on a white background.",
+  "productSkus": [
+    "527140",
+    "527201",
+    "528454"
+  ],
+  "generatedAt": "2026-05-31T09:09:13.390843+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

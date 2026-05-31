@@ -1,0 +1,27 @@
+{
+  "url": "/cat/vests/color/red",
+  "type": "facet",
+  "h1": "Custom Red Vests for Teams & Events",
+  "metaTitle": "Custom Red Vests | Perfect Imprints",
+  "metaDescription": "Order custom red vests in bulk for teams, events, or safety. Perfect Imprints offers quality embroidery and screen printing. Get a quote today!",
+  "introHtml": "<p>Red vests make a bold statement for team uniforms, event staff, or safety crews. Whether you choose a lightweight fleece for outdoor giveaways or a soft shell for all-weather branding, the high-visibility color ensures your logo stands out. Options like the Core 365™ Journey Fleece or the insulated Cutter & Buck puffer vest offer practical warmth and professional appeal. Decorate with embroidery or screen printing for a polished look that works for corporate events, trade shows, or volunteer groups.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom red vests with embroidered logos at an outdoor corporate event",
+  "productSkus": [
+    "506613",
+    "506614",
+    "520280",
+    "520281",
+    "527493",
+    "527559",
+    "527560"
+  ],
+  "generatedAt": "2026-05-31T10:13:25.769880+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

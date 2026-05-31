@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/meta",
+  "type": "facet",
+  "h1": "Custom Meta Products for Bulk Orders",
+  "metaTitle": "Custom Meta Products | Perfect Imprints",
+  "metaDescription": "Order custom Meta products for your brand. Perfect for trade shows and events. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Meta-branded promotional products offer a tech-forward appeal that resonates with modern audiences. From custom Meta water bottles to branded notebooks, these items pair well with digital campaigns or product launches. Choose from a range of decoration methods including screen printing and laser engraving to showcase your logo alongside the iconic Meta branding. Ideal for marketing directors seeking innovative giveaways that align with a cutting-edge brand image.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Meta products including a branded water bottle and notebook with logo on a desk",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:43.878310+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

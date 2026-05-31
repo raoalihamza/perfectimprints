@@ -1,0 +1,25 @@
+{
+  "url": "/cat/backpacks/color/safety",
+  "type": "facet",
+  "h1": "Custom Safety Backpacks for Bulk Orders",
+  "metaTitle": "Custom Safety Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom safety backpacks in bulk from Perfect Imprints. Ideal for events, safety teams, and promotions with high-visibility designs.",
+  "introHtml": "<p>Safety backpacks combine high-visibility colors with practical storage, making them ideal for construction crews, event staff, and outdoor teams. Choose from clear styles for security checkpoints or bright neon hues for low-light environments. Decorate with screen printing or embroidery to add your logo while maintaining safety compliance. These backpacks keep gear organized and your brand visible on the job site or at community events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom safety backpacks in bright neon colors with reflective strips, perfect for bulk orders and promotional use.",
+  "productSkus": [
+    "512446",
+    "516526",
+    "521467",
+    "522037",
+    "527055"
+  ],
+  "generatedAt": "2026-05-31T09:33:40.227285+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/hot-cold-packs/feature/microwave-safe",
+  "type": "facet",
+  "h1": "Custom Microwave Safe Hot Cold Packs",
+  "metaTitle": "Custom Microwave Safe Hot Cold Packs | Perfect Imprints",
+  "metaDescription": "Order custom microwave safe hot cold packs for instant heat therapy. Perfect for corporate wellness programs. Bulk pricing available.",
+  "introHtml": "<p>Microwave safe hot cold packs let your team or clients enjoy soothing heat therapy without needing a microwave-safe container or extra steps. Unlike standard gel packs that require boiling water, these packs heat up in seconds in any office breakroom microwave. The flexible gel beads inside conform to shoulders, backs, or knees, making them ideal for corporate wellness kits or safety rewards. Choose from shapes like the Small Round Gel Beads pack or the larger Lower Back Thermal Wrap for targeted relief.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom microwave safe hot cold packs with gel beads for heat therapy, ideal for corporate wellness programs",
+  "productSkus": [
+    "510371",
+    "517058 20A",
+    "524787"
+  ],
+  "generatedAt": "2026-05-31T09:51:02.637063+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

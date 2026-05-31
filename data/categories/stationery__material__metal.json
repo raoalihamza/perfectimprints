@@ -1,0 +1,21 @@
+{
+  "url": "/cat/stationery/material/metal",
+  "type": "facet",
+  "h1": "Custom Metal Stationery for Bulk Orders",
+  "metaTitle": "Custom Metal Stationery | Perfect Imprints",
+  "metaDescription": "Order custom metal stationery in bulk at Perfect Imprints. Ideal for engraved pens, business cards, and more. Get your quote today.",
+  "introHtml": "<p>Metal stationery offers a durable, premium feel that paper or plastic alternatives can't match. From engraved pens to embossed business card holders, metal pieces convey professionalism and longevity. For corporate gifts or executive branding, metal stationery makes a lasting impression. Options like the Gold Snowflakes Wreath Greeting Card show how metal can add elegance to everyday office essentials.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom metal stationery items including engraved pens and metal business card holders",
+  "productSkus": [
+    "513767 2EX"
+  ],
+  "generatedAt": "2026-05-31T10:08:36.641961+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

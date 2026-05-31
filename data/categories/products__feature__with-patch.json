@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/with-patch",
+  "type": "facet",
+  "h1": "Custom Products with Patch for Branded Uniforms & Gifts",
+  "metaTitle": "Custom With Patch Products | Perfect Imprints",
+  "metaDescription": "Shop custom products with patch for uniforms, bags, and hats. Perfect for teams and events. Bulk orders at Perfect Imprints.",
+  "introHtml": "<p>Adding a custom patch to your promotional products gives them a tactile, premium feel that stands out from standard printed items. For tradeshows, employee uniforms, or team events, patches offer a durable, embroidered finish that conveys quality and attention to detail. Whether you choose hats, bags, or jackets, the patch adds a classic, professional touch that recipients appreciate and wear proudly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom products with patch including hats and bags featuring embroidered patches for branding.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:07.590377+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

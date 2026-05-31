@@ -1,0 +1,67 @@
+{
+  "url": "/cat/desk-mugs",
+  "type": "root",
+  "h1": "Custom Desk Mugs for Everyday Branding",
+  "metaTitle": "Custom Desk Mugs | Perfect Imprints",
+  "metaDescription": "Order custom desk mugs with your logo. Perfect for offices, events, and gifts. Bulk discounts available at Perfect Imprints.",
+  "introHtml": "<p>Marketing directors looking for a daily brand impression, HR directors assembling employee welcome kits, and business owners wanting client gifts that get used every morning all turn to custom desk mugs. A mug on a desk or in a breakroom keeps your logo in sight all day long. Whether you are outfitting a new office, planning a trade show giveaway, or thanking remote teams, a sturdy ceramic mug delivers lasting visibility at a low cost per impression.</p><p>Our selection ranges from classic 11 oz shapes to oversized 20 oz options, with finishes from glossy solid colors to full-color photo prints. Many mugs are microwave and dishwasher safe for everyday convenience. Choose from budget-friendly basics or premium two-tone and bistro styles. With several shapes and sizes in stock, you can find the right fit for your audience and your budget.</p>",
+  "buyingGuideHtml": "<p>When ordering custom desk mugs, start by considering how the mug will be used. A 16 oz or 20 oz mug works well for coffee drinkers who want fewer refills, while an 11 oz or 12 oz mug is standard for tea or hot cocoa. If the mug will be used at a desk, a tapered or bistro shape fits comfortably in hand. For breakroom or conference room use, a sturdier base reduces tipping.</p><p>Materials matter for durability and feel. Most promotional desk mugs are ceramic, which retains heat well and is microwave and dishwasher safe. Look for mugs with a thick, even glaze to prevent chipping. The 15 oz Campfire Mug and 16 oz Apache Mug are known for their robust construction. If you need a lighter mug, the 11 oz Budget Mug is a cost-effective option that still offers good print quality.</p><p>Decoration options vary by mug shape and color. Single-color logos work well on solid-color mugs using screen printing or pad printing. For full-color designs, consider full-color heat transfer or sublimation, which allows photographic images and gradients. The 15 oz Full Color Mug is designed specifically for this process. If you want a more subtle look, laser engraving on a two-tone mug exposes the inner clay color for an elegant, permanent mark.</p><p>Use cases for custom desk mugs are broad. Marketing directors use them as trade show giveaways that attendees keep on their desks. HR directors include them in new-hire kits to build company culture. Safety managers can imprint safety slogans on mugs for breakroom reminders. Business owners give them as client thank-you gifts or holiday presents. Mugs are also popular for employee recognition, fundraising events, and conference swag.</p><p>Minimum order quantities (MOQs) for desk mugs typically start at 48 to 72 pieces, though some budget styles may have lower MOQs. As order quantity increases, the per-unit price drops significantly. A run of 250 mugs often costs half as much per mug as a run of 48. If you have a large team or event, ordering in bulk saves money. Wholesale pricing is available for quantities above 500 pieces. Plan for a lead time of 10 to 15 business days for screen printing, and up to 20 business days for full-color or engraved orders.</p><p>A common mistake is choosing a mug with a narrow print area when your logo has text. Make sure the decoration method fits the mug shape: tapered mugs have a curved surface that works best with wrap-around prints. Also, verify that the mug is microwave and dishwasher safe if that matters to your recipients. Finally, order a sample before placing a large bulk order to confirm color match and print quality. This step can save you from costly reprints.</p>",
+  "buyingGuideH2": "Custom Desk Mugs Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom desk mugs?",
+      "a": "Minimum order quantities vary by style, but most start at 48 to 72 pieces. Some budget mugs may have lower MOQs. Contact us for specific style requirements."
+    },
+    {
+      "q": "Can I get a full-color photo printed on a mug?",
+      "a": "Yes. Full-color heat transfer or sublimation works well on white or light-colored mugs, like the 15 oz Full Color Mug. This method allows photographic images and gradients."
+    },
+    {
+      "q": "Are custom desk mugs microwave and dishwasher safe?",
+      "a": "Most ceramic mugs are microwave and dishwasher safe, but always check the product details. Mugs with metallic accents or certain decals may not be safe for microwaves."
+    },
+    {
+      "q": "How long does production take for custom mugs?",
+      "a": "Typical production time is 10 to 15 business days for screen printing and up to 20 business days for full-color or engraved orders. Rush service may be available for an additional fee."
+    },
+    {
+      "q": "Can I order a sample before placing a bulk order?",
+      "a": "Yes. We recommend ordering a sample to check print quality, color match, and mug feel. Sample costs are usually credited toward your bulk order."
+    }
+  ],
+  "heroAltText": "Custom desk mugs with logo prints in various colors and sizes on a desk",
+  "productSkus": [
+    "503190",
+    "504267",
+    "509885",
+    "510094",
+    "510100 90A",
+    "510964",
+    "510998",
+    "511005",
+    "511030 90E",
+    "512770",
+    "512771",
+    "514870",
+    "515507",
+    "517509",
+    "518784",
+    "520204",
+    "521330",
+    "521384",
+    "521879",
+    "522392",
+    "522462",
+    "522463",
+    "522465",
+    "524109",
+    "524786"
+  ],
+  "generatedAt": "2026-05-30T11:46:01.886894+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "use_case",
+  "skuFilterMode": "full",
+  "rawSkuCount": 25,
+  "filteredSkuCount": 25
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/tools/brand/alo",
+  "type": "facet",
+  "h1": "Custom Alo Tools for Bulk Orders",
+  "metaTitle": "Custom Alo Tools | Perfect Imprints",
+  "metaDescription": "Order custom Alo tools in bulk from Perfect Imprints. Great for giveaways, safety kits, and brand awareness.",
+  "introHtml": "<p>Alo tools combine practical design with reliable performance, making them ideal for corporate gifts, safety incentives, and trade show giveaways. From the 5-In-1 Work Pen that writes and measures to the Handy 5' Tape Measure, each item is built for everyday use. Decorate with your logo using pad printing or laser engraving for a professional look that keeps your brand top of mind.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Alo tools including a 5-in-1 work pen and tape measure with logo imprint",
+  "productSkus": [
+    "502658",
+    "515454 01A",
+    "516294"
+  ],
+  "generatedAt": "2026-05-31T10:11:21.435800+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

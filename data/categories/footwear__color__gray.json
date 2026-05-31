@@ -1,0 +1,19 @@
+{
+  "url": "/cat/footwear/color/gray",
+  "type": "facet",
+  "h1": "Custom Gray Footwear",
+  "metaTitle": "Custom Gray Footwear | Perfect Imprints",
+  "metaDescription": "Order custom gray footwear for your team or event. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Gray footwear offers a neutral, professional look that pairs well with any uniform or event attire. Unlike black or white, gray hides scuffs and dirt while maintaining a clean appearance. Ideal for corporate teams, trade show staff, or promotional giveaways, custom gray shoes can be embroidered or screen-printed with your logo. Choose from slip-resistant work shoes or casual sneakers for lasting comfort and brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gray footwear with embroidered logo on side, perfect for corporate uniforms and promotional events.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:47:08.981799+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/tools/feature/led-light",
+  "type": "facet",
+  "h1": "Custom LED Light Tools for Bulk Orders",
+  "metaTitle": "Custom LED Light Tools | Perfect Imprints",
+  "metaDescription": "Order custom LED light tools for your team. Perfect for safety managers and marketing directors. Bulk pricing available.",
+  "introHtml": "<p>Custom LED light tools combine everyday utility with practical illumination, making them a favorite for safety managers and field teams. Whether it's a multi-tool with an integrated LED or a tape measure with a built-in flashlight, these items ensure your crew always has light when they need it. Decorate with your logo via pad printing or laser engraving for a professional finish that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom LED light tools including a multi-tool with built-in flashlight and a tape measure with LED, displayed on a workbench.",
+  "productSkus": [
+    "518913 10A",
+    "522797"
+  ],
+  "generatedAt": "2026-05-31T08:47:28.090301+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

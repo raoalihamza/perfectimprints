@@ -1,0 +1,23 @@
+{
+  "url": "/cat/household/brand/nautica",
+  "type": "facet",
+  "h1": "Custom Nautica Household Items for Bulk Orders",
+  "metaTitle": "Custom Nautica Household Items | Perfect Imprints",
+  "metaDescription": "Order custom Nautica household items in bulk from Perfect Imprints. Perfect for corporate gifts and employee rewards.",
+  "introHtml": "<p>Nautica brings a classic nautical style to household essentials, making them ideal for corporate gift programs or employee recognition. Choose from men's and ladies' deck polos or quarter-zip pullovers, all featuring the iconic anchor logo. These pieces can be decorated with your company logo via embroidery or screen printing, offering a polished look that stands out in any office or home setting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Nautica household items including men's and ladies' deck polos and quarter-zip pullovers with embroidered logos",
+  "productSkus": [
+    "525547",
+    "525548",
+    "525893"
+  ],
+  "generatedAt": "2026-05-31T09:51:10.117985+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/products/brand/jbl",
+  "type": "facet",
+  "h1": "Custom JBL Products for Bulk Orders",
+  "metaTitle": "Custom JBL Products | Perfect Imprints",
+  "metaDescription": "Order custom JBL products for your brand. Perfect Imprints offers bulk pricing on speakers and earbuds. Get your quote today.",
+  "introHtml": "<p>Choosing custom JBL products means giving your team or clients premium audio gear from a trusted brand. Whether you're outfitting a sales team with JBL Flip 7 speakers or gifting JBL Go 4 Bluetooth speakers at a trade show, these products deliver clear sound and rugged durability. Decorate with your logo using pad printing or laser engraving for a polished look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom JBL products including portable Bluetooth speakers and wireless earbuds with company logos",
+  "productSkus": [
+    "529459",
+    "529460",
+    "529461",
+    "529462"
+  ],
+  "generatedAt": "2026-05-31T10:03:32.375288+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

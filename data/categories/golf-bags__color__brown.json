@@ -1,0 +1,30 @@
+{
+  "url": "/cat/golf-bags/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Golf Bags",
+  "metaTitle": "Custom Brown Golf Bags | Perfect Imprints",
+  "metaDescription": "Order custom brown golf bags for your brand. Perfect for corporate events and tournaments. Get a quote today.",
+  "introHtml": "<p>Brown golf bags offer a rich, natural look that stands out on the course. Whether you choose a full-size bag or a compact carrier like the Bamboo Golf Buddy, this earthy tone pairs well with embroidered logos or screen-printed designs. Ideal for corporate golf outings or employee gifts, brown bags convey reliability and style. Order in bulk to outfit your team or event with a cohesive, professional appearance.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown golf bag with embroidered logo, perfect for corporate events and tournaments.",
+  "productSkus": [
+    "505143",
+    "507820",
+    "510186",
+    "510187",
+    "510317",
+    "514871",
+    "515156",
+    "515975",
+    "523540",
+    "528396"
+  ],
+  "generatedAt": "2026-05-31T09:48:20.059691+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

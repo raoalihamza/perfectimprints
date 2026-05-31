@@ -1,0 +1,23 @@
+{
+  "url": "/cat/apparel/material/wool",
+  "type": "facet",
+  "h1": "Custom Wool Apparel for Bulk Orders",
+  "metaTitle": "Custom Wool Apparel | Perfect Imprints",
+  "metaDescription": "Order custom wool apparel for your team. Perfect for cold weather uniforms and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Wool apparel offers natural insulation, moisture wicking, and durability that synthetic fabrics can't match. For companies needing cold-weather uniforms or promotional gifts that last, custom wool apparel like merino wool sweaters and boot socks provide warmth without bulk. Decorate with embroidery for a professional look that stands up to repeated wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wool apparel including merino wool sweaters and boot socks for corporate branding",
+  "productSkus": [
+    "526363",
+    "527181",
+    "527182"
+  ],
+  "generatedAt": "2026-05-31T08:31:45.653950+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

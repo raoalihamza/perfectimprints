@@ -1,0 +1,24 @@
+{
+  "url": "/cat/shirts/brand/american-giant",
+  "type": "facet",
+  "h1": "Custom American Giant Shirts",
+  "metaTitle": "Custom American Giant Shirts | Perfect Imprints",
+  "metaDescription": "Order premium custom American Giant shirts for your team. Durable, USA-made apparel perfect for corporate branding. Get a quote today.",
+  "introHtml": "<p>American Giant shirts and hoodies are built in the USA from heavyweight cotton that holds its shape wash after wash. For corporate uniforms, event giveaways, or employee rewards, these garments offer a premium feel that standard tees cannot match. Decorate with embroidery or screen printing for a polished look that reflects quality. When you want your brand associated with durability and American craftsmanship, custom American Giant shirts deliver.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom American Giant shirts with embroidered logo, displayed on a men's crew sweatshirt and a women's full zip hoodie.",
+  "productSkus": [
+    "528594",
+    "528595",
+    "529338",
+    "529339"
+  ],
+  "generatedAt": "2026-05-31T09:25:46.848355+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

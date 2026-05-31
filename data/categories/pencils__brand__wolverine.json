@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pencils/brand/wolverine",
+  "type": "facet",
+  "h1": "Custom Wolverine Pencils for Bulk Orders",
+  "metaTitle": "Custom Wolverine Pencils | Perfect Imprints",
+  "metaDescription": "Order custom Wolverine pencils in bulk. Perfect for tradeshows and giveaways. Fast turnaround. Get a quote today.",
+  "introHtml": "<p>Wolverine pencils combine rugged durability with a classic writing tool, making them ideal for outdoor events, trade shows, and promotional giveaways. The Wolverine brand is known for tough, reliable gear, and these pencils carry that reputation. Choose from a variety of imprint colors to match your logo, and order in bulk for cost-effective branding that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Wolverine pencils with black barrel and white imprint, arranged on a desk",
+  "productSkus": [
+    "528158"
+  ],
+  "generatedAt": "2026-05-31T08:59:26.095271+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

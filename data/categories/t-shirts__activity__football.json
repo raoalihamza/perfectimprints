@@ -1,0 +1,22 @@
+{
+  "url": "/cat/t-shirts/activity/football",
+  "type": "facet",
+  "h1": "Custom Football T Shirts for Teams & Events",
+  "metaTitle": "Custom Football T Shirts | Perfect Imprints",
+  "metaDescription": "Order custom football t shirts for your team or event. Bulk pricing, fast turnaround, and pro decoration. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Football-themed custom t shirts let you show team spirit at game days, charity runs, or corporate events. Choose classic fine jersey styles like the LAT Adult Football Tee or the women's v-neck cut for a polished fit. Screen printing or embroidery adds your logo or player numbers in team colors. These shirts work for sidelines, tailgates, or staff uniforms at football-themed promotions. Durable cotton-poly blends hold up to repeated wear and washing, so your branding stays sharp all season.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom football t shirts in team colors at a game",
+  "productSkus": [
+    "524039",
+    "524040"
+  ],
+  "generatedAt": "2026-05-31T10:10:07.115585+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

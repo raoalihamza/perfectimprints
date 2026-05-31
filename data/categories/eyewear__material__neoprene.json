@@ -1,0 +1,23 @@
+{
+  "url": "/cat/eyewear/material/neoprene",
+  "type": "facet",
+  "h1": "Custom Neoprene Eyewear for Bulk Orders",
+  "metaTitle": "Custom Neoprene Eyewear | Perfect Imprints",
+  "metaDescription": "Order custom neoprene eyewear in bulk for your team. Perfect for safety glasses and sunglasses. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Neoprene eyewear offers a soft, durable alternative to standard hard cases. The padded material protects sunglasses and safety glasses from scratches and impacts, making it ideal for field workers or outdoor events. With custom imprinting, your logo stays visible on a flexible surface that resists moisture and wear. Choose neoprene for a comfortable, long-lasting promotional item your team will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom neoprene eyewear with embroidered logo on a soft protective case",
+  "productSkus": [
+    "515640 33A",
+    "520417",
+    "520622"
+  ],
+  "generatedAt": "2026-05-31T09:45:04.719483+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

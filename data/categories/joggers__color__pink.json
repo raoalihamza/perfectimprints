@@ -1,0 +1,24 @@
+{
+  "url": "/cat/joggers/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Joggers",
+  "metaTitle": "Custom Pink Joggers | Perfect Imprints",
+  "metaDescription": "Order custom pink joggers in bulk for your team or event. Perfect for marketing or uniforms. Get a quote today!",
+  "introHtml": "<p>Pink joggers offer a vibrant, eye-catching look that stands out in any setting, from corporate wellness events to school spirit days. Whether you choose a soft blush or a bright magenta, these custom joggers provide comfort and style. Decorate with screen printing or embroidery to add your logo. The Women's TriDri Maria Jogger Shorts and Sport-Tek options are popular choices that combine moisture-wicking performance with a flattering fit.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of custom pink joggers featuring the Women's TriDri Maria Jogger Shorts with embroidered logo",
+  "productSkus": [
+    "528865",
+    "528873",
+    "528874",
+    "528876"
+  ],
+  "generatedAt": "2026-05-31T09:52:16.168195+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

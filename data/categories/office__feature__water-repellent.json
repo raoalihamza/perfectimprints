@@ -1,0 +1,25 @@
+{
+  "url": "/cat/office/feature/water-repellent",
+  "type": "facet",
+  "h1": "Custom Water Repellent Office Products",
+  "metaTitle": "Custom Water Repellent Office | Perfect Imprints",
+  "metaDescription": "Shop custom water repellent office products at Perfect Imprints. Ideal for commuters and field teams. Order bulk branded gear today.",
+  "introHtml": "<p>Water repellent office products protect your gear from rain, spills, and moisture, keeping laptops, documents, and electronics dry during commutes or fieldwork. Unlike standard office bags or jackets, these items feature durable water-resistant coatings or fabrics that repel water without adding bulk. Options like the Specter Laptop Bag or Boulder Thermal Shell offer practical protection for employees who work on the go. Decorate with your logo via embroidery or screen printing for effective brand exposure in any weather.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom water repellent office products including a laptop bag and jacket with water-resistant finish",
+  "productSkus": [
+    "515291",
+    "520887",
+    "523923",
+    "525734",
+    "525735"
+  ],
+  "generatedAt": "2026-05-31T08:58:44.993460+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

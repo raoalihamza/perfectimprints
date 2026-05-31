@@ -1,0 +1,23 @@
+{
+  "url": "/cat/footwear/color/green",
+  "type": "facet",
+  "h1": "Custom Green Footwear for Your Brand",
+  "metaTitle": "Custom Green Footwear | Perfect Imprints",
+  "metaDescription": "Order custom green footwear for your team or event. Perfect for branding with your logo. Fast turnaround. Shop now.",
+  "introHtml": "<p>Green footwear stands out in a crowd, making it a smart choice for company uniforms, event giveaways, or trade show promotions. Whether you need branded flip flops for a summer beach party or cozy slipper socks for a hospitality gift, green offers a fresh, eco-friendly look. Decorate with screen printing or embroidery to keep your logo visible. Perfect for outdoor events, team building, or any occasion where you want your brand to be noticed.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green footwear like branded flip flops and slipper socks with logo for corporate events",
+  "productSkus": [
+    "501556",
+    "516800",
+    "517496"
+  ],
+  "generatedAt": "2026-05-31T09:13:50.749249+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

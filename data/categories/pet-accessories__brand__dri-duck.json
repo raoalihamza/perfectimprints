@@ -1,0 +1,27 @@
+{
+  "url": "/cat/pet-accessories/brand/dri-duck",
+  "type": "facet",
+  "h1": "Custom Dri Duck Pet Accessories",
+  "metaTitle": "Custom Dri Duck Pet Accessories | Perfect Imprints",
+  "metaDescription": "Order custom Dri Duck pet accessories for your team. Durable, branded gear perfect for giveaways. Get a quote today!",
+  "introHtml": "<p>Dri Duck pet accessories bring the same rugged durability and weather-resistant performance the brand is known for to your four-legged brand ambassadors. From collapsible bowls to leash clips integrated into cooler bags, these items are built for outdoor use and frequent washing. Perfect for pet-related businesses, veterinary practices, or employee appreciation gifts that include the whole family.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Dri Duck pet accessories including collapsible bowls and leash clips for outdoor use",
+  "productSkus": [
+    "522595",
+    "527125",
+    "527126",
+    "528099",
+    "528100",
+    "528838",
+    "529182"
+  ],
+  "generatedAt": "2026-05-31T10:01:03.024118+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

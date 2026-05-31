@@ -1,0 +1,29 @@
+{
+  "url": "/cat/tank-tops/brand/champion",
+  "type": "facet",
+  "h1": "Custom Champion Tank Tops for Bulk Orders",
+  "metaTitle": "Custom Champion Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom Champion tank tops in bulk. Perfect for teams, events & giveaways. Get a free quote at Perfect Imprints.",
+  "introHtml": "<p>Champion tank tops combine athletic heritage with everyday comfort, making them a favorite for corporate events, team uniforms, and promotional giveaways. The heavyweight cotton jersey stands up to frequent washing and screen printing, while the classic athletic cut suits a wide range of body types. Decorate with your logo using screen printing or embroidery for a crisp, long-lasting brand impression that recipients will wear proudly long after the event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Champion tank tops with screen-printed logo in athletic gray, front view",
+  "productSkus": [
+    "526122",
+    "526123",
+    "526124",
+    "526126",
+    "526127",
+    "526128",
+    "526129",
+    "526130",
+    "526131"
+  ],
+  "generatedAt": "2026-05-31T10:10:39.493873+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

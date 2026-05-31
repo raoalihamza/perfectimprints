@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pens/brand/hugo-boss",
+  "type": "facet",
+  "h1": "Custom Hugo Boss Pens for Bulk Orders",
+  "metaTitle": "Custom Hugo Boss Pens | Perfect Imprints",
+  "metaDescription": "Order custom Hugo Boss pens in bulk. Premium branded pens with your logo. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Hugo Boss pens bring a level of sophistication that standard promotional pens simply cannot match. When you need a corporate gift that reflects prestige and attention to detail, these German-engineered writing instruments deliver. The Broadway Stylus Metallic Click Pen, for example, combines a sleek metal barrel with a functional stylus tip, making it ideal for executives and sales teams who value both form and function. Choose from multiple finishes and imprint colors to match your brand identity perfectly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hugo Boss pens with engraved logo, featuring a metallic click pen and stylus tip on a desk.",
+  "productSkus": [
+    "528511"
+  ],
+  "generatedAt": "2026-05-31T08:36:16.285588+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

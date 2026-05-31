@@ -1,0 +1,23 @@
+{
+  "url": "/cat/cafe-mugs/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Cafe Mugs",
+  "metaTitle": "Custom Pink Cafe Mugs | Perfect Imprints",
+  "metaDescription": "Order custom pink cafe mugs for your brand. Perfect for giveaways or office use. Get a quote today!",
+  "introHtml": "<p>Pink cafe mugs bring a soft, eye-catching pop of color to any breakroom or event. Whether you're ordering for a breast cancer awareness campaign or simply want to add warmth to your branded drinkware, these mugs stand out from standard white or black options. Decorate with a full wrap or simple logo imprint on styles like the 15 oz Campfire Mug or the 11 oz Hampton Collection Mug for a polished, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom pink cafe mugs with company logos, including 15 oz Campfire and 11 oz Hampton styles",
+  "productSkus": [
+    "510964",
+    "521384",
+    "524786"
+  ],
+  "generatedAt": "2026-05-31T08:51:28.353421+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

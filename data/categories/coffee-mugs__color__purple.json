@@ -1,0 +1,30 @@
+{
+  "url": "/cat/coffee-mugs/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Coffee Mugs for Your Brand",
+  "metaTitle": "Custom Purple Coffee Mugs | Perfect Imprints",
+  "metaDescription": "Order custom purple coffee mugs for your brand. Perfect for offices, events, or gifts. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Purple coffee mugs bring a regal, creative touch to your brand promotions. Whether you're outfitting a corporate breakroom with 11 oz Budget Mugs or gifting 15 oz Campfire Mugs at a trade show, purple stands out without being loud. It pairs well with white or metallic logos and works for industries from tech to education. Choose from matte, gloss, or two-tone finishes to match your company colors exactly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom purple coffee mugs with white logos, including 11 oz and 15 oz sizes, displayed on a table.",
+  "productSkus": [
+    "510094",
+    "510964",
+    "510999",
+    "511003",
+    "511005",
+    "511006",
+    "518784",
+    "524786",
+    "529137",
+    "529464"
+  ],
+  "generatedAt": "2026-05-31T08:52:20.954524+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

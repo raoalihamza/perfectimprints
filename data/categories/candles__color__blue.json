@@ -1,0 +1,23 @@
+{
+  "url": "/cat/candles/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Candles for Branded Giveaways",
+  "metaTitle": "Custom Blue Candles | Perfect Imprints",
+  "metaDescription": "Order custom blue candles in bulk for your next event or promotion. Perfect for brand awareness. Get a quote today.",
+  "introHtml": "<p>Blue candles create a calming, professional aesthetic that stands out at corporate events, trade shows, or client appreciation gifts. Whether you choose a vanilla-scented soy wax candle in a glass jar with bamboo lid or a bamboo soy candle with a matching custom box, the blue hue reinforces trust and serenity. Decorate with your logo using custom labels or screen printing for a polished, cohesive look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue candles in glass jars with bamboo lids, decorated with a company logo",
+  "productSkus": [
+    "526451",
+    "527052",
+    "528203"
+  ],
+  "generatedAt": "2026-05-31T09:09:52.481659+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

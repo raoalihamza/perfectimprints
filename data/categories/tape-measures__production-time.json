@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tape-measures/production-time",
+  "type": "modifier",
+  "h1": "Rush Custom Tape Measures with Fast Production",
+  "metaTitle": "Rush Custom Tape Measures | Perfect Imprints",
+  "metaDescription": "Need custom tape measures fast? We offer rush production on promotional tape measures. Get quick turnaround for your next event. Order now!",
+  "introHtml": "<p>When your event is just days away and you need branded tape measures in hand, our rush production service delivers. We specialize in fast turnaround for promotional tape measures, with eligible decoration methods that keep your timeline on track. Whether it's a last-minute trade show, safety week giveaway, or urgent client gift, we can produce custom tape measures in as little as 1-5 business days. Lead times depend on artwork approval, but our team works quickly to get your order shipped fast.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of rush custom tape measures with company logos, ready for fast production and quick turnaround",
+  "productSkus": [
+    "505258",
+    "506059 90A",
+    "506866",
+    "509516",
+    "511143",
+    "511177",
+    "514471 01A",
+    "515454 01A",
+    "521080",
+    "521081",
+    "528239",
+    "528333",
+    "528997"
+  ],
+  "generatedAt": "2026-05-31T10:10:49.347464+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

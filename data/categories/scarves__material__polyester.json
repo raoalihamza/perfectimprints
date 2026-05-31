@@ -1,0 +1,23 @@
+{
+  "url": "/cat/scarves/material/polyester",
+  "type": "facet",
+  "h1": "Custom Polyester Scarves for Bulk Orders",
+  "metaTitle": "Custom Polyester Scarves | Perfect Imprints",
+  "metaDescription": "Order custom polyester scarves in bulk for your team or event. Perfect for corporate gifts and promotions. Get a quote today!",
+  "introHtml": "<p>Polyester scarves offer a practical balance of durability, softness, and affordability, making them a popular choice for corporate giveaways and employee gifts. Unlike natural fibers, polyester resists wrinkles and shrinking, ensuring your logo stays crisp through repeated wear. Options like fleece scarves or fleece mitten scarf sets provide extra warmth for outdoor events or winter promotions. Decorate with screen printing or embroidery for a polished look that your recipients will appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom polyester scarves with embroidered logo on soft fleece fabric for corporate gifts",
+  "productSkus": [
+    "516838",
+    "516839",
+    "516872"
+  ],
+  "generatedAt": "2026-05-31T08:37:07.499159+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

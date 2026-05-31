@@ -1,0 +1,26 @@
+{
+  "url": "/cat/calculators/supplier/ariel",
+  "type": "facet",
+  "h1": "Custom Ariel Calculators for Bulk Orders",
+  "metaTitle": "Custom Ariel Calculators | Perfect Imprints",
+  "metaDescription": "Order custom Ariel calculators for your business. Perfect for trade shows and office use. Get your quote today.",
+  "introHtml": "<p>Ariel calculators are known for their dependable performance and clear displays, making them a practical choice for office environments and promotional giveaways. Whether you need custom desk calculators for a corporate event or compact models for trade show handouts, Ariel offers a range of options that can be imprinted with your logo. Choose from standard models like the Desk Calculator or the slim Black Magic Slim Calculator for a professional look that keeps your brand visible throughout the workday.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Ariel calculators with logo imprint for office and promotional use",
+  "productSkus": [
+    "502790",
+    "503150",
+    "503253",
+    "508489",
+    "526359",
+    "526362"
+  ],
+  "generatedAt": "2026-05-31T09:38:57.420011+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

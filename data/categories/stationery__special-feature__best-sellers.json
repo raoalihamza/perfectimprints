@@ -1,0 +1,19 @@
+{
+  "url": "/cat/stationery/special-feature/best-sellers",
+  "type": "facet",
+  "h1": "Custom Best Sellers Stationery for Bulk Orders",
+  "metaTitle": "Custom Best Sellers Stationery | Perfect Imprints",
+  "metaDescription": "Shop custom best sellers stationery in bulk at Perfect Imprints. Personalize notebooks, pens & more for your business.",
+  "introHtml": "<p>Our best sellers stationery collection brings together the most popular items that businesses order again and again. From spiral notebooks with lay-flat binding to smooth-writing ballpoint pens, these are the products that get used daily in offices, trade shows, and client meetings. Choosing from our best sellers means you skip the guesswork and get proven, high-quality promotional stationery that your recipients will actually keep and use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom best sellers stationery including branded notebooks and pens on a desk",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:08:41.204723+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

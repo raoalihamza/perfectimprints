@@ -1,0 +1,29 @@
+{
+  "url": "/cat/headwear/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Headwear for Your Brand",
+  "metaTitle": "Custom Purple Headwear | Perfect Imprints",
+  "metaDescription": "Shop custom purple headwear at Perfect Imprints. Bulk orders, embroidery, and fast delivery. Get your quote today!",
+  "introHtml": "<p>Purple headwear stands out from the crowd, offering a regal and creative alternative to standard colors. Whether you are outfitting a team for a charity run, promoting a university alumni event, or adding a pop of color to your company store, purple caps and visors grab attention. Choose from structured twill caps, performance mesh, or relaxed dad hats, all customizable with your logo via embroidery or screen printing. Perfect for making a memorable brand impression at any event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple headwear including structured caps and visors with embroidered logos in bulk",
+  "productSkus": [
+    "515975",
+    "516015",
+    "516016",
+    "516537",
+    "522643",
+    "522646",
+    "527215",
+    "527366",
+    "529239"
+  ],
+  "generatedAt": "2026-05-31T08:55:28.367718+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

@@ -1,0 +1,29 @@
+{
+  "url": "/cat/socks/supplier/a4",
+  "type": "facet",
+  "h1": "Custom A4 Socks for Bulk Orders",
+  "metaTitle": "Custom A4 Socks | Perfect Imprints",
+  "metaDescription": "Order custom A4 socks in bulk from Perfect Imprints. Ideal for corporate gifts and events. Get your quote today!",
+  "introHtml": "<p>A4 socks offer a unique combination of comfort and style, making them a popular choice for corporate giveaways and employee appreciation. Whether you need ankle-high jacquard socks for a trade show or cozy fuzzy feet slippers for a holiday gift, these bulk socks provide excellent decoration space for your logo. Choose from various styles and sizes to match your brand's personality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom A4 socks in bulk with embroidered logo, including ankle jacquard and fuzzy slipper styles",
+  "productSkus": [
+    "516800",
+    "521927",
+    "522251",
+    "524427",
+    "525740",
+    "526360",
+    "526361",
+    "526363",
+    "526896"
+  ],
+  "generatedAt": "2026-05-31T10:07:23.818542+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

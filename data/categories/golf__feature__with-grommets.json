@@ -1,0 +1,27 @@
+{
+  "url": "/cat/golf/feature/with-grommets",
+  "type": "facet",
+  "h1": "Custom Golf Towels with Grommets",
+  "metaTitle": "Custom Golf Towels with Grommets | Perfect Imprints",
+  "metaDescription": "Order custom golf towels with grommets for easy hanging. Perfect for corporate events and tournaments. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Grommets turn a standard golf towel into a functional tool that stays put during a round. Whether you are outfitting a corporate outing or stocking a pro shop, towels with metal or plastic grommets clip securely to a bag or cart loop. Choose microfiber for quick drying or cotton for absorbency, and add your logo with screen printing or embroidery. These towels hold up to repeated use and washing, making them a reliable giveaway that golfers actually reach for.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom golf towels with grommets hanging from a golf bag, featuring embroidered logos.",
+  "productSkus": [
+    "501967 90A",
+    "510188",
+    "510325",
+    "512900",
+    "522450",
+    "523961",
+    "526774"
+  ],
+  "generatedAt": "2026-05-31T08:55:08.352758+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

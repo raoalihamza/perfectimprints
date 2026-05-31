@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/bam",
+  "type": "facet",
+  "h1": "Custom BAM Products for Bulk Orders",
+  "metaTitle": "Custom BAM Products | Perfect Imprints",
+  "metaDescription": "Order custom BAM products for your business. Perfect Imprints offers bulk pricing and decoration options. Get your quote today.",
+  "introHtml": "<p>BAM is known for high-quality drinkware and accessories that combine function with clean design. When you order custom BAM products for your team or event, you get items that people actually use every day. Choose from stainless steel bottles with your logo imprinted via screen printing or laser engraving. Perfect for corporate gifts, trade show giveaways, or employee appreciation.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom BAM products including stainless steel water bottles and drinkware with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:22.088641+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

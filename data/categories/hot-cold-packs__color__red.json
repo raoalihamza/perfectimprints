@@ -1,0 +1,28 @@
+{
+  "url": "/cat/hot-cold-packs/color/red",
+  "type": "facet",
+  "h1": "Custom Red Hot Cold Packs",
+  "metaTitle": "Custom Red Hot Cold Packs | Perfect Imprints",
+  "metaDescription": "Shop custom red hot cold packs for bulk orders. Ideal for safety kits, employee wellness, and events. Request a quote today.",
+  "introHtml": "<p>Red hot cold packs stand out in first aid kits and employee wellness programs, making them easy to locate in an emergency. Whether you choose plush fabric options for comfort or gel bead packs for flexible therapy, imprinting your logo in a contrasting color ensures your brand is seen. Perfect for safety managers equipping job sites or HR directors supporting workplace health initiatives.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red hot cold packs with plush fabric and gel beads, showcasing a branded logo for bulk promotional use",
+  "productSkus": [
+    "510371",
+    "511893",
+    "511894",
+    "515556",
+    "515557",
+    "517054",
+    "517056",
+    "524787"
+  ],
+  "generatedAt": "2026-05-31T09:16:02.037068+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

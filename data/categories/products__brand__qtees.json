@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/qtees",
+  "type": "facet",
+  "h1": "Custom Qtees Products for Bulk Orders",
+  "metaTitle": "Custom Qtees Products | Perfect Imprints",
+  "metaDescription": "Order custom Qtees products in bulk for your brand. Perfect for giveaways and events. Get a quote today!",
+  "introHtml": "<p>Qtees brand products are known for their vibrant colors and durable construction, making them a popular choice for custom imprinted giveaways. Whether you need custom koozies, towels, or bags for a trade show or employee appreciation, Qtees offers a wide range of items that hold up well to screen printing and embroidery. Their consistent quality ensures your logo looks sharp and lasts through repeated use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Qtees products with full-color logo imprint, including koozies and towels for promotional giveaways",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:37.977511+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

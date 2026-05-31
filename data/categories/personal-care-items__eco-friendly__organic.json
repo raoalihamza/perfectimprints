@@ -1,0 +1,24 @@
+{
+  "url": "/cat/personal-care-items/eco-friendly/organic",
+  "type": "facet",
+  "h1": "Custom Organic Personal Care Items",
+  "metaTitle": "Custom Organic Personal Care Items | Perfect Imprints",
+  "metaDescription": "Order custom organic personal care items for your brand. Eco-friendly gifts perfect for corporate events and employee wellness.",
+  "introHtml": "<p>Organic personal care items made from natural materials like cotton and plant-based plastics offer a sustainable alternative for corporate gifting. Choose from organic cotton zippered pouches or biodegradable pill boxes to promote wellness and environmental responsibility. These items are perfect for health-focused events, employee appreciation, or trade show giveaways that align with green initiatives.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom organic personal care items including organic cotton pouches and eco-friendly pill boxes for corporate branding",
+  "productSkus": [
+    "506870",
+    "514433",
+    "515442",
+    "521035"
+  ],
+  "generatedAt": "2026-05-31T08:59:46.822105+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/scarves/supplier/bam",
+  "type": "facet",
+  "h1": "Custom BAM Scarves for Bulk Orders",
+  "metaTitle": "Custom BAM Scarves | Perfect Imprints",
+  "metaDescription": "Order custom BAM scarves in bulk for your team or event. Perfect for corporate gifts and giveaways. Get a quote today!",
+  "introHtml": "<p>BAM scarves combine fashion and function, made from soft fleece or knit materials that keep recipients warm while showcasing your logo. Whether you choose the Two-Tone Knit Scarf with Fringe or the Sportsman Rugby Striped Knit Scarf, these accessories work well for corporate holiday gifts, employee appreciation, or winter event giveaways. Decorate with full-color digital printing or embroidery for a polished look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom BAM scarves in fleece and knit styles with embroidered logos, perfect for corporate gifts and winter events.",
+  "productSkus": [
+    "514088",
+    "516838",
+    "516839",
+    "516872",
+    "520012",
+    "520863"
+  ],
+  "generatedAt": "2026-05-31T09:25:09.964956+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/ornaments/material/glass",
+  "type": "facet",
+  "h1": "Custom Glass Ornaments for Bulk Orders",
+  "metaTitle": "Custom Glass Ornaments | Perfect Imprints",
+  "metaDescription": "Order custom glass ornaments for your next promotion. Perfect for holidays and gifts. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Glass ornaments offer a classic, elegant look that stands out from plastic or acrylic alternatives. Whether you choose beveled, hammered, or hand-blown styles, the reflective surface provides a premium canvas for screen printing or etching your logo. Ideal for holiday gifts, corporate awards, or year-round brand recognition, custom glass ornaments give your recipients a keepsake they'll display proudly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom glass ornaments with etched logos, including beveled and hammered styles, displayed on a tree.",
+  "productSkus": [
+    "525278",
+    "526846",
+    "527670",
+    "528864"
+  ],
+  "generatedAt": "2026-05-31T09:58:30.772757+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

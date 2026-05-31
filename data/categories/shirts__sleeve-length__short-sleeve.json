@@ -1,0 +1,23 @@
+{
+  "url": "/cat/shirts/sleeve-length/short-sleeve",
+  "type": "facet",
+  "h1": "Custom Short Sleeve Shirts for Teams & Events",
+  "metaTitle": "Custom Short Sleeve Shirts | Perfect Imprints",
+  "metaDescription": "Order custom short sleeve shirts for your team or event. Bulk discounts, fast turnaround, and expert decoration at Perfect Imprints.",
+  "introHtml": "<p>Short sleeve shirts are a go-to choice for corporate events, team uniforms, and promotional giveaways because they offer a professional yet comfortable look in warm weather. Whether you choose a wrinkle-free button-down for a polished appearance or a moisture-wicking polo for outdoor work, short sleeves keep your team cool without sacrificing style. Decorate with embroidery, screen printing, or heat transfer to match your brand colors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom short sleeve shirts with company logo at an outdoor corporate event",
+  "productSkus": [
+    "523719",
+    "525546",
+    "525604"
+  ],
+  "generatedAt": "2026-05-31T08:25:37.723478+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

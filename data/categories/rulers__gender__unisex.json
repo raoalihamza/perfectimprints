@@ -1,0 +1,25 @@
+{
+  "url": "/cat/rulers/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Rulers for Bulk Orders",
+  "metaTitle": "Custom Unisex Rulers | Perfect Imprints",
+  "metaDescription": "Order custom unisex rulers for your next promotion. Perfect for schools, offices, and events. Shop at Perfect Imprints.",
+  "introHtml": "<p>Custom unisex rulers offer a practical and gender-neutral giveaway that works for any audience. Whether you're promoting a school event, office supply drive, or trade show, these rulers provide a flat surface for precise measurement and ample space for your logo or message. Choose from durable plastic or wood options, and decorate with full-color imprinting for maximum brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom unisex rulers with printed logo, available in assorted colors for bulk orders",
+  "productSkus": [
+    "505528",
+    "520125",
+    "522251",
+    "524427",
+    "524817"
+  ],
+  "generatedAt": "2026-05-31T10:05:20.955307+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

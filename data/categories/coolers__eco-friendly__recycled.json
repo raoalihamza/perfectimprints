@@ -1,0 +1,24 @@
+{
+  "url": "/cat/coolers/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Coolers",
+  "metaTitle": "Custom Recycled Coolers | Perfect Imprints",
+  "metaDescription": "Order custom recycled coolers made from Repreve fabric. Eco-friendly branding for your next event or giveaway at Perfect Imprints.",
+  "introHtml": "<p>Custom recycled coolers offer a sustainable alternative to traditional coolers without sacrificing durability or performance. Made from Repreve recycled polyester, these coolers are perfect for eco-conscious brands looking to reduce their environmental footprint. Whether you need tote coolers for a trade show, lunch pails for employee appreciation, or backpack coolers for outdoor events, recycled coolers provide a responsible branding solution that aligns with green initiatives. Decorate with your logo using screen printing or embroidery for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled coolers made from Repreve fabric with logo branding, eco-friendly promotional coolers for outdoor events",
+  "productSkus": [
+    "525923",
+    "525924",
+    "525964",
+    "526487"
+  ],
+  "generatedAt": "2026-05-31T09:11:17.353208+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

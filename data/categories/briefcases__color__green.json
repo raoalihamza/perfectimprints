@@ -1,0 +1,22 @@
+{
+  "url": "/cat/briefcases/color/green",
+  "type": "facet",
+  "h1": "Custom Green Briefcases for Professional Bulk Orders",
+  "metaTitle": "Custom Green Briefcases | Perfect Imprints",
+  "metaDescription": "Order custom green briefcases in bulk for your team. Professional, eco-friendly options available. Get a quote today!",
+  "introHtml": "<p>Green briefcases offer a distinctive look that stands out in a sea of black and brown corporate bags. Whether you choose a rich forest shade for a classic feel or a bright lime for a modern edge, green conveys a sense of growth and reliability. Perfect for safety managers or marketing directors who want their team to carry something memorable, these bags pair well with screen-printed or embroidered logos. The A Step Ahead Messenger Bag provides a sleek silhouette, while the Repeat Recycled Poly Sling appeals to eco-conscious buyers. Customize your order with your company colors and logo for a cohesive brand image.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green briefcases displayed in a professional setting, featuring messenger bags and sling bags with embroidered logos.",
+  "productSkus": [
+    "508023",
+    "527201"
+  ],
+  "generatedAt": "2026-05-31T09:09:12.582817+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

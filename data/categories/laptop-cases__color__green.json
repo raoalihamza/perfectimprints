@@ -1,0 +1,25 @@
+{
+  "url": "/cat/laptop-cases/color/green",
+  "type": "facet",
+  "h1": "Custom Green Laptop Cases for Branded Orders",
+  "metaTitle": "Custom Green Laptop Cases | Perfect Imprints",
+  "metaDescription": "Order custom green laptop cases in bulk for your brand. Perfect for eco-conscious teams. Contact Perfect Imprints for a quote.",
+  "introHtml": "<p>Green laptop cases offer a natural, eco-friendly look that stands out in corporate settings. Whether you choose a backpack like the Basecamp Concourse or a sleek sleeve, green conveys sustainability and calm. Ideal for trade shows or employee gifts, these cases can be decorated with your logo using embroidery or screen printing. Bulk orders keep your branding consistent across your team or event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green laptop cases in various styles including backpacks and sleeves for branding",
+  "productSkus": [
+    "514974",
+    "521834",
+    "522722",
+    "526041",
+    "527940"
+  ],
+  "generatedAt": "2026-05-31T08:56:59.823598+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

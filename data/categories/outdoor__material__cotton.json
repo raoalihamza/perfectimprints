@@ -1,0 +1,21 @@
+{
+  "url": "/cat/outdoor/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Outdoor Products for Bulk Orders",
+  "metaTitle": "Custom Cotton Outdoor | Perfect Imprints",
+  "metaDescription": "Order custom cotton outdoor products for your team or event. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Cotton outdoor products offer a natural, breathable feel that synthetic materials can't match. Whether you're outfitting a summer company picnic or supplying soft, absorbent towels for a community cleanup, cotton provides comfort and durability. These items accept screen printing and embroidery well, making your logo stand out clearly. Choose cotton for a classic, approachable look that recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cotton outdoor products like sweatshirt blankets with logo printing for bulk orders",
+  "productSkus": [
+    "509290"
+  ],
+  "generatedAt": "2026-05-31T08:30:05.349501+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

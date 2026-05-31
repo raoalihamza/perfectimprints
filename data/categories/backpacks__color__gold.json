@@ -1,0 +1,21 @@
+{
+  "url": "/cat/backpacks/color/gold",
+  "type": "facet",
+  "h1": "Custom Gold Backpacks for Bulk Orders",
+  "metaTitle": "Custom Gold Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom gold backpacks in bulk for your team or event. Perfect for branding with logos. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Gold backpacks offer a distinctive look that stands out from standard black or navy options, making them ideal for corporate events, trade shows, or employee gifts. The metallic finish catches light and draws attention, ensuring your logo gets noticed. Whether you choose the Solo® Parker Hybrid Backpack Tote or another style, gold adds a premium feel that aligns with luxury branding or celebratory campaigns. These backpacks work well for marketing teams, safety managers distributing giveaways, or HR directors seeking memorable recognition awards. Embroidery or screen printing both look sharp on the gold fabric.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gold backpacks with embroidered logo, perfect for bulk corporate branding and promotional giveaways.",
+  "productSkus": [
+    "524398"
+  ],
+  "generatedAt": "2026-05-31T09:06:26.057265+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

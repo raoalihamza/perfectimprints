@@ -1,0 +1,32 @@
+{
+  "url": "/cat/drinkware/feature/stemless",
+  "type": "facet",
+  "h1": "Custom Stemless Drinkware for Bulk Orders",
+  "metaTitle": "Custom Stemless Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom stemless drinkware for your next event. Perfect for wine tastings, corporate gifts, and more. Bulk pricing available.",
+  "introHtml": "<p>Stemless drinkware offers a modern, stable alternative to traditional stemmed glasses, making it ideal for outdoor events, trade shows, and casual corporate gatherings. Unlike their stemmed counterparts, these pieces are less prone to tipping and easier to pack and store. Options range from elegant stemless wine glasses to durable plastic flutes, all customizable with your logo or message via screen printing, engraving, or full-color digital decoration. Whether you're branding a wine tasting or outfitting a company picnic, custom stemless drinkware combines practicality with a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom stemless drinkware with engraved logos, including wine glasses and tumblers on a table.",
+  "productSkus": [
+    "511000 90E",
+    "511450",
+    "519468",
+    "522098",
+    "522955",
+    "524368",
+    "524524",
+    "524525",
+    "524526",
+    "525791",
+    "527252",
+    "527517"
+  ],
+  "generatedAt": "2026-05-31T09:43:36.749788+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

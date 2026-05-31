@@ -1,0 +1,30 @@
+{
+  "url": "/cat/sweatshirts/feature/moisture-wicking",
+  "type": "facet",
+  "h1": "Custom Moisture Wicking Sweatshirts",
+  "metaTitle": "Custom Moisture Wicking Sweatshirts | Perfect Imprints",
+  "metaDescription": "Order custom moisture wicking sweatshirts for your team or event. Perfect for active wear and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Moisture wicking sweatshirts keep your team comfortable during physical activity or outdoor work by pulling sweat away from the skin. Unlike standard cotton hoodies, these performance fabrics dry quickly and resist odor, making them ideal for safety managers outfitting field crews or marketing directors branding giveaway apparel for a charity 5K. Choose from zip hoodies, pullovers, and hooded tees with custom embroidery or screen printing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom moisture wicking sweatshirts in various colors and styles for corporate branding or team uniforms",
+  "productSkus": [
+    "521441",
+    "521443",
+    "521932",
+    "521933",
+    "524393",
+    "524394",
+    "527878",
+    "527879",
+    "529434",
+    "529436"
+  ],
+  "generatedAt": "2026-05-31T09:03:09.031850+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

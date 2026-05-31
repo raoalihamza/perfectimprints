@@ -1,0 +1,25 @@
+{
+  "url": "/cat/pants-shorts/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Pants Shorts",
+  "metaTitle": "Custom Purple Pants Shorts | Perfect Imprints",
+  "metaDescription": "Order custom purple pants shorts in bulk for your team. Shop Perfect Imprints for quality styles and fast turnaround.",
+  "introHtml": "<p>Purple custom pants shorts offer a distinctive look that stands out from standard black or navy options. Whether you need branded shorts for a corporate wellness program, a charity 5K, or a summer safety team, purple adds a vibrant yet professional touch. Choose from moisture-wicking fabrics like the Men's Sport-Tek® PosiCharge® Mesh 7” Short or the Women's TriDri Maria Jogger Shorts, both ideal for embroidery or screen printing. Purple shorts pair well with white or gray tops for a cohesive uniform.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple pants shorts for teams and events, featuring moisture-wicking fabric and embroidery options.",
+  "productSkus": [
+    "526129",
+    "528865",
+    "528873",
+    "528876",
+    "528886"
+  ],
+  "generatedAt": "2026-05-31T09:59:28.283414+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

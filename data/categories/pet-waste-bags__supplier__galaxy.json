@@ -1,0 +1,28 @@
+{
+  "url": "/cat/pet-waste-bags/supplier/galaxy",
+  "type": "facet",
+  "h1": "Custom Galaxy Pet Waste Bags",
+  "metaTitle": "Custom Galaxy Pet Waste Bags | Perfect Imprints",
+  "metaDescription": "Order custom Galaxy pet waste bags in bulk. Perfect for parks, offices, and pet-friendly businesses. Get a quote today.",
+  "introHtml": "<p>Galaxy pet waste bags offer a reliable, heavy-duty solution for keeping public spaces and office grounds clean. These bags are designed to hold up during disposal without tearing, making them a practical choice for property managers and business owners who supply bag dispensers at dog parks, apartment complexes, or corporate campuses. Custom imprinting on the bags ensures your brand or message is seen every time a pet owner reaches for a bag. Choose Galaxy for consistent quality and easy dispensing.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Galaxy pet waste bags in a dispenser with a dog owner using one at a park",
+  "productSkus": [
+    "501626",
+    "512311",
+    "513078",
+    "514957",
+    "516804",
+    "516905",
+    "516906",
+    "528199"
+  ],
+  "generatedAt": "2026-05-31T08:45:26.597806+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

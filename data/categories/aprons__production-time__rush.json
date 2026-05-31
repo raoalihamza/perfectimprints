@@ -1,0 +1,26 @@
+{
+  "url": "/cat/aprons/production-time/rush",
+  "type": "facet",
+  "h1": "Custom Rush Aprons for Bulk Orders",
+  "metaTitle": "Custom Rush Aprons | Perfect Imprints",
+  "metaDescription": "Order custom rush aprons for fast delivery. Perfect for events, teams, and promotions. Get a quick quote today!",
+  "introHtml": "<p>When you need branded aprons in a hurry, custom rush aprons are your solution. Whether you're equipping a kitchen team for a grand opening or distributing promotional aprons at a weekend event, our rush production ensures you meet tight deadlines without sacrificing quality. Choose from popular styles like the 10 oz Cotton Apron or the Grill Master Apron Kit, all available for fast turnaround. Screen printing or embroidery options let you add your logo quickly. Skip the standard lead times and get your aprons when you need them.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom rush aprons with embroidered logo, featuring a cotton kitchen apron with front pocket",
+  "productSkus": [
+    "508541",
+    "509133 90A",
+    "515077",
+    "516543 01A",
+    "527339",
+    "528072"
+  ],
+  "generatedAt": "2026-05-31T09:32:39.754316+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jackets/brand/spyder",
+  "type": "facet",
+  "h1": "Custom Spyder Jackets for Bulk Orders",
+  "metaTitle": "Custom Spyder Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Spyder jackets in bulk for your team. Perfect for corporate apparel, events, and uniforms. Get a quote today.",
+  "introHtml": "<p>Spyder jackets combine ski-ready performance with a clean, professional look that suits corporate teams, event staff, and outdoor crews. Whether you need lightweight packable puffers for travel or bonded soft shell vests for layering, these jackets accept embroidery and screen printing on front, back, and sleeves. Choose Spyder for a brand that signals precision, durability, and cold-weather readiness without sacrificing a polished company image.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom Spyder jackets with embroidered logos, standing outdoors in winter setting",
+  "productSkus": [
+    "520279",
+    "520281"
+  ],
+  "generatedAt": "2026-05-31T08:56:05.454163+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

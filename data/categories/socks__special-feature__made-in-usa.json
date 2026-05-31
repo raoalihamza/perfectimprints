@@ -1,0 +1,21 @@
+{
+  "url": "/cat/socks/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Socks",
+  "metaTitle": "Custom Made in USA Socks | Perfect Imprints",
+  "metaDescription": "Order custom made in USA socks for your team. Premium quality, bulk pricing, and fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Custom made in USA socks offer a distinct advantage for organizations that prioritize domestic manufacturing. Whether you need branded crew socks for a corporate giveaway or cushioned boot socks for a safety crew, American-made options deliver consistent quality and faster lead times. The Snowed In Set, for example, combines warmth with patriotic production standards. Choose custom made in USA socks to support local industry while promoting your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA socks with embroidered logo on a crew sock, ideal for corporate gifts and team uniforms.",
+  "productSkus": [
+    "521927"
+  ],
+  "generatedAt": "2026-05-31T10:07:23.638765+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

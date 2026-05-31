@@ -1,0 +1,23 @@
+{
+  "url": "/cat/kitchen-accessories/eco-friendly/recyclable",
+  "type": "facet",
+  "h1": "Custom Recyclable Kitchen Accessories",
+  "metaTitle": "Custom Recyclable Kitchen Accessories | Perfect Imprints",
+  "metaDescription": "Order custom recyclable kitchen accessories for your business. Perfect Imprints offers eco-friendly options like bamboo lunch boxes and reusable utensils.",
+  "introHtml": "<p>Recyclable kitchen accessories let you promote sustainability without sacrificing utility. Whether you are equipping break rooms or packing employee gifts, materials like bamboo and stainless steel reduce waste and support your green initiatives. From bamboo lunch boxes to reusable utensils, these items are built for daily use and fully recyclable at end of life. Perfect for companies aiming to align branded merchandise with environmental values.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recyclable kitchen accessories including bamboo lunch box, cutting board, and reusable utensils",
+  "productSkus": [
+    "510025",
+    "527100",
+    "528020"
+  ],
+  "generatedAt": "2026-05-31T09:53:05.076194+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

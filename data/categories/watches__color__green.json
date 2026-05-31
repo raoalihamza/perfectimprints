@@ -1,0 +1,22 @@
+{
+  "url": "/cat/watches/color/green",
+  "type": "facet",
+  "h1": "Custom Green Watches for Bulk Orders",
+  "metaTitle": "Custom Green Watches | Perfect Imprints",
+  "metaDescription": "Order custom green watches in bulk for your team or event. Perfect for outdoor brands or eco-conscious campaigns.",
+  "introHtml": "<p>Green watches make a strong statement for brands tied to nature, sustainability, or outdoor adventure. Whether you choose a rugged paracord bracelet watch for safety managers or a sleek mood watch bracelet for corporate events, green adds a fresh, recognizable pop of color. Decorate with your logo via screen printing or engraving for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green watches with logo, including a paracord bracelet watch and a mood watch bracelet, displayed on a wooden surface.",
+  "productSkus": [
+    "516655",
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T09:04:20.085760+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

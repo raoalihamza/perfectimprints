@@ -1,0 +1,21 @@
+{
+  "url": "/cat/stationery/eco-friendly/biodegradable",
+  "type": "facet",
+  "h1": "Custom Biodegradable Stationery",
+  "metaTitle": "Custom Biodegradable Stationery | Perfect Imprints",
+  "metaDescription": "Order custom biodegradable stationery for eco-conscious branding. Perfect for sustainable gifts, events, and office supplies.",
+  "introHtml": "<p>Biodegradable stationery offers a tangible way to demonstrate your company's commitment to the environment without sacrificing quality or style. Unlike standard paper products that linger in landfills, these items break down naturally over time. Options like seeded paper greeting cards can even be planted to grow wildflowers, making your brand part of a lasting, positive impact. Whether you need notepads, pens, or envelopes for a green initiative or corporate gift, biodegradable materials ensure your message aligns with your values.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom biodegradable stationery including a seeded paper greeting card with wildflower seeds embedded in the paper",
+  "productSkus": [
+    "524481"
+  ],
+  "generatedAt": "2026-05-31T10:08:31.423052+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

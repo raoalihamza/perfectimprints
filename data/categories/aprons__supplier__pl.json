@@ -1,0 +1,26 @@
+{
+  "url": "/cat/aprons/supplier/pl",
+  "type": "facet",
+  "h1": "Custom PL Aprons for Bulk Orders",
+  "metaTitle": "Custom PL Aprons | Perfect Imprints",
+  "metaDescription": "Order custom PL aprons in bulk at Perfect Imprints. Ideal for restaurants, events, and branding. Get a quote today!",
+  "introHtml": "<p>PL aprons offer a reliable, cost-effective option for businesses needing durable, branded workwear. Whether you run a restaurant chain, host corporate events, or manage a safety team, these aprons provide a consistent look across your staff. Choose from waist aprons, kitchen aprons, and grill master kits, all customizable with your logo via screen printing or embroidery. The 10 oz cotton construction ensures long-lasting wear, while the medium length with pouch adds practical utility for servers and chefs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom PL aprons featuring a 10 oz cotton apron with embroidered logo, ideal for restaurant and event branding.",
+  "productSkus": [
+    "508541",
+    "509133 90A",
+    "515077",
+    "516543 01A",
+    "527339",
+    "528072"
+  ],
+  "generatedAt": "2026-05-31T09:32:43.648935+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/type/red-wine",
+  "type": "facet",
+  "h1": "Custom Red Wine Products for Branded Gifts",
+  "metaTitle": "Custom Red Wine Products | Perfect Imprints",
+  "metaDescription": "Order custom red wine products for corporate gifts. Perfect Imprints offers branded wine bottles, glasses, and accessories for your next event.",
+  "introHtml": "<p>Custom red wine products make memorable corporate gifts for clients, employees, and event attendees. From engraved wine bottles to personalized stemware and wine totes, these items offer a sophisticated way to showcase your brand. Ideal for holiday parties, client appreciation, or trade show giveaways, they pair well with foil stamping or laser engraving for a polished look. Choose from glassware, wine bags, and accessories that leave a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red wine products including engraved wine bottles and branded stemware for corporate gifts",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:04:29.254479+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

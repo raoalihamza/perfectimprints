@@ -1,0 +1,25 @@
+{
+  "url": "/cat/koozies/brand/columbia",
+  "type": "facet",
+  "h1": "Custom Columbia Koozies for Bulk Orders",
+  "metaTitle": "Custom Columbia Koozies | Perfect Imprints",
+  "metaDescription": "Order custom Columbia koozies in bulk. Perfect for outdoor events and brand giveaways. Get a quick quote today.",
+  "introHtml": "<p>Columbia koozies bring trusted outdoor performance to your branded drinkware. Whether you're outfitting a company picnic or a trade show giveaway, these koozies carry the Columbia logo that customers recognize for quality and durability. Choose screen printing or embroidery to add your brand to a koozie that keeps drinks cold and your message visible. Ideal for safety managers and marketing directors who want a practical item that reflects an active, reliable brand image.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Columbia koozies with screen-printed logo, perfect for outdoor events and brand giveaways.",
+  "productSkus": [
+    "523863",
+    "523865",
+    "523866",
+    "523867",
+    "523870"
+  ],
+  "generatedAt": "2026-05-31T08:29:34.367616+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

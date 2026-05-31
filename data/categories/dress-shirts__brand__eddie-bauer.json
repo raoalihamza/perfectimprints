@@ -1,0 +1,28 @@
+{
+  "url": "/cat/dress-shirts/brand/eddie-bauer",
+  "type": "facet",
+  "h1": "Custom Eddie Bauer Dress Shirts for Bulk Orders",
+  "metaTitle": "Custom Eddie Bauer Dress Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Eddie Bauer dress shirts in bulk for your team. Shop premium styles with logo embroidery at Perfect Imprints.",
+  "introHtml": "<p>Eddie Bauer dress shirts combine classic style with performance fabrics, making them a top choice for corporate uniforms and team apparel. The wrinkle-resistant cotton and easy-care finishes keep your team looking sharp from morning meetings to evening events. Choose from button-downs and oxfords in versatile colors, then add your logo with embroidery or screen printing for a polished, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Eddie Bauer dress shirts with embroidered logo for corporate uniforms",
+  "productSkus": [
+    "513811",
+    "513812",
+    "515290",
+    "515291",
+    "522094",
+    "522095",
+    "529196",
+    "529197"
+  ],
+  "generatedAt": "2026-05-31T09:12:00.575802+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

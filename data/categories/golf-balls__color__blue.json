@@ -1,0 +1,22 @@
+{
+  "url": "/cat/golf-balls/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Golf Balls for Bulk Orders",
+  "metaTitle": "Custom Blue Golf Balls | Perfect Imprints",
+  "metaDescription": "Order custom blue golf balls for your next event. Perfect for tournaments, corporate gifts, and branded giveaways. Shop now!",
+  "introHtml": "<p>Blue golf balls offer high visibility on the course, making them easy to spot in the rough or near water hazards. For corporate tournaments, charity events, or client gifts, custom blue golf balls with your logo stand out while providing a practical advantage. Choose from matte or glossy finishes and add your brand with single or multi-color imprinting. Whether you need a dozen for a small outing or hundreds for a large event, blue golf balls combine style and function for memorable giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue golf balls with a company logo imprinted in white, displayed on a green golf course with a tee and golf club in the background.",
+  "productSkus": [
+    "527050",
+    "528245"
+  ],
+  "generatedAt": "2026-05-31T09:14:22.668857+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

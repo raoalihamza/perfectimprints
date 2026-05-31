@@ -1,0 +1,32 @@
+{
+  "url": "/cat/sweaters-cardigans/size/large",
+  "type": "facet",
+  "h1": "Custom Large Sweaters & Cardigans for Teams",
+  "metaTitle": "Custom Large Sweaters & Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom large sweaters and cardigans for your team. Perfect for corporate gifts, uniforms, and events. Bulk pricing available.",
+  "introHtml": "<p>When ordering branded apparel for a team, getting the right fit matters. Our large sweaters and cardigans are designed to accommodate a range of body types while maintaining a professional look. From open-front cardigans for women to merino v-necks for men, these pieces work well for office uniforms, trade show giveaways, or employee recognition programs. Choose from polyester blends for easy care or merino wool for a premium feel.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom large sweaters and cardigans with embroidered logos, perfect for corporate teams.",
+  "productSkus": [
+    "520268",
+    "520269",
+    "523604",
+    "526198",
+    "526291",
+    "526292",
+    "527181",
+    "527182",
+    "527833",
+    "527957",
+    "528757",
+    "528758"
+  ],
+  "generatedAt": "2026-05-31T09:27:34.848712+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

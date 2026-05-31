@@ -1,0 +1,21 @@
+{
+  "url": "/cat/health/brand/allmade",
+  "type": "facet",
+  "h1": "Custom Allmade Health Products for Your Team",
+  "metaTitle": "Custom Allmade Health Products | Perfect Imprints",
+  "metaDescription": "Order custom Allmade health products from Perfect Imprints. Sustainable, comfortable tees for your team. Get a quote today.",
+  "introHtml": "<p>Allmade health products combine eco-conscious materials with everyday comfort, making them a smart choice for companies that value sustainability. Made from recycled blends, these tees offer a soft feel and durable construction ideal for team uniforms, wellness events, or employee gifts. Decorate with your logo using screen printing or embroidery for a polished look that aligns with your brand's values.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Allmade health products including a women's recycled blend v-neck tee with logo",
+  "productSkus": [
+    "528164"
+  ],
+  "generatedAt": "2026-05-31T09:50:28.399993+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

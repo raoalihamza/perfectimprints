@@ -1,0 +1,22 @@
+{
+  "url": "/cat/bags/brand/samsonite",
+  "type": "facet",
+  "h1": "Custom Samsonite Bags for Business & Travel",
+  "metaTitle": "Custom Samsonite Bags | Perfect Imprints",
+  "metaDescription": "Order custom Samsonite bags with your logo. Perfect for corporate gifts and employee recognition. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Samsonite bags combine durable construction with professional styling, making them a trusted choice for corporate travel and daily commutes. When you choose custom Samsonite bags, you get luggage and backpacks that carry your brand through airports, trade shows, and client meetings. Options like the Virtuosa Wheeled Duffle and Classic Business 2.0 Backpack accept crisp logo embroidery or screen printing, turning reliable travel gear into mobile brand ambassadors. Perfect for employee milestone gifts, executive welcome kits, or client appreciation packages.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Samsonite bags with embroidered logo on a wheeled duffle and laptop backpack for corporate branding.",
+  "productSkus": [
+    "527869",
+    "528124"
+  ],
+  "generatedAt": "2026-05-31T09:34:17.856949+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/blankets/color/multi-color",
+  "type": "facet",
+  "h1": "Custom Multi Color Blankets for Your Brand",
+  "metaTitle": "Custom Multi Color Blankets | Perfect Imprints",
+  "metaDescription": "Order custom multi color blankets with your logo. Perfect for events, promotions, and gifts. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Multi color blankets let you showcase your brand in vibrant, eye-catching designs that stand out at events or in the office. Whether you choose a ColorFusion Mansfield Sherpa Blanket with a full-color print or a woven throw with multiple brand colors, these blankets offer warmth and visibility. They are ideal for corporate gifts, trade show giveaways, or employee appreciation programs where you want to make a colorful impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom multi color blankets with full-color logo print, soft sherpa fabric, folded on a table at a corporate event.",
+  "productSkus": [
+    "526035"
+  ],
+  "generatedAt": "2026-05-31T09:37:19.956214+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

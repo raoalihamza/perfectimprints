@@ -1,0 +1,24 @@
+{
+  "url": "/cat/bandages/color/green",
+  "type": "facet",
+  "h1": "Custom Green Bandages for Bulk Orders",
+  "metaTitle": "Custom Green Bandages | Perfect Imprints",
+  "metaDescription": "Order custom green bandages in bulk for your team or event. Personalize with your logo. Fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Custom green bandages stand out in first aid kits and workplace safety stations because the color signals medical use while allowing your logo to pop. Safety managers often choose green to coordinate with safety vests or company branding. Our bandage dispensers, available with pre-filled green bandages, make restocking easy. Add your imprint to the bandage wrapper or dispenser for a cohesive look that reinforces brand visibility every time someone reaches for a bandage.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green bandages in a dispenser with a company logo, ready for bulk orders",
+  "productSkus": [
+    "502343",
+    "506843",
+    "510131",
+    "528559"
+  ],
+  "generatedAt": "2026-05-31T08:39:19.218854+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

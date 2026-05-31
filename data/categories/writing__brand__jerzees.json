@@ -1,0 +1,27 @@
+{
+  "url": "/cat/writing/brand/jerzees",
+  "type": "facet",
+  "h1": "Custom Jerzees Writing for Bulk Orders",
+  "metaTitle": "Custom Jerzees Writing | Perfect Imprints",
+  "metaDescription": "Order custom Jerzees writing for your team. Bulk pricing on Jerzees apparel with your logo. Get a quote today.",
+  "introHtml": "<p>Jerzees apparel is a trusted choice for bulk corporate orders because it combines durability with consistent sizing across styles. Whether you need custom hoodies, crewnecks, or t-shirts for a company event or uniform program, Jerzees offers reliable cotton-poly blends that hold up to frequent washing. Screen printing and embroidery both adhere well to Jerzees fabrics, making it easy to add your logo. Choose Jerzees for a professional look that keeps your team comfortable.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Jerzees writing on a Jerzees NuBlend hoodie with a screen-printed logo",
+  "productSkus": [
+    "505528",
+    "515903",
+    "515983",
+    "515984",
+    "515994",
+    "515995",
+    "515996"
+  ],
+  "generatedAt": "2026-05-31T09:05:01.057108+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

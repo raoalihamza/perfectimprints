@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tank-tops/supplier/numo",
+  "type": "facet",
+  "h1": "Custom Numo Tank Tops for Bulk Orders",
+  "metaTitle": "Custom Numo Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom Numo tank tops from Perfect Imprints. Ideal for teams, events, and giveaways. Bulk pricing available.",
+  "introHtml": "<p>Numo tank tops combine moisture-wicking performance with a comfortable fit, making them a top choice for athletic events, team uniforms, and outdoor giveaways. Whether you need youth sizes for a summer camp or ladies' racerback styles for a 5K run, Numo offers durable fabrics and vibrant color options that hold up to screen printing or embroidery. Bulk ordering ensures consistent quality across your entire run.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Numo tank tops in various colors and sizes for bulk orders",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T10:10:42.259049+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

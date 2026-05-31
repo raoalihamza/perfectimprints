@@ -1,0 +1,19 @@
+{
+  "url": "/cat/journals-notebooks/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Journals & Notebooks",
+  "metaTitle": "No-Minimum Custom Journals & Notebooks | Perfect Imprints",
+  "metaDescription": "Order custom journals and notebooks with no minimums. Perfect for small teams or one-off events. Get low-quantity pricing today.",
+  "introHtml": "<p>No-minimum custom journals and notebooks give you the flexibility to order as few as one or a handful, without the typical bulk requirements. Whether you need branded notebooks for a small team, a startup launch kit, or a sample to test before a larger run, you can get high-quality, personalized journals at low quantities. This approach keeps your budget lean while still delivering professional, customized products that make an impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of no-minimum custom journals and notebooks with company logos, perfect for small orders and team gifts.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:16:56.735017+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

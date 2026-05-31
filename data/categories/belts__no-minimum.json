@@ -1,0 +1,30 @@
+{
+  "url": "/cat/belts/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Belts",
+  "metaTitle": "No-Minimum Custom Belts | Perfect Imprints",
+  "metaDescription": "Order custom belts with no minimum quantity. Perfect for small teams, events, and gifts. Get branded belts in any quantity at Perfect Imprints.",
+  "introHtml": "<p>No-minimum custom belts let you order exactly what you need—whether it's a single belt for a retirement gift, a handful for a small team, or a sample before committing to a larger order. Unlike typical promotional suppliers that require bulk quantities, our no-minimum program gives you the flexibility to buy small without sacrificing quality or customization. Ideal for small businesses, startups, and one-off events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of no-minimum custom belts with embroidered logos, available in small quantities for promotional use.",
+  "productSkus": [
+    "520886",
+    "521927",
+    "523655",
+    "524817",
+    "525724",
+    "527493",
+    "527554",
+    "528171",
+    "528870",
+    "529359"
+  ],
+  "generatedAt": "2026-05-31T08:40:03.603322+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

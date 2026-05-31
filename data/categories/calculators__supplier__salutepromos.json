@@ -1,0 +1,26 @@
+{
+  "url": "/cat/calculators/supplier/salutepromos",
+  "type": "facet",
+  "h1": "Custom SalutePromos Calculators for Bulk Orders",
+  "metaTitle": "Custom SalutePromos Calculators | Perfect Imprints",
+  "metaDescription": "Order custom SalutePromos calculators in bulk. Perfect for branded giveaways. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>SalutePromos calculators offer a reliable and cost-effective way to keep your brand visible on desks and in pockets. From the slim Black Magic model to the versatile Multifunction Ruler, these tools combine practicality with a polished look. Ideal for trade shows, client gifts, or employee kits, they accept full-color imprinting for a crisp, professional finish. Choosing SalutePromos ensures consistent quality across bulk orders, making them a smart choice for marketing directors and safety managers alike.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom SalutePromos calculators with full-color imprinting, including desk and flip models for branded giveaways",
+  "productSkus": [
+    "502790",
+    "503150",
+    "503253",
+    "508489",
+    "526359",
+    "526362"
+  ],
+  "generatedAt": "2026-05-31T08:26:13.848065+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

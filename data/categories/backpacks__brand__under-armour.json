@@ -1,0 +1,21 @@
+{
+  "url": "/cat/backpacks/brand/under-armour",
+  "type": "facet",
+  "h1": "Custom Under Armour Backpacks",
+  "metaTitle": "Custom Under Armour Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Under Armour backpacks for your team or event. Durable, stylish, and ready for bulk decoration. Get a quote today.",
+  "introHtml": "<p>Under Armour backpacks combine athletic performance with everyday durability, making them a top pick for corporate teams, school groups, and event giveaways. The Team Hustle Backpack 6.0 features a padded laptop sleeve and ventilated pocket for gym gear, ideal for employees who commute or train. Choose custom embroidery or screen printing to add your logo, and get a bag that sees daily use while promoting your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Under Armour backpacks in black and gray with embroidered logo, displayed against a gym background",
+  "productSkus": [
+    "528108"
+  ],
+  "generatedAt": "2026-05-31T08:39:05.562119+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/portfolios/feature/padded",
+  "type": "facet",
+  "h1": "Custom Padded Portfolios for Bulk Orders",
+  "metaTitle": "Custom Padded Portfolios | Perfect Imprints",
+  "metaDescription": "Order custom padded portfolios in bulk from Perfect Imprints. Ideal for professional presentations and branding.",
+  "introHtml": "<p>Padded portfolios add a layer of protection and a touch of professionalism that standard paperboard folders can't match. Perfect for sales teams, trade shows, or executive gift sets, these portfolios keep documents crisp and organized during transit. Choose from multiple colors and add your logo with foil stamping, screen printing, or debossing for a polished look that stands out in any boardroom.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom padded portfolios with branded logo, ideal for professional presentations and bulk orders",
+  "productSkus": [
+    "516719 01A"
+  ],
+  "generatedAt": "2026-05-31T10:02:43.859987+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

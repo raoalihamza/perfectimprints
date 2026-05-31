@@ -1,0 +1,23 @@
+{
+  "url": "/cat/beer-glasses/feature/hand-wash-recommended",
+  "type": "facet",
+  "h1": "Custom Hand Wash Recommended Beer Glasses",
+  "metaTitle": "Custom Hand Wash Recommended Beer Glasses | Perfect Imprints",
+  "metaDescription": "Order custom hand wash recommended beer glasses for your brand. Perfect for bars and events. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Hand wash recommended beer glasses offer a premium look and feel that stands up to repeated use. These glasses feature delicate designs or coatings that require gentle care to maintain their appearance. Ideal for upscale bars, breweries, or corporate gifts, they provide a sophisticated canvas for your logo through screen printing or etching. Choose from classic pub glass shapes like 16 oz or 20 oz to match your brand's style.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hand wash recommended beer glasses with logo, 16 oz pub glass style, clear glass with etched branding",
+  "productSkus": [
+    "516848 90E",
+    "516849 90E",
+    "516850 90E"
+  ],
+  "generatedAt": "2026-05-31T08:50:51.247801+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

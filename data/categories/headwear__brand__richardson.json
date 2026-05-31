@@ -1,0 +1,30 @@
+{
+  "url": "/cat/headwear/brand/richardson",
+  "type": "facet",
+  "h1": "Custom Richardson Headwear for Bulk Orders",
+  "metaTitle": "Custom Richardson Headwear | Perfect Imprints",
+  "metaDescription": "Order custom Richardson headwear in bulk. Perfect for teams, events, and promotions. Get a quote today.",
+  "introHtml": "<p>Richardson is a trusted brand in headwear, known for its structured fit, quality materials, and classic trucker cap designs. When you need custom caps that hold their shape and display your logo with crisp detail, Richardson delivers. Their snapback closures and mesh backs make them ideal for outdoor events, team uniforms, and promotional giveaways. Choose from popular styles like the Trucker Snapback or Recycled Trucker Cap to match your brand's values.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Richardson headwear including a trucker cap with embroidered logo on front panel",
+  "productSkus": [
+    "522099",
+    "522624",
+    "522625",
+    "522627",
+    "526934",
+    "526935",
+    "529238",
+    "529239",
+    "529240",
+    "529316"
+  ],
+  "generatedAt": "2026-05-31T09:15:33.929517+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

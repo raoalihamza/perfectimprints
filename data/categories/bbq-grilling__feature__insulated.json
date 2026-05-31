@@ -1,0 +1,21 @@
+{
+  "url": "/cat/bbq-grilling/feature/insulated",
+  "type": "facet",
+  "h1": "Custom Insulated BBQ Grilling Gear",
+  "metaTitle": "Custom Insulated BBQ Grilling | Perfect Imprints",
+  "metaDescription": "Order custom insulated BBQ grilling gear for your next event. Perfect for tailgates and company picnics. Get a quote today.",
+  "introHtml": "<p>Insulated BBQ grilling gear keeps food hot and drinks cold, making it ideal for tailgates, company picnics, and outdoor team events. The Weekend Explorer Grill & Cooler combines a portable grill with a cooler compartment, so you can cook and chill in one unit. Add your logo for a practical giveaway that gets used all season long.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom insulated BBQ grilling gear with a branded grill and cooler at a tailgate party",
+  "productSkus": [
+    "505898 02B"
+  ],
+  "generatedAt": "2026-05-31T09:08:07.741495+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

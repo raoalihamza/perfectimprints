@@ -1,0 +1,28 @@
+{
+  "url": "/cat/personal-care-items/material/bamboo",
+  "type": "facet",
+  "h1": "Custom Bamboo Personal Care Items",
+  "metaTitle": "Custom Bamboo Personal Care Items | Perfect Imprints",
+  "metaDescription": "Order branded bamboo personal care items for eco-friendly giveaways. Perfect for wellness events and sustainable corporate gifts.",
+  "introHtml": "<p>Bamboo personal care items offer a natural, renewable alternative to plastic-based products, making them a smart choice for brands focused on sustainability. From bamboo nail files and hairbrushes to FSC-certified diffusers and face rollers, these items pair well with spa-themed events, Earth Day campaigns, or any wellness-focused giveaway. Customize with your logo using laser engraving for a clean, upscale look that aligns with eco-conscious messaging.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom bamboo personal care items including a nail file, hairbrush, and diffuser with laser engraved logo on natural bamboo surface.",
+  "productSkus": [
+    "524427",
+    "525181",
+    "526751",
+    "528132",
+    "528219",
+    "528286",
+    "528803",
+    "529296"
+  ],
+  "generatedAt": "2026-05-31T10:00:38.080666+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

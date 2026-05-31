@@ -1,0 +1,25 @@
+{
+  "url": "/cat/shorts/brand/boxercraft",
+  "type": "facet",
+  "h1": "Custom Boxercraft Shorts for Bulk Orders",
+  "metaTitle": "Custom Boxercraft Shorts | Perfect Imprints",
+  "metaDescription": "Order custom Boxercraft shorts for your team or event. Bulk pricing available at Perfect Imprints. Get your quote today.",
+  "introHtml": "<p>Boxercraft shorts offer a unique blend of comfort and style, making them a favorite for casual corporate events, team uniforms, and promotional giveaways. Their brushed poly flannel fabric provides a soft feel that stands out from standard cotton shorts, while the elastic waistband ensures a comfortable fit for all-day wear. Perfect for imprinting with your logo or design using screen printing or embroidery, these shorts are a versatile choice for any brand looking to offer apparel that employees and customers will actually want to wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Boxercraft shorts in plaid flannel pattern with embroidered logo on left leg, modeled by a person standing outdoors.",
+  "productSkus": [
+    "527831",
+    "527832",
+    "527834",
+    "527835",
+    "527836"
+  ],
+  "generatedAt": "2026-05-31T09:26:04.724187+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/watches/brand/wolverine",
+  "type": "facet",
+  "h1": "Custom Wolverine Watches for Bulk Orders",
+  "metaTitle": "Custom Wolverine Watches | Perfect Imprints",
+  "metaDescription": "Order custom Wolverine watches in bulk for your team. Durable, branded timepieces from Perfect Imprints.",
+  "introHtml": "<p>Wolverine watches combine rugged durability with professional style, making them a smart choice for companies that want a timepiece that holds up on the job site or in the field. With a focus on tough construction and reliable performance, these custom watches offer a practical way to keep your brand visible throughout the workday. Choose from dial colors and strap options that match your company logo and safety requirements, then add your imprint for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Wolverine watches with a black dial and leather strap, featuring a company logo imprint.",
+  "productSkus": [
+    "528158"
+  ],
+  "generatedAt": "2026-05-31T09:04:20.105737+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

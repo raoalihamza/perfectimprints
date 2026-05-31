@@ -1,0 +1,25 @@
+{
+  "url": "/cat/beach-mats/color/black",
+  "type": "facet",
+  "h1": "Custom Black Beach Mats for Bulk Orders",
+  "metaTitle": "Custom Black Beach Mats | Perfect Imprints",
+  "metaDescription": "Order custom black beach mats for your next event or promotion. Durable, stylish, and perfect for branding. Get a quote today!",
+  "introHtml": "<p>Custom black beach mats offer a sleek, neutral backdrop that makes your logo or message stand out. Whether you're outfitting a corporate beach retreat or distributing promotional giveaways at a summer event, black mats resist visible dirt and fading better than lighter colors. Pair them with vibrant imprint colors for high contrast, or go tonal for an understated look. These mats are lightweight, sand-resistant, and fold compactly for easy transport.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black beach mats with a company logo printed on a sandy beach, showing the mat's durability and style.",
+  "productSkus": [
+    "510327",
+    "510416",
+    "521576",
+    "523569",
+    "525353"
+  ],
+  "generatedAt": "2026-05-31T08:39:49.543978+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

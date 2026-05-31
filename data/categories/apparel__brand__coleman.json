@@ -1,0 +1,28 @@
+{
+  "url": "/cat/apparel/brand/coleman",
+  "type": "facet",
+  "h1": "Custom Coleman Apparel for Outdoor Branding",
+  "metaTitle": "Custom Coleman Apparel | Perfect Imprints",
+  "metaDescription": "Order custom Coleman apparel for your team or event. Durable, outdoor-ready gear with your logo. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Coleman is a trusted name in outdoor gear, and their apparel line brings that same durability and comfort to your branded merchandise. From performance fleece to heavy-duty outerwear, custom Coleman apparel is built for teams that work, play, or volunteer outdoors. Choose from a range of sizes and colors, and add your logo with embroidery or screen printing for a professional finish that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Coleman apparel featuring a branded fleece jacket and polo shirt with embroidered logos, perfect for outdoor teams.",
+  "productSkus": [
+    "509109",
+    "517874",
+    "521930",
+    "525375",
+    "525794",
+    "525795",
+    "525796",
+    "529517"
+  ],
+  "generatedAt": "2026-05-31T09:32:03.358264+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

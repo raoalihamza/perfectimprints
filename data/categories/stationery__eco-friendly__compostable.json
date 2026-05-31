@@ -1,0 +1,21 @@
+{
+  "url": "/cat/stationery/eco-friendly/compostable",
+  "type": "facet",
+  "h1": "Custom Compostable Stationery",
+  "metaTitle": "Custom Compostable Stationery | Perfect Imprints",
+  "metaDescription": "Order custom compostable stationery for eco-friendly branding. Perfect for bulk orders with seed paper options.",
+  "introHtml": "<p>Compostable stationery lets you communicate your brand's environmental commitment with every letter, note, or card. Unlike standard recycled paper, compostable options like seeded paper break down naturally in commercial compost facilities, leaving no waste. They are ideal for sustainability reports, eco-conscious marketing campaigns, or corporate gifts that align with green initiatives. Decorate with soy-based inks for a fully compostable solution that reinforces your company's values.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom compostable stationery featuring seeded paper greeting cards with plantable wildflower seeds",
+  "productSkus": [
+    "524481"
+  ],
+  "generatedAt": "2026-05-31T10:08:32.361691+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/bookmarks/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Bookmarks",
+  "metaTitle": "Custom Made in USA Bookmarks | Perfect Imprints",
+  "metaDescription": "Order custom made in USA bookmarks for your brand. Perfect for safety campaigns, educational programs, and promotional giveaways.",
+  "introHtml": "<p>Custom made in USA bookmarks offer a patriotic touch for your promotional campaigns. Whether you're promoting fire safety with a \"Escaping A Fire\" design or encouraging sun protection, these bookmarks are printed on durable cardstock by American manufacturers. They're ideal for school programs, libraries, or corporate events where quality and domestic sourcing matter. Choose full-color printing on both sides to maximize your message.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom made in USA bookmarks with safety and educational designs for promotional giveaways",
+  "productSkus": [
+    "518952 90A",
+    "518986 90A",
+    "519020 90A",
+    "519813"
+  ],
+  "generatedAt": "2026-05-31T09:08:57.399990+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

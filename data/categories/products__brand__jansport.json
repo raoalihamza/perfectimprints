@@ -1,0 +1,21 @@
+{
+  "url": "/cat/products/brand/jansport",
+  "type": "facet",
+  "h1": "Custom JanSport Products for Bulk Orders",
+  "metaTitle": "Custom JanSport Products | Perfect Imprints",
+  "metaDescription": "Order custom JanSport products for your team or event. Perfect Imprints offers bulk pricing and expert decoration on JanSport gear.",
+  "introHtml": "<p>JanSport backpacks and bags are known for their durability and classic style, making them a trusted choice for corporate giveaways, school promotions, and event swag. Choosing custom JanSport products means you’re investing in items that recipients will actually use daily—from campus to commute. Decorate with embroidery or screen printing for a clean, long-lasting brand impression that stands up to heavy use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom JanSport products including backpacks and waist packs with company logo embroidery",
+  "productSkus": [
+    "526585"
+  ],
+  "generatedAt": "2026-05-31T09:00:43.464456+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

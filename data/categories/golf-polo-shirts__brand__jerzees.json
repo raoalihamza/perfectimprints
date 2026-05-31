@@ -1,0 +1,27 @@
+{
+  "url": "/cat/golf-polo-shirts/brand/jerzees",
+  "type": "facet",
+  "h1": "Custom Jerzees Golf Polo Shirts for Bulk Orders",
+  "metaTitle": "Custom Jerzees Golf Polo Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Jerzees golf polo shirts in bulk. Ideal for events, teams, and corporate gifts. Get your quote today at Perfect Imprints.",
+  "introHtml": "<p>Jerzees golf polo shirts combine the durability and comfort the brand is known for with a classic polo silhouette perfect for corporate outings, charity tournaments, and team uniforms. The moisture-wicking fabric keeps players cool on the course, while the knit collar and two-button placket offer a polished look that transitions easily from the fairway to the clubhouse. Add your logo or team name with screen printing or embroidery for a professional finish that lasts through repeated washes.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Jerzees golf polo shirts with embroidered logo, available in multiple colors for bulk orders.",
+  "productSkus": [
+    "505528",
+    "515903",
+    "515983",
+    "515984",
+    "515994",
+    "515995",
+    "515996"
+  ],
+  "generatedAt": "2026-05-31T08:42:17.330055+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

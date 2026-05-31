@@ -1,0 +1,30 @@
+{
+  "url": "/cat/medals/material/wood",
+  "type": "facet",
+  "h1": "Custom Wood Medals for Corporate Awards",
+  "metaTitle": "Custom Wood Medals | Perfect Imprints",
+  "metaDescription": "Order custom wood medals for your next corporate event. Eco-friendly and unique. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Wood medals offer a natural, sophisticated alternative to traditional metal or acrylic awards. The warmth of the grain adds a unique, organic feel that resonates with eco-conscious organizations or brands seeking a rustic, handcrafted aesthetic. Whether you're honoring employee milestones, hosting a charity run, or recognizing volunteers, wood medals provide a memorable keepsake. Decorate with laser engraving for crisp logos or text, and choose from shapes like stars or shields to match your event's theme.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wood medals with laser engraved logo displayed on a wooden surface for corporate awards",
+  "productSkus": [
+    "512640 64F",
+    "524026",
+    "524557",
+    "525452",
+    "525455",
+    "525456",
+    "525457",
+    "526411",
+    "526503",
+    "529407"
+  ],
+  "generatedAt": "2026-05-31T08:26:50.471125+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

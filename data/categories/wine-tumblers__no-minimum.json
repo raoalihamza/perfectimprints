@@ -1,0 +1,28 @@
+{
+  "url": "/cat/wine-tumblers/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Wine Tumblers",
+  "metaTitle": "No-Minimum Custom Wine Tumblers | Perfect Imprints",
+  "metaDescription": "Order small quantities of custom wine tumblers with no minimums. Perfect for small teams, gifts, or samples. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Need custom wine tumblers but have a small team or a tight budget? Our no-minimum program lets you order as few as one or two pieces, so you can get branded drinkware without committing to bulk quantities. Perfect for small businesses, startup swag, one-off gifts, or testing a design before a larger run. Choose from insulated stemless cups, stainless steel tumblers, and champagne flutes—all customizable with your logo or message. No minimums, no hassle.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "No-minimum custom wine tumblers including insulated stemless cups and stainless steel tumblers with logo imprint",
+  "productSkus": [
+    "511053 90E",
+    "523186",
+    "523495",
+    "523689",
+    "524419",
+    "527802",
+    "528731",
+    "528732"
+  ],
+  "generatedAt": "2026-05-31T09:30:53.822365+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

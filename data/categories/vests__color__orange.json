@@ -1,0 +1,23 @@
+{
+  "url": "/cat/vests/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Vests for Safety and Branding",
+  "metaTitle": "Custom Orange Vests | Perfect Imprints",
+  "metaDescription": "Order custom orange vests for safety and branding. Perfect for high-visibility needs. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Orange vests combine high-visibility safety with effective brand promotion. Whether you need ANSI-compliant safety vests for construction crews or branded puffer vests for outdoor events, orange ensures your team stands out. Choose from mesh vests for breathability or insulated options for colder weather, all customizable with your logo through screen printing or embroidery.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange safety vest with reflective stripes and logo embroidery for high-visibility branding.",
+  "productSkus": [
+    "527559",
+    "527560",
+    "528678"
+  ],
+  "generatedAt": "2026-05-31T10:13:24.761016+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

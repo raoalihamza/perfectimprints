@@ -1,0 +1,27 @@
+{
+  "url": "/cat/personal-care-items/feature/adjustable",
+  "type": "facet",
+  "h1": "Custom Adjustable Personal Care Items",
+  "metaTitle": "Custom Adjustable Personal Care Items | Perfect Imprints",
+  "metaDescription": "Order custom adjustable personal care items for your team or event. Bulk pricing at Perfect Imprints. Get a quote today.",
+  "introHtml": "<p>Adjustable personal care items let recipients customize fit and function, making them ideal for wellness programs, safety kits, and trade shows. From hydration packs with adjustable straps to fitness trackers with changeable bands, these items ensure comfort for every user. Perfect for HR directors and safety managers looking to promote health and safety with a practical, branded giveaway.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adjustable personal care items including hydration packs and fitness trackers with adjustable straps and bands.",
+  "productSkus": [
+    "512764",
+    "514184",
+    "514433",
+    "519201",
+    "524390",
+    "527032",
+    "527548"
+  ],
+  "generatedAt": "2026-05-31T09:22:20.517754+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

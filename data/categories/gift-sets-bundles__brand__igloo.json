@@ -1,0 +1,24 @@
+{
+  "url": "/cat/gift-sets-bundles/brand/igloo",
+  "type": "facet",
+  "h1": "Custom Igloo Gift Sets & Bundles",
+  "metaTitle": "Custom Igloo Gift Sets Bundles | Perfect Imprints",
+  "metaDescription": "Order custom Igloo gift sets and bundles for your team. Branded coolers and lunch boxes with your logo. Bulk pricing available.",
+  "introHtml": "<p>Custom Igloo gift sets and bundles combine the trusted durability of Igloo coolers and lunch boxes with your company logo for a practical branded giveaway. Whether you need a corporate gift for clients or a safety incentive for employees, these sets offer year-round utility. Choose from hard-lined coolers like the Seadrift or soft-sided options like the Day Chiller Backpack, each customizable with screen-printed or debossed logos. Bulk ordering ensures consistent branding across your entire team or event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Igloo gift sets and bundles featuring branded coolers and lunch boxes with company logo",
+  "productSkus": [
+    "526486",
+    "526724",
+    "529127",
+    "529236"
+  ],
+  "generatedAt": "2026-05-31T08:54:32.441781+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

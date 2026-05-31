@@ -1,0 +1,32 @@
+{
+  "url": "/cat/bags/color/gold",
+  "type": "facet",
+  "h1": "Custom Gold Bags for Bulk Orders",
+  "metaTitle": "Custom Gold Bags | Perfect Imprints",
+  "metaDescription": "Order custom gold bags in bulk for events or promotions. Stand out with metallic shine. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Gold bags add a touch of luxury and visibility to any promotional campaign or event. Whether you need die-cut plastic bags for a trade show or satin cosmetic pouches for a gift set, the metallic finish catches the eye and signals premium quality. Perfect for corporate giveaways, retail packaging, or conference swag, custom gold bags print well with screen printing or foil stamping, making your logo stand out against the shimmering surface.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gold bags for bulk orders, including metallic die-cut plastic bags and satin cosmetic pouches.",
+  "productSkus": [
+    "506886",
+    "506887",
+    "506888",
+    "506985",
+    "514519",
+    "521209",
+    "521210",
+    "521325",
+    "522416",
+    "522536",
+    "524398",
+    "525752"
+  ],
+  "generatedAt": "2026-05-31T09:34:20.175270+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

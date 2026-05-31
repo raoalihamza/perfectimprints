@@ -1,0 +1,31 @@
+{
+  "url": "/cat/work-shirts/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Work Shirts",
+  "metaTitle": "Custom Cotton Work Shirts | Perfect Imprints",
+  "metaDescription": "Order custom cotton work shirts for your team. Breathable, durable, and perfect for embroidery or screen printing.",
+  "introHtml": "<p>Cotton work shirts offer a classic, breathable option for teams that need comfort during long shifts. Unlike synthetic blends, cotton fabrics like denim, oxford cloth, and wrinkle-resistant weaves provide a professional look that holds up to repeated washing. Whether you choose a rugged flannel from Carhartt or a crisp Oxford from Brooks Brothers, these shirts accept embroidery and screen printing cleanly, making them ideal for company logos on uniforms or promotional giveaways.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cotton work shirts with embroidered logo, available in denim and oxford styles",
+  "productSkus": [
+    "501740",
+    "501741",
+    "513877",
+    "513878",
+    "513879",
+    "513880",
+    "525604",
+    "525605",
+    "525606",
+    "526629",
+    "529218"
+  ],
+  "generatedAt": "2026-05-31T09:31:04.375520+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

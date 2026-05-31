@@ -1,0 +1,22 @@
+{
+  "url": "/cat/watches/supplier/sj",
+  "type": "facet",
+  "h1": "Custom SJ Watches for Bulk Orders",
+  "metaTitle": "Custom SJ Watches | Perfect Imprints",
+  "metaDescription": "Order custom SJ watches in bulk at Perfect Imprints. Ideal for corporate gifts and events. Get a quote today!",
+  "introHtml": "<p>SJ watches offer a reliable and stylish option for bulk corporate gifts, trade show giveaways, or employee recognition programs. With durable construction and customizable dials, these timepieces can be imprinted with your logo using screen printing or laser engraving. Choose from classic analog designs or modern digital styles to match your brand aesthetic. Perfect for safety managers or HR directors seeking a practical yet professional giveaway that recipients will use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "custom SJ watches in bulk with logo imprint on dial and band",
+  "productSkus": [
+    "516655",
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T08:38:18.850748+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

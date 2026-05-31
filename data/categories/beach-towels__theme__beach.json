@@ -1,0 +1,22 @@
+{
+  "url": "/cat/beach-towels/theme/beach",
+  "type": "facet",
+  "h1": "Custom Beach Beach Towels for Promotional Giveaways",
+  "metaTitle": "Custom Beach Beach Towels | Perfect Imprints",
+  "metaDescription": "Order custom beach beach towels from Perfect Imprints. Great for summer events, resorts, and giveaways. Request a quote today!",
+  "introHtml": "<p>Beach-themed custom towels let you double down on the summer vibe, making them ideal for resort promotions, beach clean-up events, or retail giveaways. The Havasu Non-Woven Beach Tote pairs perfectly with a towel for a coordinated set. Choose vibrant colors and screen-printed logos that stand out against sand and surf.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom beach beach towels with colorful stripes and company logo, perfect for summer giveaways",
+  "productSkus": [
+    "519759",
+    "522878"
+  ],
+  "generatedAt": "2026-05-31T08:39:51.650586+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

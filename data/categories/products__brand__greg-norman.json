@@ -1,0 +1,21 @@
+{
+  "url": "/cat/products/brand/greg-norman",
+  "type": "facet",
+  "h1": "Custom Greg Norman Products for Bulk Orders",
+  "metaTitle": "Custom Greg Norman Products | Perfect Imprints",
+  "metaDescription": "Order custom Greg Norman products in bulk for your brand. Perfect for golf events and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Greg Norman products bring a premium, sporty edge to your corporate merchandise. Known for quality performance fabrics like the Women's Play Dry® Performance Mesh Polo, these items are a fit for golf outings, executive retreats, or any event that calls for an active, polished look. With custom embroidery or screen printing, your logo stands out on apparel designed for comfort and durability.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Greg Norman products including a performance mesh polo shirt with logo embroidery for corporate branding",
+  "productSkus": [
+    "517777"
+  ],
+  "generatedAt": "2026-05-31T09:23:54.148889+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

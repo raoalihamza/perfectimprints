@@ -1,0 +1,33 @@
+{
+  "url": "/cat/mats/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Mats for Bulk Orders",
+  "metaTitle": "Custom Made in USA Mats | Perfect Imprints",
+  "metaDescription": "Order custom made in USA mats for your facility. Durable, American-made mats with your logo. Get a quote today!",
+  "introHtml": "<p>Choosing custom made in USA mats means supporting domestic manufacturing while getting durable, high-quality floor coverings for your business. These mats, like the Berber™ Logo Rugs and Waterhog Inlay Rugs, are built to withstand heavy foot traffic in lobbies, entryways, and workspaces. With options ranging from 24\" x 36\" to 4' x 6', you can select the right size for your space and add your logo with precision embroidery or screen printing for a professional look that reinforces your brand every day.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA mats with company logo in a commercial entryway, featuring durable Berber carpet or Waterhog inlay design.",
+  "productSkus": [
+    "515934 90A",
+    "515935 90A",
+    "515936 90A",
+    "515937 90A",
+    "515938 90A",
+    "515939 90A",
+    "515940 90A",
+    "519274 01A",
+    "519275 01A",
+    "519276 01A",
+    "519277 01A",
+    "519278 01A",
+    "519279 01A"
+  ],
+  "generatedAt": "2026-05-31T08:57:42.378038+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/health/activity/basketball",
+  "type": "facet",
+  "h1": "Custom Basketball Health Products for Teams",
+  "metaTitle": "Custom Basketball Health Products | Perfect Imprints",
+  "metaDescription": "Shop custom basketball health products for bulk orders. Perfect for team giveaways, employee wellness, and fan appreciation at PerfectImprints.com.",
+  "introHtml": "<p>Basketball-themed health products combine the energy of the court with practical wellness tools. Whether you need stress relievers shaped like basketballs for corporate wellness kits or mini bouncing basketballs for trade show giveaways, these items resonate with players, coaches, and fans. Custom imprinting with your logo turns them into memorable promotional items that support an active lifestyle.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom basketball health products including stress balls and fidget toys with team logos on a court background",
+  "productSkus": [
+    "502806 2AK",
+    "513038 60A",
+    "527554",
+    "529179",
+    "529284"
+  ],
+  "generatedAt": "2026-05-31T08:55:33.052907+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

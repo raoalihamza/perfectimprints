@@ -1,0 +1,21 @@
+{
+  "url": "/cat/sports-balls/activity/soccer",
+  "type": "facet",
+  "h1": "Custom Soccer Sports Balls for Bulk Orders",
+  "metaTitle": "Custom Soccer Sports Balls | Perfect Imprints",
+  "metaDescription": "Order custom soccer sports balls for your team or event. Perfect for bulk branding. Get a quote today.",
+  "introHtml": "<p>Custom soccer sports balls give your brand a practical edge at corporate tournaments, company picnics, and community outreach events. Unlike generic promotional items, these balls are used repeatedly, putting your logo in front of players and spectators every time they hit the field. Choose from standard size 5 match balls or softer training balls that work well for all ages. Imprint your logo directly on the panels with screen printing or debossing for a durable finish that holds up to regular play.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom soccer sports balls with printed logo on green field, ready for bulk orders.",
+  "productSkus": [
+    "506530"
+  ],
+  "generatedAt": "2026-05-31T08:21:36.157662+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

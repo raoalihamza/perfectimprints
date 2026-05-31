@@ -1,0 +1,30 @@
+{
+  "url": "/cat/shot-glasses/supplier/leprechaun",
+  "type": "facet",
+  "h1": "Custom Leprechaun Shot Glasses",
+  "metaTitle": "Custom Leprechaun Shot Glasses | Perfect Imprints",
+  "metaDescription": "Order custom leprechaun shot glasses for your next event. Perfect for St. Patrick's Day promotions. Bulk pricing from Perfect Imprints.",
+  "introHtml": "<p>Leprechaun-branded shot glasses bring a playful Irish touch to your promotional giveaways and barware. Whether you're stocking a pub or planning a St. Patrick's Day corporate event, these shot glasses pair well with custom engraving or full-color digital printing on glass or plastic options. Choose from clear glass, frosted glass, or durable silicone styles that suit your budget and audience. Bulk orders ensure your logo stands out at every toast.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom leprechaun shot glasses with green shamrock design, perfect for St. Patrick's Day promotions",
+  "productSkus": [
+    "513679",
+    "522845",
+    "522847",
+    "525816",
+    "525817",
+    "525916",
+    "525967",
+    "526428",
+    "529493",
+    "529515"
+  ],
+  "generatedAt": "2026-05-31T08:46:46.596910+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

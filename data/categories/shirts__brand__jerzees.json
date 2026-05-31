@@ -1,0 +1,27 @@
+{
+  "url": "/cat/shirts/brand/jerzees",
+  "type": "facet",
+  "h1": "Custom Jerzees Shirts for Bulk Orders",
+  "metaTitle": "Custom Jerzees Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Jerzees shirts in bulk for your team. Durable blends perfect for screen printing. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Jerzees shirts are a go-to choice for bulk orders because of their durable cotton-poly blends and consistent sizing. The NuBlend and Heavyweight Blend fabrics hold up to frequent washing, making them ideal for work uniforms, event staff, or giveaway apparel. Screen printing and embroidery adhere well to these materials, so your logo stays sharp. Whether you need hoodies for a safety crew or crewnecks for a company picnic, Jerzees offers reliable options that keep your brand looking professional.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Jerzees shirts in bulk for corporate branding, featuring NuBlend hoodies and crewnecks",
+  "productSkus": [
+    "505528",
+    "515903",
+    "515983",
+    "515984",
+    "515994",
+    "515995",
+    "515996"
+  ],
+  "generatedAt": "2026-05-31T08:37:20.943422+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

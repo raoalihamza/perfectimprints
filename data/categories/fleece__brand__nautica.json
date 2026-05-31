@@ -1,0 +1,21 @@
+{
+  "url": "/cat/fleece/brand/nautica",
+  "type": "facet",
+  "h1": "Custom Nautica Fleece for Bulk Orders",
+  "metaTitle": "Custom Nautica Fleece | Perfect Imprints",
+  "metaDescription": "Order custom Nautica fleece for your team. Perfect for corporate gifts and events. Get a quote today!",
+  "introHtml": "<p>Nautica fleece combines the brand's classic nautical style with the warmth and durability needed for outdoor events, trade shows, or employee uniforms. The Men's Nautica Anchor Quarter-Zip Pullover, for example, offers a polished look that works for both casual Fridays and off-site meetings. Embroidery or screen printing on the chest or sleeve gives your logo a clean, professional finish that stands out on this premium fabric.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Nautica fleece quarter-zip pullover with embroidered logo on chest, navy blue",
+  "productSkus": [
+    "525893"
+  ],
+  "generatedAt": "2026-05-31T09:13:27.775405+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

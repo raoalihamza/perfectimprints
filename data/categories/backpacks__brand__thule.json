@@ -1,0 +1,21 @@
+{
+  "url": "/cat/backpacks/brand/thule",
+  "type": "facet",
+  "h1": "Custom Thule Backpacks for Corporate Orders",
+  "metaTitle": "Custom Thule Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Thule backpacks with your logo. Durable, stylish, and perfect for corporate gifts or employee rewards. Get a quote today.",
+  "introHtml": "<p>Thule backpacks are built for durability and everyday performance, making them a top choice for companies that want to give their teams or clients gear that lasts. The Thule Achiever 15\" Computer Backpack, for example, offers padded laptop storage and a sleek profile ideal for commuters. Customize these packs with your logo for a professional look that stands out in the office or on the go.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Thule backpacks displayed with embroidered corporate logos, featuring the Thule Achiever 15 inch computer backpack in black.",
+  "productSkus": [
+    "524263"
+  ],
+  "generatedAt": "2026-05-31T09:33:37.654756+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

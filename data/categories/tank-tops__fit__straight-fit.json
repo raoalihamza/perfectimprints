@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tank-tops/fit/straight-fit",
+  "type": "facet",
+  "h1": "Custom Straight Fit Tank Tops",
+  "metaTitle": "Custom Straight Fit Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom straight fit tank tops in bulk. Ideal for teams, events, and giveaways. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Straight fit tank tops offer a clean, relaxed silhouette that works for all body types without being baggy. Made from cotton or tri-blend fabrics, they take screen printing and embroidery evenly across the chest and back. For company picnics, charity runs, or staff uniforms, these tanks keep your logo visible and comfortable all day. Choose from styles like the Gildan Softstyle or Sport-Tek wicking tanks for active wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom straight fit tank tops with printed logos at a corporate event",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T08:47:18.224812+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

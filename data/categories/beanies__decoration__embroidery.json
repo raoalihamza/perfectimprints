@@ -1,0 +1,24 @@
+{
+  "url": "/cat/beanies/decoration/embroidery",
+  "type": "facet",
+  "h1": "Custom Embroidery Beanies for Bulk Orders",
+  "metaTitle": "Custom Embroidery Beanies | Perfect Imprints",
+  "metaDescription": "Order custom embroidery beanies for your team or event. High-quality knit beanies with your logo embroidered. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Embroidery adds a refined, dimensional look to custom beanies that screen printing or patches can't match. The stitch depth stands out on ribbed cuffs and pom-pom styles, making your logo legible even from a distance. For corporate gifts, trade show giveaways, or employee uniforms, embroidered beanies convey quality and durability. Choose from cuff beanies, fleece-lined options, or pom-pom knits, all available with single- or multi-color embroidery on the front or side.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom embroidery beanies with logo on knit cuff, displayed on a table for bulk orders",
+  "productSkus": [
+    "514093",
+    "516012",
+    "516872",
+    "520922"
+  ],
+  "generatedAt": "2026-05-31T09:08:29.574026+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

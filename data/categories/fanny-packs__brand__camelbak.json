@@ -1,0 +1,31 @@
+{
+  "url": "/cat/fanny-packs/brand/camelbak",
+  "type": "facet",
+  "h1": "Custom CamelBak Fanny Packs",
+  "metaTitle": "Custom CamelBak Fanny Packs | Perfect Imprints",
+  "metaDescription": "Order custom CamelBak fanny packs for your team or event. Durable, hands-free hydration. Bulk pricing available.",
+  "introHtml": "<p>CamelBak fanny packs combine the brand's trusted hydration engineering with a compact, hands-free design ideal for outdoor events, trade shows, and employee wellness programs. Unlike standard fanny packs, these feature bite-valve tubes and insulated pockets to keep water cool. Decorate with your logo via screen printing or embroidery for a functional giveaway that stands out at races, company hikes, or safety fairs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom CamelBak fanny pack with logo, hands-free hydration for outdoor events and corporate giveaways",
+  "productSkus": [
+    "525013",
+    "525506",
+    "525680",
+    "525681",
+    "526211",
+    "526695",
+    "527057",
+    "527058",
+    "527966",
+    "528153",
+    "528684"
+  ],
+  "generatedAt": "2026-05-31T09:45:20.928847+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

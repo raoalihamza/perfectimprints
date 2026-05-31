@@ -1,0 +1,25 @@
+{
+  "url": "/cat/toiletry-bags/theme/beauty",
+  "type": "facet",
+  "h1": "Custom Beauty Toiletry Bags for Bulk Orders",
+  "metaTitle": "Custom Beauty Toiletry Bags | Perfect Imprints",
+  "metaDescription": "Order custom beauty toiletry bags in bulk for your brand. Perfect for spas, salons, and corporate gifts. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Beauty toiletry bags combine style and function for clients who value organization. These bags feature dedicated compartments for makeup brushes, skincare bottles, and cosmetics, with water-resistant linings for spill protection. Options like the Cosmo Bag or Diva Vanity Bag offer multiple zippered sections and easy-clean surfaces. Decorate with your logo using screen printing or debossing for a polished look that travels well. Ideal for spa giveaways, salon promotions, or employee appreciation gifts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom beauty toiletry bags with multiple compartments for makeup and skincare products, perfect for bulk branding.",
+  "productSkus": [
+    "510760",
+    "515747",
+    "516781",
+    "527742",
+    "529106"
+  ],
+  "generatedAt": "2026-05-31T10:11:14.942672+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

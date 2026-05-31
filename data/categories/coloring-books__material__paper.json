@@ -1,0 +1,29 @@
+{
+  "url": "/cat/coloring-books/material/paper",
+  "type": "facet",
+  "h1": "Custom Paper Coloring Books",
+  "metaTitle": "Custom Paper Coloring Books | Perfect Imprints",
+  "metaDescription": "Order custom paper coloring books for your next promotion. Perfect for brand awareness and employee engagement. Get a quote today!",
+  "introHtml": "<p>Paper coloring books offer a classic, tactile experience that digital alternatives cannot replicate. They are ideal for trade shows, safety training, or employee wellness programs, providing a screen-free activity that engages both kids and adults. With options like the Barkley Teaches Bicycle Safety or Inspirational Coloring Book & 8-Color Pencil Set, you can customize each page with your logo or message. Choose paper coloring books for a cost-effective, eco-friendly promotional item that recipients will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom paper coloring books with printed covers and interior pages, featuring a safety-themed design",
+  "productSkus": [
+    "519884",
+    "523285",
+    "523515",
+    "524559",
+    "526683",
+    "527349",
+    "528275",
+    "528543",
+    "529052"
+  ],
+  "generatedAt": "2026-05-31T08:28:38.353588+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/gs",
+  "type": "facet",
+  "h1": "Custom GS Products for Bulk Orders",
+  "metaTitle": "Custom GS Products | Perfect Imprints",
+  "metaDescription": "Order custom GS products in bulk with your logo. Perfect for corporate gifts and promotions. Get a quote today.",
+  "introHtml": "<p>When you need promotional products that meet GS standards, you are choosing items built for durability and compliance. GS-certified products undergo rigorous testing for safety and quality, making them ideal for corporate giveaways, trade shows, and employee incentives. From tools to electronics, these products carry a mark of trust that reflects well on your brand. Decorate them with your logo through screen printing or laser engraving for a professional finish that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom GS products with company logo, including safety-tested tools and electronics for corporate branding.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:01:01.779734+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

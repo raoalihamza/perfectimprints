@@ -1,0 +1,22 @@
+{
+  "url": "/cat/folding-chairs/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Folding Chairs",
+  "metaTitle": "Custom Orange Folding Chairs | Perfect Imprints",
+  "metaDescription": "Order custom orange folding chairs for events, trade shows, or offices. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Orange folding chairs stand out in any setting, whether you need high-visibility seating for outdoor events, branded chairs for a trade show booth, or a pop of color for a company picnic. The bright hue ensures attendees can spot your seating easily, and the durable frames with carrying bags make transport and storage simple. Add your logo through screen printing or pad printing for a cohesive look that reinforces brand recognition.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange folding chairs with carrying bags for events and trade shows",
+  "productSkus": [
+    "505166",
+    "512246"
+  ],
+  "generatedAt": "2026-05-31T08:54:09.250316+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,32 @@
+{
+  "url": "/cat/bar-wine-gift-sets/type/taster",
+  "type": "facet",
+  "h1": "Custom Taster Bar Wine Gift Sets",
+  "metaTitle": "Custom Taster Bar Wine Gift Sets | Perfect Imprints",
+  "metaDescription": "Order custom taster bar wine gift sets for corporate events. Perfect for client gifts and employee recognition. Get a quote today!",
+  "introHtml": "<p>Custom taster bar wine gift sets let you offer a curated tasting experience without committing to full bottles. These sets typically include mini wine bottles, stemless tumblers, or paired accessories like cheese knives or chocolates. Ideal for corporate gifting, trade show giveaways, or holiday client appreciation, they create a memorable unboxing moment. Choose from options like the Napa Stemless Wine Tumbler Set or the Speakeasy Gift Set, and imprint your logo on the packaging or glassware for lasting brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom taster bar wine gift sets with mini wine bottles and branded stemless tumblers on a table",
+  "productSkus": [
+    "512596",
+    "512693 64F",
+    "519672",
+    "521002",
+    "521897",
+    "522098",
+    "523898",
+    "523924",
+    "523950",
+    "525628",
+    "526748",
+    "527285"
+  ],
+  "generatedAt": "2026-05-31T08:39:36.850841+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

@@ -1,0 +1,29 @@
+{
+  "url": "/cat/gift-sets-bundles/material/foam",
+  "type": "facet",
+  "h1": "Custom Foam Gift Sets & Bundles",
+  "metaTitle": "Custom Foam Gift Sets Bundles | Perfect Imprints",
+  "metaDescription": "Order custom foam gift sets bundles for events and promotions. Perfect for coolers, keychains, and more. Get a quote today!",
+  "introHtml": "<p>Foam gift sets and bundles combine durability with insulation, making them ideal for outdoor events, trade shows, and employee appreciation. From custom can coolers and koozies to foam keychains and cooler bags, these items keep drinks cold and logos visible. Choose foam for lightweight, cost-effective promotional products that stand up to frequent use and harsh conditions.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom foam gift sets bundles including coolers, keychains, and koozies with printed logos",
+  "productSkus": [
+    "508537",
+    "511304",
+    "520688",
+    "525861",
+    "526340",
+    "526413",
+    "526724",
+    "528238",
+    "528717"
+  ],
+  "generatedAt": "2026-05-31T09:47:59.240765+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

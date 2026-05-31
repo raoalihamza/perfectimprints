@@ -1,0 +1,63 @@
+{
+  "url": "/cat/folding-chairs",
+  "type": "root",
+  "h1": "Custom Folding Chairs for Events, Workplaces & More",
+  "metaTitle": "Custom Folding Chairs | Perfect Imprints",
+  "metaDescription": "Order custom folding chairs with your logo. Perfect for events, trade shows, and employee use. Bulk pricing available at PerfectImprints.com.",
+  "introHtml": "<p>Marketing directors planning outdoor festivals, HR directors outfitting break rooms, and safety managers coordinating training sessions all face the same challenge: seating that is portable, durable, and branded. Custom folding chairs solve that problem. Whether you need a lightweight chair for a company picnic, a heavy-duty model for a construction safety meeting, or a comfortable moon chair for a VIP lounge, this category offers options that balance comfort, portability, and logo visibility.</p><p>From the Camp Throne Folding Chair with its built-in cup holder to the Folding Moon Chair that supports up to 400 pounds, each product in this lineup is designed for repeated use and easy storage. Add your logo through screen printing or full-color heat transfer, and turn a simple seat into a mobile advertisement. Business owners and event coordinators alike appreciate the low minimum order quantities and fast turnaround times that make bulk ordering straightforward.</p>",
+  "buyingGuideHtml": "<p>When ordering custom folding chairs, start by considering the primary use case. Lightweight models with carrying bags are ideal for trade shows and company picnics where portability matters. Heavy-duty chairs with higher weight capacities suit industrial settings or outdoor events where durability is critical. Always check the weight limit and folded dimensions to ensure the chair meets your audience's needs.</p><h3>Materials and Build Quality</h3><p>Most folding chairs use steel or aluminum frames with fabric or padded seats. Steel frames are heavier but more durable, while aluminum frames reduce weight for easier transport. Look for chairs with reinforced stitching and rust-resistant coatings if they will be used outdoors. Padded seats and armrests add comfort for long events but increase bulk when stored.</p><h3>Common Use Cases</h3><p>Marketing directors order promotional folding chairs for trade show giveaways and event seating. HR directors use branded chairs for employee break rooms and outdoor company gatherings. Safety managers equip training sessions and job sites with durable chairs that carry the company logo. Business owners also gift custom chairs to clients as practical, long-lasting promotional items.</p><h3>Decoration and Customization Options</h3><p>Screen printing works well for simple logos on fabric seats and backs. Full-color heat transfer allows detailed artwork and photographs. For a premium look, consider embroidery on padded chair backs. Keep in mind that darker fabrics hide wear better but may not show light-colored logos as vividly. Always request a proof before production to confirm color accuracy.</p><h3>Quantity and MOQ Guidance</h3><p>Minimum order quantities for custom folding chairs typically start around 25 units. Bulk orders of 100 or more significantly reduce per-unit costs. If you need a smaller quantity, ask about stock colors that may have lower MOQs. Plan your order volume based on event size or number of employees to avoid overstocking.</p><p>One common mistake is overlooking chair weight when ordering for frequent transport. Lightweight chairs with carrying bags are worth the extra cost if your team moves them often. Another pitfall is choosing a decoration method that doesn't bond well to the chair material. Discuss material compatibility with your supplier to ensure your logo lasts through repeated folding and unfolding.</p>",
+  "buyingGuideH2": "Custom Folding Chairs Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom folding chairs?",
+      "a": "Minimum order quantities typically start at 25 units, but this can vary by model and customization type. Stock color chairs may have lower MOQs. Contact us for specific product MOQs."
+    },
+    {
+      "q": "What decoration methods are available for folding chairs?",
+      "a": "Common methods include screen printing for simple logos and full-color heat transfer for detailed artwork. Embroidery is available on padded models. We recommend screen printing for large text and heat transfer for gradients."
+    },
+    {
+      "q": "How long does production take for custom folding chairs?",
+      "a": "Standard production time is 10-15 business days after artwork approval. Rush orders may be available for an additional fee. Shipping time depends on your location and chosen carrier."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, we offer sample orders for most folding chair models. Samples are typically unprinted or can include a simple logo for an additional charge. Contact our sales team to arrange a sample."
+    },
+    {
+      "q": "What is the weight capacity of your folding chairs?",
+      "a": "Weight capacities vary by model. Our Folding Moon Chair supports up to 400 lbs, while standard chairs typically hold 250-300 lbs. Check the product specifications for exact limits."
+    }
+  ],
+  "heroAltText": "Custom folding chairs with logo for events and workplaces, including Camp Throne and moon chair styles",
+  "productSkus": [
+    "505166",
+    "505894",
+    "511015",
+    "512246",
+    "513930",
+    "519774",
+    "520195",
+    "520397",
+    "521504",
+    "522742",
+    "522743",
+    "523192",
+    "525794",
+    "525947",
+    "526522",
+    "526651",
+    "526653",
+    "526660",
+    "526661",
+    "526663",
+    "527459"
+  ],
+  "generatedAt": "2026-05-30T10:43:16.504817+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "use_case",
+  "skuFilterMode": "full",
+  "rawSkuCount": 21,
+  "filteredSkuCount": 21
+}

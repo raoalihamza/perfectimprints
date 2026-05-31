@@ -1,0 +1,28 @@
+{
+  "url": "/cat/barware/brand/coleman",
+  "type": "facet",
+  "h1": "Custom Coleman Barware for Outdoor Events",
+  "metaTitle": "Custom Coleman Barware | Perfect Imprints",
+  "metaDescription": "Shop custom Coleman barware for your next outdoor event. Branded coolers, tumblers & more at Perfect Imprints. Order bulk today!",
+  "introHtml": "<p>Coleman barware brings rugged durability to outdoor events, trade shows, and company picnics. From the 20 oz Brewski Stainless Steel Tumbler to the 54-Quart Classic Steel Belted Cooler, each piece is built to withstand heavy use while keeping drinks cold. Customize with your logo using screen printing or debossing for a lasting impression. Perfect for brands that want reliable gear that stands out at campsites, tailgates, and job sites.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Coleman barware featuring a branded 20 oz stainless steel tumbler and a 54-quart cooler at an outdoor event",
+  "productSkus": [
+    "509109",
+    "517874",
+    "521930",
+    "525375",
+    "525794",
+    "525795",
+    "525796",
+    "529517"
+  ],
+  "generatedAt": "2026-05-31T08:50:10.674374+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

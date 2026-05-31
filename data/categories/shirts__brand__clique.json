@@ -1,0 +1,24 @@
+{
+  "url": "/cat/shirts/brand/clique",
+  "type": "facet",
+  "h1": "Custom Clique Shirts for Bulk Orders",
+  "metaTitle": "Custom Clique Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Clique shirts in bulk. Perfect for teams, events, and uniforms. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Clique shirts offer a modern, athletic fit that holds up wash after wash, making them a reliable choice for corporate uniforms or event staff. The Summit ½ Zip and Parma Tech Jersey Polo feature moisture-wicking fabric and a clean, professional look that works both on-site and off. With your logo embroidered on the chest or sleeve, these shirts keep your team looking sharp while staying comfortable during long workdays.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Clique shirts with embroidered logo on chest, featuring moisture-wicking fabric",
+  "productSkus": [
+    "509568",
+    "509569",
+    "526962",
+    "526963"
+  ],
+  "generatedAt": "2026-05-31T09:01:58.230221+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

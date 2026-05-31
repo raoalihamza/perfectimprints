@@ -1,0 +1,27 @@
+{
+  "url": "/cat/golf-balls/supplier/koozie",
+  "type": "facet",
+  "h1": "Custom Koozie Golf Balls",
+  "metaTitle": "Custom Koozie Golf Balls | Perfect Imprints",
+  "metaDescription": "Order custom koozie golf balls for your next event. Perfect for giveaways and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Koozie brand golf balls bring the trusted name in drink insulators to your promotional golf gear. These custom koozie golf balls are perfect for corporate tournaments, client gifts, or employee appreciation. With options like the Titleist Pro V1 or Volvik Vivid, you can add your logo through pad printing or debossing. Choose Koozie for a recognizable brand that pairs well with coolers and tailgate accessories.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom koozie golf balls with company logo printed on them, displayed in a clear tube",
+  "productSkus": [
+    "506922 50D",
+    "506923 50D",
+    "507565 90A",
+    "515618 90A",
+    "521337",
+    "527050",
+    "528245"
+  ],
+  "generatedAt": "2026-05-31T08:29:09.672338+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

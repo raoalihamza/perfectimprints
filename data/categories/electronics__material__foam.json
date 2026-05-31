@@ -1,0 +1,24 @@
+{
+  "url": "/cat/electronics/material/foam",
+  "type": "facet",
+  "h1": "Custom Foam Electronics for Bulk Orders",
+  "metaTitle": "Custom Foam Electronics | Perfect Imprints",
+  "metaDescription": "Order custom foam electronics for safe, branded giveaways. Perfect Imprints offers bulk pricing on personalized foam phone accessories.",
+  "introHtml": "<p>Foam electronics, like our Jolt Charger and mophie power banks with foam inserts, offer lightweight protection during transport. Marketing directors and safety managers choose foam-encased electronics for trade shows and employee kits because the cushioning reduces damage risk while keeping your logo visible. Decorate with pad printing or laser engraving directly on the foam surface for a durable, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom foam electronics with branded logo, including foam phone accessories and power banks",
+  "productSkus": [
+    "510767",
+    "524133",
+    "527169",
+    "527970"
+  ],
+  "generatedAt": "2026-05-31T09:44:33.015588+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

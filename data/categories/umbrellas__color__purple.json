@@ -1,0 +1,26 @@
+{
+  "url": "/cat/umbrellas/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Umbrellas for Branded Promotions",
+  "metaTitle": "Custom Purple Umbrellas | Perfect Imprints",
+  "metaDescription": "Order custom purple umbrellas for your brand. Perfect for outdoor events and corporate gifts. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Purple umbrellas offer a distinctive brand color that stands out in a sea of black and navy. Whether you choose a compact folding umbrella for trade show giveaways or a full-size automatic model for corporate gifts, purple conveys creativity and sophistication. Decorate with your logo using screen printing or full-color digital transfer for maximum visibility. These umbrellas are practical for rainy days and memorable as branded merchandise.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple umbrellas with corporate logo, available in various styles for promotional use.",
+  "productSkus": [
+    "510157",
+    "510988",
+    "511010",
+    "525369",
+    "527114",
+    "529204"
+  ],
+  "generatedAt": "2026-05-31T10:12:56.322685+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

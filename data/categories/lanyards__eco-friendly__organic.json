@@ -1,0 +1,21 @@
+{
+  "url": "/cat/lanyards/eco-friendly/organic",
+  "type": "facet",
+  "h1": "Custom Organic Lanyards",
+  "metaTitle": "Custom Organic Lanyards | Perfect Imprints",
+  "metaDescription": "Shop custom organic lanyards at Perfect Imprints. Eco-friendly, bulk orders, fast turnaround.",
+  "introHtml": "<p>Organic lanyards are made from materials like organic cotton, avoiding synthetic fibers and pesticides. They offer a sustainable alternative for events, trade shows, and employee IDs. With eco-conscious decorating options like soy-based inks, these lanyards help communicate your brand's commitment to the environment. The Rainbow Lanyard exemplifies how vibrant colors can be achieved without compromising on sustainability.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom organic lanyards made from organic cotton with soy-based ink printing, eco-friendly and sustainable.",
+  "productSkus": [
+    "526173"
+  ],
+  "generatedAt": "2026-05-31T08:43:32.694854+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

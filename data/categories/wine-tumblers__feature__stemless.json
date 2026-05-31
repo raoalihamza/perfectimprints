@@ -1,0 +1,30 @@
+{
+  "url": "/cat/wine-tumblers/feature/stemless",
+  "type": "facet",
+  "h1": "Custom Stemless Wine Tumblers",
+  "metaTitle": "Custom Stemless Wine Tumblers | Perfect Imprints",
+  "metaDescription": "Shop custom stemless wine tumblers for events, gifts, and branding. Order bulk personalized tumblers at Perfect Imprints.",
+  "introHtml": "<p>Stemless wine tumblers combine the elegance of wine drinking with the practicality of a sturdy, no-stem design. They are ideal for outdoor events, trade shows, and corporate gifts where balance is key. Unlike traditional stemware, these tumblers resist tipping and fit comfortably in hand. Personalize them with your logo using screen printing or digital decoration for a polished look that stands out at any gathering.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom stemless wine tumblers with engraved logo, perfect for corporate gifts and events.",
+  "productSkus": [
+    "511000 90E",
+    "511450",
+    "519468",
+    "522098",
+    "522955",
+    "524368",
+    "524524",
+    "524525",
+    "524526",
+    "527252"
+  ],
+  "generatedAt": "2026-05-31T08:27:42.709409+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

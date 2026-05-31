@@ -1,0 +1,19 @@
+{
+  "url": "/cat/bookmarks/closeout",
+  "type": "modifier",
+  "h1": "Closeout Custom Bookmarks",
+  "metaTitle": "Closeout Custom Bookmarks - Perfect Imprints",
+  "metaDescription": "Save on closeout custom bookmarks with limited-stock deals at Perfect Imprints. Shop clearance pricing now!",
+  "introHtml": "<p>Closeout custom bookmarks offer a rare chance to secure premium promotional products at clearance pricing. These are limited-stock items, often from overruns or discontinued lines, meaning selection changes quickly as inventory moves. Marketing directors and business owners can stretch their budgets further while still getting branded bookmarks that keep their name in customers' hands. Act fast on these value deals before they are gone.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of closeout custom bookmarks with colorful designs and a company logo, showcasing clearance promotional items.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:40:08.229924+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

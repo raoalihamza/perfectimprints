@@ -1,0 +1,21 @@
+{
+  "url": "/cat/golf-balls/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Golf Balls for Branded Giveaways",
+  "metaTitle": "Custom Set Golf Balls | Perfect Imprints",
+  "metaDescription": "Order custom set golf balls for corporate events and tournaments. Perfect Imprints offers bulk pricing and fast turnaround.",
+  "introHtml": "<p>Ordering custom set golf balls means you get a complete, ready-to-give package instead of single loose balls. Sets are ideal for tournament gift bags, corporate outing favors, or client appreciation gifts. Choose from options like the Volvik® Vivid Golf Balls, which offer high visibility and a soft feel. Each set can be imprinted with your logo using pad printing or hot stamping for a polished, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set golf balls with company logo in a branded gift box, perfect for corporate events",
+  "productSkus": [
+    "521337"
+  ],
+  "generatedAt": "2026-05-31T09:14:23.099751+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/beer-glasses/feature/hand-wash-only",
+  "type": "facet",
+  "h1": "Custom Hand Wash Only Beer Glasses",
+  "metaTitle": "Custom Hand Wash Only Beer Glasses | Perfect Imprints",
+  "metaDescription": "Order custom hand wash only beer glasses for your brand. Perfect for promotions and events. Contact Perfect Imprints for bulk pricing.",
+  "introHtml": "<p>Hand wash only beer glasses offer a classic, premium feel that dishwasher-safe alternatives often lack. The 16 oz Pub Glass and Pint Glass options provide a traditional drinking experience, ideal for craft breweries or upscale bars where glass care is part of the ritual. These glasses are perfect for custom digital printing or screen printing, allowing your logo to stand out on a smooth, clear surface. Choose hand wash only beer glasses to convey attention to detail and quality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hand wash only beer glasses featuring a 16 oz pint glass with a printed logo, clear and elegant for branding.",
+  "productSkus": [
+    "516849 90E",
+    "524527",
+    "524528",
+    "525965"
+  ],
+  "generatedAt": "2026-05-31T09:36:42.832891+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

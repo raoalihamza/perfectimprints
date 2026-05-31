@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/star",
+  "type": "facet",
+  "h1": "Custom Star Products for Bulk Orders",
+  "metaTitle": "Custom Star Products | Perfect Imprints",
+  "metaDescription": "Order custom star products in bulk at Perfect Imprints. Ideal for promotions, events, and branding. Get a quote today!",
+  "introHtml": "<p>Star products offer reliable quality for corporate giveaways, trade show handouts, and employee recognition programs. From pens and drinkware to bags and tech accessories, the Star brand delivers consistent performance across a wide range of promotional items. Bulk buyers appreciate the balance of affordability and durability. Decorate with your logo using screen printing, debossing, or full-color imprinting for a polished look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom star products including pens, water bottles, and bags with company logos on a table",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:22:58.402588+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

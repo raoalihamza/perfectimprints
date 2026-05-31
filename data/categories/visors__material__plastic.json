@@ -1,0 +1,26 @@
+{
+  "url": "/cat/visors/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Visors for Bulk Orders",
+  "metaTitle": "Custom Plastic Visors | Perfect Imprints",
+  "metaDescription": "Order custom plastic visors in bulk for events, teams, or promotions. Perfect for outdoor use. Get a quote today!",
+  "introHtml": "<p>Plastic visors offer a lightweight, durable option for outdoor events, sports teams, and promotional giveaways. Unlike fabric visors, they resist moisture and hold their shape in heat, making them ideal for golf tournaments, trade shows, or summer employee gifts. Customize with your logo using screen printing or embroidery for a crisp, long-lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom plastic visors with logo in bulk for outdoor events and promotions",
+  "productSkus": [
+    "521617",
+    "522099",
+    "522530",
+    "522625",
+    "522627",
+    "522646"
+  ],
+  "generatedAt": "2026-05-31T09:04:17.416132+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

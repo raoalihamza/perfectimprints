@@ -1,0 +1,30 @@
+{
+  "url": "/cat/pet-accessories/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Pet Accessories",
+  "metaTitle": "No-Minimum Custom Pet Accessories | Perfect Imprints",
+  "metaDescription": "Order small quantities of custom pet accessories with no minimum. Perfect for small teams, events, or samples. Shop no-minimum custom pet accessories",
+  "introHtml": "<p>Ordering custom pet accessories for a small team, a one-time event, or a trial run doesn't mean you need to commit to bulk quantities. Our no-minimum custom pet accessories let you buy as few as one item, from bandanas to slides, without facing high order minimums. This flexibility is ideal for small businesses, startups, or any organization that needs branded pet gear in limited numbers. You get the same quality and personalization options as large orders, but with the freedom to order exactly what you need. Browse our selection and create your own no-minimum custom pet accessories today.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A close-up of a custom pet bandana with a company logo, representing no-minimum custom pet accessories available in small quantities.",
+  "productSkus": [
+    "520886",
+    "521927",
+    "523655",
+    "524817",
+    "525724",
+    "527493",
+    "527554",
+    "528171",
+    "528870",
+    "529359"
+  ],
+  "generatedAt": "2026-05-31T09:22:37.834517+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

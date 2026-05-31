@@ -1,0 +1,24 @@
+{
+  "url": "/cat/tank-tops/brand/clique",
+  "type": "facet",
+  "h1": "Custom Clique Tank Tops for Bulk Orders",
+  "metaTitle": "Custom Clique Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom Clique tank tops for your team or event. Perfect for bulk branding with embroidery or screen printing. Get a quote today.",
+  "introHtml": "<p>Clique tank tops combine premium fabric blends with a comfortable, athletic fit that holds up to repeated wear and washing. Whether you're outfitting a promotional event team or supplying employee uniforms, these blanks take crisp screen prints and detailed embroidery evenly. Choose Clique for consistent sizing and a professional look that keeps your logo front and center.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Clique tank tops with embroidered logo, stacked in bulk for promotional giveaways",
+  "productSkus": [
+    "509568",
+    "509569",
+    "526962",
+    "526963"
+  ],
+  "generatedAt": "2026-05-31T10:10:39.849932+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

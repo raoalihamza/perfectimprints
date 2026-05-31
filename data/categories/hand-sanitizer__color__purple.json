@@ -1,0 +1,23 @@
+{
+  "url": "/cat/hand-sanitizer/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Hand Sanitizer",
+  "metaTitle": "Custom Purple Hand Sanitizer | Perfect Imprints",
+  "metaDescription": "Shop custom purple hand sanitizer in bulk at Perfect Imprints. Perfect for events, offices, and giveaways. Order today!",
+  "introHtml": "<p>Purple hand sanitizer offers a distinctive way to keep your team or event attendees safe while reinforcing brand recognition. Whether you choose the portable 10 mL CleanZ Pen Sanitizer for giveaways or a 1.9 oz clear bottle with carabiner for field workers, the purple color adds a vibrant, memorable touch. Custom imprinting with your logo ensures your message stands out in any setting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple hand sanitizer bottles with branded labels, including pen-style and carabiner options.",
+  "productSkus": [
+    "506849",
+    "524905",
+    "528735"
+  ],
+  "generatedAt": "2026-05-31T08:42:33.515917+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

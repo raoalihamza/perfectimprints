@@ -1,0 +1,30 @@
+{
+  "url": "/cat/towels/color/green",
+  "type": "facet",
+  "h1": "Custom Green Towels for Branded Giveaways",
+  "metaTitle": "Custom Green Towels | Perfect Imprints",
+  "metaDescription": "Order custom green towels with your logo. Perfect for sports teams, events & eco-friendly promotions. Bulk pricing available.",
+  "introHtml": "<p>Green towels are a versatile choice for brands promoting eco-consciousness, sports teams, or outdoor events. From cooling microfiber towels for athletes to plush velour options for gyms, green stands out while complementing nature-inspired themes. Decorate with screen printing or embroidery for a durable, vibrant look that aligns with your organization's identity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom green microfiber towels with embroidered logo, ideal for sports giveaways and corporate promotions.",
+  "productSkus": [
+    "510188",
+    "510325",
+    "512900",
+    "513098",
+    "514841",
+    "520178",
+    "521013",
+    "522450",
+    "524126",
+    "528644"
+  ],
+  "generatedAt": "2026-05-31T08:23:51.555357+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

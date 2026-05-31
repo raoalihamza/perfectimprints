@@ -1,0 +1,21 @@
+{
+  "url": "/cat/coolers/style/frosted",
+  "type": "facet",
+  "h1": "Custom Frosted Coolers for Bulk Orders",
+  "metaTitle": "Custom Frosted Coolers | Perfect Imprints",
+  "metaDescription": "Order custom frosted coolers for your brand. Soft CTA included. Perfect for events, giveaways, and promotions.",
+  "introHtml": "<p>Frosted coolers offer a translucent, matte finish that sets your brand apart from standard glossy options. The Pranzo Personal Cooler, for example, features a sleek frosted exterior that resists fingerprints and scuffs, making it ideal for corporate events or outdoor promotions. This subtle texture adds a premium feel while keeping drinks cold for hours. Perfect for marketing directors seeking a modern, understated look for client gifts or employee incentives.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom frosted coolers with a matte translucent finish, perfect for branding with logos and promotional use.",
+  "productSkus": [
+    "515957"
+  ],
+  "generatedAt": "2026-05-31T08:41:07.353489+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

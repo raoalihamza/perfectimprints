@@ -1,0 +1,19 @@
+{
+  "url": "/cat/infusers/search",
+  "type": "modifier",
+  "h1": "Custom Infusers for Branded Promotions",
+  "metaTitle": "Custom Infusers | Perfect Imprints",
+  "metaDescription": "Browse custom infusers for branded promotions at Perfect Imprints. Get started with our wide selection of customizable drinkware.",
+  "introHtml": "<p>Custom infusers offer a fresh way to keep your brand top of mind with every sip. Whether you're outfitting a team or stocking a company store, these versatile drinkware items combine functionality with everyday visibility. From fruit infuser water bottles to tea infuser mugs, our selection provides a range of styles and materials to match your promotional goals. Explore our collection and find the perfect canvas for your logo, ready for customization with no minimums required.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom infusers with colorful fruit water infuser bottles and tea infuser mugs featuring printed logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:51:29.680309+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

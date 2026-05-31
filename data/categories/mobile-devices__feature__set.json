@@ -1,0 +1,23 @@
+{
+  "url": "/cat/mobile-devices/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Mobile Devices for Bulk Orders",
+  "metaTitle": "Custom Set Mobile Devices | Perfect Imprints",
+  "metaDescription": "Order custom set mobile devices in bulk from Perfect Imprints. Perfect for giveaways and corporate gifts. Get a quote today!",
+  "introHtml": "<p>When you need a coordinated giveaway that includes multiple mobile accessories, custom set mobile devices offer a convenient all-in-one solution. These bundles often combine items like earbuds, power banks, and hand warmers into a single package, making them ideal for trade show swag or employee welcome kits. Choose from sets that include stretchy phone grips, AI-powered translation earbuds, or rechargeable hand warmers with power bank capabilities. Each item can be decorated with your logo for a cohesive brand experience.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set mobile devices including a 3-in-1 stretchy set, translation earbuds, and a rechargeable hand warmer power bank with logo",
+  "productSkus": [
+    "515809",
+    "528350",
+    "529360"
+  ],
+  "generatedAt": "2026-05-31T09:57:01.690299+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

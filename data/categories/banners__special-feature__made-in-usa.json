@@ -1,0 +1,25 @@
+{
+  "url": "/cat/banners/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Banners",
+  "metaTitle": "Custom Made in USA Banners | Perfect Imprints",
+  "metaDescription": "Order custom made in USA banners for your business. Durable, American-made signage with fast turnaround. Request a quote today.",
+  "introHtml": "<p>Choosing custom made in USA banners means supporting American manufacturing while getting high-quality signage built to last. Whether you need a 2' x 4' vinyl banner for a trade show or a 4' x 6' banner for a grand opening, domestic production ensures consistent quality, faster shipping, and easier reorders. Perfect for safety managers requiring OSHA-compliant messaging or marketing directors seeking vibrant, fade-resistant colors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA vinyl banners in various sizes for business signage and events",
+  "productSkus": [
+    "502118",
+    "502119",
+    "502120",
+    "507304 90A",
+    "507309 90A"
+  ],
+  "generatedAt": "2026-05-31T09:35:16.490072+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

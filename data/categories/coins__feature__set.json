@@ -1,0 +1,31 @@
+{
+  "url": "/cat/coins/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Coins for Bulk Orders",
+  "metaTitle": "Custom Set Coins | Perfect Imprints",
+  "metaDescription": "Order custom set coins in bulk for promotions. Perfect for branding with full-color imprint. Get a quote today!",
+  "introHtml": "<p>Custom set coins offer a unique way to package multiple coins together for giveaways, event souvenirs, or corporate gifts. Unlike single coins, a set allows you to create a coordinated collection that tells a story or highlights different brand messages. With full-color imprint options and various finishes, these sets make an impression that lasts. Ideal for trade shows, anniversaries, or employee recognition programs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set coins with full-color imprint and metallic finish arranged in a display case",
+  "productSkus": [
+    "502149",
+    "504982",
+    "513998 01N",
+    "514300 90E",
+    "514314 90A",
+    "520654",
+    "521134",
+    "522220",
+    "522789",
+    "523924",
+    "529030"
+  ],
+  "generatedAt": "2026-05-31T09:11:03.336216+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pouches/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Pouches for Bulk Orders",
+  "metaTitle": "Custom Brown Pouches | Perfect Imprints",
+  "metaDescription": "Order custom brown pouches for branding. Perfect for giveaways, events, and corporate gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Brown pouches offer a natural, understated look that stands out from standard black or white options. Whether you're packaging art supplies like colored pencils or creating branded kits for trade shows, brown canvas or kraft pouches provide a durable, eco-friendly canvas for screen printing or debossing. Their earthy tone pairs well with many logo colors, making them a versatile choice for corporate gifts, safety kits, or promotional giveaways that feel thoughtful and grounded.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown pouches with screen-printed logo, ideal for promotional giveaways and corporate gifts",
+  "productSkus": [
+    "519676"
+  ],
+  "generatedAt": "2026-05-31T10:02:54.730270+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

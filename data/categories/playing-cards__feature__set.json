@@ -1,0 +1,23 @@
+{
+  "url": "/cat/playing-cards/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Playing Cards for Bulk Orders",
+  "metaTitle": "Custom Set Playing Cards | Perfect Imprints",
+  "metaDescription": "Order custom set playing cards in bulk for your brand. Perfect for giveaways, events, and client gifts. Get a quote today.",
+  "introHtml": "<p>Custom set playing cards offer a complete package for brand engagement, combining a deck of cards with a protective case or additional game elements. Perfect for corporate gifts, trade show giveaways, or hospitality suites, these sets provide a premium unboxing experience. Choose from options like the Traveler Cards N Dice Game for added entertainment value. Decorate with full-color imprinting on the box and cards to showcase your logo or messaging.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set playing cards with branded deck and case, ideal for promotional giveaways and corporate gifts.",
+  "productSkus": [
+    "522393",
+    "525824",
+    "526787"
+  ],
+  "generatedAt": "2026-05-31T10:02:27.925110+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

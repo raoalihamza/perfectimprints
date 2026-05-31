@@ -1,0 +1,22 @@
+{
+  "url": "/cat/pet-bowls/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Pet Bowls",
+  "metaTitle": "Custom Made in USA Pet Bowls | Perfect Imprints",
+  "metaDescription": "Order custom made in USA pet bowls for your brand. Durable, American-made bowls perfect for corporate gifts and pet events.",
+  "introHtml": "<p>Choosing custom made in USA pet bowls means supporting American manufacturing while giving your clients a practical, high-quality gift. These bowls are crafted from durable materials that withstand daily use, and they offer a clean surface for your logo or artwork. Perfect for pet supply companies, veterinary clinics, or any brand that wants to emphasize quality and domestic production. The Scoop-It Bowl™ design even makes feeding easier for pet owners.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA pet bowls with company logo, durable ceramic or stainless steel design for dogs and cats.",
+  "productSkus": [
+    "506366",
+    "506367"
+  ],
+  "generatedAt": "2026-05-31T09:00:01.643542+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

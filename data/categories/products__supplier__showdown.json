@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/showdown",
+  "type": "facet",
+  "h1": "Custom Showdown Products for Bulk Orders",
+  "metaTitle": "Custom Showdown Products | Perfect Imprints",
+  "metaDescription": "Shop custom Showdown products for your brand. Bulk pricing, fast turnaround. Order from Perfect Imprints today.",
+  "introHtml": "<p>Showdown products are built for durability and performance, making them a smart choice for corporate giveaways, event merchandise, and employee rewards. Whether you need custom drinkware, coolers, or outdoor gear, the Showdown lineup offers rugged designs that stand up to heavy use. Decorate with your logo using screen printing, laser engraving, or full-color pad printing for a polished, long-lasting finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Showdown products including drinkware and coolers with company logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:30:39.188844+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

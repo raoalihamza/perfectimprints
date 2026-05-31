@@ -1,0 +1,26 @@
+{
+  "url": "/cat/t-shirts/feature/lightweight",
+  "type": "facet",
+  "h1": "Custom Lightweight T Shirts for Comfort and Breathability",
+  "metaTitle": "Custom Lightweight T Shirts | Perfect Imprints",
+  "metaDescription": "Order custom lightweight t shirts for your team or event. Soft, breathable fabrics ideal for screen printing. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Lightweight t shirts are ideal for warm-weather events, outdoor activities, or any situation where comfort and breathability matter. Unlike heavier cotton tees, these shirts use thinner fabrics like ringspun cotton or cotton-poly blends that keep wearers cool while still providing a quality surface for screen printing or embroidery. Whether you need uniforms for a summer festival or giveaways for a charity run, a lightweight construction ensures your recipients stay comfortable and your logo looks crisp.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom lightweight t shirts in various colors with printed logos, soft and breathable fabric",
+  "productSkus": [
+    "506022",
+    "506023",
+    "506191",
+    "516172",
+    "516239",
+    "516240"
+  ],
+  "generatedAt": "2026-05-31T10:10:21.349948+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/backpacks/brand/samsonite",
+  "type": "facet",
+  "h1": "Custom Samsonite Backpacks for Bulk Orders",
+  "metaTitle": "Custom Samsonite Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Samsonite backpacks with your logo. Perfect for corporate gifts, trade shows, and employee appreciation. Bulk pricing available.",
+  "introHtml": "<p>Samsonite backpacks combine durable construction with professional styling, making them a preferred choice for corporate giveaways and employee recognition programs. Unlike generic backpacks, Samsonite offers trusted quality that recipients will use daily, keeping your brand visible at conferences, on commutes, and beyond. Choose from models like the Classic Business 2.0 Everyday Laptop Backpack for a polished look that suits any workplace.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Samsonite backpacks with embroidered logo in corporate setting",
+  "productSkus": [
+    "527869",
+    "528124"
+  ],
+  "generatedAt": "2026-05-31T09:06:22.968976+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

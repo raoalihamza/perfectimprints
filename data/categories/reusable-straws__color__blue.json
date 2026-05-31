@@ -1,0 +1,30 @@
+{
+  "url": "/cat/reusable-straws/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Reusable Straws",
+  "metaTitle": "Custom Blue Reusable Straws | Perfect Imprints",
+  "metaDescription": "Order custom blue reusable straws for your brand. Perfect for eco-conscious events and promotions. Get started at Perfect Imprints.",
+  "introHtml": "<p>Blue reusable straws offer a crisp, recognizable color for your brand's eco-friendly initiatives. Whether you choose silicone straws for their flexibility or stainless steel for durability, blue stands out at trade shows and corporate events. These straws are ideal for pairing with custom drinkware or as standalone giveaways at sustainability-focused gatherings. Add your logo via screen printing or etching for a lasting impression that aligns with your company's green values.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue reusable straws in silicone and stainless steel with brand logo, displayed on a table at an outdoor event.",
+  "productSkus": [
+    "521736",
+    "521737",
+    "521867",
+    "522032",
+    "522270",
+    "522307",
+    "522455",
+    "524107",
+    "525027",
+    "525537"
+  ],
+  "generatedAt": "2026-05-31T10:05:00.388087+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

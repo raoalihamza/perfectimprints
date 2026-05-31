@@ -1,0 +1,24 @@
+{
+  "url": "/cat/personal-care-items/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Personal Care Items",
+  "metaTitle": "Custom Made in USA Personal Care Items | Perfect Imprints",
+  "metaDescription": "Order custom made in USA personal care items for your brand. Perfect for corporate gifts and employee appreciation. Get a quote today!",
+  "introHtml": "<p>When you choose custom made in USA personal care items, you get quality craftsmanship and support domestic manufacturing. From tablet totes and pill boxes to lip balms and poly-pure bottles, these products are ideal for safety managers and HR directors looking for reliable, US-made giveaways. Decorate with your logo using screen printing or engraving for a professional finish that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA personal care items including pill boxes and lip balms with logo imprint",
+  "productSkus": [
+    "502594",
+    "506870",
+    "515436",
+    "515442"
+  ],
+  "generatedAt": "2026-05-31T08:25:26.901095+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

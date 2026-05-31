@@ -1,0 +1,28 @@
+{
+  "url": "/cat/barware/brand/eddie-bauer",
+  "type": "facet",
+  "h1": "Custom Eddie Bauer Barware for Corporate Gifts",
+  "metaTitle": "Custom Eddie Bauer Barware | Perfect Imprints",
+  "metaDescription": "Elevate your corporate gifts with custom Eddie Bauer barware. Perfect for client appreciation or employee rewards. Order bulk barware today.",
+  "introHtml": "<p>Eddie Bauer barware combines rugged outdoor heritage with refined entertaining. These branded drink sets, glassware, and accessories carry the trusted name of an American icon, making them ideal for corporate gifts that stand out. Whether you're hosting a client appreciation event or rewarding employees, custom Eddie Bauer barware adds a touch of adventure to any gathering. Decorate with debossed logos or full-color prints to match your brand's identity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Eddie Bauer barware set with branded rocks glasses and decanter, perfect for corporate gifts",
+  "productSkus": [
+    "513811",
+    "513812",
+    "515290",
+    "515291",
+    "522094",
+    "522095",
+    "529196",
+    "529197"
+  ],
+  "generatedAt": "2026-05-31T08:50:11.214235+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

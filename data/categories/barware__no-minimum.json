@@ -1,0 +1,19 @@
+{
+  "url": "/cat/barware/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Barware for Any Event",
+  "metaTitle": "No-Minimum Custom Barware | Perfect Imprints",
+  "metaDescription": "Order small quantities of custom barware with no minimums. Perfect for small events, gifts, and sampling. Get branded options fast.",
+  "introHtml": "<p>No-minimum custom barware lets you order exactly what you need, whether that's a dozen branded pint glasses for a small team celebration or a handful of custom coasters for a trade show. Unlike traditional bulk orders, you can get low quantities without high minimums, making it ideal for small businesses, startups, and one-off events. Enjoy the same quality and personalization options as larger runs, with per-unit pricing that works for smaller budgets.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted no-minimum custom barware including branded pint glasses, stemware, and coasters arranged on a wooden bar top.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:39:41.446125+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

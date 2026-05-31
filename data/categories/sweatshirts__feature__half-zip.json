@@ -1,0 +1,22 @@
+{
+  "url": "/cat/sweatshirts/feature/half-zip",
+  "type": "facet",
+  "h1": "Custom Half Zip Sweatshirts for Teams & Events",
+  "metaTitle": "Custom Half Zip Sweatshirts | Perfect Imprints",
+  "metaDescription": "Shop custom half zip sweatshirts for your team or event. Bulk pricing, fast turnaround. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Half zip sweatshirts offer a versatile layering option that full-zip jackets or pullovers can't match. The zipper lets wearers adjust ventilation during outdoor work or walks between buildings, while the high collar provides extra warmth when zipped up. Decorate the chest or back with your logo using embroidery or screen printing. Options like the Boxercraft Sherpa Pullover add a cozy fleece interior, making them a popular choice for corporate giveaways or employee uniforms.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom half zip sweatshirts with embroidered logo, front view showing half zipper and collar",
+  "productSkus": [
+    "521535",
+    "528890"
+  ],
+  "generatedAt": "2026-05-31T08:25:42.071182+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

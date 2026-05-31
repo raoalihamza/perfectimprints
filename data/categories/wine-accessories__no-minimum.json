@@ -1,0 +1,31 @@
+{
+  "url": "/cat/wine-accessories/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Wine Accessories",
+  "metaTitle": "No-Minimum Custom Wine Accessories | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom wine accessories with no bulk requirements. Perfect for small budgets, events, and gifts. Get a quote today!",
+  "introHtml": "<p>No-minimum custom wine accessories let you order small quantities—often under 25 units—without the typical bulk minimums. Perfect for small businesses, startups, wine clubs, or one-time events, this flexibility means you can test designs, give gifts, or outfit a small team without overcommitting. While per-unit pricing is higher at low volumes, you pay only for what you need. Items like the Duluth Pack Credit Card Bifold Wallet or Clear Fanny Pack can be personalized for your brand. Browse our no-minimum selection and get a quote today.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "No-minimum custom wine accessories including a branded corkscrew and wine bag displayed on a wooden table.",
+  "productSkus": [
+    "520886",
+    "521927",
+    "523655",
+    "524817",
+    "525724",
+    "527493",
+    "527554",
+    "528171",
+    "528870",
+    "529359",
+    "529557"
+  ],
+  "generatedAt": "2026-05-31T10:14:30.944498+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

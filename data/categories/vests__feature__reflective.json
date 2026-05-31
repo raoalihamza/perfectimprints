@@ -1,0 +1,23 @@
+{
+  "url": "/cat/vests/feature/reflective",
+  "type": "facet",
+  "h1": "Custom Reflective Vests for Safety & Branding",
+  "metaTitle": "Custom Reflective Vests | Perfect Imprints",
+  "metaDescription": "Order custom reflective vests for your team. High-visibility safety with your logo. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Reflective vests are essential for safety in low-light conditions, whether for construction crews, event staff, or roadside workers. By adding your company logo to high-visibility vests like ANSI Class 2 mesh styles or bonded soft shell options, you combine compliance with brand visibility. Choose from breathable mesh for warm weather or insulated fleece for colder months. Screen printing or embroidery ensures your logo stays bright and durable through repeated wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom reflective vests with high-visibility strips and company logo for safety and branding",
+  "productSkus": [
+    "520280",
+    "520281",
+    "528678"
+  ],
+  "generatedAt": "2026-05-31T09:29:54.135656+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

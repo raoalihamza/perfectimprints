@@ -1,0 +1,33 @@
+{
+  "url": "/cat/gloves/supplier/srcg",
+  "type": "facet",
+  "h1": "Custom SRCG Gloves for Bulk Orders",
+  "metaTitle": "Custom SRCG Gloves | Perfect Imprints",
+  "metaDescription": "Order custom SRCG gloves in bulk from Perfect Imprints. Ideal for safety, events, and branding. Get a quote today.",
+  "introHtml": "<p>SRCG gloves combine durability with comfort, making them a popular choice for safety managers and HR directors seeking reliable hand protection for their teams. From fleece-lined options for cold weather to touch-screen-compatible designs for modern workplaces, these gloves offer practical branding opportunities. Decorate with your logo using screen printing or embroidery to reinforce company identity while keeping employees safe and comfortable on the job.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom SRCG gloves with logo branding, suitable for safety and promotional use, bulk order available.",
+  "productSkus": [
+    "516831",
+    "516832",
+    "516833",
+    "516834",
+    "516839",
+    "516872",
+    "519076",
+    "520012",
+    "521335",
+    "522780",
+    "524376",
+    "527422",
+    "527493"
+  ],
+  "generatedAt": "2026-05-31T09:14:18.047399+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

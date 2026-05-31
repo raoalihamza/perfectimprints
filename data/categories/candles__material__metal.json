@@ -1,0 +1,22 @@
+{
+  "url": "/cat/candles/material/metal",
+  "type": "facet",
+  "h1": "Custom Metal Candles for Bulk Orders",
+  "metaTitle": "Custom Metal Candles | Perfect Imprints",
+  "metaDescription": "Order custom metal candles in bulk from Perfect Imprints. Perfect for corporate gifts and events. Get a quote today!",
+  "introHtml": "<p>Metal candles, like our popular mini tin candles, offer a sleek and durable packaging option that stands out from glass or plastic. The metal tins are lightweight, shatterproof, and ideal for trade shows, employee gifts, or hotel amenities. Customize with your logo using full-color labels or screen printing for a polished brand presence.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom metal candles in mini tins with personalized labels, perfect for corporate gifts and branding.",
+  "productSkus": [
+    "526397",
+    "526398"
+  ],
+  "generatedAt": "2026-05-31T08:40:32.297196+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

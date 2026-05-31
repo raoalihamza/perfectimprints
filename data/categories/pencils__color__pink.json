@@ -1,0 +1,26 @@
+{
+  "url": "/cat/pencils/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Pencils for Bulk Orders",
+  "metaTitle": "Custom Pink Pencils - Perfect Imprints",
+  "metaDescription": "Order custom pink pencils for your next event or promotion. Perfect for breast cancer awareness, fun runs, and more. Bulk pricing available.",
+  "introHtml": "<p>Pink pencils stand out in a sea of standard yellow or black, making them a memorable giveaway for breast cancer awareness campaigns, women's empowerment events, or any promotion that needs a pop of color. From mood-changing finishes like the Mood ABC Pencil to fun shapes like the Fish Shaped Pencil, you can choose a style that matches your theme. Add your logo or message with full-color imprinting for a personalized touch that recipients will use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom pink pencils with printed logos, including mood and glow styles, on a white background.",
+  "productSkus": [
+    "502669",
+    "504680",
+    "508612",
+    "511849",
+    "516970",
+    "524813"
+  ],
+  "generatedAt": "2026-05-31T08:27:05.887173+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

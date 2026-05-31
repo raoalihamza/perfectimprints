@@ -1,0 +1,21 @@
+{
+  "url": "/cat/candles/brand/zippo",
+  "type": "facet",
+  "h1": "Custom Zippo Candles for Bulk Orders",
+  "metaTitle": "Custom Zippo Candles | Perfect Imprints",
+  "metaDescription": "Order custom Zippo candles for your brand. Perfect for giveaways and events. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Zippo candles pair the iconic brand heritage of Zippo with premium candle quality, making them a memorable giveaway for corporate events, trade shows, or client appreciation. Unlike generic candles, the Zippo name adds instant recognition and durability, especially when combined with a Zippo lighter. These candles are available in classic scents and are easily customizable with your logo using screen printing or labels, ensuring your brand stands out at any gathering.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Zippo candles with branded logo, perfect for corporate gifts and promotional events.",
+  "productSkus": [
+    "528964"
+  ],
+  "generatedAt": "2026-05-31T08:51:35.902880+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

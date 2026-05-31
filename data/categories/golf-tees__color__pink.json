@@ -1,0 +1,31 @@
+{
+  "url": "/cat/golf-tees/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Golf Tees for Branded Promotions",
+  "metaTitle": "Custom Pink Golf Tees | Perfect Imprints",
+  "metaDescription": "Order custom pink golf tees in bulk for your next event. Stand out on the course with branded tees from Perfect Imprints.",
+  "introHtml": "<p>Pink golf tees are a popular choice for breast cancer awareness events, charity tournaments, and women-focused corporate outings. Unlike standard white or natural tees, pink adds a vibrant pop of color that signals support and solidarity while keeping your brand visible at every tee box. Whether you choose biodegradable options or durable composite materials, custom pink tees pair well with matching ball markers and gloves for a coordinated giveaway set that participants remember.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink golf tees with white text logo, placed on a golf tee holder with green grass background.",
+  "productSkus": [
+    "510303",
+    "511117",
+    "517777",
+    "519574",
+    "519683",
+    "522780",
+    "523540",
+    "524126",
+    "528009",
+    "528068",
+    "529204"
+  ],
+  "generatedAt": "2026-05-31T08:34:10.757051+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

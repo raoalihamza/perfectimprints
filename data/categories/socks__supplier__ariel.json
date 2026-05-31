@@ -1,0 +1,29 @@
+{
+  "url": "/cat/socks/supplier/ariel",
+  "type": "facet",
+  "h1": "Custom Ariel Socks for Bulk Orders",
+  "metaTitle": "Custom Ariel Socks - Perfect Imprints",
+  "metaDescription": "Order custom Ariel socks in bulk from Perfect Imprints. Ideal for corporate gifts and events. Get a quote today.",
+  "introHtml": "<p>Ariel socks combine comfort and durability, making them a top pick for corporate giveaways and employee appreciation. With options like the BeWell™ Socks and Fuzzy Feet Slipper Socks, you can choose from jacquard patterns, bamboo thread blends, or full-color designs. These custom Ariel socks hold up to repeated wear and washing, ensuring your logo stays visible long after the first wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Ariel socks in bulk featuring BeWell™ socks with embroidered logo on a display table.",
+  "productSkus": [
+    "516800",
+    "521927",
+    "522251",
+    "524427",
+    "525740",
+    "526360",
+    "526361",
+    "526363",
+    "526896"
+  ],
+  "generatedAt": "2026-05-31T10:07:24.339001+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

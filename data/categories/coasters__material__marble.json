@@ -1,0 +1,22 @@
+{
+  "url": "/cat/coasters/material/marble",
+  "type": "facet",
+  "h1": "Custom Marble Coasters",
+  "metaTitle": "Custom Marble Coasters - Perfect Imprints",
+  "metaDescription": "Order custom marble coasters for your brand. Durable, elegant, and perfect for corporate gifts. Get a quote today.",
+  "introHtml": "<p>Marble coasters bring a touch of natural elegance to any desk or tabletop, making them a standout choice for corporate gifts or office branding. The smooth stone surface pairs beautifully with bamboo or cork backs, offering a refined look that resists heat and moisture. Whether you're outfitting a conference room or sending branded gifts to clients, custom marble coasters create a lasting impression. Choose from multiple decoration methods, including debossing or full-color printing, to showcase your logo with sophistication.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom marble coasters with engraved logo on a desk, showcasing elegant stone texture and corporate branding.",
+  "productSkus": [
+    "521742",
+    "526757"
+  ],
+  "generatedAt": "2026-05-31T09:10:44.017547+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

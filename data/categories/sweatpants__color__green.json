@@ -1,0 +1,26 @@
+{
+  "url": "/cat/sweatpants/color/green",
+  "type": "facet",
+  "h1": "Custom Green Sweatpants for Bulk Orders",
+  "metaTitle": "Custom Green Sweatpants | Perfect Imprints",
+  "metaDescription": "Order custom green sweatpants in bulk for your team or event. Perfect Imprints offers quality options with your logo.",
+  "introHtml": "<p>Green sweatpants offer a versatile foundation for corporate apparel, team uniforms, or event giveaways. Whether you need a subtle sage for a wellness program or a vibrant green for brand visibility, cotton-poly blends provide comfort and durability. Decorate with screen printing or embroidery on the leg or hip for a polished look that stands out from standard black or gray options.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green sweatpants with embroidered logo on the leg, folded on a table",
+  "productSkus": [
+    "526129",
+    "528865",
+    "528873",
+    "528875",
+    "528876",
+    "528886"
+  ],
+  "generatedAt": "2026-05-31T10:09:58.443357+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

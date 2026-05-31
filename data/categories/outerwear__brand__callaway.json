@@ -1,0 +1,21 @@
+{
+  "url": "/cat/outerwear/brand/callaway",
+  "type": "facet",
+  "h1": "Custom Callaway Outerwear for Bulk Orders",
+  "metaTitle": "Custom Callaway Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom Callaway outerwear in bulk. Perfect for corporate gifts and team uniforms. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Callaway outerwear combines performance fabrics with a polished look, making it a smart choice for corporate golf events, sales incentives, and employee rewards. Unlike generic outerwear, Callaway pieces feature moisture-wicking materials and athletic cuts that hold up through seasons of wear. Decorate with your logo using embroidery or screen printing for a professional finish that reflects your brand’s commitment to quality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Callaway outerwear with embroidered logo on a golf jacket",
+  "productSkus": [
+    "529257"
+  ],
+  "generatedAt": "2026-05-31T09:58:58.708798+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

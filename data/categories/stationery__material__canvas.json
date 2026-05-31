@@ -1,0 +1,19 @@
+{
+  "url": "/cat/stationery/material/canvas",
+  "type": "facet",
+  "h1": "Custom Canvas Stationery for Bulk Orders",
+  "metaTitle": "Custom Canvas Stationery | Perfect Imprints",
+  "metaDescription": "Order custom canvas stationery in bulk at Perfect Imprints. Ideal for branded notebooks, planners, and more. Get your quote today.",
+  "introHtml": "<p>Canvas stationery offers a durable, textured alternative to standard paper products. The fabric cover resists wear and tear, making it a practical choice for field workers, outdoor events, or any brand that wants a tactile, premium feel. Decorate with screen printing or debossing for a professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom canvas stationery with debossed logo on a notebook cover, perfect for bulk corporate gifts",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:08:36.133018+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

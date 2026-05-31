@@ -1,0 +1,32 @@
+{
+  "url": "/cat/sweaters-cardigans/supplier/bluegen",
+  "type": "facet",
+  "h1": "Custom Bluegen Sweaters & Cardigans",
+  "metaTitle": "Custom Bluegen Sweaters Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom Bluegen sweaters and cardigans for your team. Bulk pricing and expert decoration at Perfect Imprints.",
+  "introHtml": "<p>Bluegen sweaters and cardigans offer a polished, professional look for corporate uniforms, retail teams, and employee gifts. The Bluegen collection includes versatile styles like the Ladies' Sweater Blazer and Men's Journey Overshirt, all crafted for comfort and durability. Whether you need embroidered logos on open-front cardigans or screen-printed designs on fleece tunics, these garments provide a consistent, high-quality canvas. Choose Bluegen for a cohesive brand appearance that stands up to daily wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Bluegen sweaters and cardigans for corporate teams, including Ladies' Sweater Blazer and Men's Journey Overshirt",
+  "productSkus": [
+    "520268",
+    "520269",
+    "523604",
+    "526198",
+    "526291",
+    "526292",
+    "527181",
+    "527182",
+    "527833",
+    "527957",
+    "528757",
+    "528758"
+  ],
+  "generatedAt": "2026-05-31T09:27:36.795291+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

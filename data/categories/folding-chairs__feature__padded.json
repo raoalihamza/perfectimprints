@@ -1,0 +1,29 @@
+{
+  "url": "/cat/folding-chairs/feature/padded",
+  "type": "facet",
+  "h1": "Custom Padded Folding Chairs",
+  "metaTitle": "Custom Padded Folding Chairs | Perfect Imprints",
+  "metaDescription": "Order custom padded folding chairs with your logo. Comfortable seating for events, tailgates, and corporate use. Bulk pricing available.",
+  "introHtml": "<p>Custom padded folding chairs offer the comfort and support your guests need at outdoor events, trade shows, and corporate gatherings. Unlike standard metal folding chairs, padded models feature cushioned seats and backs that keep attendees comfortable during long presentations or game-day tailgates. Options range from stadium chairs with cup holders to reclining chairs with padded armrests. Embroider or screen print your logo on the seat or back for a professional look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom padded folding chairs with embroidered logos, comfortable cushioned seats for events and tailgating",
+  "productSkus": [
+    "513930",
+    "519774",
+    "520195",
+    "520397",
+    "521504",
+    "522742",
+    "523192",
+    "525794",
+    "526522"
+  ],
+  "generatedAt": "2026-05-31T08:26:29.361452+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/golf/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Golf Apparel & Accessories",
+  "metaTitle": "Custom Unisex Golf Gear | Perfect Imprints",
+  "metaDescription": "Order custom unisex golf polos, visors, and caps in bulk. Perfect for corporate events and tournaments. Get a quote today!",
+  "introHtml": "<p>Custom unisex golf apparel and accessories offer a versatile fit for any event, from company outings to charity tournaments. Pieces like the Nike Golf Tech Basic Dri Fit Polo and TravisMathew caps come in sizes and styles that work for all genders, ensuring a cohesive look across your team. Decorate with embroidery or screen printing for a polished finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom unisex golf polos, visors, and caps arranged on a putting green with golf clubs",
+  "productSkus": [
+    "505481",
+    "507820",
+    "515155",
+    "515156",
+    "527681",
+    "527682"
+  ],
+  "generatedAt": "2026-05-31T08:34:13.039497+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

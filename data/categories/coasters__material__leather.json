@@ -1,0 +1,23 @@
+{
+  "url": "/cat/coasters/material/leather",
+  "type": "facet",
+  "h1": "Custom Leather Coasters",
+  "metaTitle": "Custom Leather Coasters | Perfect Imprints",
+  "metaDescription": "Order custom leather coasters for your brand. Durable, stylish, and perfect for offices or events. Get a quote today.",
+  "introHtml": "<p>Leather coasters offer a refined, professional look that sets them apart from paper or plastic options. The natural texture and rich colors of genuine leather add warmth to any desk or conference table, making them ideal for corporate offices and client gifts. With options like the Just Leather Coaster or the Coaster Desk Caddy, you can choose a style that fits your brand. Custom debossing or foil stamping creates a subtle, lasting impression that speaks to quality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom leather coasters with debossed logo on a wooden desk, perfect for corporate branding",
+  "productSkus": [
+    "506094 33D",
+    "518270",
+    "518282 01A"
+  ],
+  "generatedAt": "2026-05-31T09:40:50.035013+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

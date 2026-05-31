@@ -1,0 +1,22 @@
+{
+  "url": "/cat/coasters/feature/padded",
+  "type": "facet",
+  "h1": "Custom Padded Coasters for Bulk Orders",
+  "metaTitle": "Custom Padded Coasters | Perfect Imprints",
+  "metaDescription": "Order custom padded coasters for your brand. Soft, protective, and perfect for desks and bars. Get a quote today.",
+  "introHtml": "<p>Padded coasters add a layer of protection and comfort that standard hard coasters can't match. They prevent scratches on delicate surfaces, absorb condensation, and reduce noise when setting down glasses. Whether you're branding them for a brewery, office breakroom, or corporate event, padded coasters offer a tactile experience that recipients appreciate. Decorate with your logo using screen printing or debossing for a professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom padded coasters with embroidered logo on soft fabric surface, placed on a wooden table",
+  "productSkus": [
+    "520338",
+    "526757"
+  ],
+  "generatedAt": "2026-05-31T09:10:43.977312+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

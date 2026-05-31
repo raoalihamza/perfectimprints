@@ -1,0 +1,31 @@
+{
+  "url": "/cat/balloons/color/green",
+  "type": "facet",
+  "h1": "Custom Green Balloons for Branded Events",
+  "metaTitle": "Custom Green Balloons | Perfect Imprints",
+  "metaDescription": "Order custom green balloons for your next event. Perfect for eco-friendly branding or St. Patrick's Day. Bulk pricing available.",
+  "introHtml": "<p>Green balloons stand out for environmental campaigns, St. Patrick's Day promotions, or any brand using green in its logo. Whether you choose metallic latex for shine or standard latex for matte elegance, these balloons offer high visibility at trade shows, grand openings, or company picnics. Imprint your logo or message in one or two colors for a cohesive look that reinforces your brand identity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green balloons with company logo printed on metallic latex balloon, ideal for corporate events",
+  "productSkus": [
+    "527576",
+    "527577",
+    "527578",
+    "527579",
+    "527580",
+    "527581",
+    "527582",
+    "527583",
+    "527584",
+    "527585",
+    "527586"
+  ],
+  "generatedAt": "2026-05-31T08:39:18.557622+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

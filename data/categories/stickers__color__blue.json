@@ -1,0 +1,25 @@
+{
+  "url": "/cat/stickers/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Stickers for Bulk Orders",
+  "metaTitle": "Custom Blue Stickers | Perfect Imprints",
+  "metaDescription": "Order custom blue stickers for your brand. Bulk pricing, fast turnaround. Perfect for promotions, safety, and more.",
+  "introHtml": "<p>Blue stickers stand out in a crowd, making them a smart choice for safety markers, directional signage, or brand logos. Whether you need durable vinyl for outdoor equipment or removable adhesive for temporary promotions, blue offers high visibility and a professional look. Choose from gloss, matte, or reflective finishes to match your application. Perfect for marketing directors, safety managers, and business owners ordering in bulk.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue stickers in various shapes and sizes with glossy finish, ideal for branding and safety identification",
+  "productSkus": [
+    "503360",
+    "506951",
+    "513338",
+    "520715",
+    "521967"
+  ],
+  "generatedAt": "2026-05-31T10:08:53.391617+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

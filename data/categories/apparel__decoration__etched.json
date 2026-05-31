@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel/decoration/etched",
+  "type": "facet",
+  "h1": "Custom Etched Apparel for Bulk Orders",
+  "metaTitle": "Custom Etched Apparel | Perfect Imprints",
+  "metaDescription": "Order custom etched apparel for your team or event. Perfect for logos and text. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Custom etched apparel uses a laser to remove material from the fabric surface, creating a crisp, permanent mark that won't peel or fade. This technique works especially well on polyester and fleece garments like the Women's Caltech Knit Quarter Zip, giving your logo a subtle, professional texture. Etching is ideal for safety managers needing durable, high-visibility branding or marketing directors seeking a refined look for company uniforms.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom etched apparel featuring a laser-etched logo on a women's quarter zip fleece jacket",
+  "productSkus": [
+    "513747"
+  ],
+  "generatedAt": "2026-05-31T08:38:44.552648+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

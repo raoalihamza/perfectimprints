@@ -1,0 +1,21 @@
+{
+  "url": "/cat/koozies/material/vinyl",
+  "type": "facet",
+  "h1": "Custom Vinyl Koozies for Bulk Orders",
+  "metaTitle": "Custom Vinyl Koozies | Perfect Imprints",
+  "metaDescription": "Order custom vinyl koozies in bulk. Perfect for events, giveaways, and brand promotion. Get a quote today.",
+  "introHtml": "<p>Vinyl koozies offer a durable, waterproof option for keeping drinks cold at outdoor events, job sites, or tailgates. Unlike fabric koozies, vinyl resists moisture and wipes clean easily, making it ideal for repeated use in messy environments. Custom imprinting on vinyl provides crisp, vibrant logos that stand out. Whether you need a glow-in-the-dark design for nighttime visibility or a classic solid color, custom vinyl koozies deliver reliable branding that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom vinyl koozies with a printed logo, keeping a beverage can cold at an outdoor event.",
+  "productSkus": [
+    "522888"
+  ],
+  "generatedAt": "2026-05-31T09:17:34.084708+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

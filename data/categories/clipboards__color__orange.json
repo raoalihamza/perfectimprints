@@ -1,0 +1,32 @@
+{
+  "url": "/cat/clipboards/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Clipboards",
+  "metaTitle": "Custom Orange Clipboards | Perfect Imprints",
+  "metaDescription": "Order custom orange clipboards with your logo. Bright, durable, and perfect for safety teams. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Orange clipboards stand out in any workspace, making them a smart pick for safety managers who need high-visibility tools on job sites or for marketing directors who want branded giveaways that won't get lost on a desk. Whether you choose a letter-sized clipboard or a contour-shaped design, the vibrant color ensures your logo gets noticed. Decorate with screen printing or pad printing for a crisp, long-lasting impression that reinforces your company colors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange clipboards with screen-printed logos, available in letter and legal sizes for bulk orders.",
+  "productSkus": [
+    "501563",
+    "504548",
+    "505602",
+    "507924",
+    "508322",
+    "513203",
+    "516162",
+    "516386",
+    "516398",
+    "517891",
+    "520516",
+    "528657"
+  ],
+  "generatedAt": "2026-05-31T09:40:35.907405+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

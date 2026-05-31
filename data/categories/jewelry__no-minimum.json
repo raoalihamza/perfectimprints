@@ -1,0 +1,19 @@
+{
+  "url": "/cat/jewelry/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Jewelry for Small Orders",
+  "metaTitle": "No-Minimum Custom Jewelry | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom jewelry with no bulk requirements. Perfect for small teams, events, and gifts. Get a quote today!",
+  "introHtml": "<p>No-minimum custom jewelry lets you order exactly what you need—whether it's a single piece for a VIP gift or a small batch for your team. Unlike traditional bulk orders, there are no minimum quantities, making it ideal for small businesses, startups, and one-off events. You can mix and match styles like custom lapel pins or branded bracelets without overcommitting inventory. While per-unit pricing is slightly higher at low volumes, the flexibility to order small saves you from excess stock. Perfect for sample orders, employee recognition, or client appreciation gifts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted no-minimum custom jewelry pieces including branded lapel pins and bracelets displayed on a velvet surface",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:52:12.708312+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

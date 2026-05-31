@@ -1,0 +1,28 @@
+{
+  "url": "/cat/rubber-bracelets/search",
+  "type": "modifier",
+  "h1": "Custom Rubber Bracelets for Branded Promotions",
+  "metaTitle": "Custom Rubber Bracelets | Perfect Imprints",
+  "metaDescription": "Browse custom rubber bracelets for your next promotion. Find styles, colors, and sizes with ease. Start your order at Perfect Imprints.",
+  "introHtml": "<p>Custom rubber bracelets are a versatile and affordable promotional product that works for any audience. Whether you're looking for glow-in-the-dark options, mood-changing styles, or classic debossed silicone wristbands, this category gives you a wide range of choices. Marketing directors, HR teams, and event planners turn to rubber bracelets for their durability and customization potential. From simple single-color bands to linked silicone designs, you'll find the right fit for your campaign. Explore the possibilities and get started with a product that your recipients will actually wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom rubber bracelets in various colors including neon, glow, and mood-changing styles for promotional use.",
+  "productSkus": [
+    "506469",
+    "506959",
+    "510147",
+    "510414",
+    "511452 47B",
+    "511817",
+    "519213",
+    "523370"
+  ],
+  "generatedAt": "2026-05-31T08:25:31.889443+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

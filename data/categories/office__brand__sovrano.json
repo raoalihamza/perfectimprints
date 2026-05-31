@@ -1,0 +1,21 @@
+{
+  "url": "/cat/office/brand/sovrano",
+  "type": "facet",
+  "h1": "Custom Sovrano Office Products for Your Business",
+  "metaTitle": "Custom Sovrano Office Products | Perfect Imprints",
+  "metaDescription": "Order custom Sovrano office products from Perfect Imprints. Ideal for branded giveaways and everyday use.",
+  "introHtml": "<p>Sovrano office products offer a refined, professional look that stands out in any workspace. Whether you're outfitting a new office or planning a corporate gift, these items combine durability with a sleek aesthetic. Customize them with your logo or message using screen printing or laser engraving for a polished finish that your team and clients will appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Sovrano office products including branded pens and notebooks for corporate gifts",
+  "productSkus": [
+    "524553"
+  ],
+  "generatedAt": "2026-05-31T08:25:23.319507+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

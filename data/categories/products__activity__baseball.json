@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/activity/baseball",
+  "type": "facet",
+  "h1": "Custom Baseball Products for Teams & Events",
+  "metaTitle": "Custom Baseball Products | Perfect Imprints",
+  "metaDescription": "Order custom baseball products for your team or event. Bulk pricing on bats, balls, uniforms & more at Perfect Imprints.",
+  "introHtml": "<p>Baseball-themed promotional products are a home run for team giveaways, corporate outings, and youth league sponsorships. From logo-embroidered caps and custom-printed jerseys to engraved bats and personalized baseballs, these items build team spirit and brand loyalty. Choose durable materials like polyester for uniforms or premium leather for baseballs to ensure your logo lasts season after season. Decorating options include screen printing, heat transfer, and laser engraving for a polished, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom baseball products including caps, jerseys, bats, and balls with team logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:30:31.365083+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

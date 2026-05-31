@@ -1,0 +1,28 @@
+{
+  "url": "/cat/fleece/brand/under-armour",
+  "type": "facet",
+  "h1": "Custom Under Armour Fleece for Bulk Orders",
+  "metaTitle": "Custom Under Armour Fleece | Perfect Imprints",
+  "metaDescription": "Order custom Under Armour fleece in bulk for your team or event. Perfect for corporate branding with embroidery or screen printing.",
+  "introHtml": "<p>Under Armour fleece combines athletic performance with everyday comfort, making it a top choice for corporate teams, event staff, and promotional giveaways. The Rival Fleece Sweatshirt, available in men's and ladies' cuts, offers a soft, brushed interior and a clean look that takes embroidery and screen printing beautifully. Choose custom Under Armour fleece when you want a brand that stands for durability and active lifestyle, ensuring your logo gets noticed in the office or on the go.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Under Armour fleece sweatshirts with embroidered logos, available in men's and ladies' styles for bulk orders.",
+  "productSkus": [
+    "527121",
+    "527122",
+    "528095",
+    "528096",
+    "528105",
+    "528106",
+    "528108",
+    "529262"
+  ],
+  "generatedAt": "2026-05-31T09:46:18.447432+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

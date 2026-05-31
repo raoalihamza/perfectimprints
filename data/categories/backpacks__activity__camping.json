@@ -1,0 +1,28 @@
+{
+  "url": "/cat/backpacks/activity/camping",
+  "type": "facet",
+  "h1": "Custom Camping Backpacks for Outdoor Adventures",
+  "metaTitle": "Custom Camping Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom camping backpacks for your team or event. Perfect for outdoor promotions. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Custom camping backpacks are built for durability and function, from hydration packs to dry bag backpacks. Whether you need a lightweight Mini Hydration Pack for hiking or a rugged Basecamp® Ascent Backpack for overnight trips, these bags carry your logo into the outdoors. Decorate with screen printing or embroidery for a professional look that lasts through mud, rain, and trails.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom camping backpacks with hydration pack and dry bag features for outdoor use",
+  "productSkus": [
+    "514184",
+    "514185 01A",
+    "517456",
+    "521471",
+    "521834",
+    "521836",
+    "522667",
+    "528445"
+  ],
+  "generatedAt": "2026-05-31T09:33:28.726085+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

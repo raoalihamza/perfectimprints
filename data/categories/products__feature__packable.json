@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/packable",
+  "type": "facet",
+  "h1": "Custom Packable Products for Bulk Orders",
+  "metaTitle": "Custom Packable Products | Perfect Imprints",
+  "metaDescription": "Order custom packable products for your next event or promotion. Lightweight and portable, perfect for giveaways. Get a quote from Perfect Imprints.",
+  "introHtml": "<p>Custom packable products are designed for easy transport and storage, making them ideal for trade shows, outdoor events, and employee kits. From collapsible water bottles to foldable tote bags, these items compress into compact shapes that fit in pockets or small bags. Choose from options like nylon or polyester that resist wrinkles and wear. Decorate with your logo using screen printing or embroidery for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom packable products including a collapsible water bottle and foldable tote bag",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:03:51.773204+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

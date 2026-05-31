@@ -1,0 +1,30 @@
+{
+  "url": "/cat/sunglasses/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Sunglasses",
+  "metaTitle": "Custom Recycled Sunglasses | Perfect Imprints",
+  "metaDescription": "Shop custom recycled sunglasses for eco-friendly branding. Bulk orders with logo imprinting at Perfect Imprints.",
+  "introHtml": "<p>Recycled sunglasses give your brand a sustainable edge while offering practical sun protection. Made from reclaimed materials like recycled plastic frames, these eco-friendly shades appeal to environmentally conscious clients and employees. Perfect for trade shows, corporate gifts, or promotional events, custom recycled sunglasses can be imprinted with your logo on the frame or lens. Options like the Cobra Recycled Sunglasses or Gatsby Recycled Frame Sunglasses combine style with sustainability, making them a standout choice for green marketing campaigns.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled sunglasses with logo imprinting on eco-friendly frame, perfect for promotional giveaways",
+  "productSkus": [
+    "505312",
+    "507422",
+    "510468 64F",
+    "510469 64E",
+    "520335",
+    "527733",
+    "528170",
+    "529384",
+    "529463",
+    "529482"
+  ],
+  "generatedAt": "2026-05-31T09:27:14.577562+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

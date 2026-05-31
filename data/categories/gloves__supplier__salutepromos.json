@@ -1,0 +1,33 @@
+{
+  "url": "/cat/gloves/supplier/salutepromos",
+  "type": "facet",
+  "h1": "Custom Salutepromos Gloves for Bulk Orders",
+  "metaTitle": "Custom Salutepromos Gloves | Perfect Imprints",
+  "metaDescription": "Order custom Salutepromos gloves in bulk from Perfect Imprints. Ideal for branding with your logo. Get a quote today!",
+  "introHtml": "<p>Salutepromos gloves combine practicality with brand visibility, making them a smart choice for trade shows, employee giveaways, or safety programs. From touch-screen-friendly TechSmart Gloves to durable Workit All Purpose Gloves, each style offers reliable quality that your recipients will actually use. Decorate with your logo using screen printing or embroidery for a polished look that keeps your brand top of mind through cold weather or daily tasks.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Salutepromos gloves with embroidered logo in black and gray fleece material",
+  "productSkus": [
+    "516831",
+    "516832",
+    "516833",
+    "516834",
+    "516839",
+    "516872",
+    "519076",
+    "520012",
+    "521335",
+    "522780",
+    "524376",
+    "527422",
+    "527493"
+  ],
+  "generatedAt": "2026-05-31T09:14:18.267321+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

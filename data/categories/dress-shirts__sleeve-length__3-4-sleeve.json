@@ -1,0 +1,33 @@
+{
+  "url": "/cat/dress-shirts/sleeve-length/3-4-sleeve",
+  "type": "facet",
+  "h1": "Custom 3 4 Sleeve Dress Shirts",
+  "metaTitle": "Custom 3 4 Sleeve Dress Shirts | Perfect Imprints",
+  "metaDescription": "Order custom 3 4 sleeve dress shirts for your team. Perfect for business casual or uniform needs. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom 3 4 sleeve dress shirts offer a polished yet relaxed look, ideal for businesses that want a professional appearance without the formality of full-length sleeves. From the Ladies' Port Authority 3/4-Sleeve Tunic Blouse to the Vansport Pro Maui Shirt, these styles are perfect for customer-facing roles, trade shows, or casual Fridays. Decorate with embroidery or screen printing for a lasting brand impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom 3 4 sleeve dress shirts for business casual uniforms featuring embroidery options",
+  "productSkus": [
+    "501741",
+    "517273",
+    "517274",
+    "519011",
+    "523719",
+    "524313",
+    "525605",
+    "525606",
+    "525732",
+    "526291",
+    "527895",
+    "528949",
+    "528951"
+  ],
+  "generatedAt": "2026-05-31T09:12:06.879859+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

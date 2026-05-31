@@ -1,0 +1,30 @@
+{
+  "url": "/cat/wine-stoppers/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Wine Stoppers",
+  "metaTitle": "Custom Purple Wine Stoppers | Perfect Imprints",
+  "metaDescription": "Order custom purple wine stoppers for your brand. Perfect for gifts and events. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Purple wine stoppers add a regal touch to any bottle, making them a standout choice for wine clubs, corporate gifts, or promotional events. Choose from finishes like matte or gloss, and customize with your logo via pad printing or engraving. These stoppers keep wine fresh while showcasing your brand in a sophisticated color that pairs well with both red and white wines.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple wine stoppers with engraved logo on a wine bottle, promotional gift idea",
+  "productSkus": [
+    "506445",
+    "506991",
+    "519430",
+    "521602",
+    "524609",
+    "524693",
+    "524817",
+    "524905",
+    "524945",
+    "525272"
+  ],
+  "generatedAt": "2026-05-31T10:15:16.430740+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

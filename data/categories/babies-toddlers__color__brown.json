@@ -1,0 +1,29 @@
+{
+  "url": "/cat/babies-toddlers/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Babies & Toddlers Products",
+  "metaTitle": "Custom Brown Babies & Toddlers | Perfect Imprints",
+  "metaDescription": "Shop custom brown babies & toddlers items at Perfect Imprints. Perfect for giveaways and events. Order bulk today!",
+  "introHtml": "<p>Brown-themed products for babies and toddlers offer a warm, neutral option that works well for gender-neutral events or corporate family-friendly giveaways. From plush sock monkeys and teddy bears to crayon sets and coloring books, these items appeal to parents seeking unisex gifts. Decorate with your logo using screen printing or embroidery for a soft, approachable brand impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown babies and toddlers products including a brown sock monkey and teddy bear with logo",
+  "productSkus": [
+    "510412",
+    "513799 30A",
+    "519106 30A",
+    "519676",
+    "519909",
+    "519961",
+    "520733",
+    "521452",
+    "525835"
+  ],
+  "generatedAt": "2026-05-31T09:33:24.054406+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

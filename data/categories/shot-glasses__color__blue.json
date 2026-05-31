@@ -1,0 +1,23 @@
+{
+  "url": "/cat/shot-glasses/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Shot Glasses",
+  "metaTitle": "Custom Blue Shot Glasses | Perfect Imprints",
+  "metaDescription": "Order custom blue shot glasses in bulk for events, bars, or promotions. Fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>Blue shot glasses add a pop of color to any bar or event, making them a standout choice for branded drinkware. Whether you choose frosted glass for a subtle logo or clear glass with vibrant blue tint, these custom shot glasses work well for corporate gifts, tailgates, or promotional giveaways. The 1.5 oz Silipint Silishot offers a durable, non-slip option for outdoor use. Decorate with screen printing or etching to keep your brand visible all night.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom blue shot glasses with frosted finish and corporate logo displayed on a bar counter.",
+  "productSkus": [
+    "525816",
+    "525817",
+    "526428"
+  ],
+  "generatedAt": "2026-05-31T08:46:45.100244+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

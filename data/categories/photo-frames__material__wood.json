@@ -1,0 +1,21 @@
+{
+  "url": "/cat/photo-frames/material/wood",
+  "type": "facet",
+  "h1": "Custom Wood Photo Frames for Bulk Orders",
+  "metaTitle": "Custom Wood Photo Frames | Perfect Imprints",
+  "metaDescription": "Order custom wood photo frames in bulk at Perfect Imprints. Ideal for gifts and displays. Get a quote today!",
+  "introHtml": "<p>Wood photo frames offer a natural, warm aesthetic that suits corporate offices, retail displays, and employee recognition programs. Unlike plastic or metal alternatives, wood frames convey durability and craftsmanship, making them ideal for long-lasting branded gifts. Choose from various wood finishes and add your logo through engraving or screen printing for a professional look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wood photo frames with engraved logo displayed on a desk in a corporate office setting.",
+  "productSkus": [
+    "522144"
+  ],
+  "generatedAt": "2026-05-31T09:23:01.065500+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

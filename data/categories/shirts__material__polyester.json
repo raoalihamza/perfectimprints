@@ -1,0 +1,26 @@
+{
+  "url": "/cat/shirts/material/polyester",
+  "type": "facet",
+  "h1": "Custom Polyester Shirts for Bulk Orders",
+  "metaTitle": "Custom Polyester Shirts | Perfect Imprints",
+  "metaDescription": "Order custom polyester shirts in bulk for your team or event. Durable, wrinkle-resistant fabric with your logo. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Polyester shirts offer a durable, wrinkle-resistant option that holds color and shape through repeated wear and washing. Ideal for uniforms, event staff, or promotional giveaways, these shirts can be decorated with embroidery, screen printing, or heat transfer. Our selection includes men's and ladies' dress shirts and blouses that maintain a professional appearance with minimal care.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom polyester shirts with embroidered logo on a dress shirt displayed on a mannequin",
+  "productSkus": [
+    "515106",
+    "515107",
+    "524313",
+    "525546",
+    "529246",
+    "529247"
+  ],
+  "generatedAt": "2026-05-31T08:23:18.886791+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/pens/color/neon",
+  "type": "facet",
+  "h1": "Custom Neon Pens for Bulk Orders",
+  "metaTitle": "Custom Neon Pens | Perfect Imprints",
+  "metaDescription": "Order custom neon pens in bulk for events, giveaways, and promotions. Bright, bold, and affordable. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Neon pens make your logo impossible to ignore. Whether you're promoting a night event, a youth program, or a safety campaign, these bright colors stand out on any desk. The Super Nova Highlighter Combo Pen combines a neon highlighter with a black ink pen, giving recipients two tools in one. Perfect for trade shows, school supply kits, or corporate swag bags where visibility matters. Choose from multiple neon shades and imprint your brand with screen printing or pad printing for crisp, long-lasting results.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bright custom neon pens with printed logos, including the Super Nova Highlighter Combo Pen, displayed on a white background.",
+  "productSkus": [
+    "522988"
+  ],
+  "generatedAt": "2026-05-31T08:59:35.628939+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

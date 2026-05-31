@@ -1,0 +1,24 @@
+{
+  "url": "/cat/sunglasses/eco-friendly/bioplastic",
+  "type": "facet",
+  "h1": "Custom Bioplastic Sunglasses",
+  "metaTitle": "Custom Bioplastic Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom bioplastic sunglasses for your next event. Eco-friendly and stylish, perfect for branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Bioplastic sunglasses offer the durability and UV protection you expect from traditional sunglasses, but with a reduced environmental footprint. Made from plant-based materials, these frames are a tangible way to showcase your brand's commitment to sustainability. Ideal for trade shows, corporate gifts, or eco-focused events, they can be decorated with your logo through pad printing or laser engraving. The lightweight material ensures comfort for all-day wear, while the variety of lens colors allows you to coordinate with your brand palette.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom bioplastic sunglasses with logo on temple, eco-friendly frame in black, perfect for corporate gifts",
+  "productSkus": [
+    "507422",
+    "510468 64F",
+    "513236",
+    "526802"
+  ],
+  "generatedAt": "2026-05-31T10:09:23.401848+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

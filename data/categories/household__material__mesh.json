@@ -1,0 +1,21 @@
+{
+  "url": "/cat/household/material/mesh",
+  "type": "facet",
+  "h1": "Custom Mesh Household Items",
+  "metaTitle": "Custom Mesh Household Items | Perfect Imprints",
+  "metaDescription": "Order custom mesh household items for bulk giveaways. Perfect for outdoor events and home use. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Mesh household items offer a unique combination of breathability and visibility, making them ideal for outdoor events, poolside giveaways, or beach promotions. From mesh bags that let sand fall through to ventilated storage solutions, these products keep contents dry and accessible. Decorate with screen printing or embroidery for a crisp logo that stands out against the open weave. Perfect for corporate picnics, safety fairs, or summer welcome kits where practicality meets brand exposure.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom mesh household items like a mesh tote bag with screen-printed logo, ideal for outdoor events",
+  "productSkus": [
+    "526639"
+  ],
+  "generatedAt": "2026-05-31T09:16:14.816196+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

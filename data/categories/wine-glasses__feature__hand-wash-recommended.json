@@ -1,0 +1,22 @@
+{
+  "url": "/cat/wine-glasses/feature/hand-wash-recommended",
+  "type": "facet",
+  "h1": "Custom Hand Wash Recommended Wine Glasses",
+  "metaTitle": "Custom Hand Wash Recommended Wine Glasses | Perfect Imprints",
+  "metaDescription": "Order custom hand wash recommended wine glasses for your event. Perfect for delicate designs and premium branding. Get a quote today!",
+  "introHtml": "<p>Hand wash recommended wine glasses are ideal for preserving intricate decorations like etched logos or metallic foil prints. Unlike dishwasher-safe options, these glasses offer a more refined feel and are perfect for corporate gifts, VIP events, or upscale promotional giveaways where presentation matters. Choose from styles like the 25 oz BrüMate Winesulator for outdoor elegance or the 10 oz Viking Lowball Tumbler for a classic look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hand wash recommended wine glasses featuring etched logo on a clear glass stemware",
+  "productSkus": [
+    "520339",
+    "527802"
+  ],
+  "generatedAt": "2026-05-31T10:14:56.252575+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

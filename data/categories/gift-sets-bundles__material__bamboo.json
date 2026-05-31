@@ -1,0 +1,28 @@
+{
+  "url": "/cat/gift-sets-bundles/material/bamboo",
+  "type": "facet",
+  "h1": "Custom Bamboo Gift Sets & Bundles",
+  "metaTitle": "Custom Bamboo Gift Sets Bundles | Perfect Imprints",
+  "metaDescription": "Order custom bamboo gift sets bundles for eco-friendly corporate gifting. Perfect for client appreciation or employee rewards.",
+  "introHtml": "<p>Bamboo gift sets and bundles offer a sustainable alternative to plastic-based promotional products, combining natural aesthetics with practical utility. Whether you choose a bamboo wireless charger for tech-forward clients or a cozy kit with a soy candle for wellness-focused employees, the warm wood grain adds an upscale, eco-conscious feel to any corporate gift. These sets work well for Earth Day campaigns, trade show giveaways, or year-end appreciation gifts that reflect your company's commitment to the environment.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom bamboo gift sets and bundles including wireless charger, cutting board, and candle for eco-friendly corporate gifting",
+  "productSkus": [
+    "525181",
+    "525325",
+    "525705",
+    "526141",
+    "526519",
+    "526751",
+    "526765",
+    "526771"
+  ],
+  "generatedAt": "2026-05-31T09:47:57.006904+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

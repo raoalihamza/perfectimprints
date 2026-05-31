@@ -1,0 +1,23 @@
+{
+  "url": "/cat/shorts/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Shorts",
+  "metaTitle": "Custom Recycled Shorts | Perfect Imprints",
+  "metaDescription": "Order custom recycled shorts in bulk. Eco-friendly branding for your team or event. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Recycled shorts are a smart choice for businesses that prioritize sustainability without sacrificing comfort or performance. Made from post-consumer recycled polyester, these shorts reduce waste while delivering the same durability and moisture-wicking properties as virgin materials. Whether you are outfitting a corporate wellness team or supplying uniforms for a community event, custom recycled shorts let you promote your brand and environmental values together. Decorate with screen printing or embroidery for a professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled shorts in bulk for corporate branding, eco-friendly apparel with recycled polyester fabric",
+  "productSkus": [
+    "528865",
+    "528881",
+    "528882"
+  ],
+  "generatedAt": "2026-05-31T10:06:49.199577+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

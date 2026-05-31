@@ -1,0 +1,21 @@
+{
+  "url": "/cat/electronics/special-feature/on-sale",
+  "type": "facet",
+  "h1": "Custom On Sale Electronics for Bulk Orders",
+  "metaTitle": "Custom On Sale Electronics | Perfect Imprints",
+  "metaDescription": "Browse custom on sale electronics for bulk orders. Save on branded power banks, chargers, and more at Perfect Imprints.",
+  "introHtml": "<p>On sale electronics let you stretch your promotional budget further without sacrificing quality. Whether you need branded Jolt Chargers for a trade show or custom power banks for employee gifts, these discounted items deliver the same performance as full-price options. Stock up on useful tech that recipients will actually keep, while keeping your bottom line in check.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom on sale electronics including a Jolt Charger with a company logo, displayed on a desk",
+  "productSkus": [
+    "510767"
+  ],
+  "generatedAt": "2026-05-31T09:12:43.862416+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

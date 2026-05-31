@@ -1,0 +1,30 @@
+{
+  "url": "/cat/duffle-gym-bags/color/red",
+  "type": "facet",
+  "h1": "Custom Red Duffle Gym Bags",
+  "metaTitle": "Custom Red Duffle Gym Bags | Perfect Imprints",
+  "metaDescription": "Order custom red duffle gym bags for your team or event. Bulk pricing and free setup at Perfect Imprints.",
+  "introHtml": "<p>Red duffle gym bags stand out instantly in a crowd, making them ideal for team gear, corporate fitness challenges, or branded event giveaways. The bold color pairs well with white or black imprint for high contrast logos. Whether you choose the Weekender Duffle for travel or the Center Court Duffle for daily gym use, a red bag ensures your brand is seen from the parking lot to the locker room.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red duffle gym bags with white logo imprint on a textured fabric surface, displayed side by side.",
+  "productSkus": [
+    "501186",
+    "506305",
+    "507675",
+    "509658",
+    "510723",
+    "513021",
+    "520399",
+    "520524",
+    "524412",
+    "527342"
+  ],
+  "generatedAt": "2026-05-31T08:24:07.738270+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

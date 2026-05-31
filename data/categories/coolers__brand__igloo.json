@@ -1,0 +1,30 @@
+{
+  "url": "/cat/coolers/brand/igloo",
+  "type": "facet",
+  "h1": "Custom Igloo Coolers for Bulk Orders",
+  "metaTitle": "Custom Igloo Coolers | Perfect Imprints",
+  "metaDescription": "Order custom Igloo coolers for your brand. Perfect for events, giveaways, and employee gifts. Bulk pricing available.",
+  "introHtml": "<p>When you choose custom Igloo coolers, you're selecting a brand known for durability and ice retention. Perfect for tailgates, trade shows, or employee appreciation, these coolers offer excellent decoration space for your logo. Options like the Repreve Tote Cooler or Trailmate 30 Can Cooler combine sustainability with performance. Customize with screen printing or embroidery to make your brand stand out at any event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Igloo coolers with company logo, including a blue Igloo Trailmate 30 Can Cooler and a gray Repreve Tote Cooler.",
+  "productSkus": [
+    "525373",
+    "525923",
+    "525924",
+    "526093",
+    "526420",
+    "526486",
+    "526487",
+    "526724",
+    "526725",
+    "527199"
+  ],
+  "generatedAt": "2026-05-31T08:21:30.557326+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

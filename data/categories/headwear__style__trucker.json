@@ -1,0 +1,31 @@
+{
+  "url": "/cat/headwear/style/trucker",
+  "type": "facet",
+  "h1": "Custom Trucker Headwear for Your Brand",
+  "metaTitle": "Custom Trucker Headwear | Perfect Imprints",
+  "metaDescription": "Shop custom trucker headwear at Perfect Imprints. Bulk pricing, fast turnaround, and quality brands like Richardson. Get a quote today.",
+  "introHtml": "<p>Trucker headwear stands out with its breathable mesh back and structured front panels, making it a favorite for outdoor events, trade shows, and employee uniforms. The foam front and curved brim provide a classic look that holds embroidery and screen printing well. Whether you choose a low-profile Richardson Snapback or a washed mesh cap for a relaxed vibe, these hats offer durability and all-day comfort. Perfect for sun protection and brand visibility at job sites or company picnics.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom trucker headwear featuring a structured foam front and mesh back panels, ideal for embroidery and screen printing.",
+  "productSkus": [
+    "516928",
+    "521617",
+    "522099",
+    "522530",
+    "522602",
+    "522624",
+    "522625",
+    "522627",
+    "522628",
+    "522635",
+    "527682"
+  ],
+  "generatedAt": "2026-05-31T09:15:41.520324+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

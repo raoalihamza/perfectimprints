@@ -1,0 +1,23 @@
+{
+  "url": "/cat/ornaments/color/gray",
+  "type": "facet",
+  "h1": "Custom Gray Ornaments for Bulk Orders",
+  "metaTitle": "Custom Gray Ornaments | Perfect Imprints",
+  "metaDescription": "Order custom gray ornaments in bulk for your brand. Perfect for corporate gifts and events. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Gray ornaments offer a sophisticated, neutral look that works well for corporate gifts, holiday promotions, and year-round branding. Whether you choose metal, ceramic, or hammered glass, the gray finish provides a modern backdrop that makes your logo stand out. Ideal for marketing directors and business owners looking for elegant, versatile giveaways that appeal to a wide audience.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gray ornaments in metal, ceramic, and hammered glass styles for corporate branding",
+  "productSkus": [
+    "525278",
+    "525279",
+    "526848"
+  ],
+  "generatedAt": "2026-05-31T09:58:27.774111+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

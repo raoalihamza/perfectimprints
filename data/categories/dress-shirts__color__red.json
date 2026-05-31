@@ -1,0 +1,27 @@
+{
+  "url": "/cat/dress-shirts/color/red",
+  "type": "facet",
+  "h1": "Custom Red Dress Shirts for Bulk Orders",
+  "metaTitle": "Custom Red Dress Shirts | Perfect Imprints",
+  "metaDescription": "Order custom red dress shirts in bulk for your team. Perfect for uniforms or events. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Red dress shirts make a bold, professional statement for your team, whether for a retail uniform, trade show, or company event. The vibrant color stands out in photos and on the sales floor, while options like the Men's Preston Long Sleeve Shirt offer wrinkle-resistant broadcloth for all-day wear. Add your logo with embroidery or screen printing for a polished look that reinforces brand recognition.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red dress shirts for bulk orders, featuring men's and women's styles with embroidered logos",
+  "productSkus": [
+    "513877",
+    "513878",
+    "517273",
+    "517274",
+    "519011",
+    "520265",
+    "520266"
+  ],
+  "generatedAt": "2026-05-31T08:24:06.021098+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

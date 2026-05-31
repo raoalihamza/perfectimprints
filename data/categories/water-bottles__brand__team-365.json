@@ -1,0 +1,27 @@
+{
+  "url": "/cat/water-bottles/brand/team-365",
+  "type": "facet",
+  "h1": "Custom Team 365 Water Bottles",
+  "metaTitle": "Custom Team 365 Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom Team 365 water bottles for your team or event. Bulk pricing, fast turnaround. Get a quote today!",
+  "introHtml": "<p>Team 365 water bottles combine durability with modern design, making them a top pick for corporate events, sports teams, and employee gifts. With options like the 32 oz Adventure Bottle with Flip Straw Lid and the 26 oz Flair Bottle with Quick Snap Lid, you get rugged construction and easy hydration on the go. These bottles accept full-color pad printing or laser engraving, ensuring your logo stands out. Choose Team 365 for a reliable, branded bottle that your recipients will actually use every day.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Team 365 water bottles with flip straw lids and logo imprint, ideal for corporate gifts or team events",
+  "productSkus": [
+    "501032",
+    "501033",
+    "507021",
+    "520465",
+    "527570",
+    "527572",
+    "527573"
+  ],
+  "generatedAt": "2026-05-31T09:30:07.308579+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

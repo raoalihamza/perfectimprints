@@ -1,0 +1,27 @@
+{
+  "url": "/cat/products/brand/dri-duck",
+  "type": "facet",
+  "h1": "Custom Dri Duck Products for Bulk Orders",
+  "metaTitle": "Custom Dri Duck Products | Perfect Imprints",
+  "metaDescription": "Order custom Dri Duck products in bulk. Perfect for corporate gifts, safety rewards, and branded apparel. Get a quote today!",
+  "introHtml": "<p>Dri Duck products are known for their rugged durability and practical designs, making them a top choice for safety managers and outdoor-oriented brands. From waterproof jackets to insulated drinkware, these items perform well in tough conditions while keeping your logo visible. Whether you need custom gear for a construction crew or promotional items for a hunting expo, Dri Duck offers reliable options that recipients will use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Dri Duck products including a waterproof jacket, insulated mug, and can cooler with logos",
+  "productSkus": [
+    "522595",
+    "527125",
+    "527126",
+    "528099",
+    "528100",
+    "528838",
+    "529182"
+  ],
+  "generatedAt": "2026-05-31T08:36:45.439801+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

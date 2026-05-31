@@ -1,0 +1,22 @@
+{
+  "url": "/cat/scarves/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Scarves for Bulk Orders",
+  "metaTitle": "Custom Set Scarves - Perfect Imprints",
+  "metaDescription": "Order custom set scarves in bulk at Perfect Imprints. Perfect for corporate gifts and employee appreciation. Get a quote today!",
+  "introHtml": "<p>Custom set scarves bundle multiple scarves or coordinate with gloves and hats for a polished gift. Marketing directors and HR managers choose sets for holiday gifts, welcome kits, and trade show giveaways because they offer more perceived value than a single scarf. Options like the Nice-N-Cozy Fleece Gift Set or the 3 Piece Knit Set provide warmth and brand visibility. Decorate with embroidery or full-color digital printing for a professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set scarves bundled with matching accessories for corporate gifts",
+  "productSkus": [
+    "516872",
+    "520012"
+  ],
+  "generatedAt": "2026-05-31T09:25:09.230025+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

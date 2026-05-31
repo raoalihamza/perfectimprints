@@ -1,0 +1,32 @@
+{
+  "url": "/cat/t-shirts/material/jersey",
+  "type": "facet",
+  "h1": "Custom Jersey T Shirts for Your Team",
+  "metaTitle": "Custom Jersey T Shirts | Perfect Imprints",
+  "metaDescription": "Order custom jersey t shirts for your team or event. Soft, breathable fabric perfect for screen printing. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Jersey fabric is a knit material known for its soft hand and natural stretch, making it a favorite for custom t shirts. Unlike standard cotton tees, jersey knits drape well and resist wrinkling, which is ideal for branded uniforms, event giveaways, or employee apparel. Whether you choose a fine jersey tee for a polished look or a performance blend for active wear, this fabric holds vibrant screen prints and embroidery cleanly. Bulk orders ensure consistent color and sizing across your entire team.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom jersey t shirts in various colors with printed logos",
+  "productSkus": [
+    "505094",
+    "506191",
+    "507457",
+    "507458",
+    "514720",
+    "515983",
+    "520600",
+    "524031",
+    "524039",
+    "524040",
+    "525407",
+    "525408"
+  ],
+  "generatedAt": "2026-05-31T08:37:49.402958+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

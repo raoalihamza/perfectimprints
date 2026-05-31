@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel-accessories/activity/rugby",
+  "type": "facet",
+  "h1": "Custom Rugby Apparel Accessories",
+  "metaTitle": "Custom Rugby Apparel Accessories | Perfect Imprints",
+  "metaDescription": "Shop custom rugby apparel accessories for your team or event. Bulk orders available from Perfect Imprints.",
+  "introHtml": "<p>Rugby apparel accessories let you outfit your team or event attendees with gear that matches the sport's rugged, classic style. From striped knit scarves to branded headwear, these items work well for rugby clubs, tournaments, and corporate sponsorships. Decorate with screen printing or embroidery to add logos that hold up through game day and beyond.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom rugby apparel accessories including a striped knit scarf with embroidered logo",
+  "productSkus": [
+    "520863"
+  ],
+  "generatedAt": "2026-05-31T09:31:42.942122+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/pet-bowls/material/steel",
+  "type": "facet",
+  "h1": "Custom Steel Pet Bowls",
+  "metaTitle": "Custom Steel Pet Bowls | Perfect Imprints",
+  "metaDescription": "Order custom steel pet bowls for your brand. Durable, easy to clean, and perfect for pet-focused promotions.",
+  "introHtml": "<p>Steel pet bowls offer a durable, hygienic option that resists cracking and retains cool water longer than plastic or ceramic alternatives. Ideal for outdoor events, pet adoption drives, or employee welcome kits, these bowls can be laser engraved or screen printed with your logo. Stainless steel construction ensures they hold up to daily use without absorbing odors or stains, making them a practical branded giveaway that pet owners appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom steel pet bowls with engraved logo, durable stainless steel construction for pet owners.",
+  "productSkus": [
+    "524371",
+    "524415",
+    "529534"
+  ],
+  "generatedAt": "2026-05-31T09:00:01.600613+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

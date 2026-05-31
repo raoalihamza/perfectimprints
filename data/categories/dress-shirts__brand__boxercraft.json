@@ -1,0 +1,27 @@
+{
+  "url": "/cat/dress-shirts/brand/boxercraft",
+  "type": "facet",
+  "h1": "Custom Boxercraft Dress Shirts for Bulk Orders",
+  "metaTitle": "Custom Boxercraft Dress Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Boxercraft dress shirts in bulk for your team. Perfect for uniforms and events. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Boxercraft dress shirts combine classic style with durable construction, making them a smart choice for businesses that need professional uniforms or event apparel. Unlike generic dress shirts, Boxercraft offers a range of fits and fabrics, from flannel to sherpa, that hold up to frequent wear and washing. Whether you're outfitting a sales team or a promotional event, custom Boxercraft dress shirts with your logo offer a polished, cohesive look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Boxercraft dress shirts with embroidered logo on front, displayed on a mannequin in a professional setting",
+  "productSkus": [
+    "521535",
+    "527831",
+    "527832",
+    "527833",
+    "527834",
+    "527835",
+    "527836"
+  ],
+  "generatedAt": "2026-05-31T08:53:11.265482+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

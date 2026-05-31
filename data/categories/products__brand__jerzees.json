@@ -1,0 +1,27 @@
+{
+  "url": "/cat/products/brand/jerzees",
+  "type": "facet",
+  "h1": "Custom Jerzees Products for Bulk Orders",
+  "metaTitle": "Custom Jerzees Products | Perfect Imprints",
+  "metaDescription": "Order custom Jerzees products in bulk from Perfect Imprints. Ideal for teams, events, and uniform programs. Get a quote today!",
+  "introHtml": "<p>Jerzees products offer a reliable balance of comfort and durability for bulk apparel needs. From the soft NuBlend hoodie to the heavyweight blend long-sleeve tee, each piece is built for consistent screen printing and embroidery. Marketing directors and safety managers turn to Jerzees for uniform programs and event giveaways because the fabric holds up wash after wash. Choose Jerzees when you need a trusted brand that keeps your team looking sharp without the premium price tag.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom Jerzees products including hoodies and t-shirts with printed logos.",
+  "productSkus": [
+    "505528",
+    "515903",
+    "515983",
+    "515984",
+    "515994",
+    "515995",
+    "515996"
+  ],
+  "generatedAt": "2026-05-31T10:03:32.547405+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/products/brand/out-of-the-woods",
+  "type": "facet",
+  "h1": "Custom Out of the Woods Products for Bulk Orders",
+  "metaTitle": "Custom Out of the Woods Products | Perfect Imprints",
+  "metaDescription": "Order custom Out of the Woods products in bulk with your logo. Perfect for giveaways, events & corporate gifts. Get started at Perfect Imprints.",
+  "introHtml": "<p>Out of the Woods products bring a rustic, eco-conscious aesthetic to your promotional lineup. From the Seagull Cooler to the Connoisseur Wine Tote, each item is crafted with sustainable materials and a timeless design that stands out. Perfect for outdoor events, trade shows, or employee gifts, these pieces pair well with screen printing or debossing. Choose Out of the Woods to give your brand a natural, authentic feel that resonates with environmentally aware audiences.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Out of the Woods products including a cooler and tote bag with company logo, ideal for outdoor events and corporate gifts.",
+  "productSkus": [
+    "525976",
+    "527206",
+    "528403"
+  ],
+  "generatedAt": "2026-05-31T10:03:37.076555+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/mason-jars/supplier/snugz",
+  "type": "facet",
+  "h1": "Custom Snugz Mason Jars for Bulk Orders",
+  "metaTitle": "Custom Snugz Mason Jars | Perfect Imprints",
+  "metaDescription": "Order custom Snugz mason jars for your brand. Bulk pricing, fast turnaround. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Snugz mason jars combine the classic mason jar silhouette with modern drinkware features like double-wall insulation and spill-resistant lids. These custom jars work well for promotional gifts, employee appreciation kits, or event giveaways. Options like the 22 oz Fiesta Mason Jar Tumbler or the Arnold Palmer Kit in a Mason Jar allow you to choose between a simple tumbler or a full kit with mixing ingredients. Decorate with screen printing or laser engraving for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Snugz mason jars with double-wall insulation and branded logo, ideal for bulk promotional orders",
+  "productSkus": [
+    "506911",
+    "525119"
+  ],
+  "generatedAt": "2026-05-31T08:44:00.528176+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

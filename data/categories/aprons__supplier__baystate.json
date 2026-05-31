@@ -1,0 +1,26 @@
+{
+  "url": "/cat/aprons/supplier/baystate",
+  "type": "facet",
+  "h1": "Custom Baystate Aprons for Bulk Orders",
+  "metaTitle": "Custom Baystate Aprons | Perfect Imprints",
+  "metaDescription": "Order custom Baystate aprons in bulk. Durable, quality aprons perfect for branding. Get a quote today!",
+  "introHtml": "<p>Baystate aprons are known for their durable construction and reliable fit, making them a top pick for restaurants, food service teams, and promotional giveaways. Whether you need waist aprons for quick branding or full-length kitchen aprons with pockets for staff, Baystate offers consistent sizing and a professional look. Decorate with screen printing or embroidery to make your logo stand out on the job.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Baystate aprons with embroidered logos, ideal for restaurant staff and promotional use.",
+  "productSkus": [
+    "508541",
+    "509133 90A",
+    "515077",
+    "516543 01A",
+    "527339",
+    "528072"
+  ],
+  "generatedAt": "2026-05-31T09:32:41.217296+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

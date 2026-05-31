@@ -1,0 +1,23 @@
+{
+  "url": "/cat/lunch-bags-boxes-totes/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Lunch Bags, Boxes & Totes",
+  "metaTitle": "Custom Set Lunch Bags Boxes Totes | Perfect Imprints",
+  "metaDescription": "Order custom set lunch bags boxes totes for your team. Perfect for corporate gifts or employee onboarding. Bulk pricing available.",
+  "introHtml": "<p>When you need a coordinated gift for new hires or a team event, a custom set of lunch bags, boxes, and totes delivers a polished, practical package. These sets combine a lunch bag, a bento box, and a tote in matching colors or with your logo, making them ideal for onboarding kits or safety incentives. Choose from stackable bento boxes with insulated carrying cases or portion control sets that keep meals organized. Decorate with screen printing or embroidery for a professional look that your recipients will use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set of lunch bag, bento box, and tote bag with company logo for corporate gifting",
+  "productSkus": [
+    "520706",
+    "525839",
+    "527718"
+  ],
+  "generatedAt": "2026-05-31T08:57:27.985187+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

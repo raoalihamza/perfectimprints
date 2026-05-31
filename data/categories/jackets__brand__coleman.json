@@ -1,0 +1,28 @@
+{
+  "url": "/cat/jackets/brand/coleman",
+  "type": "facet",
+  "h1": "Custom Coleman Jackets for Bulk Orders",
+  "metaTitle": "Custom Coleman Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Coleman jackets with your logo. Durable, outdoor-ready designs perfect for teams and events. Get a quote today.",
+  "introHtml": "<p>Coleman jackets bring the same rugged durability and outdoor reliability that the brand is known for in camping gear. When you need outerwear that stands up to job sites, outdoor events, or team uniforms, custom Coleman jackets deliver. With options for screen printing or embroidery on the front, back, or sleeves, your logo gains visibility wherever the weather turns. Whether outfitting a safety crew or a corporate retreat, these jackets offer a trusted name that recipients actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Coleman jackets with embroidered logo displayed on a durable outdoor jacket in a natural setting.",
+  "productSkus": [
+    "509109",
+    "517874",
+    "521930",
+    "525375",
+    "525794",
+    "525795",
+    "525796",
+    "529517"
+  ],
+  "generatedAt": "2026-05-31T09:51:36.932143+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

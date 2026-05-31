@@ -1,0 +1,21 @@
+{
+  "url": "/cat/food-beverage/material/kraft",
+  "type": "facet",
+  "h1": "Custom Kraft Food & Beverage Products for Branding",
+  "metaTitle": "Custom Kraft Food & Beverage | Perfect Imprints",
+  "metaDescription": "Order custom kraft food & beverage products for your brand. Perfect for eco-conscious businesses. Get a quote today.",
+  "introHtml": "<p>Kraft material gives your branded food and beverage items a natural, eco-friendly look that stands out from plastic or metal alternatives. Whether you're outfitting a staff break room or handing out samples at a trade show, kraft packaging communicates a commitment to sustainability. The Fiesta Kit, for example, combines a kraft box with reusable utensils, making it a practical giveaway that aligns with green initiatives. Custom imprinting on kraft surfaces creates a subtle, earthy brand presence.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom kraft food and beverage products like the Fiesta Kit with natural brown finish and logo imprint.",
+  "productSkus": [
+    "526805"
+  ],
+  "generatedAt": "2026-05-31T09:46:48.582497+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

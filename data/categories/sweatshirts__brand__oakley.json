@@ -1,0 +1,23 @@
+{
+  "url": "/cat/sweatshirts/brand/oakley",
+  "type": "facet",
+  "h1": "Custom Oakley Sweatshirts for Bulk Orders",
+  "metaTitle": "Custom Oakley Sweatshirts | Perfect Imprints",
+  "metaDescription": "Order custom Oakley sweatshirts for your team. Premium quality, bulk pricing, and expert decoration from Perfect Imprints.",
+  "introHtml": "<p>Oakley sweatshirts bring the same performance-driven design found in their iconic backpacks and bags to your custom apparel program. Built with durable fabrics and athletic cuts, these sweatshirts hold up to frequent wear while keeping your logo looking sharp through screen printing or embroidery. Whether you need uniform layers for a field crew or branded gear for a company outing, Oakley sweatshirts offer the rugged comfort your team expects from a trusted brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Oakley sweatshirts with embroidered logo, featuring a crewneck design in heather gray",
+  "productSkus": [
+    "522669",
+    "523948",
+    "529181"
+  ],
+  "generatedAt": "2026-05-31T08:31:14.369310+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/folding-chairs/feature/insulated",
+  "type": "facet",
+  "h1": "Custom Insulated Folding Chairs",
+  "metaTitle": "Custom Insulated Folding Chairs | Perfect Imprints",
+  "metaDescription": "Order custom insulated folding chairs with your logo. Perfect for tailgates, events & outdoor promotions. Bulk pricing available.",
+  "introHtml": "<p>Custom insulated folding chairs combine the portability of a folding chair with built-in insulation to keep drinks cold and snacks fresh. Ideal for tailgates, outdoor corporate events, and trade show giveaways, these chairs offer dual functionality that standard folding chairs lack. Decorate the seat back or armrests with your logo using screen printing or embroidery for year-round brand visibility. Choose from styles like the Camp Throne or Premium Stripe Chair for a comfortable, branded seating solution.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom insulated folding chairs with built-in cooler and logo embroidery at an outdoor event",
+  "productSkus": [
+    "513930",
+    "520195",
+    "520397"
+  ],
+  "generatedAt": "2026-05-31T09:13:36.635225+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

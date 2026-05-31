@@ -1,0 +1,30 @@
+{
+  "url": "/cat/camping-mugs/feature/insulated",
+  "type": "facet",
+  "h1": "Custom Insulated Camping Mugs",
+  "metaTitle": "Custom Insulated Camping Mugs | Perfect Imprints",
+  "metaDescription": "Shop custom insulated camping mugs for bulk orders. Keep drinks hot or cold with branded stainless steel mugs. Perfect for giveaways.",
+  "introHtml": "<p>Insulated camping mugs keep coffee hot during chilly mornings and water cold under the midday sun, making them a practical choice for outdoor events, corporate retreats, and employee gifts. Unlike standard camping mugs, double-wall vacuum insulation prevents heat transfer, so users enjoy the right temperature longer. Options like the 16 oz Corkcicle Coffee Mug or 14 oz Rover Vacuum Insulated Camp Mug offer durable stainless steel construction with ample room for your logo. Add full-color imprinting or engraving to create a lasting brand impression that stands up to rugged use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom insulated camping mugs with double-wall vacuum insulation, stainless steel finish, and logo imprint, perfect for outdoor events.",
+  "productSkus": [
+    "521050",
+    "521896",
+    "523761",
+    "525226",
+    "525341",
+    "525495",
+    "525612",
+    "525843",
+    "526096",
+    "526242"
+  ],
+  "generatedAt": "2026-05-31T09:09:48.667508+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

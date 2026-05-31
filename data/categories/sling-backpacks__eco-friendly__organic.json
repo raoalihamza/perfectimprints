@@ -1,0 +1,23 @@
+{
+  "url": "/cat/sling-backpacks/eco-friendly/organic",
+  "type": "facet",
+  "h1": "Custom Organic Sling Backpacks",
+  "metaTitle": "Custom Organic Sling Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom organic sling backpacks in bulk at Perfect Imprints. Eco-friendly branding for your team or event.",
+  "introHtml": "<p>Organic sling backpacks offer a sustainable alternative to traditional bags, made from certified organic cotton or recycled materials. They are ideal for eco-conscious businesses, trade shows, or employee gifts. With customizable decoration methods like embroidery or screen printing, these backpacks showcase your brand while reducing environmental impact. Choose organic for a durable, stylish bag that aligns with your green initiatives.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom organic sling backpacks with eco-friendly materials and company logo, perfect for bulk orders.",
+  "productSkus": [
+    "519247 69V",
+    "523122",
+    "524877"
+  ],
+  "generatedAt": "2026-05-31T08:46:46.979904+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,33 @@
+{
+  "url": "/cat/gloves/size/3xlarge",
+  "type": "facet",
+  "h1": "Custom 3X Large Gloves for Bulk Orders",
+  "metaTitle": "Custom 3X Large Gloves | Perfect Imprints",
+  "metaDescription": "Order custom 3X large gloves for your team. Bulk pricing available at Perfect Imprints. Get your quote today!",
+  "introHtml": "<p>Custom 3X large gloves ensure a comfortable fit for employees or event attendees with larger hands. Whether you need touch-screen-compatible gloves for outdoor workers or durable fleece-lined options for winter giveaways, sizing up makes your branded gear more inclusive. Decorate with your logo using screen printing or embroidery for a professional look that stands out on the job site or at trade shows.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom 3X large gloves with embroidered logo on a workbench, featuring touch-screen fingertips",
+  "productSkus": [
+    "516831",
+    "516832",
+    "516833",
+    "516834",
+    "516839",
+    "516872",
+    "519076",
+    "520012",
+    "521335",
+    "522780",
+    "524376",
+    "527422",
+    "527493"
+  ],
+  "generatedAt": "2026-05-31T09:14:18.081100+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tank-tops/fit/loose-fit",
+  "type": "facet",
+  "h1": "Custom Loose Fit Tank Tops",
+  "metaTitle": "Custom Loose Fit Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom loose fit tank tops for your team, event, or brand. Perfect for warm weather and layering. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Loose fit tank tops offer a relaxed, comfortable silhouette that works well for outdoor events, team uniforms, and giveaways. The extra room through the body allows for better airflow, making them ideal for warm weather or active use. Popular styles like the Gildan Softstyle Tank and Bella+Canvas Jersey Tank take screen printing and embroidery easily, giving you a clean, professional look that recipients will actually wear again.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom loose fit tank tops for teams and events, featuring screen printed logos on soft cotton fabric.",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T09:03:20.035253+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

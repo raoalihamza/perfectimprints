@@ -1,0 +1,29 @@
+{
+  "url": "/cat/health/material/cotton-poly",
+  "type": "facet",
+  "h1": "Custom Cotton Poly Health Products for Your Team",
+  "metaTitle": "Custom Cotton Poly Health Products | Perfect Imprints",
+  "metaDescription": "Shop custom cotton poly health products at Perfect Imprints. Ideal for uniforms and giveaways. Order bulk today!",
+  "introHtml": "<p>Cotton-poly blends combine the softness of cotton with the durability and wrinkle resistance of polyester, making them a top choice for health-related apparel and accessories. Whether you need breathable T-shirts for a wellness event or sturdy sweat pants for a corporate fitness challenge, this fabric blend offers comfort that lasts through repeated washes. Customize with screen printing or embroidery for a professional look that represents your organization.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cotton poly health products including T-shirts and sweat pants with logo imprint",
+  "productSkus": [
+    "501558",
+    "502119",
+    "506401",
+    "506864",
+    "515733",
+    "524817",
+    "525388",
+    "527365",
+    "528164"
+  ],
+  "generatedAt": "2026-05-31T09:50:37.267894+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

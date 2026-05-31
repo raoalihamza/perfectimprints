@@ -1,0 +1,27 @@
+{
+  "url": "/cat/work-shirts/brand/dri-duck",
+  "type": "facet",
+  "h1": "Custom Dri Duck Work Shirts for Bulk Orders",
+  "metaTitle": "Custom Dri Duck Work Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Dri Duck work shirts in bulk. Durable, comfortable shirts perfect for branding. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Dri Duck work shirts combine rugged durability with all-day comfort, making them a top choice for crews that need reliable gear on the job. These shirts feature moisture-wicking fabrics and reinforced stitching to withstand tough conditions. Whether you need screen-printed logos for a safety team or embroidered names for a maintenance crew, Dri Duck shirts hold up wash after wash while keeping your brand visible.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Dri Duck work shirts for bulk orders featuring durable fabric and embroidered logos",
+  "productSkus": [
+    "522595",
+    "527125",
+    "527126",
+    "528099",
+    "528100",
+    "528838",
+    "529182"
+  ],
+  "generatedAt": "2026-05-31T10:15:27.219300+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

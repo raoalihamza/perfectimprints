@@ -1,0 +1,27 @@
+{
+  "url": "/cat/eyewear/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Eyewear for Bulk Orders",
+  "metaTitle": "Custom Unisex Eyewear | Perfect Imprints",
+  "metaDescription": "Order custom unisex eyewear in bulk for your team or event. Perfect Imprints offers a variety of styles for all genders.",
+  "introHtml": "<p>Custom unisex eyewear is designed to fit a wide range of face shapes and personal styles, making it a versatile choice for corporate gifts, team uniforms, or promotional events. From sporty wraparounds like the Nike Skylon Ace to classic bamboo frames, these options work for any recipient. Choose polarized lenses for outdoor events or add your logo with pad printing or etching. Unisex sizing simplifies ordering for mixed-gender groups.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom unisex eyewear including bamboo sunglasses and reflective rimless sunglasses displayed on a table.",
+  "productSkus": [
+    "520125",
+    "525620",
+    "526680",
+    "526685",
+    "526686",
+    "526687",
+    "526792"
+  ],
+  "generatedAt": "2026-05-31T09:12:59.802259+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

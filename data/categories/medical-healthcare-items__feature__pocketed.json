@@ -1,0 +1,22 @@
+{
+  "url": "/cat/medical-healthcare-items/feature/pocketed",
+  "type": "facet",
+  "h1": "Custom Pocketed Medical Healthcare Items",
+  "metaTitle": "Custom Pocketed Medical Healthcare Items | Perfect Imprints",
+  "metaDescription": "Order custom pocketed medical healthcare items for bulk distribution. Ideal for safety managers and HR directors. Get a quote today!",
+  "introHtml": "<p>Pocketed medical healthcare items keep essential supplies organized and accessible, whether for employee wellness kits, first-aid stations, or promotional giveaways. The built-in compartments prevent small items like pill boxes or card cases from shifting or getting lost. For safety managers equipping job sites or HR directors assembling health kits, pocketed designs add practical value that recipients appreciate every day. Choose from durable materials and multiple pocket configurations to match your specific needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pocketed medical healthcare items including a pill box and card case with clear pockets for organization",
+  "productSkus": [
+    "515436",
+    "524356"
+  ],
+  "generatedAt": "2026-05-31T09:56:17.692159+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

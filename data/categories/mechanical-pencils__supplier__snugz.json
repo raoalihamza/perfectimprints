@@ -1,0 +1,25 @@
+{
+  "url": "/cat/mechanical-pencils/supplier/snugz",
+  "type": "facet",
+  "h1": "Custom Snugz Mechanical Pencils for Bulk Orders",
+  "metaTitle": "Custom Snugz Mechanical Pencils | Perfect Imprints",
+  "metaDescription": "Order custom Snugz mechanical pencils in bulk. Ideal for giveaways and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Snugz mechanical pencils combine a comfortable, cushioned grip with reliable writing performance, making them a practical choice for corporate giveaways and event handouts. Unlike standard pencils, Snugz models like the Armadillo Mechanical Pencil offer a soft-touch barrel that reduces hand fatigue during extended use. Decorate with your logo using pad printing or laser engraving for a polished, professional look that stands out in any office or trade show setting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom Snugz mechanical pencils with cushioned grips and printed logos for corporate giveaways",
+  "productSkus": [
+    "510506",
+    "510906",
+    "514646",
+    "519577",
+    "525811"
+  ],
+  "generatedAt": "2026-05-31T09:56:08.247433+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

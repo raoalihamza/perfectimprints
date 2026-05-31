@@ -1,0 +1,22 @@
+{
+  "url": "/cat/headwear/brand/the-north-face",
+  "type": "facet",
+  "h1": "Custom The North Face Headwear for Bulk Orders",
+  "metaTitle": "Custom The North Face Headwear | Perfect Imprints",
+  "metaDescription": "Order custom The North Face headwear in bulk from Perfect Imprints. Premium beanies and caps with your logo. Fast turnaround.",
+  "introHtml": "<p>Custom The North Face headwear gives your team a performance-driven brand asset they will actually wear. The Mountain Beanie offers a classic knit look for cold-weather giveaways, while the Ultimate Trucker Cap combines a structured fit with breathable mesh for outdoor events. Choose from multiple colorways and decoration methods including embroidery. Perfect for corporate retreats, trade shows, or employee rewards programs that demand quality and durability.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom The North Face headwear including Mountain Beanie and Ultimate Trucker Cap with embroidered logos",
+  "productSkus": [
+    "526535",
+    "528712"
+  ],
+  "generatedAt": "2026-05-31T09:50:09.197604+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/bags/brand/port-authority",
+  "type": "facet",
+  "h1": "Custom Port Authority Bags for Bulk Orders",
+  "metaTitle": "Custom Port Authority Bags | Perfect Imprints",
+  "metaDescription": "Order custom Port Authority bags in bulk. Perfect for corporate gifts, events, and branding. Get a quote today!",
+  "introHtml": "<p>Port Authority bags are a trusted choice for corporate branding, known for their durable construction and professional appearance. Whether you need backpacks for a trade show or totes for employee gifts, these bags offer reliable quality that reflects well on your company. With ample space for logo imprinting, they ensure your brand gets noticed in any setting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Port Authority bags with company logo printed on the front, ideal for bulk corporate orders.",
+  "productSkus": [
+    "527746"
+  ],
+  "generatedAt": "2026-05-31T08:39:14.343544+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

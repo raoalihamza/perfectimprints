@@ -1,0 +1,19 @@
+{
+  "url": "/cat/pens/brand/tangle",
+  "type": "facet",
+  "h1": "Custom Tangle Pens for Bulk Orders",
+  "metaTitle": "Custom Tangle Pens | Perfect Imprints",
+  "metaDescription": "Order personalized Tangle pens for your brand. Perfect for giveaways and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Tangle pens feature a unique, twistable design that keeps hands busy and minds focused. They are ideal for trade shows, corporate events, and stress relief giveaways. Choose from multiple colors and imprint options to showcase your logo. Their fidget-friendly appeal ensures recipients remember your brand long after the event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Tangle pens with company logo in assorted bright colors on white background",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:00:20.300649+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

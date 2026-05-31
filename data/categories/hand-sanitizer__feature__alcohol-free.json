@@ -1,0 +1,21 @@
+{
+  "url": "/cat/hand-sanitizer/feature/alcohol-free",
+  "type": "facet",
+  "h1": "Custom Alcohol Free Hand Sanitizers",
+  "metaTitle": "Custom Alcohol Free Hand Sanitizers | Perfect Imprints",
+  "metaDescription": "Order custom alcohol free hand sanitizers for your team or event. Gentle formula, perfect for sensitive skin. Bulk pricing available.",
+  "introHtml": "<p>Alcohol free hand sanitizers are ideal for workplaces and events where frequent use is needed without drying out skin. Formulated with moisturizing agents like aloe, they provide effective germ protection while keeping hands soft. Perfect for schools, offices, and healthcare settings where alcohol-based sanitizers may not be suitable. Customize with your logo for brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom alcohol free hand sanitizer in clear round bottle with company logo, gentle formula for sensitive skin",
+  "productSkus": [
+    "503207 91A"
+  ],
+  "generatedAt": "2026-05-31T08:55:14.230794+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

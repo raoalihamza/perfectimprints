@@ -1,0 +1,27 @@
+{
+  "url": "/cat/dress-shirts/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Dress Shirts for Bulk Orders",
+  "metaTitle": "Custom Pink Dress Shirts | Perfect Imprints",
+  "metaDescription": "Order custom pink dress shirts in bulk for your team or event. Fast turnaround and expert decoration at Perfect Imprints.",
+  "introHtml": "<p>Pink dress shirts bring a fresh, professional look to any workplace or event. Whether you need long-sleeve or 3/4-sleeve styles, our selection includes women's and men's options in classic oxford cloth and easy-care broadcloth. Perfect for breast cancer awareness campaigns, retail teams, or company picnics, these shirts offer a polished appearance that stands out. Decorate with embroidery, screen printing, or heat transfer for a lasting branded impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink dress shirts for men and women, available in long-sleeve and 3/4-sleeve styles for bulk orders.",
+  "productSkus": [
+    "501558",
+    "501559",
+    "520266",
+    "524313",
+    "525546",
+    "525602",
+    "526629"
+  ],
+  "generatedAt": "2026-05-31T09:43:16.959985+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

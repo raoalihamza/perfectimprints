@@ -1,0 +1,24 @@
+{
+  "url": "/cat/dress-shirts/brand/untuckit",
+  "type": "facet",
+  "h1": "Custom Untuckit Dress Shirts for Your Brand",
+  "metaTitle": "Custom Untuckit Dress Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Untuckit dress shirts for your team. Wrinkle-free, relaxed fit shirts perfect for branding. Get a quote from Perfect Imprints.",
+  "introHtml": "<p>Untuckit dress shirts are designed to be worn untucked, offering a polished yet relaxed look that suits modern workplaces. Their wrinkle-free fabric ensures your logo stays crisp from morning meetings to evening events. Ideal for sales teams or client-facing staff who want a professional appearance without the stiffness of traditional dress shirts. Decorate with embroidery on the chest or sleeve for a clean, durable finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Untuckit dress shirts with embroidered logo, wrinkle-free fabric, available in men's and women's styles",
+  "productSkus": [
+    "525602",
+    "525604",
+    "525605",
+    "525606"
+  ],
+  "generatedAt": "2026-05-31T09:43:14.632915+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

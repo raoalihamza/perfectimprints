@@ -1,0 +1,31 @@
+{
+  "url": "/cat/fleece/feature/quarter-zip",
+  "type": "facet",
+  "h1": "Custom Quarter Zip Fleece for Bulk Orders",
+  "metaTitle": "Custom Quarter Zip Fleece | Perfect Imprints",
+  "metaDescription": "Order custom quarter zip fleece for your team or event. Perfect for branding with logos. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Quarter zip fleece offers a versatile layering option that combines the warmth of a jacket with the ease of a pullover. The half-length zipper allows for quick temperature adjustment, making it ideal for outdoor events, corporate outings, or uniform programs. Choose from men's and women's styles in a range of colors, and add your logo with embroidery or screen printing for a polished, professional look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom quarter zip fleece jackets with embroidered logos at a corporate event",
+  "productSkus": [
+    "509568",
+    "509569",
+    "511074",
+    "519612",
+    "520270",
+    "521110",
+    "521111",
+    "523169",
+    "523170",
+    "525893",
+    "528443"
+  ],
+  "generatedAt": "2026-05-31T09:46:19.211718+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/pullovers/brand/oakley",
+  "type": "facet",
+  "h1": "Custom Oakley Pullovers for Bulk Orders",
+  "metaTitle": "Custom Oakley Pullovers | Perfect Imprints",
+  "metaDescription": "Order custom Oakley pullovers in bulk from Perfect Imprints. Perfect for teams, events, and corporate gifts.",
+  "introHtml": "<p>Oakley pullovers combine the brand's signature technical fabric innovation with a clean, professional look that stands up to daily wear. Whether you need pullovers for a company retreat, a safety team uniform, or a promotional giveaway, Oakley's moisture-wicking materials and athletic cuts ensure recipients actually want to wear them. Decorate with your logo using embroidery or screen printing for a polished finish that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Oakley pullovers with embroidered logo, stacked in bulk for corporate orders",
+  "productSkus": [
+    "522669",
+    "523948",
+    "529181"
+  ],
+  "generatedAt": "2026-05-31T10:04:35.499394+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

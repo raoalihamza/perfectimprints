@@ -1,0 +1,30 @@
+{
+  "url": "/cat/sports-balls/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Sports Balls",
+  "metaTitle": "Custom Full Color Sports Balls | Perfect Imprints",
+  "metaDescription": "Order custom full color sports balls with vibrant, all-over printing. Perfect for corporate events and promotions. Shop at Perfect Imprints today.",
+  "introHtml": "<p>Full color printing on sports balls gives you the ability to reproduce logos, photos, and complex graphics with vivid detail across the entire surface. Unlike single-color imprints, this method is ideal for golf balls, ping pong balls, and pickleballs used as giveaways at tournaments or trade show events. The result is a premium look that stands out in a crowd and makes your brand memorable long after the game ends.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color sports balls with vibrant all-over printing, including golf balls and ping pong balls for corporate promotions.",
+  "productSkus": [
+    "506896 90A",
+    "512802",
+    "512806",
+    "519574",
+    "519845",
+    "520192",
+    "521335",
+    "523540",
+    "526672",
+    "526773"
+  ],
+  "generatedAt": "2026-05-31T09:02:33.280138+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

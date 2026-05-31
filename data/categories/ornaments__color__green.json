@@ -1,0 +1,32 @@
+{
+  "url": "/cat/ornaments/color/green",
+  "type": "facet",
+  "h1": "Custom Green Ornaments for Bulk Orders",
+  "metaTitle": "Custom Green Ornaments | Perfect Imprints",
+  "metaDescription": "Order custom green ornaments for your next promotion. Perfect for holiday gifts and corporate branding. Bulk discounts available.",
+  "introHtml": "<p>Green ornaments offer a natural, festive look that stands out from standard holiday decorations. Whether you choose shatterproof flat rounds for safety at company events or hand-blown glass for a premium gift, green pairs well with gold or white imprinting. Ideal for end-of-year client gifts or employee appreciation, these ornaments can be decorated with your logo using pad printing or etching.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green shatterproof round ornaments with company logo for corporate holiday gifts",
+  "productSkus": [
+    "503213",
+    "504613",
+    "506005",
+    "507272",
+    "508896",
+    "519584",
+    "519593",
+    "525277",
+    "526846",
+    "527051",
+    "527634",
+    "528850"
+  ],
+  "generatedAt": "2026-05-31T08:27:00.272685+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

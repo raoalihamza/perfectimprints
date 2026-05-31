@@ -1,0 +1,21 @@
+{
+  "url": "/cat/coasters/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Coasters for Bulk Orders",
+  "metaTitle": "Custom Pink Coasters | Perfect Imprints",
+  "metaDescription": "Order custom pink coasters in bulk at Perfect Imprints. Perfect for branding events, bars, and giveaways.",
+  "introHtml": "<p>Pink coasters add a pop of color to any event or promotional campaign. Whether you are branding a women's conference, a breast cancer awareness event, or simply want to stand out at a bar or restaurant, custom pink coasters offer a vibrant canvas for your logo. Choose from materials like thick paperboard or durable plastic, and decorate with full-color imprinting. They are lightweight, easy to ship, and budget-friendly for large orders.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink coasters with logo imprint, perfect for promotional events and bar branding.",
+  "productSkus": [
+    "523999"
+  ],
+  "generatedAt": "2026-05-31T09:10:40.860822+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/backpacks/feature/with-wheels",
+  "type": "facet",
+  "h1": "Custom Wheeled Backpacks for Bulk Orders",
+  "metaTitle": "Custom Wheeled Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom wheeled backpacks in bulk from Perfect Imprints. Ideal for travel and commuters. Get your logo on durable rolling backpacks today.",
+  "introHtml": "<p>Wheeled backpacks combine the convenience of a rolling suitcase with the versatility of a backpack. For employees who travel frequently or navigate airports and city streets, these bags reduce strain while keeping gear organized. The High Sierra® Powerglide Pro Wheeled Backpack is a popular choice, offering padded laptop compartments and telescoping handles. Customize with your logo via screen printing or embroidery for a professional look that stands out on the go.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom wheeled backpacks with rolling wheels and telescoping handle, featuring a company logo on the front panel.",
+  "productSkus": [
+    "528091"
+  ],
+  "generatedAt": "2026-05-31T09:06:28.656866+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

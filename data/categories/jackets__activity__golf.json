@@ -1,0 +1,22 @@
+{
+  "url": "/cat/jackets/activity/golf",
+  "type": "facet",
+  "h1": "Custom Golf Jackets for Teams & Events",
+  "metaTitle": "Custom Golf Jackets | Perfect Imprints",
+  "metaDescription": "Order custom golf jackets for your team or event. Perfect for tournaments, corporate outings, and brand visibility. Shop Perfect Imprints.",
+  "introHtml": "<p>Custom golf jackets are designed for the course, offering lightweight warmth and freedom of movement for your swing. Whether you're outfitting a tournament staff or creating a uniform for your corporate golf outing, these jackets provide a polished look that performs. Options like the Cutter & Buck Mainsail Sweater-Knit Full Zip Jacket combine sweater-knit comfort with water-resistant technology, making them ideal for early morning tee times. Decorate with your logo via embroidery or screen printing for a professional finish that stands out on the fairway.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom golf jackets with embroidered logos, worn by golfers on a sunny course, showcasing team branding.",
+  "productSkus": [
+    "526811",
+    "526812"
+  ],
+  "generatedAt": "2026-05-31T08:34:49.550619+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

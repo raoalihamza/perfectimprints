@@ -1,0 +1,23 @@
+{
+  "url": "/cat/shorts/brand/oakley",
+  "type": "facet",
+  "h1": "Custom Oakley Shorts for Bulk Orders",
+  "metaTitle": "Custom Oakley Shorts | Perfect Imprints",
+  "metaDescription": "Order custom Oakley shorts in bulk for your team or event. Durable, performance-ready designs from Perfect Imprints.",
+  "introHtml": "<p>Oakley shorts combine athletic performance with everyday durability, making them a strong choice for corporate teams, event staff, or uniform programs. Unlike generic shorts, Oakley uses moisture-wicking fabrics and reinforced stitching that hold up through repeated wear and washing. Decorate with your logo using screen printing or embroidery on the leg or hip. Whether you need a cohesive look for a trade show crew or branded apparel for a company outing, custom Oakley shorts deliver a professional, sporty appearance that aligns with an active brand image.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Oakley shorts with embroidered logo, displayed on a model in an outdoor setting",
+  "productSkus": [
+    "522669",
+    "523948",
+    "529181"
+  ],
+  "generatedAt": "2026-05-31T09:02:17.045761+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,30 @@
+{
+  "url": "/cat/desk-calendars/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Desk Calendars",
+  "metaTitle": "Custom Purple Desk Calendars | Perfect Imprints",
+  "metaDescription": "Order custom purple desk calendars for your team. Branded 2027 planners in bulk with your logo. Fast turnaround from Perfect Imprints.",
+  "introHtml": "<p>Purple desk calendars stand out on any desk, adding a distinctive color that pairs well with company branding or seasonal campaigns. Whether you need monthly planners for your sales team or Press-N-Stick™ calendars for office cubicles, these custom purple options keep your logo visible all year. Choose from vinyl covers or pocket planners to match your team's workflow. Perfect for corporate gifts, trade shows, or internal use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple desk calendar with company logo on a desk, featuring a 2027 monthly planner layout.",
+  "productSkus": [
+    "503402",
+    "503403",
+    "503415",
+    "503416",
+    "504086",
+    "505573",
+    "507269",
+    "509123",
+    "509193",
+    "523058"
+  ],
+  "generatedAt": "2026-05-31T08:52:51.510238+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

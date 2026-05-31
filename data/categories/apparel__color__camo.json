@@ -1,0 +1,27 @@
+{
+  "url": "/cat/apparel/color/camo",
+  "type": "facet",
+  "h1": "Custom Camo Apparel for Bulk Orders",
+  "metaTitle": "Custom Camo Apparel | Perfect Imprints",
+  "metaDescription": "Order custom camo apparel for your team or event. Perfect for outdoor brands, hunting, or tactical use. Bulk pricing available.",
+  "introHtml": "<p>Camo apparel offers a rugged, outdoorsy look that stands out from standard solid colors. Whether you need custom camo polos for a hunting lodge staff or branded camo caps for a construction crew, this pattern signals durability and practicality. Our camo options include traditional woodland, digital, and patriotic blends, all suitable for screen printing or embroidery. Choose camo for a distinctive uniform that blends function with brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom camo apparel including a camo polo shirt and a camo trucker cap on a table",
+  "productSkus": [
+    "506990",
+    "509366 93A",
+    "512748 37A",
+    "519125",
+    "522627",
+    "524031",
+    "527061"
+  ],
+  "generatedAt": "2026-05-31T08:48:25.783917+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

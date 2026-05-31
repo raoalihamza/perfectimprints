@@ -1,0 +1,32 @@
+{
+  "url": "/cat/pen-pencil-sets/search",
+  "type": "modifier",
+  "h1": "Custom Pen Pencil Sets for Branded Promotions",
+  "metaTitle": "Custom Pen Pencil Sets | Perfect Imprints",
+  "metaDescription": "Browse our wide selection of custom pen pencil sets for your brand. Find the perfect promotional gift sets at Perfect Imprints.",
+  "introHtml": "<p>When you search for custom pen pencil sets, you want options that combine quality with brand impact. Our curated collection includes versatile gift sets that pair writing instruments with practical accessories, from stylish cases to drinkware. Whether you need corporate gifts, employee rewards, or trade show giveaways, these sets offer a polished presentation that leaves a lasting impression. Explore designs that fit your budget and branding needs, all backed by reliable service and fast turnaround.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A display of custom pen pencil sets in gift boxes, including the Martini Box Set and Speakeasy Gift Set, ideal for branded promotions.",
+  "productSkus": [
+    "512596",
+    "512693 64F",
+    "519672",
+    "521002",
+    "521897",
+    "522098",
+    "523898",
+    "523924",
+    "523950",
+    "525628",
+    "526748",
+    "527285"
+  ],
+  "generatedAt": "2026-05-31T10:00:02.707016+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

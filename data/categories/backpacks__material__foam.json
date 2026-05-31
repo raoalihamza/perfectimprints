@@ -1,0 +1,23 @@
+{
+  "url": "/cat/backpacks/material/foam",
+  "type": "facet",
+  "h1": "Custom Foam Backpacks for Bulk Orders",
+  "metaTitle": "Custom Foam Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom foam backpacks with your logo. Perfect for corporate gifts and trade shows. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Foam backpacks offer lightweight structure and protection for laptops and tablets, making them a practical choice for corporate gifts and event giveaways. Unlike standard fabric packs, the foam padding provides impact resistance without adding bulk. Decorate with full-color embroidery or screen printing on the front panel for maximum brand visibility. Ideal for safety managers equipping field teams or HR directors distributing welcome kits.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom foam backpacks with embroidered logo on front panel, ideal for corporate gifts and trade shows.",
+  "productSkus": [
+    "528091",
+    "528187",
+    "528188"
+  ],
+  "generatedAt": "2026-05-31T09:33:45.097524+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

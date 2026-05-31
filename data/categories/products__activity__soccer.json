@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/activity/soccer",
+  "type": "facet",
+  "h1": "Custom Soccer Products for Teams & Events",
+  "metaTitle": "Custom Soccer Products | Perfect Imprints",
+  "metaDescription": "Shop custom soccer products for your team or event. Bulk pricing, fast turnaround. Get a quote today!",
+  "introHtml": "<p>Custom soccer products let you brand everything from practice gear to game-day giveaways. Whether you need custom soccer balls for a tournament, branded water bottles for the sidelines, or personalized towels for your players, these items keep your logo visible on and off the field. Decoration options include screen printing, pad printing, and debossing, depending on the product. Choose from a range of styles and colors to match your team or event theme.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom soccer products including soccer balls, water bottles, and towels with team logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:36:43.284145+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/bags/activity/football",
+  "type": "facet",
+  "h1": "Custom Football Bags for Teams & Events",
+  "metaTitle": "Custom Football Bags | Perfect Imprints",
+  "metaDescription": "Browse custom football bags at Perfect Imprints. Perfect for teams, coaches, and events. Order bulk bags with your logo today.",
+  "introHtml": "<p>Custom football bags are a practical choice for teams, coaches, and sports events. Whether you need drawstring backpacks for game day or luggage tags for travel, these bags offer durability and a sporty look. With options like the Striker Nylon Drawstring Backpack, you can add your team logo or event branding using screen printing or embroidery. Football bags stand out from generic bags by reinforcing team identity and making it easy to carry gear to practice or tournaments.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom football bags with team logos, including drawstring backpacks and luggage tags for sports events.",
+  "productSkus": [
+    "510125",
+    "519478",
+    "519479",
+    "519480",
+    "519481",
+    "519482"
+  ],
+  "generatedAt": "2026-05-31T08:49:32.547024+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

@@ -1,0 +1,23 @@
+{
+  "url": "/cat/awards/brand/oakley",
+  "type": "facet",
+  "h1": "Custom Oakley Awards for Bulk Orders",
+  "metaTitle": "Custom Oakley Awards | Perfect Imprints",
+  "metaDescription": "Order custom Oakley awards for your team. Premium branded gifts with fast turnaround. Shop Perfect Imprints.",
+  "introHtml": "<p>Oakley awards stand apart from standard corporate recognition gifts because they carry a reputation for performance and durability that resonates with active, achievement-oriented teams. Whether you are honoring a sales milestone or retiring a long-term employee, an Oakley backpack or bag makes the recognition feel substantial. Decorate with your logo using embroidery or debossing for a clean, professional finish that aligns with the brand's sporty aesthetic.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Oakley awards featuring a branded backpack with embroidered logo, ideal for corporate recognition gifts.",
+  "productSkus": [
+    "522669",
+    "523948",
+    "529181"
+  ],
+  "generatedAt": "2026-05-31T08:39:00.773120+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

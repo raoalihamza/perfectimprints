@@ -1,0 +1,30 @@
+{
+  "url": "/cat/cocktail-glasses/brand/yeti",
+  "type": "facet",
+  "h1": "Custom Yeti Cocktail Glasses for Bulk Orders",
+  "metaTitle": "Custom Yeti Cocktail Glasses | Perfect Imprints",
+  "metaDescription": "Order custom Yeti cocktail glasses with your logo. Durable, double-wall insulated. Perfect for events and gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Yeti cocktail glasses bring the rugged durability and insulation that Yeti is known for to your barware. Perfect for corporate events, promotional giveaways, or employee gifts, these custom Yeti cocktail glasses keep drinks cold without condensation. The double-wall vacuum insulation ensures every sip stays refreshing, making them a practical upgrade over standard glassware. Add your logo with laser engraving for a clean, permanent mark.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Yeti cocktail glasses with laser engraved logo, double-wall insulated, set on a bar table.",
+  "productSkus": [
+    "528839",
+    "528840",
+    "528841",
+    "528844",
+    "528845",
+    "528846",
+    "528847",
+    "529532",
+    "529533",
+    "529534"
+  ],
+  "generatedAt": "2026-05-31T08:52:14.165965+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

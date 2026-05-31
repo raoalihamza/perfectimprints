@@ -1,0 +1,28 @@
+{
+  "url": "/cat/footwear/color/white",
+  "type": "facet",
+  "h1": "Custom White Footwear for Branded Uniforms & Events",
+  "metaTitle": "Custom White Footwear | Perfect Imprints",
+  "metaDescription": "Order custom white footwear for your team or event. Bulk pricing available with your logo on slippers, slides, and more at Perfect Imprints.",
+  "introHtml": "<p>White footwear offers a crisp, clean look that stands out in healthcare, hospitality, and event settings. Whether you need custom white slippers for a spa or branded white slides for a company picnic, the bright color provides a blank canvas for vibrant logo imprinting. Options like the Cascade Slippers or ISlide Motto Slides allow for full-color sublimation, ensuring your branding pops against the white background.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom white footwear with logo imprint, including white slippers and slides for branding",
+  "productSkus": [
+    "513304 90A",
+    "516800",
+    "517496",
+    "526905",
+    "527554",
+    "527988",
+    "528344",
+    "529443"
+  ],
+  "generatedAt": "2026-05-31T09:13:51.351656+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

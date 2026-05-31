@@ -1,0 +1,28 @@
+{
+  "url": "/cat/pencil-sharpeners/color/green",
+  "type": "facet",
+  "h1": "Custom Green Pencil Sharpeners for Bulk Orders",
+  "metaTitle": "Custom Green Pencil Sharpeners | Perfect Imprints",
+  "metaDescription": "Order custom green pencil sharpeners in bulk at Perfect Imprints. Ideal for schools, offices, and events. Get your quote today!",
+  "introHtml": "<p>Green custom pencil sharpeners offer a fresh, nature-inspired look that stands out in any school, office, or event setting. Whether you choose the Achiever Pencil Sharpener &amp; Eraser for its dual functionality or the Scholar Pencil Case for organized storage, green adds a vibrant touch that aligns with eco-friendly or brand-focused campaigns. These sharpeners are ideal for back-to-school promotions, corporate giveaways, or trade show swag, and can be decorated with your logo through screen printing or pad printing for lasting visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green pencil sharpeners with logo imprint, including the Achiever Pencil Sharpener & Eraser and Scholar Pencil Case",
+  "productSkus": [
+    "506729",
+    "510165",
+    "510926",
+    "512016",
+    "512017",
+    "521678",
+    "525308",
+    "526829"
+  ],
+  "generatedAt": "2026-05-31T10:00:04.405080+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

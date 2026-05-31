@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Products for Bulk Orders",
+  "metaTitle": "Custom Made in USA Products | Perfect Imprints",
+  "metaDescription": "Shop custom made in USA products for bulk orders. Support American manufacturing with promotional items from Perfect Imprints.",
+  "introHtml": "<p>Choosing custom made in USA products for your promotional campaign supports domestic manufacturing and ensures high-quality standards. From stainless steel drinkware to organic cotton tote bags, these items appeal to clients and employees who value American craftsmanship. Decorate with your logo using screen printing, laser engraving, or embroidery for a lasting impression that aligns with your brand's commitment to local production.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom made in USA products including stainless steel water bottles and cotton tote bags with logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:58.870439+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

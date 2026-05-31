@@ -1,0 +1,21 @@
+{
+  "url": "/cat/jackets/brand/cornerstone",
+  "type": "facet",
+  "h1": "Custom Cornerstone Jackets for Bulk Orders",
+  "metaTitle": "Custom Cornerstone Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Cornerstone jackets in bulk. Perfect for safety, workwear, or branding. Get a quote today.",
+  "introHtml": "<p>Cornerstone jackets combine durability with professional style, making them a top pick for companies that need reliable outerwear for their teams. Whether you are outfitting a construction crew with ANSI-compliant safety gear or providing branded fleece hoodies for a company event, Cornerstone offers consistent sizing and rugged materials that hold up to daily wear. These jackets accept screen printing and embroidery, giving you flexibility to showcase your logo prominently.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Cornerstone jackets featuring a heavy-duty fleece full-zip hoodie with reflective striping for safety",
+  "productSkus": [
+    "529301"
+  ],
+  "generatedAt": "2026-05-31T09:51:36.751905+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/briefcases/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Briefcases",
+  "metaTitle": "Custom Recycled Briefcases | Perfect Imprints",
+  "metaDescription": "Shop custom recycled briefcases for eco-friendly branding. Perfect for bulk orders at Perfect Imprints.",
+  "introHtml": "<p>Custom recycled briefcases offer a sustainable alternative for professionals who want to reduce their environmental footprint without sacrificing style or functionality. Made from materials like recycled PET and Repreve®, these briefcases are durable, lightweight, and perfect for marketing directors or safety managers looking to promote their brand's commitment to sustainability. With ample space for laptops and documents, they are ideal for trade shows, corporate gifts, or employee onboarding kits.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled briefcases made from recycled materials, ideal for eco-friendly corporate gifts and branding.",
+  "productSkus": [
+    "527140",
+    "527201",
+    "528454",
+    "528726"
+  ],
+  "generatedAt": "2026-05-31T08:32:53.496978+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

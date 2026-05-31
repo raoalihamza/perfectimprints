@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/feature/adjustable",
+  "type": "facet",
+  "h1": "Custom Adjustable Products for Bulk Orders",
+  "metaTitle": "Custom Adjustable Products | Perfect Imprints",
+  "metaDescription": "Order custom adjustable products in bulk for your team or event. Perfect Imprints offers a wide selection with your logo.",
+  "introHtml": "<p>Adjustable products offer flexibility for recipients, from one-size-fits-most hats with snapback closures to lanyards with breakaway buckles. Whether you need custom adjustable wristbands for a trade show or branded adjustable caps for a company outing, these items ensure a comfortable fit for everyone. Decorate with screen printing, embroidery, or debossing to make your logo stand out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adjustable products including hats, lanyards, and wristbands with logo imprinting",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:50.800404+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

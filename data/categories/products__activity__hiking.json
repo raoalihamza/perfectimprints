@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/activity/hiking",
+  "type": "facet",
+  "h1": "Custom Hiking Products for Your Brand",
+  "metaTitle": "Custom Hiking Products | Perfect Imprints",
+  "metaDescription": "Order custom hiking products for your brand. Perfect for outdoor events, giveaways, and corporate gifts. Shop now at Perfect Imprints.",
+  "introHtml": "<p>When your audience loves the outdoors, custom hiking products make a lasting impression. From branded water bottles and hats to first aid kits and compasses, these items are practical for trail use and everyday carry. Choose durable materials like stainless steel or recycled polyester to align with your brand’s values. Decorate with your logo using screen printing or laser engraving for a polished look that stands out on the trail.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hiking products including branded water bottles and hats arranged on a wooden table",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:36:41.934430+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

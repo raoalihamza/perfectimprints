@@ -1,0 +1,27 @@
+{
+  "url": "/cat/magnets/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Magnets for Bulk Orders",
+  "metaTitle": "Custom Set Magnets | Perfect Imprints",
+  "metaDescription": "Order custom set magnets in bulk at Perfect Imprints. Ideal for giveaways, promotions, and branded sets. Get a quick quote today.",
+  "introHtml": "<p>Custom set magnets let you offer a complete collection rather than a single piece, increasing perceived value and engagement. Whether you create a series of sports-themed magnets or a seasonal set for holiday giveaways, each magnet in the set reinforces your brand every time it's used. Perfect for trade show VIP kits or employee welcome packages, these sets are easy to distribute and keep your logo visible long after the event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A collection of custom set magnets featuring sports, holidays, and seasonal designs in vibrant colors.",
+  "productSkus": [
+    "504235 2AM",
+    "522291",
+    "522292",
+    "522293",
+    "522294",
+    "522295",
+    "524828"
+  ],
+  "generatedAt": "2026-05-31T09:19:00.946506+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

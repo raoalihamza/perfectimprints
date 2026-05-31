@@ -1,0 +1,24 @@
+{
+  "url": "/cat/briefcases/brand/solo",
+  "type": "facet",
+  "h1": "Custom Solo Briefcases for Bulk Orders",
+  "metaTitle": "Custom Solo Briefcases | Perfect Imprints",
+  "metaDescription": "Order custom Solo briefcases in bulk at Perfect Imprints. Ideal for corporate gifts and branded employee gear.",
+  "introHtml": "<p>Solo briefcases are known for their professional styling and practical organization, making them a popular choice for corporate gift programs and employee onboarding kits. The Solo Ace Slim Brief offers a sleek, padded laptop compartment, while the Hybrid Briefcase combines a modern look with multiple pockets for accessories. Ordering custom Solo briefcases with your logo gives your team a polished, unified appearance at meetings and trade shows.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Solo briefcases displayed in a professional setting with branded logos",
+  "productSkus": [
+    "524395",
+    "524396",
+    "524397",
+    "524400"
+  ],
+  "generatedAt": "2026-05-31T08:40:12.888927+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

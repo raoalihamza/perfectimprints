@@ -1,0 +1,33 @@
+{
+  "url": "/cat/health/activity/camping",
+  "type": "facet",
+  "h1": "Custom Camping Health Products for Bulk Orders",
+  "metaTitle": "Custom Camping Health Products | Perfect Imprints",
+  "metaDescription": "Order custom camping health products for your team. Perfect for outdoor events and corporate giveaways. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>When your team or event heads into the outdoors, standard promotional items won't cut it. Custom camping health products combine practical outdoor gear like hydration packs, first aid kits, and cooling towels with your logo, ensuring your brand is seen where it matters most—on the trail, at the campsite, or during a team-building retreat. These items are built for durability and real use, making them memorable giveaways that recipients actually rely on.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom camping health products including hydration packs and first aid kits for outdoor team events",
+  "productSkus": [
+    "507398",
+    "514184",
+    "514185 01A",
+    "514841",
+    "516800",
+    "516988 90E",
+    "518484",
+    "519201",
+    "519664",
+    "522637",
+    "523554",
+    "523569",
+    "526828"
+  ],
+  "generatedAt": "2026-05-31T08:55:33.496779+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/vases/material/cardboard",
+  "type": "facet",
+  "h1": "Custom Cardboard Vases for Bulk Orders",
+  "metaTitle": "Custom Cardboard Vases | Perfect Imprints",
+  "metaDescription": "Order custom cardboard vases for eco-friendly bulk giveaways. Perfect for trade shows and corporate events. Get a quote today!",
+  "introHtml": "<p>Cardboard vases offer a sustainable alternative to traditional materials, perfect for eco-conscious corporate gifts or event decor. Lightweight and shatterproof, they can be printed with your logo and filled with dried flowers or promotional items like the Carton Garden or S'mores Kit Mailer Box. Ideal for trade shows, office gifts, or branded mailers that arrive flat for easy storage.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cardboard vases with printed logos, eco-friendly and shatterproof for corporate gifts and events.",
+  "productSkus": [
+    "524480",
+    "525117",
+    "525118",
+    "525120",
+    "525122"
+  ],
+  "generatedAt": "2026-05-31T09:29:51.257994+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

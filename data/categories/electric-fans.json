@@ -1,0 +1,81 @@
+{
+  "url": "/cat/electric-fans",
+  "type": "root",
+  "h1": "Custom Electric Fans for Events, Trade Shows & Employee Gifts",
+  "metaTitle": "Custom Electric Fans | Perfect Imprints",
+  "metaDescription": "Order custom electric fans for events, trade shows & employee gifts. Personalized hand fans and flyers with your logo. Fast turnaround & bulk pricing.",
+  "introHtml": "<p>Marketing directors planning summer trade shows, HR directors organizing outdoor employee appreciation events, and safety managers preparing heat-safety kits all face the same challenge: keeping people cool while keeping your brand visible. Custom electric fans solve both problems at once. Whether you need a simple hand fan for a conference giveaway or a promotional flyer fan that doubles as an information piece, this category delivers practical comfort with reliable logo exposure.</p><p>Perfect Imprints stocks a wide range of fan styles, from fun-shaped hand fans and round paper fans to emoji hand fans and twist-n-chill fans. Most fans are available in stock shapes or custom die-cut shapes, with options for full-color printing on one or both sides. Quantities start as low as 100 units for smaller giveaways and scale up to thousands for large events. With short lead times and US-based production, you can order confidently for your next event, safety program, or employee gift.</p>",
+  "buyingGuideHtml": "<h3>Custom Electric Fans Buying Guide</h3><p>When ordering custom electric fans, the first decision is shape and size. Stock shape hand fans and round paper fans are budget-friendly and quick to produce, while fun-shaped hand fans and custom die-cut shapes create a stronger visual impression. Consider your audience: a rally fan works well for sports events, while a 5-inch mini flyer fits easily into conference swag bags. For outdoor safety kits, a larger 9-inch flyer provides more cooling surface area.</p><p>Material and build quality matter for durability. Most paper fans are made from cardstock or coated paper that holds up for a single event. If you need fans that survive multiple uses, look for plastic or laminated options. The twist-n-chill fan, for example, uses a durable plastic construction that can be reused. For safety programs, ensure the fan has no sharp edges or small parts that could pose a hazard.</p><p>Use cases for promotional electric fans are diverse. Marketing directors order them for summer trade shows, grand openings, and outdoor festivals where attendees appreciate a cool relief. HR directors include branded fans in new-hire welcome kits or employee appreciation packages. Safety managers distribute them as part of heat-stress prevention campaigns, often pairing them with water bottles or sunscreen. Business owners use them for customer giveaways at county fairs or community events.</p><p>Decoration options depend on the fan material. Full-color print is the most common method, allowing you to reproduce logos, photos, and text with vibrant detail. Screen printing works for simple one- or two-color designs on plastic fans. For a premium look, consider foil stamping or embossing on paper fans. Most suppliers offer one-side printing as standard, with two-side printing available at a small upcharge. Make sure your artwork fits the fan shape without distortion.</p><p>Quantity and MOQ considerations are straightforward. Minimum order quantities for stock shapes start around 100 units, while custom die-cut shapes may require 500 or more. Bulk orders of 1,000+ units bring the per-unit cost down significantly. If you need a small run for a VIP event, ask about sample options or short-run pricing. Lead times typically range from 5 to 10 business days for stock shapes, and 2 to 3 weeks for custom shapes. Plan ahead for peak summer season when demand spikes.</p><p>A common buying mistake is choosing a fan that is too small to be useful. A 5-inch mini flyer is fine for a desk toy, but for outdoor heat relief, a 9-inch fan is much more effective. Also, verify the printing area: some fun-shaped fans have limited space for logos. Finally, if you plan to hand fans out in large quantities, consider a fan with a handle or strap for easy carrying. The zing ring flyer, for instance, has a built-in ring that makes it easy to hold and wave.</p>",
+  "buyingGuideH2": "Custom Electric Fans Buying Guide",
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity for custom electric fans?",
+      "a": "Minimum order quantities start at 100 units for stock shape fans. Custom die-cut shapes may require a minimum of 500 units. Contact us for specific MOQs based on your design."
+    },
+    {
+      "q": "What decoration methods are available for fans?",
+      "a": "Full-color digital print is the most common method, offering vibrant results. Screen printing is available for simple designs on plastic fans. Foil stamping and embossing are options for paper fans."
+    },
+    {
+      "q": "How long does production take for custom fans?",
+      "a": "Standard production takes 5-10 business days for stock shapes. Custom shapes may require 2-3 weeks. Rush orders are often available for an additional fee."
+    },
+    {
+      "q": "Can I get a sample before placing a bulk order?",
+      "a": "Yes, samples are available. You can order a single sample fan with your design or choose a stock sample to evaluate material and size. Sample costs vary."
+    },
+    {
+      "q": "Are custom electric fans suitable for outdoor events?",
+      "a": "Yes, paper fans work well for one-time outdoor events. For repeated use, consider plastic or laminated fans that resist moisture and tearing. Ensure the fan is UV-resistant if used in direct sunlight."
+    }
+  ],
+  "heroAltText": "Custom electric fans with full-color logo print, including round paper fans and fun-shaped hand fans for events and giveaways",
+  "productSkus": [
+    "501943",
+    "502358",
+    "502745 10B",
+    "502894",
+    "502895",
+    "502895 1BI",
+    "503089",
+    "504299",
+    "504376",
+    "506530",
+    "507496",
+    "507687",
+    "507782",
+    "508709 90A",
+    "508710 90A",
+    "510729",
+    "510731",
+    "510732",
+    "511520 90A",
+    "512550",
+    "513209",
+    "517241",
+    "517555 97H",
+    "517556 97H",
+    "517557 97H",
+    "517585 90A",
+    "517640 90A",
+    "517652 90A",
+    "518166",
+    "521058",
+    "521642",
+    "523471",
+    "523727",
+    "527151",
+    "528197",
+    "528330",
+    "528896",
+    "529031",
+    "529058"
+  ],
+  "generatedAt": "2026-05-30T11:29:30.560705+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "root-v2",
+  "openingStyle": "buyer",
+  "skuFilterMode": "full",
+  "rawSkuCount": 39,
+  "filteredSkuCount": 39
+}

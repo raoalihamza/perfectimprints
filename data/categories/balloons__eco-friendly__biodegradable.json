@@ -1,0 +1,30 @@
+{
+  "url": "/cat/balloons/eco-friendly/biodegradable",
+  "type": "facet",
+  "h1": "Custom Biodegradable Balloons",
+  "metaTitle": "Custom Biodegradable Balloons | Perfect Imprints",
+  "metaDescription": "Order custom biodegradable balloons for eco-friendly events. Perfect for brand promotions with natural latex options.",
+  "introHtml": "<p>Biodegradable balloons are made from natural latex, which breaks down naturally over time, making them a responsible choice for outdoor events and eco-conscious brand promotions. Unlike standard foil balloons, these latex options decompose at a similar rate to an oak leaf, reducing environmental impact. Perfect for marketing directors planning a green campaign or HR directors organizing a sustainable company picnic, these balloons can be custom-printed with your logo using screen printing or pad printing. Available in standard and metallic finishes, they offer the same festive appeal without the long-term waste.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom biodegradable balloons in assorted colors with logo printing for eco-friendly events",
+  "productSkus": [
+    "518390 30A",
+    "519461",
+    "527576",
+    "527577",
+    "527581",
+    "527582",
+    "527583",
+    "527584",
+    "527585",
+    "527586"
+  ],
+  "generatedAt": "2026-05-31T08:32:14.098837+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

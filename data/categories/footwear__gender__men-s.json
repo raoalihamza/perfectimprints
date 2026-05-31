@@ -1,0 +1,24 @@
+{
+  "url": "/cat/footwear/gender/men-s",
+  "type": "facet",
+  "h1": "Custom Men's Footwear for Bulk Orders",
+  "metaTitle": "Custom Men's Footwear | Perfect Imprints",
+  "metaDescription": "Order custom men's footwear for teams and events. Perfect Imprints offers bulk branding on socks, flip flops, and more.",
+  "introHtml": "<p>Custom men's footwear lets you put your logo on everyday essentials that people actually use. From durable merino wool boot socks for outdoor crews to comfortable flip flops for company picnics, each item offers a practical canvas for your brand. Choose embroidery or screen printing to match your logo colors and create a cohesive look for your team or event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom men's footwear featuring embroidered logo on a pair of heavy-duty boot socks",
+  "productSkus": [
+    "501556",
+    "520052",
+    "526363",
+    "528344"
+  ],
+  "generatedAt": "2026-05-31T09:47:09.958011+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

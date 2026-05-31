@@ -1,0 +1,26 @@
+{
+  "url": "/cat/calculators/supplier/hit",
+  "type": "facet",
+  "h1": "Custom Hit Calculators for Bulk Orders",
+  "metaTitle": "Custom Hit Calculators | Perfect Imprints",
+  "metaDescription": "Order custom Hit calculators for your business. Perfect for trade shows and giveaways. Get a quote today from Perfect Imprints.",
+  "introHtml": "<p>Hit calculators are built for durability and daily use, making them a smart choice for branded giveaways that actually get used. Whether you choose a classic desk model or a compact flip design, these calculators offer reliable performance with your logo prominently displayed. They are ideal for corporate events, school promotions, or office supply orders where practicality meets brand visibility. Custom imprinting options include pad printing or engraving for a clean, professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hit calculators with logo imprint, including desk and flip models for bulk orders",
+  "productSkus": [
+    "502790",
+    "503150",
+    "503253",
+    "508489",
+    "526359",
+    "526362"
+  ],
+  "generatedAt": "2026-05-31T09:09:42.867328+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

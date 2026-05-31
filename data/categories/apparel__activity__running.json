@@ -1,0 +1,31 @@
+{
+  "url": "/cat/apparel/activity/running",
+  "type": "facet",
+  "h1": "Custom Running Apparel for Teams & Events",
+  "metaTitle": "Custom Running Apparel | Perfect Imprints",
+  "metaDescription": "Shop custom running apparel for your team or event. Perfect for races, corporate wellness, and giveaways. Fast turnaround.",
+  "introHtml": "<p>Running apparel needs to perform: lightweight, moisture-wicking, and comfortable for miles. Whether you're outfitting a corporate 5K team, a charity race, or a company wellness program, custom running apparel from brands like Bella+Canvas and Gildan ensures your logo moves with your participants. Choose from performance tees, hoodies, or accessories like headlamps and fanny packs for a complete race-day kit.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom running apparel including performance tees, hoodies, and accessories for teams and events.",
+  "productSkus": [
+    "506402",
+    "513304 90A",
+    "517496",
+    "519201",
+    "520378",
+    "520922",
+    "521675",
+    "526079",
+    "526080",
+    "526601",
+    "528866"
+  ],
+  "generatedAt": "2026-05-31T09:32:00.753311+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

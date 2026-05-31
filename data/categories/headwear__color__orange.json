@@ -1,0 +1,29 @@
+{
+  "url": "/cat/headwear/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Headwear for Your Team",
+  "metaTitle": "Custom Orange Headwear | Perfect Imprints",
+  "metaDescription": "Shop custom orange headwear for safety or branding. Bulk orders available at Perfect Imprints.",
+  "introHtml": "<p>Orange headwear stands out for safety visibility or bold brand colors. From high-vis caps for construction teams to bright beanies for company events, orange hats make a statement. Customize with embroidery or screen printing on styles like the Port Authority Enhanced Visibility Cap or Flexfit Structured Twill Cap. Perfect for safety managers and marketing directors ordering in bulk.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange headwear including a structured twill cap and a knit beanie with reflective stripes",
+  "productSkus": [
+    "506903",
+    "509138",
+    "516537",
+    "522635",
+    "525630",
+    "526162",
+    "526537",
+    "527215",
+    "527366"
+  ],
+  "generatedAt": "2026-05-31T08:34:25.200960+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/beanies/feature/reflective",
+  "type": "facet",
+  "h1": "Custom Reflective Beanies for Safety & Branding",
+  "metaTitle": "Custom Reflective Beanies | Perfect Imprints",
+  "metaDescription": "Order custom reflective beanies for safety and visibility. Perfect for outdoor events, crews, and giveaways. Bulk pricing available.",
+  "introHtml": "<p>Custom reflective beanies combine cold-weather comfort with high-visibility safety features, making them ideal for construction crews, night events, or outdoor promotions. The integrated reflective stripes or prints ensure your team stays seen in low-light conditions while your logo stays visible. Choose a knit beanie with reflective detailing for a practical giveaway that doubles as safety gear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom reflective beanies with knit fabric and silver reflective stripes, perfect for safety and branding",
+  "productSkus": [
+    "506903"
+  ],
+  "generatedAt": "2026-05-31T08:50:45.378285+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

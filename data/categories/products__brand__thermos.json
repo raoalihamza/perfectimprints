@@ -1,0 +1,26 @@
+{
+  "url": "/cat/products/brand/thermos",
+  "type": "facet",
+  "h1": "Custom Thermos Products for Bulk Orders",
+  "metaTitle": "Custom Thermos Products | Perfect Imprints",
+  "metaDescription": "Order custom Thermos products for your brand. Perfect for employee gifts and corporate swag. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Thermos branded products deliver proven temperature retention and rugged durability, making them a smart choice for companies that want promotional items employees will actually use. From the 24 oz Hydration Bottle with a rotating intake meter to the classic Stainless King food jars, each piece offers reliable insulation for hot or cold contents. Customize with your logo via pad printing or laser engraving for a professional finish that lasts through daily commutes, job sites, and outdoor breaks.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Thermos products including stainless steel tumblers and hydration bottles with company logo",
+  "productSkus": [
+    "525293",
+    "525294",
+    "525295",
+    "525296",
+    "525297",
+    "525298"
+  ],
+  "generatedAt": "2026-05-31T09:00:48.261538+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

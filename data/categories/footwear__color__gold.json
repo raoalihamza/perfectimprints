@@ -1,0 +1,19 @@
+{
+  "url": "/cat/footwear/color/gold",
+  "type": "facet",
+  "h1": "Custom Gold Footwear for Bulk Orders",
+  "metaTitle": "Custom Gold Footwear | Perfect Imprints",
+  "metaDescription": "Order custom gold footwear for your team or event. Perfect for promotions, uniforms, and giveaways. Get a quote today!",
+  "introHtml": "<p>Gold footwear adds a bold, celebratory touch to any event or uniform. Whether you're outfitting a championship team, planning a milestone promotion, or creating standout giveaways for a trade show, custom gold shoes or sandals make a memorable impression. Available in styles from athletic sneakers to casual slides, these can be decorated with your logo or message using screen printing or embroidery. Perfect for bulk orders where visibility and team spirit matter.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gold footwear with embroidered logo on athletic sneakers for team uniforms",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:54:17.981234+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

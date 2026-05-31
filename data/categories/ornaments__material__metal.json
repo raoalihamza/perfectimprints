@@ -1,0 +1,24 @@
+{
+  "url": "/cat/ornaments/material/metal",
+  "type": "facet",
+  "h1": "Custom Metal Ornaments for Bulk Orders",
+  "metaTitle": "Custom Metal Ornaments – Perfect Imprints",
+  "metaDescription": "Order custom metal ornaments in bulk from Perfect Imprints. Ideal for corporate gifts, promotions, and employee recognition.",
+  "introHtml": "<p>Metal ornaments offer a durable, polished alternative to glass or plastic, making them ideal for corporate gifts, trade show giveaways, and employee recognition. Choose from shatter-resistant flat shapes like stars or rounds, or opt for magnetic snow globe designs that add a unique twist. Decorate with your logo using full-color imprinting or engraving for a lasting impression that won't chip or fade.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom metal ornaments with engraved company logo, featuring flat star and round shapes",
+  "productSkus": [
+    "512371 03W",
+    "519584",
+    "519593",
+    "526848"
+  ],
+  "generatedAt": "2026-05-31T09:58:30.910798+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

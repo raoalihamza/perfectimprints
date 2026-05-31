@@ -1,0 +1,27 @@
+{
+  "url": "/cat/pet-bowls/brand/dri-duck",
+  "type": "facet",
+  "h1": "Custom Dri Duck Pet Bowls for Bulk Orders",
+  "metaTitle": "Custom Dri Duck Pet Bowls | Perfect Imprints",
+  "metaDescription": "Order custom Dri Duck pet bowls in bulk from Perfect Imprints. Durable, branded bowls perfect for pet supply companies.",
+  "introHtml": "<p>Dri Duck is known for rugged outdoor gear, and their pet bowls bring that same durability to feeding time. These heavy-duty bowls resist cracking and tipping, making them ideal for pet stores, veterinary clinics, or outdoor brands that want a practical giveaway. Customize with your logo using pad printing or laser engraving for a lasting impression that holds up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Dri Duck pet bowls with logo imprint, durable plastic bowls for dogs and cats",
+  "productSkus": [
+    "522595",
+    "527125",
+    "527126",
+    "528099",
+    "528100",
+    "528838",
+    "529182"
+  ],
+  "generatedAt": "2026-05-31T10:01:12.253260+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

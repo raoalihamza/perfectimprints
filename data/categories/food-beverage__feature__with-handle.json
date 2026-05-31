@@ -1,0 +1,23 @@
+{
+  "url": "/cat/food-beverage/feature/with-handle",
+  "type": "facet",
+  "h1": "Custom Food & Beverage Products with Handle",
+  "metaTitle": "Custom With Handle Food Beverage | Perfect Imprints",
+  "metaDescription": "Order custom with handle food beverage products for your team or event. Perfect for hot and cold drinks. Get a quote today!",
+  "introHtml": "<p>Food and beverage items with a built-in handle offer superior grip and portability for busy environments. Whether you're outfitting a construction crew with durable travel mugs or providing eco-friendly tumblers for a corporate retreat, the handle makes carrying hot coffee or iced water easier and safer. These products accept screen printing, laser engraving, or full-color wrap decoration for high-impact branding.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom with handle food beverage products like 20 oz YETI travel mug and Thor straw tumblers with comfortable grip",
+  "productSkus": [
+    "526981",
+    "528220",
+    "528839"
+  ],
+  "generatedAt": "2026-05-31T09:46:45.969848+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

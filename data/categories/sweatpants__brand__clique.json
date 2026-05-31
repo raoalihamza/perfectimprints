@@ -1,0 +1,24 @@
+{
+  "url": "/cat/sweatpants/brand/clique",
+  "type": "facet",
+  "h1": "Custom Clique Sweatpants for Bulk Orders",
+  "metaTitle": "Custom Clique Sweatpants | Perfect Imprints",
+  "metaDescription": "Order custom Clique sweatpants in bulk at Perfect Imprints. Perfect for corporate apparel, teams, and events.",
+  "introHtml": "<p>Clique sweatpants combine the comfort your team expects with the durability required for repeated wear and washing. Whether you are outfitting a corporate wellness program or supplying a construction crew with branded lounge pants, the mid-weight fleece holds up to job site demands while keeping your logo front and center. Choose from classic fit styles that work for both men and women, and add your company name or department logo via screen printing or embroidery. These sweatpants offer a clean, professional look that your employees will actually want to wear off the clock.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Clique sweatpants with embroidered logo on left hip, displayed on a model in a casual setting",
+  "productSkus": [
+    "509568",
+    "509569",
+    "526962",
+    "526963"
+  ],
+  "generatedAt": "2026-05-31T10:09:56.673455+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

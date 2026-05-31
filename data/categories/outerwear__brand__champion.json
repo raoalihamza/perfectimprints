@@ -1,0 +1,21 @@
+{
+  "url": "/cat/outerwear/brand/champion",
+  "type": "facet",
+  "h1": "Custom Champion Outerwear for Bulk Orders",
+  "metaTitle": "Custom Champion Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom Champion outerwear in bulk. Perfect for teams, events, and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Champion outerwear combines athletic heritage with reliable comfort, making it a top pick for corporate uniforms, team gear, and employee rewards. The Champion Adult Packable Anorak 1/4 Zip Jacket offers lightweight warmth and easy storage, ideal for outdoor events or travel. Choose from full-zip hoodies, pullovers, and jackets in classic Champion styles, all customizable with your logo via screen printing or embroidery.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Champion outerwear featuring a packable anorak jacket with embroidered logo",
+  "productSkus": [
+    "526131"
+  ],
+  "generatedAt": "2026-05-31T09:21:15.023265+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

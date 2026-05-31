@@ -1,0 +1,23 @@
+{
+  "url": "/cat/writing/style/two-tone",
+  "type": "facet",
+  "h1": "Custom Two Tone Pens for Bulk Orders",
+  "metaTitle": "Custom Two Tone Pens | Perfect Imprints",
+  "metaDescription": "Order custom two tone pens for your brand. Perfect for giveaways and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Two tone pens combine two distinct colors in a single writing instrument, offering a sleek contrast that catches the eye. Ideal for trade shows and corporate events, these pens provide a modern twist on classic promotional giveaways. Choose from styles like the rubberized Sleek Write Two-Tone Pen for a comfortable grip and lasting impression. Decorate with your logo using pad printing or laser engraving for a polished finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom two tone pens with contrasting colors and rubberized grip for promotional use",
+  "productSkus": [
+    "507535",
+    "520714",
+    "520752"
+  ],
+  "generatedAt": "2026-05-31T09:05:03.557874+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

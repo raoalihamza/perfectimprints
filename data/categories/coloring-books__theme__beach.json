@@ -1,0 +1,21 @@
+{
+  "url": "/cat/coloring-books/theme/beach",
+  "type": "facet",
+  "h1": "Custom Beach Coloring Books",
+  "metaTitle": "Custom Beach Coloring Books | Perfect Imprints",
+  "metaDescription": "Order custom beach coloring books for your brand. Perfect for summer promotions. Visit Perfect Imprints to get started.",
+  "introHtml": "<p>Beach-themed coloring books offer a relaxing escape that resonates with audiences seeking stress relief and creative fun. Ideal for summer events, resort giveaways, or coastal trade shows, these books feature ocean scenes and tropical designs that stand out. Customize with your logo on the cover to create a memorable branded experience that recipients will enjoy long after the event.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom beach coloring books with ocean scenes and tropical designs, perfect for summer promotions and branded giveaways.",
+  "productSkus": [
+    "519563"
+  ],
+  "generatedAt": "2026-05-31T09:41:31.389123+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

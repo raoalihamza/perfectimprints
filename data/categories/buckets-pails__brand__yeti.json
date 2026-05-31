@@ -1,0 +1,21 @@
+{
+  "url": "/cat/buckets-pails/brand/yeti",
+  "type": "facet",
+  "h1": "Custom Yeti Buckets & Pails",
+  "metaTitle": "Custom Yeti Buckets & Pails | Perfect Imprints",
+  "metaDescription": "Order custom Yeti buckets & pails with your logo. Perfect for giveaways, events, and employee gifts. Shop now at PerfectImprints.com.",
+  "introHtml": "<p>Yeti buckets and pails bring the same rugged durability and premium insulation that Yeti is known for, making them a standout choice for branded giveaways and corporate gifts. Whether you are outfitting a job site with heavy-duty coolers or sending a thoughtful thank-you to clients, these stainless steel buckets hold up to real use. Decorate with laser engraving or screen printing for a clean, lasting logo that matches Yeti's quality reputation.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Yeti buckets pails with engraved logo, stainless steel finish, ideal for corporate gifts and promotional giveaways.",
+  "productSkus": [
+    "529534"
+  ],
+  "generatedAt": "2026-05-31T08:40:15.369430+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

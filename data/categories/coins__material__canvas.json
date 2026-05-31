@@ -1,0 +1,22 @@
+{
+  "url": "/cat/coins/material/canvas",
+  "type": "facet",
+  "h1": "Custom Canvas Coins for Bulk Orders",
+  "metaTitle": "Custom Canvas Coins | Perfect Imprints",
+  "metaDescription": "Order custom canvas coins for events, promotions, or recognition. Durable and unique. Start your bulk order at Perfect Imprints.",
+  "introHtml": "<p>Custom canvas coins offer a soft, durable alternative to metal coins, making them ideal for giveaways at trade shows, corporate events, or team-building activities. The fabric material allows for vibrant full-color printing on both sides, ensuring your logo or message stands out. Unlike traditional coins, canvas coins are lightweight and quiet, perfect for environments where noise matters. Whether used as promotional tokens, challenge coins, or event passes, these custom canvas coins provide a tactile experience that recipients appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom canvas coins with full-color printed logo on durable fabric material for promotional giveaways",
+  "productSkus": [
+    "516989 90A",
+    "516990 90A"
+  ],
+  "generatedAt": "2026-05-31T08:26:18.549354+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

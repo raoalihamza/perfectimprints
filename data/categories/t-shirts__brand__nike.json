@@ -1,0 +1,24 @@
+{
+  "url": "/cat/t-shirts/brand/nike",
+  "type": "facet",
+  "h1": "Custom Nike T Shirts for Bulk Orders",
+  "metaTitle": "Custom Nike T Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Nike T shirts in bulk at Perfect Imprints. High-quality, brand-name tees with your logo. Get a fast quote today.",
+  "introHtml": "<p>When you choose custom Nike T shirts for your team or event, you're investing in a brand known for performance and comfort. Nike's Dri-FIT technology keeps wearers cool and dry, making these tees ideal for company sports teams, charity runs, or outdoor work events. With decoration options like screen printing or embroidery, your logo will look sharp on a premium garment that your recipients will actually want to wear again.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Nike T shirts with screen-printed logo on a red Dri-FIT tee",
+  "productSkus": [
+    "527362",
+    "527363",
+    "527364",
+    "527365"
+  ],
+  "generatedAt": "2026-05-31T08:37:48.465556+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

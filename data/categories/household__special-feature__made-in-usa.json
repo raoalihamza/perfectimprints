@@ -1,0 +1,21 @@
+{
+  "url": "/cat/household/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Household Products",
+  "metaTitle": "Custom Made in USA Household | Perfect Imprints",
+  "metaDescription": "Order custom made in USA household products for your business. Perfect for corporate gifts and employee appreciation. Bulk pricing available.",
+  "introHtml": "<p>Choosing custom made in USA household products supports American manufacturing and ensures high quality standards. Our Circle Jar Opener, for example, combines practical kitchen utility with durable domestic construction. Whether you need branded giveaways for a trade show or client appreciation gifts that emphasize local craftsmanship, these items offer reliability and a patriotic appeal that resonates with recipients. Decorate with your logo via pad printing or laser engraving for a lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA household products like a branded Circle Jar Opener displayed on a kitchen counter",
+  "productSkus": [
+    "501795"
+  ],
+  "generatedAt": "2026-05-31T09:51:20.024172+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

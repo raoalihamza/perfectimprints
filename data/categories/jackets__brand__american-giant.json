@@ -1,0 +1,24 @@
+{
+  "url": "/cat/jackets/brand/american-giant",
+  "type": "facet",
+  "h1": "Custom American Giant Jackets for Bulk Orders",
+  "metaTitle": "Custom American Giant Jackets | Perfect Imprints",
+  "metaDescription": "Order custom American Giant jackets for your team. Premium quality, bulk pricing, and expert decoration. Get a quote today!",
+  "introHtml": "<p>American Giant jackets are built in the United States from heavyweight fleece and ring-spun cotton, offering durability that stands up to daily wear. Whether you need embroidered full-zip hoodies for a corporate uniform or screen-printed crew sweatshirts for a promotional giveaway, these pieces hold their shape and color wash after wash. The classic fit and clean finish make them a favorite among marketing directors and safety managers who want a premium look without sacrificing comfort.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom American Giant jackets with embroidered logo, including full-zip hoodie and crew sweatshirt",
+  "productSkus": [
+    "528594",
+    "528595",
+    "529338",
+    "529339"
+  ],
+  "generatedAt": "2026-05-31T09:51:34.616652+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

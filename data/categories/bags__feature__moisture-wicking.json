@@ -1,0 +1,21 @@
+{
+  "url": "/cat/bags/feature/moisture-wicking",
+  "type": "facet",
+  "h1": "Custom Moisture Wicking Bags",
+  "metaTitle": "Custom Moisture Wicking Bags | Perfect Imprints",
+  "metaDescription": "Shop custom moisture wicking bags for bulk orders. Ideal for gyms, outdoor events, and corporate giveaways. Get a quote today.",
+  "introHtml": "<p>Custom moisture wicking bags keep gear dry during workouts, outdoor events, and commutes. Unlike standard bags, these use breathable, quick-dry fabrics that resist sweat and humidity. Perfect for gym giveaways, safety manager toolkits, or HR wellness programs. Decorate with screen printing or embroidery for a functional branded item your team will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom moisture wicking bags with breathable fabric and branded logo, ideal for gym and outdoor use.",
+  "productSkus": [
+    "526883"
+  ],
+  "generatedAt": "2026-05-31T08:49:34.888548+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

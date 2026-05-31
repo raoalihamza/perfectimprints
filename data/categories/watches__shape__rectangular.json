@@ -1,0 +1,22 @@
+{
+  "url": "/cat/watches/shape/rectangular",
+  "type": "facet",
+  "h1": "Custom Rectangular Watches for Branding",
+  "metaTitle": "Custom Rectangular Watches | Perfect Imprints",
+  "metaDescription": "Order custom rectangular watches with your logo. Perfect for corporate gifts and promotional events. Get a quote today.",
+  "introHtml": "<p>Rectangular watch faces offer a classic, sophisticated look that sets your branded timepieces apart from standard round styles. Whether you choose a sleek metal case or a rugged paracord band, these watches provide a larger canvas for your logo or message. Ideal for corporate gifts, safety awards, or trade show giveaways, custom rectangular watches combine style and functionality. Decorate with screen printing or engraving to create a lasting impression on your team or clients.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom rectangular watches with engraved logos, featuring a classic rectangular face and leather band for corporate gifts.",
+  "productSkus": [
+    "516655",
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T08:24:38.661316+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

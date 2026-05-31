@@ -1,0 +1,25 @@
+{
+  "url": "/cat/mechanical-pencils/supplier/gbond",
+  "type": "facet",
+  "h1": "Custom Gbond Mechanical Pencils",
+  "metaTitle": "Custom Gbond Mechanical Pencils | Perfect Imprints",
+  "metaDescription": "Order custom Gbond mechanical pencils for your business. Perfect for bulk branding with your logo. Fast turnaround.",
+  "introHtml": "<p>Gbond mechanical pencils offer a reliable writing experience with a sturdy barrel and smooth lead advancement. They are ideal for trade shows, corporate giveaways, or office supply kits where consistent performance matters. Choose from options like the Armadillo or Frosty Grip to add your logo via pad printing or engraving for a professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Gbond mechanical pencils with printed logo, available in assorted barrel colors for bulk orders.",
+  "productSkus": [
+    "510506",
+    "510906",
+    "514646",
+    "519577",
+    "525811"
+  ],
+  "generatedAt": "2026-05-31T09:56:07.084520+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

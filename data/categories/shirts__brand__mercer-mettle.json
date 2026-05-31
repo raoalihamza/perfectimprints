@@ -1,0 +1,24 @@
+{
+  "url": "/cat/shirts/brand/mercer-mettle",
+  "type": "facet",
+  "h1": "Custom Mercer Mettle Shirts for Professional Teams",
+  "metaTitle": "Custom Mercer Mettle Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Mercer Mettle shirts for your team. Durable, professional styles perfect for branding. Get a quote today.",
+  "introHtml": "<p>Mercer Mettle shirts combine the durability of workwear with a polished, professional look that suits field crews and office teams alike. Their twill and stretch woven fabrics hold up to frequent washing while retaining a crisp appearance, making them ideal for embroidered logos or screen-printed company names. Whether you need long-sleeve overshirts for utility workers or button-downs for sales staff, these shirts offer consistent sizing and a range of colors to match your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Mercer Mettle shirts for professional teams, featuring long sleeve twill overshirt with embroidered logo",
+  "productSkus": [
+    "526538",
+    "526539",
+    "527183",
+    "527184"
+  ],
+  "generatedAt": "2026-05-31T09:25:48.815632+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,27 @@
+{
+  "url": "/cat/sweatshirts/brand/port-company",
+  "type": "facet",
+  "h1": "Custom Port Company Sweatshirts for Bulk Orders",
+  "metaTitle": "Custom Port Company Sweatshirts - Perfect Imprints",
+  "metaDescription": "Order custom Port Company sweatshirts in bulk. Perfect for teams and events. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Port Company sweatshirts are a go-to choice for bulk corporate apparel because they combine consistent sizing with durable cotton-poly blends that hold up to frequent washing. Whether you need classic crewnecks for a company uniform or full-zip hoodies for a trade show giveaway, these blanks accept screen printing and embroidery cleanly. Marketing directors and HR managers appreciate the wide color range and unisex fit that works for all team members. Choose Port Company for reliable, cost-effective custom sweatshirts that deliver professional results order after order.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom Port Company sweatshirts in various colors with printed logos",
+  "productSkus": [
+    "515920",
+    "515928",
+    "515929",
+    "515945",
+    "515946",
+    "515947",
+    "527002"
+  ],
+  "generatedAt": "2026-05-31T08:27:31.510552+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

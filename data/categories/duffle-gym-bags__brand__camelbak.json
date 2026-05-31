@@ -1,0 +1,31 @@
+{
+  "url": "/cat/duffle-gym-bags/brand/camelbak",
+  "type": "facet",
+  "h1": "Custom Camelbak Duffle Gym Bags",
+  "metaTitle": "Custom Camelbak Duffle Gym Bags | Perfect Imprints",
+  "metaDescription": "Order custom Camelbak duffle gym bags with your logo. Perfect for corporate gifts and team gear. Bulk pricing available.",
+  "introHtml": "<p>Camelbak duffle gym bags combine the brand’s renowned hydration expertise with rugged, everyday durability. Unlike generic gym bags, these feature integrated water bottle pockets and moisture-wicking compartments that keep gear separate and dry. For safety managers or HR directors outfitting a team, the built-in hydration compatibility means employees stay hydrated without extra accessories. Decorate with your logo via screen printing or embroidery for a professional look that lasts through daily commutes and weekend trips.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Camelbak duffle gym bags with logo, featuring hydration pockets and durable construction for corporate gifts.",
+  "productSkus": [
+    "525013",
+    "525506",
+    "525680",
+    "525681",
+    "526211",
+    "526695",
+    "527057",
+    "527058",
+    "527966",
+    "528153",
+    "528684"
+  ],
+  "generatedAt": "2026-05-31T09:43:53.622909+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

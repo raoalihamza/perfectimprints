@@ -1,0 +1,25 @@
+{
+  "url": "/cat/apparel-accessories/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Apparel Accessories",
+  "metaTitle": "Custom Recycled Apparel Accessories | Perfect Imprints",
+  "metaDescription": "Shop custom recycled apparel accessories at Perfect Imprints. Eco-friendly hats, bags, and more for your brand. Order bulk today!",
+  "introHtml": "<p>Choosing recycled materials for your custom apparel accessories signals a genuine commitment to sustainability. From eco-conscious fanny packs to sunglasses frames made with recycled content, these items help reduce plastic waste while keeping your brand visible. Whether you need branded gear for a corporate event, trade show, or employee uniform program, recycled accessories offer durability and a story your customers will appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled apparel accessories including eco-friendly fanny packs and sunglasses with recycled frames",
+  "productSkus": [
+    "507422",
+    "510468 64F",
+    "510469 64E",
+    "520335",
+    "524500"
+  ],
+  "generatedAt": "2026-05-31T08:38:36.874443+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

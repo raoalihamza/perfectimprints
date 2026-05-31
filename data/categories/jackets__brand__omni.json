@@ -1,0 +1,19 @@
+{
+  "url": "/cat/jackets/brand/omni",
+  "type": "facet",
+  "h1": "Custom Omni Jackets for Bulk Orders",
+  "metaTitle": "Custom Omni Jackets | Perfect Imprints",
+  "metaDescription": "Order custom Omni jackets in bulk. Perfect for corporate apparel, teams, and events. Get a quote today.",
+  "introHtml": "<p>Omni jackets are known for their durable construction and versatile designs, making them a reliable choice for corporate uniforms, team gear, or promotional giveaways. Whether you need lightweight shells for outdoor events or insulated options for colder climates, Omni offers a range of styles that can be decorated with embroidery or screen printing. Bulk ordering ensures consistent branding across your organization.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Omni jackets with corporate logo embroidery, available in bulk for teams and events.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:51:40.808221+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

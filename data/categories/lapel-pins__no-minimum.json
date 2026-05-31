@@ -1,0 +1,22 @@
+{
+  "url": "/cat/lapel-pins/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Lapel Pins",
+  "metaTitle": "No-Minimum Custom Lapel Pins | Perfect Imprints",
+  "metaDescription": "Order no-minimum custom lapel pins in small quantities. Perfect for small teams, events, or samples. Get started with Perfect Imprints today.",
+  "introHtml": "<p>Not every project needs a thousand pins. Whether you're outfitting a small sales team, creating a limited run for a company milestone, or testing a design before a larger order, no-minimum custom lapel pins give you the flexibility to order exactly what you need — without being forced into bulk quantities. With low order thresholds and per-unit pricing that works at small volumes, you can get professional, custom lapel pins for as few as a handful of recipients.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A close-up of no-minimum custom lapel pins with colorful enamel designs, displayed on a dark background.",
+  "productSkus": [
+    "522323",
+    "525854"
+  ],
+  "generatedAt": "2026-05-31T09:54:03.988532+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

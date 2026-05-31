@@ -1,0 +1,33 @@
+{
+  "url": "/cat/shirts/decoration/embroidery",
+  "type": "facet",
+  "h1": "Custom Embroidery Shirts for Bulk Orders",
+  "metaTitle": "Custom Embroidery Shirts | Perfect Imprints",
+  "metaDescription": "Order custom embroidery shirts in bulk. Perfect for uniforms, teams, and corporate gifts. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Custom embroidery shirts offer a professional, durable finish that stands out from screen printing. Whether you are outfitting a sales team with Oxford shirts or adding logos to denim shirts for a uniform program, embroidery provides a textured, high-end look that lasts through repeated washes. Shirts like the Port Authority Superpro Oxford or the Men's Harriton Denim Shirt are popular choices for this decoration method because their structured fabrics hold stitches cleanly. Choose from left-chest, full-front, or sleeve placements to match your branding needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom embroidery shirts with stitched logos on Oxford and denim fabric shirts",
+  "productSkus": [
+    "501740",
+    "501741",
+    "513877",
+    "513878",
+    "513879",
+    "513880",
+    "519010",
+    "519011",
+    "519684",
+    "519685",
+    "520265",
+    "520266",
+    "520267"
+  ],
+  "generatedAt": "2026-05-31T08:46:36.265791+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

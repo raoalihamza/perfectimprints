@@ -1,0 +1,25 @@
+{
+  "url": "/cat/bandages/supplier/ariel",
+  "type": "facet",
+  "h1": "Custom Ariel Bandages for Bulk Orders",
+  "metaTitle": "Custom Ariel Bandages | Perfect Imprints",
+  "metaDescription": "Order custom Ariel bandages in bulk from Perfect Imprints. Ideal for first aid kits, events, and branding. Get a quote today!",
+  "introHtml": "<p>Ariel bandages offer a reliable, professional-grade option for businesses that prioritize quality in their first aid supplies. Whether you are stocking safety kits for a construction site or providing branded bandages at a corporate event, Ariel’s consistent adhesion and sterile packaging ensure every application is dependable. Customize them with your logo or safety message using screen printing or pad printing for a clean, durable finish that stands out in any emergency situation.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Ariel bandages in bulk packaging with printed logo, ideal for first aid kits and corporate branding.",
+  "productSkus": [
+    "502343",
+    "506843",
+    "510131",
+    "528559",
+    "529323"
+  ],
+  "generatedAt": "2026-05-31T09:07:06.192351+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

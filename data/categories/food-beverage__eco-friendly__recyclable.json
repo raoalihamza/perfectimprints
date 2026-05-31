@@ -1,0 +1,24 @@
+{
+  "url": "/cat/food-beverage/eco-friendly/recyclable",
+  "type": "facet",
+  "h1": "Custom Recyclable Food & Beverage Products",
+  "metaTitle": "Custom Recyclable Food Beverage | Perfect Imprints",
+  "metaDescription": "Order custom recyclable food beverage products for your business. Eco-friendly options that reduce waste. Get a quote today.",
+  "introHtml": "<p>Recyclable food and beverage products let you serve drinks and meals without adding to landfill waste. From clear plastic bottles to durable straw tumblers, these items are designed for easy recycling after use. Ideal for corporate cafeterias, outdoor events, or branded giveaways, they offer a practical way to show your commitment to sustainability. Choose recyclable options to align your promotional products with your company's green initiatives.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recyclable food beverage products including clear bottles and eco-friendly straw tumblers for branding",
+  "productSkus": [
+    "507915 91A",
+    "525823",
+    "526981",
+    "528220"
+  ],
+  "generatedAt": "2026-05-31T08:54:12.105393+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

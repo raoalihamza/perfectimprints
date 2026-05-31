@@ -1,0 +1,26 @@
+{
+  "url": "/cat/stockings/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Stockings",
+  "metaTitle": "Custom Unisex Stockings | Perfect Imprints",
+  "metaDescription": "Shop custom unisex stockings at Perfect Imprints. Perfect for corporate gifts, tradeshows, and employee appreciation. Order in bulk today.",
+  "introHtml": "<p>Custom unisex stockings offer a versatile branding solution that works for any audience, regardless of gender. Whether you choose cozy crew socks for winter giveaways or moisture-wicking athletic socks for event swag, the unisex sizing ensures a comfortable fit for most recipients. Decorate with your logo using embroidery or full-color printing for a polished, professional look that stands out in any setting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom unisex stockings with embroidered logo, available in various styles like crew and ankle socks.",
+  "productSkus": [
+    "522251",
+    "524427",
+    "525740",
+    "526360",
+    "526361",
+    "526363"
+  ],
+  "generatedAt": "2026-05-31T09:02:53.021572+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

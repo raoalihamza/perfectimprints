@@ -1,0 +1,23 @@
+{
+  "url": "/cat/drinkware/brand/takeya",
+  "type": "facet",
+  "h1": "Custom Takeya Drinkware for Bulk Orders",
+  "metaTitle": "Custom Takeya Drinkware - Perfect Imprints",
+  "metaDescription": "Order custom Takeya drinkware in bulk. Personalize 25 oz Traveler or Actives bottles for your team. Get a quote today.",
+  "introHtml": "<p>Takeya drinkware is built for performance, with double-wall vacuum insulation and durable stainless steel construction. When you order custom Takeya bottles, you get a premium product that keeps drinks cold for hours or hot for even longer. Choose the 25 oz Traveler for commuting or the 18 oz Actives with Straw Lid for gym use. Add your logo with laser engraving or screen printing for a polished, long-lasting brand impression that your recipients will use every day.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Takeya drinkware with laser engraved logo, including 25 oz Traveler and 18 oz Actives bottles",
+  "productSkus": [
+    "527233",
+    "527234",
+    "527235"
+  ],
+  "generatedAt": "2026-05-31T08:24:59.118767+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

@@ -1,0 +1,30 @@
+{
+  "url": "/cat/car-accessories/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Car Accessories",
+  "metaTitle": "No-Minimum Custom Car Accessories | Perfect Imprints",
+  "metaDescription": "Order custom car accessories with no minimum quantities. Perfect for small teams, events, or samples. Get branded gear fast from Perfect Imprints.",
+  "introHtml": "<p>No-minimum custom car accessories let you order exactly what you need—whether it's a single branded wallet for a client gift or a handful of roadside kits for a small safety event. Unlike bulk-only suppliers, we offer the same quality products without forcing you to buy 50 or 100 pieces. This flexibility is ideal for small businesses, startups, or anyone testing a new promotional item before committing to a larger run. Explore our selection of car accessories available in low quantities, including wallets, bags, and emergency kits, all customizable with your logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "No-minimum custom car accessories including branded bifold wallets and roadside kits for small orders",
+  "productSkus": [
+    "520886",
+    "521927",
+    "523655",
+    "524817",
+    "525724",
+    "527493",
+    "527554",
+    "528171",
+    "528870",
+    "529359"
+  ],
+  "generatedAt": "2026-05-31T09:39:50.258278+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

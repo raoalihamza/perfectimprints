@@ -1,0 +1,19 @@
+{
+  "url": "/cat/shirts/activity/hockey",
+  "type": "facet",
+  "h1": "Custom Hockey Shirts for Teams & Events",
+  "metaTitle": "Custom Hockey Shirts | Perfect Imprints",
+  "metaDescription": "Order custom hockey shirts for your team or event. Bulk pricing available from Perfect Imprints. Get a quote today!",
+  "introHtml": "<p>Custom hockey shirts are a staple for teams, tournaments, and fan events. Whether you need durable sublimated jerseys for the ice or soft cotton tees for the stands, choosing the right fabric and decoration method matters. Screen printing works well for large logos, while embroidery adds a professional finish to caps or polos. Perfect for youth leagues, corporate outings, or charity games.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom hockey shirts with team logos and player numbers",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:25:45.982977+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

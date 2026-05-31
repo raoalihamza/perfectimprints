@@ -1,0 +1,19 @@
+{
+  "url": "/cat/shirts/brand/port-company",
+  "type": "facet",
+  "h1": "Custom Port Company Shirts for Bulk Orders",
+  "metaTitle": "Custom Port Company Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Port Company shirts in bulk. Perfect for teams, events, and uniforms. Get started at Perfect Imprints.",
+  "introHtml": "<p>Port Company shirts are known for their consistent sizing, durable cotton blends, and value-friendly pricing, making them a reliable choice for bulk orders. Whether you need company uniforms, event staff shirts, or giveaways, these shirts hold up well to screen printing and embroidery. Choose from crewnecks, polos, and tees in a range of colors that work for any industry.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Port Company shirts with screen-printed logo on front, available in bulk for teams and events.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:22:11.840691+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

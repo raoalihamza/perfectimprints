@@ -1,0 +1,19 @@
+{
+  "url": "/cat/household/feature/adjustable",
+  "type": "facet",
+  "h1": "Custom Adjustable Household Items",
+  "metaTitle": "Custom Adjustable Household Items | Perfect Imprints",
+  "metaDescription": "Shop custom adjustable household items for your brand. Perfect for promotional giveaways and corporate gifts.",
+  "introHtml": "<p>Adjustable household items offer flexibility for everyday use, from adjustable bottle openers to multi-position hooks. These custom products are ideal for trade shows, employee gifts, or client appreciation, providing practical value that recipients can adapt to their needs. Choose from various decoration options to add your logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adjustable household items like bottle openers and hooks with logo imprint",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:24:11.958026+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

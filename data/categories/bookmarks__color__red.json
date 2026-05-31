@@ -1,0 +1,23 @@
+{
+  "url": "/cat/bookmarks/color/red",
+  "type": "facet",
+  "h1": "Custom Red Bookmarks for Branded Giveaways",
+  "metaTitle": "Custom Red Bookmarks | Perfect Imprints",
+  "metaDescription": "Order custom red bookmarks for your brand. Perfect for libraries, schools, and corporate gifts. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Red bookmarks stand out in a stack of standard giveaways, making them ideal for literacy events, library promotions, or corporate reading programs. Whether you choose a magnetic style for convenience or a magnifier for practical use, red adds a bold pop of color that recipients remember. Print your logo or message on durable materials for a useful branded item that stays in sight.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red bookmarks with magnetic closure and printed logo for brand promotion",
+  "productSkus": [
+    "501529",
+    "501530",
+    "504194"
+  ],
+  "generatedAt": "2026-05-31T09:37:42.196701+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

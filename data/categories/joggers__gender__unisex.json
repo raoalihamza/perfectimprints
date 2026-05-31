@@ -1,0 +1,23 @@
+{
+  "url": "/cat/joggers/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex Joggers for Bulk Orders",
+  "metaTitle": "Custom Unisex Joggers | Perfect Imprints",
+  "metaDescription": "Shop custom unisex joggers for your team or event. Bulk discounts available at Perfect Imprints.",
+  "introHtml": "<p>Unisex joggers offer a versatile fit that works for everyone, making them a smart choice for company apparel, team uniforms, or event giveaways. Unlike gender-specific cuts, these joggers provide a comfortable, relaxed silhouette that suits all body types. Options like the Champion® Adult Cotton Gym Short or Sport-Tek® PosiCharge® Competitor™ 7” Pocketed Short feature moisture-wicking fabrics and secure pockets, ideal for active work environments or outdoor events. Decorate with embroidery or screen printing for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom unisex joggers in various colors with embroidered logo, ideal for corporate team apparel",
+  "productSkus": [
+    "526128",
+    "526129",
+    "528875"
+  ],
+  "generatedAt": "2026-05-31T08:43:13.952677+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

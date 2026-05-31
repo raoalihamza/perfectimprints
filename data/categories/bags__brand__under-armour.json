@@ -1,0 +1,21 @@
+{
+  "url": "/cat/bags/brand/under-armour",
+  "type": "facet",
+  "h1": "Custom Under Armour Bags for Bulk Orders",
+  "metaTitle": "Custom Under Armour Bags | Perfect Imprints",
+  "metaDescription": "Order custom Under Armour bags in bulk for your team or event. Perfect for corporate gifts and employee swag at Perfect Imprints.",
+  "introHtml": "<p>Under Armour bags combine athletic durability with a sporty aesthetic, making them a top choice for brands that want to project energy and performance. Whether you are outfitting a sales team with backpacks or supplying gym bags for a corporate wellness program, the Under Armour Team Hustle Backpack 6.0 offers ample storage and a padded laptop sleeve. Decorate with your logo via embroidery or screen printing for a professional finish that holds up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Under Armour bags with embroidered logo on a black Team Hustle Backpack",
+  "productSkus": [
+    "528108"
+  ],
+  "generatedAt": "2026-05-31T08:39:14.959111+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

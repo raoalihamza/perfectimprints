@@ -1,0 +1,32 @@
+{
+  "url": "/cat/tools/color/green",
+  "type": "facet",
+  "h1": "Custom Green Tools for Branded Promotions",
+  "metaTitle": "Custom Green Tools - Perfect Imprints",
+  "metaDescription": "Order custom green tools for your next promotion. Perfect for safety managers and business owners. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Green custom tools stand out in a toolbox or on a job site, making them a smart choice for safety managers and business owners who want their brand to be noticed. Whether you choose a green Pocket Screwdriver for giveaways or a green 5-In-1 Work Pen for client gifts, these tools combine practicality with a distinctive color that aligns with eco-conscious messaging or company colors. Decorating options like pad printing or laser engraving let you add your logo cleanly, creating a useful item that keeps your brand visible daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green tools including a green Pocket Screwdriver and green Tape-a-Matic with engraved logo",
+  "productSkus": [
+    "501004",
+    "509516",
+    "515300",
+    "516294",
+    "521668",
+    "522310",
+    "522986",
+    "528239",
+    "528346",
+    "528347",
+    "528969",
+    "528970"
+  ],
+  "generatedAt": "2026-05-31T08:47:26.922365+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

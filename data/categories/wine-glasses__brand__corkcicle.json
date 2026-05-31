@@ -1,0 +1,21 @@
+{
+  "url": "/cat/wine-glasses/brand/corkcicle",
+  "type": "facet",
+  "h1": "Custom Corkcicle Wine Glasses",
+  "metaTitle": "Custom Corkcicle Wine Glasses | Perfect Imprints",
+  "metaDescription": "Order custom Corkcicle wine glasses with your logo. Perfect for upscale events and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Corkcicle wine glasses bring a premium feel to any branded giveaway. Their triple-insulated, stainless steel construction keeps drinks at the perfect temperature, whether you're serving red or white. Ideal for corporate galas, client appreciation events, or employee holiday gifts, these stemless cups offer a modern, durable alternative to traditional glassware. Add your logo with laser engraving or screen printing for a polished, professional look that recipients will use again and again.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Corkcicle wine glasses with engraved logo on a table setting",
+  "productSkus": [
+    "524368"
+  ],
+  "generatedAt": "2026-05-31T10:14:52.206097+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

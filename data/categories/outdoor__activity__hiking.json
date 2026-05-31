@@ -1,0 +1,24 @@
+{
+  "url": "/cat/outdoor/activity/hiking",
+  "type": "facet",
+  "h1": "Custom Hiking Outdoor Gear for Your Brand",
+  "metaTitle": "Custom Hiking Outdoor Gear | Perfect Imprints",
+  "metaDescription": "Brand custom hiking outdoor gear like blankets for your next event or promotion. Shop Perfect Imprints for bulk pricing.",
+  "introHtml": "<p>Custom hiking outdoor gear lets you connect with customers who love the trail. From branded fleece blankets that pack small to picnic blankets that double as event giveaways, these items keep your logo visible during hikes, camping trips, and outdoor gatherings. Decorate with screen printing or embroidery for a durable, professional finish that stands up to the elements.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hiking outdoor gear including a branded fleece roll-up blanket with handle",
+  "productSkus": [
+    "507150",
+    "512997",
+    "515638",
+    "521841"
+  ],
+  "generatedAt": "2026-05-31T08:44:43.850934+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

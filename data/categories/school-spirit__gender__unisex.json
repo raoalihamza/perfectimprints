@@ -1,0 +1,28 @@
+{
+  "url": "/cat/school-spirit/gender/unisex",
+  "type": "facet",
+  "h1": "Custom Unisex School Spirit Apparel & Gear",
+  "metaTitle": "Custom Unisex School Spirit at Perfect Imprints",
+  "metaDescription": "Shop custom unisex school spirit apparel and gear. Perfect for teams, alumni, and fans. Bulk orders available at Perfect Imprints.",
+  "introHtml": "<p>Unisex school spirit gear ensures a consistent look across your entire group, from students to faculty. With styles like the Camden Crew Neck Sweatshirt and Unisex Bella & Canvas Short Sleeve T-Shirt, you get a comfortable fit for everyone. Ideal for pep rallies, game days, and alumni events, these pieces offer versatile decoration options such as screen printing or embroidery to showcase your mascot or logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom unisex school spirit apparel including sweatshirts and t-shirts",
+  "productSkus": [
+    "506191",
+    "506282",
+    "506294",
+    "506337",
+    "510009",
+    "521535",
+    "522160",
+    "524427"
+  ],
+  "generatedAt": "2026-05-31T09:25:16.190453+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

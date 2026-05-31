@@ -1,0 +1,24 @@
+{
+  "url": "/cat/outerwear/activity/golf",
+  "type": "facet",
+  "h1": "Custom Golf Outerwear for Your Team",
+  "metaTitle": "Custom Golf Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom golf outerwear for your team or event. Perfect for tournaments and corporate outings. Shop now at Perfect Imprints.",
+  "introHtml": "<p>Golf outerwear needs to perform on the course while representing your brand. Whether you're outfitting a tournament staff or rewarding clients, our selection includes lightweight full-zip jackets and insulated vests from Cutter & Buck. These pieces offer stretch, water resistance, and breathability for comfort during play. Add your logo with embroidery or screen printing for a polished look that stands out at the 19th hole.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom golf outerwear including a men's full-zip jacket and a women's insulated vest with embroidered logos.",
+  "productSkus": [
+    "526811",
+    "526812",
+    "527559",
+    "527560"
+  ],
+  "generatedAt": "2026-05-31T08:44:51.753597+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/type/box",
+  "type": "facet",
+  "h1": "Custom Box Products for Branded Packaging",
+  "metaTitle": "Custom Box Products | Perfect Imprints",
+  "metaDescription": "Order custom box products for branded packaging and giveaways. Perfect Imprints offers bulk boxes with your logo. Get a quote today!",
+  "introHtml": "<p>Custom box products give you a practical way to package your branded items for events, corporate gifts, or retail displays. Whether you need sturdy cardboard boxes for shipping or elegant presentation boxes for client gifts, imprinting your logo on the box itself turns packaging into a marketing tool. Choose from various sizes and materials to match your brand's needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of custom box products with company logos printed on the side, used for branded packaging and corporate gifts.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:45:56.541321+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

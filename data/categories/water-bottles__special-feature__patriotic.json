@@ -1,0 +1,21 @@
+{
+  "url": "/cat/water-bottles/special-feature/patriotic",
+  "type": "facet",
+  "h1": "Custom Patriotic Water Bottles for Bulk Orders",
+  "metaTitle": "Custom Patriotic Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom patriotic water bottles in bulk for your team. Perfect for July 4th giveaways, military events, and more. Get a quote today!",
+  "introHtml": "<p>Custom patriotic water bottles let you show American pride at company picnics, July 4th parades, or military appreciation events. With red, white, and blue designs and features like push-pull caps or stainless steel insulation, these bottles keep drinks cold while making a bold statement. Choose from stainless steel, plastic, or aluminum options and add your logo with screen printing or full-color wrap decoration.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom patriotic water bottles with red, white, and blue design and push-pull cap",
+  "productSkus": [
+    "503270"
+  ],
+  "generatedAt": "2026-05-31T10:13:59.503117+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

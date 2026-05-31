@@ -1,0 +1,23 @@
+{
+  "url": "/cat/portfolios/material/paper",
+  "type": "facet",
+  "h1": "Custom Paper Portfolios for Bulk Orders",
+  "metaTitle": "Custom Paper Portfolios - Perfect Imprints",
+  "metaDescription": "Order custom paper portfolios for your team. Perfect for presentations and events. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Paper portfolios offer a lightweight, cost-effective option for distributing branded materials at conferences, trade shows, or client meetings. Unlike heavier materials, paper portfolios are easy to carry in bulk and can be printed with full-color graphics, making them ideal for companies that want to showcase their logo or messaging without a large investment. Choose from gloss or matte finishes to match your brand's look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom paper portfolios with full-color printing, ideal for business presentations and events.",
+  "productSkus": [
+    "521542",
+    "528657",
+    "528672"
+  ],
+  "generatedAt": "2026-05-31T10:02:47.058310+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

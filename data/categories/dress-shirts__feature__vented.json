@@ -1,0 +1,21 @@
+{
+  "url": "/cat/dress-shirts/feature/vented",
+  "type": "facet",
+  "h1": "Custom Vented Dress Shirts for Bulk Orders",
+  "metaTitle": "Custom Vented Dress Shirts | Perfect Imprints",
+  "metaDescription": "Order custom vented dress shirts for your team. Breathable, professional styles perfect for any workplace. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Vented dress shirts add breathability and comfort to professional attire, making them ideal for employees who work in warm environments or move frequently throughout the day. Unlike standard dress shirts, vented styles feature side slits or underarm panels that allow air circulation and prevent overheating. Whether you need custom logo shirts for a trade show team or uniform shirts for field staff, vented dress shirts keep your crew looking sharp while staying cool. Decorate with embroidery or screen printing for a polished, lasting impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom vented dress shirts with side vents, displayed on a mannequin in a professional office setting",
+  "productSkus": [
+    "525389"
+  ],
+  "generatedAt": "2026-05-31T09:43:17.378550+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

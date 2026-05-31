@@ -1,0 +1,29 @@
+{
+  "url": "/cat/cookies/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Cookies for Branded Gifts",
+  "metaTitle": "Custom Full Color Cookies | Perfect Imprints",
+  "metaDescription": "Order custom full color cookies with your logo. Perfect for corporate gifts, events, and employee appreciation. Bulk pricing available.",
+  "introHtml": "<p>Full color printing on cookies lets you reproduce your logo, artwork, or photo with vivid detail, turning a simple treat into a memorable branded gift. Unlike standard icing or embossing, full color decoration captures gradients, fine text, and complex designs. This makes custom full color cookies ideal for product launches, holiday gifts, or trade show giveaways where you want your brand to stand out. Choose from gourmet cookies in tins, boxes, or individual wrappers for easy distribution.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color cookies featuring a detailed printed logo on gourmet chocolate chip cookies in a gift box.",
+  "productSkus": [
+    "502501 90A",
+    "502577",
+    "518471 90A",
+    "518472 90A",
+    "520249",
+    "525715",
+    "528605",
+    "529100",
+    "529366"
+  ],
+  "generatedAt": "2026-05-31T09:41:35.031567+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

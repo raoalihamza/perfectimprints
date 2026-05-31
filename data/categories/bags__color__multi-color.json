@@ -1,0 +1,31 @@
+{
+  "url": "/cat/bags/color/multi-color",
+  "type": "facet",
+  "h1": "Custom Multi Color Bags for Promotional Use",
+  "metaTitle": "Custom Multi Color Bags | Perfect Imprints",
+  "metaDescription": "Order custom multi color bags for your brand. Perfect for giveaways or employee gifts. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Multi color bags let you showcase your logo in vibrant hues that stand out in any crowd. Whether you choose a tie-dye drawstring backpack for a summer event or a two-tone tote for a trade show, these bags offer more visual impact than single-color options. With decoration methods like screen printing or embroidery, your brand gains a memorable, colorful presence that appeals to diverse audiences. Order bulk custom multi color bags from a trusted US distributor.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom multi color bags including tie-dye drawstring backpacks and two-tone totes for brand promotion.",
+  "productSkus": [
+    "510696",
+    "510720",
+    "510830 01A",
+    "510954",
+    "515042",
+    "515815",
+    "517908 01A",
+    "519243 01A",
+    "520723",
+    "520837",
+    "526805"
+  ],
+  "generatedAt": "2026-05-31T08:39:16.118732+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

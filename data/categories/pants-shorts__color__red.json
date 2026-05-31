@@ -1,0 +1,31 @@
+{
+  "url": "/cat/pants-shorts/color/red",
+  "type": "facet",
+  "h1": "Custom Red Pants Shorts for Teams & Events",
+  "metaTitle": "Custom Red Pants Shorts | Perfect Imprints",
+  "metaDescription": "Shop custom red pants shorts for teams & events. Bulk pricing, fast turnaround. Order from Perfect Imprints today.",
+  "introHtml": "<p>Red pants and shorts make a bold statement for team uniforms, safety crews, or promotional events. Whether you need scrub pants for medical staff or mesh shorts for a charity run, red offers high visibility and brand energy. Choose from performance fabrics, cargo styles, or knit waistbands with screen printing or embroidery. Perfect for creating a cohesive, eye-catching look your group will be proud to wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red pants shorts for teams and events, including scrub pants and mesh shorts with logo decoration",
+  "productSkus": [
+    "509482",
+    "526129",
+    "528786",
+    "528789",
+    "528795",
+    "528873",
+    "528874",
+    "528875",
+    "528876",
+    "528886",
+    "529237"
+  ],
+  "generatedAt": "2026-05-31T09:59:28.575428+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

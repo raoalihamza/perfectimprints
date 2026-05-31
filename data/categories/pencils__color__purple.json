@@ -1,0 +1,32 @@
+{
+  "url": "/cat/pencils/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Pencils for Your Brand",
+  "metaTitle": "Custom Purple Pencils | Perfect Imprints",
+  "metaDescription": "Order custom purple pencils for your next event or promotion. Choose from fun shapes and moods. Get a quote today.",
+  "introHtml": "<p>Purple pencils stand out in a sea of standard yellow, offering a distinctive look that aligns with creativity, royalty, or brand-specific color schemes. Whether you opt for classic round shapes or fun fish-shaped designs, these pencils are ideal for schools, events, or corporate swag. Decorate with your logo using foil stamping or full-color imprinting for a vibrant, memorable giveaway.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple pencils with logos, featuring round and fish-shaped designs for promotional giveaways.",
+  "productSkus": [
+    "502662",
+    "502663",
+    "502672",
+    "509598",
+    "510159",
+    "510561",
+    "510904",
+    "511380",
+    "511451",
+    "511849",
+    "516970",
+    "520375"
+  ],
+  "generatedAt": "2026-05-31T08:23:41.373642+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

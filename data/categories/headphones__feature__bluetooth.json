@@ -1,0 +1,32 @@
+{
+  "url": "/cat/headphones/feature/bluetooth",
+  "type": "facet",
+  "h1": "Custom Bluetooth Headphones for Bulk Orders",
+  "metaTitle": "Custom Bluetooth Headphones | Perfect Imprints",
+  "metaDescription": "Order custom Bluetooth headphones in bulk from Perfect Imprints. Ideal for giveaways, events, and employee rewards.",
+  "introHtml": "<p>Bluetooth headphones let you cut the cord without cutting quality. For giveaways, trade shows, or employee incentives, wireless audio offers convenience and a modern feel. Whether you choose over-ear models like the Cleer Enduro 100 or a sleep mask style like the iLive Lights Out, custom Bluetooth headphones keep your brand within earshot. Decorate with a subtle logo imprint on the headband or ear cup for a polished look that recipients will use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Bluetooth headphones with logo imprint displayed on a sleek over-ear model",
+  "productSkus": [
+    "518399 09J",
+    "523427",
+    "523497",
+    "524251",
+    "524348",
+    "525999",
+    "527552",
+    "528125",
+    "529103",
+    "529130",
+    "529171",
+    "529461"
+  ],
+  "generatedAt": "2026-05-31T09:49:56.972098+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/food-gifts/color/green",
+  "type": "facet",
+  "h1": "Custom Green Food Gifts for Bulk Orders",
+  "metaTitle": "Custom Green Food Gifts | Perfect Imprints",
+  "metaDescription": "Order custom green food gifts in bulk. Perfect for corporate gifting or holiday promotions. Get a quote today!",
+  "introHtml": "<p>Green food gifts stand out with a fresh, natural look that signals eco-consciousness or seasonal cheer. Whether you choose the Snug & Warm Gift Set or the Coffee And Donuts Mailer Kit, imprinting your logo on these green sets reinforces brand recognition while recipients enjoy premium treats. Ideal for HR directors planning employee appreciation or marketing directors targeting sustainability-minded clients.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom green food gifts including gift sets and mugs with company logos",
+  "productSkus": [
+    "526239",
+    "526744",
+    "526746",
+    "528900"
+  ],
+  "generatedAt": "2026-05-31T09:46:57.746161+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

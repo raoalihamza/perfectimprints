@@ -1,0 +1,30 @@
+{
+  "url": "/cat/balloons/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Balloons for Branded Events",
+  "metaTitle": "Custom Pink Balloons | Perfect Imprints",
+  "metaDescription": "Order custom pink balloons for your next event. Perfect for breast cancer awareness, Valentine's Day, or brand launches. Bulk pricing available.",
+  "introHtml": "<p>Pink balloons add a bold, recognizable pop of color to any event, making them a top choice for breast cancer awareness campaigns, Valentine's Day promotions, or product launches targeting a female audience. Whether you choose standard latex, metallic finishes, or durable XtraLife® shapes like stars and hearts, custom pink balloons give you a versatile canvas for your logo or message. They work equally well as eye-catching giveaways or dramatic decor at trade shows and corporate gatherings.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pink balloons with logo imprint for corporate events and awareness campaigns",
+  "productSkus": [
+    "527576",
+    "527577",
+    "527578",
+    "527579",
+    "527580",
+    "527581",
+    "527582",
+    "527583",
+    "527584",
+    "527586"
+  ],
+  "generatedAt": "2026-05-31T09:34:39.576685+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

@@ -1,0 +1,19 @@
+{
+  "url": "/cat/stationery/brand/good-value",
+  "type": "facet",
+  "h1": "Custom Good Value Stationery for Bulk Orders",
+  "metaTitle": "Custom Good Value Stationery - Perfect Imprints",
+  "metaDescription": "Order custom Good Value stationery in bulk. Pens, notepads, and more. Get a quote today from Perfect Imprints.",
+  "introHtml": "<p>Good Value stationery combines affordability with reliable performance, making it a practical choice for companies that need to distribute branded writing tools and paper products in large quantities. Whether you are equipping an office with budget-friendly pens or ordering promotional notepads for a trade show, this brand offers consistent quality without inflating your per-unit cost. Decorate with your logo using screen printing or pad printing for a clean, professional look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Good Value stationery including pens and notepads with printed logos for business promotions",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:02:44.080948+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

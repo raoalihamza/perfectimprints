@@ -1,0 +1,19 @@
+{
+  "url": "/cat/shirts/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Shirts for Teams & Events",
+  "metaTitle": "Custom Set Shirts | Perfect Imprints",
+  "metaDescription": "Order custom set shirts in bulk for your team or event. Perfect for uniforms, giveaways, and corporate branding. Get started at Perfect Imprints.",
+  "introHtml": "<p>Custom set shirts simplify bulk ordering by bundling matching tops for teams, events, or corporate groups. Whether you need polo sets for a sales team or t-shirt sets for a charity run, ordering in sets ensures consistent sizing, color, and branding across your entire group. Choose from performance fabrics for outdoor events or classic cotton for everyday wear. Add your logo or slogan with screen printing or embroidery for a professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of custom set shirts in various colors with a company logo printed on the chest",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:30:59.187120+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

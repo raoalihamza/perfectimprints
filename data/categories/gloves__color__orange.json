@@ -1,0 +1,23 @@
+{
+  "url": "/cat/gloves/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Gloves for Branded Promotions",
+  "metaTitle": "Custom Orange Gloves | Perfect Imprints",
+  "metaDescription": "Order custom orange gloves for safety or promotions. Perfect Imprints offers bulk pricing and decoration options.",
+  "introHtml": "<p>Orange gloves stand out in any setting, whether you need high-visibility safety gear for construction crews or eye-catching promotional giveaways at outdoor events. The bold color ensures your logo gets noticed while keeping hands warm and protected. Choose from fleece gloves for cold-weather comfort or golf gloves for a sporty corporate gift. Decorate with screen printing or embroidery to match your brand colors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange gloves with embroidered logo on a desk, ideal for promotional giveaways",
+  "productSkus": [
+    "516831",
+    "516832",
+    "521335"
+  ],
+  "generatedAt": "2026-05-31T09:48:11.447759+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

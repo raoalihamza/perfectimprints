@@ -1,0 +1,26 @@
+{
+  "url": "/cat/lip-balm/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Lip Balm for Bulk Orders",
+  "metaTitle": "Custom Purple Lip Balm | Perfect Imprints",
+  "metaDescription": "Order custom purple lip balm in bulk for your brand. Perfect for giveaways and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Purple lip balm stands out as a vibrant, memorable giveaway that appeals to a wide audience. Whether you choose a metallic finish for a sleek look or a neon cube for high visibility, purple adds a pop of color that recipients will reach for again and again. Ideal for trade shows, health fairs, or employee appreciation, these balms can be imprinted with your logo using pad printing or foil stamping. Customize the balm itself with a subtle tint or keep it clear for universal use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple lip balm with logo imprint, available in bulk from Perfect Imprints",
+  "productSkus": [
+    "512747",
+    "519430",
+    "519746",
+    "520997",
+    "525626",
+    "529479"
+  ],
+  "generatedAt": "2026-05-31T08:29:41.985223+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

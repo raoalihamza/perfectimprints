@@ -1,0 +1,26 @@
+{
+  "url": "/cat/cafe-mugs/color/brown",
+  "type": "facet",
+  "h1": "Custom Brown Cafe Mugs",
+  "metaTitle": "Custom Brown Cafe Mugs | Perfect Imprints",
+  "metaDescription": "Order custom brown cafe mugs for your brand. Perfect for coffee lovers. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Brown cafe mugs bring a warm, earthy feel to your branded drinkware. Whether you choose a matte ceramic finish or a classic speckled glaze, brown mugs pair well with coffee shop aesthetics, outdoor brands, or rustic office themes. The 16 oz Apache and Navajo mugs offer generous capacity for morning brews, while the 12 oz Harvest Mug works well for smaller servings. Decorate with a single-color imprint for a subtle, professional look that stands out on kitchen shelves or break room counters.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom brown cafe mugs with matte finish, perfect for branded drinkware and corporate gifts.",
+  "productSkus": [
+    "510964",
+    "521330",
+    "521879",
+    "522463",
+    "524109",
+    "524786"
+  ],
+  "generatedAt": "2026-05-31T09:38:52.701064+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

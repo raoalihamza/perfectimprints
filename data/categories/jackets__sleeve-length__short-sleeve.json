@@ -1,0 +1,24 @@
+{
+  "url": "/cat/jackets/sleeve-length/short-sleeve",
+  "type": "facet",
+  "h1": "Custom Short Sleeve Jackets for Teams & Events",
+  "metaTitle": "Custom Short Sleeve Jackets | Perfect Imprints",
+  "metaDescription": "Order custom short sleeve jackets for your team or event. Perfect for outdoor work, trade shows, and giveaways. Bulk discounts available.",
+  "introHtml": "<p>Short sleeve jackets offer a lighter alternative for outdoor branding when a full jacket would be too warm. Perfect for spring promotions, outdoor events, or uniform layers in mild climates, they combine the professional look of a jacket with the comfort of a shirt. Decorate with embroidery or screen printing on styles like the New Era Cage 1/4-Zip or the reversible vest. Ideal for marketing directors and safety managers seeking versatile, year-round apparel.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom short sleeve jackets with embroidered logos, including a quarter-zip and a reversible vest, displayed on models.",
+  "productSkus": [
+    "523867",
+    "523870",
+    "526072",
+    "529309"
+  ],
+  "generatedAt": "2026-05-31T09:16:38.681712+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

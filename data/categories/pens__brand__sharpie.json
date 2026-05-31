@@ -1,0 +1,23 @@
+{
+  "url": "/cat/pens/brand/sharpie",
+  "type": "facet",
+  "h1": "Custom Sharpie Pens for Bulk Orders",
+  "metaTitle": "Custom Sharpie Pens | Perfect Imprints",
+  "metaDescription": "Order custom Sharpie pens with your logo. Ideal for bulk corporate gifts and daily use. Get a quote today.",
+  "introHtml": "<p>Sharpie pens combine the bold, reliable ink the brand is known for with smooth writing performance, making them a top pick for corporate giveaways and everyday office use. Whether you choose the retractable S-Gel for a modern feel or the Twin Tip for versatility, each pen delivers consistent quality that recipients appreciate. Custom imprinting your logo on Sharpie pens ensures your brand stays top-of-mind with clients and employees alike.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Sharpie pens with company logo imprint, including Sharpie S-Gel and Twin Tip models",
+  "productSkus": [
+    "525232",
+    "525234",
+    "528419"
+  ],
+  "generatedAt": "2026-05-31T09:22:07.016653+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

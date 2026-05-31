@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel/material/ripstop",
+  "type": "facet",
+  "h1": "Custom Ripstop Apparel for Bulk Orders",
+  "metaTitle": "Custom Ripstop Apparel | Perfect Imprints",
+  "metaDescription": "Order custom ripstop apparel in bulk for your team. Durable, lightweight fabric ideal for uniforms and giveaways. Get a quote today!",
+  "introHtml": "<p>Ripstop fabric is woven with a special reinforcing technique that resists tearing and ripping, making it a favorite for outdoor workwear, event staff uniforms, and promotional giveaways that need to last. Unlike standard cotton or polyester apparel, ripstop garments offer exceptional durability without adding bulk, so your logo stays crisp through repeated wear and washing. From safety vests to caps, custom ripstop apparel gives your brand a rugged, professional edge that stands up to demanding environments.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom ripstop apparel featuring durable fabric with reinforced grid pattern for long-lasting promotional use",
+  "productSkus": [
+    "524413"
+  ],
+  "generatedAt": "2026-05-31T08:31:46.563285+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

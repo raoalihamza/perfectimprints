@@ -1,0 +1,21 @@
+{
+  "url": "/cat/apparel/activity/soccer",
+  "type": "facet",
+  "h1": "Custom Soccer Apparel for Teams & Events",
+  "metaTitle": "Custom Soccer Apparel | Perfect Imprints",
+  "metaDescription": "Shop custom soccer apparel for your team or event. Bulk ordering available with your logo. Browse styles at Perfect Imprints.",
+  "introHtml": "<p>Custom soccer apparel goes beyond basic jerseys — it includes warm-up jackets, training shirts, and sideline gear like beanies for cooler match days. When you order for a club, school, or corporate tournament, you want fabrics that wick moisture and withstand repeated washing. Screen printing or embroidery on cotton-poly blends keeps your team logo sharp through every game. Whether you need a full uniform set or a branded beanie for the sidelines, choosing soccer-specific apparel ensures your group looks coordinated and performs comfortably.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom soccer apparel including a branded pom-pom beanie for team sideline wear",
+  "productSkus": [
+    "520922"
+  ],
+  "generatedAt": "2026-05-31T08:23:02.419001+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

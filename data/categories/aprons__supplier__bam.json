@@ -1,0 +1,26 @@
+{
+  "url": "/cat/aprons/supplier/bam",
+  "type": "facet",
+  "h1": "Custom BAM Aprons for Bulk Orders",
+  "metaTitle": "Custom BAM Aprons | Perfect Imprints",
+  "metaDescription": "Order custom BAM aprons in bulk for your team or event. Perfect Imprints offers quality, affordable options with your logo.",
+  "introHtml": "<p>BAM aprons combine durability with a professional look, making them a top choice for restaurants, breweries, and events. Whether you need the 10 oz Cotton Apron for daily kitchen use or the Grill Master Apron Kit for outdoor promotions, BAM's consistent sizing and fabric quality ensure your logo looks crisp after repeated washes. Ordering from this supplier means you get reliable turnaround times and a range of styles from waist aprons to full bibs that fit your specific needs.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom BAM aprons with embroidered logos, including cotton kitchen aprons and grill master kits for promotional use.",
+  "productSkus": [
+    "508541",
+    "509133 90A",
+    "515077",
+    "516543 01A",
+    "527339",
+    "528072"
+  ],
+  "generatedAt": "2026-05-31T09:32:41.367403+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

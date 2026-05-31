@@ -1,0 +1,21 @@
+{
+  "url": "/cat/golf/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Golf for Corporate Events",
+  "metaTitle": "Custom Set Golf | Perfect Imprints",
+  "metaDescription": "Order custom set golf for your next event. Perfect for tournaments and corporate gifts. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>When you need coordinated golf gear for a tournament or client gift, a custom set golf package delivers consistency and impact. Instead of piecing together individual items, a set combines matching balls, tees, or accessories under your logo. For example, the Volvik® Vivid Golf Balls offer high-visibility colors that stand out on the course. Choose screen print or debossing for a clean, professional look that reinforces your brand every round.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set golf with branded Volvik Vivid golf balls in bright colors for corporate events",
+  "productSkus": [
+    "521337"
+  ],
+  "generatedAt": "2026-05-31T09:49:15.288493+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

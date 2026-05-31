@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/type/bento",
+  "type": "facet",
+  "h1": "Custom Bento Products for Corporate Gifting",
+  "metaTitle": "Custom Bento Products | Perfect Imprints",
+  "metaDescription": "Order custom bento products for corporate gifting. Perfect for eco-friendly lunches. Fast turnaround, bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Bento boxes offer a practical, eco-friendly alternative to disposable lunch packaging, making them a popular choice for corporate wellness programs and employee appreciation gifts. Unlike standard lunch containers, bento products feature multiple compartments that keep foods separate and fresh, ideal for busy professionals who prefer packed meals. Customize with your logo through pad printing or laser engraving for a polished, professional look that reinforces your brand daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom bento products with multiple compartments for corporate gifting and branded lunches",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:27.280680+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

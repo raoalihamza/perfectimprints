@@ -1,0 +1,32 @@
+{
+  "url": "/cat/office/gender/men-s",
+  "type": "facet",
+  "h1": "Custom Men's Office Apparel & Accessories",
+  "metaTitle": "Custom Men's Office Apparel | Perfect Imprints",
+  "metaDescription": "Order custom men's office apparel for your team. Perfect for corporate events and daily wear. Get a quote today.",
+  "introHtml": "<p>Men's office apparel goes beyond standard polos and button-downs. For a polished yet comfortable look, consider the Men's Dade Short Sleeve Polo or the wrinkle-free Men's UNTUCKit® Las Cases Long Sleeve Shirt. Layering options like the Men's Core 365 Techno Lite Three-Layer Knit Tech-Shell or the Eddie Bauer® Full Zip Microfleece Jacket add versatility. These items embroider cleanly with your logo, making them ideal for trade shows or everyday office wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom men's office apparel including polos and jackets with embroidered logos",
+  "productSkus": [
+    "506146",
+    "513811",
+    "513812",
+    "516832",
+    "520015",
+    "520280",
+    "521108",
+    "523863",
+    "524448",
+    "525404",
+    "525606",
+    "525734"
+  ],
+  "generatedAt": "2026-05-31T08:58:45.782524+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

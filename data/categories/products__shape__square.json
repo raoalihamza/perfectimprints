@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/shape/square",
+  "type": "facet",
+  "h1": "Custom Square Products for Branding and Promotions",
+  "metaTitle": "Custom Square Products | Perfect Imprints",
+  "metaDescription": "Order custom square products for your brand. Perfect for giveaways and events. Shop at Perfect Imprints for bulk pricing.",
+  "introHtml": "<p>Square-shaped promotional products offer a clean, modern look that stands out from standard rectangles. Whether you choose square stickers, coasters, or notebooks, the balanced shape provides ample space for your logo and message. These items are ideal for trade show giveaways, office branding, or corporate gifts where a distinctive shape adds perceived value. Decorate with full-color print or foil stamping for maximum impact.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom square products including stickers and coasters with printed logos",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:24:18.070166+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/gift-sets-bundles/feature/hand-wash-only",
+  "type": "facet",
+  "h1": "Custom Hand Wash Only Gift Sets & Bundles",
+  "metaTitle": "Custom Hand Wash Only Gift Sets | Perfect Imprints",
+  "metaDescription": "Order custom hand wash only gift sets bundles for your team. Soft CTA included.",
+  "introHtml": "<p>Hand wash only gift sets and bundles are ideal for items like insulated drinkware or delicate accessories that require gentle care. Whether you are assembling employee appreciation packages or client gifts, choosing hand wash only products ensures longevity and maintains the quality of your branded merchandise. The Fun Sun Kit, for example, combines a reusable bottle with suncare essentials, all best cared for by hand washing. This facet helps you build thoughtful sets that last, even after repeated use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom hand wash only gift sets bundles featuring a reusable bottle and suncare items in a gift box",
+  "productSkus": [
+    "520344"
+  ],
+  "generatedAt": "2026-05-31T09:47:53.682076+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

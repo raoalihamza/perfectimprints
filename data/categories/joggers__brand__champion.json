@@ -1,0 +1,22 @@
+{
+  "url": "/cat/joggers/brand/champion",
+  "type": "facet",
+  "h1": "Custom Champion Joggers for Bulk Orders",
+  "metaTitle": "Custom Champion Joggers | Perfect Imprints",
+  "metaDescription": "Order custom Champion joggers in bulk for your team. Perfect for corporate events, uniforms, and giveaways. Get a quote today!",
+  "introHtml": "<p>Champion joggers offer a trusted blend of comfort and durability, making them a top pick for corporate uniforms and team events. The classic cotton gym short provides a soft, breathable feel, while the mesh short with pockets adds functionality for active days. Both styles accept screen printing or embroidery, giving your logo a clean, lasting finish. Whether you're outfitting a safety crew or a marketing team, these joggers deliver consistent quality and a professional look that stands up to repeated wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Champion joggers with embroidered logo on the left leg, shown in heather grey",
+  "productSkus": [
+    "526128",
+    "526129"
+  ],
+  "generatedAt": "2026-05-31T09:52:14.371570+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/pencils/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Pencils for Bulk Orders",
+  "metaTitle": "Custom Full Color Pencils | Perfect Imprints",
+  "metaDescription": "Order custom full color pencils with your logo. Perfect for giveaways and events. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Full color pencils give you the ability to print detailed logos, gradients, or photographic images directly onto the pencil barrel. Unlike single-color imprints, full color decoration captures every nuance of your design, making these pencils ideal for promotional giveaways at trade shows or as part of a branded back-to-school kit. The uni-ball Chroma Pencil is a popular example that showcases vibrant color reproduction. Whether you are a marketing director planning a campaign or a safety manager looking for a unique giveaway, custom full color pencils make your brand stand out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color pencils with vibrant printed logos and designs, arranged on a table.",
+  "productSkus": [
+    "525811",
+    "528631"
+  ],
+  "generatedAt": "2026-05-31T08:59:27.147374+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

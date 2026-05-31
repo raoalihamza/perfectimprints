@@ -1,0 +1,19 @@
+{
+  "url": "/cat/bar-wine/brand/benchmark",
+  "type": "facet",
+  "h1": "Custom Benchmark Bar Wine for Bulk Orders",
+  "metaTitle": "Custom Benchmark Bar Wine | Perfect Imprints",
+  "metaDescription": "Order custom Benchmark bar wine for your next event. Perfect Imprints offers bulk pricing and fast turnaround.",
+  "introHtml": "<p>Benchmark bar wine offers a classic, sophisticated look that stands out at corporate events, trade shows, and client gifts. The durable glass construction and elegant shape make it ideal for engraving or screen printing your logo. Whether you're outfitting a hospitality suite or sending thank-you gifts, Benchmark bar wine provides a premium canvas for your brand without the premium price tag.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Benchmark bar wine glasses with engraved logo on a table at a corporate event",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:07:33.639145+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

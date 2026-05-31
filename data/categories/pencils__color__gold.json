@@ -1,0 +1,22 @@
+{
+  "url": "/cat/pencils/color/gold",
+  "type": "facet",
+  "h1": "Custom Gold Pencils for Bulk Orders",
+  "metaTitle": "Custom Gold Pencils | Perfect Imprints",
+  "metaDescription": "Order custom gold pencils in bulk for your brand. Perfect for events, offices, and promotions. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Gold pencils add a touch of sophistication to any promotional giveaway or corporate event. Whether you're outfitting a luxury brand activation or providing elegant writing instruments for client meetings, these metallic pencils stand out from standard wood pencils. The gold finish pairs well with foil stamping or imprinting your logo in a contrasting color. Ideal for trade shows, welcome kits, or executive gifts, custom gold pencils convey quality and attention to detail that recipients notice and appreciate.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gold pencils with metallic finish and imprinted logo on a desk",
+  "productSkus": [
+    "501104",
+    "510561"
+  ],
+  "generatedAt": "2026-05-31T08:45:05.968387+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

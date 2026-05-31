@@ -1,0 +1,30 @@
+{
+  "url": "/cat/fanny-packs/supplier/illini",
+  "type": "facet",
+  "h1": "Custom Illini Fanny Packs",
+  "metaTitle": "Custom Illini Fanny Packs | Perfect Imprints",
+  "metaDescription": "Order custom Illini fanny packs for your next event. Perfect for giveaways and branding. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Illini fanny packs combine the convenience of hands-free carrying with the recognizable Illini brand. Whether you need custom neon packs for a campus event or clear packs for stadium security compliance, these bags offer a practical promotional item that attendees will actually use. Choose from styles like the Taurus Eco Fanny Pack or the Running Belt Fanny Pack, and add your logo with screen printing or embroidery for a polished look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Illini fanny packs in neon and clear styles with logo printing for promotional events",
+  "productSkus": [
+    "514432",
+    "514433",
+    "519201",
+    "522510",
+    "522705",
+    "522803",
+    "523655",
+    "524162",
+    "524500",
+    "525724"
+  ],
+  "generatedAt": "2026-05-31T09:13:07.774021+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

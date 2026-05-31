@@ -1,0 +1,23 @@
+{
+  "url": "/cat/drinkware/brand/hugo-boss",
+  "type": "facet",
+  "h1": "Custom Hugo Boss Drinkware for Bulk Orders",
+  "metaTitle": "Custom Hugo Boss Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom Hugo Boss drinkware in bulk from Perfect Imprints. Premium branded bottles and tumblers for your team.",
+  "introHtml": "<p>Hugo Boss drinkware brings understated luxury to corporate gifts and employee rewards. From sleek stainless steel bottles to elegant glass milk bottles, each piece carries the brand's signature clean lines and quality construction. These items work well for executive gifts, client appreciation, or high-end promotional events where you want to make a refined impression. Choose from double-wall insulation for hot or cold beverages or classic glass designs that showcase your logo with clarity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Hugo Boss drinkware including stainless steel tumbler and glass bottle with lid",
+  "productSkus": [
+    "514145 90E",
+    "524216",
+    "527193"
+  ],
+  "generatedAt": "2026-05-31T08:33:37.668986+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

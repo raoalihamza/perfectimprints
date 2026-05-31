@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/activity/fishing",
+  "type": "facet",
+  "h1": "Custom Fishing Products for Your Brand",
+  "metaTitle": "Custom Fishing Products | Perfect Imprints",
+  "metaDescription": "Shop custom fishing products at Perfect Imprints. Perfect for giveaways and events. Order bulk branded gear today.",
+  "introHtml": "<p>Custom fishing products let you connect with outdoor enthusiasts who value quality and practicality. Whether you need branded tackle boxes, rod holders, or coolers for a fishing tournament or employee gift, these items put your logo in the hands of people who spend hours on the water. Durable materials and smart designs ensure your brand stays visible season after season.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom fishing products including branded tackle box and rod holder displayed on a dock",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:23:48.516583+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/golf/feature/collapsible",
+  "type": "facet",
+  "h1": "Custom Collapsible Golf Items for Events",
+  "metaTitle": "Custom Collapsible Golf Items | Perfect Imprints",
+  "metaDescription": "Shop custom collapsible golf items for your next event. Perfect for giveaways and tournaments. Bulk pricing available.",
+  "introHtml": "<p>Collapsible golf items offer a practical advantage for tournament giveaways and corporate outings. Unlike standard golf accessories, these fold down compactly for easy storage in a golf bag or glove compartment. The Bitty Umbrella with a 40-inch arc provides quick shelter from sun or rain and collapses to fit in a carry bag. Add your logo with screen printing or debossing for a professional look that attendees will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom collapsible golf umbrella with logo, 40-inch arc, folded compactly",
+  "productSkus": [
+    "528243"
+  ],
+  "generatedAt": "2026-05-31T09:14:53.014693+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,29 @@
+{
+  "url": "/cat/socks/size/3xlarge",
+  "type": "facet",
+  "h1": "Custom 3XLarge Socks for Bulk Orders",
+  "metaTitle": "Custom 3XLarge Socks | Perfect Imprints",
+  "metaDescription": "Order custom 3XLarge socks in bulk for teams or events. Perfect for comfort and brand visibility. Get your quote today!",
+  "introHtml": "<p>Custom 3XLarge socks provide a comfortable fit for those needing extra room, making them ideal for corporate wellness programs, safety gear, or promotional giveaways. Unlike standard sizes, these socks accommodate larger feet without sacrificing quality or style. Options like the BeWell™ Socks or Fuzzy Feet Slipper Socks can be decorated with your logo using embroidery or screen printing, ensuring your brand stands out in comfort-focused campaigns.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom 3XLarge socks with embroidered logo, displayed in a corporate gift setting.",
+  "productSkus": [
+    "516800",
+    "521927",
+    "522251",
+    "524427",
+    "525740",
+    "526360",
+    "526361",
+    "526363",
+    "526896"
+  ],
+  "generatedAt": "2026-05-31T10:07:22.324033+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

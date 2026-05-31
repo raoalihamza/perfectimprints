@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/glacier",
+  "type": "facet",
+  "h1": "Custom Glacier Products for Bulk Orders",
+  "metaTitle": "Custom Glacier Products | Perfect Imprints",
+  "metaDescription": "Browse custom Glacier products for bulk orders at Perfect Imprints. Perfect for corporate gifts and events.",
+  "introHtml": "<p>Glacier products are known for their durable, double-wall insulation that keeps drinks cold for hours. Whether you need custom water bottles for a corporate wellness program or personalized tumblers for a trade show giveaway, Glacier offers reliable performance. Choose from stainless steel finishes and multiple sizes, all suitable for screen printing or laser engraving with your logo.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Glacier products including insulated water bottles and tumblers with company logo",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:23:53.786688+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

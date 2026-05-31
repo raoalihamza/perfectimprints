@@ -1,0 +1,30 @@
+{
+  "url": "/cat/drinkware/color/safety",
+  "type": "facet",
+  "h1": "Custom Safety Drinkware for Bulk Orders",
+  "metaTitle": "Custom Safety Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom safety drinkware in bulk from Perfect Imprints. Ideal for safety teams, events, and promotions. Get your quote today!",
+  "introHtml": "<p>Safety-colored drinkware ensures your team stays visible on job sites and at events. From bright orange tumblers to high-visibility bottles, these items combine practical hydration with safety compliance. Decorate with your logo using screen printing or engraving for a professional look that stands out. Perfect for construction crews, utility workers, and safety-conscious organizations.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom safety drinkware including orange tumblers and high-visibility bottles with logo",
+  "productSkus": [
+    "519778",
+    "520369",
+    "520411",
+    "520936",
+    "521736",
+    "521737",
+    "522032",
+    "522270",
+    "527303",
+    "529294"
+  ],
+  "generatedAt": "2026-05-31T09:43:33.282075+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

@@ -1,0 +1,32 @@
+{
+  "url": "/cat/bags/feature/with-carabiner",
+  "type": "facet",
+  "h1": "Custom Bags with Carabiner for Bulk Orders",
+  "metaTitle": "Custom Bags with Carabiner | Perfect Imprints",
+  "metaDescription": "Order custom bags with carabiner for bulk giveaways. Perfect for trade shows and corporate gifts. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Bags with a built-in carabiner offer unmatched convenience for on-the-go professionals and outdoor enthusiasts. Whether clipped to a backpack loop or a belt, these bags stay accessible during trade shows, conferences, or field work. Our selection includes backpacks, coolers, and pouches featuring durable carabiners that double as keychains or attachment points. This added functionality makes them a practical giveaway that recipients use daily, keeping your logo visible wherever they go.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom bags with carabiner clip, like a black backpack with a metal carabiner hanging from the front loop.",
+  "productSkus": [
+    "512681",
+    "520888",
+    "521294",
+    "521498",
+    "522054",
+    "524398",
+    "526420",
+    "526883",
+    "527371",
+    "527639",
+    "527640",
+    "528420"
+  ],
+  "generatedAt": "2026-05-31T08:32:13.081521+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

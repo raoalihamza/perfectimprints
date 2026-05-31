@@ -1,0 +1,23 @@
+{
+  "url": "/cat/drinkware/feature/adjustable",
+  "type": "facet",
+  "h1": "Custom Adjustable Drinkware for Bulk Orders",
+  "metaTitle": "Custom Adjustable Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom adjustable drinkware in bulk for your team or event. Perfect for on-the-go hydration. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom adjustable drinkware offers flexibility for active lifestyles, with features like removable straps or pouches that accommodate different bottle sizes. Ideal for safety managers equipping field crews or HR directors selecting giveaways for wellness programs, these items combine practicality with branding. Decorate the pouch or bottle with your logo using screen printing or embroidery for a cohesive look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adjustable drinkware with logo, featuring a water bottle pouch with adjustable strap for easy carrying",
+  "productSkus": [
+    "527142",
+    "527416",
+    "528183"
+  ],
+  "generatedAt": "2026-05-31T09:43:35.539619+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

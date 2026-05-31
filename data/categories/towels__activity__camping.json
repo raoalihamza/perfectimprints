@@ -1,0 +1,22 @@
+{
+  "url": "/cat/towels/activity/camping",
+  "type": "facet",
+  "h1": "Custom Camping Towels",
+  "metaTitle": "Custom Camping Towels | Perfect Imprints",
+  "metaDescription": "Order custom camping towels for your outdoor events. Quick-dry and compact. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Camping towels need to be lightweight, quick-drying, and packable — standard bath towels just don’t cut it. Our custom camping towels are made from microfiber or high-absorbency cotton blends that dry fast and take up minimal space in a backpack. Perfect for company camping retreats, outdoor team-building events, or promotional giveaways for outdoor enthusiasts. Choose from the Go Go Rally Towel for a compact option or the Keep It Cool Towel for cooling relief on hot days. Imprint your logo with screen printing or embroidery for a durable, outdoor-ready look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom camping towels in bright colors with company logos, ready for outdoor use",
+  "productSkus": [
+    "510644",
+    "514841"
+  ],
+  "generatedAt": "2026-05-31T10:11:55.840503+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

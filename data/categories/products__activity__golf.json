@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/activity/golf",
+  "type": "facet",
+  "h1": "Custom Golf Products for Branded Promotions",
+  "metaTitle": "Custom Golf Products | Perfect Imprints",
+  "metaDescription": "Order custom golf products for your next event. Perfect for tournaments and corporate gifts. Get a quote today.",
+  "introHtml": "<p>Custom golf products let you connect with clients and employees on the course, where deals are made and relationships grow. From branded golf balls and tees to divot tools and towels, these items see repeated use during every round. Choose from classic white golf balls with one-color imprints or premium towel sets with custom embroidery. Perfect for tournament giveaways, corporate outing swag, or client appreciation gifts that keep your brand top of mind long after the final putt.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom golf products including branded golf balls, tees, and towels arranged on a green",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:45:43.444116+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

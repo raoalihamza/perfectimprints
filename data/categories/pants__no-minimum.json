@@ -1,0 +1,25 @@
+{
+  "url": "/cat/pants/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Pants for Small Orders",
+  "metaTitle": "No-Minimum Custom Pants | Perfect Imprints",
+  "metaDescription": "Order custom pants with no minimum quantity. Perfect for small teams, events, or samples. Fast turnaround. Shop no-minimum custom pants at Perfect",
+  "introHtml": "<p>When you need custom pants but don't want to order in bulk, our no-minimum program gives you the flexibility to buy as few as one pair. Whether you're outfitting a small team, creating samples for a corporate event, or supplying safety managers with branded workwear, you can order exactly what you need without the burden of large minimums. From flannel shorts to full-length pants, we make small orders easy and affordable.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "No-minimum custom pants featuring a Men's Boxercraft Flannel Short and Women's Boxercraft Flannel Short for small orders",
+  "productSkus": [
+    "527831",
+    "527832",
+    "527834",
+    "527835",
+    "527836"
+  ],
+  "generatedAt": "2026-05-31T09:59:37.597864+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

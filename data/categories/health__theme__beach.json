@@ -1,0 +1,33 @@
+{
+  "url": "/cat/health/theme/beach",
+  "type": "facet",
+  "h1": "Custom Beach Health Products for Bulk Orders",
+  "metaTitle": "Custom Beach Health Products | Perfect Imprints",
+  "metaDescription": "Shop custom beach health products at Perfect Imprints. Perfect for summer events, wellness retreats, and corporate giveaways.",
+  "introHtml": "<p>Custom beach health products combine sun protection, relaxation, and wellness for your next summer event or corporate retreat. From SPF-packed sunscreen pouches and UV-blocking sunglasses to stress-relieving flip flops and portable sound machines, these items help recipients stay healthy and comfortable while enjoying the shore. Perfect for employee appreciation kits, wellness program giveaways, or client swag bags that reinforce your commitment to well-being in warm-weather settings.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom beach health products including sunscreen, sunglasses, and stress relievers for corporate giveaways",
+  "productSkus": [
+    "510646",
+    "517019 90A",
+    "517111 90A",
+    "519664",
+    "520368",
+    "522878",
+    "523554",
+    "523569",
+    "524435",
+    "525617",
+    "525624",
+    "528060",
+    "528435"
+  ],
+  "generatedAt": "2026-05-31T08:26:38.354778+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

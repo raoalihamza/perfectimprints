@@ -1,0 +1,23 @@
+{
+  "url": "/cat/coasters/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Coasters for Bulk Orders",
+  "metaTitle": "Custom Recycled Coasters | Perfect Imprints",
+  "metaDescription": "Order custom recycled coasters for your brand. Eco-friendly & durable. Perfect for trade shows and offices. Bulk pricing available.",
+  "introHtml": "<p>Recycled coasters let you promote sustainability while protecting surfaces. Made from post-consumer materials like recycled felt or bamboo blends, these coasters communicate environmental responsibility at every placement. Ideal for trade shows, office lobbies, or retail counters, they offer a subtle yet consistent brand impression. Decorate with a screen-printed logo or embossed design to keep your name visible during every coffee break or happy hour.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled coasters with embossed logo on recycled felt material",
+  "productSkus": [
+    "527429",
+    "529066",
+    "529067"
+  ],
+  "generatedAt": "2026-05-31T09:40:46.571408+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

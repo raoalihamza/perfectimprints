@@ -1,0 +1,24 @@
+{
+  "url": "/cat/rubber-bracelets/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Rubber Bracelets",
+  "metaTitle": "Custom Blue Rubber Bracelets | Perfect Imprints",
+  "metaDescription": "Order custom blue rubber bracelets in bulk for your next campaign. Perfect for branding, events, or causes. Get a quote today!",
+  "introHtml": "<p>Blue rubber bracelets offer a versatile canvas for your brand or message, standing out in a crowd with a color that conveys trust and professionalism. Whether you're organizing a charity event, promoting workplace safety, or launching a new product line, these bracelets are a cost-effective giveaway that recipients actually wear. Choose from debossed or printed designs to match your logo or slogan, and order in bulk to maximize your reach.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom blue rubber bracelets with debossed text, ideal for promotional giveaways",
+  "productSkus": [
+    "506469",
+    "506959",
+    "510414",
+    "511817"
+  ],
+  "generatedAt": "2026-05-31T09:01:27.073966+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

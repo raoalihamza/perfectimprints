@@ -1,0 +1,32 @@
+{
+  "url": "/cat/sweaters-cardigans/supplier/edwards",
+  "type": "facet",
+  "h1": "Custom Edwards Sweaters & Cardigans for Bulk Orders",
+  "metaTitle": "Custom Edwards Sweaters Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom Edwards sweaters and cardigans in bulk. Perfect for corporate uniforms and gifts. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Edwards apparel combines classic styling with durable construction, making their sweaters and cardigans a smart choice for corporate uniforms, employee rewards, and client gifts. From the Ladies' Sweater Blazer to the Men's Journey Overshirt, these pieces offer a polished look that stands up to daily wear. Choose from high-quality materials like merino wool and cotton blends, and add your logo with embroidery or screen printing for a professional finish that represents your brand well.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Edwards sweaters and cardigans with embroidered logos, including a men's v-neck sweater and a ladies' open front cardigan",
+  "productSkus": [
+    "520268",
+    "520269",
+    "523604",
+    "526198",
+    "526291",
+    "526292",
+    "527181",
+    "527182",
+    "527833",
+    "527957",
+    "528757",
+    "528758"
+  ],
+  "generatedAt": "2026-05-31T10:09:56.085456+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

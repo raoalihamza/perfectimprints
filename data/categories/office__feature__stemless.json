@@ -1,0 +1,22 @@
+{
+  "url": "/cat/office/feature/stemless",
+  "type": "facet",
+  "h1": "Custom Stemless Office Drinkware",
+  "metaTitle": "Custom Stemless Office Drinkware | PerfectImprints.com",
+  "metaDescription": "Order custom stemless office drinkware for your team or event. Perfect for corporate gifts and bulk orders. Get a quote at PerfectImprints.com.",
+  "introHtml": "<p>Stemless drinkware offers a practical and elegant alternative for the office. Unlike traditional stemware, these cups are less prone to tipping and fit easily in standard cup holders or on crowded desks. Ideal for corporate gifts or breakroom use, they can be decorated with your logo using screen printing or etching. Options like the 12 oz Corkcicle® Stemless Wine Cup provide excellent temperature retention, keeping coffee hot or water cold during long meetings.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom stemless office drinkware with engraved logo, perfect for corporate gifts and bulk orders.",
+  "productSkus": [
+    "522098",
+    "524368"
+  ],
+  "generatedAt": "2026-05-31T08:30:02.571250+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

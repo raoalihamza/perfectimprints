@@ -1,0 +1,21 @@
+{
+  "url": "/cat/gift-sets-bundles/feature/insulated",
+  "type": "facet",
+  "h1": "Custom Insulated Gift Sets & Bundles",
+  "metaTitle": "Custom Insulated Gift Sets & Bundles | Perfect Imprints",
+  "metaDescription": "Shop custom insulated gift sets & bundles at Perfect Imprints. Ideal for corporate gifts, swag bags, and client appreciation. Order in bulk today.",
+  "introHtml": "<p>Insulated gift sets keep drinks hot or cold for hours, making them a practical choice for corporate gifting and employee rewards. Whether you pair a stainless steel tumbler with gourmet snacks or a branded thermos with coffee accessories, these bundles offer year-round utility. Decorate with your logo using laser engraving or full-color wrap for a polished, professional look that recipients will use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom insulated gift sets bundles featuring branded tumblers and gourmet snacks for corporate gifting",
+  "productSkus": [
+    "525715"
+  ],
+  "generatedAt": "2026-05-31T09:47:54.592468+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

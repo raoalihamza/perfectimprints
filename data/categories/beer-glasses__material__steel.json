@@ -1,0 +1,24 @@
+{
+  "url": "/cat/beer-glasses/material/steel",
+  "type": "facet",
+  "h1": "Custom Steel Beer Glasses for Bulk Orders",
+  "metaTitle": "Custom Steel Beer Glasses | Perfect Imprints",
+  "metaDescription": "Order custom steel beer glasses in bulk. Durable, insulated, and perfect for branding. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Steel beer glasses offer a rugged, insulated alternative to traditional glassware, keeping your drinks cold longer without the risk of shattering. Ideal for outdoor events, tailgates, or corporate giveaways, these custom steel beer glasses can be laser engraved or screen printed with your logo. From the classic 16 oz stainless steel pint to the versatile 12 oz 3-in-1 tumbler, steel provides durability and a premium feel that stands up to frequent use. Choose steel for a lasting brand impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom steel beer glasses with engraved logo, including a stainless steel pint and tumbler set on a wooden table.",
+  "productSkus": [
+    "515153",
+    "521930",
+    "523495",
+    "523689"
+  ],
+  "generatedAt": "2026-05-31T08:32:46.568678+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

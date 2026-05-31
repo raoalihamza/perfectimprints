@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Products for Bulk Orders",
+  "metaTitle": "Custom Blue Products | Perfect Imprints",
+  "metaDescription": "Order custom blue products in bulk at Perfect Imprints. Perfect for branding, events, and giveaways. Get a quote today!",
+  "introHtml": "<p>Blue is a trusted color in corporate branding—think of major tech, finance, and healthcare companies that use it to convey stability and professionalism. Whether you need custom blue pens for a trade show, blue tote bags for a client gift, or blue water bottles for a company picnic, blue products create a cohesive, recognizable look. Decorate them with screen printing, embroidery, or full-color imprint to match your logo exactly. Bulk orders ensure consistent color across all items.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom blue products including pens, tote bags, and water bottles for corporate branding",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:20:56.594700+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

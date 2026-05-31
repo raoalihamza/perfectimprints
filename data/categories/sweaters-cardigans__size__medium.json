@@ -1,0 +1,32 @@
+{
+  "url": "/cat/sweaters-cardigans/size/medium",
+  "type": "facet",
+  "h1": "Custom Medium Sweaters & Cardigans",
+  "metaTitle": "Custom Medium Sweaters & Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom medium sweaters and cardigans for your team. Perfect for uniforms, gifts, and events. Shop bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Medium is the most versatile size for corporate apparel, fitting the widest range of body types. Whether you're outfitting a sales team in Ladies' Sweater Blazers for client meetings or branding Men's Brooks Brothers® Merino V-Neck Sweaters for a company retreat, medium ensures a polished, professional look. Choose from open-front cardigans, hooded styles, or classic button-front designs for a cohesive uniform that works year-round.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom medium sweaters and cardigans for corporate uniforms, including a branded open-front cardigan on a model.",
+  "productSkus": [
+    "520268",
+    "520269",
+    "523604",
+    "526198",
+    "526291",
+    "526292",
+    "527181",
+    "527182",
+    "527833",
+    "527957",
+    "528757",
+    "528758"
+  ],
+  "generatedAt": "2026-05-31T10:09:53.699326+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

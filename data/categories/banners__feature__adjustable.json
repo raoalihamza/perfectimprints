@@ -1,0 +1,25 @@
+{
+  "url": "/cat/banners/feature/adjustable",
+  "type": "facet",
+  "h1": "Custom Adjustable Banners for Your Business",
+  "metaTitle": "Custom Adjustable Banners | Perfect Imprints",
+  "metaDescription": "Order custom adjustable banners for events, trade shows, and safety signage. Easy setup and storage. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Adjustable banners give you the flexibility to change your message quickly without ordering new signage. Whether you need a retractable banner for a trade show or a dry-erase retractor for ongoing safety updates, the adjustable feature lets you swap graphics or write new information as needed. This makes them a smart choice for marketing directors who want reusable displays and for safety managers who need to update protocols frequently. Choose from vinyl, fabric, or dry-erase options to match your setting.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom adjustable banners with retractable stands and dry-erase surfaces for versatile signage",
+  "productSkus": [
+    "522220",
+    "523304",
+    "523305",
+    "523311",
+    "528557"
+  ],
+  "generatedAt": "2026-05-31T09:35:13.865753+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

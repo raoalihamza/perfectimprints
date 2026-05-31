@@ -1,0 +1,26 @@
+{
+  "url": "/cat/calculators/supplier/sj",
+  "type": "facet",
+  "h1": "Custom SJ Calculators for Bulk Orders",
+  "metaTitle": "Custom SJ Calculators | Perfect Imprints",
+  "metaDescription": "Order custom SJ calculators in bulk for your business. Perfect for promotions, giveaways, and office use. Get a quote today.",
+  "introHtml": "<p>Custom SJ calculators combine durable construction with reliable performance, making them a smart choice for branded office supplies and promotional giveaways. Whether you need desk calculators for your team or pocket-sized options for trade show events, SJ models offer consistent functionality and a professional look. Decorate them with your logo using screen printing or pad printing for a clean, lasting finish that stands up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom SJ calculators with logo imprint, including desk and flip models for office and promotional use.",
+  "productSkus": [
+    "502790",
+    "503150",
+    "503253",
+    "508489",
+    "526359",
+    "526362"
+  ],
+  "generatedAt": "2026-05-31T09:38:57.959090+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

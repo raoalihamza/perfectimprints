@@ -1,0 +1,21 @@
+{
+  "url": "/cat/matches/material/glass",
+  "type": "facet",
+  "h1": "Custom Glass Matches for Promotional Events",
+  "metaTitle": "Custom Glass Matches - Perfect Imprints",
+  "metaDescription": "Order custom glass matches for your next event. Perfect for bars, weddings, and corporate gifts. Get started with Perfect Imprints.",
+  "introHtml": "<p>Custom glass matches offer a premium, reusable alternative to paper matchbooks. Perfect for upscale bars, restaurants, or corporate events, these glass containers keep matches dry and add a touch of elegance. Choose from clear or frosted finishes, and imprint your logo with screen printing or etching for a lasting impression. Unlike cardboard, glass matchboxes won't bend or tear, making them a durable giveaway that recipients will keep on their shelves or countertops.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom glass matches with imprinted logo in a clear glass container, perfect for promotional events and corporate gifts.",
+  "productSkus": [
+    "525816"
+  ],
+  "generatedAt": "2026-05-31T09:19:13.910716+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

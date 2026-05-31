@@ -1,0 +1,24 @@
+{
+  "url": "/cat/bags/material/ripstop",
+  "type": "facet",
+  "h1": "Custom Ripstop Bags for Bulk Orders",
+  "metaTitle": "Custom Ripstop Bags | Perfect Imprints",
+  "metaDescription": "Order custom ripstop bags in bulk at Perfect Imprints. Durable, lightweight, and perfect for events, giveaways, and corporate gifts.",
+  "introHtml": "<p>Ripstop fabric is woven with a special reinforcing technique that resists tearing and ripping, making it a top choice for bags that need to endure daily use. Whether you need branded backpack coolers for a company picnic or lightweight totes for a trade show, ripstop bags offer a durable yet lightweight solution that stands up to heavy loads and rough handling. They are easy to clean and pack flat for storage, making them ideal for field teams, outdoor events, and promotional giveaways where reliability matters.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom ripstop bags featuring a durable backpack cooler and a roll-up pouch with logo imprint",
+  "productSkus": [
+    "524286",
+    "527613",
+    "527966",
+    "528962"
+  ],
+  "generatedAt": "2026-05-31T08:32:13.060771+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

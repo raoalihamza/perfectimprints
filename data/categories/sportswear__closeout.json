@@ -1,0 +1,21 @@
+{
+  "url": "/cat/sportswear/closeout",
+  "type": "modifier",
+  "h1": "Closeout Custom Sportswear",
+  "metaTitle": "Closeout Custom Sportswear | Perfect Imprints",
+  "metaDescription": "Save on closeout custom sportswear. Limited stock, clearance pricing. Order bulk apparel at unbeatable value from Perfect Imprints.",
+  "introHtml": "<p>Closeout custom sportswear offers a limited-time opportunity to stock high-quality branded apparel at clearance prices. As inventory shifts, these items become available at a fraction of the usual cost — perfect for budgets that still demand professional, durable gear. Whether you need branded fleece, polos, or outerwear, closeout pricing lets you stretch your marketing dollars further. Act quickly, because selection changes as stock moves.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Closeout custom sportswear including a branded Anywhere Belt Bag and other clearance apparel items",
+  "productSkus": [
+    "526499"
+  ],
+  "generatedAt": "2026-05-31T09:26:30.749422+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

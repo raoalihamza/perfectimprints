@@ -1,0 +1,23 @@
+{
+  "url": "/cat/pencils/eco-friendly/sustainable",
+  "type": "facet",
+  "h1": "Custom Sustainable Pencils",
+  "metaTitle": "Custom Sustainable Pencils | Perfect Imprints",
+  "metaDescription": "Order custom sustainable pencils for eco-friendly branding. Perfect for bulk orders. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Custom sustainable pencils let you promote your brand while reducing environmental impact. Made from FSC-certified wood or recycled materials like the Newsprencil, these pencils offer a responsible alternative to traditional writing instruments. Ideal for trade shows, school supply drives, or corporate gift bags, they can be imprinted with your logo using foil stamping or screen printing. Choosing sustainable pencils shows your audience you care about the planet without sacrificing quality or functionality.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom sustainable pencils with FSC-certified wood and printed logos, displayed on a desk",
+  "productSkus": [
+    "505592",
+    "527685",
+    "527686"
+  ],
+  "generatedAt": "2026-05-31T10:00:09.937360+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

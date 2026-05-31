@@ -1,0 +1,22 @@
+{
+  "url": "/cat/watches/size/small",
+  "type": "facet",
+  "h1": "Custom Small Watches for Bulk Orders",
+  "metaTitle": "Custom Small Watches | Perfect Imprints",
+  "metaDescription": "Order custom small watches in bulk for your team or event. Perfect for giveaways and rewards. Get a quote today at PerfectImprints.com.",
+  "introHtml": "<p>Small watches are ideal for corporate gifts, trade show giveaways, or employee recognition programs where a compact, wearable item is preferred. Unlike standard-sized watches, these smaller designs offer a subtle branding opportunity that suits both men and women. Options like the Paracord Bracelet Watch combine durability with a rugged look, while the Mood Watch Bracelet adds a fun, color-changing element. Decorate with your logo using screen printing or laser engraving for a professional finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom small watches featuring a paracord bracelet watch and a mood watch bracelet with logo imprint",
+  "productSkus": [
+    "516655",
+    "519200"
+  ],
+  "generatedAt": "2026-05-31T08:38:16.936593+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

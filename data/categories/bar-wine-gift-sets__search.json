@@ -1,0 +1,32 @@
+{
+  "url": "/cat/bar-wine-gift-sets/search",
+  "type": "modifier",
+  "h1": "Custom Bar Wine Gift Sets for Branded Promotions",
+  "metaTitle": "Custom Bar Wine Gift Sets | PerfectImprints.com",
+  "metaDescription": "Browse custom bar wine gift sets for branded promotions. Find the perfect set for your next corporate gift or event at PerfectImprints.com.",
+  "introHtml": "<p>Custom bar wine gift sets offer a polished way to thank clients, reward employees, or welcome new hires. Whether you need a compact set for a sales incentive or a premium collection for executive gifting, our curated selection includes options like the Speakeasy Gift Set and the Napa Stemless Wine Tumbler Set. Each set can be personalized with your logo, making every recipient feel valued. Start exploring our full range to find the right combination of style and function for your next branded promotion.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom bar wine gift sets displayed on a table, including a wine tumbler set and a gift box with branded logo.",
+  "productSkus": [
+    "512596",
+    "512693 64F",
+    "519672",
+    "521002",
+    "521897",
+    "522098",
+    "523898",
+    "523924",
+    "523950",
+    "525628",
+    "526748",
+    "527285"
+  ],
+  "generatedAt": "2026-05-31T08:28:05.762308+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

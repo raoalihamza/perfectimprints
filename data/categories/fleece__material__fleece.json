@@ -1,0 +1,32 @@
+{
+  "url": "/cat/fleece/material/fleece",
+  "type": "facet",
+  "h1": "Custom Fleece Jackets for Bulk Orders",
+  "metaTitle": "Custom Fleece Jackets | Perfect Imprints",
+  "metaDescription": "Order custom fleece jackets for your team. Perfect for outdoor events, uniforms, and giveaways. Shop bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Custom fleece jackets offer warmth and comfort for your team or event attendees. Whether you need lightweight mid-layers for outdoor company picnics or insulated zip-ups for safety managers working in cooler conditions, fleece provides a soft, durable option that takes embroidery and screen printing beautifully. Choose from full-zip or 1/2-zip styles in a range of colors to match your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom fleece jackets in various colors and styles for corporate branding",
+  "productSkus": [
+    "506605",
+    "506606",
+    "509568",
+    "509569",
+    "511088",
+    "522094",
+    "522095",
+    "525893",
+    "526811",
+    "526812",
+    "528931",
+    "528932"
+  ],
+  "generatedAt": "2026-05-31T09:46:20.120689+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

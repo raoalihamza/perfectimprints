@@ -1,0 +1,30 @@
+{
+  "url": "/cat/speakers/eco-friendly/recyclable",
+  "type": "facet",
+  "h1": "Custom Recyclable Speakers",
+  "metaTitle": "Custom Recyclable Speakers | Perfect Imprints",
+  "metaDescription": "Order custom recyclable speakers for eco-friendly branding. Perfect for trade shows and corporate gifts. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom recyclable speakers let you promote your brand while reducing environmental impact. Made from materials like recycled ABS or RPET, these speakers are fully recyclable at end of life, making them ideal for sustainability-focused companies. Models like the TerraTone Tune In Kit or Groundsound Recycled Coffee Grounds Wireless Speaker offer clear audio and easy logo imprinting. Perfect for trade shows, employee gifts, or eco-conscious marketing campaigns where you want your message to align with green values.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recyclable speakers with eco-friendly materials and logo imprinting for sustainable branding.",
+  "productSkus": [
+    "525981",
+    "527696",
+    "527707",
+    "527804",
+    "527805",
+    "527974",
+    "528681",
+    "528691",
+    "529462",
+    "529524"
+  ],
+  "generatedAt": "2026-05-31T10:07:32.647487+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

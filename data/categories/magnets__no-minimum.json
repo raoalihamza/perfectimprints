@@ -1,0 +1,24 @@
+{
+  "url": "/cat/magnets/no-minimum",
+  "type": "modifier",
+  "h1": "No-Minimum Custom Magnets",
+  "metaTitle": "No-Minimum Custom Magnets | Perfect Imprints",
+  "metaDescription": "Order small quantities of no-minimum custom magnets with no bulk requirements. Perfect for small businesses, events, and samples. Get yours today!",
+  "introHtml": "<p>No-minimum custom magnets let you order as few as you need—no bulk requirements, no wasted inventory. Whether you're a small business testing designs, a manager needing a handful for a team event, or running a one-time promotion, you get the same quality and customization without committing to large quantities. Perfect for car magnets, promotional giveaways, and safety reminders, these low-MOQ options keep your budget flexible and your branding on point.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of no-minimum custom magnets featuring sports ball designs, including a football and paw print car sign magnet, displayed on a table.",
+  "productSkus": [
+    "519384",
+    "519385 2AJ",
+    "519386 2EN",
+    "519387 2EM"
+  ],
+  "generatedAt": "2026-05-31T09:55:34.596861+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "modifier-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

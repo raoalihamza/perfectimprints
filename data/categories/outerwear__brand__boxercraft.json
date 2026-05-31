@@ -1,0 +1,27 @@
+{
+  "url": "/cat/outerwear/brand/boxercraft",
+  "type": "facet",
+  "h1": "Custom Boxercraft Outerwear for Bulk Orders",
+  "metaTitle": "Custom Boxercraft Outerwear | Perfect Imprints",
+  "metaDescription": "Order custom Boxercraft outerwear in bulk for your team or event. Shop branded sherpa pullovers, flannel pants & more at Perfect Imprints.",
+  "introHtml": "<p>Boxercraft specializes in comfortable, casual outerwear that works for lounging, layering, and team events. Their sherpa pullovers and flannel pants are popular choices for company swag, holiday gifts, and staff appreciation. Decorate with embroidery or screen printing for a soft, durable finish that stands up to repeated wear. Perfect for marketing directors and HR managers who want a cozy, branded item employees will actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Boxercraft outerwear featuring a branded sherpa pullover and flannel pants",
+  "productSkus": [
+    "521535",
+    "527831",
+    "527832",
+    "527833",
+    "527834",
+    "527835",
+    "527836"
+  ],
+  "generatedAt": "2026-05-31T08:35:58.729181+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

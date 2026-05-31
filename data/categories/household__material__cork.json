@@ -1,0 +1,22 @@
+{
+  "url": "/cat/household/material/cork",
+  "type": "facet",
+  "h1": "Custom Cork Household Products",
+  "metaTitle": "Custom Cork Household Products - Perfect Imprints",
+  "metaDescription": "Order custom cork household products like coasters and trivets. Eco-friendly and branded for your business. Get a quote today!",
+  "introHtml": "<p>Cork household products bring natural texture and eco-friendly appeal to everyday items like coasters, trivets, and mats. Unlike plastic or metal, cork is renewable, lightweight, and naturally non-slip—ideal for protecting surfaces while showcasing your logo. Whether you're outfitting a company breakroom or creating retail giveaways, cork items offer a warm, tactile experience that stands out. Decorate with screen printing or debossing for a subtle, professional look that aligns with sustainability goals.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom cork household products including round coasters and piggy banks with printed logos",
+  "productSkus": [
+    "521744",
+    "526618"
+  ],
+  "generatedAt": "2026-05-31T08:34:41.941651+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

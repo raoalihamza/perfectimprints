@@ -1,0 +1,26 @@
+{
+  "url": "/cat/bag-clips/special-feature/made-in-usa",
+  "type": "facet",
+  "h1": "Custom Made in USA Bag Clips",
+  "metaTitle": "Custom Made in USA Bag Clips | Perfect Imprints",
+  "metaDescription": "Order custom made in USA bag clips for your business. Durable, American-made clips with your logo. Bulk pricing available.",
+  "introHtml": "<p>Made in USA bag clips offer a smart choice for businesses prioritizing domestic manufacturing. These sturdy polypropylene clips come in 4-inch and 6-inch sizes, with the popular Keep-It™ design for a secure seal. Perfect for marketing directors and safety managers in food packaging, retail, or industrial settings, these clips keep bags closed while promoting your brand. Choose from solid colors or opt for full-color imprinting on the large printable surface. Bulk orders ensure consistent quality and fast turnaround from U.S. factories.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom made in USA bag clips with logo imprint in assorted colors, displayed on a variety of food bags",
+  "productSkus": [
+    "504501",
+    "504502",
+    "508056",
+    "509782",
+    "509884",
+    "509886"
+  ],
+  "generatedAt": "2026-05-31T09:34:13.599367+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

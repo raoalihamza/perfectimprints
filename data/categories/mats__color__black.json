@@ -1,0 +1,26 @@
+{
+  "url": "/cat/mats/color/black",
+  "type": "facet",
+  "h1": "Custom Black Mats for Branded Flooring",
+  "metaTitle": "Custom Black Mats | Perfect Imprints",
+  "metaDescription": "Order custom black mats for your business. Perfect for entrances and lobbies with your logo. Get a quote today at Perfect Imprints.",
+  "introHtml": "<p>Black mats offer a professional, neutral base that makes your logo stand out while hiding dirt and wear between cleanings. Whether you need heavy-duty scraper mats for high-traffic entrances or plush logo rugs for reception areas, black works with any decor. Options like the Waterhog Inlay Rug or Super Scrape Impressions Rug pair durability with custom imprinting for a polished first impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black entrance mat with imprinted logo, showcasing durable scraper surface",
+  "productSkus": [
+    "519274 01A",
+    "519275 01A",
+    "519276 01A",
+    "519277 01A",
+    "519278 01A",
+    "519279 01A"
+  ],
+  "generatedAt": "2026-05-31T08:35:23.547372+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

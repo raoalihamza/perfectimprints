@@ -1,0 +1,30 @@
+{
+  "url": "/cat/stationery/color/gold",
+  "type": "facet",
+  "h1": "Custom Gold Stationery for Bulk Orders",
+  "metaTitle": "Custom Gold Stationery | Perfect Imprints",
+  "metaDescription": "Order custom gold stationery for your business. Perfect for holiday cards, thank-you notes, and branded mailers. Get a quote today.",
+  "introHtml": "<p>Gold stationery adds a touch of elegance that stands out in any mailbox. Whether you're sending holiday greetings or thank-you notes, the warm metallic finish of gold foil or ink creates a premium feel that recipients notice. Options like the Raised Foil Bow Greeting Card or Gold Snowflakes Wreath Greeting Card offer sophisticated designs that work well for corporate holiday mailings or client appreciation. Bulk ordering ensures consistent quality across your entire send list.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gold stationery with elegant foil designs for corporate holiday cards and branded mailers",
+  "productSkus": [
+    "513755 2EX",
+    "513756 2EX",
+    "513759 2EX",
+    "513762 2EX",
+    "513763 2EX",
+    "513765 2EX",
+    "513767 2EX",
+    "513768 2EX",
+    "513769 2EX",
+    "513773 2EX"
+  ],
+  "generatedAt": "2026-05-31T09:26:43.934173+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

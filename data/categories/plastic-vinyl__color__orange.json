@@ -1,0 +1,28 @@
+{
+  "url": "/cat/plastic-vinyl/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Plastic Vinyl Products",
+  "metaTitle": "Custom Orange Plastic Vinyl | Perfect Imprints",
+  "metaDescription": "Shop custom orange plastic vinyl products at Perfect Imprints. Ideal for safety, visibility, and brand recognition. Order bulk today!",
+  "introHtml": "<p>Orange plastic vinyl products offer high visibility for safety teams, event staff, and outdoor promotions. From tumblers to stadium cups, this color ensures your logo stands out in crowds or on job sites. Durable and easy to decorate with screen printing or pad printing, custom orange plastic vinyl items like the 16 oz Roadster Mug or 12 oz Nite Glow Stadium Cup provide practical branding that people use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Orange plastic vinyl tumbler with custom logo, ideal for safety and brand visibility",
+  "productSkus": [
+    "501469",
+    "506677",
+    "509467",
+    "510559",
+    "521593",
+    "522370",
+    "524373",
+    "525743"
+  ],
+  "generatedAt": "2026-05-31T08:36:32.680424+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

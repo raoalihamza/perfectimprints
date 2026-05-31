@@ -1,0 +1,25 @@
+{
+  "url": "/cat/t-shirts/material/recycled-cotton",
+  "type": "facet",
+  "h1": "Custom Recycled Cotton T Shirts",
+  "metaTitle": "Custom Recycled Cotton T Shirts | Perfect Imprints",
+  "metaDescription": "Shop custom recycled cotton t shirts for eco-friendly branding. Bulk orders with screen printing or embroidery. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Recycled cotton t shirts reduce textile waste while delivering the softness and breathability your team expects. Whether you choose a tri-blend like the Allmade® Tee or a 50/50 cotton-poly blend from Port & Company, each shirt diverts fabric from landfills. Ideal for company uniforms, event giveaways, or retail merchandise, these shirts accept screen printing and embroidery beautifully. Ordering custom recycled cotton t shirts signals your commitment to sustainability without sacrificing comfort or durability.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled cotton t shirts stacked on a table, featuring a tri-blend tee with screen-printed logo",
+  "productSkus": [
+    "515831",
+    "516049",
+    "516050",
+    "516106",
+    "525400"
+  ],
+  "generatedAt": "2026-05-31T10:10:24.013565+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

@@ -1,0 +1,22 @@
+{
+  "url": "/cat/beanies/activity/hockey",
+  "type": "facet",
+  "h1": "Custom Hockey Beanies for Teams & Events",
+  "metaTitle": "Custom Hockey Beanies | Perfect Imprints",
+  "metaDescription": "Order custom hockey beanies for your team or event. Bulk pricing, fast turnaround. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Custom hockey beanies let your team, league, or fan group show spirit in cold weather. Made from soft acrylic or thick knit, these beanies hold up to rink-side wear and repeated washing. Add your logo or mascot via embroidery or screen printing for a crisp, durable look. Whether you need 50 for a youth hockey club or 500 for a tournament giveaway, these beanies offer a practical, affordable option that fans actually use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Person wearing a custom hockey beanie with embroidered team logo, soft acrylic knit style.",
+  "productSkus": [
+    "520922",
+    "521675"
+  ],
+  "generatedAt": "2026-05-31T09:08:24.384727+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

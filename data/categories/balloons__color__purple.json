@@ -1,0 +1,31 @@
+{
+  "url": "/cat/balloons/color/purple",
+  "type": "facet",
+  "h1": "Custom Purple Balloons for Your Brand",
+  "metaTitle": "Custom Purple Balloons | Perfect Imprints",
+  "metaDescription": "Order custom purple balloons with your logo. Perfect for events, grand openings, or brand promotions. Get a quote today!",
+  "introHtml": "<p>Purple balloons add a regal touch to any event, making them ideal for brand launches, corporate galas, or awareness campaigns. Whether you choose metallic latex for a shimmering effect or standard opaque for bold color, our custom purple balloons can be imprinted with your logo or message. Available in 9-inch and 11-inch sizes, as well as specialty shapes like stars and hearts, these balloons are perfect for helium or air filling. Create a memorable visual impact that aligns with your brand identity.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom purple balloons with a company logo printed on metallic latex, arranged in a bouquet for an event.",
+  "productSkus": [
+    "527576",
+    "527577",
+    "527578",
+    "527579",
+    "527580",
+    "527581",
+    "527582",
+    "527583",
+    "527584",
+    "527585",
+    "527586"
+  ],
+  "generatedAt": "2026-05-31T09:07:03.492578+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 11,
+  "filteredSkuCount": 11
+}

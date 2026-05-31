@@ -1,0 +1,23 @@
+{
+  "url": "/cat/golf-polo-shirts/brand/nautica",
+  "type": "facet",
+  "h1": "Custom Nautica Golf Polo Shirts",
+  "metaTitle": "Custom Nautica Golf Polo Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Nautica golf polo shirts for your team. Perfect for corporate events or uniforms. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Nautica golf polo shirts combine preppy style with performance fabrics, making them a favorite for corporate golf outings and team uniforms. The Men's and Ladies' Deck Polo styles offer moisture-wicking comfort and a classic fit that looks sharp on the course or in the office. Choose embroidery or screen printing for your logo on these premium shirts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Nautica golf polo shirts with embroidered logo on the chest, available in multiple colors",
+  "productSkus": [
+    "525547",
+    "525548",
+    "525893"
+  ],
+  "generatedAt": "2026-05-31T08:54:50.853111+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

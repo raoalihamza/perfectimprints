@@ -1,0 +1,30 @@
+{
+  "url": "/cat/fanny-packs/supplier/tekweld",
+  "type": "facet",
+  "h1": "Custom Tekweld Fanny Packs",
+  "metaTitle": "Custom Tekweld Fanny Packs | Perfect Imprints",
+  "metaDescription": "Order custom Tekweld fanny packs for your team or event. Bulk pricing and fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>Tekweld fanny packs combine durability with practical design, making them a top choice for promotional giveaways and corporate events. Choose from styles like the clear fanny pack for security-friendly venues or the running belt fanny pack for active teams. With custom imprint options including full-color screen printing and embroidery, these packs keep your brand visible at concerts, trade shows, or employee outings. Bulk ordering ensures consistent quality and cost-effectiveness for your next campaign.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Tekweld fanny packs in various colors and styles for promotional use",
+  "productSkus": [
+    "514432",
+    "514433",
+    "519201",
+    "522510",
+    "522705",
+    "522803",
+    "523655",
+    "524162",
+    "524500",
+    "525724"
+  ],
+  "generatedAt": "2026-05-31T09:45:34.570901+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

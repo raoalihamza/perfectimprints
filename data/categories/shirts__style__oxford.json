@@ -1,0 +1,25 @@
+{
+  "url": "/cat/shirts/style/oxford",
+  "type": "facet",
+  "h1": "Custom Oxford Shirts for Bulk Orders",
+  "metaTitle": "Custom Oxford Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Oxford shirts for your team. Perfect for uniforms and events. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Oxford shirts offer a timeless blend of durability and polish, making them a staple for corporate uniforms and team apparel. The classic oxford cloth weave provides a structured yet comfortable feel that holds up to frequent wear and washing. Whether you choose men's or ladies' styles from trusted brands like Port Authority or Brooks Brothers, these shirts accept embroidery and screen printing cleanly for a professional branded look. Order custom oxford shirts in bulk for your next event or uniform program.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom oxford shirts featuring classic button-down collars and chest pocket details, ideal for corporate uniforms.",
+  "productSkus": [
+    "513879",
+    "513880",
+    "519684",
+    "519685",
+    "526629"
+  ],
+  "generatedAt": "2026-05-31T08:37:25.727588+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

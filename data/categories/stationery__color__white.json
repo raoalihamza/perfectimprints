@@ -1,0 +1,28 @@
+{
+  "url": "/cat/stationery/color/white",
+  "type": "facet",
+  "h1": "Custom White Stationery",
+  "metaTitle": "Custom White Stationery | Perfect Imprints",
+  "metaDescription": "Order custom white stationery for a clean, professional look. Perfect for bulk business use. Shop at Perfect Imprints.",
+  "introHtml": "<p>White stationery offers a crisp, professional backdrop that makes your logo or message stand out without distraction. Ideal for corporate correspondence, thank-you notes, or holiday mailings, white paper stock pairs well with foil stamping, embossing, or full-color print. Whether you choose seeded paper greeting cards or currency envelopes, the neutral palette ensures consistency across all branded materials.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom white stationery including envelopes and greeting cards with foil stamping",
+  "productSkus": [
+    "524481",
+    "525800",
+    "525801",
+    "526989",
+    "526990",
+    "526991",
+    "526992",
+    "526994"
+  ],
+  "generatedAt": "2026-05-31T08:46:57.791175+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

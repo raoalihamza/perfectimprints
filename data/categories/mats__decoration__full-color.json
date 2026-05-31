@@ -1,0 +1,30 @@
+{
+  "url": "/cat/mats/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Mats",
+  "metaTitle": "Custom Full Color Mats | Perfect Imprints",
+  "metaDescription": "Order custom full color mats for your business. Vibrant, durable floor mats with your logo from Perfect Imprints.",
+  "introHtml": "<p>Full color mats let you display your logo, artwork, or safety messaging in vibrant detail that stands out in any lobby, entryway, or event space. Unlike single-color imprints, full color decoration captures gradients, photographs, and complex designs with crisp clarity. These mats are ideal for retail stores, trade shows, and office receptions where first impressions matter. Choose from rectangular or round shapes and sizes up to 3x5 feet. Perfect for branding high-traffic areas with your full-color graphics.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color mats with vibrant printed logo for commercial entryway use",
+  "productSkus": [
+    "515934 90A",
+    "515935 90A",
+    "515936 90A",
+    "515937 90A",
+    "515938 90A",
+    "515939 90A",
+    "515940 90A",
+    "519278 01A",
+    "519279 01A",
+    "526438"
+  ],
+  "generatedAt": "2026-05-31T09:19:16.075691+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/footwear/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Footwear for Your Brand",
+  "metaTitle": "Custom Full Color Footwear | Perfect Imprints",
+  "metaDescription": "Order custom full color footwear for your team or event. Vibrant, all-over prints on slides, socks, and more. Get a quote today!",
+  "introHtml": "<p>Full color decoration transforms footwear into a bold canvas for your brand. Unlike single-color logos, sublimation and full-color printing allow gradients, photos, and intricate designs to wrap around slides, socks, and shoe bags. It is ideal for event giveaways, retail displays, or uniform programs where you want maximum visual impact. Perfect Imprints offers a range of custom full color footwear options that hold up to daily wear while keeping your graphics sharp and fade-resistant.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color footwear including branded slides and printed socks with vibrant all-over designs",
+  "productSkus": [
+    "513304 90A",
+    "521340",
+    "522251",
+    "528171"
+  ],
+  "generatedAt": "2026-05-31T09:47:10.278624+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

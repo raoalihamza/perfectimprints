@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/type/jar",
+  "type": "facet",
+  "h1": "Custom Jar Products for Bulk Orders",
+  "metaTitle": "Custom Jar Products | Perfect Imprints",
+  "metaDescription": "Order custom jar products in bulk for your brand. Perfect for gifts or giveaways. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Custom jar products offer a versatile and practical way to promote your brand. Whether you need glass jars for candles, plastic jars for snacks, or metal tins for mints, these containers are perfect for corporate gifts, event favors, or retail packaging. Choose from screw-top jars, apothecary jars, or mason jar styles to match your message. Decorate with full-color labels, screen printing, or engraving for a polished look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom jar products with lids, including glass and plastic jars for branding",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:04:27.272029+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

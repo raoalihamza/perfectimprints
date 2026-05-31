@@ -1,0 +1,21 @@
+{
+  "url": "/cat/shirts/material/recycled-cotton",
+  "type": "facet",
+  "h1": "Custom Recycled Cotton Shirts for Your Brand",
+  "metaTitle": "Custom Recycled Cotton Shirts | Perfect Imprints",
+  "metaDescription": "Order custom recycled cotton shirts for your team. Eco-friendly, soft, and perfect for branding. Get a quote today!",
+  "introHtml": "<p>Recycled cotton shirts offer the same soft, breathable feel as conventional cotton but with a significantly lower environmental footprint. Made from post-industrial or post-consumer fabric waste, this material is ideal for companies seeking sustainable apparel without sacrificing comfort or style. Whether you're outfitting a volunteer team or creating branded merchandise for a green initiative, recycled cotton shirts provide a durable canvas for screen printing or embroidery. The Ladies Montauk Henley is one popular option that combines eco-conscious materials with a relaxed, versatile look.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom recycled cotton shirts with embroidered logos at a company event",
+  "productSkus": [
+    "527895"
+  ],
+  "generatedAt": "2026-05-31T08:46:39.595282+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

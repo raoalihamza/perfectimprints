@@ -1,0 +1,22 @@
+{
+  "url": "/cat/dresses/feature/with-hood",
+  "type": "facet",
+  "h1": "Custom With Hood Dresses",
+  "metaTitle": "Custom With Hood Dresses | Perfect Imprints",
+  "metaDescription": "Shop custom with hood dresses from Perfect Imprints. Ideal for teams and events. Bulk orders available.",
+  "introHtml": "<p>Custom with hood dresses combine the comfort of a hoodie with the professionalism of a dress, making them a standout choice for casual office apparel, team uniforms, or event giveaways. The hood adds a sporty, relaxed feel while keeping the silhouette polished. Decorate with your logo or design using screen printing or embroidery. Perfect for businesses that want a unique, functional garment that employees and customers will actually wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A group of people wearing custom with hood dresses featuring embroidered logos",
+  "productSkus": [
+    "515996",
+    "526291"
+  ],
+  "generatedAt": "2026-05-31T09:43:24.513987+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

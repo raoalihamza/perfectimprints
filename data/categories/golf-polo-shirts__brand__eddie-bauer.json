@@ -1,0 +1,28 @@
+{
+  "url": "/cat/golf-polo-shirts/brand/eddie-bauer",
+  "type": "facet",
+  "h1": "Custom Eddie Bauer Golf Polo Shirts",
+  "metaTitle": "Custom Eddie Bauer Golf Polo Shirts - Perfect Imprints",
+  "metaDescription": "Order custom Eddie Bauer golf polo shirts for your team or event. Quality apparel with your logo from Perfect Imprints.",
+  "introHtml": "<p>Eddie Bauer golf polo shirts combine the brand's outdoor heritage with performance fabrics ideal for the course. These polos offer moisture-wicking comfort and a classic fit that suits corporate outings, charity tournaments, or employee uniforms. With decoration options like embroidery on the chest or sleeve, you get a polished look that reflects your organization's attention to quality. Choose Eddie Bauer for reliable style that performs on and off the green.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Eddie Bauer golf polo shirts with embroidered logo on left chest, available in multiple colors",
+  "productSkus": [
+    "513811",
+    "513812",
+    "515290",
+    "515291",
+    "522094",
+    "522095",
+    "529196",
+    "529197"
+  ],
+  "generatedAt": "2026-05-31T09:48:53.841236+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

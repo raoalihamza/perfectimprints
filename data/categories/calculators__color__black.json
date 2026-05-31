@@ -1,0 +1,22 @@
+{
+  "url": "/cat/calculators/color/black",
+  "type": "facet",
+  "h1": "Custom Black Calculators for Bulk Orders",
+  "metaTitle": "Custom Black Calculators | Perfect Imprints",
+  "metaDescription": "Order custom black calculators for your team. Perfect for branding at trade shows and offices. Get your quote today.",
+  "introHtml": "<p>Black calculators offer a professional, low-profile look that fits any office or trade show setting. Whether you are equipping your finance team or handing out promotional items at a conference, black finishes resist visible wear and match corporate color schemes. These calculators can be screen-printed or engraved with your logo, making them practical giveaways that recipients use daily. The Value Calculator model is a popular choice for bulk orders due to its reliability and clear display.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom black calculators with corporate logo displayed on a desk in an office setting",
+  "productSkus": [
+    "502790",
+    "503150"
+  ],
+  "generatedAt": "2026-05-31T08:51:30.293539+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

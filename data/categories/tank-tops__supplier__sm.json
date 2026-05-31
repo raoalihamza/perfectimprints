@@ -1,0 +1,33 @@
+{
+  "url": "/cat/tank-tops/supplier/sm",
+  "type": "facet",
+  "h1": "Custom SM Tank Tops for Bulk Orders",
+  "metaTitle": "Custom SM Tank Tops | Perfect Imprints",
+  "metaDescription": "Order custom SM tank tops in bulk from Perfect Imprints. Ideal for teams, events, and giveaways. Shop now!",
+  "introHtml": "<p>SM tank tops are a versatile choice for bulk orders, offering comfort and durability for team uniforms, event giveaways, or employee apparel. With options like the Gildan Softstyle Tank and Bella+Canvas Jersey Tank, you can choose from youth and adult sizes in various colors. Decorate with screen printing or embroidery for a polished look that lasts.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Stack of custom SM tank tops in assorted colors with screen-printed logos",
+  "productSkus": [
+    "505073",
+    "506864",
+    "526200",
+    "528866",
+    "528867",
+    "528871",
+    "528872",
+    "528878",
+    "528880",
+    "528883",
+    "528884",
+    "528885",
+    "528889"
+  ],
+  "generatedAt": "2026-05-31T08:47:19.759476+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

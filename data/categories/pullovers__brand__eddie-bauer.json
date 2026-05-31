@@ -1,0 +1,28 @@
+{
+  "url": "/cat/pullovers/brand/eddie-bauer",
+  "type": "facet",
+  "h1": "Custom Eddie Bauer Pullovers for Corporate Orders",
+  "metaTitle": "Custom Eddie Bauer Pullovers | Perfect Imprints",
+  "metaDescription": "Order custom Eddie Bauer pullovers for your team. Soft shell, fleece & vests with your logo. Bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Eddie Bauer pullovers combine outdoor durability with professional style, making them a popular choice for corporate apparel programs. Whether you need soft shell jackets for field teams or microfleece vests for office staff, these pieces accept embroidery and screen printing cleanly. Ordering custom Eddie Bauer pullovers ensures your logo appears on trusted gear that employees actually wear.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Eddie Bauer pullovers with embroidered logo on soft shell jackets and fleece vests for corporate teams",
+  "productSkus": [
+    "513811",
+    "513812",
+    "515290",
+    "515291",
+    "522094",
+    "522095",
+    "529196",
+    "529197"
+  ],
+  "generatedAt": "2026-05-31T10:04:33.419327+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

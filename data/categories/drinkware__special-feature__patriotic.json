@@ -1,0 +1,27 @@
+{
+  "url": "/cat/drinkware/special-feature/patriotic",
+  "type": "facet",
+  "h1": "Custom Patriotic Drinkware for Bulk Orders",
+  "metaTitle": "Custom Patriotic Drinkware | Perfect Imprints",
+  "metaDescription": "Order custom patriotic drinkware for your next event. Perfect for July 4th or military appreciation. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Custom patriotic drinkware lets you celebrate American pride at company picnics, veteran appreciation events, or July 4th promotions. From red, white, and blue confetti stadium cups to stainless steel tumblers with flag motifs, these items stand out at any gathering. Decorate with your logo using screen printing or full-color wrap to create a memorable branded giveaway that attendees will reach for again and again.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom patriotic drinkware featuring red white and blue designs including stadium cups and tumblers with American flag motifs",
+  "productSkus": [
+    "503270",
+    "504345",
+    "514916 16B",
+    "518135 43A",
+    "521100",
+    "522248",
+    "524527"
+  ],
+  "generatedAt": "2026-05-31T09:43:42.474851+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

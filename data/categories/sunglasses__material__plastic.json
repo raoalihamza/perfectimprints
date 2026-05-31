@@ -1,0 +1,30 @@
+{
+  "url": "/cat/sunglasses/material/plastic",
+  "type": "facet",
+  "h1": "Custom Plastic Sunglasses",
+  "metaTitle": "Custom Plastic Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom plastic sunglasses for events or promotions. Perfect for outdoor giveaways. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Custom plastic sunglasses offer a lightweight and durable option for outdoor events, trade shows, and company picnics. Unlike metal frames, plastic styles like the Malibu or Gatsby Recycled Frame are comfortable for all-day wear and available in a variety of colors and finishes, from tortoise shell to wood grain. Add your logo with pad printing or an etched design for a polished look that stands out under the sun.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Bulk custom plastic sunglasses with logo imprint in assorted colors for promotional events",
+  "productSkus": [
+    "507422",
+    "510468 64F",
+    "510469 64E",
+    "524168",
+    "525620",
+    "526792",
+    "526802",
+    "526803",
+    "527733",
+    "529384"
+  ],
+  "generatedAt": "2026-05-31T08:31:12.647257+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

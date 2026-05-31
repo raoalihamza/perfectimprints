@@ -1,0 +1,27 @@
+{
+  "url": "/cat/wine-tumblers/brand/arctic-zone",
+  "type": "facet",
+  "h1": "Custom Arctic Zone Wine Tumblers for Bulk Orders",
+  "metaTitle": "Custom Arctic Zone Wine Tumblers | Perfect Imprints",
+  "metaDescription": "Branded Arctic Zone wine tumblers for events and promotions. Order custom insulated tumblers in bulk at Perfect Imprints.",
+  "introHtml": "<p>Arctic Zone wine tumblers bring professional-grade insulation to your branded drinkware. The copper-lined Titan Thermal HP technology keeps white wines chilled and reds at ideal temperature for hours. These tumblers are ideal for corporate wine tastings, client gifts, or hospitality events where temperature retention matters. Choose from 14 oz, 20 oz, or 30 oz sizes and customize with your logo using screen printing or laser engraving for a polished, durable finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Arctic Zone wine tumblers in copper finish with logo imprint on the side, set on a wooden table",
+  "productSkus": [
+    "525341",
+    "525841",
+    "525842",
+    "525843",
+    "525921",
+    "525964",
+    "526694"
+  ],
+  "generatedAt": "2026-05-31T09:04:45.857403+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

@@ -1,0 +1,25 @@
+{
+  "url": "/cat/water-bottles/brand/columbia",
+  "type": "facet",
+  "h1": "Custom Columbia Water Bottles for Branded Promotions",
+  "metaTitle": "Custom Columbia Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom Columbia water bottles with your logo. Durable, branded hydration for teams and events. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Columbia water bottles combine outdoor durability with reliable hydration, making them a smart choice for corporate gifts, event giveaways, and employee recognition programs. Whether you're outfitting a sales team or welcoming new hires, these bottles offer a premium look with practical features like double-wall insulation and easy-grip textures. Decorate with your logo using screen printing or laser engraving for a professional finish that stands up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Columbia water bottles with logo imprint, double-wall insulated, perfect for corporate gifts and promotional events.",
+  "productSkus": [
+    "523863",
+    "523865",
+    "523866",
+    "523867",
+    "523870"
+  ],
+  "generatedAt": "2026-05-31T09:30:05.830450+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

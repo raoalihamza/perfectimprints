@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/supplier/illini",
+  "type": "facet",
+  "h1": "Custom Illini Products for Bulk Orders",
+  "metaTitle": "Custom Illini Products | Perfect Imprints",
+  "metaDescription": "Order custom Illini products for your next event or promotion. Perfect Imprints offers bulk pricing and fast turnaround.",
+  "introHtml": "<p>Illini products bring a trusted name in promotional merchandise, known for quality construction and reliable delivery. Whether you need custom drinkware, bags, or writing instruments for a campus event, corporate giveaway, or alumni program, Illini’s selection offers consistency across large orders. Screen printing and laser engraving both work well on Illini items, giving you flexibility in branding. Bulk buyers appreciate the uniform sizing and durable materials that hold up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Illini products including branded water bottles and totes arranged on a table",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T08:30:39.277579+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

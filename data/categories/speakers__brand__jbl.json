@@ -1,0 +1,24 @@
+{
+  "url": "/cat/speakers/brand/jbl",
+  "type": "facet",
+  "h1": "Custom JBL Speakers for Bulk Orders",
+  "metaTitle": "Custom JBL Speakers | Perfect Imprints",
+  "metaDescription": "Order custom JBL speakers for your brand. Perfect for giveaways and corporate gifts. Get a quote today.",
+  "introHtml": "<p>JBL speakers deliver the sound quality and durability that make them a favorite for corporate gifts and event giveaways. From the ultra-portable Clip 5 to the powerful Flip 7, each model offers clear audio, Bluetooth connectivity, and waterproof designs. Customize them with your logo using screen printing or laser engraving for a polished, professional look that recipients will use daily.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom JBL speakers with engraved logos on portable Bluetooth speakers for corporate gifts",
+  "productSkus": [
+    "529459",
+    "529460",
+    "529461",
+    "529462"
+  ],
+  "generatedAt": "2026-05-31T10:07:29.517624+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

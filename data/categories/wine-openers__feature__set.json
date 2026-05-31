@@ -1,0 +1,21 @@
+{
+  "url": "/cat/wine-openers/feature/set",
+  "type": "facet",
+  "h1": "Custom Set Wine Openers for Bulk Orders",
+  "metaTitle": "Custom Set Wine Openers | Perfect Imprints",
+  "metaDescription": "Order custom set wine openers in bulk from Perfect Imprints. Ideal for corporate gifts and events. Get a quote today!",
+  "introHtml": "<p>Custom set wine openers combine functionality with presentation, making them ideal for corporate gifts, client appreciation, or event favors. Unlike single openers, a set often includes complementary items like stoppers or pourers, offering recipients a complete experience. Choose from options like the Delight 2-Piece Thank You Gift Set, which pairs a sleek opener with a matching accessory. Personalize with your logo via engraving or imprint for a polished, professional look that stands out.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom set wine openers with engraved logo, including wine opener and stopper on a wooden table",
+  "productSkus": [
+    "523950"
+  ],
+  "generatedAt": "2026-05-31T09:04:43.070370+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,29 @@
+{
+  "url": "/cat/lip-balm/color/green",
+  "type": "facet",
+  "h1": "Custom Green Lip Balm for Branded Giveaways",
+  "metaTitle": "Custom Green Lip Balm | Perfect Imprints",
+  "metaDescription": "Order custom green lip balm for your brand. Great for eco-friendly giveaways. Perfect Imprints offers bulk pricing and fast turnaround.",
+  "introHtml": "<p>Green lip balm stands out as a fresh, natural choice for brands that want to emphasize eco-consciousness or align with a specific color theme. Whether you choose a metallic green ball for a sleek look or a green-tinted tube for a playful vibe, your logo will pop against this vibrant hue. Perfect for outdoor events, health fairs, or wellness kits, custom green lip balm keeps your brand top of mind with every application.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom green lip balm in a metallic ball with a company logo printed on the side",
+  "productSkus": [
+    "512747",
+    "519430",
+    "520997",
+    "525626",
+    "528465",
+    "528502",
+    "528629",
+    "529055",
+    "529479"
+  ],
+  "generatedAt": "2026-05-31T09:18:24.098072+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

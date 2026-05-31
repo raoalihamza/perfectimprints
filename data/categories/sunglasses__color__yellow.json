@@ -1,0 +1,19 @@
+{
+  "url": "/cat/sunglasses/color/yellow",
+  "type": "facet",
+  "h1": "Custom Yellow Sunglasses",
+  "metaTitle": "Custom Yellow Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom yellow sunglasses for your next event or promotion. Perfect for outdoor activities and brand visibility.",
+  "introHtml": "<p>Yellow sunglasses deliver a bold, high-visibility look that stands out at outdoor events, trade shows, and company picnics. The bright tint adds a fun, energetic vibe while providing UV protection. Ideal for safety managers seeking high-visibility eyewear or marketing directors wanting a memorable giveaway. Customize with your logo using screen printing or pad printing for a durable finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom yellow sunglasses with UV protection and logo imprint, ideal for promotional giveaways and outdoor events.",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T10:09:22.606216+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

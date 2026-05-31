@@ -1,0 +1,30 @@
+{
+  "url": "/cat/awards/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Awards",
+  "metaTitle": "Custom Orange Awards | Perfect Imprints",
+  "metaDescription": "Order custom orange awards for your next event. Perfect for safety or spirit programs. Bulk pricing at PerfectImprints.com.",
+  "introHtml": "<p>Orange awards stand out in a crowd, making them a strong choice for safety milestones, energy-themed events, or fall sports banquets. Whether you choose a concrete award like the Pulsar or a satin ribbon badge, the bold color signals recognition that won't be overlooked. Customize with screen-printed logos or engraved plates for a polished finish that matches your brand.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange awards including concrete trophies and satin ribbon badges for corporate recognition events",
+  "productSkus": [
+    "509824",
+    "522113",
+    "522114",
+    "522115",
+    "522116",
+    "522117",
+    "522118",
+    "525447",
+    "525448",
+    "525449"
+  ],
+  "generatedAt": "2026-05-31T09:33:13.761113+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 10,
+  "filteredSkuCount": 10
+}

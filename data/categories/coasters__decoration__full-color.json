@@ -1,0 +1,28 @@
+{
+  "url": "/cat/coasters/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Coasters for Bulk Orders",
+  "metaTitle": "Custom Full Color Coasters | Perfect Imprints",
+  "metaDescription": "Order custom full color coasters in bulk from Perfect Imprints. Perfect for branding events, restaurants, and promotions.",
+  "introHtml": "<p>Full color coasters let you reproduce logos, photos, or intricate designs with vivid accuracy. Whether you choose absorbent stone coasters for bars or slate coasters for corporate gifts, the full color decoration method ensures your branding stands out. Unlike single-color imprints, full color gives you the freedom to use gradients, multiple hues, and detailed artwork—ideal for marketing directors who want their brand imagery to pop on every surface.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color coasters featuring a vibrant logo on round absorbent stone coasters for promotional use.",
+  "productSkus": [
+    "510545 32B",
+    "511029 32B",
+    "519140 01A",
+    "520338",
+    "520562",
+    "525571",
+    "529066",
+    "529067"
+  ],
+  "generatedAt": "2026-05-31T09:10:40.873372+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

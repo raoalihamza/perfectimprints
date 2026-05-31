@@ -1,0 +1,29 @@
+{
+  "url": "/cat/jackets/color/pink",
+  "type": "facet",
+  "h1": "Custom Pink Jackets for Your Team",
+  "metaTitle": "Custom Pink Jackets | Perfect Imprints",
+  "metaDescription": "Order custom pink jackets for your team at Perfect Imprints. Great for breast cancer awareness events, team spirit, and more.",
+  "introHtml": "<p>Pink jackets make a bold statement for breast cancer awareness campaigns, team spirit events, or simply adding a pop of color to your company gear. Whether you choose a lightweight pullover like the Unisex Pack N Go for outdoor events or a cozy Ladies' Rixford Polyfleece for office comfort, screen printing or embroidery ensures your logo stands out. Custom pink jackets are a versatile choice for any promotional need.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Group of people wearing custom pink jackets with embroidered logos at a corporate event",
+  "productSkus": [
+    "510005",
+    "510006",
+    "510008",
+    "516836",
+    "516837",
+    "520299",
+    "523278",
+    "523281",
+    "526131"
+  ],
+  "generatedAt": "2026-05-31T09:16:30.810007+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

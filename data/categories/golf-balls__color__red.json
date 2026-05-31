@@ -1,0 +1,22 @@
+{
+  "url": "/cat/golf-balls/color/red",
+  "type": "facet",
+  "h1": "Custom Red Golf Balls for Branded Giveaways",
+  "metaTitle": "Custom Red Golf Balls | Perfect Imprints",
+  "metaDescription": "Order custom red golf balls for your brand. Perfect for tournaments and corporate gifts. Get a quote at Perfect Imprints today.",
+  "introHtml": "<p>Red golf balls stand out on the course, making them a smart choice for corporate tournaments and promotional giveaways. Unlike standard white balls, custom red golf balls with your logo are easy to spot and create a memorable impression. Whether you're hosting a charity event or rewarding top clients, imprinting your brand on these high-visibility balls ensures your message is seen from tee to green. Choose from a variety of decoration options to match your brand colors perfectly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom red golf balls with company logo printed on each ball for promotional giveaways",
+  "productSkus": [
+    "527050",
+    "528245"
+  ],
+  "generatedAt": "2026-05-31T09:48:25.918024+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

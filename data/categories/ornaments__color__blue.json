@@ -1,0 +1,32 @@
+{
+  "url": "/cat/ornaments/color/blue",
+  "type": "facet",
+  "h1": "Custom Blue Ornaments for Corporate Gifts",
+  "metaTitle": "Custom Blue Ornaments | Perfect Imprints",
+  "metaDescription": "Order custom blue ornaments for corporate gifts. Perfect for holiday branding. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Blue ornaments offer a versatile and sophisticated option for corporate holiday gifting, from deep navy to bright cobalt. Whether you choose shatterproof flat rounds for safety or hand-blown glass for elegance, the blue hue complements most brand colors. Decorate with your logo using pad printing or etching for a polished look that stands out on any tree or display.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Assorted custom blue ornaments with corporate logos, including round shatterproof and hand-blown glass styles.",
+  "productSkus": [
+    "503213",
+    "504613",
+    "506005",
+    "507272",
+    "508896",
+    "519584",
+    "519593",
+    "525277",
+    "526845",
+    "526846",
+    "527051",
+    "528850"
+  ],
+  "generatedAt": "2026-05-31T08:58:53.160920+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

@@ -1,0 +1,26 @@
+{
+  "url": "/cat/golf-gifts/material/cotton",
+  "type": "facet",
+  "h1": "Custom Cotton Golf Gifts",
+  "metaTitle": "Custom Cotton Golf Gifts - Perfect Imprints",
+  "metaDescription": "Order custom cotton golf gifts for your next tournament or event. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Cotton golf gifts offer a soft, breathable feel that synthetic materials can't match. From tournament towels to embroidered quarter-zips and twill visors, cotton items provide a comfortable, classic look that recipients appreciate. These gifts work well for corporate outings, charity events, and employee appreciation, where a premium tactile experience matters. Decorate with screen printing or embroidery for a polished finish that lasts through many rounds.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A stack of custom cotton golf gifts including towels and apparel with embroidered logos for corporate events.",
+  "productSkus": [
+    "510644",
+    "511117",
+    "515975",
+    "522450",
+    "524126",
+    "528437"
+  ],
+  "generatedAt": "2026-05-31T09:14:27.866563+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

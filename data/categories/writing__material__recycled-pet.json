@@ -1,0 +1,22 @@
+{
+  "url": "/cat/writing/material/recycled-pet",
+  "type": "facet",
+  "h1": "Custom Recycled PET Writing Products",
+  "metaTitle": "Custom Recycled PET Writing | Perfect Imprints",
+  "metaDescription": "Eco-friendly custom recycled PET writing products for bulk orders. Pens and highlighters made from recycled plastic. Get a quote today.",
+  "introHtml": "<p>Custom recycled PET writing products let you promote sustainability while keeping your brand top of mind. Made from post-consumer plastic bottles, these pens and highlighters reduce waste without sacrificing performance. The rPET Highlighter and Javalina Revive Pen are popular choices for trade shows, corporate gifts, and green initiatives. Choose recycled PET to show your commitment to the environment and appeal to eco-conscious clients.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled PET writing products including eco-friendly pens and highlighters made from recycled plastic bottles",
+  "productSkus": [
+    "525979",
+    "528822"
+  ],
+  "generatedAt": "2026-05-31T09:31:27.635026+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

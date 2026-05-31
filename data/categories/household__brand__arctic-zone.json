@@ -1,0 +1,27 @@
+{
+  "url": "/cat/household/brand/arctic-zone",
+  "type": "facet",
+  "h1": "Custom Arctic Zone Household Products",
+  "metaTitle": "Custom Arctic Zone Household | Perfect Imprints",
+  "metaDescription": "Order custom Arctic Zone household items with your logo. Great for corporate gifts and employee appreciation.",
+  "introHtml": "<p>Arctic Zone household products combine advanced insulation technology with durable construction, making them ideal for corporate gifts and employee recognition programs. From the Titan Thermal HP Copper Mugs that keep drinks ice-cold to the Repreve Recycled Coolers made from post-consumer plastics, each item offers a tangible reminder of your brand. Choose screen printing or debossing for a clean, professional look that stands up to daily use.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Arctic Zone household products including insulated mugs and coolers with logo",
+  "productSkus": [
+    "525341",
+    "525841",
+    "525842",
+    "525843",
+    "525921",
+    "525964",
+    "526694"
+  ],
+  "generatedAt": "2026-05-31T09:51:07.672787+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

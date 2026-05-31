@@ -1,0 +1,25 @@
+{
+  "url": "/cat/apparel/feature/pom",
+  "type": "facet",
+  "h1": "Custom Pom Apparel for Branded Winter Gear",
+  "metaTitle": "Custom Pom Apparel | Perfect Imprints",
+  "metaDescription": "Order custom pom apparel for your team or event. Perfect Imprints offers branded pom beanies and hats with your logo.",
+  "introHtml": "<p>Pom apparel adds a playful yet professional touch to winter uniforms, promotional giveaways, and company swag. Whether you choose a classic knit pom beanie for a ski trip or a striped pom-pom cap for a holiday event, these accessories offer high visibility and a cozy feel. Decorate with embroidery or a sewn patch to keep your logo front and center while recipients enjoy the warmth and style.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pom apparel with embroidered logo on a knit pom-pom beanie for corporate gifts",
+  "productSkus": [
+    "514093",
+    "520922",
+    "522632",
+    "523881",
+    "528855"
+  ],
+  "generatedAt": "2026-05-31T08:31:44.442517+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

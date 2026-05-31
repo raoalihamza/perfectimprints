@@ -1,0 +1,25 @@
+{
+  "url": "/cat/jackets/decoration/full-color",
+  "type": "facet",
+  "h1": "Custom Full Color Jackets for Your Brand",
+  "metaTitle": "Custom Full Color Jackets | Perfect Imprints",
+  "metaDescription": "Order custom full color jackets for your team. Vibrant prints on vests and hooded jackets. Fast turnaround. Get a quote at Perfect Imprints.",
+  "introHtml": "<p>Full color decoration on jackets lets you reproduce logos, photos, or intricate designs with exceptional detail and vibrancy. Whether you need branded outerwear for a company event or promotional gear that stands out, full color printing on quilted vests or waterproof jackets ensures your artwork pops. This method works best on smooth fabric surfaces and is ideal for designs with gradients or multiple colors.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom full color jackets with vibrant logo prints on quilted vests and hooded jackets for corporate branding.",
+  "productSkus": [
+    "506606",
+    "520529",
+    "526297",
+    "526298",
+    "527897"
+  ],
+  "generatedAt": "2026-05-31T09:51:43.185022+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 5,
+  "filteredSkuCount": 5
+}

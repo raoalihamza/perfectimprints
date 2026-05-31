@@ -1,0 +1,21 @@
+{
+  "url": "/cat/golf/brand/callaway",
+  "type": "facet",
+  "h1": "Custom Callaway Golf Balls & Accessories",
+  "metaTitle": "Custom Callaway Golf | Perfect Imprints",
+  "metaDescription": "Order custom Callaway golf balls for your next corporate event or tournament. Fast turnaround, bulk pricing at Perfect Imprints.",
+  "introHtml": "<p>Callaway golf products are a top choice for corporate tournaments, client gifts, and employee recognition programs. The Supersoft Golf Balls offer a low-compression core that delivers distance and a soft feel, making them suitable for a wide range of players. Customize them with your company logo or event details through screen printing or pad printing for a polished look that performs well on the course.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Callaway golf balls with company logo, displayed on a putting green",
+  "productSkus": [
+    "529257"
+  ],
+  "generatedAt": "2026-05-31T08:55:04.393451+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/wine-glasses/eco-friendly/recycled",
+  "type": "facet",
+  "h1": "Custom Recycled Wine Glasses",
+  "metaTitle": "Custom Recycled Wine Glasses | Perfect Imprints",
+  "metaDescription": "Order custom recycled wine glasses for your brand. Eco-friendly, bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Custom recycled wine glasses offer a sustainable alternative for your next corporate event or promotional campaign. Made from post-consumer recycled materials like the 12 oz Oceanworks Stemless Wine Glass, these glasses reduce waste while providing a durable, elegant drinking vessel. Choose from screen printing or etching to add your logo, and make a statement about your commitment to the environment. Perfect for wineries, eco-conscious brands, or any business looking to align with green values.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom recycled wine glasses featuring the 12 oz Oceanworks Stemless Wine Glass with engraved logo on a wooden table",
+  "productSkus": [
+    "527252"
+  ],
+  "generatedAt": "2026-05-31T09:04:41.489824+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

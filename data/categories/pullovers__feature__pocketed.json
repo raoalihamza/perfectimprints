@@ -1,0 +1,33 @@
+{
+  "url": "/cat/pullovers/feature/pocketed",
+  "type": "facet",
+  "h1": "Custom Pocketed Pullovers",
+  "metaTitle": "Custom Pocketed Pullovers | Perfect Imprints",
+  "metaDescription": "Order custom pocketed pullovers for your team or event. Bulk pricing on branded hoodies with functional pockets from Perfect Imprints.",
+  "introHtml": "<p>Custom pocketed pullovers offer a practical advantage for employees and event attendees who need to keep phones, keys, or tools close at hand. Unlike standard pullovers, the added pocket provides convenient storage without sacrificing comfort or style. Whether you choose a classic fleece hoodie for a uniform or a tie-dye design for a fun giveaway, pocketed pullovers combine utility with brand visibility. Decorate with embroidery or screen printing for a polished look that gets noticed.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom pocketed pullovers in various colors and styles, featuring front pockets for storage, perfect for branding.",
+  "productSkus": [
+    "505528",
+    "508291",
+    "509487",
+    "509488",
+    "515928",
+    "515996",
+    "526122",
+    "527002",
+    "527361",
+    "528590",
+    "528707",
+    "528890",
+    "529312"
+  ],
+  "generatedAt": "2026-05-31T09:01:12.128008+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 13,
+  "filteredSkuCount": 13
+}

@@ -1,0 +1,27 @@
+{
+  "url": "/cat/backpacks/brand/high-sierra",
+  "type": "facet",
+  "h1": "Custom High Sierra Backpacks for Bulk Orders",
+  "metaTitle": "Custom High Sierra Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom High Sierra backpacks in bulk. Durable, branded backpacks perfect for corporate giveaways and employee gifts. Get a quote today.",
+  "introHtml": "<p>High Sierra backpacks are built for durability and everyday use, making them a trusted choice for corporate giveaways and employee appreciation gifts. Whether you choose the padded laptop compartment of the Swerve Compu-Backpack or the wheeled convenience of the Powerglide Pro, these bags offer reliable performance. Custom embroidery or screen printing adds your logo to a product your team will actually carry to work, the gym, or the trail.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "custom High Sierra backpacks with embroidered logo, featuring durable fabric and multiple compartments",
+  "productSkus": [
+    "506205",
+    "513619",
+    "521107",
+    "523122",
+    "523166",
+    "528088",
+    "528091"
+  ],
+  "generatedAt": "2026-05-31T08:23:56.913208+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

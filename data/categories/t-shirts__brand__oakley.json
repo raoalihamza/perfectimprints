@@ -1,0 +1,23 @@
+{
+  "url": "/cat/t-shirts/brand/oakley",
+  "type": "facet",
+  "h1": "Custom Oakley T Shirts for Bulk Orders",
+  "metaTitle": "Custom Oakley T Shirts | Perfect Imprints",
+  "metaDescription": "Order custom Oakley t shirts in bulk. Perfect for teams, events, and corporate branding. Get a quote today.",
+  "introHtml": "<p>Custom Oakley t shirts combine the brand's signature performance fabric technology with your company logo, giving your team apparel that stands up to active use. Whether you're outfitting a safety crew with moisture-wicking crewnecks or branding event staff with durable, comfortable tees, Oakley's reputation for rugged quality means your message stays sharp wash after wash. Decorate with screen printing or embroidery for a polished, long-lasting finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Oakley t shirts with company logo, available in bulk for corporate branding and team uniforms",
+  "productSkus": [
+    "522669",
+    "523948",
+    "529181"
+  ],
+  "generatedAt": "2026-05-31T09:03:11.785931+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}

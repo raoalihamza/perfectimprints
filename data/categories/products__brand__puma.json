@@ -1,0 +1,19 @@
+{
+  "url": "/cat/products/brand/puma",
+  "type": "facet",
+  "h1": "Custom Puma Products for Bulk Orders",
+  "metaTitle": "Custom Puma Products | Perfect Imprints",
+  "metaDescription": "Order custom Puma products for your team or event. Perfect for corporate gifts and promotional giveaways.",
+  "introHtml": "<p>Puma brings instant brand recognition to any promotional product, making it a smart choice for companies that want to align with an athletic, performance-oriented image. From custom embroidered polos to branded backpacks, Puma items offer the quality and style that recipients actually use and keep. Whether you are outfitting a sales team for a trade show or rewarding employees with premium gear, Puma products deliver lasting impressions that reflect well on your organization.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Puma products including embroidered polo shirts and branded backpacks for corporate gifts",
+  "productSkus": [],
+  "generatedAt": "2026-05-31T09:00:46.406076+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 0,
+  "filteredSkuCount": 0
+}

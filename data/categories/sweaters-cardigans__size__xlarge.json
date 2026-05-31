@@ -1,0 +1,32 @@
+{
+  "url": "/cat/sweaters-cardigans/size/xlarge",
+  "type": "facet",
+  "h1": "Custom X-Large Sweaters & Cardigans",
+  "metaTitle": "Custom X-Large Sweaters & Cardigans | Perfect Imprints",
+  "metaDescription": "Order custom xlarge sweaters and cardigans for your team. Bulk pricing, embroidery options, and fast turnaround at Perfect Imprints.",
+  "introHtml": "<p>When you need branded apparel that fits comfortably and looks professional, custom xlarge sweaters and cardigans deliver. Whether you're outfitting a safety team with durable fleece or providing uniform cardigans for front-desk staff, xlarge sizing ensures a proper fit for employees who need room to move. Choose from cotton-blend cardigans, merino wool sweaters, or performance fleeces, all available with your logo embroidered on the chest or sleeve.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom xlarge sweaters and cardigans with embroidered logo, available in bulk for corporate teams and safety managers.",
+  "productSkus": [
+    "520268",
+    "520269",
+    "523604",
+    "526198",
+    "526291",
+    "526292",
+    "527181",
+    "527182",
+    "527833",
+    "527957",
+    "528757",
+    "528758"
+  ],
+  "generatedAt": "2026-05-31T09:27:36.786621+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

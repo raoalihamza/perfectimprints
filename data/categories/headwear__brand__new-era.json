@@ -1,0 +1,22 @@
+{
+  "url": "/cat/headwear/brand/new-era",
+  "type": "facet",
+  "h1": "Custom New Era Headwear for Your Brand",
+  "metaTitle": "Custom New Era Headwear | Perfect Imprints",
+  "metaDescription": "Order custom New Era headwear for your team or event. Bulk pricing and professional decoration available. Get a quote today.",
+  "introHtml": "<p>New Era headwear brings instant brand recognition thanks to its iconic 59FIFTY silhouette and association with professional sports. For corporate teams, trade shows, or retail merchandise, these caps offer a premium feel that standard blanks can't match. Decorate with embroidered logos on the front or side panels for a clean, athletic look that employees and customers will wear proudly.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom New Era headwear with embroidered logo on a flat bill snapback cap",
+  "productSkus": [
+    "529314",
+    "529315"
+  ],
+  "generatedAt": "2026-05-31T09:50:07.207198+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

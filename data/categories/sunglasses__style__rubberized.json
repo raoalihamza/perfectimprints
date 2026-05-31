@@ -1,0 +1,28 @@
+{
+  "url": "/cat/sunglasses/style/rubberized",
+  "type": "facet",
+  "h1": "Custom Rubberized Sunglasses",
+  "metaTitle": "Custom Rubberized Sunglasses | Perfect Imprints",
+  "metaDescription": "Order custom rubberized sunglasses for your brand. Durable, comfortable, and perfect for outdoor events. Get a quote today!",
+  "introHtml": "<p>Rubberized sunglasses offer a non-slip grip and flexible durability that standard plastic frames can't match. Ideal for outdoor corporate events, trade shows, or safety giveaways, these sunglasses stay put during active use. Choose from styles like the Nike Skylon Ace or mirrored aviators, and add your logo with pad printing or laser engraving for lasting brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom rubberized sunglasses with mirrored lenses and logo imprint, perfect for outdoor promotional events",
+  "productSkus": [
+    "507422",
+    "517494",
+    "519707",
+    "522365",
+    "522378",
+    "526685",
+    "526687",
+    "529384"
+  ],
+  "generatedAt": "2026-05-31T10:09:26.452332+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

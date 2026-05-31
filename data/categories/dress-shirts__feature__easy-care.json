@@ -1,0 +1,32 @@
+{
+  "url": "/cat/dress-shirts/feature/easy-care",
+  "type": "facet",
+  "h1": "Custom Easy Care Dress Shirts",
+  "metaTitle": "Custom Easy Care Dress Shirts | Perfect Imprints",
+  "metaDescription": "Order custom easy care dress shirts for your team. Wrinkle-resistant fabrics keep your brand looking sharp all day. Bulk pricing available.",
+  "introHtml": "<p>Custom easy care dress shirts combine professional style with low-maintenance wear. These wrinkle-resistant shirts stay crisp through long workdays, commutes, and storage, making them ideal for field teams, sales staff, and event crews who need a polished look without constant ironing. Choose from solid Oxfords, gingham checks, or stretch weaves in men’s and women’s cuts. Decorate with embroidery or screen printing for a lasting brand impression.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "A row of custom easy care dress shirts in various colors, neatly folded, showcasing wrinkle-resistant fabric for professional uniforms.",
+  "productSkus": [
+    "501558",
+    "501559",
+    "513877",
+    "513878",
+    "513879",
+    "513880",
+    "517273",
+    "517274",
+    "526538",
+    "526539",
+    "528950",
+    "528951"
+  ],
+  "generatedAt": "2026-05-31T08:26:23.317964+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 12,
+  "filteredSkuCount": 12
+}

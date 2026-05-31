@@ -1,0 +1,22 @@
+{
+  "url": "/cat/coasters/material/acrylic",
+  "type": "facet",
+  "h1": "Custom Acrylic Coasters",
+  "metaTitle": "Custom Acrylic Coasters | Perfect Imprints",
+  "metaDescription": "Order custom acrylic coasters for your brand. Durable, clear, and perfect for logos. Bulk pricing available at PerfectImprints.com.",
+  "introHtml": "<p>Custom acrylic coasters offer a modern, sleek look that stands out on any desk or bar top. Unlike paper or cork, acrylic resists moisture and wipes clean easily, making it ideal for high-traffic offices, trade shows, and hospitality spaces. The transparent material allows for vibrant full-color printing, giving your logo a floating effect that catches the eye. Whether you're branding a new product launch or outfitting a breakroom, acrylic coasters combine durability with a premium feel that paper simply can't match.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Set of custom acrylic coasters with full-color printed logo on a glossy surface",
+  "productSkus": [
+    "528135",
+    "529143"
+  ],
+  "generatedAt": "2026-05-31T09:40:48.602437+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

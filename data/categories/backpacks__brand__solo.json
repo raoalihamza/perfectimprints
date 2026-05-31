@@ -1,0 +1,22 @@
+{
+  "url": "/cat/backpacks/brand/solo",
+  "type": "facet",
+  "h1": "Custom Solo Backpacks for Bulk Orders",
+  "metaTitle": "Custom Solo Backpacks | Perfect Imprints",
+  "metaDescription": "Order custom Solo backpacks in bulk at Perfect Imprints. Perfect for corporate gifts and employee swag. Get a quote today!",
+  "introHtml": "<p>Solo backpacks combine professional style with practical features like padded laptop compartments and RFID-blocking pockets. Ideal for corporate gift programs or employee onboarding kits, these bags offer a sleek, modern look that represents your brand well. Choose from styles like the Re:vive Mini Backpack or the Parker Hybrid Backpack Tote, and add your logo with embroidery or screen printing for a polished finish.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Solo backpacks with embroidered logo, featuring padded laptop compartment and modern design",
+  "productSkus": [
+    "524398",
+    "524401"
+  ],
+  "generatedAt": "2026-05-31T08:39:05.137691+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 2,
+  "filteredSkuCount": 2
+}

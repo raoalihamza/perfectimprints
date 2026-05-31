@@ -1,0 +1,28 @@
+{
+  "url": "/cat/water-bottles/brand/silipint",
+  "type": "facet",
+  "h1": "Custom Silipint Water Bottles for Bulk Orders",
+  "metaTitle": "Custom Silipint Water Bottles | Perfect Imprints",
+  "metaDescription": "Order custom Silipint water bottles in bulk. Unbreakable silicone design perfect for outdoor events and corporate gifts. Get a quote today!",
+  "introHtml": "<p>Silipint water bottles are made from unbreakable, food-grade silicone, making them ideal for outdoor events, corporate picnics, and safety-conscious workplaces where glass and hard plastic are not allowed. Unlike rigid water bottles, Silipint products are collapsible, lightweight, and dishwasher safe, offering a unique tactile experience that standard promotional bottles cannot match. Whether you need customized pint glasses, stemless wine glasses, or the iconic 32 oz Humbler, these bottles stand out at trade shows and employee appreciation events.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Silipint water bottles in assorted colors, including clear silicone pint glasses and a 32 oz Humbler with logo imprint",
+  "productSkus": [
+    "522248",
+    "526428",
+    "527291",
+    "527292",
+    "527774",
+    "528236",
+    "528237",
+    "528252"
+  ],
+  "generatedAt": "2026-05-31T10:13:52.041320+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 8,
+  "filteredSkuCount": 8
+}

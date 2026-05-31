@@ -1,0 +1,26 @@
+{
+  "url": "/cat/coolers/brand/built",
+  "type": "facet",
+  "h1": "Custom Built Coolers for Bulk Orders",
+  "metaTitle": "Custom Built Coolers | Perfect Imprints",
+  "metaDescription": "Order custom Built coolers in bulk for your brand. Durable, stylish coolers with your logo from Perfect Imprints. Get a quote today!",
+  "introHtml": "<p>Built coolers are known for their rugged durability and outdoor-ready design, making them a smart choice for companies that want their logo seen at job sites, tailgates, or trade shows. These coolers hold up to heavy use while keeping drinks cold for hours. Decorate them with your full-color logo or a simple one-color imprint for a clean, professional look. Whether you need a 12-can cooler for a giveaway or a 25-liter cooler for a client gift, custom Built coolers offer reliable performance and strong brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Built coolers with company logo, durable and insulated for outdoor events and giveaways",
+  "productSkus": [
+    "520397",
+    "525923",
+    "525924",
+    "527125",
+    "527460",
+    "528733"
+  ],
+  "generatedAt": "2026-05-31T09:41:37.485739+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 6,
+  "filteredSkuCount": 6
+}

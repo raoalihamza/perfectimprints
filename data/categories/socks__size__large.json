@@ -1,0 +1,29 @@
+{
+  "url": "/cat/socks/size/large",
+  "type": "facet",
+  "h1": "Custom Large Socks for Bulk Orders",
+  "metaTitle": "Custom Large Socks | Perfect Imprints",
+  "metaDescription": "Order custom large socks in bulk for your team or event. Perfect Imprints offers quality decoration and fast turnaround.",
+  "introHtml": "<p>Large socks provide a comfortable fit for bigger feet, making them ideal for corporate gift sets, safety gear, or event swag. Whether you choose ankle-high jacquard styles or cozy slipper socks, bulk orders allow you to add your logo through embroidery or screen printing. Custom large socks ensure recipients get the right size without sacrificing comfort or brand visibility.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom large socks with embroidered logo, available in bulk from Perfect Imprints",
+  "productSkus": [
+    "516800",
+    "521927",
+    "522251",
+    "524427",
+    "525740",
+    "526360",
+    "526361",
+    "526363",
+    "526896"
+  ],
+  "generatedAt": "2026-05-31T09:26:15.904218+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 9,
+  "filteredSkuCount": 9
+}

@@ -1,0 +1,24 @@
+{
+  "url": "/cat/health/material/canvas",
+  "type": "facet",
+  "h1": "Custom Canvas Health Products for Bulk Orders",
+  "metaTitle": "Custom Canvas Health Products - Perfect Imprints",
+  "metaDescription": "Order custom canvas health products for your facility. Durable, eco-friendly materials perfect for bulk branding. Get started at Perfect Imprints.",
+  "introHtml": "<p>Canvas health products offer a durable, natural alternative to synthetic materials, making them ideal for first aid kits, totes, and aprons that see daily use. The cotton canvas construction provides breathability and strength, while accepting screen printing or embroidery for your logo. Whether you need branded canvas totes for employee wellness kits or waist aprons for clinic staff, this material combines practicality with a professional look that holds up over time.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom canvas health products including a tote bag and apron with company logo, displayed on a wooden table.",
+  "productSkus": [
+    "506864",
+    "509133 90A",
+    "521035",
+    "528060"
+  ],
+  "generatedAt": "2026-05-31T09:50:36.514477+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 4,
+  "filteredSkuCount": 4
+}

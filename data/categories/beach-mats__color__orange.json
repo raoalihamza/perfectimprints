@@ -1,0 +1,27 @@
+{
+  "url": "/cat/beach-mats/color/orange",
+  "type": "facet",
+  "h1": "Custom Orange Beach Mats",
+  "metaTitle": "Custom Orange Beach Mats | Perfect Imprints",
+  "metaDescription": "Order custom orange beach mats for your brand. Perfect for giveaways and events. Get a quote from Perfect Imprints today.",
+  "introHtml": "<p>Orange beach mats stand out on crowded shorelines, making them ideal for brand visibility at beachside events, resort giveaways, or employee appreciation kits. The bright hue pairs well with screen-printed logos or woven labels, ensuring your message stays legible under the sun. Whether you choose a lightweight terry mat for easy packing or a sand-resistant woven design, orange keeps your brand top-of-mind long after the beach day ends.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom orange beach mats with logo printed on a bright orange woven fabric, ideal for promotional giveaways",
+  "productSkus": [
+    "510327",
+    "510416",
+    "517456",
+    "517738",
+    "519759",
+    "523960",
+    "525353"
+  ],
+  "generatedAt": "2026-05-31T09:36:29.156273+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 7,
+  "filteredSkuCount": 7
+}

@@ -1,0 +1,21 @@
+{
+  "url": "/cat/wine-glasses/color/gray",
+  "type": "facet",
+  "h1": "Custom Gray Wine Glasses for Bulk Orders",
+  "metaTitle": "Custom Gray Wine Glasses | Perfect Imprints",
+  "metaDescription": "Shop custom gray wine glasses for your next event or promo campaign. Perfect for bulk orders with your logo at Perfect Imprints.",
+  "introHtml": "<p>Gray wine glasses offer a sleek, neutral backdrop that makes your logo or design stand out without competing with bold colors. Ideal for corporate gifts, trade show giveaways, or employee recognition, these glasses pair well with metallic or bright ink decorations. Whether you choose a frosted finish or a solid gray stem, the subtle tone adds a modern touch to any event. Ordering in bulk ensures consistent branding across your entire set.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom gray wine glasses with engraved logo, perfect for corporate gifts and promotional events.",
+  "productSkus": [
+    "524419"
+  ],
+  "generatedAt": "2026-05-31T08:47:59.178648+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 1,
+  "filteredSkuCount": 1
+}

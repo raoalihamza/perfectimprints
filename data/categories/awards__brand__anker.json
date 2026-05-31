@@ -1,0 +1,23 @@
+{
+  "url": "/cat/awards/brand/anker",
+  "type": "facet",
+  "h1": "Custom Anker Awards for Bulk Orders",
+  "metaTitle": "Custom Anker Awards | Perfect Imprints",
+  "metaDescription": "Order custom Anker awards for your team. Perfect for employee recognition. Bulk pricing available at Perfect Imprints.",
+  "introHtml": "<p>Anker awards combine premium tech with lasting recognition. Unlike generic trophies, branded Anker power banks and mugs offer daily utility that keeps your logo visible long after the ceremony. Ideal for employee milestones or sales achievements, these awards can be laser engraved with your company logo. Choose from top-rated products like the 5000 mAh PowerCore Fusion to give a gift that truly powers performance.</p>",
+  "buyingGuideHtml": null,
+  "buyingGuideH2": null,
+  "faqs": [],
+  "heroAltText": "Custom Anker awards with engraved logos, including power banks and mugs for employee recognition",
+  "productSkus": [
+    "524364",
+    "526549",
+    "527719"
+  ],
+  "generatedAt": "2026-05-31T09:33:11.314861+00:00",
+  "model": "deepseek-chat",
+  "promptVersion": "facet-v1",
+  "skuFilterMode": "membership",
+  "rawSkuCount": 3,
+  "filteredSkuCount": 3
+}
