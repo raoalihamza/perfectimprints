@@ -845,6 +845,7 @@ Plus mega menu addition: "Deals" main menu item linking to `/deals` (handled in 
 - [ ] Brand logos refreshed if Geiger updated them
 - [ ] Email summary delivered to Patrick
 - [ ] Manual Sanity trigger button works
+- [ ] Warmup workflow (`.github/workflows/post-deploy-warmup.yml`) triggered as last step of monthly rebuild PR merge — without it the redeploy reintroduces the 24-48h cold-facet window every month
       **Depends on.** M6-605, M1-112.
       **Estimate.** 4 hours.
 

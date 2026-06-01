@@ -15,7 +15,8 @@
     "sanity:dev": "cd sanity && sanity dev",
     "sanity:deploy": "cd sanity && sanity deploy",
     "import-urls": "tsx scripts/url-import/import-urls.ts",
-    "build:search-index": "tsx scripts/search-index/build-index.ts"
+    "build:search-index": "tsx scripts/search-index/build-index.ts",
+    "warmup": "tsx scripts/warmup/warmup-facets.ts"
   },
   "dependencies": {
     "@portabletext/react": "^3.1.0",
