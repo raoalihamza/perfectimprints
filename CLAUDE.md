@@ -29,7 +29,7 @@ Geiger source: `https://www.geiger.com/` (data source only, never emitted in lin
 
 ## 3. Architecture Principles
 
-Static-first. Every category page renders at build time as static HTML. Sanity-managed pages use ISR with on-demand revalidation triggered by Sanity webhooks.
+Static-first (hybrid SSG). The headline category surfaces — 465 root pages + 576 modifier pages + 2 compound-facet pages, plus their pagination variants (~1,840 paths total) — render at build time as static HTML and ship in the Vercel deployment. The 21,137 long-tail facet pages render via on-demand SSG (`dynamicParams = true` + `revalidate = false`): the first hit (typically a Googlebot crawl) generates the page and Vercel caches it at the edge permanently until the next deploy. This is a forced deviation from "every page at build time" because pre-building all 22,180 pages plus pagination (~34,857 paths) blows Vercel's per-deployment output budget — Next.js 16 emits ~5 segment artifacts per static page, hitting `ENOSPC` on the build runner. Crawlers and users see identical static HTML once a page is warm. Sanity-managed pages use ISR with on-demand revalidation triggered by Sanity webhooks. See Section 13 and `app/cat/[...slug]/page.tsx` for the implementation, and TASKS.md M3-306 for the incident write-up.
 
 URL preservation is non-negotiable. The 22,180 existing category URLs and 731 blog URLs from GA4 must resolve to the same path on the new site. No 301 redirects for migrated URLs.
 
@@ -50,7 +50,7 @@ Category URL breakdown:
 - Category modifier: `/cat/[root]/[modifier]` (**576** modifier pages, 2 segments). Six modifier types observed: `search` (258), `no-minimum` (216), `closeout` (93), `production-time` (6), `eco-friendly` (2), `material` (1)
 - Category facet: `/cat/[root]/[facet-type]/[facet-value]` (**21,137** standard facet pages, 3 segments, 36 facet types)
 - Category compound facet: `/cat/[root]/[type1]/[value1]/[type2]/[value2]` (**2** compound facet pages, 5 segments, two filter dimensions)
-- Category pagination: `/cat/[slug]/page/[n]` (static URLs for SEO; page 1 canonical, page 2+ noindex)
+- Category pagination: `/cat/[slug]/page/[n]` for any category with more than 60 products (60 per page). Page 1 lives at the clean URL `/cat/[slug]` and is canonical to itself. Pages 2+ live at `/cat/[slug]/page/N`, carry `noindex,follow`, and canonical back to page 1. `/cat/[slug]/page/1` 308-redirects to the clean URL. Out-of-range `/page/N` returns 404. Only page 1 URLs appear in the sitemap. Build-time generation: pagination variants for root + modifier + compound-facet categories only (~797 paths); facet pagination renders via on-demand SSG with the parent facet page (see Section 3).
 - Blog index: `/blog`
 - Blog post: `/blog/[slug]` (731 posts)
 - Blog category: `/blog/cat/[slug]`
@@ -255,9 +255,20 @@ Root prompt varies hero intro opening structure to avoid sameness across 465 pag
 ### Phased generation
 
 - **Phase 2.1 (Week 2 end, COMPLETE):** Top 35 root categories generated as a demo sample. Patrick approved content tone on 2026-05-25 with the buying-guide upgrade as a follow-up.
-- **Phase 2.2 (Week 3 Day 1-2):** Upgrade `root_category.txt` to buying-guide format (promptVersion `root-v2`). Regenerate all 35 demo pages. Patrick spot-checks 2-3 outputs to validate.
-- **Phase 2.3 (Week 3 Day 2-3):** Generate the remaining 430 root pages with the new format.
-- **Phase 2.4 (Week 3 Day 3-5):** Generate all 21,715 non-root pages (modifiers + facets + compound facets) using their lite templates.
+- **Phase 2.1b (2026-06-01, COMPLETE):** v1 demo quality pass — `scripts/ai-pipeline/generate_sample_roots.py` rebuilt with: dedup-by-Geiger-path selection so 35 entries are 35 distinct categories; `EXCLUDED_SLUGS` list (11 entries) for incoherent fuzzy mappings and PI admin artifacts; depth-aware SKU filter (see below); compound-noun H1 rule in `prompts/root_category.txt`; `post_process_lengths()` safety net that truncates metaTitle/metaDescription at a word boundary when the model overshoots SEO caps. Cumulative cost across all rounds: $0.065 for 60 calls. Zero length violations across all 35 outputs.
+- **Phase 2.2 (COMPLETE):** Upgraded `root_category.txt` to buying-guide format (`promptVersion: "root-v2"`) and regenerated the 35 demo pages. Patrick spot-checks pending Pause Point 3 sign-off.
+- **Phase 2.3 (COMPLETE):** All 465 PI root pages generated with v2 buying-guide format (`buyingGuideHtml` + `buyingGuideH2` populated). Committed in `91a4b3de`.
+- **Phase 2.4 (COMPLETE):** All 21,715 non-root pages (576 modifiers + 21,137 facets + 2 compound facets) generated using their lite templates. Committed in `91a4b3de`.
+
+### SKU filter rules (applied in `apply_sku_filter`)
+
+PI-to-Geiger mappings sometimes point a root slug at a broad parent department (`business-card-holders` → `Home > Office & Technology`, 1738 SKUs), which would drown the product grid in unrelated items. The pipeline applies a three-tier rule at generation time and persists the result in the output JSON:
+
+1. **`full`** — applied when `matchType ∈ {exact, fuzzy}` OR Geiger path depth ≥ 3. The full subtree SKU list is trusted as-is.
+2. **`slug-filtered`** — applied when `matchType == override` AND depth < 3. Each candidate SKU is scored by token overlap between the category slug and the product name. Keep all SKUs scoring above the median, capped at 200.
+3. **`full-capped-60`** — fallback when `slug-filtered` would leave fewer than 30 SKUs (single-digit grids look broken). Use the raw set capped at 60.
+
+Three fields in the output JSON record the decision: `skuFilterMode`, `rawSkuCount`, `filteredSkuCount`.
 
 ### Output schema
 
@@ -361,6 +372,8 @@ Vercel, two environments:
 
 Build command: `pnpm build`
 Output: handled by Vercel's native Next.js support
+
+**Static-path budget.** Vercel's build runner has a hard ceiling on output filesystem inodes — Next.js 16 emits ~5 segment artifacts per static page, and pre-building all 22,180 categories plus pagination (~34,857 paths × 5 ≈ 175k symlinks) fails with `ENOSPC: no space left on device` during Vercel's output-assembly step (incident: first full deploy on 2026-05-31). Mitigation in place on the `/cat/[...slug]` route: `dynamicParams = true` + `revalidate = false`, and `generateStaticParams` returns only root + modifier + compound-facet types (+ pagination), giving **1,840 static paths**. The 21,137 facet pages serve as on-demand SSG — first hit generates, then cached at the edge permanently until the next deploy (functionally identical to SSG for crawlers). Do NOT widen `PREBUILD_TYPES` in `app/cat/[...slug]/page.tsx` without re-measuring the path-vs-budget ratio.
 
 DNS is managed by Cloudflare (DNS-only mode, no proxy). DNS cutover plan: lower TTL on existing perfectimprints.com records 48 hours before launch. On launch day, repoint apex to Vercel production via Cloudflare DNS.
 
@@ -472,6 +485,7 @@ For blog migration, attempt clean export from MPower dashboard at `app.mpowerpro
 - Image alt text is required, not optional. Lint rule enforces it.
 - Affiliate URL transformation lives only in `lib/affiliate-url.ts`. Never inline the replace.
 - HTML entity decoding lives only in `lib/categories.ts`. Never decode in components individually.
+- Mega menu data lives in `lib/nav-data.ts` and is built from PI's own slug universe (`data/pi-urls/category-urls.json` + `data/mappings/pi-to-geiger.json`), not Geiger's tree. Column labels mirror Geiger's top-level departments for visual familiarity; items and links use PI slugs only. Replaced by Sanity-driven menu in M5-503.
 - Commit messages follow Conventional Commits.
 
 ## 18. Never Do
@@ -530,9 +544,9 @@ Remaining pending items (track in TASKS.md):
 - Lead form "from" address (OQ-1)
 - Old site cutover timing (OQ-3)
 
-## 22. Current Project State (Week 3 start)
+## 22. Current Project State (Week 3 end)
 
-Updated: 2026-05-26.
+Updated: 2026-06-01.
 
 **Module 1 (Data Pipeline): Complete (Phase A-D).**
 
@@ -542,34 +556,32 @@ Updated: 2026-05-26.
 - Phase D: 465 PI roots mapped, 0 unmapped (72 exact + 224 fuzzy + 169 manual)
 - Phase E (brand logos): NOT yet run — scheduled Week 4 (M1-112)
 
-**Module 2 (AI Content): Demo sample complete, full run scheduled for Week 3.**
+**Module 2 (AI Content): v1 content generated for all 22,180 pages. Buying-guide v2 upgrade still pending.**
 
-- Week 2 demo: 35 root pages generated, $0.065 total DeepSeek cost
-- Patrick reviewed 2026-05-25, approved content tone and quality
-- Green light given for full 22,180-page generation
-- Patrick requested upgrade to **buying-guide format** for root pages: longer body (400-600 words), H2 "Custom [Category] Buying Guide" above bottom text, keyword derivatives (custom, promotional, branded, personalized, logo, bulk, wholesale), structured buyer-research content matching the Stadium Seat Cushions blog example
-- Week 3 plan: regenerate the 35 demo pages with new buying-guide prompt (Patrick spot-checks 2-3), then generate the remaining 430 root pages and all 21,715 non-root pages. Total expected cost ~$25-30.
+- All 22,180 category JSONs exist in `data/categories/`: 465 roots with v2 buying-guide format (`promptVersion: "root-v2"`, populated `buyingGuideHtml` + `buyingGuideH2`) + 21,715 lite non-roots (modifiers/facets/compound-facets). Full set committed in `91a4b3de`.
+- Week 2 demo: 35 root pages generated. Patrick reviewed 2026-05-25 and approved content tone.
+- v1 quality pass (dedup-by-Geiger-path selection, 11-entry `EXCLUDED_SLUGS`, depth-aware SKU filter with `full`/`slug-filtered`/`full-capped-60` modes, compound-noun H1 rule, `post_process_lengths()` safety net) applied to the v2 prompt as well. Zero meta-length violations across all 465 roots.
+- Buying-guide format delivered: 400-600 word `buyingGuideHtml`, H2 "Custom [Category] Buying Guide", keyword derivatives (custom, promotional, branded, personalized, logo, bulk, wholesale), structured buyer-research content matching the Stadium Seat Cushions blog example. Word-count adherence is stochastic — ~one-third of pages undershoot the 400-word floor by 30-100 words. Tracked for retry-on-validation-fail loop before any future re-runs.
 
-**Module 3 (Category Templates): Sample template done, building out filters and additions.**
+**Module 3 (Category Templates): All 22,180 paths live; filters + lead form still pending.**
 
-DONE for Week 2 demo (35 pages live at dev.perfectimprints.com):
+DONE:
 
-- Routing for 35 root slugs
-- Production ProductCard (image, name, price, MOQ, brand badge, NEW/SALE/CLOSEOUT ribbons, affiliate link)
-- Production ProductGrid
-- AI content rendering (H1, intro, FAQs, hero alt)
-- Breadcrumb, CTA banner (phone + email), 404 page
+- Routing for all 22,180 paths. Roots + modifiers + compound-facets pre-built (~1,840 paths including pagination); facets on-demand SSG via `dynamicParams=true` (Vercel build budget ENOSPC at ~34k paths, so the 21,137 facets must not be pre-built — do not widen `PREBUILD_TYPES` without re-checking).
+- Production ProductCard (image, name, price, MOQ, brand badge, NEW/SALE/CLOSEOUT ribbons, affiliate link via `lib/affiliate-url.ts`), with `onError` placeholder fallback for hot-linked Geiger images that 404 between monthly rebuilds.
+- Production ProductGrid, AI content rendering (H1, intro, FAQs, hero alt), breadcrumb, CTA banner (phone + email), 404 page.
+- Mega menu (`lib/nav-data.ts`) rebuilt 2026-06-01 to read from PI's slug universe. Items grouped under Geiger top-level departments (Apparel, Bags & Totes, etc.) for visual familiarity; all 465 root links resolve. Column headers link to their PI department-equivalent root (`apparel`, `bags`, `drinkware`, `health`, `household`, `office`, `outdoor`, `writing`, `products` for Shop By); Tradeshow & Events column header is non-clickable because PI has no department-level slug for it. To be replaced by Sanity-driven menu in M5-503.
 
 **PATRICK FEEDBACK FROM WEEK 2 DEMO** (scheduled across Weeks 3-5):
 
 Week 3:
 
-- HTML entity decoding bug in product titles (`&amp;`, `&quot;`) — quick loader fix
-- Image fallback when Geiger image 404s — `onError` handler in ProductCard
-- H2 "Custom [Category] Buying Guide" above bottom text — component + prompt update
-- Buying-guide format content (longer, keyword derivatives) — prompt rewrite + regenerate
-- Full 22,180-page content generation — green light received
-- Pagination with noindex on page 2+ — M3-306 implementation
+- ✅ HTML entity decoding bug in product titles (`&amp;`, `&quot;`) — fixed at loader level in `lib/categories.ts` via `lib/text-utils.ts::decodeHtmlEntities`
+- ✅ Image fallback when Geiger image 404s — `onError` handler in `components/category/ProductImage.tsx` swapping to `/public/placeholder-product.svg`
+- ✅ H2 "Custom [Category] Buying Guide" above bottom text — `buyingGuideH2` field populated in all 465 root JSONs; H2 rendered in `app/cat/[...slug]/page.tsx` on root pages only
+- ✅ Buying-guide format content (longer, keyword derivatives) — `root_category.txt` v2 prompt landed; all 465 roots have `promptVersion: "root-v2"` and populated `buyingGuideHtml`. Word-count adherence is stochastic (~one-third of pages under target by 30-100w); add retry-on-validation-fail loop before any future re-runs.
+- ✅ Full 22,180-page content generation — 465 roots (v2 buying-guide) + 21,715 lite non-roots all in `data/categories/`
+- ✅ Pagination with noindex on page 2+ — M3-306 done 2026-05-31. `/cat/[slug]/page/N` URLs with 60 products per page, Prev/Next/numbered nav with adjacent-page prefetch, page 1 canonical to clean URL, pages 2+ emit `noindex,follow` + canonical back to page 1, `/page/1` 308-redirects to clean URL, out-of-range → 404. Sitemap at `/sitemap.xml` (22,921 URLs: 10 static + 22,180 category page-1 + 731 blog) excludes paginated variants entirely. First Vercel deploy hit `ENOSPC` at 34,857 static paths (Next.js 16 segment-artifact explosion); mitigated by switching facet pages to on-demand SSG — see Section 3 and Section 13.
 
 Week 4:
 

@@ -123,8 +123,8 @@ export function AllCategoriesPopover({
                         <NavLink
                           node={dept}
                           onClick={() => setOpen(false)}
-                          className="block text-xs font-medium text-brand-red hover:underline"
-                          disabledClassName="block text-xs font-medium text-text-muted/60 cursor-not-allowed"
+                          className="block text-xs text-text-primary hover:text-brand-red"
+                          disabledClassName="block text-xs text-text-muted/60 cursor-not-allowed"
                         />
                       </li>
                     )}
