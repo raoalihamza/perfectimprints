@@ -238,5 +238,6 @@
   "openingStyle": "seasonal",
   "skuFilterMode": "slug-filtered",
   "rawSkuCount": 967,
-  "filteredSkuCount": 200
+  "filteredSkuCount": 200,
+  "forceCTA": true
 }

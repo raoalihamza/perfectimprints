@@ -34,6 +34,28 @@ export interface GeneratedCategoryContent {
   skuFilterMode?: string;
   rawSkuCount?: number;
   filteredSkuCount?: number;
+  /**
+   * Optional manual override. When `true`, the category page renders the
+   * EmptyStateCTA instead of the product grid regardless of SKU count.
+   * Edited by hand in the category JSON; never written by the AI pipeline.
+   */
+  forceCTA?: boolean;
+}
+
+/**
+ * Returns true when a category page should render the EmptyStateCTA lead-form
+ * block in place of the product grid. Rules:
+ *   1. No SKUs at all (Tier 3/4 fallback pages).
+ *   2. SKU filter fell back to `full-capped-60` — slug-token filter rejected
+ *      most candidates, so the remaining grid is likely off-topic
+ *      (the Bistro Mugs / Ash Trays / Belt Buckles case Patrick flagged).
+ *   3. `forceCTA: true` manual override in the JSON.
+ */
+export function shouldShowEmptyStateCTA(content: GeneratedCategoryContent): boolean {
+  if (content.forceCTA === true) return true;
+  if (!content.productSkus || content.productSkus.length === 0) return true;
+  if (content.skuFilterMode === 'full-capped-60') return true;
+  return false;
 }
 
 export interface ProductBadge {

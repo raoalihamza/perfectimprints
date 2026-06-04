@@ -97,5 +97,6 @@
   "openingStyle": "buyer",
   "skuFilterMode": "full",
   "rawSkuCount": 59,
-  "filteredSkuCount": 59
+  "filteredSkuCount": 59,
+  "forceCTA": true
 }

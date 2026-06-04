@@ -61,5 +61,6 @@
   "openingStyle": "material_quality",
   "skuFilterMode": "full",
   "rawSkuCount": 23,
-  "filteredSkuCount": 23
+  "filteredSkuCount": 23,
+  "forceCTA": true
 }

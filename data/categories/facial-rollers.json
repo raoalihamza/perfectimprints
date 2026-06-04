@@ -238,5 +238,6 @@
   "openingStyle": "material_quality",
   "skuFilterMode": "slug-filtered",
   "rawSkuCount": 274,
-  "filteredSkuCount": 200
+  "filteredSkuCount": 200,
+  "forceCTA": true
 }

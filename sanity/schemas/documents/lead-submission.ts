@@ -6,22 +6,31 @@ export default defineType({
   type: 'document',
   readOnly: true,
   fields: [
-    defineField({ name: 'name', title: 'Name', type: 'string', readOnly: true }),
+    defineField({ name: 'firstName', title: 'First Name', type: 'string', readOnly: true }),
+    defineField({ name: 'lastName', title: 'Last Name', type: 'string', readOnly: true }),
     defineField({ name: 'email', title: 'Email', type: 'string', readOnly: true }),
     defineField({ name: 'phone', title: 'Phone', type: 'string', readOnly: true }),
-    defineField({ name: 'company', title: 'Company', type: 'string', readOnly: true }),
-    defineField({ name: 'quantity', title: 'Quantity', type: 'string', readOnly: true }),
     defineField({
-      name: 'comments',
-      title: 'Comments',
+      name: 'lookingFor',
+      title: 'Looking For',
       type: 'text',
       rows: 4,
       readOnly: true,
     }),
-    defineField({ name: 'sourcePage', title: 'Source Page', type: 'string', readOnly: true }),
-    defineField({ name: 'timestamp', title: 'Timestamp', type: 'datetime', readOnly: true }),
+    defineField({ name: 'quantityNeeded', title: 'Quantity Needed', type: 'string', readOnly: true }),
+    defineField({ name: 'dateNeeded', title: 'Date Needed', type: 'string', readOnly: true }),
+    defineField({ name: 'sourceUrl', title: 'Source URL', type: 'string', readOnly: true }),
+    defineField({ name: 'submittedAt', title: 'Submitted At', type: 'datetime', readOnly: true }),
   ],
   preview: {
-    select: { title: 'name', subtitle: 'email', description: 'sourcePage' },
+    select: { firstName: 'firstName', lastName: 'lastName', email: 'email', sourceUrl: 'sourceUrl' },
+    prepare({ firstName, lastName, email, sourceUrl }) {
+      const name = [firstName, lastName].filter(Boolean).join(' ') || 'Unknown';
+      return {
+        title: name,
+        subtitle: email,
+        description: sourceUrl,
+      };
+    },
   },
 });

@@ -6,10 +6,12 @@ import { ProductGrid } from '@/components/category/ProductGrid';
 import { FAQsAccordion } from '@/components/category/FAQsAccordion';
 import { CTABanner } from '@/components/category/CTABanner';
 import { Pagination } from '@/components/category/Pagination';
+import { EmptyStateCTA } from '@/components/category/EmptyStateCTA';
 import {
   getAllGeneratedCategorySlugs,
   getCategoryContent,
   getProductsPageForCategorySlug,
+  shouldShowEmptyStateCTA,
   PRODUCTS_PER_PAGE,
 } from '@/lib/categories';
 
@@ -140,10 +142,13 @@ export default async function CategoryPage({ params }: Props) {
   const content = getCategoryContent(parsed.fileSlug);
   if (!content) notFound();
 
+  const showCTA = shouldShowEmptyStateCTA(content);
   const pageData = getProductsPageForCategorySlug(parsed.fileSlug, parsed.page, PRODUCTS_PER_PAGE);
 
   // Out-of-range page (e.g. /page/99 on a 5-page category) → 404.
-  if (parsed.page > pageData.totalPages) notFound();
+  // CTA pages always have a single page, so any /page/N (N > 1) is out of range.
+  if (showCTA && parsed.page > 1) notFound();
+  if (!showCTA && parsed.page > pageData.totalPages) notFound();
 
   const title = categoryTitle(content);
   const buyingGuideHtml = content.buyingGuideHtml?.trim();
@@ -169,22 +174,28 @@ export default async function CategoryPage({ params }: Props) {
         </h1>
         {content.introHtml && (
           <div
-            className="prose-lede mt-4 max-w-prose text-lg leading-relaxed text-text-primary [&>p]:mt-4 [&>p:first-child]:mt-0"
+            className="prose-lede mt-4 text-lg leading-relaxed text-text-primary [&>p]:mt-4 [&>p:first-child]:mt-0"
             dangerouslySetInnerHTML={{ __html: content.introHtml }}
           />
         )}
       </Container>
 
       <Container as="section" className="pb-10">
-        <div className="mb-6 flex items-center justify-between">
-          <h2 className="text-xl font-semibold text-brand-ink">{showingLabel}</h2>
-        </div>
-        <ProductGrid products={pageData.products} />
-        <Pagination
-          currentPage={parsed.page}
-          totalPages={pageData.totalPages}
-          baseUrl={parsed.baseUrl}
-        />
+        {showCTA ? (
+          <EmptyStateCTA categoryTitle={title} sourceUrl={parsed.baseUrl} />
+        ) : (
+          <>
+            <div className="mb-6 flex items-center justify-between">
+              <h2 className="text-xl font-semibold text-brand-ink">{showingLabel}</h2>
+            </div>
+            <ProductGrid products={pageData.products} />
+            <Pagination
+              currentPage={parsed.page}
+              totalPages={pageData.totalPages}
+              baseUrl={parsed.baseUrl}
+            />
+          </>
+        )}
       </Container>
 
       {isRoot && (
@@ -199,7 +210,7 @@ export default async function CategoryPage({ params }: Props) {
             <h2 className="text-2xl font-bold text-brand-ink md:text-3xl">{buyingGuideH2}</h2>
           )}
           <div
-            className="category-body mt-4 max-w-prose text-text-primary [&>p]:mt-4 [&>p:first-child]:mt-0 [&>p]:leading-relaxed [&>h3]:mt-6 [&>h3]:text-lg [&>h3]:font-semibold [&>h3]:text-brand-ink"
+            className="category-body mt-4 text-text-primary [&>p]:mt-4 [&>p:first-child]:mt-0 [&>p]:leading-relaxed [&>h3]:mt-6 [&>h3]:text-lg [&>h3]:font-semibold [&>h3]:text-brand-ink"
             dangerouslySetInnerHTML={{ __html: buyingGuideHtml }}
           />
         </Container>

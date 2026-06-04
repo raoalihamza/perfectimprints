@@ -85,5 +85,6 @@
   "openingStyle": "use_case",
   "skuFilterMode": "slug-filtered",
   "rawSkuCount": 1412,
-  "filteredSkuCount": 47
+  "filteredSkuCount": 47,
+  "forceCTA": true
 }
