@@ -357,7 +357,7 @@ Output JSON also carries new fields: `buyingGuideHtml`, `buyingGuideH2`, `prompt
 
 **Partial progress (2026-05-24).** Grid renders ALL products for the category in a single view for the Week 2 demo. 60-products-per-page pagination logic deferred to M3-306.
 
-### [ ] M3-304: Filter sidebar with single and multi-facet logic
+### [x] M3-304: Filter sidebar with single and multi-facet logic
 
 **Scope.** Client component, sticky on desktop, collapsible drawer on mobile. Renders facet sections from Geiger data. Counts shown per facet value. Single facet match navigates to the static URL if it exists, otherwise uses a query parameter. Multi-facet always uses query parameters.
 
@@ -387,30 +387,44 @@ Context-specific filters (show only when category context matches):
 
 **Acceptance.**
 
-- [ ] All universal facet sections render from Geiger data with counts
-- [ ] Minimum Quantity filter renders with 6 range buckets
-- [ ] Context-specific filters appear only on relevant categories
-- [ ] "Search within this category" input filters product grid live (debounced 150ms)
-- [ ] Single facet selection navigates to existing static URL when one exists
-- [ ] Single facet selection without matching static URL uses query param
-- [ ] Multi-facet selection always uses query params
-- [ ] "Clear all filters" button works
-- [ ] Mobile drawer accessible with keyboard
+- [x] All universal facet sections render from Geiger data with counts
+- [x] Minimum Quantity filter renders with 6 range buckets
+- [x] Context-specific filters appear only on relevant categories
+- [x] "Search within this category" input filters product grid live (debounced 150ms)
+- [x] Single facet selection navigates to existing static URL when one exists
+- [x] Single facet selection without matching static URL uses query param
+- [x] Multi-facet selection always uses query params
+- [x] "Clear all filters" button works
+- [x] Mobile drawer accessible with keyboard
       **Depends on.** M3-303.
       **Estimate.** 18 hours (16 base + 2 for search-within + new filter).
 
 **Deferred from Week 2 demo.** Implemented in Week 4 after the full generation completes (so all facet URLs exist as real pages).
 
-### [ ] M3-305: Sort dropdown
+**Week 4 progress (2026-06-05).** Done.
+
+- Client-safe types and pure URL/state helpers in [lib/filter-types.ts](lib/filter-types.ts); server-only filter derivation and SKU intersection in [lib/filters.ts](lib/filters.ts) (lazily loads the 44 MB `data/geiger/facet-memberships.json` once per worker). Splitting these avoided pulling `node:fs` into the FilterSidebar client bundle.
+- Sidebar derivation iterates `/cat/{root}/<facetType>/<value>` membership URLs, intersects each value's SKU set with the current category's SKU list, and emits per-value counts. Min-qty buckets, price range, and `is_new_item` counts come from the resolved product objects in a second pass (`enrichSidebarWithProductStats`).
+- Context detection in `getFilterContextForRoot` reads `data/mappings/pi-to-geiger.json` and inspects the Geiger path: Apparel paths expose Gender/Sleeve Length/Sleeve Style/Fit/Neckline/Style, Drinkware paths expose Ounces/Can Capacity/Liter Capacity, Tech paths expose USB Size, Writing Instruments paths expose Ink Color. Verified: `/cat/apparel` shows the apparel set, `/cat/drinkware` shows Ounces, `/cat/water-bottles` shows neither.
+- "Full Color Print" is handled via the existing Decoration facet (`decoration/full-color` is a real value in 192 categories). No separate filter needed.
+- Refine-by toggles (New Items, Deals/Closeout, Made in USA, Eco-Friendly) read from the corresponding modifier/special-feature membership URLs.
+- URL state model in `serializeFilterState`/`parseFilterState`: single facet with a known static URL → navigate to the static URL (verified on `/cat/water-bottles` clicking Color > Red → `/cat/water-bottles/color/red`). Multi-facet or non-static facets → query params on the root URL. Sort persists across pagination via the `sort` query param.
+- Client-side "Search within this category" input (150 ms debounce) filters the rendered page's product list by name match. Implemented in [components/category/SearchWithinCategory.tsx](components/category/SearchWithinCategory.tsx); the parent [components/category/CategoryShell.tsx](components/category/CategoryShell.tsx) coordinates the query and grid.
+- Mobile drawer (slide-in, backdrop tap to close, Esc-accessible button, Clear/View-results footer) in [components/category/FilterSidebar.tsx](components/category/FilterSidebar.tsx).
+- Build verified (`pnpm build` passes, 1858 static paths still pre-built). `searchParams` access marks the route as dynamic at render time, but the prebuilt static HTML still serves no-query-param requests. Pre-existing "broad pattern matches 88720 files" warnings from `lib/categories.ts` are unchanged.
+
+### [x] M3-305: Sort dropdown
 
 **Scope.** Client-side sort over loaded SKU list. Options: Best Sellers (default), Price Low to High, Price High to Low, MOQ Low to High, Newest.
 **Acceptance.**
 
-- [ ] All 5 sort options work
-- [ ] Sort persists across pagination
-- [ ] Sort state reflected in URL query param
+- [x] All 5 sort options work
+- [x] Sort persists across pagination
+- [x] Sort state reflected in URL query param
       **Depends on.** M3-303.
       **Estimate.** 3 hours.
+
+**Week 4 progress (2026-06-05).** Done. Native `<select>` in [components/category/SortDropdown.tsx](components/category/SortDropdown.tsx) writes `?sort=<mode>` to the URL via `router.push` (scroll: false). Sort is applied server-side in `applyFiltersAndSort` after filtering, so pagination always slices the sorted set; deep-links like `/cat/water-bottles?sort=price-asc&color=red` work and survive page changes. Default (Best Sellers) is treated as "no param" — selecting it deletes `sort` from the URL.
 
 ### [x] M3-306: Static pagination with noindex on page 2+
 

@@ -193,6 +193,30 @@ export function getProductsPageForCategorySlug(
   return { products, totalProducts, totalPages, page, perPage };
 }
 
+/** Resolve products from an arbitrary SKU list (used after filter+sort). */
+export function resolveProductsBySku(skus: string[]): GeigerProduct[] {
+  return resolveProducts(skus);
+}
+
+/** Slice an already-filtered product list into a page. */
+export function paginateProducts(
+  products: GeigerProduct[],
+  page: number,
+  perPage: number = PRODUCTS_PER_PAGE
+): CategoryProductsPage {
+  const totalProducts = products.length;
+  const totalPages = Math.max(1, Math.ceil(totalProducts / perPage));
+  const start = (page - 1) * perPage;
+  const end = start + perPage;
+  return {
+    products: products.slice(start, end),
+    totalProducts,
+    totalPages,
+    page,
+    perPage,
+  };
+}
+
 function resolveProducts(skus: string[]): GeigerProduct[] {
   const index = loadProductsIndex();
   const out: GeigerProduct[] = [];

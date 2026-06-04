@@ -2,21 +2,29 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Container } from '@/components/ui/Container';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { ProductGrid } from '@/components/category/ProductGrid';
 import { FAQsAccordion } from '@/components/category/FAQsAccordion';
 import { CTABanner } from '@/components/category/CTABanner';
-import { Pagination } from '@/components/category/Pagination';
 import { EmptyStateCTA } from '@/components/category/EmptyStateCTA';
+import { CategoryShell } from '@/components/category/CategoryShell';
 import {
   getAllGeneratedCategorySlugs,
   getCategoryContent,
-  getProductsPageForCategorySlug,
+  paginateProducts,
+  resolveProductsBySku,
   shouldShowEmptyStateCTA,
   PRODUCTS_PER_PAGE,
 } from '@/lib/categories';
+import {
+  applyFiltersAndSort,
+  buildSidebarData,
+  enrichSidebarWithProductStats,
+  isStateEmpty,
+  parseFilterState,
+} from '@/lib/filters';
 
 interface Props {
   params: Promise<{ slug: string[] }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
@@ -134,8 +142,9 @@ function buildBreadcrumbs(
   return items;
 }
 
-export default async function CategoryPage({ params }: Props) {
+export default async function CategoryPage({ params, searchParams }: Props) {
   const { slug } = await params;
+  const search = (await searchParams) || {};
   const parsed = parseSlug(slug);
   if (!parsed) notFound();
 
@@ -143,24 +152,31 @@ export default async function CategoryPage({ params }: Props) {
   if (!content) notFound();
 
   const showCTA = shouldShowEmptyStateCTA(content);
-  const pageData = getProductsPageForCategorySlug(parsed.fileSlug, parsed.page, PRODUCTS_PER_PAGE);
+
+  // Resolve full product list, then apply filters + sort, then paginate.
+  const rootSlug = parsed.segments[0];
+  const filterState = parseFilterState(search);
+  const allProducts = resolveProductsBySku(content.productSkus || []);
+  const filtered = isStateEmpty(filterState)
+    ? allProducts
+    : applyFiltersAndSort(allProducts, filterState, rootSlug);
+  const pageData = paginateProducts(filtered, parsed.page, PRODUCTS_PER_PAGE);
 
   // Out-of-range page (e.g. /page/99 on a 5-page category) → 404.
   // CTA pages always have a single page, so any /page/N (N > 1) is out of range.
   if (showCTA && parsed.page > 1) notFound();
-  if (!showCTA && parsed.page > pageData.totalPages) notFound();
+  if (!showCTA && parsed.page > pageData.totalPages && filtered.length > 0) notFound();
+
+  // Sidebar data is derived from the unfiltered category SKU set so filter counts
+  // reflect "products available if I add this filter," not "products after current filters."
+  const sidebar = !showCTA
+    ? enrichSidebarWithProductStats(buildSidebarData(rootSlug, content.productSkus || []), allProducts)
+    : null;
 
   const title = categoryTitle(content);
   const buyingGuideHtml = content.buyingGuideHtml?.trim();
   const buyingGuideH2 = content.buyingGuideH2?.trim();
   const isRoot = content.type === 'root';
-
-  const showingStart = pageData.totalProducts === 0 ? 0 : (parsed.page - 1) * PRODUCTS_PER_PAGE + 1;
-  const showingEnd = Math.min(parsed.page * PRODUCTS_PER_PAGE, pageData.totalProducts);
-  const showingLabel =
-    pageData.totalPages > 1
-      ? `Showing ${showingStart}-${showingEnd} of ${pageData.totalProducts}`
-      : `${pageData.totalProducts} ${pageData.totalProducts === 1 ? 'Product' : 'Products'}`;
 
   return (
     <>
@@ -181,20 +197,18 @@ export default async function CategoryPage({ params }: Props) {
       </Container>
 
       <Container as="section" className="pb-10">
-        {showCTA ? (
+        {showCTA || !sidebar ? (
           <EmptyStateCTA categoryTitle={title} sourceUrl={parsed.baseUrl} />
         ) : (
-          <>
-            <div className="mb-6 flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-brand-ink">{showingLabel}</h2>
-            </div>
-            <ProductGrid products={pageData.products} />
-            <Pagination
-              currentPage={parsed.page}
-              totalPages={pageData.totalPages}
-              baseUrl={parsed.baseUrl}
-            />
-          </>
+          <CategoryShell
+            sidebar={sidebar}
+            products={pageData.products}
+            totalProducts={pageData.totalProducts}
+            totalPages={pageData.totalPages}
+            currentPage={parsed.page}
+            baseUrl={parsed.baseUrl}
+            sort={filterState.sort}
+          />
         )}
       </Container>
 
