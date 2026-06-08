@@ -15,6 +15,10 @@ interface BlogUrlsFile {
   urls: { url: string }[];
 }
 
+interface BrandsJsonFile {
+  brands: { slug: string }[];
+}
+
 const STATIC_PATHS: string[] = [
   '/',
   '/about',
@@ -24,6 +28,7 @@ const STATIC_PATHS: string[] = [
   '/terms',
   '/rush-promotional-products',
   '/blog',
+  '/brands',
   '/videos',
   '/search',
 ];
@@ -40,6 +45,13 @@ function readBlogUrls(): string[] {
   if (!fs.existsSync(file)) return [];
   const parsed = JSON.parse(fs.readFileSync(file, 'utf8')) as BlogUrlsFile;
   return parsed.urls.map((u) => u.url);
+}
+
+function readBrandSlugs(): string[] {
+  const file = path.join(process.cwd(), 'data', 'geiger', 'brands.json');
+  if (!fs.existsSync(file)) return [];
+  const parsed = JSON.parse(fs.readFileSync(file, 'utf8')) as BrandsJsonFile;
+  return parsed.brands.map((b) => b.slug).filter(Boolean);
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -68,6 +80,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.6,
+    });
+  }
+
+  // Per-brand pages. Paginated /brands/<slug>/page/N variants are intentionally
+  // excluded, matching the noindex convention used for category pagination.
+  for (const slug of readBrandSlugs()) {
+    entries.push({
+      url: `${SITE_URL}/brands/${slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.5,
     });
   }
 

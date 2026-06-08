@@ -12,6 +12,13 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: { source: 'name', maxLength: 96 },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'logo',
       title: 'Logo',
       type: 'image',
@@ -19,12 +26,47 @@ export default defineType({
       fields: [{ name: 'alt', type: 'string', title: 'Alt text' }],
     }),
     defineField({
-      name: 'url',
-      title: 'Optional URL',
+      name: 'description',
+      title: 'Description',
+      description:
+        'Optional brand intro shown on /brands/[slug]. Left blank, the per-brand page falls back to a generic paragraph.',
+      type: 'text',
+      rows: 4,
+    }),
+    defineField({
+      name: 'geigerUrl',
+      title: 'Geiger URL',
+      description:
+        'Source Geiger brand-listing URL. Always linked through the affiliate-rewrite helper.',
       type: 'url',
+    }),
+    defineField({
+      name: 'productCount',
+      title: 'Product Count',
+      description: 'Auto-populated from data/geiger/products.json during the monthly rebuild.',
+      type: 'number',
+      readOnly: true,
+    }),
+    defineField({
+      name: 'featured',
+      title: 'Featured',
+      description: 'Featured brands surface on the home page brands grid.',
+      type: 'boolean',
+      initialValue: false,
     }),
   ],
   preview: {
-    select: { title: 'name', media: 'logo' },
+    select: {
+      title: 'name',
+      subtitle: 'productCount',
+      media: 'logo',
+    },
+    prepare({ title, subtitle, media }) {
+      return {
+        title,
+        subtitle: typeof subtitle === 'number' ? `${subtitle} products` : undefined,
+        media,
+      };
+    },
   },
 });

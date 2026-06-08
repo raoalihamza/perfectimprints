@@ -21,9 +21,13 @@ export default defineType({
     defineField({
       name: 'categoryTags',
       title: 'Category Tags',
+      description:
+        'Curated categories this FAQ applies to. Used by the Related FAQs section on /cat pages.',
       type: 'array',
-      of: [{ type: 'string' }],
-      options: { layout: 'tags' },
+      of: [
+        { type: 'reference', to: [{ type: 'curatedCategory' }] },
+        { type: 'reference', to: [{ type: 'customCategory' }] },
+      ],
     }),
   ],
   preview: {

@@ -17,7 +17,8 @@
     "import-urls": "tsx scripts/url-import/import-urls.ts",
     "build:search-index": "tsx scripts/search-index/build-index.ts",
     "warmup": "tsx scripts/warmup/warmup-facets.ts",
-    "audit:cta": "tsx scripts/audit-cta-pages.ts"
+    "audit:cta": "tsx scripts/audit-cta-pages.ts",
+    "import-brands": "tsx scripts/migrations/import-brands.ts"
   },
   "dependencies": {
     "@portabletext/react": "^3.1.0",

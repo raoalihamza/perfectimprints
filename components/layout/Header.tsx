@@ -13,6 +13,7 @@ const SIMPLE_NAV: MegaMenuItem[] = [
   { label: 'Promotional Products', href: '/cat/promotional-products' },
   { label: 'New Products', href: '/cat/new-products' },
   { label: 'Rush Products', href: '/rush-promotional-products' },
+  { label: 'Brands', href: '/brands' },
   {
     label: 'Services',
     href: '#',

@@ -11,14 +11,14 @@ from __future__ import annotations
 
 import argparse
 
-from . import discover, mapping, memberships, products
+from . import brand_logos, discover, mapping, memberships, products
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Geiger data pipeline scraper")
     parser.add_argument(
         "--phase",
-        choices=["a", "b", "c", "d", "all"],
+        choices=["a", "b", "c", "d", "e", "all"],
         required=True,
         help="Which phase to run",
     )
@@ -123,11 +123,14 @@ def main() -> None:
             )
     elif args.phase == "d":
         mapping.run()
+    elif args.phase == "e":
+        brand_logos.run()
     elif args.phase == "all":
         discover.run()
         products.run(limit_categories=args.limit_categories, resume=args.resume)
         mapping.run()
         memberships.run(resume=args.resume)
+        brand_logos.run()
 
 
 if __name__ == "__main__":

@@ -150,18 +150,26 @@ Module to week mapping (client-facing 6-week plan):
       **Depends on.** M1-110.
       **Estimate.** 8 hours.
 
-### [ ] M1-112: Phase E — Geiger brand logo scrape (NEW)
+### [x] M1-112: Phase E — Geiger brand logo scrape (NEW)
 
 **Scope.** Added 2026-05-26 per Patrick feedback. Python scraper Phase E at `scripts/scrapers/geiger/brand_logos.py`. Visit `https://www.geiger.com/c/shop-by-brand` to enumerate brand pages (parses the static HTML A-Z brand index, no API). For each brand, follow the brand page link and download the logo image. Cross-reference brand names against `data/geiger/products.json` to get product counts.
 **Acceptance.**
 
-- [ ] `data/geiger/brand-logos/{slug}.{webp|png|jpg}` files created (~200-300 brands expected based on the A-Z listing)
-- [ ] `data/geiger/brands.json` produced with name, slug, description, logo path, product count per brand
-- [ ] Brand slug matches the form used in product data (handles `&` properly, e.g. `cutter-buck` from `Cutter & Buck`)
-- [ ] Brands with no logo on Geiger's page recorded with `logo: null` so downstream code can handle gracefully
+- [x] `data/geiger/brand-logos/{slug}.{webp|png|jpg}` files created (~200-300 brands expected based on the A-Z listing)
+- [x] `data/geiger/brands.json` produced with name, slug, description, logo path, product count per brand
+- [x] Brand slug matches the form used in product data (handles `&` properly, e.g. `cutter-buck` from `Cutter & Buck`)
+- [x] Brands with no logo on Geiger's page recorded with `logo: null` so downstream code can handle gracefully
 - [ ] Runs as part of monthly auto-rebuild (M6-606)
       **Depends on.** M1-108.
       **Estimate.** 4 hours.
+
+**Week 4 progress (2026-06-05).** Done.
+
+- Probe found the A-Z index renders all 191 brand entries inline on a single page: each brand is an `<a href="/b/brand-names#/filter:brand:<NAME>">` wrapping an `<img>` with the logo URL on Geiger's S3 / imgsirv CDN. **No per-brand fetches needed for logos** — the spec's "visit each brand page" step collapses to one HTTP GET + N image downloads.
+- [scripts/scrapers/geiger/brand_logos.py](scripts/scrapers/geiger/brand_logos.py): single-fetch index parser + image downloader with 1 req/sec throttle. Wired into `run.py` as `--phase e`. Resumable (skip if file already on disk). Mirrors logos to `public/brand-logos/<slug>.<ext>` so Next.js serves them directly; canonical store under `data/geiger/brand-logos/` is preserved per CLAUDE.md §8.
+- HTML-entity decoding (`html.unescape`) applied before slugifying to merge `Cutter &amp; Buck` (products.json) with `Cutter & Buck` (index). Five cross-listed brands merged correctly: cutter-buck, mms, port-co, travis-wells, wp.
+- Output: 191 logos downloaded as valid GIFs (verified with `file`), 205 brands in `data/geiger/brands.json` (191 from index + 14 product-catalog-only orphans), 194 brands have ≥1 product in our catalog. Runtime ~3 min.
+- Monthly auto-rebuild hook (M6-606) still pending — Phase E added to `--phase all` but not yet referenced from the monthly workflow file.
 
 ---
 
@@ -603,21 +611,28 @@ Context-specific filters (show only when category context matches):
       **Depends on.** M4-402, M3-308.
       **Estimate.** 10 hours.
 
-### [ ] M4-404: FAQ library and brand Sanity schema
+### [x] M4-404: FAQ library and brand Sanity schema
 
 **Scope.** `faq` schema for reusable FAQ items linkable from category pages. `brand` schema for Geiger sub-brands (Carhartt, Igloo, Nike, etc) auto-populated from `data/geiger/brands.json` (output of M1-112 Phase E brand logo scrape).
 **Acceptance.**
 
-- [ ] FAQ library document type editable
-- [ ] Categories can reference FAQs from the library
+- [x] FAQ library document type editable
+- [x] Categories can reference FAQs from the library
 - [ ] FAQPage schema generated correctly when category renders linked FAQs
-- [ ] Brand documents auto-created from Geiger data (name, slug, logo, product count)
-- [ ] Brand logos imported from `data/geiger/brand-logos/` into Sanity assets
-- [ ] Brand documents manually editable after import
+- [x] Brand documents auto-created from Geiger data (name, slug, logo, product count)
+- [x] Brand logos imported from `data/geiger/brand-logos/` into Sanity assets
+- [x] Brand documents manually editable after import
       **Depends on.** M1-104, M1-112, M2-207.
       **Estimate.** 6 hours.
 
-### [ ] M4-405: Brands index page and per-brand pages (NEW)
+**Week 4 progress (2026-06-05).** Schemas done; FAQPage emission still belongs to M3-307.
+
+- [sanity/schemas/documents/brand.ts](sanity/schemas/documents/brand.ts) expanded with `slug`, `description`, `geigerUrl`, `productCount` (readOnly, auto-populated), `featured` boolean. Preview shows logo + product count.
+- [sanity/schemas/documents/faq.ts](sanity/schemas/documents/faq.ts) — existing schema already had question/answer/categoryTags. `categoryTags` upgraded to references to `curatedCategory` + `customCategory` so FAQs can be tagged to real category docs once those exist.
+- [scripts/migrations/import-brands.ts](scripts/migrations/import-brands.ts) (`pnpm import-brands`, supports `--dry-run` and `--limit=N`): idempotent via deterministic `brand-<slug>` doc IDs. First run created 205 brand docs and uploaded 191 logo assets to Sanity in ~2 min. Reruns patch description/productCount in place and re-use existing logo asset refs (no churn). Loads `.env.local` directly so tsx can run standalone.
+- FAQ→FAQPage schema markup on category pages still pending — tracked under M3-307.
+
+### [x] M4-405: Brands index page and per-brand pages (NEW)
 
 **Scope.** Added 2026-05-26 per Patrick feedback. Two new routes:
 
@@ -631,16 +646,25 @@ Plus mega menu addition: "Brands" main menu item linking to `/brands` (handled i
 
 **Acceptance.**
 
-- [ ] `/brands` index page generated as static
-- [ ] All brand logos rendered with explicit dimensions for CLS-safe layout
-- [ ] A-Z grouping with anchor links (e.g. clicking "C" scrolls to Carhartt section)
-- [ ] `/brands/[slug]` route generates a static page for every brand
-- [ ] Per-brand H1 follows the pattern `Custom [Brand] Promotional Products`
-- [ ] Each per-brand page shows the full product grid for that brand
-- [ ] Brand product count displayed
-- [ ] Mobile responsive
+- [x] `/brands` index page generated as static
+- [x] All brand logos rendered with explicit dimensions for CLS-safe layout
+- [x] A-Z grouping with anchor links (e.g. clicking "C" scrolls to Carhartt section)
+- [x] `/brands/[slug]` route generates a static page for every brand
+- [x] Per-brand H1 follows the pattern `Custom [Brand] Promotional Products`
+- [x] Each per-brand page shows the full product grid for that brand
+- [x] Brand product count displayed
+- [x] Mobile responsive
       **Depends on.** M1-112, M4-404, M3-302, M3-303.
       **Estimate.** 6 hours.
+
+**Week 4 progress (2026-06-05).** Done.
+
+- [lib/brands.ts](lib/brands.ts): server-only data loader. Sanity-first via GROQ `*[_type == "brand"]`; falls back to `data/geiger/brands.json` if Sanity returns nothing. Merges per-slug so Sanity-edited `description`/`featured`/logo overrides the static defaults but JSON-only orphans still surface. Caches in module scope so the SSG run hits Sanity once.
+- [app/brands/page.tsx](app/brands/page.tsx) — `/brands` index, A-Z grouped with skip-to-letter anchor nav (greyed out for empty letters). Brand cards: logo (160×64 explicit dims, lazy load, `<img>` since logo URLs come from both Sanity CDN and static `/brand-logos/`), name, product count, link to `/brands/<slug>`. Brands with 0 products render as non-clickable cards at half opacity. Brands with no logo show name in a styled text box at the same dimensions for visual consistency.
+- [app/brands/[...slug]/page.tsx](app/brands/[...slug]/page.tsx) — per-brand page. Catch-all route to handle pagination URLs `/brands/<slug>/page/N`. H1: `Custom [Brand] Promotional Products`. Intro: Sanity description if set, else generic fallback from `buildBrandIntroFallback()`. ProductGrid reuses the category component; Pagination component reused identically. `/brands/<slug>/page/1` 308-redirects to clean URL; out-of-range → 404; only page-1 in sitemap (matches category-page noindex convention).
+- Logo serving: scraper mirrors logos from `data/geiger/brand-logos/<slug>.<ext>` (canonical store per §8) to `public/brand-logos/<slug>.<ext>` so Next.js serves them as static assets without any rewrite or API route.
+- [app/sitemap.ts](app/sitemap.ts) updated: `/brands` static path + all `/brands/<slug>` URLs added (paginated variants intentionally excluded, mirroring category convention).
+- Mega-menu "Brands" main-nav link still pending under M5-503 (Sanity-driven menu rewrite); out of scope for this prompt per design.
 
 ---
 
