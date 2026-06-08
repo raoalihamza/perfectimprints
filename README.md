@@ -24,7 +24,7 @@ cp .env.example .env.local
 # 3. Convert the GA4 URL exports to JSON (one-shot)
 pnpm import-urls
 
-# 4. Run dev server
+# 4. Run dev server -d
 pnpm dev
 ```
 
@@ -37,17 +37,17 @@ pnpm sanity:dev
 
 ## Common commands
 
-| Command | Purpose |
-|---------|---------|
-| `pnpm dev` | Next dev server at :3000 |
-| `pnpm build` | Production build |
-| `pnpm typecheck` | TypeScript check (no emit) |
-| `pnpm lint` | Lint (currently a no-op by project preference) |
-| `pnpm format` | Prettier write |
-| `pnpm test` | Vitest unit tests |
-| `pnpm sanity:dev` | Sanity Studio on :3333 |
-| `pnpm import-urls` | Convert `Category_Pages.xlsx` and `Blog_Links.xlsx` to JSON |
-| `pnpm build:search-index` | Generate `public/search-index.json` (stub) |
+| Command                   | Purpose                                                     |
+| ------------------------- | ----------------------------------------------------------- |
+| `pnpm dev`                | Next dev server at :3000                                    |
+| `pnpm build`              | Production build                                            |
+| `pnpm typecheck`          | TypeScript check (no emit)                                  |
+| `pnpm lint`               | Lint (currently a no-op by project preference)              |
+| `pnpm format`             | Prettier write                                              |
+| `pnpm test`               | Vitest unit tests                                           |
+| `pnpm sanity:dev`         | Sanity Studio on :3333                                      |
+| `pnpm import-urls`        | Convert `Category_Pages.xlsx` and `Blog_Links.xlsx` to JSON |
+| `pnpm build:search-index` | Generate `public/search-index.json` (stub)                  |
 
 ## Python pipeline
 
@@ -88,12 +88,12 @@ Build command: `pnpm build`. Cloudflare Pages auto-detects the Next.js adapter.
 
 ## Where to find what
 
-| File | Purpose |
-|------|---------|
-| `CLAUDE.md` | Source of truth for architecture, conventions, naming, brand tokens |
-| `TASKS.md` | Ticket sequence (M1-101 through M6-607) |
-| `docs/development-plan.md` | Client-facing 6-week plan |
-| `docs/internal-plan.md` | Internal 40-day plan |
-| `docs/references/client-page-spec.md` | Patrick's original page structure brief |
-| `docs/references/category-layout.jpg` | Reference category layout |
-| `docs/references/blog-layout.jpg` | Reference blog layout |
+| File                                  | Purpose                                                             |
+| ------------------------------------- | ------------------------------------------------------------------- |
+| `CLAUDE.md`                           | Source of truth for architecture, conventions, naming, brand tokens |
+| `TASKS.md`                            | Ticket sequence (M1-101 through M6-607)                             |
+| `docs/development-plan.md`            | Client-facing 6-week plan                                           |
+| `docs/internal-plan.md`               | Internal 40-day plan                                                |
+| `docs/references/client-page-spec.md` | Patrick's original page structure brief                             |
+| `docs/references/category-layout.jpg` | Reference category layout                                           |
+| `docs/references/blog-layout.jpg`     | Reference blog layout                                               |
