@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import fs from 'node:fs';
 import path from 'node:path';
+import { getBlogPostSlugs, getAllBlogCategories } from '@/lib/sanity/queries/blogs';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
   /\/$/,
@@ -8,10 +9,6 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprin
 );
 
 interface CategoryUrlsFile {
-  urls: { url: string }[];
-}
-
-interface BlogUrlsFile {
   urls: { url: string }[];
 }
 
@@ -40,11 +37,24 @@ function readCategoryUrls(): string[] {
   return parsed.urls.map((u) => u.url);
 }
 
-function readBlogUrls(): string[] {
-  const file = path.join(process.cwd(), 'data', 'pi-urls', 'blog-urls.json');
-  if (!fs.existsSync(file)) return [];
-  const parsed = JSON.parse(fs.readFileSync(file, 'utf8')) as BlogUrlsFile;
-  return parsed.urls.map((u) => u.url);
+// Sanity is the source of truth for blog URLs after the M4-402 migration.
+// Drafts are excluded (the queries use the published perspective).
+async function readBlogUrlsFromSanity(): Promise<{ posts: string[]; categories: string[] }> {
+  try {
+    const [postSlugs, categories] = await Promise.all([
+      getBlogPostSlugs(),
+      getAllBlogCategories(),
+    ]);
+    return {
+      posts: postSlugs.map((s) => `/blog/${s}`),
+      categories: categories.map((c) => `/blog/cat/${c.slug.current}`),
+    };
+  } catch {
+    // During build, before Sanity is populated, Sanity may error out. Fall back
+    // to nothing so the sitemap still builds — blog URLs surface once Sanity
+    // has data.
+    return { posts: [], categories: [] };
+  }
 }
 
 function readBrandSlugs(): string[] {
@@ -54,7 +64,7 @@ function readBrandSlugs(): string[] {
   return parsed.brands.map((b) => b.slug).filter(Boolean);
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const entries: MetadataRoute.Sitemap = [];
 
@@ -74,12 +84,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  for (const url of readBlogUrls()) {
+  // Published blog posts + blog category index pages. Pulled from Sanity (the
+  // source of truth post-M4-402); paginated /page/N variants intentionally
+  // excluded (page 1 only).
+  const { posts, categories } = await readBlogUrlsFromSanity();
+  for (const url of posts) {
     entries.push({
       url: `${SITE_URL}${url}`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.6,
+    });
+  }
+  for (const url of categories) {
+    entries.push({
+      url: `${SITE_URL}${url}`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.5,
     });
   }
 

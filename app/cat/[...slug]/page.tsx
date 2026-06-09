@@ -6,6 +6,7 @@ import { FAQsAccordion } from '@/components/category/FAQsAccordion';
 import { CTABanner } from '@/components/category/CTABanner';
 import { EmptyStateCTA } from '@/components/category/EmptyStateCTA';
 import { CategoryShell } from '@/components/category/CategoryShell';
+import { RelatedBlogsSection } from '@/components/category/RelatedBlogsSection';
 import {
   getAllGeneratedCategorySlugs,
   getCategoryContent,
@@ -227,6 +228,12 @@ export default async function CategoryPage({ params, searchParams }: Props) {
             className="category-body mt-4 text-text-primary [&>p]:mt-4 [&>p:first-child]:mt-0 [&>p]:leading-relaxed [&>h3]:mt-6 [&>h3]:text-lg [&>h3]:font-semibold [&>h3]:text-brand-ink"
             dangerouslySetInnerHTML={{ __html: buyingGuideHtml }}
           />
+        </Container>
+      )}
+
+      {isRoot && (
+        <Container as="section">
+          <RelatedBlogsSection categorySlug={rootSlug} categoryTitle={title} />
         </Container>
       )}
 

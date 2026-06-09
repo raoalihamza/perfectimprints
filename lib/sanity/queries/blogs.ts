@@ -1,0 +1,145 @@
+import { client } from '@/lib/sanity/client';
+import type { PortableTextBlock } from '@portabletext/react';
+import type { SanityImage, SanitySlug } from '@/lib/sanity/types';
+
+export interface BlogAuthor {
+  name: string;
+  image?: SanityImage;
+  bio?: string;
+}
+
+export interface BlogCategoryRef {
+  title: string;
+  slug: string;
+}
+
+export interface BlogPostSummary {
+  _id: string;
+  title: string;
+  slug: SanitySlug;
+  headerImage?: SanityImage;
+  excerpt?: string;
+  publishDate: string;
+  author?: BlogAuthor;
+  categories?: BlogCategoryRef[];
+  metaDescription?: string;
+}
+
+export interface BlogPostDetail extends BlogPostSummary {
+  body: PortableTextBlock[];
+  updatedDate?: string;
+  metaTitle?: string;
+  relatedCategorySlugs?: string[];
+  relatedPosts?: BlogPostSummary[];
+}
+
+export interface BlogCategoryDetail {
+  _id: string;
+  title: string;
+  slug: SanitySlug;
+  description?: string;
+}
+
+const SUMMARY_PROJECTION = `
+  _id,
+  title,
+  slug,
+  headerImage,
+  excerpt,
+  publishDate,
+  metaDescription,
+  "author": author->{ name, image },
+  "categories": categories[]->{ title, "slug": slug.current }
+`;
+
+// All queries explicitly exclude drafts via the `!(_id in path("drafts.**"))`
+// guard. The public Sanity client uses `perspective: "published"`, so this is
+// belt-and-suspenders for any future use of a tokened client (sitemap, etc.).
+const PUBLISHED = `_type == "blogPost" && !(_id in path("drafts.**"))`;
+
+export async function getBlogPostSlugs(): Promise<string[]> {
+  const docs = (await client.fetch<{ slug: { current: string } }[]>(
+    `*[${PUBLISHED}]{ "slug": slug }`,
+  )) ?? [];
+  return docs.map((d) => d.slug.current).filter(Boolean);
+}
+
+export async function getBlogPostCount(): Promise<number> {
+  return (await client.fetch<number>(`count(*[${PUBLISHED}])`)) ?? 0;
+}
+
+export async function getBlogPostsPage(opts: {
+  page: number;
+  perPage: number;
+}): Promise<{ posts: BlogPostSummary[]; total: number; totalPages: number }> {
+  const start = (opts.page - 1) * opts.perPage;
+  const end = start + opts.perPage;
+  const [posts, total] = await Promise.all([
+    client.fetch<BlogPostSummary[]>(
+      `*[${PUBLISHED}] | order(publishDate desc) [${start}...${end}] { ${SUMMARY_PROJECTION} }`,
+    ),
+    getBlogPostCount(),
+  ]);
+  return {
+    posts: posts ?? [],
+    total,
+    totalPages: Math.max(1, Math.ceil(total / opts.perPage)),
+  };
+}
+
+export async function getBlogPostBySlug(slug: string): Promise<BlogPostDetail | null> {
+  const doc = await client.fetch<BlogPostDetail | null>(
+    `*[${PUBLISHED} && slug.current == $slug][0]{
+      ${SUMMARY_PROJECTION},
+      body,
+      updatedDate,
+      metaTitle,
+      relatedCategorySlugs,
+      "relatedPosts": relatedPosts[]->{ ${SUMMARY_PROJECTION} }
+    }`,
+    { slug },
+  );
+  return doc ?? null;
+}
+
+export async function getAllBlogCategories(): Promise<BlogCategoryDetail[]> {
+  return (
+    (await client.fetch<BlogCategoryDetail[]>(
+      `*[_type == "blogCategory"] | order(title asc) { _id, title, slug, description }`,
+    )) ?? []
+  );
+}
+
+export async function getBlogCategoryBySlug(slug: string): Promise<BlogCategoryDetail | null> {
+  return (
+    (await client.fetch<BlogCategoryDetail | null>(
+      `*[_type == "blogCategory" && slug.current == $slug][0]{ _id, title, slug, description }`,
+      { slug },
+    )) ?? null
+  );
+}
+
+export async function getBlogPostsByCategorySlug(opts: {
+  categorySlug: string;
+  page: number;
+  perPage: number;
+}): Promise<{ posts: BlogPostSummary[]; total: number; totalPages: number }> {
+  const start = (opts.page - 1) * opts.perPage;
+  const end = start + opts.perPage;
+  const [posts, total] = await Promise.all([
+    client.fetch<BlogPostSummary[]>(
+      `*[${PUBLISHED} && $cat in categories[]->slug.current]
+        | order(publishDate desc) [${start}...${end}] { ${SUMMARY_PROJECTION} }`,
+      { cat: opts.categorySlug },
+    ),
+    client.fetch<number>(
+      `count(*[${PUBLISHED} && $cat in categories[]->slug.current])`,
+      { cat: opts.categorySlug },
+    ),
+  ]);
+  return {
+    posts: posts ?? [],
+    total: total ?? 0,
+    totalPages: Math.max(1, Math.ceil((total ?? 0) / opts.perPage)),
+  };
+}

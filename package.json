@@ -18,7 +18,13 @@
     "build:search-index": "tsx scripts/search-index/build-index.ts",
     "warmup": "tsx scripts/warmup/warmup-facets.ts",
     "audit:cta": "tsx scripts/audit-cta-pages.ts",
-    "import-brands": "tsx scripts/migrations/import-brands.ts"
+    "import-brands": "tsx scripts/migrations/import-brands.ts",
+    "scrape-blogs": "python scripts/scrapers/blogs/scrape_sbase.py",
+    "import-blogs": "tsx scripts/migrations/import-blogs.ts",
+    "publish-blog-drafts": "tsx scripts/migrations/publish-blog-drafts.ts",
+    "wipe-blog-posts": "tsx scripts/migrations/wipe-blog-posts.ts",
+    "verify-blog-drafts": "tsx scripts/migrations/verify-blog-drafts.ts",
+    "backfill-blog-images": "tsx scripts/migrations/backfill-blog-images.ts"
   },
   "dependencies": {
     "@portabletext/react": "^3.1.0",
@@ -42,6 +48,11 @@
     "@types/node": "^22.9.0",
     "@types/nodemailer": "^6.4.16",
     "@types/react": "^19.0.0",
+    "@sanity/block-tools": "^3.62.0",
+    "@sanity/schema": "^3.62.0",
+    "jsdom": "^25.0.1",
+    "@types/jsdom": "^21.1.7",
+    "playwright": "^1.49.0",
     "@types/react-dom": "^19.0.0",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",

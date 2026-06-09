@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { Container } from '@/components/ui/Container';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { BlogGrid } from '@/components/blog/BlogGrid';
@@ -18,32 +18,31 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprin
 const BLOG_PER_PAGE = 12;
 
 interface Props {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; n: string }>;
 }
 
 export const dynamicParams = true;
 export const revalidate = false;
 
-export async function generateStaticParams() {
-  const categories = await getAllBlogCategories();
-  return categories.map((c) => ({ slug: c.slug.current }));
-}
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug, n } = await params;
+  const page = Number.parseInt(n, 10);
+  if (!Number.isInteger(page) || page < 2) return {};
   const category = await getBlogCategoryBySlug(slug);
   if (!category) return {};
-  const canonical = `${SITE_URL}/blog/cat/${category.slug.current}`;
   return {
-    title: `${category.title} | Perfect Imprints Blog`,
-    description:
-      category.description || `Read promotional product blog posts in the ${category.title} category.`,
-    alternates: { canonical },
+    title: `${category.title} – Page ${page} | Perfect Imprints Blog`,
+    alternates: { canonical: `${SITE_URL}/blog/cat/${category.slug.current}` },
+    robots: { index: false, follow: true },
   };
 }
 
-export default async function BlogCategoryPage({ params }: Props) {
-  const { slug } = await params;
+export default async function BlogCategoryPaginated({ params }: Props) {
+  const { slug, n } = await params;
+  const page = Number.parseInt(n, 10);
+  if (!Number.isInteger(page) || page < 1) notFound();
+  if (page === 1) redirect(`/blog/cat/${slug}`);
+
   const [category, allCategories] = await Promise.all([
     getBlogCategoryBySlug(slug),
     getAllBlogCategories(),
@@ -52,9 +51,10 @@ export default async function BlogCategoryPage({ params }: Props) {
 
   const { posts, totalPages } = await getBlogPostsByCategorySlug({
     categorySlug: slug,
-    page: 1,
+    page,
     perPage: BLOG_PER_PAGE,
   });
+  if (page > totalPages) notFound();
 
   return (
     <>
@@ -63,31 +63,24 @@ export default async function BlogCategoryPage({ params }: Props) {
           items={[
             { label: 'Home', href: '/' },
             { label: 'Blog', href: '/blog' },
-            { label: category.title },
+            { label: category.title, href: `/blog/cat/${category.slug.current}` },
+            { label: `Page ${page}` },
           ]}
         />
       </Container>
 
       <Container as="section" className="pb-6">
         <h1 className="text-3xl font-bold leading-tight text-brand-ink md:text-4xl">
-          Posts in {category.title}
+          Posts in {category.title} — Page {page}
         </h1>
-        {category.description && (
-          <p className="mt-3 max-w-3xl text-base leading-relaxed text-text-primary">
-            {category.description}
-          </p>
-        )}
       </Container>
 
       <Container as="section" className="pb-12">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_280px]">
           <div>
-            <BlogGrid
-              posts={posts}
-              emptyMessage={`No posts in ${category.title} yet.`}
-            />
+            <BlogGrid posts={posts} />
             <BlogPagination
-              currentPage={1}
+              currentPage={page}
               totalPages={totalPages}
               baseUrl={`/blog/cat/${category.slug.current}`}
             />

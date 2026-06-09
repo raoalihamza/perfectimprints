@@ -25,8 +25,7 @@ export default defineType({
         'Curated categories this FAQ applies to. Used by the Related FAQs section on /cat pages.',
       type: 'array',
       of: [
-        { type: 'reference', to: [{ type: 'curatedCategory' }] },
-        { type: 'reference', to: [{ type: 'customCategory' }] },
+        { type: 'reference', to: [{ type: 'curatedCategory' }, { type: 'customCategory' }] },
       ],
     }),
   ],

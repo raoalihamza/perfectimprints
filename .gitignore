@@ -69,6 +69,23 @@ sanity/dist/
 # Local data overrides
 data/.local/
 
+# Blog scrape intermediate artifacts (snapshot archived outside repo at
+# Documents/perfectimprints-archive/blogs-snapshot-YYYY-MM-DD/). Sanity is
+# the source of truth for blog content post-migration.
+data/blogs/raw/
+data/blogs/images/
+data/blogs/.cdx-cache.json
+data/blogs/migration-*.json
+data/blogs/verification-*.json
+data/blogs/test-urls/
+# Keep the verified-deleted URL list — used at delivery time for Patrick.
+!data/blogs/.failed-slugs.txt
+
+# SeleniumBase working directory (driver locks, etc.)
+downloaded_files/
+latest_logs/
+assets/
+
 # Misc
 *.bak
 .turbo/
