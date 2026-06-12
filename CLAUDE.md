@@ -86,7 +86,7 @@ The full URL list with classification lives at `data/pi-urls/category-urls.json`
   /actions          Custom Studio actions
 /scripts            Build-time and one-off scripts
   /scrapers/geiger  Python scraper (config.py, client.py, discover.py, products.py, memberships.py, mapping.py, brand_logos.py, run.py, checkpoint.py)
-  /scrapers/blogs   Python Playwright blog scraper
+  /scrapers/blogs   Python SeleniumBase UC-mode blog scraper (scrape_sbase.py)
   /ai-pipeline      DeepSeek content generation (deepseek_client.py, generate_content.py, prompts/)
   /search-index     Search index builder
 /public             Static assets (logo, favicons, search-index.json)
@@ -474,7 +474,7 @@ For **compound facet URLs** (2 of them), send multiple `filter.[type]=[value]` p
 
 **Final Phase C breakdown:** 13,968 with products (64.3%), 7,518 zero (34.6%), 229 errors (1.1%). Plus 465 roots (all mapped). Overall: 14,433 URLs (65%) render with real product grids, 7,747 (35%) use Tier 3/4 fallback at render time.
 
-For blog migration, attempt clean export from MPower dashboard at `app.mpowerpromo.com` first. If that fails, use the Playwright-based fallback scraper at `scripts/scrapers/blogs/`.
+**Blog migration (completed 2026-06-10).** PI is geo-blocked from Pakistan at the Cloudflare WAF and CF Turnstile escalates to interactive challenge on any rapid sequential automation. The working stack is **SeleniumBase UC mode + system-wide US/EU VPN** (Cloudflare WARP, ProtonVPN — *not* a browser-extension VPN like Browsec). Implementation at [scripts/scrapers/blogs/scrape_sbase.py](../scripts/scrapers/blogs/scrape_sbase.py); see [scripts/scrapers/blogs/README.md](../scripts/scrapers/blogs/README.md) for prereqs. Final coverage: 649 of 731 blogs scraped + published to Sanity; 82 verified-deleted URLs preserved at `data/blogs/.failed-slugs.txt` for delivery handoff. MPower export was investigated and ruled out — no usable bulk-export option in their admin. Tried-and-failed shortcuts: cloudscraper, curl_cffi chrome131, Playwright stealth (all fail under Turnstile escalation).
 
 ## 17. Conventions
 
@@ -546,9 +546,9 @@ Remaining pending items (track in TASKS.md):
 - Lead form "from" address (OQ-1)
 - Old site cutover timing (OQ-3)
 
-## 22. Current Project State (Week 3 end)
+## 22. Current Project State (Week 4 end)
 
-Updated: 2026-06-01.
+Updated: 2026-06-10.
 
 **Module 1 (Data Pipeline): Complete (Phase A-D).**
 
@@ -592,8 +592,17 @@ Week 4:
 - Context-specific filters (apparel/drinkware/tech show extra filters when relevant)
 - Brand logos scrape (Phase E)
 - Brands tab in main menu + `/brands` index + `/brands/[slug]` per-brand pages
-- Related Blogs section ("Related Blogs About [Category Name]" H2 with up to 8 related blog cards)
+- ✅ Related Blogs section ("Related Blogs About [Category Name]" H2 with up to 8 related blog cards) — wired into root category pages in commit `b33f8333` (2026-06-10). Server-rendered from `relatedCategorySlugs`. 338 of 649 published blogs have at least one mapping; rest hide the section gracefully when zero matches.
 - Lead capture form
+
+**Module 4 (Blogs): Complete (2026-06-10).**
+
+- **649 blogs published** to Sanity with current PI content (current MPower template), 82 hidden stub drafts for confirmed-deleted URLs
+- Scraped directly from PI via SeleniumBase UC mode (Cloudflare Turnstile bypass) + US-exit VPN — Wayback-based first attempt produced inferior content and was discarded
+- 100% have inline author (33 unique authors), 98% have hero image (real MPower CDN), 39 blogs have YouTube/Vimeo video embeds preserved, 52% have published+updated dates
+- Blog templates live: `/blog`, `/blog/[slug]`, `/blog/cat/[slug]` + pagination variants, vertical sticky social share bar, sidebar with categories + popular links + LeadForm CTA
+- Related Blogs section live on root category pages (M3-311)
+- Raw scrape JSONs archived outside repo at `~/Documents/perfectimprints-archive/blogs-snapshot-2026-06-10/`. List of 82 deleted URLs retained at `data/blogs/.failed-slugs.txt` for delivery handoff. See M4-401 and M4-402 in TASKS.md for the full story.
 
 Week 5:
 
