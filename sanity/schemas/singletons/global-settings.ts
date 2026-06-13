@@ -104,6 +104,33 @@ export default defineType({
         },
       ],
     }),
+    defineField({
+      name: 'newProductsPage',
+      title: 'New Products Page',
+      type: 'object',
+      description:
+        'Hero copy + curation controls for /new-products — the aggregator of every product Geiger lists under Shop By > New Products. Product list itself is auto-scraped weekly; use the hide list below to remove specific items.',
+      fields: [
+        { name: 'heading', type: 'string', title: 'Heading (H1)' },
+        { name: 'intro', type: 'text', title: 'Intro paragraph', rows: 4 },
+        { name: 'metaTitle', type: 'string', title: 'Meta title (under 60 chars)' },
+        {
+          name: 'metaDescription',
+          type: 'text',
+          title: 'Meta description (under 155 chars)',
+          rows: 2,
+        },
+        {
+          name: 'hiddenNewProductSkus',
+          title: 'Hide these SKUs from /new-products',
+          type: 'array',
+          of: [{ type: 'string' }],
+          options: { layout: 'tags' },
+          description:
+            'Geiger SKUs to remove from the /new-products grid (e.g., "529459"). Useful when a new item is off-brand or you do not want to promote it. Facet counts re-derive automatically.',
+        },
+      ],
+    }),
   ],
   preview: {
     prepare: () => ({ title: 'Global Settings' }),

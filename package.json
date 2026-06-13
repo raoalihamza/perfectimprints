@@ -21,6 +21,7 @@
     "import-brands": "tsx scripts/migrations/import-brands.ts",
     "scrape-blogs": "python scripts/scrapers/blogs/scrape_sbase.py",
     "scrape-deals": "python -m scripts.scrapers.geiger.scrape_deals",
+    "scrape-new-products": "python -m scripts.scrapers.geiger.scrape_new_products",
     "import-blogs": "tsx scripts/migrations/import-blogs.ts",
     "publish-blog-drafts": "tsx scripts/migrations/publish-blog-drafts.ts",
     "wipe-blog-posts": "tsx scripts/migrations/wipe-blog-posts.ts",

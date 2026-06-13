@@ -27,6 +27,7 @@ const STATIC_PATHS: string[] = [
   '/blog',
   '/brands',
   '/deals',
+  '/new-products',
   '/videos',
   '/search',
 ];
