@@ -26,6 +26,7 @@ const STATIC_PATHS: string[] = [
   '/rush-promotional-products',
   '/blog',
   '/brands',
+  '/deals',
   '/videos',
   '/search',
 ];

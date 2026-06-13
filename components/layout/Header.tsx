@@ -10,9 +10,9 @@ import { SimpleNavDropdown } from './SimpleNavDropdown';
 import { getDepartments } from '@/lib/nav-data';
 
 const SIMPLE_NAV: MegaMenuItem[] = [
-  { label: 'Promotional Products', href: '/cat/promotional-products' },
   { label: 'New Products', href: '/cat/new-products' },
   { label: 'Rush Products', href: '/rush-promotional-products' },
+  { label: 'Deals', href: '/deals' },
   { label: 'Brands', href: '/brands' },
   {
     label: 'Services',

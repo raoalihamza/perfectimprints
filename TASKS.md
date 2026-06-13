@@ -877,28 +877,36 @@ Plus mega menu addition: "Brands" main menu item linking to `/brands` (handled i
       **Depends on.** None.
       **Estimate.** 6 hours.
 
-### [ ] M5-510: Deals page and Deals menu button (NEW)
+### [x] M5-510: Deals page and Deals menu button (DONE 2026-06-13)
 
 **Scope.** Added 2026-05-26 per Patrick feedback. New `/deals` route that aggregates all on-sale and closeout products across the catalog into one landing page, similar to Geiger's `/b/deals` page (which uses Searchspring `bgfilter.category_path=Home > Shop By > Deals`).
 
-Source data: filter `data/geiger/products.json` to products where `is_on_sale=true` OR any badge has `tag` matching "sale" / "deals" / "closeout". Render with the same ProductCard component. AI-generated H1 and intro for the page (separate prompt or one-off content in Sanity).
+**Final implementation (2026-06-13)** — the initial plan to filter `data/geiger/products.json` by `is_on_sale`/badges was scrapped during build because Geiger's deal set turns over within days and the monthly Phase B refresh is too slow. Replaced with a dedicated **weekly Phase F scrape** (CLAUDE.md Section 16): a Python script (`scripts/scrapers/geiger/scrape_deals.py`, `pnpm scrape-deals`) hits Searchspring directly for `Home > Shop By > Deals`, captures products + facet definitions + per-facet-value SKU memberships, and writes `data/geiger/deals.json`. The job runs via `.github/workflows/scrape-deals.yml` on `cron: '0 23 * * 0'` (Sunday 23:00 UTC) and opens an auto-merge PR only when the snapshot actually changes.
 
-Plus mega menu addition: "Deals" main menu item linking to `/deals` (handled in M5-503).
+`/deals` is now fully `force-static` — all filter + pagination state is **client-side** (`components/deals/DealsClient.tsx`) so URL never changes and every click is instant. The sidebar (`components/deals/DealsFilterSidebar.tsx`) reuses `FilterSection` so it matches the category-page filter look exactly, and surfaces every facet section Searchspring returns (Category, Color, Price, Production Time, Brand, Min Qty, Material, Refine By, Ounces, Full Color, New Items). Filter semantics are OR-within-section / AND-across-section, backed by the SKU lists captured in Phase F.
+
+**Sanity control:** added a `dealsPage` object to `globalSettings` with editable `heading`, `intro`, `metaTitle`, `metaDescription`, plus a `hiddenDealSkus[]` blocklist. The route's `applyHiddenSkus()` helper removes those products from the grid AND re-derives every facet section's value counts so the sidebar stays consistent. Patrick keeps full curation control without touching the scraper.
+
+**Mega menu addition (handled inside this ticket):** "Promotional Products" removed from the header nav; "Deals" added immediately after Rush Products, linking to `/deals`.
 
 **Patrick feedback (2026-05-25):** "I'd like to have a main menu button That sales Deals, which leads to all the products on sale."
 
 **Acceptance.**
 
-- [ ] `/deals` route renders as a static page
-- [ ] All on-sale and closeout products from the catalog appear in the grid
-- [ ] Product count displayed
-- [ ] SALE/CLOSEOUT ribbons visible on every card (already built into ProductCard from M3-302)
-- [ ] AI intro paragraph or Sanity-editable hero copy
-- [ ] Pagination if more than 60 products
-- [ ] Mobile responsive
-- [ ] Schema.org BreadcrumbList present
+- [x] `/deals` route renders as a fully static page (`force-static`)
+- [x] All on-sale and closeout products from Geiger's deals category appear in the grid (weekly refresh via Phase F)
+- [x] Product count displayed ("Showing N of M deals" when filtered)
+- [x] SALE/CLOSEOUT/NEW ribbons visible on every card (M3-302)
+- [x] Sanity-editable hero copy (heading + intro) with sensible defaults
+- [x] Sanity-editable SKU blocklist (`hiddenDealSkus`) with auto-rederived facet counts
+- [x] Pagination if more than 60 products (client-side, button-driven)
+- [x] Filter sidebar matching the category-page look + every Searchspring facet
+- [x] Mobile responsive (drawer-style sidebar on mobile)
+- [x] Schema.org BreadcrumbList present (via shared Breadcrumbs component)
+- [x] "Deals" main nav item added; "Promotional Products" removed
+- [x] Weekly scrape workflow (`.github/workflows/scrape-deals.yml`) live with Sunday 23:00 UTC cron + workflow_dispatch
       **Depends on.** M3-302, M3-303, M3-306.
-      **Estimate.** 5 hours.
+      **Estimate.** 5 hours. **Actual:** ~10 hours (added Phase F scraper + Sanity blocklist + client-side refactor not in original scope).
 
 ---
 

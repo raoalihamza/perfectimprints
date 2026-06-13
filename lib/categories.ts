@@ -2,11 +2,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { decodeHtmlEntities } from './text-utils';
 
+export { PRODUCTS_PER_PAGE, type GeigerProduct, type ProductBadge } from './product-types';
+import { PRODUCTS_PER_PAGE, type GeigerProduct } from './product-types';
+
 const ROOT = process.cwd();
 const CATEGORIES_DIR = path.join(ROOT, 'data', 'categories');
 const PRODUCTS_FILE = path.join(ROOT, 'data', 'geiger', 'products.json');
-
-export const PRODUCTS_PER_PAGE = 60;
 
 export interface CategoryFaq {
   q: string;
@@ -56,29 +57,6 @@ export function shouldShowEmptyStateCTA(content: GeneratedCategoryContent): bool
   if (!content.productSkus || content.productSkus.length === 0) return true;
   if (content.skuFilterMode === 'full-capped-60') return true;
   return false;
-}
-
-export interface ProductBadge {
-  tag: string;
-  value: string;
-}
-
-export interface GeigerProduct {
-  sku: string;
-  name: string;
-  brand: string | null;
-  low_price: number | null;
-  high_price: number | null;
-  msrp: number | null;
-  min_qty: number | null;
-  imageUrl: string | null;
-  description: string | null;
-  category_paths: string[];
-  badges: ProductBadge[];
-  is_new_item: boolean;
-  is_on_sale: boolean;
-  product_type_unigram: string | null;
-  geiger_url: string | null;
 }
 
 interface ProductsFile {

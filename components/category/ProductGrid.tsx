@@ -1,5 +1,5 @@
 import { affiliateUrl } from '@/lib/affiliate-url';
-import type { GeigerProduct } from '@/lib/categories';
+import type { GeigerProduct } from '@/lib/product-types';
 import { ProductCard } from './ProductCard';
 
 interface ProductGridProps {

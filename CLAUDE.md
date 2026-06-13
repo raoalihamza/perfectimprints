@@ -122,7 +122,7 @@ Document types and what each holds:
 
 **megaMenu.** Singleton. Fields: ordered list of menu items, each with label, link, optional dropdown items. Default state matches Geiger's mega menu structure plus Deals link and Brands link.
 
-**globalSettings.** Singleton. Fields: phone number (default `800-773-9472`), contact email, social links, footer columns content, copyright text, CTA banner text.
+**globalSettings.** Singleton. Fields: phone number (default `800-773-9472`), contact email, social links, footer columns content, copyright text, CTA banner text, and a `dealsPage` object for `/deals` curation (`heading`, `intro`, `metaTitle`, `metaDescription`, `hiddenDealSkus[]`). The product list on `/deals` is auto-scraped weekly from Geiger (see Section 16 Phase F); Patrick uses `hiddenDealSkus` to remove individual SKUs without touching the scraper.
 
 **faq.** Reusable FAQ items. Fields: question, answer, category tags.
 
@@ -171,6 +171,8 @@ Helper function lives at `lib/affiliate-url.ts` and is the only place this trans
 **Product images:** Hot-linked from Geiger's CDN at `imgsirv.geiger.com`. Do NOT download to our origin. Patrick is an authorized Geiger distributor and hot-linking is permitted. Use explicit width and height on every image to prevent CLS. Use `loading="lazy"` on images below the fold.
 
 **Brand logos.** Scraped from Geiger's brand pages (linked from `https://www.geiger.com/c/shop-by-brand`) via Phase E of the scraper. Stored at `data/geiger/brand-logos/{slug}.{webp|png|jpg}`. Used on the brands index page and per-brand pages. Auto-refreshed during monthly rebuild.
+
+**Deals data.** Geiger's deals (sale + closeout) turn over fast, so they are NOT included in the monthly Phase B catalog dump. Instead, a **weekly** scraper (`scripts/scrapers/geiger/scrape_deals.py`, Phase F in Section 16) hits Searchspring with `bgfilter.category_path=Home > Shop By > Deals`, captures the products + per-facet-value SKU memberships, and writes `data/geiger/deals.json`. The `/deals` page reads from that file at build time. Patrick can hide specific SKUs via the `globalSettings.dealsPage.hiddenDealSkus` Sanity field — the loader re-derives facet counts so the sidebar stays consistent. Hero copy (heading, intro, meta) is also Sanity-controlled. See M5-510 in TASKS.md.
 
 **Category mapping:** Each PI root category maps to one Geiger category via `data/mappings/pi-to-geiger.json`. Categories with no good match link to the closest Geiger top-level category. If absolutely nothing matches, fall back to `https://patrickblack.geiger.com/`.
 
@@ -391,6 +393,8 @@ DNS is managed by Cloudflare (DNS-only mode, no proxy). DNS cutover plan: lower 
 
 Manual rebuild trigger lives in Sanity Studio as a custom action on globalSettings.
 
+**Weekly deals scrape:** A separate GitHub Action (`.github/workflows/scrape-deals.yml`) runs every Sunday at 23:00 UTC. Runs only `scripts/scrapers/geiger/scrape_deals.py` (Phase F), diffs `data/geiger/deals.json`, and opens an auto-merge PR if anything changed. Why separate from the monthly job: deals turn over within days, not months, and the script finishes in ~1 minute (1 base call + 1 per-facet-value call). Also exposes `workflow_dispatch` for ad-hoc refresh.
+
 ## 14. Environment Variables
 
 Required at build and runtime:
@@ -431,7 +435,7 @@ Throttle: one request per second per worker against the Searchspring API. Use `h
 
 Checkpointing: save state every 100 requests so partial runs resume. State file at `scripts/scrapers/geiger/.checkpoint/`.
 
-**Five-phase pipeline:**
+**Six-phase pipeline (A–E monthly, F weekly):**
 
 **Phase A: Taxonomy discovery.** One HTTP GET to a Geiger category page (e.g., `https://www.geiger.com/b/accessories`), parse the mega menu HTML with BeautifulSoup, extract the full category tree with parent-child relationships. Output: `data/geiger/categories.json` (544 categories, 482 leaves). Runtime: minutes.
 
@@ -442,6 +446,18 @@ Checkpointing: save state every 100 requests so partial runs resume. State file 
 **Phase D: PI-to-Geiger mapping.** Match each of the 465 PI root categories to a Geiger leaf via exact slug match (preferring non-aggregator leaves over `All <X>` aggregators), then fuzzy match with rapidfuzz (WRatio + token_set_ratio, threshold 80), then manual overrides in `scripts/scrapers/geiger/mapping_overrides.json`. Output: `data/mappings/pi-to-geiger.json` (465/465 mapped, 0 unmapped) plus a CSV report. Runtime: seconds.
 
 **Phase E: Brand logo scrape (added 2026-05-26 per Patrick feedback).** Visit `https://www.geiger.com/c/shop-by-brand` to enumerate brand pages, then download the logo image from each brand's page. Store at `data/geiger/brand-logos/{brand-slug}.{webp|png|jpg}`. Output also includes `data/geiger/brands.json` with brand metadata (name, slug, description, logo path, product count cross-referenced from products.json). Runtime: 30-60 minutes. Runs as part of monthly auto-rebuild.
+
+**Phase F: Weekly deals scrape (added 2026-06-13 per Patrick feedback).** Standalone weekly job (`scripts/scrapers/geiger/scrape_deals.py`, `pnpm scrape-deals`) that captures Geiger's current sale + closeout list. Three steps:
+
+1. **Meta** — one call to `https://kfx28d.a.searchspring.io/api/meta/meta.json?siteId=kfx28d` for human-readable facet labels (Color, Brand, Material, etc.).
+2. **Base deals** — paginate `category.json?siteId=kfx28d&bgfilter.category_path=Home > Shop By > Deals&resultsFormat=native` to capture product objects + the embedded `facets` array (values + counts but no SKU lists).
+3. **Per-facet-value SKU memberships** — one filtered call per facet value (`filter.<field>=<value>` for list facets, `filter.<field>.low/.high` for range facets) to capture which deal SKUs belong to that value. Currently ~40-60 calls per run (under 1 minute at the 1 req/sec throttle).
+
+Output: `data/geiger/deals.json` shaped as `{scrapedAt, totalDeals, products[], facets[{field, label, type, values:[{id, label, count, low, high, type, skus[]}]}]}`. The `skus[]` arrays power accurate client-side filter intersections in the `/deals` filter sidebar (`components/deals/DealsClient.tsx`), so OR-within-section + AND-across-section semantics work without any runtime API call.
+
+`ss_category_hierarchy` is dropped at scrape time; the loader (`lib/deals.ts::getDealsData`) synthesizes a flat top-level "Category" section from `product.category_paths` instead (Geiger's "Shop By" pseudo-department excluded). Patrick can blocklist specific SKUs via `globalSettings.dealsPage.hiddenDealSkus` in Sanity — `applyHiddenSkus` re-derives every facet section's value counts so the sidebar stays consistent with the visible grid.
+
+Runs from `.github/workflows/scrape-deals.yml` on `cron: '0 23 * * 0'` (Sunday 23:00 UTC) + `workflow_dispatch`. Opens an auto-merge PR if and only if `deals.json` actually changed.
 
 For **modifier URLs** (search, no-minimum, closeout, production-time, eco-friendly, material), the Searchspring filter mapping is (verified during the first end-to-end Phase C run, 2026-05-22):
 
@@ -606,7 +622,7 @@ Week 4:
 
 Week 5:
 
-- Deals main menu button + `/deals` aggregator page
+- ✅ Deals main menu button + `/deals` aggregator page (M5-510, 2026-06-13). "Promotional Products" removed from header nav, "Deals" added after Rush Products. `/deals` is fully static (`force-static`) with a Geiger-style filter sidebar (Category, Color, Price, Production Time, Brand, Min Qty, Material, Refine By, Ounces, Full Color, New Items) — all filtering + pagination is client-side (no URL params, no server roundtrips). Data sourced from `data/geiger/deals.json` produced by the weekly Phase F scrape (see Section 16). Hero copy + SKU blocklist editable via `globalSettings.dealsPage` in Sanity.
 - Mega menu fully Sanity-driven
 - Mobile Pagespeed improvement (LCP + Speed Index)
 

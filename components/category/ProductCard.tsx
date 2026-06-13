@@ -1,6 +1,6 @@
 import { affiliateUrl } from '@/lib/affiliate-url';
 import { cn } from '@/lib/utils';
-import type { GeigerProduct } from '@/lib/categories';
+import type { GeigerProduct } from '@/lib/product-types';
 import { ProductImage } from './ProductImage';
 
 interface ProductCardProps {
