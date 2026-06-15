@@ -100,7 +100,7 @@ const components: PortableTextComponents = {
   },
   block: {
     normal: ({ children }) => (
-      <p className="mt-5 text-base leading-relaxed text-text-primary md:text-[17px]">{children}</p>
+      <p className="mt-3 text-base leading-relaxed text-text-primary md:text-[17px]">{children}</p>
     ),
     h2: ({ children }) => (
       <h2 className="mt-10 text-2xl font-bold leading-tight text-brand-ink md:text-3xl">{children}</h2>
@@ -112,7 +112,7 @@ const components: PortableTextComponents = {
       <h4 className="mt-6 text-lg font-semibold leading-tight text-brand-ink">{children}</h4>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="mt-6 border-l-4 border-brand-red bg-bg-soft px-5 py-4 italic text-text-primary">
+      <blockquote className="mt-4 border-l-4 border-brand-red bg-bg-soft px-5 py-4 italic text-text-primary">
         {children}
       </blockquote>
     ),
@@ -137,15 +137,29 @@ const components: PortableTextComponents = {
 
 /**
  * Pre-process portable text so consecutive list items at the same level + type
- * are guaranteed to share one wrapper list. Some blogs come through with
- * mismatched `level` values, which causes @portabletext/react to render each
- * `<li>` inside its own `<ol>` (each starting at 1) instead of one `<ol>`
- * counting up. Normalising all list items to level 1 lets the default grouping
- * work and renders 1, 2, 3 as expected.
+ * share one wrapper list (some blocks come through with mismatched `level`
+ * values which would otherwise render each `<li>` in its own `<ol>`), and
+ * drop empty paragraph blocks. PI's Froala editor inserts `<p><br></p>`
+ * spacers between every heading / image / paragraph — rendering them as
+ * `<p class="mt-5">` creates huge vertical gaps not present in the original
+ * PI rendering. Stripping the empty blocks restores the tighter spacing.
  */
-function normalizeLists(body: PortableTextBlock[]): PortableTextBlock[] {
+function isEmptyBlock(b: PortableTextBlock): boolean {
+  const block = b as ListBlock;
+  if (block._type !== 'block' || block.listItem) return false;
+  const children = block.children || [];
+  if (children.length === 0) return true;
+  for (const c of children) {
+    const text = (c.text || '').replace(/\s|​/g, '');
+    if (text.length > 0) return false;
+  }
+  return true;
+}
+
+function normalizeBody(body: PortableTextBlock[]): PortableTextBlock[] {
   const out: PortableTextBlock[] = [];
   for (const b of body) {
+    if (isEmptyBlock(b)) continue;
     const block = b as ListBlock;
     if (block._type === 'block' && block.listItem) {
       out.push({ ...(b as object), level: 1 } as PortableTextBlock);
@@ -157,7 +171,7 @@ function normalizeLists(body: PortableTextBlock[]): PortableTextBlock[] {
 }
 
 export function BlogBody({ body }: BlogBodyProps) {
-  const normalized = normalizeLists(body);
+  const normalized = normalizeBody(body);
   return (
     <div className="blog-body">
       <PortableText value={normalized} components={components} />

@@ -506,16 +506,23 @@ async function importOne(
   // 1. HTML → portable text + image uploads.
   let body = htmlToPortableText(blog.bodyHtml);
 
-  // Drop the first body image when its src matches headerImageUrl — PI
-  // duplicates the hero image at the top of the article body, and the
-  // headerImage field is already rendered above the body in the template.
+  // Drop the first body image when it's a variant of headerImageUrl — PI
+  // duplicates the hero image at the top of the article body, often with a
+  // different MPower CDN version suffix (e.g.
+  // `.../Doctors-Day-1771013062013.jpg` for the header vs
+  // `.../Doctors-Day-1771013084376.jpg` in the body — same image, different
+  // version timestamp). We compare URLs after stripping the trailing
+  // `-<digits>.ext` pattern so both variants collapse to the same key.
+  const normalizeImgUrl = (u: string): string =>
+    u.split('?')[0].replace(/-\d{6,}(\.[a-z0-9]+)$/i, '$1');
+
   if (blog.headerImageUrl) {
-    const headerSrc = blog.headerImageUrl.split('?')[0];
+    const headerKey = normalizeImgUrl(blog.headerImageUrl);
     for (let i = 0; i < body.length; i++) {
       const b = body[i] as Record<string, unknown>;
       if (b._type === 'image') {
         const placeholder = (b._placeholderSrc as string) || '';
-        if (placeholder && placeholder.split('?')[0] === headerSrc) {
+        if (placeholder && normalizeImgUrl(placeholder) === headerKey) {
           body.splice(i, 1);
         }
         // Only inspect the first encountered image — preserves later body images.
