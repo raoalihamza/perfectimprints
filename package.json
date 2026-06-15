@@ -26,7 +26,8 @@
     "publish-blog-drafts": "tsx scripts/migrations/publish-blog-drafts.ts",
     "wipe-blog-posts": "tsx scripts/migrations/wipe-blog-posts.ts",
     "verify-blog-drafts": "tsx scripts/migrations/verify-blog-drafts.ts",
-    "backfill-blog-images": "tsx scripts/migrations/backfill-blog-images.ts"
+    "backfill-blog-images": "tsx scripts/migrations/backfill-blog-images.ts",
+    "rescrape-report": "tsx scripts/migrations/write-rescrape-report.ts"
   },
   "dependencies": {
     "@portabletext/react": "^3.1.0",

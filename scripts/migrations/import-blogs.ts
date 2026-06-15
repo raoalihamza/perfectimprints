@@ -505,6 +505,25 @@ async function importOne(
 
   // 1. HTML → portable text + image uploads.
   let body = htmlToPortableText(blog.bodyHtml);
+
+  // Drop the first body image when its src matches headerImageUrl — PI
+  // duplicates the hero image at the top of the article body, and the
+  // headerImage field is already rendered above the body in the template.
+  if (blog.headerImageUrl) {
+    const headerSrc = blog.headerImageUrl.split('?')[0];
+    for (let i = 0; i < body.length; i++) {
+      const b = body[i] as Record<string, unknown>;
+      if (b._type === 'image') {
+        const placeholder = (b._placeholderSrc as string) || '';
+        if (placeholder && placeholder.split('?')[0] === headerSrc) {
+          body.splice(i, 1);
+        }
+        // Only inspect the first encountered image — preserves later body images.
+        break;
+      }
+    }
+  }
+
   body = await uploadAndRewriteImages(client, body, blog.slug, ctx.imageCache);
   const excerpt = excerptFromBlocks(body);
 

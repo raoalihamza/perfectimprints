@@ -15,6 +15,16 @@ interface EmbedValue {
   caption?: string;
 }
 
+interface ListBlock {
+  _type: 'block';
+  _key?: string;
+  listItem?: string;
+  level?: number;
+  children?: { _key?: string; text?: string }[];
+  markDefs?: unknown[];
+  style?: string;
+}
+
 const components: PortableTextComponents = {
   types: {
     image: ({ value }) => {
@@ -125,10 +135,32 @@ const components: PortableTextComponents = {
   },
 };
 
+/**
+ * Pre-process portable text so consecutive list items at the same level + type
+ * are guaranteed to share one wrapper list. Some blogs come through with
+ * mismatched `level` values, which causes @portabletext/react to render each
+ * `<li>` inside its own `<ol>` (each starting at 1) instead of one `<ol>`
+ * counting up. Normalising all list items to level 1 lets the default grouping
+ * work and renders 1, 2, 3 as expected.
+ */
+function normalizeLists(body: PortableTextBlock[]): PortableTextBlock[] {
+  const out: PortableTextBlock[] = [];
+  for (const b of body) {
+    const block = b as ListBlock;
+    if (block._type === 'block' && block.listItem) {
+      out.push({ ...(b as object), level: 1 } as PortableTextBlock);
+    } else {
+      out.push(b);
+    }
+  }
+  return out;
+}
+
 export function BlogBody({ body }: BlogBodyProps) {
+  const normalized = normalizeLists(body);
   return (
     <div className="blog-body">
-      <PortableText value={body} components={components} />
+      <PortableText value={normalized} components={components} />
     </div>
   );
 }

@@ -75,6 +75,8 @@ data/.local/
 data/blogs/raw/
 data/blogs/images/
 data/blogs/.cdx-cache.json
+data/blogs/.scrape-errors.log*
+data/blogs/.rescrape-report.md
 data/blogs/migration-*.json
 data/blogs/verification-*.json
 data/blogs/test-urls/
