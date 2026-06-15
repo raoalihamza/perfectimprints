@@ -1,59 +1,56 @@
-# Perfect Imprints Blog Snapshot — 2026-06-10
+# Perfect Imprints Blog Snapshot — 2026-06-15
 
-Clean snapshot of all PI blog content scraped directly from
-`perfectimprints.com/blog/*` using SeleniumBase UC mode (Cloudflare Turnstile
-bypass) via a US-exit VPN. This is the source data behind the Sanity blogPost
-migration completed on the same date.
+Second clean snapshot of all PI blog content. Supersedes the
+2026-06-10 archive (which captured only the first content block per blog
+because the scraper didn't scroll, truncating every multi-section listicle).
+
+## What changed since the 2026-06-10 snapshot
+
+- **Scroll-to-load** added to the scraper so all lazy-loaded `.fdb-block`
+  sections are in the DOM before extraction. Listicles like
+  `paramedic-shares-ems-appreciation-gifts-ems-week` now capture 16 content
+  blocks instead of 2.
+- **Product-grid stripping**: contents blocks whose signature is "2+
+  anchors to `/products/` each wrapping an `<img>`" are removed. The
+  product display will be reintroduced via a separate Studio editing block
+  later, not from scrape data.
+- **Filter to `data-block-type="contents"`**: the top megamenu (12 fdb-blocks
+  of type `navigation`) and bottom footer fdb-block are excluded.
 
 ## Counts
 
-- **649 raw blogs** scraped successfully (89% coverage of 731 GA4-known URLs)
-- **82 URLs verified deleted** on PI — see `.failed-slugs.txt` (also kept in repo at `data/blogs/.failed-slugs.txt` for delivery-time reference)
-- **43 video embeds** (YouTube + Vimeo) preserved across 39 blogs
-- **1592 inline images** referenced
-- **33 unique authors** captured (Patrick Black 284, Perfect Imprints 138, Sarah Garcia 70, Laiba Siddiqui 56, Kiruthika Shantharam 42, Angelica Leti 40, etc.)
+- **645 raw blogs** scraped successfully (88% of 731 GA4-known URLs)
+- **78 confirmed-deleted** URLs skipped during retry-failed pass — see
+  `failed-slugs.txt` (copy of the repo's `data/blogs/.failed-slugs.txt`)
+- **8 newly-failed** URLs that couldn't be recovered even with patient
+  retry settings (Cloudflare Turnstile escalations the scraper couldn't
+  pass)
+- Final Sanity state: 645 published + 86 hidden stubs (78 deleted + 8
+  unrecoverable)
 
 ## Folder contents
 
 | Path | What | Size |
 |------|------|------|
-| `raw/` | One JSON per blog — title, body HTML, images, embeds, author, publishDate, updatedDate, categories, inline links | ~14 MB |
-| `images/` | Leftover from the older Wayback-era scrape (now superseded by Sanity asset uploads from MPower CDN). Kept for completeness. | ~14 MB |
-| `.cdx-cache.json` | Wayback Machine CDX index used by the deprecated `scrape.py` Wayback path | ~3 MB |
-| `migration-mapping-report.json` | Sanity relatedCategorySlugs coverage report from the latest import | tiny |
-| `verification-report.json` | Sample-blog structural validation report from the final import | tiny |
-| `failed-slugs.txt` | 82 deleted-on-PI URLs (Patrick-verified). Copy of repo's `data/blogs/.failed-slugs.txt`. | tiny |
+| `raw/` | 645 per-blog JSONs (title, body HTML, embeds, images, author, dates, categories, inline links). Includes new fields: `contentBlockCount`, `strippedGridCount`. | ~16 MB |
+| `rescrape-report.md` | Programmatic verification report from the import (spot-checks, short-body list, failed slugs) | tiny |
+| `migration-mapping-report.json` | Sanity relatedCategorySlugs coverage from import | tiny |
+| `verification-report.json` | Sample-blog structural validation | tiny |
+| `failed-slugs.txt` | 82 deleted-on-PI URLs (Patrick-verified). Same copy lives at `data/blogs/.failed-slugs.txt` in the repo. | tiny |
+| `scrape-errors.log*` | Per-attempt failure logs (pre-tune, pre-network-change, prev-run, final) | small |
 
 ## Schema of `raw/<slug>.json`
 
+Same as the 2026-06-10 archive plus two new fields:
+
 ```jsonc
 {
-  "url": "/blog/<slug>",
-  "slug": "<slug>",
-  "title": "<H1 as visible on PI>",
-  "metaTitle": "<SEO title from og:title — often longer/different>",
-  "publishDate": "YYYY-MM-DD",        // from "Published: ..." metaline
-  "updatedDate": "YYYY-MM-DD" | null,  // from "Updated: ..." metaline (52% have this)
-  "author": "<Name from Author: ... line>",
-  "headerImageUrl": "https://store-media.mpowerpromo.com/...",
-  "bodyHtml": "<raw HTML from .blog-post-body>",
-  "bodyText": "<plain text>",
-  "embeds": [{ "type": "youtube", "url": "...", "videoId": "..." }],
-  "images": ["https://store-media.mpowerpromo.com/...", ...],
-  "inlineLinks": ["/cat/water-bottles", "/blog/...", ...],
-  "categoryTags": ["..."],
-  "metaDescription": "...",
-  "scrapedAt": "<ISO timestamp>",
-  "scrapeSource": "pi-direct-sbase"
+  // ... existing fields ...
+  "contentBlockCount": 16,       // # of fdb-block data-block-type=contents
+  "strippedGridCount": 4         // # of product-grid blocks removed before
+                                 // portable text conversion
 }
 ```
-
-## Why we kept this
-
-- **Re-import after schema change** — if blogPost schema gains new fields, re-import without re-scraping.
-- **Backup** — if Sanity is wiped accidentally, this restores everything.
-- **Analysis** — content audits, SEO snapshots, author distribution, etc.
-- **Future delete recovery** — if PI's site changes/breaks, our scraped copies remain.
 
 ## How to re-import (if ever needed)
 
@@ -61,15 +58,17 @@ migration completed on the same date.
 # 1. Move/copy raw/ back to repo's data/blogs/raw/
 # 2. From repo root:
 cd C:\Users\aliha\Documents\Github\perfectimprints
-pnpm wipe-blog-posts --force        # CAREFUL: wipes Sanity
-pnpm import-blogs                    # re-imports from data/blogs/raw/
-pnpm publish-blog-drafts --exclude-stubs
+pnpm wipe-blog-posts --force                # CAREFUL: wipes Sanity
+pnpm import-blogs                            # re-imports from data/blogs/raw/
+pnpm publish-blog-drafts --exclude-stubs     # 86 stubs stay hidden
 pnpm verify-blog-drafts
 ```
 
 ## Provenance
 
-- Scraper: `scripts/scrapers/blogs/scrape_sbase.py` (Python + SeleniumBase UC mode)
+- Scraper: `scripts/scrapers/blogs/scrape_sbase.py` (Python + SeleniumBase
+  UC mode + scroll-to-load + product-grid strip)
 - VPN: Cloudflare WARP (US/EU exit) — PI geo-blocks Pakistan
-- Date scraped: 2026-06-09 → 2026-06-10
-- Patrick approved final published count: 649 (the 82 stubs were excluded from publish per his request)
+- Date scraped: 2026-06-14 → 2026-06-15
+- Bulk pass settings: Turnstile 10s budget, 1 retry per blog, MIN_BODY 100
+- Retry-failed pass settings: Turnstile 30s budget, 2 retries per blog
