@@ -100,6 +100,8 @@ async function main(): Promise<void> {
   let patched = 0;
   let noHeader = 0;
   let alreadyClean = 0;
+  let matchedByAssetRef = 0;
+  let matchedByPosition = 0;
 
   for (const doc of docs) {
     scanned += 1;
@@ -109,12 +111,31 @@ async function main(): Promise<void> {
       continue;
     }
     const body = doc.body || [];
+
+    // Strategy 1: exact asset-ref match in body[0..SCAN_DEPTH].
+    // Strategy 2 (NEW): if header exists and an image appears in the first
+    // SCAN_DEPTH blocks, assume it's PI's hero-image duplicate and remove
+    // it. This handles cases where MPower uploads a system-thumbnail variant
+    // (e.g. `_1200_1200_*.jpg`) as the og:image and the full-resolution
+    // version in the body — same visual image but different asset refs.
     let dupeIdx = -1;
+    let matchKind: 'ref' | 'position' | null = null;
     for (let i = 0; i < Math.min(SCAN_DEPTH, body.length); i++) {
       const b = body[i];
       if (b._type === 'image' && b.asset?._ref === headerRef) {
         dupeIdx = i;
+        matchKind = 'ref';
         break;
+      }
+    }
+    if (dupeIdx === -1) {
+      for (let i = 0; i < Math.min(SCAN_DEPTH, body.length); i++) {
+        const b = body[i];
+        if (b._type === 'image') {
+          dupeIdx = i;
+          matchKind = 'position';
+          break;
+        }
       }
     }
     if (dupeIdx === -1) {
@@ -123,13 +144,17 @@ async function main(): Promise<void> {
     }
     const newBody = [...body.slice(0, dupeIdx), ...body.slice(dupeIdx + 1)];
     if (DRY_RUN) {
-      console.log(`  [dry-run] ${doc.slug.current} — would remove body[${dupeIdx}]`);
+      console.log(`  [dry-run] ${doc.slug.current} — would remove body[${dupeIdx}] (${matchKind})`);
       patched += 1;
+      if (matchKind === 'ref') matchedByAssetRef += 1;
+      else matchedByPosition += 1;
       continue;
     }
     try {
       await client.patch(doc._id).set({ body: newBody }).commit();
       patched += 1;
+      if (matchKind === 'ref') matchedByAssetRef += 1;
+      else matchedByPosition += 1;
       if (patched % 25 === 0) console.log(`  patched ${patched}…`);
     } catch (e) {
       console.error(`  FAIL ${doc.slug.current}: ${e instanceof Error ? e.message : e}`);
@@ -137,10 +162,12 @@ async function main(): Promise<void> {
   }
 
   console.log(`\nDone.`);
-  console.log(`  Scanned:       ${scanned}`);
-  console.log(`  No header img: ${noHeader}`);
-  console.log(`  Already clean: ${alreadyClean}`);
-  console.log(`  Patched:       ${patched}${DRY_RUN ? ' (dry-run, no writes)' : ''}`);
+  console.log(`  Scanned:                ${scanned}`);
+  console.log(`  No header img:          ${noHeader}`);
+  console.log(`  Already clean:          ${alreadyClean}`);
+  console.log(`  Patched:                ${patched}${DRY_RUN ? ' (dry-run, no writes)' : ''}`);
+  console.log(`    by asset-ref match:   ${matchedByAssetRef}`);
+  console.log(`    by position (top img): ${matchedByPosition}`);
 }
 
 main().catch((e) => {
