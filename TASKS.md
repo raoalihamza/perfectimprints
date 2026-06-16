@@ -940,7 +940,39 @@ Plus mega menu addition: "Brands" main menu item linking to `/brands` (handled i
 - [x] "Deals" main nav item added; "Promotional Products" removed
 - [x] Weekly scrape workflow (`.github/workflows/scrape-deals.yml`) live with Sunday 23:00 UTC cron + workflow_dispatch
       **Depends on.** M3-302, M3-303, M3-306.
+      **Followed up by.** M5-511 (Sanity-driven custom + pinned products on `/deals` and `/new-products`).
       **Estimate.** 5 hours. **Actual:** ~10 hours (added Phase F scraper + Sanity blocklist + client-side refactor not in original scope).
+
+### [x] M5-511: Custom + pinned product additions on /deals and /new-products (DONE 2026-06-16)
+
+**Scope.** Patrick feedback follow-up to M5-510 and the `/new-products` build: "agar hum apni website par koi deal add krna chahain aur wo instead of geiger koi aur provider ho then?" The weekly Phase F/G scrapes only cover Geiger's own deals + new-products feeds. Patrick needed three editorial levers on top of the scrape so non-Geiger vendors, off-feed Geiger SKUs, and fully manual items can also surface on either aggregator without touching the scraper.
+
+**Final implementation.**
+
+Three Sanity-controlled levers per aggregator page:
+
+1. **Hide (already existed in M5-510 for /deals; mirrored for /new-products):** `globalSettings.dealsPage.hiddenDealSkus[]` and `globalSettings.newProductsPage.hiddenNewProductSkus[]` blocklists. `applyHiddenSkus()` re-derives facet counts.
+2. **Pin (NEW):** `pinnedDealSkus[]` and `pinnedNewProductSkus[]` tags arrays in the same singletons. Patrick types Geiger SKU numbers (e.g. `"529459"`) and they're resolved against `data/geiger/products.json` via the new [lib/products/lookup.ts](lib/products/lookup.ts) SKU index. Unknown SKUs are silently skipped.
+3. **Add (NEW):** `customProduct` schema extended with `placements.onDeals` / `placements.onNewProducts` booleans + commerce fields (`brand`, `lowPrice`, `highPrice`, `msrp`, `minQty`, `productionTime`) + filter-tag fields (`colors[]`, `material`) + `badges[]` (`new` / `sale` / `closeout`). Custom products are normalized to the `GeigerProduct` contract via `customProductToGeigerProduct()` in [lib/sanity/queries/custom-products.ts](lib/sanity/queries/custom-products.ts). The SKU is synthesized as `custom-<sanity-_id>` so it never collides with Geiger SKUs. External URLs (any vendor) pass through `affiliateUrl()` unchanged because that helper only rewrites Geiger hosts.
+
+**Augmentation pipeline:** [lib/products/augment.ts](lib/products/augment.ts) is a pure (no I/O) merger that takes the scraped products + scraped facets + pinned products + custom products + custom docs, and returns the merged data: products in order `[custom, newly-pinned, scraped]`; synthetic Category facet section rebuilt from all sources; custom-product filter tags (brand/colors/material) injected into the corresponding scraped facet values' SKU arrays so OR-within / AND-across filter semantics work uniformly across all sources. Orchestrators: `getAugmentedDealsData()` in [lib/deals.ts](lib/deals.ts) and `getAugmentedNewProductsData()` in [lib/new-products.ts](lib/new-products.ts). Pages [app/deals/page.tsx](app/deals/page.tsx) and [app/new-products/page.tsx](app/new-products/page.tsx) fetch `customDocs` from Sanity and pin lists from the singletons in parallel, then call the augmenter.
+
+**Filter behavior for custom products:** participate fully in Brand / Color / Material list filters when Patrick tags them in Sanity. Participate in the synthetic Category section via `parentCategory` ref. Range filters (price, MOQ, production-time): custom products are hidden when those filters are active — Searchspring-native range buckets are not synthesized for custom products at this time. Patrick can avoid this by leaving those filter sections unused, or by tagging the matching range scenario in his pin/blocklist instead.
+
+**Acceptance.**
+
+- [x] `customProduct` schema extended with placements, commerce, filter-tag, badge fields
+- [x] `globalSettings.dealsPage.pinnedDealSkus[]` + `newProductsPage.pinnedNewProductSkus[]` added
+- [x] Pinned Geiger SKUs resolve against `products.json` and prepend to the visible grid
+- [x] Custom products with `placements.onDeals == true` render on `/deals`; same for `/new-products`
+- [x] Custom products participate in Brand / Color / Material filter sections when tagged
+- [x] Custom products participate in the synthetic Category facet section via parentCategory
+- [x] External URLs on custom products: non-Geiger pass through, Geiger auto-rewrite via `lib/affiliate-url.ts`
+- [x] Hide list, pin list, and custom-product flag all coexist without interfering
+- [x] `applyHiddenSkus()` continues to work on the augmented data
+- [x] `pnpm typecheck` clean
+      **Depends on.** M5-510 (Phase F scrape), M5-504 (customProduct schema + customCategory render), Phase G new-products scrape.
+      **Estimate.** 3 hours. **Actual:** ~3 hours.
 
 ---
 
