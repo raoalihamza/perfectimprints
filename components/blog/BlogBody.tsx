@@ -3,9 +3,34 @@ import { PortableText, type PortableTextComponents } from '@portabletext/react';
 import type { PortableTextBlock } from '@portabletext/react';
 import { urlForImage } from '@/lib/sanity/client';
 import type { SanityImage } from '@/lib/sanity/types';
+import type { GeigerProduct } from '@/lib/product-types';
+import { ProductCard } from '@/components/category/ProductCard';
+import { affiliateUrl } from '@/lib/affiliate-url';
+
+interface BlogProductEntry {
+  _key?: string;
+  sku?: string;
+  title?: string;
+  image?: SanityImage & { alt?: string };
+  url?: string;
+}
+
+interface BlogProductsValue {
+  _key?: string;
+  heading?: string;
+  products?: BlogProductEntry[];
+}
 
 interface BlogBodyProps {
   body: PortableTextBlock[];
+  skuProducts?: Map<string, GeigerProduct>;
+}
+
+const GEIGER_HOST_PATTERN = /^https?:\/\/(www\.)?geiger\.com\//i;
+const AFFILIATE_HOST_PATTERN = /^https?:\/\/[^/]*\.geiger\.com\//i;
+
+function isGeigerUrl(url: string): boolean {
+  return GEIGER_HOST_PATTERN.test(url) || AFFILIATE_HOST_PATTERN.test(url);
 }
 
 interface EmbedValue {
@@ -25,7 +50,10 @@ interface ListBlock {
   style?: string;
 }
 
-const components: PortableTextComponents = {
+function buildComponents(
+  skuProducts: Map<string, GeigerProduct>,
+): PortableTextComponents {
+  return {
   types: {
     image: ({ value }) => {
       const v = value as SanityImage & { alt?: string };
@@ -71,6 +99,90 @@ const components: PortableTextComponents = {
             <figcaption className="mt-2 text-center text-sm text-text-muted">{v.caption}</figcaption>
           )}
         </figure>
+      );
+    },
+    blogProducts: ({ value }) => {
+      const v = value as BlogProductsValue;
+      const entries = v?.products ?? [];
+      const cards = entries
+        .map((entry, idx) => {
+          const sku = entry.sku?.trim();
+          const resolved = sku ? skuProducts.get(sku) : undefined;
+          if (resolved) {
+            return (
+              <ProductCard
+                key={entry._key || `sku-${sku}-${idx}`}
+                product={resolved}
+              />
+            );
+          }
+          if (!entry.title && !entry.image && !entry.url) return null;
+          const title = entry.title || sku || 'Product';
+          const imageSrc = entry.image?.asset
+            ? urlForImage(entry.image).width(550).height(550).fit('crop').url()
+            : null;
+          const rawUrl = entry.url?.trim() || null;
+          const href = rawUrl ? (isGeigerUrl(rawUrl) ? affiliateUrl(rawUrl) : rawUrl) : null;
+          const isExternal = !href || !href.startsWith('/');
+          const cardInner = (
+            <>
+              <div className="relative aspect-square overflow-hidden bg-bg-soft">
+                {imageSrc ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={imageSrc}
+                    alt={entry.image?.alt || title}
+                    loading="lazy"
+                    className="h-full w-full object-contain p-3 transition-transform duration-200 group-hover:scale-105"
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center text-xs text-text-muted">
+                    No image
+                  </div>
+                )}
+              </div>
+              <div className="flex flex-1 flex-col gap-2 p-4">
+                <h3 className="line-clamp-2 min-h-[2.6em] text-sm font-medium leading-snug text-text-primary group-hover:text-brand-red">
+                  {title}
+                </h3>
+              </div>
+            </>
+          );
+          const cardClassName =
+            'group flex flex-col overflow-hidden rounded border border-border bg-brand-white transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:ring-offset-2';
+          if (!href) {
+            return (
+              <div key={entry._key || `manual-${idx}`} className={cardClassName}>
+                {cardInner}
+              </div>
+            );
+          }
+          return (
+            <a
+              key={entry._key || `manual-${idx}`}
+              href={href}
+              target={isExternal ? '_blank' : undefined}
+              rel={isExternal ? 'noopener noreferrer sponsored' : undefined}
+              className={cardClassName}
+            >
+              {cardInner}
+            </a>
+          );
+        })
+        .filter(Boolean);
+
+      if (cards.length === 0) return null;
+      return (
+        <section className="my-8">
+          {v.heading && (
+            <h2 className="mt-6 text-2xl font-bold leading-tight text-brand-ink md:text-3xl">
+              {v.heading}
+            </h2>
+          )}
+          <div className="mt-5 grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">
+            {cards}
+          </div>
+        </section>
       );
     },
   },
@@ -133,7 +245,10 @@ const components: PortableTextComponents = {
     bullet: ({ children }) => <li className="leading-relaxed">{children}</li>,
     number: ({ children }) => <li className="leading-relaxed">{children}</li>,
   },
-};
+  };
+}
+
+const EMPTY_SKU_MAP: Map<string, GeigerProduct> = new Map();
 
 /**
  * Pre-process portable text so consecutive list items at the same level + type
@@ -170,8 +285,9 @@ function normalizeBody(body: PortableTextBlock[]): PortableTextBlock[] {
   return out;
 }
 
-export function BlogBody({ body }: BlogBodyProps) {
+export function BlogBody({ body, skuProducts }: BlogBodyProps) {
   const normalized = normalizeBody(body);
+  const components = buildComponents(skuProducts ?? EMPTY_SKU_MAP);
   return (
     <div className="blog-body">
       <PortableText value={normalized} components={components} />

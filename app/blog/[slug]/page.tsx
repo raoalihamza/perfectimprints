@@ -1,18 +1,22 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
+import type { PortableTextBlock } from '@portabletext/react';
 import { Container } from '@/components/ui/Container';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { BlogBody } from '@/components/blog/BlogBody';
 import { BlogSidebar } from '@/components/blog/BlogSidebar';
 import { SocialShareBar } from '@/components/blog/SocialShareBar';
 import { OrderTodayCTA } from '@/components/blog/OrderTodayCTA';
+import { RelatedBlogsForPost } from '@/components/blog/RelatedBlogsForPost';
 import { urlForImage } from '@/lib/sanity/client';
 import {
   getBlogPostBySlug,
   getBlogPostSlugs,
   getAllBlogCategories,
+  getRelatedBlogsForPost,
 } from '@/lib/sanity/queries/blogs';
+import { resolveProductsBySku } from '@/lib/categories';
+import type { GeigerProduct } from '@/lib/product-types';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
   /\/$/,
@@ -71,6 +75,24 @@ function deriveOrderTopic(post: { title: string; categories?: { title: string }[
   return post.title.split(/[:|—–-]/)[0].trim();
 }
 
+function collectBlogProductSkus(body: PortableTextBlock[] | undefined): string[] {
+  if (!body) return [];
+  const skus: string[] = [];
+  const seen = new Set<string>();
+  for (const block of body) {
+    const b = block as { _type?: string; products?: { sku?: string }[] };
+    if (b._type !== 'blogProducts') continue;
+    for (const entry of b.products ?? []) {
+      const sku = entry.sku?.trim();
+      if (sku && !seen.has(sku)) {
+        seen.add(sku);
+        skus.push(sku);
+      }
+    }
+  }
+  return skus;
+}
+
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const [post, categories] = await Promise.all([
@@ -83,6 +105,16 @@ export default async function BlogPostPage({ params }: Props) {
   const heroImage = post.headerImage ? urlForImage(post.headerImage).width(1400).url() : null;
   const firstCategory = post.categories?.[0];
   const orderTopic = deriveOrderTopic(post);
+
+  const blogProductSkus = collectBlogProductSkus(post.body);
+  const skuProducts = new Map<string, GeigerProduct>();
+  if (blogProductSkus.length > 0) {
+    for (const product of resolveProductsBySku(blogProductSkus)) {
+      skuProducts.set(product.sku, product);
+    }
+  }
+
+  const relatedBlogs = await getRelatedBlogsForPost(post, 8);
 
   const blogPostingSchema = {
     '@context': 'https://schema.org',
@@ -158,9 +190,11 @@ export default async function BlogPostPage({ params }: Props) {
                 />
               </figure>
             )}
-            <BlogBody body={post.body} />
+            <BlogBody body={post.body} skuProducts={skuProducts} />
 
             <OrderTodayCTA topic={orderTopic} sourceUrl={canonical} />
+
+            <RelatedBlogsForPost posts={relatedBlogs} topic={orderTopic} />
           </div>
 
           {/* Right: sidebar */}

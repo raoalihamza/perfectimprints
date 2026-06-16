@@ -30,7 +30,7 @@ export interface BlogPostDetail extends BlogPostSummary {
   updatedDate?: string;
   metaTitle?: string;
   relatedCategorySlugs?: string[];
-  relatedPosts?: BlogPostSummary[];
+  relatedBlogs?: BlogPostSummary[];
 }
 
 export interface BlogCategoryDetail {
@@ -95,11 +95,38 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPostDetail | 
       updatedDate,
       metaTitle,
       relatedCategorySlugs,
-      "relatedPosts": relatedPosts[]->{ ${SUMMARY_PROJECTION} }
+      "relatedBlogs": relatedBlogs[]->{ ${SUMMARY_PROJECTION} }
     }`,
     { slug },
   );
   return doc ?? null;
+}
+
+/**
+ * Returns the related-blogs list to display under a single blog post.
+ *
+ * If the post has a curated `relatedBlogs` array, use it verbatim (published-only,
+ * preserving editor order). Otherwise auto-derive by finding other published
+ * posts that share at least one category slug, newest first.
+ */
+export async function getRelatedBlogsForPost(
+  post: BlogPostDetail,
+  limit = 8,
+): Promise<BlogPostSummary[]> {
+  const curated = (post.relatedBlogs ?? []).filter((p) => p?.slug?.current);
+  if (curated.length > 0) return curated.slice(0, limit);
+
+  const categorySlugs = (post.categories ?? []).map((c) => c.slug).filter(Boolean);
+  if (categorySlugs.length === 0) return [];
+
+  const auto = await client.fetch<BlogPostSummary[]>(
+    `*[${PUBLISHED}
+        && slug.current != $self
+        && count(categories[@->slug.current in $cats]) > 0]
+      | order(publishDate desc) [0...$limit] { ${SUMMARY_PROJECTION} }`,
+    { self: post.slug.current, cats: categorySlugs, limit },
+  );
+  return auto ?? [];
 }
 
 export async function getAllBlogCategories(): Promise<BlogCategoryDetail[]> {

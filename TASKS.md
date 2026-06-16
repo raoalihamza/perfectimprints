@@ -752,6 +752,33 @@ Plus mega menu addition: "Brands" main menu item linking to `/brands` (handled i
 - [app/sitemap.ts](app/sitemap.ts) updated: `/brands` static path + all `/brands/<slug>` URLs added (paginated variants intentionally excluded, mirroring category convention).
 - Mega-menu "Brands" main-nav link still pending under M5-503 (Sanity-driven menu rewrite); out of scope for this prompt per design.
 
+### [x] M4-406: In-body products block + per-post related-blogs override (NEW)
+
+**Scope.** Added 2026-06-16 per Patrick feedback. Two Sanity-editable features on blog posts so Patrick can drop product card rows into a blog body anywhere — like the old MPower blog templates — and curate the "See Related Blogs About …" list per post instead of relying on automatic matching.
+
+**Patrick feedback.** Wanted (1) to insert a row of product cards mid-body the way the legacy PI blogs showed product grids between sections, and (2) the ability to both add AND remove entries from the related-blogs list at the bottom of each post.
+
+**Acceptance.**
+
+- [x] `blogProducts` object schema, insertable anywhere in `blogPost.body` alongside text/image/embed blocks (multiple per post, any position)
+- [x] Each entry holds optional `sku`, manual `title`, manual `image`, manual `url`
+- [x] SKUs resolved server-side in [app/blog/[slug]/page.tsx](app/blog/[slug]/page.tsx) via `resolveProductsBySku` (reads `data/geiger/products.json` from disk; cannot run inside the synchronous PortableText renderer), passed into [BlogBody](components/blog/BlogBody.tsx) as a `Map<string, GeigerProduct>`
+- [x] `BlogBody` types entry renders SKU-backed entries via the standard [ProductCard](components/category/ProductCard.tsx) (live price/image/affiliate URL); manual entries render as a parallel-styled card; entries with neither SKU match nor manual title are skipped
+- [x] Manual URLs rewritten through `lib/affiliate-url.ts` only when they target a Geiger host; non-Geiger URLs open in a new tab as plain external links
+- [x] Optional `heading` rendered as `<h2>` above the card row; existing text/image/embed/list rendering unchanged
+- [x] `relatedBlogs` reference array on `blogPost` (replaces the dormant `relatedPosts` field, which was fetched but never rendered). Reference picker filters out the current post so editors can't link a post to itself.
+- [x] New [getRelatedBlogsForPost](lib/sanity/queries/blogs.ts) helper: when `relatedBlogs` is populated, use those in order; otherwise auto-derive by shared category slugs, newest first.
+- [x] New [components/blog/RelatedBlogsForPost.tsx](components/blog/RelatedBlogsForPost.tsx) renders the section under the body (after `OrderTodayCTA`), titled `See Related Blogs About [Topic]`. Hidden when no related posts resolve.
+- [x] Category-page [RelatedBlogsSection](components/category/RelatedBlogsSection.tsx) (M3-311) untouched.
+- [x] `pnpm typecheck` passes. Build skipped locally to save time — runs on Vercel.
+
+**Estimate.** 4 hours.
+
+**Notes.**
+
+- The prompt described the blog-post "See Related Blogs About …" section as already existing and auto-derived. In practice it wasn't rendered at all (the `relatedPosts` field was fetched but never displayed). M4-406 both adds the section and gives Patrick override-or-fallback control.
+- Schema field key change: `relatedPosts` → `relatedBlogs`. No production data is affected because no rendering or migration script ever populated `relatedPosts`. If any document does carry orphaned `relatedPosts` data, it stays in the dataset but is no longer surfaced.
+
 ---
 
 ## Module 5: Search, Forms, Home, Deals, Polish

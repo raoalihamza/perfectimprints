@@ -98,6 +98,7 @@ export default defineType({
             },
           },
         },
+        { type: 'blogProducts' },
       ],
     }),
     defineField({
@@ -133,10 +134,29 @@ export default defineType({
       options: { layout: 'tags' },
     }),
     defineField({
-      name: 'relatedPosts',
-      title: 'Related Posts',
+      name: 'relatedBlogs',
+      title: 'Related Blogs (manual override)',
+      description:
+        'When set, these override the automatic related-blogs list for this post, in this order. Leave empty to use automatic matching by shared categories.',
       type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'blogPost' }] }],
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'blogPost' }],
+          options: {
+            filter: ({ document }) =>
+              document?._id
+                ? {
+                    filter: '_id != $self && _id != $draft',
+                    params: {
+                      self: document._id.replace(/^drafts\./, ''),
+                      draft: `drafts.${document._id.replace(/^drafts\./, '')}`,
+                    },
+                  }
+                : {},
+          },
+        },
+      ],
     }),
     defineField({
       name: 'metaTitle',

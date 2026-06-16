@@ -18,6 +18,7 @@ import leadSubmission from './documents/lead-submission';
 import seo from './objects/seo';
 import link from './objects/link';
 import footerColumn from './objects/footer-column';
+import blogProducts from './objects/blog-products';
 
 export const schemaTypes: SchemaTypeDefinition[] = [
   homePage,
@@ -36,4 +37,5 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   seo,
   link,
   footerColumn,
+  blogProducts,
 ];
