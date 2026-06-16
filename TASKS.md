@@ -584,7 +584,7 @@ Context-specific filters (show only when category context matches):
 **Acceptance.**
 
 - [x] SeleniumBase UC-mode scraper committed AND RUN ([scripts/scrapers/blogs/scrape_sbase.py](scripts/scrapers/blogs/scrape_sbase.py)) — pulls **current** PI content directly via Cloudflare Turnstile bypass + system VPN. Wayback-based interim scraper from the first attempt has been removed.
-- [x] **649 of 731** blog posts have raw JSON output (89% coverage); the other 82 URLs are confirmed-deleted on PI's side (Patrick manually verified each by visiting the URL — see `data/blogs/.failed-slugs.txt`).
+- [x] **645 of 731** blog posts have raw JSON output (88% coverage after the 2026-06-15 re-scrape pass with scroll-to-load); 86 URLs failed (78 verified-deleted on PI's side, 8 unrecoverable behind Cloudflare Turnstile even with patient retry budgets). Patrick manually verified the deleted set — see `data/blogs/.failed-slugs.txt`.
 - [x] Inline images preserved as direct MPower CDN URLs in `headerImageUrl` + body `<img src>`. Import phase uploads to Sanity assets in parallel (~2s each, no throttle issues like the Wayback CDN had).
 - [x] Failures logged with HTTP status to `data/blogs/.scrape-errors.log` (82 PARSE failures = deleted blogs).
 - [x] Body content preserved as HTML for portable text conversion (avg 11.7 KB, max ~150 KB — substantial articles, current MPower template).
@@ -597,11 +597,16 @@ Context-specific filters (show only when category context matches):
 
 - **Scrape source:** Direct PI via [SeleniumBase](https://seleniumbase.io/) UC mode (`uc=True` + `uc_open_with_reconnect` + `uc_gui_click_captcha`). Uses an undetected ChromeDriver patch set + real system Chrome (not headless-shell) to bypass Cloudflare Turnstile. Implementation at [scripts/scrapers/blogs/scrape_sbase.py](scripts/scrapers/blogs/scrape_sbase.py), invoked via `pnpm scrape-blogs`.
 - **Prereqs:** System-wide US/EU VPN connected (browser-extension VPNs don't route script traffic). System Chrome installed.
-- **Coverage:** 649 of 731 PI blog URLs (89%). The 82 remaining returned PI's "These promotional items aren't available at this link" page or `/blog/wp-admin` (admin URL, never a blog post). Patrick manually verified each — all 82 are genuinely deleted/missing on PI's side. List preserved at [data/blogs/.failed-slugs.txt](data/blogs/.failed-slugs.txt) for delivery-time reference.
+- **Coverage:** 645 of 731 PI blog URLs (88%) after the 2026-06-15 re-scrape. 78 of the 86 missing returned PI's "These promotional items aren't available at this link" page or `/blog/wp-admin` (admin URL) — Patrick verified each. 8 more failed even with patient retry budgets because Cloudflare Turnstile kept escalating to challenges the scraper couldn't pass. List preserved at [data/blogs/.failed-slugs.txt](data/blogs/.failed-slugs.txt) for delivery-time reference.
 - **Parser:** Current MPower template uses `.blog-post-body` (no era-switching needed since we're hitting live PI not Wayback snapshots). PI's "Published: M/D/YYYY    Updated: ...    Author: ..." metaline below H1 is parsed regex-style for dates + author.
 - **What's preserved per blog (output schema in [scripts/scrapers/blogs/README.md](scripts/scrapers/blogs/README.md)):** title (visible H1), metaTitle (og:title — SEO variant, often different), publishDate (real published date, not last-modified), updatedDate (~52% of blogs have it), author (100%), headerImageUrl (og:image, direct MPower CDN URL), bodyHtml + bodyText, embeds[] (YouTube/Vimeo), images[], inlineLinks (/cat/ + /blog/ hrefs), categoryTags, metaDescription.
 - **Runtime:** ~16 sec per URL (Turnstile solve + page load + extract). Full 731 ran ~3.5 hours.
-- **Output:** Raw JSONs archived outside the repo at `~/Documents/perfectimprints-archive/blogs-snapshot-2026-06-10/raw/` (649 JSONs, 14 MB) since Sanity is now the source of truth. See archive README for re-import instructions.
+- **Output:** Raw JSONs archived outside the repo at `~/Documents/perfectimprints-archive/blogs-snapshot-2026-06-15/raw/` (645 JSONs, 16 MB) — supersedes the 2026-06-10 archive which captured only first-content-block content for every multi-section listicle (the no-scroll bug). Sanity is the source of truth post-migration; the archive exists for re-import after schema changes.
+
+**M4-rescrape (2026-06-15 → 2026-06-16) — content-fidelity passes.** Two systematic content-quality issues were caught and fixed in this window:
+
+1. **Truncated listicles**: the original scraper grabbed `article` innerHTML after only a 1.5s post-load sleep with no scroll. PI's MPower template lazy-loads each `.fdb-block` section on scroll, so listicles like `paramedic-shares-ems-appreciation-gifts-ems-week` had captured only the intro plus 1-2 sections instead of all 15+. Fixed by adding incremental scroll (800px steps, ~0.7s pause each, max 90s per page) until `document.body.scrollHeight` stabilises across 3 consecutive readings, then extracting. Also filters to `data-block-type="contents"` blocks only (skipping the 12 megamenu `navigation` fdb-blocks rendered at top of the article wrapper and the bottom `footer` fdb-block), and strips product-grid blocks (sections with 2+ anchors to `https://www.perfectimprints.com/products/` each wrapping an `<img>`) since those will be reintroduced as a Studio editing block in a future prompt. New scraper fields: `contentBlockCount`, `strippedGridCount`.
+2. **Silently-dropped body images**: the import was losing ~62% of inline images. Three root causes: (a) a bogus skip on URLs containing `/undefined/` — MPower CDN legitimately uses that segment when the page ID was undefined at render time; the asset itself is valid; (b) unlimited Sanity asset-upload concurrency (`Promise.all` over every body image at once — a 91-image blog fired 91 simultaneous uploads, guaranteed ECONNRESET; (c) no retry on transient failures. Fixed by throttling to 4 concurrent uploads, retrying transient failures up to 4 times with exponential backoff, and removing the `/undefined/` URL check. Total body images in Sanity went 632 → 818 after the fix and a targeted re-import of the 587 affected slugs ([scripts/migrations/delete-affected-blogs.ts](scripts/migrations/delete-affected-blogs.ts) → `pnpm import-blogs --resume` → `pnpm publish-blog-drafts --exclude-stubs` → `pnpm dedupe-header-images`).
 
 ### [x] M4-402: Blog Sanity schemas and migration
 
@@ -610,14 +615,14 @@ Context-specific filters (show only when category context matches):
 
 - [x] All three Sanity schemas updated (blogPost gains `embed` block type for YouTube/Vimeo + `updatedDate` populated; blogCategory + author unchanged)
 - [x] Migration script committed + run with HTML→portable text + iframe→embed conversion + Sanity asset uploads + author/category dedup
-- [x] Bulk-publish script committed + run with `--exclude-stubs` flag so only the 649 real blogs go live (the 82 stubs remain as hidden drafts for delivery-time reference)
-- [x] **649 real blogs published** to Sanity; 82 stub drafts hidden (Patrick-verified-deleted URLs from M4-401)
+- [x] Bulk-publish script committed + run with `--exclude-stubs` flag so only the 645 real blogs go live (the 86 stubs remain as hidden drafts for delivery-time reference)
+- [x] **645 real blogs published** to Sanity; 86 stub drafts hidden (78 Patrick-verified-deleted + 8 CF-unrecoverable URLs from M4-401)
 - [x] Sample drafts programmatically verified (`pnpm verify-blog-drafts`) — link annotations preserved (samples carried 0/23/32/111/156 link annotations), real images uploaded, embeds intact, dates correct, authors populated
-- [x] Inline images preserved in portable text — uploaded to Sanity assets directly from MPower CDN. 638/649 (98%) have headerImage; the 11 without were blogs PI hadn't set an `og:image` meta on. Run `pnpm backfill-blog-images` for any future header-image recovery.
+- [x] Inline images preserved in portable text — uploaded to Sanity assets directly from MPower CDN. After the 2026-06-15 throttle+retry+`/undefined/`-URL fix and re-import, 818 inline body images are live across the 645 published blogs (was 632 before the fix — 186 net recovered). Headers present on most blogs; the rest are blogs PI hadn't set an `og:image` meta on. Hero-image dedupe (`pnpm dedupe-header-images`) runs in two passes: asset-ref exact match (catches cases where the same Sanity asset is reused) + position-based fallback (drops the first body image when a headerImage exists and a body image appears within the first 6 blocks — handles MPower's pattern of using a `_1200_1200_*.jpg` system thumbnail as og:image vs the full-resolution descriptive filename in the body, same visual image but different bytes → different asset refs). Run `pnpm backfill-blog-images` for any future header-image recovery.
 - [x] Inline `<a>` tags preserved as portable text link annotations
 - [x] Publish dates preserved exactly (parsed from PI's inline "Published: M/D/YYYY" metaline, not just `last-modified` meta) + `updatedDate` populated from "Updated:" line for the 52% of blogs that have it
-- [x] `author` reference populated for **649/649 (100%)** of published blogs — 33 unique authors auto-deduped (Patrick Black 284, Perfect Imprints 138, Sarah Garcia 70, Laiba Siddiqui 56, Kiruthika Shantharam 42, Angelica Leti 40, etc.)
-- [x] `relatedCategorySlugs` populated via best-effort title+tag matching against 465 PI root slugs — 338/649 (52%) have at least one mapping (up from 44% on first attempt)
+- [x] `author` reference populated for **645/645 (100%)** of published blogs — ~33 unique authors auto-deduped (Patrick Black ~284, Perfect Imprints ~138, Sarah Garcia ~70, Laiba Siddiqui, Kiruthika Shantharam, Angelica Leti, etc.)
+- [x] `relatedCategorySlugs` populated via best-effort title+tag matching against 465 PI root slugs — 327/645 (51%) have at least one mapping
 - [x] Re-running the migration is idempotent (deterministic `blog-post-<slug>` IDs; `createOrReplace` semantics). [wipe-blog-posts.ts](scripts/migrations/wipe-blog-posts.ts) clears Sanity for clean re-import.
 - [x] Patrick can edit any blog in Sanity Studio after import (slug auto-source removed → original URLs preserved verbatim)
       **Depends on.** M1-104, M4-401.
@@ -630,13 +635,14 @@ Context-specific filters (show only when category context matches):
 2. Direct PI scrape was originally blocked by CF 403. Tried curl_cffi (chrome131 TLS), cloudscraper, Playwright headed + stealth, Playwright with persistent Chrome profile — all 403 even via a US VPN. Root cause turned out to be **Cloudflare Turnstile escalating to interactive checkbox challenge** on rapid sequential requests. [SeleniumBase UC mode](https://seleniumbase.io/help_docs/uc_mode/) was the winner — its undetected ChromeDriver patches handle Turnstile.
 3. Scraper extractor pass — the og:title vs H1 issue was fixed by preferring H1 and storing og:title separately as `metaTitle`. The publishDate issue was fixed by parsing PI's inline "Published: M/D/YYYY    Updated: ...    Author: ..." line below the H1 (regex-driven). Author extracted from the same line — 100% capture rate.
 4. Sanity schema extended with `embed` block type (`{ provider: 'youtube' | 'vimeo' | 'iframe', url, videoId, caption }`). `htmlToBlocks` rules updated to convert `<iframe>` → `embed` block during portable text conversion. [BlogBody.tsx](components/blog/BlogBody.tsx) renders embed blocks as 16:9 responsive iframes.
-5. After clean scrape was ready, wiped the 731 broken Wayback-era docs ([scripts/migrations/wipe-blog-posts.ts](scripts/migrations/wipe-blog-posts.ts), `pnpm wipe-blog-posts --force`) and re-imported the 649 fresh blogs. MPower's CDN (`store-media.mpowerpromo.com`) is NOT CF-blocked → direct image fetch in ~2s per image with parallel upload, 0 image failures.
+5. After clean scrape was ready, wiped the 731 broken Wayback-era docs ([scripts/migrations/wipe-blog-posts.ts](scripts/migrations/wipe-blog-posts.ts), `pnpm wipe-blog-posts --force`) and re-imported the 649 fresh blogs. MPower's CDN (`store-media.mpowerpromo.com`) is NOT CF-blocked → direct image fetch in ~2s per image with parallel upload, 0 image failures **(this was actually wrong; the second pass on 2026-06-15 caught a ~62% silent body-image loss — see M4-rescrape notes in M4-401)**.
 6. Per Patrick's request, the 82 stub drafts (for verified-deleted PI URLs) are NOT published — `publish-blog-drafts.ts` gained `--exclude-stubs` flag that filters drafts by body marker text so only the 649 real blogs go live. Stubs remain in Sanity as hidden drafts so the URL list is preserved for delivery reference.
+7. **2026-06-15 second pass: re-scrape with scroll + body-image fix + dedupe.** Issues caught on Patrick's content review: (a) listicles truncated at first lazy-loaded grid; (b) hero image visually duplicated at top of body in the rendered page; (c) ~62% of body images silently lost during import. Fixed in this order — re-scraped 645 blogs with scroll-to-load + product-grid strip ([scripts/scrapers/blogs/scrape_sbase.py](scripts/scrapers/blogs/scrape_sbase.py) updated in-place), patched the existing-doc dupes via [scripts/migrations/dedupe-header-images.ts](scripts/migrations/dedupe-header-images.ts), fixed the image-upload bugs in [scripts/migrations/import-blogs.ts](scripts/migrations/import-blogs.ts) (throttle + retry + drop the `/undefined/` URL false-reject), then targeted re-import of the 587 image-deficit slugs via [scripts/migrations/delete-affected-blogs.ts](scripts/migrations/delete-affected-blogs.ts) + `pnpm import-blogs --resume`. BlogBody renderer also tightened: empty `<p><br></p>` spacer blocks from Froala filtered out, paragraph `mt-5` → `mt-3`, and list items normalised to level 1 so consecutive number-list blocks group in one `<ol>` (was rendering each as `1, 1, 1` in its own list).
 
 **Operational note for Patrick:**
-- 649 blogs live on staging at `/blog/<slug>` — current PI content (current MPower template), with YouTube/Vimeo embeds rendered inline, real hero images from MPower CDN, real published + updated dates, real authors.
+- 645 blogs live on staging at `/blog/<slug>` — current PI content (current MPower template), with YouTube/Vimeo embeds rendered inline, real hero images from MPower CDN, real published + updated dates, real authors, full listicle bodies (scroll-aware scrape), and ~818 inline body images (no longer silently dropped).
 - 82 hidden stub drafts remain in Sanity (and [data/blogs/.failed-slugs.txt](data/blogs/.failed-slugs.txt) for delivery handoff) — those PI URLs returned "These promotional items aren't available at this link." All 82 verified manually by Patrick.
-- 311 published blogs could use editorial cleanup if you want richer `relatedCategorySlugs` coverage (auto-mapping caught 338/649 = 52% via title-token match; Studio editing lifts that without much effort).
+- 318 published blogs could use editorial cleanup if you want richer `relatedCategorySlugs` coverage (auto-mapping caught 327/645 = 51% via title-token match; Studio editing lifts that without much effort).
 - One outlier: `enjoy-your-favorite-game-with-custom-stadium-seat-cushions` scraped with empty body (race condition during page hydration). Patrick chose not to retry — single Studio edit fixes it.
 
 **Files (all committed and pushed in commit b33f8333):**
@@ -654,10 +660,11 @@ Context-specific filters (show only when category context matches):
 
   1. Copy `~/Documents/perfectimprints-archive/blogs-snapshot-2026-06-10/raw/` back to `data/blogs/raw/`
   2. `pnpm wipe-blog-posts --force` — clears the 731 existing docs (destructive, but the archive is the source of truth)
-  3. `pnpm import-blogs --dry-run` to preview counts (expect 649 real + 82 stub)
+  3. `pnpm import-blogs --dry-run` to preview counts (expect 645 real + 86 stub)
   4. `pnpm import-blogs` — writes 731 drafts to Sanity (~10-15 min, image-upload bound but MPower CDN is fast)
   5. `pnpm verify-blog-drafts` — programmatic sample check
-  6. `pnpm publish-blog-drafts --exclude-stubs` — publishes the 649 real ones, stubs stay hidden
+  6. `pnpm publish-blog-drafts --exclude-stubs` — publishes the 645 real ones, stubs stay hidden
+  7. `pnpm dedupe-header-images` — runs the asset-ref + position-based hero-dup cleanup pass (idempotent; only patches docs that still have a body image in the first 6 blocks)
 
 ### [x] M4-403: Blog templates (index, post, category)
 
@@ -671,7 +678,7 @@ Context-specific filters (show only when category context matches):
 - [x] Mobile responsive: 1/2/3 col blog grid (mobile/tablet/desktop); sidebar collapses below content on tablet/mobile
 - [x] Sidebar Contact CTA opens lead form modal (reuses [components/forms/LeadFormModal.tsx](components/forms/LeadFormModal.tsx))
 - [x] Sitemap updated to read blog post + blog category URLs from Sanity (published only, page 1 only); falls back to no blog entries during pre-migration build
-- [x] 649 published blog URLs live on Sanity (verified via GROQ count). 82 hidden stub drafts remain for delivery reference. Staging resolves on next Vercel deploy after commit `b33f8333`.
+- [x] 645 published blog URLs live on Sanity (verified via GROQ count). 86 hidden stub drafts remain for delivery reference. Staging resolves on next Vercel deploy.
       **Depends on.** M4-402, M3-308.
       **Estimate.** 10 hours.
 

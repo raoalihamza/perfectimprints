@@ -608,17 +608,21 @@ Week 4:
 - Context-specific filters (apparel/drinkware/tech show extra filters when relevant)
 - Brand logos scrape (Phase E)
 - Brands tab in main menu + `/brands` index + `/brands/[slug]` per-brand pages
-- ✅ Related Blogs section ("Related Blogs About [Category Name]" H2 with up to 8 related blog cards) — wired into root category pages in commit `b33f8333` (2026-06-10). Server-rendered from `relatedCategorySlugs`. 338 of 649 published blogs have at least one mapping; rest hide the section gracefully when zero matches.
+- ✅ Related Blogs section ("Related Blogs About [Category Name]" H2 with up to 8 related blog cards) — wired into root category pages in commit `b33f8333` (2026-06-10). Server-rendered from `relatedCategorySlugs`. 327 of 645 published blogs have at least one mapping; rest hide the section gracefully when zero matches.
 - Lead capture form
 
-**Module 4 (Blogs): Complete (2026-06-10).**
+**Module 4 (Blogs): Complete (2026-06-15, second re-scrape pass).**
 
-- **649 blogs published** to Sanity with current PI content (current MPower template), 82 hidden stub drafts for confirmed-deleted URLs
-- Scraped directly from PI via SeleniumBase UC mode (Cloudflare Turnstile bypass) + US-exit VPN — Wayback-based first attempt produced inferior content and was discarded
-- 100% have inline author (33 unique authors), 98% have hero image (real MPower CDN), 39 blogs have YouTube/Vimeo video embeds preserved, 52% have published+updated dates
+- **645 blogs published** to Sanity with current PI content (current MPower template), 86 hidden stub drafts for confirmed-deleted-on-PI URLs
+- Scraped directly from PI via SeleniumBase UC mode (Cloudflare Turnstile bypass) + US-exit VPN — Wayback-based first attempt and the no-scroll second attempt were both discarded as inferior
+- **Re-scrape required (2026-06-15)** because the prior scrape didn't scroll, so multi-section listicles got truncated at the first lazy-loaded product grid. The new scraper scrolls to bottom in 800px steps until DOM height stabilises (max 90s per page), filters to `data-block-type="contents"` blocks only (skipping the 12 megamenu navigation fdb-blocks at the top + the footer fdb-block at the bottom), and strips product-grid blocks (sections with 2+ anchors to `/products/` each wrapping an img — see M4-rescrape in TASKS.md). Product grids will be added back later as a separate Studio editing block; not in scope for this pass.
+- 100% have inline author (~33 unique authors), most have hero image (real MPower CDN), some blogs have YouTube/Vimeo video embeds preserved, ~50% have inline published+updated dates
+- 818 inline body images across 645 published blogs after the throttle+retry+`/undefined/`-URL fix in commit `xxxxxxx` (2026-06-15). Earlier import was silently losing ~62% of images to parallel-upload ECONNRESETs and to a bogus skip on URLs containing `/undefined/` (MPower CDN legitimately uses that segment).
+- Hero-image dedupe ran twice: asset-ref match (104 docs) for cases where the OG/social image and the body's first image were the same Sanity asset, then a position-based pass (~157 docs) for the common MPower pattern where the OG image is a system-generated `_1200_1200_*.jpg` thumbnail and the body image is the full-resolution descriptive filename — same visual image, different bytes → different Sanity assets, but the dedupe script (`pnpm dedupe-header-images`) drops the first body image when a `headerImage` exists and a body image is found in the first 6 blocks.
+- BlogBody renderer drops empty paragraph blocks (PI's Froala editor inserts `<p><br></p>` between every heading + image + paragraph as spacers — rendering them as `<p class="mt-5">` was creating big vertical gaps not present in PI's original look). Paragraph margin tightened `mt-5` → `mt-3`.
 - Blog templates live: `/blog`, `/blog/[slug]`, `/blog/cat/[slug]` + pagination variants, vertical sticky social share bar, sidebar with categories + popular links + LeadForm CTA
 - Related Blogs section live on root category pages (M3-311)
-- Raw scrape JSONs archived outside repo at `~/Documents/perfectimprints-archive/blogs-snapshot-2026-06-10/`. List of 82 deleted URLs retained at `data/blogs/.failed-slugs.txt` for delivery handoff. See M4-401 and M4-402 in TASKS.md for the full story.
+- Raw scrape JSONs archived outside repo at `~/Documents/perfectimprints-archive/blogs-snapshot-2026-06-15/` (16 MB, 645 JSONs). The 2026-06-10 archive is kept for the older Wayback+no-scroll baseline but the 2026-06-15 snapshot supersedes it for any re-import. List of 86 deleted/unrecoverable URLs retained at `data/blogs/.failed-slugs.txt` for delivery handoff. See M4-401 and M4-402 in TASKS.md for the full story.
 
 Week 5:
 
