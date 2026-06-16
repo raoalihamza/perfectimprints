@@ -28,7 +28,8 @@
     "verify-blog-drafts": "tsx scripts/migrations/verify-blog-drafts.ts",
     "backfill-blog-images": "tsx scripts/migrations/backfill-blog-images.ts",
     "rescrape-report": "tsx scripts/migrations/write-rescrape-report.ts",
-    "dedupe-header-images": "tsx scripts/migrations/dedupe-header-images.ts"
+    "dedupe-header-images": "tsx scripts/migrations/dedupe-header-images.ts",
+    "delete-affected-blogs": "tsx scripts/migrations/delete-affected-blogs.ts"
   },
   "dependencies": {
     "@portabletext/react": "^3.1.0",

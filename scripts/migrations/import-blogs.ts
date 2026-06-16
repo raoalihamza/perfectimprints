@@ -302,21 +302,43 @@ async function uploadImageFromUrl(
 ): Promise<string | null> {
   if (DRY_RUN) return `__dry-image-${url.slice(-30)}`;
   if (SKIP_IMAGE_UPLOADS) return null;
-  // Skip known-broken URL patterns up front so we don't waste 6 sec on each.
-  if (url.includes('/undefined/') || url.includes('undefined.')) return null;
-  try {
-    const response = await fetch(url, { signal: AbortSignal.timeout(IMAGE_FETCH_TIMEOUT_MS) });
-    if (!response.ok) return null;
-    const arr = await response.arrayBuffer();
-    const buf = Buffer.from(arr);
-    if (buf.length === 0) return null;
-    let filename = url.split('?')[0].split('/').pop() || 'image.jpg';
-    if (filename.length < 3 || !filename.includes('.')) filename = 'image.jpg';
-    const asset = await client.assets.upload('image', buf, { filename, title });
-    return asset._id;
-  } catch {
-    return null;
+  // Note: MPower's store-media CDN legitimately uses `/undefined/` in some
+  // paths (the page ID was undefined at render time but the asset itself is
+  // valid). Earlier we rejected those as broken — that caused ~50% of the
+  // images on long listicles to be silently dropped. Now we let them through.
+  // Retry transient failures (ECONNRESET, timeout, Sanity 5xx) up to 4 times
+  // with exponential backoff. The previous swallow-and-drop behaviour was
+  // losing ~62% of body images at high parallelism.
+  const MAX_ATTEMPTS = 4;
+  let lastError: unknown = null;
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+    try {
+      const response = await fetch(url, { signal: AbortSignal.timeout(IMAGE_FETCH_TIMEOUT_MS) });
+      if (!response.ok) {
+        if (response.status >= 500 && attempt < MAX_ATTEMPTS) {
+          await new Promise((r) => setTimeout(r, 500 * 2 ** attempt));
+          continue;
+        }
+        return null;
+      }
+      const arr = await response.arrayBuffer();
+      const buf = Buffer.from(arr);
+      if (buf.length === 0) return null;
+      let filename = url.split('?')[0].split('/').pop() || 'image.jpg';
+      if (filename.length < 3 || !filename.includes('.')) filename = 'image.jpg';
+      const asset = await client.assets.upload('image', buf, { filename, title });
+      return asset._id;
+    } catch (e) {
+      lastError = e;
+      if (attempt < MAX_ATTEMPTS) {
+        await new Promise((r) => setTimeout(r, 500 * 2 ** attempt));
+        continue;
+      }
+    }
   }
+  const msg = lastError instanceof Error ? lastError.message : String(lastError);
+  console.warn(`    image upload gave up after ${MAX_ATTEMPTS} attempts: ${msg.slice(0, 60)} | ${url.slice(-60)}`);
+  return null;
 }
 
 async function uploadImageFromLocalPath(
@@ -353,19 +375,26 @@ async function uploadAndRewriteImages(
   const uniquePlaceholders = Array.from(new Set(imageBlocks.map((b) => b._placeholderSrc)));
   const toFetch = uniquePlaceholders.filter((p) => !cache.has(p));
 
-  await Promise.all(
-    toFetch.map(async (placeholder) => {
-      const isUrl = /^https?:\/\//.test(placeholder);
-      const uploaded = isUrl
-        ? await uploadImageFromUrl(client, placeholder, `Blog inline ${blogSlug}`)
-        : await uploadImageFromLocalPath(
-            client,
-            resolveLocalImagePath(placeholder),
-            `Blog inline ${blogSlug}`,
-          );
-      if (uploaded) cache.set(placeholder, uploaded);
-    }),
-  );
+  // Throttle to IMAGE_UPLOAD_CONCURRENCY at a time. Without this, blogs with
+  // many images (e.g. recession-proof has 91) would fire 91 parallel uploads
+  // to Sanity → guaranteed rate limit / ECONNRESET → silently lost images.
+  const IMAGE_UPLOAD_CONCURRENCY = 4;
+  for (let i = 0; i < toFetch.length; i += IMAGE_UPLOAD_CONCURRENCY) {
+    const chunk = toFetch.slice(i, i + IMAGE_UPLOAD_CONCURRENCY);
+    await Promise.all(
+      chunk.map(async (placeholder) => {
+        const isUrl = /^https?:\/\//.test(placeholder);
+        const uploaded = isUrl
+          ? await uploadImageFromUrl(client, placeholder, `Blog inline ${blogSlug}`)
+          : await uploadImageFromLocalPath(
+              client,
+              resolveLocalImagePath(placeholder),
+              `Blog inline ${blogSlug}`,
+            );
+        if (uploaded) cache.set(placeholder, uploaded);
+      }),
+    );
+  }
 
   // Mark failed-upload blocks for removal — Sanity's image schema requires
   // an asset ref, so leaving them in causes the doc to fail validation and
