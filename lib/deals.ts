@@ -3,6 +3,12 @@ import path from 'node:path';
 import { decodeHtmlEntities } from './text-utils';
 import type { GeigerProduct } from './product-types';
 import type { DealsFacetSection, DealsFacetValue } from './deals-filter';
+import { augmentAggregator } from './products/augment';
+import { getGeigerProductsBySkus } from './products/lookup';
+import {
+  customProductToGeigerProduct,
+  type CustomProductDoc,
+} from './sanity/queries/custom-products';
 
 // Re-export client-safe types + filter helper so server callers can import
 // everything from "@/lib/deals" without crossing into the client-safe module.
@@ -29,56 +35,36 @@ export interface DealsData {
   facets: DealsFacetSection[];
 }
 
-// Field name we use for the synthetic flat-top-level Category section. The
-// scraper drops `ss_category_hierarchy` from the facet list, so this id is safe.
-const CATEGORY_FIELD = 'category';
-// Geiger's "Shop By" pseudo-department is just sale/brands/etc. — skip it.
-const EXCLUDED_TOP_LEVELS = new Set(['Shop By']);
-
-let _data: DealsData | null = null;
-
-function buildCategorySection(products: GeigerProduct[]): DealsFacetSection | null {
-  const labelBySlug = new Map<string, string>();
-  const skusBySlug = new Map<string, string[]>();
-  for (const p of products) {
-    const seenForProduct = new Set<string>();
-    for (const cp of p.category_paths || []) {
-      const parts = cp.split(' > ');
-      if (parts.length < 2) continue;
-      const label = parts[1];
-      if (EXCLUDED_TOP_LEVELS.has(label)) continue;
-      const slug = slugify(label);
-      if (seenForProduct.has(slug)) continue;
-      seenForProduct.add(slug);
-      labelBySlug.set(slug, label);
-      const list = skusBySlug.get(slug) || [];
-      list.push(p.sku);
-      skusBySlug.set(slug, list);
-    }
-  }
-  const values: DealsFacetValue[] = [...skusBySlug.entries()]
-    .map(([slug, skus]) => ({
-      id: slug,
-      value: slug,
-      label: labelBySlug.get(slug) || slug,
-      count: skus.length,
-      type: 'value' as const,
-      low: null,
-      high: null,
-      skus,
-    }))
-    .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
-
-  if (values.length === 0) return null;
-  return { field: CATEGORY_FIELD, label: 'Category', type: 'list', values };
+interface RawScrapedDeals {
+  scrapedAt: string | null;
+  products: GeigerProduct[];
+  /** Scraped facets exactly as the file delivered them — NO synthetic Category. */
+  scrapedFacets: DealsFacetSection[];
 }
 
-function slugify(s: string): string {
-  return s
-    .toLowerCase()
-    .replace(/&/g, 'and')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, '');
+let _rawCache: RawScrapedDeals | null = null;
+
+function readScraped(): RawScrapedDeals {
+  if (_rawCache) return _rawCache;
+  if (!fs.existsSync(DEALS_FILE)) {
+    _rawCache = { scrapedAt: null, products: [], scrapedFacets: [] };
+    return _rawCache;
+  }
+  const raw = fs.readFileSync(DEALS_FILE, 'utf8');
+  const parsed = JSON.parse(raw) as DealsFile;
+
+  const products: GeigerProduct[] = parsed.products.map((p) => ({
+    ...p,
+    name: decodeHtmlEntities(p.name),
+    description: p.description ? decodeHtmlEntities(p.description) : p.description,
+  }));
+
+  _rawCache = {
+    scrapedAt: parsed.scrapedAt,
+    products,
+    scrapedFacets: parsed.facets,
+  };
+  return _rawCache;
 }
 
 /**
@@ -86,8 +72,6 @@ function slugify(s: string): string {
  * section's value list (counts + sku arrays) so the sidebar stays consistent
  * with the visible grid. Drops values that become empty and sections that
  * become empty.
- *
- * Used by the /deals route to honor the `hiddenDealSkus` Sanity blocklist.
  */
 export function applyHiddenSkus(data: DealsData, hiddenSkus: string[]): DealsData {
   if (!hiddenSkus || hiddenSkus.length === 0) return data;
@@ -109,26 +93,51 @@ export function applyHiddenSkus(data: DealsData, hiddenSkus: string[]): DealsDat
   return { ...data, products, facets };
 }
 
+/**
+ * Returns the scraped-only deals view (Geiger's auto-scraped deals + synthetic
+ * Category section). For the full Sanity-augmented view used by /deals, call
+ * `getAugmentedDealsData()` instead.
+ */
 export function getDealsData(): DealsData {
-  if (_data) return _data;
-  if (!fs.existsSync(DEALS_FILE)) {
-    _data = { scrapedAt: null, products: [], facets: [] };
-    return _data;
-  }
-  const raw = fs.readFileSync(DEALS_FILE, 'utf8');
-  const parsed = JSON.parse(raw) as DealsFile;
+  return getAugmentedDealsData({ pinnedSkus: [], customDocs: [] });
+}
 
-  const products: GeigerProduct[] = parsed.products.map((p) => ({
-    ...p,
-    name: decodeHtmlEntities(p.name),
-    description: p.description ? decodeHtmlEntities(p.description) : p.description,
-  }));
+export interface AugmentDealsInput {
+  pinnedSkus?: string[];
+  customDocs?: CustomProductDoc[];
+}
 
-  const facets: DealsFacetSection[] = [];
-  const categorySection = buildCategorySection(products);
-  if (categorySection) facets.push(categorySection);
-  for (const f of parsed.facets) facets.push(f);
+/**
+ * Returns the deals data with Sanity-controlled additions merged in:
+ *  - `pinnedSkus[]` — Geiger SKUs to promote even when Geiger's deals scrape
+ *    did not include them (looked up against products.json).
+ *  - `customDocs[]` — non-Geiger custom products (any vendor) flagged with
+ *    `placements.onDeals == true` in Studio.
+ *
+ * Order on the page: custom (editorial picks) → newly-pinned Geiger SKUs →
+ * scraped Geiger deals. The synthetic Category facet section is rebuilt to
+ * include all sources, and custom-product filter tags (brand/colors/material)
+ * are injected into the corresponding facet sections so the filter sidebar
+ * stays consistent.
+ */
+export function getAugmentedDealsData(input: AugmentDealsInput = {}): DealsData {
+  const base = readScraped();
+  const pinnedProducts = getGeigerProductsBySkus(input.pinnedSkus ?? []);
+  const customDocs = input.customDocs ?? [];
+  const customProducts = customDocs.map(customProductToGeigerProduct);
 
-  _data = { scrapedAt: parsed.scrapedAt, products, facets };
-  return _data;
+  const augmented = augmentAggregator({
+    scrapedAt: base.scrapedAt,
+    scrapedProducts: base.products,
+    scrapedFacets: base.scrapedFacets,
+    pinnedProducts,
+    customProducts,
+    customDocs,
+  });
+
+  return {
+    scrapedAt: augmented.scrapedAt,
+    products: augmented.products,
+    facets: augmented.facets as DealsFacetSection[],
+  };
 }

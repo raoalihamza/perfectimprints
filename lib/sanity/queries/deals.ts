@@ -6,6 +6,7 @@ export interface DealsPageCopy {
   metaTitle?: string;
   metaDescription?: string;
   hiddenDealSkus?: string[];
+  pinnedDealSkus?: string[];
 }
 
 const DEALS_COPY_QUERY = `*[_type == "globalSettings"][0].dealsPage{
@@ -13,7 +14,8 @@ const DEALS_COPY_QUERY = `*[_type == "globalSettings"][0].dealsPage{
   intro,
   metaTitle,
   metaDescription,
-  hiddenDealSkus
+  hiddenDealSkus,
+  pinnedDealSkus
 }`;
 
 export async function getDealsPageCopy(): Promise<DealsPageCopy> {

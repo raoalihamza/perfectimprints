@@ -6,6 +6,7 @@ export interface NewProductsPageCopy {
   metaTitle?: string;
   metaDescription?: string;
   hiddenNewProductSkus?: string[];
+  pinnedNewProductSkus?: string[];
 }
 
 const NEW_PRODUCTS_COPY_QUERY = `*[_type == "globalSettings"][0].newProductsPage{
@@ -13,7 +14,8 @@ const NEW_PRODUCTS_COPY_QUERY = `*[_type == "globalSettings"][0].newProductsPage
   intro,
   metaTitle,
   metaDescription,
-  hiddenNewProductSkus
+  hiddenNewProductSkus,
+  pinnedNewProductSkus
 }`;
 
 export async function getNewProductsPageCopy(): Promise<NewProductsPageCopy> {

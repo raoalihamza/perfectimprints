@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { NewProductsPageBody } from '@/components/new-products/NewProductsPageBody';
-import { getNewProductsData, applyHiddenSkus } from '@/lib/new-products';
+import { getAugmentedNewProductsData, applyHiddenSkus } from '@/lib/new-products';
 import { getNewProductsPageCopy } from '@/lib/sanity/queries/new-products';
+import { getCustomProductsForNewProducts } from '@/lib/sanity/queries/custom-products';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
   /\/$/,
@@ -26,8 +27,16 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function NewProductsPage() {
-  const copy = await getNewProductsPageCopy();
-  const data = applyHiddenSkus(getNewProductsData(), copy.hiddenNewProductSkus || []);
+  const [copy, customDocs] = await Promise.all([
+    getNewProductsPageCopy(),
+    getCustomProductsForNewProducts(),
+  ]);
+
+  const augmented = getAugmentedNewProductsData({
+    pinnedSkus: copy.pinnedNewProductSkus || [],
+    customDocs,
+  });
+  const data = applyHiddenSkus(augmented, copy.hiddenNewProductSkus || []);
 
   return <NewProductsPageBody copy={copy} facets={data.facets} products={data.products} />;
 }

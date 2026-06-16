@@ -6,6 +6,12 @@ import type {
   NewProductsFacetSection,
   NewProductsFacetValue,
 } from './new-products-filter';
+import { augmentAggregator } from './products/augment';
+import { getGeigerProductsBySkus } from './products/lookup';
+import {
+  customProductToGeigerProduct,
+  type CustomProductDoc,
+} from './sanity/queries/custom-products';
 
 export type {
   NewProductsFacetSection,
@@ -30,53 +36,35 @@ export interface NewProductsData {
   facets: NewProductsFacetSection[];
 }
 
-const CATEGORY_FIELD = 'category';
-const EXCLUDED_TOP_LEVELS = new Set(['Shop By']);
-
-let _data: NewProductsData | null = null;
-
-function buildCategorySection(products: GeigerProduct[]): NewProductsFacetSection | null {
-  const labelBySlug = new Map<string, string>();
-  const skusBySlug = new Map<string, string[]>();
-  for (const p of products) {
-    const seenForProduct = new Set<string>();
-    for (const cp of p.category_paths || []) {
-      const parts = cp.split(' > ');
-      if (parts.length < 2) continue;
-      const label = parts[1];
-      if (EXCLUDED_TOP_LEVELS.has(label)) continue;
-      const slug = slugify(label);
-      if (seenForProduct.has(slug)) continue;
-      seenForProduct.add(slug);
-      labelBySlug.set(slug, label);
-      const list = skusBySlug.get(slug) || [];
-      list.push(p.sku);
-      skusBySlug.set(slug, list);
-    }
-  }
-  const values: NewProductsFacetValue[] = [...skusBySlug.entries()]
-    .map(([slug, skus]) => ({
-      id: slug,
-      value: slug,
-      label: labelBySlug.get(slug) || slug,
-      count: skus.length,
-      type: 'value' as const,
-      low: null,
-      high: null,
-      skus,
-    }))
-    .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
-
-  if (values.length === 0) return null;
-  return { field: CATEGORY_FIELD, label: 'Category', type: 'list', values };
+interface RawScrapedNewProducts {
+  scrapedAt: string | null;
+  products: GeigerProduct[];
+  scrapedFacets: NewProductsFacetSection[];
 }
 
-function slugify(s: string): string {
-  return s
-    .toLowerCase()
-    .replace(/&/g, 'and')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, '');
+let _rawCache: RawScrapedNewProducts | null = null;
+
+function readScraped(): RawScrapedNewProducts {
+  if (_rawCache) return _rawCache;
+  if (!fs.existsSync(NEW_PRODUCTS_FILE)) {
+    _rawCache = { scrapedAt: null, products: [], scrapedFacets: [] };
+    return _rawCache;
+  }
+  const raw = fs.readFileSync(NEW_PRODUCTS_FILE, 'utf8');
+  const parsed = JSON.parse(raw) as NewProductsFile;
+
+  const products: GeigerProduct[] = parsed.products.map((p) => ({
+    ...p,
+    name: decodeHtmlEntities(p.name),
+    description: p.description ? decodeHtmlEntities(p.description) : p.description,
+  }));
+
+  _rawCache = {
+    scrapedAt: parsed.scrapedAt,
+    products,
+    scrapedFacets: parsed.facets,
+  };
+  return _rawCache;
 }
 
 /**
@@ -107,34 +95,51 @@ export function applyHiddenSkus(
   return { ...data, products, facets };
 }
 
+/**
+ * Returns the scraped-only new-products view. For the full Sanity-augmented
+ * view used by /new-products, call `getAugmentedNewProductsData()` instead.
+ */
 export function getNewProductsData(): NewProductsData {
-  if (_data) return _data;
-  if (!fs.existsSync(NEW_PRODUCTS_FILE)) {
-    _data = { scrapedAt: null, products: [], facets: [] };
-    return _data;
-  }
-  const raw = fs.readFileSync(NEW_PRODUCTS_FILE, 'utf8');
-  const parsed = JSON.parse(raw) as NewProductsFile;
+  return getAugmentedNewProductsData({ pinnedSkus: [], customDocs: [] });
+}
 
-  const products: GeigerProduct[] = parsed.products.map((p) => ({
-    ...p,
-    name: decodeHtmlEntities(p.name),
-    description: p.description ? decodeHtmlEntities(p.description) : p.description,
-  }));
-
-  const facets: NewProductsFacetSection[] = [];
-  const categorySection = buildCategorySection(products);
-  if (categorySection) facets.push(categorySection);
-  for (const f of parsed.facets) facets.push(f);
-
-  _data = { scrapedAt: parsed.scrapedAt, products, facets };
-  return _data;
+export interface AugmentNewProductsInput {
+  pinnedSkus?: string[];
+  customDocs?: CustomProductDoc[];
 }
 
 /**
- * Convenience helper for the homepage "New and Trending" rail. Returns the
- * first `limit` products sorted as Searchspring delivered them (the scraper
- * preserves Geiger's own "Best Sellers" ordering on the New Products feed).
+ * Returns the new-products data with Sanity-controlled additions merged in.
+ * Same pattern as `getAugmentedDealsData`. See that function's docstring.
+ */
+export function getAugmentedNewProductsData(
+  input: AugmentNewProductsInput = {},
+): NewProductsData {
+  const base = readScraped();
+  const pinnedProducts = getGeigerProductsBySkus(input.pinnedSkus ?? []);
+  const customDocs = input.customDocs ?? [];
+  const customProducts = customDocs.map(customProductToGeigerProduct);
+
+  const augmented = augmentAggregator({
+    scrapedAt: base.scrapedAt,
+    scrapedProducts: base.products,
+    scrapedFacets: base.scrapedFacets,
+    pinnedProducts,
+    customProducts,
+    customDocs,
+  });
+
+  return {
+    scrapedAt: augmented.scrapedAt,
+    products: augmented.products,
+    facets: augmented.facets as NewProductsFacetSection[],
+  };
+}
+
+/**
+ * Convenience helper for the homepage "New and Trending" rail. Reads the
+ * scraped-only view (no Sanity augmentation, no async work) so the rail
+ * stays a sync server-component call.
  */
 export function getNewProducts(limit = 12): GeigerProduct[] {
   return getNewProductsData().products.slice(0, limit);

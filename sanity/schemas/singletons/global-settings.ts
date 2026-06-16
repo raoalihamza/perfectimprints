@@ -102,6 +102,15 @@ export default defineType({
           description:
             'Geiger SKUs to remove from the /deals product grid (e.g., "526499"). Useful when a deal product is off-brand or you do not want to promote it. Facet counts re-derive automatically.',
         },
+        {
+          name: 'pinnedDealSkus',
+          title: 'Pin these Geiger SKUs to /deals',
+          type: 'array',
+          of: [{ type: 'string' }],
+          options: { layout: 'tags' },
+          description:
+            'Geiger SKUs to promote to /deals even if Geiger\'s scrape did not include them. Looked up from data/geiger/products.json. Invalid/unknown SKUs are silently skipped.',
+        },
       ],
     }),
     defineField({
@@ -128,6 +137,15 @@ export default defineType({
           options: { layout: 'tags' },
           description:
             'Geiger SKUs to remove from the /new-products grid (e.g., "529459"). Useful when a new item is off-brand or you do not want to promote it. Facet counts re-derive automatically.',
+        },
+        {
+          name: 'pinnedNewProductSkus',
+          title: 'Pin these Geiger SKUs to /new-products',
+          type: 'array',
+          of: [{ type: 'string' }],
+          options: { layout: 'tags' },
+          description:
+            'Geiger SKUs to promote to /new-products even if Geiger\'s scrape did not include them. Looked up from data/geiger/products.json. Invalid/unknown SKUs are silently skipped.',
         },
       ],
     }),
