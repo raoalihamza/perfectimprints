@@ -520,7 +520,7 @@ Context-specific filters (show only when category context matches):
 - [app/api/leads/route.ts](app/api/leads/route.ts): validation, honeypot short-circuit, 5/IP/hr in-memory rate limit, Gmail SMTP send, Sanity write (non-fatal — email still delivers if Sanity is down).
 - [lib/email/gmail-smtp.ts](lib/email/gmail-smtp.ts): Nodemailer wrapper with `replyTo: <lead email>`, HTML + plaintext bodies, source URL boxed at the top.
 - [sanity/schemas/documents/lead-submission.ts](sanity/schemas/documents/lead-submission.ts): schema updated to firstName / lastName / email / phone / lookingFor / quantityNeeded / dateNeeded / sourceUrl / submittedAt.
-- **Pre-launch blocker:** `GMAIL_APP_PASSWORD` must be set in Vercel. Without it, submissions return 500. Patrick to supply.
+- **Delivering in production (2026-06-17).** `GMAIL_APP_PASSWORD` is set in Vercel; submissions send the email via Gmail SMTP and write the `leadSubmission` doc. Earlier pre-launch blocker (missing app password → 500) is resolved.
 
 ### [ ] M3-309: Site-wide search overlay
 
@@ -783,18 +783,25 @@ Plus mega menu addition: "Brands" main menu item linking to `/brands` (handled i
 
 ## Module 5: Search, Forms, Home, Deals, Polish
 
-### [ ] M5-501: Home page
+### [x] M5-501: Home page
 
 **Scope.** Build the home page from the `homePage` Sanity singleton: hero banner, featured categories grid, new products carousel, featured brands logos, testimonials, blog preview, CTA banners. Editable end-to-end from Sanity.
 **Acceptance.**
 
-- [ ] Home page renders from Sanity content
-- [ ] All six featured image blocks link correctly
-- [ ] New products carousel pulls latest Geiger SKUs
-- [ ] Brands grid pulls from `brand` documents
-- [ ] Mobile responsive
+- [x] Home page renders from Sanity content
+- [~] All six featured image blocks link correctly — `FeaturedBlocks` component built + ready, currently commented out in `app/page.tsx` (Patrick to enable when wanted)
+- [x] New products carousel pulls latest Geiger SKUs
+- [x] Brands grid pulls from `brand` documents
+- [x] Mobile responsive
       **Depends on.** M1-104, M1-105, M4-404.
       **Estimate.** 8 hours.
+
+**Completion (2026-06-17).**
+
+- [app/page.tsx](app/page.tsx) renders these sections from the `homePage` singleton: `Hero`, `ValuePillars`, `NewProductsRail`, `Testimonials`, `BrandsStrip`, `BlogPreview`, free-text `textContent`, `HomeCtaBanner`.
+- [components/home/FeaturedBlocks.tsx](components/home/FeaturedBlocks.tsx): the six featured image blocks (replaces the old null TODO stub). Consumes `home.featuredBlocks` from [lib/sanity/queries/home.ts](lib/sanity/queries/home.ts), which already resolved Sanity blocks + `FALLBACK_FEATURED_BLOCKS` (6 entries) so the grid never collapses before the singleton is populated. Null images degrade to a brand-tinted tile; every block still links correctly. **Currently commented out in `app/page.tsx`** — component is finished and ready, Patrick will enable the render when wanted.
+- New-products rail pulls from `getNewProducts()`, brands grid from `brand` docs via `getAllBrands()`, blog preview from the latest published posts.
+- `force-static`; Sanity content wins over fallbacks once the singleton is saved in Studio.
 
 ### [ ] M5-502: Site-wide search (Fuse.js)
 

@@ -579,26 +579,28 @@ Remaining pending items (track in TASKS.md):
 - Lead form "from" address (OQ-1)
 - Old site cutover timing (OQ-3)
 
-## 22. Current Project State (Week 4 end)
+## 22. Current Project State (Week 5)
 
-Updated: 2026-06-10.
+Updated: 2026-06-17.
 
-**Module 1 (Data Pipeline): Complete (Phase A-D).**
+**Module 1 (Data Pipeline): Complete (Phase A-E + weekly F/G).**
 
 - Phase A: 544 Geiger categories, 482 leaves
 - Phase B: 7,957 unique SKUs (99.82% of Geiger's 7,971 catalog)
 - Phase C: 21,715 non-root URLs processed with 4-tier recovery. 13,968 with products, 7,518 zero, 229 errors
 - Phase D: 465 PI roots mapped, 0 unmapped (72 exact + 224 fuzzy + 169 manual)
-- Phase E (brand logos): NOT yet run — scheduled Week 4 (M1-112)
+- Phase E (brand logos): DONE — `data/geiger/brands.json` + `data/geiger/brand-logos/` populated; `/brands` index + `/brands/[slug]` pages live (M4-405)
+- Phase F (weekly deals scrape): DONE — `scrape_deals.py` → `data/geiger/deals.json`, wired to `/deals` (M5-510). Weekly GitHub Action `scrape-deals.yml`
+- Phase G (weekly new-products scrape): DONE — `scrape_new_products.py` → `data/geiger/new-products.json`, wired to `/new-products`. Weekly GitHub Action `scrape-new-products.yml`
 
-**Module 2 (AI Content): v1 content generated for all 22,180 pages. Buying-guide v2 upgrade still pending.**
+**Module 2 (AI Content): Complete — all 22,180 pages generated, 465 roots on v2 buying-guide format.**
 
 - All 22,180 category JSONs exist in `data/categories/`: 465 roots with v2 buying-guide format (`promptVersion: "root-v2"`, populated `buyingGuideHtml` + `buyingGuideH2`) + 21,715 lite non-roots (modifiers/facets/compound-facets). Full set committed in `91a4b3de`.
 - Week 2 demo: 35 root pages generated. Patrick reviewed 2026-05-25 and approved content tone.
 - v1 quality pass (dedup-by-Geiger-path selection, 11-entry `EXCLUDED_SLUGS`, depth-aware SKU filter with `full`/`slug-filtered`/`full-capped-60` modes, compound-noun H1 rule, `post_process_lengths()` safety net) applied to the v2 prompt as well. Zero meta-length violations across all 465 roots.
 - Buying-guide format delivered: 400-600 word `buyingGuideHtml`, H2 "Custom [Category] Buying Guide", keyword derivatives (custom, promotional, branded, personalized, logo, bulk, wholesale), structured buyer-research content matching the Stadium Seat Cushions blog example. Word-count adherence is stochastic — ~one-third of pages undershoot the 400-word floor by 30-100 words. Tracked for retry-on-validation-fail loop before any future re-runs.
 
-**Module 3 (Category Templates): All 22,180 paths live; filters + lead form still pending.**
+**Module 3 (Category Templates): All 22,180 paths live; lead form delivering in production.**
 
 DONE:
 
@@ -626,7 +628,7 @@ Week 4:
 - Brand logos scrape (Phase E)
 - Brands tab in main menu + `/brands` index + `/brands/[slug]` per-brand pages
 - ✅ Related Blogs section ("Related Blogs About [Category Name]" H2 with up to 8 related blog cards) — wired into root category pages in commit `b33f8333` (2026-06-10). Server-rendered from `relatedCategorySlugs`. 327 of 645 published blogs have at least one mapping; rest hide the section gracefully when zero matches.
-- Lead capture form
+- ✅ Lead capture form (M3-308) — `components/forms/LeadForm.tsx` + `LeadFormModal.tsx` post to `/api/leads`, which sends via Gmail SMTP (`lib/email/gmail-smtp.ts`) and writes a `leadSubmission` doc to Sanity (non-fatal if Sanity is down). Honeypot + 5/IP/hr rate limit. Delivering in production as of 2026-06-17 (`GMAIL_APP_PASSWORD` set in Vercel).
 
 **Module 4 (Blogs): Complete (2026-06-15, second re-scrape pass).**
 
@@ -644,8 +646,11 @@ Week 4:
 
 Week 5:
 
+- ✅ Home page (M5-501, 2026-06-17). Built from the `homePage` Sanity singleton: hero, value pillars, new-products rail, testimonials, brands strip, blog preview, free-text section, CTA banner — all server-rendered; Sanity wins when the singleton is populated. The six featured-category image blocks component (`components/home/FeaturedBlocks.tsx`, fed by `getHomePage().featuredBlocks` with hard-coded fallbacks) is built and ready but currently commented out in `app/page.tsx` — Patrick will enable it when wanted.
 - ✅ Deals main menu button + `/deals` aggregator page (M5-510, 2026-06-13). "Promotional Products" removed from header nav, "Deals" added after Rush Products. `/deals` is fully static (`force-static`) with a Geiger-style filter sidebar (Category, Color, Price, Production Time, Brand, Min Qty, Material, Refine By, Ounces, Full Color, New Items) — all filtering + pagination is client-side (no URL params, no server roundtrips). Data sourced from `data/geiger/deals.json` produced by the weekly Phase F scrape (see Section 16). Hero copy + SKU blocklist editable via `globalSettings.dealsPage` in Sanity.
-- Mega menu fully Sanity-driven
+- ✅ New Products page + Phase G weekly scrape — `/new-products` aggregator mirrors `/deals`, sourced from `data/geiger/new-products.json` (`scrape_new_products.py`, weekly `scrape-new-products.yml`). Hero copy + SKU levers via `globalSettings.newProductsPage`.
+- ✅ Custom + pinned editorial levers on `/deals` and `/new-products` (M5-511, 2026-06-16). Three levers per page without touching the scraper: hide a scraped SKU (`hidden*Skus[]`), pin any existing Geiger SKU (`pinned*Skus[]`), or add a fully custom non-Geiger product (`customProduct` with `placements.onDeals`/`placements.onNewProducts`). Augmentation pipeline: `lib/products/augment.ts` + `lib/products/lookup.ts`, orchestrated by `getAugmentedDealsData()` / `getAugmentedNewProductsData()`.
+- Mega menu fully Sanity-driven (M5-503, pending)
 - Mobile Pagespeed improvement (LCP + Speed Index)
 
 **Already built (just confirming to Patrick):**
