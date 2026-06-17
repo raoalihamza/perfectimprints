@@ -870,9 +870,9 @@ Plus mega menu addition: "Brands" main menu item linking to `/brands` (handled i
       **Depends on.** M5-504, M2-202.
       **Estimate.** 8 hours.
 
-### [ ] M5-506: Services pages, Rush page, static content pages
+### [ ] M5-506: Services pages, static content pages, FAQ library, videos
 
-**Scope.** Build all static content pages. Content sourced from Sanity. Contact page includes lead form.
+**Scope.** Build all static content pages. Content sourced from Sanity. Contact page includes lead form. **The Rush Products aggregator was split out into M5-506a (done);** the remaining M5-506 pieces (services pages, static pages, FAQ library, videos) follow.
 **Acceptance.**
 
 - [ ] All pages render at correct URLs
@@ -881,6 +881,33 @@ Plus mega menu addition: "Brands" main menu item linking to `/brands` (handled i
 - [ ] Linked from header and footer where appropriate
       **Depends on.** M1-104, M1-105, M3-308.
       **Estimate.** 6 hours.
+
+### [x] M5-506a: Rush Products page + Phase H weekly scrape (DONE 2026-06-18)
+
+**Scope.** Added 2026-06-18 per Patrick feedback. New `/rush-products` aggregator — a field-for-field clone of the New Products (Phase G) implementation pointed at Geiger's `Home > Shop By > 24 Hour Rush Products` collection (Geiger page `https://geiger.com/b/24-hour-rush-products`, ~53 products, 1 page today). Same weekly scrape, same client-side filters + pagination, same Sanity control levers (hide / pin / add-custom).
+
+**Final implementation.**
+
+- **Phase H scraper** — `scripts/scrapers/geiger/scrape_rush_products.py` (`pnpm scrape-rush-products`), cloned from `scrape_new_products.py`. Same meta + base + per-facet-value SKU-membership calls; same `_normalize_product` (entity decode, `is_new_item: "Yes"`→bool coercion, `geiger_url = url`). Output `data/geiger/rush-products.json` shaped `{scrapedAt, totalRushProducts, products[], facets[...]}`. Rush specifics: results carry **no `badges` array** (no NEW/SALE/CLOSEOUT ribbons); at least one SKU contains a space (`"501622 1BC"`) preserved as-is; **facet hygiene** drops degenerate single-value facets at scrape time (`_is_degenerate_section`: fewer than 2 values, or one value covers 100%) — drops `production_time` ("1", count 53) plus `refine_by` and `pen_style` (single-value today).
+- **Workflow** — `.github/workflows/scrape-rush-products.yml` on `cron: '45 23 * * 0'` (Sunday 23:45 UTC, staggered after deals 23:00 + new-products 23:30) + `workflow_dispatch`. Diffs `data/geiger/rush-products.json` and opens an auto-merge PR (branch `chore/weekly-rush-refresh`) only when the snapshot changes.
+- **Loader** — `lib/rush-products.ts` (`getRushProductsData()`, `getAugmentedRushProductsData()`, `applyHiddenSkus()` + facet re-derive) mirroring `lib/new-products.ts`; client-safe `lib/rush-products-filter.ts` mirroring `lib/new-products-filter.ts`. Integrates with the M5-511 augment layer (`lib/products/augment.ts` + `lib/products/lookup.ts`).
+- **Page + components** — `app/rush-products/page.tsx` (`force-static`) + `components/rush-products/{RushProductsPageBody, RushProductsClient, RushProductsFilterSidebar, ClientPagination}` cloned from the new-products components. All filter + pagination state client-side (URL unchanged), `FilterSection` sidebar, `ProductCard` reuse, breadcrumbs (Home / Rush Products) with BreadcrumbList schema via the shared `Breadcrumbs` component, "Showing N rush products" count.
+- **Sanity control** — `globalSettings.rushProductsPage` (`heading`, `intro`, `metaTitle`, `metaDescription`, `hiddenRushSkus[]`, `pinnedRushSkus[]`) + `customProduct.placements.onRush`. Query helpers `getRushProductsPageCopy()` and `getCustomProductsForRushProducts()`.
+- **Nav + sitemap** — `lib/nav-data.ts` "Rush Products" item href changed `/rush-promotional-products` → `/rush-products`; re-run `pnpm seed-mega-menu` (or patch the `megaMenu` singleton item) to push live. `/rush-products` added to `app/sitemap.ts` STATIC_PATHS.
+
+**Acceptance.**
+
+- [x] `scrape_rush_products.py` writes `data/geiger/rush-products.json` in the new-products shape; SKUs with spaces preserved (53 products captured)
+- [x] Degenerate facets (production_time, and other single-value facets) dropped
+- [x] `pnpm scrape-rush-products` works; weekly workflow live at Sunday 23:45 UTC with workflow_dispatch
+- [x] `/rush-products` renders `force-static` with client-side filters + pagination, breadcrumbs + schema, count
+- [x] Hero heading/intro Sanity-editable; `hiddenRushSkus` / `pinnedRushSkus` / `customProduct` onRush all work via the augment layer
+- [x] "Rush Products" menu item points to `/rush-products` (re-seed/patch the Sanity menu to push live)
+- [x] `/rush-products` in sitemap
+- [x] CLAUDE.md / TASKS.md updated
+- [x] `pnpm typecheck` and `pnpm build` pass
+      **Depends on.** M5-511 (augment layer), M5-503 (Sanity mega menu), Phase G new-products scrape.
+      **Estimate.** 3 hours. **Actual:** ~3 hours.
 
 ### [ ] M5-507: Videos section
 

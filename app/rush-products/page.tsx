@@ -1,0 +1,42 @@
+import type { Metadata } from 'next';
+import { RushProductsPageBody } from '@/components/rush-products/RushProductsPageBody';
+import { getAugmentedRushProductsData, applyHiddenSkus } from '@/lib/rush-products';
+import { getRushProductsPageCopy } from '@/lib/sanity/queries/rush-products';
+import { getCustomProductsForRushProducts } from '@/lib/sanity/queries/custom-products';
+
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
+  /\/$/,
+  '',
+);
+
+const DEFAULT_META_TITLE = 'Rush Promotional Products | Perfect Imprints';
+const DEFAULT_META_DESCRIPTION =
+  'Custom promotional products on a 24-hour rush. Branded giveaways, corporate gifts, and bulk wholesale items with your logo - shipped the next business day.';
+
+// Fully static. Filter + pagination state live in the RushProductsClient component
+// (URL never changes), so no searchParams plumbing is needed.
+export const dynamic = 'force-static';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const copy = await getRushProductsPageCopy();
+  return {
+    title: { absolute: copy.metaTitle?.trim() || DEFAULT_META_TITLE },
+    description: copy.metaDescription?.trim() || DEFAULT_META_DESCRIPTION,
+    alternates: { canonical: `${SITE_URL}/rush-products` },
+  };
+}
+
+export default async function RushProductsPage() {
+  const [copy, customDocs] = await Promise.all([
+    getRushProductsPageCopy(),
+    getCustomProductsForRushProducts(),
+  ]);
+
+  const augmented = getAugmentedRushProductsData({
+    pinnedSkus: copy.pinnedRushSkus || [],
+    customDocs,
+  });
+  const data = applyHiddenSkus(augmented, copy.hiddenRushSkus || []);
+
+  return <RushProductsPageBody copy={copy} facets={data.facets} products={data.products} />;
+}

@@ -166,7 +166,7 @@ export interface SimpleNavItem {
 
 export const SIMPLE_NAV: SimpleNavItem[] = [
   { label: 'New Products', href: '/new-products' },
-  { label: 'Rush Products', href: '/rush-promotional-products' },
+  { label: 'Rush Products', href: '/rush-products' },
   { label: 'Deals', href: '/deals' },
   { label: 'Brands', href: '/brands' },
   {

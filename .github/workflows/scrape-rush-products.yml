@@ -1,0 +1,67 @@
+name: Weekly rush-products scrape
+
+on:
+  schedule:
+    # Every Sunday at 23:45 UTC — staggered after the deals (23:00) and
+    # new-products (23:30) scrapes so the three jobs don't fight over the same
+    # runner / git remote. Patrick (US Central) sees fresh rush data Monday
+    # morning.
+    - cron: '45 23 * * 0'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  scrape:
+    name: Scrape Geiger /b/24-hour-rush-products and open auto-merge PR
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install scraper deps
+        working-directory: scripts/scrapers/geiger
+        run: |
+          pip install --upgrade pip
+          pip install -e .
+
+      - name: Run rush-products scraper
+        run: python -m scripts.scrapers.geiger.scrape_rush_products
+
+      - name: Diff data/geiger/rush-products.json
+        id: diff
+        run: |
+          if git diff --quiet --exit-code data/geiger/rush-products.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open auto-merge PR
+        if: steps.diff.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: 'chore(rush-products): weekly rush-products snapshot refresh'
+          title: 'chore(rush-products): weekly rush-products snapshot refresh'
+          body: |
+            Automated weekly refresh of `data/geiger/rush-products.json` from
+            Geiger's Searchspring `/b/24-hour-rush-products` endpoint. Includes
+            products + per-facet-value SKU memberships for the /rush-products
+            filter sidebar.
+
+            Vercel will redeploy on merge.
+          branch: chore/weekly-rush-refresh
+          delete-branch: true
+          add-paths: |
+            data/geiger/rush-products.json
+
+      - name: No changes — skip PR
+        if: steps.diff.outputs.changed == 'false'
+        run: echo "rush-products.json unchanged this week — nothing to commit."

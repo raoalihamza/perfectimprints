@@ -149,6 +149,42 @@ export default defineType({
         },
       ],
     }),
+    defineField({
+      name: 'rushProductsPage',
+      title: 'Rush Products Page',
+      type: 'object',
+      description:
+        'Hero copy + curation controls for /rush-products — the aggregator of every product Geiger lists under Shop By > 24 Hour Rush Products. Product list itself is auto-scraped weekly; use the hide list below to remove specific items.',
+      fields: [
+        { name: 'heading', type: 'string', title: 'Heading (H1)' },
+        { name: 'intro', type: 'text', title: 'Intro paragraph', rows: 4 },
+        { name: 'metaTitle', type: 'string', title: 'Meta title (under 60 chars)' },
+        {
+          name: 'metaDescription',
+          type: 'text',
+          title: 'Meta description (under 155 chars)',
+          rows: 2,
+        },
+        {
+          name: 'hiddenRushSkus',
+          title: 'Hide these SKUs from /rush-products',
+          type: 'array',
+          of: [{ type: 'string' }],
+          options: { layout: 'tags' },
+          description:
+            'Geiger SKUs to remove from the /rush-products grid (e.g., "526320"). Useful when a rush item is off-brand or you do not want to promote it. Facet counts re-derive automatically.',
+        },
+        {
+          name: 'pinnedRushSkus',
+          title: 'Pin these Geiger SKUs to /rush-products',
+          type: 'array',
+          of: [{ type: 'string' }],
+          options: { layout: 'tags' },
+          description:
+            'Geiger SKUs to promote to /rush-products even if Geiger\'s scrape did not include them. Looked up from data/geiger/products.json. Invalid/unknown SKUs are silently skipped.',
+        },
+      ],
+    }),
   ],
   preview: {
     prepare: () => ({ title: 'Global Settings' }),

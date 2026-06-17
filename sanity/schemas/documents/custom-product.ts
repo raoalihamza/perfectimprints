@@ -53,7 +53,7 @@ export default defineType({
       title: 'Show On Pages',
       type: 'object',
       description:
-        'Toggle on/off per page. A single custom product can appear on /deals, /new-products, or both. Category-grid placement is controlled by Parent Category above.',
+        'Toggle on/off per page. A single custom product can appear on /deals, /new-products, /rush-products, or any combination. Category-grid placement is controlled by Parent Category above.',
       fields: [
         {
           name: 'onDeals',
@@ -65,6 +65,12 @@ export default defineType({
           name: 'onNewProducts',
           type: 'boolean',
           title: 'Show on /new-products',
+          initialValue: false,
+        },
+        {
+          name: 'onRush',
+          type: 'boolean',
+          title: 'Show on /rush-products',
           initialValue: false,
         },
       ],
@@ -151,11 +157,13 @@ export default defineType({
       subtitle: 'externalUrl',
       onDeals: 'placements.onDeals',
       onNew: 'placements.onNewProducts',
+      onRush: 'placements.onRush',
     },
-    prepare({ title, media, subtitle, onDeals, onNew }) {
+    prepare({ title, media, subtitle, onDeals, onNew, onRush }) {
       const tags: string[] = [];
       if (onDeals) tags.push('Deals');
       if (onNew) tags.push('New');
+      if (onRush) tags.push('Rush');
       const tagSuffix = tags.length ? ` · ${tags.join(' + ')}` : '';
       return { title, media, subtitle: `${subtitle || ''}${tagSuffix}` };
     },

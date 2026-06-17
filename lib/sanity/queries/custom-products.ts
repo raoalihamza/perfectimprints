@@ -20,7 +20,7 @@ export interface CustomProductDoc {
   material?: string;
   badges?: string[];
   displayOrder?: number;
-  placements?: { onDeals?: boolean; onNewProducts?: boolean };
+  placements?: { onDeals?: boolean; onNewProducts?: boolean; onRush?: boolean };
   parentCategory?: { slug?: string; title?: string };
 }
 
@@ -61,6 +61,18 @@ export async function getCustomProductsForNewProducts(): Promise<CustomProductDo
     return (
       (await client.fetch<CustomProductDoc[]>(
         `*[_type == "customProduct" && placements.onNewProducts == true] | order(displayOrder asc, title asc) { ${PROJECTION} }`,
+      )) ?? []
+    );
+  } catch {
+    return [];
+  }
+}
+
+export async function getCustomProductsForRushProducts(): Promise<CustomProductDoc[]> {
+  try {
+    return (
+      (await client.fetch<CustomProductDoc[]>(
+        `*[_type == "customProduct" && placements.onRush == true] | order(displayOrder asc, title asc) { ${PROJECTION} }`,
       )) ?? []
     );
   } catch {
