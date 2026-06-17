@@ -142,3 +142,48 @@ export function getDepartments(): NavDepartment[] {
   _cache = buildDepartments();
   return _cache;
 }
+
+// ---------------------------------------------------------------------------
+// Seed reference (M5-503).
+//
+// The live header now renders from the Sanity `megaMenu` singleton, but this
+// file stays in the repo as the canonical seed source. `pnpm seed-mega-menu`
+// reads `getDepartments()` (the two mega panels) + `SIMPLE_NAV` (the plain
+// links and the Services dropdown) and writes them to Sanity as-is, so the
+// seeded menu is byte-for-byte the menu that was hard-coded here.
+// ---------------------------------------------------------------------------
+
+export interface SimpleNavChild {
+  label: string;
+  href: string;
+}
+
+export interface SimpleNavItem {
+  label: string;
+  href: string;
+  children?: SimpleNavChild[];
+}
+
+export const SIMPLE_NAV: SimpleNavItem[] = [
+  { label: 'New Products', href: '/new-products' },
+  { label: 'Rush Products', href: '/rush-promotional-products' },
+  { label: 'Deals', href: '/deals' },
+  { label: 'Brands', href: '/brands' },
+  {
+    label: 'Services',
+    href: '#',
+    children: [
+      { label: 'Kitting', href: '/services/kitting' },
+      { label: 'Company Stores', href: '/services/company-stores' },
+      { label: 'Popup Stores', href: '/services/popup-stores' },
+      { label: '100% Custom Products', href: '/services/custom-products' },
+    ],
+  },
+  { label: 'Videos', href: '/videos' },
+  { label: 'Blog', href: '/blog' },
+];
+
+// The two mega panels ("Shop by" cascade + "All Categories" grid) both render
+// the same department set. These labels match the prior hard-coded header.
+export const SHOP_BY_LABEL = 'Shop by';
+export const ALL_CATEGORIES_LABEL = 'All Categories';

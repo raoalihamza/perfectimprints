@@ -2,52 +2,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { SearchBox } from '@/components/forms/SearchBox';
-import { type MegaMenuItem } from './MegaMenu';
 import { MobileDrawer } from './MobileDrawer';
 import { ShopByMegaMenu } from './ShopByMegaMenu';
 import { AllCategoriesPopover } from './AllCategoriesPopover';
 import { SimpleNavDropdown } from './SimpleNavDropdown';
-import { getDepartments } from '@/lib/nav-data';
+import { getMegaMenu } from '@/lib/sanity/queries/mega-menu';
 
-const SIMPLE_NAV: MegaMenuItem[] = [
-  { label: 'New Products', href: '/new-products' },
-  { label: 'Rush Products', href: '/rush-promotional-products' },
-  { label: 'Deals', href: '/deals' },
-  { label: 'Brands', href: '/brands' },
-  {
-    label: 'Services',
-    href: '#',
-    children: [
-      { label: 'Kitting', href: '/services/kitting' },
-      { label: 'Company Stores', href: '/services/company-stores' },
-      { label: 'Popup Stores', href: '/services/popup-stores' },
-      { label: '100% Custom Products', href: '/services/custom-products' },
-    ],
-  },
-  { label: 'Videos', href: '/videos' },
-  { label: 'Blog', href: '/blog' },
-];
-
-function buildMobileItems(
-  departments: ReturnType<typeof getDepartments>,
-): MegaMenuItem[] {
-  const availableLeaves = departments.flatMap((d) => [
-    ...(d.available && d.href ? [{ label: d.label, href: d.href }] : []),
-    ...d.children
-      .filter((c) => c.available && c.href)
-      .map((c) => ({ label: `${d.label} · ${c.label}`, href: c.href as string })),
-  ]);
-  const allCategories: MegaMenuItem = {
-    label: 'All Categories',
-    href: '#',
-    children: availableLeaves,
-  };
-  return [allCategories, ...SIMPLE_NAV];
-}
-
-export function Header() {
-  const departments = getDepartments();
-  const mobileItems = buildMobileItems(departments);
+export async function Header() {
+  // Primary navigation is driven by the Sanity `megaMenu` singleton (M5-503).
+  // Seed it with `pnpm seed-mega-menu`; reorder / rename / hide / add from Studio.
+  const { desktopItems, mobileItems } = await getMegaMenu();
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-white">
@@ -91,12 +55,26 @@ export function Header() {
       <Container className="border-t border-border py-1">
         <nav aria-label="Primary">
           <ul role="menubar" className="hidden items-center gap-1 lg:flex">
-            <ShopByMegaMenu departments={departments} />
-            <AllCategoriesPopover departments={departments} />
-            {SIMPLE_NAV.map((item) =>
-              item.children && item.children.length > 0 ? (
-                <SimpleNavDropdown key={item.label} item={item} />
-              ) : (
+            {desktopItems.map((item) => {
+              if (item.kind === 'megaPanel') {
+                return item.variant === 'cascade' ? (
+                  <ShopByMegaMenu
+                    key={item.label}
+                    label={item.label}
+                    departments={item.departments}
+                  />
+                ) : (
+                  <AllCategoriesPopover
+                    key={item.label}
+                    label={item.label}
+                    departments={item.departments}
+                  />
+                );
+              }
+              if (item.kind === 'dropdown') {
+                return <SimpleNavDropdown key={item.label} item={item.item} />;
+              }
+              return (
                 <li key={item.label} role="none">
                   <Link
                     href={item.href}
@@ -106,8 +84,8 @@ export function Header() {
                     {item.label}
                   </Link>
                 </li>
-              ),
-            )}
+              );
+            })}
           </ul>
         </nav>
         <div className="md:hidden">

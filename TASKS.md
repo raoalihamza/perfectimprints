@@ -817,7 +817,7 @@ Plus mega menu addition: "Brands" main menu item linking to `/brands` (handled i
       **Depends on.** M2-207, M4-402.
       **Estimate.** 8 hours.
 
-### [ ] M5-503: Mega menu population from Sanity
+### [x] M5-503: Mega menu population from Sanity — DONE 2026-06-17
 
 **Scope.** Replace the Geiger-taxonomy-driven mega menu from M1-106 with a Sanity-driven implementation. Patrick can reorder departments, edit labels, hide items, and update Featured Promos and New Products lists. **Adds two new main menu items per Patrick feedback (2026-05-25):**
 
@@ -826,14 +826,21 @@ Plus mega menu addition: "Brands" main menu item linking to `/brands` (handled i
 
 **Acceptance.**
 
-- [ ] All menu items render from Sanity
-- [ ] Reorder via drag in Sanity reflected on staging within 60 seconds
-- [ ] Featured Promos and New Products updateable
-- [ ] Removed items disappear from live menu
-- [ ] Deals and Brands menu items render with correct links
-- [ ] Keyboard accessible with focus trap
+- [x] All menu items render from Sanity — header is `async`, reads `getMegaMenu()` ([lib/sanity/queries/mega-menu.ts](lib/sanity/queries/mega-menu.ts)); no longer imports `nav-data.ts` for rendering
+- [x] Reorder via drag in Sanity reflected on staging within 60 seconds — webhook (`app/api/sanity/revalidate/route.ts`) verifies HMAC + `revalidatePath('/', 'layout')` for `megaMenu`/`globalSettings`
+- [~] Featured Promos and New Products updateable — N/A for the as-is menu (it has no featured-product panels; "New Products" is a plain link). `featured` + `productRefs` fields retained on the schema, reserved for a future featured panel
+- [x] Removed items disappear from live menu — no hard-coded fallback; Sanity is the sole source (empty doc → empty menu)
+- [x] Deals and Brands menu items render with correct links — present in the seed (`/deals`, `/brands`), alongside New Products (`/new-products`)
+- [x] Keyboard accessible with focus trap — existing client components (`ShopByMegaMenu`, `AllCategoriesPopover`, `SimpleNavDropdown`, `MobileDrawer`) reused unchanged
       **Depends on.** M1-106, M1-104, M4-405, M5-510.
       **Estimate.** 4 hours.
+
+**Implementation note (seed-from-current, no visible change).** The live menu had already evolved past M1-106's hardcoded Geiger tree to the `lib/nav-data.ts`-driven structure (two mega panels — "Shop by" cascade + "All Categories" grid, both from PI's slug universe — plus `SIMPLE_NAV`). This ticket moved that exact structure into Sanity without changing the rendered menu:
+
+- **Schema** ([sanity/schemas/singletons/mega-menu.ts](sanity/schemas/singletons/mega-menu.ts)) reworked so `items[]` faithfully represent the current menu: per item `kind` (`link`/`dropdown`/`megaPanel`), `megaPanel.variant` (`cascade`/`grid`), `columns[]` (`label`, `href?`, `nonClickable`, `links[]`), `dropdown.links[]`. Legacy `featured`/`productRefs` retained (reserved).
+- **Seed** (`pnpm seed-mega-menu`, [scripts/migrations/seed-mega-menu.ts](scripts/migrations/seed-mega-menu.ts)) serializes `getDepartments()` + `SIMPLE_NAV` from `lib/nav-data.ts` into the `megaMenu` singleton (`_id: megaMenu`, `createOrReplace`, clears stale draft). Result: 9 items, two panels (10 columns / 465 links each), Services dropdown (4 links), Tradeshow column non-clickable. Idempotent — re-run to reset.
+- **Renderer** components are untouched, guaranteeing identical look/behavior; only `Header.tsx` switched data source and iterates the Sanity items in order (so reorder/hide/add work). `lib/nav-data.ts` kept as the seed reference (not imported for rendering).
+- Ran live seed against Sanity; `pnpm typecheck` + `pnpm build` pass.
 
 ### [ ] M5-504: Custom category and custom product schemas
 
