@@ -20,6 +20,7 @@
     "audit:cta": "tsx scripts/audit-cta-pages.ts",
     "import-brands": "tsx scripts/migrations/import-brands.ts",
     "seed-mega-menu": "tsx scripts/migrations/seed-mega-menu.ts",
+    "seed-service-pages": "tsx scripts/seed/seed-service-pages.ts",
     "scrape-blogs": "python scripts/scrapers/blogs/scrape_sbase.py",
     "scrape-deals": "python -m scripts.scrapers.geiger.scrape_deals",
     "scrape-new-products": "python -m scripts.scrapers.geiger.scrape_new_products",

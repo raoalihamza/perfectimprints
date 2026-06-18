@@ -1,0 +1,341 @@
+import { defineField, defineType } from 'sanity';
+
+/**
+ * Reusable page-builder section objects (M5-506b).
+ *
+ * Each section is a polymorphic entry in a `page.sections[]` array, giving
+ * Patrick website-builder behavior in Studio: reorder, insert any type, delete,
+ * and hide-without-deleting (every section has a `hidden` boolean).
+ *
+ * These are intentionally generic so the same `page` type can power Services,
+ * About, Privacy, Terms, Contact, etc. Nothing here is services-specific.
+ *
+ * Image fields are paired: a Sanity `image` (preferred, so Patrick can upload /
+ * replace / crop) plus an optional `imageUrl` string fallback for hot-linked
+ * sources. Renderers prefer the Sanity asset and fall back to the URL.
+ */
+
+const hiddenField = defineField({
+  name: 'hidden',
+  title: 'Hidden',
+  type: 'boolean',
+  description: 'Hide this section on the live site without deleting it.',
+  initialValue: false,
+});
+
+function imageField(name = 'image', title = 'Image') {
+  return defineField({
+    name,
+    title,
+    type: 'image',
+    options: { hotspot: true },
+    fields: [{ name: 'alt', type: 'string', title: 'Alt text' }],
+  });
+}
+
+function imageUrlField(name = 'imageUrl', title = 'Image URL (fallback)') {
+  return defineField({
+    name,
+    title,
+    type: 'url',
+    description: 'Optional. Used only when no uploaded image is set above.',
+  });
+}
+
+const portableBody = (name = 'body', title = 'Content') =>
+  defineField({
+    name,
+    title,
+    type: 'array',
+    of: [{ type: 'block' }],
+  });
+
+function previewWithHidden(typeLabel: string) {
+  return {
+    prepare(input: Record<string, unknown>) {
+      const heading =
+        (input.heading as string) ||
+        (input.statText as string) ||
+        (input.title as string) ||
+        typeLabel;
+      const hidden = input.hidden ? ' · hidden' : '';
+      return { title: `${typeLabel}: ${heading}`.trim(), subtitle: `Section${hidden}` };
+    },
+  };
+}
+
+export const heroBanner = defineType({
+  name: 'heroBanner',
+  title: 'Hero Banner',
+  type: 'object',
+  fields: [
+    imageField('image', 'Background / banner image'),
+    imageUrlField(),
+    defineField({ name: 'heading', title: 'Heading', type: 'string' }),
+    defineField({ name: 'subheading', title: 'Subheading', type: 'text', rows: 2 }),
+    defineField({
+      name: 'overlayText',
+      title: 'Overlay text on image',
+      type: 'boolean',
+      description:
+        'On = heading/subheading render on top of the image (overlay banner). Off = heading/subheading/CTA on top, with the full banner image below.',
+      initialValue: true,
+    }),
+    defineField({ name: 'ctaLabel', title: 'CTA label', type: 'string' }),
+    defineField({ name: 'ctaHref', title: 'CTA link', type: 'string' }),
+    hiddenField,
+  ],
+  preview: { select: { heading: 'heading', hidden: 'hidden' }, ...previewWithHidden('Hero') },
+});
+
+export const richText = defineType({
+  name: 'richText',
+  title: 'Rich Text',
+  type: 'object',
+  fields: [
+    defineField({ name: 'heading', title: 'Heading (optional)', type: 'string' }),
+    defineField({
+      name: 'anchorId',
+      title: 'Anchor ID (optional)',
+      type: 'string',
+      description: 'If set, this section becomes an in-page jump target (e.g. "kitting" → linkable as #kitting).',
+    }),
+    portableBody(),
+    hiddenField,
+  ],
+  preview: { select: { heading: 'heading', hidden: 'hidden' }, ...previewWithHidden('Rich text') },
+});
+
+// Renders as a vertical stack: heading → full-width image → body text. The
+// image is never beside or behind the heading (no overlay), so every service
+// page reads top-to-bottom consistently.
+export const imageText = defineType({
+  name: 'imageText',
+  title: 'Image + Text',
+  type: 'object',
+  fields: [
+    defineField({ name: 'heading', title: 'Heading (optional)', type: 'string' }),
+    imageField(),
+    imageUrlField(),
+    portableBody(),
+    hiddenField,
+  ],
+  preview: { select: { heading: 'heading', hidden: 'hidden' }, ...previewWithHidden('Image + text') },
+});
+
+export const infographic = defineType({
+  name: 'infographic',
+  title: 'Infographic (full-width image)',
+  type: 'object',
+  fields: [
+    imageField('image', 'Infographic image'),
+    imageUrlField(),
+    defineField({ name: 'heading', title: 'Heading (optional)', type: 'string' }),
+    defineField({ name: 'caption', title: 'Caption (optional)', type: 'string' }),
+    hiddenField,
+  ],
+  preview: { select: { heading: 'heading', hidden: 'hidden' }, ...previewWithHidden('Infographic') },
+});
+
+export const iconFeatures = defineType({
+  name: 'iconFeatures',
+  title: 'Icon Feature Columns',
+  type: 'object',
+  fields: [
+    defineField({ name: 'heading', title: 'Heading (optional)', type: 'string' }),
+    defineField({
+      name: 'columns',
+      title: 'Columns',
+      type: 'number',
+      options: { list: [2, 3, 4] },
+      initialValue: 3,
+    }),
+    defineField({
+      name: 'features',
+      title: 'Features',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { ...imageField('icon', 'Icon') },
+            imageUrlField(),
+            { name: 'heading', type: 'string', title: 'Heading' },
+            { name: 'text', type: 'text', rows: 3, title: 'Text' },
+          ],
+          preview: { select: { title: 'heading', media: 'icon' } },
+        },
+      ],
+    }),
+    hiddenField,
+  ],
+  preview: { select: { heading: 'heading', hidden: 'hidden' }, ...previewWithHidden('Icon features') },
+});
+
+export const statBanner = defineType({
+  name: 'statBanner',
+  title: 'Stat Banner',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'background',
+      title: 'Background',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Brand red', value: 'red' },
+          { title: 'Brand ink (dark)', value: 'ink' },
+          { title: 'Brand green', value: 'green' },
+          { title: 'Soft gray', value: 'soft' },
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'red',
+    }),
+    defineField({ name: 'statText', title: 'Large stat text', type: 'text', rows: 2 }),
+    defineField({ name: 'subtext', title: 'Subtext', type: 'text', rows: 2 }),
+    hiddenField,
+  ],
+  preview: { select: { statText: 'statText', hidden: 'hidden' }, ...previewWithHidden('Stat banner') },
+});
+
+export const cardGrid = defineType({
+  name: 'cardGrid',
+  title: 'Card Grid',
+  type: 'object',
+  fields: [
+    defineField({ name: 'heading', title: 'Heading (optional)', type: 'string' }),
+    defineField({
+      name: 'columns',
+      title: 'Columns',
+      type: 'number',
+      options: { list: [2, 3, 4] },
+      initialValue: 3,
+    }),
+    defineField({
+      name: 'cards',
+      title: 'Cards',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'title', type: 'string', title: 'Title' },
+            { name: 'text', type: 'text', rows: 3, title: 'Text' },
+            { ...imageField('image', 'Image') },
+            imageUrlField(),
+            { name: 'ctaLabel', type: 'string', title: 'CTA label' },
+            { name: 'ctaHref', type: 'string', title: 'CTA link' },
+          ],
+          preview: { select: { title: 'title', media: 'image' } },
+        },
+      ],
+    }),
+    hiddenField,
+  ],
+  preview: { select: { heading: 'heading', hidden: 'hidden' }, ...previewWithHidden('Card grid') },
+});
+
+export const ctaBlock = defineType({
+  name: 'ctaBlock',
+  title: 'CTA Block',
+  type: 'object',
+  fields: [
+    defineField({ name: 'heading', title: 'Heading', type: 'string' }),
+    defineField({ name: 'subheading', title: 'Subheading', type: 'text', rows: 2 }),
+    defineField({
+      name: 'buttons',
+      title: 'Buttons',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'label', type: 'string', title: 'Label' },
+            { name: 'href', type: 'string', title: 'Link' },
+          ],
+          preview: { select: { title: 'label', subtitle: 'href' } },
+        },
+      ],
+    }),
+    hiddenField,
+  ],
+  preview: { select: { heading: 'heading', hidden: 'hidden' }, ...previewWithHidden('CTA block') },
+});
+
+export const eventList = defineType({
+  name: 'eventList',
+  title: 'Event List',
+  type: 'object',
+  fields: [
+    defineField({ name: 'heading', title: 'Heading (optional)', type: 'string' }),
+    defineField({
+      name: 'events',
+      title: 'Events',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'city', type: 'string', title: 'City' },
+            { name: 'venue', type: 'string', title: 'Venue' },
+            { name: 'date', type: 'string', title: 'Date' },
+            { name: 'time', type: 'string', title: 'Time' },
+          ],
+          preview: {
+            select: { title: 'city', venue: 'venue', date: 'date' },
+            prepare: ({ title, venue, date }: { title?: string; venue?: string; date?: string }) => ({
+              title: title || '(city)',
+              subtitle: [venue, date].filter(Boolean).join(' · '),
+            }),
+          },
+        },
+      ],
+    }),
+    hiddenField,
+  ],
+  preview: { select: { heading: 'heading', hidden: 'hidden' }, ...previewWithHidden('Event list') },
+});
+
+export const faqAccordion = defineType({
+  name: 'faqAccordion',
+  title: 'FAQ Accordion',
+  type: 'object',
+  fields: [
+    defineField({ name: 'heading', title: 'Heading (optional)', type: 'string' }),
+    defineField({
+      name: 'items',
+      title: 'Q & A',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'question', type: 'string', title: 'Question' },
+            { name: 'answer', type: 'text', rows: 4, title: 'Answer' },
+          ],
+          preview: { select: { title: 'question' } },
+        },
+      ],
+    }),
+    hiddenField,
+  ],
+  preview: { select: { heading: 'heading', hidden: 'hidden' }, ...previewWithHidden('FAQ accordion') },
+});
+
+/** All section object types, registered in the schema index. */
+export const pageSectionSchemas = [
+  heroBanner,
+  richText,
+  imageText,
+  infographic,
+  iconFeatures,
+  statBanner,
+  cardGrid,
+  ctaBlock,
+  eventList,
+  faqAccordion,
+];
+
+/** The `of` list for a `page.sections[]` array. */
+export const pageSectionRefs = pageSectionSchemas.map((s) => ({ type: s.name }));

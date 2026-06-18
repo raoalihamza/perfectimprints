@@ -14,11 +14,13 @@ import faq from './documents/faq';
 import video from './documents/video';
 import brand from './documents/brand';
 import leadSubmission from './documents/lead-submission';
+import page from './documents/page';
 
 import seo from './objects/seo';
 import link from './objects/link';
 import footerColumn from './objects/footer-column';
 import blogProducts from './objects/blog-products';
+import { pageSectionSchemas } from './objects/page-sections';
 
 export const schemaTypes: SchemaTypeDefinition[] = [
   homePage,
@@ -34,8 +36,10 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   video,
   brand,
   leadSubmission,
+  page,
   seo,
   link,
   footerColumn,
   blogProducts,
+  ...pageSectionSchemas,
 ];

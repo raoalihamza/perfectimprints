@@ -72,6 +72,18 @@ export async function POST(request: Request) {
     return NextResponse.json({ revalidated: true, scope: '/', type });
   }
 
+  // Generic section-based `page` documents (M5-506b) render at /services/<slug>.
+  // Revalidate that route on publish so edits go live without a redeploy.
+  if (type === 'page') {
+    const slug = payload.slug?.current;
+    if (slug) {
+      const path = `/services/${slug}`;
+      revalidatePath(path);
+      return NextResponse.json({ revalidated: true, scope: path, type });
+    }
+    return NextResponse.json({ revalidated: false, reason: 'page missing slug', type });
+  }
+
   // Page-level document revalidation (blog/category/etc.) is tracked in M1-104.
   return NextResponse.json({ revalidated: false, type: type ?? null });
 }

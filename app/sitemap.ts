@@ -31,6 +31,10 @@ const STATIC_PATHS: string[] = [
   '/new-products',
   '/videos',
   '/search',
+  '/services/kitting',
+  '/services/company-stores',
+  '/services/popup-stores',
+  '/services/custom-products',
 ];
 
 function readCategoryUrls(): string[] {
