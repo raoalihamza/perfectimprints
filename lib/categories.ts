@@ -145,6 +145,27 @@ export function getProductsForCategorySlug(slug: string): GeigerProduct[] {
   return resolveProducts(content.productSkus);
 }
 
+/**
+ * Returns every product in the catalog (deduped by SKU), with names/descriptions
+ * HTML-decoded at the loader level per the project convention. Used by the
+ * build-time search-index builder (M5-502); not for runtime page rendering.
+ */
+export function getAllProducts(): GeigerProduct[] {
+  const index = loadProductsIndex();
+  const out: GeigerProduct[] = [];
+  for (const product of index.values()) {
+    out.push({
+      ...product,
+      name: decodeHtmlEntities(product.name),
+      description: product.description
+        ? decodeHtmlEntities(product.description)
+        : product.description,
+      imageUrl: product.imageUrl ? decodeHtmlEntities(product.imageUrl) : product.imageUrl,
+    });
+  }
+  return out;
+}
+
 export interface CategoryProductsPage {
   products: GeigerProduct[];
   totalProducts: number;

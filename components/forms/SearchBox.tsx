@@ -1,49 +1,240 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
+import { SearchResultRow } from '@/components/search/SearchResultRow';
+import { SearchEmptyCTA } from '@/components/search/SearchEmptyCTA';
+import { useResultNavigation } from '@/components/search/useResultNavigation';
+import { prefetchSearchIndex, search, type SearchResult } from '@/lib/search/load-index';
+import type { SearchItemType } from '@/lib/search/types';
 
-// TODO: M5-502 - wire up to Fuse.js index and overlay.
+const SEARCH_PLACEHOLDER =
+  'Search custom tote bags, branded drinkware, personalized pens, brands...';
+const FETCH_LIMIT = 50;
+const DEBOUNCE_MS = 150;
+
+// Display order + per-group caps for the grouped dropdown.
+const GROUP_ORDER: { type: SearchItemType; cap: number; heading: string }[] = [
+  { type: 'category', cap: 4, heading: 'Categories' },
+  { type: 'product', cap: 6, heading: 'Products' },
+  { type: 'brand', cap: 3, heading: 'Brands' },
+  { type: 'blog', cap: 3, heading: 'Blogs' },
+];
 
 interface SearchBoxProps {
   className?: string;
   placeholder?: string;
 }
 
-export function SearchBox({
-  className,
-  placeholder = 'Search categories and blog posts',
-}: SearchBoxProps) {
+/**
+ * Header search input with a lazy, grouped autocomplete overlay (M3-309 /
+ * M5-502b). Fuse.js and the prebuilt index load on first focus via
+ * `lib/search/load-index` — neither is in the initial route bundle. Results are
+ * grouped (Categories / Products / Brands / Blogs) with product thumbnails;
+ * arrow keys move the highlight across all rows + the "See all results" footer,
+ * Enter selects, Escape closes.
+ */
+export function SearchBox({ className, placeholder = SEARCH_PLACEHOLDER }: SearchBoxProps) {
   const router = useRouter();
-  const [query, setQuery] = useState('');
+  const { navigate } = useResultNavigation();
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    if (!query.trim()) return;
-    router.push(`/search?q=${encodeURIComponent(query.trim())}`);
-  }
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState<SearchResult[]>([]);
+  const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(-1);
+
+  const rootRef = useRef<HTMLFormElement>(null);
+  const reqId = useRef(0);
+  // Unique per instance — the header renders SearchBox twice (desktop + mobile),
+  // so static ids would collide in the DOM and break aria-controls wiring.
+  const uid = useId();
+  const inputId = `${uid}-input`;
+  const listboxId = `${uid}-listbox`;
+  const optionId = (i: number) => `${uid}-opt-${i}`;
+
+  const trimmed = query.trim();
+
+  // Group results into ordered sections; `ordered` is the flat keyboard-nav list.
+  const { sections, ordered } = useMemo(() => {
+    const secs: { heading: string; type: SearchItemType; startIndex: number; items: SearchResult[] }[] = [];
+    const flat: SearchResult[] = [];
+    for (const g of GROUP_ORDER) {
+      const items = results.filter((r) => r.type === g.type).slice(0, g.cap);
+      if (items.length === 0) continue;
+      secs.push({ heading: g.heading, type: g.type, startIndex: flat.length, items });
+      flat.push(...items);
+    }
+    return { sections: secs, ordered: flat };
+  }, [results]);
+
+  const hasResults = ordered.length > 0;
+  const seeAllIndex = ordered.length; // the "See all results" row
+  const totalLabel = results.length >= FETCH_LIMIT ? `${FETCH_LIMIT}+` : String(results.length);
+
+  // Debounced search. A monotonic request id discards out-of-order responses.
+  useEffect(() => {
+    if (!trimmed) {
+      setResults([]);
+      setLoading(false);
+      setActiveIndex(-1);
+      return;
+    }
+    setLoading(true);
+    const id = ++reqId.current;
+    const t = setTimeout(() => {
+      search(trimmed, FETCH_LIMIT)
+        .then((res) => {
+          if (id !== reqId.current) return;
+          setResults(res);
+          setActiveIndex(-1);
+        })
+        .catch(() => {
+          if (id !== reqId.current) return;
+          setResults([]);
+        })
+        .finally(() => {
+          if (id === reqId.current) setLoading(false);
+        });
+    }, DEBOUNCE_MS);
+    return () => clearTimeout(t);
+  }, [trimmed]);
+
+  // Close on outside pointer-down.
+  useEffect(() => {
+    if (!open) return;
+    const onPointerDown = (e: PointerEvent) => {
+      if (rootRef.current && !rootRef.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener('pointerdown', onPointerDown);
+    return () => document.removeEventListener('pointerdown', onPointerDown);
+  }, [open]);
+
+  const goToSearchPage = useCallback(() => {
+    if (!trimmed) return;
+    setOpen(false);
+    router.push(`/search?q=${encodeURIComponent(trimmed)}`);
+  }, [router, trimmed]);
+
+  const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (!open) setOpen(true);
+      if (!hasResults) return;
+      setActiveIndex((i) => Math.min(i + 1, seeAllIndex));
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setActiveIndex((i) => Math.max(i - 1, -1));
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (hasResults && activeIndex >= 0 && activeIndex < ordered.length) {
+        setOpen(false);
+        navigate(ordered[activeIndex]);
+      } else {
+        goToSearchPage();
+      }
+    } else if (e.key === 'Escape') {
+      if (open) {
+        e.preventDefault();
+        setOpen(false);
+      }
+    }
+  };
+
+  const showPanel = open && trimmed.length > 0;
+  const activeOptionId =
+    activeIndex >= 0 && activeIndex < ordered.length ? optionId(activeIndex) : undefined;
 
   return (
-    <form role="search" onSubmit={onSubmit} className={className}>
-      <label htmlFor="site-search" className="sr-only">
+    <form
+      ref={rootRef}
+      role="search"
+      onSubmit={(e) => {
+        e.preventDefault();
+        goToSearchPage();
+      }}
+      className={`relative ${className ?? ''}`}
+    >
+      <label htmlFor={inputId} className="sr-only">
         Search
       </label>
       <div className="flex gap-2">
         <Input
-          id="site-search"
+          id={inputId}
           type="search"
           name="q"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder={placeholder}
+          role="combobox"
+          aria-expanded={showPanel}
+          aria-controls={listboxId}
+          aria-autocomplete="list"
+          aria-activedescendant={activeOptionId}
           autoComplete="off"
+          value={query}
+          placeholder={placeholder}
+          onChange={(e) => setQuery(e.target.value)}
+          onFocus={() => {
+            setOpen(true);
+            prefetchSearchIndex();
+          }}
+          onKeyDown={onKeyDown}
         />
         <Button type="submit" variant="secondary" size="md">
           Search
         </Button>
       </div>
+
+      {showPanel && (
+        <div
+          id={listboxId}
+          role="listbox"
+          aria-label="Search results"
+          className="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-lg border border-border bg-white shadow-xl"
+        >
+          {hasResults ? (
+            <>
+              <div className="max-h-[70vh] overflow-y-auto py-1">
+                {sections.map((section) => (
+                  <div key={section.type}>
+                    <p className="px-4 pb-1 pt-2 text-[11px] font-semibold uppercase tracking-wide text-text-muted">
+                      {section.heading}
+                    </p>
+                    {section.items.map((item, j) => {
+                      const i = section.startIndex + j;
+                      return (
+                        <SearchResultRow
+                          key={`${item.type}-${item.url}-${i}`}
+                          item={item}
+                          active={i === activeIndex}
+                          optionId={optionId(i)}
+                          onActivate={() => setOpen(false)}
+                        />
+                      );
+                    })}
+                  </div>
+                ))}
+              </div>
+              <button
+                type="button"
+                role="option"
+                aria-selected={activeIndex === seeAllIndex}
+                onClick={goToSearchPage}
+                onMouseEnter={() => setActiveIndex(seeAllIndex)}
+                className={`block w-full border-t border-border px-4 py-2.5 text-left text-sm font-medium text-brand-red transition-colors hover:bg-bg-soft ${
+                  activeIndex === seeAllIndex ? 'bg-bg-soft' : ''
+                }`}
+              >
+                See all {totalLabel} results for &ldquo;{trimmed}&rdquo;
+              </button>
+            </>
+          ) : loading ? (
+            <p className="px-4 py-6 text-center text-sm text-text-muted">Searching…</p>
+          ) : (
+            <SearchEmptyCTA query={trimmed} variant="compact" />
+          )}
+        </div>
+      )}
     </form>
   );
 }

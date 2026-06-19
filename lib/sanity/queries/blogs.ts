@@ -68,6 +68,25 @@ export async function getBlogPostCount(): Promise<number> {
   return (await client.fetch<number>(`count(*[${PUBLISHED}])`)) ?? 0;
 }
 
+export interface BlogSearchEntry {
+  title: string;
+  slug: string;
+}
+
+/**
+ * Minimal title+slug list of every published blog post. Feeds the build-time
+ * search index (M5-502) — intentionally tiny (no body, image, or excerpt).
+ */
+export async function getAllBlogSearchEntries(): Promise<BlogSearchEntry[]> {
+  const docs =
+    (await client.fetch<{ title: string; slug: { current: string } }[]>(
+      `*[${PUBLISHED} && defined(title) && defined(slug.current)]{ title, slug }`,
+    )) ?? [];
+  return docs
+    .map((d) => ({ title: d.title, slug: d.slug?.current }))
+    .filter((e): e is BlogSearchEntry => Boolean(e.title && e.slug));
+}
+
 export async function getBlogPostsPage(opts: {
   page: number;
   perPage: number;

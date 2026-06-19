@@ -522,15 +522,16 @@ Context-specific filters (show only when category context matches):
 - [sanity/schemas/documents/lead-submission.ts](sanity/schemas/documents/lead-submission.ts): schema updated to firstName / lastName / email / phone / lookingFor / quantityNeeded / dateNeeded / sourceUrl / submittedAt.
 - **Delivering in production (2026-06-17).** `GMAIL_APP_PASSWORD` is set in Vercel; submissions send the email via Gmail SMTP and write the `leadSubmission` doc. Earlier pre-launch blocker (missing app password → 500) is resolved.
 
-### [ ] M3-309: Site-wide search overlay
+### [x] M3-309: Site-wide search overlay — DONE 2026-06-19
 
 **Scope.** Header search bar with autocomplete dropdown. Lazy-loads Fuse and prebuilt index from `/public/search-index.json`. Keyboard navigation. Routes to `/search?q=...` on Enter or "see all".
 **Acceptance.**
 
-- [ ] Lazy load on first focus
-- [ ] Autocomplete shows top 10 matches with type badge
-- [ ] Keyboard arrows + Enter work
-- [ ] `/search` page renders full results
+- [x] Lazy load on first focus — `onFocus` warms the index fetch (`prefetchSearchIndex()`); Fuse loads on the first keystroke. [components/forms/SearchBox.tsx](components/forms/SearchBox.tsx) rewritten into the overlay (kept the same name/props so the header is untouched).
+- [x] Autocomplete shows top matches with type badge — top 8 in the dropdown, each a [SearchResultRow](components/search/SearchResultRow.tsx) with a [TypeBadge](components/search/TypeBadge.tsx); products show their brand.
+- [x] Keyboard arrows + Enter work — combobox semantics (`aria-activedescendant`, `role=listbox/option`); ↑/↓ move the highlight across results + the "See all results" row, Enter selects, Escape closes, outside-click closes.
+- [x] `/search` page renders full results — see M5-502.
+- [x] Product rows open the affiliate URL in a new tab; category/brand/blog rows SPA-navigate ([useResultNavigation.ts](components/search/useResultNavigation.ts)).
       **Depends on.** M5-502.
       **Estimate.** 5 hours.
 
@@ -540,7 +541,7 @@ Context-specific filters (show only when category context matches):
 **Acceptance.**
 
 - [ ] Custom 404 page polished
-- [ ] All routes have loading.tsx
+- [~] All routes have loading.tsx — **done for the slow/dynamic routes (2026-06-20):** `/cat/[...slug]`, `/search`, `/brands/[...slug]` now have `loading.tsx` shimmer skeletons ([components/ui/Skeleton.tsx](components/ui/Skeleton.tsx)). Without them the App Router froze the old page until the server render finished (and dynamic-route `<Link>` prefetch was a no-op), so navigation felt "stuck on click" in production too — the skeletons give instant transition + a placeholder while data streams, and make prefetch effective. Search-overlay rows also `router.prefetch()` their internal target on hover/focus. Remaining static/force-static routes (`/deals`, `/new-products`, `/rush-products`, `/blog/[slug]`) are prefetched + cached so they transition instantly already; add `loading.tsx` there only if a slow case shows up.
 - [ ] Error boundaries catch failures
 - [ ] Lighthouse Accessibility 95 plus
       **Depends on.** M3-307.
@@ -803,19 +804,39 @@ Plus mega menu addition: "Brands" main menu item linking to `/brands` (handled i
 - New-products rail pulls from `getNewProducts()`, brands grid from `brand` docs via `getAllBrands()`, blog preview from the latest published posts.
 - `force-static`; Sanity content wins over fallbacks once the singleton is saved in Studio.
 
-### [ ] M5-502: Site-wide search (Fuse.js)
+### [x] M5-502: Site-wide search (Fuse.js) — DONE 2026-06-19
 
-**Scope.** Build-time script that generates a Fuse.js index covering every category title, every blog title plus snippet, every brand name, every FAQ question.
+**Scope.** Build-time script that generates a Fuse.js index covering every category title, every product (name + brand), every brand name, and every published blog title. FAQs deferred (no destination until /faqs / M5-506 lands).
 **Acceptance.**
 
-- [ ] Index built at build time, covers all content types
-- [ ] Search overlay lazy-loads (no impact on initial bundle)
-- [ ] Results rank by relevance with category/blog/brand badge
-- [ ] `/search?q=...` URL accessible directly
-- [ ] Keyboard navigation works
-- [ ] No external service dependency
+- [x] Index built at build time, covers all content types — `scripts/search-index/build-index.ts` writes `public/search-index.json` (`{ generatedAt, items }`). Wired as the `prebuild` step before `next build`. **30,985 items: 22,180 categories + 7,955 products + 205 brands + 645 blogs.**
+- [x] Search overlay lazy-loads (no impact on initial bundle) — Fuse.js is pulled via dynamic `import('fuse.js')` and `/search-index.json` is fetched, both only on first search ([lib/search/load-index.ts](lib/search/load-index.ts)). Neither is in the initial route JS.
+- [x] Results rank by relevance, grouped by type — overlay groups into Categories / Products / Brands / Blogs section headers ([SearchResultRow.tsx](components/search/SearchResultRow.tsx)). Fuse keys weighted title(0.8)/brand(0.2), `threshold 0.32`, `ignoreLocation`.
+- [x] `/search?q=...` URL accessible directly — [app/search/page.tsx](app/search/page.tsx) (server reads `q`, `noindex`). See M5-502b for the faceted results page.
+- [x] Keyboard navigation works — arrow up/down move the highlight, Enter selects the active row (or routes to `/search`), Escape closes. See M3-309.
+- [x] No external service dependency — pure static index + client-side Fuse; no API/Searchspring call at runtime.
+- [x] Product results link STRAIGHT to the affiliate URL (via `lib/affiliate-url.ts`, new tab) — never a category page. Products store only name + brand + raw `geiger_url`.
+- [x] No-results never dead-ends — shows the lead-form CTA ([SearchEmptyCTA.tsx](components/search/SearchEmptyCTA.tsx), reuses `LeadFormModal`).
+- [x] Index size printed + recorded; sharded if >~2 MB gz — **563.7 KB gzipped (4.19 MB raw)** after M5-502b added product thumbnails, single file (see [scripts/search-index/README.md](scripts/search-index/README.md)).
       **Depends on.** M2-207, M4-402.
       **Estimate.** 8 hours.
+
+**Notes.**
+- `prebuild` (`tsx scripts/search-index/build-index.ts`) runs before `next build`. `products.json` is committed to the repo, so no data-prebuild ordering needed. A tiny `scripts/search-index/load-env.ts` is imported first so `.env.local` populates before the Sanity client evaluates (local runs only; Vercel already has env). Blog fetch is best-effort — index still builds without blogs if Sanity is down.
+- New shared helpers: `getAllProducts()` ([lib/categories.ts](lib/categories.ts), decoded), `getAllBlogSearchEntries()` ([lib/sanity/queries/blogs.ts](lib/sanity/queries/blogs.ts)).
+- `app/api/search/route.ts` stays a 501 stub — search is fully client-side; the route is reserved for a possible future live Searchspring proxy (out of scope).
+
+### [x] M5-502b: Geiger-style faceted search results page + grouped overlay — DONE 2026-06-19
+
+**Scope.** Upgrade `/search` from a flat list to a product-first faceted results page (like Geiger's `/search`), and the header overlay to grouped suggestions with product thumbnails. All from baked data — still **no runtime Searchspring** (CLAUDE.md §18).
+**What changed.**
+
+- **`/search` is now product-first + faceted.** Matched products are resolved server-side from the full catalog (`getAllProducts()` over `products.json`) via a cached Fuse instance ([lib/search/server-search.ts](lib/search/server-search.ts), `searchProducts()`) — the 9 MB catalog is never shipped to the client. Facets (Category, Price, Brand, Min Qty) are built from the matched set ([lib/search/build-facets.ts](lib/search/build-facets.ts)) and drive the existing `/deals` filter sidebar + `ProductGrid` + pagination, plus a Sort control ([components/search/SearchFacetedResults.tsx](components/search/SearchFacetedResults.tsx)).
+- **Facet limitation (by design).** Only Category / Price / Brand / Min Qty are offered — those are the only filterable attributes ON the product object. Color / Material / Production Time are NOT (per CLAUDE.md they live only in per-category Searchspring facet arrays, not per-SKU), so they can't be derived for an ad-hoc result set without a runtime API.
+- **"Also matching" strip** ([components/search/SearchAlsoMatching.tsx](components/search/SearchAlsoMatching.tsx)) surfaces matching categories / brands / blog posts above the grid (client-side over the same cached index) — content Geiger's product-only search has no equivalent for.
+- **Overlay** now groups results into Categories / Products / Brands / Blogs with **product thumbnails** + a "See all N results" footer. Required adding `image` (entity-decoded `imageUrl`) to product index entries — index grew from 491.9 KB to **563.7 KB gzipped** (still well under the 2 MB budget).
+- **Root-category promotion.** With thousands of facet pages all containing the category name, a root landing page (e.g. `/cat/water-bottles`) sat at rank ~120 by raw Fuse score, below its own modifier/facet children. `search()` ([lib/search/load-index.ts](lib/search/load-index.ts)) now runs a second Fuse over ONLY the ~465 root pages and promotes the best root to the front — gated by (a) a strong score (≤ 0.25) and (b) a word-boundary title match, so "beer accessories" → root, but "closeout beer accessories" / "black water bottles" keep the specific child on top and "pens" no longer matches "dis**pens**ary". Root-ness is derived from the URL shape (`/cat/<slug>` = root), so no index change.
+- **Refine input** on the page ([SearchPageForm.tsx](components/search/SearchPageForm.tsx)) navigates to `/search?q=` (shareable). `/search` is now server-rendered (was client-ranked). Removed `SearchResultsClient.tsx` + `TypeBadge.tsx` (superseded).
 
 ### [x] M5-503: Mega menu population from Sanity — DONE 2026-06-17
 
