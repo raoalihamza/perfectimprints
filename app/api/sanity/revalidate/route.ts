@@ -1,17 +1,50 @@
 // Sanity webhook handler — revalidates affected routes on publish.
 //
-// M5-503 scope: the mega menu and other layout-level singletons (header/footer)
-// live in the shared root layout, so a change to them must revalidate the
-// layout route. Per-document page revalidation (blog posts, categories, etc.)
-// remains M1-104 and is intentionally left as a no-op below.
+// Handles: layout singletons (mega menu / global settings), the home page,
+// section `page` docs (/services/<slug>), and all search-affecting content
+// (blogs, videos, custom categories, custom products) — the latter both bust
+// the live search-delta cache tag and revalidate the pages they render on.
+// Any other type is a no-op.
 
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import { revalidatePath } from 'next/cache';
 import { NextResponse } from 'next/server';
+import { SEARCH_INDEX_ROUTE } from '@/lib/search/constants';
 
 // Types whose content is rendered inside the shared root layout (Header / Footer
 // / global CTA). A change to any of them must refresh every page's chrome.
 const LAYOUT_TYPES = new Set(['megaMenu', 'globalSettings']);
+
+// Types that feed the LIVE search delta (app/api/search-index). Publishing any
+// of them must bust the search cache tag so the new/edited item is searchable
+// within seconds (the route otherwise self-refreshes weekly).
+const SEARCH_TYPES = new Set([
+  'blogPost',
+  'video',
+  'customProduct',
+  'customCategory',
+  'curatedCategory',
+]);
+
+/** Page routes to revalidate for a given search-affecting type. */
+function searchTypePaths(type: string, slug: string | undefined): string[] {
+  switch (type) {
+    case 'video':
+      return slug ? ['/videos', `/videos/${slug}`] : ['/videos'];
+    case 'blogPost':
+      return slug ? ['/blog', `/blog/${slug}`] : ['/blog'];
+    // Custom products are merged into all three aggregators (which are ISR), so
+    // refresh each. The parent-category page can't be resolved from the webhook
+    // payload (it's an unresolved reference) — it revalidates on its next visit.
+    case 'customProduct':
+      return ['/deals', '/new-products', '/rush-products'];
+    case 'customCategory':
+    case 'curatedCategory':
+      return slug ? [`/cat/${slug}`] : [];
+    default:
+      return [];
+  }
+}
 
 /**
  * Verifies a Sanity webhook signature.
@@ -70,6 +103,17 @@ export async function POST(request: Request) {
   if (type === 'homePage') {
     revalidatePath('/');
     return NextResponse.json({ revalidated: true, scope: '/', type });
+  }
+
+  // Search-affecting Sanity content (blogs, videos, custom categories, custom
+  // products) — refresh the live search-delta route AND revalidate the pages
+  // those docs render on (videos detail/index, blog detail/index, the three
+  // ISR aggregators, category pages). See app/api/search-index/route.ts.
+  if (type && SEARCH_TYPES.has(type)) {
+    const slug = payload.slug?.current;
+    const paths = [SEARCH_INDEX_ROUTE, ...searchTypePaths(type, slug)];
+    for (const p of paths) revalidatePath(p);
+    return NextResponse.json({ revalidated: true, paths, type });
   }
 
   // Generic section-based `page` documents (M5-506b) render at /services/<slug>.

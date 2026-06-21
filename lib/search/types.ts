@@ -4,7 +4,7 @@
  * client components alike.
  */
 
-export type SearchItemType = 'category' | 'product' | 'brand' | 'blog' | 'faq';
+export type SearchItemType = 'category' | 'product' | 'brand' | 'blog' | 'video' | 'faq';
 
 /**
  * One entry in the prebuilt Fuse index. Kept deliberately minimal — see
@@ -26,6 +26,12 @@ export interface SearchItem {
   /** Only set for products — secondary Fuse key. */
   brand?: string;
   /**
+   * Only set for videos — the video's category title. Secondary Fuse key so a
+   * video is findable by its category (e.g. "trade shows"); also shown as the
+   * muted label on the result row.
+   */
+  category?: string;
+  /**
    * Only set for products — thumbnail URL (already HTML-entity-decoded) for the
    * autocomplete overlay. Not a Fuse key; display only.
    */
@@ -43,5 +49,6 @@ export const SEARCH_TYPE_LABELS: Record<SearchItemType, string> = {
   product: 'Product',
   brand: 'Brand',
   blog: 'Blog',
+  video: 'Video',
   faq: 'FAQ',
 };

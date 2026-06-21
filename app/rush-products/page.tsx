@@ -13,9 +13,11 @@ const DEFAULT_META_TITLE = 'Rush Promotional Products | Perfect Imprints';
 const DEFAULT_META_DESCRIPTION =
   'Custom promotional products on a 24-hour rush. Branded giveaways, corporate gifts, and bulk wholesale items with your logo - shipped the next business day.';
 
-// Fully static. Filter + pagination state live in the RushProductsClient component
-// (URL never changes), so no searchParams plumbing is needed.
-export const dynamic = 'force-static';
+// ISR: statically rendered, auto-refreshed weekly and revalidated on-demand by
+// the Sanity publish webhook (so custom products / pins / hides appear without a
+// full rebuild). Filter + pagination state live in the RushProductsClient
+// component (URL never changes), so no searchParams plumbing is needed.
+export const revalidate = 604800;
 
 export async function generateMetadata(): Promise<Metadata> {
   const copy = await getRushProductsPageCopy();

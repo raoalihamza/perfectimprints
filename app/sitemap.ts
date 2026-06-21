@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import fs from 'node:fs';
 import path from 'node:path';
 import { getBlogPostSlugs, getAllBlogCategories } from '@/lib/sanity/queries/blogs';
+import { getVideoSlugs } from '@/lib/sanity/queries/videos';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
   /\/$/,
@@ -64,6 +65,17 @@ async function readBlogUrlsFromSanity(): Promise<{ posts: string[]; categories: 
   }
 }
 
+// Published video detail pages (M5-507). Best-effort from Sanity — if it errors
+// (e.g. before the dataset is populated) the sitemap still builds without them.
+async function readVideoUrlsFromSanity(): Promise<string[]> {
+  try {
+    const slugs = await getVideoSlugs();
+    return slugs.map((s) => `/videos/${s}`);
+  } catch {
+    return [];
+  }
+}
+
 function readBrandSlugs(): string[] {
   const file = path.join(process.cwd(), 'data', 'geiger', 'brands.json');
   if (!fs.existsSync(file)) return [];
@@ -104,6 +116,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
   for (const url of categories) {
+    entries.push({
+      url: `${SITE_URL}${url}`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    });
+  }
+
+  // Published video detail pages. The /videos index itself is in STATIC_PATHS.
+  for (const url of await readVideoUrlsFromSanity()) {
     entries.push({
       url: `${SITE_URL}${url}`,
       lastModified: now,

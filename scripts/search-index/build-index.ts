@@ -3,17 +3,19 @@
  *
  *   pnpm build:search-index
  *
- * Writes `public/search-index.json` as `{ generatedAt, items: [...] }` covering:
+ * Writes `public/search-index.json` as `{ generatedAt, items: [...] }` covering
+ * ONLY the slow-changing Geiger bulk (baked from /data, no Sanity calls):
  *   - every generated category page (title = H1/metaTitle, url = internal route)
  *   - every Geiger product (name + brand + raw geiger_url ONLY)
  *   - every brand (name, /brands/<slug>)
- *   - every published blog post (title, /blog/<slug>)
  *   - FAQs are DEFERRED until a real /faqs destination exists (M5-506) — see note.
  *
- * Runs as a `prebuild` step before `next build` (see package.json). On Vercel the
- * Sanity env vars come from the project settings; locally they come from
- * `.env.local`. The blog fetch is best-effort: if Sanity is unreachable the index
- * still builds (without blogs) rather than failing the whole build.
+ * Sanity-managed content (blogs, videos, custom categories, custom products) is
+ * NOT here — it is served fresh by the LIVE delta route app/api/search-index
+ * (1-week revalidate + publish-webhook bust) and merged client-side, so new
+ * editor content is searchable without a rebuild. See lib/search/load-index.ts.
+ *
+ * Runs as a `prebuild` step before `next build` (see package.json).
  *
  * Size discipline: prints raw + gzipped bytes. If gzipped exceeds the budget the
  * script warns loudly so we can shard by type (see README) rather than ship a
@@ -33,7 +35,6 @@ import {
   getCategoryContent,
   getAllProducts,
 } from '../../lib/categories';
-import { getAllBlogSearchEntries } from '../../lib/sanity/queries/blogs';
 import type { SearchItem, SearchIndexFile } from '../../lib/search/types';
 
 const PROJECT_ROOT = path.resolve(__dirname, '../..');
@@ -96,21 +97,11 @@ function collectBrands(): SearchItem[] {
   return items;
 }
 
-async function collectBlogs(): Promise<SearchItem[]> {
-  try {
-    const entries = await getAllBlogSearchEntries();
-    return entries.map((e) => ({
-      type: 'blog' as const,
-      title: e.title.trim(),
-      url: `/blog/${e.slug}`,
-    }));
-  } catch (err) {
-    console.warn(
-      `  ! Blog fetch from Sanity failed — index built WITHOUT blogs. ${(err as Error).message}`,
-    );
-    return [];
-  }
-}
+// Blogs + videos + custom categories + custom products are NOT baked here. They
+// are Sanity-managed and turn over between deploys, so they live in the LIVE
+// search delta served by app/api/search-index (1-week revalidate + webhook), and
+// the client merges both. This static file is the slow-changing Geiger bulk only,
+// which keeps the build Sanity-free and the file cacheable for a deploy lifetime.
 
 // FAQs are intentionally NOT indexed yet: the /faqs library page (M5-506) does
 // not exist, so there is no real destination. Emitting them now would 404. Wire
@@ -134,12 +125,11 @@ async function main(): Promise<void> {
   console.log(`  • products:   ${products.length}`);
   const brands = collectBrands();
   console.log(`  • brands:     ${brands.length}`);
-  const blogs = await collectBlogs();
-  console.log(`  • blogs:      ${blogs.length}`);
   const faqs = collectFaqs();
   if (faqs.length) console.log(`  • faqs:       ${faqs.length}`);
+  console.log('  (blogs/videos/custom content are served live via /api/search-index)');
 
-  const items: SearchItem[] = [...categories, ...products, ...brands, ...blogs, ...faqs];
+  const items: SearchItem[] = [...categories, ...products, ...brands, ...faqs];
 
   const payload: SearchIndexFile = {
     generatedAt: new Date().toISOString(),

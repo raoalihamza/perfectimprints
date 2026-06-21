@@ -80,6 +80,49 @@ export async function getCustomProductsForRushProducts(): Promise<CustomProductD
   }
 }
 
+export interface CustomProductSearchEntry {
+  title: string;
+  /** externalUrl — routed through `affiliateUrl()` (product result) at click time. */
+  url: string;
+  brand?: string;
+  /** Small thumbnail for the autocomplete overlay. */
+  image?: string;
+}
+
+/**
+ * Every custom product (any placement) as a search entry — title + external URL
+ * (+ brand + thumbnail). Feeds the live Sanity search delta (M5-507 follow-up).
+ * Custom products use the `product` result type, so they link straight to their
+ * external/affiliate URL exactly like scraped Geiger products.
+ */
+export async function getCustomProductSearchEntries(): Promise<CustomProductSearchEntry[]> {
+  try {
+    const docs =
+      (await client.fetch<{ title?: string; externalUrl?: string; brand?: string; image?: SanityImage }[]>(
+        `*[_type == "customProduct" && defined(title) && defined(externalUrl)]{ title, externalUrl, brand, image }`,
+      )) ?? [];
+    return docs
+      .map((d) => {
+        const entry: CustomProductSearchEntry = {
+          title: (d.title ?? '').trim(),
+          url: d.externalUrl ?? '',
+        };
+        if (d.brand) entry.brand = d.brand.trim();
+        if (d.image?.asset?._ref) {
+          try {
+            entry.image = urlForImage(d.image).width(80).height(80).fit('max').url();
+          } catch {
+            /* leave image unset */
+          }
+        }
+        return entry;
+      })
+      .filter((e) => e.title && e.url);
+  } catch {
+    return [];
+  }
+}
+
 /**
  * Normalize a Sanity customProduct into the GeigerProduct contract so it can
  * be rendered by ProductCard alongside scraped Geiger products without any

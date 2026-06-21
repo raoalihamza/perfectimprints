@@ -13,6 +13,7 @@ const GROUPS: { type: Exclude<SearchItemType, 'product'>; cap: number }[] = [
   { type: 'category', cap: 6 },
   { type: 'brand', cap: 4 },
   { type: 'blog', cap: 4 },
+  { type: 'video', cap: 4 },
 ];
 
 /**

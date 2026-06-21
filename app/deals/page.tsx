@@ -13,9 +13,11 @@ const DEFAULT_META_TITLE = 'Deals: Sale & Closeout Promotional Products | Perfec
 const DEFAULT_META_DESCRIPTION =
   'Shop sale and closeout custom promotional products. Branded giveaways, corporate gifts, and bulk wholesale items at their lowest prices.';
 
-// Fully static. Filter + pagination state live in the DealsClient component
+// ISR: statically rendered, auto-refreshed weekly and revalidated on-demand by
+// the Sanity publish webhook (so custom products / pins / hides appear without a
+// full rebuild). Filter + pagination state live in the DealsClient component
 // (URL never changes), so no searchParams plumbing is needed.
-export const dynamic = 'force-static';
+export const revalidate = 604800;
 
 export async function generateMetadata(): Promise<Metadata> {
   const copy = await getDealsPageCopy();

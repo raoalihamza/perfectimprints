@@ -67,8 +67,10 @@ export function SearchResultRow({ item, active, optionId, onActivate }: SearchRe
         )
       ) : null}
       <span className="min-w-0 flex-1 truncate text-text-primary">{item.title}</span>
-      {item.brand ? (
-        <span className="shrink-0 truncate text-xs text-text-muted">{item.brand}</span>
+      {item.brand || item.category ? (
+        <span className="shrink-0 truncate text-xs text-text-muted">
+          {item.brand || item.category}
+        </span>
       ) : null}
     </a>
   );

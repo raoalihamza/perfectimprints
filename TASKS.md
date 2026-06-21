@@ -985,17 +985,55 @@ Of the four service pages, **Popup Stores is the only one still on the placehold
 - **Popup Stores adapted from Geiger Expo.** `/services/popup-stores` filled by **adapting** Geiger's `https://www.geiger.com/c/geiger-expo` (Patrick chose "adapt", not a faithful port). Geiger's page is about its own in-person trade-show "Expo Customer Shows" with a real dated event schedule + a Geiger HubSpot registration form — none publishable as PI content. So the page **structure** was reused but copy rewritten for a PI "Pop-Up Stores & Events" service: 7 sections — hero (no image) → "Why Host a Pop-Up Store or Event?" `richText` + bullets → "More Ways We Can Help" `cardGrid` (3 cards cross-linking to `/services/kitting`, `/services/company-stores`, `/services/custom-products`) → "Upcoming Pop-Up Stores & Events" `richText` → **empty `eventList` scaffold** ("Scheduled Events", 0 events — renders nothing until Patrick adds PI's own events) → `faqAccordion` (5 adapted FAQs) → closing `ctaBlock`. Geiger's dated schedule, "cities coming soon", HubSpot "Register Now" links, and Geiger-branded expo images were all dropped; image slots left empty for Patrick. Published `page-popup-stores` (draft cleared). Verified clean: no `hsforms`/`geiger`/event-city strings. Reproducible via [scripts/seed/fill-popup-stores-page.ts](scripts/seed/fill-popup-stores-page.ts). Page title kept as "Popup Stores" (matches nav); hero heading is "Pop-Up Stores & Events".
 - **All four Services pages are now published** (no longer placeholder drafts): `kitting`, `company-stores`, `custom-products`, `popup-stores`. Reproducible seed scripts in [scripts/seed/](scripts/seed/) (`fill-*-page.ts`). The original placeholder-draft seed ([scripts/seed/seed-service-pages.ts](scripts/seed/seed-service-pages.ts)) is now superseded for all four.
 
-### [ ] M5-507: Videos section
+### [x] M5-507: Videos section
 
 **Scope.** Build `/videos` index and `/videos/[slug]` detail pages. VideoObject schema markup. Basic scope only.
 **Acceptance.**
 
-- [ ] Index renders with at least seed data
-- [ ] Detail page embeds YouTube reliably
-- [ ] VideoObject schema added
-- [ ] Mobile responsive
+- [x] Index renders (empty-state today — no seed data; populated as Patrick adds videos in Studio)
+- [x] Detail page embeds YouTube reliably (Vimeo too; Instagram/Facebook allowed best-effort)
+- [x] VideoObject schema added
+- [x] Mobile responsive
       **Depends on.** M1-104, M1-105.
       **Estimate.** 8 hours.
+
+**Done (2026-06-21).** Schema `video` generalized from YouTube-only `youtubeUrl` to a single `embedUrl` (URL, required — provider auto-detected, no dropdown) + optional custom `thumbnail` (image); title/slug/description/`category` (shared `blogCategory` taxonomy)/publishDate kept. Patrick pastes a link (embed, never an upload); the player stays on the source platform.
+
+- **Embed parsing** — [lib/video/embed.ts](lib/video/embed.ts) `parseVideoEmbed(url)` → `{ provider, embedSrc, aspect }`, extending the `classifyEmbedSrc` pattern from [scripts/migrations/import-blogs.ts](scripts/migrations/import-blogs.ts). Handles YouTube watch/`youtu.be`/`/embed`, **Shorts** (`/shorts/<id>` → 9:16), Vimeo (`vimeo.com/<id>` → `player.vimeo.com/video/<id>`), Instagram reel/post (`/reel|p|tv/<id>/embed`, 9:16), Facebook video/reel (`plugins/video.php?href=…`; reels 9:16). Unknown → raw iframe fallback. `videoThumbnailUrl()` derives the YouTube `hqdefault.jpg`.
+- **Rendering** — client [components/videos/VideoEmbed.tsx](components/videos/VideoEmbed.tsx) (responsive iframe at the parsed aspect; vertical embeds centered + width-capped). YouTube/Vimeo embed cleanly; Instagram/Facebook are best-effort (privacy settings / their embed scripts can fail) — recommend a custom thumbnail + per-link testing; not blocking.
+- **Pages** — [app/videos/page.tsx](app/videos/page.tsx) (index: card grid + **client-side** category filter via [components/videos/VideosBrowser.tsx](components/videos/VideosBrowser.tsx), newest first) and [app/videos/[slug]/page.tsx](app/videos/[slug]/page.tsx) (detail: player + title/date/category/description + related videos same category + VideoObject JSON-LD). On-demand SSG (`dynamicParams=true`, `revalidate=false`); `app/api/sanity/revalidate/route.ts` revalidates `/videos` + `/videos/<slug>` on publish.
+- **Thumbnails** — custom `thumbnail` → YouTube auto → brand-tinted placeholder ([components/videos/VideoCard.tsx](components/videos/VideoCard.tsx) + [lib/video/card-data.ts](lib/video/card-data.ts) compute display data server-side so the client grid ships only strings).
+- **VideoObject** — `videoObjectSchema()` in [lib/seo/schema-generators.ts](lib/seo/schema-generators.ts) (`name`/`description`/`thumbnailUrl`/`uploadDate`/`embedUrl`/`contentUrl`), emitted as JSON-LD on the detail page.
+- **Meta override (2026-06-21 follow-up).** Added the shared `seo` object (Meta Title / Meta Description / OG Image) to the `video` schema — same type the Services `page` uses. `generateMetadata` on the detail page prefers `seo.metaTitle` / `seo.metaDescription` / `seo.ogImage`, falling back to Title → meta title, Description → meta description, thumbnail (or auto YouTube) → social image. `seo` added to the `VideoSummary` projection.
+- **Search** — `'video'` added to `SearchItemType` + `SEARCH_TYPE_LABELS`; `collectVideos()` in [scripts/search-index/build-index.ts](scripts/search-index/build-index.ts) (published videos → `{type:'video', title, category?, url:'/videos/<slug>'}`); overlay grouping ([SearchBox.tsx](components/forms/SearchBox.tsx)) + `/search` "also matching" strip ([SearchAlsoMatching.tsx](components/search/SearchAlsoMatching.tsx)) handle the type. **Category is also searchable** (2026-06-21 follow-up): `category?` added to `SearchItem`, fetched as `category->title` in `getAllVideoSearchEntries()`, added as a Fuse key (weight 0.3, below the 0.8 title so real category pages still win) and shown as the muted label on the result row ([SearchResultRow.tsx](components/search/SearchResultRow.tsx)). Index rebuilt fine (well under budget).
+- **Sitemap** — published `/videos/<slug>` detail URLs added to [app/sitemap.ts](app/sitemap.ts) (best-effort from Sanity); the `/videos` index was already a static path.
+- Verified: `pnpm typecheck` clean, `pnpm build:search-index` clean. No seed data — `video` docs added in Studio. **Not committed** (working tree staged for review).
+
+**Hybrid search — instant freshness follow-up (2026-06-21).** Patrick asked: when content is added in Sanity *after* a deploy (custom category/product, new/rush/deals additions, blogs, videos), how does it get into the static `search-index.json`? It didn't — the static index is build-time only. Implemented a hybrid:
+
+- **Static bulk** ([scripts/search-index/build-index.ts](scripts/search-index/build-index.ts) → `public/search-index.json`): slimmed to Geiger categories + products + brands only (no Sanity calls). ~30,340 items / 541 KB gzipped.
+- **Live delta** ([app/api/search-index/route.ts](app/api/search-index/route.ts)): blogs + videos + custom categories + custom products, built by [lib/search/sanity-index.ts](lib/search/sanity-index.ts) from [lib/sanity/queries/blogs.ts](lib/sanity/queries/blogs.ts) + [videos.ts](lib/sanity/queries/videos.ts) + new [custom-categories.ts](lib/sanity/queries/custom-categories.ts) + new `getCustomProductSearchEntries()` in [custom-products.ts](lib/sanity/queries/custom-products.ts). ISR `revalidate` = 1 week (auto-refresh), busted within seconds of publish by the webhook.
+- **Webhook** ([app/api/sanity/revalidate/route.ts](app/api/sanity/revalidate/route.ts)): `blogPost`/`video`/`customProduct`/`customCategory`/`curatedCategory` now `revalidatePath('/api/search-index')` (shared constant [lib/search/constants.ts](lib/search/constants.ts)) + revalidate the pages those docs render on. (Used `revalidatePath`, not `revalidateTag` — Next 16.2 changed `revalidateTag` to require a cache-profile arg.)
+- **Client merge** ([lib/search/load-index.ts](lib/search/load-index.ts)): fetches static + live, merges + de-dupes by `type+url` (Sanity-first); live delta is best-effort.
+- **Rendering gap:** `/deals`, `/new-products`, `/rush-products` switched `force-static` → ISR (`revalidate` 1 week + webhook) so Sanity custom products / pins / hides render without a full rebuild. Custom categories/blogs/videos already render from Sanity.
+- Verified: `pnpm typecheck` clean; static `build:search-index` rebuilt (30,340 items); live Sanity queries smoke-tested (blogs 645, video 1 w/ category, custom categories 0). **Result: add anything in Studio → page live immediately + searchable within seconds; weekly auto-refresh is the safety net. Matching stays client-side Fuse — still no runtime Searchspring.**
+
+### [ ] M5-512: Sanity revalidation webhook setup (manual, per environment)
+
+**Why this exists.** Discovered 2026-06-21 that the Sanity project has **no webhook configured** (API → Webhooks showed `0 of 2`), even though the handler `app/api/sanity/revalidate/route.ts` has been code-ready since M5-503. Until the webhook is created, NONE of the "instant on publish" behavior fires — mega menu / global settings / home / services pages / blogs / videos / custom products / custom categories / the live search delta all fall back to ISR/on-demand (up to a 1-week lag). The handler + the M5-507 hybrid search both depend on this. **This is a manual one-time setup in the Sanity dashboard, not provisioned by code.**
+
+Full step-by-step (URL, filter, projection, secret, testing, troubleshooting): **[docs/sanity-webhook-setup.md](docs/sanity-webhook-setup.md)**.
+
+**Acceptance.**
+
+- [ ] **Staging** webhook created → `https://dev.perfectimprints.com/api/sanity/revalidate`, filter + projection per the doc, secret matches Vercel `SANITY_WEBHOOK_SECRET` (Preview env).
+- [ ] `SANITY_WEBHOOK_SECRET` set in Vercel (Preview + Production) and a redeploy done after setting it.
+- [ ] Staging verified: publish a video/blog/custom product → webhook Delivery log shows **200 `{revalidated:true}`** and the item appears in search within seconds.
+- [ ] **Production** webhook created at launch → `https://www.perfectimprints.com/api/sanity/revalidate` (same filter/projection/secret). ⏳ *Pending — production not live yet; do at cutover.*
+- [ ] Production verified the same way after go-live.
+
+**Depends on.** M5-503 (handler), M5-507 hybrid search (live delta route).
+**Estimate.** 30 min (dashboard config, no code).
 
 ### [ ] M5-508: Performance and SEO infrastructure (incl. Patrick mobile pagespeed fixes)
 

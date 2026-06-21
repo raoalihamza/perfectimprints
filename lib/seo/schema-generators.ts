@@ -1,5 +1,6 @@
-// TODO: M5-508 - Schema.org JSON-LD generators for Organization, BreadcrumbList,
-// BlogPosting, FAQPage, Product, VideoObject.
+// Schema.org JSON-LD generators. Organization + BreadcrumbList live here today;
+// BlogPosting/FAQPage/Product are emitted inline at their call sites for now.
+// VideoObject (M5-507) below. Remaining consolidation tracked in M5-508.
 
 export function organizationSchema() {
   return {
@@ -25,4 +26,34 @@ export function breadcrumbSchema(items: Array<{ name: string; url: string }>) {
   };
 }
 
-// TODO M5-508 - blogPostingSchema, faqPageSchema, productSchema, videoObjectSchema
+export interface VideoObjectInput {
+  name: string;
+  description?: string;
+  /** One or more thumbnail URLs. Recommended by Google for rich results. */
+  thumbnailUrl?: string | string[];
+  /** ISO date — maps to the video's publishDate. */
+  uploadDate?: string;
+  /** Player embed URL (iframe src). */
+  embedUrl?: string;
+  /** Canonical source/watch URL. */
+  contentUrl?: string;
+}
+
+/**
+ * VideoObject JSON-LD for the video detail page (M5-507). Undefined fields are
+ * dropped by JSON.stringify, so callers can pass only what they have.
+ */
+export function videoObjectSchema(input: VideoObjectInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: input.name,
+    description: input.description,
+    thumbnailUrl: input.thumbnailUrl,
+    uploadDate: input.uploadDate,
+    embedUrl: input.embedUrl,
+    contentUrl: input.contentUrl,
+  };
+}
+
+// TODO M5-508 - blogPostingSchema, faqPageSchema, productSchema

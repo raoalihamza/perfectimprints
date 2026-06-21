@@ -21,6 +21,7 @@ const GROUP_ORDER: { type: SearchItemType; cap: number; heading: string }[] = [
   { type: 'product', cap: 6, heading: 'Products' },
   { type: 'brand', cap: 3, heading: 'Brands' },
   { type: 'blog', cap: 3, heading: 'Blogs' },
+  { type: 'video', cap: 3, heading: 'Videos' },
 ];
 
 interface SearchBoxProps {

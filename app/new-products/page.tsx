@@ -13,9 +13,11 @@ const DEFAULT_META_TITLE = 'New Custom Imprinted Products | Perfect Imprints';
 const DEFAULT_META_DESCRIPTION =
   'Browse the newest custom promotional products in our catalog. Branded giveaways, corporate gifts, and bulk wholesale items with your logo - fresh arrivals updated weekly.';
 
-// Fully static. Filter + pagination state live in the NewProductsClient component
-// (URL never changes), so no searchParams plumbing is needed.
-export const dynamic = 'force-static';
+// ISR: statically rendered, auto-refreshed weekly and revalidated on-demand by
+// the Sanity publish webhook (so custom products / pins / hides appear without a
+// full rebuild). Filter + pagination state live in the NewProductsClient
+// component (URL never changes), so no searchParams plumbing is needed.
+export const revalidate = 604800;
 
 export async function generateMetadata(): Promise<Metadata> {
   const copy = await getNewProductsPageCopy();
