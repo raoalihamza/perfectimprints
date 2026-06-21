@@ -16,12 +16,14 @@ import { NextResponse } from 'next/server';
 import { buildSanitySearchItems } from '@/lib/search/sanity-index';
 import type { SearchIndexFile } from '@/lib/search/types';
 
-const ONE_WEEK_SECONDS = 7 * 24 * 60 * 60;
-
 // ISR: cache the GET response, auto-refresh weekly, bust on-demand via the
 // publish webhook. (Next 16's tag-based revalidation now needs a cache-profile
 // arg; path revalidation stays a clean one-liner, so we use ISR + revalidatePath.)
-export const revalidate = ONE_WEEK_SECONDS;
+//
+// NOTE: `revalidate` is a Next segment config — it MUST be a static literal, not
+// a reference/expression (e.g. `7 * 24 * 60 * 60` via a const fails the build
+// with "Invalid segment configuration export"). 604800 = 7 days in seconds.
+export const revalidate = 604800;
 
 export async function GET() {
   const items = await buildSanitySearchItems();
