@@ -6,11 +6,13 @@ verifies the signature and revalidates the affected pages + the live search
 delta so editor changes go live **within seconds** instead of waiting for the
 ISR fallback.
 
-> **Status (2026-06-21):** the route handler is code-ready, but the webhook was
-> **not yet created** in the Sanity project (API → Webhooks showed `0 of 2`).
-> Until it exists, revalidation does not fire and content refreshes only via the
-> slower fallbacks below. Create it using the steps here — staging first,
-> production at launch.
+> **Status (2026-06-21):** the **staging** webhook has been created
+> (`https://dev.perfectimprints.com/api/sanity/revalidate`) with a matching
+> `SANITY_WEBHOOK_SECRET` in Vercel. The **production** webhook is still
+> **pending** — create it at launch using the "Production webhook" section below.
+> (End-to-end verification of the M5-507 search flow should be done after the
+> build-fix deploy lands, since the `/api/search-index` route + the extra handled
+> types only go live with that deploy.)
 
 ## What the webhook drives
 

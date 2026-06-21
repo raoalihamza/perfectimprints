@@ -1024,12 +1024,14 @@ Of the four service pages, **Popup Stores is the only one still on the placehold
 
 Full step-by-step (URL, filter, projection, secret, testing, troubleshooting): **[docs/sanity-webhook-setup.md](docs/sanity-webhook-setup.md)**.
 
+**Status (2026-06-21): STAGING DONE — production still pending (do at launch).**
+
 **Acceptance.**
 
-- [ ] **Staging** webhook created → `https://dev.perfectimprints.com/api/sanity/revalidate`, filter + projection per the doc, secret matches Vercel `SANITY_WEBHOOK_SECRET` (Preview env).
-- [ ] `SANITY_WEBHOOK_SECRET` set in Vercel (Preview + Production) and a redeploy done after setting it.
-- [ ] Staging verified: publish a video/blog/custom product → webhook Delivery log shows **200 `{revalidated:true}`** and the item appears in search within seconds.
-- [ ] **Production** webhook created at launch → `https://www.perfectimprints.com/api/sanity/revalidate` (same filter/projection/secret). ⏳ *Pending — production not live yet; do at cutover.*
+- [x] **Staging** webhook created → `https://dev.perfectimprints.com/api/sanity/revalidate`, filter + projection per the doc, secret matches Vercel `SANITY_WEBHOOK_SECRET` (Preview env).
+- [x] `SANITY_WEBHOOK_SECRET` set in Vercel (Preview/staging) — redeploy done.
+- [ ] Staging verified end-to-end: publish a video/blog/custom product → webhook Delivery log shows **200 `{revalidated:true}`** and the item appears in search within seconds. *(Do after the build-fix deploy lands — the new `/api/search-index` + extra handled types only go live once the fixed build deploys.)*
+- [ ] **Production** webhook created at launch → `https://www.perfectimprints.com/api/sanity/revalidate` (same filter/projection/secret + `SANITY_WEBHOOK_SECRET` in Vercel Production env). ⏳ *Pending — production not live yet; do at cutover.*
 - [ ] Production verified the same way after go-live.
 
 **Depends on.** M5-503 (handler), M5-507 hybrid search (live delta route).
