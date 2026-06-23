@@ -73,6 +73,15 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'productSkus',
+      title: 'Product SKUs',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: { layout: 'tags' },
+      description:
+        'Geiger SKUs shown in this category grid, in display order. Pre-filled from the baked page on "Push to Sanity"; add / remove / reorder freely. Resolved live, so a SKU Geiger later discontinues simply drops out. Custom (non-Geiger) products attach separately via a customProduct whose Parent Category points here. Product placements (productPlacement) also merge in; removal wins.',
+    }),
+    defineField({
       name: 'externalUrl',
       title: 'External CTA URL',
       type: 'string',

@@ -22,6 +22,21 @@ export const previewClient: SanityClient = createClient({
   perspective: 'previewDrafts',
 });
 
+/**
+ * Cache-able published client for the `/cat/<slug>` render path. `useCdn: false`
+ * is REQUIRED for Next.js fetch caching — the CDN client ignores `next` tag
+ * options. Reads through this client pass `{ next: { tags, revalidate } }` so
+ * they are tagged + statically prerenderable (not `no-store`), keeping the
+ * category route static-generatable while the webhook revalidates by tag.
+ */
+export const cachedClient: SanityClient = createClient({
+  projectId,
+  dataset,
+  apiVersion,
+  useCdn: false,
+  perspective: 'published',
+});
+
 export function getClient(preview = false): SanityClient {
   return preview ? previewClient : client;
 }

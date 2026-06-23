@@ -863,31 +863,77 @@ Plus mega menu addition: "Brands" main menu item linking to `/brands` (handled i
 - **Renderer** components are untouched, guaranteeing identical look/behavior; only `Header.tsx` switched data source and iterates the Sanity items in order (so reorder/hide/add work). `lib/nav-data.ts` kept as the seed reference (not imported for rendering).
 - Ran live seed against Sanity; `pnpm typecheck` + `pnpm build` pass.
 
-### [ ] M5-504: Custom category and custom product schemas
+### [x] M5-504: Custom category and custom product schemas — DONE 2026-06-23
 
 **Scope.** `customCategory` and `customProduct` Sanity schemas. Render through the same `/cat/[...slug]` route.
 **Acceptance.**
 
-- [ ] customCategory document type editable
-- [ ] customCategory renders without Geiger link if none set
-- [ ] CTAs default to contact form when no Geiger URL
-- [ ] customProduct documents render in chosen category page grid
-- [ ] External URL opens correctly
-- [ ] Display order respected in grid
+- [x] customCategory document type editable
+- [x] customCategory renders without Geiger link if none set
+- [x] CTAs default to contact form when no Geiger URL
+- [x] customProduct documents render in chosen category page grid
+- [x] External URL opens correctly
+- [x] Display order respected in grid
       **Depends on.** M3-301.
       **Estimate.** 4 hours.
 
-### [ ] M5-505: Sanity AI generation button
+#### M5-504 part 1 (DONE 2026-06-23): Category curation tooling (`categoryOverride`)
+
+Per-category curation tooling + audit/reconciliation dry-runs. No pages built, no content regenerated, no category JSON rewritten.
+
+- [x] `categoryOverride` Sanity doc ([sanity/schemas/documents/category-override.ts](sanity/schemas/documents/category-override.ts), registered in schema index) keyed by `categorySlug` (`/cat/...` slug). Fields: `forceCTA`, `forceProducts`, `hiddenSkus[]`, `addedSkus[]`, `addedProducts[]→customProduct`.
+- [x] Render wiring in [app/cat/[...slug]/page.tsx](app/cat/[...slug]/page.tsx): `getCategoryOverride()`; precedence `forceCTA` → `forceProducts` → original `shouldShowEmptyStateCTA`. Hide/add applied via `applyCategoryOverrideProducts()` ([lib/sanity/queries/category-overrides.ts](lib/sanity/queries/category-overrides.ts)) through the existing helpers (`resolveProductsBySku`, `customProductToGeigerProduct`).
+- [x] `/cat/<categorySlug>` revalidated on `categoryOverride` publish ([app/api/sanity/revalidate/route.ts](app/api/sanity/revalidate/route.ts) — webhook projection must include `categorySlug`).
+- [x] `pnpm audit:category-rule` ([scripts/audit-category-rule.ts](scripts/audit-category-rule.ts)) → [docs/category-rule-audit.md](docs/category-rule-audit.md). CTA total ~7,836 (35.3%) under the restored rules.
+- [x] `pnpm reconcile:missing-urls` ([scripts/reconcile-missing-urls.ts](scripts/reconcile-missing-urls.ts)) → [docs/missing-url-reconciliation.md](docs/missing-url-reconciliation.md). 0 missing; dry-run only, no pages built.
+
+**REVERTED (2026-06-23): the Part B exact-match-only Geiger-menu render-time gate.** It was too aggressive — it flipped ~10,694 categories to CTA (83.5% total), including genuine product-bearing ones (binoculars, tote-bags, pens, apparel-accessories). `lib/category-rule.ts` was deleted. CTA is again decided only by the original three `shouldShowEmptyStateCTA` rules (empty-skus, full-capped-60, manual forceCTA). The off-topic problem is a handful of categories, fixed by **targeted `categoryOverride` docs** (set `forceCTA`, or prune via `hiddenSkus`) — not a site-wide rule. Note: `binoculars`/`pens` remain CTA via the pre-existing `full-capped-60` rule (not the reverted gate); use `forceProducts` to surface them. `dog-tags`/`PPE` now render products and need a manual `forceCTA`.
+
+- **STOP after reports.** Part 2 (next prompt) builds the missing pages + adds the customCategory AI generate button (M5-505). Do not widen scope here.
+
+#### M5-504 part 2 + M5-505 (DONE 2026-06-23): two-way product/category tooling + customCategory pages + AI button
+
+Additive tooling — new schema, custom Studio inputs, a unified resolver, customCategory rendering, and the AI button. Nothing destructive, no JSON re-bake.
+
+- [x] **Searchable CategoryPicker** ([sanity/components/CategoryPicker.tsx](sanity/components/CategoryPicker.tsx)) over all 22,180 slugs via build-time `public/category-list.json` ([scripts/build-category-list.ts](scripts/build-category-list.ts), `pnpm build:category-list`, wired into `prebuild`) + live `customCategory` slugs; debounced client-side filter; **create-new** makes a `customCategory` at `/cat/<slug>`. Studio-only, no live-site/Sanity perf impact, no `@sanity/ui` import.
+- [x] **`productPlacement`** doc ([sanity/schemas/documents/product-placement.ts](sanity/schemas/documents/product-placement.ts)) keyed by `sku`, with `addToCategories[]`/`removeFromCategories[]` (CategoryPicker) and a live SKU→name preview ([sanity/components/SkuPreview.tsx](sanity/components/SkuPreview.tsx) + [app/api/products/resolve/route.ts](app/api/products/resolve/route.ts)).
+- [x] **Unified resolver** `mergeCategoryProducts()` ([lib/sanity/queries/category-overrides.ts](lib/sanity/queries/category-overrides.ts)): baked + override adds + placement adds − override hides − placement removes; **removal wins**, de-duped, SKUs resolved live (survive re-scrape). Placement query in [lib/sanity/queries/product-placements.ts](lib/sanity/queries/product-placements.ts). Both edit directions reach the same `/cat/<slug>` result.
+- [x] **customCategory live pages** ([components/category/CustomCategoryView.tsx](components/category/CustomCategoryView.tsx) + the `/cat/[...slug]` fallback): hero/intro/body/FAQs (FAQPage schema)/products/breadcrumb (BreadcrumbList)/CTA; no Geiger mapping required; CTA → contact form when `externalUrl` blank. Query: `getCustomCategoryBySlug` ([lib/sanity/queries/custom-categories.ts](lib/sanity/queries/custom-categories.ts)).
+- [x] **Revalidation** ([app/api/sanity/revalidate/route.ts](app/api/sanity/revalidate/route.ts)): `productPlacement` publish revalidates every `/cat/<slug>` in both lists; `customCategory` already revalidates `/cat/<slug>`.
+- [x] **M5-505 AI button** — `generateWithAi` action ([sanity/actions/generate-with-ai.tsx](sanity/actions/generate-with-ai.tsx), customCategory-only via [sanity/sanity.config.ts](sanity/sanity.config.ts)) → [app/api/sanity/generate-content/route.ts](app/api/sanity/generate-content/route.ts) (DeepSeek, server-side key, v2 buying-guide prompt, plural keywords + personas, no "Perfect Imprints" in H1/H2); patches `introHtml`/`bodySections`/`faqs`; loading + error states; no auto-publish.
+- `pnpm typecheck` passes.
+
+#### M5-504 push-to-Sanity (DONE 2026-06-23): full per-category control (existing + new)
+
+Completes "push the JSON category pages to Sanity 1 by 1." One `customCategory` type serves both new pages and taking over existing baked ones; the slug is the key. Additive, no mass change, JSON-first performance preserved.
+
+- [x] **Push to Sanity** Studio tool ([sanity/tools/push-category-tool.tsx](sanity/tools/push-category-tool.tsx), registered via `tools` in [sanity/sanity.config.ts](sanity/sanity.config.ts)): search all 22,180 slugs → "Push to Sanity" → GETs [app/api/sanity/push-category/route.ts](app/api/sanity/push-category/route.ts) → creates a **draft** customCategory pre-filled from the baked JSON (h1→title, meta→seo, introHtml→PT, buyingGuide(+H2)→bodySections, faqs, productSkus). HTML→PT via [lib/portable-text/html-to-blocks.ts](lib/portable-text/html-to-blocks.ts). Refuses if a customCategory already owns the slug.
+- [x] **Owned-slug precedence + edited-set gating** ([lib/sanity/queries/owned-categories.ts](lib/sanity/queries/owned-categories.ts) `getCategoryControlSets`, `unstable_cache` tag `owned-category-slugs` + 5-min self-heal; baseline artifact `public/custom-category-slugs.json` via [scripts/build-custom-category-slugs.ts](scripts/build-custom-category-slugs.ts) in `prebuild`). One shared cached read yields `owned` (customCategory) + `edited` (owned ∪ override/placement-touched). Owned → Sanity renders (wins); only `edited` slugs run the per-slug override/placement fetches; **every untouched page renders from baked JSON with no per-page Sanity lookup**. Delete/unpublish → reverts to JSON. Tag busted on customCategory/categoryOverride/productPlacement publish.
+- [x] **Full content + product control** on pushed/custom pages: edit title/intro/bodySections/faqs directly; `productSkus[]` editable (reorder/add/remove); `productPlacement` + `categoryOverride` still merge via `mergeCategoryProducts` (removal wins, de-duped, SKUs resolved live → survive re-scrape). FAQPage + BreadcrumbList still emit.
+- [x] **AI + manual** both work on new and pushed docs (AI now also regenerates the heading `title` + `seo`).
+- [x] **Revalidation** ([app/api/sanity/revalidate/route.ts](app/api/sanity/revalidate/route.ts)): customCategory publish/unpublish → `revalidatePath('/cat/<slug>')` + `revalidateTag('owned-category-slugs', 'max')` (Next 16 2-arg form). Webhook GROQ projection must include `slug`.
+- `pnpm typecheck` + `pnpm build` pass.
+
+#### M5-504 hybrid restore (DONE 2026-06-23): /cat static again (untouched static, owned/edited via tagged ISR)
+
+The per-category Sanity work had made `/cat/[...slug]` render fully dynamic (`ƒ`), so all 22,180 pages were SSR per request (SEO + speed regression). Restored the hybrid. **Two blockers**, both fixed:
+
+- [x] **Uncached Sanity reads** in render → tagged. New `cachedClient` (`useCdn:false`) in [lib/sanity/client.ts](lib/sanity/client.ts) + [lib/sanity/cache-tags.ts](lib/sanity/cache-tags.ts) (`category-control-sets`, `cat:<slug>`, `related-blogs`). `getCategoryControlSets`, `getCategoryOverride`, `getPlacementSkusForCategory`, `getCustomCategoryBySlug`, `getRelatedBlogs` all now `{ next: { tags, revalidate: false } }` (not `no-store`). `getCategoryControlSets` switched off `unstable_cache` to a tagged fetch.
+- [x] **`searchParams` removed from the static render.** The page no longer reads `searchParams` (a Dynamic API). It renders the unfiltered, path-paginated view. Faceted filtering (server-only membership data) moved to the dynamic route [app/api/category-products/route.ts](app/api/category-products/route.ts); [components/category/CategoryShell.tsx](components/category/CategoryShell.tsx) detects active filters from the URL (client-safe `parseFilterState`/`isStateEmpty`), fetches the API, and paginates client-side. [components/category/Pagination.tsx](components/category/Pagination.tsx) gained an optional `onPageChange` for client pagination.
+- [x] **generateStaticParams** keeps the ~1,840 headline set + owned slugs from the build artifact. Webhook busts `cat:<slug>` + `category-control-sets` + `revalidatePath` (and `related-blogs` on blogPost) so edits go live in seconds without making the route dynamic.
+- [x] **Verified static**: a build with `searchParams` removed produced `/cat/[...slug]` → `●` (SSG) with **1,840 prerendered HTML files** on disk (was `ƒ` with zero before). `pnpm typecheck` passes. **NOTE:** the full `pnpm build` is NOT run locally (too slow / slows the machine — see memory); Vercel confirms the build on push. After any change to the `/cat` render path, confirm the Vercel/CI build shows `/cat/[...slug]` as `●`/SSG, not `ƒ`.
+
+### [x] M5-505: Sanity AI generation button — DONE 2026-06-23 (see M5-504 part 2 block above)
 
 **Scope.** Custom Sanity Studio action that appears on customCategory documents. Calls DeepSeek with the root_category prompt (v2 buying-guide format) and patches the document with intro, buying guide, and FAQs.
 **Acceptance.**
 
-- [ ] "Generate with AI" button visible on customCategory documents only
-- [ ] Click triggers DeepSeek call with appropriate prompt
-- [ ] Returned content patched into intro, buying guide, and FAQs fields
-- [ ] Loading state shown during call
-- [ ] Error state shown on failure
-- [ ] Patrick can review and edit before publishing
+- [x] "Generate with AI" button visible on customCategory documents only
+- [x] Click triggers DeepSeek call with appropriate prompt
+- [x] Returned content patched into intro, buying guide, and FAQs fields
+- [x] Loading state shown during call
+- [x] Error state shown on failure
+- [x] Patrick can review and edit before publishing
       **Depends on.** M5-504, M2-202.
       **Estimate.** 8 hours.
 

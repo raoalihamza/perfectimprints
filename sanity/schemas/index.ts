@@ -7,6 +7,8 @@ import megaMenu from './singletons/mega-menu';
 import curatedCategory from './documents/curated-category';
 import customCategory from './documents/custom-category';
 import customProduct from './documents/custom-product';
+import categoryOverride from './documents/category-override';
+import productPlacement from './documents/product-placement';
 import blogPost from './documents/blog-post';
 import blogCategory from './documents/blog-category';
 import author from './documents/author';
@@ -29,6 +31,8 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   curatedCategory,
   customCategory,
   customProduct,
+  categoryOverride,
+  productPlacement,
   blogPost,
   blogCategory,
   author,

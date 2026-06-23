@@ -1,4 +1,5 @@
-import { client } from '@/lib/sanity/client';
+import { cachedClient } from '@/lib/sanity/client';
+import { RELATED_BLOGS_TAG } from '@/lib/sanity/cache-tags';
 import type { SanityImage, SanitySlug } from '@/lib/sanity/types';
 
 export interface RelatedBlogCard {
@@ -17,7 +18,7 @@ export interface RelatedBlogCard {
  */
 export async function getRelatedBlogs(rootSlug: string): Promise<RelatedBlogCard[]> {
   return (
-    (await client.fetch<RelatedBlogCard[]>(
+    (await cachedClient.fetch<RelatedBlogCard[]>(
       `*[_type == "blogPost"
         && !(_id in path("drafts.**"))
         && $slug in relatedCategorySlugs]
@@ -30,6 +31,7 @@ export async function getRelatedBlogs(rootSlug: string): Promise<RelatedBlogCard
           "excerpt": coalesce(excerpt, pt::text(body)[0...120])
         }`,
       { slug: rootSlug },
+      { next: { tags: [RELATED_BLOGS_TAG], revalidate: false } },
     )) ?? []
   );
 }

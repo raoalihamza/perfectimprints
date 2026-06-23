@@ -7,9 +7,10 @@
 // Any other type is a no-op.
 
 import { createHmac, timingSafeEqual } from 'node:crypto';
-import { revalidatePath } from 'next/cache';
+import { revalidatePath, revalidateTag } from 'next/cache';
 import { NextResponse } from 'next/server';
 import { SEARCH_INDEX_ROUTE } from '@/lib/search/constants';
+import { CATEGORY_CONTROL_TAG, RELATED_BLOGS_TAG, categoryTag } from '@/lib/sanity/cache-tags';
 
 // Types whose content is rendered inside the shared root layout (Header / Footer
 // / global CTA). A change to any of them must refresh every page's chrome.
@@ -83,7 +84,13 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Invalid signature.' }, { status: 401 });
   }
 
-  let payload: { _type?: string; slug?: { current?: string } } = {};
+  let payload: {
+    _type?: string;
+    slug?: { current?: string };
+    categorySlug?: string;
+    addToCategories?: string[];
+    removeFromCategories?: string[];
+  } = {};
   try {
     payload = JSON.parse(body);
   } catch {
@@ -113,7 +120,51 @@ export async function POST(request: Request) {
     const slug = payload.slug?.current;
     const paths = [SEARCH_INDEX_ROUTE, ...searchTypePaths(type, slug)];
     for (const p of paths) revalidatePath(p);
+    // A customCategory publish/unpublish changes which slugs Sanity OWNS — bust
+    // its per-slug content tag AND the shared control-set tag so the page flips
+    // JSON↔Sanity in seconds (the page path is also revalidated above).
+    if (type === 'customCategory') {
+      revalidateTag(CATEGORY_CONTROL_TAG, 'max');
+      if (slug) revalidateTag(categoryTag(slug), 'max');
+    }
+    // Blog relatedness on root category pages is a cached read — refresh it.
+    if (type === 'blogPost') revalidateTag(RELATED_BLOGS_TAG, 'max');
     return NextResponse.json({ revalidated: true, paths, type });
+  }
+
+  // Per-category curation override (M5-504 part 1) keyed by the /cat/... slug.
+  // The slug may contain slashes (facet overrides), so revalidate /cat/<slug>
+  // directly from the categorySlug field.
+  if (type === 'categoryOverride') {
+    // A new/removed override changes the "edited" set AND that slug's content.
+    revalidateTag(CATEGORY_CONTROL_TAG, 'max');
+    const categorySlug = payload.categorySlug ?? payload.slug?.current;
+    if (categorySlug) {
+      revalidateTag(categoryTag(categorySlug), 'max');
+      const path = `/cat/${categorySlug}`;
+      revalidatePath(path);
+      return NextResponse.json({ revalidated: true, scope: path, type });
+    }
+    return NextResponse.json({ revalidated: false, reason: 'override missing slug', type });
+  }
+
+  // Product-side placement (M5-504 Part 2) attaches/detaches a SKU to one or
+  // many categories. Revalidate every category it touches so both edit
+  // directions go live. (Webhook GROQ projection must include addToCategories
+  // and removeFromCategories.)
+  if (type === 'productPlacement') {
+    // A new/changed placement changes the "edited" set AND each touched slug.
+    revalidateTag(CATEGORY_CONTROL_TAG, 'max');
+    const slugs = [
+      ...(payload.addToCategories ?? []),
+      ...(payload.removeFromCategories ?? []),
+    ].filter((s): s is string => typeof s === 'string' && s.length > 0);
+    const unique = [...new Set(slugs)];
+    for (const s of unique) {
+      revalidateTag(categoryTag(s), 'max');
+      revalidatePath(`/cat/${s}`);
+    }
+    return NextResponse.json({ revalidated: unique.length > 0, paths: unique.map((s) => `/cat/${s}`), type });
   }
 
   // Generic section-based `page` documents (M5-506b) render at /services/<slug>.

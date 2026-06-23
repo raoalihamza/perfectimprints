@@ -11,17 +11,25 @@ import {
   getAllGeneratedCategorySlugs,
   getCategoryContent,
   paginateProducts,
-  resolveProductsBySku,
   shouldShowEmptyStateCTA,
   PRODUCTS_PER_PAGE,
 } from '@/lib/categories';
 import {
-  applyFiltersAndSort,
-  buildSidebarData,
-  enrichSidebarWithProductStats,
-  isStateEmpty,
-  parseFilterState,
-} from '@/lib/filters';
+  getCategoryOverride,
+  mergeCategoryProducts,
+} from '@/lib/sanity/queries/category-overrides';
+import { getPlacementSkusForCategory } from '@/lib/sanity/queries/product-placements';
+import {
+  getCustomCategoryBySlug,
+  type CustomCategoryDoc,
+} from '@/lib/sanity/queries/custom-categories';
+import {
+  getCategoryControlSets,
+  getOwnedSlugsFromFile,
+} from '@/lib/sanity/queries/owned-categories';
+import { customProductToGeigerProduct } from '@/lib/sanity/queries/custom-products';
+import { CustomCategoryView } from '@/components/category/CustomCategoryView';
+import { buildSidebarData, enrichSidebarWithProductStats } from '@/lib/filters';
 
 interface Props {
   params: Promise<{ slug: string[] }>;
@@ -78,27 +86,66 @@ const PREBUILD_TYPES = new Set(['root', 'modifier', 'compound-facet']);
 export function generateStaticParams() {
   const summaries = getAllGeneratedCategorySlugs();
   const params: { slug: string[] }[] = [];
+  const seen = new Set<string>();
   for (const s of summaries) {
     if (!PREBUILD_TYPES.has(s.type)) continue;
     const segments = s.urlSlug.split('/');
     // Page 1 lives at the clean URL.
     params.push({ slug: segments });
+    seen.add(segments.join('/'));
     // Pages 2..totalPages get explicit /page/N URLs.
     for (let p = 2; p <= s.totalPages; p++) {
       params.push({ slug: [...segments, 'page', String(p)] });
     }
   }
+  // Also prebuild any slug Sanity currently OWNS (pushed/custom pages) from the
+  // build artifact, so owned pages render statically too. Newly-pushed slugs go
+  // live via the webhook revalidatePath before the next build picks them up here.
+  for (const slug of getOwnedSlugsFromFile()) {
+    const segments = slug.split('/').filter(Boolean);
+    if (segments.length === 0) continue;
+    const key = segments.join('/');
+    if (seen.has(key)) continue;
+    seen.add(key);
+    params.push({ slug: segments });
+  }
   return params;
+}
+
+function customCategoryMetadata(custom: CustomCategoryDoc, cleanUrl: string): Metadata {
+  return {
+    title: { absolute: custom.seo?.metaTitle || custom.title },
+    description: custom.seo?.metaDescription || custom.heroCopy || undefined,
+    alternates: { canonical: cleanUrl },
+  };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const parsed = parseSlug(slug);
   if (!parsed) return {};
-  const content = getCategoryContent(parsed.fileSlug);
-  if (!content) return {};
 
+  const categorySlug = parsed.segments.join('/');
   const cleanUrl = `${SITE_URL}${parsed.baseUrl}`;
+
+  // Owned customCategory wins (push-to-Sanity precedence), page 1 only.
+  if (parsed.page === 1) {
+    const { owned } = await getCategoryControlSets();
+    if (owned.has(categorySlug)) {
+      const custom = await getCustomCategoryBySlug(categorySlug);
+      if (custom) return customCategoryMetadata(custom, cleanUrl);
+    }
+  }
+
+  const content = getCategoryContent(parsed.fileSlug);
+  if (!content) {
+    // customCategory not yet in the cached owned set (just published). Page 1 only.
+    if (parsed.page === 1) {
+      const custom = await getCustomCategoryBySlug(categorySlug);
+      if (custom) return customCategoryMetadata(custom, cleanUrl);
+    }
+    return {};
+  }
 
   if (parsed.page === 1) {
     return {
@@ -143,35 +190,110 @@ function buildBreadcrumbs(
   return items;
 }
 
-export default async function CategoryPage({ params, searchParams }: Props) {
+/**
+ * Resolve a customCategory's product grid (its own SKU list + attached custom
+ * products + productPlacement/categoryOverride edits, removal-wins de-dup) and
+ * render the Sanity-owned page. Shared by the owned-slug path and the no-JSON
+ * fallback.
+ */
+async function renderCustomCategory(
+  custom: CustomCategoryDoc,
+  baseUrl: string,
+  categorySlug: string,
+) {
+  const [override, placement] = await Promise.all([
+    getCategoryOverride(categorySlug),
+    getPlacementSkusForCategory(categorySlug),
+  ]);
+  const products = mergeCategoryProducts({
+    bakedSkus: custom.productSkus ?? [],
+    override,
+    placementAddSkus: placement.addSkus,
+    placementRemoveSkus: placement.removeSkus,
+    extraCustomProducts: custom.customProducts.map(customProductToGeigerProduct),
+  });
+  return <CustomCategoryView doc={custom} baseUrl={baseUrl} products={products} />;
+}
+
+// NOTE: this page intentionally does NOT read `searchParams`. Reading it is a
+// Next.js Dynamic API that forces the whole route off static prerendering.
+// Faceted filtering runs server-side via /api/category-products, called by the
+// client CategoryShell, so the 22,180 baked pages stay static (see CLAUDE.md §13).
+export default async function CategoryPage({ params }: Props) {
   const { slug } = await params;
-  const search = (await searchParams) || {};
   const parsed = parseSlug(slug);
   if (!parsed) notFound();
 
+  const categorySlug = parsed.segments.join('/');
+
+  // One shared cached read (no per-page Sanity lookup): which slugs Sanity OWNS
+  // (published customCategory) and which are "edited" (owned + touched by a
+  // categoryOverride / productPlacement). Untouched pages below do zero Sanity
+  // calls — they render straight from the baked JSON.
+  const { owned, edited } = await getCategoryControlSets();
+
+  // Push-to-Sanity precedence: an owned slug is rendered from Sanity (wins over
+  // any baked JSON). Custom pages have no pagination, so only page 1 is owned.
+  if (parsed.page === 1 && owned.has(categorySlug)) {
+    const custom = await getCustomCategoryBySlug(categorySlug);
+    if (custom) return renderCustomCategory(custom, parsed.baseUrl, categorySlug);
+  }
+
   const content = getCategoryContent(parsed.fileSlug);
-  if (!content) notFound();
 
-  const showCTA = shouldShowEmptyStateCTA(content);
+  // No baked JSON page → it may be a Sanity customCategory not yet reflected in
+  // the cached owned set (e.g. just published). Safety fallback, page 1 only.
+  if (!content) {
+    if (parsed.page === 1) {
+      const custom = await getCustomCategoryBySlug(categorySlug);
+      if (custom) return renderCustomCategory(custom, parsed.baseUrl, categorySlug);
+    }
+    notFound();
+  }
 
-  // Resolve full product list, then apply filters + sort, then paginate.
+  // Only "edited" slugs pay the per-slug override + placement Sanity fetches.
+  // Every untouched page skips them entirely and resolves from baked SKUs.
+  const isEdited = edited.has(categorySlug);
+  const [override, placement] = isEdited
+    ? await Promise.all([
+        getCategoryOverride(categorySlug),
+        getPlacementSkusForCategory(categorySlug),
+      ])
+    : [null, { addSkus: [], removeSkus: [] }];
+
+  // Per-category Sanity override (forceCTA / forceProducts / hidden+added SKUs).
+  // Precedence: override.forceCTA → override.forceProducts → original shouldShowEmptyStateCTA
+  // (empty-skus, full-capped-60, JSON forceCTA). The earlier exact-match-only
+  // Geiger-menu gate was reverted as too aggressive — off-topic categories are
+  // fixed by targeted `categoryOverride` docs instead.
+  const showCTA = override?.forceCTA
+    ? true
+    : override?.forceProducts
+      ? false
+      : shouldShowEmptyStateCTA(content);
+
+  // Unified resolver: baked SKUs + override adds + placement adds − override hides
+  // − placement removes (removal wins). The page renders the UNFILTERED, path-
+  // paginated view (static + indexable); filtering happens client-side.
   const rootSlug = parsed.segments[0];
-  const filterState = parseFilterState(search);
-  const allProducts = resolveProductsBySku(content.productSkus || []);
-  const filtered = isStateEmpty(filterState)
-    ? allProducts
-    : applyFiltersAndSort(allProducts, filterState, rootSlug);
-  const pageData = paginateProducts(filtered, parsed.page, PRODUCTS_PER_PAGE);
+  const allProducts = mergeCategoryProducts({
+    bakedSkus: content.productSkus || [],
+    override,
+    placementAddSkus: placement.addSkus,
+    placementRemoveSkus: placement.removeSkus,
+  });
+  const effectiveSkus = allProducts.map((p) => p.sku);
+  const pageData = paginateProducts(allProducts, parsed.page, PRODUCTS_PER_PAGE);
 
   // Out-of-range page (e.g. /page/99 on a 5-page category) → 404.
   // CTA pages always have a single page, so any /page/N (N > 1) is out of range.
   if (showCTA && parsed.page > 1) notFound();
-  if (!showCTA && parsed.page > pageData.totalPages && filtered.length > 0) notFound();
+  if (!showCTA && parsed.page > pageData.totalPages && allProducts.length > 0) notFound();
 
   // Sidebar data is derived from the unfiltered category SKU set so filter counts
   // reflect "products available if I add this filter," not "products after current filters."
   const sidebar = !showCTA
-    ? enrichSidebarWithProductStats(buildSidebarData(rootSlug, content.productSkus || []), allProducts)
+    ? enrichSidebarWithProductStats(buildSidebarData(rootSlug, effectiveSkus), allProducts)
     : null;
 
   const title = categoryTitle(content);
@@ -208,7 +330,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
             totalPages={pageData.totalPages}
             currentPage={parsed.page}
             baseUrl={parsed.baseUrl}
-            sort={filterState.sort}
+            slug={categorySlug}
           />
         )}
       </Container>

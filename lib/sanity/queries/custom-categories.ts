@@ -1,8 +1,94 @@
-import { client } from '@/lib/sanity/client';
+import type { PortableTextBlock } from '@portabletext/react';
+import { client, cachedClient } from '@/lib/sanity/client';
+import { categoryTag } from '@/lib/sanity/cache-tags';
+import type { SanityImage, SeoFields } from '@/lib/sanity/types';
+import type { CustomProductDoc } from './custom-products';
 
 export interface CustomCategorySearchEntry {
   title: string;
   slug: string;
+}
+
+export interface CustomCategoryFaq {
+  q: string;
+  a: string;
+}
+
+export interface CustomCategoryDoc {
+  _id: string;
+  title: string;
+  slug: string;
+  targetKeyword?: string;
+  heroImage?: SanityImage;
+  heroCopy?: string;
+  introHtml?: PortableTextBlock[];
+  bodySections?: PortableTextBlock[];
+  faqs?: CustomCategoryFaq[];
+  /** Editable Geiger SKU list (pre-filled on push). */
+  productSkus?: string[];
+  externalUrl?: string;
+  seo?: SeoFields;
+  /** Custom products whose `parentCategory` references this category. */
+  customProducts: CustomProductDoc[];
+}
+
+const CUSTOM_CATEGORY_PRODUCT_PROJECTION = `
+  _id,
+  title,
+  description,
+  externalUrl,
+  image,
+  brand,
+  lowPrice,
+  highPrice,
+  msrp,
+  minQty,
+  productionTime,
+  colors,
+  material,
+  badges,
+  displayOrder,
+  placements,
+  "parentCategory": parentCategory->{ "slug": slug.current, title }
+`;
+
+const CUSTOM_CATEGORY_PROJECTION = `
+  _id,
+  title,
+  "slug": slug.current,
+  targetKeyword,
+  heroImage,
+  heroCopy,
+  introHtml,
+  bodySections,
+  faqs,
+  productSkus,
+  externalUrl,
+  seo,
+  "customProducts": *[_type == "customProduct" && references(^._id)] | order(displayOrder asc, title asc) {
+    ${CUSTOM_CATEGORY_PRODUCT_PROJECTION}
+  }
+`;
+
+/**
+ * Fetch a published `customCategory` by its slug (M5-504 Part 4). These render
+ * at `/cat/<slug>` through the same route and do NOT require a Geiger mapping.
+ * Returns null when none exists or Sanity is unavailable.
+ */
+export async function getCustomCategoryBySlug(
+  slug: string,
+): Promise<CustomCategoryDoc | null> {
+  if (!slug) return null;
+  try {
+    const doc = await cachedClient.fetch<CustomCategoryDoc | null>(
+      `*[_type == "customCategory" && slug.current == $slug][0] { ${CUSTOM_CATEGORY_PROJECTION} }`,
+      { slug },
+      { next: { tags: [categoryTag(slug)], revalidate: false } },
+    );
+    return doc ?? null;
+  } catch {
+    return null;
+  }
 }
 
 /**

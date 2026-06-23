@@ -5,10 +5,50 @@ interface PaginationProps {
   totalPages: number;
   /** Clean base URL for the category, e.g. "/cat/water-bottles". No trailing slash, no /page/N. */
   baseUrl: string;
+  /**
+   * When provided, pagination is CLIENT-driven (buttons calling this instead of
+   * path-based <Link>s). Used for filtered views in CategoryShell, where the
+   * static page URL stays put and the grid re-paginates in-browser.
+   */
+  onPageChange?: (page: number) => void;
 }
 
 function pageHref(baseUrl: string, page: number): string {
   return page <= 1 ? baseUrl : `${baseUrl}/page/${page}`;
+}
+
+/** A page control that is a path <Link> by default, or a client button when `onPageChange` is set. */
+function PageControl({
+  page,
+  baseUrl,
+  onPageChange,
+  className,
+  prefetch,
+  rel,
+  ariaLabel,
+  children,
+}: {
+  page: number;
+  baseUrl: string;
+  onPageChange?: (page: number) => void;
+  className: string;
+  prefetch?: boolean;
+  rel?: string;
+  ariaLabel?: string;
+  children: React.ReactNode;
+}) {
+  if (onPageChange) {
+    return (
+      <button type="button" onClick={() => onPageChange(page)} className={className} aria-label={ariaLabel}>
+        {children}
+      </button>
+    );
+  }
+  return (
+    <Link href={pageHref(baseUrl, page)} prefetch={prefetch} className={className} rel={rel} aria-label={ariaLabel}>
+      {children}
+    </Link>
+  );
 }
 
 function getPageNumbers(currentPage: number, totalPages: number): (number | 'ellipsis')[] {
@@ -36,7 +76,7 @@ const activeBtn =
 const disabledBtn =
   'inline-flex h-10 min-w-10 items-center justify-center rounded border border-border bg-bg-soft px-3 text-sm font-medium text-text-muted/60 cursor-not-allowed';
 
-export function Pagination({ currentPage, totalPages, baseUrl }: PaginationProps) {
+export function Pagination({ currentPage, totalPages, baseUrl, onPageChange }: PaginationProps) {
   if (totalPages <= 1) return null;
 
   const prevPage = currentPage - 1;
@@ -53,10 +93,10 @@ export function Pagination({ currentPage, totalPages, baseUrl }: PaginationProps
       {/* Mobile: prev / "N of M" / next */}
       <div className="flex w-full items-center justify-between gap-3 sm:hidden">
         {hasPrev ? (
-          <Link href={pageHref(baseUrl, prevPage)} prefetch className={baseBtn} rel="prev">
+          <PageControl page={prevPage} baseUrl={baseUrl} onPageChange={onPageChange} prefetch className={baseBtn} rel="prev">
             <span aria-hidden>&larr;</span>
             <span className="ml-1">Previous</span>
-          </Link>
+          </PageControl>
         ) : (
           <span className={disabledBtn} aria-disabled="true">
             <span aria-hidden>&larr;</span>
@@ -67,10 +107,10 @@ export function Pagination({ currentPage, totalPages, baseUrl }: PaginationProps
           Page {currentPage} of {totalPages}
         </span>
         {hasNext ? (
-          <Link href={pageHref(baseUrl, nextPage)} prefetch className={baseBtn} rel="next">
+          <PageControl page={nextPage} baseUrl={baseUrl} onPageChange={onPageChange} prefetch className={baseBtn} rel="next">
             <span className="mr-1">Next</span>
             <span aria-hidden>&rarr;</span>
-          </Link>
+          </PageControl>
         ) : (
           <span className={disabledBtn} aria-disabled="true">
             <span className="mr-1">Next</span>
@@ -82,10 +122,10 @@ export function Pagination({ currentPage, totalPages, baseUrl }: PaginationProps
       {/* Desktop: full numbered nav */}
       <div className="hidden flex-wrap items-center justify-center gap-2 sm:flex">
         {hasPrev ? (
-          <Link href={pageHref(baseUrl, prevPage)} prefetch className={baseBtn} rel="prev">
+          <PageControl page={prevPage} baseUrl={baseUrl} onPageChange={onPageChange} prefetch className={baseBtn} rel="prev">
             <span aria-hidden>&larr;</span>
             <span className="ml-1">Previous</span>
-          </Link>
+          </PageControl>
         ) : (
           <span className={disabledBtn} aria-disabled="true">
             <span aria-hidden>&larr;</span>
@@ -113,27 +153,28 @@ export function Pagination({ currentPage, totalPages, baseUrl }: PaginationProps
               </span>
             );
           }
-          // Prefetch only adjacent pages — rendering Link with prefetch=false for everything
-          // else avoids wasted requests on a 17-page apparel grid.
+          // Prefetch only adjacent pages — avoids wasted requests on a 17-page grid.
           const isAdjacent = p === prevPage || p === nextPage;
           return (
-            <Link
+            <PageControl
               key={p}
-              href={pageHref(baseUrl, p)}
-              prefetch={isAdjacent ? true : false}
+              page={p}
+              baseUrl={baseUrl}
+              onPageChange={onPageChange}
+              prefetch={isAdjacent}
               className={baseBtn}
-              aria-label={`Page ${p}`}
+              ariaLabel={`Page ${p}`}
             >
               {p}
-            </Link>
+            </PageControl>
           );
         })}
 
         {hasNext ? (
-          <Link href={pageHref(baseUrl, nextPage)} prefetch className={baseBtn} rel="next">
+          <PageControl page={nextPage} baseUrl={baseUrl} onPageChange={onPageChange} prefetch className={baseBtn} rel="next">
             <span className="mr-1">Next</span>
             <span aria-hidden>&rarr;</span>
-          </Link>
+          </PageControl>
         ) : (
           <span className={disabledBtn} aria-disabled="true">
             <span className="mr-1">Next</span>
