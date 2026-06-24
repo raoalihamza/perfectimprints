@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity';
+import { ProductSkuPicker } from '../../components/ProductPicker';
 
 export default defineType({
   name: 'customCategory',
@@ -77,9 +78,9 @@ export default defineType({
       title: 'Product SKUs',
       type: 'array',
       of: [{ type: 'string' }],
-      options: { layout: 'tags' },
+      components: { input: ProductSkuPicker },
       description:
-        'Geiger SKUs shown in this category grid, in display order. Pre-filled from the baked page on "Push to Sanity"; add / remove / reorder freely. Resolved live, so a SKU Geiger later discontinues simply drops out. Custom (non-Geiger) products attach separately via a customProduct whose Parent Category points here. Product placements (productPlacement) also merge in; removal wins.',
+        'Geiger SKUs shown in this category grid. Search the catalog by product name / SKU / brand and click to add; × on a chip to remove. Pre-filled from the baked page on "Push to Sanity". Resolved live, so a SKU Geiger later discontinues simply drops out. Custom (non-Geiger) products attach separately via a customProduct whose Parent Category points here. Product placements (productPlacement) also merge in; removal wins.',
     }),
     defineField({
       name: 'externalUrl',

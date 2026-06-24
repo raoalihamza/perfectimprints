@@ -17,7 +17,12 @@ import path from 'node:path';
 
 const ROOT = path.resolve(__dirname, '..');
 const URLS_FILE = path.join(ROOT, 'data', 'pi-urls', 'category-urls.json');
-const OUTPUT_FILE = path.join(ROOT, 'public', 'category-list.json');
+// Written to BOTH public/ (embedded Studio at /admin) and sanity/static/
+// (standalone `sanity dev` Studio, which doesn't serve Next's public/).
+const OUTPUT_FILES = [
+  path.join(ROOT, 'public', 'category-list.json'),
+  path.join(ROOT, 'sanity', 'static', 'category-list.json'),
+];
 
 interface UrlEntry {
   url: string;
@@ -59,11 +64,14 @@ function main(): void {
   categories.sort((a, b) => a.slug.localeCompare(b.slug));
 
   const payload = { generatedAt: new Date().toISOString(), categories };
-  fs.mkdirSync(path.dirname(OUTPUT_FILE), { recursive: true });
-  fs.writeFileSync(OUTPUT_FILE, JSON.stringify(payload), 'utf8');
+  const json = JSON.stringify(payload);
+  for (const out of OUTPUT_FILES) {
+    fs.mkdirSync(path.dirname(out), { recursive: true });
+    fs.writeFileSync(out, json, 'utf8');
+  }
 
-  const bytes = Buffer.byteLength(JSON.stringify(payload), 'utf8');
-  console.log(`Wrote ${path.relative(ROOT, OUTPUT_FILE)} — ${categories.length} categories (${(bytes / 1024).toFixed(0)} KB)`);
+  const bytes = Buffer.byteLength(json, 'utf8');
+  console.log(`Wrote category-list.json (public + sanity/static) — ${categories.length} categories (${(bytes / 1024).toFixed(0)} KB)`);
 }
 
 main();

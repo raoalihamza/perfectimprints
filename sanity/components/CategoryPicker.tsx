@@ -26,6 +26,7 @@ import {
   type ArrayOfPrimitivesInputProps,
   type StringInputProps,
 } from 'sanity';
+import { loadStudioJson } from './load-json';
 
 interface CategoryEntry {
   slug: string;
@@ -59,6 +60,10 @@ const resultBtn = (highlighted: boolean): React.CSSProperties => ({
   border: 'none',
   borderBottom: '1px solid #eef1f5',
   background: highlighted ? '#f6f8fa' : 'transparent',
+  // Non-highlighted rows are transparent → inherit the (theme-correct) text
+  // color. Highlighted rows hardcode a LIGHT background, so force dark text or
+  // it's invisible in Studio's dark theme.
+  color: highlighted ? '#231f20' : undefined,
   padding: '8px 10px',
   cursor: highlighted ? 'default' : 'pointer',
   font: 'inherit',
@@ -74,6 +79,7 @@ function useCategoryOptions() {
   const [query, setQuery] = useState('');
   const [debounced, setDebounced] = useState('');
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState(false);
   const [creating, setCreating] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -82,27 +88,25 @@ function useCategoryOptions() {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      try {
-        const [staticRes, custom] = await Promise.all([
-          fetch('/category-list.json').then((r) =>
-            r.ok ? (r.json() as Promise<CategoryListFile>) : { categories: [] },
-          ),
-          client.fetch<{ title?: string; slug?: string }[]>(
+      const [staticRes, custom] = await Promise.all([
+        loadStudioJson<CategoryListFile>('category-list.json'),
+        client
+          .fetch<{ title?: string; slug?: string }[]>(
             `*[_type == "customCategory" && defined(slug.current)]{ title, "slug": slug.current }`,
-          ),
-        ]);
-        if (cancelled) return;
-        const merged = new Map<string, CategoryEntry>();
-        for (const c of staticRes.categories ?? []) merged.set(c.slug, c);
-        for (const c of custom ?? []) {
-          if (c.slug) merged.set(c.slug, { slug: c.slug, title: c.title || c.slug });
-        }
-        setAll([...merged.values()]);
-      } catch {
-        if (!cancelled) setAll([]);
-      } finally {
-        if (!cancelled) setLoading(false);
+          )
+          .catch(() => [] as { title?: string; slug?: string }[]),
+      ]);
+      if (cancelled) return;
+      const merged = new Map<string, CategoryEntry>();
+      for (const c of staticRes?.categories ?? []) merged.set(c.slug, c);
+      for (const c of custom ?? []) {
+        if (c.slug) merged.set(c.slug, { slug: c.slug, title: c.title || c.slug });
       }
+      // staticRes === null means the build-time list couldn't be fetched (e.g. a
+      // standalone Studio not serving it) — surface that, don't look like "no match".
+      setLoadError(staticRes === null);
+      setAll([...merged.values()]);
+      setLoading(false);
     })();
     return () => {
       cancelled = true;
@@ -167,6 +171,7 @@ function useCategoryOptions() {
 
   return {
     loading,
+    loadError,
     query,
     setQuery,
     debounced,
@@ -327,6 +332,15 @@ function ResultLabel({ entry }: { entry: CategoryEntry }) {
 
 function NoResults({ opts }: { opts: Opts }) {
   if (opts.results.length > 0) return null;
+  if (opts.loadError) {
+    return (
+      <div style={{ padding: '8px 10px', fontSize: 13, color: '#e11f1e' }}>
+        Couldn&rsquo;t load the category list. Open the Studio at the app URL
+        (e.g. <code>http://localhost:3000/admin</code>) instead of the standalone
+        <code> sanity dev</code> server, or run <code>pnpm build:category-list</code>.
+      </div>
+    );
+  }
   return (
     <div style={{ padding: '8px 10px', fontSize: 13, color: '#6b7280' }}>
       No existing category matches “{opts.query.trim()}”.
@@ -367,6 +381,9 @@ function Chip({ slug, title, onRemove }: { slug: string; title: string; onRemove
         alignItems: 'center',
         gap: 6,
         background: '#eef1f5',
+        // Hardcoded light background → force dark text so the selected slug is
+        // readable in Studio's dark theme (otherwise it's light-on-light).
+        color: '#231f20',
         borderRadius: 4,
         padding: '2px 8px',
         fontSize: 13,

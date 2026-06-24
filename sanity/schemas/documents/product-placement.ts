@@ -1,6 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { CategoryPicker } from '../../components/CategoryPicker';
-import { SkuPreview } from '../../components/SkuPreview';
+import { ProductSkuInput } from '../../components/ProductPicker';
 
 /**
  * Product-side placement (M5-504 Part 2). The product-first complement to
@@ -22,9 +22,9 @@ export default defineType({
       name: 'sku',
       title: 'Geiger SKU',
       type: 'string',
-      description: 'The Geiger SKU of the product to place. The product name resolves below for confirmation.',
+      description: 'Search the catalog by product name / SKU / brand and click to pick the product to place.',
       validation: (Rule) => Rule.required(),
-      components: { input: SkuPreview },
+      components: { input: ProductSkuInput },
     }),
     defineField({
       name: 'addToCategories',

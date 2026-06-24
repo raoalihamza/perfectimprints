@@ -1,5 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { CategorySlugInput } from '../../components/CategoryPicker';
+import { ProductSkuPicker } from '../../components/ProductPicker';
 
 /**
  * Per-category curation override (M5-504 part 1).
@@ -57,18 +58,18 @@ export default defineType({
       title: 'Hidden SKUs',
       type: 'array',
       of: [{ type: 'string' }],
-      options: { layout: 'tags' },
+      components: { input: ProductSkuPicker },
       description:
-        'Geiger SKUs to remove from this category grid. Same blocklist mechanism as /deals hiddenDealSkus.',
+        'Geiger SKUs to remove from this category grid. Search by product name / SKU / brand and click to add; × on a chip to remove. Same blocklist mechanism as /deals hiddenDealSkus.',
     }),
     defineField({
       name: 'addedSkus',
       title: 'Added SKUs',
       type: 'array',
       of: [{ type: 'string' }],
-      options: { layout: 'tags' },
+      components: { input: ProductSkuPicker },
       description:
-        'Existing Geiger SKUs (from data/geiger/products.json) to prepend to this category grid, even if Geiger does not file them under it. Resolved against the full catalog; unknown SKUs are skipped.',
+        'Existing Geiger SKUs to prepend to this category grid, even if Geiger does not file them under it. Search by product name / SKU / brand and click to add. Resolved against the full catalog; unknown SKUs are skipped.',
     }),
     defineField({
       name: 'addedProducts',

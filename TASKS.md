@@ -923,6 +923,17 @@ The per-category Sanity work had made `/cat/[...slug]` render fully dynamic (`ƒ
 - [x] **generateStaticParams** keeps the ~1,840 headline set + owned slugs from the build artifact. Webhook busts `cat:<slug>` + `category-control-sets` + `revalidatePath` (and `related-blogs` on blogPost) so edits go live in seconds without making the route dynamic.
 - [x] **Verified static**: a build with `searchParams` removed produced `/cat/[...slug]` → `●` (SSG) with **1,840 prerendered HTML files** on disk (was `ƒ` with zero before). `pnpm typecheck` passes. **NOTE:** the full `pnpm build` is NOT run locally (too slow / slows the machine — see memory); Vercel confirms the build on push. After any change to the `/cat` render path, confirm the Vercel/CI build shows `/cat/[...slug]` as `●`/SSG, not `ƒ`.
 
+#### M5-504 Studio editing polish (DONE 2026-06-24)
+
+Studio-only UX fixes/additions on top of the per-category tooling. No live-site impact.
+
+- [x] **Searchable product picker** ([sanity/components/ProductPicker.tsx](sanity/components/ProductPicker.tsx)): `ProductSkuPicker` (multi) + `ProductSkuInput` (single) — search the ~7,957 catalog by name/SKU/brand and click to add the SKU. Wired onto `customCategory.productSkus`, `categoryOverride.addedSkus`/`hiddenSkus`, and `productPlacement.sku` (replaced `SkuPreview`, now unused). Source: build-time `product-list.json` ([scripts/build-product-list.ts](scripts/build-product-list.ts), `pnpm build:product-list`, in `prebuild`).
+- [x] **`categoryOverride.categorySlug` searchable picker** (`CategorySlugInput`, single-select) — replaced plain text so a typo can't target nothing.
+- [x] **Picker loading fix** (the "every search shows not found" bug): pickers now load lists via [sanity/components/load-json.ts](sanity/components/load-json.ts) (`loadStudioJson`), and the list artifacts are written to **both `public/` and `sanity/static/`** so the standalone `sanity dev` Studio (which doesn't serve Next's `public/`) works too. Clear "couldn't load" message when neither resolves. `sanity/static/` git-ignored.
+- [x] **SKU array fields** (`productSkus`/`hiddenSkus`/`addedSkus`) moved off the `tags` layout (which dropped values / needed Enter) onto the searchable picker — reliable add/remove.
+- [x] **ProductCard shows `Item # <sku>`** (Geiger-style) on every grid; custom products' synthetic `custom-<id>` SKU hidden.
+- `pnpm typecheck` passes.
+
 ### [x] M5-505: Sanity AI generation button — DONE 2026-06-23 (see M5-504 part 2 block above)
 
 **Scope.** Custom Sanity Studio action that appears on customCategory documents. Calls DeepSeek with the root_category prompt (v2 buying-guide format) and patches the document with intro, buying guide, and FAQs.
