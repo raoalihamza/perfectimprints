@@ -48,6 +48,10 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
   const imageSrc = decodeImageUrl(product.imageUrl);
   const price = priceLabel(product.low_price, product.high_price);
   const ribbon = pickRibbon(product);
+  // Show the Geiger SKU ("Item #") like geiger.com. Hide synthesized SKUs for
+  // custom (non-Geiger) products — those are internal ids, not catalog numbers.
+  const itemNumber =
+    product.sku && !product.sku.startsWith('custom-') ? product.sku : null;
 
   return (
     <a
@@ -94,6 +98,10 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
         <h3 className="line-clamp-2 min-h-[2.6em] text-sm font-medium leading-snug text-text-primary group-hover:text-brand-red">
           {product.name}
         </h3>
+
+        {itemNumber && (
+          <p className="text-xs text-text-muted">Item # {itemNumber}</p>
+        )}
 
         <div className="mt-auto flex items-end justify-between gap-2">
           <div className="flex flex-col">
