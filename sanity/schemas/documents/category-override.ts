@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity';
+import { CategorySlugInput } from '../../components/CategoryPicker';
 
 /**
  * Per-category curation override (M5-504 part 1).
@@ -23,7 +24,8 @@ export default defineType({
       title: 'Category Slug',
       type: 'string',
       description:
-        'The path AFTER /cat/ — e.g. "water-bottles", or "water-bottles/color/blue" for a facet. No leading or trailing slash. This is the key that matches the page being overridden.',
+        'Search and pick the category to override (by title or slug). Selecting writes its exact slug — the path AFTER /cat/, e.g. "water-bottles" or "water-bottles/color/blue" for a facet — so a typo can\'t silently target nothing.',
+      components: { input: CategorySlugInput },
       validation: (Rule) =>
         Rule.required().custom((value) => {
           if (typeof value !== 'string') return 'Required.';

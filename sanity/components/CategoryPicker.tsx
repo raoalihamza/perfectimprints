@@ -1,19 +1,31 @@
 /**
- * Searchable category picker (M5-504 Part 1) — a custom Studio input for an
- * `array of string` field holding category slugs (the `/cat/...` path).
+ * Searchable category picker (M5-504 Part 1).
  *
  * The 22,180 category pages are build-time JSON, not Sanity docs, so a normal
- * reference field can't target them. This input fetches the build-time
+ * reference field can't target them. These inputs fetch the build-time
  * `public/category-list.json` (slug + title) plus live `customCategory` slugs
- * from Sanity, filters client-side with debounce, and lets Patrick pick one or
- * many. When a searched slug doesn't exist it offers "Create new category page",
- * which creates a `customCategory` (rendered at `/cat/<slug>`) and selects it.
+ * from Sanity, filter client-side with debounce, and let Patrick pick by title
+ * or slug (facet slugs like `apparel/color/blue` included). When a searched slug
+ * doesn't exist they offer "Create new category page", which creates a
+ * `customCategory` (rendered at `/cat/<slug>`) and selects it.
+ *
+ * Two inputs share one hook (`useCategoryOptions`):
+ *   - `CategoryPicker`     — multi-select, backs an `array of string`
+ *     (productPlacement.addToCategories / removeFromCategories).
+ *   - `CategorySlugInput`  — single-select, backs a `string`
+ *     (categoryOverride.categorySlug) so a typo can't silently target nothing.
  *
  * Studio-only: no @sanity/ui dependency (kept resolvable for app typecheck) —
  * plain React + the `sanity` form API (`set` / `unset` / `useClient`).
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { set, unset, useClient, type ArrayOfPrimitivesInputProps } from 'sanity';
+import {
+  set,
+  unset,
+  useClient,
+  type ArrayOfPrimitivesInputProps,
+  type StringInputProps,
+} from 'sanity';
 
 interface CategoryEntry {
   slug: string;
@@ -40,12 +52,22 @@ const box: React.CSSProperties = {
   background: 'var(--card-bg-color, #fff)',
 };
 
-export function CategoryPicker(props: ArrayOfPrimitivesInputProps) {
-  const { onChange } = props;
-  const value = useMemo(
-    () => (Array.isArray(props.value) ? (props.value as string[]) : []),
-    [props.value],
-  );
+const resultBtn = (highlighted: boolean): React.CSSProperties => ({
+  display: 'block',
+  width: '100%',
+  textAlign: 'left',
+  border: 'none',
+  borderBottom: '1px solid #eef1f5',
+  background: highlighted ? '#f6f8fa' : 'transparent',
+  padding: '8px 10px',
+  cursor: highlighted ? 'default' : 'pointer',
+  font: 'inherit',
+});
+
+// ---------------------------------------------------------------------------
+// Shared data + search + create logic (used by both inputs).
+// ---------------------------------------------------------------------------
+function useCategoryOptions() {
   const client = useClient({ apiVersion: '2024-10-01' });
 
   const [all, setAll] = useState<CategoryEntry[]>([]);
@@ -96,8 +118,6 @@ export function CategoryPicker(props: ArrayOfPrimitivesInputProps) {
     };
   }, [query]);
 
-  const selected = useMemo(() => new Set(value), [value]);
-
   const results = useMemo(() => {
     if (!debounced) return [];
     const out: CategoryEntry[] = [];
@@ -110,37 +130,21 @@ export function CategoryPicker(props: ArrayOfPrimitivesInputProps) {
     return out;
   }, [all, debounced]);
 
-  const commit = useCallback(
-    (next: string[]) => {
-      onChange(next.length ? set(next) : unset());
-    },
-    [onChange],
-  );
-
-  const add = useCallback(
-    (slug: string) => {
-      if (selected.has(slug)) return;
-      commit([...value, slug]);
-    },
-    [commit, selected, value],
-  );
-
-  const remove = useCallback(
-    (slug: string) => {
-      commit(value.filter((s) => s !== slug));
-    },
-    [commit, value],
-  );
-
   const exactExists = useMemo(() => {
     const s = slugify(debounced);
     return s ? all.some((c) => c.slug === s) : true;
   }, [all, debounced]);
 
-  const createNew = useCallback(async () => {
+  const titleFor = useCallback(
+    (slug: string) => all.find((c) => c.slug === slug)?.title ?? slug,
+    [all],
+  );
+
+  /** Create a customCategory from the current query; returns its slug (or null). */
+  const createCategory = useCallback(async (): Promise<string | null> => {
     const title = query.trim();
     const slug = slugify(title);
-    if (!slug) return;
+    if (!slug) return null;
     setCreating(true);
     setError(null);
     try {
@@ -150,113 +154,235 @@ export function CategoryPicker(props: ArrayOfPrimitivesInputProps) {
         slug: { _type: 'slug', current: slug },
         isCustom: true,
       });
-      setAll((prev) =>
-        prev.some((c) => c.slug === slug) ? prev : [...prev, { slug, title }],
-      );
-      add(slug);
+      setAll((prev) => (prev.some((c) => c.slug === slug) ? prev : [...prev, { slug, title }]));
       setQuery('');
+      return slug;
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Failed to create category.');
+      return null;
     } finally {
       setCreating(false);
     }
-  }, [add, client, query]);
+  }, [client, query]);
+
+  return {
+    loading,
+    query,
+    setQuery,
+    debounced,
+    results,
+    exactExists,
+    creating,
+    error,
+    titleFor,
+    createCategory,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Multi-select: array of category slugs.
+// ---------------------------------------------------------------------------
+export function CategoryPicker(props: ArrayOfPrimitivesInputProps) {
+  const { onChange } = props;
+  const value = useMemo(
+    () => (Array.isArray(props.value) ? (props.value as string[]) : []),
+    [props.value],
+  );
+  const opts = useCategoryOptions();
+  const selected = useMemo(() => new Set(value), [value]);
+
+  const commit = useCallback(
+    (next: string[]) => onChange(next.length ? set(next) : unset()),
+    [onChange],
+  );
+  const add = useCallback(
+    (slug: string) => {
+      if (selected.has(slug)) return;
+      commit([...value, slug]);
+    },
+    [commit, selected, value],
+  );
+  const remove = useCallback((slug: string) => commit(value.filter((s) => s !== slug)), [commit, value]);
+
+  const onCreate = useCallback(async () => {
+    const slug = await opts.createCategory();
+    if (slug) add(slug);
+  }, [add, opts]);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
       {value.length > 0 && (
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
           {value.map((slug) => (
-            <span
-              key={slug}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 6,
-                background: '#eef1f5',
-                borderRadius: 4,
-                padding: '2px 8px',
-                fontSize: 13,
-              }}
-            >
-              /cat/{slug}
-              <button
-                type="button"
-                onClick={() => remove(slug)}
-                aria-label={`Remove ${slug}`}
-                style={{ border: 'none', background: 'transparent', cursor: 'pointer', color: '#e11f1e', fontWeight: 700 }}
-              >
-                ×
-              </button>
-            </span>
+            <Chip key={slug} slug={slug} title={opts.titleFor(slug)} onRemove={() => remove(slug)} />
           ))}
         </div>
       )}
 
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.currentTarget.value)}
-        placeholder={loading ? 'Loading categories…' : 'Search categories by title or slug…'}
-        disabled={loading}
-        style={{ ...box, width: '100%', font: 'inherit' }}
-      />
+      <SearchInput opts={opts} />
 
-      {debounced && (
+      {opts.debounced && (
         <div style={{ ...box, maxHeight: 260, overflowY: 'auto', padding: 0 }}>
-          {results.map((c) => (
+          {opts.results.map((c) => (
             <button
               key={c.slug}
               type="button"
               onClick={() => add(c.slug)}
               disabled={selected.has(c.slug)}
-              style={{
-                display: 'block',
-                width: '100%',
-                textAlign: 'left',
-                border: 'none',
-                borderBottom: '1px solid #eef1f5',
-                background: selected.has(c.slug) ? '#f6f8fa' : 'transparent',
-                padding: '8px 10px',
-                cursor: selected.has(c.slug) ? 'default' : 'pointer',
-                font: 'inherit',
-              }}
+              style={resultBtn(selected.has(c.slug))}
             >
-              <span style={{ fontSize: 13 }}>{c.title}</span>
-              <span style={{ display: 'block', fontSize: 11, color: '#6b7280' }}>/cat/{c.slug}</span>
+              <ResultLabel entry={c} />
             </button>
           ))}
-          {results.length === 0 && (
-            <div style={{ padding: '8px 10px', fontSize: 13, color: '#6b7280' }}>
-              No existing category matches “{query.trim()}”.
-            </div>
-          )}
-          {!exactExists && (
-            <button
-              type="button"
-              onClick={createNew}
-              disabled={creating}
-              style={{
-                display: 'block',
-                width: '100%',
-                textAlign: 'left',
-                border: 'none',
-                background: '#16a34a',
-                color: '#fff',
-                padding: '8px 10px',
-                cursor: 'pointer',
-                font: 'inherit',
-                fontWeight: 600,
-              }}
-            >
-              {creating ? 'Creating…' : `+ Create new category page: /cat/${slugify(query)}`}
-            </button>
-          )}
+          <NoResults opts={opts} />
+          <CreateNew opts={opts} onCreate={onCreate} />
         </div>
       )}
 
-      {error && <div style={{ color: '#e11f1e', fontSize: 12 }}>{error}</div>}
+      {opts.error && <div style={{ color: '#e11f1e', fontSize: 12 }}>{opts.error}</div>}
     </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Single-select: one category slug (string field).
+// ---------------------------------------------------------------------------
+export function CategorySlugInput(props: StringInputProps) {
+  const { onChange } = props;
+  const current = typeof props.value === 'string' ? props.value : '';
+  const opts = useCategoryOptions();
+
+  const select = useCallback(
+    (slug: string) => {
+      onChange(slug ? set(slug) : unset());
+      opts.setQuery('');
+    },
+    [onChange, opts],
+  );
+
+  const onCreate = useCallback(async () => {
+    const slug = await opts.createCategory();
+    if (slug) select(slug);
+  }, [opts, select]);
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+      {current && (
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+          <Chip slug={current} title={opts.titleFor(current)} onRemove={() => onChange(unset())} />
+        </div>
+      )}
+
+      <SearchInput opts={opts} placeholder="Search a category by title or slug…" />
+
+      {opts.debounced && (
+        <div style={{ ...box, maxHeight: 260, overflowY: 'auto', padding: 0 }}>
+          {opts.results.map((c) => (
+            <button
+              key={c.slug}
+              type="button"
+              onClick={() => select(c.slug)}
+              disabled={c.slug === current}
+              style={resultBtn(c.slug === current)}
+            >
+              <ResultLabel entry={c} />
+            </button>
+          ))}
+          <NoResults opts={opts} />
+          <CreateNew opts={opts} onCreate={onCreate} />
+        </div>
+      )}
+
+      {opts.error && <div style={{ color: '#e11f1e', fontSize: 12 }}>{opts.error}</div>}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Shared presentational bits.
+// ---------------------------------------------------------------------------
+type Opts = ReturnType<typeof useCategoryOptions>;
+
+function SearchInput({ opts, placeholder }: { opts: Opts; placeholder?: string }) {
+  return (
+    <input
+      type="text"
+      value={opts.query}
+      onChange={(e) => opts.setQuery(e.currentTarget.value)}
+      placeholder={opts.loading ? 'Loading categories…' : placeholder ?? 'Search categories by title or slug…'}
+      disabled={opts.loading}
+      style={{ ...box, width: '100%', font: 'inherit' }}
+    />
+  );
+}
+
+function ResultLabel({ entry }: { entry: CategoryEntry }) {
+  return (
+    <>
+      <span style={{ fontSize: 13 }}>{entry.title}</span>
+      <span style={{ display: 'block', fontSize: 11, color: '#6b7280' }}>/cat/{entry.slug}</span>
+    </>
+  );
+}
+
+function NoResults({ opts }: { opts: Opts }) {
+  if (opts.results.length > 0) return null;
+  return (
+    <div style={{ padding: '8px 10px', fontSize: 13, color: '#6b7280' }}>
+      No existing category matches “{opts.query.trim()}”.
+    </div>
+  );
+}
+
+function CreateNew({ opts, onCreate }: { opts: Opts; onCreate: () => void }) {
+  if (opts.exactExists) return null;
+  return (
+    <button
+      type="button"
+      onClick={onCreate}
+      disabled={opts.creating}
+      style={{
+        display: 'block',
+        width: '100%',
+        textAlign: 'left',
+        border: 'none',
+        background: '#16a34a',
+        color: '#fff',
+        padding: '8px 10px',
+        cursor: 'pointer',
+        font: 'inherit',
+        fontWeight: 600,
+      }}
+    >
+      {opts.creating ? 'Creating…' : `+ Create new category page: /cat/${slugify(opts.query)}`}
+    </button>
+  );
+}
+
+function Chip({ slug, title, onRemove }: { slug: string; title: string; onRemove: () => void }) {
+  return (
+    <span
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: 6,
+        background: '#eef1f5',
+        borderRadius: 4,
+        padding: '2px 8px',
+        fontSize: 13,
+      }}
+      title={title}
+    >
+      /cat/{slug}
+      <button
+        type="button"
+        onClick={onRemove}
+        aria-label={`Remove ${slug}`}
+        style={{ border: 'none', background: 'transparent', cursor: 'pointer', color: '#e11f1e', fontWeight: 700 }}
+      >
+        ×
+      </button>
+    </span>
   );
 }
 
