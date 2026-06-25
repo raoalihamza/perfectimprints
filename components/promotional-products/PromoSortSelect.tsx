@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
-import { PROMO_SORTS } from '@/lib/promotional-products';
+import { PROMO_SORTS } from '@/lib/promotional-products-sorts';
 
 /** URL-driven sort control for /promotional-products. Preserves active filters,
  *  resets to page 1 on change. */

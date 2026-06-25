@@ -7,12 +7,8 @@ import { CTABanner } from '@/components/category/CTABanner';
 import { PromoFilterControls } from '@/components/promotional-products/PromoFilterControls';
 import { PromoSortSelect } from '@/components/promotional-products/PromoSortSelect';
 import { PromoPagination } from '@/components/promotional-products/PromoPagination';
-import {
-  getPromoClientFacets,
-  getPromoResult,
-  PROMO_SORTS,
-  type PromoSort,
-} from '@/lib/promotional-products';
+import { getPromoClientFacets, getPromoResult } from '@/lib/promotional-products';
+import { PROMO_SORTS, type PromoSort } from '@/lib/promotional-products-sorts';
 import type { DealsFilterState } from '@/lib/deals-filter';
 import { PRODUCTS_PER_PAGE } from '@/lib/product-types';
 

@@ -4,6 +4,7 @@ import { getAllProducts } from '@/lib/categories';
 import { buildSearchFacets } from '@/lib/search/build-facets';
 import { applyDealsFilters, type DealsFacetSection, type DealsFilterState } from '@/lib/deals-filter';
 import { PRODUCTS_PER_PAGE, type GeigerProduct } from '@/lib/product-types';
+import type { PromoSort } from '@/lib/promotional-products-sorts';
 
 /**
  * Server-side data layer for the /promotional-products browse-all page (M5-506).
@@ -28,15 +29,6 @@ function getFacets(): DealsFacetSection[] {
   if (!_facets) _facets = buildSearchFacets(getProducts());
   return _facets;
 }
-
-export type PromoSort = 'featured' | 'price-asc' | 'price-desc' | 'minqty-asc';
-
-export const PROMO_SORTS: { value: PromoSort; label: string }[] = [
-  { value: 'featured', label: 'Featured' },
-  { value: 'price-asc', label: 'Price: Low to High' },
-  { value: 'price-desc', label: 'Price: High to Low' },
-  { value: 'minqty-asc', label: 'Min Qty: Low to High' },
-];
 
 function sortProducts(products: GeigerProduct[], sort: PromoSort): GeigerProduct[] {
   if (sort === 'featured') return products;
