@@ -155,7 +155,7 @@ function ResultsDropdown({
         (opts.loadError ? (
           <div style={{ padding: '8px 10px', fontSize: 13, color: '#e11f1e' }}>
             Couldn&rsquo;t load the product list. Open the Studio at the app URL
-            (e.g. <code>http://localhost:3000/admin</code>) instead of standalone
+            (e.g. <code>http://localhost:3000/admin3773752</code>) instead of standalone
             <code> sanity dev</code>, or run <code>pnpm build:product-list</code>.
           </div>
         ) : (

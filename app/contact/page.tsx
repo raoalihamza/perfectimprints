@@ -1,17 +1,31 @@
-// TODO: M5-506 - Contact page with embedded lead form.
-
 import { Container } from '@/components/ui/Container';
+import { LeadForm } from '@/components/forms/LeadForm';
+import { StaticPage, staticPageMetadata } from '@/components/page-sections/StaticPage';
 
-export const metadata = { title: 'Contact Us' };
+export const revalidate = false;
+
+export function generateMetadata() {
+  return staticPageMetadata('contact', '/contact', 'Contact Us');
+}
 
 export default function ContactPage() {
   return (
-    <Container as="section" className="py-12">
-      <h1>Contact Us</h1>
-      <p className="mt-4 text-text-primary">
-        Call <a href="tel:800-773-9472" className="underline">800-773-9472</a> or send a
-        message. Form wires up in M3-308.
-      </p>
-    </Container>
+    <StaticPage slug="contact" fallbackTitle="Contact Us">
+      {/* Lead form lives in code (not a page-builder section) so the Contact
+          page always carries it; the editable copy/contact details come from
+          the Sanity `page` doc sections rendered above. */}
+      <Container as="section" className="pb-16">
+        <div className="mx-auto w-full max-w-3xl rounded-lg border border-border bg-white p-6 shadow-sm sm:p-8">
+          <h2 className="text-2xl font-bold text-brand-ink">Send Us a Message</h2>
+          <p className="mt-2 text-text-muted">
+            Tell us what you need and our team will get back to you fast with product ideas and
+            pricing.
+          </p>
+          <div className="mt-6">
+            <LeadForm sourceUrl="/contact" />
+          </div>
+        </div>
+      </Container>
+    </StaticPage>
   );
 }

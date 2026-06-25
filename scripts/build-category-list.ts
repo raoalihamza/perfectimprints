@@ -17,7 +17,7 @@ import path from 'node:path';
 
 const ROOT = path.resolve(__dirname, '..');
 const URLS_FILE = path.join(ROOT, 'data', 'pi-urls', 'category-urls.json');
-// Written to BOTH public/ (embedded Studio at /admin) and sanity/static/
+// Written to BOTH public/ (embedded Studio at /admin3773752) and sanity/static/
 // (standalone `sanity dev` Studio, which doesn't serve Next's public/).
 const OUTPUT_FILES = [
   path.join(ROOT, 'public', 'category-list.json'),

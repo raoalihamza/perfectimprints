@@ -183,7 +183,7 @@ Patrick's expected launch: June 19. Internal realistic: July 9 (3 week buffer fo
 ### Sub-module 1C: Sanity Studio Bootstrap (6h) — DONE
 
 - Sanity v3, Project ID `ii96lcy9`, dataset `production`
-- Embedded at `/admin` + standalone at `localhost:3333`
+- Embedded at `/admin3773752` + standalone at `localhost:3333`
 - Initial schemas: homePage, globalSettings, megaMenu (singletons)
 - Webhook for ISR revalidation
 

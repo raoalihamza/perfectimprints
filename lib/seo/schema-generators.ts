@@ -56,4 +56,20 @@ export function videoObjectSchema(input: VideoObjectInput) {
   };
 }
 
-// TODO M5-508 - blogPostingSchema, faqPageSchema, productSchema
+/**
+ * FAQPage JSON-LD for the /faq library (M5-506). Pass only answered FAQs —
+ * Google flags FAQPage entries with empty answers.
+ */
+export function faqPageSchema(faqs: Array<{ question: string; answer: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
+  };
+}
+
+// TODO M5-508 - blogPostingSchema, productSchema

@@ -14,6 +14,7 @@ const GROUPS: { type: Exclude<SearchItemType, 'product'>; cap: number }[] = [
   { type: 'brand', cap: 4 },
   { type: 'blog', cap: 4 },
   { type: 'video', cap: 4 },
+  { type: 'faq', cap: 4 },
 ];
 
 /**

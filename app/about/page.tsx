@@ -1,14 +1,11 @@
-// TODO: M5-506 - About page.
+import { StaticPage, staticPageMetadata } from '@/components/page-sections/StaticPage';
 
-import { Container } from '@/components/ui/Container';
+export const revalidate = false;
 
-export const metadata = { title: 'About Us' };
+export function generateMetadata() {
+  return staticPageMetadata('about', '/about', 'About Perfect Imprints');
+}
 
 export default function AboutPage() {
-  return (
-    <Container as="section" className="py-12">
-      <h1>About Perfect Imprints</h1>
-      <p className="mt-4 text-text-primary">Page wired in M5-506.</p>
-    </Container>
-  );
+  return <StaticPage slug="about" fallbackTitle="About Perfect Imprints" />;
 }

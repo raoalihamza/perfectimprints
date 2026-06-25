@@ -45,7 +45,7 @@ export function CustomCategoryView({ doc, baseUrl, products }: Props) {
 
   const breadcrumbItems = [
     { label: 'Home', href: '/' },
-    { label: 'Promotional Products', href: '/cat' },
+    { label: 'Promotional Products', href: '/promotional-products' },
     { label: title },
   ];
 
@@ -54,7 +54,7 @@ export function CustomCategoryView({ doc, baseUrl, products }: Props) {
       <Schema
         data={breadcrumbSchema([
           { name: 'Home', url: `${SITE_URL}/` },
-          { name: 'Promotional Products', url: `${SITE_URL}/cat` },
+          { name: 'Promotional Products', url: `${SITE_URL}/promotional-products` },
           { name: title, url: `${SITE_URL}${baseUrl}` },
         ])}
       />

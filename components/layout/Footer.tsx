@@ -10,10 +10,10 @@ const DEFAULT_COLUMNS: FooterColumn[] = [
   {
     heading: 'About Us',
     links: [
-      { label: 'About Me', href: '/about' },
+      { label: 'About Perfect Imprints', href: '/about' },
+      { label: 'Company Core Values', href: '/company-core-values' },
       { label: 'Blog', href: '/blog' },
-      { label: 'Privacy & Security', href: '/privacy' },
-      { label: 'Company Core Values', href: '/about#values' },
+      { label: 'Privacy & Security', href: '/privacy-security' },
     ],
   },
   {
@@ -29,18 +29,20 @@ const DEFAULT_COLUMNS: FooterColumn[] = [
   {
     heading: 'Customer Service',
     links: [
-      { label: 'FAQs', href: '/faqs' },
+      { label: 'FAQs', href: '/faq' },
       { label: 'Sample Policy', href: '/sample-policy' },
-      { label: 'US & International Shipping', href: '/shipping' },
+      { label: 'US & International Shipping', href: '/shipping-policy' },
       { label: 'Returns & Refunds', href: '/returns' },
+      { label: 'Terms of Service', href: '/terms' },
     ],
   },
   {
     heading: 'Contact Us',
     links: [
       { label: '800-773-9472', href: 'tel:800-773-9472' },
+      { label: 'cs@perfectimprints.com', href: 'mailto:cs@perfectimprints.com' },
       { label: 'Contact Form', href: '/contact' },
-      { label: 'Mon-Fri 9am-5pm CT', href: '/contact#hours' },
+      { label: 'Mon-Fri 8am-5pm CST', href: '/contact' },
     ],
   },
 ];

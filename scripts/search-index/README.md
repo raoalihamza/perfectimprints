@@ -32,9 +32,9 @@ Each entry is intentionally minimal — `{ type, title, url, brand? }` (see
 - **Brands** are read straight from `brands.json` rather than `getAllBrands()`
   because that loader is `import 'server-only'` and throws outside an RSC bundle.
   `brands.json` already holds the full ~205 catalog brands.
-- **FAQs are deferred.** The `/faqs` library page (M5-506) does not exist yet, so
-  there is no real destination — emitting FAQ results would 404. Enable them in
-  `collectFaqs()` once `/faqs` (or per-FAQ anchors) lands.
+- **FAQs are in the live delta.** The `/faq` library page (M5-506) now exists, but
+  answered FAQs are Sanity-managed editor content, so they are served by
+  `app/api/search-index` (live delta), not baked here. `collectFaqs()` stays a no-op.
 - **Blogs are best-effort.** If Sanity is unreachable the build logs a warning and
   ships the index without blogs rather than failing. On Vercel the Sanity env vars
   are present, so blogs are always included there.

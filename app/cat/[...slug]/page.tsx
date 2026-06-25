@@ -174,7 +174,7 @@ function buildBreadcrumbs(
 ): { label: string; href?: string }[] {
   const items: { label: string; href?: string }[] = [
     { label: 'Home', href: '/' },
-    { label: 'Promotional Products', href: '/cat' },
+    { label: 'Promotional Products', href: '/promotional-products' },
   ];
   // For single-segment (root) URLs, render the root title and we're done.
   if (segments.length === 1) {

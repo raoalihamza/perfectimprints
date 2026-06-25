@@ -14,7 +14,7 @@ const POPULAR_LINKS: PopularLink[] = [
   { label: 'Backpacks', href: '/cat/backpacks' },
   { label: 'Drinkware', href: '/cat/drinkware' },
   { label: 'Custom Pens', href: '/cat/pens' },
-  { label: 'Promotional Products', href: '/cat/products' },
+  { label: 'Promotional Products', href: '/promotional-products' },
   { label: 'Golf', href: '/cat/golf' },
 ];
 

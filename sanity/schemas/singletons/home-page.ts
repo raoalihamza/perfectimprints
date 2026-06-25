@@ -18,6 +18,37 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'bannerRow',
+      title: 'Banner Row (three banners)',
+      description:
+        'A single row of up to three equal-size banner images that link out, shown below the hero. Upload consistently-sized images so the row stays uniform. Leave empty to hide the row entirely.',
+      type: 'array',
+      validation: (Rule) => Rule.max(3).warning('The banner row is designed for three banners.'),
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'image', type: 'image', title: 'Banner image', options: { hotspot: true } },
+            {
+              name: 'link',
+              type: 'url',
+              title: 'Link URL',
+              description: 'Where the banner links (an internal path like /deals or a full URL).',
+              validation: (Rule) =>
+                Rule.uri({ allowRelative: true, scheme: ['http', 'https'] }),
+            },
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alt text',
+              validation: (Rule) => Rule.required(),
+            },
+          ],
+          preview: { select: { title: 'alt', subtitle: 'link', media: 'image' } },
+        },
+      ],
+    }),
+    defineField({
       name: 'featuredBlocks',
       title: 'Featured Image Blocks (six)',
       type: 'array',

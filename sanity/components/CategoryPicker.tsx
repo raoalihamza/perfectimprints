@@ -336,7 +336,7 @@ function NoResults({ opts }: { opts: Opts }) {
     return (
       <div style={{ padding: '8px 10px', fontSize: 13, color: '#e11f1e' }}>
         Couldn&rsquo;t load the category list. Open the Studio at the app URL
-        (e.g. <code>http://localhost:3000/admin</code>) instead of the standalone
+        (e.g. <code>http://localhost:3000/admin3773752</code>) instead of the standalone
         <code> sanity dev</code> server, or run <code>pnpm build:category-list</code>.
       </div>
     );

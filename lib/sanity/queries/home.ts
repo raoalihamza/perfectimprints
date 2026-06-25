@@ -18,6 +18,12 @@ export interface HomeFeaturedBlock {
   imageAlt: string;
 }
 
+export interface HomeBanner {
+  imageUrl: string;
+  alt: string;
+  link: string | null;
+}
+
 export interface HomeValueProp {
   title: string;
   body: string;
@@ -31,6 +37,7 @@ export interface HomeTestimonial {
 
 export interface HomePageData {
   hero: HomeHero | null;
+  bannerRow: HomeBanner[];
   featuredBlocks: HomeFeaturedBlock[];
   valueProps: HomeValueProp[];
   newProductsHeading: string;
@@ -69,6 +76,11 @@ interface RawHomeDoc {
     ctaLabel?: string;
     ctaHref?: string;
   };
+  bannerRow?: Array<{
+    image?: SanityImage & { alt?: string };
+    link?: string;
+    alt?: string;
+  }>;
   featuredBlocks?: Array<{
     title?: string;
     href?: string;
@@ -85,6 +97,7 @@ interface RawHomeDoc {
 
 const HOME_QUERY = `*[_type == "homePage"][0]{
   heroBanner,
+  bannerRow,
   featuredBlocks,
   valueProps,
   newProductsHeading,
@@ -161,6 +174,15 @@ export async function getHomePage(): Promise<HomePageData> {
       })()
     : null;
 
+  // Banner row: only banners with an actual image render; an empty/imageless
+  // list yields [] so the section disappears (BannerRow returns null).
+  const bannerRow: HomeBanner[] = (doc?.bannerRow ?? [])
+    .map((b) => {
+      const { url } = resolveImage(b.image, 1200);
+      return { imageUrl: url, alt: b.alt ?? '', link: b.link?.trim() || null };
+    })
+    .filter((b): b is HomeBanner => Boolean(b.imageUrl));
+
   const sanityFeaturedBlocks: HomeFeaturedBlock[] = (doc?.featuredBlocks ?? [])
     .filter((b) => b.title && b.href)
     .map((b) => {
@@ -190,6 +212,7 @@ export async function getHomePage(): Promise<HomePageData> {
 
   return {
     hero,
+    bannerRow,
     featuredBlocks,
     valueProps,
     newProductsHeading: doc?.newProductsHeading?.trim() || DEFAULT_NEW_PRODUCTS_HEADING,

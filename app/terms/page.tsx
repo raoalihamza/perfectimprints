@@ -1,14 +1,11 @@
-// TODO: M5-506 - Terms page.
+import { StaticPage, staticPageMetadata } from '@/components/page-sections/StaticPage';
 
-import { Container } from '@/components/ui/Container';
+export const revalidate = false;
 
-export const metadata = { title: 'Terms of Use' };
+export function generateMetadata() {
+  return staticPageMetadata('terms', '/terms', 'Terms of Service');
+}
 
 export default function TermsPage() {
-  return (
-    <Container as="section" className="py-12">
-      <h1>Terms of Use</h1>
-      <p className="mt-4 text-text-primary">Page wired in M5-506.</p>
-    </Container>
-  );
+  return <StaticPage slug="terms" fallbackTitle="Terms of Service" />;
 }

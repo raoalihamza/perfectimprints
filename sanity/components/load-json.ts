@@ -2,7 +2,7 @@
  * Robust Studio-side JSON loader (M5-504 picker support).
  *
  * The build-time lists (`category-list.json`, `product-list.json`) live in the
- * Next app's `public/` folder. The EMBEDDED Studio (`/admin`, same origin as the
+ * Next app's `public/` folder. The EMBEDDED Studio (`/admin3773752`, same origin as the
  * Next app) serves them at `/<file>`. The STANDALONE Studio (`sanity dev`, a
  * different dev server) does NOT serve Next's `public/`, so we also write a copy
  * to `sanity/static/` and try `/static/<file>` there.

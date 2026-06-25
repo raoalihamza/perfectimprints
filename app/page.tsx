@@ -5,6 +5,7 @@ import { Container } from '@/components/ui/Container';
 import { Hero } from '@/components/home/Hero';
 import { ValuePillars } from '@/components/home/ValuePillars';
 // import { FeaturedBlocks } from '@/components/home/FeaturedBlocks';
+import { BannerRow } from '@/components/home/BannerRow';
 import { NewProductsRail } from '@/components/home/NewProductsRail';
 import { BrandsStrip } from '@/components/home/BrandsStrip';
 import { Testimonials } from '@/components/home/Testimonials';
@@ -50,6 +51,7 @@ export default async function HomePage() {
       <Hero hero={home.hero} />
       <ValuePillars pillars={home.valueProps} />
       {/* <FeaturedBlocks blocks={home.featuredBlocks} /> */}
+      <BannerRow banners={home.bannerRow} />
       <NewProductsRail products={newProducts} heading={home.newProductsHeading} />
       <Testimonials testimonials={home.testimonials} />
       <BrandsStrip

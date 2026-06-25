@@ -25,6 +25,7 @@ const SEARCH_TYPES = new Set([
   'customProduct',
   'customCategory',
   'curatedCategory',
+  'faq',
 ]);
 
 /** Page routes to revalidate for a given search-affecting type. */
@@ -42,6 +43,9 @@ function searchTypePaths(type: string, slug: string | undefined): string[] {
     case 'customCategory':
     case 'curatedCategory':
       return slug ? [`/cat/${slug}`] : [];
+    // FAQs render on the single /faq library page (no per-FAQ route).
+    case 'faq':
+      return ['/faq'];
     default:
       return [];
   }
@@ -167,14 +171,18 @@ export async function POST(request: Request) {
     return NextResponse.json({ revalidated: unique.length > 0, paths: unique.map((s) => `/cat/${s}`), type });
   }
 
-  // Generic section-based `page` documents (M5-506b) render at /services/<slug>.
-  // Revalidate that route on publish so edits go live without a redeploy.
+  // Generic section-based `page` documents power BOTH the Services routes
+  // (/services/<slug>, M5-506b) and the top-level footer/legal pages
+  // (/<slug> — /about, /contact, /sample-policy, /privacy-security, …; M5-506).
+  // The webhook payload can't tell which a given doc is, so revalidate both
+  // candidate paths on publish; revalidatePath on a route that doesn't exist is
+  // a harmless no-op.
   if (type === 'page') {
     const slug = payload.slug?.current;
     if (slug) {
-      const path = `/services/${slug}`;
-      revalidatePath(path);
-      return NextResponse.json({ revalidated: true, scope: path, type });
+      const paths = [`/services/${slug}`, `/${slug}`];
+      for (const p of paths) revalidatePath(p);
+      return NextResponse.json({ revalidated: true, paths, type });
     }
     return NextResponse.json({ revalidated: false, reason: 'page missing slug', type });
   }

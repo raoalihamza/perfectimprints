@@ -12,7 +12,10 @@ export default defineConfig({
   title: 'Perfect Imprints',
   projectId,
   dataset,
-  basePath: '/admin',
+  // Obfuscated admin path (M5-506) — light bot/scanner noise reduction, NOT a
+  // security boundary (Sanity auth still gates access). Must match the route
+  // folder app/admin3773752 and the ChromeGate check.
+  basePath: '/admin3773752',
   plugins: [
     structureTool({ structure: deskStructure }),
     visionTool({ defaultApiVersion: apiVersion }),

@@ -8,7 +8,8 @@
  *   - every generated category page (title = H1/metaTitle, url = internal route)
  *   - every Geiger product (name + brand + raw geiger_url ONLY)
  *   - every brand (name, /brands/<slug>)
- *   - FAQs are DEFERRED until a real /faqs destination exists (M5-506) — see note.
+ *   - FAQs are NOT here — answered FAQs (the /faq library, M5-506) are Sanity
+ *     editor content served via the LIVE delta below, not this static bulk.
  *
  * Sanity-managed content (blogs, videos, custom categories, custom products) is
  * NOT here — it is served fresh by the LIVE delta route app/api/search-index
@@ -103,9 +104,11 @@ function collectBrands(): SearchItem[] {
 // the client merges both. This static file is the slow-changing Geiger bulk only,
 // which keeps the build Sanity-free and the file cacheable for a deploy lifetime.
 
-// FAQs are intentionally NOT indexed yet: the /faqs library page (M5-506) does
-// not exist, so there is no real destination. Emitting them now would 404. Wire
-// them in here once /faqs (or per-FAQ anchors) lands. See CLAUDE.md M5-502.
+// FAQs are NOT in this static bulk. As of M5-506 the /faq library page exists
+// and answered FAQs are searchable — but they are Sanity-managed editor content
+// that turns over between deploys, so (like blogs/videos) they live in the LIVE
+// delta (lib/search/sanity-index.ts → /api/search-index), not here. Kept as a
+// no-op so the items assembly below stays uniform.
 function collectFaqs(): SearchItem[] {
   return [];
 }
