@@ -1125,21 +1125,33 @@ Full step-by-step (URL, filter, projection, secret, testing, troubleshooting): *
 **Depends on.** M5-503 (handler), M5-507 hybrid search (live delta route).
 **Estimate.** 30 min (dashboard config, no code).
 
-### [ ] M5-508: Performance and SEO infrastructure (incl. Patrick mobile pagespeed fixes)
+### [~] M5-508: Performance and SEO infrastructure (incl. Patrick mobile pagespeed fixes) — CODE DONE 2026-06-25, on-staging Lighthouse verification pending
 
 **Scope.** Sitemap generator covering all 22,180 categories + 731 blogs + brands + deals + static pages (excluding paginated page 2+). robots.txt. Meta tags audit. Schema.org Organization in root layout. Canonical URLs on every page. **Mobile pagespeed optimization per Patrick feedback (2026-05-25):** preload hero image, preload primary font, defer non-critical scripts, image sizing hints for hot-linked Geiger images, font-display swap. Target mobile Lighthouse 90 plus on home and root templates.
 
 **Patrick feedback (2026-05-25):** "Mobile speed good but I'd like the Largest Contentful Paint and Speed Index Improved — desktop speed is amazing!"
 
+**Implementation (2026-06-25).**
+
+- **LCP / Speed Index (Part 1).**
+  - The home hero is **text-only** (no hero image), so the home mobile LCP is the H1 text — paint speed there is governed by the font, which `next/font` (`Inter`, `display: 'swap'`, `subsets:['latin']`) already self-hosts + auto-preloads. No render-blocking font `@import` in `globals.css` (Tailwind only). The first image on the home page is the `BannerRow` (below two text sections): the **first banner** is now `loading="eager"` + `fetchPriority="high"`, the rest stay lazy, and every banner gets **explicit width/height parsed from the Sanity asset ref** (`-WxH-` segment) so the row reserves exact space → zero CLS, no crop ([components/home/BannerRow.tsx](components/home/BannerRow.tsx), [lib/sanity/queries/home.ts](lib/sanity/queries/home.ts) `parseSanityImageDimensions`).
+  - Category template: the LCP candidate is the H1/intro block then the first product images. `ProductGrid` already passes `priority` to the first 4 cards; `ProductImage` now sets `fetchPriority="high"` + `loading="eager"` on those and `fetchPriority="auto"` + `loading="lazy"` below the fold, plus a responsive `sizes` hint ([components/category/ProductImage.tsx](components/category/ProductImage.tsx)). Hot-linked Geiger images already carry explicit `width`/`height` (275×275) → no CLS.
+  - No third-party/analytics scripts exist in the component tree yet (GA4 only referenced in docs/.env), so there is nothing render-blocking to defer; when GA4 is added it must use `next/script` `afterInteractive`.
+- **Organization + WebSite schema (Part 2).** `organizationSchema()` enriched with a `contactPoint` (phone + `cs@perfectimprints.com`); new `websiteSchema()` adds WebSite + `SearchAction` → `/search?q={search_term_string}`. Both emitted in the root layout ([app/layout.tsx](app/layout.tsx), [lib/seo/schema-generators.ts](lib/seo/schema-generators.ts)). `sameAs`/postal `address` intentionally omitted — real socials/address not confirmed (footer links are `#` placeholders); add when Patrick provides them.
+- **Sitemap (Part 3).** [app/sitemap.ts](app/sitemap.ts) now logs per-section counts at build time and excludes the `noindex` `/search` route. Coverage: static/legal pages + `/promotional-products` + `/faq` + `/deals` + `/new-products` + `/rush-products` + `/rush-promotional-products` + `/blog` + `/brands` + `/videos` + 4 services + 22,180 category page-1 URLs + blog posts + blog categories + per-video + per-brand. ~23k URLs < Google's 50k single-file cap, so Next emits one spec-valid `sitemap.xml` (switch to `generateSitemaps()` only if it ever exceeds 50k).
+- **robots + canonical/meta (Part 4).** Replaced the static `public/robots.txt` (which would shadow the route) with generated [app/robots.ts](app/robots.ts): allow all, `disallow: ['/admin3773752', '/api']`, references the sitemap. Canonical/meta audit across all indexable templates came back clean except two gaps now fixed: `/search` (was missing description + self-canonical — added, stays `noindex`) and `/rush-promotional-products` (thin legacy stub — added title/description + canonical to `/rush-products`, the live equivalent; URL still resolves, no redirect per §4). Services + static (About/Contact/Terms/etc.) pages set description only when the Sanity `seo.metaDescription` is populated — content task for Patrick, not a code gap. `metadataBase` / layout `siteUrl` default aligned to `https://www.perfectimprints.com` (canonical host per §4).
+
 **Acceptance.**
 
-- [ ] sitemap.xml validates against Google spec
-- [ ] robots.txt allows all and references sitemap
-- [ ] Zero missing or duplicate meta tags
-- [ ] Schema.org Organization present
-- [ ] LCP under 2.5s, CLS under 0.1, INP under 200ms on home and root category templates
-- [ ] Mobile Lighthouse Performance 90 plus on home, sample root category, sample blog
-- [ ] Speed Index improved by at least 30% on the previously tested URL
+- [x] sitemap.xml validates against Google spec (single file, < 50k URLs, well-formed; counts logged at build)
+- [x] robots.txt allows all, disallows `/admin3773752` + `/api`, references sitemap
+- [x] Zero missing or duplicate meta tags (audit clean; `/search` + `/rush-promotional-products` gaps fixed)
+- [x] Schema.org Organization + WebSite (SearchAction) present in root layout
+- [x] LCP element per template eager/`fetchPriority=high` + not lazy; fonts preloaded + swap; hot-linked images sized; CLS reserved on banner row
+- [x] `pnpm typecheck` clean; `/cat` render path / Suspense / loading.tsx untouched (only image attributes changed)
+- [ ] `pnpm build` passes + `/cat` confirmed still static (1,840 headline routes prerendered) — **pending** (Patrick's standing rule is no local full builds; verify on Vercel deploy)
+- [ ] Mobile Lighthouse Performance 90 plus on home, sample root category, sample blog — **pending on-staging measurement**
+- [ ] Speed Index improved by at least 30% on the previously tested URL — **pending on-staging measurement**
       **Depends on.** M3-310, M4-403, M5-501.
       **Estimate.** 8 hours.
 

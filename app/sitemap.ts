@@ -36,7 +36,7 @@ const STATIC_PATHS: string[] = [
   '/deals',
   '/new-products',
   '/videos',
-  '/search',
+  // NOTE: /search is intentionally excluded — it is noindex (see app/search/page.tsx).
   '/services/kitting',
   '/services/company-stores',
   '/services/popup-stores',
@@ -92,14 +92,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const entries: MetadataRoute.Sitemap = [];
 
+  // Per-section tallies for the build log so coverage is verifiable at a glance.
+  const counts = { static: 0, category: 0, blogPosts: 0, blogCats: 0, videos: 0, brands: 0 };
+
   for (const p of STATIC_PATHS) {
     entries.push({ url: `${SITE_URL}${p}`, lastModified: now, changeFrequency: 'weekly' });
   }
+  counts.static = STATIC_PATHS.length;
 
   // Category page-1 URLs only. Paginated variants (/page/N) are intentionally excluded:
   // page 2+ carries noindex,follow and canonicalizes to page 1, so they should not be
   // surfaced in the sitemap. They remain discoverable via the Pagination follow links.
-  for (const url of readCategoryUrls()) {
+  const categoryUrls = readCategoryUrls();
+  for (const url of categoryUrls) {
     entries.push({
       url: `${SITE_URL}${url}`,
       lastModified: now,
@@ -107,6 +112,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     });
   }
+  counts.category = categoryUrls.length;
 
   // Published blog posts + blog category index pages. Pulled from Sanity (the
   // source of truth post-M4-402); paginated /page/N variants intentionally
@@ -128,9 +134,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.5,
     });
   }
+  counts.blogPosts = posts.length;
+  counts.blogCats = categories.length;
 
   // Published video detail pages. The /videos index itself is in STATIC_PATHS.
-  for (const url of await readVideoUrlsFromSanity()) {
+  const videoUrls = await readVideoUrlsFromSanity();
+  for (const url of videoUrls) {
     entries.push({
       url: `${SITE_URL}${url}`,
       lastModified: now,
@@ -138,10 +147,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.5,
     });
   }
+  counts.videos = videoUrls.length;
 
   // Per-brand pages. Paginated /brands/<slug>/page/N variants are intentionally
   // excluded, matching the noindex convention used for category pagination.
-  for (const slug of readBrandSlugs()) {
+  const brandSlugs = readBrandSlugs();
+  for (const slug of brandSlugs) {
     entries.push({
       url: `${SITE_URL}/brands/${slug}`,
       lastModified: now,
@@ -149,6 +160,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.5,
     });
   }
+  counts.brands = brandSlugs.length;
+
+  // Google caps a single sitemap at 50,000 URLs / 50 MB. We're at ~23k, so a
+  // single sitemap.xml is spec-valid and Next emits one file. If the catalog ever
+  // grows past 50k, switch to generateSitemaps() to split into an index — see
+  // CLAUDE.md §11 / docs.
+  console.log(
+    `[sitemap] ${entries.length} URLs — static:${counts.static} category:${counts.category} ` +
+      `blogPosts:${counts.blogPosts} blogCats:${counts.blogCats} videos:${counts.videos} brands:${counts.brands}`,
+  );
 
   return entries;
 }

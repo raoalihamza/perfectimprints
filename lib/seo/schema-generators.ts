@@ -1,15 +1,57 @@
-// Schema.org JSON-LD generators. Organization + BreadcrumbList live here today;
-// BlogPosting/FAQPage/Product are emitted inline at their call sites for now.
-// VideoObject (M5-507) below. Remaining consolidation tracked in M5-508.
+// Schema.org JSON-LD generators. Organization + WebSite (global, root layout) +
+// BreadcrumbList live here; BlogPosting/FAQPage/Product are emitted inline at
+// their call sites for now. VideoObject (M5-507) below.
 
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.perfectimprints.com').replace(
+  /\/$/,
+  '',
+);
+
+/**
+ * Sitewide Organization JSON-LD (root layout). `sameAs` (socials) and a postal
+ * `address` are intentionally omitted — Patrick's real social URLs / mailing
+ * address aren't confirmed yet (the footer links are placeholders), and emitting
+ * fabricated values would be worse than omitting them. Add `sameAs`/`address`
+ * here once confirmed.
+ */
 export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Perfect Imprints',
-    url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://perfectimprints.com',
-    logo: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'https://perfectimprints.com'}/logo.svg`,
+    url: SITE_URL,
+    logo: `${SITE_URL}/logo.svg`,
     telephone: '+1-800-773-9472',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+1-800-773-9472',
+      email: 'cs@perfectimprints.com',
+      contactType: 'customer service',
+      areaServed: 'US',
+      availableLanguage: 'English',
+    },
+  };
+}
+
+/**
+ * Sitewide WebSite JSON-LD with a SearchAction (root layout). The SearchAction
+ * tells Google the site has an internal search box at /search?q=… so a sitelinks
+ * search box can surface in results.
+ */
+export function websiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Perfect Imprints',
+    url: SITE_URL,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${SITE_URL}/search?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
   };
 }
 

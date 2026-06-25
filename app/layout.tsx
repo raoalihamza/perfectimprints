@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ChromeGate } from '@/components/layout/ChromeGate';
-import { organizationSchema } from '@/lib/seo/schema-generators';
+import { organizationSchema, websiteSchema } from '@/lib/seo/schema-generators';
 import './globals.css';
 
 const inter = Inter({
@@ -12,7 +12,10 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://perfectimprints.com';
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.perfectimprints.com').replace(
+  /\/$/,
+  '',
+);
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -54,6 +57,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}
         />
       </body>
     </html>

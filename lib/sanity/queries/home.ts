@@ -22,6 +22,27 @@ export interface HomeBanner {
   imageUrl: string;
   alt: string;
   link: string | null;
+  /** Intrinsic dimensions (parsed from the Sanity asset ref) so the banner row
+   *  reserves exact space and contributes zero CLS. Null when unparseable. */
+  width: number | null;
+  height: number | null;
+}
+
+/**
+ * Sanity image asset refs encode their intrinsic size, e.g.
+ * `image-abc123-1200x800-webp`. Parse it so we can set explicit width/height on
+ * the rendered <img> (CLS) without an extra GROQ dereference of metadata.
+ */
+function parseSanityImageDimensions(
+  ref: string | undefined,
+): { width: number; height: number } | null {
+  if (!ref) return null;
+  const m = ref.match(/-(\d+)x(\d+)-/);
+  if (!m) return null;
+  const width = Number.parseInt(m[1], 10);
+  const height = Number.parseInt(m[2], 10);
+  if (!width || !height) return null;
+  return { width, height };
 }
 
 export interface HomeValueProp {
@@ -179,7 +200,14 @@ export async function getHomePage(): Promise<HomePageData> {
   const bannerRow: HomeBanner[] = (doc?.bannerRow ?? [])
     .map((b) => {
       const { url } = resolveImage(b.image, 1200);
-      return { imageUrl: url, alt: b.alt ?? '', link: b.link?.trim() || null };
+      const dims = parseSanityImageDimensions(b.image?.asset?._ref);
+      return {
+        imageUrl: url,
+        alt: b.alt ?? '',
+        link: b.link?.trim() || null,
+        width: dims?.width ?? null,
+        height: dims?.height ?? null,
+      };
     })
     .filter((b): b is HomeBanner => Boolean(b.imageUrl));
 

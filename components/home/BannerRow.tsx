@@ -16,12 +16,21 @@ export function BannerRow({ banners }: { banners: HomeBanner[] }) {
       <Container className="py-8 md:py-10">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6">
           {banners.map((b, i) => {
+            // The banner row is the first image on the (text-hero) home page, so
+            // the first banner is the most likely image LCP candidate — load it
+            // eagerly with high fetch priority; the rest stay lazy. Explicit
+            // width/height (parsed from the Sanity asset ref) reserve exact space
+            // so the row contributes zero CLS without forcing a crop.
+            const eager = i === 0;
             const img = (
               // eslint-disable-next-line @next/next/no-img-element -- Sanity CDN banner, sized by editor
               <img
                 src={b.imageUrl}
                 alt={b.alt}
-                loading="lazy"
+                {...(b.width && b.height ? { width: b.width, height: b.height } : {})}
+                loading={eager ? 'eager' : 'lazy'}
+                fetchPriority={eager ? 'high' : 'auto'}
+                decoding="async"
                 className="h-auto w-full rounded-md border border-border object-cover transition group-hover:opacity-95"
               />
             );

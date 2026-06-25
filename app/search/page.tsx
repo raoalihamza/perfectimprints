@@ -11,12 +11,22 @@ interface Props {
   searchParams: Promise<{ q?: string }>;
 }
 
-// Search results are user-specific and infinite-variant — never index them.
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
+  /\/$/,
+  '',
+);
+
+// Search results are user-specific and infinite-variant — never index them. A
+// self-canonical to the clean /search URL (no ?q=) keeps every query variant
+// pointing at one address.
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
   const { q } = await searchParams;
   const title = q ? `Search results for “${q}”` : 'Search';
   return {
     title,
+    description:
+      'Search Perfect Imprints for custom promotional products, branded apparel, categories, and brands.',
+    alternates: { canonical: `${SITE_URL}/search` },
     robots: { index: false, follow: true },
   };
 }
