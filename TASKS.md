@@ -1143,7 +1143,7 @@ Full step-by-step (URL, filter, projection, secret, testing, troubleshooting): *
 - **LCP / Speed Index (Part 1).**
   - The home hero is **text-only** (no hero image), so the home mobile LCP is the H1 text — paint speed there is governed by the font, which `next/font` (`Inter`, `display: 'swap'`, `subsets:['latin']`) already self-hosts + auto-preloads. No render-blocking font `@import` in `globals.css` (Tailwind only). The first image on the home page is the `BannerRow` (below two text sections): the **first banner** is now `loading="eager"` + `fetchPriority="high"`, the rest stay lazy, and every banner gets **explicit width/height parsed from the Sanity asset ref** (`-WxH-` segment) so the row reserves exact space → zero CLS, no crop ([components/home/BannerRow.tsx](components/home/BannerRow.tsx), [lib/sanity/queries/home.ts](lib/sanity/queries/home.ts) `parseSanityImageDimensions`).
   - Category template: the LCP candidate is the H1/intro block then the first product images. `ProductGrid` already passes `priority` to the first 4 cards; `ProductImage` now sets `fetchPriority="high"` + `loading="eager"` on those and `fetchPriority="auto"` + `loading="lazy"` below the fold, plus a responsive `sizes` hint ([components/category/ProductImage.tsx](components/category/ProductImage.tsx)). Hot-linked Geiger images already carry explicit `width`/`height` (275×275) → no CLS.
-  - No third-party/analytics scripts exist in the component tree yet (GA4 only referenced in docs/.env), so there is nothing render-blocking to defer; when GA4 is added it must use `next/script` `afterInteractive`.
+  - No third-party/analytics scripts exist in the component tree yet (GA4 only referenced in docs/.env), so there is nothing render-blocking to defer; when GA4 is added it must use `next/script` `afterInteractive`. **Update (M5-513, 2026-06-26):** GTM is now in the root layout, but it loads via `@next/third-parties` `GoogleTagManager` (`next/script` default `afterInteractive`), so it stays off the render-blocking path. Re-check mobile Lighthouse on staging now that one third-party script is present.
 - **Organization + WebSite schema (Part 2).** `organizationSchema()` enriched with a `contactPoint` (phone + `cs@perfectimprints.com`); new `websiteSchema()` adds WebSite + `SearchAction` → `/search?q={search_term_string}`. Both emitted in the root layout ([app/layout.tsx](app/layout.tsx), [lib/seo/schema-generators.ts](lib/seo/schema-generators.ts)). `sameAs`/postal `address` were initially omitted (footer links were `#` placeholders) — **now wired to Sanity in the follow-up below** (`sameAs` = enabled socials, address from `globalSettings.contact`).
 - **Sitemap (Part 3).** [app/sitemap.ts](app/sitemap.ts) now logs per-section counts at build time and excludes the `noindex` `/search` route. Coverage: static/legal pages + `/promotional-products` + `/faq` + `/deals` + `/new-products` + `/rush-products` + `/rush-promotional-products` + `/blog` + `/brands` + `/videos` + 4 services + 22,180 category page-1 URLs + blog posts + blog categories + per-video + per-brand. ~23k URLs < Google's 50k single-file cap, so Next emits one spec-valid `sitemap.xml` (switch to `generateSitemaps()` only if it ever exceeds 50k).
 - **robots + canonical/meta (Part 4).** Replaced the static `public/robots.txt` (which would shadow the route) with generated [app/robots.ts](app/robots.ts): allow all, `disallow: ['/admin3773752', '/api']`, references the sitemap. Canonical/meta audit across all indexable templates came back clean except two gaps now fixed: `/search` (was missing description + self-canonical — added, stays `noindex`) and `/rush-promotional-products` (thin legacy stub — added title/description + canonical to `/rush-products`, the live equivalent; URL still resolves, no redirect per §4). Services + static (About/Contact/Terms/etc.) pages set description only when the Sanity `seo.metaDescription` is populated — content task for Patrick, not a code gap. `metadataBase` / layout `siteUrl` default aligned to `https://www.perfectimprints.com` (canonical host per §4).
@@ -1181,6 +1181,31 @@ Full step-by-step (URL, filter, projection, secret, testing, troubleshooting): *
 - [x] `pnpm typecheck` clean
 - [ ] `pnpm build` — deferred to Vercel per Patrick's standing "no local full builds" rule. `getSiteSettings()` uses the same plain published `client` pattern as `getMegaMenu` (already read in the layout via the Header) and the new reads live in async layout-subtree server components (Footer, OrganizationJsonLd), so `/cat` should stay static (`●`/SSG) — confirm on the Vercel deploy route table.
       **Estimate.** 8 hours.
+
+### [x] M5-513: Google Tag Manager container (env-driven, deferred) — DONE 2026-06-26
+
+**Scope.** Add the GTM container the Next.js way (not a raw pasted `<head>` snippet), driven by `NEXT_PUBLIC_GTM_ID` (`GTM-MCQP434P`), loaded so it does not regress the M5-508 LCP/Speed Index work. Patrick manages GA4, live chat, and all other tags from the GTM dashboard — only the container loads, no individual tags are hardcoded.
+
+**Implementation (2026-06-26).**
+
+- Installed `@next/third-parties@^16.2.0` (resolved 16.2.9, matches Next 16.2.6).
+- Root layout ([app/layout.tsx](app/layout.tsx)) reads `const gtmId = process.env.NEXT_PUBLIC_GTM_ID` (a `NEXT_PUBLIC_*` var → build-time inlined constant, so this does NOT force `/cat` dynamic) and renders:
+  - `{gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}` between `<html>` and `<body>` (the documented `@next/third-parties` placement). The component injects the head GTM script + dataLayer init via `next/script` with the **default `afterInteractive` strategy** (verified in `node_modules/@next/third-parties/dist/google/gtm.js` — no explicit `strategy` prop) → deferred, off the render-blocking path.
+  - A manual `<noscript>` iframe (`https://www.googletagmanager.com/ns.html?id=${gtmId}`, `height/width 0`, `display:none;visibility:hidden`) as the **first child of `<body>`** — the component does not emit the noscript fallback.
+- **Env-driven / no hard dependency:** when `NEXT_PUBLIC_GTM_ID` is unset (e.g. staging without analytics) the layout renders NOTHING for GTM.
+- `.env.example` documents `NEXT_PUBLIC_GTM_ID=GTM-MCQP434P` with a comment (public client id, not a secret — matches the file's convention for other `NEXT_PUBLIC_*` config). CLAUDE.md Sections 14 + 15 updated.
+- Did NOT paste Patrick's raw `<script>` block — the component is the correct equivalent and keeps GTM off the critical path.
+
+**Acceptance.**
+
+- [x] GTM loads on all pages from `NEXT_PUBLIC_GTM_ID`; unset = renders nothing
+- [x] Head container via `@next/third-parties` `GoogleTagManager`; `<noscript>` iframe immediately after `<body>`
+- [x] Deferred (`afterInteractive`), not render-blocking; raw script not pasted; no individual tags hardcoded
+- [x] `.env.example` documents the var
+- [x] `pnpm typecheck` clean
+- [ ] `/cat` confirmed still static + mobile Lighthouse re-checked on staging now that one third-party script is present — **pending Vercel deploy** (Patrick's standing "no local full builds" rule; reading a build-time-inlined `NEXT_PUBLIC_*` const does not opt the route into dynamic rendering, so `/cat` should stay `●`/SSG — confirm on the deploy route table)
+      **Depends on.** M5-508 (performance baseline).
+      **Estimate.** 1 hour.
 
 ### [ ] M5-509: Large data file relocation
 

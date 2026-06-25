@@ -460,9 +460,12 @@ LEAD_EMAIL_FROM=patrick@perfectimprints.com
 NEXT_PUBLIC_SITE_URL=https://perfectimprints.com
 NEXT_PUBLIC_GEIGER_HOST=https://patrickblack.geiger.com
 GA4_MEASUREMENT_ID
+NEXT_PUBLIC_GTM_ID=GTM-MCQP434P
 ```
 
 Never commit a `.env` file. Use `.env.example` with empty values as the template.
+
+**Google Tag Manager (`NEXT_PUBLIC_GTM_ID`).** GTM is loaded in the root layout ([app/layout.tsx](app/layout.tsx)) via `@next/third-parties`'s `GoogleTagManager` component (head script, `next/script` default `afterInteractive` strategy → deferred, off the render-blocking path so it does not regress the M5-508 LCP/Speed Index work) plus a manual `<noscript>` iframe as the first child of `<body>` (the component does not emit the noscript fallback). It is **env-driven**: if `NEXT_PUBLIC_GTM_ID` is unset (e.g. staging without analytics) the layout renders NOTHING, so the build never hard-depends on it. Only the GTM container loads — **no individual tags are hardcoded**; Patrick manages GA4, live chat, and every other tag from the GTM dashboard. The raw `<head>` snippet is intentionally NOT pasted — the component is the correct equivalent. Reading `process.env.NEXT_PUBLIC_GTM_ID` is a build-time inlined constant, so `/cat` stays static. M5-513.
 
 ## 15. External Services
 
@@ -472,6 +475,7 @@ Never commit a `.env` file. Use `.env.example` with empty values as the template
 - **DeepSeek** for AI content. API key on Patrick's account, billed to him directly.
 - **Gmail SMTP** for transactional email. Uses Patrick's Google Workspace account with an app password. Requires SPF and DKIM records in DNS.
 - **Google Search Console and Google Analytics 4** for analytics. Existing GA4 property continues, new GSC property added for new site verification.
+- **Google Tag Manager** is the tag container (id `GTM-MCQP434P`, env var `NEXT_PUBLIC_GTM_ID`). Patrick manages GA4, live chat, and other tags from the GTM dashboard — the site only loads the container (deferred via `@next/third-parties`), it does not hardcode individual tags. See Section 14.
 
 ## 16. Data Pipeline Rules
 
