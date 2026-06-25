@@ -30,17 +30,113 @@ export default defineType({
       rows: 3,
     }),
     defineField({
+      name: 'contact',
+      title: 'Contact Info',
+      type: 'object',
+      description:
+        'Authoritative contact details. The footer and the Organization JSON-LD read from here. Falls back to the legacy Phone Number / Contact Email / Mailing Address fields above only if these are blank.',
+      options: { collapsible: true, collapsed: false },
+      fields: [
+        defineField({
+          name: 'phones',
+          title: 'Phone Numbers',
+          type: 'array',
+          of: [{ type: 'string' }],
+          description: 'One or more. The first is used as the primary telephone in schema.org.',
+        }),
+        defineField({
+          name: 'email',
+          title: 'Email',
+          type: 'string',
+          validation: (Rule) => Rule.email(),
+        }),
+        defineField({
+          name: 'address',
+          title: 'Address',
+          type: 'object',
+          options: { collapsible: true, collapsed: false },
+          fields: [
+            { name: 'street', type: 'string', title: 'Street' },
+            { name: 'city', type: 'string', title: 'City' },
+            { name: 'region', type: 'string', title: 'State / Region' },
+            { name: 'postalCode', type: 'string', title: 'Postal / ZIP Code' },
+            { name: 'country', type: 'string', title: 'Country', initialValue: 'US' },
+          ],
+        }),
+      ],
+    }),
+    defineField({
       name: 'socialLinks',
       title: 'Social Links',
       type: 'array',
+      description:
+        'Add, reorder, or disable social profiles. Pick a known platform and just paste its URL — the matching icon renders automatically. Use "Other" (or upload a Custom Icon) for anything not in the list. Disabled links are hidden everywhere on the site and excluded from the Organization schema.',
       of: [
         {
           type: 'object',
           fields: [
-            { name: 'platform', type: 'string', title: 'Platform' },
-            { name: 'url', type: 'url', title: 'URL' },
+            {
+              name: 'platform',
+              type: 'string',
+              title: 'Platform',
+              options: {
+                list: [
+                  { title: 'Facebook', value: 'facebook' },
+                  { title: 'Instagram', value: 'instagram' },
+                  { title: 'LinkedIn', value: 'linkedin' },
+                  { title: 'YouTube', value: 'youtube' },
+                  { title: 'X (Twitter)', value: 'twitter' },
+                  { title: 'Pinterest', value: 'pinterest' },
+                  { title: 'TikTok', value: 'tiktok' },
+                  { title: 'Other', value: 'other' },
+                ],
+              },
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: 'label',
+              type: 'string',
+              title: 'Label (optional)',
+              description:
+                'Accessible name + display label. Defaults to the platform name; required for the "Other" platform.',
+            },
+            {
+              name: 'url',
+              type: 'url',
+              title: 'Profile URL',
+              validation: (Rule) =>
+                Rule.required().uri({ scheme: ['http', 'https'] }),
+            },
+            {
+              name: 'customIcon',
+              type: 'image',
+              title: 'Custom Icon (optional)',
+              description:
+                'Used when Platform is "Other", or to override the built-in icon. SVG/PNG with transparent background works best.',
+              options: { hotspot: false },
+            },
+            {
+              name: 'enabled',
+              type: 'boolean',
+              title: 'Enabled',
+              description: 'Off = hidden everywhere on the site and excluded from schema.',
+              initialValue: true,
+            },
           ],
-          preview: { select: { title: 'platform', subtitle: 'url' } },
+          preview: {
+            select: {
+              platform: 'platform',
+              label: 'label',
+              url: 'url',
+              enabled: 'enabled',
+              media: 'customIcon',
+            },
+            prepare: ({ platform, label, url, enabled, media }) => ({
+              title: `${label || platform || 'Social link'}${enabled === false ? ' (disabled)' : ''}`,
+              subtitle: url,
+              media,
+            }),
+          },
         },
       ],
     }),

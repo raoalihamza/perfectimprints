@@ -30,6 +30,7 @@
     "seed-static-pages": "tsx scripts/seed/seed-static-pages.ts",
     "seed-faqs": "tsx scripts/seed/seed-faqs.ts",
     "seed-home-banners": "tsx scripts/seed/seed-home-banners.ts",
+    "seed-social-contact": "tsx scripts/seed/seed-social-contact.ts",
     "fill-faq-answers": "tsx scripts/seed/fill-faq-answers.ts",
     "scrape-blogs": "python scripts/scrapers/blogs/scrape_sbase.py",
     "scrape-deals": "python -m scripts.scrapers.geiger.scrape_deals",

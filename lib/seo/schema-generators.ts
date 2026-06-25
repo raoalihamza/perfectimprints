@@ -2,35 +2,74 @@
 // BreadcrumbList live here; BlogPosting/FAQPage/Product are emitted inline at
 // their call sites for now. VideoObject (M5-507) below.
 
+// Type-only import (erased at build) so this module stays free of any runtime
+// Sanity dependency — it's also imported by client components (e.g.
+// CustomCategoryView), which must not bundle @sanity/client.
+import type { SiteSettings } from '@/lib/sanity/queries/global-settings';
+
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.perfectimprints.com').replace(
   /\/$/,
   '',
 );
 
+const DEFAULT_PHONE = '800-773-9472';
+const DEFAULT_EMAIL = 'cs@perfectimprints.com';
+
+/** Format a US-style number for schema.org telephone (e.g. +1-800-773-9472). */
+function formatTelephone(phone: string): string {
+  if (phone.startsWith('+')) return phone;
+  const d = phone.replace(/\D/g, '');
+  if (d.length === 10) return `+1-${d.slice(0, 3)}-${d.slice(3, 6)}-${d.slice(6)}`;
+  if (d.length === 11 && d[0] === '1') return `+1-${d.slice(1, 4)}-${d.slice(4, 7)}-${d.slice(7)}`;
+  return phone;
+}
+
 /**
- * Sitewide Organization JSON-LD (root layout). `sameAs` (socials) and a postal
- * `address` are intentionally omitted — Patrick's real social URLs / mailing
- * address aren't confirmed yet (the footer links are placeholders), and emitting
- * fabricated values would be worse than omitting them. Add `sameAs`/`address`
- * here once confirmed.
+ * Sitewide Organization JSON-LD (root layout). All contact + social values come
+ * from the `globalSettings` singleton via `getSiteSettings()` (passed in from the
+ * async <OrganizationJsonLd /> server component). `sameAs` lists the URLs of the
+ * ENABLED social links only — disabled socials never appear. `telephone`,
+ * `email`, and the PostalAddress come from `globalSettings.contact`. When a value
+ * is missing we fall back to PI's known phone/email rather than emitting nothing.
  */
-export function organizationSchema() {
-  return {
+export function organizationSchema(settings?: SiteSettings) {
+  const primaryPhone = settings?.contact.phones[0] || DEFAULT_PHONE;
+  const telephone = formatTelephone(primaryPhone);
+  const email = settings?.contact.email || DEFAULT_EMAIL;
+  const sameAs = (settings?.socialLinks ?? []).map((s) => s.url).filter(Boolean);
+  const address = settings?.contact.address;
+
+  const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Perfect Imprints',
     url: SITE_URL,
     logo: `${SITE_URL}/logo.svg`,
-    telephone: '+1-800-773-9472',
+    telephone,
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+1-800-773-9472',
-      email: 'cs@perfectimprints.com',
+      telephone,
+      email,
       contactType: 'customer service',
       areaServed: 'US',
       availableLanguage: 'English',
     },
   };
+
+  if (sameAs.length > 0) schema.sameAs = sameAs;
+
+  if (address && (address.street || address.city)) {
+    schema.address = {
+      '@type': 'PostalAddress',
+      ...(address.street ? { streetAddress: address.street } : {}),
+      ...(address.city ? { addressLocality: address.city } : {}),
+      ...(address.region ? { addressRegion: address.region } : {}),
+      ...(address.postalCode ? { postalCode: address.postalCode } : {}),
+      ...(address.country ? { addressCountry: address.country } : {}),
+    };
+  }
+
+  return schema;
 }
 
 /**

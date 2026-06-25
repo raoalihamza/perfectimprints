@@ -1,0 +1,145 @@
+import { cache } from 'react';
+import { client, urlForImage } from '@/lib/sanity/client';
+import type { SanityImage } from '@/lib/sanity/types';
+import { socialLabel } from '@/components/icons/social-icons';
+
+// ---------------------------------------------------------------------------
+// Site settings — social links + contact info, Sanity-driven.
+//
+// Both the footer (components/layout/Footer.tsx) and the Organization JSON-LD
+// (lib/seo/schema-generators.ts, rendered via components/seo/OrganizationJsonLd)
+// read from here, so socials + contact are fully controlled from the
+// `globalSettings` singleton — no hardcoded social URLs anywhere.
+//
+// `getSiteSettings()` is wrapped in React `cache()` so the footer and the schema
+// component share a single fetch per render. It uses the plain published
+// `client` (same pattern as getMegaMenu) so the read is cached as part of the
+// layout and busted by the webhook's `revalidatePath('/', 'layout')` on a
+// globalSettings publish — the footer/schema update within seconds.
+// ---------------------------------------------------------------------------
+
+export interface ResolvedSocialLink {
+  /** Platform key (e.g. `facebook`) — drives the built-in icon. */
+  platform: string;
+  /** Accessible / display label. */
+  label: string;
+  url: string;
+  /** Resolved custom-icon URL, or null to use the built-in platform icon. */
+  iconUrl: string | null;
+}
+
+export interface SiteAddress {
+  street: string | null;
+  city: string | null;
+  region: string | null;
+  postalCode: string | null;
+  country: string | null;
+}
+
+export interface SiteContact {
+  /** Zero or more phone numbers; the first is the primary (schema telephone). */
+  phones: string[];
+  email: string | null;
+  address: SiteAddress | null;
+}
+
+export interface SiteSettings {
+  /** Enabled social links only, in array order (disabled ones are dropped). */
+  socialLinks: ResolvedSocialLink[];
+  contact: SiteContact;
+}
+
+interface RawSocialLink {
+  platform?: string;
+  label?: string;
+  url?: string;
+  enabled?: boolean;
+  customIcon?: SanityImage;
+}
+
+interface RawContact {
+  phones?: string[];
+  email?: string;
+  address?: Partial<SiteAddress>;
+}
+
+interface RawSettings {
+  socialLinks?: RawSocialLink[];
+  contact?: RawContact;
+  // legacy flat fields — fallback only
+  phoneNumber?: string;
+  contactEmail?: string;
+}
+
+const QUERY = `*[_type == "globalSettings"][0]{
+  socialLinks[]{ platform, label, url, enabled, customIcon },
+  contact,
+  phoneNumber,
+  contactEmail
+}`;
+
+const EMPTY: SiteSettings = {
+  socialLinks: [],
+  contact: { phones: [], email: null, address: null },
+};
+
+function resolveIconUrl(image: SanityImage | undefined): string | null {
+  if (!image?.asset?._ref) return null;
+  try {
+    return urlForImage(image).width(48).height(48).fit('max').url();
+  } catch {
+    return null;
+  }
+}
+
+function clean(value: string | undefined | null): string | null {
+  const t = value?.trim();
+  return t ? t : null;
+}
+
+function resolve(raw: RawSettings | null): SiteSettings {
+  if (!raw) return EMPTY;
+
+  // Enabled = not explicitly false (missing/undefined counts as enabled), and a
+  // real URL is required. Disabled links are dropped here so NO consumer (footer
+  // or schema) ever sees them.
+  const socialLinks: ResolvedSocialLink[] = (raw.socialLinks ?? [])
+    .filter((s) => s.enabled !== false && clean(s.url))
+    .map((s) => ({
+      platform: (s.platform || 'other').toLowerCase(),
+      label: socialLabel(s.platform, s.label),
+      url: (s.url as string).trim(),
+      iconUrl: resolveIconUrl(s.customIcon),
+    }));
+
+  const phones = (raw.contact?.phones ?? [])
+    .map((p) => clean(p))
+    .filter((p): p is string => Boolean(p));
+  const fallbackPhone = clean(raw.phoneNumber);
+  const resolvedPhones = phones.length > 0 ? phones : fallbackPhone ? [fallbackPhone] : [];
+
+  const email = clean(raw.contact?.email) ?? clean(raw.contactEmail);
+
+  const a = raw.contact?.address;
+  const address: SiteAddress | null =
+    a && (clean(a.street) || clean(a.city) || clean(a.postalCode))
+      ? {
+          street: clean(a.street),
+          city: clean(a.city),
+          region: clean(a.region),
+          postalCode: clean(a.postalCode),
+          country: clean(a.country),
+        }
+      : null;
+
+  return { socialLinks, contact: { phones: resolvedPhones, email, address } };
+}
+
+export const getSiteSettings = cache(async (): Promise<SiteSettings> => {
+  try {
+    const raw = await client.fetch<RawSettings | null>(QUERY);
+    return resolve(raw);
+  } catch {
+    return EMPTY;
+  }
+});

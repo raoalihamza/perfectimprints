@@ -1,12 +1,17 @@
 import Link from 'next/link';
 import { Container } from '@/components/ui/Container';
+import { SocialIcon } from '@/components/icons/social-icons';
+import { getSiteSettings, type SiteAddress } from '@/lib/sanity/queries/global-settings';
 
 interface FooterColumn {
   heading: string;
   links: Array<{ label: string; href: string }>;
 }
 
-const DEFAULT_COLUMNS: FooterColumn[] = [
+// Navigation columns are static link lists (footerColumns in Sanity is a
+// separate, future enhancement). The Contact column + the social row are
+// Sanity-driven from globalSettings — see below.
+const NAV_COLUMNS: FooterColumn[] = [
   {
     heading: 'About Us',
     links: [
@@ -36,31 +41,28 @@ const DEFAULT_COLUMNS: FooterColumn[] = [
       { label: 'Terms of Service', href: '/terms' },
     ],
   },
-  {
-    heading: 'Contact Us',
-    links: [
-      { label: '800-773-9472', href: 'tel:800-773-9472' },
-      { label: 'cs@perfectimprints.com', href: 'mailto:cs@perfectimprints.com' },
-      { label: 'Contact Form', href: '/contact' },
-      { label: 'Mon-Fri 8am-5pm CST', href: '/contact' },
-    ],
-  },
 ];
 
-const SOCIAL_LINKS = [
-  { platform: 'Facebook', label: 'F', href: '#' },
-  { platform: 'Instagram', label: 'IG', href: '#' },
-  { platform: 'LinkedIn', label: 'in', href: '#' },
-  { platform: 'YouTube', label: 'YT', href: '#' },
-];
+const telHref = (phone: string) => `tel:${phone.replace(/[^\d+]/g, '')}`;
 
-export function Footer() {
+function addressLines(a: SiteAddress): string[] {
+  const lines: string[] = [];
+  if (a.street) lines.push(a.street);
+  const cityLine = [a.city, [a.region, a.postalCode].filter(Boolean).join(' ')]
+    .filter(Boolean)
+    .join(', ');
+  if (cityLine) lines.push(cityLine);
+  return lines;
+}
+
+export async function Footer() {
+  const { socialLinks, contact } = await getSiteSettings();
   const year = new Date().getFullYear();
 
   return (
     <footer className="border-t border-border bg-brand-ink text-white">
       <Container className="grid grid-cols-1 gap-8 py-12 sm:grid-cols-2 lg:grid-cols-4">
-        {DEFAULT_COLUMNS.map((col) => (
+        {NAV_COLUMNS.map((col) => (
           <div key={col.heading}>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-white">
               {col.heading}
@@ -68,10 +70,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               {col.links.map((link) => (
                 <li key={`${col.heading}-${link.label}`}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-white/80 hover:text-brand-red"
-                  >
+                  <Link href={link.href} className="text-sm text-white/80 hover:text-brand-red">
                     {link.label}
                   </Link>
                 </li>
@@ -79,25 +78,75 @@ export function Footer() {
             </ul>
           </div>
         ))}
-      </Container>
-      <div className="border-t border-white/10">
-        <Container className="flex flex-col items-start justify-between gap-4 py-6 sm:flex-row sm:items-center">
-          <p className="text-sm text-white/70">
-            © {year} Perfect Imprints. All Rights Reserved.
-          </p>
-          <ul className="flex items-center gap-3">
-            {SOCIAL_LINKS.map((s) => (
-              <li key={s.platform}>
-                <a
-                  href={s.href}
-                  aria-label={s.platform}
-                  className="inline-flex h-9 w-9 items-center justify-center rounded border border-white/30 text-xs font-semibold text-white hover:bg-white hover:text-brand-ink"
-                >
-                  {s.label}
+
+        {/* Contact column — phone(s) / email / address from globalSettings.contact */}
+        <div>
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-white">
+            Contact Us
+          </h3>
+          <ul className="mt-4 space-y-2">
+            {contact.phones.map((phone) => (
+              <li key={phone}>
+                <a href={telHref(phone)} className="text-sm text-white/80 hover:text-brand-red">
+                  {phone}
                 </a>
               </li>
             ))}
+            {contact.email && (
+              <li>
+                <a
+                  href={`mailto:${contact.email}`}
+                  className="text-sm text-white/80 hover:text-brand-red"
+                >
+                  {contact.email}
+                </a>
+              </li>
+            )}
+            <li>
+              <Link href="/contact" className="text-sm text-white/80 hover:text-brand-red">
+                Contact Form
+              </Link>
+            </li>
+            {contact.address && (
+              <li className="text-sm not-italic text-white/80">
+                <address className="not-italic">
+                  {addressLines(contact.address).map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </address>
+              </li>
+            )}
+            <li className="text-sm text-white/80">Mon-Fri 8am-5pm CST</li>
           </ul>
+        </div>
+      </Container>
+
+      <div className="border-t border-white/10">
+        <Container className="flex flex-col items-start justify-between gap-4 py-6 sm:flex-row sm:items-center">
+          <p className="text-sm text-white/70">© {year} Perfect Imprints. All Rights Reserved.</p>
+          {socialLinks.length > 0 && (
+            <ul className="flex items-center gap-3">
+              {socialLinks.map((social) => (
+                <li key={social.url}>
+                  <a
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="inline-flex h-9 w-9 items-center justify-center rounded border border-white/30 text-white hover:bg-white hover:text-brand-ink"
+                  >
+                    <SocialIcon
+                      platform={social.platform}
+                      iconUrl={social.iconUrl}
+                      className="h-4 w-4"
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
         </Container>
       </div>
     </footer>

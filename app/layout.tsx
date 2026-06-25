@@ -3,7 +3,8 @@ import { Inter } from 'next/font/google';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ChromeGate } from '@/components/layout/ChromeGate';
-import { organizationSchema, websiteSchema } from '@/lib/seo/schema-generators';
+import { OrganizationJsonLd } from '@/components/seo/OrganizationJsonLd';
+import { websiteSchema } from '@/lib/seo/schema-generators';
 import './globals.css';
 
 const inter = Inter({
@@ -54,10 +55,7 @@ export default function RootLayout({
         <ChromeGate>
           <Footer />
         </ChromeGate>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
-        />
+        <OrganizationJsonLd />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}
