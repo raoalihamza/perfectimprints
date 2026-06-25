@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { urlForImage } from '@/lib/sanity/client';
+import { buildImageUrl } from '@/lib/sanity/client';
 import { getRelatedBlogs } from '@/lib/sanity/queries/related-blogs';
 
 interface RelatedBlogsSectionProps {
@@ -25,9 +25,9 @@ export async function RelatedBlogsSection({ categorySlug, categoryTitle }: Relat
       <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {blogs.map((blog) => {
           const href = `/blog/${blog.slug.current}`;
-          const imageUrl = blog.headerImage
-            ? urlForImage(blog.headerImage).width(600).height(338).fit('crop').url()
-            : null;
+          const imageUrl = buildImageUrl(blog.headerImage, (b) =>
+            b.width(600).height(338).fit('crop'),
+          );
           return (
             <article
               key={blog._id}

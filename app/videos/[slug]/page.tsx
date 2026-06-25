@@ -5,7 +5,7 @@ import { Container } from '@/components/ui/Container';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { VideoEmbed } from '@/components/videos/VideoEmbed';
 import { VideoCard } from '@/components/videos/VideoCard';
-import { urlForImage } from '@/lib/sanity/client';
+import { buildImageUrl } from '@/lib/sanity/client';
 import { getVideoBySlug, getVideoSlugs, getRelatedVideos } from '@/lib/sanity/queries/videos';
 import { toVideoCardData } from '@/lib/video/card-data';
 import { parseVideoEmbed, videoThumbnailUrl } from '@/lib/video/embed';
@@ -36,8 +36,9 @@ function resolvePosterUrl(
   embedUrl: string,
   width = 1280,
 ): string | undefined {
-  if (thumbnail) return urlForImage(thumbnail).width(width).url();
-  return videoThumbnailUrl(embedUrl) ?? undefined;
+  return (
+    buildImageUrl(thumbnail, (b) => b.width(width)) ?? videoThumbnailUrl(embedUrl) ?? undefined
+  );
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -50,9 +51,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = video.seo?.metaTitle || `${video.title} | Perfect Imprints`;
   const ogTitle = video.seo?.metaTitle || video.title;
   const description = video.seo?.metaDescription || video.description;
-  const poster = video.seo?.ogImage
-    ? urlForImage(video.seo.ogImage).width(1200).url()
-    : resolvePosterUrl(video.thumbnail, video.embedUrl);
+  const poster =
+    buildImageUrl(video.seo?.ogImage, (b) => b.width(1200)) ??
+    resolvePosterUrl(video.thumbnail, video.embedUrl);
 
   return {
     title,

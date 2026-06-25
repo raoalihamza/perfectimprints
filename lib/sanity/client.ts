@@ -46,3 +46,27 @@ const builder = imageUrlBuilder({ projectId, dataset });
 export function urlForImage(source: unknown) {
   return builder.image(source as never);
 }
+
+/**
+ * Safe image URL resolver. Returns `null` when the source has no asset ref (or
+ * the builder throws) instead of crashing the render — a Sanity image object
+ * that is `{ _type: 'image', alt }` with NO `asset` (e.g. a blog headerImage
+ * that lost its asset during migration, or an editor who set alt but never
+ * uploaded) would otherwise throw "Unable to resolve image URL from source" and
+ * fail the whole prerender. Pass `apply` to chain sizing/crop on the builder.
+ *
+ * Prefer this over a bare `x ? urlForImage(x)…url() : null` — truthiness on the
+ * image object is NOT enough; the asset ref must exist.
+ */
+export function buildImageUrl(
+  source: unknown,
+  apply: (b: ReturnType<typeof urlForImage>) => ReturnType<typeof urlForImage> = (b) => b,
+): string | null {
+  const ref = (source as { asset?: { _ref?: string } } | null | undefined)?.asset?._ref;
+  if (!ref) return null;
+  try {
+    return apply(urlForImage(source)).url();
+  } catch {
+    return null;
+  }
+}

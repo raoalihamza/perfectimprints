@@ -1,4 +1,4 @@
-import { urlForImage } from '@/lib/sanity/client';
+import { buildImageUrl } from '@/lib/sanity/client';
 import { parseVideoEmbed, videoThumbnailUrl, type VideoAspect } from '@/lib/video/embed';
 import type { VideoCategoryRef, VideoSummary } from '@/lib/sanity/queries/videos';
 
@@ -22,9 +22,9 @@ export interface VideoCardData {
 export function toVideoCardData(video: VideoSummary): VideoCardData {
   const { aspect } = parseVideoEmbed(video.embedUrl);
 
-  const thumbnailUrl = video.thumbnail
-    ? urlForImage(video.thumbnail).width(800).height(450).fit('crop').url()
-    : videoThumbnailUrl(video.embedUrl);
+  const thumbnailUrl =
+    buildImageUrl(video.thumbnail, (b) => b.width(800).height(450).fit('crop')) ??
+    videoThumbnailUrl(video.embedUrl);
 
   return {
     id: video._id,

@@ -8,7 +8,7 @@ import { BlogSidebar } from '@/components/blog/BlogSidebar';
 import { SocialShareBar } from '@/components/blog/SocialShareBar';
 import { OrderTodayCTA } from '@/components/blog/OrderTodayCTA';
 import { RelatedBlogsForPost } from '@/components/blog/RelatedBlogsForPost';
-import { urlForImage } from '@/lib/sanity/client';
+import { buildImageUrl } from '@/lib/sanity/client';
 import {
   getBlogPostBySlug,
   getBlogPostSlugs,
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getBlogPostBySlug(slug);
   if (!post) return {};
   const canonical = `${SITE_URL}/blog/${post.slug.current}`;
-  const heroImage = post.headerImage ? urlForImage(post.headerImage).width(1200).url() : undefined;
+  const heroImage = buildImageUrl(post.headerImage, (b) => b.width(1200)) ?? undefined;
   return {
     title: post.metaTitle || `${post.title} | Perfect Imprints`,
     description: post.metaDescription || post.excerpt,
@@ -102,7 +102,7 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   const canonical = `${SITE_URL}/blog/${post.slug.current}`;
-  const heroImage = post.headerImage ? urlForImage(post.headerImage).width(1400).url() : null;
+  const heroImage = buildImageUrl(post.headerImage, (b) => b.width(1400));
   const firstCategory = post.categories?.[0];
   const orderTopic = deriveOrderTopic(post);
 
