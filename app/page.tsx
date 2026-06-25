@@ -26,7 +26,7 @@ export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Perfect Imprints — Custom Promotional Products, Apparel & Bulk Giveaways',
+    absolute: 'Perfect Imprints - Custom Promotional Products, Apparel & Bulk Giveaways',
   },
   description:
     'Custom promotional products and branded apparel for bulk B2B orders. 22,000+ items, wholesale pricing, free art proofs, rush production. Marketing, HR, safety, and corporate gifts.',
