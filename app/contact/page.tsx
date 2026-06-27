@@ -1,6 +1,7 @@
 import { Container } from '@/components/ui/Container';
 import { LeadForm } from '@/components/forms/LeadForm';
 import { StaticPage, staticPageMetadata } from '@/components/page-sections/StaticPage';
+import { OrganizationJsonLd } from '@/components/seo/OrganizationJsonLd';
 
 export const revalidate = false;
 
@@ -11,6 +12,8 @@ export function generateMetadata() {
 export default function ContactPage() {
   return (
     <StaticPage slug="contact" fallbackTitle="Contact Us">
+      {/* Organization (local-business) JSON-LD — home + contact only (M-SEO3). */}
+      <OrganizationJsonLd />
       {/* Lead form lives in code (not a page-builder section) so the Contact
           page always carries it; the editable copy/contact details come from
           the Sanity `page` doc sections rendered above. */}

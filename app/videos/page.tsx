@@ -4,6 +4,7 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { VideosBrowser } from '@/components/videos/VideosBrowser';
 import { getAllVideos } from '@/lib/sanity/queries/videos';
 import { toVideoCardData } from '@/lib/video/card-data';
+import { socialMeta } from '@/lib/seo/open-graph';
 
 export const dynamic = 'force-static';
 export const revalidate = 3600;
@@ -13,11 +14,15 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprin
   '',
 );
 
+const VIDEOS_TITLE = 'Videos | Perfect Imprints';
+const VIDEOS_DESCRIPTION =
+  'Watch promotional product videos, demos, and ideas from Perfect Imprints to help your brand stand out.';
+
 export const metadata: Metadata = {
-  title: 'Videos | Perfect Imprints',
-  description:
-    'Watch promotional product videos, demos, and ideas from Perfect Imprints to help your brand stand out.',
+  title: VIDEOS_TITLE,
+  description: VIDEOS_DESCRIPTION,
   alternates: { canonical: `${SITE_URL}/videos` },
+  ...socialMeta({ title: VIDEOS_TITLE, description: VIDEOS_DESCRIPTION, url: `${SITE_URL}/videos` }),
 };
 
 export default async function VideosIndexPage() {

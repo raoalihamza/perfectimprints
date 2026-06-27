@@ -8,6 +8,7 @@ import { Container } from '@/components/ui/Container';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { SectionRenderer } from './SectionRenderer';
 import { getPageBySlug } from '@/lib/sanity/queries/pages';
+import { socialMeta } from '@/lib/seo/open-graph';
 
 /**
  * Shared renderer for the footer/legal static pages (M5-506) — About, Contact,
@@ -38,10 +39,16 @@ export async function staticPageMetadata(
   const page = await getPage(slug);
   const title = page?.seo?.metaTitle?.trim() || `${page?.title || fallbackTitle} | Perfect Imprints`;
   const description = page?.seo?.metaDescription?.trim() || undefined;
+  const canonical = `${SITE_URL}${path}`;
   return {
     title: { absolute: title },
     description,
-    alternates: { canonical: `${SITE_URL}${path}` },
+    alternates: { canonical },
+    ...socialMeta({
+      title: page?.title || fallbackTitle,
+      description,
+      url: canonical,
+    }),
   };
 }
 

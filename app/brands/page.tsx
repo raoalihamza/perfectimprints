@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Container } from '@/components/ui/Container';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { getBrandsGroupedByLetter, type Brand } from '@/lib/brands';
+import { socialMeta } from '@/lib/seo/open-graph';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
   /\/$/,
@@ -13,10 +14,13 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprin
 export async function generateMetadata(): Promise<Metadata> {
   const grouped = await getBrandsGroupedByLetter();
   const total = grouped.reduce((sum, g) => sum + g.brands.length, 0);
+  const title = 'Shop Promotional Products by Brand | Perfect Imprints';
+  const description = `Custom products from over ${total} brands. Browse logos and shop A-Z for promotional items, corporate gifts, and event giveaways.`;
   return {
-    title: { absolute: 'Shop Promotional Products by Brand | Perfect Imprints' },
-    description: `Custom products from over ${total} brands. Browse logos and shop A-Z for promotional items, corporate gifts, and event giveaways.`,
+    title: { absolute: title },
+    description,
     alternates: { canonical: `${SITE_URL}/brands` },
+    ...socialMeta({ title, description, url: `${SITE_URL}/brands` }),
   };
 }
 

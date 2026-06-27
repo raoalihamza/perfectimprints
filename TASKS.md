@@ -1235,6 +1235,29 @@ Full step-by-step (URL, filter, projection, secret, testing, troubleshooting): *
       **Depends on.** None.
       **Estimate.** 0.5 hours.
 
+### [x] M-SEO3: SEO schema + meta + Open Graph pass (DONE 2026-06-27)
+
+**Scope.** Patrick's SEO requests across schema + metadata. No `/cat` data-fetching / Suspense / `loading.tsx` changes; route stays static (schema/meta computed from already-loaded data + a local `products.json` disk read, no added uncached fetches).
+
+**Implementation (2026-06-27).**
+
+1. **Category meta title = the on-page H1.** `categoryMetaTitle(h1)` in [app/cat/[...slug]/page.tsx](app/cat/[...slug]/page.tsx) sets the meta `<title>` to the H1 (full descriptive phrase), appending `| Perfect Imprints` only when the total stays ≤ ~60 chars; otherwise the H1 alone. Applied to root + modifier + facet (page 1 and page 2+). Canonical + on-page H1 untouched. customCategory keeps its Sanity `seo.metaTitle`.
+2. **CollectionPage + ItemList JSON-LD on category pages.** New `collectionPageSchema()` + `itemListSchema()` in [lib/seo/schema-generators.ts](lib/seo/schema-generators.ts). The cat route emits a JSON-LD graph: CollectionPage (always) + ItemList (the products shown on the page — position/name/affiliate-url/image — **omitted for CTA-only categories**, no empty list) + FAQPage (root pages with FAQs — newly emitted; the prior `FAQsAccordion` rendered no schema) via the existing `<Schema>` component. Same added to [components/category/CustomCategoryView.tsx](components/category/CustomCategoryView.tsx) (CollectionPage + ItemList alongside its existing breadcrumb + FAQPage). BreadcrumbList unchanged (still emitted by `<Breadcrumbs>`).
+3. **Complete Open Graph + Twitter on every page.** New shared `socialMeta()` helper ([lib/seo/open-graph.ts](lib/seo/open-graph.ts)) spread into each page's metadata so every page carries a full set (title/description/image/url/type/site_name/image:alt + summary_large_image). Category `og:image` = first product image (resolved off `products.json` in `generateMetadata`), logo fallback when empty (`LOGO_OG_IMAGE`). Applied to: home, cat (+ customCategory), blog post/index/category (+ paginated), brands index + brand page (brand logo), deals/new-products/rush-products/rush-promotional-products, promotional-products, faq, videos index + detail, services, static pages (via `staticPageMetadata`), search.
+4. **Organization (local) schema restricted to home + contact.** Removed `<OrganizationJsonLd />` from the root layout (it had been on EVERY page); now rendered only by [app/page.tsx](app/page.tsx) + [app/contact/page.tsx](app/contact/page.tsx). WebSite + SearchAction stays site-wide in the layout. Categories/blogs no longer emit the address/phone block; they keep their own page-type schema.
+
+**Acceptance.**
+
+- [x] Category meta titles use the H1 (full phrase); canonicals unchanged
+- [x] Category pages emit CollectionPage + ItemList + FAQPage (when FAQs) + BreadcrumbList; CTA-only categories omit empty ItemList
+- [x] All pages emit complete OG tags; category `og:image` = first product image, logo fallback when empty
+- [x] Organization/local schema only on home + contact; removed from categories/blogs; page-type schemas intact
+- [x] `/cat` data fetching/Suspense/loading untouched; `pnpm typecheck` clean (route stays static — no added searchParams/cookies/headers/uncached fetch)
+- [x] CLAUDE.md / TASKS.md updated
+
+**Depends on.** None.
+**Estimate.** 2 hours.
+
 ### [ ] M5-509: Large data file relocation
 
 **Scope.** Move `data/geiger/products.json` (9.6 MB) and `data/geiger/facet-memberships.json` (44.5 MB) out of the main repo. Evaluate separate data repo vs Git LFS vs external object storage.

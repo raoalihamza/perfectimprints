@@ -10,6 +10,7 @@ import {
   getBlogCategoryBySlug,
   getBlogPostsByCategorySlug,
 } from '@/lib/sanity/queries/blogs';
+import { socialMeta } from '@/lib/seo/open-graph';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
   /\/$/,
@@ -34,11 +35,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const category = await getBlogCategoryBySlug(slug);
   if (!category) return {};
   const canonical = `${SITE_URL}/blog/cat/${category.slug.current}`;
+  const title = `${category.title} | Perfect Imprints Blog`;
+  const description =
+    category.description || `Read promotional product blog posts in the ${category.title} category.`;
   return {
-    title: `${category.title} | Perfect Imprints Blog`,
-    description:
-      category.description || `Read promotional product blog posts in the ${category.title} category.`,
+    title,
+    description,
     alternates: { canonical },
+    ...socialMeta({ title, description, url: canonical }),
   };
 }
 

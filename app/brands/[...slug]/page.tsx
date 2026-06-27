@@ -16,6 +16,7 @@ import {
   type Brand,
 } from '@/lib/brands';
 import { PRODUCTS_PER_PAGE, paginateProducts } from '@/lib/categories';
+import { socialMeta } from '@/lib/seo/open-graph';
 
 interface Props {
   params: Promise<{ slug: string[] }>;
@@ -79,11 +80,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ? `Shop ${brand.productCount} custom ${brand.name} promotional products. Branded gifts, corporate giveaways, and more — built to ship fast.`
       : `Browse custom ${brand.name} promotional products and corporate gifts at Perfect Imprints.`;
 
+  const social = socialMeta({
+    title,
+    description,
+    url: cleanUrl,
+    image: brand.logoUrl ?? null,
+    imageAlt: brand.logoAlt || `${brand.name} logo`,
+  });
+
   if (parsed.page === 1) {
     return {
       title: { absolute: title },
       description,
       alternates: { canonical: cleanUrl },
+      ...social,
     };
   }
   return {
@@ -91,6 +101,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description,
     alternates: { canonical: `${SITE_URL}/brands/${brand.slug}` },
     robots: { index: false, follow: true },
+    ...social,
   };
 }
 

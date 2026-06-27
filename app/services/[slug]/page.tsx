@@ -5,6 +5,7 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { SectionRenderer } from '@/components/page-sections/SectionRenderer';
 import { getPageBySlug } from '@/lib/sanity/queries/pages';
 import { SIMPLE_NAV } from '@/lib/nav-data';
+import { socialMeta } from '@/lib/seo/open-graph';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
   /\/$/,
@@ -42,10 +43,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!page) return {};
   const title = page.seo?.metaTitle?.trim() || `${page.title} | Perfect Imprints`;
   const description = page.seo?.metaDescription?.trim() || undefined;
+  const canonical = `${SITE_URL}/services/${slug}`;
   return {
     title: { absolute: title },
     description,
-    alternates: { canonical: `${SITE_URL}/services/${slug}` },
+    alternates: { canonical },
+    ...socialMeta({ title: page.title, description, url: canonical }),
   };
 }
 

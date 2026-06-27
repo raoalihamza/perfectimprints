@@ -7,7 +7,11 @@ import { EmptyStateCTA } from '@/components/category/EmptyStateCTA';
 import { ProductGrid } from '@/components/category/ProductGrid';
 import { Schema } from '@/components/seo/Schema';
 import { pagePortableComponents } from '@/components/page-sections/portable-text';
-import { breadcrumbSchema } from '@/lib/seo/schema-generators';
+import {
+  breadcrumbSchema,
+  collectionPageSchema,
+  itemListSchema,
+} from '@/lib/seo/schema-generators';
 import { affiliateUrl } from '@/lib/affiliate-url';
 import { urlForImage } from '@/lib/sanity/client';
 import type { GeigerProduct } from '@/lib/product-types';
@@ -58,6 +62,24 @@ export function CustomCategoryView({ doc, baseUrl, products }: Props) {
           { name: title, url: `${SITE_URL}${baseUrl}` },
         ])}
       />
+      <Schema
+        data={collectionPageSchema({
+          name: title,
+          url: `${SITE_URL}${baseUrl}`,
+          description: doc.seo?.metaDescription || doc.heroCopy || undefined,
+        })}
+      />
+      {products.length > 0 && (
+        <Schema
+          data={itemListSchema(
+            products.map((p) => ({
+              name: p.name,
+              url: affiliateUrl(p.geiger_url),
+              image: p.imageUrl,
+            })),
+          )}
+        />
+      )}
       {hasFaqs && (
         <Schema
           data={{

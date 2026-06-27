@@ -6,6 +6,7 @@ import { SearchFacetedResults } from '@/components/search/SearchFacetedResults';
 import { SearchEmptyCTA } from '@/components/search/SearchEmptyCTA';
 import { searchProducts } from '@/lib/search/server-search';
 import { buildSearchFacets } from '@/lib/search/build-facets';
+import { socialMeta } from '@/lib/seo/open-graph';
 
 interface Props {
   searchParams: Promise<{ q?: string }>;
@@ -22,12 +23,14 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprin
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
   const { q } = await searchParams;
   const title = q ? `Search results for “${q}”` : 'Search';
+  const description =
+    'Search Perfect Imprints for custom promotional products, branded apparel, categories, and brands.';
   return {
     title,
-    description:
-      'Search Perfect Imprints for custom promotional products, branded apparel, categories, and brands.',
+    description,
     alternates: { canonical: `${SITE_URL}/search` },
     robots: { index: false, follow: true },
+    ...socialMeta({ title, description, url: `${SITE_URL}/search` }),
   };
 }
 

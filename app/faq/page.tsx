@@ -4,6 +4,7 @@ import { Container } from '@/components/ui/Container';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { FaqList } from '@/components/faqs/FaqList';
 import { faqPageSchema } from '@/lib/seo/schema-generators';
+import { socialMeta } from '@/lib/seo/open-graph';
 import { getAnsweredFaqs } from '@/lib/sanity/queries/faqs';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
@@ -15,11 +16,15 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprin
 // (revalidatePath('/faq')) keep the page fresh without a redeploy.
 export const revalidate = 604800;
 
+const FAQ_TITLE = 'Frequently Asked Questions | Perfect Imprints';
+const FAQ_DESCRIPTION =
+  'Answers to common questions about ordering custom promotional products from Perfect Imprints — quotes, minimums, artwork and proofs, production, rush orders, shipping, and more.';
+
 export const metadata: Metadata = {
-  title: { absolute: 'Frequently Asked Questions | Perfect Imprints' },
-  description:
-    'Answers to common questions about ordering custom promotional products from Perfect Imprints — quotes, minimums, artwork and proofs, production, rush orders, shipping, and more.',
+  title: { absolute: FAQ_TITLE },
+  description: FAQ_DESCRIPTION,
   alternates: { canonical: `${SITE_URL}/faq` },
+  ...socialMeta({ title: FAQ_TITLE, description: FAQ_DESCRIPTION, url: `${SITE_URL}/faq` }),
 };
 
 export default async function FaqsPage() {

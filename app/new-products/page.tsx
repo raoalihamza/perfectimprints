@@ -3,6 +3,7 @@ import { NewProductsPageBody } from '@/components/new-products/NewProductsPageBo
 import { getAugmentedNewProductsData, applyHiddenSkus } from '@/lib/new-products';
 import { getNewProductsPageCopy } from '@/lib/sanity/queries/new-products';
 import { getCustomProductsForNewProducts } from '@/lib/sanity/queries/custom-products';
+import { socialMeta } from '@/lib/seo/open-graph';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
   /\/$/,
@@ -21,10 +22,13 @@ export const revalidate = 604800;
 
 export async function generateMetadata(): Promise<Metadata> {
   const copy = await getNewProductsPageCopy();
+  const title = copy.metaTitle?.trim() || DEFAULT_META_TITLE;
+  const description = copy.metaDescription?.trim() || DEFAULT_META_DESCRIPTION;
   return {
-    title: { absolute: copy.metaTitle?.trim() || DEFAULT_META_TITLE },
-    description: copy.metaDescription?.trim() || DEFAULT_META_DESCRIPTION,
+    title: { absolute: title },
+    description,
     alternates: { canonical: `${SITE_URL}/new-products` },
+    ...socialMeta({ title, description, url: `${SITE_URL}/new-products` }),
   };
 }
 

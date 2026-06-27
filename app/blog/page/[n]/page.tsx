@@ -6,6 +6,7 @@ import { BlogGrid } from '@/components/blog/BlogGrid';
 import { BlogPagination } from '@/components/blog/BlogPagination';
 import { BlogSidebar } from '@/components/blog/BlogSidebar';
 import { getBlogPostsPage, getAllBlogCategories } from '@/lib/sanity/queries/blogs';
+import { socialMeta } from '@/lib/seo/open-graph';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
   /\/$/,
@@ -24,12 +25,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { n } = await params;
   const page = Number.parseInt(n, 10);
   if (!Number.isInteger(page) || page < 2) return {};
+  const title = `Promotional Products Blog – Page ${page} | Perfect Imprints`;
+  const description =
+    'More promotional product ideas, marketing tips, and buyer guidance from the Perfect Imprints blog.';
   return {
-    title: `Promotional Products Blog – Page ${page} | Perfect Imprints`,
-    description:
-      'More promotional product ideas, marketing tips, and buyer guidance from the Perfect Imprints blog.',
+    title,
+    description,
     alternates: { canonical: `${SITE_URL}/blog` },
     robots: { index: false, follow: true },
+    ...socialMeta({ title, description, url: `${SITE_URL}/blog` }),
   };
 }
 

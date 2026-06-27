@@ -5,6 +5,7 @@ import { BlogGrid } from '@/components/blog/BlogGrid';
 import { BlogPagination } from '@/components/blog/BlogPagination';
 import { BlogSidebar } from '@/components/blog/BlogSidebar';
 import { getBlogPostsPage, getAllBlogCategories } from '@/lib/sanity/queries/blogs';
+import { socialMeta } from '@/lib/seo/open-graph';
 
 export const dynamic = 'force-static';
 export const revalidate = 3600;
@@ -15,11 +16,15 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprin
 );
 const BLOG_PER_PAGE = 12;
 
+const BLOG_TITLE = 'Promotional Products Blog | Perfect Imprints';
+const BLOG_DESCRIPTION =
+  'Get proven promotional product ideas, trade show strategies, and marketing tips from Perfect Imprints to help your brand stand out.';
+
 export const metadata: Metadata = {
-  title: 'Promotional Products Blog | Perfect Imprints',
-  description:
-    'Get proven promotional product ideas, trade show strategies, and marketing tips from Perfect Imprints to help your brand stand out.',
+  title: BLOG_TITLE,
+  description: BLOG_DESCRIPTION,
   alternates: { canonical: `${SITE_URL}/blog` },
+  ...socialMeta({ title: BLOG_TITLE, description: BLOG_DESCRIPTION, url: `${SITE_URL}/blog` }),
 };
 
 export default async function BlogIndexPage() {

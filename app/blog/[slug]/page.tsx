@@ -16,6 +16,7 @@ import {
   getRelatedBlogsForPost,
 } from '@/lib/sanity/queries/blogs';
 import { resolveProductsBySku } from '@/lib/categories';
+import { socialMeta } from '@/lib/seo/open-graph';
 import type { GeigerProduct } from '@/lib/product-types';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
@@ -45,21 +46,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: post.metaTitle || `${post.title} | Perfect Imprints`,
     description: post.metaDescription || post.excerpt,
     alternates: { canonical },
-    openGraph: {
-      type: 'article',
-      url: canonical,
+    ...socialMeta({
       title: post.metaTitle || post.title,
       description: post.metaDescription || post.excerpt,
-      images: heroImage ? [{ url: heroImage }] : undefined,
+      url: canonical,
+      image: heroImage ?? null,
+      imageAlt: post.title,
+      type: 'article',
       publishedTime: post.publishDate,
       modifiedTime: post.updatedDate,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.metaTitle || post.title,
-      description: post.metaDescription || post.excerpt,
-      images: heroImage ? [heroImage] : undefined,
-    },
+    }),
   };
 }
 

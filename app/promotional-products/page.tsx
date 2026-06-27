@@ -11,6 +11,7 @@ import { getPromoClientFacets, getPromoResult } from '@/lib/promotional-products
 import { PROMO_SORTS, type PromoSort } from '@/lib/promotional-products-sorts';
 import type { DealsFilterState } from '@/lib/deals-filter';
 import { PRODUCTS_PER_PAGE } from '@/lib/product-types';
+import { socialMeta } from '@/lib/seo/open-graph';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
   /\/$/,
@@ -30,14 +31,15 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   // Only the clean, unfiltered page is indexable; filter/sort/page variants are
   // near-duplicates that canonical back to it (mirrors the pagination rule).
   const hasParams = Object.keys(sp).length > 0;
+  const title = 'Promotional Products — Shop All Custom Branded Products | Perfect Imprints';
+  const description =
+    'Browse every custom promotional product, branded giveaway, and personalized corporate gift in our catalog. Filter thousands of bulk wholesale promo items by category, price, brand, and minimum quantity.';
   return {
-    title: {
-      absolute: 'Promotional Products — Shop All Custom Branded Products | Perfect Imprints',
-    },
-    description:
-      'Browse every custom promotional product, branded giveaway, and personalized corporate gift in our catalog. Filter thousands of bulk wholesale promo items by category, price, brand, and minimum quantity.',
+    title: { absolute: title },
+    description,
     alternates: { canonical: `${SITE_URL}/promotional-products` },
     ...(hasParams ? { robots: { index: false, follow: true } } : {}),
+    ...socialMeta({ title, description, url: `${SITE_URL}/promotional-products` }),
   };
 }
 

@@ -61,16 +61,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: { canonical },
     openGraph: {
       type: 'video.other',
+      siteName: 'Perfect Imprints',
       url: canonical,
       title: ogTitle,
       description,
-      images: poster ? [{ url: poster }] : undefined,
+      images: [poster ? { url: poster, alt: ogTitle } : { url: `${SITE_URL}/logo.svg`, alt: ogTitle }],
     },
     twitter: {
       card: 'summary_large_image',
       title: ogTitle,
       description,
-      images: poster ? [poster] : undefined,
+      images: [poster || `${SITE_URL}/logo.svg`],
     },
   };
 }

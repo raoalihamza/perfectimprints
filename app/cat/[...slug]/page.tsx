@@ -11,9 +11,19 @@ import {
   getAllGeneratedCategorySlugs,
   getCategoryContent,
   paginateProducts,
+  resolveProductsBySku,
   shouldShowEmptyStateCTA,
   PRODUCTS_PER_PAGE,
 } from '@/lib/categories';
+import { Schema } from '@/components/seo/Schema';
+import {
+  collectionPageSchema,
+  faqPageSchema,
+  itemListSchema,
+} from '@/lib/seo/schema-generators';
+import { socialMeta } from '@/lib/seo/open-graph';
+import { affiliateUrl } from '@/lib/affiliate-url';
+import { buildImageUrl } from '@/lib/sanity/client';
 import {
   getCategoryOverride,
   mergeCategoryProducts,
@@ -112,11 +122,42 @@ export function generateStaticParams() {
   return params;
 }
 
+const BRAND_SUFFIX = ' | Perfect Imprints';
+
+// Category meta <title> uses the page H1 (the full descriptive phrase) rather
+// than the shorter templated metaTitle (Patrick: category meta titles are too
+// short). The brand suffix is appended only when the result still fits
+// comfortably (~60 chars); a long H1 stands alone. Canonical/H1 are untouched.
+function categoryMetaTitle(h1: string): string {
+  const withSuffix = `${h1}${BRAND_SUFFIX}`;
+  return withSuffix.length <= 60 ? withSuffix : h1;
+}
+
+// First product image of the category (from the baked SKU list) for og:image.
+// Reads products.json off disk (no Sanity / network call) so generateMetadata
+// stays static-safe. Returns null for CTA-only categories → logo fallback.
+function categoryOgImage(skus: string[]): { url: string; alt: string } | null {
+  if (skus.length === 0) return null;
+  for (const p of resolveProductsBySku(skus.slice(0, 12))) {
+    if (p.imageUrl) return { url: p.imageUrl, alt: p.name };
+  }
+  return null;
+}
+
 function customCategoryMetadata(custom: CustomCategoryDoc, cleanUrl: string): Metadata {
+  const description = custom.seo?.metaDescription || custom.heroCopy || undefined;
+  const heroImage = buildImageUrl(custom.heroImage, (b) => b.width(1200)) ?? null;
   return {
     title: { absolute: custom.seo?.metaTitle || custom.title },
-    description: custom.seo?.metaDescription || custom.heroCopy || undefined,
+    description,
     alternates: { canonical: cleanUrl },
+    ...socialMeta({
+      title: custom.title,
+      description,
+      url: cleanUrl,
+      image: heroImage,
+      imageAlt: custom.heroImage?.alt || custom.title,
+    }),
   };
 }
 
@@ -147,19 +188,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
 
+  const metaTitle = categoryMetaTitle(content.h1);
+  const og = categoryOgImage(content.productSkus || []);
+  const social = socialMeta({
+    title: content.h1,
+    description: content.metaDescription,
+    url: cleanUrl,
+    image: og?.url ?? null,
+    imageAlt: og?.alt || content.heroAltText || content.h1,
+  });
+
   if (parsed.page === 1) {
     return {
-      title: { absolute: content.metaTitle },
+      title: { absolute: metaTitle },
       description: content.metaDescription,
       alternates: { canonical: cleanUrl },
+      ...social,
     };
   }
 
   return {
-    title: { absolute: content.metaTitle },
+    title: { absolute: metaTitle },
     description: content.metaDescription,
     alternates: { canonical: cleanUrl },
     robots: { index: false, follow: true },
+    ...social,
   };
 }
 
@@ -301,8 +354,34 @@ export default async function CategoryPage({ params }: Props) {
   const buyingGuideH2 = content.buyingGuideH2?.trim();
   const isRoot = content.type === 'root';
 
+  // Page-type JSON-LD: CollectionPage (always) + ItemList (only when products
+  // render — omitted for CTA-only categories) + FAQPage (root pages with FAQs).
+  // BreadcrumbList is emitted separately by the <Breadcrumbs> component.
+  const schemaGraph: Record<string, unknown>[] = [
+    collectionPageSchema({
+      name: content.h1,
+      url: `${SITE_URL}${parsed.baseUrl}`,
+      description: content.metaDescription,
+    }),
+  ];
+  if (!showCTA && pageData.products.length > 0) {
+    schemaGraph.push(
+      itemListSchema(
+        pageData.products.map((p) => ({
+          name: p.name,
+          url: affiliateUrl(p.geiger_url),
+          image: p.imageUrl,
+        })),
+      ),
+    );
+  }
+  if (isRoot && content.faqs.length > 0) {
+    schemaGraph.push(faqPageSchema(content.faqs.map((f) => ({ question: f.q, answer: f.a }))));
+  }
+
   return (
     <>
+      <Schema data={schemaGraph} />
       <Container as="section" className="pb-4 pt-6">
         <Breadcrumbs items={buildBreadcrumbs(parsed.segments, title)} />
       </Container>

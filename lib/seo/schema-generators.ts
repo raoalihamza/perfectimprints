@@ -94,6 +94,53 @@ export function websiteSchema() {
   };
 }
 
+/**
+ * CollectionPage JSON-LD for a category page (M-SEO3 Part 2). The page represents
+ * a curated product collection. Emitted on every category page (including
+ * CTA-only ones); the product list itself rides on a separate ItemList.
+ */
+export function collectionPageSchema(input: {
+  name: string;
+  url: string;
+  description?: string;
+}) {
+  const schema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: input.name,
+    url: input.url,
+  };
+  if (input.description) schema.description = input.description;
+  return schema;
+}
+
+export interface ItemListProduct {
+  name: string;
+  /** Product/affiliate URL (already affiliate-rewritten by the caller). */
+  url: string;
+  image?: string | null;
+}
+
+/**
+ * ItemList JSON-LD listing the products shown on a category page (M-SEO3 Part 2).
+ * Callers must omit this entirely for CTA-only categories (no products) rather
+ * than emitting an empty list.
+ */
+export function itemListSchema(products: ItemListProduct[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    numberOfItems: products.length,
+    itemListElement: products.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: p.name,
+      url: p.url,
+      ...(p.image ? { image: p.image } : {}),
+    })),
+  };
+}
+
 export function breadcrumbSchema(items: Array<{ name: string; url: string }>) {
   return {
     '@context': 'https://schema.org',
@@ -153,4 +200,3 @@ export function faqPageSchema(faqs: Array<{ question: string; answer: string }>)
   };
 }
 
-// TODO M5-508 - blogPostingSchema, productSchema

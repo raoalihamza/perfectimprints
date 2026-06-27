@@ -5,17 +5,22 @@
 
 import type { Metadata } from 'next';
 import { Container } from '@/components/ui/Container';
+import { socialMeta } from '@/lib/seo/open-graph';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
   /\/$/,
   '',
 );
 
+const RUSH_TITLE = 'Rush Promotional Products | Perfect Imprints';
+const RUSH_DESCRIPTION =
+  'Need custom promotional products fast? Shop rush and 24-hour production promotional items with bulk pricing and quick turnaround for trade shows and events.';
+
 export const metadata: Metadata = {
-  title: { absolute: 'Rush Promotional Products | Perfect Imprints' },
-  description:
-    'Need custom promotional products fast? Shop rush and 24-hour production promotional items with bulk pricing and quick turnaround for trade shows and events.',
+  title: { absolute: RUSH_TITLE },
+  description: RUSH_DESCRIPTION,
   alternates: { canonical: `${SITE_URL}/rush-products` },
+  ...socialMeta({ title: RUSH_TITLE, description: RUSH_DESCRIPTION, url: `${SITE_URL}/rush-products` }),
 };
 
 export default function RushPromotionalProductsPage() {

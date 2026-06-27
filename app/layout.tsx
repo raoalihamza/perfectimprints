@@ -4,7 +4,6 @@ import { GoogleTagManager } from '@next/third-parties/google';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ChromeGate } from '@/components/layout/ChromeGate';
-import { OrganizationJsonLd } from '@/components/seo/OrganizationJsonLd';
 import { websiteSchema } from '@/lib/seo/schema-generators';
 import './globals.css';
 
@@ -74,7 +73,9 @@ export default function RootLayout({
         <ChromeGate>
           <Footer />
         </ChromeGate>
-        <OrganizationJsonLd />
+        {/* Organization (local-business) JSON-LD is NOT site-wide — it renders
+            only on the home + contact pages (M-SEO3 Part 4). WebSite +
+            SearchAction stays site-wide (enables the sitelinks search box). */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}

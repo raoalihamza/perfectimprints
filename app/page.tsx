@@ -11,7 +11,9 @@ import { BrandsStrip } from '@/components/home/BrandsStrip';
 import { Testimonials } from '@/components/home/Testimonials';
 import { BlogPreview } from '@/components/home/BlogPreview';
 import { HomeCtaBanner } from '@/components/home/HomeCtaBanner';
+import { OrganizationJsonLd } from '@/components/seo/OrganizationJsonLd';
 
+import { socialMeta } from '@/lib/seo/open-graph';
 import { getHomePage, getHomeCtaBanner } from '@/lib/sanity/queries/home';
 import { getNewProducts } from '@/lib/new-products';
 import { getAllBrands } from '@/lib/brands';
@@ -46,13 +48,15 @@ const seoTextComponents: PortableTextComponents = {
   },
 };
 
+const HOME_TITLE = 'Custom Promo Products & Branded Apparel by Perfect Imprints';
+const HOME_DESCRIPTION =
+  'Custom promotional products & branded apparel for bulk B2B orders. Shop 22,000+ trending promo items with free art proofs and rush options.';
+
 export const metadata: Metadata = {
-  title: {
-    absolute: 'Custom Promo Products & Branded Apparel by Perfect Imprints',
-  },
-  description:
-    'Custom promotional products & branded apparel for bulk B2B orders. Shop 22,000+ trending promo items with free art proofs and rush options.',
+  title: { absolute: HOME_TITLE },
+  description: HOME_DESCRIPTION,
   alternates: { canonical: `${SITE_URL}/` },
+  ...socialMeta({ title: HOME_TITLE, description: HOME_DESCRIPTION, url: `${SITE_URL}/` }),
 };
 
 export default async function HomePage() {
@@ -70,6 +74,8 @@ export default async function HomePage() {
 
   return (
     <>
+      {/* Organization (local-business) JSON-LD — home + contact only (M-SEO3). */}
+      <OrganizationJsonLd />
       <Hero hero={home.hero} />
       <ValuePillars pillars={home.valueProps} />
       {/* <FeaturedBlocks blocks={home.featuredBlocks} /> */}
