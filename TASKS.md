@@ -1218,6 +1218,23 @@ Full step-by-step (URL, filter, projection, secret, testing, troubleshooting): *
       **Depends on.** M5-508 (performance baseline).
       **Estimate.** 1 hour.
 
+### [x] M5-514: UI feedback tweaks — footer SEO text full-width + red links; category CTA banner hours + Email Us button (DONE 2026-06-27)
+
+**Scope.** Two additive shared-component tweaks from Patrick's feedback. No `/cat` data changes; route stays static.
+
+**Implementation (2026-06-27).**
+
+- **Footer bottom SEO text full-width + red links.** The bottom SEO text block ([app/page.tsx](app/page.tsx), `home.textContent` PortableText, rendered above the footer CTA banner) was constrained to a narrow `prose ... max-w-3xl` column. Changed to `prose prose-neutral max-w-none` so it spans the full site content width (the surrounding `Container` provides the shared max-width). Added a `seoTextComponents` PortableText override so hyperlinks render in **brand red, underline-on-hover** (`text-brand-red no-underline hover:underline`); external links open in a new tab with `rel="noopener noreferrer"` (mirrors the `ValuePillars` link pattern).
+- **Category red CTA banner ([components/category/CTABanner.tsx](components/category/CTABanner.tsx)).** Hours updated `8am to 5pm CT` → **`9am to 5pm EST`**. Removed the plain `mailto:patrick@perfectimprints.com` link and replaced it with an **"Email Us" button linking to `/contact`** (outlined white button consistent with the banner's "Call" button — `border-2 border-white`, hover inverts to white bg / brand-red text). Values are hardcoded in the component (as they were before); no Sanity field drives this banner.
+
+**Acceptance.**
+
+- [x] Footer bottom SEO paragraphs span full content width (not a narrow column); links render brand red with hover underline
+- [x] Category CTA banner shows `9am to 5pm EST`; email address replaced with an "Email Us" button linking to `/contact`
+- [x] `/cat` unaffected and still static; `pnpm typecheck` clean
+      **Depends on.** None.
+      **Estimate.** 0.5 hours.
+
 ### [ ] M5-509: Large data file relocation
 
 **Scope.** Move `data/geiger/products.json` (9.6 MB) and `data/geiger/facet-memberships.json` (44.5 MB) out of the main repo. Evaluate separate data repo vs Git LFS vs external object storage.

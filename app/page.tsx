@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { PortableText } from '@portabletext/react';
+import { PortableText, type PortableTextComponents } from '@portabletext/react';
 
 import { Container } from '@/components/ui/Container';
 import { Hero } from '@/components/home/Hero';
@@ -23,6 +23,28 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprin
 );
 
 export const dynamic = 'force-static';
+
+// Links inside the bottom SEO text render in brand red (underline on hover) so
+// they read as links; external links open in a new tab. Block/list styling is
+// left to the surrounding `prose` classes.
+const seoTextComponents: PortableTextComponents = {
+  marks: {
+    link: ({ value, children }) => {
+      const href = (value?.href as string) || '#';
+      const cls = 'text-brand-red no-underline hover:underline';
+      const external = /^https?:\/\//i.test(href);
+      return external ? (
+        <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>
+          {children}
+        </a>
+      ) : (
+        <a href={href} className={cls}>
+          {children}
+        </a>
+      );
+    },
+  },
+};
 
 export const metadata: Metadata = {
   title: {
@@ -67,8 +89,8 @@ export default async function HomePage() {
       {home.textContent.length > 0 && (
         <section className="border-t border-border bg-white">
           <Container className="py-14 md:py-20">
-            <div className="prose prose-neutral max-w-3xl text-text-primary">
-              <PortableText value={home.textContent} />
+            <div className="prose prose-neutral max-w-none text-text-primary">
+              <PortableText value={home.textContent} components={seoTextComponents} />
             </div>
           </Container>
         </section>

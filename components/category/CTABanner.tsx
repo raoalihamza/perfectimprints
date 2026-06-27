@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 interface CTABannerProps {
   categoryTitle: string;
 }
@@ -11,7 +13,7 @@ export function CTABanner({ categoryTitle }: CTABannerProps) {
             Need help choosing the right {categoryTitle}? We&rsquo;re here.
           </h2>
           <p className="mt-2 text-white/85">
-            Talk to a product specialist Monday through Friday, 8am to 5pm CT.
+            Talk to a product specialist Monday through Friday, 9am to 5pm EST.
           </p>
         </div>
 
@@ -22,12 +24,12 @@ export function CTABanner({ categoryTitle }: CTABannerProps) {
           >
             Call 800-773-9472
           </a>
-          <a
-            href="mailto:patrick@perfectimprints.com"
-            className="text-base font-medium text-white underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-red"
+          <Link
+            href="/contact"
+            className="inline-flex h-12 items-center justify-center rounded border-2 border-white px-6 font-semibold text-white hover:bg-white hover:text-brand-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-red"
           >
-            patrick@perfectimprints.com
-          </a>
+            Email Us
+          </Link>
         </div>
       </div>
     </section>
