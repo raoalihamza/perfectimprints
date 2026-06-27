@@ -26,10 +26,10 @@ export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Perfect Imprints - Custom Promotional Products, Apparel & Bulk Giveaways',
+    absolute: 'Custom Promo Products & Branded Apparel by Perfect Imprints',
   },
   description:
-    'Custom promotional products and branded apparel for bulk B2B orders. 22,000+ items, wholesale pricing, free art proofs, rush production. Marketing, HR, safety, and corporate gifts.',
+    'Custom promotional products & branded apparel for bulk B2B orders. Shop 22,000+ trending promo items with free art proofs and rush options.',
   alternates: { canonical: `${SITE_URL}/` },
 };
 
@@ -51,7 +51,11 @@ export default async function HomePage() {
       <Hero hero={home.hero} />
       <ValuePillars pillars={home.valueProps} />
       {/* <FeaturedBlocks blocks={home.featuredBlocks} /> */}
-      <BannerRow banners={home.bannerRow} />
+      <BannerRow
+        banners={home.bannerRow}
+        heading={home.bannerRowHeading}
+        subheading={home.bannerRowSubheading}
+      />
       <NewProductsRail products={newProducts} heading={home.newProductsHeading} />
       <Testimonials testimonials={home.testimonials} />
       <BrandsStrip

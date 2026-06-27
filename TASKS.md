@@ -804,6 +804,15 @@ Plus mega menu addition: "Brands" main menu item linking to `/brands` (handled i
 - New-products rail pulls from `getNewProducts()`, brands grid from `brand` docs via `getAllBrands()`, blog preview from the latest published posts.
 - `force-static`; Sanity content wins over fallbacks once the singleton is saved in Studio.
 
+**Part 1 follow-up — content editability + Patrick's copy (2026-06-27).**
+
+- **Hero text now editable.** Added the `homePage.heroText` group (`eyebrow`/`headline` (H1)/`subheadline`) to [sanity/schemas/singletons/home-page.ts](sanity/schemas/singletons/home-page.ts); [components/home/Hero.tsx](components/home/Hero.tsx) renders the eyebrow from it. Patrick previously couldn't locate the hero text to edit it. Hero stays text-only (no image) so the LCP element remains text-bound — no regression of the M5-508 perf work. Legacy `heroBanner` object kept (collapsed) as a back-compat fallback only; not rendered on the home page. Seeded with Patrick's exact copy: eyebrow `BULK PROMOTIONAL EXPERTS SINCE 1999`, H1 `Custom Promotional Products That People Actually Use`, sub `Branded apparel, drinkware, bags, tech, and giveaways … rush options, and free art proofs.`
+- **Banner-row heading.** Added editable `bannerRowHeading` (H2) + `bannerRowSubheading`, rendered directly above the banner row by [components/home/BannerRow.tsx](components/home/BannerRow.tsx). Seeded `Featured Product Categories` / `Seasonal promos your customers and team will love and use right now!`
+- **Value Pillars hyperlink bug fixed.** Each pillar's `body` changed from a plain string to **portable text** so links work (Patrick's attempt to add a hyperlink had rendered raw code). [components/home/ValuePillars.tsx](components/home/ValuePillars.tsx) renders it through `PortableText` with inline `pillarComponents`: links are **brand red** + underline-on-hover, external links open in a new tab with `rel="noopener noreferrer"`. `getHomePage` normalizes legacy string bodies to portable text so nothing is lost. Patrick can now link "Rush Production Available" → `/rush-products`.
+- **Home meta** set to Patrick's exact copy (title `Custom Promo Products & Branded Apparel by Perfect Imprints`, description `Custom promotional products & branded apparel for bulk B2B orders. Shop 22,000+ trending promo items with free art proofs and rush options.`) in [app/page.tsx](app/page.tsx); self-canonical + OG behavior unchanged (OG overhaul is a later part).
+- **Seed/migration:** `pnpm seed-home-content` ([scripts/seed/seed-home-content.ts](scripts/seed/seed-home-content.ts)) — idempotent: fills hero + banner-row blanks only (never clobbers Studio edits) and migrates legacy pillar string bodies → portable text, preserving the text.
+- No `/cat` changes; `pnpm typecheck` clean. Favicon already done (skipped).
+
 ### [x] M5-502: Site-wide search (Fuse.js) — DONE 2026-06-19
 
 **Scope.** Build-time script that generates a Fuse.js index covering every category title, every product (name + brand), every brand name, and every published blog title. FAQs deferred (no destination until /faq / M5-506 lands).

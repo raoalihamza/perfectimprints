@@ -8,12 +8,34 @@ import type { HomeBanner } from '@/lib/sanity/queries/home';
  * optional. Banners keep their own aspect ratio (`h-auto`) — uniformity comes
  * from Patrick uploading consistently-sized images, never from a forced crop.
  */
-export function BannerRow({ banners }: { banners: HomeBanner[] }) {
+export function BannerRow({
+  banners,
+  heading,
+  subheading,
+}: {
+  banners: HomeBanner[];
+  heading?: string | null;
+  subheading?: string | null;
+}) {
   if (banners.length === 0) return null;
 
   return (
     <section className="border-t border-border bg-white">
       <Container className="py-8 md:py-10">
+        {(heading || subheading) && (
+          <div className="mb-6 md:mb-8">
+            {heading && (
+              <h2 className="text-2xl font-bold tracking-tight text-brand-ink md:text-3xl">
+                {heading}
+              </h2>
+            )}
+            {subheading && (
+              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-text-primary md:text-base">
+                {subheading}
+              </p>
+            )}
+          </div>
+        )}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6">
           {banners.map((b, i) => {
             // The banner row is the first image on the (text-hero) home page, so

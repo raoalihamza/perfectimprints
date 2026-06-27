@@ -3,6 +3,7 @@ import { client, urlForImage } from '@/lib/sanity/client';
 import type { SanityImage } from '@/lib/sanity/types';
 
 export interface HomeHero {
+  eyebrow: string | null;
   imageUrl: string | null;
   imageAlt: string | null;
   headline: string | null;
@@ -47,7 +48,8 @@ function parseSanityImageDimensions(
 
 export interface HomeValueProp {
   title: string;
-  body: string;
+  /** Portable text so pillar copy can contain links (rendered in brand red). */
+  body: PortableTextBlock[];
 }
 
 export interface HomeTestimonial {
@@ -58,6 +60,8 @@ export interface HomeTestimonial {
 
 export interface HomePageData {
   hero: HomeHero | null;
+  bannerRowHeading: string | null;
+  bannerRowSubheading: string | null;
   bannerRow: HomeBanner[];
   featuredBlocks: HomeFeaturedBlock[];
   valueProps: HomeValueProp[];
@@ -90,6 +94,11 @@ export async function getHomeCtaBanner(): Promise<HomeCtaBannerCopy> {
 }
 
 interface RawHomeDoc {
+  heroText?: {
+    eyebrow?: string;
+    headline?: string;
+    subheadline?: string;
+  };
   heroBanner?: {
     image?: SanityImage & { alt?: string };
     headline?: string;
@@ -97,6 +106,8 @@ interface RawHomeDoc {
     ctaLabel?: string;
     ctaHref?: string;
   };
+  bannerRowHeading?: string;
+  bannerRowSubheading?: string;
   bannerRow?: Array<{
     image?: SanityImage & { alt?: string };
     link?: string;
@@ -107,7 +118,7 @@ interface RawHomeDoc {
     href?: string;
     image?: SanityImage & { alt?: string };
   }>;
-  valueProps?: Array<{ title?: string; body?: string }>;
+  valueProps?: Array<{ title?: string; body?: string | PortableTextBlock[] }>;
   newProductsHeading?: string;
   blogPreviewHeading?: string;
   testimonials?: Array<{ text?: string; attribution?: string; company?: string }>;
@@ -117,7 +128,10 @@ interface RawHomeDoc {
 }
 
 const HOME_QUERY = `*[_type == "homePage"][0]{
+  heroText,
   heroBanner,
+  bannerRowHeading,
+  bannerRowSubheading,
   bannerRow,
   featuredBlocks,
   valueProps,
@@ -135,21 +149,53 @@ const DEFAULT_BRANDS_HEADING = 'Brands We Carry';
 const DEFAULT_BRANDS_SUBHEADING =
   'Custom imprint and embroidery on the brands buyers already trust.';
 
+/**
+ * Wrap a plain string in a single portable-text paragraph block. Used to keep
+ * the value-pillar `body` a stable `PortableTextBlock[]` whether the Sanity doc
+ * still holds a legacy string or the new rich-text array (back-compat migration).
+ */
+function stringToBlocks(text: string): PortableTextBlock[] {
+  const trimmed = text.trim();
+  if (!trimmed) return [];
+  return [
+    {
+      _type: 'block',
+      _key: 'legacy',
+      style: 'normal',
+      markDefs: [],
+      children: [{ _type: 'span', _key: 'legacy0', text: trimmed, marks: [] }],
+    } as unknown as PortableTextBlock,
+  ];
+}
+
+/** Normalize a value-pillar body to portable text regardless of stored shape. */
+function normalizePillarBody(body: string | PortableTextBlock[] | undefined): PortableTextBlock[] {
+  if (!body) return [];
+  if (typeof body === 'string') return stringToBlocks(body);
+  return body;
+}
+
 // Hard-coded fallbacks for the two structural sections that would otherwise
 // leave gaping holes if the Sanity homePage doc isn't populated yet. Once
 // Patrick saves the singleton in Studio, Sanity wins.
 const FALLBACK_VALUE_PROPS: HomeValueProp[] = [
   {
     title: 'Bulk Pricing on 22,000+ Products',
-    body: 'Custom apparel, drinkware, bags, tech, writing, and giveaways — wholesale pricing scaled to your order size.',
+    body: stringToBlocks(
+      'Custom apparel, drinkware, bags, tech, writing, and giveaways — wholesale pricing scaled to your order size.',
+    ),
   },
   {
     title: 'Rush Production Available',
-    body: 'Promotional products with 1–5 day production for trade shows, hires, and on-site events that can’t wait.',
+    body: stringToBlocks(
+      'Promotional products with 1–5 day production for trade shows, hires, and on-site events that can’t wait.',
+    ),
   },
   {
     title: 'Dedicated Reps, Free Art Proofs',
-    body: 'Real account managers — not AI chat. Free art proofs before production so your branded items land right the first time.',
+    body: stringToBlocks(
+      'Real account managers — not AI chat. Free art proofs before production so your branded items land right the first time.',
+    ),
   },
 ];
 
@@ -181,16 +227,25 @@ export async function getHomePage(): Promise<HomePageData> {
     doc = null;
   }
 
-  const hero: HomeHero | null = doc?.heroBanner
+  // Hero text is now driven by the dedicated `heroText` group; the legacy
+  // `heroBanner` headline/subheadline are kept only as a back-compat fallback.
+  const heroText = doc?.heroText;
+  const heroBanner = doc?.heroBanner;
+  const heroHeadline = heroText?.headline?.trim() || heroBanner?.headline?.trim() || null;
+  const heroSub = heroText?.subheadline?.trim() || heroBanner?.subheadline?.trim() || null;
+  const heroEyebrow = heroText?.eyebrow?.trim() || null;
+  const hasHero = Boolean(heroEyebrow || heroHeadline || heroSub || heroBanner);
+  const hero: HomeHero | null = hasHero
     ? (() => {
-        const { url, alt } = resolveImage(doc.heroBanner!.image, 1600, 900);
+        const { url, alt } = resolveImage(heroBanner?.image, 1600, 900);
         return {
+          eyebrow: heroEyebrow,
           imageUrl: url,
-          imageAlt: alt || doc.heroBanner!.headline || 'Perfect Imprints',
-          headline: doc.heroBanner!.headline ?? null,
-          subheadline: doc.heroBanner!.subheadline ?? null,
-          ctaLabel: doc.heroBanner!.ctaLabel ?? null,
-          ctaHref: doc.heroBanner!.ctaHref ?? null,
+          imageAlt: alt || heroHeadline || 'Perfect Imprints',
+          headline: heroHeadline,
+          subheadline: heroSub,
+          ctaLabel: heroBanner?.ctaLabel ?? null,
+          ctaHref: heroBanner?.ctaHref ?? null,
         };
       })()
     : null;
@@ -227,7 +282,7 @@ export async function getHomePage(): Promise<HomePageData> {
 
   const sanityValueProps: HomeValueProp[] = (doc?.valueProps ?? [])
     .filter((v) => v.title)
-    .map((v) => ({ title: v.title!, body: v.body ?? '' }));
+    .map((v) => ({ title: v.title!, body: normalizePillarBody(v.body) }));
   const valueProps = sanityValueProps.length > 0 ? sanityValueProps : FALLBACK_VALUE_PROPS;
 
   const testimonials: HomeTestimonial[] = (doc?.testimonials ?? [])
@@ -240,6 +295,8 @@ export async function getHomePage(): Promise<HomePageData> {
 
   return {
     hero,
+    bannerRowHeading: doc?.bannerRowHeading?.trim() || null,
+    bannerRowSubheading: doc?.bannerRowSubheading?.trim() || null,
     bannerRow,
     featuredBlocks,
     valueProps,

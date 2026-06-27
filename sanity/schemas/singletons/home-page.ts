@@ -6,9 +6,31 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'heroBanner',
-      title: 'Hero Banner',
+      name: 'heroText',
+      title: 'Hero (top of page)',
       type: 'object',
+      description:
+        'The text hero at the very top of the home page — eyebrow, big headline (H1), and the sub-paragraph below it. Kept as text (no image) so the page loads fast. This is the heading Patrick edits here.',
+      options: { collapsible: true, collapsed: false },
+      fields: [
+        { name: 'eyebrow', type: 'string', title: 'Eyebrow / kicker (small red line above the H1)' },
+        { name: 'headline', type: 'string', title: 'Headline (H1)' },
+        { name: 'subheadline', type: 'text', title: 'Sub-paragraph', rows: 4 },
+      ],
+      initialValue: {
+        eyebrow: 'BULK PROMOTIONAL EXPERTS SINCE 1999',
+        headline: 'Custom Promotional Products That People Actually Use',
+        subheadline:
+          'Branded apparel, drinkware, bags, tech, and giveaways for trade shows, employee gifts, safety programs, and customer thank-yous. 22,000+ products with bulk volume pricing, rush options, and free art proofs.',
+      },
+    }),
+    defineField({
+      name: 'heroBanner',
+      title: 'Hero Banner (legacy image fields — not shown on the home page)',
+      type: 'object',
+      description:
+        'Legacy fields. The home hero is now driven by the "Hero (top of page)" group above; these are retained only so older data is not lost.',
+      options: { collapsible: true, collapsed: true },
       fields: [
         { name: 'image', type: 'image', title: 'Image', options: { hotspot: true } },
         { name: 'headline', type: 'string', title: 'Headline' },
@@ -16,6 +38,21 @@ export default defineType({
         { name: 'ctaLabel', type: 'string', title: 'CTA Label' },
         { name: 'ctaHref', type: 'string', title: 'CTA Href' },
       ],
+    }),
+    defineField({
+      name: 'bannerRowHeading',
+      title: 'Banner Row Heading (H2 above the banners)',
+      type: 'string',
+      description: 'Section heading shown directly above the banner row. Leave blank to hide it.',
+      initialValue: 'Featured Product Categories',
+    }),
+    defineField({
+      name: 'bannerRowSubheading',
+      title: 'Banner Row Subheading',
+      type: 'text',
+      rows: 2,
+      description: 'Short line under the banner-row heading. Leave blank to hide it.',
+      initialValue: 'Seasonal promos your customers and team will love and use right now!',
     }),
     defineField({
       name: 'bannerRow',
@@ -93,23 +130,46 @@ export default defineType({
           type: 'object',
           fields: [
             { name: 'title', type: 'string', title: 'Title' },
-            { name: 'body', type: 'text', title: 'Body', rows: 3 },
+            {
+              name: 'body',
+              type: 'array',
+              title: 'Body',
+              description:
+                'Rich text — you can add links here (select text → link icon). Links render in brand red. For example, link "Rush Production Available" to the Rush Products page.',
+              of: [
+                {
+                  type: 'block',
+                  // Plain paragraphs only — no headings inside a pillar — but
+                  // keep bold/italic + links so Patrick can add a hyperlink.
+                  styles: [{ title: 'Normal', value: 'normal' }],
+                  lists: [],
+                  marks: {
+                    decorators: [
+                      { title: 'Bold', value: 'strong' },
+                      { title: 'Italic', value: 'em' },
+                    ],
+                    annotations: [
+                      {
+                        name: 'link',
+                        type: 'object',
+                        title: 'Link',
+                        fields: [
+                          {
+                            name: 'href',
+                            type: 'url',
+                            title: 'URL',
+                            validation: (Rule) =>
+                              Rule.uri({ allowRelative: true, scheme: ['http', 'https', 'mailto', 'tel'] }),
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
           ],
-          preview: { select: { title: 'title', subtitle: 'body' } },
-        },
-      ],
-      initialValue: [
-        {
-          title: 'Bulk Pricing on 22,000+ Products',
-          body: 'Custom apparel, drinkware, bags, tech, writing, and giveaways — wholesale pricing scaled to your order size.',
-        },
-        {
-          title: 'Rush Production Available',
-          body: 'Promotional products with 1–5 day production for trade shows, hires, and on-site events that can’t wait.',
-        },
-        {
-          title: 'Dedicated Reps, Free Art Proofs',
-          body: 'Real account managers, no AI chat. Free art proofs before production so your branded items land right the first time.',
+          preview: { select: { title: 'title' } },
         },
       ],
     }),
