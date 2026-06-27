@@ -11,6 +11,18 @@ interface BreadcrumbsProps {
   className?: string;
 }
 
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
+  /\/$/,
+  '',
+);
+
+// Schema.org requires `item` (the @id) to be an absolute URL — relative hrefs
+// trip Google Rich Results' "Invalid URL in field 'id'". Prefix any relative
+// href with the canonical origin; pass-through absolute hrefs untouched.
+function absoluteUrl(href: string): string {
+  return /^https?:\/\//i.test(href) ? href : `${SITE_URL}${href}`;
+}
+
 export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
   const schema = {
     '@context': 'https://schema.org',
@@ -19,7 +31,7 @@ export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
       '@type': 'ListItem',
       position: i + 1,
       name: item.label,
-      ...(item.href ? { item: item.href } : {}),
+      ...(item.href ? { item: absoluteUrl(item.href) } : {}),
     })),
   };
 

@@ -30,6 +30,8 @@ function loadIndex(): Map<string, GeigerProduct> {
       ...p,
       name: decodeHtmlEntities(p.name),
       description: p.description ? decodeHtmlEntities(p.description) : p.description,
+      // Geiger image URLs carry literal `&amp;` entities — decode for clean URLs.
+      imageUrl: p.imageUrl ? decodeHtmlEntities(p.imageUrl) : p.imageUrl,
     });
   }
   _bySku = map;

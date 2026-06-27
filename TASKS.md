@@ -1235,6 +1235,27 @@ Full step-by-step (URL, filter, projection, secret, testing, troubleshooting): *
       **Depends on.** None.
       **Estimate.** 0.5 hours.
 
+### [x] M-SEO3b: Breadcrumb absolute URLs + image URL cleanup + Sanity footer columns (DONE 2026-06-28)
+
+**Scope.** Three low-risk follow-ups to M-SEO3. No `/cat` data-fetch / render changes; route stays static.
+
+**Implementation (2026-06-28).**
+
+1. **Breadcrumb JSON-LD → absolute URLs, single emission.** [components/layout/Breadcrumbs.tsx](components/layout/Breadcrumbs.tsx) now prefixes relative crumb hrefs with the canonical origin (`absoluteUrl()`), so every `item`/`@id` is absolute (fixes Google Rich Results "Invalid URL in field 'id'"); the current-page leaf still has no `item`. [components/category/CustomCategoryView.tsx](components/category/CustomCategoryView.tsx) was emitting BreadcrumbList **twice** (its own `breadcrumbSchema` + the `<Breadcrumbs>` component) — removed the explicit call so it's emitted once by the shared component. Visible trail unchanged. `breadcrumbSchema()` generator retained (already absolute via callers).
+2. **Decode `&amp;` in Geiger image URLs at the loader.** Geiger's `products.json` image URLs carry literal `&amp;`; fine in `<img>` but leaked `&amp;` into `og:image` / `twitter:image` / ItemList `image` (broke WhatsApp/social previews). Decoded `imageUrl` once at each product-loading index: `loadProductsIndex` in [lib/categories.ts](lib/categories.ts) (category grids, OG, ItemList), [lib/products/lookup.ts](lib/products/lookup.ts) (deals/new/rush pinned SKUs), [lib/brands.ts](lib/brands.ts) (brand grids). Pure string transform on already-loaded data — no new fetch, no async, no `/cat` static impact. Brand logos are local/Sanity assets (no `&amp;`), left as-is.
+3. **Footer nav columns Sanity-driven.** `globalSettings.footerColumns` (already in the schema, unwired) is now resolved by `getSiteSettings()` ([lib/sanity/queries/global-settings.ts](lib/sanity/queries/global-settings.ts) — same cached/tagged fetch that returns socials + contact, so `/cat` stays static and the existing webhook revalidation covers it) and rendered by [components/layout/Footer.tsx](components/layout/Footer.tsx). When `footerColumns` is empty, the footer falls back to the hardcoded `NAV_COLUMNS` (retained) so it never renders blank. The Contact column + social row are untouched (not part of `footerColumns`). External links open in a new tab; internal use `<Link>`. Seed script [scripts/seed/seed-footer-columns.ts](scripts/seed/seed-footer-columns.ts) (`pnpm seed-footer-columns`) writes the 3 current columns ONLY when empty (never overwrites Patrick's edits). **Run by Claude Code 2026-06-28**: first run wrote 3 columns / 14 links; second run reported "nothing to change" (idempotent confirmed).
+
+**Acceptance.**
+
+- [x] Category BreadcrumbList `item` values absolute; emitted once (no custom-category duplicate); visible trail unchanged
+- [x] `og:image` / `twitter:image` / ItemList `image` URLs contain single `&` (no `&amp;`); product grid images still load
+- [x] Footer columns render from `footerColumns`, fall back to hardcoded when empty; Contact + social row unchanged; seeded with current values; identical by default; edits go live via webhook
+- [x] `/cat` data fetching/rendering untouched; `pnpm typecheck` clean (local build skipped per Patrick's standing preference — Vercel builds)
+- [x] CLAUDE.md / TASKS.md updated
+
+**Depends on.** M-SEO3.
+**Estimate.** 1.5 hours.
+
 ### [x] M-SEO3: SEO schema + meta + Open Graph pass (DONE 2026-06-27)
 
 **Scope.** Patrick's SEO requests across schema + metadata. No `/cat` data-fetching / Suspense / `loading.tsx` changes; route stays static (schema/meta computed from already-loaded data + a local `products.json` disk read, no added uncached fetches).

@@ -1,16 +1,17 @@
 import Link from 'next/link';
 import { Container } from '@/components/ui/Container';
 import { SocialIcon } from '@/components/icons/social-icons';
-import { getSiteSettings, type SiteAddress } from '@/lib/sanity/queries/global-settings';
+import {
+  getSiteSettings,
+  type FooterColumn,
+  type SiteAddress,
+} from '@/lib/sanity/queries/global-settings';
 
-interface FooterColumn {
-  heading: string;
-  links: Array<{ label: string; href: string }>;
-}
-
-// Navigation columns are static link lists (footerColumns in Sanity is a
-// separate, future enhancement). The Contact column + the social row are
-// Sanity-driven from globalSettings — see below.
+// Fallback nav columns — rendered only when `globalSettings.footerColumns` is
+// empty/unset, so the footer is never blank. When Patrick populates
+// footerColumns in Studio (seeded with these exact values by
+// `pnpm seed-footer-columns`), Sanity wins. The Contact column + social row are
+// always Sanity-driven from globalSettings.contact / .socialLinks — see below.
 const NAV_COLUMNS: FooterColumn[] = [
   {
     heading: 'About Us',
@@ -56,13 +57,17 @@ function addressLines(a: SiteAddress): string[] {
 }
 
 export async function Footer() {
-  const { socialLinks, contact } = await getSiteSettings();
+  const { socialLinks, contact, footerColumns } = await getSiteSettings();
   const year = new Date().getFullYear();
+
+  // Sanity-driven footer columns win; fall back to the hardcoded set so the
+  // footer never renders empty (e.g. before footerColumns is seeded).
+  const navColumns = footerColumns.length > 0 ? footerColumns : NAV_COLUMNS;
 
   return (
     <footer className="border-t border-border bg-brand-ink text-white">
       <Container className="grid grid-cols-1 gap-8 py-12 sm:grid-cols-2 lg:grid-cols-4">
-        {NAV_COLUMNS.map((col) => (
+        {navColumns.map((col) => (
           <div key={col.heading}>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-white">
               {col.heading}
@@ -70,9 +75,20 @@ export async function Footer() {
             <ul className="mt-4 space-y-2">
               {col.links.map((link) => (
                 <li key={`${col.heading}-${link.label}`}>
-                  <Link href={link.href} className="text-sm text-white/80 hover:text-brand-red">
-                    {link.label}
-                  </Link>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-white/80 hover:text-brand-red"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link href={link.href} className="text-sm text-white/80 hover:text-brand-red">
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

@@ -73,7 +73,11 @@ function loadProductsIndex(): Map<string, GeigerProduct> {
   const parsed = JSON.parse(raw) as ProductsFile;
   const map = new Map<string, GeigerProduct>();
   for (const p of parsed.products) {
-    map.set(p.sku, p);
+    // Geiger image URLs in products.json carry literal `&amp;` entities (e.g.
+    // `?format=webp&amp;w=275`). Decode once here at the data-loading layer so
+    // EVERY consumer — product grid, og:image, twitter:image, ItemList image —
+    // gets a clean `&` URL. (HTML entity decoding lives only in this file.)
+    map.set(p.sku, p.imageUrl ? { ...p, imageUrl: decodeHtmlEntities(p.imageUrl) } : p);
   }
   _productsBySku = map;
   return map;

@@ -7,11 +7,7 @@ import { EmptyStateCTA } from '@/components/category/EmptyStateCTA';
 import { ProductGrid } from '@/components/category/ProductGrid';
 import { Schema } from '@/components/seo/Schema';
 import { pagePortableComponents } from '@/components/page-sections/portable-text';
-import {
-  breadcrumbSchema,
-  collectionPageSchema,
-  itemListSchema,
-} from '@/lib/seo/schema-generators';
+import { collectionPageSchema, itemListSchema } from '@/lib/seo/schema-generators';
 import { affiliateUrl } from '@/lib/affiliate-url';
 import { urlForImage } from '@/lib/sanity/client';
 import type { GeigerProduct } from '@/lib/product-types';
@@ -55,13 +51,8 @@ export function CustomCategoryView({ doc, baseUrl, products }: Props) {
 
   return (
     <>
-      <Schema
-        data={breadcrumbSchema([
-          { name: 'Home', url: `${SITE_URL}/` },
-          { name: 'Promotional Products', url: `${SITE_URL}/promotional-products` },
-          { name: title, url: `${SITE_URL}${baseUrl}` },
-        ])}
-      />
+      {/* BreadcrumbList JSON-LD is emitted once by the shared <Breadcrumbs>
+          component below (absolute URLs) — do not duplicate it here. */}
       <Schema
         data={collectionPageSchema({
           name: title,

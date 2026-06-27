@@ -43,10 +43,27 @@ export interface SiteContact {
   address: SiteAddress | null;
 }
 
+export interface FooterLink {
+  label: string;
+  href: string;
+  /** Open in a new tab. Optional so the hardcoded fallback columns omit it. */
+  external?: boolean;
+}
+
+export interface FooterColumn {
+  heading: string;
+  links: FooterLink[];
+}
+
 export interface SiteSettings {
   /** Enabled social links only, in array order (disabled ones are dropped). */
   socialLinks: ResolvedSocialLink[];
   contact: SiteContact;
+  /**
+   * Editable footer nav columns (the three link columns left of Contact).
+   * Empty when unset — the Footer falls back to its hardcoded NAV_COLUMNS.
+   */
+  footerColumns: FooterColumn[];
 }
 
 interface RawSocialLink {
@@ -63,9 +80,15 @@ interface RawContact {
   address?: Partial<SiteAddress>;
 }
 
+interface RawFooterColumn {
+  heading?: string;
+  links?: Array<{ label?: string; href?: string; external?: boolean }>;
+}
+
 interface RawSettings {
   socialLinks?: RawSocialLink[];
   contact?: RawContact;
+  footerColumns?: RawFooterColumn[];
   // legacy flat fields — fallback only
   phoneNumber?: string;
   contactEmail?: string;
@@ -74,6 +97,7 @@ interface RawSettings {
 const QUERY = `*[_type == "globalSettings"][0]{
   socialLinks[]{ platform, label, url, enabled, customIcon },
   contact,
+  footerColumns[]{ heading, links[]{ label, href, external } },
   phoneNumber,
   contactEmail
 }`;
@@ -81,6 +105,7 @@ const QUERY = `*[_type == "globalSettings"][0]{
 const EMPTY: SiteSettings = {
   socialLinks: [],
   contact: { phones: [], email: null, address: null },
+  footerColumns: [],
 };
 
 function resolveIconUrl(image: SanityImage | undefined): string | null {
@@ -132,7 +157,23 @@ function resolve(raw: RawSettings | null): SiteSettings {
         }
       : null;
 
-  return { socialLinks, contact: { phones: resolvedPhones, email, address } };
+  // Footer columns: keep only columns with a heading and at least one valid
+  // link (label + href). An empty result lets the Footer fall back to its
+  // hardcoded NAV_COLUMNS so it never renders empty.
+  const footerColumns: FooterColumn[] = (raw.footerColumns ?? [])
+    .map((col) => ({
+      heading: clean(col.heading) ?? '',
+      links: (col.links ?? [])
+        .map((l) => ({
+          label: clean(l.label) ?? '',
+          href: clean(l.href) ?? '',
+          external: l.external === true,
+        }))
+        .filter((l) => l.label && l.href),
+    }))
+    .filter((col) => col.heading && col.links.length > 0);
+
+  return { socialLinks, contact: { phones: resolvedPhones, email, address }, footerColumns };
 }
 
 export const getSiteSettings = cache(async (): Promise<SiteSettings> => {
