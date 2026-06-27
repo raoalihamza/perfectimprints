@@ -119,12 +119,12 @@ export default defineType({
     }),
     defineField({
       name: 'valueProps',
-      title: 'Value Pillars (three)',
+      title: 'Value Pillars',
       type: 'array',
       description:
-        'Three short pillars rendered above the featured blocks. Replaces a generic stat strip — speak to bulk B2B buyers (marketing, HR, safety, ops).',
+        'Short pillars rendered near the top of the page — speak to bulk B2B buyers (marketing, HR, safety, ops). Three or fewer show as a static row; add MORE than three and they rotate in a carousel (3 visible at a time).',
       validation: (Rule) =>
-        Rule.length(3).warning('Home page is designed for exactly three value pillars.'),
+        Rule.min(1).warning('Add at least one value pillar (3 looks best as a static row).'),
       of: [
         {
           type: 'object',
@@ -178,6 +178,20 @@ export default defineType({
       title: 'New Products Rail Heading',
       type: 'string',
       initialValue: 'New and Trending Promotional Products',
+    }),
+    defineField({
+      name: 'rushProductsHeading',
+      title: 'Rush Products Rail Heading',
+      type: 'string',
+      description: 'Heading for the rush-production product rail (shown below the New Products rail).',
+      initialValue: 'Rush Production Promotional Products',
+    }),
+    defineField({
+      name: 'testimonialsHeading',
+      title: 'Testimonials Heading',
+      type: 'string',
+      description: 'Heading above the testimonials carousel.',
+      initialValue: 'What Our Customers are Saying',
     }),
     defineField({
       name: 'testimonials',

@@ -66,7 +66,9 @@ export interface HomePageData {
   featuredBlocks: HomeFeaturedBlock[];
   valueProps: HomeValueProp[];
   newProductsHeading: string;
+  rushProductsHeading: string;
   blogPreviewHeading: string;
+  testimonialsHeading: string;
   testimonials: HomeTestimonial[];
   textContent: PortableTextBlock[];
   brandsHeading: string;
@@ -120,7 +122,9 @@ interface RawHomeDoc {
   }>;
   valueProps?: Array<{ title?: string; body?: string | PortableTextBlock[] }>;
   newProductsHeading?: string;
+  rushProductsHeading?: string;
   blogPreviewHeading?: string;
+  testimonialsHeading?: string;
   testimonials?: Array<{ text?: string; attribution?: string; company?: string }>;
   textContent?: PortableTextBlock[];
   brandsGridHeading?: string;
@@ -136,7 +140,9 @@ const HOME_QUERY = `*[_type == "homePage"][0]{
   featuredBlocks,
   valueProps,
   newProductsHeading,
+  rushProductsHeading,
   blogPreviewHeading,
+  testimonialsHeading,
   testimonials,
   textContent,
   brandsGridHeading,
@@ -144,6 +150,8 @@ const HOME_QUERY = `*[_type == "homePage"][0]{
 }`;
 
 const DEFAULT_NEW_PRODUCTS_HEADING = 'New and Trending Promotional Products';
+const DEFAULT_RUSH_PRODUCTS_HEADING = 'Rush Production Promotional Products';
+const DEFAULT_TESTIMONIALS_HEADING = 'What Our Customers are Saying';
 const DEFAULT_BLOG_HEADING = 'From the Blog';
 const DEFAULT_BRANDS_HEADING = 'Brands We Carry';
 const DEFAULT_BRANDS_SUBHEADING =
@@ -301,7 +309,9 @@ export async function getHomePage(): Promise<HomePageData> {
     featuredBlocks,
     valueProps,
     newProductsHeading: doc?.newProductsHeading?.trim() || DEFAULT_NEW_PRODUCTS_HEADING,
+    rushProductsHeading: doc?.rushProductsHeading?.trim() || DEFAULT_RUSH_PRODUCTS_HEADING,
     blogPreviewHeading: doc?.blogPreviewHeading?.trim() || DEFAULT_BLOG_HEADING,
+    testimonialsHeading: doc?.testimonialsHeading?.trim() || DEFAULT_TESTIMONIALS_HEADING,
     testimonials,
     textContent: doc?.textContent ?? [],
     brandsHeading: doc?.brandsGridHeading?.trim() || DEFAULT_BRANDS_HEADING,

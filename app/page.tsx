@@ -16,6 +16,7 @@ import { OrganizationJsonLd } from '@/components/seo/OrganizationJsonLd';
 import { socialMeta } from '@/lib/seo/open-graph';
 import { getHomePage, getHomeCtaBanner } from '@/lib/sanity/queries/home';
 import { getNewProducts } from '@/lib/new-products';
+import { getRushProducts } from '@/lib/rush-products';
 import { getAllBrands } from '@/lib/brands';
 import { getBlogPostsPage } from '@/lib/sanity/queries/blogs';
 
@@ -60,10 +61,11 @@ export const metadata: Metadata = {
 };
 
 export default async function HomePage() {
-  const [home, ctaBanner, newProducts, brands, blogPage] = await Promise.all([
+  const [home, ctaBanner, newProducts, rushProducts, brands, blogPage] = await Promise.all([
     getHomePage(),
     getHomeCtaBanner(),
     Promise.resolve(getNewProducts(12)),
+    Promise.resolve(getRushProducts(12)),
     getAllBrands(),
     getBlogPostsPage({ page: 1, perPage: 3 }).catch(() => ({
       posts: [],
@@ -85,7 +87,15 @@ export default async function HomePage() {
         subheading={home.bannerRowSubheading}
       />
       <NewProductsRail products={newProducts} heading={home.newProductsHeading} />
-      <Testimonials testimonials={home.testimonials} />
+      <NewProductsRail
+        products={rushProducts}
+        heading={home.rushProductsHeading}
+        subtitle="24-hour rush production on promotional products for trade shows, hires, and events that can’t wait."
+        viewAllHref="/rush-products"
+        viewAllLabel="View all rush products"
+        background="white"
+      />
+      <Testimonials testimonials={home.testimonials} heading={home.testimonialsHeading} />
       <BrandsStrip
         brands={brands}
         heading={home.brandsHeading}

@@ -31,6 +31,7 @@
     "seed-faqs": "tsx scripts/seed/seed-faqs.ts",
     "seed-home-banners": "tsx scripts/seed/seed-home-banners.ts",
     "seed-home-content": "tsx scripts/seed/seed-home-content.ts",
+    "fix-pillar-links": "tsx scripts/migrations/fix-pillar-inline-links.ts",
     "seed-social-contact": "tsx scripts/seed/seed-social-contact.ts",
     "seed-footer-columns": "tsx scripts/seed/seed-footer-columns.ts",
     "fill-faq-answers": "tsx scripts/seed/fill-faq-answers.ts",

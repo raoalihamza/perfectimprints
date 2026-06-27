@@ -135,3 +135,12 @@ export function getAugmentedRushProductsData(
     facets: augmented.facets as RushProductsFacetSection[],
   };
 }
+
+/**
+ * Convenience helper for the homepage Rush Products rail. Reads the
+ * scraped-only view (no Sanity augmentation, no async work) so the rail
+ * stays a sync server-component call — mirrors `getNewProducts`.
+ */
+export function getRushProducts(limit = 12): GeigerProduct[] {
+  return getRushProductsData().products.slice(0, limit);
+}
