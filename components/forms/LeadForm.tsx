@@ -1,6 +1,40 @@
 'use client';
 
 import { useEffect, useId, useRef, useState } from 'react';
+import { Turnstile } from './Turnstile';
+
+/** Optional logo / artwork attachments. Kept in sync with the server-side
+ *  limits in app/api/leads/route.ts — change both together. */
+const MAX_FILES = 3;
+const MAX_FILE_BYTES = 10 * 1024 * 1024; // 10MB per file
+const MAX_TOTAL_BYTES = 20 * 1024 * 1024; // ~20MB total (under Gmail's 25MB ceiling)
+const ACCEPTED_EXTENSIONS = ['.pdf', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.ai', '.eps'];
+const ACCEPT_ATTR = ACCEPTED_EXTENSIONS.join(',');
+
+function formatBytes(bytes: number): string {
+  if (bytes < 1024 * 1024) return `${Math.max(1, Math.round(bytes / 1024))} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
+
+/** Validates the selected attachments. Returns an error string, or null when OK. */
+function validateFiles(files: File[]): string | null {
+  if (files.length > MAX_FILES) return `Attach up to ${MAX_FILES} files.`;
+  let total = 0;
+  for (const file of files) {
+    const ext = `.${(file.name.split('.').pop() ?? '').toLowerCase()}`;
+    if (!ACCEPTED_EXTENSIONS.includes(ext)) {
+      return `${file.name}: unsupported file type. Allowed: ${ACCEPTED_EXTENSIONS.join(', ')}.`;
+    }
+    if (file.size > MAX_FILE_BYTES) {
+      return `${file.name} is larger than ${formatBytes(MAX_FILE_BYTES)}.`;
+    }
+    total += file.size;
+  }
+  if (total > MAX_TOTAL_BYTES) {
+    return `Total attachment size exceeds ${formatBytes(MAX_TOTAL_BYTES)}.`;
+  }
+  return null;
+}
 
 interface LeadFormProps {
   /** Optional category title used to pre-fill the "looking for" field. */
@@ -19,6 +53,7 @@ interface FieldErrors {
   lookingFor?: string;
   quantityNeeded?: string;
   dateNeeded?: string;
+  files?: string;
   form?: string;
 }
 
@@ -32,10 +67,31 @@ const errorClass = 'mt-1 text-xs font-medium text-brand-red';
 export function LeadForm({ categoryTitle, sourceUrl, onSuccess }: LeadFormProps) {
   const formId = useId();
   const honeypotRef = useRef<HTMLInputElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [errors, setErrors] = useState<FieldErrors>({});
+  const [files, setFiles] = useState<File[]>([]);
   const [resolvedSourceUrl, setResolvedSourceUrl] = useState(sourceUrl ?? '');
+
+  function handleFilesChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const selected = Array.from(event.target.files ?? []);
+    const fileError = validateFiles(selected);
+    if (fileError) {
+      setErrors((prev) => ({ ...prev, files: fileError }));
+      setFiles([]);
+      if (fileInputRef.current) fileInputRef.current.value = '';
+      return;
+    }
+    setErrors((prev) => ({ ...prev, files: undefined }));
+    setFiles(selected);
+  }
+
+  function removeFile(index: number) {
+    setFiles((prev) => prev.filter((_, i) => i !== index));
+    setErrors((prev) => ({ ...prev, files: undefined }));
+    if (fileInputRef.current) fileInputRef.current.value = '';
+  }
 
   const cleanCategory = categoryTitle
     ?.replace(/^(custom|promotional|branded|personalized)\s+/i, '')
@@ -55,6 +111,8 @@ export function LeadForm({ categoryTitle, sourceUrl, onSuccess }: LeadFormProps)
     if (submitting) return;
     setErrors({});
 
+    // FormData built from the form captures the text fields, the honeypot, and
+    // the hidden `cf-turnstile-response` token Cloudflare injects into the form.
     const formData = new FormData(event.currentTarget);
     const payload = {
       firstName: String(formData.get('firstName') ?? ''),
@@ -64,7 +122,6 @@ export function LeadForm({ categoryTitle, sourceUrl, onSuccess }: LeadFormProps)
       lookingFor: String(formData.get('lookingFor') ?? ''),
       quantityNeeded: String(formData.get('quantityNeeded') ?? ''),
       dateNeeded: String(formData.get('dateNeeded') ?? ''),
-      sourceUrl: resolvedSourceUrl,
       website: honeypotRef.current?.value ?? '',
     };
 
@@ -78,17 +135,24 @@ export function LeadForm({ categoryTitle, sourceUrl, onSuccess }: LeadFormProps)
     if (!payload.lookingFor.trim()) nextErrors.lookingFor = 'Required';
     if (!payload.quantityNeeded.trim()) nextErrors.quantityNeeded = 'Required';
     if (!payload.dateNeeded.trim()) nextErrors.dateNeeded = 'Required';
+    const fileError = validateFiles(files);
+    if (fileError) nextErrors.files = fileError;
     if (Object.keys(nextErrors).length > 0) {
       setErrors(nextErrors);
       return;
     }
 
+    // Re-attach the validated files from state (the live file input may have
+    // been cleared by remove actions) and set the resolved source URL.
+    formData.delete('attachments');
+    for (const file of files) formData.append('attachments', file);
+    formData.set('sourceUrl', resolvedSourceUrl);
+
     setSubmitting(true);
     try {
       const res = await fetch('/api/leads', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: formData,
       });
       const data = (await res.json().catch(() => ({}))) as {
         error?: string;
@@ -258,6 +322,53 @@ export function LeadForm({ categoryTitle, sourceUrl, onSuccess }: LeadFormProps)
           {errors.dateNeeded && <p className={errorClass}>{errors.dateNeeded}</p>}
         </div>
       </div>
+
+      <div>
+        <label className={labelClass} htmlFor={`${formId}-attachments`}>
+          Attach a logo or artwork <span className="font-normal text-text-muted">(optional)</span>
+        </label>
+        <input
+          ref={fileInputRef}
+          id={`${formId}-attachments`}
+          name="attachments"
+          type="file"
+          multiple
+          accept={ACCEPT_ATTR}
+          onChange={handleFilesChange}
+          aria-invalid={!!errors.files}
+          className="block w-full cursor-pointer rounded-md border border-border bg-white text-sm text-text-primary file:mr-3 file:cursor-pointer file:border-0 file:bg-bg-soft file:px-3.5 file:py-2.5 file:text-sm file:font-semibold file:text-brand-ink hover:file:bg-border/60 focus:border-brand-red focus:outline-none focus:ring-2 focus:ring-brand-red/20"
+        />
+        <p className="mt-1 text-xs text-text-muted">
+          Up to {MAX_FILES} files (PDF, PNG, JPG, GIF, SVG, AI, EPS). Max{' '}
+          {formatBytes(MAX_FILE_BYTES)} each.
+        </p>
+        {files.length > 0 && (
+          <ul className="mt-2 space-y-1">
+            {files.map((file, index) => (
+              <li
+                key={`${file.name}-${index}`}
+                className="flex items-center justify-between gap-2 rounded border border-border bg-bg-soft px-2.5 py-1.5 text-xs text-text-primary"
+              >
+                <span className="truncate">
+                  {file.name}{' '}
+                  <span className="text-text-muted">({formatBytes(file.size)})</span>
+                </span>
+                <button
+                  type="button"
+                  onClick={() => removeFile(index)}
+                  className="shrink-0 font-semibold text-brand-red hover:underline"
+                  aria-label={`Remove ${file.name}`}
+                >
+                  Remove
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+        {errors.files && <p className={errorClass}>{errors.files}</p>}
+      </div>
+
+      <Turnstile />
 
       {errors.form && (
         <div

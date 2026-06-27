@@ -1,24 +1,22 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@sanity/client';
-import { sendLeadEmail, type LeadEmailPayload } from '@/lib/email/gmail-smtp';
+import {
+  sendLeadEmail,
+  type LeadEmailAttachment,
+  type LeadEmailPayload,
+} from '@/lib/email/gmail-smtp';
 
 export const runtime = 'nodejs';
-
-interface RawBody {
-  firstName?: unknown;
-  lastName?: unknown;
-  email?: unknown;
-  phone?: unknown;
-  lookingFor?: unknown;
-  quantityNeeded?: unknown;
-  dateNeeded?: unknown;
-  sourceUrl?: unknown;
-  website?: unknown;
-}
 
 const RATE_LIMIT_MAX = 5;
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
 const rateLimitStore = new Map<string, number[]>();
+
+// Attachment limits — kept in sync with the client (components/forms/LeadForm.tsx).
+const MAX_FILES = 3;
+const MAX_FILE_BYTES = 10 * 1024 * 1024; // 10MB per file
+const MAX_TOTAL_BYTES = 20 * 1024 * 1024; // ~20MB total (under Gmail's 25MB ceiling)
+const ACCEPTED_EXTENSIONS = ['.pdf', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.ai', '.eps'];
 
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
@@ -41,7 +39,7 @@ function getClientIp(request: Request): string {
   return 'unknown';
 }
 
-function str(value: unknown): string {
+function str(value: FormDataEntryValue | null): string {
   return typeof value === 'string' ? value.trim() : '';
 }
 
@@ -63,26 +61,75 @@ function getSanityWriteClient() {
   });
 }
 
-export async function POST(request: Request) {
-  let body: RawBody;
+/**
+ * Verifies a Cloudflare Turnstile token. No-ops (returns true) when
+ * TURNSTILE_SECRET_KEY is not configured so the form keeps working on
+ * environments without the CAPTCHA set up — it activates automatically once
+ * the key is present. The honeypot + rate limit remain active regardless.
+ */
+async function verifyTurnstile(token: string, ip: string): Promise<boolean> {
+  const secret = process.env.TURNSTILE_SECRET_KEY;
+  if (!secret) {
+    console.warn('[leads] TURNSTILE_SECRET_KEY not set — skipping CAPTCHA verification');
+    return true;
+  }
+  if (!token) return false;
   try {
-    body = (await request.json()) as RawBody;
+    const form = new URLSearchParams();
+    form.set('secret', secret);
+    form.set('response', token);
+    if (ip && ip !== 'unknown') form.set('remoteip', ip);
+    const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: form,
+    });
+    const data = (await res.json()) as { success?: boolean };
+    return data.success === true;
+  } catch (err) {
+    console.error('[leads] turnstile verify error', err);
+    return false;
+  }
+}
+
+/** Validates uploaded files server-side (never trust the client). */
+function validateFiles(files: File[]): string | null {
+  if (files.length > MAX_FILES) return `Attach up to ${MAX_FILES} files.`;
+  let total = 0;
+  for (const file of files) {
+    const ext = `.${(file.name.split('.').pop() ?? '').toLowerCase()}`;
+    if (!ACCEPTED_EXTENSIONS.includes(ext)) {
+      return `${file.name}: unsupported file type.`;
+    }
+    if (file.size > MAX_FILE_BYTES) return `${file.name} is too large.`;
+    total += file.size;
+  }
+  if (total > MAX_TOTAL_BYTES) return 'Total attachment size is too large.';
+  return null;
+}
+
+export async function POST(request: Request) {
+  let formData: FormData;
+  try {
+    formData = await request.formData();
   } catch {
-    return NextResponse.json({ error: 'Invalid JSON.' }, { status: 400 });
+    return NextResponse.json({ error: 'Invalid request.' }, { status: 400 });
   }
 
-  if (str(body.website).length > 0) {
+  // Honeypot — silently accept to avoid signalling bots.
+  if (str(formData.get('website')).length > 0) {
     return NextResponse.json({ ok: true }, { status: 200 });
   }
 
-  const firstName = str(body.firstName);
-  const lastName = str(body.lastName);
-  const email = str(body.email);
-  const phone = str(body.phone);
-  const lookingFor = str(body.lookingFor);
-  const quantityNeeded = str(body.quantityNeeded);
-  const dateNeeded = str(body.dateNeeded);
-  const sourceUrl = str(body.sourceUrl);
+  const firstName = str(formData.get('firstName'));
+  const lastName = str(formData.get('lastName'));
+  const email = str(formData.get('email'));
+  const phone = str(formData.get('phone'));
+  const lookingFor = str(formData.get('lookingFor'));
+  const quantityNeeded = str(formData.get('quantityNeeded'));
+  const dateNeeded = str(formData.get('dateNeeded'));
+  const sourceUrl = str(formData.get('sourceUrl'));
+  const turnstileToken = str(formData.get('cf-turnstile-response'));
 
   const errors: Record<string, string> = {};
   if (!firstName) errors.firstName = 'First name is required.';
@@ -98,6 +145,18 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Validation failed.', fields: errors }, { status: 400 });
   }
 
+  // Attachments — re-validate server-side.
+  const rawFiles = formData
+    .getAll('attachments')
+    .filter((v): v is File => v instanceof File && v.size > 0);
+  const fileError = validateFiles(rawFiles);
+  if (fileError) {
+    return NextResponse.json(
+      { error: 'Attachment problem.', fields: { files: fileError } },
+      { status: 400 }
+    );
+  }
+
   const ip = getClientIp(request);
   if (isRateLimited(ip)) {
     return NextResponse.json(
@@ -105,6 +164,30 @@ export async function POST(request: Request) {
       { status: 429 }
     );
   }
+
+  // Auto-detect CAPTCHA — verified before doing any work. No-ops without keys.
+  const captchaOk = await verifyTurnstile(turnstileToken, ip);
+  if (!captchaOk) {
+    return NextResponse.json(
+      { error: 'Could not verify you are human. Please try again.' },
+      { status: 400 }
+    );
+  }
+
+  // Read each file's bytes once and reuse for the email + Sanity asset upload.
+  const fileBuffers = await Promise.all(
+    rawFiles.map(async (file) => ({
+      filename: file.name,
+      contentType: file.type || undefined,
+      buffer: Buffer.from(await file.arrayBuffer()),
+    }))
+  );
+
+  const emailAttachments: LeadEmailAttachment[] = fileBuffers.map((f) => ({
+    filename: f.filename,
+    content: f.buffer,
+    contentType: f.contentType,
+  }));
 
   const submittedAt = new Date().toISOString();
   const payload: LeadEmailPayload = {
@@ -117,6 +200,7 @@ export async function POST(request: Request) {
     dateNeeded,
     sourceUrl: sourceUrl || 'unknown',
     submittedAt,
+    attachments: emailAttachments.length > 0 ? emailAttachments : undefined,
   };
 
   try {
@@ -131,6 +215,29 @@ export async function POST(request: Request) {
 
   const sanity = getSanityWriteClient();
   if (sanity) {
+    // Upload attachments as Sanity file assets (non-fatal — the email already sent).
+    const attachmentRefs: Array<{
+      _key: string;
+      _type: 'file';
+      asset: { _type: 'reference'; _ref: string };
+    }> = [];
+    for (let i = 0; i < fileBuffers.length; i += 1) {
+      const f = fileBuffers[i];
+      try {
+        const asset = await sanity.assets.upload('file', f.buffer, {
+          filename: f.filename,
+          contentType: f.contentType,
+        });
+        attachmentRefs.push({
+          _key: `att-${i}`,
+          _type: 'file',
+          asset: { _type: 'reference', _ref: asset._id },
+        });
+      } catch (err) {
+        console.error('[leads] sanity asset upload failed (non-fatal)', err);
+      }
+    }
+
     try {
       await sanity.create({
         _type: 'leadSubmission',
@@ -143,6 +250,7 @@ export async function POST(request: Request) {
         dateNeeded,
         sourceUrl: payload.sourceUrl,
         submittedAt,
+        ...(attachmentRefs.length > 0 ? { attachments: attachmentRefs } : {}),
       });
     } catch (err) {
       console.error('[leads] sanity write failed (non-fatal)', err);

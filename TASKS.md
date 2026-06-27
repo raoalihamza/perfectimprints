@@ -1243,6 +1243,37 @@ Full step-by-step (URL, filter, projection, secret, testing, troubleshooting): *
       **Depends on.** None.
       **Estimate.** 0.5 hours.
 
+### [x] M5-515: Lead form file uploads + auto-detect CAPTCHA (Part 7, DONE 2026-06-28)
+
+**Scope.** Optional file upload + Cloudflare Turnstile CAPTCHA on the lead form ([components/forms/LeadForm.tsx](components/forms/LeadForm.tsx), used on `/contact` AND in the category-page `LeadFormModal`). "Not critical for launch." No `/cat` rendering changes.
+
+**Implementation (2026-06-28).**
+
+- **Optional file upload.** Added an optional multi-file input to `LeadForm` ("Attach a logo or artwork (optional)") — up to 3 files, `.pdf/.png/.jpg/.jpeg/.gif/.svg/.ai/.eps`, ≤10MB each / ≤20MB total (under Gmail's 25MB ceiling). Validated client-side (count/type/size, inline error, selected-file list with per-file Remove) AND re-validated server-side (never trust the client).
+- **Multipart submission.** `LeadForm` now POSTs **`multipart/form-data`** (a `FormData` with the text fields + honeypot + `sourceUrl` + validated files + the injected `cf-turnstile-response` token) instead of JSON; [app/api/leads/route.ts](app/api/leads/route.ts) parses via `request.formData()` (route already `runtime = 'nodejs'`). All existing fields, honeypot, validation, and 5/IP/hr rate limit unchanged.
+- **Email + Sanity storage.** Files are attached to Patrick's email as Nodemailer `attachments` ([lib/email/gmail-smtp.ts](lib/email/gmail-smtp.ts), new `LeadEmailAttachment`) AND uploaded as Sanity file assets referenced by a new `attachments` array (`of: [{ type: 'file' }]`) on the `leadSubmission` schema (viewable in Studio). Each file's bytes are read once and reused for both. Asset upload + Sanity write are **non-fatal** (email still sends on failure), like the existing write. With no files, behavior is identical to before.
+- **Cloudflare Turnstile (auto-detect CAPTCHA).** New [components/forms/Turnstile.tsx](components/forms/Turnstile.tsx) renders the managed-mode widget when `NEXT_PUBLIC_TURNSTILE_SITE_KEY` is set (Cloudflare injects the `cf-turnstile-response` token into the form). The route verifies the token against Turnstile `siteverify` with `TURNSTILE_SECRET_KEY` before sending; on failure → 400, no email. **Graceful no-op:** keys absent → widget doesn't render + server verification skipped (one-line `console.warn`), so the form keeps working (e.g. staging); activates automatically once both keys are present. Honeypot + rate limit retained (defense in depth). reCAPTCHA v3 considered; Turnstile chosen (free, privacy-friendly, Cloudflare already runs the site's DNS).
+
+**Env vars (no keys hardcoded; add both in Vercel after creating a free Turnstile site in Patrick's Cloudflare dashboard).**
+
+- `NEXT_PUBLIC_TURNSTILE_SITE_KEY` (public)
+- `TURNSTILE_SECRET_KEY` (secret)
+
+**Acceptance.**
+
+- [x] Optional file input on the lead form (contact page + category modal); accepts the listed types; enforces count/size limits client + server; clear errors
+- [x] Submission uses `multipart/form-data`; existing fields, honeypot, validation, rate limit still work
+- [x] Uploaded files arrive as email attachments; with no files, behavior unchanged
+- [x] Files stored on `leadSubmission.attachments` (visible in Studio); upload/write failures non-fatal (email still sends)
+- [x] Turnstile widget renders (managed mode) and token verified server-side before sending; honeypot + rate limit retained
+- [x] Env vars absent → form still submits (CAPTCHA no-ops) + server warning logged; present → verification enforced
+- [x] No keys hardcoded; env vars documented
+- [x] `/cat` untouched; `pnpm typecheck` clean (local build skipped per Patrick's standing preference — Vercel builds)
+- [x] CLAUDE.md / TASKS.md updated
+
+**Depends on.** M3-308.
+**Estimate.** 2 hours.
+
 ### [x] M-SEO3b: Breadcrumb absolute URLs + image URL cleanup + Sanity footer columns (DONE 2026-06-28)
 
 **Scope.** Three low-risk follow-ups to M-SEO3. No `/cat` data-fetch / render changes; route stays static.

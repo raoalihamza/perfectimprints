@@ -21,6 +21,14 @@ export default defineType({
     defineField({ name: 'dateNeeded', title: 'Date Needed', type: 'string', readOnly: true }),
     defineField({ name: 'sourceUrl', title: 'Source URL', type: 'string', readOnly: true }),
     defineField({ name: 'submittedAt', title: 'Submitted At', type: 'datetime', readOnly: true }),
+    defineField({
+      name: 'attachments',
+      title: 'Attachments',
+      description: 'Logo / artwork files the visitor uploaded with the lead form.',
+      type: 'array',
+      readOnly: true,
+      of: [{ type: 'file' }],
+    }),
   ],
   preview: {
     select: { firstName: 'firstName', lastName: 'lastName', email: 'email', sourceUrl: 'sourceUrl' },

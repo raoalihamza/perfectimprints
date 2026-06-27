@@ -1,5 +1,11 @@
 import nodemailer, { type Transporter } from 'nodemailer';
 
+export interface LeadEmailAttachment {
+  filename: string;
+  content: Buffer;
+  contentType?: string;
+}
+
 export interface LeadEmailPayload {
   firstName: string;
   lastName: string;
@@ -10,6 +16,7 @@ export interface LeadEmailPayload {
   dateNeeded: string;
   sourceUrl: string;
   submittedAt: string;
+  attachments?: LeadEmailAttachment[];
 }
 
 let _transporter: Transporter | null = null;
@@ -101,5 +108,10 @@ export async function sendLeadEmail(payload: LeadEmailPayload): Promise<void> {
     subject: `New Lead from Perfect Imprints: ${fullName}`,
     text: buildText(payload),
     html: buildHtml(payload),
+    attachments: payload.attachments?.map((file) => ({
+      filename: file.filename,
+      content: file.content,
+      contentType: file.contentType,
+    })),
   });
 }
