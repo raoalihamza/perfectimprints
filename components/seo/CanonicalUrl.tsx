@@ -5,7 +5,7 @@ interface CanonicalUrlProps {
 }
 
 export function CanonicalUrl({ path }: CanonicalUrlProps) {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://perfectimprints.com';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.perfectimprints.com';
   const href = `${siteUrl.replace(/\/$/, '')}${path}`;
   return <link rel="canonical" href={href} />;
 }

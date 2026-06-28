@@ -1317,6 +1317,30 @@ Full step-by-step (URL, filter, projection, secret, testing, troubleshooting): *
 **Depends on.** M-SEO3.
 **Estimate.** 1.5 hours.
 
+### [x] M-LAUNCH4: Production www-canonical launch readiness (DONE 2026-06-29)
+
+**Scope.** Make the URL/SEO side consistent for go-live with `https://www.perfectimprints.com` as the canonical production origin (apex → www handled at the Vercel domain level, not in middleware). No `/cat` render changes; route stays static.
+
+**Implementation (2026-06-29).**
+
+1. **Single source of truth audited.** `metadataBase` ([app/layout.tsx](app/layout.tsx)), every canonical/OG/Twitter URL, sitemap entries ([app/sitemap.ts](app/sitemap.ts)), robots `sitemap:` ([app/robots.ts](app/robots.ts)), breadcrumb absolute URLs ([components/layout/Breadcrumbs.tsx](components/layout/Breadcrumbs.tsx)), and all JSON-LD `url`/`@id` ([lib/seo/schema-generators.ts](lib/seo/schema-generators.ts), [lib/seo/open-graph.ts](lib/seo/open-graph.ts)) already derive from one value — `NEXT_PUBLIC_SITE_URL`. Confirmed the env value is used verbatim as the origin (only a trailing-slash trim); no string surgery forces or drops `www`, so flipping the env flips every emitted URL.
+2. **Outlier fixed.** [components/seo/CanonicalUrl.tsx](components/seo/CanonicalUrl.tsx) (an unused stub) defaulted to the **non-www** `https://perfectimprints.com`; changed its fallback to `https://www.perfectimprints.com` to match every other file. This was the only code defaulting to a non-www origin. Grep for `dev.perfectimprints` / `*.vercel.app` / non-www `perfectimprints.com` in emitted page output (canonical/OG/schema/sitemap/links): none remain.
+3. **robots/sitemap production-correct.** `app/robots.ts` allows all, disallows only `/admin3773752` + `/api`, `sitemap:` = `${SITE_URL}/sitemap.xml` (www origin), no `Disallow: /`. `app/sitemap.ts` prefixes every URL (category, blog, brand, video, static page) with the env origin.
+4. **Apex→www = Vercel primary domain (note, not new code).** No redirect middleware added. The existing `next.config.ts` `redirects()` apex→www rule is retained as a backup; the authoritative redirect is set by making `www.perfectimprints.com` the project's primary/production domain in Vercel (covered in the go-live runbook, M6-603/M6-605).
+5. **`.env.example` updated** — `NEXT_PUBLIC_SITE_URL=https://www.perfectimprints.com` (production www value) with a comment that staging uses `https://dev.perfectimprints.com`. CLAUDE.md Section 4 (canonical host) + Section 14 env block updated to the www value.
+
+**Acceptance.**
+
+- [x] All emitted URLs (canonical, OG, Twitter, sitemap, robots sitemap line, breadcrumb, JSON-LD url/@id) derive solely from `NEXT_PUBLIC_SITE_URL`
+- [x] With the env = `https://www.perfectimprints.com`, no page emits a `dev.` / non-www / `.vercel.app` URL
+- [x] `.env.example` documents the production www value (+ staging note)
+- [x] `app/robots.ts` production-crawlable (only `/admin3773752` + `/api` disallowed), sitemap line uses www; no `Disallow: /`
+- [x] `app/sitemap.ts` emits www URLs
+- [x] No redirect middleware added; `/cat` stays static; `pnpm typecheck` clean (local `pnpm build` skipped per Patrick's standing preference — Vercel builds)
+- [x] CLAUDE.md / TASKS.md / `.env.example` updated
+
+**Depends on.** M-SEO3, M-SEO3b.
+
 ### [x] M-SEO3: SEO schema + meta + Open Graph pass (DONE 2026-06-27)
 
 **Scope.** Patrick's SEO requests across schema + metadata. No `/cat` data-fetching / Suspense / `loading.tsx` changes; route stays static (schema/meta computed from already-loaded data + a local `products.json` disk read, no added uncached fetches).

@@ -71,7 +71,7 @@ Category URL breakdown:
 
 Trailing slashes: match the current site behavior. If GA4 export shows no trailing slash, do not add one.
 
-Canonical host is www.perfectimprints.com. The apex perfectimprints.com 301-redirects to www. Configured in next.config redirects() and at the Vercel domain level.
+Canonical host is www.perfectimprints.com. The apex perfectimprints.com redirects to www, configured at the Vercel domain level (set `www.perfectimprints.com` as the project's primary/production domain — Vercel issues the apex→www 308) plus a backup `next.config` `redirects()` rule. **No redirect middleware** — a static site must not run per-request middleware. **Every emitted URL (canonical, OG, Twitter, sitemap, robots `sitemap:`, breadcrumb absolute URLs, JSON-LD `url`/`@id`) derives solely from `NEXT_PUBLIC_SITE_URL`** — production = `https://www.perfectimprints.com` (set in Vercel), staging = `https://dev.perfectimprints.com`. The env value is used verbatim as the origin (only a trailing-slash trim); no string surgery forces or drops `www`, so flipping the env flips every URL. Every page file/SEO helper defaults to the www form when the env is unset.
 
 The full URL list with classification lives at `data/pi-urls/category-urls.json` (built by `pnpm import-urls`). Every component that needs to enumerate URLs reads from there.
 
@@ -464,7 +464,7 @@ GMAIL_USER=patrick@perfectimprints.com
 GMAIL_APP_PASSWORD
 LEAD_EMAIL_TO=patrick@perfectimprints.com
 LEAD_EMAIL_FROM=patrick@perfectimprints.com
-NEXT_PUBLIC_SITE_URL=https://perfectimprints.com
+NEXT_PUBLIC_SITE_URL=https://www.perfectimprints.com
 NEXT_PUBLIC_GEIGER_HOST=https://patrickblack.geiger.com
 GA4_MEASUREMENT_ID
 NEXT_PUBLIC_GTM_ID=GTM-MCQP434P
