@@ -8,7 +8,7 @@ import { ValuePillars } from '@/components/home/ValuePillars';
 import { BannerRow } from '@/components/home/BannerRow';
 import { NewProductsRail } from '@/components/home/NewProductsRail';
 import { BrandsStrip } from '@/components/home/BrandsStrip';
-import { Testimonials } from '@/components/home/Testimonials';
+import { TestimonialsLazy } from '@/components/home/TestimonialsLazy';
 import { BlogPreview } from '@/components/home/BlogPreview';
 import { HomeCtaBanner } from '@/components/home/HomeCtaBanner';
 import { OrganizationJsonLd } from '@/components/seo/OrganizationJsonLd';
@@ -95,7 +95,7 @@ export default async function HomePage() {
         viewAllLabel="View all rush products"
         background="white"
       />
-      <Testimonials testimonials={home.testimonials} heading={home.testimonialsHeading} />
+      <TestimonialsLazy testimonials={home.testimonials} heading={home.testimonialsHeading} />
       <BrandsStrip
         brands={brands}
         heading={home.brandsHeading}

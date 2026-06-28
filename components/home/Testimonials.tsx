@@ -42,10 +42,23 @@ export function Testimonials({ testimonials, heading }: TestimonialsProps) {
   useEffect(() => {
     const el = scrollerRef.current;
     if (!el) return;
-    const check = () => setHasOverflow(el.scrollWidth > el.clientWidth + 4);
+    let raf = 0;
+    // Batch the overflow measure into a rAF so the observer callback never reads
+    // layout synchronously during a resize, avoiding forced reflow.
+    const check = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        setHasOverflow(el.scrollWidth > el.clientWidth + 4);
+      });
+    };
     check();
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
+    const ro =
+      typeof ResizeObserver !== 'undefined' ? new ResizeObserver(check) : null;
+    ro?.observe(el);
+    return () => {
+      cancelAnimationFrame(raf);
+      ro?.disconnect();
+    };
   }, [testimonials.length]);
 
   useEffect(() => {

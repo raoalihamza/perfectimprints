@@ -109,6 +109,7 @@ export function SearchFacetedResults({ products, facets }: SearchFacetedResultsP
           <label className="flex items-center gap-2 text-sm text-text-muted">
             <span className="sr-only sm:not-sr-only">Sort by</span>
             <select
+              aria-label="Sort products by"
               value={sort}
               onChange={(e) => {
                 setSort(e.target.value as SortKey);

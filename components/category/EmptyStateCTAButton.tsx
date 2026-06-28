@@ -1,7 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import { LeadFormModal } from '@/components/forms/LeadFormModal';
+import dynamic from 'next/dynamic';
+
+// The lead-form modal (+ LeadForm + Turnstile + file-validation code) is
+// interaction-only. Splitting it out with ssr:false keeps it out of the static
+// /cat First Load JS — it loads only when the visitor opens the modal.
+const LeadFormModal = dynamic(
+  () => import('@/components/forms/LeadFormModal').then((m) => m.LeadFormModal),
+  { ssr: false },
+);
 
 interface EmptyStateCTAButtonProps {
   categoryTitle: string;
@@ -19,12 +27,14 @@ export function EmptyStateCTAButton({ categoryTitle, sourceUrl }: EmptyStateCTAB
       >
         Find Products for Me
       </button>
-      <LeadFormModal
-        open={open}
-        onClose={() => setOpen(false)}
-        categoryTitle={categoryTitle}
-        sourceUrl={sourceUrl}
-      />
+      {open && (
+        <LeadFormModal
+          open
+          onClose={() => setOpen(false)}
+          categoryTitle={categoryTitle}
+          sourceUrl={sourceUrl}
+        />
+      )}
     </>
   );
 }

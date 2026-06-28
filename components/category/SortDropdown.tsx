@@ -32,6 +32,9 @@ export function SortDropdown({ current }: SortDropdownProps) {
       </label>
       <select
         id="sort-select"
+        // The visible label is display:none on mobile (removed from the a11y
+        // tree), so carry an explicit accessible name on the control itself.
+        aria-label="Sort products by"
         value={current}
         onChange={handleChange}
         className="h-10 rounded-md border border-border bg-white pl-3 pr-8 text-sm font-medium text-brand-ink focus:border-brand-red focus:outline-none focus:ring-2 focus:ring-brand-red/20"

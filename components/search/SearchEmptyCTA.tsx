@@ -1,7 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { LeadFormModal } from '@/components/forms/LeadFormModal';
+import dynamic from 'next/dynamic';
+
+// Interaction-only — keep the modal + LeadForm + Turnstile out of the search
+// overlay's initial bundle; load it only when the visitor opens it.
+const LeadFormModal = dynamic(
+  () => import('@/components/forms/LeadFormModal').then((m) => m.LeadFormModal),
+  { ssr: false },
+);
 
 interface SearchEmptyCTAProps {
   /** The query that returned nothing — seeds the lead form context. */
@@ -29,14 +36,14 @@ export function SearchEmptyCTA({ query, variant = 'block' }: SearchEmptyCTAProps
     </button>
   );
 
-  const modal = (
+  const modal = open ? (
     <LeadFormModal
-      open={open}
+      open
       onClose={() => setOpen(false)}
       categoryTitle={query}
       sourceUrl={sourceUrl}
     />
-  );
+  ) : null;
 
   if (variant === 'compact') {
     return (

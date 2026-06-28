@@ -20,9 +20,13 @@ export function Turnstile() {
   if (!SITE_KEY) return null;
   return (
     <div className="pt-1">
+      {/* `lazyOnload` keeps the Cloudflare script off the critical path — it
+          loads during browser idle time, never blocking first paint. The widget
+          only mounts where the lead form renders (contact page, or the lazily-
+          loaded lead-form modal), so the script never ships on form-less pages. */}
       <Script
         src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
       {/* Managed mode: shows an interactive challenge only when Cloudflare's
           risk scoring flags the visitor; real users pass silently. */}

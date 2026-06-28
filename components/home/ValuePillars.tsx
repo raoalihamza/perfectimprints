@@ -1,7 +1,7 @@
 import { Container } from '@/components/ui/Container';
 import type { HomeValueProp } from '@/lib/sanity/queries/home';
 import { PillarCard } from '@/components/home/PillarCard';
-import { ValuePillarsCarousel } from '@/components/home/ValuePillarsCarousel';
+import { ValuePillarsCarouselLazy } from '@/components/home/ValuePillarsCarouselLazy';
 
 interface ValuePillarsProps {
   pillars: HomeValueProp[];
@@ -24,7 +24,7 @@ export function ValuePillars({ pillars }: ValuePillarsProps) {
           </ul>
         ) : (
           // More than 3 → rotating carousel showing up to 3 at a time.
-          <ValuePillarsCarousel pillars={pillars} />
+          <ValuePillarsCarouselLazy pillars={pillars} />
         )}
       </Container>
     </section>

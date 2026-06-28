@@ -21,12 +21,20 @@ export function ValuePillarsCarousel({ pillars }: ValuePillarsCarouselProps) {
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
   const pausedRef = useRef(false);
+  const rafRef = useRef<number | null>(null);
 
+  // Read layout inside requestAnimationFrame so the scroll-event-driven measure
+  // never forces a synchronous reflow on the scroll/resize hot path. Coalesces
+  // bursts of events into one read per frame.
   const updateArrows = useCallback(() => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    setCanPrev(el.scrollLeft > 4);
-    setCanNext(el.scrollLeft < el.scrollWidth - el.clientWidth - 4);
+    if (rafRef.current != null) return;
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = null;
+      const el = scrollerRef.current;
+      if (!el) return;
+      setCanPrev(el.scrollLeft > 4);
+      setCanNext(el.scrollLeft < el.scrollWidth - el.clientWidth - 4);
+    });
   }, []);
 
   // Scroll by one "page" (the first card's width), wrapping around at the ends.
@@ -51,7 +59,16 @@ export function ValuePillarsCarousel({ pillars }: ValuePillarsCarouselProps) {
     if (!el) return;
     updateArrows();
     el.addEventListener('scroll', updateArrows, { passive: true });
-    return () => el.removeEventListener('scroll', updateArrows);
+    // ResizeObserver re-checks the arrows on viewport/content changes without a
+    // layout-thrashing window 'resize' handler.
+    const ro =
+      typeof ResizeObserver !== 'undefined' ? new ResizeObserver(updateArrows) : null;
+    ro?.observe(el);
+    return () => {
+      el.removeEventListener('scroll', updateArrows);
+      ro?.disconnect();
+      if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
+    };
   }, [updateArrows]);
 
   // Auto-advance, paused on interaction and disabled for reduced-motion users.

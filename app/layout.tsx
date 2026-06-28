@@ -50,6 +50,21 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={inter.variable}>
+      <head>
+        {/* Warm up the Geiger image CDN connection early so product images
+            (the category-page LCP candidate) start downloading sooner. No
+            crossOrigin — these are plain <img> loads, not CORS requests. A
+            dns-prefetch fallback covers browsers that ignore preconnect. */}
+        <link rel="preconnect" href="https://imgsirv.geiger.com" />
+        <link rel="dns-prefetch" href="https://imgsirv.geiger.com" />
+        {/* Pre-warm GTM only when analytics is configured. */}
+        {gtmId ? (
+          <>
+            <link rel="preconnect" href="https://www.googletagmanager.com" />
+            <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+          </>
+        ) : null}
+      </head>
       {/* Loads GTM via next/script's default `afterInteractive` strategy — deferred, off the render-blocking path so it does not hurt LCP/Speed Index. Injects the head script + dataLayer. */}
       {gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}
       <body className="flex min-h-screen flex-col font-sans">
