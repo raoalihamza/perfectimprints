@@ -32,6 +32,14 @@ export const RELATED_BLOGS_TAG = 'related-blogs';
  */
 export const FAQS_TAG = 'faqs';
 
+/**
+ * Videos shown on `/videos` (index) + `/videos/<slug>` (detail) + the live
+ * search delta. A global tag busted on any `video` publish. Same rationale as
+ * FAQS_TAG: read through the non-CDN `cachedClient` so revalidation always sees
+ * fresh data (no stale-CDN re-cache), while staying cache-tagged.
+ */
+export const VIDEOS_TAG = 'videos';
+
 /** Per-slug content tag, e.g. `cat:water-bottles` or `cat:water-bottles/color/blue`. */
 export function categoryTag(slug: string): string {
   return `cat:${slug}`;

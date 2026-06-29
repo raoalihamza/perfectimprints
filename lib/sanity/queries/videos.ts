@@ -1,6 +1,13 @@
 import type { PortableTextBlock } from '@portabletext/react';
-import { client } from '@/lib/sanity/client';
+import { cachedClient } from '@/lib/sanity/client';
+import { VIDEOS_TAG } from '@/lib/sanity/cache-tags';
 import type { SanityImage, SanitySlug, SeoFields } from '@/lib/sanity/types';
+
+// Tagged, non-CDN fetch options shared by every video read. Reading off
+// api.sanity.io (not the CDN) means a publish-triggered revalidation always sees
+// fresh data; the tag lets the webhook bust /videos + /videos/<slug> + the
+// search delta in seconds. Both pages stay static/on-demand (tagged, not no-store).
+const VIDEO_FETCH_OPTS = { next: { tags: [VIDEOS_TAG], revalidate: false as const } };
 
 export interface VideoCategoryRef {
   title: string;
@@ -39,25 +46,30 @@ const PUBLISHED = `_type == "video" && !(_id in path("drafts.**")) && defined(em
 /** All published videos, newest first. Videos with no publishDate sort last. */
 export async function getAllVideos(): Promise<VideoSummary[]> {
   return (
-    (await client.fetch<VideoSummary[]>(
+    (await cachedClient.fetch<VideoSummary[]>(
       `*[${PUBLISHED}] | order(publishDate desc, _createdAt desc) { ${SUMMARY_PROJECTION} }`,
+      {},
+      VIDEO_FETCH_OPTS,
     )) ?? []
   );
 }
 
 export async function getVideoSlugs(): Promise<string[]> {
   const docs =
-    (await client.fetch<{ slug: { current: string } }[]>(
+    (await cachedClient.fetch<{ slug: { current: string } }[]>(
       `*[${PUBLISHED} && defined(slug.current)]{ "slug": slug }`,
+      {},
+      VIDEO_FETCH_OPTS,
     )) ?? [];
   return docs.map((d) => d.slug.current).filter(Boolean);
 }
 
 export async function getVideoBySlug(slug: string): Promise<VideoSummary | null> {
   return (
-    (await client.fetch<VideoSummary | null>(
+    (await cachedClient.fetch<VideoSummary | null>(
       `*[${PUBLISHED} && slug.current == $slug][0]{ ${SUMMARY_PROJECTION} }`,
       { slug },
+      VIDEO_FETCH_OPTS,
     )) ?? null
   );
 }
@@ -67,12 +79,13 @@ export async function getRelatedVideos(video: VideoSummary, limit = 6): Promise<
   const categorySlug = video.category?.slug;
   if (!categorySlug) return [];
   return (
-    (await client.fetch<VideoSummary[]>(
+    (await cachedClient.fetch<VideoSummary[]>(
       `*[${PUBLISHED}
           && slug.current != $self
           && category->slug.current == $cat]
         | order(publishDate desc, _createdAt desc) [0...$limit] { ${SUMMARY_PROJECTION} }`,
       { self: video.slug.current, cat: categorySlug, limit },
+      VIDEO_FETCH_OPTS,
     )) ?? []
   );
 }
@@ -90,12 +103,14 @@ export interface VideoSearchEntry {
  */
 export async function getAllVideoSearchEntries(): Promise<VideoSearchEntry[]> {
   const docs =
-    (await client.fetch<{ title: string; slug: { current: string }; category?: string }[]>(
+    (await cachedClient.fetch<{ title: string; slug: { current: string }; category?: string }[]>(
       `*[${PUBLISHED} && defined(title) && defined(slug.current)]{
         title,
         slug,
         "category": category->title
       }`,
+      {},
+      VIDEO_FETCH_OPTS,
     )) ?? [];
   return docs
     .map(
