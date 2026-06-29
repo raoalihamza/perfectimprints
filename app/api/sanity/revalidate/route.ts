@@ -10,7 +10,7 @@ import { createHmac, timingSafeEqual } from 'node:crypto';
 import { revalidatePath, revalidateTag } from 'next/cache';
 import { NextResponse } from 'next/server';
 import { SEARCH_INDEX_ROUTE } from '@/lib/search/constants';
-import { CATEGORY_CONTROL_TAG, RELATED_BLOGS_TAG, categoryTag } from '@/lib/sanity/cache-tags';
+import { CATEGORY_CONTROL_TAG, FAQS_TAG, RELATED_BLOGS_TAG, categoryTag } from '@/lib/sanity/cache-tags';
 
 // Types whose content is rendered inside the shared root layout (Header / Footer
 // / global CTA). A change to any of them must refresh every page's chrome.
@@ -133,6 +133,9 @@ export async function POST(request: Request) {
     }
     // Blog relatedness on root category pages is a cached read — refresh it.
     if (type === 'blogPost') revalidateTag(RELATED_BLOGS_TAG, 'max');
+    // FAQ answers are read through a non-CDN tagged fetch (see getAnsweredFaqs)
+    // — bust the tag so /faq + the search delta pick up the edit deterministically.
+    if (type === 'faq') revalidateTag(FAQS_TAG, 'max');
     return NextResponse.json({ revalidated: true, paths, type });
   }
 

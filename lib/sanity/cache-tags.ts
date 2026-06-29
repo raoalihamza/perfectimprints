@@ -24,6 +24,14 @@ export const CATEGORY_CONTROL_TAG = 'category-control-sets';
  */
 export const RELATED_BLOGS_TAG = 'related-blogs';
 
+/**
+ * Answered FAQs shown on the `/faq` library page + the live search delta. A
+ * global tag busted on any `faq` publish. The reads go through the non-CDN
+ * `cachedClient` (so revalidation always sees fresh data, never a stale CDN
+ * copy) while staying cache-tagged — keeping `/faq` ISR-static.
+ */
+export const FAQS_TAG = 'faqs';
+
 /** Per-slug content tag, e.g. `cat:water-bottles` or `cat:water-bottles/color/blue`. */
 export function categoryTag(slug: string): string {
   return `cat:${slug}`;

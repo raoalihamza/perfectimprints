@@ -25,6 +25,9 @@ ISR fallback.
 | `video` | `/videos`, `/videos/<slug>`, **live search delta** |
 | `customProduct` | `/deals`, `/new-products`, `/rush-products`, **live search delta** |
 | `customCategory`, `curatedCategory` | `/cat/<slug>`, **live search delta** |
+| `faq` | `/faq`, **live search delta** |
+| `categoryOverride` | `/cat/<categorySlug>` (needs `categorySlug` in the projection) |
+| `productPlacement` | each `/cat/<slug>` in `addToCategories` + `removeFromCategories` (needs those in the projection) |
 
 "Live search delta" = the `/api/search-index` ISR route that carries the
 Sanity-managed slice of site search (blogs, videos, custom categories, custom
@@ -72,8 +75,8 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
 | **URL** | `https://dev.perfectimprints.com/api/sanity/revalidate` |
 | **Dataset** | `production` |
 | **Trigger on** | ✅ Create  ✅ Update  ✅ Delete |
-| **Filter** | `!(_id in path("drafts.**")) && _type in ["megaMenu","globalSettings","homePage","page","blogPost","video","customProduct","customCategory","curatedCategory"]` |
-| **Projection** | `{_type, slug}` |
+| **Filter** | `!(_id in path("drafts.**")) && _type in ["megaMenu","globalSettings","homePage","page","blogPost","video","customProduct","customCategory","curatedCategory","faq","categoryOverride","productPlacement"]` |
+| **Projection** | `{_type, slug, categorySlug, addToCategories, removeFromCategories}` |
 | **HTTP method** | `POST` |
 | **HTTP headers** | none (Sanity adds the signature header automatically) |
 | **API version** | latest (leave default) |
@@ -85,12 +88,19 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
 - `!(_id in path("drafts.**"))` → fire only on **publish**, not on every draft
   autosave.
 - `_type in [...]` → only the document types the route actually handles, so we
-  don't waste webhook deliveries on `leadSubmission`, `brand`, `faq`, etc.
+  don't waste webhook deliveries on `leadSubmission`, `brand`, `author`, etc.
+  (Keep this list in sync with the types handled in
+  [app/api/sanity/revalidate/route.ts](../app/api/sanity/revalidate/route.ts) —
+  `faq` was added when the `/faq` library shipped, and
+  `categoryOverride` / `productPlacement` when M5-504 landed. A handled type left
+  out of this filter silently never revalidates.)
 
 ### Why the projection
 
-The route only reads `_type` and `slug.current`. `{_type, slug}` keeps the
-payload tiny while still giving the handler everything it needs.
+The route reads `_type` + `slug.current` for most types, plus `categorySlug`
+(for `categoryOverride`) and `addToCategories` / `removeFromCategories` (for
+`productPlacement`). Including those keeps the payload small while still giving
+the handler everything it needs; unused fields are simply absent for other types.
 
 ## Production webhook (do at launch)
 

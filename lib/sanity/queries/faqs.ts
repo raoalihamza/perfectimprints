@@ -1,7 +1,8 @@
 import 'server-only';
 
 import type { PortableTextBlock } from '@portabletext/react';
-import { client } from '@/lib/sanity/client';
+import { cachedClient } from '@/lib/sanity/client';
+import { FAQS_TAG } from '@/lib/sanity/cache-tags';
 
 // ---------------------------------------------------------------------------
 // FAQ library (M5-506). `faq` docs carry a question, an answer, and a
@@ -26,8 +27,14 @@ const ANSWERED_FILTER = `_type == "faq" && defined(answer) && count(answer) > 0`
 /** Answered FAQs for the /faq library page, ordered by question within a category. */
 export async function getAnsweredFaqs(): Promise<FaqDoc[]> {
   try {
-    const faqs = await client.fetch<FaqDoc[]>(
+    // Non-CDN, cache-TAGGED read: the webhook revalidates FAQS_TAG on faq
+    // publish so an edit goes live in seconds, and reading off api.sanity.io
+    // (not the CDN) avoids the propagation race where the page would re-cache a
+    // stale answer. Stays ISR-static (tagged, not no-store).
+    const faqs = await cachedClient.fetch<FaqDoc[]>(
       `*[${ANSWERED_FILTER}]{ _id, question, answer, faqCategory } | order(question asc)`,
+      {},
+      { next: { tags: [FAQS_TAG], revalidate: false } },
     );
     return faqs ?? [];
   } catch {
@@ -43,8 +50,10 @@ export interface FaqSearchEntry {
 /** Minimal answered-FAQ entries for the live search delta (lib/search/sanity-index.ts). */
 export async function getAllFaqSearchEntries(): Promise<FaqSearchEntry[]> {
   try {
-    const entries = await client.fetch<FaqSearchEntry[]>(
+    const entries = await cachedClient.fetch<FaqSearchEntry[]>(
       `*[${ANSWERED_FILTER}]{ question, faqCategory }`,
+      {},
+      { next: { tags: [FAQS_TAG], revalidate: false } },
     );
     return entries ?? [];
   } catch {
