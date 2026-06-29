@@ -4,6 +4,7 @@ import { Container } from '@/components/ui/Container';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { FaqList } from '@/components/faqs/FaqList';
 import { faqPageSchema } from '@/lib/seo/schema-generators';
+import { portableTextToPlain } from '@/lib/portable-text/to-plain';
 import { socialMeta } from '@/lib/seo/open-graph';
 import { getAnsweredFaqs } from '@/lib/sanity/queries/faqs';
 
@@ -54,7 +55,12 @@ export default async function FaqsPage() {
               type="application/ld+json"
               dangerouslySetInnerHTML={{
                 __html: JSON.stringify(
-                  faqPageSchema(faqs.map((f) => ({ question: f.question, answer: f.answer }))),
+                  faqPageSchema(
+                    faqs.map((f) => ({
+                      question: f.question,
+                      answer: portableTextToPlain(f.answer),
+                    })),
+                  ),
                 ),
               }}
             />

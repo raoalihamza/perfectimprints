@@ -43,8 +43,9 @@ export default defineType({
     defineField({
       name: 'description',
       title: 'Description',
-      type: 'text',
-      rows: 4,
+      // Rich text (Task B) so descriptions can contain links. The meta/OG/Twitter
+      // description and VideoObject JSON-LD use a plain-text extraction.
+      type: 'richAnswer',
     }),
     defineField({
       name: 'category',

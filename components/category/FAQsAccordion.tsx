@@ -1,11 +1,22 @@
 'use client';
 
 import { useState } from 'react';
+import type { PortableTextBlock } from '@portabletext/react';
 import { cn } from '@/lib/utils';
-import type { CategoryFaq } from '@/lib/categories';
+import { RichAnswer } from '@/components/portable-text/RichAnswer';
+
+/**
+ * Shared by the baked `/cat` page (where `a` is a plain string from the category
+ * JSON) and CustomCategoryView (where `a` is Portable Text). A string answer
+ * renders as a paragraph; a Portable Text answer renders with links.
+ */
+interface AccordionFaq {
+  q: string;
+  a: string | PortableTextBlock[];
+}
 
 interface FAQsAccordionProps {
-  faqs: CategoryFaq[];
+  faqs: AccordionFaq[];
   className?: string;
 }
 
@@ -64,7 +75,11 @@ export function FAQsAccordion({ faqs, className }: FAQsAccordionProps) {
                 hidden={!isOpen}
                 className="px-4 pb-4 text-text-primary"
               >
-                <p className="max-w-prose leading-relaxed">{faq.a}</p>
+                {typeof faq.a === 'string' ? (
+                  <p className="max-w-prose leading-relaxed">{faq.a}</p>
+                ) : (
+                  <RichAnswer value={faq.a} className="max-w-prose leading-relaxed" />
+                )}
               </div>
             </div>
           );

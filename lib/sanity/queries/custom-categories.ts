@@ -11,7 +11,8 @@ export interface CustomCategorySearchEntry {
 
 export interface CustomCategoryFaq {
   q: string;
-  a: string;
+  /** Rich text (Task B). Rendered with links; plain-texted for FAQPage schema. */
+  a: PortableTextBlock[];
 }
 
 export interface CustomCategoryDoc {

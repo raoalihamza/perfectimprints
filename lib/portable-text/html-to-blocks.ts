@@ -69,6 +69,21 @@ export function htmlToBlocks(html: string | null | undefined): PortableBlock[] {
 }
 
 /**
+ * Split a PLAIN-TEXT string into paragraph blocks on blank lines (Task B). Used
+ * to convert the baked category JSON FAQ answers (plain strings) into Portable
+ * Text on push-to-Sanity, and by the rich-text migration. A single newline
+ * inside a paragraph is collapsed to a space.
+ */
+export function plainTextToBlocks(text: string | null | undefined): PortableBlock[] {
+  if (!text || !text.trim()) return [];
+  return text
+    .split(/\n\s*\n+/)
+    .map((p) => p.replace(/\s*\n\s*/g, ' ').trim())
+    .filter(Boolean)
+    .map((p) => textBlock(p, 'normal'));
+}
+
+/**
  * Build the `bodySections` blocks for a category: an optional H2 heading
  * (the buying-guide title) followed by the guide paragraphs.
  */

@@ -20,6 +20,7 @@ import page from './documents/page';
 
 import seo from './objects/seo';
 import link from './objects/link';
+import richAnswer from './objects/rich-answer';
 import footerColumn from './objects/footer-column';
 import blogProducts from './objects/blog-products';
 import { pageSectionSchemas } from './objects/page-sections';
@@ -43,6 +44,7 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   page,
   seo,
   link,
+  richAnswer,
   footerColumn,
   blogProducts,
   ...pageSectionSchemas,

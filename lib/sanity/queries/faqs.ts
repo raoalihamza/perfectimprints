@@ -1,5 +1,6 @@
 import 'server-only';
 
+import type { PortableTextBlock } from '@portabletext/react';
 import { client } from '@/lib/sanity/client';
 
 // ---------------------------------------------------------------------------
@@ -13,11 +14,14 @@ import { client } from '@/lib/sanity/client';
 export interface FaqDoc {
   _id: string;
   question: string;
-  answer: string;
+  /** Rich text (Task B). Rendered with links; plain-texted for schema/search. */
+  answer: PortableTextBlock[];
   faqCategory?: string;
 }
 
-const ANSWERED_FILTER = `_type == "faq" && defined(answer) && answer != ""`;
+// `answer` is now Portable Text (an array), so the old `answer != ""` string
+// check no longer applies — require at least one block instead.
+const ANSWERED_FILTER = `_type == "faq" && defined(answer) && count(answer) > 0`;
 
 /** Answered FAQs for the /faq library page, ordered by question within a category. */
 export async function getAnsweredFaqs(): Promise<FaqDoc[]> {

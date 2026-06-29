@@ -1,5 +1,6 @@
 import { buildImageUrl } from '@/lib/sanity/client';
 import { parseVideoEmbed, videoThumbnailUrl, type VideoAspect } from '@/lib/video/embed';
+import { portableTextToPlain } from '@/lib/portable-text/to-plain';
 import type { VideoCategoryRef, VideoSummary } from '@/lib/sanity/queries/videos';
 
 /**
@@ -32,7 +33,9 @@ export function toVideoCardData(video: VideoSummary): VideoCardData {
     href: `/videos/${video.slug.current}`,
     thumbnailUrl: thumbnailUrl ?? null,
     aspect,
-    description: video.description,
+    // Card teaser is plain text (clamped); the rich description renders on the
+    // detail page only.
+    description: portableTextToPlain(video.description) || undefined,
     publishDate: video.publishDate,
     category: video.category,
   };

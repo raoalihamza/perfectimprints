@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity';
+import { richAnswerToPlain } from '../objects/rich-answer';
 
 export default defineType({
   name: 'faq',
@@ -14,8 +15,9 @@ export default defineType({
     defineField({
       name: 'answer',
       title: 'Answer',
-      type: 'text',
-      rows: 4,
+      type: 'richAnswer',
+      // Rich text (Task B) so answers can contain links. The JSON-LD FAQPage
+      // schema + search still use a plain-text extraction of this value.
       // Intentionally NOT required: the FAQ library is seeded with question
       // stubs Patrick fills in later. The /faq page + search only surface FAQs
       // that already have an answer, so an empty stub never goes live.
@@ -66,10 +68,16 @@ export default defineType({
     }: {
       title?: string;
       category?: string;
-      answer?: string;
-    }) => ({
-      title: title || '(no question)',
-      subtitle: [category || 'Uncategorized', answer ? '✓ answered' : '— needs answer'].join(' · '),
-    }),
+      answer?: unknown;
+    }) => {
+      const plain = richAnswerToPlain(answer);
+      return {
+        title: title || '(no question)',
+        subtitle: [
+          category || 'Uncategorized',
+          plain ? `✓ ${plain.slice(0, 60)}` : '— needs answer',
+        ].join(' · '),
+      };
+    },
   },
 });

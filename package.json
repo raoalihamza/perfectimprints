@@ -35,6 +35,7 @@
     "seed-social-contact": "tsx scripts/seed/seed-social-contact.ts",
     "seed-footer-columns": "tsx scripts/seed/seed-footer-columns.ts",
     "fill-faq-answers": "tsx scripts/seed/fill-faq-answers.ts",
+    "migrate-richtext-answers": "tsx scripts/migrations/migrate-richtext-answers.ts",
     "scrape-blogs": "python scripts/scrapers/blogs/scrape_sbase.py",
     "scrape-deals": "python -m scripts.scrapers.geiger.scrape_deals",
     "scrape-new-products": "python -m scripts.scrapers.geiger.scrape_new_products",

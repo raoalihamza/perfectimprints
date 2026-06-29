@@ -1458,6 +1458,23 @@ Patrick reported: on an empty/off-topic category like `/cat/beach-towels` (one o
 
 ---
 
+### [x] M5-516: Hyperlinks in FAQ answers + video descriptions (rich text) (Task B, DONE 2026-06-29)
+
+Patrick wants to add links inside FAQ answers (e.g. a `/cat/pepper-spray` FAQ) and inside video descriptions (e.g. `/videos/premium-branded-gifts-for-national-doctors-day`). Those fields were plain text. Converted them to Portable Text with link support, render the links, and keep the JSON-LD schema + search using PLAIN TEXT. Migrated existing data. No change to `/cat` static behavior.
+
+- [x] New reusable minimal rich-text type `richAnswer` ([sanity/schemas/objects/rich-answer.ts](sanity/schemas/objects/rich-answer.ts)) — normal paragraphs + bold/italic + the standard link annotation only (no images/headings/lists/product blocks). Registered in [sanity/schemas/index.ts](sanity/schemas/index.ts).
+- [x] `faq.answer`, `customCategory.faqs[].a`, and `video.description` switched from `text` → `richAnswer`.
+- [x] Shared renderer [components/portable-text/RichAnswer.tsx](components/portable-text/RichAnswer.tsx) — internal paths via `next/link`, external/`#hash`/`mailto:`/`tel:` as `<a>`, Geiger URLs via `lib/affiliate-url.ts`, external http(s) open in a new tab. Tolerates a legacy plain string.
+- [x] Plain-text extractor [lib/portable-text/to-plain.ts](lib/portable-text/to-plain.ts) (`portableTextToPlain`) used for FAQPage/VideoObject JSON-LD and the video meta/OG/Twitter descriptions (those stay plain strings). Studio previews use the duplicated `richAnswerToPlain` in the schema object (Studio bundler can't import `lib/`).
+- [x] Renders: [components/faqs/FaqList.tsx](components/faqs/FaqList.tsx) (FAQ library), [components/category/FAQsAccordion.tsx](components/category/FAQsAccordion.tsx) (now accepts `string | PortableTextBlock[]` — baked `/cat` JSON answers stay plain strings, customCategory answers render rich), [app/videos/[slug]/page.tsx](app/videos/[slug]/page.tsx).
+- [x] `getAnsweredFaqs` filter changed `answer != ""` → `count(answer) > 0` (answer is now an array). `FaqDoc.answer` + `CustomCategoryFaq.a` + `VideoSummary.description` retyped to `PortableTextBlock[]`. Search delta (`getAllFaqSearchEntries`) still indexes the (plain) question; FAQ answer body is not a search field. Video card teaser uses `portableTextToPlain`.
+- [x] Push-to-Sanity pre-fill ([app/api/sanity/push-category/route.ts](app/api/sanity/push-category/route.ts)) builds valid Portable Text for `faqs[].a` via new `plainTextToBlocks` ([lib/portable-text/html-to-blocks.ts](lib/portable-text/html-to-blocks.ts)), mirroring the existing `introHtml` conversion.
+- [x] Migration `pnpm migrate-richtext-answers` ([scripts/migrations/migrate-richtext-answers.ts](scripts/migrations/migrate-richtext-answers.ts)) — converts existing plain strings to PT (split on blank lines, no auto-linking), idempotent (skips arrays), covers published + drafts. **RUN 2026-06-29: 73 faq answers, 7 video descriptions, 20 customCategory faq items (4 docs). Re-run = 0 changes (idempotent confirmed).**
+- [x] `pnpm typecheck` clean. `/cat/[...slug]` render path unchanged (no new `searchParams`/uncached fetch) — stays static.
+- Scope note: the page-builder `faqAccordion` answer is left as plain text (not requested) — can get the same `richAnswer` treatment later if wanted. Auto (non-pushed) `/cat` JSON FAQs stay plain; Patrick pushes a page to Sanity to add a link to its FAQ (existing "push to edit" model).
+
+---
+
 ## Module 6: QA, Migration, Launch
 
 ### [ ] M6-601: URL audit

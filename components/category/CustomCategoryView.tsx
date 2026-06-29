@@ -8,6 +8,7 @@ import { ProductGrid } from '@/components/category/ProductGrid';
 import { Schema } from '@/components/seo/Schema';
 import { pagePortableComponents } from '@/components/page-sections/portable-text';
 import { collectionPageSchema, itemListSchema } from '@/lib/seo/schema-generators';
+import { portableTextToPlain } from '@/lib/portable-text/to-plain';
 import { affiliateUrl } from '@/lib/affiliate-url';
 import { urlForImage } from '@/lib/sanity/client';
 import type { GeigerProduct } from '@/lib/product-types';
@@ -79,7 +80,7 @@ export function CustomCategoryView({ doc, baseUrl, products }: Props) {
             mainEntity: doc.faqs!.map((f) => ({
               '@type': 'Question',
               name: f.q,
-              acceptedAnswer: { '@type': 'Answer', text: f.a },
+              acceptedAnswer: { '@type': 'Answer', text: portableTextToPlain(f.a) },
             })),
           }}
         />

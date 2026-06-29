@@ -67,7 +67,9 @@ export default defineType({
           type: 'object',
           fields: [
             { name: 'q', title: 'Question', type: 'string' },
-            { name: 'a', title: 'Answer', type: 'text', rows: 3 },
+            // Rich text (Task B) so answers can contain links. The FAQPage
+            // JSON-LD still uses a plain-text extraction of this value.
+            { name: 'a', title: 'Answer', type: 'richAnswer' },
           ],
           preview: { select: { title: 'q' } },
         },

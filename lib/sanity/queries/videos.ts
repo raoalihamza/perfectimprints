@@ -1,3 +1,4 @@
+import type { PortableTextBlock } from '@portabletext/react';
 import { client } from '@/lib/sanity/client';
 import type { SanityImage, SanitySlug, SeoFields } from '@/lib/sanity/types';
 
@@ -12,7 +13,8 @@ export interface VideoSummary {
   slug: SanitySlug;
   embedUrl: string;
   thumbnail?: SanityImage;
-  description?: string;
+  /** Rich text (Task B). Rendered with links; plain-texted for meta + schema. */
+  description?: PortableTextBlock[];
   publishDate?: string;
   category?: VideoCategoryRef;
   seo?: SeoFields;

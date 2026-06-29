@@ -1,4 +1,5 @@
 import { FAQ_CATEGORIES, FAQ_CATEGORY_VALUES } from '@/lib/faqs/categories';
+import { RichAnswer } from '@/components/portable-text/RichAnswer';
 import type { FaqDoc } from '@/lib/sanity/queries/faqs';
 
 const OTHER = { value: 'other-questions', title: 'More Questions' };
@@ -49,8 +50,8 @@ export function FaqList({ faqs }: { faqs: FaqDoc[] }) {
                     />
                   </svg>
                 </summary>
-                <div className="mt-3 whitespace-pre-line leading-relaxed text-text-primary">
-                  {f.answer}
+                <div className="mt-3 leading-relaxed text-text-primary">
+                  <RichAnswer value={f.answer} />
                 </div>
               </details>
             ))}

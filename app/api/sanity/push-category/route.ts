@@ -8,7 +8,7 @@
 
 import { NextResponse } from 'next/server';
 import { getCategoryContent } from '@/lib/categories';
-import { htmlToBlocks, buildGuideBlocks } from '@/lib/portable-text/html-to-blocks';
+import { htmlToBlocks, buildGuideBlocks, plainTextToBlocks } from '@/lib/portable-text/html-to-blocks';
 
 export const dynamic = 'force-dynamic';
 
@@ -43,7 +43,10 @@ export async function GET(request: Request) {
     bodySections: buildGuideBlocks(content.buyingGuideH2, content.buyingGuideHtml),
     faqs: (content.faqs ?? []).map((f) => {
       faqKey += 1;
-      return { _key: `faq-${Date.now().toString(36)}-${faqKey}`, q: f.q, a: f.a };
+      // The baked JSON answer is a plain string; the customCategory schema now
+      // stores it as Portable Text (richAnswer), so convert on push (mirrors how
+      // introHtml/bodySections are converted) — pushed pages start valid.
+      return { _key: `faq-${Date.now().toString(36)}-${faqKey}`, q: f.q, a: plainTextToBlocks(f.a) };
     }),
     productSkus: content.productSkus ?? [],
     externalUrl: '',

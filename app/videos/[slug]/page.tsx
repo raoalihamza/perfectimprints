@@ -10,6 +10,8 @@ import { getVideoBySlug, getVideoSlugs, getRelatedVideos } from '@/lib/sanity/qu
 import { toVideoCardData } from '@/lib/video/card-data';
 import { parseVideoEmbed, videoThumbnailUrl } from '@/lib/video/embed';
 import { videoObjectSchema } from '@/lib/seo/schema-generators';
+import { portableTextToPlain } from '@/lib/portable-text/to-plain';
+import { RichAnswer } from '@/components/portable-text/RichAnswer';
 import type { SanityImage } from '@/lib/sanity/types';
 import { formatDate } from '@/lib/utils';
 
@@ -50,7 +52,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Explicit SEO fields win; otherwise fall back to the on-page content.
   const title = video.seo?.metaTitle || `${video.title} | Perfect Imprints`;
   const ogTitle = video.seo?.metaTitle || video.title;
-  const description = video.seo?.metaDescription || video.description;
+  // meta/OG/Twitter descriptions must stay plain strings.
+  const description = video.seo?.metaDescription || portableTextToPlain(video.description) || undefined;
   const poster =
     buildImageUrl(video.seo?.ogImage, (b) => b.width(1200)) ??
     resolvePosterUrl(video.thumbnail, video.embedUrl);
@@ -88,7 +91,7 @@ export default async function VideoDetailPage({ params }: Props) {
 
   const schema = videoObjectSchema({
     name: video.title,
-    description: video.description,
+    description: portableTextToPlain(video.description) || undefined,
     thumbnailUrl: poster,
     uploadDate: video.publishDate,
     embedUrl: embedSrc || undefined,
@@ -128,9 +131,9 @@ export default async function VideoDetailPage({ params }: Props) {
 
           <VideoEmbed url={video.embedUrl} title={video.title} />
 
-          {video.description ? (
-            <div className="mt-6 whitespace-pre-line text-lg leading-relaxed text-text-primary">
-              {video.description}
+          {video.description && video.description.length > 0 ? (
+            <div className="mt-6 text-lg leading-relaxed text-text-primary">
+              <RichAnswer value={video.description} />
             </div>
           ) : null}
 
