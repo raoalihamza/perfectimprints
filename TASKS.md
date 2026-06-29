@@ -1506,6 +1506,12 @@ Builds on M5-517's `customSchema`. Keeps raw-paste `jsonLd[]` (Option 1) unchang
 - [x] `pnpm typecheck` clean. Render path unchanged / still static (no `/cat` regression).
 - Note: guided per-type form editors can still be layered on top of this raw-block + AI foundation later.
 
+**Follow-up fix (Task C-3, 2026-06-30) — injector missed the listing pages.** Testing found a published `customSchema` for `/blog` didn't render: Task C mounted `CustomSchemaJsonLd` only on blog DETAIL (`/blog/[slug]`), not the blog LISTING/pagination/category routes. Mounted the **same** cache-tagged injector (no new read surface, no new tag, no CDN read) on the missed public pages, each passing its exact canonical path:
+- [x] `/blog` ([app/blog/page.tsx](app/blog/page.tsx)), `/blog/page/N` ([app/blog/page/[n]/page.tsx](app/blog/page/[n]/page.tsx) → `/blog/page/<n>`), `/blog/cat/<slug>` ([app/blog/cat/[slug]/page.tsx](app/blog/cat/[slug]/page.tsx)), `/blog/cat/<slug>/page/N` ([app/blog/cat/[slug]/page/[n]/page.tsx](app/blog/cat/[slug]/page/[n]/page.tsx)).
+- [x] Audit of all other public routes added it where missing: `/promotional-products` ([app/promotional-products/page.tsx](app/promotional-products/page.tsx), keyed to the clean canonical that every filter/sort/page variant canonicalizes back to) and `/services/<slug>` ([app/services/[slug]/page.tsx](app/services/[slug]/page.tsx)).
+- [x] Already had it (no double-add): `/cat/...`, `/blog/<slug>`, `/videos` + `/videos/<slug>`, home, `/brands` + `/brands/<slug>`, `/deals`, `/new-products`, `/rush-products`, `/faq`, and all static/legal pages (via the shared `StaticPage` component). Intentionally NOT added: `/search` (noindex), `/rush-promotional-products` (legacy stub, canonical → `/rush-products`), `/style-guide` + `/admin*` (internal).
+- [x] **No webhook / env / freshness change** — `customSchema`+`pageUrl` already in the filter/projection (Task C); reuses the existing `customSchema:<path>` cache tag the webhook already busts. All these pages stay statically prerendered / on-demand SSG (the injector adds no `searchParams`/`no-store`). Guide already says "any page" — no guide change needed. `pnpm typecheck` clean.
+
 ---
 
 ## Module 6: QA, Migration, Launch

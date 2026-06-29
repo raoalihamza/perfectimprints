@@ -5,6 +5,7 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { BlogGrid } from '@/components/blog/BlogGrid';
 import { BlogPagination } from '@/components/blog/BlogPagination';
 import { BlogSidebar } from '@/components/blog/BlogSidebar';
+import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import {
   getAllBlogCategories,
   getBlogCategoryBySlug,
@@ -62,6 +63,7 @@ export default async function BlogCategoryPaginated({ params }: Props) {
 
   return (
     <>
+      <CustomSchemaJsonLd path={`/blog/cat/${category.slug.current}/page/${page}`} />
       <Container as="section" className="pb-4 pt-6">
         <Breadcrumbs
           items={[

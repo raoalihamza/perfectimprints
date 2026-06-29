@@ -4,6 +4,7 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { BlogGrid } from '@/components/blog/BlogGrid';
 import { BlogPagination } from '@/components/blog/BlogPagination';
 import { BlogSidebar } from '@/components/blog/BlogSidebar';
+import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { getBlogPostsPage, getAllBlogCategories } from '@/lib/sanity/queries/blogs';
 import { socialMeta } from '@/lib/seo/open-graph';
 
@@ -35,6 +36,7 @@ export default async function BlogIndexPage() {
 
   return (
     <>
+      <CustomSchemaJsonLd path="/blog" />
       <Container as="section" className="pb-4 pt-6">
         <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Blog' }]} />
       </Container>

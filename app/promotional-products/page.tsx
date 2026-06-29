@@ -9,6 +9,7 @@ import { PromoSortSelect } from '@/components/promotional-products/PromoSortSele
 import { PromoPagination } from '@/components/promotional-products/PromoPagination';
 import { getPromoClientFacets, getPromoResult } from '@/lib/promotional-products';
 import { PROMO_SORTS, type PromoSort } from '@/lib/promotional-products-sorts';
+import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import type { DealsFilterState } from '@/lib/deals-filter';
 import { PRODUCTS_PER_PAGE } from '@/lib/product-types';
 import { socialMeta } from '@/lib/seo/open-graph';
@@ -82,6 +83,9 @@ export default async function PromotionalProductsPage({ searchParams }: Props) {
 
   return (
     <>
+      {/* Custom schema is keyed to the clean canonical, which every filter/sort/
+          page variant of this route canonicalizes back to. */}
+      <CustomSchemaJsonLd path="/promotional-products" />
       <Container as="section" className="pb-4 pt-6">
         <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Promotional Products' }]} />
       </Container>

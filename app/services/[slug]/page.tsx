@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { Container } from '@/components/ui/Container';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { SectionRenderer } from '@/components/page-sections/SectionRenderer';
+import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { getPageBySlug } from '@/lib/sanity/queries/pages';
 import { SIMPLE_NAV } from '@/lib/nav-data';
 import { socialMeta } from '@/lib/seo/open-graph';
@@ -61,6 +62,7 @@ export default async function ServicePage({ params }: Props) {
 
   return (
     <>
+      <CustomSchemaJsonLd path={`/services/${slug}`} />
       <Container as="section" className="pb-2 pt-6">
         <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: page.title }]} />
       </Container>
