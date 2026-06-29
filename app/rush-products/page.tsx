@@ -3,6 +3,7 @@ import { RushProductsPageBody } from '@/components/rush-products/RushProductsPag
 import { getAugmentedRushProductsData, applyHiddenSkus } from '@/lib/rush-products';
 import { getRushProductsPageCopy } from '@/lib/sanity/queries/rush-products';
 import { getCustomProductsForRushProducts } from '@/lib/sanity/queries/custom-products';
+import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { socialMeta } from '@/lib/seo/open-graph';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
@@ -44,5 +45,10 @@ export default async function RushProductsPage() {
   });
   const data = applyHiddenSkus(augmented, copy.hiddenRushSkus || []);
 
-  return <RushProductsPageBody copy={copy} facets={data.facets} products={data.products} />;
+  return (
+    <>
+      <CustomSchemaJsonLd path="/rush-products" />
+      <RushProductsPageBody copy={copy} facets={data.facets} products={data.products} />
+    </>
+  );
 }

@@ -17,6 +17,7 @@ import video from './documents/video';
 import brand from './documents/brand';
 import leadSubmission from './documents/lead-submission';
 import page from './documents/page';
+import customSchema from './documents/custom-schema';
 
 import seo from './objects/seo';
 import link from './objects/link';
@@ -42,6 +43,7 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   brand,
   leadSubmission,
   page,
+  customSchema,
   seo,
   link,
   richAnswer,

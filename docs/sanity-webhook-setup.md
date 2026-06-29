@@ -29,6 +29,7 @@ ISR fallback.
 | `video` | (rows above) **also busts the `videos` cache tag** |
 | `categoryOverride` | `/cat/<categorySlug>` (needs `categorySlug` in the projection) |
 | `productPlacement` | each `/cat/<slug>` in `addToCategories` + `removeFromCategories` (needs those in the projection) |
+| `customSchema` | the doc's `pageUrl` page (+ busts the `customSchema:<pageUrl>` cache tag) — needs `pageUrl` in the projection |
 
 "Live search delta" = the `/api/search-index` ISR route that carries the
 Sanity-managed slice of site search (blogs, videos, custom categories, custom
@@ -76,8 +77,8 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
 | **URL** | `https://dev.perfectimprints.com/api/sanity/revalidate` |
 | **Dataset** | `production` |
 | **Trigger on** | ✅ Create  ✅ Update  ✅ Delete |
-| **Filter** | `!(_id in path("drafts.**")) && _type in ["megaMenu","globalSettings","homePage","page","blogPost","video","customProduct","customCategory","curatedCategory","faq","categoryOverride","productPlacement"]` |
-| **Projection** | `{_type, slug, categorySlug, addToCategories, removeFromCategories}` |
+| **Filter** | `!(_id in path("drafts.**")) && _type in ["megaMenu","globalSettings","homePage","page","blogPost","video","customProduct","customCategory","curatedCategory","faq","categoryOverride","productPlacement","customSchema"]` |
+| **Projection** | `{_type, slug, categorySlug, pageUrl, addToCategories, removeFromCategories}` |
 | **HTTP method** | `POST` |
 | **HTTP headers** | none (Sanity adds the signature header automatically) |
 | **API version** | latest (leave default) |
@@ -99,9 +100,10 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
 ### Why the projection
 
 The route reads `_type` + `slug.current` for most types, plus `categorySlug`
-(for `categoryOverride`) and `addToCategories` / `removeFromCategories` (for
-`productPlacement`). Including those keeps the payload small while still giving
-the handler everything it needs; unused fields are simply absent for other types.
+(for `categoryOverride`), `addToCategories` / `removeFromCategories` (for
+`productPlacement`), and `pageUrl` (for `customSchema`). Including those keeps the
+payload small while still giving the handler everything it needs; unused fields
+are simply absent for other types.
 
 ## Production webhook (do at launch)
 

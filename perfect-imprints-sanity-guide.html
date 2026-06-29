@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Perfect Imprints - Sanity Studio Guide</title>
+  <style>
+    :root {
+      --ink: #231F20;
+      --red: #E11F1E;
+      --muted: #5b5b5b;
+      --line: #e6e6e6;
+      --soft: #f6f6f7;
+      --softer: #fafafa;
+      --green: #1f8a4c;
+      --amber: #9a6a00;
+      --blue: #0b5fa5;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 32px 22px 96px
+    }
+
+    header.top {
+      border-bottom: 4px solid var(--red);
+      padding-bottom: 18px;
+      margin-bottom: 8px
+    }
+
+    header.top .brand {
+      font-weight: 800;
+      letter-spacing: .04em;
+      color: var(--red);
+      font-size: 13px;
+      text-transform: uppercase
+    }
+
+    h1 {
+      font-size: 30px;
+      line-height: 1.2;
+      margin: 6px 0 6px
+    }
+
+    .sub {
+      color: var(--muted);
+      font-size: 15px;
+      margin: 0
+    }
+
+    h2 {
+      font-size: 23px;
+      margin: 42px 0 10px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line)
+    }
+
+    h3 {
+      font-size: 18px;
+      margin: 26px 0 6px
+    }
+
+    h4 {
+      font-size: 15px;
+      margin: 18px 0 4px;
+      text-transform: uppercase;
+      letter-spacing: .03em;
+      color: var(--muted)
+    }
+
+    p {
+      margin: 10px 0
+    }
+
+    ul,
+    ol {
+      margin: 10px 0 10px 0;
+      padding-left: 22px
+    }
+
+    li {
+      margin: 5px 0
+    }
+
+    code {
+      background: var(--soft);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 13.5px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none
+    }
+
+    a:hover {
+      text-decoration: underline
+    }
+
+    .lead {
+      font-size: 17px
+    }
+
+    .toc {
+      background: var(--softer);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 22px 0
+    }
+
+    .toc h4 {
+      margin-top: 0
+    }
+
+    .toc ol {
+      columns: 2;
+      column-gap: 34px
+    }
+
+    @media(max-width:640px) {
+      .toc ol {
+        columns: 1
+      }
+
+      .toc ol {
+        padding-left: 18px
+      }
+    }
+
+    .toc a {
+      color: var(--ink)
+    }
+
+    .callout {
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin: 16px 0;
+      border: 1px solid
+    }
+
+    .callout p:first-child {
+      margin-top: 0
+    }
+
+    .callout p:last-child {
+      margin-bottom: 0
+    }
+
+    .tip {
+      background: #f1f8f3;
+      border-color: #cfe8d8
+    }
+
+    .tip .label {
+      color: var(--green)
+    }
+
+    .info {
+      background: #eef5fb;
+      border-color: #cfe1f2
+    }
+
+    .info .label {
+      color: var(--blue)
+    }
+
+    .warn {
+      background: #fff6e6;
+      border-color: #f0d9a6
+    }
+
+    .warn .label {
+      color: var(--amber)
+    }
+
+    .danger {
+      background: #fdeceb;
+      border-color: #f3b9b5
+    }
+
+    .danger .label {
+      color: var(--red)
+    }
+
+    .label {
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: .05em;
+      display: block;
+      margin-bottom: 4px
+    }
+
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      padding-left: 0
+    }
+
+    .steps>li {
+      counter-increment: step;
+      position: relative;
+      padding: 4px 0 4px 40px;
+      margin: 6px 0
+    }
+
+    .steps>li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 3px;
+      width: 26px;
+      height: 26px;
+      background: var(--red);
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 26px;
+      font-size: 13px;
+      font-weight: 700
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 14px 0;
+      font-size: 14.5px
+    }
+
+    th,
+    td {
+      border: 1px solid var(--line);
+      padding: 9px 11px;
+      text-align: left;
+      vertical-align: top
+    }
+
+    th {
+      background: var(--soft);
+      font-weight: 700
+    }
+
+    .pill {
+      display: inline-block;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 12.5px;
+      margin: 2px 4px 2px 0
+    }
+
+    .path {
+      font-weight: 600
+    }
+
+    .path .arrow {
+      color: var(--red);
+      padding: 0 4px
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--line);
+      margin: 30px 0
+    }
+
+    .small {
+      font-size: 13.5px;
+      color: var(--muted)
+    }
+
+    footer {
+      margin-top: 48px;
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .backtop {
+      font-size: 12.5px
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header class="top">
+      <div class="brand">Perfect Imprints</div>
+      <h1>Your Sanity Studio Guide</h1>
+      <p class="sub">How to manage your website content, step by step. Written for someone brand new to Sanity. No
+        coding, ever.</p>
+    </header>
+
+    <p class="lead">This guide explains everything in your content dashboard (called <strong>Sanity Studio</strong>):
+      what each menu does, where to change things, how the pieces connect, and the few things to be careful about. Keep
+      it handy and skim the <a href="#tasks">Common Tasks</a> list whenever you just need the quick "where do I click"
+      answer.</p>
+
+    <div class="toc">
+      <h4>Contents</h4>
+      <ol>
+        <li><a href="#basics">Sanity basics (start here)</a></li>
+        <li><a href="#home">Home Page</a></li>
+        <li><a href="#global">Global Settings</a></li>
+        <li><a href="#mega">Mega Menu (top navigation)</a></li>
+        <li><a href="#category-tools">Category pages: the 3 control tools</a></li>
+        <li><a href="#custom-category">Custom Category</a></li>
+        <li><a href="#push">Push to Sanity</a></li>
+        <li><a href="#ai">Generate with AI</a></li>
+        <li><a href="#category-override">Category Override</a></li>
+        <li><a href="#product-placement">Product Placement</a></li>
+        <li><a href="#custom-product">Custom Product</a></li>
+        <li><a href="#curated">Curated Category (do not use)</a></li>
+        <li><a href="#page">Page (the website builder)</a></li>
+        <li><a href="#blog">Blog Post, Blog Category, Author</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#video">Video</a></li>
+        <li><a href="#brand">Brand</a></li>
+        <li><a href="#leads">Lead Submission</a></li>
+        <li><a href="#custom-schema">Custom Schema (advanced SEO)</a></li>
+        <li><a href="#connect">How everything connects</a></li>
+        <li><a href="#tasks">Common tasks (quick reference)</a></li>
+        <li><a href="#warnings">Important warnings</a></li>
+      </ol>
+    </div>
+
+    <!-- ============================================================ -->
+    <h2 id="basics">1. Sanity basics (start here)</h2>
+
+    <p>Your website has two halves. The <strong>public website</strong> is what your customers see. <strong>Sanity
+        Studio</strong> is the private dashboard where you change the words, images, products, links, and pages. You do
+      not touch any code. You fill in fields and click Publish, and the website updates by itself.</p>
+
+    <h3>Opening the Studio and logging in</h3>
+    <p>The Studio lives at a private web address (your developer will give you the exact link, it ends in
+      <code>/admin3773752</code>). Open it in your browser and log in. Once you are in, you will see a list on the left
+      called <strong>Content</strong>. That list is your table of contents for the whole website.</p>
+
+    <h3>The Content list (the left menu)</h3>
+    <p>Everything you can edit is one of the items in that left list: Home Page, Global Settings, Mega Menu, Custom
+      Category, Category Override, Product Placement, Custom Product, Blog Post, Blog Category, Author, FAQ, Video,
+      Brand, Lead Submission, Page (and one item, Curated Category, that you should ignore). The rest of this guide
+      walks through each one.</p>
+
+    <h3>Two kinds of items: singletons and collections</h3>
+    <ul>
+      <li><strong>Singletons</strong> are one-of-a-kind pages. There is exactly one Home Page, one Global Settings, one
+        Mega Menu. You click it and edit the one document.</li>
+      <li><strong>Collections</strong> are lists you add to. Blog Post, Custom Category, Brand, FAQ, and so on each hold
+        many documents. You click the menu item, then either open an existing document or click the <strong>+</strong>
+        (or "Create new") to add another.</li>
+    </ul>
+
+    <h3>The single most important idea: Draft vs Published</h3>
+    <div class="callout info">
+      <span class="label">Read this twice</span>
+      <p>When you edit something, your changes are saved as a <strong>Draft</strong> automatically, but the
+        <strong>public website does not change yet</strong>. The website only updates when you press the blue
+        <strong>Publish</strong> button (bottom-right of the document).</p>
+      <p>So the rule is simple: <strong>edit, then Publish.</strong> If you ever change something and "it didn't update
+        on the site", 99% of the time it is because you forgot to Publish.</p>
+    </div>
+    <p>A document with unpublished changes usually shows a small "Draft" or orange marker. After you Publish, that
+      marker clears. You can keep a draft as long as you like and Publish later, which is handy for preparing something
+      before it goes live.</p>
+
+    <h3>How a change reaches the live site</h3>
+    <p>After you Publish, the website rebuilds the affected page automatically, usually within a minute. You do not need
+      to call your developer, and nothing needs to be "deployed". Publish is all it takes.</p>
+
+    <h3>Editing fields</h3>
+    <p>Inside a document you will see labelled boxes (fields). Some are simple text, some are rich text (where you can
+      make words <strong>bold</strong> or add a link), some are lists you can drag to reorder, and some are images. A
+      few useful habits:</p>
+    <ul>
+      <li><strong>Rich text links:</strong> select the words you want to turn into a link, then click the link button in
+        the little toolbar and type the address (for example <code>/rush-products</code> for a page on your own site, or
+        a full <code>https://...</code> address for an outside site). Do not type the link as raw code like
+        <code>&lt;a href...&gt;</code>; use the link button instead.</li>
+      <li><strong>Images:</strong> most image fields let you either <strong>upload</strong> a file or, in some places,
+        paste an image <strong>URL</strong>. Uploading is preferred. To swap an image, open the field and choose a new
+        file.</li>
+      <li><strong>Lists:</strong> drag the handle on the left of a row to reorder. Use the <strong>+</strong> or "Add
+        item" to add. Click the three dots or the X to remove.</li>
+      <li><strong>Hide instead of delete:</strong> in several places (the page builder especially) there is a "Hidden"
+        toggle. Turning it on removes a section from the live page without deleting your work, so you can bring it back
+        later.</li>
+    </ul>
+
+    <h3>The three tabs at the very top</h3>
+    <ul>
+      <li><strong>Structure</strong> is the normal editing view (the Content list). You will be here almost all the
+        time.</li>
+      <li><strong>Vision</strong> is a technical query tool. <strong>Ignore it.</strong> You will never need it.</li>
+      <li><strong>Push to Sanity</strong> is a special tool for taking over one of your existing category pages so you
+        can edit it. It has its own section below (<a href="#push">jump to it</a>).</li>
+    </ul>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="home">2. Home Page</h2>
+    <p>This singleton controls your homepage, top to bottom. Open <span class="path">Content <span
+          class="arrow">›</span> Home Page</span>. The fields, in roughly the order they appear on the page:</p>
+
+    <h4>Hero (the big text at the top)</h4>
+    <p>Three editable pieces: a small <strong>eyebrow</strong> line ("BULK PROMOTIONAL EXPERTS SINCE 1999"), the big
+      <strong>headline</strong> ("Custom Promotional Products That People Actually Use"), and the
+      <strong>sub-paragraph</strong> below it. Change the words here and Publish. (There is also an older image-banner
+      field kept as a fallback; you do not need it.)</p>
+
+    <h4>Banner Row heading + the three banners</h4>
+    <p>Just under the hero is a row of up to three image banners (Sunglasses, Event Tents, Hats, by default). You can
+      edit:</p>
+    <ul>
+      <li>The <strong>heading</strong> above the row ("Featured Product Categories") and its <strong>sub-line</strong>.
+      </li>
+      <li>Each <strong>banner</strong>: its image, the link it goes to (for example <code>/cat/sunglasses</code>), and
+        its alt text. Swap any image, change any link, or remove a banner. An empty row simply shows nothing.</li>
+    </ul>
+
+    <h4>Value Pillars (the three feature boxes)</h4>
+    <p>The boxes like "Bulk Pricing on 22,000+ Products" and "Rush Production Available". Each has a heading and a body.
+      The body is rich text, so you can <strong>add links</strong> inside it (select the words, click the link button).
+      If you ever add a <strong>fourth or more</strong> pillar, the row automatically turns into a rotating carousel
+      showing three at a time.</p>
+
+    <h4>Testimonials + heading</h4>
+    <p>The customer quotes section. You can edit the <strong>heading</strong> ("What Our Customers are Saying") and the
+      list of testimonials (each has the quote, the person's name, and their title/company). The section shows three at
+      a time and scrolls/rotates automatically when there are more than three.</p>
+
+    <h4>Section headings for the product rows</h4>
+    <p>There are editable headings for the "New and Trending Promotional Products" row and the "Rush Production
+      Promotional Products" row. The products in those rows are pulled in automatically; you control the headings here.
+    </p>
+
+    <h4>Bottom SEO text</h4>
+    <p>The long paragraph block near the footer ("Perfect Imprints has been helping businesses..."). It is rich text and
+      spans the full width; links inside it show in red.</p>
+
+    <h4>Homepage meta title and description</h4>
+    <p>The title and description Google shows for your homepage in search results. Pre-set to your approved copy; edit
+      if you wish, keeping the title short (around 60 characters) and the description around 155 characters.</p>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="global">3. Global Settings</h2>
+    <p>This singleton holds the things that appear <strong>across the whole site</strong> (header, footer, contact
+      details). Change something here and it updates everywhere at once. Open <span class="path">Content <span
+          class="arrow">›</span> Global Settings</span>.</p>
+
+    <h4>Contact details + hours</h4>
+    <p>Your <strong>phone number</strong>, <strong>email</strong>, <strong>mailing address</strong>, and <strong>hours
+        of operation</strong> ("M-F 9:00 AM-5:00 PM EST"). These feed the footer, the contact areas, and the business
+      information Google reads about you. Update them here in one place.</p>
+
+    <h4>Social Links</h4>
+    <p>Your social media profiles (Instagram, TikTok, LinkedIn, Facebook, X, YouTube, Pinterest). For each one you set
+      the platform, paste the profile URL, and toggle it on. The matching icon appears automatically. Turn one off and
+      it disappears from the footer; there are no dead placeholder links.</p>
+
+    <h4>Footer Columns (the three link columns)</h4>
+    <p>The footer's three link columns (<strong>About Us</strong>, <strong>Popular Links</strong>, <strong>Customer
+        Service</strong>) are fully editable here. Change a label, change where a link points, add or remove links, or
+      reorder them. The Contact column and the social icons are handled separately (above), not in this list.</p>
+
+    <h4>Copyright text</h4>
+    <p>The line at the very bottom. Use <code>(year)</code> as a placeholder and it is replaced with the current year
+      automatically.</p>
+
+    <h4>CTA Banner</h4>
+    <p>Default wording for the call-to-action banner used in places around the site (heading, body, button label and
+      link).</p>
+
+    <h4>Deals / New Products / Rush Products page controls</h4>
+    <p>Each of these three aggregator pages has a small set of controls here:</p>
+    <ul>
+      <li><strong>Heading, intro paragraph, meta title and description</strong> for the page.</li>
+      <li><strong>Hide these SKUs</strong>: paste a product's SKU to remove it from that page's grid.</li>
+      <li><strong>Pin these SKUs</strong>: paste a SKU to force a product onto that page even if the automatic feed
+        missed it.</li>
+    </ul>
+    <p class="small">The products on these three pages are refreshed automatically from Geiger every week. These
+      controls let you nudge what shows without anyone touching the feed.</p>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="mega">4. Mega Menu (the top navigation)</h2>
+    <p>This singleton is your main website menu, the bar across the top (Shop by, All Categories, New Products, Rush
+      Products, Deals, Brands, Services, Videos, Blog). Open <span class="path">Content <span class="arrow">›</span>
+        Mega Menu</span>. The <strong>Items</strong> list is the menu, left to right; drag to reorder, and the live
+      header follows.</p>
+    <p>Each item has a <strong>Type</strong>:</p>
+    <ul>
+      <li><strong>Plain link</strong>: a single clickable word with one address (New Products, Deals, Brands, Videos,
+        Blog).</li>
+      <li><strong>Dropdown (flat list)</strong>: a simple drop-down of links (Services: Kitting, Company Stores, and so
+        on).</li>
+      <li><strong>Mega panel (columns)</strong>: the big multi-column panels (Shop by, All Categories). These have
+        columns, each with a header and a list of links.</li>
+    </ul>
+    <p>You can rename items, change where they link, hide them, add new ones, or reorder them. For most day-to-day needs
+      you will only ever tweak a label or a link here.</p>
+    <div class="callout info">
+      <span class="label">Note</span>
+      <p>The two big panels (Shop by, All Categories) already contain hundreds of category links generated from your
+        full catalog. You can edit them, but you usually will not need to. Be careful not to delete a whole panel by
+        accident.</p>
+    </div>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="category-tools">5. Your category pages, and the three tools that control them</h2>
+
+    <p>This is the most important section to understand, because it is where most of your day-to-day product work
+      happens, and there are three related tools that can confuse newcomers. Read this overview first, then the three
+      tools that follow.</p>
+
+    <h3>How category pages work by default</h3>
+    <p>You have about <strong>22,180 category pages</strong> (like <code>/cat/water-bottles</code> or
+      <code>/cat/backpacks</code>). They were generated automatically, with their heading, intro text, buying guide,
+      FAQs, and product grid already built in. <strong>You do not need to touch most of them.</strong> They run
+      themselves and pull live products from Geiger.</p>
+    <p>You only step in when you want to <strong>change</strong> one: edit its words, add or remove specific products,
+      take it over completely, or build a brand-new category page that does not exist yet. That is what the three tools
+      are for.</p>
+
+    <h3>The three tools at a glance</h3>
+    <table>
+      <tr>
+        <th>Tool</th>
+        <th>Think of it as</th>
+        <th>Use it when you want to…</th>
+      </tr>
+      <tr>
+        <td><strong>Custom Category</strong></td>
+        <td>Taking over (or creating) a whole page</td>
+        <td>Edit the words, heading, intro, buying guide, FAQs, and product list of a page, or build a brand-new
+          category page from scratch.</td>
+      </tr>
+      <tr>
+        <td><strong>Category Override</strong></td>
+        <td>A light touch-up on one existing page</td>
+        <td>Just add or remove a few products on a page, or force a page to show the contact form instead of products,
+          <em>without</em> rewriting the whole page.</td>
+      </tr>
+      <tr>
+        <td><strong>Product Placement</strong></td>
+        <td>Moving one product around</td>
+        <td>Put one specific product into several categories at once (or remove it from several), working from the
+          product's side instead of the page's side.</td>
+      </tr>
+    </table>
+
+    <div class="callout tip">
+      <span class="label">Simple rule of thumb</span>
+      <p><strong>Editing the page's words/content?</strong> Use Custom Category (usually via Push to Sanity).<br>
+        <strong>Just adding or removing a few products on one page?</strong> Use Category Override.<br>
+        <strong>One product needs to appear in many pages?</strong> Use Product Placement.
+      </p>
+    </div>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="custom-category">6. Custom Category (take over or create a page)</h2>
+
+    <p>A <strong>Custom Category</strong> document is a full category page that <strong>you</strong> control. When you
+      publish one, it takes over its web address (for example, a Custom Category with slug <code>backpacks</code> takes
+      over <code>/cat/backpacks</code>) and the page is now driven by what you typed, not the automatic version. Delete
+      or unpublish it, and the page falls back to the automatic version. Nothing is lost.</p>
+
+    <p>Two ways to make one:</p>
+    <ul>
+      <li><strong>To take over a page that already exists</strong> (like <code>/cat/backpacks</code>): use the <a
+          href="#push">Push to Sanity</a> tool. It creates the Custom Category for you <strong>already filled
+          in</strong> with the current heading, text, FAQs, and products, so you start from what is live and just edit.
+        This is the recommended path.</li>
+      <li><strong>To build a brand-new page</strong> that does not exist yet: open <span class="path">Content <span
+            class="arrow">›</span> Custom Category</span>, click <strong>Create new</strong>, and fill it in from
+        scratch.</li>
+    </ul>
+
+    <h3>The fields you will see</h3>
+    <ul>
+      <li><strong>Title / heading (H1)</strong>: the big page title.</li>
+      <li><strong>Slug</strong>: the web address segment after <code>/cat/</code>. Pick carefully; this is the page's
+        address.</li>
+      <li><strong>SEO (meta title and description)</strong>: what Google shows in search results.</li>
+      <li><strong>Intro</strong>: the lead-in paragraph under the heading (rich text).</li>
+      <li><strong>Body / buying guide</strong>: the longer content lower on the page (rich text, with headings).</li>
+      <li><strong>FAQs</strong>: question-and-answer pairs that appear on the page (and help your SEO).</li>
+      <li><strong>Products</strong>: the product list for the page. You add products with the searchable picker (type a
+        product name, SKU, or brand and click to add). You can also add <a href="#custom-product">Custom Products</a>
+        here.</li>
+      <li><strong>External link (optional)</strong>: if set, the page's buttons point there; if left blank, buttons
+        point to your contact form.</li>
+    </ul>
+
+    <h3>Editing, then publishing</h3>
+    <ol class="steps">
+      <li>Open the Custom Category (or create it via Push to Sanity).</li>
+      <li>Edit any fields you want: heading, intro, buying guide, FAQs, products.</li>
+      <li>Optionally use the <a href="#ai">Generate with AI</a> button to draft the text for you.</li>
+      <li>Review everything, especially the product list.</li>
+      <li>Click <strong>Publish</strong>. The page is now live with your version.</li>
+    </ol>
+
+    <div class="callout danger">
+      <span class="label">Important: the "full-capped-60" categories</span>
+      <p>A small number of categories (around 65, such as <code>belt-buckles</code>) do not have a clean set of Geiger
+        products, so the automatic system quietly hid an off-topic fallback set of about 60 products behind a "show the
+        contact form instead" rule. That is fine while the page runs automatically.</p>
+      <p><strong>But the moment you take such a page over with Push to Sanity, those ~60 off-topic products get copied
+          into your product list and the "hide" rule no longer applies, so they become visible.</strong> Before you
+        Publish a page like this, look through the Products list and remove anything off-topic (or turn on Force CTA /
+        leave the external link blank so it shows the contact form instead). Always review the product list before
+        publishing a category you just pushed.</p>
+      <p>If all you want is to put the <em>right</em> products on such a page (not rewrite its text), there is an easier
+        way that skips this problem entirely: use a <a href="#category-override">Category Override</a> with
+        <strong>Replace products</strong> turned on, then add just the correct items. That ignores Geiger's ~60 wrong
+        products from the start, so only your items show.</p>
+    </div>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="push">7. Push to Sanity (the takeover tool)</h2>
+    <p>This is the tab at the very top of the Studio. Its only job: let you <strong>take over an existing category
+        page</strong> so you can edit it. It saves you from rebuilding the page by hand.</p>
+    <ol class="steps">
+      <li>Click the <strong>Push to Sanity</strong> tab at the top.</li>
+      <li>Search for the category you want (by name or slug, for example "backpacks").</li>
+      <li>Click <strong>Push to Sanity</strong> on that result.</li>
+      <li>It creates a <a href="#custom-category">Custom Category</a> document <strong>already filled in</strong> with
+        that page's current heading, meta, intro, buying guide, FAQs, and products.</li>
+      <li>Go to <span class="path">Content <span class="arrow">›</span> Custom Category</span>, open the new document,
+        edit what you want, <strong>review the product list</strong> (see the warning above), and
+        <strong>Publish</strong>.</li>
+    </ol>
+    <p>From then on, that web address is served from your edited version. If you ever want the original automatic
+      version back, delete or unpublish the Custom Category.</p>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="ai">8. Generate with AI (the writing helper)</h2>
+    <p>This is a button that appears <strong>only on Custom Category documents</strong> (you will see it among the
+      document's actions, near the Publish button). It uses AI to draft page content for you.</p>
+    <ul>
+      <li><strong>What it fills:</strong> the intro paragraph, the buying-guide body, and the FAQs, written for
+        promotional-products buyers.</li>
+      <li><strong>What it does NOT do:</strong> it does not choose products for you, and it does not publish. You stay
+        in control.</li>
+    </ul>
+    <ol class="steps">
+      <li>Open a Custom Category document.</li>
+      <li>Click <strong>Generate with AI</strong>.</li>
+      <li>Wait a few seconds while it writes the intro, body, and FAQs.</li>
+      <li><strong>Read and edit</strong> the result so it sounds right for you.</li>
+      <li>Set the product list yourself, then <strong>Publish</strong>.</li>
+    </ol>
+    <div class="callout warn">
+      <span class="label">Always review AI text</span>
+      <p>The AI is a helpful first draft, not a final answer. Read it before publishing, fix anything that is generic or
+        inaccurate, and make sure the products and claims match what you actually offer.</p>
+    </div>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="category-override">9. Category Override (a light touch-up)</h2>
+    <p>Use this when you want to <strong>tweak an existing category page's products</strong> without taking the whole
+      page over. Open <span class="path">Content <span class="arrow">›</span> Category Override</span> and
+      <strong>Create new</strong>.</p>
+    <ul>
+      <li><strong>Category Slug</strong>: search and pick the page you want to affect (this writes the exact address so
+        a typo cannot point at nothing).</li>
+      <li><strong>Force CTA (hide product grid)</strong>: turn on to make the page always show the lead/contact form
+        instead of products. Highest priority.</li>
+      <li><strong>Force Products (always show grid)</strong>: turn on to make a page show products even if the automatic
+        rule would have hidden them. (Ignored if Force CTA is also on.)</li>
+      <li><strong>Replace products (show only what I add)</strong>: turn on to <strong>ignore the products Geiger files
+          under this page</strong> and show <strong>only</strong> the SKUs and Custom Products you add below. This is
+        the fix for an empty or off-topic page where Geiger returns the wrong items (for example a page that was showing
+        ~60 unrelated products). Turn it on, add the correct products in Added SKUs / Added Products, and Publish, only
+        your items show. Hidden SKUs still apply. If you turn it on but add nothing, the page shows the contact form
+        instead. (You do not also need Force Products when using this; a non-empty replaced list shows the grid on its
+        own.)</li>
+      <li><strong>Hidden SKUs</strong>: search and add products you want <strong>removed</strong> from this page's grid.
+      </li>
+      <li><strong>Added SKUs</strong>: search and add existing Geiger products you want <strong>added</strong> to this
+        page, even if Geiger does not file them under it.</li>
+      <li><strong>Added Products</strong>: add your own <a href="#custom-product">Custom Products</a> to this page.</li>
+    </ul>
+    <p>Publish, and the page reflects your tweaks while keeping its original heading, text, and FAQs. This is the
+      recommended way to fix an "off-topic" category without rewriting it: hide the wrong items, turn on Force CTA to
+      show the contact form, or, for an empty/off-topic page where the whole product set is wrong, turn on
+      <strong>Replace products</strong> and add just the correct items.</p>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="product-placement">10. Product Placement (one product, many pages)</h2>
+    <p>Category Override works from the <em>page's</em> side ("on this page, add/remove these products"). Product
+      Placement works from the <em>product's</em> side ("this product should appear on these pages"). Use it when one
+      product needs to show up in several categories at once. Open <span class="path">Content <span
+          class="arrow">›</span> Product Placement</span> and <strong>Create new</strong>.</p>
+    <ul>
+      <li><strong>SKU</strong>: search and pick the one product (you will see its name confirmed as a preview).</li>
+      <li><strong>Add to categories</strong>: pick all the category pages this product should appear on.</li>
+      <li><strong>Remove from categories</strong>: pick any category pages it should be taken off.</li>
+    </ul>
+    <p>Publish, and that product is added to (or removed from) every page you listed. If a page is named in both an
+      Override and a Placement, removal always wins (a product told to be removed stays removed).</p>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="custom-product">11. Custom Product (products you add yourself)</h2>
+    <p>Your category pages normally pull products from Geiger automatically. A <strong>Custom Product</strong> is
+      something <strong>you</strong> add by hand, for example an item from a different vendor, or anything you want to
+      feature beyond the auto-pulled catalog. Open <span class="path">Content <span class="arrow">›</span> Custom
+        Product</span> and <strong>Create new</strong>.</p>
+    <ul>
+      <li><strong>Title, image, description</strong>: the basics shown on the product card.</li>
+      <li><strong>External URL</strong>: where the card links (any vendor; your own Geiger links are handled
+        automatically).</li>
+      <li><strong>Parent category</strong>: the category page this product should appear on.</li>
+      <li><strong>Display order</strong>: where it sits in the grid.</li>
+      <li><strong>Placements</strong>: toggles to also show it on Deals, New Products, and/or Rush Products.</li>
+      <li><strong>Optional details</strong> (only needed for the Deals/New/Rush pages): brand, prices, minimum quantity,
+        production time, colors, material, and "new/sale/closeout" badges. If you fill in colors and material using the
+        same words Geiger uses, your custom product joins the filters alongside the Geiger products.</li>
+    </ul>
+    <p>A Custom Product can be attached to a category in three ways: its own Parent category field, an <a
+        href="#category-override">Category Override</a> "Added Products", or a <a href="#custom-category">Custom
+        Category</a>'s product list.</p>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="curated">12. Curated Category — do not use</h2>
+    <div class="callout warn">
+      <span class="label">Skip this one</span>
+      <p>There is an old menu item called <strong>Curated Category</strong>. It still appears in your Content list and
+        you can open it, but it has been replaced by <strong>Custom Category</strong> and <strong>no longer powers any
+          page</strong> on the site, creating a document here will not show up anywhere. Please do not create documents
+        in it; just leave it alone. To edit or build a category page, always use <a href="#custom-category">Custom
+          Category</a> (usually via <a href="#push">Push to Sanity</a>).</p>
+    </div>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="page">13. Page (the website builder)</h2>
+    <p>The <strong>Page</strong> collection powers your non-category pages: the Services pages (Kitting, Company Stores,
+      Popup Stores, 100% Custom Products) and your legal/info pages (About, Contact, Sample Policy, Shipping, Returns,
+      Privacy &amp; Security, Company Core Values, Terms). Open <span class="path">Content <span class="arrow">›</span>
+        Page</span> and pick the page you want.</p>
+
+    <p>Each Page has a <strong>Title</strong>, a <strong>Slug</strong> (its address, for example <code>kitting</code>
+      becomes <code>/services/kitting</code>), an <strong>SEO</strong> section, and a list of <strong>Sections</strong>.
+      The Sections list is your website builder: drag to reorder, add a new section, delete one, or hide one without
+      deleting it.</p>
+
+    <h4>The section types you can add</h4>
+    <table>
+      <tr>
+        <th>Section</th>
+        <th>What it is</th>
+      </tr>
+      <tr>
+        <td><strong>Hero Banner</strong></td>
+        <td>A heading + subheading with a banner image and an optional button. A toggle controls whether the text sits
+          on top of the image or above it.</td>
+      </tr>
+      <tr>
+        <td><strong>Rich Text</strong></td>
+        <td>A block of formatted text (with optional heading and links). Can also be made into an in-page jump target.
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Image + Text</strong></td>
+        <td>A heading, a full-width image, then text below it (stacked vertically).</td>
+      </tr>
+      <tr>
+        <td><strong>Infographic</strong></td>
+        <td>A full-width image with an optional caption.</td>
+      </tr>
+      <tr>
+        <td><strong>Icon Feature Columns</strong></td>
+        <td>2, 3, or 4 columns, each with an icon, heading, and short text.</td>
+      </tr>
+      <tr>
+        <td><strong>Stat Banner</strong></td>
+        <td>A colored band highlighting a number or stat.</td>
+      </tr>
+      <tr>
+        <td><strong>Card Grid</strong></td>
+        <td>A grid of cards, each with an optional image and button.</td>
+      </tr>
+      <tr>
+        <td><strong>CTA Block</strong></td>
+        <td>A heading with one or more call-to-action buttons.</td>
+      </tr>
+      <tr>
+        <td><strong>Event List</strong></td>
+        <td>Rows of city / venue / date / time (for trade shows or events).</td>
+      </tr>
+      <tr>
+        <td><strong>FAQ Accordion</strong></td>
+        <td>Question-and-answer pairs that expand and collapse.</td>
+      </tr>
+    </table>
+
+    <p>Every section has a <strong>Hidden</strong> toggle, so you can take a section off the live page and keep it for
+      later. Image fields let you upload a file (preferred) or, in some, paste an image URL. After editing,
+      <strong>Publish</strong>.</p>
+
+    <div class="callout info">
+      <span class="label">Good to know</span>
+      <p>Some Services pages may currently be drafts with placeholder text and empty image slots, waiting for your real
+        copy and images. Fill those in and Publish when you are ready. The page addresses already match your site's
+        menu, so you do not need to set up any links.</p>
+    </div>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="blog">14. Blog Post, Blog Category, Author</h2>
+    <p>These three work together for your blog (around 649 posts already migrated).</p>
+
+    <h4>Blog Post</h4>
+    <p>Open <span class="path">Content <span class="arrow">›</span> Blog Post</span> to edit an existing post or create
+      a new one. A post has a title, slug (its address under <code>/blog/</code>), header image, the body (rich text),
+      an author, and a blog category. Inside the body you can also insert a <strong>row of product cards</strong>
+      between paragraphs (each either pulled live by SKU or added manually with a title, image, and link), just like
+      your old blog did.</p>
+
+    <h4>Blog Category</h4>
+    <p>The blog's topic groupings. Each has a title, slug, and description. Posts are filed under these, and they power
+      the blog's category submenu.</p>
+
+    <h4>Author</h4>
+    <p>The people who write posts. Each has a name, short bio, and photo. You pick an author when editing a post.</p>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="faq">15. FAQ</h2>
+    <p>Open <span class="path">Content <span class="arrow">›</span> FAQ</span> to manage the questions on your
+      <code>/faq</code> page. Each FAQ has a question, an answer, and a category it belongs to, so the page stays
+      organized into groups. Add, edit, reorder, or remove questions, then Publish. (This is the site-wide FAQ library;
+      it is separate from the FAQs you can put on an individual <a href="#custom-category">Custom Category</a> page.)
+    </p>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="video">16. Video</h2>
+    <p>Open <span class="path">Content <span class="arrow">›</span> Video</span> to manage the items on your Videos
+      page. Add a video with its details and Publish. Use this whenever you want a new video to appear in the Videos
+      section.</p>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="brand">17. Brand</h2>
+    <p>Open <span class="path">Content <span class="arrow">›</span> Brand</span> to manage your brand pages (around 205
+      brands with logos, shown on <code>/brands</code>). Each brand has its name and logo. Add or edit a brand and
+      Publish to update the brands grid.</p>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="leads">18. Lead Submission (your contact form leads)</h2>
+    <p>When someone fills in your contact or quote form, a <strong>Lead Submission</strong> is recorded here, and you
+      also get an email. Open <span class="path">Content <span class="arrow">›</span> Lead Submission</span> to browse
+      past submissions: name, email, phone, what they are looking for, quantity, date needed, the page they came from,
+      and any <strong>files they attached</strong> (logos or artwork). This is a record to read, not something you
+      create.</p>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="custom-schema">19. Custom Schema (advanced SEO / structured data)</h2>
+    <p>This is an <strong>optional, advanced</strong> tool. It lets you add extra
+      <strong>structured data</strong> (also called "schema" or "JSON-LD") to <strong>any page on the site</strong> —
+      a category page, a blog post, a video, the home page, an info page, anything. Structured data is invisible code
+      that helps Google and AI tools understand a page. You do <strong>not</strong> need this for normal SEO; the site
+      already adds the important schema for you automatically. Use this only when you want to add a specific extra type.</p>
+
+    <div class="callout">
+      <span class="label">The big idea: no "push" needed</span>
+      <p>Unlike taking over a category page, you do <strong>not</strong> have to push or take over a page to add schema to
+        it. Each Custom Schema is <strong>one small document</strong> that simply points at a page by its address. Make
+        one for each page you want to add schema to.</p>
+    </div>
+
+    <p>Open <span class="path">Content <span class="arrow">›</span> Custom Schema (Structured Data)</span> and
+      <strong>Create new</strong>.</p>
+    <ul>
+      <li><strong>Page URL (path):</strong> the page you are adding schema to. Start typing a category name to find a
+        <code>/cat/...</code> page, or type any other path directly — for example <code>/about</code>,
+        <code>/blog/your-post</code>, <code>/videos/your-video</code>, or just <code>/</code> for the home page.</li>
+      <li><strong>Schema type (for AI):</strong> only used by the AI button below.</li>
+      <li><strong>Details for AI:</strong> optional notes the AI should use.</li>
+      <li><strong>JSON-LD blocks:</strong> the actual schema. You can add more than one block to the same page.</li>
+    </ul>
+
+    <h3>Two ways to add a schema block</h3>
+    <p><strong>Option 1 — paste it in.</strong> If you already have JSON-LD (for example from a free online
+      "schema markup generator"), click <strong>Add item</strong> under JSON-LD blocks and paste it in. It must be valid
+      JSON containing <code>@context</code> and <code>@type</code>; if it is broken, Sanity won't let you publish until
+      you fix it.</p>
+    <p><strong>Option 2 — let AI write it (easiest).</strong> No outside tool needed:</p>
+    <ol class="steps">
+      <li>Set the <strong>Page URL</strong>.</li>
+      <li>Pick a <strong>Schema type</strong> from the dropdown (e.g. Web Application, Product, How-To, Event).</li>
+      <li>Optionally fill in <strong>Details for AI</strong> (e.g. "free web-based app for designing custom mugs").</li>
+      <li>Click <strong>Generate schema with AI</strong> (in the document actions, near the Publish button).</li>
+      <li>A new JSON-LD block appears in the list. <strong>Read and edit it</strong> so the details are correct.</li>
+      <li><strong>Publish.</strong> The schema appears on that page within seconds.</li>
+    </ol>
+
+    <div class="callout warn">
+      <span class="label">Don't re-add schema the site already provides</span>
+      <p>The site automatically adds <strong>FAQ</strong>, <strong>Organization</strong>, <strong>Website</strong>,
+        <strong>Breadcrumb</strong>, and <strong>Video</strong> schema on the right pages. Do not add those here — it
+        would create duplicates. That is why they are not in the Schema type dropdown.</p>
+    </div>
+
+    <div class="callout warn">
+      <span class="label">Always review AI output</span>
+      <p>The AI gives you a solid starting point, but check the values (prices, names, links, descriptions) before
+        publishing. If you are unsure whether you need schema on a page, you can safely skip this tool — it is optional.</p>
+    </div>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="connect">20. How everything connects</h2>
+    <p>A quick mental map of what drives what:</p>
+    <ul>
+      <li><strong>Global Settings</strong> drives the header and footer of <em>every</em> page (contact details, social
+        icons, footer link columns, copyright).</li>
+      <li><strong>Home Page</strong> drives only the homepage.</li>
+      <li><strong>Mega Menu</strong> drives the top navigation bar across the site.</li>
+      <li><strong>Category pages</strong> (<code>/cat/...</code>) run automatically, and are shaped by the three tools:
+        <strong>Custom Category</strong> (take over the whole page), <strong>Category Override</strong> (tweak its
+        products), and <strong>Product Placement</strong> (push one product across many pages). <strong>Push to
+          Sanity</strong> is how you start a takeover; <strong>Generate with AI</strong> helps write a Custom Category's
+        text; <strong>Custom Product</strong> supplies non-Geiger items that any of these can place.</li>
+      <li><strong>Blog Post</strong> connects to <strong>Author</strong> and <strong>Blog Category</strong>.</li>
+      <li><strong>Page</strong> drives the Services and legal/info pages through the section builder.</li>
+      <li><strong>FAQ</strong>, <strong>Video</strong>, and <strong>Brand</strong> each drive their own page
+        (<code>/faq</code>, <code>/videos</code>, <code>/brands</code>).</li>
+      <li><strong>Lead Submission</strong> is the inbox for your contact form.</li>
+      <li><strong>Custom Schema</strong> is an optional advanced tool that adds extra SEO structured data to any page,
+        without taking the page over.</li>
+      <li><strong>Curated Category</strong> still shows in the list but no longer powers any page; ignore it.</li>
+    </ul>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="tasks">21. Common tasks (quick reference)</h2>
+    <table>
+      <tr>
+        <th>I want to…</th>
+        <th>Go to</th>
+      </tr>
+      <tr>
+        <td>Change my phone, email, address, or hours</td>
+        <td>Global Settings &rsaquo; Contact</td>
+      </tr>
+      <tr>
+        <td>Add or fix a social media link</td>
+        <td>Global Settings &rsaquo; Social Links</td>
+      </tr>
+      <tr>
+        <td>Change a footer link (About / Popular / Customer Service)</td>
+        <td>Global Settings &rsaquo; Footer Columns</td>
+      </tr>
+      <tr>
+        <td>Edit the big homepage headline text</td>
+        <td>Home Page &rsaquo; Hero</td>
+      </tr>
+      <tr>
+        <td>Swap a homepage banner image or its link</td>
+        <td>Home Page &rsaquo; Banner Row</td>
+      </tr>
+      <tr>
+        <td>Add a link inside a homepage feature box</td>
+        <td>Home Page &rsaquo; Value Pillars (use the link button)</td>
+      </tr>
+      <tr>
+        <td>Edit a customer testimonial</td>
+        <td>Home Page &rsaquo; Testimonials</td>
+      </tr>
+      <tr>
+        <td>Rename a top-menu item or change where it links</td>
+        <td>Mega Menu &rsaquo; Items</td>
+      </tr>
+      <tr>
+        <td>Take over and edit an existing category page</td>
+        <td>Push to Sanity (then Custom Category), review products, Publish</td>
+      </tr>
+      <tr>
+        <td>Build a brand-new category page</td>
+        <td>Custom Category &rsaquo; Create new</td>
+      </tr>
+      <tr>
+        <td>Let AI draft a category page's text</td>
+        <td>Open the Custom Category, click Generate with AI, then edit</td>
+      </tr>
+      <tr>
+        <td>Remove a wrong product from a category</td>
+        <td>Category Override &rsaquo; Hidden SKUs</td>
+      </tr>
+      <tr>
+        <td>Add a product to a category</td>
+        <td>Category Override &rsaquo; Added SKUs (one page) or Product Placement (many pages)</td>
+      </tr>
+      <tr>
+        <td>Make a category show the contact form instead of products</td>
+        <td>Category Override &rsaquo; Force CTA</td>
+      </tr>
+      <tr>
+        <td>Fix an empty/off-topic category to show ONLY the products I add</td>
+        <td>Category Override &rsaquo; Replace products (then add Added SKUs)</td>
+      </tr>
+      <tr>
+        <td>Add a product from a different vendor</td>
+        <td>Custom Product</td>
+      </tr>
+      <tr>
+        <td>Put one product onto several category pages</td>
+        <td>Product Placement</td>
+      </tr>
+      <tr>
+        <td>Write or edit a blog post</td>
+        <td>Blog Post</td>
+      </tr>
+      <tr>
+        <td>Edit an About / Terms / Services page</td>
+        <td>Page</td>
+      </tr>
+      <tr>
+        <td>Add or edit an FAQ</td>
+        <td>FAQ</td>
+      </tr>
+      <tr>
+        <td>Add a brand logo</td>
+        <td>Brand</td>
+      </tr>
+      <tr>
+        <td>See who submitted the contact form</td>
+        <td>Lead Submission</td>
+      </tr>
+    </table>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="warnings">22. Important warnings (keep these in mind)</h2>
+
+    <div class="callout danger">
+      <span class="label">1. Always review products before publishing a pushed category</span>
+      <p>When you use Push to Sanity on a category that did not have clean Geiger products (the "full-capped-60" ones,
+        like belt-buckles), about 60 off-topic products get copied in and become visible once you publish.
+        <strong>Review and clear the product list first</strong>, or turn on Force CTA / leave the external link blank
+        so the page shows the contact form instead. (Full details in the <a href="#custom-category">Custom Category</a>
+        section.)</p>
+    </div>
+
+    <div class="callout warn">
+      <span class="label">2. Nothing is live until you Publish</span>
+      <p>Editing saves a draft, but the website does not change until you press Publish. If a change "did not work,"
+        check whether you published it.</p>
+    </div>
+
+    <div class="callout warn">
+      <span class="label">3. Always review AI-generated text</span>
+      <p>Generate with AI gives you a first draft. Read it, edit it, and make sure it is accurate before publishing.</p>
+    </div>
+
+    <div class="callout warn">
+      <span class="label">4. Do not use Curated Category</span>
+      <p>It still appears in your Content list, but it no longer powers any page on the site. Leave it alone and use
+        Custom Category instead.</p>
+    </div>
+
+    <div class="callout info">
+      <span class="label">5. Add links with the link button, not raw code</span>
+      <p>In rich-text fields, select the words and click the link button. Do not paste link code like
+        <code>&lt;a href...&gt;</code>; it will show as plain text instead of a working link.</p>
+    </div>
+
+    <footer>
+      <p>Perfect Imprints — Sanity Studio Guide. If anything in your Studio looks different from this guide, or you are
+        unsure before changing something, ask your developer first. When in doubt, you can always unpublish or delete a
+        Custom Category or Override to return a page to its automatic version.</p>
+    </footer>
+
+  </div>
+</body>
+
+</html>

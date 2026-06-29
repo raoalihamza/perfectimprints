@@ -12,6 +12,7 @@ import { TestimonialsLazy } from '@/components/home/TestimonialsLazy';
 import { BlogPreview } from '@/components/home/BlogPreview';
 import { HomeCtaBanner } from '@/components/home/HomeCtaBanner';
 import { OrganizationJsonLd } from '@/components/seo/OrganizationJsonLd';
+import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 
 import { socialMeta } from '@/lib/seo/open-graph';
 import { getHomePage, getHomeCtaBanner } from '@/lib/sanity/queries/home';
@@ -78,6 +79,7 @@ export default async function HomePage() {
     <>
       {/* Organization (local-business) JSON-LD — home + contact only (M-SEO3). */}
       <OrganizationJsonLd />
+      <CustomSchemaJsonLd path="/" />
       <Hero hero={home.hero} />
       <ValuePillars pillars={home.valueProps} />
       {/* <FeaturedBlocks blocks={home.featuredBlocks} /> */}

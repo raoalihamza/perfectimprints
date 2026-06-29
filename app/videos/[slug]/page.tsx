@@ -10,6 +10,7 @@ import { getVideoBySlug, getVideoSlugs, getRelatedVideos } from '@/lib/sanity/qu
 import { toVideoCardData } from '@/lib/video/card-data';
 import { parseVideoEmbed, videoThumbnailUrl } from '@/lib/video/embed';
 import { videoObjectSchema } from '@/lib/seo/schema-generators';
+import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { portableTextToPlain } from '@/lib/portable-text/to-plain';
 import { RichAnswer } from '@/components/portable-text/RichAnswer';
 import type { SanityImage } from '@/lib/sanity/types';
@@ -154,6 +155,7 @@ export default async function VideoDetailPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
+      <CustomSchemaJsonLd path={`/videos/${video.slug.current}`} />
     </>
   );
 }

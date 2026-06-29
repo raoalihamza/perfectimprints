@@ -16,6 +16,7 @@ import {
   RELATED_BLOGS_TAG,
   VIDEOS_TAG,
   categoryTag,
+  customSchemaTag,
 } from '@/lib/sanity/cache-tags';
 
 // Types whose content is rendered inside the shared root layout (Header / Footer
@@ -98,6 +99,7 @@ export async function POST(request: Request) {
     _type?: string;
     slug?: { current?: string };
     categorySlug?: string;
+    pageUrl?: string;
     addToCategories?: string[];
     removeFromCategories?: string[];
   } = {};
@@ -181,6 +183,20 @@ export async function POST(request: Request) {
       revalidatePath(`/cat/${s}`);
     }
     return NextResponse.json({ revalidated: unique.length > 0, paths: unique.map((s) => `/cat/${s}`), type });
+  }
+
+  // Custom structured data (Task C) keyed by an exact page path. On publish or
+  // delete, bust that path's customSchema tag and revalidate the page so the
+  // injected JSON-LD goes live (or disappears) within seconds. (Webhook GROQ
+  // projection must include `pageUrl`.)
+  if (type === 'customSchema') {
+    const pageUrl = payload.pageUrl;
+    if (pageUrl) {
+      revalidateTag(customSchemaTag(pageUrl), 'max');
+      revalidatePath(pageUrl);
+      return NextResponse.json({ revalidated: true, scope: pageUrl, type });
+    }
+    return NextResponse.json({ revalidated: false, reason: 'customSchema missing pageUrl', type });
   }
 
   // Generic section-based `page` documents power BOTH the Services routes

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Container } from '@/components/ui/Container';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { VideosBrowser } from '@/components/videos/VideosBrowser';
+import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { getAllVideos } from '@/lib/sanity/queries/videos';
 import { toVideoCardData } from '@/lib/video/card-data';
 import { socialMeta } from '@/lib/seo/open-graph';
@@ -30,6 +31,7 @@ export default async function VideosIndexPage() {
 
   return (
     <>
+      <CustomSchemaJsonLd path="/videos" />
       <Container as="section" className="pb-4 pt-6">
         <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Videos' }]} />
       </Container>

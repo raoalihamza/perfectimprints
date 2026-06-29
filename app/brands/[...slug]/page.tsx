@@ -16,6 +16,7 @@ import {
   type Brand,
 } from '@/lib/brands';
 import { PRODUCTS_PER_PAGE, paginateProducts } from '@/lib/categories';
+import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { socialMeta } from '@/lib/seo/open-graph';
 
 interface Props {
@@ -157,6 +158,7 @@ export default async function BrandPage({ params }: Props) {
 
   return (
     <>
+      <CustomSchemaJsonLd path={parsed.baseUrl} />
       <Container as="section" className="pb-4 pt-6">
         <Breadcrumbs
           items={[

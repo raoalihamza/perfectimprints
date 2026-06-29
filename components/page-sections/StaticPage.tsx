@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation';
 import { Container } from '@/components/ui/Container';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { SectionRenderer } from './SectionRenderer';
+import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { getPageBySlug } from '@/lib/sanity/queries/pages';
 import { socialMeta } from '@/lib/seo/open-graph';
 
@@ -66,6 +67,7 @@ export async function StaticPage({
 
   return (
     <>
+      <CustomSchemaJsonLd path={`/${slug}`} />
       <Container as="section" className="pb-2 pt-6">
         <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: page.title || fallbackTitle }]} />
       </Container>

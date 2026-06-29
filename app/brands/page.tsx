@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Container } from '@/components/ui/Container';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { getBrandsGroupedByLetter, type Brand } from '@/lib/brands';
+import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { socialMeta } from '@/lib/seo/open-graph';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
@@ -80,6 +81,7 @@ export default async function BrandsIndexPage() {
 
   return (
     <>
+      <CustomSchemaJsonLd path="/brands" />
       <Container as="section" className="pb-4 pt-6">
         <Breadcrumbs
           items={[

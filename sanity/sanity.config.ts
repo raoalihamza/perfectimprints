@@ -4,6 +4,7 @@ import { visionTool } from '@sanity/vision';
 import { schemaTypes } from './schemas';
 import { deskStructure } from './desk-structure';
 import { generateWithAi } from './actions/generate-with-ai';
+import { generateSchemaWithAi } from './actions/generate-schema-with-ai';
 import { pushCategoryTool } from './tools/push-category-tool';
 import { projectId, dataset, apiVersion } from './env';
 
@@ -26,8 +27,12 @@ export default defineConfig({
     types: schemaTypes,
   },
   document: {
-    // "Generate with AI" appears only on customCategory documents (M5-505).
-    actions: (prev, context) =>
-      context.schemaType === 'customCategory' ? [...prev, generateWithAi] : prev,
+    // Per-type AI document actions: "Generate with AI" on customCategory (M5-505),
+    // "Generate schema with AI" on customSchema (Task C-2).
+    actions: (prev, context) => {
+      if (context.schemaType === 'customCategory') return [...prev, generateWithAi];
+      if (context.schemaType === 'customSchema') return [...prev, generateSchemaWithAi];
+      return prev;
+    },
   },
 });

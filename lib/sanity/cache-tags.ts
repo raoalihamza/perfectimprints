@@ -44,3 +44,15 @@ export const VIDEOS_TAG = 'videos';
 export function categoryTag(slug: string): string {
   return `cat:${slug}`;
 }
+
+/**
+ * Per-path tag for the custom structured-data injector (Task C). Keyed by the
+ * full page path (e.g. `customSchema:/cat/water-bottles`, `customSchema:/about`,
+ * `customSchema:/`). The `CustomSchemaJsonLd` server component reads through a
+ * cache-tagged fetch (revalidate:false, never `no-store`) so the host page stays
+ * statically prerenderable; the webhook busts this exact tag on `customSchema`
+ * publish/delete so an edit goes live in seconds.
+ */
+export function customSchemaTag(path: string): string {
+  return `customSchema:${path}`;
+}

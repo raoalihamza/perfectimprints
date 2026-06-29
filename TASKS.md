@@ -1442,7 +1442,7 @@ Three Sanity-controlled levers per aggregator page:
 
 ---
 
-### [x] M5-515: "Replace products" toggle on categoryOverride (DONE 2026-06-29)
+### [x] M5-518: "Replace products" toggle on categoryOverride (Task A, DONE 2026-06-30)
 
 Patrick reported: on an empty/off-topic category like `/cat/beach-towels` (one of the ~65 `full-capped-60` categories where Geiger returns ~60 unrelated fallback SKUs, e.g. bags), he turned on Force Products and added the correct beach-towel SKUs — but the grid then showed his SKUs PLUS the ~60 wrong bags. He needed a way to show ONLY the products he adds. Added a manual opt-in toggle that discards the baked/fallback set for that category. No change to `/cat` static behavior.
 
@@ -1453,6 +1453,8 @@ Patrick reported: on an empty/off-topic category like `/cat/beach-towels` (one o
 - [x] Patrick's beach-towels fix: open the Category Override → turn on **Replace products** → add the beach-towel SKUs → Publish → only the beach towels show, the bags are gone (no `forceProducts` needed — a non-empty replaced list shows the grid on its own).
 - [x] No webhook change needed (`categorySlug` already projected; `replaceProducts` read via the existing override fetch). `customCategory` pages unaffected (no fallback set to ignore).
 - [x] `pnpm typecheck` clean. CLAUDE.md `categoryOverride` section + precedence updated. No data backfill / migration script.
+- [x] Non-technical Studio guide ([perfect-imprints-sanity-guide.html](perfect-imprints-sanity-guide.html)) updated: Replace-products field in the Category Override section, the off-topic-fix pointer in the `full-capped-60` warning, and a Common-tasks row.
+- [x] No webhook/projection change — `docs/sanity-webhook-setup.md` unchanged (the `categoryOverride` filter + `categorySlug` projection already cover this; `replaceProducts` is read at render time, not needed for revalidation routing).
 
       **Depends on.** M5-504 part 1 (`categoryOverride` + `mergeCategoryProducts`).
 
@@ -1477,6 +1479,32 @@ Patrick wants to add links inside FAQ answers (e.g. a `/cat/pepper-spray` FAQ) a
 
 1. **Webhook filter excluded `faq`.** The revalidate route HANDLES `faq` (→ `revalidatePath('/faq')`), but the live Sanity webhook **Filter** never listed `faq`, so faq publishes sent nothing → `/faq` sat on its 1-week ISR floor. Fix: add `"faq"` to the webhook Filter (Patrick updated the staging webhook live; [docs/sanity-webhook-setup.md](docs/sanity-webhook-setup.md) corrected — filter now lists every handled type incl. `faq`/`categoryOverride`/`productPlacement`, projection includes `categorySlug`/`addToCategories`/`removeFromCategories`). Production webhook gets the same at launch. **Manual Sanity-dashboard action — no env change.**
 2. **CDN propagation race.** `getAnsweredFaqs` + all `lib/sanity/queries/videos.ts` reads used the **CDN** `client` (`useCdn:true`); on a publish the webhook regenerated the page before Sanity's CDN propagated, so it could re-cache the STALE answer until the weekly floor. Fix: switched those reads to the **non-CDN `cachedClient`** with cache tags `FAQS_TAG` (`faqs`) / `VIDEOS_TAG` (`videos`) ([lib/sanity/cache-tags.ts](lib/sanity/cache-tags.ts)); the webhook now `revalidateTag('faqs'|'videos','max')`s on `faq`/`video` publish ([app/api/sanity/revalidate/route.ts](app/api/sanity/revalidate/route.ts)). Deterministic instant updates; `/faq` stays ISR-static, `/videos` stays force-static/on-demand, `/cat` untouched. `pnpm typecheck` clean. (Takes effect once this branch deploys to the target env — it's a code fix, not a per-edit build; after deploy every Sanity publish is live in seconds.)
+
+### [x] M5-517: FAQ schema on category pages + custom structured data on any page (Task C, DONE 2026-06-30)
+
+Two related SEO additions. No `/cat` static-render change (every Sanity read in a render path is a cache-tagged fetch with `revalidate:false`, never `no-store`).
+
+**Part 1 — Auto FAQPage schema on auto (JSON) category pages.** Already wired in [app/cat/[...slug]/page.tsx](app/cat/[...slug]/page.tsx): root pages with a non-empty `content.faqs` push `faqPageSchema(content.faqs.map(f => ({question:f.q, answer:f.a})))` into the page JSON-LD graph — emitted ONLY when FAQs are present + visible (matches the "FAQs render on root pages only" rule), and NOT on `customCategory` pages (CustomCategoryView emits its own FAQPage). Honest note for Patrick: since 2023 Google only shows the FAQ rich result for gov/health sites, so on a commercial site the schema is valid + present but the rich result likely won't display — still correct to include.
+
+**Part 2 — Custom structured data on any page (no push required).**
+- [x] New `customSchema` Sanity document ([sanity/schemas/documents/custom-schema.ts](sanity/schemas/documents/custom-schema.ts), registered in [sanity/schemas/index.ts](sanity/schemas/index.ts)): `pageUrl` (searchable [PageUrlInput](sanity/components/PageUrlPicker.tsx) — searches the all-URL `category-list.json` for `/cat/...` pages AND accepts a manually typed path for any other page; validated: starts with `/`, no domain, no trailing slash except root), optional `label`, and `jsonLd[]` raw blocks **custom-validated at publish as parseable JSON with `@context` + `@type`** (multiple blocks allowed). One doc per page you want to touch — same model as `categoryOverride`, no bulk push.
+- [x] Shared async server injector [components/seo/CustomSchemaJsonLd.tsx](components/seo/CustomSchemaJsonLd.tsx) reads the doc(s) for the exact path via the cache-tagged [getCustomSchemaForPath](lib/sanity/queries/custom-schema.ts) (`cachedClient`, tag `customSchema:<path>`, `revalidate:false`), emits each block as a `<script type="application/ld+json">` (escapes `<` to block `</script>` breakout), renders nothing when no match. Dropped into: category route (incl. customCategory path), blog detail, video detail, `StaticPage` (static/legal), home, brands index + per-brand, `/deals`, `/new-products`, `/rush-products`, `/faq`, `/videos`.
+- [x] Webhook ([app/api/sanity/revalidate/route.ts](app/api/sanity/revalidate/route.ts)): `customSchema` → `revalidateTag(customSchema:<pageUrl>,'max')` + `revalidatePath(pageUrl)` on publish/delete; `pageUrl` added to the payload type. [docs/sanity-webhook-setup.md](docs/sanity-webhook-setup.md) filter + projection updated to include `customSchema` / `pageUrl` (Patrick adds it to the live Sanity webhook — manual dashboard action).
+- [x] `pnpm typecheck` clean. `/cat/[...slug]` stays statically prerendered (no new `searchParams`/uncached fetch).
+- Note: guided per-type editors (WebApplication, HowTo, Product, Event) can be layered on this raw-block foundation later if Patrick wants them.
+
+### [x] M5-518: Guided + AI schema generation on Custom Schema (Task C-2, DONE 2026-06-30)
+
+Builds on M5-517's `customSchema`. Keeps raw-paste `jsonLd[]` (Option 1) unchanged; adds an AI-assisted path (Option 2) so Patrick doesn't need a 3rd-party generator. Mirrors the customCategory "Generate with AI" flow exactly.
+
+- [x] `customSchema` gains an optional `schemaType` dropdown + optional `aiContext` text ([sanity/schemas/documents/custom-schema.ts](sanity/schemas/documents/custom-schema.ts)). The dropdown is a **curated list excluding the auto-emitted schemas** (FAQPage, Organization, WebSite, BreadcrumbList, VideoObject, CollectionPage, BlogPosting): WebApplication, SoftwareApplication, Product, Service, Offer, HowTo, Article, Event, Review, AggregateRating, ItemList. The `jsonLd[]` description carries the same don't-re-add-those caution.
+- [x] New "Generate schema with AI" Studio document action ([sanity/actions/generate-schema-with-ai.tsx](sanity/actions/generate-schema-with-ai.tsx), registered for `customSchema` in [sanity/sanity.config.ts](sanity/sanity.config.ts)) — disabled until a `schemaType` is picked; POSTs `schemaType` + `aiContext` + `pageUrl` to the new route, **appends** the returned block to `jsonLd[]` (keeps existing blocks), never auto-publishes, shows an error dialog + adds nothing on failure.
+- [x] New route [app/api/sanity/generate-schema/route.ts](app/api/sanity/generate-schema/route.ts) — DeepSeek (`deepseek-chat`, `response_format: json_object`), reuses server-side `DEEPSEEK_API_KEY` (graceful 500 with a clear "paste manually" message when absent). Prompts for ONE JSON-LD object of the chosen type pre-filled with PI/page context, JSON-only; validates the result is a single object with `@context` + a matching `@type` (handles `@type` arrays), returns it pretty-printed. Rejects unknown/blocked types.
+- [x] The generated block is just another `jsonLd[]` entry → editable, removable, publish-validated like a pasted block. Raw-paste (Option 1) untouched.
+- [x] **No webhook change** (Task C already added `customSchema`/`pageUrl` to the filter + projection) and **no new env** (reuses `DEEPSEEK_API_KEY`). **No new Sanity read surface** — the existing `CustomSchemaJsonLd` cache-tagged read (`customSchema:<path>`) + the publish webhook already cover generated/edited blocks. Stated explicitly so it's not missed.
+- [x] In-repo guide [perfect-imprints-sanity-guide.html](perfect-imprints-sanity-guide.html) gains a "Custom Schema" section (#custom-schema): what it is, works on ANY page without pushing (path-keyed, all-URL picker), the **two ways** (paste raw / pick type + Generate with AI then review + Publish), the duplicate caution, one-doc-per-page. (TOC + section numbers updated; connect-map bullet added.)
+- [x] `pnpm typecheck` clean. Render path unchanged / still static (no `/cat` regression).
+- Note: guided per-type form editors can still be layered on top of this raw-block + AI foundation later.
 
 ---
 

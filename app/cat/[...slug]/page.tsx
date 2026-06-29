@@ -16,6 +16,7 @@ import {
   PRODUCTS_PER_PAGE,
 } from '@/lib/categories';
 import { Schema } from '@/components/seo/Schema';
+import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import {
   collectionPageSchema,
   faqPageSchema,
@@ -265,7 +266,12 @@ async function renderCustomCategory(
     placementRemoveSkus: placement.removeSkus,
     extraCustomProducts: custom.customProducts.map(customProductToGeigerProduct),
   });
-  return <CustomCategoryView doc={custom} baseUrl={baseUrl} products={products} />;
+  return (
+    <>
+      <CustomSchemaJsonLd path={baseUrl} />
+      <CustomCategoryView doc={custom} baseUrl={baseUrl} products={products} />
+    </>
+  );
 }
 
 // NOTE: this page intentionally does NOT read `searchParams`. Reading it is a
@@ -388,6 +394,7 @@ export default async function CategoryPage({ params }: Props) {
   return (
     <>
       <Schema data={schemaGraph} />
+      <CustomSchemaJsonLd path={parsed.baseUrl} />
       <Container as="section" className="pb-4 pt-6">
         <Breadcrumbs items={buildBreadcrumbs(parsed.segments, title)} />
       </Container>

@@ -8,6 +8,7 @@ import { BlogSidebar } from '@/components/blog/BlogSidebar';
 import { SocialShareBar } from '@/components/blog/SocialShareBar';
 import { OrderTodayCTA } from '@/components/blog/OrderTodayCTA';
 import { RelatedBlogsForPost } from '@/components/blog/RelatedBlogsForPost';
+import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { buildImageUrl } from '@/lib/sanity/client';
 import {
   getBlogPostBySlug,
@@ -202,6 +203,7 @@ export default async function BlogPostPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
       />
+      <CustomSchemaJsonLd path={`/blog/${post.slug.current}`} />
     </>
   );
 }

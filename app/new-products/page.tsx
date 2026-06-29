@@ -3,6 +3,7 @@ import { NewProductsPageBody } from '@/components/new-products/NewProductsPageBo
 import { getAugmentedNewProductsData, applyHiddenSkus } from '@/lib/new-products';
 import { getNewProductsPageCopy } from '@/lib/sanity/queries/new-products';
 import { getCustomProductsForNewProducts } from '@/lib/sanity/queries/custom-products';
+import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { socialMeta } from '@/lib/seo/open-graph';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
@@ -44,5 +45,10 @@ export default async function NewProductsPage() {
   });
   const data = applyHiddenSkus(augmented, copy.hiddenNewProductSkus || []);
 
-  return <NewProductsPageBody copy={copy} facets={data.facets} products={data.products} />;
+  return (
+    <>
+      <CustomSchemaJsonLd path="/new-products" />
+      <NewProductsPageBody copy={copy} facets={data.facets} products={data.products} />
+    </>
+  );
 }

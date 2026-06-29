@@ -3,6 +3,7 @@ import { DealsPageBody } from '@/components/deals/DealsPageBody';
 import { getAugmentedDealsData, applyHiddenSkus } from '@/lib/deals';
 import { getDealsPageCopy } from '@/lib/sanity/queries/deals';
 import { getCustomProductsForDeals } from '@/lib/sanity/queries/custom-products';
+import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { socialMeta } from '@/lib/seo/open-graph';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
@@ -44,5 +45,10 @@ export default async function DealsPage() {
   });
   const data = applyHiddenSkus(augmented, copy.hiddenDealSkus || []);
 
-  return <DealsPageBody copy={copy} facets={data.facets} products={data.products} />;
+  return (
+    <>
+      <CustomSchemaJsonLd path="/deals" />
+      <DealsPageBody copy={copy} facets={data.facets} products={data.products} />
+    </>
+  );
 }

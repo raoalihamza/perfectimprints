@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Container } from '@/components/ui/Container';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { FaqList } from '@/components/faqs/FaqList';
+import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { faqPageSchema } from '@/lib/seo/schema-generators';
 import { portableTextToPlain } from '@/lib/portable-text/to-plain';
 import { socialMeta } from '@/lib/seo/open-graph';
@@ -33,6 +34,7 @@ export default async function FaqsPage() {
 
   return (
     <Container as="section" className="pb-16 pt-6">
+      <CustomSchemaJsonLd path="/faq" />
       {/* Centered, comfortable-width reading column so the page doesn't sprawl
           full-width on large screens (M5-506 follow-up). */}
       <div className="mx-auto max-w-4xl">
