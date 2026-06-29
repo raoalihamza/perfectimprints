@@ -11,6 +11,8 @@ export interface CategoryOverrideDoc {
   categorySlug: string;
   forceCTA?: boolean;
   forceProducts?: boolean;
+  /** When true, ignore baked `productSkus` — show only added SKUs/products. */
+  replaceProducts?: boolean;
   hiddenSkus?: string[];
   addedSkus?: string[];
   /** Resolved customProduct docs referenced by `addedProducts`. */
@@ -22,6 +24,7 @@ const PROJECTION = `
   "categorySlug": categorySlug,
   forceCTA,
   forceProducts,
+  replaceProducts,
   hiddenSkus,
   addedSkus,
   "addedProducts": addedProducts[]->{
@@ -91,7 +94,7 @@ function trimList(list: string[] | undefined): string[] {
  * Unified category product resolver (M5-504 Part 3). Merges both editing
  * directions into the final ordered product list for a category:
  *
- *   1. baked `productSkus`
+ *   1. baked `productSkus` (ignored when `categoryOverride.replaceProducts`)
  *   2. + `categoryOverride.addedSkus` / `addedProducts`
  *   3. + every `productPlacement` whose `addToCategories` includes this slug
  *   4. − `categoryOverride.hiddenSkus`
@@ -101,6 +104,11 @@ function trimList(list: string[] | undefined): string[] {
  * hidden). De-duped by SKU. SKUs resolved live via `resolveProductsBySku`, so
  * placements survive a Geiger re-scrape; custom products via
  * `customProductToGeigerProduct`. Reuses the lookup layer — no duplication.
+ *
+ * `replaceProducts`: when the override turns it on, the baked `productSkus` are
+ * treated as empty so the grid shows ONLY what Patrick adds (Added SKUs / Added
+ * Products / placement adds), minus hides/removes. Used to fix empty/off-topic
+ * categories whose Geiger fallback set is wrong.
  *
  * Display order: custom/added products first (editorial picks), then placement
  * adds, then baked Geiger products.
@@ -115,9 +123,10 @@ export function mergeCategoryProducts(input: MergeCategoryProductsInput): Geiger
   ]);
 
   // Geiger SKUs in display order: override adds → placement adds → baked.
+  // When `replaceProducts` is on, the baked set is ignored entirely.
   const addSkus = trimList(override?.addedSkus);
   const placementAdds = trimList(input.placementAddSkus);
-  const bakedSkus = trimList(input.bakedSkus);
+  const bakedSkus = override?.replaceProducts ? [] : trimList(input.bakedSkus);
   const orderedSkus: string[] = [];
   const seenSku = new Set<string>();
   for (const sku of [...addSkus, ...placementAdds, ...bakedSkus]) {

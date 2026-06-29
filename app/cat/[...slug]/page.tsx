@@ -314,20 +314,11 @@ export default async function CategoryPage({ params }: Props) {
       ])
     : [null, { addSkus: [], removeSkus: [] }];
 
-  // Per-category Sanity override (forceCTA / forceProducts / hidden+added SKUs).
-  // Precedence: override.forceCTA → override.forceProducts → original shouldShowEmptyStateCTA
-  // (empty-skus, full-capped-60, JSON forceCTA). The earlier exact-match-only
-  // Geiger-menu gate was reverted as too aggressive — off-topic categories are
-  // fixed by targeted `categoryOverride` docs instead.
-  const showCTA = override?.forceCTA
-    ? true
-    : override?.forceProducts
-      ? false
-      : shouldShowEmptyStateCTA(content);
-
   // Unified resolver: baked SKUs + override adds + placement adds − override hides
-  // − placement removes (removal wins). The page renders the UNFILTERED, path-
-  // paginated view (static + indexable); filtering happens client-side.
+  // − placement removes (removal wins). When override.replaceProducts is on the
+  // baked set is ignored, so the grid is ONLY Patrick's added items. The page
+  // renders the UNFILTERED, path-paginated view (static + indexable); filtering
+  // happens client-side.
   const rootSlug = parsed.segments[0];
   const allProducts = mergeCategoryProducts({
     bakedSkus: content.productSkus || [],
@@ -336,6 +327,21 @@ export default async function CategoryPage({ params }: Props) {
     placementRemoveSkus: placement.removeSkus,
   });
   const effectiveSkus = allProducts.map((p) => p.sku);
+
+  // Per-category Sanity override (forceCTA / replaceProducts / forceProducts /
+  // hidden+added SKUs). Precedence (highest first):
+  //   forceCTA → replaceProducts (grid when non-empty, else CTA) → forceProducts
+  //   → original shouldShowEmptyStateCTA (empty-skus, full-capped-60, JSON forceCTA).
+  // replaceProducts lets an empty/off-topic category show ONLY Patrick's products,
+  // overriding the automatic CTA rule (incl. full-capped-60). The earlier
+  // exact-match-only Geiger-menu gate was reverted as too aggressive.
+  const showCTA = override?.forceCTA
+    ? true
+    : override?.replaceProducts
+      ? allProducts.length === 0
+      : override?.forceProducts
+        ? false
+        : shouldShowEmptyStateCTA(content);
   const pageData = paginateProducts(allProducts, parsed.page, PRODUCTS_PER_PAGE);
 
   // Out-of-range page (e.g. /page/99 on a 5-page category) → 404.

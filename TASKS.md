@@ -1442,6 +1442,22 @@ Three Sanity-controlled levers per aggregator page:
 
 ---
 
+### [x] M5-515: "Replace products" toggle on categoryOverride (DONE 2026-06-29)
+
+Patrick reported: on an empty/off-topic category like `/cat/beach-towels` (one of the ~65 `full-capped-60` categories where Geiger returns ~60 unrelated fallback SKUs, e.g. bags), he turned on Force Products and added the correct beach-towel SKUs — but the grid then showed his SKUs PLUS the ~60 wrong bags. He needed a way to show ONLY the products he adds. Added a manual opt-in toggle that discards the baked/fallback set for that category. No change to `/cat` static behavior.
+
+- [x] New boolean field `replaceProducts` ("Replace products (show only what I add)") on `categoryOverride`, placed right after `forceProducts`, default `false`, with a non-technical description ([sanity/schemas/documents/category-override.ts](sanity/schemas/documents/category-override.ts)).
+- [x] `replaceProducts?: boolean` added to the `CategoryOverrideDoc` interface AND the GROQ `PROJECTION` (actually fetched) in [lib/sanity/queries/category-overrides.ts](lib/sanity/queries/category-overrides.ts).
+- [x] `mergeCategoryProducts()` treats baked `productSkus` as empty when `replaceProducts` is true; added SKUs/products + placement adds still apply, hides/removes still apply, removal still wins, de-duped, live-resolved.
+- [x] Render precedence in [app/cat/[...slug]/page.tsx](app/cat/[...slug]/page.tsx): `forceCTA` → `replaceProducts` (grid when the replaced list is non-empty — overrides the automatic CTA rule incl. `full-capped-60`; else CTA) → `forceProducts` → original `shouldShowEmptyStateCTA`. `allProducts` is now computed before the CTA decision so the non-empty check can drive it.
+- [x] Patrick's beach-towels fix: open the Category Override → turn on **Replace products** → add the beach-towel SKUs → Publish → only the beach towels show, the bags are gone (no `forceProducts` needed — a non-empty replaced list shows the grid on its own).
+- [x] No webhook change needed (`categorySlug` already projected; `replaceProducts` read via the existing override fetch). `customCategory` pages unaffected (no fallback set to ignore).
+- [x] `pnpm typecheck` clean. CLAUDE.md `categoryOverride` section + precedence updated. No data backfill / migration script.
+
+      **Depends on.** M5-504 part 1 (`categoryOverride` + `mergeCategoryProducts`).
+
+---
+
 ## Module 6: QA, Migration, Launch
 
 ### [ ] M6-601: URL audit

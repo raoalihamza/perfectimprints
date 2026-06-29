@@ -54,6 +54,14 @@ export default defineType({
         'Escape hatch for the automatic rule. When on, this category shows a product grid even if the Geiger-menu rule would make it CTA-only. Ignored when Force CTA is also on. Combine with Added SKUs / Added Products below to populate an otherwise-empty category.',
     }),
     defineField({
+      name: 'replaceProducts',
+      title: 'Replace products (show only what I add)',
+      type: 'boolean',
+      initialValue: false,
+      description:
+        'When on, this category ignores the products Geiger files under it and shows ONLY the SKUs and custom products you add below (Added SKUs / Added Products). Use this for empty or off-topic categories where Geiger returns the wrong products. Hidden SKUs still apply. If you turn this on but add nothing, the page shows the contact form instead.',
+    }),
+    defineField({
       name: 'hiddenSkus',
       title: 'Hidden SKUs',
       type: 'array',
