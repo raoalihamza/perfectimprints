@@ -1473,6 +1473,11 @@ Patrick wants to add links inside FAQ answers (e.g. a `/cat/pepper-spray` FAQ) a
 - [x] `pnpm typecheck` clean. `/cat/[...slug]` render path unchanged (no new `searchParams`/uncached fetch) — stays static.
 - Scope note: the page-builder `faqAccordion` answer is left as plain text (not requested) — can get the same `richAnswer` treatment later if wanted. Auto (non-pushed) `/cat` JSON FAQs stay plain; Patrick pushes a page to Sanity to add a link to its FAQ (existing "push to edit" model).
 
+**Follow-up (2026-06-29) — FAQ/Video edits not going live after publish.** Two issues surfaced while Patrick tested editing FAQ answers + video descriptions in Studio:
+
+1. **Webhook filter excluded `faq`.** The revalidate route HANDLES `faq` (→ `revalidatePath('/faq')`), but the live Sanity webhook **Filter** never listed `faq`, so faq publishes sent nothing → `/faq` sat on its 1-week ISR floor. Fix: add `"faq"` to the webhook Filter (Patrick updated the staging webhook live; [docs/sanity-webhook-setup.md](docs/sanity-webhook-setup.md) corrected — filter now lists every handled type incl. `faq`/`categoryOverride`/`productPlacement`, projection includes `categorySlug`/`addToCategories`/`removeFromCategories`). Production webhook gets the same at launch. **Manual Sanity-dashboard action — no env change.**
+2. **CDN propagation race.** `getAnsweredFaqs` + all `lib/sanity/queries/videos.ts` reads used the **CDN** `client` (`useCdn:true`); on a publish the webhook regenerated the page before Sanity's CDN propagated, so it could re-cache the STALE answer until the weekly floor. Fix: switched those reads to the **non-CDN `cachedClient`** with cache tags `FAQS_TAG` (`faqs`) / `VIDEOS_TAG` (`videos`) ([lib/sanity/cache-tags.ts](lib/sanity/cache-tags.ts)); the webhook now `revalidateTag('faqs'|'videos','max')`s on `faq`/`video` publish ([app/api/sanity/revalidate/route.ts](app/api/sanity/revalidate/route.ts)). Deterministic instant updates; `/faq` stays ISR-static, `/videos` stays force-static/on-demand, `/cat` untouched. `pnpm typecheck` clean. (Takes effect once this branch deploys to the target env — it's a code fix, not a per-edit build; after deploy every Sanity publish is live in seconds.)
+
 ---
 
 ## Module 6: QA, Migration, Launch

@@ -25,7 +25,8 @@ ISR fallback.
 | `video` | `/videos`, `/videos/<slug>`, **live search delta** |
 | `customProduct` | `/deals`, `/new-products`, `/rush-products`, **live search delta** |
 | `customCategory`, `curatedCategory` | `/cat/<slug>`, **live search delta** |
-| `faq` | `/faq`, **live search delta** |
+| `faq` | `/faq`, **live search delta** (+ busts the `faqs` cache tag) |
+| `video` | (rows above) **also busts the `videos` cache tag** |
 | `categoryOverride` | `/cat/<categorySlug>` (needs `categorySlug` in the projection) |
 | `productPlacement` | each `/cat/<slug>` in `addToCategories` + `removeFromCategories` (needs those in the projection) |
 
@@ -132,7 +133,7 @@ Vercel must match this webhook's Secret).
 | Delivery shows **401** | Secret mismatch between the webhook and Vercel — re-set both to the same value, redeploy. |
 | Delivery shows **500** (`Webhook secret not configured`) | `SANITY_WEBHOOK_SECRET` missing in Vercel for that environment. Add it, redeploy. |
 | Delivery shows **200** but `{ "revalidated": false }` | The published `_type` isn't handled (expected for types outside the table above). |
-| 200 but content still stale | You're looking at a browser/CDN-cached copy; hard-refresh. The search delta also has a small browser cache. |
+| 200 but content still stale | First hard-refresh (browser cache). FAQ + video reads go through the **non-CDN** `cachedClient` + a cache tag (`faqs` / `videos`) the webhook busts, so those update deterministically; other reads on the `client` (CDN) can lag a few seconds while Sanity's CDN propagates. |
 | Nothing fires on publish | Webhook filter excludes the type, or the webhook is disabled, or it points at the wrong environment URL. |
 
 ## Related
