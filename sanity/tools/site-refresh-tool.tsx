@@ -24,6 +24,13 @@ import {
   type RefreshStatus,
 } from '../../lib/site-refresh/workflows';
 
+// Sanity Studio (@sanity/ui) exposes theme CSS variables that flip with
+// light/dark mode. Use them for foreground/muted/border so the panel is readable
+// in BOTH themes (fallbacks keep it sane if a variable is ever missing).
+const FG = 'var(--card-fg-color, #1a1a1a)';
+const MUTED = 'var(--card-muted-fg-color, #6b7280)';
+const BORDER = 'var(--card-border-color, #ced2d9)';
+
 const card: React.CSSProperties = {
   maxWidth: 760,
   margin: '0 auto',
@@ -31,10 +38,11 @@ const card: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'column',
   gap: 16,
+  color: FG,
 };
 
 const wfBox: React.CSSProperties = {
-  border: '1px solid #ced2d9',
+  border: `1px solid ${BORDER}`,
   borderRadius: 6,
   padding: 16,
   display: 'flex',
@@ -81,23 +89,24 @@ interface StatusLabel {
 }
 
 function statusLabel(state: RefreshRunState, justCancelled: boolean): StatusLabel {
-  if (justCancelled) return { text: 'Cancelled — no changes applied.', color: '#6b7280' };
+  // Amber/green/red read fine on both light + dark; greys use the theme muted var.
+  if (justCancelled) return { text: 'Cancelled — no changes applied.', color: MUTED };
   switch (state) {
     case 'queued':
-      return { text: 'Queued — waiting to start…', color: '#b45309' };
+      return { text: 'Queued — waiting to start…', color: '#d97706' };
     case 'running':
-      return { text: 'Running…', color: '#b45309' };
+      return { text: 'Running…', color: '#d97706' };
     case 'success':
-      return { text: 'Last run: finished successfully ✓', color: '#16a34a' };
+      return { text: 'Last run: finished successfully ✓', color: '#22c55e' };
     case 'failed':
-      return { text: 'Last run: failed ✕', color: '#e11f1e' };
+      return { text: 'Last run: failed ✕', color: '#ef4444' };
     case 'cancelled':
-      return { text: 'Last run: cancelled — no changes applied.', color: '#6b7280' };
+      return { text: 'Last run: cancelled — no changes applied.', color: MUTED };
     case 'unknown':
-      return { text: 'Status unavailable.', color: '#6b7280' };
+      return { text: 'Status unavailable.', color: MUTED };
     case 'idle':
     default:
-      return { text: 'Idle — not run recently.', color: '#6b7280' };
+      return { text: 'Idle — not run recently.', color: MUTED };
   }
 }
 
@@ -279,8 +288,8 @@ function SiteRefreshComponent() {
   return (
     <div style={card}>
       <div>
-        <h1 style={{ fontSize: 22, margin: 0 }}>Site Refresh</h1>
-        <p style={{ color: '#6b7280', fontSize: 14 }}>
+        <h1 style={{ fontSize: 22, margin: 0, color: FG }}>Site Refresh</h1>
+        <p style={{ color: MUTED, fontSize: 14 }}>
           Update the product data on your site on demand. The three weekly refreshes also run
           automatically every Sunday — use the buttons here only when you want fresh data sooner.
           When a refresh finds new data it publishes the change for you automatically (no GitHub
@@ -306,20 +315,20 @@ function SiteRefreshComponent() {
         return (
           <div key={wf.key} style={wfBox}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 12 }}>
-              <h2 style={{ fontSize: 16, margin: 0 }}>{wf.label}</h2>
-              <span style={{ fontSize: 12, color: '#6b7280' }}>{wf.duration}</span>
+              <h2 style={{ fontSize: 16, margin: 0, color: FG }}>{wf.label}</h2>
+              <span style={{ fontSize: 12, color: MUTED }}>{wf.duration}</span>
             </div>
-            <p style={{ fontSize: 13, color: '#374151', margin: 0 }}>{wf.description}</p>
+            <p style={{ fontSize: 13, color: FG, margin: 0 }}>{wf.description}</p>
 
             <div style={{ fontSize: 13, color: label.color, fontWeight: 500 }}>
               {label.text}
               {time && !active && (
-                <span style={{ color: '#9ca3af', fontWeight: 400 }}> ({time})</span>
+                <span style={{ color: MUTED, fontWeight: 400 }}> ({time})</span>
               )}
               {st?.htmlUrl && (
                 <>
                   {' '}
-                  <a href={st.htmlUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb' }}>
+                  <a href={st.htmlUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#3b82f6' }}>
                     view details
                   </a>
                 </>
@@ -353,7 +362,7 @@ function SiteRefreshComponent() {
 
       {error && <div style={{ fontSize: 13, color: '#e11f1e' }}>{error}</div>}
 
-      <p style={{ fontSize: 12, color: '#9ca3af', marginTop: 4 }}>
+      <p style={{ fontSize: 12, color: MUTED, marginTop: 4 }}>
         Tip: the Full Catalog Rebuild is the heavy monthly job. It can take a few hours and the site
         re-warms itself automatically after it finishes — you don't need to do anything else.
       </p>
