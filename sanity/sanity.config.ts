@@ -6,6 +6,7 @@ import { deskStructure } from './desk-structure';
 import { generateWithAi } from './actions/generate-with-ai';
 import { generateSchemaWithAi } from './actions/generate-schema-with-ai';
 import { pushCategoryTool } from './tools/push-category-tool';
+import { siteRefreshTool } from './tools/site-refresh-tool';
 import { projectId, dataset, apiVersion } from './env';
 
 export default defineConfig({
@@ -21,8 +22,11 @@ export default defineConfig({
     structureTool({ structure: deskStructure }),
     visionTool({ defaultApiVersion: apiVersion }),
   ],
-  // "Push to Sanity" tool (M5-504 push flow) — take over any baked category page.
-  tools: (prev) => [...prev, pushCategoryTool],
+  // Top-level Studio tools (separate tabs, not under any document):
+  //  • "Push to Sanity" (M5-504) — take over any baked category page.
+  //  • "Site Refresh" (2026-06-30) — trigger / watch / cancel the data-refresh
+  //    GitHub Actions workflows (weekly scrapes + monthly full rebuild).
+  tools: (prev) => [...prev, pushCategoryTool, siteRefreshTool],
   schema: {
     types: schemaTypes,
   },

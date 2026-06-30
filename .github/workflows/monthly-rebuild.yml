@@ -20,6 +20,14 @@ name: Monthly rebuild
 # Phase D (PI→Geiger mapping) is intentionally NOT re-run: it's stable after the
 # first run and the committed data/mappings/pi-to-geiger.json is used as-is.
 #
+# ── Manual-only + auto-merge (Site Refresh, 2026-06-30) ──────────────────────
+# The monthly cron was REMOVED: this full-catalog rebuild now runs ONLY when
+# Patrick presses "Full Catalog Rebuild" in the Sanity "Site Refresh" panel (or a
+# manual workflow_dispatch). On success the assemble job AUTO-MERGES its own PR as
+# the final step, using the exact commit title `chore(data): monthly catalog
+# rebuild` so monthly-warmup.yml's gate fires and the 21K facet warmup runs after
+# the production redeploy. (Previously the PR was opened for manual review.)
+#
 # Required repo secrets (Settings → Secrets and variables → Actions):
 #   DEEPSEEK_API_KEY                      (AI content for new categories)
 #   GMAIL_USER + GMAIL_APP_PASSWORD       (summary email)
@@ -29,9 +37,8 @@ name: Monthly rebuild
 # create and approve pull requests" (same as the weekly scrape jobs).
 
 on:
-  schedule:
-    # First of every month at 00:00 UTC
-    - cron: '0 0 1 * *'
+  # Manual-only (cron removed 2026-06-30). Triggered by the Sanity "Site Refresh"
+  # panel (Full Catalog Rebuild) via the workflows API route, or a manual dispatch.
   workflow_dispatch:
     inputs:
       phases:
@@ -61,7 +68,8 @@ jobs:
       - id: flags
         shell: bash
         env:
-          # Scheduled runs have no input → default to all phases.
+          # The Site Refresh "Full Catalog Rebuild" button (and the workflow's
+          # default) sends A,B,C,E; this fallback covers a dispatch with no input.
           PHASES: ${{ github.event.inputs.phases || 'A,B,C,E' }}
         run: |
           up=$(echo "$PHASES" | tr '[:lower:]' '[:upper:]')
@@ -302,7 +310,7 @@ jobs:
         id: summary
         run: pnpm tsx scripts/monthly/compute-summary.ts
 
-      - name: Open review PR
+      - name: Open rebuild PR
         id: pr
         if: steps.summary.outputs.changed == 'true'
         uses: peter-evans/create-pull-request@v7
@@ -312,8 +320,6 @@ jobs:
           body-path: scripts/monthly/.artifacts/pr-body.md
           branch: monthly-rebuild
           delete-branch: true
-          # Full-catalog changes are intentionally NOT auto-merged — Patrick
-          # reviews the data diff. CI runs on the PR before merge.
           add-paths: |
             data/geiger/categories.json
             data/geiger/products.json
@@ -332,6 +338,32 @@ jobs:
           LEAD_EMAIL_FROM: ${{ secrets.LEAD_EMAIL_FROM }}
           MONTHLY_PR_URL: ${{ steps.pr.outputs.pull-request-url }}
         run: pnpm tsx scripts/monthly/send-summary-email.ts
+
+      # Auto-merge as the FINAL step — only after the whole rebuild succeeded AND a
+      # PR was opened (no PR for an empty run). The squash subject MUST stay exactly
+      # `chore(data): monthly catalog rebuild` so monthly-warmup.yml's gate fires
+      # and the 21K facet warmup runs once after the production redeploy (see
+      # monthly-warmup.yml + post-deploy-warmup.yml). Merge is LAST so a Cancel
+      # before it leaves main untouched (Site Refresh Cancel also closes this PR +
+      # deletes the `monthly-rebuild` branch). Patrick still gets the summary email
+      # above for the record.
+      - name: Auto-merge the rebuild PR
+        if: steps.summary.outputs.changed == 'true' && steps.pr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ steps.pr.outputs.pull-request-number }}
+        run: |
+          for i in 1 2 3 4 5 6; do
+            if gh pr merge "$PR" --squash --delete-branch \
+                 --subject 'chore(data): monthly catalog rebuild'; then
+              echo "Merged PR #$PR."
+              exit 0
+            fi
+            echo "Merge attempt $i failed (PR may still be computing mergeability); retrying in 10s…"
+            sleep 10
+          done
+          echo "::error::Could not auto-merge PR #$PR after retries."
+          exit 1
 
       - name: No changes — skip PR/email
         if: steps.summary.outputs.changed != 'true'

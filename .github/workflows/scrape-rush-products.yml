@@ -45,6 +45,7 @@ jobs:
           fi
 
       - name: Open auto-merge PR
+        id: cpr
         if: steps.diff.outputs.changed == 'true'
         uses: peter-evans/create-pull-request@v7
         with:
@@ -61,6 +62,30 @@ jobs:
           delete-branch: true
           add-paths: |
             data/geiger/rush-products.json
+
+      # Auto-merge as the FINAL step — only after the scrape succeeded AND a PR was
+      # opened (no PR for an empty run). Squash-merges to main so the change ships
+      # and Vercel redeploys without anyone touching GitHub. Behaviour is identical
+      # whether this run started from cron or the Sanity "Site Refresh" button. The
+      # merge is LAST so a Cancel before it leaves main untouched (the Site Refresh
+      # Cancel button additionally closes this PR + deletes the branch).
+      - name: Auto-merge the PR
+        if: steps.cpr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ steps.cpr.outputs.pull-request-number }}
+        run: |
+          for i in 1 2 3 4 5 6; do
+            if gh pr merge "$PR" --squash --delete-branch \
+                 --subject 'chore(rush-products): weekly rush-products snapshot refresh'; then
+              echo "Merged PR #$PR."
+              exit 0
+            fi
+            echo "Merge attempt $i failed (PR may still be computing mergeability); retrying in 10s…"
+            sleep 10
+          done
+          echo "::error::Could not auto-merge PR #$PR after retries."
+          exit 1
 
       - name: No changes — skip PR
         if: steps.diff.outputs.changed == 'false'
