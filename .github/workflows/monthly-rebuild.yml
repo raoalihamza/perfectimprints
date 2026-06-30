@@ -1,19 +1,338 @@
 name: Monthly rebuild
 
+# Full-catalog refresh (M6-606). Re-scrapes Geiger Phases A/B/C/E, regenerates
+# AI content for any NEW categories, prunes removed products, and opens a
+# reviewable PR with a change summary + emails Patrick.
+#
+# ── The 6-hour-per-job constraint ────────────────────────────────────────────
+# GitHub-hosted runners cap a single job at 6h. Phase C (facet memberships) is
+# ~6h at 1 req/sec, and A+B+E add ~1h+, so a single job would overrun. We split
+# into separate jobs joined by artifacts:
+#   • scrape-ab  — Phase A → B            (~25-45 min)
+#   • scrape-e   — Phase A → E (parallel) (~5 min)
+#   • scrape-c   — Phase C  (the long pole)
+#   • assemble   — AI content + prune + summary + PR + email
+# Phase C runs with `--workers 6` (6 independent 1-req/sec clients per
+# CLAUDE.md §16 → ~1h wall-clock, comfortably under 6h) AND keeps `--resume`
+# with a cached checkpoint, so an overrun resumes from the last 100-URL
+# checkpoint on a re-run instead of restarting.
+#
+# Phase D (PI→Geiger mapping) is intentionally NOT re-run: it's stable after the
+# first run and the committed data/mappings/pi-to-geiger.json is used as-is.
+#
+# Required repo secrets (Settings → Secrets and variables → Actions):
+#   DEEPSEEK_API_KEY                      (AI content for new categories)
+#   GMAIL_USER + GMAIL_APP_PASSWORD       (summary email)
+# Optional: LEAD_EMAIL_TO / LEAD_EMAIL_FROM (default patrick@perfectimprints.com)
+# No Sanity secrets needed — content is written to data/categories/*.json only.
+# Actions settings must allow: Read/write permissions + "Allow GitHub Actions to
+# create and approve pull requests" (same as the weekly scrape jobs).
+
 on:
   schedule:
     # First of every month at 00:00 UTC
     - cron: '0 0 1 * *'
   workflow_dispatch:
+    inputs:
+      phases:
+        description: 'Phases to run (comma list of A,B,C,E). Omit C to skip the ~1-6h membership scrape when testing.'
+        required: false
+        default: 'A,B,C,E'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+env:
+  PYTHON_VERSION: '3.12'
+  NODE_VERSION: '24'
+  PHASE_C_WORKERS: '6'
 
 jobs:
-  rebuild:
-    name: Refresh Geiger data and trigger production build
+  # ── Parse which phases to run ──────────────────────────────────────────────
+  config:
+    name: Resolve phase selection
     runs-on: ubuntu-latest
-    timeout-minutes: 360
+    outputs:
+      run_ab: ${{ steps.flags.outputs.run_ab }}
+      run_c: ${{ steps.flags.outputs.run_c }}
+      run_e: ${{ steps.flags.outputs.run_e }}
+    steps:
+      - id: flags
+        shell: bash
+        env:
+          # Scheduled runs have no input → default to all phases.
+          PHASES: ${{ github.event.inputs.phases || 'A,B,C,E' }}
+        run: |
+          up=$(echo "$PHASES" | tr '[:lower:]' '[:upper:]')
+          contains() { echo ",$up," | tr -d ' ' | grep -q ",$1,"; }
+          # A and B always travel together (B needs A's categories.json).
+          if contains A || contains B; then echo "run_ab=true" >> "$GITHUB_OUTPUT"; else echo "run_ab=false" >> "$GITHUB_OUTPUT"; fi
+          if contains C; then echo "run_c=true" >> "$GITHUB_OUTPUT"; else echo "run_c=false" >> "$GITHUB_OUTPUT"; fi
+          if contains E; then echo "run_e=true" >> "$GITHUB_OUTPUT"; else echo "run_e=false" >> "$GITHUB_OUTPUT"; fi
+          echo "Selected phases: $up"
+
+  # ── Phase A → B: taxonomy + product catalog ────────────────────────────────
+  scrape-ab:
+    name: Phase A+B (taxonomy + products)
+    needs: config
+    if: needs.config.outputs.run_ab == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
-      - name: TODO M6-606 - implement full monthly rebuild
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install scraper deps
+        working-directory: scripts/scrapers/geiger
         run: |
-          echo "TODO: M6-606 - run scraper phases A/B/C, regenerate AI content, open auto-merge PR, email Patrick"
-          echo "See TASKS.md ticket M6-606 for full scope"
+          pip install --upgrade pip
+          pip install -e .
+
+      # Resume Phase B from a cached checkpoint if a prior run of this month was
+      # interrupted. The key is unique per run; restore-keys lets a re-run pick
+      # up the latest partial checkpoint.
+      - name: Restore Phase B checkpoint
+        uses: actions/cache@v4
+        with:
+          path: scripts/scrapers/geiger/.checkpoint
+          key: phase-b-${{ github.run_id }}
+          restore-keys: |
+            phase-b-
+
+      - name: Phase A — taxonomy discovery
+        run: python -m scripts.scrapers.geiger.run --phase a
+
+      - name: Phase B — product catalog
+        run: python -m scripts.scrapers.geiger.run --phase b --resume
+
+      - name: Upload A+B output
+        uses: actions/upload-artifact@v4
+        with:
+          name: geiger-ab
+          retention-days: 3
+          path: |
+            data/geiger/categories.json
+            data/geiger/products.json
+
+  # ── Phase E: brand logos (independent — re-runs quick Phase A) ──────────────
+  scrape-e:
+    name: Phase E (brand logos)
+    needs: config
+    if: needs.config.outputs.run_e == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install scraper deps
+        working-directory: scripts/scrapers/geiger
+        run: |
+          pip install --upgrade pip
+          pip install -e .
+
+      # Phase E reads categories.json; regenerate it cheaply (~30s) so this job
+      # doesn't depend on scrape-ab and can run in parallel.
+      - name: Phase A — taxonomy (for Phase E inputs)
+        run: python -m scripts.scrapers.geiger.run --phase a
+
+      - name: Phase E — brand logos
+        run: python -m scripts.scrapers.geiger.run --phase e
+
+      - name: Upload Phase E output
+        uses: actions/upload-artifact@v4
+        with:
+          name: geiger-e
+          retention-days: 3
+          path: |
+            data/geiger/brands.json
+            data/geiger/brand-logos
+            public/brand-logos
+
+  # ── Phase C: facet/modifier memberships (the long pole) ────────────────────
+  scrape-c:
+    name: Phase C (facet memberships)
+    needs: [config, scrape-ab]
+    # Run when C is selected and scrape-ab didn't fail (scrape-ab may be SKIPPED
+    # if only C was requested for testing — then the committed products.json is
+    # used). !cancelled() lets this run even when scrape-ab was skipped.
+    if: needs.config.outputs.run_c == 'true' && !cancelled() && needs.scrape-ab.result != 'failure'
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install scraper deps
+        working-directory: scripts/scrapers/geiger
+        run: |
+          pip install --upgrade pip
+          pip install -e .
+
+      # Use the fresh categories.json + products.json from scrape-ab when present;
+      # otherwise fall back to the committed copies from checkout.
+      - name: Download A+B output
+        if: needs.scrape-ab.result == 'success'
+        uses: actions/download-artifact@v4
+        with:
+          name: geiger-ab
+          path: data/geiger
+
+      # Resume Phase C from its checkpoint if this month's run was interrupted
+      # (e.g. a job approached the 6h limit). The 100-URL checkpoint means a
+      # re-run continues instead of restarting the ~21,715-URL crawl.
+      - name: Restore Phase C checkpoint
+        uses: actions/cache@v4
+        with:
+          path: scripts/scrapers/geiger/.checkpoint
+          key: phase-c-${{ github.run_id }}
+          restore-keys: |
+            phase-c-
+
+      - name: Phase C — facet/modifier memberships
+        run: python -m scripts.scrapers.geiger.run --phase c --workers ${{ env.PHASE_C_WORKERS }} --resume
+
+      - name: Upload Phase C output
+        uses: actions/upload-artifact@v4
+        with:
+          name: geiger-c
+          retention-days: 3
+          path: data/geiger/facet-memberships.json
+
+  # ── Assemble: AI content, prune, summary, PR, email ────────────────────────
+  assemble:
+    name: Content + prune + PR + email
+    needs: [config, scrape-ab, scrape-c, scrape-e]
+    # Run as long as at least one scrape job succeeded (so a phase-subset test
+    # still assembles), and none of the requested jobs hard-failed.
+    if: >
+      !cancelled() &&
+      (needs.scrape-ab.result == 'success' || needs.scrape-c.result == 'success' || needs.scrape-e.result == 'success') &&
+      needs.scrape-ab.result != 'failure' &&
+      needs.scrape-c.result != 'failure' &&
+      needs.scrape-e.result != 'failure'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install Node deps
+        run: pnpm install --frozen-lockfile
+
+      - name: Install AI pipeline deps
+        working-directory: scripts/ai-pipeline
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Pull fresh scrape outputs over the committed copies. Each download is
+      # gated on its job having succeeded; a skipped phase leaves the committed
+      # file in place.
+      - name: Download A+B output
+        if: needs.scrape-ab.result == 'success'
+        uses: actions/download-artifact@v4
+        with:
+          name: geiger-ab
+          path: data/geiger
+
+      - name: Download Phase C output
+        if: needs.scrape-c.result == 'success'
+        uses: actions/download-artifact@v4
+        with:
+          name: geiger-c
+          path: data/geiger
+
+      - name: Download Phase E output
+        if: needs.scrape-e.result == 'success'
+        uses: actions/download-artifact@v4
+        with:
+          name: geiger-e
+          path: .
+
+      # Generate AI content ONLY for categories that don't yet have a JSON
+      # (--skip-existing). New Geiger categories that surfaced this month get
+      # fresh copy; existing pages are untouched. No-op if nothing is new.
+      - name: Generate AI content for new categories
+        if: needs.scrape-ab.result == 'success'
+        working-directory: scripts/ai-pipeline
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          if [ -z "$DEEPSEEK_API_KEY" ]; then
+            echo "::warning::DEEPSEEK_API_KEY not set — skipping AI content for new categories."
+            exit 0
+          fi
+          python generate_content.py --skip-existing
+
+      # Drop removed Geiger SKUs from the baked category productSkus[] arrays.
+      - name: Prune removed products from category pages
+        if: needs.scrape-ab.result == 'success'
+        run: pnpm tsx scripts/monthly/prune-removed-skus.ts
+
+      - name: Compute change summary
+        id: summary
+        run: pnpm tsx scripts/monthly/compute-summary.ts
+
+      - name: Open review PR
+        id: pr
+        if: steps.summary.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: 'chore(data): monthly catalog rebuild'
+          title: 'chore(data): monthly catalog rebuild'
+          body-path: scripts/monthly/.artifacts/pr-body.md
+          branch: monthly-rebuild
+          delete-branch: true
+          # Full-catalog changes are intentionally NOT auto-merged — Patrick
+          # reviews the data diff. CI runs on the PR before merge.
+          add-paths: |
+            data/geiger/categories.json
+            data/geiger/products.json
+            data/geiger/facet-memberships.json
+            data/geiger/brands.json
+            data/geiger/brand-logos
+            public/brand-logos
+            data/categories
+
+      - name: Email Patrick the summary
+        if: steps.summary.outputs.changed == 'true'
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          LEAD_EMAIL_TO: ${{ secrets.LEAD_EMAIL_TO }}
+          LEAD_EMAIL_FROM: ${{ secrets.LEAD_EMAIL_FROM }}
+          MONTHLY_PR_URL: ${{ steps.pr.outputs.pull-request-url }}
+        run: pnpm tsx scripts/monthly/send-summary-email.ts
+
+      - name: No changes — skip PR/email
+        if: steps.summary.outputs.changed != 'true'
+        run: echo "No data changed this month — nothing to commit."

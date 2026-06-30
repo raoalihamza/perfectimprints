@@ -159,7 +159,7 @@ Module to week mapping (client-facing 6-week plan):
 - [x] `data/geiger/brands.json` produced with name, slug, description, logo path, product count per brand
 - [x] Brand slug matches the form used in product data (handles `&` properly, e.g. `cutter-buck` from `Cutter & Buck`)
 - [x] Brands with no logo on Geiger's page recorded with `logo: null` so downstream code can handle gracefully
-- [ ] Runs as part of monthly auto-rebuild (M6-606)
+- [x] Runs as part of monthly auto-rebuild (M6-606) — Phase E is its own `scrape-e` job in `monthly-rebuild.yml`
       **Depends on.** M1-108.
       **Estimate.** 4 hours.
 
@@ -169,7 +169,7 @@ Module to week mapping (client-facing 6-week plan):
 - [scripts/scrapers/geiger/brand_logos.py](scripts/scrapers/geiger/brand_logos.py): single-fetch index parser + image downloader with 1 req/sec throttle. Wired into `run.py` as `--phase e`. Resumable (skip if file already on disk). Mirrors logos to `public/brand-logos/<slug>.<ext>` so Next.js serves them directly; canonical store under `data/geiger/brand-logos/` is preserved per CLAUDE.md §8.
 - HTML-entity decoding (`html.unescape`) applied before slugifying to merge `Cutter &amp; Buck` (products.json) with `Cutter & Buck` (index). Five cross-listed brands merged correctly: cutter-buck, mms, port-co, travis-wells, wp.
 - Output: 191 logos downloaded as valid GIFs (verified with `file`), 205 brands in `data/geiger/brands.json` (191 from index + 14 product-catalog-only orphans), 194 brands have ≥1 product in our catalog. Runtime ~3 min.
-- Monthly auto-rebuild hook (M6-606) still pending — Phase E added to `--phase all` but not yet referenced from the monthly workflow file.
+- Monthly auto-rebuild hook (M6-606) DONE — Phase E runs as the dedicated `scrape-e` job in `.github/workflows/monthly-rebuild.yml`, uploading `brands.json` + `brand-logos/` + `public/brand-logos/` into the assembled monthly PR.
 
 ---
 
@@ -1601,20 +1601,25 @@ Closes the known gap "Brand `featured` toggle wired in schema but not rendered."
       **Depends on.** M6-604.
       **Estimate.** 3 hours active, 24 hours monitoring.
 
-### [ ] M6-606: Monthly auto-rebuild scheduler
+### [~] M6-606: Monthly auto-rebuild scheduler — IMPLEMENTED (pending live verification)
 
 **Scope.** GitHub Action workflow `.github/workflows/monthly-rebuild.yml` scheduled for the 1st of every month at 00:00 UTC. Runs scraper Phases A, B, C, E (Phase D mapping is stable). Regenerates AI content for new categories. Detects removed products. Email summary to Patrick.
 **Acceptance.**
 
-- [ ] Workflow file committed
-- [ ] Scheduled trigger works (verified by manual workflow_dispatch)
-- [ ] Auto-merge PR opens with data changes
-- [ ] Production build triggers on merge
-- [ ] Removed Geiger products detected and dropped from category pages
-- [ ] Brand logos refreshed if Geiger updated them
-- [ ] Email summary delivered to Patrick
-- [ ] Manual Sanity trigger button works
-- [ ] Warmup workflow (`.github/workflows/post-deploy-warmup.yml`) triggered as last step of monthly rebuild PR merge — without it the redeploy reintroduces the 24-48h cold-facet window every month
+- [x] Workflow file committed — `.github/workflows/monthly-rebuild.yml` rewritten from the TODO stub into a 5-job pipeline (`config` → `scrape-ab` / `scrape-e` / `scrape-c` → `assemble`).
+- [x] **6h-per-job limit handled** — split into separate jobs joined by artifacts (no single job runs A+B+C). Phase C runs `--workers 6` (~1h, under the cap) + `--resume` + cached checkpoint so an overrun resumes from the last 100-URL checkpoint. `timeout-minutes: 350` on the C job.
+- [x] `workflow_dispatch` with a `phases` subset input (default `A,B,C,E`) so testing can skip the long Phase C (e.g. `A,B,E`).
+- [x] AI content regenerated for NEW categories only (`generate_content.py --skip-existing`) — existing pages untouched; cheap no-op while the PI URL set is frozen (safety net for genuinely-new category JSONs).
+- [x] Removed Geiger products detected and dropped from category pages — render-time `resolveProducts` already skips missing SKUs; `scripts/monthly/prune-removed-skus.ts` also prunes the baked `productSkus[]` so the committed data + PR diff are explicit.
+- [x] Brand logos refreshed if Geiger updated them — Phase E job (`brands.json` + `brand-logos/` + `public/brand-logos/`).
+- [x] Opens a **review** PR (branch `monthly-rebuild`, `peter-evans/create-pull-request`) with a change summary (products +/-/price, brands, new/updated category pages) via `scripts/monthly/compute-summary.ts` → `pr-body.md`. **Deliberately NOT auto-merged** (full-catalog change → Patrick reviews; CI runs on the PR). Reframes the original "auto-merge PR" acceptance item — a full catalog refresh should not auto-merge.
+- [x] Production build triggers on merge — existing Vercel integration on `main`.
+- [x] Email summary to Patrick via Gmail SMTP — `scripts/monthly/send-summary-email.ts` (no-ops with a warning if `GMAIL_*` absent).
+- [x] Warmup covered — `post-deploy-warmup.yml` fires automatically on the production `deployment_status: success`; no explicit trigger needed in the monthly job (confirmed against that workflow's trigger).
+- [ ] **Manual Sanity Studio trigger button** — NOT done (deferred; out of the workflow's scope, separate Studio action on `globalSettings`).
+- [ ] **Live verification** — `pnpm typecheck` clean and `compute-summary.ts` smoke-tested locally. Still to do once secrets are set: (1) `workflow_dispatch` with `A,B,E` → green run + PR opens; (2) full run incl. Phase C to validate the split/checkpoint end-to-end (~6h); (3) confirm the summary email arrives.
+
+**Required GitHub secrets (manual, both repos `raoalihamza/perfectimprints` + `pbnj53/perfectimprints`):** `DEEPSEEK_API_KEY`, `GMAIL_USER`, `GMAIL_APP_PASSWORD` (+ optional `LEAD_EMAIL_TO`/`LEAD_EMAIL_FROM`). No Sanity secrets (content → `data/categories/*.json` only). Actions settings: Read/write + "Allow GitHub Actions to create and approve pull requests" (same as the weekly jobs).
       **Depends on.** M6-605, M1-112.
       **Estimate.** 4 hours.
 

@@ -58,6 +58,9 @@ env/
 # Scraper checkpoints
 scripts/scrapers/*/.checkpoint/
 
+# Monthly rebuild intermediate artifacts (summary/pr-body/prune-report)
+scripts/monthly/.artifacts/
+
 # Sanity
 sanity/dist/
 .sanity/
