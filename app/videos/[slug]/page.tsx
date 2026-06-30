@@ -10,6 +10,7 @@ import { getVideoBySlug, getVideoSlugs, getRelatedVideos } from '@/lib/sanity/qu
 import { toVideoCardData } from '@/lib/video/card-data';
 import { parseVideoEmbed, videoThumbnailUrl } from '@/lib/video/embed';
 import { videoObjectSchema } from '@/lib/seo/schema-generators';
+import { TWITTER_HANDLE, LOGO_OG_IMAGE } from '@/lib/seo/open-graph';
 import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { portableTextToPlain } from '@/lib/portable-text/to-plain';
 import { RichAnswer } from '@/components/portable-text/RichAnswer';
@@ -69,13 +70,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: canonical,
       title: ogTitle,
       description,
-      images: [poster ? { url: poster, alt: ogTitle } : { url: `${SITE_URL}/logo.svg`, alt: ogTitle }],
+      images: [poster ? { url: poster, alt: ogTitle } : { url: LOGO_OG_IMAGE, alt: ogTitle }],
     },
     twitter: {
       card: 'summary_large_image',
+      // This inline block REPLACES the root twitter default (shallow merge), so
+      // re-declare site/creator here or X loses the @perfectimprints handle.
+      site: TWITTER_HANDLE,
+      creator: TWITTER_HANDLE,
       title: ogTitle,
       description,
-      images: [poster || `${SITE_URL}/logo.svg`],
+      images: [poster || LOGO_OG_IMAGE],
     },
   };
 }

@@ -30,6 +30,7 @@ ISR fallback.
 | `categoryOverride` | `/cat/<categorySlug>` (needs `categorySlug` in the projection) |
 | `productPlacement` | each `/cat/<slug>` in `addToCategories` + `removeFromCategories` (needs those in the projection) |
 | `customSchema` | the doc's `pageUrl` page (+ busts the `customSchema:<pageUrl>` cache tag) — needs `pageUrl` in the projection |
+| `brand` | `/brands` + `/brands/<slug>` (+ busts the `brands` cache tag) — drives the Featured Brands strip + A–Z grid. **Originally excluded from the Filter — must be added (see below).** |
 
 "Live search delta" = the `/api/search-index` ISR route that carries the
 Sanity-managed slice of site search (blogs, videos, custom categories, custom
@@ -77,7 +78,7 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
 | **URL** | `https://dev.perfectimprints.com/api/sanity/revalidate` |
 | **Dataset** | `production` |
 | **Trigger on** | ✅ Create  ✅ Update  ✅ Delete |
-| **Filter** | `!(_id in path("drafts.**")) && _type in ["megaMenu","globalSettings","homePage","page","blogPost","video","customProduct","customCategory","curatedCategory","faq","categoryOverride","productPlacement","customSchema"]` |
+| **Filter** | `!(_id in path("drafts.**")) && _type in ["megaMenu","globalSettings","homePage","page","blogPost","video","customProduct","customCategory","curatedCategory","faq","categoryOverride","productPlacement","customSchema","brand"]` |
 | **Projection** | `{_type, slug, categorySlug, pageUrl, addToCategories, removeFromCategories}` |
 | **HTTP method** | `POST` |
 | **HTTP headers** | none (Sanity adds the signature header automatically) |
@@ -90,12 +91,22 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
 - `!(_id in path("drafts.**"))` → fire only on **publish**, not on every draft
   autosave.
 - `_type in [...]` → only the document types the route actually handles, so we
-  don't waste webhook deliveries on `leadSubmission`, `brand`, `author`, etc.
+  don't waste webhook deliveries on `leadSubmission`, `author`, etc.
   (Keep this list in sync with the types handled in
   [app/api/sanity/revalidate/route.ts](../app/api/sanity/revalidate/route.ts) —
-  `faq` was added when the `/faq` library shipped, and
-  `categoryOverride` / `productPlacement` when M5-504 landed. A handled type left
-  out of this filter silently never revalidates.)
+  `faq` was added when the `/faq` library shipped,
+  `categoryOverride` / `productPlacement` when M5-504 landed, and **`brand` when
+  the Featured Brands strip shipped (Task F)** — it was deliberately excluded
+  originally to save deliveries, but `/brands` now depends on the `featured`
+  flag. A handled type left out of this filter silently never revalidates.)
+
+> **⚠️ Manual step for an EXISTING webhook (Task F):** if your staging /
+> production webhook was created before the Featured Brands strip, its Filter
+> still omits `brand`. Edit the webhook in Sanity → API → Webhooks and paste the
+> updated Filter above (the only change is the trailing `,"brand"`). Do this on
+> **staging now** and on **production at launch**. Projection is unchanged —
+> `brand`'s `_type` + `slug` are already covered. Until you do this, toggling a
+> brand's **Featured** flag will NOT refresh `/brands`.
 
 ### Why the projection
 

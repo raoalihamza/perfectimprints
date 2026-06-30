@@ -78,10 +78,10 @@ export function Testimonials({ testimonials, heading }: TestimonialsProps) {
   return (
     <section className="bg-brand-ink text-white">
       <Container className="py-14 md:py-20">
-        <div className="flex items-end justify-between gap-4">
-          <h2 className="text-2xl font-bold md:text-3xl">{title}</h2>
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <h2 className="text-2xl font-bold text-white md:text-3xl">{title}</h2>
           {hasOverflow && (
-            <div className="flex gap-2">
+            <div className="flex shrink-0 gap-2">
               <button
                 type="button"
                 onClick={() => scrollByCard(-1)}

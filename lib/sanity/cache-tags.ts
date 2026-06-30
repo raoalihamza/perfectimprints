@@ -40,6 +40,15 @@ export const FAQS_TAG = 'faqs';
  */
 export const VIDEOS_TAG = 'videos';
 
+/**
+ * Brands used on the `/brands` index (the Featured Brands strip + A–Z grid) and
+ * `/brands/<slug>` pages. A global tag busted on any `brand` publish/delete. The
+ * Sanity read goes through the non-CDN `cachedClient` (so a `featured` toggle is
+ * picked up deterministically, not behind a CDN-propagation race), while staying
+ * cache-tagged — keeping `/brands` static/ISR. Same rationale as FAQS_TAG/VIDEOS_TAG.
+ */
+export const BRANDS_TAG = 'brands';
+
 /** Per-slug content tag, e.g. `cat:water-bottles` or `cat:water-bottles/color/blue`. */
 export function categoryTag(slug: string): string {
   return `cat:${slug}`;

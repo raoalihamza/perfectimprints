@@ -22,7 +22,7 @@ import {
   faqPageSchema,
   itemListSchema,
 } from '@/lib/seo/schema-generators';
-import { socialMeta } from '@/lib/seo/open-graph';
+import { socialMeta, largeSocialImage } from '@/lib/seo/open-graph';
 import { affiliateUrl } from '@/lib/affiliate-url';
 import { buildImageUrl } from '@/lib/sanity/client';
 import {
@@ -134,13 +134,19 @@ function categoryMetaTitle(h1: string): string {
   return withSuffix.length <= 60 ? withSuffix : h1;
 }
 
-// First product image of the category (from the baked SKU list) for og:image.
-// Reads products.json off disk (no Sanity / network call) so generateMetadata
-// stays static-safe. Returns null for CTA-only categories → logo fallback.
+// First product image of the category (from the baked SKU list) for the social
+// image (og:image + twitter:image). Reads products.json off disk (no Sanity /
+// network call) so generateMetadata stays static-safe. The URL is upsized to a
+// ~1200px variant via largeSocialImage() so X renders a LARGE card (the 275px
+// grid thumbnail is too small/square) — the on-page grid still uses 275px.
+// Returns null for CTA-only categories → logo fallback.
 function categoryOgImage(skus: string[]): { url: string; alt: string } | null {
   if (skus.length === 0) return null;
   for (const p of resolveProductsBySku(skus.slice(0, 12))) {
-    if (p.imageUrl) return { url: p.imageUrl, alt: p.name };
+    if (p.imageUrl) {
+      const url = largeSocialImage(p.imageUrl);
+      if (url) return { url, alt: p.name };
+    }
   }
   return null;
 }

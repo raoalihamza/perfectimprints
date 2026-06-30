@@ -1,12 +1,21 @@
 import 'server-only';
 
+import { cache } from 'react';
 import fs from 'node:fs';
 import path from 'node:path';
 
-import { client, urlForImage } from './sanity/client';
+import { cachedClient, urlForImage } from './sanity/client';
+import { BRANDS_TAG } from './sanity/cache-tags';
 import type { SanityImage } from './sanity/types';
 import { decodeHtmlEntities } from './text-utils';
 import type { GeigerProduct } from './categories';
+
+// Tagged, non-CDN fetch options for every brand read. Reading off api.sanity.io
+// (not the CDN) means a publish-triggered revalidation always sees fresh data;
+// the tag lets the webhook bust /brands + /brands/<slug> in seconds when a brand
+// is published/deleted (e.g. a `featured` toggle). The page stays static/ISR
+// (tagged, not no-store).
+const BRANDS_FETCH_OPTS = { next: { tags: [BRANDS_TAG], revalidate: false as const } };
 
 const ROOT = process.cwd();
 const BRANDS_JSON_PATH = path.join(ROOT, 'data', 'geiger', 'brands.json');
@@ -55,9 +64,6 @@ interface SanityBrandDoc {
   logo?: SanityImage;
 }
 
-let _allBrandsCache: Brand[] | null = null;
-let _bySlugCache: Map<string, Brand> | null = null;
-
 function loadJsonBrands(): Brand[] {
   if (!fs.existsSync(BRANDS_JSON_PATH)) return [];
   const raw = fs.readFileSync(BRANDS_JSON_PATH, 'utf8');
@@ -103,11 +109,13 @@ function normalizeSanity(doc: SanityBrandDoc): Brand {
 
 async function fetchSanityBrands(): Promise<Brand[]> {
   try {
-    const docs = await client.fetch<SanityBrandDoc[]>(
+    const docs = await cachedClient.fetch<SanityBrandDoc[]>(
       `*[_type == "brand"]{
         _id, name, "slug": slug.current,
         description, geigerUrl, productCount, featured, logo
       }`,
+      {},
+      BRANDS_FETCH_OPTS,
     );
     return docs.map(normalizeSanity).filter((b) => b.slug.length > 0);
   } catch {
@@ -118,10 +126,12 @@ async function fetchSanityBrands(): Promise<Brand[]> {
 /**
  * Sanity-first, brands.json fallback. Sanity wins per slug when both exist
  * (Patrick can override description/logo/featured in Studio).
+ *
+ * Wrapped in React `cache()` for per-request dedup ONLY — no cross-request
+ * module memo, so a webhook `revalidateTag(BRANDS_TAG)` actually re-runs the
+ * tagged fetch and the `featured` toggle goes live deterministically.
  */
-export async function getAllBrands(): Promise<Brand[]> {
-  if (_allBrandsCache) return _allBrandsCache;
-
+export const getAllBrands = cache(async (): Promise<Brand[]> => {
   const jsonBrands = loadJsonBrands();
   const sanityBrands = await fetchSanityBrands();
 
@@ -142,23 +152,27 @@ export async function getAllBrands(): Promise<Brand[]> {
     });
   }
 
-  const merged = Array.from(bySlug.values()).sort((a, b) => {
+  return Array.from(bySlug.values()).sort((a, b) => {
     if (a.letter !== b.letter) return a.letter.localeCompare(b.letter);
     return a.name.localeCompare(b.name, undefined, { sensitivity: 'base' });
   });
-
-  _allBrandsCache = merged;
-  _bySlugCache = bySlug;
-  return merged;
-}
+});
 
 export async function getBrandBySlug(slug: string): Promise<Brand | null> {
-  if (_bySlugCache) {
-    const b = _bySlugCache.get(slug);
-    return b ?? null;
-  }
   const all = await getAllBrands();
   return all.find((b) => b.slug === slug) ?? null;
+}
+
+/**
+ * Featured brands (Patrick's `featured` toggle in Studio), ordered by name —
+ * rendered as the highlighted strip at the top of /brands. Returns [] when none
+ * are featured so the strip can render nothing.
+ */
+export async function getFeaturedBrands(): Promise<Brand[]> {
+  const all = await getAllBrands();
+  return all
+    .filter((b) => b.featured)
+    .sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
 }
 
 export async function getAllBrandSlugs(): Promise<string[]> {

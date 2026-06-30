@@ -50,7 +50,8 @@ export default defineType({
     defineField({
       name: 'featured',
       title: 'Featured',
-      description: 'Featured brands surface on the home page brands grid.',
+      description:
+        'Turn on to surface this brand in the Featured Brands strip at the top of the /brands page. It still appears in the full A–Z grid below too.',
       type: 'boolean',
       initialValue: false,
     }),

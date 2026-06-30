@@ -11,6 +11,7 @@ import { revalidatePath, revalidateTag } from 'next/cache';
 import { NextResponse } from 'next/server';
 import { SEARCH_INDEX_ROUTE } from '@/lib/search/constants';
 import {
+  BRANDS_TAG,
   CATEGORY_CONTROL_TAG,
   FAQS_TAG,
   RELATED_BLOGS_TAG,
@@ -122,6 +123,20 @@ export async function POST(request: Request) {
   if (type === 'homePage') {
     revalidatePath('/');
     return NextResponse.json({ revalidated: true, scope: '/', type });
+  }
+
+  // Brands are read through a non-CDN tagged fetch (see lib/brands.ts). A
+  // publish/delete (e.g. a `featured` toggle) must bust the tag so the Featured
+  // Brands strip + A–Z grid on /brands refresh deterministically, and the
+  // affected /brands/<slug> page picks up description/logo edits.
+  // NOTE: `brand` must be in the Sanity webhook Filter `_type` list (it was
+  // originally excluded) or this never fires — see docs/sanity-webhook-setup.md.
+  if (type === 'brand') {
+    revalidateTag(BRANDS_TAG, 'max');
+    revalidatePath('/brands');
+    const slug = payload.slug?.current;
+    if (slug) revalidatePath(`/brands/${slug}`);
+    return NextResponse.json({ revalidated: true, scope: '/brands', type });
   }
 
   // Search-affecting Sanity content (blogs, videos, custom categories, custom

@@ -5,6 +5,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ChromeGate } from '@/components/layout/ChromeGate';
 import { websiteSchema } from '@/lib/seo/schema-generators';
+import { TWITTER_HANDLE } from '@/lib/seo/open-graph';
 import './globals.css';
 
 const inter = Inter({
@@ -33,6 +34,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+    // Site-wide X handle. Next merges the `twitter` key shallowly, so any page
+    // that sets its own `twitter` object (via socialMeta() or inline) must also
+    // carry site/creator — socialMeta() does, and the video page sets them too.
+    site: TWITTER_HANDLE,
+    creator: TWITTER_HANDLE,
   },
   icons: {
     icon: '/favicon.ico',
