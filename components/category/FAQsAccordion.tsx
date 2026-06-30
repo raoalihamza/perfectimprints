@@ -75,11 +75,12 @@ export function FAQsAccordion({ faqs, className }: FAQsAccordionProps) {
                 hidden={!isOpen}
                 className="px-4 pb-4 text-text-primary"
               >
-                {typeof faq.a === 'string' ? (
-                  <p className="max-w-prose leading-relaxed">{faq.a}</p>
-                ) : (
-                  <RichAnswer value={faq.a} className="max-w-prose leading-relaxed" />
-                )}
+                {/* ALWAYS route through RichAnswer — never interpolate `faq.a`
+                    directly into JSX. RichAnswer renders a legacy plain string as
+                    a paragraph and Portable Text (rich answer, Task B/M5-516) with
+                    links, so neither shape can reach React as a raw object/array
+                    (the cause of the /cat prerender crash, see M5-516 hotfix). */}
+                <RichAnswer value={faq.a} className="max-w-prose leading-relaxed" />
               </div>
             </div>
           );

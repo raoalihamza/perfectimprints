@@ -1,0 +1,63 @@
+name: Monthly post-deploy warmup
+
+# Warms all ~21,139 on-demand SSG facet pages, but ONLY after the monthly
+# full-catalog rebuild (M6-606) is merged and its PRODUCTION deploy finishes —
+# the one event that turns every facet page cold (see CLAUDE.md Section 13).
+#
+# Why this exists separately from a per-deploy warmup: warming 21K URLs after
+# every Vercel deploy (the several-per-week weekly scrape PRs + ordinary commits,
+# none of which change facet pages) exhausted Vercel's account-wide free-tier
+# limits for nothing. This workflow fires a tiny `gate` job on each production
+# deploy and exits in seconds for everything EXCEPT the monthly rebuild merge —
+# only then does it call the reusable warmup workflow (post-deploy-warmup.yml).
+#
+# `deployment_status` is the precise "the production deploy finished" signal, so
+# warmup runs once, at the right time, against the live new deployment. Weekly
+# scrape deploys, ordinary commits, and PR preview deploys all fail the gate and
+# never trigger the 21K warmup.
+on:
+  deployment_status:
+
+permissions:
+  contents: read
+
+jobs:
+  # Cheap gate: only the successful PRODUCTION deploy of the monthly-rebuild
+  # merge commit should warm. The monthly PR (branch `monthly-rebuild`) merges to
+  # main with the commit "chore(data): monthly catalog rebuild"; every other
+  # deploy — weekly scrapes, normal commits, and the monthly branch's own PREVIEW
+  # deploys (gated out by environment != Production) — exits here in seconds.
+  gate:
+    name: Is this the monthly rebuild's production deploy?
+    if: >
+      github.event.deployment_status.state == 'success' &&
+      github.event.deployment_status.environment == 'Production'
+    runs-on: ubuntu-latest
+    outputs:
+      monthly: ${{ steps.check.outputs.monthly }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.deployment.sha }}
+          fetch-depth: 1
+
+      - id: check
+        shell: bash
+        run: |
+          msg=$(git log -1 --pretty=%B)
+          if echo "$msg" | grep -qi 'monthly catalog rebuild'; then
+            echo "monthly=true" >> "$GITHUB_OUTPUT"
+            echo "Monthly rebuild production deploy detected — warmup will run."
+          else
+            echo "monthly=false" >> "$GITHUB_OUTPUT"
+            echo "Not the monthly rebuild deploy — skipping the 21K warmup."
+          fi
+
+  # Only the monthly rebuild reaches here. Warm the canonical production host.
+  warmup:
+    name: Warm facet pages (production)
+    needs: gate
+    if: needs.gate.outputs.monthly == 'true'
+    uses: ./.github/workflows/post-deploy-warmup.yml
+    with:
+      site_url: 'https://www.perfectimprints.com'

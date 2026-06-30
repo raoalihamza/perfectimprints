@@ -1,21 +1,39 @@
 name: Post-deploy warmup
 
-# Fires after Vercel publishes a successful deploy. Warms all 21,139 on-demand
-# SSG facet pages (see CLAUDE.md Section 13) so visitors don't pay the 400-800ms
-# cold-start penalty for the first 24-48h after deploy.
+# Warms all ~21,139 on-demand SSG facet + compound-facet pages (see CLAUDE.md
+# Section 13) so visitors don't pay the 400-800ms cold-start penalty for the
+# first hit after the on-demand SSG cache is invalidated by a deploy.
 #
-# Target host: taken from the deployment's environment_url when present, so this
-# auto-targets whichever host Vercel just deployed (currently dev.perfectimprints.com
-# while staging is the only live env; switches to www.perfectimprints.com automatically
-# once production goes live). Manual workflow_dispatch defaults to the staging host.
+# ── This is NOT a per-deploy job ─────────────────────────────────────────────
+# It used to fire on `deployment_status: success` for EVERY Vercel deploy and
+# pre-hit all ~21K facet URLs each time. With several deploys a week (the weekly
+# deals/new/rush scrape PRs + ordinary commits — none of which change facet
+# pages) that generated millions of edge requests + ISR writes and exhausted
+# Vercel's (account-wide, not per-project) free-tier limits. A full 21K warmup
+# is only actually needed after the MONTHLY full-catalog rebuild, which is the
+# one event that turns every facet page cold.
 #
-# Trigger sources:
-#   1. deployment_status — GitHub fires this when Vercel's GitHub integration
-#      reports the deploy finished. We filter to success only.
-#   2. workflow_dispatch — manual trigger for ad-hoc warmup (e.g. after a
-#      rollback or if a previous run was killed).
+# So warmup now runs only:
+#   • automatically after the monthly rebuild's PRODUCTION deploy succeeds —
+#     `.github/workflows/monthly-warmup.yml` gates on that single deploy and
+#     calls this workflow (workflow_call) targeting production www, and
+#   • manually via workflow_dispatch for ad-hoc warmup (rollback, killed run,
+#     staging smoke test).
+#
+# On-demand SSG works fine without warmup — a cold facet just serves its first
+# hit at ~400-800ms then caches permanently until the next deploy — so dropping
+# per-deploy warming costs only a little long-tail speed right after small
+# deploys, and saves the recurring resource drain.
 on:
-  deployment_status:
+  # Reusable: called by monthly-warmup.yml after the monthly rebuild ships.
+  workflow_call:
+    inputs:
+      site_url:
+        description: 'Target site URL to warm.'
+        type: string
+        required: false
+        default: 'https://dev.perfectimprints.com'
+  # Manual: ad-hoc warmup (defaults to staging; pass production www to warm prod).
   workflow_dispatch:
     inputs:
       site_url:
@@ -28,11 +46,6 @@ jobs:
     name: Warm on-demand SSG facet pages
     runs-on: ubuntu-latest
     timeout-minutes: 90
-    # deployment_status fires for every deploy in every env. Only run on success;
-    # workflow_dispatch always runs.
-    if: >
-      github.event_name == 'workflow_dispatch' ||
-      github.event.deployment_status.state == 'success'
     steps:
       - uses: actions/checkout@v4
 
@@ -50,10 +63,7 @@ jobs:
 
       - name: Warm facet pages
         env:
-          # Prefer Vercel's reported environment_url so we hit the host that was just
-          # deployed; fall back to workflow_dispatch input; fall back to staging.
-          NEXT_PUBLIC_SITE_URL: >-
-            ${{ github.event.deployment_status.environment_url
-                || github.event.inputs.site_url
-                || 'https://dev.perfectimprints.com' }}
+          # `inputs.site_url` is provided by BOTH workflow_call and
+          # workflow_dispatch; fall back to staging if somehow unset.
+          NEXT_PUBLIC_SITE_URL: ${{ inputs.site_url || 'https://dev.perfectimprints.com' }}
         run: pnpm tsx scripts/warmup/warmup-facets.ts
