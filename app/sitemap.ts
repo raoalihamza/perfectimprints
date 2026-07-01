@@ -3,6 +3,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { getBlogPostSlugs, getAllBlogCategories } from '@/lib/sanity/queries/blogs';
 import { getVideoSlugs } from '@/lib/sanity/queries/videos';
+import { getAllPageSlugs } from '@/lib/sanity/queries/pages';
+import { RESERVED_SLUG_SET } from '@/lib/reserved-slugs';
+import { SIMPLE_NAV } from '@/lib/nav-data';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
   /\/$/,
@@ -81,6 +84,29 @@ async function readVideoUrlsFromSanity(): Promise<string[]> {
   }
 }
 
+// Arbitrary custom top-level `page` docs (Issue 2), served at /<slug> by
+// app/[slug]. Exclude reserved slugs and the Services page slugs (which render
+// under /services/<slug> and are already in STATIC_PATHS) so nothing is listed
+// twice. The eight footer/legal slugs are reserved, so they're excluded here too
+// and remain covered by STATIC_PATHS.
+const SERVICE_SLUGS = new Set(
+  (SIMPLE_NAV.find((n) => n.label === 'Services')?.children ?? [])
+    .map((c) => c.href)
+    .filter((h) => h.startsWith('/services/'))
+    .map((h) => h.replace('/services/', '')),
+);
+
+async function readDynamicPageUrls(): Promise<string[]> {
+  try {
+    const slugs = await getAllPageSlugs();
+    return slugs
+      .filter((s) => s && !RESERVED_SLUG_SET.has(s) && !SERVICE_SLUGS.has(s))
+      .map((s) => `/${s}`);
+  } catch {
+    return [];
+  }
+}
+
 function readBrandSlugs(): string[] {
   const file = path.join(process.cwd(), 'data', 'geiger', 'brands.json');
   if (!fs.existsSync(file)) return [];
@@ -93,7 +119,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [];
 
   // Per-section tallies for the build log so coverage is verifiable at a glance.
-  const counts = { static: 0, category: 0, blogPosts: 0, blogCats: 0, videos: 0, brands: 0 };
+  const counts = { static: 0, category: 0, blogPosts: 0, blogCats: 0, videos: 0, brands: 0, pages: 0 };
 
   for (const p of STATIC_PATHS) {
     entries.push({ url: `${SITE_URL}${p}`, lastModified: now, changeFrequency: 'weekly' });
@@ -162,13 +188,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
   counts.brands = brandSlugs.length;
 
+  // Arbitrary custom top-level pages (/<slug> via app/[slug]). Indexable, one
+  // entry each, deduped against services/static above.
+  const dynamicPageUrls = await readDynamicPageUrls();
+  for (const url of dynamicPageUrls) {
+    entries.push({
+      url: `${SITE_URL}${url}`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    });
+  }
+  counts.pages = dynamicPageUrls.length;
+
   // Google caps a single sitemap at 50,000 URLs / 50 MB. We're at ~23k, so a
   // single sitemap.xml is spec-valid and Next emits one file. If the catalog ever
   // grows past 50k, switch to generateSitemaps() to split into an index — see
   // CLAUDE.md §11 / docs.
   console.log(
     `[sitemap] ${entries.length} URLs — static:${counts.static} category:${counts.category} ` +
-      `blogPosts:${counts.blogPosts} blogCats:${counts.blogCats} videos:${counts.videos} brands:${counts.brands}`,
+      `blogPosts:${counts.blogPosts} blogCats:${counts.blogCats} videos:${counts.videos} brands:${counts.brands} pages:${counts.pages}`,
   );
 
   return entries;

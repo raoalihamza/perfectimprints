@@ -855,6 +855,75 @@
         menu, so you do not need to set up any links.</p>
     </div>
 
+    <h3>Creating a brand-new page at your own address (recreate an old URL)</h3>
+    <p>You are no longer limited to the Services and legal pages. You can create a <strong>brand-new Page</strong> and it
+      will go live at its own top-level address, <code>/your-slug</code>. This is the way to recreate an old-site URL so
+      you keep its Google ranking. Example: a Page with the slug <code>llm-info-perfect-imprints</code> goes live at
+      <code>/llm-info-perfect-imprints</code>.</p>
+
+    <p><strong>To create one:</strong></p>
+    <ol>
+      <li>Open <span class="path">Content <span class="arrow">›</span> Page</span> and click <strong>Create new</strong>.</li>
+      <li>Enter a <strong>Title</strong> and set the <strong>Slug</strong> (its address — type it or let it fill from the
+        title). The slug is the exact address, so <code>my-page</code> becomes <code>/my-page</code>.</li>
+      <li>Add your <strong>Sections</strong> (the same website-builder blocks listed above) and fill in the
+        <strong>SEO</strong> section (meta title + description).</li>
+      <li>Click <strong>Publish</strong>. The page is live at <code>/your-slug</code> within seconds and is added to your
+        sitemap automatically so Google can find it.</li>
+    </ol>
+
+    <div class="callout info">
+      <span class="label">Live within seconds</span>
+      <p>Just like categories, publishing a Page updates the live site within a few seconds — you do not wait for a code
+        deploy. Editing an existing page works the same way.</p>
+    </div>
+
+    <div class="callout warn">
+      <span class="label">Reserved addresses you cannot use</span>
+      <p>A handful of slugs are already used by other parts of the site, so Studio will block you (with the message
+        "This URL is reserved by the site; choose another slug") if you try to save a Page at one of them:</p>
+      <p class="small"><code>cat</code>, <code>blog</code>, <code>videos</code>, <code>brands</code>, <code>deals</code>,
+        <code>new-products</code>, <code>rush-products</code>, <code>rush-promotional-products</code>,
+        <code>promotional-products</code>, <code>faq</code>, <code>search</code>, <code>services</code>,
+        <code>admin3773752</code>, <code>api</code>, <code>about</code>, <code>contact</code>, <code>terms</code>,
+        <code>privacy-security</code>, <code>returns</code>, <code>shipping-policy</code>, <code>sample-policy</code>,
+        <code>company-core-values</code>.</p>
+      <p class="small">Just pick a different slug. (The Services pages keep using <code>kitting</code>,
+        <code>company-stores</code>, <code>popup-stores</code>, <code>custom-products</code> — those stay at their
+        <code>/services/…</code> addresses.)</p>
+    </div>
+
+    <h3>Linking a new page into your menus (a separate, optional step)</h3>
+    <p>Creating and publishing a page makes it live and findable by its address and by Google, <strong>but it does not
+      automatically add it to any menu.</strong> Adding it to the top navigation or the footer is a <strong>separate
+      step you do afterward, in a different part of Studio</strong> — the Page document itself has no "add to menu"
+      switch, because the menus are their own documents. Think of it as two steps:</p>
+
+    <ol>
+      <li><strong>Step 1 — Create the page (required).</strong> <span class="path">Content <span class="arrow">›</span>
+        Page <span class="arrow">›</span> Create new</span> → Title + Slug + Sections + SEO → <strong>Publish</strong>.
+        The page is now live at <code>/your-slug</code> and in the sitemap. It is <em>not</em> yet in any menu, but
+        anyone with the link — and Google — can already reach it.</li>
+      <li><strong>Step 2 — Link it into navigation (optional).</strong> Only do this if you want the page to appear in
+        the site's menus or footer. Go to a <em>different</em> collection and paste the page's slug (for example
+        <code>/llm-info-perfect-imprints</code>) as the link address:
+        <ul>
+          <li><strong>Top navigation / mega menu:</strong> open <span class="path">Content <span
+                class="arrow">›</span> Mega Menu</span> and add a new menu item, dropdown link, or panel-column link
+            pointing to <code>/your-slug</code> (or add it to an existing dropdown/panel).</li>
+          <li><strong>Footer:</strong> open <span class="path">Content <span class="arrow">›</span> Global Settings</span>
+            and add a link (label + address) to one of the footer columns.</li>
+        </ul>
+        No code change is needed for either — the menus and footer are all edited here in Studio, and they update live
+        within seconds when you Publish.</li>
+    </ol>
+
+    <div class="callout info">
+      <span class="label">Key point</span>
+      <p>The page works and is reachable by its URL (and by Google) <strong>without</strong> Step 2. Step 2 is only about
+        making it visible inside the site's menus/footer.</p>
+    </div>
+
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->

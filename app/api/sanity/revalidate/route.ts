@@ -14,10 +14,12 @@ import {
   BRANDS_TAG,
   CATEGORY_CONTROL_TAG,
   FAQS_TAG,
+  PAGES_TAG,
   RELATED_BLOGS_TAG,
   VIDEOS_TAG,
   categoryTag,
   customSchemaTag,
+  pageTag,
 } from '@/lib/sanity/cache-tags';
 
 // Types whose content is rendered inside the shared root layout (Header / Footer
@@ -214,19 +216,24 @@ export async function POST(request: Request) {
     return NextResponse.json({ revalidated: false, reason: 'customSchema missing pageUrl', type });
   }
 
-  // Generic section-based `page` documents power BOTH the Services routes
-  // (/services/<slug>, M5-506b) and the top-level footer/legal pages
-  // (/<slug> — /about, /contact, /sample-policy, /privacy-security, …; M5-506).
-  // The webhook payload can't tell which a given doc is, so revalidate both
-  // candidate paths on publish; revalidatePath on a route that doesn't exist is
-  // a harmless no-op.
+  // Generic section-based `page` documents power the Services routes
+  // (/services/<slug>, M5-506b), the top-level footer/legal pages (/about,
+  // /contact, /sample-policy, …; M5-506), AND arbitrary custom top-level pages
+  // (/<slug> via app/[slug], Issue 2). All `page` reads are cache-tagged
+  // (PAGES_TAG list-level + page:<slug> content-level), so bust both tags plus
+  // the candidate paths + the sitemap (a new/removed slug changes its listing).
+  // The payload can't tell Services from top-level, so revalidate both candidate
+  // paths — revalidatePath on a route that doesn't exist is a harmless no-op.
   if (type === 'page') {
+    revalidateTag(PAGES_TAG, 'max');
     const slug = payload.slug?.current;
     if (slug) {
-      const paths = [`/services/${slug}`, `/${slug}`];
+      revalidateTag(pageTag(slug), 'max');
+      const paths = [`/services/${slug}`, `/${slug}`, '/sitemap.xml'];
       for (const p of paths) revalidatePath(p);
       return NextResponse.json({ revalidated: true, paths, type });
     }
+    revalidatePath('/sitemap.xml');
     return NextResponse.json({ revalidated: false, reason: 'page missing slug', type });
   }
 

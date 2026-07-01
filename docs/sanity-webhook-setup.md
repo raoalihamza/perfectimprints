@@ -20,7 +20,7 @@ ISR fallback.
 | --- | --- |
 | `megaMenu`, `globalSettings` | The whole layout (`/`, `layout`) — header/footer/CTA on every page |
 | `homePage` | `/` |
-| `page` | `/services/<slug>` |
+| `page` | `/services/<slug>`, `/<slug>` (top-level custom pages via `app/[slug]`), `/sitemap.xml` (+ busts the `pages` cache tag + `page:<slug>`) — needs `slug` in the projection (already present) |
 | `blogPost` | `/blog`, `/blog/<slug>`, **live search delta** (`/api/search-index`) |
 | `video` | `/videos`, `/videos/<slug>`, **live search delta** |
 | `customProduct` | `/deals`, `/new-products`, `/rush-products`, **live search delta** |

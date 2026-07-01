@@ -2,6 +2,41 @@ import { defineField, defineType } from 'sanity';
 import { pageSectionRefs } from '../objects/page-sections';
 
 /**
+ * Reserved top-level slugs a `page` must not use — each is owned by another
+ * route (a top-level/folder route, /api, the obfuscated Studio, or one of the
+ * eight fixed footer/legal pages). A `page` renders at `/<slug>` via
+ * app/[slug]/page.tsx, so publishing at a reserved slug would collide with an
+ * existing route. Mirrored from lib/reserved-slugs.ts (the standalone Studio
+ * bundler can't import from lib/) — keep the two lists in sync. NOTE: the
+ * Services page slugs (kitting, company-stores, …) are deliberately absent so
+ * those existing docs stay valid; the route/sitemap exclude them separately.
+ */
+const RESERVED_SLUGS = [
+  'cat',
+  'blog',
+  'videos',
+  'brands',
+  'deals',
+  'new-products',
+  'rush-products',
+  'rush-promotional-products',
+  'promotional-products',
+  'faq',
+  'search',
+  'services',
+  'admin3773752',
+  'api',
+  'about',
+  'contact',
+  'terms',
+  'privacy-security',
+  'returns',
+  'shipping-policy',
+  'sample-policy',
+  'company-core-values',
+];
+
+/**
  * Generic, section-based content page (M5-506b).
  *
  * One document type powers every editable marketing/legal page — Services
@@ -28,9 +63,17 @@ export default defineType({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      description: 'Route segment this page renders at (e.g. "kitting" for /services/kitting).',
+      description:
+        'Route segment this page renders at. A non-reserved slug renders at /<slug> (e.g. "llm-info-perfect-imprints" → /llm-info-perfect-imprints); Services page slugs render at /services/<slug>.',
       options: { source: 'title', maxLength: 96 },
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) =>
+        Rule.required().custom((slug?: { current?: string }) => {
+          const current = slug?.current;
+          if (current && RESERVED_SLUGS.includes(current)) {
+            return 'This URL is reserved by the site; choose another slug.';
+          }
+          return true;
+        }),
     }),
     defineField({
       name: 'seo',

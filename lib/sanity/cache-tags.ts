@@ -55,6 +55,22 @@ export function categoryTag(slug: string): string {
 }
 
 /**
+ * Generic section-based `page` documents — powering Services (/services/<slug>),
+ * the footer/legal static pages (/about, /terms, …), and top-level custom pages
+ * (`/<slug>` via app/[slug]). `PAGES_TAG` is the list-level tag busted on any
+ * `page` publish/delete so generateStaticParams + the sitemap pick up a new or
+ * removed slug; `pageTag(slug)` busts a single page's content. All `page` reads
+ * (getPageBySlug / getAllPageSlugs) go through the non-CDN `cachedClient` so a
+ * publish revalidates deterministically (no stale-CDN race) while staying
+ * cache-tagged — keeping /services/<slug> and /<slug> static/SSG. Same rationale
+ * as FAQS_TAG / VIDEOS_TAG / BRANDS_TAG.
+ */
+export const PAGES_TAG = 'pages';
+export function pageTag(slug: string): string {
+  return `page:${slug}`;
+}
+
+/**
  * Per-path tag for the custom structured-data injector (Task C). Keyed by the
  * full page path (e.g. `customSchema:/cat/water-bottles`, `customSchema:/about`,
  * `customSchema:/`). The `CustomSchemaJsonLd` server component reads through a

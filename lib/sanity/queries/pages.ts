@@ -1,7 +1,8 @@
 import 'server-only';
 
 import type { PortableTextBlock } from '@portabletext/react';
-import { client } from '@/lib/sanity/client';
+import { cachedClient } from '@/lib/sanity/client';
+import { PAGES_TAG, pageTag } from '@/lib/sanity/cache-tags';
 import type { SanityImage } from '@/lib/sanity/types';
 
 // ---------------------------------------------------------------------------
@@ -164,9 +165,10 @@ const PAGE_PROJECTION = `{
 
 export async function getPageBySlug(slug: string): Promise<PageDoc | null> {
   try {
-    return await client.fetch<PageDoc | null>(
+    return await cachedClient.fetch<PageDoc | null>(
       `*[_type == "page" && slug.current == $slug][0]${PAGE_PROJECTION}`,
       { slug },
+      { next: { tags: [PAGES_TAG, pageTag(slug)], revalidate: false } },
     );
   } catch {
     return null;
@@ -175,8 +177,10 @@ export async function getPageBySlug(slug: string): Promise<PageDoc | null> {
 
 export async function getAllPageSlugs(): Promise<string[]> {
   try {
-    const slugs = await client.fetch<string[]>(
+    const slugs = await cachedClient.fetch<string[]>(
       `*[_type == "page" && defined(slug.current)].slug.current`,
+      {},
+      { next: { tags: [PAGES_TAG], revalidate: false } },
     );
     return slugs ?? [];
   } catch {
