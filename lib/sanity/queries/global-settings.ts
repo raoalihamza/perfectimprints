@@ -1,5 +1,6 @@
 import { cache } from 'react';
-import { client, urlForImage } from '@/lib/sanity/client';
+import { cachedClient, urlForImage } from '@/lib/sanity/client';
+import { SETTINGS_TAG } from '@/lib/sanity/cache-tags';
 import type { SanityImage } from '@/lib/sanity/types';
 import { socialLabel } from '@/components/icons/social-icons';
 import { normalizeHref } from '@/lib/sanity/normalize-href';
@@ -12,12 +13,22 @@ import { normalizeHref } from '@/lib/sanity/normalize-href';
 // read from here, so socials + contact are fully controlled from the
 // `globalSettings` singleton — no hardcoded social URLs anywhere.
 //
-// `getSiteSettings()` is wrapped in React `cache()` so the footer and the schema
-// component share a single fetch per render. It uses the plain published
-// `client` (same pattern as getMegaMenu) so the read is cached as part of the
-// layout and busted by the webhook's `revalidatePath('/', 'layout')` on a
-// globalSettings publish — the footer/schema update within seconds.
+// `getSiteSettings()` is wrapped in React `cache()` for per-request dedup only
+// (no cross-request module memo), so the footer and the schema component share a
+// single fetch per render. It reads through the non-CDN `cachedClient` with the
+// `SETTINGS_TAG` cache tag (revalidate:false, never no-store) — so the layout
+// stays statically prerenderable AND the webhook busts the tag deterministically
+// on a globalSettings publish. The old plain-CDN `client` read (useCdn:true, no
+// tag) went stale on edits: the CDN serves its own ~60s copy and the untagged
+// fetch wasn't reliably busted by `revalidatePath('/', 'layout')` — removing a
+// footer link kept rendering. Same fix pattern as FAQs / videos / brands.
 // ---------------------------------------------------------------------------
+
+// Tagged, non-CDN fetch options for the settings read. Reading off api.sanity.io
+// (not the CDN) means a publish-triggered revalidation always sees fresh data;
+// the tag lets the webhook bust the footer + Organization schema in seconds on a
+// globalSettings publish. Stays static/ISR (tagged, not no-store).
+const SETTINGS_FETCH_OPTS = { next: { tags: [SETTINGS_TAG], revalidate: false as const } };
 
 export interface ResolvedSocialLink {
   /** Platform key (e.g. `facebook`) — drives the built-in icon. */
@@ -185,7 +196,7 @@ function resolve(raw: RawSettings | null): SiteSettings {
 
 export const getSiteSettings = cache(async (): Promise<SiteSettings> => {
   try {
-    const raw = await client.fetch<RawSettings | null>(QUERY);
+    const raw = await cachedClient.fetch<RawSettings | null>(QUERY, {}, SETTINGS_FETCH_OPTS);
     return resolve(raw);
   } catch {
     return EMPTY;

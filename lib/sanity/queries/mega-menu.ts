@@ -1,4 +1,5 @@
-import { client } from '@/lib/sanity/client';
+import { cachedClient } from '@/lib/sanity/client';
+import { MEGA_MENU_TAG } from '@/lib/sanity/cache-tags';
 import type { NavDepartment, NavNode } from '@/lib/nav-data';
 import type { MegaMenuItem, MegaMenuChild } from '@/components/layout/MegaMenu';
 import { normalizeHref } from '@/lib/sanity/normalize-href';
@@ -14,7 +15,16 @@ import { normalizeHref } from '@/lib/sanity/normalize-href';
 //
 // There is NO hard-coded fallback: whatever is in Sanity is what renders. If the
 // singleton is missing/empty (or the fetch fails), the menu renders empty.
+//
+// The read goes through the non-CDN `cachedClient` with the `MEGA_MENU_TAG` cache
+// tag (revalidate:false, never no-store) — so the layout stays statically
+// prerenderable AND the webhook busts the tag deterministically on a `megaMenu`
+// publish. The previous CDN `client` read (useCdn:true, untagged) could serve a
+// stale menu on edits (esp. a link REMOVAL) — same fix pattern as global settings.
 // ---------------------------------------------------------------------------
+
+// Tagged, non-CDN fetch options — see the global-settings rationale.
+const MEGA_MENU_FETCH_OPTS = { next: { tags: [MEGA_MENU_TAG], revalidate: false as const } };
 
 interface RawLink {
   label?: string;
@@ -166,7 +176,7 @@ export function resolveMegaMenu(raw: RawMegaMenu | null): ResolvedMenu {
 export async function getMegaMenu(): Promise<ResolvedMenu> {
   let raw: RawMegaMenu | null = null;
   try {
-    raw = await client.fetch<RawMegaMenu | null>(MEGA_MENU_QUERY);
+    raw = await cachedClient.fetch<RawMegaMenu | null>(MEGA_MENU_QUERY, {}, MEGA_MENU_FETCH_OPTS);
   } catch {
     raw = null;
   }

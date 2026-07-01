@@ -14,8 +14,10 @@ import {
   BRANDS_TAG,
   CATEGORY_CONTROL_TAG,
   FAQS_TAG,
+  MEGA_MENU_TAG,
   PAGES_TAG,
   RELATED_BLOGS_TAG,
+  SETTINGS_TAG,
   VIDEOS_TAG,
   categoryTag,
   customSchemaTag,
@@ -115,8 +117,14 @@ export async function POST(request: Request) {
   const type = payload._type;
 
   // Layout-level singletons (mega menu, global settings) → revalidate the whole
-  // layout so the header/footer refresh across every page.
+  // layout so the header/footer refresh across every page. Both reads go through
+  // the non-CDN `cachedClient` with a cache tag, so ALSO bust the matching tag:
+  // `revalidatePath('/', 'layout')` alone did NOT deterministically refresh these
+  // (the old CDN/untagged read stayed stale — e.g. a removed footer link kept
+  // rendering). The tag bust is what makes the edit go live in seconds.
   if (type && LAYOUT_TYPES.has(type)) {
+    if (type === 'globalSettings') revalidateTag(SETTINGS_TAG, 'max');
+    if (type === 'megaMenu') revalidateTag(MEGA_MENU_TAG, 'max');
     revalidatePath('/', 'layout');
     return NextResponse.json({ revalidated: true, scope: 'layout', type });
   }

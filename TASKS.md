@@ -1567,6 +1567,17 @@ A footer link entered in Sanity as `llm-info-perfect-imprints` (no leading slash
 - [x] Resolver-only — no Sanity schema change, no webhook/Filter change, no `/cat` render-path change. `pnpm typecheck` clean.
 - [x] Guide ([perfect-imprints-sanity-guide.html](perfect-imprints-sanity-guide.html)) footer + mega-menu sections note internal links work with or without the slash (external must be full `https://…`); CLAUDE.md `footerColumns` entry updated. Working tree left staged for review (not committed).
 
+### [x] M5-524: Footer / global-settings + mega-menu freshness fix (stale footer on publish) (2026-07-01)
+
+Confirmed bug: removing a footer link in `globalSettings` and Publishing did NOT update the live footer, even after hard-refresh + cache clear, despite the webhook logging `200 {"revalidated":true,"scope":"layout","type":"globalSettings"}`.
+
+- [x] **Root cause:** `getSiteSettings()` ([lib/sanity/queries/global-settings.ts:188](lib/sanity/queries/global-settings.ts)) read through the plain CDN `client` (`useCdn:true`, [lib/sanity/client.ts:12](lib/sanity/client.ts)) with **no cache tag**. A CDN read serves its own ~60s stale copy AND an untagged fetch is not deterministically busted by `revalidatePath('/', 'layout')`, so the removed link kept rendering. `getMegaMenu()` ([lib/sanity/queries/mega-menu.ts:169](lib/sanity/queries/mega-menu.ts)) had the **identical defect** (add/reorder only appeared to work once the CDN TTL lapsed; a removal was equally stale). Same defect class already fixed for FAQs / videos / brands.
+- [x] **Fix (mirrors brands/FAQ/video):** both reads switched to the non-CDN `cachedClient` with a tagged fetch (`{ next: { tags: [TAG], revalidate: false } }`). New tags `SETTINGS_TAG` (`global-settings`) + `MEGA_MENU_TAG` (`mega-menu`) in [lib/sanity/cache-tags.ts](lib/sanity/cache-tags.ts). `getSiteSettings()` keeps React `cache()` for per-request dedup only (no cross-request module memo).
+- [x] Webhook ([app/api/sanity/revalidate/route.ts](app/api/sanity/revalidate/route.ts)) LAYOUT_TYPES branch now `revalidateTag(SETTINGS_TAG,'max')` on `globalSettings` + `revalidateTag(MEGA_MENU_TAG,'max')` on `megaMenu`, **in addition to** the existing `revalidatePath('/', 'layout')`.
+- [x] `/cat` stays static — only the client was swapped + tags added; no `no-store`, no `searchParams`. `pnpm typecheck` clean. Local `pnpm build` skipped per standing preference (Vercel builds on deploy); change is the same static-safe pattern as brands/faqs/videos.
+- [x] **No Sanity webhook Filter change needed** — `globalSettings` + `megaMenu` are already in the Filter; the fix is entirely code-side (client + tag + `revalidateTag`).
+- [x] CLAUDE.md globalSettings "Read path" bullet + megaMenu entry updated. Working tree left staged for review (not committed).
+
 ---
 
 ## Module 6: QA, Migration, Launch

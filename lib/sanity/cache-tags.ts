@@ -49,6 +49,21 @@ export const VIDEOS_TAG = 'videos';
  */
 export const BRANDS_TAG = 'brands';
 
+/**
+ * Layout singletons rendered in the shared chrome (Header / Footer / Organization
+ * JSON-LD). Both reads (`getSiteSettings`, `getMegaMenu`) go through the non-CDN
+ * `cachedClient` and carry the matching tag; the webhook `revalidateTag`s them on
+ * `globalSettings` / `megaMenu` publish IN ADDITION TO `revalidatePath('/','layout')`.
+ *
+ * Why the tag is needed (and `revalidatePath('/','layout')` alone was not enough):
+ * these reads previously used the CDN `client` (`useCdn:true`) with NO tag, so a
+ * publish (e.g. REMOVING a footer link) stayed stale — the CDN serves its own
+ * ~60s copy AND the untagged fetch wasn't deterministically busted by the path
+ * revalidation. Same defect class already fixed for FAQs / videos / brands.
+ */
+export const SETTINGS_TAG = 'global-settings';
+export const MEGA_MENU_TAG = 'mega-menu';
+
 /** Per-slug content tag, e.g. `cat:water-bottles` or `cat:water-bottles/color/blue`. */
 export function categoryTag(slug: string): string {
   return `cat:${slug}`;
