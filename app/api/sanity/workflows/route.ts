@@ -7,11 +7,22 @@
 //   POST /api/sanity/workflows  { action:'trigger', workflow:<key> }
 //   POST /api/sanity/workflows  { action:'cancel',  workflow:<key>, runId:<id> }
 //
-// AUTH: every call must carry the caller's Sanity Studio session token as
-// `Authorization: Bearer <token>`. The route validates it against the project's
-// `users/me` endpoint, so only a logged-in Studio user (with access to THIS
-// project) can dispatch/cancel. Triggering a full 22K rebuild is expensive, so
-// this gate is non-negotiable.
+// AUTH (cookie-session-safe). This Studio authenticates by COOKIE — there is NO
+// JS-accessible Sanity session token, so the route can't validate a bearer. It
+// also can't read the Sanity session cookie (that lives on *.api.sanity.io, not
+// our domain). Instead we verify a first-party proof that mirrors the proven
+// "Push to Sanity" pattern (privileged action via a cookie-authed Sanity write):
+//   1. The panel writes a random nonce to a DRAFT doc `drafts.siteRefreshAuth`
+//      via the cookie-authed Studio client. Only a logged-in user with
+//      dataset-write grants can perform that write, and a DRAFT is NOT returned
+//      by anonymous/public dataset reads — so an unauthenticated caller can
+//      neither create the doc nor read the nonce.
+//   2. Every privileged call to this route carries that nonce in `x-refresh-nonce`.
+//   3. This route reads the draft nonce with its OWN server SANITY_API_TOKEN and
+//      compares (timing-safe). Match → authorized; else 401. Cross-origin →403.
+// So: anonymous/curl callers (no valid nonce) are rejected; cross-origin browser
+// callers are rejected (Origin check); the GitHub PAT stays server-only. See
+// CLAUDE.md §13 "Site Refresh" for the tradeoff writeup.
 //
 // The GitHub fine-grained PAT (GITHUB_WORKFLOW_TOKEN) stays SERVER-SIDE only —
 // it is never returned to the browser. Repo is configurable via
@@ -20,6 +31,8 @@
 //
 // No render surface, no Sanity webhook change — this route only talks to GitHub.
 
+import { timingSafeEqual } from 'node:crypto';
+import { createClient } from '@sanity/client';
 import { NextResponse } from 'next/server';
 import {
   getRefreshWorkflow,
@@ -34,6 +47,12 @@ export const dynamic = 'force-dynamic';
 
 const GH_API = 'https://api.github.com';
 const DISPATCH_REF = 'main';
+
+// Handshake doc id — must match AUTH_DOC_ID in the Studio tool.
+const AUTH_DOC_ID = 'drafts.siteRefreshAuth';
+// A nonce older than this (since its write) no longer authorizes — abandoned
+// sessions auto-expire; the panel re-handshakes on the resulting 401.
+const NONCE_MAX_AGE_MS = 24 * 60 * 60 * 1000;
 
 // ── Config ───────────────────────────────────────────────────────────────────
 
@@ -53,29 +72,100 @@ function ghHeaders(token: string): HeadersInit {
   };
 }
 
-// ── Auth: validate the caller's Sanity Studio session token ──────────────────
+// ── Auth: verify the first-party Studio nonce (cookie-session-safe) ──────────
 
-async function isAuthorizedStudioUser(request: Request): Promise<boolean> {
-  const header = request.headers.get('authorization') || '';
-  const token = header.toLowerCase().startsWith('bearer ') ? header.slice(7).trim() : '';
-  if (!token) return false;
+interface AuthResult {
+  ok: boolean;
+  status: number;
+  error?: string;
+}
 
-  const projectId =
-    process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || process.env.SANITY_STUDIO_PROJECT_ID;
-  if (!projectId) return false;
-
+/** Our canonical site origin (for the cross-origin guard). */
+function siteOrigin(): string | null {
+  const raw = process.env.NEXT_PUBLIC_SITE_URL;
+  if (!raw) return null;
   try {
-    // Project-scoped users/me: 200 with a user `id` only when the token is a
-    // valid session for a user with access to THIS Sanity project.
-    const res = await fetch(`https://${projectId}.api.sanity.io/v2021-06-07/users/me`, {
-      headers: { Authorization: `Bearer ${token}` },
-      cache: 'no-store',
-    });
-    if (!res.ok) return false;
-    const user = (await res.json()) as { id?: string } | null;
-    return Boolean(user && typeof user.id === 'string' && user.id.length > 0);
+    return new URL(raw).origin;
   } catch {
-    return false;
+    return null;
+  }
+}
+
+/**
+ * Cross-origin guard. Browsers always send `Origin` on cross-origin requests (and
+ * on same-origin non-GET), so a present-but-mismatched Origin is a hard reject. An
+ * absent Origin (same-origin GET/navigation, or a non-browser caller) passes this
+ * check — the nonce proof below is the real gate.
+ */
+function crossOriginBlocked(request: Request): boolean {
+  const origin = request.headers.get('origin');
+  if (!origin) return false;
+  const ours = siteOrigin();
+  if (!ours) return false; // can't determine our origin (e.g. env unset) → don't hard-fail
+  return origin !== ours;
+}
+
+function timingSafeEqualStr(a: string, b: string): boolean {
+  const ab = Buffer.from(a);
+  const bb = Buffer.from(b);
+  return ab.length === bb.length && timingSafeEqual(ab, bb);
+}
+
+/** Server-side Sanity client (token) used only to read the handshake nonce. */
+function serverSanity() {
+  const projectId =
+    process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ||
+    process.env.SANITY_STUDIO_PROJECT_ID ||
+    process.env.SANITY_PROJECT_ID;
+  const dataset =
+    process.env.NEXT_PUBLIC_SANITY_DATASET ||
+    process.env.SANITY_STUDIO_DATASET ||
+    process.env.SANITY_DATASET;
+  const token = process.env.SANITY_API_TOKEN;
+  if (!projectId || !dataset || !token) return null;
+  return createClient({
+    projectId,
+    dataset,
+    apiVersion: '2024-10-01',
+    token,
+    useCdn: false,
+    perspective: 'raw', // include drafts so we can read drafts.siteRefreshAuth
+  });
+}
+
+async function isAuthorizedStudioUser(request: Request): Promise<AuthResult> {
+  if (crossOriginBlocked(request)) {
+    return { ok: false, status: 403, error: 'Cross-origin requests are not allowed.' };
+  }
+  const nonce = (request.headers.get('x-refresh-nonce') || '').trim();
+  if (nonce.length < 16) {
+    return { ok: false, status: 401, error: 'Unauthorized — reload the Studio and sign in.' };
+  }
+  const sanity = serverSanity();
+  if (!sanity) {
+    return {
+      ok: false,
+      status: 500,
+      error: 'Server is missing SANITY_API_TOKEN / Sanity project config.',
+    };
+  }
+  try {
+    const doc = await sanity.fetch<{ nonce?: string; at?: string } | null>(
+      `*[_id == $id][0]{ nonce, at }`,
+      { id: AUTH_DOC_ID },
+    );
+    if (!doc?.nonce || !timingSafeEqualStr(doc.nonce, nonce)) {
+      return { ok: false, status: 401, error: 'Unauthorized — reload the Studio and sign in.' };
+    }
+    if (doc.at) {
+      const age = Date.now() - new Date(doc.at).getTime();
+      if (Number.isFinite(age) && age > NONCE_MAX_AGE_MS) {
+        return { ok: false, status: 401, error: 'Session expired — reload the Studio.' };
+      }
+    }
+    return { ok: true, status: 200 };
+  } catch {
+    return { ok: false, status: 500, error: 'Could not verify your Studio session.' };
   }
 }
 
@@ -201,8 +291,9 @@ function pat(): string | null {
 }
 
 export async function GET(request: Request) {
-  if (!(await isAuthorizedStudioUser(request))) {
-    return NextResponse.json({ error: 'Unauthorized.' }, { status: 401 });
+  const auth = await isAuthorizedStudioUser(request);
+  if (!auth.ok) {
+    return NextResponse.json({ error: auth.error ?? 'Unauthorized.' }, { status: auth.status });
   }
   const token = pat();
   if (!token) {
@@ -232,8 +323,9 @@ interface PostBody {
 }
 
 export async function POST(request: Request) {
-  if (!(await isAuthorizedStudioUser(request))) {
-    return NextResponse.json({ error: 'Unauthorized.' }, { status: 401 });
+  const auth = await isAuthorizedStudioUser(request);
+  if (!auth.ok) {
+    return NextResponse.json({ error: auth.error ?? 'Unauthorized.' }, { status: auth.status });
   }
   const token = pat();
   if (!token) {

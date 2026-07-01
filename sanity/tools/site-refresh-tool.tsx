@@ -17,7 +17,7 @@
  * client, no @sanity/ui.
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { useClient, type Tool } from 'sanity';
+import { useClient, useCurrentUser, type Tool } from 'sanity';
 import {
   REFRESH_WORKFLOWS,
   type RefreshRunState,
@@ -123,47 +123,88 @@ function formatTime(iso: string | null): string {
   }
 }
 
+// Handshake doc id (a DRAFT so anonymous/public dataset reads can't see it — see
+// the auth note below). Must match AUTH_DOC_ID in app/api/sanity/workflows/route.ts.
+const AUTH_DOC_ID = 'drafts.siteRefreshAuth';
+
+function newNonce(): string {
+  const uuid = globalThis.crypto?.randomUUID?.();
+  if (uuid) return uuid.replace(/-/g, '');
+  // Fallback (older browsers): still high-entropy enough for a session nonce.
+  return `${Date.now().toString(36)}${Math.random().toString(36).slice(2)}${Math.random().toString(36).slice(2)}`;
+}
+
 function SiteRefreshComponent() {
   const client = useClient({ apiVersion: '2024-10-01' });
-
-  // Pull the logged-in user's Sanity session token to authenticate to the route.
-  const token = useMemo(() => {
-    const fromConfig = client.config().token;
-    if (fromConfig) return fromConfig;
-    // Fallback: Sanity Studio stores the session token in localStorage under
-    // __studio_auth_token_<projectId> (shape { token, time }).
-    try {
-      const projectId = client.config().projectId;
-      const raw = projectId
-        ? window.localStorage.getItem(`__studio_auth_token_${projectId}`)
-        : null;
-      if (raw) {
-        const parsed = JSON.parse(raw) as { token?: string };
-        if (parsed?.token) return parsed.token;
-      }
-    } catch {
-      // ignore
-    }
-    return undefined;
-  }, [client]);
+  const currentUser = useCurrentUser();
 
   const [statuses, setStatuses] = useState<Record<string, RefreshStatus>>({});
   const [busy, setBusy] = useState<Record<string, boolean>>({});
   const [justCancelled, setJustCancelled] = useState<Record<string, boolean>>({});
   const [error, setError] = useState<string | null>(null);
   const [loaded, setLoaded] = useState(false);
+  const [ready, setReady] = useState(false);
+  const [authError, setAuthError] = useState<string | null>(null);
+  const nonceRef = useRef<string | null>(null);
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
+  // ── Auth handshake (cookie-session-safe) ─────────────────────────────────────
+  // This Studio authenticates by COOKIE (no JS-accessible session token), so the
+  // route can't validate a bearer token. Instead we mirror the proven "Push to
+  // Sanity" pattern: perform a cookie-authed Sanity WRITE (only a logged-in user
+  // with dataset-write grants can do it) and let the server verify that write.
+  // We write a random nonce to a DRAFT doc (drafts.siteRefreshAuth) — drafts are
+  // NOT returned by anonymous/public dataset reads, so an unauthenticated caller
+  // can neither create the doc nor read the nonce. The route reads the nonce with
+  // its own SANITY_API_TOKEN and compares; every privileged call carries the
+  // nonce in a header. The GitHub PAT stays server-only.
+  const handshake = useCallback(async (): Promise<string | null> => {
+    try {
+      const nonce = newNonce();
+      await client.createOrReplace({
+        _id: AUTH_DOC_ID,
+        _type: 'siteRefreshAuth',
+        nonce,
+        at: new Date().toISOString(),
+      });
+      nonceRef.current = nonce;
+      setReady(true);
+      setAuthError(null);
+      return nonce;
+    } catch {
+      setReady(false);
+      setAuthError('Could not confirm your Studio login. Make sure you are signed in, then reload the page.');
+      return null;
+    }
+  }, [client]);
+
+  useEffect(() => {
+    void handshake();
+  }, [handshake]);
+
   const authFetch = useCallback(
-    (input: string, init?: RequestInit) =>
-      fetch(input, {
-        ...init,
-        headers: {
-          ...(init?.headers || {}),
-          ...(token ? { Authorization: `Bearer ${token}` } : {}),
-        },
-      }),
-    [token],
+    async (input: string, init?: RequestInit): Promise<Response> => {
+      const call = (nonce: string | null) =>
+        fetch(input, {
+          ...init,
+          credentials: 'same-origin',
+          headers: {
+            ...(init?.headers || {}),
+            ...(nonce ? { 'x-refresh-nonce': nonce } : {}),
+          },
+        });
+
+      let nonce = nonceRef.current ?? (await handshake());
+      const res = await call(nonce);
+      // A 401 means the session nonce expired or was overwritten (e.g. another
+      // Studio tab). Re-handshake once and retry.
+      if (res.status === 401) {
+        nonce = await handshake();
+        if (nonce) return call(nonce);
+      }
+      return res;
+    },
+    [handshake],
   );
 
   const refresh = useCallback(async () => {
@@ -298,11 +339,15 @@ function SiteRefreshComponent() {
         </p>
       </div>
 
-      {!token && (
+      {authError ? (
+        <div style={{ fontSize: 13, color: '#e11f1e' }}>{authError}</div>
+      ) : !currentUser ? (
         <div style={{ fontSize: 13, color: '#e11f1e' }}>
-          Could not read your Studio login. Try reloading the Studio and signing in again.
+          You need to be signed in to the Studio to run a refresh.
         </div>
-      )}
+      ) : !ready ? (
+        <div style={{ fontSize: 13, color: MUTED }}>Connecting to your Studio session…</div>
+      ) : null}
 
       {REFRESH_WORKFLOWS.map((wf) => {
         const st = statuses[wf.key];
@@ -349,8 +394,8 @@ function SiteRefreshComponent() {
                 <button
                   type="button"
                   onClick={() => void trigger(wf.key)}
-                  disabled={isBusy || !token}
-                  style={isBusy || !token ? disabledBtn : wf.heavy ? heavyBtn : runBtn}
+                  disabled={isBusy || !ready}
+                  style={isBusy || !ready ? disabledBtn : wf.heavy ? heavyBtn : runBtn}
                 >
                   {isBusy ? 'Starting…' : wf.label}
                 </button>
