@@ -334,8 +334,10 @@ function SiteRefreshComponent() {
           Update the product data on your site on demand. The three weekly refreshes also run
           automatically every Sunday — use the buttons here only when you want fresh data sooner.
           When a refresh finds new data it publishes the change for you automatically (no GitHub
-          needed). Press <strong>Cancel</strong> while a refresh is running to stop it safely — when
-          you cancel, nothing on your site changes.
+          needed). After a refresh finishes, allow <strong>~12–15 minutes</strong> for the site to
+          rebuild and show the new data — the rebuild is automatic, so just wait. Press{' '}
+          <strong>Cancel</strong> while a refresh is running to stop it safely — when you cancel,
+          nothing on your site changes.
         </p>
       </div>
 

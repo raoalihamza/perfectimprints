@@ -1010,6 +1010,19 @@
       <li>If nothing changed since last time, it simply finishes with nothing to publish — that is normal.</li>
     </ol>
 
+    <div class="callout">
+      <span class="label">Good to know — allow ~12–15 minutes after it finishes</span>
+      <p>The refresh job itself is quick — about a minute or two for the weekly ones (New Products, Deals, Rush
+        Products). But when it finds new data and publishes it, your site has to <strong>rebuild and redeploy</strong>
+        before the change actually shows up. That rebuild happens <strong>automatically</strong> — you do not need to do
+        anything — but it takes roughly <strong>12–15 minutes AFTER the job finishes</strong> (the site runs two builds,
+        about 7 minutes each). So the flow is: the button says it is done → then wait about 12–15 more minutes → then the
+        new data is live.</p>
+      <p>If a refresh found <strong>nothing new</strong>, there is no publish and no rebuild, so there is nothing to wait
+        for. And the <strong>Full Catalog Rebuild</strong> is different — that job runs for a few hours on its own, and
+        the same 12–15 minute redeploy happens after it finishes too.</p>
+    </div>
+
     <h3>The Cancel button</h3>
     <p>While a refresh is running you will see a <strong>Cancel</strong> button. Pressing it safely stops the run, and —
       this is the important part — <strong>nothing on your site changes</strong>. The refresh only ever goes live as its
