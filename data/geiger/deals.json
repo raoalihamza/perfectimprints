@@ -1,38 +1,7 @@
 {
-  "scrapedAt": "2026-06-13T00:27:41Z",
-  "totalDeals": 11,
+  "scrapedAt": "2026-07-01T01:42:40Z",
+  "totalDeals": 16,
   "products": [
-    {
-      "sku": "526499",
-      "name": "Anywhere Belt Bag",
-      "brand": null,
-      "low_price": 4.65,
-      "high_price": 5.58,
-      "msrp": 5.58,
-      "min_qty": 100,
-      "imageUrl": "https://imgsirv.geiger.com/master/126499/web/126499_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
-      "description": "Made of combo: 230T polyester &amp; 150D polyester lining. Can be worn as a fanny pack or across the chest sling. Zippered main compartment. Back zippered pocket. 40&quot; handles. Detachable/adjustable waist strap. Spot clean/air dry. Size: 7 1/2&quot;W x 5&quot;H Imprint Area: 4 1/2&quot;W x 1 1/2&quot;H",
-      "category_paths": [
-        "Home > Bags & Totes",
-        "Home > Apparel",
-        "Home > Apparel > Accessories",
-        "Home > Apparel > Accessories >Fanny Packs",
-        "Home > Shop By > Deals",
-        "Home > Shop By > Education",
-        "Home > Shop By > Education > College Giveaways & Recruiting",
-        "Home > Shop By"
-      ],
-      "badges": [
-        {
-          "tag": "sale",
-          "value": "Sale"
-        }
-      ],
-      "is_new_item": false,
-      "is_on_sale": true,
-      "product_type_unigram": "bag",
-      "geiger_url": "/p/anywhere-belt-bag-526499?pid=429330"
-    },
     {
       "sku": "502385",
       "name": "12 oz Mood Stadium Cup",
@@ -69,6 +38,148 @@
       "is_on_sale": true,
       "product_type_unigram": "cup",
       "geiger_url": "/p/12-oz-mood-stadium-cup-502385?pid=169380"
+    },
+    {
+      "sku": "529664",
+      "name": "Bamboo Folding Handheld Fan",
+      "brand": null,
+      "low_price": 2.97,
+      "high_price": 3.56,
+      "msrp": 3.56,
+      "min_qty": 75,
+      "imageUrl": "https://imgsirv.geiger.com/master/129664/web/129664_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Elegant folding fan with frame crafted out of Bamboo. Made of heavy paper with smooth Bamboo frame ribbing. Features a large easy-view imprint area. Perfect for weddings &amp; customers in the heating/cooling industries. Size: 9&quot;W x 1&quot;H x 1/2&quot;D Imprint Area: 4&quot;W x 2 1/2&quot;H (front of fan)",
+      "category_paths": [
+        "Home > Home & Auto",
+        "Home > Shop By > Deals",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "fan",
+      "geiger_url": "/p/bamboo-folding-handheld-fan-529664?pid=463079"
+    },
+    {
+      "sku": "529288",
+      "name": "24 oz Mood Revolve Bottle with Carry Cap",
+      "brand": null,
+      "low_price": 2.14,
+      "high_price": 2.56,
+      "msrp": 2.56,
+      "min_qty": 200,
+      "imageUrl": "https://imgsirv.geiger.com/master/129288/web/129288_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Changes color with ice cold liquids. Handle lid for convenient carrying Top shelf dishwasher safe. BPA Free. Caps are shipped unassembled. Severe weather conditions may effect the mood change and color upon arrival. Made in the U.S.A. Size: 2 3/4&quot;W x 10 3/4&quot;H Imprint Area: 3&quot;W x 5 1/2&quot;H",
+      "category_paths": [
+        "Home > Drinkware",
+        "Home > Drinkware > Water Bottles",
+        "Home > Shop By > Deals",
+        "Home > Shop By"
+      ],
+      "badges": [
+        {
+          "tag": "sale",
+          "value": "Sale"
+        }
+      ],
+      "is_new_item": false,
+      "is_on_sale": true,
+      "product_type_unigram": "bottle",
+      "geiger_url": "/p/24-oz-mood-revolve-bottle-with-carry-cap-529288?pid=459171"
+    },
+    {
+      "sku": "526499",
+      "name": "Anywhere Belt Bag",
+      "brand": null,
+      "low_price": 4.65,
+      "high_price": 5.58,
+      "msrp": 5.58,
+      "min_qty": 100,
+      "imageUrl": "https://imgsirv.geiger.com/master/126499/web/126499_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Made of combo: 230T polyester &amp; 150D polyester lining. Can be worn as a fanny pack or across the chest sling. Zippered main compartment. Back zippered pocket. 40&quot; handles. Detachable/adjustable waist strap. Spot clean/air dry. Size: 7 1/2&quot;W x 5&quot;H Imprint Area: 4 1/2&quot;W x 1 1/2&quot;H",
+      "category_paths": [
+        "Home > Bags & Totes",
+        "Home > Apparel",
+        "Home > Apparel > Accessories",
+        "Home > Apparel > Accessories >Fanny Packs",
+        "Home > Shop By > Deals",
+        "Home > Shop By > Education",
+        "Home > Shop By > Education > College Giveaways & Recruiting",
+        "Home > Shop By"
+      ],
+      "badges": [
+        {
+          "tag": "sale",
+          "value": "Sale"
+        }
+      ],
+      "is_new_item": false,
+      "is_on_sale": true,
+      "product_type_unigram": "bag",
+      "geiger_url": "/p/anywhere-belt-bag-526499?pid=429330"
+    },
+    {
+      "sku": "529663",
+      "name": "Mini Grip 3.25' Tape Measure Keychain",
+      "brand": null,
+      "low_price": 1.34,
+      "high_price": 1.6,
+      "msrp": 1.6,
+      "min_qty": 100,
+      "imageUrl": "https://imgsirv.geiger.com/master/129663/web/129663_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Long mini measuring tape extends 3.25 feet (39 inches). Self lock/release function on narrow side panel. Rubber textured bottom and side for easy grip. Compact design with metal key ring attached. Features measurements in inches and centimeters on #50 steel ruler. Size: 1 63/100&quot;W x 1 1/2&quot;H x 1/2&quot;D Imprint Area: 3/4&quot;W x 3/4&quot;H",
+      "category_paths": [
+        "Home > Home & Auto",
+        "Home > Home & Auto > Tools & Tool Kits",
+        "Home > Home & Auto > Tools & Tool Kits > Tape Measures",
+        "Home > Shop By > Deals",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "keychain",
+      "geiger_url": "/p/mini-grip-325-tape-measure-keychain-529663?pid=463072"
+    },
+    {
+      "sku": "529625",
+      "name": "Flower Highlighter",
+      "brand": null,
+      "low_price": 1.54,
+      "high_price": 1.84,
+      "msrp": 1.84,
+      "min_qty": 100,
+      "imageUrl": "https://imgsirv.geiger.com/master/129625/web/129625_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Flower-shaped frosted Plastic case houses 5 neon highlighters all in one fun piece. Each petal contains one color cap and matching ink: green, blue, orange, yellow and pink. Five highlighters in one saves space on your desk. Large imprint area and chisel tip. Size: 4&quot;Dia. X 1/2&quot;D Imprint Area: 2&quot;W x 2&quot;H",
+      "category_paths": [
+        "Home > Writing Instruments",
+        "Home > Writing Instruments > Highlighters & Markers",
+        "Home > Shop By > Deals",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "highlighter",
+      "geiger_url": "/p/flower-highlighter-529625?pid=462926"
     },
     {
       "sku": "529523",
@@ -263,31 +374,28 @@
       "geiger_url": "/p/mood-stress-pop-cube-529289?pid=459180"
     },
     {
-      "sku": "529288",
-      "name": "24 oz Mood Revolve Bottle with Carry Cap",
+      "sku": "525944",
+      "name": "Multi Tool with Flash Light",
       "brand": null,
-      "low_price": 2.14,
-      "high_price": 2.56,
-      "msrp": 2.56,
-      "min_qty": 200,
-      "imageUrl": "https://imgsirv.geiger.com/master/129288/web/129288_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
-      "description": "Changes color with ice cold liquids. Handle lid for convenient carrying Top shelf dishwasher safe. BPA Free. Caps are shipped unassembled. Severe weather conditions may effect the mood change and color upon arrival. Made in the U.S.A. Size: 2 3/4&quot;W x 10 3/4&quot;H Imprint Area: 3&quot;W x 5 1/2&quot;H",
+      "low_price": 11.42,
+      "high_price": 13.7,
+      "msrp": 13.7,
+      "min_qty": 25,
+      "imageUrl": "https://imgsirv.geiger.com/master/125944/web/125944_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "You'll always be prepared with this multi-function emergency tool and flashlight. Tools included: knife, bottle and can opener, scissors, Philips head screwdriver, Flathead screwdriver with duo large/small hex screwdriver, hammer (i.e. glass breaker), seat belt cutter, flashlight. Light includes multiple functions including an emergency light and dual mode flashlight (strobe and zoom modes). Contains one COB light with 80 lumens. Uses 3AAA batteries, included and replaceable. Instructions included. Size: 1 1/2&quot;W x 5 4/5&quot;H x 1 1/2&quot;D Imprint Area: 1&quot;W x 5/8&quot;H",
       "category_paths": [
-        "Home > Drinkware",
-        "Home > Drinkware > Water Bottles",
-        "Home > Shop By > Deals",
-        "Home > Shop By"
+        "Home > Home & Auto",
+        "Home > Home & Auto > Flashlights",
+        "Home > Home & Auto > Tools & Tool Kits",
+        "Home > Home & Auto > Tools & Tool Kits > Screwdrivers",
+        "Home > Shop By",
+        "Home > Shop By > Deals"
       ],
-      "badges": [
-        {
-          "tag": "sale",
-          "value": "Sale"
-        }
-      ],
+      "badges": [],
       "is_new_item": false,
-      "is_on_sale": true,
-      "product_type_unigram": "bottle",
-      "geiger_url": "/p/24-oz-mood-revolve-bottle-with-carry-cap-529288?pid=459171"
+      "is_on_sale": false,
+      "product_type_unigram": "tool",
+      "geiger_url": "/p/multi-tool-with-flash-light-525944?pid=423301"
     },
     {
       "sku": "515907",
@@ -305,8 +413,8 @@
         "Home > Office & Technology > Corporate Gifts",
         "Home > Office & Technology > Corporate Gifts > Home Office Gifts",
         "Home > Shop By",
-        "Home > Shop By > Deals",
-        "Home > Shop By > Brand Names"
+        "Home > Shop By > Brand Names",
+        "Home > Shop By > Deals"
       ],
       "badges": [
         {
@@ -345,6 +453,32 @@
       "is_on_sale": true,
       "product_type_unigram": "backpack",
       "geiger_url": "/p/string-a-sling-backpack-508493?pid=187712"
+    },
+    {
+      "sku": "502806 2BJ",
+      "name": "Round Stress Reliever",
+      "brand": null,
+      "low_price": 1.25,
+      "high_price": 1.5,
+      "msrp": 1.5,
+      "min_qty": 75,
+      "imageUrl": "https://imgsirv.geiger.com/master/102806/web/102806_2BJ_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Grab hold of these fun stress relievers to relieve tension, break the ice, and have some fun! Foam-rubber stress balls, available in a wide variety of fun shapes make great promotional giveaways. This item is pad printed by hand and each imprint could have slight variations. Many more shapes available. Size: 2 3/4&quot; Dia. Imprint area: 1 3/8&quot; Diameter. Need it fast? Also available in 2-day production! 506268 2BJ",
+      "category_paths": [
+        "Home > Health & Wellness > Stress Balls",
+        "Home > Health & Wellness",
+        "Home > Shop By",
+        "Home > Shop By > Education",
+        "Home > Tradeshow & Events > Giveaways",
+        "Home > Shop By > Education > College Giveaways & Recruiting",
+        "Home > Tradeshow & Events",
+        "Home > Shop By > Deals"
+      ],
+      "badges": [],
+      "is_new_item": false,
+      "is_on_sale": false,
+      "product_type_unigram": "reliever",
+      "geiger_url": "/p/round-stress-reliever-502806?pid=178563"
     }
   ],
   "facets": [
@@ -354,10 +488,30 @@
       "type": "list",
       "values": [
         {
+          "id": "Blue",
+          "value": "Blue",
+          "label": "Blue",
+          "count": 9,
+          "type": "value",
+          "low": null,
+          "high": null,
+          "skus": [
+            "526499",
+            "529663",
+            "529523",
+            "529363",
+            "529362",
+            "525944",
+            "515907",
+            "508493",
+            "502806 2BJ"
+          ]
+        },
+        {
           "id": "Black",
           "value": "Black",
           "label": "Black",
-          "count": 6,
+          "count": 8,
           "type": "value",
           "low": null,
           "high": null,
@@ -366,49 +520,55 @@
             "529504",
             "529363",
             "529362",
+            "525944",
             "515907",
-            "508493"
-          ]
-        },
-        {
-          "id": "Blue",
-          "value": "Blue",
-          "label": "Blue",
-          "count": 6,
-          "type": "value",
-          "low": null,
-          "high": null,
-          "skus": [
-            "526499",
-            "529523",
-            "529363",
-            "529362",
-            "515907",
-            "508493"
+            "508493",
+            "502806 2BJ"
           ]
         },
         {
           "id": "Red",
           "value": "Red",
           "label": "Red",
-          "count": 6,
+          "count": 8,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
             "526499",
+            "529663",
             "529523",
             "529363",
             "529362",
             "515907",
-            "508493"
+            "508493",
+            "502806 2BJ"
+          ]
+        },
+        {
+          "id": "White",
+          "value": "White",
+          "label": "White",
+          "count": 8,
+          "type": "value",
+          "low": null,
+          "high": null,
+          "skus": [
+            "529664",
+            "529663",
+            "529523",
+            "529504",
+            "529363",
+            "529362",
+            "508493",
+            "502806 2BJ"
           ]
         },
         {
           "id": "Gray/Silver",
           "value": "Gray/Silver",
           "label": "Gray/Silver",
-          "count": 5,
+          "count": 6,
           "type": "value",
           "low": null,
           "high": null,
@@ -417,14 +577,15 @@
             "529522",
             "529363",
             "515907",
-            "508493"
+            "508493",
+            "502806 2BJ"
           ]
         },
         {
           "id": "Green",
           "value": "Green",
           "label": "Green",
-          "count": 5,
+          "count": 6,
           "type": "value",
           "low": null,
           "high": null,
@@ -433,45 +594,32 @@
             "529523",
             "529362",
             "515907",
-            "508493"
-          ]
-        },
-        {
-          "id": "White",
-          "value": "White",
-          "label": "White",
-          "count": 5,
-          "type": "value",
-          "low": null,
-          "high": null,
-          "skus": [
-            "529523",
-            "529504",
-            "529363",
-            "529362",
-            "508493"
+            "508493",
+            "502806 2BJ"
           ]
         },
         {
           "id": "Orange",
           "value": "Orange",
           "label": "Orange",
-          "count": 4,
+          "count": 6,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529663",
             "529523",
             "529362",
             "515907",
-            "508493"
+            "508493",
+            "502806 2BJ"
           ]
         },
         {
           "id": "Purple",
           "value": "Purple",
           "label": "Purple",
-          "count": 4,
+          "count": 5,
           "type": "value",
           "low": null,
           "high": null,
@@ -479,48 +627,53 @@
             "529523",
             "529362",
             "515907",
-            "508493"
+            "508493",
+            "502806 2BJ"
           ]
         },
         {
           "id": "Multi-Colored",
           "value": "Multi-Colored",
           "label": "Multi-Colored",
-          "count": 3,
+          "count": 4,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
             "502385",
-            "529289",
-            "529288"
+            "529288",
+            "529625",
+            "529289"
           ]
         },
         {
           "id": "Pink",
           "value": "Pink",
           "label": "Pink",
-          "count": 3,
+          "count": 4,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
             "526499",
             "529362",
-            "508493"
+            "508493",
+            "502806 2BJ"
           ]
         },
         {
           "id": "Yellow/Gold",
           "value": "Yellow/Gold",
           "label": "Yellow/Gold",
-          "count": 2,
+          "count": 4,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529663",
             "529362",
-            "508493"
+            "508493",
+            "502806 2BJ"
           ]
         },
         {
@@ -558,18 +711,22 @@
           "id": "1-5",
           "value": null,
           "label": "$1.00 - $5.00",
-          "count": 7,
+          "count": 11,
           "type": "range",
           "low": "1",
           "high": "5",
           "skus": [
+            "529664",
+            "529288",
             "526499",
+            "529663",
+            "529625",
             "529523",
             "529522",
             "529362",
             "529289",
-            "529288",
-            "508493"
+            "508493",
+            "502806 2BJ"
           ]
         },
         {
@@ -589,11 +746,12 @@
           "id": "10-25",
           "value": null,
           "label": "$10.00 - $25.00",
-          "count": 1,
+          "count": 2,
           "type": "range",
           "low": "10",
           "high": "25",
           "skus": [
+            "525944",
             "515907"
           ]
         }
@@ -608,18 +766,20 @@
           "id": "5-7",
           "value": null,
           "label": "5-7 days",
-          "count": 8,
+          "count": 10,
           "type": "range",
           "low": "5",
           "high": "7",
           "skus": [
-            "526499",
             "502385",
+            "529664",
+            "529288",
+            "526499",
+            "529663",
             "529523",
             "529522",
             "529504",
             "529289",
-            "529288",
             "515907"
           ]
         },
@@ -627,14 +787,29 @@
           "id": "8-10",
           "value": null,
           "label": "8-10 days",
-          "count": 3,
+          "count": 5,
           "type": "range",
           "low": "8",
           "high": "10",
           "skus": [
+            "529625",
             "529363",
             "529362",
+            "525944",
             "508493"
+          ]
+        },
+        {
+          "id": "10-*",
+          "value": null,
+          "label": "10 or more days",
+          "count": 2,
+          "type": "range",
+          "low": "10",
+          "high": "*",
+          "skus": [
+            "529625",
+            "502806 2BJ"
           ]
         }
       ]
@@ -648,21 +823,26 @@
           "id": "Deals",
           "value": "Deals",
           "label": "Deals",
-          "count": 10,
+          "count": 15,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
-            "526499",
             "502385",
+            "529664",
+            "529288",
+            "526499",
+            "529663",
+            "529625",
             "529523",
             "529522",
             "529363",
             "529362",
             "529289",
-            "529288",
+            "525944",
             "515907",
-            "508493"
+            "508493",
+            "502806 2BJ"
           ]
         },
         {
@@ -675,9 +855,9 @@
           "high": null,
           "skus": [
             "502385",
+            "529288",
             "529523",
-            "529522",
-            "529288"
+            "529522"
           ]
         }
       ]
@@ -723,13 +903,14 @@
           "id": "1-50",
           "value": null,
           "label": "1-50",
-          "count": 3,
+          "count": 4,
           "type": "range",
           "low": "1",
           "high": "50",
           "skus": [
             "529504",
             "529363",
+            "525944",
             "515907"
           ]
         },
@@ -737,29 +918,35 @@
           "id": "50-100",
           "value": null,
           "label": "51-100",
-          "count": 1,
+          "count": 5,
           "type": "range",
           "low": "50",
           "high": "100",
           "skus": [
-            "526499"
+            "529664",
+            "526499",
+            "529663",
+            "529625",
+            "502806 2BJ"
           ]
         },
         {
           "id": "100-250",
           "value": null,
           "label": "100-250",
-          "count": 7,
+          "count": 9,
           "type": "range",
           "low": "100",
           "high": "250",
           "skus": [
-            "526499",
             "502385",
+            "529288",
+            "526499",
+            "529663",
+            "529625",
             "529523",
             "529362",
             "529289",
-            "529288",
             "508493"
           ]
         },
@@ -818,8 +1005,8 @@
           "low": "19",
           "high": "31",
           "skus": [
-            "529363",
-            "529288"
+            "529288",
+            "529363"
           ]
         }
       ]
@@ -833,15 +1020,19 @@
           "id": "No",
           "value": "No",
           "label": "No",
-          "count": 4,
+          "count": 8,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529664",
+            "529288",
+            "529663",
+            "529625",
             "529523",
             "529504",
             "529289",
-            "529288"
+            "525944"
           ]
         },
         {
@@ -870,11 +1061,14 @@
           "id": "Yes",
           "value": "Yes",
           "label": "Yes",
-          "count": 5,
+          "count": 8,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529664",
+            "529663",
+            "529625",
             "529523",
             "529522",
             "529504",
@@ -914,16 +1108,30 @@
           ]
         },
         {
+          "id": "Paper",
+          "value": "Paper",
+          "label": "Paper",
+          "count": 1,
+          "type": "value",
+          "low": null,
+          "high": null,
+          "skus": [
+            "529664"
+          ]
+        },
+        {
           "id": "Plastic",
           "value": "Plastic",
           "label": "Plastic",
-          "count": 2,
+          "count": 4,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
             "502385",
-            "529288"
+            "529288",
+            "529663",
+            "529625"
           ]
         },
         {
