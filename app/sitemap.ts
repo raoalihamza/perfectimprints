@@ -85,7 +85,8 @@ async function readVideoUrlsFromSanity(): Promise<string[]> {
 }
 
 // Arbitrary custom top-level `page` docs (Issue 2), served at /<slug> by
-// app/[slug]. Exclude reserved slugs and the Services page slugs (which render
+// app/[...slug] (multi-segment slugs like industry/hvac render at their full
+// path). Exclude reserved slugs and the Services page slugs (which render
 // under /services/<slug> and are already in STATIC_PATHS) so nothing is listed
 // twice. The eight footer/legal slugs are reserved, so they're excluded here too
 // and remain covered by STATIC_PATHS.
@@ -188,7 +189,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
   counts.brands = brandSlugs.length;
 
-  // Arbitrary custom top-level pages (/<slug> via app/[slug]). Indexable, one
+  // Arbitrary custom top-level pages (/<slug> via app/[...slug]). Indexable, one
   // entry each, deduped against services/static above.
   const dynamicPageUrls = await readDynamicPageUrls();
   for (const url of dynamicPageUrls) {

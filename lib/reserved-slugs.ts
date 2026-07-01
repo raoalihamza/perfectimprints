@@ -11,11 +11,12 @@
  * creating a document at one of these slugs.
  *
  * Route-precedence note: in the Next.js App Router a literal segment and a
- * dedicated folder route always beat a dynamic [slug] segment, so these routes
- * win regardless — this set is defence-in-depth (and keeps duplicate content
- * from ever rendering) rather than the sole guard. Multi-segment paths
- * (`/cat/water-bottles`, `/services/kitting`) can't reach the single-segment
- * app/[slug] route at all.
+ * dedicated folder route always beat a root catch-all, so these routes win
+ * regardless — this set is defence-in-depth (and keeps duplicate content from
+ * ever rendering) rather than the sole guard. The route is a root catch-all
+ * (app/[...slug]), so multi-segment page slugs (e.g. `industry/hvac`) render at
+ * their full path; dedicated folder routes (`/cat/...`, `/services/...`) still
+ * beat it because a more specific route always wins over a root catch-all.
  *
  * NOTE: the individual Services page-doc slugs (`kitting`, `company-stores`, …)
  * are intentionally NOT listed here — they are valid `page` docs that already

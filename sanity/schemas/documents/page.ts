@@ -4,12 +4,15 @@ import { pageSectionRefs } from '../objects/page-sections';
 /**
  * Reserved top-level slugs a `page` must not use — each is owned by another
  * route (a top-level/folder route, /api, the obfuscated Studio, or one of the
- * eight fixed footer/legal pages). A `page` renders at `/<slug>` via
- * app/[slug]/page.tsx, so publishing at a reserved slug would collide with an
- * existing route. Mirrored from lib/reserved-slugs.ts (the standalone Studio
- * bundler can't import from lib/) — keep the two lists in sync. NOTE: the
- * Services page slugs (kitting, company-stores, …) are deliberately absent so
- * those existing docs stay valid; the route/sitemap exclude them separately.
+ * eight fixed footer/legal pages). A `page` renders at `/<slug>` via the ROOT
+ * CATCH-ALL app/[...slug]/page.tsx, so a slug MAY contain slashes and renders at
+ * its full multi-segment path (e.g. "industry/hvac" → /industry/hvac). Only
+ * single-segment reserved slugs are blocked here (dedicated folder routes like
+ * /cat and /services always beat the catch-all, so a nested path can't shadow
+ * them). Mirrored from lib/reserved-slugs.ts (the standalone Studio bundler
+ * can't import from lib/) — keep the two lists in sync. NOTE: the Services page
+ * slugs (kitting, company-stores, …) are deliberately absent so those existing
+ * docs stay valid; the route/sitemap exclude them separately.
  */
 const RESERVED_SLUGS = [
   'cat',
@@ -64,7 +67,7 @@ export default defineType({
       title: 'Slug',
       type: 'slug',
       description:
-        'Route segment this page renders at. A non-reserved slug renders at /<slug> (e.g. "llm-info-perfect-imprints" → /llm-info-perfect-imprints); Services page slugs render at /services/<slug>.',
+        'Route path this page renders at. A non-reserved slug renders at /<slug> (e.g. "llm-info-perfect-imprints" → /llm-info-perfect-imprints). Slashes are allowed for multi-segment URLs (e.g. "industry/hvac" → /industry/hvac). Services page slugs render at /services/<slug>.',
       options: { source: 'title', maxLength: 96 },
       validation: (Rule) =>
         Rule.required().custom((slug?: { current?: string }) => {

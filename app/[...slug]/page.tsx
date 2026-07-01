@@ -20,13 +20,23 @@ import { socialMeta } from '@/lib/seo/open-graph';
  * from Studio without a code change — a publish goes live in seconds via the
  * Sanity webhook (revalidateTag PAGES_TAG + page:<slug> + revalidatePath).
  *
+ * MULTI-SEGMENT slugs. This is a ROOT CATCH-ALL ([...slug]), not a single [slug],
+ * so a page whose slug contains slashes (e.g. "industry/hvac",
+ * "facets/special-feature/made-in-usa") renders at its full multi-segment path.
+ * A single-segment [slug] route could only ever match one path segment, so those
+ * slash-containing pages 404'd even though they published fine (the schema
+ * reserved-slug guard only blocks single top-level segments). `params.slug` is a
+ * string[] of the path segments; we join with "/" to reconstruct the doc slug,
+ * which the Sanity query matches verbatim (slug.current == "industry/hvac").
+ *
  * Route-collision reasoning (why this catch-all is safe):
  *  - In the Next.js App Router, a literal segment ("/blog") and a dedicated
  *    folder route (app/cat/[...slug], app/services/[slug], the eight static-page
- *    routes, app/api/*) ALWAYS beat a same-level dynamic [slug] segment. So all
- *    existing routes win and never reach app/[slug].
- *  - app/[slug] is SINGLE-segment, so multi-segment paths (/cat/water-bottles,
- *    /services/kitting, /blog/foo, /api/...) can't match it at all.
+ *    routes, app/api/*) ALWAYS beat a same-level dynamic catch-all. So all
+ *    existing routes win and never reach app/[...slug]. A root catch-all is the
+ *    lowest-priority match, so /cat/..., /services/..., /blog/... stay intact.
+ *  - The root path "/" is served by app/page.tsx — a non-optional catch-all
+ *    ([...slug]) does not match "/", so there is no conflict there.
  *  - Defence-in-depth: we still `notFound()` for any reserved slug and for the
  *    Services page-doc slugs, so a `page` doc can never shadow a real route or
  *    render duplicate content at both /<slug> and /services/<slug>.
@@ -57,7 +67,12 @@ const SERVICE_SLUGS: string[] = (SIMPLE_NAV.find((n) => n.label === 'Services')?
 const ROUTE_RESERVED = new Set<string>([...RESERVED_SLUG_SET, ...SERVICE_SLUGS]);
 
 interface Props {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string[] }>;
+}
+
+// Reconstruct the Sanity `page` slug from the matched path segments.
+function joinSlug(segments: string[]): string {
+  return (segments ?? []).join('/');
 }
 
 // Dedupe the Sanity read between generateMetadata() and the page render.
@@ -65,11 +80,13 @@ const getPage = cache((slug: string) => getPageBySlug(slug));
 
 export async function generateStaticParams() {
   const slugs = await getAllPageSlugs();
-  return slugs.filter((slug) => !ROUTE_RESERVED.has(slug)).map((slug) => ({ slug }));
+  return slugs
+    .filter((slug) => !ROUTE_RESERVED.has(slug))
+    .map((slug) => ({ slug: slug.split('/') }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
+  const slug = joinSlug((await params).slug);
   if (ROUTE_RESERVED.has(slug)) return {};
   const page = await getPage(slug);
   if (!page) return {};
@@ -86,7 +103,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function TopLevelPage({ params }: Props) {
-  const { slug } = await params;
+  const slug = joinSlug((await params).slug);
   if (ROUTE_RESERVED.has(slug)) notFound();
 
   const page = await getPage(slug);
