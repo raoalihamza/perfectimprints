@@ -1130,21 +1130,21 @@ Of the four service pages, **Popup Stores is the only one still on the placehold
 - **Rendering gap:** `/deals`, `/new-products`, `/rush-products` switched `force-static` → ISR (`revalidate` 1 week + webhook) so Sanity custom products / pins / hides render without a full rebuild. Custom categories/blogs/videos already render from Sanity.
 - Verified: `pnpm typecheck` clean; static `build:search-index` rebuilt (30,340 items); live Sanity queries smoke-tested (blogs 645, video 1 w/ category, custom categories 0). **Result: add anything in Studio → page live immediately + searchable within seconds; weekly auto-refresh is the safety net. Matching stays client-side Fuse — still no runtime Searchspring.**
 
-### [ ] M5-512: Sanity revalidation webhook setup (manual, per environment)
+### [x] M5-512: Sanity revalidation webhook setup (manual, per environment)
 
 **Why this exists.** Discovered 2026-06-21 that the Sanity project has **no webhook configured** (API → Webhooks showed `0 of 2`), even though the handler `app/api/sanity/revalidate/route.ts` has been code-ready since M5-503. Until the webhook is created, NONE of the "instant on publish" behavior fires — mega menu / global settings / home / services pages / blogs / videos / custom products / custom categories / the live search delta all fall back to ISR/on-demand (up to a 1-week lag). The handler + the M5-507 hybrid search both depend on this. **This is a manual one-time setup in the Sanity dashboard, not provisioned by code.**
 
 Full step-by-step (URL, filter, projection, secret, testing, troubleshooting): **[docs/sanity-webhook-setup.md](docs/sanity-webhook-setup.md)**.
 
-**Status (2026-06-21): STAGING DONE — production still pending (do at launch).**
+**Status (2026-07-01): DONE on BOTH environments — staging + production webhooks created.**
 
 **Acceptance.**
 
 - [x] **Staging** webhook created → `https://dev.perfectimprints.com/api/sanity/revalidate`, filter + projection per the doc, secret matches Vercel `SANITY_WEBHOOK_SECRET` (Preview env).
 - [x] `SANITY_WEBHOOK_SECRET` set in Vercel (Preview/staging) — redeploy done.
-- [ ] Staging verified end-to-end: publish a video/blog/custom product → webhook Delivery log shows **200 `{revalidated:true}`** and the item appears in search within seconds. *(Do after the build-fix deploy lands — the new `/api/search-index` + extra handled types only go live once the fixed build deploys.)*
-- [ ] **Production** webhook created at launch → `https://www.perfectimprints.com/api/sanity/revalidate` (same filter/projection/secret + `SANITY_WEBHOOK_SECRET` in Vercel Production env). ⏳ *Pending — production not live yet; do at cutover.*
-- [ ] Production verified the same way after go-live.
+- [x] Staging verified end-to-end: publish a video/blog/custom product → webhook Delivery log shows **200 `{revalidated:true}`** and the item appears in search within seconds.
+- [x] **Production** webhook created (2026-07-01) → `https://www.perfectimprints.com/api/sanity/revalidate` (same filter/projection/secret + `SANITY_WEBHOOK_SECRET` in Vercel Production env).
+- [x] Production verified — customCategory publishes (e.g. `/cat/noise-makers`, `/cat/blenders-shakers`) now reflect edits within seconds instead of waiting for the next deploy.
 
 **Depends on.** M5-503 (handler), M5-507 hybrid search (live delta route).
 **Estimate.** 30 min (dashboard config, no code).

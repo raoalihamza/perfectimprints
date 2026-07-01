@@ -6,13 +6,13 @@ verifies the signature and revalidates the affected pages + the live search
 delta so editor changes go live **within seconds** instead of waiting for the
 ISR fallback.
 
-> **Status (2026-06-21):** the **staging** webhook has been created
-> (`https://dev.perfectimprints.com/api/sanity/revalidate`) with a matching
-> `SANITY_WEBHOOK_SECRET` in Vercel. The **production** webhook is still
-> **pending** — create it at launch using the "Production webhook" section below.
-> (End-to-end verification of the M5-507 search flow should be done after the
-> build-fix deploy lands, since the `/api/search-index` route + the extra handled
-> types only go live with that deploy.)
+> **Status (2026-07-01):** BOTH webhooks are now created —
+> **staging** (`https://dev.perfectimprints.com/api/sanity/revalidate`) and
+> **production** (`https://www.perfectimprints.com/api/sanity/revalidate`) —
+> each with a matching `SANITY_WEBHOOK_SECRET` in the corresponding Vercel env
+> (Preview / Production) and the same filter + projection. Publishes now
+> revalidate in seconds on both environments. The sections below are retained as
+> the reference for the filter/projection/secret and for recreating a webhook.
 
 ## What the webhook drives
 
@@ -116,9 +116,9 @@ The route reads `_type` + `slug.current` for most types, plus `categorySlug`
 payload small while still giving the handler everything it needs; unused fields
 are simply absent for other types.
 
-## Production webhook (do at launch)
+## Production webhook (✅ created 2026-07-01)
 
-Create a **second** webhook identical to the above except:
+The production webhook is a **second** webhook identical to the above except:
 
 | Field | Value |
 | --- | --- |
