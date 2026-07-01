@@ -1,6 +1,7 @@
 import { client } from '@/lib/sanity/client';
 import type { NavDepartment, NavNode } from '@/lib/nav-data';
 import type { MegaMenuItem, MegaMenuChild } from '@/components/layout/MegaMenu';
+import { normalizeHref } from '@/lib/sanity/normalize-href';
 
 // ---------------------------------------------------------------------------
 // Mega menu — Sanity-driven (M5-503).
@@ -72,15 +73,20 @@ function columnsToDepartments(columns: RawColumn[]): NavDepartment[] {
   return columns
     .filter((c) => c.label)
     .map((c, i) => {
-      const headerHref = !c.nonClickable && c.href ? c.href : null;
+      // Internal hrefs are slash-tolerant (normalizeHref prepends `/` to bare
+      // internal paths, leaves external/protocol/anchor untouched).
+      const headerHref = !c.nonClickable && c.href ? normalizeHref(c.href) || null : null;
       const children: NavNode[] = (c.links ?? [])
         .filter((l) => l.label)
-        .map((l) => ({
-          label: l.label as string,
-          href: l.href ?? null,
-          available: Boolean(l.href),
-          children: [],
-        }));
+        .map((l) => {
+          const href = normalizeHref(l.href) || null;
+          return {
+            label: l.label as string,
+            href,
+            available: Boolean(href),
+            children: [],
+          };
+        });
       return {
         label: c.label as string,
         slug: slugify(c.label as string) || `col-${i}`,
@@ -122,15 +128,15 @@ export function resolveMegaMenu(raw: RawMegaMenu | null): ResolvedMenu {
         label: item.label,
         item: {
           label: item.label,
-          href: item.href || '#',
+          href: normalizeHref(item.href) || '#',
           children: (item.links ?? [])
             .filter((l) => l.label && l.href)
-            .map((l) => ({ label: l.label as string, href: l.href as string })),
+            .map((l) => ({ label: l.label as string, href: normalizeHref(l.href) })),
         },
       });
     } else {
       // Treat anything else (including explicit `link`) as a plain link.
-      desktopItems.push({ kind: 'link', label: item.label, href: item.href || '#' });
+      desktopItems.push({ kind: 'link', label: item.label, href: normalizeHref(item.href) || '#' });
     }
   }
 

@@ -1557,6 +1557,16 @@ Follow-up to M5-521. The `page` website-builder had text formatting (headings/su
 - [x] **Video Embed section.** New `videoEmbed` object (heading + `url` + caption) reusing the existing `parseVideoEmbed` ([lib/video/embed.ts](lib/video/embed.ts)) + shared client [components/videos/VideoEmbed.tsx](components/videos/VideoEmbed.tsx). Renderer [components/page-sections/VideoEmbedSection.tsx](components/page-sections/VideoEmbedSection.tsx), wired into `SectionRenderer`, registered via `pageSectionSchemas` (auto-added to the schema index). Provider auto-detected (YouTube/Shorts/Vimeo/Instagram/Facebook); embed-only, nothing hosted. Type added to `PageSection` union in [lib/sanity/queries/pages.ts](lib/sanity/queries/pages.ts).
 - [x] Guide ([perfect-imprints-sanity-guide.html](perfect-imprints-sanity-guide.html)) section-types table + CLAUDE.md `page` entry updated. `pnpm typecheck` clean. Working tree left staged for review (not committed).
 
+### [x] M5-523: Slash-tolerant internal link hrefs (footer + mega menu) (2026-07-01)
+
+A footer link entered in Sanity as `llm-info-perfect-imprints` (no leading slash) navigated wrong — Next's `<Link>` treats a bare href as a path relative to the current route, not `/llm-info-perfect-imprints`. Made the internal-href resolvers slash-tolerant so Patrick can enter an internal path with or without the leading slash.
+
+- [x] New shared helper [lib/sanity/normalize-href.ts](lib/sanity/normalize-href.ts) (`normalizeHref`): empty → `''`; `http(s)://` / `mailto:` / `tel:` / `#anchor` → untouched; already-`/…` → untouched; bare internal path (`about`, `llm-info-perfect-imprints`) → `/` prepended (trims whitespace first).
+- [x] Applied in the footer resolver ([lib/sanity/queries/global-settings.ts](lib/sanity/queries/global-settings.ts) `getSiteSettings()` footer columns) — normalizes internal link hrefs; `external`-flagged links keep their href verbatim (must include full scheme). The label+href non-empty **drop condition is unchanged** — normalizing only fixes bare internal paths, no empty links start rendering.
+- [x] Applied in the mega-menu resolver ([lib/sanity/queries/mega-menu.ts](lib/sanity/queries/mega-menu.ts)) for item `href`, dropdown `links[].href`, column `href` + `links[].href`.
+- [x] Resolver-only — no Sanity schema change, no webhook/Filter change, no `/cat` render-path change. `pnpm typecheck` clean.
+- [x] Guide ([perfect-imprints-sanity-guide.html](perfect-imprints-sanity-guide.html)) footer + mega-menu sections note internal links work with or without the slash (external must be full `https://…`); CLAUDE.md `footerColumns` entry updated. Working tree left staged for review (not committed).
+
 ---
 
 ## Module 6: QA, Migration, Launch

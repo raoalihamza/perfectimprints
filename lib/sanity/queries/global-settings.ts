@@ -2,6 +2,7 @@ import { cache } from 'react';
 import { client, urlForImage } from '@/lib/sanity/client';
 import type { SanityImage } from '@/lib/sanity/types';
 import { socialLabel } from '@/components/icons/social-icons';
+import { normalizeHref } from '@/lib/sanity/normalize-href';
 
 // ---------------------------------------------------------------------------
 // Site settings — social links + contact info, Sanity-driven.
@@ -160,15 +161,21 @@ function resolve(raw: RawSettings | null): SiteSettings {
   // Footer columns: keep only columns with a heading and at least one valid
   // link (label + href). An empty result lets the Footer fall back to its
   // hardcoded NAV_COLUMNS so it never renders empty.
+  // Internal hrefs are slash-tolerant (normalizeHref prepends `/` to bare
+  // internal paths, leaves external/protocol/anchor untouched); external links
+  // keep their href verbatim (they must include the full https:// scheme).
   const footerColumns: FooterColumn[] = (raw.footerColumns ?? [])
     .map((col) => ({
       heading: clean(col.heading) ?? '',
       links: (col.links ?? [])
-        .map((l) => ({
-          label: clean(l.label) ?? '',
-          href: clean(l.href) ?? '',
-          external: l.external === true,
-        }))
+        .map((l) => {
+          const external = l.external === true;
+          return {
+            label: clean(l.label) ?? '',
+            href: external ? clean(l.href) ?? '' : normalizeHref(l.href),
+            external,
+          };
+        })
         .filter((l) => l.label && l.href),
     }))
     .filter((col) => col.heading && col.links.length > 0);
