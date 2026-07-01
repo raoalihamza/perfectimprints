@@ -8,6 +8,7 @@ import { StatBanner } from './StatBanner';
 import { CardGrid } from './CardGrid';
 import { CtaBlock } from './CtaBlock';
 import { EventList } from './EventList';
+import { VideoEmbedSection } from './VideoEmbedSection';
 import { FaqAccordion } from './FaqAccordion';
 
 /**
@@ -36,6 +37,8 @@ function renderSection(section: PageSection) {
       return <CtaBlock section={section} />;
     case 'eventList':
       return <EventList section={section} />;
+    case 'videoEmbed':
+      return <VideoEmbedSection section={section} />;
     case 'faqAccordion':
       return <FaqAccordion section={section} />;
     default:

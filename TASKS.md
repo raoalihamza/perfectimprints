@@ -1549,6 +1549,14 @@ Patrick published a `page` doc (`/llm-info-perfect-imprints`) but it 404'd — t
 - [x] **Docs.** [perfect-imprints-sanity-guide.html](perfect-imprints-sanity-guide.html) Page section: how to create a brand-new page (Create new → Title + Slug + Sections + SEO → Publish → live at `/<slug>` within seconds), the reserved-slug list + why, AND the explicit **two-step flow** — Step 1 create the page (required; live + in sitemap, NOT in any menu), Step 2 optional link it into nav via a DIFFERENT section (Mega Menu item / Footer column, paste the slug as `href`; no code change; the page works & is Google-findable without Step 2). CLAUDE.md `page` entry + Section 4 URL list + webhook doc updated.
 - [x] `/cat` stays static; `pnpm typecheck` clean. Working tree left staged for review (not committed).
 
+### [x] M5-522: Page-builder — inline images in rich text + Video Embed section (2026-07-01)
+
+Follow-up to M5-521. The `page` website-builder had text formatting (headings/sub-headings/paragraphs/bullets/numbered/bold/italic/quotes/links) and images as separate section blocks, but was missing (a) images *inline within a paragraph flow* and (b) any YouTube/video embed. Added both.
+
+- [x] **Inline images in rich text.** `portableBody` (used by `richText` + `imageText`) now includes `{type:'image'}` in its `of` array ([sanity/schemas/objects/page-sections.ts](sanity/schemas/objects/page-sections.ts)), so an editor can drop a picture between paragraphs. Rendered by a new `types.image` handler in the shared [components/page-sections/portable-text.tsx](components/page-sections/portable-text.tsx) (`urlForImage` → lazy `<img>`, degrades to nothing when no asset).
+- [x] **Video Embed section.** New `videoEmbed` object (heading + `url` + caption) reusing the existing `parseVideoEmbed` ([lib/video/embed.ts](lib/video/embed.ts)) + shared client [components/videos/VideoEmbed.tsx](components/videos/VideoEmbed.tsx). Renderer [components/page-sections/VideoEmbedSection.tsx](components/page-sections/VideoEmbedSection.tsx), wired into `SectionRenderer`, registered via `pageSectionSchemas` (auto-added to the schema index). Provider auto-detected (YouTube/Shorts/Vimeo/Instagram/Facebook); embed-only, nothing hosted. Type added to `PageSection` union in [lib/sanity/queries/pages.ts](lib/sanity/queries/pages.ts).
+- [x] Guide ([perfect-imprints-sanity-guide.html](perfect-imprints-sanity-guide.html)) section-types table + CLAUDE.md `page` entry updated. `pnpm typecheck` clean. Working tree left staged for review (not committed).
+
 ---
 
 ## Module 6: QA, Migration, Launch

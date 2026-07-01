@@ -131,6 +131,14 @@ export interface FaqAccordionSection extends BaseSection {
   items?: FaqItem[];
 }
 
+export interface VideoEmbedSection extends BaseSection {
+  _type: 'videoEmbed';
+  heading?: string;
+  /** Pasted YouTube / Vimeo / Instagram / Facebook URL (provider auto-detected). */
+  url?: string;
+  caption?: string;
+}
+
 export type PageSection =
   | HeroBannerSection
   | RichTextSection
@@ -141,6 +149,7 @@ export type PageSection =
   | CardGridSection
   | CtaBlockSection
   | EventListSection
+  | VideoEmbedSection
   | FaqAccordionSection;
 
 export interface PageDoc {

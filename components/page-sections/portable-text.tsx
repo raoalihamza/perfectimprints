@@ -1,12 +1,36 @@
 import Link from 'next/link';
 import { type PortableTextComponents } from '@portabletext/react';
+import { urlForImage } from '@/lib/sanity/client';
+
+/** Shape of an inline `image` block dropped into rich-text body. */
+type InlineImageValue = { asset?: { _ref?: string }; alt?: string };
 
 /**
  * Shared PortableText renderer config for page-builder rich text
- * (richText + imageText sections). Headings, paragraphs, lists, and links
- * styled to match the site's body typography.
+ * (richText + imageText sections). Headings, paragraphs, lists, links, and
+ * INLINE images styled to match the site's body typography.
  */
 export const pagePortableComponents: PortableTextComponents = {
+  types: {
+    // Inline image dropped between paragraphs in a rich-text body. Renders only
+    // when it has an uploaded asset; degrades to nothing otherwise (no broken
+    // image icon). Plain <img> with lazy loading, matching SectionImage.
+    image: ({ value }) => {
+      const v = value as InlineImageValue;
+      if (!v?.asset?._ref) return null;
+      let src: string | null = null;
+      try {
+        src = urlForImage(v).width(1200).fit('max').auto('format').url();
+      } catch {
+        return null;
+      }
+      if (!src) return null;
+      return (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={src} alt={v.alt || ''} loading="lazy" className="my-6 w-full rounded-md" />
+      );
+    },
+  },
   block: {
     h2: ({ children }) => (
       <h2 className="mt-8 text-2xl font-bold text-brand-ink md:text-3xl">{children}</h2>

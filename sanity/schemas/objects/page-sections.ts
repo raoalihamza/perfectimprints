@@ -42,12 +42,25 @@ function imageUrlField(name = 'imageUrl', title = 'Image URL (fallback)') {
   });
 }
 
+// Rich-text body. Besides the standard block editor (headings, sub-headings,
+// paragraphs, bullet/numbered lists, bold/italic, quotes, links) it also accepts
+// INLINE images, so an editor can drop a picture between paragraphs — not only as
+// a separate Image section. Inline images render via the `image` handler in
+// components/page-sections/portable-text.tsx.
 const portableBody = (name = 'body', title = 'Content') =>
   defineField({
     name,
     title,
     type: 'array',
-    of: [{ type: 'block' }],
+    of: [
+      { type: 'block' },
+      {
+        type: 'image',
+        title: 'Inline image',
+        options: { hotspot: true },
+        fields: [{ name: 'alt', type: 'string', title: 'Alt text' }],
+      },
+    ],
   });
 
 function previewWithHidden(typeLabel: string) {
@@ -297,6 +310,34 @@ export const eventList = defineType({
   preview: { select: { heading: 'heading', hidden: 'hidden' }, ...previewWithHidden('Event list') },
 });
 
+export const videoEmbed = defineType({
+  name: 'videoEmbed',
+  title: 'Video Embed',
+  type: 'object',
+  fields: [
+    defineField({ name: 'heading', title: 'Heading (optional)', type: 'string' }),
+    defineField({
+      name: 'url',
+      title: 'Video URL',
+      type: 'url',
+      description:
+        'Paste a YouTube, YouTube Shorts, Vimeo, Instagram, or Facebook link. The correct player is detected automatically — no need to pick a provider.',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({ name: 'caption', title: 'Caption (optional)', type: 'string' }),
+    hiddenField,
+  ],
+  preview: {
+    select: { heading: 'heading', url: 'url', hidden: 'hidden' },
+    prepare({ heading, url, hidden }: { heading?: string; url?: string; hidden?: boolean }) {
+      return {
+        title: `Video: ${heading || url || '(no URL)'}`,
+        subtitle: `Section${hidden ? ' · hidden' : ''}`,
+      };
+    },
+  },
+});
+
 export const faqAccordion = defineType({
   name: 'faqAccordion',
   title: 'FAQ Accordion',
@@ -334,6 +375,7 @@ export const pageSectionSchemas = [
   cardGrid,
   ctaBlock,
   eventList,
+  videoEmbed,
   faqAccordion,
 ];
 
