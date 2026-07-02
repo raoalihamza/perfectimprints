@@ -64,9 +64,64 @@ export const BRANDS_TAG = 'brands';
 export const SETTINGS_TAG = 'global-settings';
 export const MEGA_MENU_TAG = 'mega-menu';
 
-/** Per-slug content tag, e.g. `cat:water-bottles` or `cat:water-bottles/color/blue`. */
+// ---------------------------------------------------------------------------
+// Tag-value sanitizer (production-incident hardening, 2026-07-02)
+//
+// Next/Vercel reject a request's `x-next-cache-tags` header when ANY tag on the
+// render is invalid (empty, or containing a character outside the allowed set),
+// and the WHOLE response then 500s. The root catch-all `app/[...slug]` runs a
+// tagged Sanity fetch (`pageTag`/`customSchemaTag`) for EVERY unmatched
+// top-level path BEFORE it `notFound()`s, so bot junk (`/wp-login.php`,
+// `%`-encodings, uppercase, dots, …) built a bad tag and 500'd instead of 404'ing.
+//
+// `sanitizeTagValue` normalizes any slug/path into a tag-safe token: lowercase,
+// KEEP `/ _ -` (so existing `cat:water-bottles/color/blue` and `customSchema:/`
+// tags are byte-identical — no churn on the working `/cat` path), map every
+// other run of characters to a single `-`, trim, and length-cap well under
+// Next's 256 limit (hash the tail if a pathological value overflows). Empty in →
+// empty out, and the tag builders return '' for that so callers can drop it
+// (`.filter(Boolean)`) — a tag is NEVER emitted as a bare `base:` with nothing.
+//
+// Because the read path AND the webhook both call these SAME builders, the tags
+// stay consistent, so `revalidateTag` still busts exactly what the fetch tagged
+// — freshness is preserved, only invalid tags are prevented.
+// ---------------------------------------------------------------------------
+
+/** Max length for a single cache tag (Next's limit is 256 — stay well under). */
+const MAX_TAG_VALUE_LENGTH = 200;
+
+function hashToken(s: string): string {
+  let h = 5381;
+  for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0;
+  return h.toString(36);
+}
+
+/**
+ * Normalize an arbitrary slug/path into a cache-tag-safe token. Returns '' for
+ * empty/undefined/whitespace-only or all-invalid input (caller drops it). Keeps
+ * `/`, `_`, `-`, `a-z`, `0-9` so already-valid slugs/paths are unchanged.
+ */
+export function sanitizeTagValue(value: string | undefined | null): string {
+  if (!value) return '';
+  const token = value
+    .toLowerCase()
+    .replace(/[^a-z0-9/_-]+/g, '-') // any invalid run -> single '-'
+    .replace(/-{2,}/g, '-') // collapse dash runs
+    .replace(/^-+|-+$/g, ''); // trim leading/trailing dashes (slashes kept)
+  if (!token) return '';
+  if (token.length <= MAX_TAG_VALUE_LENGTH) return token;
+  // Pathologically long value: truncate + append a short hash for uniqueness.
+  return `${token.slice(0, MAX_TAG_VALUE_LENGTH - 9)}-${hashToken(token)}`;
+}
+
+/**
+ * Per-slug content tag, e.g. `cat:water-bottles` or `cat:water-bottles/color/blue`.
+ * Returns '' for an empty/invalid slug (caller filters it out) so the render
+ * never emits a bare `cat:` and 500s the `x-next-cache-tags` header.
+ */
 export function categoryTag(slug: string): string {
-  return `cat:${slug}`;
+  const s = sanitizeTagValue(slug);
+  return s ? `cat:${s}` : '';
 }
 
 /**
@@ -82,7 +137,8 @@ export function categoryTag(slug: string): string {
  */
 export const PAGES_TAG = 'pages';
 export function pageTag(slug: string): string {
-  return `page:${slug}`;
+  const s = sanitizeTagValue(slug);
+  return s ? `page:${s}` : '';
 }
 
 /**
@@ -94,5 +150,6 @@ export function pageTag(slug: string): string {
  * publish/delete so an edit goes live in seconds.
  */
 export function customSchemaTag(path: string): string {
-  return `customSchema:${path}`;
+  const s = sanitizeTagValue(path);
+  return s ? `customSchema:${s}` : '';
 }

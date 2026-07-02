@@ -67,7 +67,7 @@ export async function getCategoryOverride(
     const doc = await cachedClient.fetch<CategoryOverrideDoc | null>(
       `*[_type == "categoryOverride" && categorySlug == $slug][0] { ${PROJECTION} }`,
       { slug: categorySlug },
-      { next: { tags: [categoryTag(categorySlug)], revalidate: false } },
+      { next: { tags: [categoryTag(categorySlug)].filter(Boolean), revalidate: false } },
     );
     return doc ?? null;
   } catch {

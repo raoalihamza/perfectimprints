@@ -36,7 +36,7 @@ export async function getCustomSchemaForPath(path: string): Promise<CustomSchema
     const docs = await cachedClient.fetch<CustomSchemaDoc[]>(
       `*[_type == "customSchema" && pageUrl == $path]{ ${PROJECTION} }`,
       { path },
-      { next: { tags: [customSchemaTag(path)], revalidate: false } },
+      { next: { tags: [customSchemaTag(path)].filter(Boolean), revalidate: false } },
     );
     return docs ?? [];
   } catch {

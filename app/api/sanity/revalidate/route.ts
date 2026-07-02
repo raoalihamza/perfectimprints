@@ -24,6 +24,16 @@ import {
   pageTag,
 } from '@/lib/sanity/cache-tags';
 
+/**
+ * `revalidateTag` that skips an empty tag. The slug/path tag builders
+ * (`categoryTag`/`pageTag`/`customSchemaTag`) sanitize their input and return ''
+ * for an empty/all-invalid value, so guard against `revalidateTag('')`. Constant
+ * tags (SETTINGS_TAG, …) are always non-empty and don't need this.
+ */
+function bustTag(tag: string): void {
+  if (tag) revalidateTag(tag, 'max');
+}
+
 // Types whose content is rendered inside the shared root layout (Header / Footer
 // / global CTA). A change to any of them must refresh every page's chrome.
 const LAYOUT_TYPES = new Set(['megaMenu', 'globalSettings']);
@@ -162,7 +172,7 @@ export async function POST(request: Request) {
     // JSON↔Sanity in seconds (the page path is also revalidated above).
     if (type === 'customCategory') {
       revalidateTag(CATEGORY_CONTROL_TAG, 'max');
-      if (slug) revalidateTag(categoryTag(slug), 'max');
+      if (slug) bustTag(categoryTag(slug));
     }
     // Blog relatedness on root category pages is a cached read — refresh it.
     if (type === 'blogPost') revalidateTag(RELATED_BLOGS_TAG, 'max');
@@ -183,7 +193,7 @@ export async function POST(request: Request) {
     revalidateTag(CATEGORY_CONTROL_TAG, 'max');
     const categorySlug = payload.categorySlug ?? payload.slug?.current;
     if (categorySlug) {
-      revalidateTag(categoryTag(categorySlug), 'max');
+      bustTag(categoryTag(categorySlug));
       const path = `/cat/${categorySlug}`;
       revalidatePath(path);
       return NextResponse.json({ revalidated: true, scope: path, type });
@@ -204,7 +214,7 @@ export async function POST(request: Request) {
     ].filter((s): s is string => typeof s === 'string' && s.length > 0);
     const unique = [...new Set(slugs)];
     for (const s of unique) {
-      revalidateTag(categoryTag(s), 'max');
+      bustTag(categoryTag(s));
       revalidatePath(`/cat/${s}`);
     }
     return NextResponse.json({ revalidated: unique.length > 0, paths: unique.map((s) => `/cat/${s}`), type });
@@ -217,7 +227,7 @@ export async function POST(request: Request) {
   if (type === 'customSchema') {
     const pageUrl = payload.pageUrl;
     if (pageUrl) {
-      revalidateTag(customSchemaTag(pageUrl), 'max');
+      bustTag(customSchemaTag(pageUrl));
       revalidatePath(pageUrl);
       return NextResponse.json({ revalidated: true, scope: pageUrl, type });
     }
@@ -236,7 +246,7 @@ export async function POST(request: Request) {
     revalidateTag(PAGES_TAG, 'max');
     const slug = payload.slug?.current;
     if (slug) {
-      revalidateTag(pageTag(slug), 'max');
+      bustTag(pageTag(slug));
       const paths = [`/services/${slug}`, `/${slug}`, '/sitemap.xml'];
       for (const p of paths) revalidatePath(p);
       return NextResponse.json({ revalidated: true, paths, type });

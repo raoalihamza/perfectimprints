@@ -177,7 +177,7 @@ export async function getPageBySlug(slug: string): Promise<PageDoc | null> {
     return await cachedClient.fetch<PageDoc | null>(
       `*[_type == "page" && slug.current == $slug][0]${PAGE_PROJECTION}`,
       { slug },
-      { next: { tags: [PAGES_TAG, pageTag(slug)], revalidate: false } },
+      { next: { tags: [PAGES_TAG, pageTag(slug)].filter(Boolean), revalidate: false } },
     );
   } catch {
     return null;

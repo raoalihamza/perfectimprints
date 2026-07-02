@@ -89,7 +89,7 @@ export async function getCustomCategoryBySlug(
     const doc = await cachedClient.fetch<CustomCategoryDoc | null>(
       `*[_type == "customCategory" && slug.current == $slug][0] { ${CUSTOM_CATEGORY_PROJECTION} }`,
       { slug },
-      { next: { tags: [categoryTag(slug)], revalidate: false } },
+      { next: { tags: [categoryTag(slug)].filter(Boolean), revalidate: false } },
     );
     return doc ?? null;
   } catch {

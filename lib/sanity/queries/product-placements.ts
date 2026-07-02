@@ -31,7 +31,7 @@ export async function getPlacementSkusForCategory(
         "removeSkus": *[_type == "productPlacement" && defined(sku) && $slug in removeFromCategories].sku
       }`,
       { slug: categorySlug },
-      { next: { tags: [categoryTag(categorySlug)], revalidate: false } },
+      { next: { tags: [categoryTag(categorySlug)].filter(Boolean), revalidate: false } },
     );
     return {
       addSkus: (res?.addSkus ?? []).map((s) => String(s).trim()).filter(Boolean),
