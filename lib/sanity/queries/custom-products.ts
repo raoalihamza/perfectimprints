@@ -18,6 +18,11 @@ export interface CustomProductDoc {
   productionTime?: number;
   colors?: string[];
   material?: string;
+  features?: string[];
+  types?: string[];
+  madeInUsa?: boolean;
+  ecoFriendly?: boolean;
+  closeout?: boolean;
   badges?: string[];
   displayOrder?: number;
   placements?: { onDeals?: boolean; onNewProducts?: boolean; onRush?: boolean };
@@ -38,11 +43,31 @@ const PROJECTION = `
   productionTime,
   colors,
   material,
+  features,
+  types,
+  madeInUsa,
+  ecoFriendly,
+  closeout,
   badges,
   displayOrder,
   placements,
   "parentCategory": parentCategory->{ "slug": slug.current, title }
 `;
+
+/**
+ * "New item" signal for a custom product. There is deliberately NO separate
+ * `newItem` field — the NEW badge and the "Show on /new-products" placement
+ * already exist as new-ness signals, and both feed the normalized
+ * `is_new_item`, which every New Items filter reads.
+ */
+export function customProductIsNewItem(doc: CustomProductDoc): boolean {
+  return (doc.badges ?? []).includes('new') || doc.placements?.onNewProducts === true;
+}
+
+/** "Closeout" signal — the Closeout toggle or the CLOSEOUT badge. */
+export function customProductIsCloseout(doc: CustomProductDoc): boolean {
+  return doc.closeout === true || (doc.badges ?? []).includes('closeout');
+}
 
 export async function getCustomProductsForDeals(): Promise<CustomProductDoc[]> {
   try {
@@ -173,8 +198,7 @@ export function customProductToGeigerProduct(doc: CustomProductDoc): GeigerProdu
     description: doc.description ?? '',
     category_paths,
     badges,
-    is_new_item:
-      (doc.badges ?? []).includes('new') || doc.placements?.onNewProducts === true,
+    is_new_item: customProductIsNewItem(doc),
     is_on_sale: (doc.badges ?? []).includes('sale'),
     product_type_unigram: null,
     geiger_url: doc.externalUrl,

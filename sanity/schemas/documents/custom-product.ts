@@ -127,6 +127,48 @@ export default defineType({
       type: 'string',
       description: 'Tag with the Material name (e.g. "Stainless Steel"). Participates in the Material filter.',
     }),
+    defineField({
+      name: 'features',
+      title: 'Features',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: { layout: 'tags' },
+      description:
+        'Optional. Tag with the same feature names Geiger uses (e.g. "With A Lid", "Microwave Safe") — type a tag and press ENTER. Makes this product show up under those values in the Feature filter.',
+    }),
+    defineField({
+      name: 'types',
+      title: 'Types',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: { layout: 'tags' },
+      description:
+        'Optional. Tag with the same type names Geiger uses (e.g. "Tumblers", "Lanyards") — type a tag and press ENTER. Makes this product show up under those values in the Type filter.',
+    }),
+    defineField({
+      name: 'madeInUsa',
+      title: 'Made in USA',
+      type: 'boolean',
+      initialValue: false,
+      description:
+        'Optional. Turn on to make this product show up under the "Made in the USA" filter. Leave off to skip that filter.',
+    }),
+    defineField({
+      name: 'ecoFriendly',
+      title: 'Eco-Friendly',
+      type: 'boolean',
+      initialValue: false,
+      description:
+        'Optional. Turn on to make this product show up under the "Eco-Friendly" filter. Leave off to skip that filter.',
+    }),
+    defineField({
+      name: 'closeout',
+      title: 'Closeout',
+      type: 'boolean',
+      initialValue: false,
+      description:
+        'Optional. Turn on to make this product show up under the Closeout/Deals filter. (Adding the CLOSEOUT badge below counts too.)',
+    }),
 
     // ---- Badges ----
     defineField({
@@ -147,7 +189,7 @@ export default defineType({
       ],
       options: { layout: 'tags' },
       description:
-        'Ribbons shown on the product card. CLOSEOUT > SALE > NEW priority. Leave empty for no ribbon.',
+        'Ribbons shown on the product card. CLOSEOUT > SALE > NEW priority. Leave empty for no ribbon. The NEW badge (or "Show on /new-products" above) also puts the product under the New Items filter; the CLOSEOUT badge also counts for the Closeout filter.',
     }),
   ],
   preview: {

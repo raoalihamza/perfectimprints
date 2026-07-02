@@ -116,9 +116,9 @@ export interface AugmentDealsInput {
  *
  * Order on the page: custom (editorial picks) → newly-pinned Geiger SKUs →
  * scraped Geiger deals. The synthetic Category facet section is rebuilt to
- * include all sources, and custom-product filter tags (brand/colors/material)
- * are injected into the corresponding facet sections so the filter sidebar
- * stays consistent.
+ * include all sources, and custom-product filter tags (brand/colors/material/
+ * feature/type + Made-in-USA/Eco/Closeout/New-Items flags) are injected into
+ * the corresponding facet sections so the filter sidebar stays consistent.
  */
 export function getAugmentedDealsData(input: AugmentDealsInput = {}): DealsData {
   const base = readScraped();

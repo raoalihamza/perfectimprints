@@ -1,7 +1,11 @@
 import 'server-only';
 
 import type { GeigerProduct } from '../product-types';
-import type { CustomProductDoc } from '../sanity/queries/custom-products';
+import {
+  customProductIsCloseout,
+  customProductIsNewItem,
+  type CustomProductDoc,
+} from '../sanity/queries/custom-products';
 
 /**
  * Aggregator facet shape shared by /deals and /new-products. Structurally
@@ -167,13 +171,45 @@ function injectCustomProductTags(
     const value = upsertValue(section, doc.material);
     pushSkuOnce(value, customSku);
   }
+  for (const rawFeature of doc.features ?? []) {
+    if (!rawFeature || !rawFeature.trim()) continue;
+    const section = upsertSection(facets, 'feature', 'Feature');
+    const value = upsertValue(section, rawFeature);
+    pushSkuOnce(value, customSku);
+  }
+  for (const rawType of doc.types ?? []) {
+    if (!rawType || !rawType.trim()) continue;
+    const section = upsertSection(facets, 'type', 'Type');
+    const value = upsertValue(section, rawType);
+    pushSkuOnce(value, customSku);
+  }
+  // Refine By uses Geiger's exact human-readable vocabulary ("Made in the USA" /
+  // "Eco Friendly" / "Deals") so custom flags merge with the scraped values.
+  if (doc.madeInUsa === true) {
+    const section = upsertSection(facets, 'refine_by', 'Refine By');
+    pushSkuOnce(upsertValue(section, 'Made in the USA'), customSku);
+  }
+  if (doc.ecoFriendly === true) {
+    const section = upsertSection(facets, 'refine_by', 'Refine By');
+    pushSkuOnce(upsertValue(section, 'Eco Friendly'), customSku);
+  }
+  if (customProductIsCloseout(doc)) {
+    const section = upsertSection(facets, 'refine_by', 'Refine By');
+    pushSkuOnce(upsertValue(section, 'Deals'), customSku);
+  }
+  // Searchspring models new-ness as an is_new_item facet with the value "Yes".
+  if (customProductIsNewItem(doc)) {
+    const section = upsertSection(facets, 'is_new_item', 'New Items');
+    pushSkuOnce(upsertValue(section, 'Yes'), customSku);
+  }
 }
 
 /**
  * Merges custom (non-Geiger) products + pinned Geiger SKUs into the base
  * scraped aggregator data. Re-derives the synthetic Category facet section
- * and injects custom-product filter tags (brand/colors/material) into the
- * existing scraped facets so filter behavior is consistent.
+ * and injects custom-product filter tags (brand/colors/material/feature/type
+ * plus the Made-in-USA / Eco / Closeout / New-Items flags) into the existing
+ * scraped facets so filter behavior is consistent.
  *
  * Final product order: custom (Sanity editorial picks) → newly pinned Geiger
  * SKUs (not already in the scrape) → scraped Geiger deals/new-products.

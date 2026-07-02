@@ -736,13 +736,15 @@
       <strong>Replace products</strong> and add just the correct items.</p>
 
     <p><strong>Filters on a Replace-products page.</strong> When <strong>Replace products</strong> is on, the sidebar
-      filters (Color, Material, Brand, Made in USA, Eco, Closeout) now reflect the products <em>you</em> added, and
-      clicking a filter stays on that category page instead of jumping to the old Geiger product list. One thing to
-      know: for <strong>Custom Products</strong> (your own non-Geiger items), only the <strong>Color</strong>,
-      <strong>Material</strong>, and <strong>Brand</strong> filters can include them, and only if you fill in those
-      fields on the Custom Product, use the same value names Geiger uses (for example "Blue", "Stainless Steel"). The
-      <strong>Made in USA / Eco / Closeout</strong> filters can't include Custom Products (there is no such field on a
-      custom product). Existing Geiger SKUs you add all filters work automatically.</p>
+      filters (Color, Material, Brand, Feature, Type, Made in USA, Eco, Closeout) reflect the products <em>you</em>
+      added, and clicking a filter stays on that category page instead of jumping to the old Geiger product list.
+      Existing Geiger SKUs you add bring all their filters automatically. For <strong>Custom Products</strong> (your
+      own non-Geiger items), the filters follow the optional fields on the Custom Product: fill in
+      <strong>Colors</strong>, <strong>Material</strong>, <strong>Brand</strong>, <strong>Features</strong>, or
+      <strong>Types</strong> (use the same value names Geiger uses, for example "Blue", "Stainless Steel",
+      "With A Lid"), and switch on <strong>Made in USA</strong>, <strong>Eco-Friendly</strong>, or
+      <strong>Closeout</strong> to have the product included by those filters. Anything you leave blank simply skips
+      that filter.</p>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
@@ -776,8 +778,15 @@
       <li><strong>Display order</strong>: where it sits in the grid.</li>
       <li><strong>Placements</strong>: toggles to also show it on Deals, New Products, and/or Rush Products.</li>
       <li><strong>Optional details</strong> (only needed for the Deals/New/Rush pages): brand, prices, minimum quantity,
-        production time, colors, material, and "new/sale/closeout" badges. If you fill in colors and material using the
-        same words Geiger uses, your custom product joins the filters alongside the Geiger products.</li>
+        production time, and "new/sale/closeout" badges.</li>
+      <li><strong>Optional filter fields</strong> — all optional; tag them to make the product show up under that
+        filter on /deals, /new-products, /rush-products, and on any Replace-products category page; leave blank to
+        skip that filter. <strong>Colors</strong>, <strong>Material</strong>, <strong>Features</strong>, and
+        <strong>Types</strong> are word tags (use the same words Geiger uses, for example "Blue", "Stainless Steel",
+        "With A Lid"); <strong>Made in USA</strong>, <strong>Eco-Friendly</strong>, and <strong>Closeout</strong> are
+        simple on/off switches. There is no separate "New Item" switch — the NEW badge (or "Show on /new-products")
+        already puts the product under the New Items filter, and the CLOSEOUT badge also counts for the Closeout
+        filter.</li>
     </ul>
     <p>A Custom Product can be attached to a category in three ways: its own Parent category field, an <a
         href="#category-override">Category Override</a> "Added Products", or a <a href="#custom-category">Custom
