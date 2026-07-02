@@ -13,7 +13,12 @@ import { NextResponse } from 'next/server';
 import { getCategoryContent } from '@/lib/categories';
 import { getCategoryOverride, mergeCategoryProducts } from '@/lib/sanity/queries/category-overrides';
 import { getPlacementSkusForCategory } from '@/lib/sanity/queries/product-placements';
-import { applyFiltersAndSort, isStateEmpty, parseFilterState } from '@/lib/filters';
+import {
+  applyFiltersAndSort,
+  buildAddedAttrOverlay,
+  isStateEmpty,
+  parseFilterState,
+} from '@/lib/filters';
 
 export const dynamic = 'force-dynamic';
 
@@ -50,10 +55,16 @@ export async function GET(request: Request) {
     placementRemoveSkus: placement.removeSkus,
   });
 
+  // Replace-products (curated) mode: fold the added products' own attributes in
+  // so a facet selection keeps them instead of dropping them (they aren't in the
+  // scraped facet memberships). Mirrors the page's sidebar build so the two agree.
+  const curated = override?.replaceProducts === true;
+  const overlay = curated ? buildAddedAttrOverlay(allProducts, override?.addedProducts) : undefined;
+
   const state = parseFilterState(record);
   const filtered = isStateEmpty(state)
     ? allProducts
-    : applyFiltersAndSort(allProducts, state, rootSlug);
+    : applyFiltersAndSort(allProducts, state, rootSlug, overlay);
 
   return NextResponse.json({ products: filtered, totalProducts: filtered.length });
 }

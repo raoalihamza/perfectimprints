@@ -40,7 +40,7 @@ import {
 } from '@/lib/sanity/queries/owned-categories';
 import { customProductToGeigerProduct } from '@/lib/sanity/queries/custom-products';
 import { CustomCategoryView } from '@/components/category/CustomCategoryView';
-import { buildSidebarData, enrichSidebarWithProductStats } from '@/lib/filters';
+import { buildAddedAttrOverlay, buildSidebarData, enrichSidebarWithProductStats } from '@/lib/filters';
 
 interface Props {
   params: Promise<{ slug: string[] }>;
@@ -361,10 +361,26 @@ export default async function CategoryPage({ params }: Props) {
   if (showCTA && parsed.page > 1) notFound();
   if (!showCTA && parsed.page > pageData.totalPages && allProducts.length > 0) notFound();
 
+  // Replace-products (curated) mode: the grid shows ONLY Patrick's added
+  // products, which aren't in this category's scraped facet memberships. Build
+  // an attribute overlay (real Geiger tags for pinned SKUs; colors/material/brand
+  // for custom products) so those products participate in the Color/Material/
+  // Brand filters and the refine-by toggles, and so filter clicks stay on the
+  // root URL instead of jumping to a baked child facet page. Reuses the already
+  // fetched `override` (no extra Sanity read — replaceProducts slugs are always
+  // "edited"), and reads only facet-memberships.json, so /cat stays static.
+  const curated = override?.replaceProducts === true;
+  const addedAttrOverlay = curated
+    ? buildAddedAttrOverlay(allProducts, override?.addedProducts)
+    : undefined;
+
   // Sidebar data is derived from the unfiltered category SKU set so filter counts
   // reflect "products available if I add this filter," not "products after current filters."
   const sidebar = !showCTA
-    ? enrichSidebarWithProductStats(buildSidebarData(rootSlug, effectiveSkus), allProducts)
+    ? enrichSidebarWithProductStats(
+        buildSidebarData(rootSlug, effectiveSkus, addedAttrOverlay, curated),
+        allProducts,
+      )
     : null;
 
   const title = categoryTitle(content);

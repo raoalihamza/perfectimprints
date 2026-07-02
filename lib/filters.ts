@@ -2,6 +2,7 @@ import 'server-only';
 import fs from 'node:fs';
 import path from 'node:path';
 import type { GeigerProduct } from './categories';
+import type { CustomProductDoc } from '@/lib/sanity/queries/custom-products';
 import { getAllCategoryUrls } from './pi-urls';
 import {
   FACET_REGISTRY,
@@ -44,6 +45,176 @@ function loadMemberships(): Map<string, Set<string>> {
 export function getMembershipSkus(url: string): Set<string> | null {
   const memberships = loadMemberships();
   return memberships.get(url) ?? null;
+}
+
+// ---------------------------------------------------------------------------
+// Added-product attribute overlay (categoryOverride Replace-products mode)
+//
+// In Replace-products mode the grid shows ONLY the products Patrick added
+// (pinned Geiger SKUs + custom products). Those SKUs are NOT in THIS category's
+// scraped facet memberships, so the sidebar (built from facet-memberships.json)
+// can't see them and any facet click drops them. This overlay recovers real
+// attributes for the added products so they participate in the Color / Material
+// / Brand filters (and the Made-in-USA / Eco / Closeout refine-by toggles):
+//
+//   - Pinned Geiger SKUs: recovered from a reverse SKU->facet-value index over
+//     facet-memberships.json. Their attributes live under their ORIGINAL
+//     category URLs, so this works regardless of which category they were
+//     pinned from (GeigerProduct itself carries no color/material — only brand).
+//   - Custom products: colors[]/material/brand read off the customProduct doc
+//     (no made-in-USA/eco/closeout field exists, so those stay false — the one
+//     documented caveat for custom products).
+//
+// Scoped to color/material/brand + the 3 refine-by facets only, so the reverse
+// index stays lean (one pass over the membership file, ~a few hundred-k
+// (url,sku) pairs, built once per worker and cached like loadMemberships).
+// Server-only (node:fs); never import into a client component.
+// ---------------------------------------------------------------------------
+
+export interface AddedAttrOverlay {
+  color: Set<string>;
+  material: Set<string>;
+  brand: Set<string>;
+  madeInUsa: boolean;
+  ecoFriendly: boolean;
+  closeout: boolean;
+}
+export type AddedAttrOverlayMap = Map<string, AddedAttrOverlay>;
+
+const REVERSE_ATTR_TYPES = new Set(['color', 'material', 'brand']);
+
+/**
+ * Slugify a human-readable custom-product attribute value into Geiger's
+ * facet-value slug format (matches lib/products/augment.ts, incl. `&` -> "and")
+ * so custom values merge with the scraped Geiger facet values (e.g.
+ * "Stainless Steel" -> "stainless-steel", "Vineyard Vines" -> "vineyard-vines").
+ */
+function slugifyFacetValue(s: string): string {
+  return s
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+function emptyOverlayEntry(): AddedAttrOverlay {
+  return {
+    color: new Set(),
+    material: new Set(),
+    brand: new Set(),
+    madeInUsa: false,
+    ecoFriendly: false,
+    closeout: false,
+  };
+}
+
+let _reverseAttrIndex: Map<string, AddedAttrOverlay> | null = null;
+
+/**
+ * Lazily build (once per worker) a reverse index mapping each SKU to the
+ * color/material/brand values + made-in-USA/eco/closeout flags it belongs to,
+ * across ALL category URLs in facet-memberships.json. Mirrors the EXACT
+ * membership URL shapes used by buildSidebarData / applyFiltersAndSort:
+ *   /cat/<root>/{color|material|brand}/<value>
+ *   /cat/<root>/special-feature/made-in-usa   (made in USA)
+ *   /cat/<root>/eco-friendly                  (bare — refine-by)
+ *   /cat/<root>/closeout                      (bare — refine-by)
+ */
+function loadReverseAttrIndex(): Map<string, AddedAttrOverlay> {
+  if (_reverseAttrIndex) return _reverseAttrIndex;
+  const memberships = loadMemberships();
+  const idx = new Map<string, AddedAttrOverlay>();
+  const ensure = (sku: string): AddedAttrOverlay => {
+    let e = idx.get(sku);
+    if (!e) {
+      e = emptyOverlayEntry();
+      idx.set(sku, e);
+    }
+    return e;
+  };
+  for (const [url, skus] of memberships) {
+    if (!url.startsWith('/cat/')) continue;
+    const tail = url.slice('/cat/'.length).split('/'); // [root, ...facetPath]
+    if (tail.length === 3) {
+      const type = tail[1];
+      const value = tail[2];
+      if (REVERSE_ATTR_TYPES.has(type)) {
+        for (const sku of skus) ensure(sku)[type as 'color' | 'material' | 'brand'].add(value);
+      } else if (type === 'special-feature' && value === 'made-in-usa') {
+        for (const sku of skus) ensure(sku).madeInUsa = true;
+      }
+    } else if (tail.length === 2) {
+      const seg = tail[1];
+      if (seg === 'eco-friendly') {
+        for (const sku of skus) ensure(sku).ecoFriendly = true;
+      } else if (seg === 'closeout') {
+        for (const sku of skus) ensure(sku).closeout = true;
+      }
+    }
+  }
+  _reverseAttrIndex = idx;
+  return idx;
+}
+
+/**
+ * Build the per-render attribute overlay for the products shown on a
+ * Replace-products category. Keyed by SKU:
+ *   - custom products (sku `custom-<id>`): colors[]/material/brand off the doc
+ *     (slugified to Geiger's value format); made-in-USA/eco/closeout stay false.
+ *   - pinned Geiger SKUs: looked up in the reverse index (real Geiger tags).
+ * Only the products actually shown are included, so counts reflect the grid.
+ */
+export function buildAddedAttrOverlay(
+  products: GeigerProduct[],
+  addedProducts: CustomProductDoc[] | undefined,
+): AddedAttrOverlayMap {
+  const reverse = loadReverseAttrIndex();
+  const customBySku = new Map<string, CustomProductDoc>();
+  for (const doc of addedProducts ?? []) customBySku.set(`custom-${doc._id}`, doc);
+
+  const overlay: AddedAttrOverlayMap = new Map();
+  for (const p of products) {
+    const custom = customBySku.get(p.sku);
+    if (custom) {
+      const entry = emptyOverlayEntry();
+      for (const c of custom.colors ?? []) {
+        const s = slugifyFacetValue(c);
+        if (s) entry.color.add(s);
+      }
+      if (custom.material) {
+        const s = slugifyFacetValue(custom.material);
+        if (s) entry.material.add(s);
+      }
+      const brand = custom.brand ?? p.brand ?? undefined;
+      if (brand) {
+        const s = slugifyFacetValue(brand);
+        if (s) entry.brand.add(s);
+      }
+      overlay.set(p.sku, entry);
+      continue;
+    }
+    const rev = reverse.get(p.sku);
+    if (rev) {
+      // Clone so a caller can never mutate the cached reverse index.
+      overlay.set(p.sku, {
+        color: new Set(rev.color),
+        material: new Set(rev.material),
+        brand: new Set(rev.brand),
+        madeInUsa: rev.madeInUsa,
+        ecoFriendly: rev.ecoFriendly,
+        closeout: rev.closeout,
+      });
+    }
+  }
+  return overlay;
+}
+
+/** Whether an overlay entry has `value` for a color/material/brand facet. */
+function overlayHasFacetValue(e: AddedAttrOverlay, facetType: string, value: string): boolean {
+  if (facetType === 'color') return e.color.has(value);
+  if (facetType === 'material') return e.material.has(value);
+  if (facetType === 'brand') return e.brand.has(value);
+  return false;
 }
 
 // ---------------------------------------------------------------------------
@@ -127,7 +298,26 @@ function valueToLabel(value: string): string {
     .join(' ');
 }
 
-export function buildSidebarData(rootSlug: string, baseSkus: string[]): SidebarData {
+/**
+ * Build the filter sidebar for a category.
+ *
+ * `overlay` + `curated` are set ONLY for a Replace-products category
+ * (`categoryOverride.replaceProducts`), where the grid shows exclusively
+ * Patrick's added products. In that mode the Color / Material / Brand sections
+ * and the refine-by counts fold in the added-product attribute overlay (so the
+ * added products show up as filter values and add to counts), and every facet
+ * value's `staticUrl` is nulled so a filter click stays on the root URL with
+ * query params (hitting the override-aware /api/category-products) instead of
+ * navigating to a baked child facet page that would serve the ORIGINAL products.
+ * Non-curated categories are unaffected (their static facet URLs are kept for
+ * SEO and their counts are unchanged).
+ */
+export function buildSidebarData(
+  rootSlug: string,
+  baseSkus: string[],
+  overlay?: AddedAttrOverlayMap,
+  curated = false,
+): SidebarData {
   const memberships = loadMemberships();
   const baseSet = new Set(baseSkus);
   const context = getFilterContextForRoot(rootSlug);
@@ -147,7 +337,11 @@ export function buildSidebarData(rootSlug: string, baseSkus: string[]): SidebarD
     sectionsByKey.set(ft.key, { key: ft.key, label: ft.label, values: [] });
   }
 
+  // Standard membership-intersection counts. In curated mode the color/material/
+  // brand sections are rebuilt below (set-based, overlay folded in), so skip
+  // those three here to avoid double-counting a SKU that is in both.
   for (const f of facetUrls) {
+    if (curated && REVERSE_ATTR_TYPES.has(f.facetType)) continue;
     const section = sectionsByKey.get(f.facetType);
     if (!section) continue;
     const facetSkus = memberships.get(f.url);
@@ -161,8 +355,53 @@ export function buildSidebarData(rootSlug: string, baseSkus: string[]): SidebarD
       value: f.facetValue,
       label: valueToLabel(f.facetValue),
       count,
-      staticUrl: staticFacetUrlExists(rootSlug, f.facetType, f.facetValue),
+      staticUrl: curated ? null : staticFacetUrlExists(rootSlug, f.facetType, f.facetValue),
     });
+  }
+
+  // Curated (Replace-products): rebuild Color / Material / Brand from SKU SETS
+  // accumulated over BOTH this root's memberships AND the overlay, so count =
+  // set size (a SKU in both is counted once) and an overlay-only value (0
+  // membership hits) is created rather than dropped.
+  if (curated && overlay) {
+    const valSkus: Record<'color' | 'material' | 'brand', Map<string, Set<string>>> = {
+      color: new Map(),
+      material: new Map(),
+      brand: new Map(),
+    };
+    const add = (type: 'color' | 'material' | 'brand', value: string, sku: string) => {
+      let m = valSkus[type].get(value);
+      if (!m) {
+        m = new Set();
+        valSkus[type].set(value, m);
+      }
+      m.add(sku);
+    };
+    for (const f of facetUrls) {
+      if (!REVERSE_ATTR_TYPES.has(f.facetType)) continue;
+      const facetSkus = memberships.get(f.url);
+      if (!facetSkus) continue;
+      for (const sku of facetSkus) {
+        if (baseSet.has(sku)) add(f.facetType as 'color' | 'material' | 'brand', f.facetValue, sku);
+      }
+    }
+    for (const [sku, entry] of overlay) {
+      for (const v of entry.color) add('color', v, sku);
+      for (const v of entry.material) add('material', v, sku);
+      for (const v of entry.brand) add('brand', v, sku);
+    }
+    for (const type of ['color', 'material', 'brand'] as const) {
+      const section = sectionsByKey.get(type);
+      if (!section) continue;
+      for (const [value, skuSet] of valSkus[type]) {
+        section.values.push({
+          value,
+          label: valueToLabel(value),
+          count: skuSet.size,
+          staticUrl: null,
+        });
+      }
+    }
   }
 
   for (const section of sectionsByKey.values()) {
@@ -171,17 +410,25 @@ export function buildSidebarData(rootSlug: string, baseSkus: string[]): SidebarD
 
   const sections = [...sectionsByKey.values()].filter((s) => s.values.length > 0);
 
-  const refineUrl = (suffix: string) => memberships.get(`/cat/${rootSlug}/${suffix}`);
-  const intersectCount = (skus: Set<string> | undefined): number => {
-    if (!skus) return 0;
-    let n = 0;
-    for (const s of skus) if (baseSet.has(s)) n++;
-    return n;
+  // Refine-by counts: union of this root's membership hits (∩ baseSet) with the
+  // overlay flags (curated only), de-duped by SKU so combined counts are right.
+  // With no overlay this reduces to the old membership-intersection count.
+  const countRefine = (
+    members: Set<string> | undefined,
+    pick: (e: AddedAttrOverlay) => boolean,
+  ): number => {
+    const s = new Set<string>();
+    if (members) for (const sku of members) if (baseSet.has(sku)) s.add(sku);
+    if (curated && overlay) for (const [sku, e] of overlay) if (pick(e)) s.add(sku);
+    return s.size;
   };
   const refineBy: RefineByCounts = {
-    madeInUsa: intersectCount(memberships.get(`/cat/${rootSlug}/special-feature/made-in-usa`)),
-    ecoFriendly: intersectCount(refineUrl('eco-friendly')),
-    deals: intersectCount(refineUrl('closeout')),
+    madeInUsa: countRefine(
+      memberships.get(`/cat/${rootSlug}/special-feature/made-in-usa`),
+      (e) => e.madeInUsa,
+    ),
+    ecoFriendly: countRefine(memberships.get(`/cat/${rootSlug}/eco-friendly`), (e) => e.ecoFriendly),
+    deals: countRefine(memberships.get(`/cat/${rootSlug}/closeout`), (e) => e.closeout),
     newItems: 0,
   };
 
@@ -237,7 +484,8 @@ export function enrichSidebarWithProductStats(
 export function applyFiltersAndSort(
   products: GeigerProduct[],
   state: FilterState,
-  rootSlug: string
+  rootSlug: string,
+  overlay?: AddedAttrOverlayMap,
 ): GeigerProduct[] {
   let result = products;
 
@@ -250,23 +498,43 @@ export function applyFiltersAndSort(
       if (!skus) continue;
       for (const s of skus) unionSet.add(s);
     }
-    if (unionSet.size === 0) return [];
-    result = result.filter((p) => unionSet.has(p.sku));
+    // Without an overlay an empty membership union means nothing matches (fast
+    // path preserved). With an overlay (curated), an added product can still
+    // match via its own attributes, so we must run the per-product filter.
+    if (unionSet.size === 0 && !overlay) return [];
+    result = result.filter((p) => {
+      if (unionSet.has(p.sku)) return true;
+      if (overlay) {
+        const e = overlay.get(p.sku);
+        if (e) {
+          for (const v of values) if (overlayHasFacetValue(e, facetType, v)) return true;
+        }
+      }
+      return false;
+    });
   }
 
-  const intersectWithUrl = (url: string) => {
+  // Refine-by toggles: keep a product if it is in the scraped membership set OR
+  // (curated) the overlay flags it. `pick` reads the matching overlay flag.
+  const intersectWithUrl = (url: string, pick: (e: AddedAttrOverlay) => boolean) => {
     const skus = getMembershipSkus(url);
-    if (!skus) return [];
-    return result.filter((p) => skus.has(p.sku));
+    return result.filter((p) => {
+      if (skus && skus.has(p.sku)) return true;
+      if (overlay) {
+        const e = overlay.get(p.sku);
+        if (e && pick(e)) return true;
+      }
+      return false;
+    });
   };
   if (state.madeInUsa) {
-    result = intersectWithUrl(`/cat/${rootSlug}/special-feature/made-in-usa`);
+    result = intersectWithUrl(`/cat/${rootSlug}/special-feature/made-in-usa`, (e) => e.madeInUsa);
   }
   if (state.ecoFriendly) {
-    result = intersectWithUrl(`/cat/${rootSlug}/eco-friendly`);
+    result = intersectWithUrl(`/cat/${rootSlug}/eco-friendly`, (e) => e.ecoFriendly);
   }
   if (state.deals) {
-    result = intersectWithUrl(`/cat/${rootSlug}/closeout`);
+    result = intersectWithUrl(`/cat/${rootSlug}/closeout`, (e) => e.closeout);
   }
 
   if (state.newOnly) {
