@@ -1,6 +1,6 @@
 {
-  "scrapedAt": "2026-07-01T01:42:40Z",
-  "totalDeals": 16,
+  "scrapedAt": "2026-07-05T23:52:21Z",
+  "totalDeals": 12,
   "products": [
     {
       "sku": "502385",
@@ -92,37 +92,6 @@
       "is_on_sale": true,
       "product_type_unigram": "bottle",
       "geiger_url": "/p/24-oz-mood-revolve-bottle-with-carry-cap-529288?pid=459171"
-    },
-    {
-      "sku": "526499",
-      "name": "Anywhere Belt Bag",
-      "brand": null,
-      "low_price": 4.65,
-      "high_price": 5.58,
-      "msrp": 5.58,
-      "min_qty": 100,
-      "imageUrl": "https://imgsirv.geiger.com/master/126499/web/126499_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
-      "description": "Made of combo: 230T polyester &amp; 150D polyester lining. Can be worn as a fanny pack or across the chest sling. Zippered main compartment. Back zippered pocket. 40&quot; handles. Detachable/adjustable waist strap. Spot clean/air dry. Size: 7 1/2&quot;W x 5&quot;H Imprint Area: 4 1/2&quot;W x 1 1/2&quot;H",
-      "category_paths": [
-        "Home > Bags & Totes",
-        "Home > Apparel",
-        "Home > Apparel > Accessories",
-        "Home > Apparel > Accessories >Fanny Packs",
-        "Home > Shop By > Deals",
-        "Home > Shop By > Education",
-        "Home > Shop By > Education > College Giveaways & Recruiting",
-        "Home > Shop By"
-      ],
-      "badges": [
-        {
-          "tag": "sale",
-          "value": "Sale"
-        }
-      ],
-      "is_new_item": false,
-      "is_on_sale": true,
-      "product_type_unigram": "bag",
-      "geiger_url": "/p/anywhere-belt-bag-526499?pid=429330"
     },
     {
       "sku": "529663",
@@ -280,72 +249,6 @@
       "geiger_url": "/p/11-oz-clay-ceramic-mug-529504?pid=461617"
     },
     {
-      "sku": "529363",
-      "name": "30 oz Mondo Insulated Tumbler",
-      "brand": null,
-      "low_price": 6.84,
-      "high_price": 8.2,
-      "msrp": 8.2,
-      "min_qty": 25,
-      "imageUrl": "https://imgsirv.geiger.com/master/129363/web/129363_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
-      "description": "30 oz (887 mL) double wall tumbler with 201 Stainless Steel exterior and PP plastic interior. Includes AS Plastic slide action lid. Designed for use with both hot and cold beverages. Not microwave or dishwasher safe. Hand-wash only. Caution: item may leak if tipped or held upside-down. Size: 7 3/4&quot;H X 3 9/10&quot;Dia. Imprint Area: 3 1/2&quot;W x 2 1/2&quot;H",
-      "category_paths": [
-        "Home > Drinkware",
-        "Home > Drinkware > Travel Mugs & Tumblers",
-        "Home > Drinkware > Travel Mugs & Tumblers > Tumblers with Handles",
-        "Home > Shop By > Deals",
-        "Home > Shop By",
-        "Home > Shop By > New Products"
-      ],
-      "badges": [
-        {
-          "tag": "new",
-          "value": "New"
-        },
-        {
-          "tag": "sale",
-          "value": "Sale"
-        }
-      ],
-      "is_new_item": true,
-      "is_on_sale": true,
-      "product_type_unigram": "tumbler",
-      "geiger_url": "/p/30-oz-mondo-insulated-tumbler-529363?pid=460115"
-    },
-    {
-      "sku": "529362",
-      "name": "Atlas Non-Woven Grocery Tote Bag",
-      "brand": null,
-      "low_price": 1.49,
-      "high_price": 1.78,
-      "msrp": 1.78,
-      "min_qty": 150,
-      "imageUrl": "https://imgsirv.geiger.com/master/129362/web/129362_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
-      "description": "Our most compact reusable market or grocery tote made of durable, reusable and recyclable 80 GSM Non-Woven Polypropylene. Spacious open tote with 8&quot; box gusset and removable rigid covered bottom insert. 20&quot; long reinforced handles. Recommended weight tolerance: 11 lbs.. Size: 12&quot;W x 14&quot;H x 8&quot;D Imprint Area: 4 1/2&quot;W x 8&quot;H",
-      "category_paths": [
-        "Home > Bags & Totes",
-        "Home > Bags & Totes > Tote Bags",
-        "Home > Bags & Totes > Tote Bags > Canvas Totes",
-        "Home > Shop By > Deals",
-        "Home > Shop By",
-        "Home > Shop By > New Products"
-      ],
-      "badges": [
-        {
-          "tag": "new",
-          "value": "New"
-        },
-        {
-          "tag": "sale",
-          "value": "Sale"
-        }
-      ],
-      "is_new_item": true,
-      "is_on_sale": true,
-      "product_type_unigram": "bag",
-      "geiger_url": "/p/atlas-non-woven-grocery-tote-bag-529362?pid=460090"
-    },
-    {
       "sku": "529289",
       "name": "Mood Stress Pop Cube",
       "brand": null,
@@ -428,33 +331,6 @@
       "geiger_url": "/p/medium-tucson-ivory-515907?pid=281887"
     },
     {
-      "sku": "508493",
-      "name": "String-A-Sling Backpack",
-      "brand": null,
-      "low_price": 1.55,
-      "high_price": 1.86,
-      "msrp": 1.86,
-      "min_qty": 150,
-      "imageUrl": "https://imgsirv.geiger.com/master/108493/web/108493_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
-      "description": "Carry up to 24 lbs. of cargo in style. Made from rugged 210-denier polyester. Convenient, quick-close drawstring top closure. Choose from a variety of cheery colors. Size: 15&quot; W x 18&quot; H (Empty). Imprint area: 8 1/2&quot; W x 11&quot; H.",
-      "category_paths": [
-        "Home > Bags & Totes",
-        "Home > Bags & Totes > Drawstring Bags",
-        "Home > Shop By > Deals",
-        "Home >Shop By"
-      ],
-      "badges": [
-        {
-          "tag": "sale",
-          "value": "Sale"
-        }
-      ],
-      "is_new_item": false,
-      "is_on_sale": true,
-      "product_type_unigram": "backpack",
-      "geiger_url": "/p/string-a-sling-backpack-508493?pid=187712"
-    },
-    {
       "sku": "502806 2BJ",
       "name": "Round Stress Reliever",
       "brand": null,
@@ -491,57 +367,15 @@
           "id": "Blue",
           "value": "Blue",
           "label": "Blue",
-          "count": 9,
+          "count": 5,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
-            "526499",
             "529663",
             "529523",
-            "529363",
-            "529362",
             "525944",
             "515907",
-            "508493",
-            "502806 2BJ"
-          ]
-        },
-        {
-          "id": "Black",
-          "value": "Black",
-          "label": "Black",
-          "count": 8,
-          "type": "value",
-          "low": null,
-          "high": null,
-          "skus": [
-            "526499",
-            "529504",
-            "529363",
-            "529362",
-            "525944",
-            "515907",
-            "508493",
-            "502806 2BJ"
-          ]
-        },
-        {
-          "id": "Red",
-          "value": "Red",
-          "label": "Red",
-          "count": 8,
-          "type": "value",
-          "low": null,
-          "high": null,
-          "skus": [
-            "526499",
-            "529663",
-            "529523",
-            "529363",
-            "529362",
-            "515907",
-            "508493",
             "502806 2BJ"
           ]
         },
@@ -549,7 +383,7 @@
           "id": "White",
           "value": "White",
           "label": "White",
-          "count": 8,
+          "count": 5,
           "type": "value",
           "low": null,
           "high": null,
@@ -558,76 +392,21 @@
             "529663",
             "529523",
             "529504",
-            "529363",
-            "529362",
-            "508493",
             "502806 2BJ"
           ]
         },
         {
-          "id": "Gray/Silver",
-          "value": "Gray/Silver",
-          "label": "Gray/Silver",
-          "count": 6,
+          "id": "Black",
+          "value": "Black",
+          "label": "Black",
+          "count": 4,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
-            "526499",
-            "529522",
-            "529363",
+            "529504",
+            "525944",
             "515907",
-            "508493",
-            "502806 2BJ"
-          ]
-        },
-        {
-          "id": "Green",
-          "value": "Green",
-          "label": "Green",
-          "count": 6,
-          "type": "value",
-          "low": null,
-          "high": null,
-          "skus": [
-            "526499",
-            "529523",
-            "529362",
-            "515907",
-            "508493",
-            "502806 2BJ"
-          ]
-        },
-        {
-          "id": "Orange",
-          "value": "Orange",
-          "label": "Orange",
-          "count": 6,
-          "type": "value",
-          "low": null,
-          "high": null,
-          "skus": [
-            "529663",
-            "529523",
-            "529362",
-            "515907",
-            "508493",
-            "502806 2BJ"
-          ]
-        },
-        {
-          "id": "Purple",
-          "value": "Purple",
-          "label": "Purple",
-          "count": 5,
-          "type": "value",
-          "low": null,
-          "high": null,
-          "skus": [
-            "529523",
-            "529362",
-            "515907",
-            "508493",
             "502806 2BJ"
           ]
         },
@@ -647,17 +426,74 @@
           ]
         },
         {
-          "id": "Pink",
-          "value": "Pink",
-          "label": "Pink",
+          "id": "Orange",
+          "value": "Orange",
+          "label": "Orange",
           "count": 4,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
-            "526499",
-            "529362",
-            "508493",
+            "529663",
+            "529523",
+            "515907",
+            "502806 2BJ"
+          ]
+        },
+        {
+          "id": "Red",
+          "value": "Red",
+          "label": "Red",
+          "count": 4,
+          "type": "value",
+          "low": null,
+          "high": null,
+          "skus": [
+            "529663",
+            "529523",
+            "515907",
+            "502806 2BJ"
+          ]
+        },
+        {
+          "id": "Gray/Silver",
+          "value": "Gray/Silver",
+          "label": "Gray/Silver",
+          "count": 3,
+          "type": "value",
+          "low": null,
+          "high": null,
+          "skus": [
+            "529522",
+            "515907",
+            "502806 2BJ"
+          ]
+        },
+        {
+          "id": "Green",
+          "value": "Green",
+          "label": "Green",
+          "count": 3,
+          "type": "value",
+          "low": null,
+          "high": null,
+          "skus": [
+            "529523",
+            "515907",
+            "502806 2BJ"
+          ]
+        },
+        {
+          "id": "Purple",
+          "value": "Purple",
+          "label": "Purple",
+          "count": 3,
+          "type": "value",
+          "low": null,
+          "high": null,
+          "skus": [
+            "529523",
+            "515907",
             "502806 2BJ"
           ]
         },
@@ -665,14 +501,12 @@
           "id": "Yellow/Gold",
           "value": "Yellow/Gold",
           "label": "Yellow/Gold",
-          "count": 4,
+          "count": 2,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
             "529663",
-            "529362",
-            "508493",
             "502806 2BJ"
           ]
         },
@@ -686,6 +520,18 @@
           "high": null,
           "skus": [
             "515907"
+          ]
+        },
+        {
+          "id": "Pink",
+          "value": "Pink",
+          "label": "Pink",
+          "count": 1,
+          "type": "value",
+          "low": null,
+          "high": null,
+          "skus": [
+            "502806 2BJ"
           ]
         }
       ]
@@ -711,21 +557,18 @@
           "id": "1-5",
           "value": null,
           "label": "$1.00 - $5.00",
-          "count": 11,
+          "count": 8,
           "type": "range",
           "low": "1",
           "high": "5",
           "skus": [
             "529664",
             "529288",
-            "526499",
             "529663",
             "529625",
             "529523",
             "529522",
-            "529362",
             "529289",
-            "508493",
             "502806 2BJ"
           ]
         },
@@ -733,13 +576,12 @@
           "id": "5-10",
           "value": null,
           "label": "$5.00 - $10.00",
-          "count": 2,
+          "count": 1,
           "type": "range",
           "low": "5",
           "high": "10",
           "skus": [
-            "529504",
-            "529363"
+            "529504"
           ]
         },
         {
@@ -766,7 +608,7 @@
           "id": "5-7",
           "value": null,
           "label": "5-7 days",
-          "count": 10,
+          "count": 9,
           "type": "range",
           "low": "5",
           "high": "7",
@@ -774,7 +616,6 @@
             "502385",
             "529664",
             "529288",
-            "526499",
             "529663",
             "529523",
             "529522",
@@ -787,16 +628,13 @@
           "id": "8-10",
           "value": null,
           "label": "8-10 days",
-          "count": 5,
+          "count": 2,
           "type": "range",
           "low": "8",
           "high": "10",
           "skus": [
             "529625",
-            "529363",
-            "529362",
-            "525944",
-            "508493"
+            "525944"
           ]
         },
         {
@@ -823,7 +661,7 @@
           "id": "Deals",
           "value": "Deals",
           "label": "Deals",
-          "count": 15,
+          "count": 11,
           "type": "value",
           "low": null,
           "high": null,
@@ -831,17 +669,13 @@
             "502385",
             "529664",
             "529288",
-            "526499",
             "529663",
             "529625",
             "529523",
             "529522",
-            "529363",
-            "529362",
             "529289",
             "525944",
             "515907",
-            "508493",
             "502806 2BJ"
           ]
         },
@@ -903,13 +737,12 @@
           "id": "1-50",
           "value": null,
           "label": "1-50",
-          "count": 4,
+          "count": 3,
           "type": "range",
           "low": "1",
           "high": "50",
           "skus": [
             "529504",
-            "529363",
             "525944",
             "515907"
           ]
@@ -918,13 +751,12 @@
           "id": "50-100",
           "value": null,
           "label": "51-100",
-          "count": 5,
+          "count": 4,
           "type": "range",
           "low": "50",
           "high": "100",
           "skus": [
             "529664",
-            "526499",
             "529663",
             "529625",
             "502806 2BJ"
@@ -934,20 +766,17 @@
           "id": "100-250",
           "value": null,
           "label": "100-250",
-          "count": 9,
+          "count": 6,
           "type": "range",
           "low": "100",
           "high": "250",
           "skus": [
             "502385",
             "529288",
-            "526499",
             "529663",
             "529625",
             "529523",
-            "529362",
-            "529289",
-            "508493"
+            "529289"
           ]
         },
         {
@@ -1000,13 +829,12 @@
           "id": "19-31",
           "value": null,
           "label": "19oz - 31oz",
-          "count": 2,
+          "count": 1,
           "type": "range",
           "low": "19",
           "high": "31",
           "skus": [
-            "529288",
-            "529363"
+            "529288"
           ]
         }
       ]
@@ -1039,15 +867,12 @@
           "id": "Yes",
           "value": "Yes",
           "label": "Yes",
-          "count": 4,
+          "count": 1,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
-            "526499",
-            "529522",
-            "529363",
-            "529362"
+            "529522"
           ]
         }
       ]
@@ -1061,7 +886,7 @@
           "id": "Yes",
           "value": "Yes",
           "label": "Yes",
-          "count": 8,
+          "count": 6,
           "type": "value",
           "low": null,
           "high": null,
@@ -1071,9 +896,7 @@
             "529625",
             "529523",
             "529522",
-            "529504",
-            "529363",
-            "529362"
+            "529504"
           ]
         }
       ]
@@ -1135,19 +958,6 @@
           ]
         },
         {
-          "id": "Polyester",
-          "value": "Polyester",
-          "label": "Polyester",
-          "count": 2,
-          "type": "value",
-          "low": null,
-          "high": null,
-          "skus": [
-            "526499",
-            "508493"
-          ]
-        },
-        {
           "id": "Polyethylene",
           "value": "Polyethylene",
           "label": "Polyethylene",
@@ -1160,18 +970,6 @@
           ]
         },
         {
-          "id": "Polypropylene",
-          "value": "Polypropylene",
-          "label": "Polypropylene",
-          "count": 1,
-          "type": "value",
-          "low": null,
-          "high": null,
-          "skus": [
-            "529362"
-          ]
-        },
-        {
           "id": "Silicone",
           "value": "Silicone",
           "label": "Silicone",
@@ -1181,18 +979,6 @@
           "high": null,
           "skus": [
             "529289"
-          ]
-        },
-        {
-          "id": "Stainless Steel",
-          "value": "Stainless Steel",
-          "label": "Stainless Steel",
-          "count": 1,
-          "type": "value",
-          "low": null,
-          "high": null,
-          "skus": [
-            "529363"
           ]
         }
       ]
