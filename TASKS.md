@@ -1720,6 +1720,19 @@ Live production 5xx starting Jul 02 03:25 UTC (~23 failed req/5min, rising) on r
 **Depends on.** M6-606, plus the weekly Phase F/G/H scrape jobs.
 **Estimate.** 6 hours.
 
+### [x] M6-609: Smart capped warmup list (Vercel + Sanity cost optimization) — DONE 2026-07-06
+
+**Scope.** Both the Vercel bill (ISR writes) and the Sanity bill (direct API reads) were driven mainly by the post-deploy warmup crawling all ~21,139 on-demand facet pages every run. Patrick approved Option B ("Smart"): warm only a capped set of the most valuable pages; everything else generates on-demand on first visit then caches (already how on-demand SSG works). Cost-only change — freshness, `/cat` staticness, on-demand generation, the sitemap, and SEO are untouched.
+
+- [x] New [scripts/warmup/build-warmup-list.ts](scripts/warmup/build-warmup-list.ts): builds the warm list as **(1) guaranteed nav coverage** — every `/cat/` page linked from the mega-menu nav (`lib/nav-data.ts`, the megaMenu seed source); verified all 465 are prebuilt roots (0 added), the check adds URLs only if that ever stops being true — **plus (2) the top `WARMUP_FACET_CAP = 3500` single-facet pages by SKU count** from `facet-memberships.json` (type `facet` only — the 2 compound-facets are prebuilt via `PREBUILD_TYPES`; multi-segment combos stay on-demand; prebuilt/owned slugs excluded; deterministic sort with URL tie-break). The ranking function is isolated so SKU count can be swapped for real traffic data (GSC / Cloudflare Analytics) later. `WARMUP_FACET_CAP` is the tuning knob after a billing cycle.
+- [x] [scripts/warmup/warmup-facets.ts](scripts/warmup/warmup-facets.ts) consumes `buildWarmupList()` instead of enumerating all facet + compound-facet URLs; crawler pool/summary/1%-failure gate unchanged. New `pnpm warmup:list` dry-runs the list + prints the old-vs-new report without crawling.
+- [x] Measured (2026-07-06 data): OLD 21,139 URLs → NEW 3,500. Selected SKU distribution min 104 / median 343 / max 2,105; cutoff 104 SKUs. Validated: all 3,500 are 3-segment single-facet shapes, 0 duplicates, 0 overlap with prebuilt, sorted desc. Total never-cold surface ≈ 1,840 prebuilt + 3,500 warmed; remaining ~16.8K facets cold-start at 400-800ms on first visit then cache — intended.
+- [x] Guardrails held: `generateStaticParams`/`PREBUILD_TYPES`/`dynamicParams=true`/`revalidate=false` untouched; no `searchParams`/uncached Sanity reads introduced; sitemap still lists all 22,180 category URLs; warmup trigger (monthly gate + manual dispatch) unchanged — only WHAT it crawls shrank. Workflow comments updated in `post-deploy-warmup.yml` + `monthly-warmup.yml`.
+- [x] **Conscious no-ops:** no Sanity functional change, no webhook Filter/Projection change (infra/warmup only); no `perfect-imprints-sanity-guide.html` change (nothing Studio-facing).
+- [ ] **Manual step (Patrick/dev, Vercel dashboard — NOT code):** turn off Vercel Observability event collection for the production project (Settings → Observability, disable Observability Plus / event collection; or under Billing if a plan add-on) to drop the "Observability Events" line item. No functional impact on the site.
+
+**Depends on.** M6-606 (monthly warmup gate).
+
 ---
 
 ## Open Questions

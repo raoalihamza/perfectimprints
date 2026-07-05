@@ -21,6 +21,7 @@
     "build:product-list": "tsx scripts/build-product-list.ts",
     "build:custom-category-slugs": "tsx scripts/build-custom-category-slugs.ts",
     "warmup": "tsx scripts/warmup/warmup-facets.ts",
+    "warmup:list": "tsx scripts/warmup/build-warmup-list.ts",
     "verify:blog-engine": "tsx scripts/ai-pipeline/verify-blog-engine.ts",
     "audit:cta": "tsx scripts/audit-cta-pages.ts",
     "audit:category-rule": "tsx scripts/audit-category-rule.ts",

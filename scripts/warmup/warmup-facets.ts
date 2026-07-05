@@ -1,26 +1,21 @@
 /**
  * Post-deploy warmup for on-demand SSG facet pages.
  *
- * The 21,137 facet + 2 compound-facet pages render via on-demand SSG
- * (dynamicParams=true + revalidate=false in app/cat/[...slug]/page.tsx).
- * First hit to each URL after a deploy generates the page and caches it
- * permanently at the edge. Without warmup, cold facets serve in 400-800ms
- * for the first 24-48h. This script pre-hits every facet URL in parallel
- * so visitors only ever see warm pages.
+ * Facet pages render via on-demand SSG (dynamicParams=true + revalidate=false
+ * in app/cat/[...slug]/page.tsx). First hit to each URL after a deploy
+ * generates the page and caches it permanently at the edge. Without warmup,
+ * a cold facet serves its first hit in 400-800ms, then caches.
+ *
+ * SMART LIST (2026-07-06, cost optimization): instead of crawling all ~21K
+ * facet URLs (the main driver of Vercel ISR-write + Sanity API-read costs),
+ * this now warms only the list from scripts/warmup/build-warmup-list.ts —
+ * nav-guaranteed categories + the top WARMUP_FACET_CAP (3,500) single-facet
+ * pages by SKU count. Everything else generates on-demand on first visit and
+ * caches — intended and fine. Dry-run the list with `pnpm warmup:list`.
  *
  * Re-running is idempotent: warm hits are cheap and free.
  */
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
-
-interface UrlEntry {
-  url: string;
-  type: 'root' | 'modifier' | 'facet' | 'compound-facet';
-}
-
-interface UrlsFile {
-  urls: UrlEntry[];
-}
+import { buildWarmupList, printWarmupListReport } from './build-warmup-list';
 
 const CONCURRENCY = 10;
 const REQUEST_TIMEOUT_MS = 30_000;
@@ -85,13 +80,12 @@ async function runPool(urls: string[]): Promise<Result[]> {
 }
 
 function main() {
-  const file = resolve(process.cwd(), 'data/pi-urls/category-urls.json');
-  const data: UrlsFile = JSON.parse(readFileSync(file, 'utf8'));
-  const urls = data.urls
-    .filter((u) => u.type === 'facet' || u.type === 'compound-facet')
-    .map((u) => u.url);
+  const list = buildWarmupList();
+  printWarmupListReport(list);
+  const urls = list.urls;
 
-  console.log(`Warming ${urls.length} facet URLs against ${SITE_URL} at concurrency ${CONCURRENCY}`);
+  console.log('');
+  console.log(`Warming ${urls.length} URLs against ${SITE_URL} at concurrency ${CONCURRENCY}`);
   const started = Date.now();
 
   return runPool(urls).then((results) => {

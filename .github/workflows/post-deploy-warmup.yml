@@ -1,17 +1,21 @@
 name: Post-deploy warmup
 
-# Warms all ~21,139 on-demand SSG facet + compound-facet pages (see CLAUDE.md
-# Section 13) so visitors don't pay the 400-800ms cold-start penalty for the
-# first hit after the on-demand SSG cache is invalidated by a deploy.
+# Warms the SMART warmup list (see CLAUDE.md Section 13 and
+# scripts/warmup/build-warmup-list.ts): nav-guaranteed categories + the top
+# WARMUP_FACET_CAP (3,500) single-facet pages by SKU count — down from all
+# ~21,139 facet pages (2026-07-06 cost optimization; the full crawl was the
+# main driver of Vercel ISR-write + Sanity API-read costs). Warmed pages skip
+# the 400-800ms cold first hit after the monthly rebuild turns them cold; the
+# remaining ~17K facets generate on-demand on first visit and cache — intended.
 #
 # ── This is NOT a per-deploy job ─────────────────────────────────────────────
 # It used to fire on `deployment_status: success` for EVERY Vercel deploy and
 # pre-hit all ~21K facet URLs each time. With several deploys a week (the weekly
 # deals/new/rush scrape PRs + ordinary commits — none of which change facet
 # pages) that generated millions of edge requests + ISR writes and exhausted
-# Vercel's (account-wide, not per-project) free-tier limits. A full 21K warmup
-# is only actually needed after the MONTHLY full-catalog rebuild, which is the
-# one event that turns every facet page cold.
+# Vercel's (account-wide, not per-project) free-tier limits. A warmup is only
+# actually needed after the MONTHLY full-catalog rebuild, which is the one
+# event that turns every facet page cold.
 #
 # So warmup now runs only:
 #   • automatically after the monthly rebuild's PRODUCTION deploy succeeds —

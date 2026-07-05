@@ -1,20 +1,24 @@
 name: Monthly post-deploy warmup
 
-# Warms all ~21,139 on-demand SSG facet pages, but ONLY after the monthly
+# Warms the SMART warmup list (~3,500 top single-facet pages by SKU count +
+# nav-guaranteed categories — see scripts/warmup/build-warmup-list.ts, down
+# from all ~21,139 facets as of 2026-07-06), but ONLY after the monthly
 # full-catalog rebuild (M6-606) is merged and its PRODUCTION deploy finishes —
 # the one event that turns every facet page cold (see CLAUDE.md Section 13).
+# Non-warmed facets generate on-demand on first visit and cache — intended.
 #
-# Why this exists separately from a per-deploy warmup: warming 21K URLs after
-# every Vercel deploy (the several-per-week weekly scrape PRs + ordinary commits,
-# none of which change facet pages) exhausted Vercel's account-wide free-tier
-# limits for nothing. This workflow fires a tiny `gate` job on each production
-# deploy and exits in seconds for everything EXCEPT the monthly rebuild merge —
-# only then does it call the reusable warmup workflow (post-deploy-warmup.yml).
+# Why this exists separately from a per-deploy warmup: warming every facet URL
+# after every Vercel deploy (the several-per-week weekly scrape PRs + ordinary
+# commits, none of which change facet pages) exhausted Vercel's account-wide
+# free-tier limits for nothing. This workflow fires a tiny `gate` job on each
+# production deploy and exits in seconds for everything EXCEPT the monthly
+# rebuild merge — only then does it call the reusable warmup workflow
+# (post-deploy-warmup.yml).
 #
 # `deployment_status` is the precise "the production deploy finished" signal, so
 # warmup runs once, at the right time, against the live new deployment. Weekly
 # scrape deploys, ordinary commits, and PR preview deploys all fail the gate and
-# never trigger the 21K warmup.
+# never trigger the warmup.
 on:
   deployment_status:
 
@@ -50,7 +54,7 @@ jobs:
             echo "Monthly rebuild production deploy detected — warmup will run."
           else
             echo "monthly=false" >> "$GITHUB_OUTPUT"
-            echo "Not the monthly rebuild deploy — skipping the 21K warmup."
+            echo "Not the monthly rebuild deploy — skipping the warmup."
           fi
 
   # Only the monthly rebuild reaches here. Warm the canonical production host.
