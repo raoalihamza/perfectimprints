@@ -62,6 +62,7 @@ export const generateBlogWithAi: DocumentActionComponent = (props) => {
     aiTemplate?: string;
     aiTopicKeywords?: string[];
     aiPrimaryCategorySlug?: string;
+    aiWordCount?: number;
   } | null;
 
   return {
@@ -83,6 +84,7 @@ export const generateBlogWithAi: DocumentActionComponent = (props) => {
             keywords: doc?.aiTopicKeywords ?? [],
             categorySlug: doc?.aiPrimaryCategorySlug,
             currentSlug: doc?.slug?.current,
+            wordCount: typeof doc?.aiWordCount === 'number' ? doc.aiWordCount : 1700,
           }),
         });
         const data = (await res.json()) as Partial<GeneratedBlogResponse> & { error?: string };

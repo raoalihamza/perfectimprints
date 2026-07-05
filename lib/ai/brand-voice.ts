@@ -24,6 +24,27 @@ export const KEYWORD_DERIVATIVES_RULE =
   'custom [topic], promotional [topic], branded [topic], personalized [topic], ' +
   'logo [topic] (or logo-printed), bulk [topic], wholesale [topic].';
 
+/**
+ * Generic promotional modifier words (P2-AI-002b). These appear in almost every
+ * product name, category slug, and keyword phrase ("Custom Visor", "custom
+ * power banks", …), so they carry ZERO signal for relevance matching — a visor
+ * must never match "custom power banks" just because both say "custom". The
+ * related-products matcher and category resolver STRIP these from BOTH sides
+ * before computing token overlap. They stay in the generated copy (Section 24
+ * requires them there); they are ignored only for the matching math.
+ */
+export const GENERIC_PROMO_WORDS = [
+  'custom',
+  'customized',
+  'personalized',
+  'logo',
+  'printed',
+  'branded',
+  'promotional',
+  'bulk',
+  'wholesale',
+] as const;
+
 /** Banned filler phrases (matches the category route's system prompt). */
 export const BANNED_PHRASES = [
   '"in today\'s world"',

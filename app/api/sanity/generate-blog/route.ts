@@ -1,14 +1,18 @@
 // DeepSeek generate-blog route for the Sanity "Generate Blog with AI" button
-// (P2-AI-002). The blog-side consumer of the shared AI engine (P2-AI-001):
+// (P2-AI-002, tightened in P2-AI-002b). The blog-side consumer of the shared
+// AI engine (P2-AI-001):
 //
-// POST { title, template, keywords[], categorySlug?, currentSlug? } →
-//   { title, metaTitle, metaDescription, excerpt, body, suggestedLinks[] }
+// POST { title, template, keywords[], categorySlug?, currentSlug?, wordCount? }
+//   → { title, metaTitle, metaDescription, excerpt, body, suggestedLinks[] }
 //
-// Orchestration: generate structured JSON (lib/ai/deepseek + brand voice) →
-// match related products per strip (lib/ai/related-products, disk + Sanity) →
-// suggest internal links (lib/ai/internal-links, real targets only) → assemble
-// the Portable Text body (lib/portable-text/build-blog-body). The Studio action
-// patches the result into the DRAFT for Patrick to review. Never publishes.
+// Orchestration: generate structured JSON (lib/ai/deepseek + brand voice, with
+// concrete per-section word budgets — lib/ai/word-budget) → match related
+// products per strip (lib/ai/related-products: per-idea category resolution,
+// relevance floor, cross-strip dedup) → suggest internal links
+// (lib/ai/internal-links, real targets only) → AUTO-PLACE the links into the
+// body paragraphs (lib/ai/place-internal-links) → assemble the Portable Text
+// body (lib/portable-text/build-blog-body). The Studio action patches the
+// result into the DRAFT for Patrick to review. Never publishes.
 //
 // DEEPSEEK_API_KEY stays server-side. This route reads products.json from disk,
 // so it must NEVER be statically evaluated or moved to the Edge runtime —
@@ -17,8 +21,17 @@
 import { NextResponse } from 'next/server';
 import { brandVoiceSystemBlock, BUYER_PERSONA } from '@/lib/ai/brand-voice';
 import { generateJson, DeepSeekError } from '@/lib/ai/deepseek';
-import { matchRelatedProducts } from '@/lib/ai/related-products';
+import { matchRelatedProducts, resolveCategoryForKeywords } from '@/lib/ai/related-products';
 import { suggestInternalLinks } from '@/lib/ai/internal-links';
+import { placeInternalLinks } from '@/lib/ai/place-internal-links';
+import {
+  buildWordBudget,
+  clampWordCount,
+  listIdeaCount,
+  singleSectionCount,
+  THIN_FLOOR_RATIO,
+  type WordBudget,
+} from '@/lib/ai/word-budget';
 import {
   buildBlogBody,
   type BlogBodyInput,
@@ -30,6 +43,16 @@ export const dynamic = 'force-dynamic';
 
 type BlogTemplate = 'list' | 'single';
 
+/** A strip renders only with at least this many relevant products (tunable). */
+const MIN_STRIP_PRODUCTS = 2;
+/** Products per idea strip (list) / per post strip (single). */
+const LIST_STRIP_LIMIT = 4;
+const SINGLE_STRIP_LIMIT = 7;
+/** Relevance floor: shared significant tokens required for strip eligibility. */
+const STRIP_MIN_SCORE = 1;
+/** Internal links placed per post. */
+const MAX_INTERNAL_LINKS = 5;
+
 interface GenBody {
   title?: string;
   template?: string;
@@ -37,12 +60,15 @@ interface GenBody {
   categorySlug?: string;
   /** The doc's existing slug, so link suggestions don't point at itself. */
   currentSlug?: string;
+  /** Approximate target length; clamped to 1200..2400, default 1700. */
+  wordCount?: number;
 }
 
 interface GeneratedListSection {
   heading: string;
   paragraphs: string[];
-  productKeywords?: string[];
+  /** The concrete promotional item this idea is about — its product-match query. */
+  productType?: string;
 }
 
 interface GeneratedSingleSection {
@@ -64,18 +90,22 @@ interface GeneratedBlog {
   productStripHeading?: string;
 }
 
-const MIN_TOTAL_WORDS = 900; // target is 1,500-2,000; below this = thin, re-click
-
-function buildSystemPrompt(template: BlogTemplate): string {
+function buildSystemPrompt(template: BlogTemplate, budget: WordBudget): string {
   const shared = `${brandVoiceSystemBlock()}
 
-You are writing a LONG-FORM BLOG POST (1,500 to 2,000 words total) for the Perfect Imprints blog. The post must cover, woven naturally into the flow: practical ways businesses can use the promotional items for this topic, the kinds of businesses and organizations that can use them, creative giveaway ideas, and recommended product directions. Concrete and specific, never generic filler.
+You are writing a LONG-FORM BLOG POST (about ${budget.target} words total) for the Perfect Imprints blog. The post must cover, woven naturally into the flow: practical ways businesses can use the promotional items for this topic, the kinds of businesses and organizations that can use them, creative giveaway ideas, and recommended product directions. Concrete and specific, never generic filler.
+
+WORD BUDGET (follow these numbers — do not come in short):
+- intro: about ${budget.intro} words
+- each of the ${budget.sectionCount} sections: about ${budget.perSection} words of paragraphs
+- total: about ${budget.target} words; never return fewer than ${Math.round(
+    budget.target * THIN_FLOOR_RATIO,
+  )} words
 
 HARD LIMITS (count before returning, rewrite if any fail):
 - metaTitle <= 60 chars
 - metaDescription <= 155 chars
-- excerpt <= 300 chars (a 2-3 sentence teaser, plain text)
-- total body length 1,500-2,000 words across intro + sections`;
+- excerpt <= 300 chars (a 2-3 sentence teaser, plain text)`;
 
   if (template === 'list') {
     return `${shared}
@@ -87,16 +117,16 @@ Return a single JSON object, no prose, no code fences:
   "metaTitle": "<=60 chars",
   "metaDescription": "<=155 chars, soft CTA + topic keyword",
   "excerpt": "<=300 chars",
-  "intro": ["2-3 opening paragraphs as separate strings, 120-200 words total"],
+  "intro": ["2-3 opening paragraphs as separate strings, about ${budget.intro} words total"],
   "sections": [
     {
       "heading": "Idea N: short specific idea title (numbered)",
-      "paragraphs": ["1-2 paragraphs, 100-160 words total, covering who this idea fits and how to brand it"],
-      "productKeywords": ["2-4 plural product keywords that describe the products for THIS idea, e.g. \\"stainless steel water bottles\\""]
+      "paragraphs": ["paragraphs totalling about ${budget.perSection} words, covering who this idea fits and how to brand it"],
+      "productType": "2-4 words naming the CONCRETE promotional item this idea is about, e.g. \\"power banks\\" or \\"stainless steel water bottles\\" — a DIFFERENT item per idea"
     }
   ]
 }
-Exactly 8 to 12 idea sections. Every section MUST include productKeywords.`;
+Exactly ${budget.sectionCount} idea sections. Every section MUST include productType, and each idea must be a different product type.`;
   }
 
   return `${shared}
@@ -108,11 +138,11 @@ Return a single JSON object, no prose, no code fences:
   "metaTitle": "<=60 chars",
   "metaDescription": "<=155 chars, soft CTA + topic keyword",
   "excerpt": "<=300 chars",
-  "intro": ["2-3 opening paragraphs as separate strings, 120-200 words total"],
+  "intro": ["2-3 opening paragraphs as separate strings, about ${budget.intro} words total"],
   "sections": [
     {
       "heading": "descriptive section heading",
-      "paragraphs": ["2-4 paragraphs, 150-300 words total"],
+      "paragraphs": ["paragraphs totalling about ${budget.perSection} words"],
       "listItems": ["optional: 3-7 short list entries when a list genuinely helps"],
       "listType": "bullet or number (only when listItems present)"
     }
@@ -120,7 +150,7 @@ Return a single JSON object, no prose, no code fences:
   "productKeywords": ["3-5 plural product keywords describing the products to recommend"],
   "productStripHeading": "short heading for the recommended-products row"
 }
-Exactly 4 to 6 sections. Use listItems in at most 2 sections.`;
+Exactly ${budget.sectionCount} sections. Use listItems in at most 2 sections.`;
 }
 
 function buildUserPrompt(title: string, keywords: string[], categorySlug?: string): string {
@@ -182,13 +212,16 @@ export async function POST(request: Request) {
   const keywords = (body.keywords ?? []).map((k) => `${k}`.trim()).filter(Boolean);
   const promptKeywords = keywords.length > 0 ? keywords : [title.toLowerCase()];
   const categorySlug = (body.categorySlug || '').trim() || undefined;
+  const target = clampWordCount(body.wordCount);
+  const sectionCount = template === 'list' ? listIdeaCount(target) : singleSectionCount(target);
+  const budget = buildWordBudget(target, sectionCount);
 
   try {
-    // 1) Generate the structured post.
+    // 1) Generate the structured post against concrete word budgets.
     const gen = await generateJson<Partial<GeneratedBlog>>({
-      system: buildSystemPrompt(template),
+      system: buildSystemPrompt(template, budget),
       user: buildUserPrompt(title, promptKeywords, categorySlug),
-      maxTokens: 6000, // sized for ~2,000 words of JSON
+      maxTokens: 8000, // sized for ~2,400 words of JSON at the top of the range
       temperature: 0.65,
     });
 
@@ -198,11 +231,13 @@ export async function POST(request: Request) {
         { status: 502 },
       );
     }
+    // Dynamic thin floor: 75% of the requested target (was a fixed 900).
+    const minWords = Math.round(target * THIN_FLOOR_RATIO);
     const words = countWords(gen);
-    if (words < MIN_TOTAL_WORDS) {
+    if (words < minWords) {
       return NextResponse.json(
         {
-          error: `The AI returned a thin post (~${words} words). Click Generate again to retry.`,
+          error: `The AI returned a thin post (~${words} words against a ${target}-word target). Click Generate again to retry.`,
         },
         { status: 502 },
       );
@@ -212,21 +247,47 @@ export async function POST(request: Request) {
       (s) => s && typeof s.heading === 'string' && Array.isArray(s.paragraphs),
     );
 
-    // 2) Related products → one strip per idea (list) or one overall strip (single).
+    // 2) Related products. One `usedSkus` set for the WHOLE post: every strip
+    //    excludes what earlier strips used, so no product repeats anywhere.
+    const usedSkus = new Set<string>();
     const bodySections: BlogBodySectionInput[] = [];
     if (template === 'list') {
       for (const s of sections) {
-        const stripKeywords = (s.productKeywords ?? []).filter(Boolean);
-        const products = await matchRelatedProducts({
-          categorySlug,
-          keywords: stripKeywords.length > 0 ? stripKeywords : [s.heading, ...promptKeywords],
-          limit: 4,
+        // Each idea matches its OWN product type: resolve the model's concrete
+        // productType ("power banks") to its best root category and pull from
+        // there; no category resolved → catalog keyword scoring on the phrase.
+        const productType = (s.productType ?? '').trim();
+        const stripKeywords = productType ? [productType] : [s.heading];
+        const ideaCategory = productType ? resolveCategoryForKeywords(productType) : null;
+        let products = await matchRelatedProducts({
+          categorySlug: ideaCategory ?? undefined,
+          keywords: stripKeywords,
+          limit: LIST_STRIP_LIMIT,
+          minScore: STRIP_MIN_SCORE,
+          exclude: usedSkus,
         });
+        // The shared primary category is a SOFT FALLBACK only (P2-AI-002b) —
+        // consulted when the idea's own match comes up thin, never the default
+        // source for every idea (that is what made every strip identical).
+        if (products.length < MIN_STRIP_PRODUCTS && categorySlug && categorySlug !== ideaCategory) {
+          const fallback = await matchRelatedProducts({
+            categorySlug,
+            keywords: stripKeywords,
+            limit: LIST_STRIP_LIMIT,
+            minScore: STRIP_MIN_SCORE,
+            exclude: new Set([...usedSkus, ...products.map((p) => p.sku)]),
+          });
+          products = [...products, ...fallback].slice(0, LIST_STRIP_LIMIT);
+        }
+        // Below the floor a strip is SKIPPED (the idea's text still stands) —
+        // never padded with irrelevant catalog bestsellers.
+        const strip = products.length >= MIN_STRIP_PRODUCTS ? products : [];
+        for (const p of strip) usedSkus.add(p.sku);
         bodySections.push({
           heading: s.heading,
           headingLevel: 'h2',
           paragraphs: s.paragraphs,
-          products: products.length > 0 ? { skus: products.map((p) => p.sku) } : undefined,
+          products: strip.length > 0 ? { skus: strip.map((p) => p.sku) } : undefined,
         });
       }
     } else {
@@ -246,11 +307,12 @@ export async function POST(request: Request) {
       }
       const stripKeywords = (gen.productKeywords ?? []).filter(Boolean);
       const products = await matchRelatedProducts({
-        categorySlug,
+        categorySlug, // primary category stays the primary source for single-focus posts
         keywords: stripKeywords.length > 0 ? stripKeywords : promptKeywords,
-        limit: 7,
+        limit: SINGLE_STRIP_LIMIT,
+        minScore: STRIP_MIN_SCORE,
       });
-      if (products.length > 0) {
+      if (products.length >= MIN_STRIP_PRODUCTS) {
         bodySections.push({
           products: {
             heading: gen.productStripHeading?.trim() || 'Recommended Products',
@@ -260,24 +322,31 @@ export async function POST(request: Request) {
       }
     }
 
-    // 3) Internal links — suggested for confirmation (aiSuggestedLinks), NOT
-    //    auto-inserted into the body.
-    const suggestedLinks = await suggestInternalLinks({
+    // 3) Internal links from real targets only.
+    const suggestions = await suggestInternalLinks({
       keywords: promptKeywords,
       categorySlug,
       excludeSlug: (body.currentSlug || '').trim() || undefined,
-      limit: 5,
+      limit: MAX_INTERNAL_LINKS,
     });
 
-    // 4) Assemble the Portable Text body. To flip internal linking from
-    //    suggest-for-confirmation to AUTO-INSERT later: pass link annotations
-    //    into the section paragraphs here (BlogRichText spans with `link` are
-    //    already supported by buildBlogBody) instead of only returning
-    //    suggestedLinks. Single call site — this is the switch.
-    const blogBody = buildBlogBody({
-      intro: gen.intro,
-      sections: bodySections,
-    } satisfies BlogBodyInput);
+    // 4) AUTO-INSERT the internal links into the body paragraphs
+    //    (P2-AI-002b — Patrick confirmed automatic hyperlinking; this replaces
+    //    the previous suggest-only default). Targets with no clean anchor are
+    //    skipped; ALL suggestions are still returned so the draft records what
+    //    was found and which were placed.
+    const { body: linkedInput, placedHrefs } = placeInternalLinks(
+      { intro: gen.intro, sections: bodySections } satisfies BlogBodyInput,
+      suggestions,
+      MAX_INTERNAL_LINKS,
+    );
+    const blogBody = buildBlogBody(linkedInput);
+    const suggestedLinks = suggestions.map((l) => ({
+      ...l,
+      reason: placedHrefs.includes(l.href)
+        ? `${l.reason} (placed in the body)`
+        : `${l.reason} (not placed: no clean anchor found)`,
+    }));
 
     return NextResponse.json({
       title: gen.title.trim(),

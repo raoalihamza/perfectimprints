@@ -9,6 +9,9 @@
  *     real products.json / data/categories
  *   - the disk-only category portion of the internal-link engine
  *   - buildBlogBody structural output (types, keys, styles, product strips)
+ *   - P2-AI-002b: the relevance floor (no bestseller padding), generic-word
+ *     stripping in category resolution, cross-strip dedup via exclude sets,
+ *     word-count budgeting, and auto-placed internal-link annotations
  *
  * The Sanity-backed pieces (blog/page link suggestions, custom-product merge)
  * are guarded in the engine itself — offline they degrade gracefully, and they
@@ -20,13 +23,21 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-import { matchRelatedProducts } from '../../lib/ai/related-products';
+import { matchRelatedProducts, resolveCategoryForKeywords } from '../../lib/ai/related-products';
 import { suggestCategoryLinks } from '../../lib/ai/internal-links';
+import { placeInternalLinks } from '../../lib/ai/place-internal-links';
+import {
+  buildWordBudget,
+  clampWordCount,
+  listIdeaCount,
+  singleSectionCount,
+} from '../../lib/ai/word-budget';
 import {
   buildBlogBody,
   type BlogBodyBlock,
   type BlogTextBlock,
   type BlogProductsBlock,
+  type BlogInlineSpan,
 } from '../../lib/portable-text/build-blog-body';
 import type { GeigerProduct } from '../../lib/product-types';
 
@@ -211,6 +222,182 @@ async function main() {
     'headings emitted at requested levels',
     textBlocks.some((b) => b.style === 'h2') && textBlocks.some((b) => b.style === 'h3'),
   );
+
+  // -------------------------------------------------------------------------
+  console.log('\n[5] relevance floor (P2-AI-002b) — never pad with irrelevant products');
+  const nonsense = await matchRelatedProducts({
+    keywords: ['xylophone submarines'],
+    limit: 4,
+    minScore: 1,
+  });
+  check('nonsense query returns ZERO products (no bestseller padding)', nonsense.length === 0);
+  const offTopic = await matchRelatedProducts({
+    categorySlug: 'water-bottles',
+    keywords: ['power banks'],
+    limit: 4,
+    minScore: 1,
+  });
+  check(
+    'off-topic keywords + real category: every result shares a keyword token (never the category bestsellers)',
+    offTopic.every((p) => /power|bank/i.test(`${p.name} ${p.brand ?? ''}`)),
+    offTopic.map((p) => p.name).join(' | '),
+  );
+
+  // -------------------------------------------------------------------------
+  console.log('\n[6] generic-word stripping in category resolution');
+  const withGeneric = resolveCategoryForKeywords('custom power banks');
+  const withoutGeneric = resolveCategoryForKeywords('power banks');
+  check(
+    `"custom power banks" and "power banks" resolve identically (${withoutGeneric})`,
+    withGeneric !== null && withGeneric === withoutGeneric,
+    `withGeneric=${withGeneric}, withoutGeneric=${withoutGeneric}`,
+  );
+  check(
+    'resolves to a power-bank category',
+    typeof withoutGeneric === 'string' && withoutGeneric.includes('power'),
+    String(withoutGeneric),
+  );
+
+  // -------------------------------------------------------------------------
+  console.log('\n[7] cross-strip dedup via exclude set');
+  const stripA = await matchRelatedProducts({
+    categorySlug: 'water-bottles',
+    keywords: ['water bottles'],
+    limit: 4,
+    minScore: 1,
+  });
+  const stripB = await matchRelatedProducts({
+    categorySlug: 'water-bottles',
+    keywords: ['water bottles'],
+    limit: 4,
+    minScore: 1,
+    exclude: new Set(stripA.map((p) => p.sku)),
+  });
+  check(
+    'no SKU appears in both strips',
+    stripB.every((p) => !stripA.some((a) => a.sku === p.sku)),
+  );
+  check('excluded call still finds other relevant products', stripB.length > 0);
+
+  // -------------------------------------------------------------------------
+  console.log('\n[8] word-count budgeting (pure)');
+  check(
+    'clamps: 1000→1200, 3000→2400, undefined→1700',
+    clampWordCount(1000) === 1200 && clampWordCount(3000) === 2400 && clampWordCount(undefined) === 1700,
+  );
+  const budget = buildWordBudget(1700, 10);
+  const budgetSum = budget.intro + budget.sectionCount * budget.perSection;
+  check(
+    `budget sums to ~target (intro ${budget.intro} + 10×${budget.perSection} = ${budgetSum} ≈ 1700) with intro in 120-180`,
+    Math.abs(budgetSum - 1700) <= 1700 * 0.02 && budget.intro >= 120 && budget.intro <= 180,
+  );
+  check(
+    'section-count helpers stay in range (list 8-12, single 4-6)',
+    listIdeaCount(1200) === 8 &&
+      listIdeaCount(1700) === 10 &&
+      listIdeaCount(2400) === 12 &&
+      singleSectionCount(1200) >= 4 &&
+      singleSectionCount(2400) <= 6,
+  );
+
+  // -------------------------------------------------------------------------
+  console.log('\n[9] placeInternalLinks — auto-inserted links (P2-AI-002b)');
+  const introText = 'Ordering custom water bottles in bulk pays off for trade shows.';
+  const placement = placeInternalLinks(
+    {
+      intro: [introText],
+      sections: [
+        {
+          heading: 'Custom Water Bottles Guide', // headings must never be linked
+          headingLevel: 'h2',
+          paragraphs: ['A totally unrelated paragraph about decoration methods.'],
+        },
+      ],
+    },
+    [
+      {
+        label: 'Custom Water Bottles',
+        href: '/cat/water-bottles',
+        kind: 'category',
+        reason: 'Category page matching the keywords: water, bottles',
+      },
+      {
+        label: 'Water Bottles Buying Guide',
+        href: '/cat/water-bottles', // duplicate href → must not double-link
+        kind: 'blog',
+        reason: 'Existing blog post sharing the keywords: water, bottles',
+      },
+      {
+        label: 'Quantum Flux Capacitors', // no anchor anywhere → skipped
+        href: '/blog/quantum-flux',
+        kind: 'blog',
+        reason: 'Existing blog post sharing the keywords: quantum, flux',
+      },
+    ],
+  );
+  check(
+    'places exactly one link (dupe href + unanchorable target skipped)',
+    placement.placedHrefs.length === 1 && placement.placedHrefs[0] === '/cat/water-bottles',
+    JSON.stringify(placement.placedHrefs),
+  );
+  const linkedIntro = placement.body.intro?.[0];
+  const linkedSpans = Array.isArray(linkedIntro) ? (linkedIntro as BlogInlineSpan[]) : null;
+  check(
+    'matched run carries the link, original casing + full text preserved',
+    !!linkedSpans &&
+      linkedSpans.some((s) => s.link?.href === '/cat/water-bottles') &&
+      linkedSpans.map((s) => s.text).join('') === introText,
+  );
+  const placedBody = buildBlogBody(placement.body);
+  const placedText = placedBody.filter((b): b is BlogTextBlock => b._type === 'block');
+  const linkedBlocks = placedText.filter((b) => b.markDefs.length > 0);
+  check(
+    'built body emits schema-exact link markDef referenced by a span mark',
+    linkedBlocks.length === 1 &&
+      linkedBlocks[0].markDefs[0]._type === 'link' &&
+      linkedBlocks[0].markDefs[0].href === '/cat/water-bottles' &&
+      linkedBlocks[0].markDefs[0].openInNewTab === false &&
+      linkedBlocks[0].children.some((c) => c.marks.includes(linkedBlocks[0].markDefs[0]._key)),
+  );
+  check(
+    'heading blocks carry no link markDefs',
+    placedText.filter((b) => b.style === 'h2').every((b) => b.markDefs.length === 0),
+  );
+
+  // Same-paragraph second pass: only one paragraph, two targets → both placed.
+  const twoInOne = placeInternalLinks(
+    { intro: ['Order water bottles and tote bags in bulk today.'], sections: [] },
+    [
+      { label: 'Water Bottles', href: '/cat/water-bottles', kind: 'category', reason: 'k: water' },
+      { label: 'Tote Bags', href: '/cat/tote-bags', kind: 'category', reason: 'k: tote' },
+    ],
+  );
+  const twoSpans = Array.isArray(twoInOne.body.intro?.[0])
+    ? (twoInOne.body.intro![0] as BlogInlineSpan[])
+    : null;
+  check(
+    'second pass shares a paragraph when it is the only anchor spot (2 links, no overlap, text intact)',
+    twoInOne.placedHrefs.length === 2 &&
+      !!twoSpans &&
+      twoSpans.filter((s) => s.link).length === 2 &&
+      twoSpans.map((s) => s.text).join('') === 'Order water bottles and tote bags in bulk today.',
+  );
+
+  // Cap: 7 anchorable targets → at most 5 placed.
+  const capWords = ['lanyards', 'keychains', 'sunglasses', 'notebooks', 'backpacks', 'umbrellas', 'coolers'];
+  const capPlacement = placeInternalLinks(
+    {
+      intro: capWords.map((w) => `Great picks include branded ${w} for every event budget.`),
+      sections: [],
+    },
+    capWords.map((w) => ({
+      label: w[0].toUpperCase() + w.slice(1),
+      href: `/cat/${w}`,
+      kind: 'category' as const,
+      reason: `k: ${w}`,
+    })),
+  );
+  check('total placements capped at 5', capPlacement.placedHrefs.length === 5);
 
   // -------------------------------------------------------------------------
   const total = passed + failed;

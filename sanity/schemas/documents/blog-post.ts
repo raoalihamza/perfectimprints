@@ -228,7 +228,17 @@ export default defineType({
       fieldset: 'ai',
       components: { input: CategorySlugInput },
       description:
-        'Optional. Search and pick the category page whose products the AI should pull from first. Leave blank to match products by keywords only.',
+        'Optional. For a single-category post this is where products are pulled from first; for a list post each idea matches its own product type and this is only a fallback. Leave blank to match by keywords only.',
+    }),
+    defineField({
+      name: 'aiWordCount',
+      title: 'Approximate word count',
+      type: 'number',
+      fieldset: 'ai',
+      initialValue: 1700,
+      validation: (Rule) => Rule.min(1200).max(2400),
+      description:
+        'Roughly how long the post should be. The AI targets this but will not hit it exactly; expect within about 15 percent.',
     }),
     defineField({
       name: 'aiSuggestedLinks',
