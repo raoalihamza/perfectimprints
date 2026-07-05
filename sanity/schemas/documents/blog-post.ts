@@ -1,9 +1,19 @@
 import { defineField, defineType } from 'sanity';
+import { CategorySlugInput } from '../../components/CategoryPicker';
 
 export default defineType({
   name: 'blogPost',
   title: 'Blog Post',
   type: 'document',
+  fieldsets: [
+    {
+      name: 'ai',
+      title: 'AI generation (drafting helper — not shown on the live page)',
+      description:
+        'Inputs for the "Generate Blog with AI" button (near Publish). Fill these, click the button, then review and edit the draft it writes. Nothing here renders on the live site.',
+      options: { collapsible: true, collapsed: false },
+    },
+  ],
   fields: [
     defineField({
       name: 'title',
@@ -176,6 +186,71 @@ export default defineType({
       title: 'SEO (extra)',
       description: 'Optional advanced SEO overrides. Title/description above are used by default.',
       type: 'seo',
+    }),
+
+    // -----------------------------------------------------------------------
+    // AI generation inputs/outputs (P2-AI-002). Studio-only: consumed ONLY by
+    // the "Generate Blog with AI" action + /api/sanity/generate-blog — never
+    // read by any render path or the revalidate webhook, so they add no cache
+    // tag or webhook-projection burden.
+    // -----------------------------------------------------------------------
+    defineField({
+      name: 'aiTemplate',
+      title: 'Template',
+      type: 'string',
+      fieldset: 'ai',
+      initialValue: 'list',
+      options: {
+        list: [
+          {
+            title: 'List-style: "10 Ideas …" with a product strip under each idea',
+            value: 'list',
+          },
+          { title: 'Single-category focus with one product strip', value: 'single' },
+        ],
+        layout: 'radio',
+      },
+    }),
+    defineField({
+      name: 'aiTopicKeywords',
+      title: 'Topic Keywords',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: { layout: 'tags' },
+      fieldset: 'ai',
+      description:
+        'A few plural keywords that steer the writing, the product strips, and the internal-link suggestions (e.g. "custom water bottles", "trade show giveaways").',
+    }),
+    defineField({
+      name: 'aiPrimaryCategorySlug',
+      title: 'Primary Category (for related products)',
+      type: 'string',
+      fieldset: 'ai',
+      components: { input: CategorySlugInput },
+      description:
+        'Optional. Search and pick the category page whose products the AI should pull from first. Leave blank to match products by keywords only.',
+    }),
+    defineField({
+      name: 'aiSuggestedLinks',
+      title: 'Suggested Internal Links',
+      type: 'array',
+      fieldset: 'ai',
+      description:
+        'Internal links the AI found for this topic. Add the ones you like into the body text yourself (select text → link). Not shown on the live page.',
+      of: [
+        {
+          type: 'object',
+          name: 'aiSuggestedLink',
+          fields: [
+            { name: 'label', title: 'Label', type: 'string' },
+            { name: 'href', title: 'URL', type: 'string' },
+            { name: 'reason', title: 'Why suggested', type: 'string' },
+          ],
+          preview: {
+            select: { title: 'label', subtitle: 'href' },
+          },
+        },
+      ],
     }),
   ],
   preview: {

@@ -69,6 +69,25 @@ export function customProductIsCloseout(doc: CustomProductDoc): boolean {
   return doc.closeout === true || (doc.badges ?? []).includes('closeout');
 }
 
+/**
+ * Every customProduct doc (any placement). Used by the Phase 2 AI engine's
+ * related-products matcher (lib/ai/related-products.ts) so AI-suggested strips
+ * can include Patrick's non-Geiger products, not just the scraped catalog. Runs
+ * only inside the force-dynamic generate routes — not a render-path read, so no
+ * cache tag is needed (same untagged CDN client as the placement reads above).
+ */
+export async function getAllCustomProducts(): Promise<CustomProductDoc[]> {
+  try {
+    return (
+      (await client.fetch<CustomProductDoc[]>(
+        `*[_type == "customProduct"] | order(displayOrder asc, title asc) { ${PROJECTION} }`,
+      )) ?? []
+    );
+  } catch {
+    return [];
+  }
+}
+
 export async function getCustomProductsForDeals(): Promise<CustomProductDoc[]> {
   try {
     return (

@@ -18,6 +18,7 @@ import {
 } from '@/lib/sanity/queries/blogs';
 import { resolveProductsBySku } from '@/lib/categories';
 import { socialMeta } from '@/lib/seo/open-graph';
+import { buildBlogPostingSchema } from '@/lib/seo/content-schema';
 import type { GeigerProduct } from '@/lib/product-types';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
@@ -113,24 +114,16 @@ export default async function BlogPostPage({ params }: Props) {
 
   const relatedBlogs = await getRelatedBlogsForPost(post, 8);
 
-  const blogPostingSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
-    headline: post.title,
-    image: heroImage ? [heroImage] : undefined,
-    datePublished: post.publishDate,
-    dateModified: post.updatedDate || post.publishDate,
-    author: post.author?.name
-      ? { '@type': 'Person', name: post.author.name }
-      : { '@type': 'Organization', name: 'Perfect Imprints' },
-    publisher: {
-      '@type': 'Organization',
-      name: 'Perfect Imprints',
-      logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.svg` },
-    },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+  const blogPostingSchema = buildBlogPostingSchema({
+    title: post.title,
+    canonical,
+    heroImage,
+    publishDate: post.publishDate,
+    updatedDate: post.updatedDate,
+    authorName: post.author?.name,
     description: post.metaDescription || post.excerpt,
-  };
+    siteUrl: SITE_URL,
+  });
 
   return (
     <>

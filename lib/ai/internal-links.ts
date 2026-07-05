@@ -1,0 +1,226 @@
+/**
+ * Internal-linking engine (P2-AI-001). Suggests links to EXISTING blog posts,
+ * `page` docs, and baked category pages relevant to a topic/keyword list — the
+ * AI never invents these; every href comes from real data:
+ *   - blogs:      published blogPost title+slug (Sanity, tag RELATED_BLOGS_TAG)
+ *   - pages:      published `page` title+slug   (Sanity, tag PAGES_TAG)
+ *   - categories: generated root category JSONs on disk (lib/categories)
+ *
+ * Suggestions are surfaced for editor confirmation (aiSuggestedLinks on the
+ * blog draft) — nothing is auto-inserted into content by default.
+ *
+ * SERVER-ONLY (disk reads + Sanity). Runs exclusively inside the force-dynamic
+ * generate routes, so it adds no render surface — the Sanity reads reuse the
+ * EXISTING cache tags (no new tag, nothing new for the webhook to bust) and
+ * never affect any page's staticness. Never import from Studio bundle code.
+ *
+ * Relative imports (not `@/`) so the offline verifier script can exercise the
+ * disk-only category portion under tsx. The Sanity portions have their own
+ * GROQ here (rather than importing lib/sanity/queries/blogs|pages) to keep this
+ * module free of `server-only` markers for that same tsx execution path; each
+ * read is guarded so an offline/failed fetch degrades to fewer suggestions.
+ */
+
+import { cachedClient } from '../sanity/client';
+import { PAGES_TAG, RELATED_BLOGS_TAG } from '../sanity/cache-tags';
+import { getAllGeneratedRootSlugs, getCategoryContent } from '../categories';
+
+export type InternalLinkKind = 'blog' | 'page' | 'category';
+
+export interface InternalLinkSuggestion {
+  label: string;
+  href: string;
+  kind: InternalLinkKind;
+  reason: string;
+}
+
+export interface SuggestInternalLinksOptions {
+  keywords: string[];
+  /** Boosts the matching /cat/<slug> page so the post links to its own topic category. */
+  categorySlug?: string;
+  /** Blog slug to exclude (the post being generated, when it already has one). */
+  excludeSlug?: string;
+  limit: number;
+}
+
+function tokenize(text: string): string[] {
+  return text
+    .toLowerCase()
+    .split(/[^a-z0-9]+/)
+    .filter((t) => t.length >= 3);
+}
+
+function keywordTokenSet(keywords: string[]): Set<string> {
+  const set = new Set<string>();
+  for (const kw of keywords) for (const t of tokenize(kw)) set.add(t);
+  return set;
+}
+
+function overlapScore(text: string, tokens: Set<string>): { score: number; matched: string[] } {
+  const textTokens = new Set(tokenize(text));
+  const matched: string[] = [];
+  for (const t of tokens) {
+    if (
+      textTokens.has(t) ||
+      (t.endsWith('s') && textTokens.has(t.slice(0, -1))) ||
+      textTokens.has(`${t}s`)
+    ) {
+      matched.push(t);
+    }
+  }
+  return { score: matched.length, matched };
+}
+
+interface Scored extends InternalLinkSuggestion {
+  score: number;
+}
+
+function reasonFor(kind: InternalLinkKind, matched: string[]): string {
+  const kw = matched.slice(0, 3).join(', ');
+  switch (kind) {
+    case 'blog':
+      return `Existing blog post sharing the keywords: ${kw}`;
+    case 'page':
+      return `Site page matching the keywords: ${kw}`;
+    case 'category':
+      return `Category page matching the keywords: ${kw}`;
+  }
+}
+
+/**
+ * Disk-only category-link portion — exported separately so the offline
+ * verifier can assert real /cat/<slug> targets without Sanity or network.
+ * Scores the 465 generated ROOT categories by slug-token overlap and labels
+ * each suggestion with the page's real H1.
+ */
+export function suggestCategoryLinks(
+  keywords: string[],
+  limit: number,
+  boostSlug?: string,
+): Scored[] {
+  const tokens = keywordTokenSet(keywords);
+  // A facet/modifier boost slug (e.g. water-bottles/color/blue) boosts its root.
+  const boostRoot = boostSlug?.split('/')[0];
+  const scored: Scored[] = [];
+  for (const slug of getAllGeneratedRootSlugs()) {
+    const { score, matched } = overlapScore(slug.split('-').join(' '), tokens);
+    const boosted = boostRoot === slug ? score + 10 : score;
+    if (boosted <= 0) continue;
+    scored.push({
+      label: slug, // resolved to the real H1 below, only for the kept top slice
+      href: `/cat/${slug}`,
+      kind: 'category',
+      reason: reasonFor('category', matched.length ? matched : [slug]),
+      score: boosted,
+    });
+  }
+  scored.sort((a, b) => (b.score !== a.score ? b.score - a.score : a.href < b.href ? -1 : 1));
+  const top = scored.slice(0, limit);
+  for (const s of top) {
+    const content = getCategoryContent(s.href.replace(/^\/cat\//, ''));
+    if (content?.h1) s.label = content.h1;
+  }
+  return top;
+}
+
+async function suggestBlogLinks(
+  keywords: string[],
+  limit: number,
+  excludeSlug?: string,
+): Promise<Scored[]> {
+  const tokens = keywordTokenSet(keywords);
+  let docs: { title?: string; slug?: string }[] = [];
+  try {
+    docs =
+      (await cachedClient.fetch<{ title?: string; slug?: string }[]>(
+        `*[_type == "blogPost" && !(_id in path("drafts.**")) && defined(title) && defined(slug.current)]{ title, "slug": slug.current }`,
+        {},
+        { next: { tags: [RELATED_BLOGS_TAG], revalidate: false } },
+      )) ?? [];
+  } catch {
+    return [];
+  }
+  const scored: Scored[] = [];
+  for (const d of docs) {
+    if (!d.title || !d.slug || d.slug === excludeSlug) continue;
+    const { score, matched } = overlapScore(d.title, tokens);
+    if (score <= 0) continue;
+    scored.push({
+      label: d.title,
+      href: `/blog/${d.slug}`,
+      kind: 'blog',
+      reason: reasonFor('blog', matched),
+      score,
+    });
+  }
+  scored.sort((a, b) => (b.score !== a.score ? b.score - a.score : a.href < b.href ? -1 : 1));
+  return scored.slice(0, limit);
+}
+
+async function suggestPageLinks(keywords: string[], limit: number): Promise<Scored[]> {
+  const tokens = keywordTokenSet(keywords);
+  let docs: { title?: string; slug?: string }[] = [];
+  try {
+    docs =
+      (await cachedClient.fetch<{ title?: string; slug?: string }[]>(
+        `*[_type == "page" && !(_id in path("drafts.**")) && defined(title) && defined(slug.current)]{ title, "slug": slug.current }`,
+        {},
+        { next: { tags: [PAGES_TAG], revalidate: false } },
+      )) ?? [];
+  } catch {
+    return [];
+  }
+  const scored: Scored[] = [];
+  for (const d of docs) {
+    if (!d.title || !d.slug) continue;
+    const { score, matched } = overlapScore(d.title, tokens);
+    if (score <= 0) continue;
+    scored.push({
+      label: d.title,
+      href: `/${d.slug}`,
+      kind: 'page',
+      reason: reasonFor('page', matched),
+      score,
+    });
+  }
+  scored.sort((a, b) => (b.score !== a.score ? b.score - a.score : a.href < b.href ? -1 : 1));
+  return scored.slice(0, limit);
+}
+
+/**
+ * Top `limit` suggestions across blogs + pages + categories, mixed with a
+ * preference for spread across kinds when scores are close: the three
+ * per-kind lists (each already score-sorted) are interleaved round-robin,
+ * taking the best-scoring remaining head each round, until the limit fills.
+ */
+export async function suggestInternalLinks(
+  opts: SuggestInternalLinksOptions,
+): Promise<InternalLinkSuggestion[]> {
+  const perKind = Math.max(2, opts.limit);
+  const [blogs, pages, categories] = await Promise.all([
+    suggestBlogLinks(opts.keywords, perKind, opts.excludeSlug),
+    suggestPageLinks(opts.keywords, perKind),
+    Promise.resolve(suggestCategoryLinks(opts.keywords, perKind, opts.categorySlug)),
+  ]);
+
+  const lists = [categories, blogs, pages].filter((l) => l.length > 0);
+  const out: InternalLinkSuggestion[] = [];
+  const cursors = lists.map(() => 0);
+  while (out.length < opts.limit) {
+    // Pick the list whose current head has the best score (round-robin tie-break
+    // by list order: categories → blogs → pages).
+    let best = -1;
+    for (let i = 0; i < lists.length; i++) {
+      if (cursors[i] >= lists[i].length) continue;
+      if (best === -1 || lists[i][cursors[i]].score > lists[best][cursors[best]].score) best = i;
+    }
+    if (best === -1) break;
+    const { score: _score, ...suggestion } = lists[best][cursors[best]];
+    out.push(suggestion);
+    cursors[best] += 1;
+    // Rotate the just-picked list to the back so close scores spread across kinds.
+    lists.push(lists.splice(best, 1)[0]);
+    cursors.push(cursors.splice(best, 1)[0]);
+  }
+  return out;
+}

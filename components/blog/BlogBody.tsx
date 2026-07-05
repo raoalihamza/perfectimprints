@@ -214,6 +214,12 @@ function buildComponents(
     normal: ({ children }) => (
       <p className="mt-3 text-base leading-relaxed text-text-primary md:text-[17px]">{children}</p>
     ),
+    // h1/h5/h6 are allowed by the body schema (default block styles) but had no
+    // renderer — Tailwind's preflight strips heading styles, so they rendered
+    // as plain text. Minimal coverage pass (P2-AI-002); h2-h4 untouched.
+    h1: ({ children }) => (
+      <h1 className="mt-10 text-3xl font-bold leading-tight text-brand-ink md:text-4xl">{children}</h1>
+    ),
     h2: ({ children }) => (
       <h2 className="mt-10 text-2xl font-bold leading-tight text-brand-ink md:text-3xl">{children}</h2>
     ),
@@ -222,6 +228,12 @@ function buildComponents(
     ),
     h4: ({ children }) => (
       <h4 className="mt-6 text-lg font-semibold leading-tight text-brand-ink">{children}</h4>
+    ),
+    h5: ({ children }) => (
+      <h5 className="mt-6 text-base font-semibold leading-tight text-brand-ink">{children}</h5>
+    ),
+    h6: ({ children }) => (
+      <h6 className="mt-6 text-sm font-semibold uppercase tracking-wide text-brand-ink">{children}</h6>
     ),
     blockquote: ({ children }) => (
       <blockquote className="mt-4 border-l-4 border-brand-red bg-bg-soft px-5 py-4 italic text-text-primary">
