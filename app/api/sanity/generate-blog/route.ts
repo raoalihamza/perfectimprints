@@ -60,7 +60,7 @@ interface GenBody {
   categorySlug?: string;
   /** The doc's existing slug, so link suggestions don't point at itself. */
   currentSlug?: string;
-  /** Approximate target length; clamped to 1200..2400, default 1700. */
+  /** Approximate target length; clamped to 1300..1900, default 1500. */
   wordCount?: number;
 }
 
@@ -93,14 +93,12 @@ interface GeneratedBlog {
 function buildSystemPrompt(template: BlogTemplate, budget: WordBudget): string {
   const shared = `${brandVoiceSystemBlock()}
 
-You are writing a LONG-FORM BLOG POST (about ${budget.target} words total) for the Perfect Imprints blog. The post must cover, woven naturally into the flow: practical ways businesses can use the promotional items for this topic, the kinds of businesses and organizations that can use them, creative giveaway ideas, and recommended product directions. Concrete and specific, never generic filler.
+You are writing a LONG-FORM BLOG POST (at least ${budget.target} words total) for the Perfect Imprints blog. The post must cover, woven naturally into the flow: practical ways businesses can use the promotional items for this topic, the kinds of businesses and organizations that can use them, creative giveaway ideas, and recommended product directions. Concrete and specific, never generic filler — reach the length with substance (more use cases, more buyer specifics, more concrete detail), never with padding or keyword stuffing.
 
-WORD BUDGET (follow these numbers — do not come in short):
-- intro: about ${budget.intro} words
-- each of the ${budget.sectionCount} sections: about ${budget.perSection} words of paragraphs
-- total: about ${budget.target} words; never return fewer than ${Math.round(
-    budget.target * THIN_FLOOR_RATIO,
-  )} words
+WORD BUDGET (these are MINIMUMS — models that aim for "about" these numbers come in short, so treat each as a floor):
+- intro: at least ${budget.intro} words
+- each of the ${budget.sectionCount} sections: at least ${budget.perSection} words of paragraphs
+- total: at least ${budget.target} words
 
 HARD LIMITS (count before returning, rewrite if any fail):
 - metaTitle <= 60 chars
@@ -117,11 +115,11 @@ Return a single JSON object, no prose, no code fences:
   "metaTitle": "<=60 chars",
   "metaDescription": "<=155 chars, soft CTA + topic keyword",
   "excerpt": "<=300 chars",
-  "intro": ["2-3 opening paragraphs as separate strings, about ${budget.intro} words total"],
+  "intro": ["2-3 opening paragraphs as separate strings, at least ${budget.intro} words total"],
   "sections": [
     {
       "heading": "Idea N: short specific idea title (numbered)",
-      "paragraphs": ["paragraphs totalling about ${budget.perSection} words, covering who this idea fits and how to brand it"],
+      "paragraphs": ["paragraphs totalling at least ${budget.perSection} words, covering who this idea fits and how to brand it"],
       "productType": "2-4 words naming the CONCRETE promotional item this idea is about, e.g. \\"power banks\\" or \\"stainless steel water bottles\\" — a DIFFERENT item per idea"
     }
   ]
@@ -138,11 +136,11 @@ Return a single JSON object, no prose, no code fences:
   "metaTitle": "<=60 chars",
   "metaDescription": "<=155 chars, soft CTA + topic keyword",
   "excerpt": "<=300 chars",
-  "intro": ["2-3 opening paragraphs as separate strings, about ${budget.intro} words total"],
+  "intro": ["2-3 opening paragraphs as separate strings, at least ${budget.intro} words total"],
   "sections": [
     {
       "heading": "descriptive section heading",
-      "paragraphs": ["paragraphs totalling about ${budget.perSection} words"],
+      "paragraphs": ["paragraphs totalling at least ${budget.perSection} words"],
       "listItems": ["optional: 3-7 short list entries when a list genuinely helps"],
       "listType": "bullet or number (only when listItems present)"
     }
@@ -221,7 +219,11 @@ export async function POST(request: Request) {
     const gen = await generateJson<Partial<GeneratedBlog>>({
       system: buildSystemPrompt(template, budget),
       user: buildUserPrompt(title, promptKeywords, categorySlug),
-      maxTokens: 8000, // sized for ~2,400 words of JSON at the top of the range
+      // Sized for the 1,900-word top of range with clear headroom (~1.5 tokens
+      // per English word + JSON scaffolding ≈ 3.5-4k; 6500 keeps a truncated
+      // response — which surfaces as a JSON parse error, not the thin floor —
+      // out of reach without over-allocating like the old 2,400-word 8000.
+      maxTokens: 6500,
       temperature: 0.65,
     });
 
@@ -231,7 +233,10 @@ export async function POST(request: Request) {
         { status: 502 },
       );
     }
-    // Dynamic thin floor: 75% of the requested target (was a fixed 900).
+    // Dynamic thin floor: 70% of the requested target (P2-AI-002c; was 75%,
+    // which rejected acceptable ~1100-word posts against a 1700 ask). The
+    // floor only accepts/rejects the already-generated post — generation
+    // length is driven by the per-section budgets in the prompt.
     const minWords = Math.round(target * THIN_FLOOR_RATIO);
     const words = countWords(gen);
     if (words < minWords) {

@@ -235,10 +235,10 @@ export default defineType({
       title: 'Approximate word count',
       type: 'number',
       fieldset: 'ai',
-      initialValue: 1700,
-      validation: (Rule) => Rule.min(1200).max(2400),
+      initialValue: 1500,
+      validation: (Rule) => Rule.min(1300).max(1900),
       description:
-        'Roughly how long the post should be. The AI targets this but will not hit it exactly; expect within about 15 percent.',
+        'Roughly how long the post should be (default 1500, roughly 1300 to 1900). The AI targets this but will not hit it exactly; expect within about 15 percent.',
     }),
     defineField({
       name: 'aiSuggestedLinks',

@@ -31,6 +31,7 @@ import {
   clampWordCount,
   listIdeaCount,
   singleSectionCount,
+  THIN_FLOOR_RATIO,
 } from '../../lib/ai/word-budget';
 import {
   buildBlogBody,
@@ -280,24 +281,30 @@ async function main() {
   check('excluded call still finds other relevant products', stripB.length > 0);
 
   // -------------------------------------------------------------------------
-  console.log('\n[8] word-count budgeting (pure)');
+  console.log('\n[8] word-count budgeting (pure, P2-AI-002c range)');
   check(
-    'clamps: 1000→1200, 3000→2400, undefined→1700',
-    clampWordCount(1000) === 1200 && clampWordCount(3000) === 2400 && clampWordCount(undefined) === 1700,
+    'clamps: 1000→1300, 3000→1900, undefined→1500',
+    clampWordCount(1000) === 1300 && clampWordCount(3000) === 1900 && clampWordCount(undefined) === 1500,
   );
-  const budget = buildWordBudget(1700, 10);
+  const budgetSections = listIdeaCount(1500);
+  const budget = buildWordBudget(1500, budgetSections);
   const budgetSum = budget.intro + budget.sectionCount * budget.perSection;
   check(
-    `budget sums to ~target (intro ${budget.intro} + 10×${budget.perSection} = ${budgetSum} ≈ 1700) with intro in 120-180`,
-    Math.abs(budgetSum - 1700) <= 1700 * 0.02 && budget.intro >= 120 && budget.intro <= 180,
+    `budget sums to ~target (intro ${budget.intro} + ${budgetSections}×${budget.perSection} = ${budgetSum} ≈ 1500) with intro in 120-180`,
+    Math.abs(budgetSum - 1500) <= 1500 * 0.02 && budget.intro >= 120 && budget.intro <= 180,
   );
   check(
-    'section-count helpers stay in range (list 8-12, single 4-6)',
-    listIdeaCount(1200) === 8 &&
-      listIdeaCount(1700) === 10 &&
-      listIdeaCount(2400) === 12 &&
-      singleSectionCount(1200) >= 4 &&
-      singleSectionCount(2400) <= 6,
+    'section-count helpers stay in range across 1300-1900 (list 8-12, single 4-6)',
+    listIdeaCount(1300) >= 8 &&
+      listIdeaCount(1300) <= 12 &&
+      listIdeaCount(1500) >= 8 &&
+      listIdeaCount(1900) <= 12 &&
+      singleSectionCount(1300) >= 4 &&
+      singleSectionCount(1900) <= 6,
+  );
+  check(
+    'thin floor is 70% of target (1500 → 1050 minimum)',
+    THIN_FLOOR_RATIO === 0.7 && Math.round(1500 * THIN_FLOOR_RATIO) === 1050,
   );
 
   // -------------------------------------------------------------------------
