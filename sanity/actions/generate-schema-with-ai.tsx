@@ -10,6 +10,7 @@
  */
 import { useState } from 'react';
 import { useDocumentOperation, type DocumentActionComponent } from 'sanity';
+import { AiProgressContent } from '../components/AiProgressDialog';
 
 interface CustomSchemaDoc {
   schemaType?: string;
@@ -22,6 +23,7 @@ export const generateSchemaWithAi: DocumentActionComponent = (props) => {
   const { id, type, draft, published, onComplete } = props;
   const { patch } = useDocumentOperation(id, type);
   const [isGenerating, setIsGenerating] = useState(false);
+  const [hideProgress, setHideProgress] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   // Belt-and-suspenders: registered only for customSchema.
@@ -36,6 +38,7 @@ export const generateSchemaWithAi: DocumentActionComponent = (props) => {
     title: schemaType ? undefined : 'Pick a Schema type first',
     onHandle: async () => {
       setIsGenerating(true);
+      setHideProgress(false);
       setError(null);
       try {
         const res = await fetch('/api/sanity/generate-schema', {
@@ -62,14 +65,27 @@ export const generateSchemaWithAi: DocumentActionComponent = (props) => {
         setIsGenerating(false);
       }
     },
-    dialog: error
-      ? {
-          type: 'dialog',
-          header: 'AI schema generation failed',
-          onClose: () => setError(null),
-          content: <div style={{ padding: 16, fontSize: 14, color: '#e11f1e' }}>{error}</div>,
-        }
-      : false,
+    // Progress dialog while generating (P2-AI-002d) — the button label alone is
+    // invisible because the actions menu closes on click. Closing the dialog
+    // only hides it; generation continues and appends the block when done.
+    dialog:
+      isGenerating && !hideProgress
+        ? {
+            type: 'dialog',
+            header: 'Generating schema with AI…',
+            onClose: () => setHideProgress(true),
+            content: (
+              <AiProgressContent message="Generating the JSON-LD structured-data block. This usually takes a few seconds." />
+            ),
+          }
+        : error
+          ? {
+              type: 'dialog',
+              header: 'AI schema generation failed',
+              onClose: () => setError(null),
+              content: <div style={{ padding: 16, fontSize: 14, color: '#e11f1e' }}>{error}</div>,
+            }
+          : false,
   };
 };
 

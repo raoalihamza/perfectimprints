@@ -11,6 +11,7 @@
 import { useState } from 'react';
 import { useDocumentOperation, type DocumentActionComponent } from 'sanity';
 import { htmlToBlocks, buildGuideBlocks } from '../../lib/portable-text/html-to-blocks';
+import { AiProgressContent } from '../components/AiProgressDialog';
 
 interface GeneratedContent {
   h1: string;
@@ -32,6 +33,7 @@ export const generateWithAi: DocumentActionComponent = (props) => {
   const { id, type, draft, published, onComplete } = props;
   const { patch } = useDocumentOperation(id, type);
   const [isGenerating, setIsGenerating] = useState(false);
+  const [hideProgress, setHideProgress] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   // Belt-and-suspenders: even though it's registered only for customCategory.
@@ -45,6 +47,7 @@ export const generateWithAi: DocumentActionComponent = (props) => {
     title: doc?.title ? undefined : 'Add a title first',
     onHandle: async () => {
       setIsGenerating(true);
+      setHideProgress(false);
       setError(null);
       try {
         const res = await fetch('/api/sanity/generate-content', {
@@ -81,16 +84,29 @@ export const generateWithAi: DocumentActionComponent = (props) => {
         setIsGenerating(false);
       }
     },
-    dialog: error
-      ? {
-          type: 'dialog',
-          header: 'AI generation failed',
-          onClose: () => setError(null),
-          content: (
-            <div style={{ padding: 16, fontSize: 14, color: '#e11f1e' }}>{error}</div>
-          ),
-        }
-      : false,
+    // Progress dialog while generating (P2-AI-002d) — the button label alone is
+    // invisible because the actions menu closes on click. Closing the dialog
+    // only hides it; generation continues and patches the doc when done.
+    dialog:
+      isGenerating && !hideProgress
+        ? {
+            type: 'dialog',
+            header: 'Generating with AI…',
+            onClose: () => setHideProgress(true),
+            content: (
+              <AiProgressContent message="Writing the intro, buying guide, and FAQs for this category. This usually takes 20 to 40 seconds." />
+            ),
+          }
+        : error
+          ? {
+              type: 'dialog',
+              header: 'AI generation failed',
+              onClose: () => setError(null),
+              content: (
+                <div style={{ padding: 16, fontSize: 14, color: '#e11f1e' }}>{error}</div>
+              ),
+            }
+          : false,
   };
 };
 
