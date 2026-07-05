@@ -729,3 +729,43 @@ Total scope addition: 37 hours. Absorbed into the $6000 contract.
 | Buying-guide v2 prompt quality not great                      | LOW        | MEDIUM | Spot-check with Patrick after 35 regen before running on 22,145               |
 | Mobile pagespeed targets not hit                              | LOW        | LOW    | Sub-module 5E has 8h budgeted, multiple optimization avenues                  |
 | Blog migration discovers MPower export not available          | MEDIUM     | LOW    | Playwright fallback already budgeted                                          |
+
+---
+
+## PHASE 2 — Paid Post-Launch Engagement (Internal Notes)
+
+**Deal band (2026-07-04):** $5,500 total, full scope. Started $19,800 quote, Patrick budget $4,000, negotiated to $5,500. Weekly payments via Payoneer; late final payment(s) theek. First milestone paid. Video AI tool Patrick ne baad mein maanga, free include kiya (goodwill, AI engine reuse karta, kam extra kaam). Long-term relationship + monthly maintenance ($250/mo) target hai jab systems live hon.
+
+**Kaam AI (Claude Code) se hi karwana hai jaise Phase 1 mein.** Margin achha rahega. Value recurring/future se capture karni hai (maintenance retainer, image-metadata add-on, koi bhi naya out-of-scope kaam), abhi nickel-and-dime nahi.
+
+**Patrick ka build order (final):** AI engine pehle — Blogs, phir Videos, phir baaki pages — uske baad remaining phases.
+
+### Recommended internal build sequence (dependencies ke hisaab se)
+
+1. **P2-AI-001 Shared AI foundation** (generation service + related-products matcher + internal-linking engine + schema emitter). Yeh Blog ke saath hi ban jayegi kyunki blog ko sab chahiye. Sab (video/pages/landing/catalog) isay reuse karenge — dobara nahi banana.
+2. **P2-AI-002 Blog system** (2 templates, related products, internal links, draft-review, generate-from-title). [Patrick #1]
+3. **P2-AI-003 Video tool** (mostly foundation reuse: title/meta/desc/links/products/VideoObject). [Patrick #2]
+4. **P2-AI-004 AI Pages** (page builder generate-with-AI). [Patrick #3]
+5. **P2-AI-005 Landing pages** (template + landmarks + keyword box + products + lead form; top 10 + generator).
+6. **Phase 2A** — custom product pages + form builder + CTA bar (form/lead system baaki bhi reuse karega).
+7. **Phase 2C** — catalog lead pages + auto-email + Shop By Theme menu.
+8. **feeds.perfectimprints.com** — ALAG project/repo (101 pages, AI schema, Gushwork remove). Iska apna CLAUDE.md/TASKS.md banega jab shuru ho.
+
+**On hold:** image metadata (GSC) — scope/price alag jab Patrick confirm kare.
+
+### Clarity abhi bhi chahiye (Patrick se, jab us feature ka turn aaye)
+
+- Product pages: tiered pricing exact breaks, related-products manual SKUs source.
+- 4 service forms: exact fields (Patrick ne kaha sochne ka time chahiye).
+- Landing pages: approved landmark details (accuracy), keyword box inputs, kaunse top-10.
+- Blog daily volume + internal-linking auto-suggest vs manual confirm.
+- Catalog pages: photos pull method + email service/volume.
+
+### Working rules (Phase 1 se carry, strictly follow)
+
+- Ek prompt at a time, `.md` to outputs, developer runs in Claude Code + commits khud. Har prompt "Do NOT commit" pe khatam.
+- No local `pnpm build` (slow) — typecheck only; build/prerender risk explicitly flag karo. Staging-first, phir production (`pbnj53`) promote.
+- `/cat` + all routes static rahen. Freshness pattern (non-CDN `cachedClient` + tag + webhook `revalidateTag`) har naye read surface pe. Har tag `sanitizeTagValue()` se (5xx incident yaad rahe).
+- Functional Sanity change = webhook steps (staging+prod) + freshness + guide update + test steps.
+- Content SEO: plural keywords; custom/customized/personalized/logo/printed/branded; personas (marketing/HR/safety/business owners); bulk B2B, retail nahi.
+- Roman Urdu + English, no em-dashes, Patrick-facing messages plain + warm.

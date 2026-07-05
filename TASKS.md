@@ -226,8 +226,8 @@ Output JSON also carries new fields: `buyingGuideHtml`, `buyingGuideH2`, `prompt
 - [ ] Patrick spot-checks 2-3 outputs and approves the new format (pending Pause Point 3)
 
 **Outstanding tuning for M2-205 (full 430-root run):** word-count adherence is stochastic at temp=0.65. Options before full run: (a) add a retry-on-validation-fail loop in `generate_sample_roots.py`/`generate_content.py`, (b) further tighten paragraph-count instructions in the prompt, or (c) post-process expand thin outputs with a follow-up DeepSeek call. Recommended: (a) — cheaper and self-healing.
-      **Depends on.** M2-201.
-      **Estimate.** 6 hours (3h prompt design + 1h regen run + 2h validation/iteration).
+**Depends on.** M2-201.
+**Estimate.** 6 hours (3h prompt design + 1h regen run + 2h validation/iteration).
 
 ### [ ] M2-203: Facet category prompt template
 
@@ -599,7 +599,7 @@ Context-specific filters (show only when category context matches):
 - **Scrape source:** Direct PI via [SeleniumBase](https://seleniumbase.io/) UC mode (`uc=True` + `uc_open_with_reconnect` + `uc_gui_click_captcha`). Uses an undetected ChromeDriver patch set + real system Chrome (not headless-shell) to bypass Cloudflare Turnstile. Implementation at [scripts/scrapers/blogs/scrape_sbase.py](scripts/scrapers/blogs/scrape_sbase.py), invoked via `pnpm scrape-blogs`.
 - **Prereqs:** System-wide US/EU VPN connected (browser-extension VPNs don't route script traffic). System Chrome installed.
 - **Coverage:** 645 of 731 PI blog URLs (88%) after the 2026-06-15 re-scrape. 78 of the 86 missing returned PI's "These promotional items aren't available at this link" page or `/blog/wp-admin` (admin URL) — Patrick verified each. 8 more failed even with patient retry budgets because Cloudflare Turnstile kept escalating to challenges the scraper couldn't pass. List preserved at [data/blogs/.failed-slugs.txt](data/blogs/.failed-slugs.txt) for delivery-time reference.
-- **Parser:** Current MPower template uses `.blog-post-body` (no era-switching needed since we're hitting live PI not Wayback snapshots). PI's "Published: M/D/YYYY    Updated: ...    Author: ..." metaline below H1 is parsed regex-style for dates + author.
+- **Parser:** Current MPower template uses `.blog-post-body` (no era-switching needed since we're hitting live PI not Wayback snapshots). PI's "Published: M/D/YYYY Updated: ... Author: ..." metaline below H1 is parsed regex-style for dates + author.
 - **What's preserved per blog (output schema in [scripts/scrapers/blogs/README.md](scripts/scrapers/blogs/README.md)):** title (visible H1), metaTitle (og:title — SEO variant, often different), publishDate (real published date, not last-modified), updatedDate (~52% of blogs have it), author (100%), headerImageUrl (og:image, direct MPower CDN URL), bodyHtml + bodyText, embeds[] (YouTube/Vimeo), images[], inlineLinks (/cat/ + /blog/ hrefs), categoryTags, metaDescription.
 - **Runtime:** ~16 sec per URL (Turnstile solve + page load + extract). Full 731 ran ~3.5 hours.
 - **Output:** Raw JSONs archived outside the repo at `~/Documents/perfectimprints-archive/blogs-snapshot-2026-06-15/raw/` (645 JSONs, 16 MB) — supersedes the 2026-06-10 archive which captured only first-content-block content for every multi-section listicle (the no-scroll bug). Sanity is the source of truth post-migration; the archive exists for re-import after schema changes.
@@ -632,15 +632,17 @@ Context-specific filters (show only when category context matches):
 **Week 4 progress (2026-06-10, final).** Migration done end-to-end with two iterations. First attempt (2026-06-08, Wayback-based) produced poor-quality content; second attempt (2026-06-10, direct PI via SeleniumBase + VPN) produced clean current content with videos, real authors, real images, and correct dates. Final Sanity state: **731 blogPost docs total = 649 published + 82 hidden stubs**, 33 author docs, 35 blogCategory taxonomy docs, 39 blogs with video embeds (43 total YouTube/Vimeo videos preserved).
 
 **Pipeline iterations during the run (recorded for posterity):**
+
 1. First-attempt Wayback content was inferior — wrong title (used og:title instead of visible H1), wrong publishDate (captured last-modified instead of original publish), null author (PI's author info lives in an inline metaline not in meta tags), and video iframes were silently dropped during htmlToBlocks (no `embed` schema). Patrick caught all four on visual review.
 2. Direct PI scrape was originally blocked by CF 403. Tried curl_cffi (chrome131 TLS), cloudscraper, Playwright headed + stealth, Playwright with persistent Chrome profile — all 403 even via a US VPN. Root cause turned out to be **Cloudflare Turnstile escalating to interactive checkbox challenge** on rapid sequential requests. [SeleniumBase UC mode](https://seleniumbase.io/help_docs/uc_mode/) was the winner — its undetected ChromeDriver patches handle Turnstile.
-3. Scraper extractor pass — the og:title vs H1 issue was fixed by preferring H1 and storing og:title separately as `metaTitle`. The publishDate issue was fixed by parsing PI's inline "Published: M/D/YYYY    Updated: ...    Author: ..." line below the H1 (regex-driven). Author extracted from the same line — 100% capture rate.
+3. Scraper extractor pass — the og:title vs H1 issue was fixed by preferring H1 and storing og:title separately as `metaTitle`. The publishDate issue was fixed by parsing PI's inline "Published: M/D/YYYY Updated: ... Author: ..." line below the H1 (regex-driven). Author extracted from the same line — 100% capture rate.
 4. Sanity schema extended with `embed` block type (`{ provider: 'youtube' | 'vimeo' | 'iframe', url, videoId, caption }`). `htmlToBlocks` rules updated to convert `<iframe>` → `embed` block during portable text conversion. [BlogBody.tsx](components/blog/BlogBody.tsx) renders embed blocks as 16:9 responsive iframes.
 5. After clean scrape was ready, wiped the 731 broken Wayback-era docs ([scripts/migrations/wipe-blog-posts.ts](scripts/migrations/wipe-blog-posts.ts), `pnpm wipe-blog-posts --force`) and re-imported the 649 fresh blogs. MPower's CDN (`store-media.mpowerpromo.com`) is NOT CF-blocked → direct image fetch in ~2s per image with parallel upload, 0 image failures **(this was actually wrong; the second pass on 2026-06-15 caught a ~62% silent body-image loss — see M4-rescrape notes in M4-401)**.
 6. Per Patrick's request, the 82 stub drafts (for verified-deleted PI URLs) are NOT published — `publish-blog-drafts.ts` gained `--exclude-stubs` flag that filters drafts by body marker text so only the 649 real blogs go live. Stubs remain in Sanity as hidden drafts so the URL list is preserved for delivery reference.
 7. **2026-06-15 second pass: re-scrape with scroll + body-image fix + dedupe.** Issues caught on Patrick's content review: (a) listicles truncated at first lazy-loaded grid; (b) hero image visually duplicated at top of body in the rendered page; (c) ~62% of body images silently lost during import. Fixed in this order — re-scraped 645 blogs with scroll-to-load + product-grid strip ([scripts/scrapers/blogs/scrape_sbase.py](scripts/scrapers/blogs/scrape_sbase.py) updated in-place), patched the existing-doc dupes via [scripts/migrations/dedupe-header-images.ts](scripts/migrations/dedupe-header-images.ts), fixed the image-upload bugs in [scripts/migrations/import-blogs.ts](scripts/migrations/import-blogs.ts) (throttle + retry + drop the `/undefined/` URL false-reject), then targeted re-import of the 587 image-deficit slugs via [scripts/migrations/delete-affected-blogs.ts](scripts/migrations/delete-affected-blogs.ts) + `pnpm import-blogs --resume`. BlogBody renderer also tightened: empty `<p><br></p>` spacer blocks from Froala filtered out, paragraph `mt-5` → `mt-3`, and list items normalised to level 1 so consecutive number-list blocks group in one `<ol>` (was rendering each as `1, 1, 1` in its own list).
 
 **Operational note for Patrick:**
+
 - 645 blogs live on staging at `/blog/<slug>` — current PI content (current MPower template), with YouTube/Vimeo embeds rendered inline, real hero images from MPower CDN, real published + updated dates, real authors, full listicle bodies (scroll-aware scrape), and ~818 inline body images (no longer silently dropped).
 - 82 hidden stub drafts remain in Sanity (and [data/blogs/.failed-slugs.txt](data/blogs/.failed-slugs.txt) for delivery handoff) — those PI URLs returned "These promotional items aren't available at this link." All 82 verified manually by Patrick.
 - 318 published blogs could use editorial cleanup if you want richer `relatedCategorySlugs` coverage (auto-mapping caught 327/645 = 51% via title-token match; Studio editing lifts that without much effort).
@@ -659,13 +661,13 @@ Context-specific filters (show only when category context matches):
 
 **Re-run playbook (if Sanity ever needs to be rebuilt from the archived raw JSONs):**
 
-  1. Copy `~/Documents/perfectimprints-archive/blogs-snapshot-2026-06-10/raw/` back to `data/blogs/raw/`
-  2. `pnpm wipe-blog-posts --force` — clears the 731 existing docs (destructive, but the archive is the source of truth)
-  3. `pnpm import-blogs --dry-run` to preview counts (expect 645 real + 86 stub)
-  4. `pnpm import-blogs` — writes 731 drafts to Sanity (~10-15 min, image-upload bound but MPower CDN is fast)
-  5. `pnpm verify-blog-drafts` — programmatic sample check
-  6. `pnpm publish-blog-drafts --exclude-stubs` — publishes the 645 real ones, stubs stay hidden
-  7. `pnpm dedupe-header-images` — runs the asset-ref + position-based hero-dup cleanup pass (idempotent; only patches docs that still have a body image in the first 6 blocks)
+1. Copy `~/Documents/perfectimprints-archive/blogs-snapshot-2026-06-10/raw/` back to `data/blogs/raw/`
+2. `pnpm wipe-blog-posts --force` — clears the 731 existing docs (destructive, but the archive is the source of truth)
+3. `pnpm import-blogs --dry-run` to preview counts (expect 645 real + 86 stub)
+4. `pnpm import-blogs` — writes 731 drafts to Sanity (~10-15 min, image-upload bound but MPower CDN is fast)
+5. `pnpm verify-blog-drafts` — programmatic sample check
+6. `pnpm publish-blog-drafts --exclude-stubs` — publishes the 645 real ones, stubs stay hidden
+7. `pnpm dedupe-header-images` — runs the asset-ref + position-based hero-dup cleanup pass (idempotent; only patches docs that still have a body image in the first 6 blocks)
 
 ### [x] M4-403: Blog templates (index, post, category)
 
@@ -839,6 +841,7 @@ Plus mega menu addition: "Brands" main menu item linking to `/brands` (handled i
       **Estimate.** 8 hours.
 
 **Notes.**
+
 - `prebuild` (`tsx scripts/search-index/build-index.ts`) runs before `next build`. `products.json` is committed to the repo, so no data-prebuild ordering needed. A tiny `scripts/search-index/load-env.ts` is imported first so `.env.local` populates before the Sanity client evaluates (local runs only; Vercel already has env). Blog fetch is best-effort — index still builds without blogs if Sanity is down.
 - New shared helpers: `getAllProducts()` ([lib/categories.ts](lib/categories.ts), decoded), `getAllBlogSearchEntries()` ([lib/sanity/queries/blogs.ts](lib/sanity/queries/blogs.ts)).
 - `app/api/search/route.ts` stays a 501 stub — search is fully client-side; the route is reserved for a possible future live Searchspring proxy (out of scope).
@@ -1078,6 +1081,7 @@ Of the four service pages, **Popup Stores is the only one still on the placehold
 **Follow-up — home banners pre-filled + FAQ answers from PI's own content (2026-06-25).** (1) **Home banner row** — pulled PI's live "Sunglasses / Event Tents / Hats" small-banner row (image URLs + links read from the live home page via the `r.jina.ai` reader), downloaded each banner into a SELF-HOSTED Sanity image asset (content-hash deduped, so no hot-linking and no dupes on re-run), and patched `homePage.bannerRow` with the three banners linked to the preserved `/cat/<slug>` routes (`/cat/sunglasses`, `/cat/canopy-tents`, `/cat/caps` — all verified present in `category-urls.json`) + alt text. Reproducible via `pnpm seed-home-banners` ([scripts/seed/seed-home-banners.ts](scripts/seed/seed-home-banners.ts)). PI's home actually has 5 tiles (2 MediumBanner + 3 SmallBanner); used the 3-SmallBanner row Patrick described, not all 5. (2) **FAQ answers** — filled the 35 seeded question stubs from PI's OWN content (its live FAQ page + the migrated policy pages: Sample Policy, Shipping, Returns, Terms, Contact, plus PI's service offerings). 34 answered + published via `pnpm fill-faq-answers` ([scripts/seed/fill-faq-answers.ts](scripts/seed/fill-faq-answers.ts)); the script preserves any answer Patrick already wrote (it skipped his existing "minimum order quantity" answer) and never duplicates (0 duplicate questions across 73 published faqs). **1 question left blank** — "Do I need an account to place an order?" (no PI source; kept as an unpublished draft for Patrick). No MOQ/price/turnaround specifics were invented. Answered FAQs now render on `/faq` and flow into the live search delta automatically; the static index is unchanged (541 KB gz — FAQs live in the delta, not the bulk). Also centered the `/faq` page content in a `max-w-4xl` column with a centered header (it was sprawling full-width).
 
 **Follow-up — static pages refilled FULL + verbatim; Terms published (2026-06-26).** The M5-506c first pass got Shipping/Returns/About/Core-Values through the `r.jina.ai` reader "lightly condensed" and left Terms as boilerplate. This pass re-pulled each page's content FULL and verbatim from PI's own site and refilled [scripts/seed/seed-static-pages.ts](scripts/seed/seed-static-pages.ts):
+
 - **Terms of Service** — replaced the boilerplate draft with the complete verbatim **"Terms & Conditions"** (22 sections: H1 + 5 real H2s + the inline run-in sub-titles promoted to their own editable richText sections). Now seeds **PUBLISHED** (`page-terms`, no `drafts.` prefix); the seed deletes the stale `drafts.page-terms` so the published perspective is clean. `/terms` no longer 404s. Slug `terms` matches the live perfectimprints.com Terms URL exactly (no redirect).
 - **Shipping / Returns / Core Values** — refilled verbatim (Returns now has the full numbered "can/can't be returned" criteria + Blank Product Returns list + 3% fee paragraph; Shipping has the Canada/APO-FPO/International/General-Policies sections in the live DOM order; Core Values restored the dropped "We only hire and retain employees…" line and the real **Mission Statement** / **Vision Statement** headings).
 - **Sample Policy + Privacy** — spot-checked; already verbatim, retained (Privacy keeps the SMS "High Level"/Program-Description/Opting-Out/Message-Rates/Support structure; the cart-flow Sample steps stay adapted to Contact since the new site has no cart).
@@ -1121,7 +1125,7 @@ Of the four service pages, **Popup Stores is the only one still on the placehold
 - **Sitemap** — published `/videos/<slug>` detail URLs added to [app/sitemap.ts](app/sitemap.ts) (best-effort from Sanity); the `/videos` index was already a static path.
 - Verified: `pnpm typecheck` clean, `pnpm build:search-index` clean. No seed data — `video` docs added in Studio. **Not committed** (working tree staged for review).
 
-**Hybrid search — instant freshness follow-up (2026-06-21).** Patrick asked: when content is added in Sanity *after* a deploy (custom category/product, new/rush/deals additions, blogs, videos), how does it get into the static `search-index.json`? It didn't — the static index is build-time only. Implemented a hybrid:
+**Hybrid search — instant freshness follow-up (2026-06-21).** Patrick asked: when content is added in Sanity _after_ a deploy (custom category/product, new/rush/deals additions, blogs, videos), how does it get into the static `search-index.json`? It didn't — the static index is build-time only. Implemented a hybrid:
 
 - **Static bulk** ([scripts/search-index/build-index.ts](scripts/search-index/build-index.ts) → `public/search-index.json`): slimmed to Geiger categories + products + brands only (no Sanity calls). ~30,340 items / 541 KB gzipped.
 - **Live delta** ([app/api/search-index/route.ts](app/api/search-index/route.ts)): blogs + videos + custom categories + custom products, built by [lib/search/sanity-index.ts](lib/search/sanity-index.ts) from [lib/sanity/queries/blogs.ts](lib/sanity/queries/blogs.ts) + [videos.ts](lib/sanity/queries/videos.ts) + new [custom-categories.ts](lib/sanity/queries/custom-categories.ts) + new `getCustomProductSearchEntries()` in [custom-products.ts](lib/sanity/queries/custom-products.ts). ISR `revalidate` = 1 week (auto-refresh), busted within seconds of publish by the webhook.
@@ -1179,6 +1183,7 @@ Full step-by-step (URL, filter, projection, secret, testing, troubleshooting): *
       **Depends on.** M3-310, M4-403, M5-501.
 
 **Follow-up — Sanity-controlled social links + contact info (2026-06-26).** Replaced all hardcoded social/contact values; Patrick now fully controls socials + contact from `globalSettings`.
+
 - **Schema** ([sanity/schemas/singletons/global-settings.ts](sanity/schemas/singletons/global-settings.ts)): upgraded `socialLinks[]` to `{ platform (dropdown: Facebook/Instagram/LinkedIn/YouTube/X(Twitter)/Pinterest/TikTok/Other), label?, url (validated http/https), customIcon? (image), enabled (bool, default true) }`; added a `contact` group `{ phones[], email (validated), address{ street, city, region, postalCode, country } }`. Legacy flat `phoneNumber`/`contactEmail`/`mailingAddress` kept only as fallbacks.
 - **Icons** ([components/icons/social-icons.tsx](components/icons/social-icons.tsx)): built-in inline-SVG set keyed by platform (`SOCIAL_ICON_MAP`) + `SocialIcon` resolver — known platform → built-in icon (URL only); `customIcon`/"Other" → uploaded image; unknown + no icon → generic globe. Keys duplicated from the schema dropdown (Studio bundler can't import the app dir).
 - **Query** ([lib/sanity/queries/global-settings.ts](lib/sanity/queries/global-settings.ts)): `getSiteSettings()` (React-`cache()`d) resolves **enabled-only** socials (`enabled !== false && url`) + custom-icon URLs + contact (with legacy fallback). Plain published `client` (same as `getMegaMenu`) so `/cat` stays static.
@@ -1189,6 +1194,7 @@ Full step-by-step (URL, filter, projection, secret, testing, troubleshooting): *
 - Verified: contact written + resolves; `organizationSchema` emits `sameAs` for an enabled social and omits it when none. `pnpm typecheck` clean.
 
 **Acceptance (follow-up).**
+
 - [x] `globalSettings.socialLinks` (platform/label/url/customIcon/enabled) + `contact` group exist
 - [x] Known platforms render a built-in icon (URL only); "Other"/customIcon renders the uploaded icon; disabled links excluded in `getSiteSettings`
 - [x] Footer renders only enabled socials from Sanity with icons + a11y labels; no `#` placeholders; phone/email/address from `contact`
@@ -1199,9 +1205,10 @@ Full step-by-step (URL, filter, projection, secret, testing, troubleshooting): *
 - [~] `pnpm build` — the Vercel build on commit `a050ed3` compiled + typechecked the social/contact work fine and reached page generation, then failed prerendering `/blog/10-ideas-use-custom-beach-towels-fundraising` on a **pre-existing, unrelated** bug: an asset-less Sanity image (`{_type:'image', alt}` with no `asset` — a product image promoted to a blog header during the migration) passed to `urlForImage()`, which throws. Fixed below; re-confirm on the next Vercel deploy (and that `/cat` stays `●`/SSG). `getSiteSettings()` uses the same plain published `client` pattern as `getMegaMenu` and the new reads live in async layout-subtree server components (Footer, OrganizationJsonLd), so `/cat` should stay static.
 
 **Build blocker fix — asset-less images crashing prerender (2026-06-26, surfaced by the social/contact deploy).** `urlForImage()` throws "Unable to resolve image URL from source" when the image has no `asset` ref; several blog/video call sites guarded only by **truthiness** (`x.headerImage ? urlForImage(...)`), not by `asset`, so one bad related-blog header image failed the whole static export. Added a centralized safe resolver `buildImageUrl(source, apply?)` in [lib/sanity/client.ts](lib/sanity/client.ts) (returns `null` on missing asset or builder throw) and routed the truthiness-only sites through it: [components/blog/RelatedBlogsForPost.tsx](components/blog/RelatedBlogsForPost.tsx) (the one that threw), [components/blog/BlogCard.tsx](components/blog/BlogCard.tsx), [components/category/RelatedBlogsSection.tsx](components/category/RelatedBlogsSection.tsx), [app/blog/[slug]/page.tsx](app/blog/[slug]/page.tsx) (hero ×2), [app/videos/[slug]/page.tsx](app/videos/[slug]/page.tsx) (poster ×2), [lib/video/card-data.ts](lib/video/card-data.ts). Already-guarded sites (home, brands, custom-products, CustomCategoryView, SectionImage, BlogBody) left as-is. `pnpm typecheck` clean. Unrelated to the socials/contact change.
-      **Estimate.** 8 hours.
+**Estimate.** 8 hours.
 
 **Part 8 — PageSpeed pass (mobile + desktop, 2026-06-28).** Addressed the red items Patrick flagged in PageSpeed Insights for the home page and a category page (`/cat/backpacks`), without regressing the M5-508 LCP work or the static `/cat` render. Conservative delivery/perf/a11y changes only — no product data / affiliate URL / schema / visible-content changes.
+
 - **Earlier connections (render-blocking + critical chain).** [app/layout.tsx](app/layout.tsx) now emits `<link rel="preconnect">` + `dns-prefetch` for the Geiger image CDN `https://imgsirv.geiger.com` (no `crossOrigin` — plain `<img>` loads) so product images (the category LCP candidate) start downloading sooner, plus preconnect/dns-prefetch for `https://www.googletagmanager.com` (only when `NEXT_PUBLIC_GTM_ID` is set). The existing M5-508 LCP preload + eager/`fetchPriority=high` first-row image are untouched.
 - **Async third-party scripts.** GTM still loads via `@next/third-parties` (`next/script` default `afterInteractive`, deferred). [components/forms/Turnstile.tsx](components/forms/Turnstile.tsx) switched `afterInteractive` → **`lazyOnload`** so the Cloudflare script loads at idle, never blocking first paint. Turnstile renders only where the lead form does — and the form/modal is now lazy (below), so the Turnstile script never ships on form-less pages.
 - **Reduce unused JS (code-split via `next/dynamic`, `ssr:false`).** The interaction-only lead-form modal (LeadForm + Turnstile + file-validation) is split out of the **static `/cat` initial bundle** and the **search overlay** — [components/category/EmptyStateCTAButton.tsx](components/category/EmptyStateCTAButton.tsx) + [components/search/SearchEmptyCTA.tsx](components/search/SearchEmptyCTA.tsx) now `dynamic(() => import('@/components/forms/LeadFormModal'), { ssr:false })` and only mount it when opened (`{open && <LeadFormModal/>}`). The two below-the-fold home carousels load client-side via thin wrappers [components/home/TestimonialsLazy.tsx](components/home/TestimonialsLazy.tsx) + [components/home/ValuePillarsCarouselLazy.tsx](components/home/ValuePillarsCarouselLazy.tsx) (ssr:false + min-height placeholders to avoid CLS), keeping the value-pillar carousel JS out of the home bundle entirely in the common ≤3-pillar case. The header search overlay already lazy-loads Fuse.js + the index on first focus (unchanged). The mega menu was intentionally **left SSR'd** for nav-link crawlability.
@@ -1211,6 +1218,7 @@ Full step-by-step (URL, filter, projection, secret, testing, troubleshooting): *
 - **A11y — `<select>` labels.** Added `aria-label="Sort products by"` to the category sort `<select>` ([components/category/SortDropdown.tsx](components/category/SortDropdown.tsx) — its visible `<label>` is `display:none` on mobile, removed from the a11y tree) and to the `/search` sort `<select>` ([components/search/SearchFacetedResults.tsx](components/search/SearchFacetedResults.tsx)). The facet sidebar uses checkboxes (each already `aria-label`ed), not selects.
 
 **Acceptance (Part 8).**
+
 - [x] `/cat/[...slug]` stays SSG — baseline build showed `● /cat/[...slug]` with 1,840 prebuilt paths; changes add no `searchParams`/`cookies`/`headers`/uncached fetch to the render path (the modal split is client-side only), so it remains static. M5-508 LCP preload + eager first-row image intact.
 - [x] Render-blocking reduced: GTM stays deferred; Turnstile → `lazyOnload` and only on form pages (form/modal now lazy).
 - [x] `preconnect` + `dns-prefetch` added for `imgsirv.geiger.com` (+ GTM when configured).
@@ -1480,7 +1488,7 @@ Patrick wants to add links inside FAQ answers (e.g. a `/cat/pepper-spray` FAQ) a
 1. **Webhook filter excluded `faq`.** The revalidate route HANDLES `faq` (→ `revalidatePath('/faq')`), but the live Sanity webhook **Filter** never listed `faq`, so faq publishes sent nothing → `/faq` sat on its 1-week ISR floor. Fix: add `"faq"` to the webhook Filter (Patrick updated the staging webhook live; [docs/sanity-webhook-setup.md](docs/sanity-webhook-setup.md) corrected — filter now lists every handled type incl. `faq`/`categoryOverride`/`productPlacement`, projection includes `categorySlug`/`addToCategories`/`removeFromCategories`). Production webhook gets the same at launch. **Manual Sanity-dashboard action — no env change.**
 2. **CDN propagation race.** `getAnsweredFaqs` + all `lib/sanity/queries/videos.ts` reads used the **CDN** `client` (`useCdn:true`); on a publish the webhook regenerated the page before Sanity's CDN propagated, so it could re-cache the STALE answer until the weekly floor. Fix: switched those reads to the **non-CDN `cachedClient`** with cache tags `FAQS_TAG` (`faqs`) / `VIDEOS_TAG` (`videos`) ([lib/sanity/cache-tags.ts](lib/sanity/cache-tags.ts)); the webhook now `revalidateTag('faqs'|'videos','max')`s on `faq`/`video` publish ([app/api/sanity/revalidate/route.ts](app/api/sanity/revalidate/route.ts)). Deterministic instant updates; `/faq` stays ISR-static, `/videos` stays force-static/on-demand, `/cat` untouched. `pnpm typecheck` clean. (Takes effect once this branch deploys to the target env — it's a code fix, not a per-edit build; after deploy every Sanity publish is live in seconds.)
 
-**Hotfix (2026-06-30) — prerender crash `Objects are not valid as a React child` on `/cat/belt-buckles` (and every pushed customCategory).** Production builds failed while prerendering owned customCategory pages with `Error: Objects are not valid as a React child (found: object with keys {_key,_type,children,markDefs,style})` — a Portable Text **block** reaching JSX as a raw child. **Root cause:** the Task B *data* migration (plain string → Portable Text `richAnswer` for `faq.answer` / `customCategory.faqs[].a` / `video.description`) ran against the **shared Sanity dataset**, but a deploy path was building **code that predated Task B's render fixes** — so the migrated Portable Text array hit a render path that still interpolated the answer as a string. **Diagnosis:** rendering the live belt-buckles Sanity doc (introHtml, bodySections, FAQs) through the current components reproduced **no crash** — the fix is shipping Task B's render code together with the migrated data (data + render changes must deploy as one). **Hardening applied:** [components/category/FAQsAccordion.tsx](components/category/FAQsAccordion.tsx) now **always** routes `faq.a` through `<RichAnswer>` (removed the `typeof faq.a === 'string'` branch that could put a value near raw JSX); `RichAnswer` already tolerates `string | PortableTextBlock[]` (legacy plain string → paragraph, rich array → links), so neither shape can reach React as a raw object/array. Verified the other rich surfaces never raw-render: video detail uses `<RichAnswer>` ([app/videos/[slug]/page.tsx](app/videos/[slug]/page.tsx)), FAQ library uses `<RichAnswer>` ([components/faqs/FaqList.tsx](components/faqs/FaqList.tsx)), and all plain-string needs (FAQPage/VideoObject JSON-LD `acceptedAnswer.text`/`description`, meta/OG/Twitter, video card teaser) use `portableTextToPlain(...)`, never the raw blocks. `pnpm typecheck` clean; `/cat/[...slug]` render path unchanged (no new `searchParams`/uncached fetch) — stays static. **Takeaway: always deploy a content-shape migration and its render code in the same release.**
+**Hotfix (2026-06-30) — prerender crash `Objects are not valid as a React child` on `/cat/belt-buckles` (and every pushed customCategory).** Production builds failed while prerendering owned customCategory pages with `Error: Objects are not valid as a React child (found: object with keys {_key,_type,children,markDefs,style})` — a Portable Text **block** reaching JSX as a raw child. **Root cause:** the Task B _data_ migration (plain string → Portable Text `richAnswer` for `faq.answer` / `customCategory.faqs[].a` / `video.description`) ran against the **shared Sanity dataset**, but a deploy path was building **code that predated Task B's render fixes** — so the migrated Portable Text array hit a render path that still interpolated the answer as a string. **Diagnosis:** rendering the live belt-buckles Sanity doc (introHtml, bodySections, FAQs) through the current components reproduced **no crash** — the fix is shipping Task B's render code together with the migrated data (data + render changes must deploy as one). **Hardening applied:** [components/category/FAQsAccordion.tsx](components/category/FAQsAccordion.tsx) now **always** routes `faq.a` through `<RichAnswer>` (removed the `typeof faq.a === 'string'` branch that could put a value near raw JSX); `RichAnswer` already tolerates `string | PortableTextBlock[]` (legacy plain string → paragraph, rich array → links), so neither shape can reach React as a raw object/array. Verified the other rich surfaces never raw-render: video detail uses `<RichAnswer>` ([app/videos/[slug]/page.tsx](app/videos/[slug]/page.tsx)), FAQ library uses `<RichAnswer>` ([components/faqs/FaqList.tsx](components/faqs/FaqList.tsx)), and all plain-string needs (FAQPage/VideoObject JSON-LD `acceptedAnswer.text`/`description`, meta/OG/Twitter, video card teaser) use `portableTextToPlain(...)`, never the raw blocks. `pnpm typecheck` clean; `/cat/[...slug]` render path unchanged (no new `searchParams`/uncached fetch) — stays static. **Takeaway: always deploy a content-shape migration and its render code in the same release.**
 
 ### [x] M5-517: FAQ schema on category pages + custom structured data on any page (Task C, DONE 2026-06-30)
 
@@ -1489,6 +1497,7 @@ Two related SEO additions. No `/cat` static-render change (every Sanity read in 
 **Part 1 — Auto FAQPage schema on auto (JSON) category pages.** Already wired in [app/cat/[...slug]/page.tsx](app/cat/[...slug]/page.tsx): root pages with a non-empty `content.faqs` push `faqPageSchema(content.faqs.map(f => ({question:f.q, answer:f.a})))` into the page JSON-LD graph — emitted ONLY when FAQs are present + visible (matches the "FAQs render on root pages only" rule), and NOT on `customCategory` pages (CustomCategoryView emits its own FAQPage). Honest note for Patrick: since 2023 Google only shows the FAQ rich result for gov/health sites, so on a commercial site the schema is valid + present but the rich result likely won't display — still correct to include.
 
 **Part 2 — Custom structured data on any page (no push required).**
+
 - [x] New `customSchema` Sanity document ([sanity/schemas/documents/custom-schema.ts](sanity/schemas/documents/custom-schema.ts), registered in [sanity/schemas/index.ts](sanity/schemas/index.ts)): `pageUrl` (searchable [PageUrlInput](sanity/components/PageUrlPicker.tsx) — searches the all-URL `category-list.json` for `/cat/...` pages AND accepts a manually typed path for any other page; validated: starts with `/`, no domain, no trailing slash except root), optional `label`, and `jsonLd[]` raw blocks **custom-validated at publish as parseable JSON with `@context` + `@type`** (multiple blocks allowed). One doc per page you want to touch — same model as `categoryOverride`, no bulk push.
 - [x] Shared async server injector [components/seo/CustomSchemaJsonLd.tsx](components/seo/CustomSchemaJsonLd.tsx) reads the doc(s) for the exact path via the cache-tagged [getCustomSchemaForPath](lib/sanity/queries/custom-schema.ts) (`cachedClient`, tag `customSchema:<path>`, `revalidate:false`), emits each block as a `<script type="application/ld+json">` (escapes `<` to block `</script>` breakout), renders nothing when no match. Dropped into: category route (incl. customCategory path), blog detail, video detail, `StaticPage` (static/legal), home, brands index + per-brand, `/deals`, `/new-products`, `/rush-products`, `/faq`, `/videos`.
 - [x] Webhook ([app/api/sanity/revalidate/route.ts](app/api/sanity/revalidate/route.ts)): `customSchema` → `revalidateTag(customSchema:<pageUrl>,'max')` + `revalidatePath(pageUrl)` on publish/delete; `pageUrl` added to the payload type. [docs/sanity-webhook-setup.md](docs/sanity-webhook-setup.md) filter + projection updated to include `customSchema` / `pageUrl` (Patrick adds it to the live Sanity webhook — manual dashboard action).
@@ -1509,6 +1518,7 @@ Builds on M5-517's `customSchema`. Keeps raw-paste `jsonLd[]` (Option 1) unchang
 - Note: guided per-type form editors can still be layered on top of this raw-block + AI foundation later.
 
 **Follow-up fix (Task C-3, 2026-06-30) — injector missed the listing pages.** Testing found a published `customSchema` for `/blog` didn't render: Task C mounted `CustomSchemaJsonLd` only on blog DETAIL (`/blog/[slug]`), not the blog LISTING/pagination/category routes. Mounted the **same** cache-tagged injector (no new read surface, no new tag, no CDN read) on the missed public pages, each passing its exact canonical path:
+
 - [x] `/blog` ([app/blog/page.tsx](app/blog/page.tsx)), `/blog/page/N` ([app/blog/page/[n]/page.tsx](app/blog/page/[n]/page.tsx) → `/blog/page/<n>`), `/blog/cat/<slug>` ([app/blog/cat/[slug]/page.tsx](app/blog/cat/[slug]/page.tsx)), `/blog/cat/<slug>/page/N` ([app/blog/cat/[slug]/page/[n]/page.tsx](app/blog/cat/[slug]/page/[n]/page.tsx)).
 - [x] Audit of all other public routes added it where missing: `/promotional-products` ([app/promotional-products/page.tsx](app/promotional-products/page.tsx), keyed to the clean canonical that every filter/sort/page variant canonicalizes back to) and `/services/<slug>` ([app/services/[slug]/page.tsx](app/services/[slug]/page.tsx)).
 - [x] Already had it (no double-add): `/cat/...`, `/blog/<slug>`, `/videos` + `/videos/<slug>`, home, `/brands` + `/brands/<slug>`, `/deals`, `/new-products`, `/rush-products`, `/faq`, and all static/legal pages (via the shared `StaticPage` component). Intentionally NOT added: `/search` (noindex), `/rush-promotional-products` (legacy stub, canonical → `/rush-products`), `/style-guide` + `/admin*` (internal).
@@ -1551,7 +1561,7 @@ Patrick published a `page` doc (`/llm-info-perfect-imprints`) but it 404'd — t
 
 ### [x] M5-522: Page-builder — inline images in rich text + Video Embed section (2026-07-01)
 
-Follow-up to M5-521. The `page` website-builder had text formatting (headings/sub-headings/paragraphs/bullets/numbered/bold/italic/quotes/links) and images as separate section blocks, but was missing (a) images *inline within a paragraph flow* and (b) any YouTube/video embed. Added both.
+Follow-up to M5-521. The `page` website-builder had text formatting (headings/sub-headings/paragraphs/bullets/numbered/bold/italic/quotes/links) and images as separate section blocks, but was missing (a) images _inline within a paragraph flow_ and (b) any YouTube/video embed. Added both.
 
 - [x] **Inline images in rich text.** `portableBody` (used by `richText` + `imageText`) now includes `{type:'image'}` in its `of` array ([sanity/schemas/objects/page-sections.ts](sanity/schemas/objects/page-sections.ts)), so an editor can drop a picture between paragraphs. Rendered by a new `types.image` handler in the shared [components/page-sections/portable-text.tsx](components/page-sections/portable-text.tsx) (`urlForImage` → lazy `<img>`, degrades to nothing when no asset).
 - [x] **Video Embed section.** New `videoEmbed` object (heading + `url` + caption) reusing the existing `parseVideoEmbed` ([lib/video/embed.ts](lib/video/embed.ts)) + shared client [components/videos/VideoEmbed.tsx](components/videos/VideoEmbed.tsx). Renderer [components/page-sections/VideoEmbedSection.tsx](components/page-sections/VideoEmbedSection.tsx), wired into `SectionRenderer`, registered via `pageSectionSchemas` (auto-added to the schema index). Provider auto-detected (YouTube/Shorts/Vimeo/Instagram/Facebook); embed-only, nothing hosted. Type added to `PageSection` union in [lib/sanity/queries/pages.ts](lib/sanity/queries/pages.ts).
@@ -1674,8 +1684,8 @@ Live production 5xx starting Jul 02 03:25 UTC (~23 failed req/5min, rising) on r
 - [ ] **Live verification** — `pnpm typecheck` clean and `compute-summary.ts` smoke-tested locally. Still to do once secrets are set: (1) `workflow_dispatch` with `A,B,E` → green run + PR opens; (2) full run incl. Phase C to validate the split/checkpoint end-to-end (~6h); (3) confirm the summary email arrives.
 
 **Required GitHub secrets (manual, both repos `raoalihamza/perfectimprints` + `pbnj53/perfectimprints`):** `DEEPSEEK_API_KEY`, `GMAIL_USER`, `GMAIL_APP_PASSWORD` (+ optional `LEAD_EMAIL_TO`/`LEAD_EMAIL_FROM`). No Sanity secrets (content → `data/categories/*.json` only). Actions settings: Read/write + "Allow GitHub Actions to create and approve pull requests" (same as the weekly jobs).
-      **Depends on.** M6-605, M1-112.
-      **Estimate.** 4 hours.
+**Depends on.** M6-605, M1-112.
+**Estimate.** 4 hours.
 
 ### [ ] M6-607: Training and handover
 
@@ -1779,3 +1789,144 @@ Items deferred from the 40-day window:
 - Authenticated user accounts
 - Advanced personalization based on visitor industry
 - Real-time Geiger inventory syncs
+
+---
+
+# ============================================================
+
+# PHASE 2 — Post-Launch Paid Engagement (Deal closed 2026-07-04)
+
+# ============================================================
+
+**Deal:** $5,500 total, full Phase 2 scope. Weekly payments (Payoneer), late final payment(s) acceptable per agreement. First milestone paid 2026-07-04. Video AI tool added by Patrick post-agreement and included at no extra charge (goodwill; reuses the AI engine).
+
+**Patrick's requested build order (2026-07-04):** AI engine first — Blogs, then Videos, then the other pages — followed by the remaining phases.
+
+**Applies to every Phase 2 content task (per client SEO preferences):** target plural keyword forms for marketing directors, human resource directors, safety program managers, and business owners searching for bulk quantity promotional items. Weave in the modifier terms custom, customized, personalized, logo, printed, branded (e.g. "custom printed water bottles", "branded corporate gifts", "personalized trade show giveaways"). All content is bulk/wholesale B2B oriented, not consumer retail.
+
+**Non-negotiables carried from Phase 1 (apply to all tasks below):**
+
+- `/cat/[...slug]` and all existing routes MUST stay static/SSG. No `searchParams` in `page.tsx`, no uncached Sanity read in the render path.
+- Every new Sanity read surface uses the non-CDN `cachedClient` + a cache tag, and the webhook `revalidateTag`s it (freshness pattern).
+- Every tag value passes through `sanitizeTagValue()` (invalid tags → 5xx, learned the hard way in M5-525).
+- Any functional Sanity change ships with: the manual webhook Filter/Projection steps (staging + production), the freshness pattern, an update to `perfect-imprints-sanity-guide.html`, and end-to-end test steps.
+- Prompts end with "Do NOT commit"; developer commits. Staging-first, then promote to production (`pbnj53/perfectimprints`).
+
+---
+
+## Phase 2D — AI Content Engine (BUILD FIRST, per Patrick)
+
+### [ ] P2-AI-001: Shared AI content foundation
+
+Reusable engine that blogs, videos, pages, landing pages, and catalog pages all consume, so it is built once:
+
+- AI generation service (DeepSeek wrapper) with structured JSON output + graceful failure.
+- Related-products matcher: given a topic/category/keywords, return relevant SKUs (Geiger + customProduct) to embed. Match by category first, keywords second; manual add/remove always available.
+- Internal-linking engine: suggest links to existing blog posts, pages, and category pages relevant to the content (used for blogs and videos).
+- Schema emitter helpers: Article/BlogPosting, VideoObject, and reuse of the CustomSchema injector.
+- All reads cache-tagged; keyword guidance (plural + custom/branded/logo/printed/personalized, B2B personas) baked into the system prompts.
+
+### [ ] P2-AI-002: AI Blog system [Patrick priority #1]
+
+- "Generate with AI" from a title in the blog editor; output saved as a DRAFT for review (never auto-publish).
+- Long-form 1,500 to 2,000 words. Content must: give practical ways to use the promotional items for the topic, name businesses/organizations that can use them, give creative giveaway ideas, and recommend related products.
+- TWO templates: (a) list-style post ("10 Ideas ...") with a related-product strip under each idea; (b) single-category focus post with one related-product strip.
+- Related products chosen by category with manual add/remove.
+- Internal-linking engine suggests 4 to 5 links across landing pages, blog posts, and related category pages per post.
+- Patrick adds images himself. Emits BlogPosting schema. Target: roughly one blog per day (size the AI usage accordingly).
+
+### [ ] P2-AI-003: AI Video tool [Patrick priority #2, added post-deal, included free]
+
+- Input: paste a video script + a video link.
+- Generates: video title, meta title, meta description, and a long-form description (500 to 750 words).
+- Suggests internal links to blogs, pages, and categories; adds suggested related products at the bottom.
+- Emits VideoObject and any relevant video schema.
+- Reuses P2-AI-001 foundation; saved as draft for review. Wires into the existing `video` document/section.
+
+### [ ] P2-AI-004: AI Page generation [Patrick priority #3, "other pages"]
+
+- "Generate with AI" inside the page builder that drafts page sections from a title, mirroring the existing AI category generation.
+
+### [ ] P2-AI-005: AI Local & Topic Landing pages
+
+- Fixed high-converting template (hero, trust, problem, options, why us, lead form, FAQ) filled by AI.
+- AI researches and references local landmarks + city context (by-city list: Sylva, Asheville, Waynesville, Bryson City, Franklin NC; Fort Walton Beach, Destin, Navarre, Crestview, Miramar Beach FL). By-topic: screen printed t-shirts, company uniforms, etc.
+- A keyword box the user fills before generating to steer product matching; related products auto-matched by keyword with manual override.
+- Per-page lead form saved as a lead record and emailed (editable recipient).
+- Deliver the top 10 priority pages (see landing-page ideas doc) plus a self-serve generator so Patrick can create more himself. Each page must be genuinely unique (avoid thin/duplicate content across city x topic combinations).
+
+---
+
+## Phase 2A — Custom Product Pages, Form Builder, CTA
+
+### [ ] P2-CP-001: Custom product detail pages
+
+- New route `/products/<slug>` (own reserved segment; guard against collisions like the `app/[slug]` work).
+- Full description, tiered column pricing (up to 5 columns, per product), up to 10 images with zoom + thumbnail strip, optional video.
+- Related-products carousel: same category (Geiger + custom) auto, plus manual add/remove.
+- "Get a Quote" button in place of Add to Cart. Product schema + sitemap inclusion. Indexable.
+
+### [ ] P2-CP-002: Get a Quote form + lead system
+
+- Fields: First Name, Last Name, Company, Email, Phone, Shipping Zip, Quantity Needed, Date Needed, Comments.
+- Emails Patrick (editable recipient); automatic confirmation email to the customer showing their submission; saved as a lead record in the CMS. Appears on every custom product page by default.
+
+### [ ] P2-CP-003: Bulk upload custom products
+
+- Import from a Google Sheet link (or CSV). Columns include up to 10 image URLs, pricing tiers, description, category, etc.
+- ~50 products per upload. Re-uploading the same SKU UPDATES the existing product (not a duplicate).
+
+### [ ] P2-FB-001: Reusable form builder + lead records
+
+- Build tailored forms for any page with a choice of fields, spam protection, a confirmation message, an automatic confirmation email to the customer, lead records in the CMS, and an editable recipient email.
+
+### [ ] P2-FB-002: Four service forms
+
+- Kitting, Company Stores, 100% Custom Products, Pop-Up Stores. Each opens from the "Request a Quote" button on its service page. Fields per form TBD (Patrick to confirm; forms differ). Built on the P2-FB-001 form builder.
+
+### [ ] P2-CTA-001: CTA bar on product-bearing category/facet pages
+
+- On all category and facet pages that show products (including deeper facet pages), placed directly below the products and above the FAQs.
+- Copy: "Not finding the exact [CATEGORY NAME] you're looking for? We have other options. Contact us and we'll search through our database of over 1,000,000 promotional items." Category name inserted automatically; wording editable by Patrick.
+- Button opens the existing "Find Products for Me" form (same handling as the no-product pages).
+
+---
+
+## Phase 2C — Geiger Digital Catalog Lead Pages
+
+### [ ] P2-CAT-001: Ten catalog lead pages
+
+- One long-form, SEO-optimized lead page per catalog under patrickblack.geiger.com/c/shop-by-theme (10 catalogs).
+- Content and photos sourced from the digital catalogs (Patrick has rights). Keyword-rich; multiple CTAs top/middle/bottom.
+
+### [ ] P2-CAT-002: Catalog CTA form + email-gated delivery
+
+- Form: First Name, Last Name, Company, Phone, Email, optional Comments. Emailed to Patrick + saved as a lead record.
+- Automatic email to the customer's address with the catalog link (cc Patrick), so the link only goes to a valid email.
+
+### [ ] P2-CAT-003: "Shop By Theme" mega-menu dropdown
+
+- Add a Shop By Theme dropdown to the main menu linking the catalog pages.
+
+### [ ] P2-CAT-004: AI generation for new catalog pages
+
+- Let Patrick generate new catalog lead pages with AI as Geiger releases new catalogs each year.
+
+---
+
+## Phase 2 — feeds.perfectimprints.com (SEPARATE PROJECT / NEW REPO)
+
+### [ ] P2-FEEDS-000: feeds.perfectimprints.com rebuild — NOTE: this is a NEW, SEPARATE project
+
+- Rebuild all 101 pages of feeds.perfectimprints.com from scratch (similar text, images, CTAs; styled to match Perfect Imprints; exact design match not required).
+- Remove all Gushwork branding/references from the footer. One general contact form (First, Last, Company, Phone, Email, Comments).
+- AI-readable schema on every page (purpose is to feed AI platforms). Ability to generate new pages in the same format with AI.
+- **Build as its own Next.js project + repo + Vercel project on the feeds subdomain. It is NOT part of the main `perfectimprints` repo.** Give it its own CLAUDE.md/TASKS.md when it starts.
+
+---
+
+## Phase 2 — On Hold
+
+### [~] P2-IMG-001: Image license metadata (Google Search Console) — ON HOLD
+
+- Image license/creator/copyright structured data per Google's image-license-metadata guidelines. Patrick is still deciding; not included in the $5,500 scope. Scope and quote separately when he confirms (estimated $300 to $700).
