@@ -10,18 +10,26 @@ export interface RefreshWorkflow {
   key: string;
   /** Workflow file under .github/workflows/. */
   file: string;
-  /** PR branch the run opens (for Cancel cleanup). */
-  branch: string;
+  /**
+   * PR branch the run opens (for Cancel cleanup). Omitted for workflows that
+   * never open a PR (e.g. the warmup — Cancel just stops the run).
+   */
+  branch?: string;
   /** Button label shown in the Studio panel. */
   label: string;
   /** Plain-language helper text for Patrick (non-technical). */
   description: string;
   /** Rough run-time estimate, shown under the button. */
   duration: string;
-  /** Optional inputs sent with workflow_dispatch (monthly phases). */
+  /** Optional inputs sent with workflow_dispatch (monthly phases / warm scope). */
   inputs?: Record<string, string>;
   /** The heavy monthly full-catalog rebuild — styled + warned differently. */
   heavy?: boolean;
+  /**
+   * When set, the panel shows this plain-language confirm dialog BEFORE
+   * triggering; the run only starts if the user confirms (cost warning).
+   */
+  confirmMessage?: string;
 }
 
 export const REFRESH_WORKFLOWS: RefreshWorkflow[] = [
@@ -31,7 +39,7 @@ export const REFRESH_WORKFLOWS: RefreshWorkflow[] = [
     branch: 'chore/weekly-new-products-refresh',
     label: 'Refresh New Products',
     description:
-      'Pulls the latest "New Products" list from Geiger and updates the New Products page. This also runs automatically every Sunday — press this only if you want it sooner.',
+      'Pulls the latest "New Products" list from Geiger and updates the New Products page. This no longer runs automatically — press this button whenever you want fresh data.',
     duration: 'about 1–2 minutes',
   },
   {
@@ -40,7 +48,7 @@ export const REFRESH_WORKFLOWS: RefreshWorkflow[] = [
     branch: 'chore/weekly-deals-refresh',
     label: 'Refresh Deals',
     description:
-      'Pulls the latest sale & closeout deals from Geiger and updates the Deals page. This also runs automatically every Sunday — press this only if you want it sooner.',
+      'Pulls the latest sale & closeout deals from Geiger and updates the Deals page. This no longer runs automatically — press this button whenever you want fresh data.',
     duration: 'about 1–2 minutes',
   },
   {
@@ -49,7 +57,7 @@ export const REFRESH_WORKFLOWS: RefreshWorkflow[] = [
     branch: 'chore/weekly-rush-refresh',
     label: 'Refresh Rush Products',
     description:
-      "Pulls Geiger's 24-hour Rush Products list and updates the Rush Products page. This also runs automatically every Sunday — press this only if you want it sooner.",
+      "Pulls Geiger's 24-hour Rush Products list and updates the Rush Products page. This no longer runs automatically — press this button whenever you want fresh data.",
     duration: 'about 1–2 minutes',
   },
   {
@@ -62,6 +70,22 @@ export const REFRESH_WORKFLOWS: RefreshWorkflow[] = [
     duration: 'can take several hours',
     inputs: { phases: 'A,B,C,E' },
     heavy: true,
+  },
+  {
+    key: 'warm-all',
+    file: 'post-deploy-warmup.yml',
+    // No `branch` — the warmup never opens a PR; Cancel just stops the crawl
+    // (pages already warmed stay warm, nothing on the site changes).
+    label: 'Warm All Pages',
+    description:
+      'Visits every category page on the live site (22,000+ pages) so each one loads fast for the first visitor. Optional — pages warm themselves the first time someone visits anyway. Most useful right after a Full Catalog Rebuild or another big content change.',
+    duration: 'about 15–30 minutes',
+    // ALWAYS production + the full set — that's this button's whole purpose.
+    // The automatic monthly warmup calls the same workflow WITHOUT warm_scope,
+    // so it keeps the default 'smart' capped list.
+    inputs: { site_url: 'https://www.perfectimprints.com', warm_scope: 'all' },
+    confirmMessage:
+      'This warms all 22,000+ pages on the live site and can increase your hosting cost. It is only needed occasionally — for example after a Full Catalog Rebuild. Continue?',
   },
 ];
 

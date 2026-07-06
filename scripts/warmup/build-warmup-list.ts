@@ -185,6 +185,20 @@ export function buildWarmupList(): WarmupList {
   };
 }
 
+/**
+ * FULL warm list — every category URL in data/pi-urls/category-urls.json
+ * (~22,180: roots + modifiers + facets + compound facets). Used ONLY by the
+ * explicit "all" scope (the Studio "Warm All Pages" button / a manual
+ * `warm_scope: all` dispatch of post-deploy-warmup.yml). The automatic
+ * monthly warmup keeps using buildWarmupList() (the capped smart list).
+ * Prebuilt pages are included on purpose — a warm hit on a static page is
+ * cheap, and "warm everything" should mean everything.
+ */
+export function buildFullWarmupList(): string[] {
+  const urlsFile = readJson<UrlsFile>('data/pi-urls/category-urls.json');
+  return urlsFile.urls.map((u) => u.url);
+}
+
 /** Old-vs-new report so the selection can be eyeballed before it ships. */
 export function printWarmupListReport(list: WarmupList): void {
   const { stats } = list;

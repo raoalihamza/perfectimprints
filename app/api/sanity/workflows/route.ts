@@ -401,8 +401,9 @@ export async function POST(request: Request) {
     }
 
     // Belt-and-suspenders: close any PR the run opened and delete its branch so
-    // nothing dangling can merge later.
-    const closedPrs = await cleanupBranchAndPr(token, wf.branch);
+    // nothing dangling can merge later. Branch-less workflows (the warmup) open
+    // no PR — nothing to clean up.
+    const closedPrs = wf.branch ? await cleanupBranchAndPr(token, wf.branch) : [];
 
     return NextResponse.json({ cancelled: true, workflow: wf.key, closedPrs });
   }

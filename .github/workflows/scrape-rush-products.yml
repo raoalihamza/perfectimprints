@@ -1,12 +1,14 @@
 name: Weekly rush-products scrape
 
 on:
-  schedule:
-    # Every Sunday at 23:45 UTC — staggered after the deals (23:00) and
-    # new-products (23:30) scrapes so the three jobs don't fight over the same
-    # runner / git remote. Patrick (US Central) sees fresh rush data Monday
-    # morning.
-    - cron: '45 23 * * 0'
+  # Weekly cron disabled on request 2026-07 (cost control); re-enable by
+  # uncommenting. Still runnable from the Site Refresh panel / manual dispatch.
+  # schedule:
+  #   # Every Sunday at 23:45 UTC — staggered after the deals (23:00) and
+  #   # new-products (23:30) scrapes so the three jobs don't fight over the same
+  #   # runner / git remote. Patrick (US Central) sees fresh rush data Monday
+  #   # morning.
+  #   - cron: '45 23 * * 0'
   workflow_dispatch: {}
 
 permissions:

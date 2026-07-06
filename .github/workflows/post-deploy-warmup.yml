@@ -28,6 +28,15 @@ name: Post-deploy warmup
 # hit at ~400-800ms then caches permanently until the next deploy — so dropping
 # per-deploy warming costs only a little long-tail speed right after small
 # deploys, and saves the recurring resource drain.
+#
+# ── Two warm scopes (2026-07-06, "Warm All Pages" button) ────────────────────
+# `warm_scope` input selects what gets crawled:
+#   • 'smart' (DEFAULT — used by the automatic monthly path and any dispatch
+#     that doesn't say otherwise): the capped list above (~3,500 + nav).
+#   • 'all': EVERY category URL in data/pi-urls/category-urls.json (~22,180).
+#     Only the Sanity Studio "Site Refresh → Warm All Pages" button (and an
+#     explicit manual dispatch) passes this — it costs real Vercel/Sanity
+#     resources, so it is opt-in and confirmed with a cost warning in Studio.
 on:
   # Reusable: called by monthly-warmup.yml after the monthly rebuild ships.
   workflow_call:
@@ -37,6 +46,15 @@ on:
         type: string
         required: false
         default: 'https://dev.perfectimprints.com'
+      warm_scope:
+        # 'smart' (default) = the capped list (nav-guaranteed + top 3,500 facets
+        # by SKU count) — what the automatic monthly path uses. 'all' = EVERY
+        # category URL in data/pi-urls/category-urls.json (~22,180 pages) — used
+        # only by the Studio "Warm All Pages" button / explicit manual dispatch.
+        description: "Warm scope: 'smart' (capped list) or 'all' (every category page)."
+        type: string
+        required: false
+        default: 'smart'
   # Manual: ad-hoc warmup (defaults to staging; pass production www to warm prod).
   workflow_dispatch:
     inputs:
@@ -44,6 +62,10 @@ on:
         description: 'Target site URL (default: staging https://dev.perfectimprints.com)'
         required: false
         default: 'https://dev.perfectimprints.com'
+      warm_scope:
+        description: "Warm scope: 'smart' (capped ~3.5K list, default) or 'all' (every ~22,180 category pages — costs more, use after a full rebuild)"
+        required: false
+        default: 'smart'
 
 jobs:
   warmup:
@@ -67,7 +89,9 @@ jobs:
 
       - name: Warm facet pages
         env:
-          # `inputs.site_url` is provided by BOTH workflow_call and
-          # workflow_dispatch; fall back to staging if somehow unset.
+          # `inputs.site_url` / `inputs.warm_scope` are provided by BOTH
+          # workflow_call and workflow_dispatch; fall back to staging + the
+          # capped smart list if somehow unset.
           NEXT_PUBLIC_SITE_URL: ${{ inputs.site_url || 'https://dev.perfectimprints.com' }}
+          WARMUP_SCOPE: ${{ inputs.warm_scope || 'smart' }}
         run: pnpm tsx scripts/warmup/warmup-facets.ts

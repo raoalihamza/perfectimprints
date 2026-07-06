@@ -13,9 +13,15 @@
  * pages by SKU count. Everything else generates on-demand on first visit and
  * caches — intended and fine. Dry-run the list with `pnpm warmup:list`.
  *
+ * TWO SCOPES (2026-07-06, "Warm All Pages" button): WARMUP_SCOPE env selects
+ * the crawl list — 'smart' (default; the capped list above, used by the
+ * automatic monthly warmup) or 'all' (EVERY category URL from
+ * data/pi-urls/category-urls.json, ~22,180 pages; used only by the Studio
+ * "Warm All Pages" button / an explicit `warm_scope: all` dispatch).
+ *
  * Re-running is idempotent: warm hits are cheap and free.
  */
-import { buildWarmupList, printWarmupListReport } from './build-warmup-list';
+import { buildFullWarmupList, buildWarmupList, printWarmupListReport } from './build-warmup-list';
 
 const CONCURRENCY = 10;
 const REQUEST_TIMEOUT_MS = 30_000;
@@ -80,12 +86,20 @@ async function runPool(urls: string[]): Promise<Result[]> {
 }
 
 function main() {
-  const list = buildWarmupList();
-  printWarmupListReport(list);
-  const urls = list.urls;
+  const scope = process.env.WARMUP_SCOPE === 'all' ? 'all' : 'smart';
+  let urls: string[];
+  if (scope === 'all') {
+    urls = buildFullWarmupList();
+    console.log('=== FULL warm (scope=all) ===');
+    console.log(`Warming EVERY category URL from category-urls.json: ${urls.length} pages.`);
+  } else {
+    const list = buildWarmupList();
+    printWarmupListReport(list);
+    urls = list.urls;
+  }
 
   console.log('');
-  console.log(`Warming ${urls.length} URLs against ${SITE_URL} at concurrency ${CONCURRENCY}`);
+  console.log(`Warming ${urls.length} URLs against ${SITE_URL} at concurrency ${CONCURRENCY} (scope: ${scope})`);
   const started = Date.now();
 
   return runPool(urls).then((results) => {

@@ -1162,10 +1162,10 @@
     <h2 id="site-refresh">20. Site Refresh (update your product data)</h2>
     <p>This is a tab at the very top of the Studio (next to <strong>Push to Sanity</strong>). It is your one-click way to
       pull the newest product information from Geiger and put it live on your site — no GitHub, no developer, no waiting.
-      You see four buttons, each with a short note and a <strong>status line</strong> that tells you whether it is idle,
+      You see five buttons, each with a short note and a <strong>status line</strong> that tells you whether it is idle,
       running, finished, or failed.</p>
 
-    <h3>The four buttons</h3>
+    <h3>The five buttons</h3>
     <ul>
       <li><strong>Refresh New Products</strong> — updates the <em>New Products</em> page with Geiger's latest arrivals.
         Takes about a minute or two.</li>
@@ -1175,16 +1175,37 @@
         minute or two.</li>
       <li><strong>Full Catalog Rebuild</strong> — the <strong>big one</strong>. It rebuilds your entire catalog (22,000+
         category pages, every product, every brand logo). Use it occasionally, roughly once a month. It can take a few
-        hours, and your pages <strong>re-warm automatically</strong> when it is done, so you do not need to do anything
-        else.</li>
+        hours, and your most-visited pages <strong>re-warm automatically</strong> when it is done.</li>
+      <li><strong>Warm All Pages</strong> — visits every category page on your live site (22,000+ pages) so each one
+        loads fast for its first visitor. See the section just below for when to use it.</li>
     </ul>
 
     <div class="callout">
-      <span class="label">The three weekly ones run on their own too</span>
-      <p>New Products, Deals, and Rush Products already refresh <strong>automatically every Sunday</strong>. The buttons
-        here are just for when you want fresh data <em>sooner</em> than the next Sunday. The Full Catalog Rebuild does
-        <strong>not</strong> run on a schedule — it only happens when you press it.</p>
+      <span class="label">Nothing runs on a schedule anymore — you are in control</span>
+      <p>New Products, Deals, and Rush Products used to refresh automatically every Sunday. That schedule is now
+        <strong>turned off</strong> to keep hosting costs in your hands: the data only refreshes <strong>when you press
+        a button here</strong>. Press them as often or as rarely as you like — once a week is a good rhythm if you want
+        to keep the old cadence. The Full Catalog Rebuild has never run on a schedule — it also only happens when you
+        press it.</p>
     </div>
+
+    <h3>The "Warm All Pages" button</h3>
+    <p>Your site has 22,000+ category pages. After a deploy, the most important ones (about 5,000) are prepared in
+      advance so they load instantly; the rest get prepared <strong>automatically the first time someone visits
+      them</strong> — that first visit is just slightly slower (well under a second), and after that the page stays
+      fast. So most of the time you do not need this button at all.</p>
+    <p><strong>Warm All Pages</strong> visits every single page for you, in advance, so no visitor ever gets that
+      slightly slower first load. It runs for about 15–30 minutes against your live site
+      (www.perfectimprints.com).</p>
+    <div class="callout warn">
+      <span class="label">It can increase your hosting cost — use it occasionally</span>
+      <p>Because it touches all 22,000+ pages in one go, it uses real hosting resources, which is why it asks you to
+        <strong>confirm before it starts</strong>. It is optional, and most useful right after a <strong>Full Catalog
+        Rebuild</strong> or another big content change — that is when lots of pages go "cold" at once. There is no need
+        to run it after small edits or on a routine basis.</p>
+    </div>
+    <p>While it runs you see the same status line as the other buttons (Queued → Running… → finished), and you can
+      press <strong>Cancel</strong> to stop it — pages already warmed stay warm, and nothing on your site changes.</p>
 
     <h3>How a refresh works</h3>
     <ol class="steps">
@@ -1196,8 +1217,8 @@
 
     <div class="callout">
       <span class="label">Good to know — allow ~12–15 minutes after it finishes</span>
-      <p>The refresh job itself is quick — about a minute or two for the weekly ones (New Products, Deals, Rush
-        Products). But when it finds new data and publishes it, your site has to <strong>rebuild and redeploy</strong>
+      <p>The refresh job itself is quick — about a minute or two for the three product refreshes (New Products, Deals,
+        Rush Products). But when it finds new data and publishes it, your site has to <strong>rebuild and redeploy</strong>
         before the change actually shows up. That rebuild happens <strong>automatically</strong> — you do not need to do
         anything — but it takes roughly <strong>12–15 minutes AFTER the job finishes</strong> (the site runs two builds,
         about 7 minutes each). So the flow is: the button says it is done → then wait about 12–15 more minutes → then the
@@ -1242,7 +1263,8 @@
         without taking the page over.</li>
       <li><strong>Site Refresh</strong> is the top-tab panel that pulls fresh product data from Geiger (Deals, New
         Products, Rush Products, or the full catalog) and publishes it for you — with a Cancel that safely stops a run
-        with no changes.</li>
+        with no changes. It also has the optional <strong>Warm All Pages</strong> button to pre-load every category
+        page after a big rebuild.</li>
       <li><strong>Curated Category</strong> still shows in the list but no longer powers any page; ignore it.</li>
     </ul>
 

@@ -4,8 +4,14 @@
  * Patrick run the data-refresh GitHub Actions workflows on demand, watch their
  * status, and cancel a run.
  *
- *   • Refresh New Products / Deals / Rush Products → the weekly scrapes
+ *   • Refresh New Products / Deals / Rush Products → the on-demand scrapes
+ *     (their Sunday crons were disabled 2026-07 — these buttons are now the
+ *     ONLY way they run, besides a manual GitHub dispatch)
  *   • Full Catalog Rebuild → the heavy monthly 22K-page rebuild
+ *   • Warm All Pages → force-warms every category page on production via the
+ *     existing warmup engine (post-deploy-warmup.yml, warm_scope=all). Costs
+ *     real resources, so it's gated behind a plain-language confirm dialog
+ *     (RefreshWorkflow.confirmMessage).
  *
  * Each refresh, on success, auto-merges its own PR (the change goes live without
  * touching GitHub). Cancel cancels the run AND closes its PR + deletes its branch
@@ -331,8 +337,8 @@ function SiteRefreshComponent() {
       <div>
         <h1 style={{ fontSize: 22, margin: 0, color: FG }}>Site Refresh</h1>
         <p style={{ color: MUTED, fontSize: 14 }}>
-          Update the product data on your site on demand. The three weekly refreshes also run
-          automatically every Sunday — use the buttons here only when you want fresh data sooner.
+          Update the product data on your site on demand. The refreshes no longer run on an
+          automatic schedule — these buttons are how you pull fresh data, whenever you want it.
           When a refresh finds new data it publishes the change for you automatically (no GitHub
           needed). After a refresh finishes, allow <strong>~12–15 minutes</strong> for the site to
           rebuild and show the new data — the rebuild is automatic, so just wait. Press{' '}
@@ -395,7 +401,12 @@ function SiteRefreshComponent() {
               ) : (
                 <button
                   type="button"
-                  onClick={() => void trigger(wf.key)}
+                  onClick={() => {
+                    // Cost-warning gate (e.g. Warm All Pages): the run only
+                    // starts if Patrick explicitly confirms.
+                    if (wf.confirmMessage && !window.confirm(wf.confirmMessage)) return;
+                    void trigger(wf.key);
+                  }}
                   disabled={isBusy || !ready}
                   style={isBusy || !ready ? disabledBtn : wf.heavy ? heavyBtn : runBtn}
                 >
@@ -411,7 +422,9 @@ function SiteRefreshComponent() {
 
       <p style={{ fontSize: 12, color: MUTED, marginTop: 4 }}>
         Tip: the Full Catalog Rebuild is the heavy monthly job. It can take a few hours and the site
-        re-warms itself automatically after it finishes — you don't need to do anything else.
+        re-warms its most-visited pages automatically after it finishes. If you also want every
+        single page pre-warmed, press <strong>Warm All Pages</strong> afterwards — it's optional,
+        and pages warm themselves on first visit either way.
       </p>
     </div>
   );

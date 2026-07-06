@@ -1,11 +1,13 @@
 name: Weekly new-products scrape
 
 on:
-  schedule:
-    # Every Sunday at 23:30 UTC — 30 min after the deals scrape so the two jobs
-    # don't fight over the same runner / git remote. Patrick (US Central) sees
-    # fresh new-products data Monday morning.
-    - cron: '30 23 * * 0'
+  # Weekly cron disabled on request 2026-07 (cost control); re-enable by
+  # uncommenting. Still runnable from the Site Refresh panel / manual dispatch.
+  # schedule:
+  #   # Every Sunday at 23:30 UTC — 30 min after the deals scrape so the two jobs
+  #   # don't fight over the same runner / git remote. Patrick (US Central) sees
+  #   # fresh new-products data Monday morning.
+  #   - cron: '30 23 * * 0'
   workflow_dispatch: {}
 
 permissions:
