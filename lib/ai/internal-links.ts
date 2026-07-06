@@ -1,9 +1,12 @@
 /**
- * Internal-linking engine (P2-AI-001). Suggests links to EXISTING blog posts,
- * `page` docs, and baked category pages relevant to a topic/keyword list — the
- * AI never invents these; every href comes from real data:
- *   - blogs:      published blogPost title+slug (Sanity, tag RELATED_BLOGS_TAG)
- *   - pages:      published `page` title+slug   (Sanity, tag PAGES_TAG)
+ * Internal-linking engine (P2-AI-001, extended P2-AI-005). Suggests links to
+ * EXISTING blog posts, `page` docs, videos, landing pages, and baked category
+ * pages relevant to a topic/keyword list — the AI never invents these; every
+ * href comes from real data:
+ *   - blogs:      published blogPost title+slug    (Sanity, tag RELATED_BLOGS_TAG)
+ *   - pages:      published `page` title+slug      (Sanity, tag PAGES_TAG)
+ *   - videos:     published `video` title+slug     (Sanity, tag VIDEOS_TAG)
+ *   - landing:    published `landingPage` title+slug (Sanity, tag LANDING_TAG)
  *   - categories: generated root category JSONs on disk (lib/categories)
  *
  * Suggestions are surfaced for editor confirmation (aiSuggestedLinks on the
@@ -22,10 +25,10 @@
  */
 
 import { cachedClient } from '../sanity/client';
-import { PAGES_TAG, RELATED_BLOGS_TAG } from '../sanity/cache-tags';
+import { LANDING_TAG, PAGES_TAG, RELATED_BLOGS_TAG, VIDEOS_TAG } from '../sanity/cache-tags';
 import { getAllGeneratedRootSlugs, getCategoryContent } from '../categories';
 
-export type InternalLinkKind = 'blog' | 'page' | 'category';
+export type InternalLinkKind = 'blog' | 'page' | 'category' | 'video' | 'landing';
 
 export interface InternalLinkSuggestion {
   label: string;
@@ -71,9 +74,11 @@ function overlapScore(text: string, tokens: Set<string>): { score: number; match
   return { score: matched.length, matched };
 }
 
-interface Scored extends InternalLinkSuggestion {
+export interface ScoredLinkSuggestion extends InternalLinkSuggestion {
   score: number;
 }
+
+type Scored = ScoredLinkSuggestion;
 
 function reasonFor(kind: InternalLinkKind, matched: string[]): string {
   const kw = matched.slice(0, 3).join(', ');
@@ -84,6 +89,10 @@ function reasonFor(kind: InternalLinkKind, matched: string[]): string {
       return `Site page matching the keywords: ${kw}`;
     case 'category':
       return `Category page matching the keywords: ${kw}`;
+    case 'video':
+      return `Site video matching the keywords: ${kw}`;
+    case 'landing':
+      return `Existing landing page matching the keywords: ${kw}`;
   }
 }
 
@@ -123,7 +132,29 @@ export function suggestCategoryLinks(
   return top;
 }
 
-async function suggestBlogLinks(
+/**
+ * One Sanity-backed link source. All four (blogs, pages, videos, landing
+ * pages) score published title+slug docs the same way — only the GROQ type,
+ * cache tag, and href prefix differ. Each read reuses its surface's EXISTING
+ * cache tag (nothing new for the webhook to bust) and degrades to [] offline.
+ */
+interface SanityLinkSource {
+  kind: InternalLinkKind;
+  docType: string;
+  tag: string;
+  /** Prefix the slug is appended to, e.g. '/blog/' or '/'. */
+  hrefPrefix: string;
+}
+
+const SANITY_LINK_SOURCES: Record<'blog' | 'page' | 'video' | 'landing', SanityLinkSource> = {
+  blog: { kind: 'blog', docType: 'blogPost', tag: RELATED_BLOGS_TAG, hrefPrefix: '/blog/' },
+  page: { kind: 'page', docType: 'page', tag: PAGES_TAG, hrefPrefix: '/' },
+  video: { kind: 'video', docType: 'video', tag: VIDEOS_TAG, hrefPrefix: '/videos/' },
+  landing: { kind: 'landing', docType: 'landingPage', tag: LANDING_TAG, hrefPrefix: '/' },
+};
+
+async function suggestSanityDocLinks(
+  source: SanityLinkSource,
   keywords: string[],
   limit: number,
   excludeSlug?: string,
@@ -133,9 +164,9 @@ async function suggestBlogLinks(
   try {
     docs =
       (await cachedClient.fetch<{ title?: string; slug?: string }[]>(
-        `*[_type == "blogPost" && !(_id in path("drafts.**")) && defined(title) && defined(slug.current)]{ title, "slug": slug.current }`,
+        `*[_type == "${source.docType}" && !(_id in path("drafts.**")) && defined(title) && defined(slug.current)]{ title, "slug": slug.current }`,
         {},
-        { next: { tags: [RELATED_BLOGS_TAG], revalidate: false } },
+        { next: { tags: [source.tag], revalidate: false } },
       )) ?? [];
   } catch {
     return [];
@@ -147,39 +178,9 @@ async function suggestBlogLinks(
     if (score <= 0) continue;
     scored.push({
       label: d.title,
-      href: `/blog/${d.slug}`,
-      kind: 'blog',
-      reason: reasonFor('blog', matched),
-      score,
-    });
-  }
-  scored.sort((a, b) => (b.score !== a.score ? b.score - a.score : a.href < b.href ? -1 : 1));
-  return scored.slice(0, limit);
-}
-
-async function suggestPageLinks(keywords: string[], limit: number): Promise<Scored[]> {
-  const tokens = keywordTokenSet(keywords);
-  let docs: { title?: string; slug?: string }[] = [];
-  try {
-    docs =
-      (await cachedClient.fetch<{ title?: string; slug?: string }[]>(
-        `*[_type == "page" && !(_id in path("drafts.**")) && defined(title) && defined(slug.current)]{ title, "slug": slug.current }`,
-        {},
-        { next: { tags: [PAGES_TAG], revalidate: false } },
-      )) ?? [];
-  } catch {
-    return [];
-  }
-  const scored: Scored[] = [];
-  for (const d of docs) {
-    if (!d.title || !d.slug) continue;
-    const { score, matched } = overlapScore(d.title, tokens);
-    if (score <= 0) continue;
-    scored.push({
-      label: d.title,
-      href: `/${d.slug}`,
-      kind: 'page',
-      reason: reasonFor('page', matched),
+      href: `${source.hrefPrefix}${d.slug}`,
+      kind: source.kind,
+      reason: reasonFor(source.kind, matched),
       score,
     });
   }
@@ -188,39 +189,63 @@ async function suggestPageLinks(keywords: string[], limit: number): Promise<Scor
 }
 
 /**
- * Top `limit` suggestions across blogs + pages + categories, mixed with a
- * preference for spread across kinds when scores are close: the three
- * per-kind lists (each already score-sorted) are interleaved round-robin,
- * taking the best-scoring remaining head each round, until the limit fills.
+ * Pure interleave of per-kind, score-sorted suggestion lists (exported so the
+ * offline verifier can exercise the mixing with seeded landing/video lists):
+ * each round takes the best-scoring remaining head, then rotates that list to
+ * the back so close scores spread across kinds. Deduped by href (a `page` and
+ * a `landingPage` could theoretically share `/<slug>`), capped at `limit`.
  */
-export async function suggestInternalLinks(
-  opts: SuggestInternalLinksOptions,
-): Promise<InternalLinkSuggestion[]> {
-  const perKind = Math.max(2, opts.limit);
-  const [blogs, pages, categories] = await Promise.all([
-    suggestBlogLinks(opts.keywords, perKind, opts.excludeSlug),
-    suggestPageLinks(opts.keywords, perKind),
-    Promise.resolve(suggestCategoryLinks(opts.keywords, perKind, opts.categorySlug)),
-  ]);
-
-  const lists = [categories, blogs, pages].filter((l) => l.length > 0);
+export function interleaveScoredSuggestions(
+  inputLists: ScoredLinkSuggestion[][],
+  limit: number,
+): InternalLinkSuggestion[] {
+  const lists = inputLists.filter((l) => l.length > 0).map((l) => [...l]);
   const out: InternalLinkSuggestion[] = [];
+  const seenHrefs = new Set<string>();
   const cursors = lists.map(() => 0);
-  while (out.length < opts.limit) {
-    // Pick the list whose current head has the best score (round-robin tie-break
-    // by list order: categories → blogs → pages).
+  while (out.length < limit) {
+    // Pick the list whose current head has the best score (tie-break by list
+    // order: categories → blogs → pages → videos → landing).
     let best = -1;
     for (let i = 0; i < lists.length; i++) {
+      // Skip already-emitted hrefs so a duplicate never consumes a slot.
+      while (cursors[i] < lists[i].length && seenHrefs.has(lists[i][cursors[i]].href)) {
+        cursors[i] += 1;
+      }
       if (cursors[i] >= lists[i].length) continue;
       if (best === -1 || lists[i][cursors[i]].score > lists[best][cursors[best]].score) best = i;
     }
     if (best === -1) break;
     const { score: _score, ...suggestion } = lists[best][cursors[best]];
     out.push(suggestion);
+    seenHrefs.add(suggestion.href);
     cursors[best] += 1;
     // Rotate the just-picked list to the back so close scores spread across kinds.
     lists.push(lists.splice(best, 1)[0]);
     cursors.push(cursors.splice(best, 1)[0]);
   }
   return out;
+}
+
+/**
+ * Top `limit` suggestions across categories + blogs + pages + videos + landing
+ * pages, mixed with a preference for spread across kinds when scores are close
+ * (see interleaveScoredSuggestions). `excludeSlug` filters the blog source only
+ * (the blog being generated); the OTHER generate routes self-filter on the
+ * returned hrefs instead — page/landing drop `/<currentSlug>`, video drops
+ * `/videos/<currentSlug>` — so no generated doc ever auto-links to itself.
+ */
+export async function suggestInternalLinks(
+  opts: SuggestInternalLinksOptions,
+): Promise<InternalLinkSuggestion[]> {
+  const perKind = Math.max(2, opts.limit);
+  const [blogs, pages, videos, landings, categories] = await Promise.all([
+    suggestSanityDocLinks(SANITY_LINK_SOURCES.blog, opts.keywords, perKind, opts.excludeSlug),
+    suggestSanityDocLinks(SANITY_LINK_SOURCES.page, opts.keywords, perKind),
+    suggestSanityDocLinks(SANITY_LINK_SOURCES.video, opts.keywords, perKind),
+    suggestSanityDocLinks(SANITY_LINK_SOURCES.landing, opts.keywords, perKind),
+    Promise.resolve(suggestCategoryLinks(opts.keywords, perKind, opts.categorySlug)),
+  ]);
+
+  return interleaveScoredSuggestions([categories, blogs, pages, videos, landings], opts.limit);
 }

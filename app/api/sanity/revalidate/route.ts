@@ -14,6 +14,7 @@ import {
   BRANDS_TAG,
   CATEGORY_CONTROL_TAG,
   FAQS_TAG,
+  LANDING_TAG,
   MEGA_MENU_TAG,
   PAGES_TAG,
   RELATED_BLOGS_TAG,
@@ -21,6 +22,7 @@ import {
   VIDEOS_TAG,
   categoryTag,
   customSchemaTag,
+  landingTag,
   pageTag,
 } from '@/lib/sanity/cache-tags';
 
@@ -232,6 +234,26 @@ export async function POST(request: Request) {
       return NextResponse.json({ revalidated: true, scope: pageUrl, type });
     }
     return NextResponse.json({ revalidated: false, reason: 'customSchema missing pageUrl', type });
+  }
+
+  // Local/topic landing pages (P2-AI-005) render at /<slug> via app/[...slug]
+  // (resolved BEFORE `page` docs). All landingPage reads are cache-tagged
+  // (LANDING_TAG list-level + landing:<slug> content-level), so bust both tags
+  // plus the page path + the sitemap (a new/removed slug changes its listing).
+  // ⚠️ `landingPage` must be in the Sanity webhook Filter `_type` list (it is a
+  // NEW type — added to neither webhook automatically) or this never fires —
+  // see docs/sanity-webhook-setup.md.
+  if (type === 'landingPage') {
+    revalidateTag(LANDING_TAG, 'max');
+    const slug = payload.slug?.current;
+    if (slug) {
+      bustTag(landingTag(slug));
+      const paths = [`/${slug}`, '/sitemap.xml'];
+      for (const p of paths) revalidatePath(p);
+      return NextResponse.json({ revalidated: true, paths, type });
+    }
+    revalidatePath('/sitemap.xml');
+    return NextResponse.json({ revalidated: false, reason: 'landingPage missing slug', type });
   }
 
   // Generic section-based `page` documents power the Services routes

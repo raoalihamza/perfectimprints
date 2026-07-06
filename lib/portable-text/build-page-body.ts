@@ -116,3 +116,28 @@ export function buildPageBody(input: PageBodyInput): PageTextBlock[] {
   }
   return out;
 }
+
+/** One heading-led slice of a multi-section page body (P2-AI-005). */
+export interface PageBodySectionInput extends PageBodyInput {
+  heading?: string;
+}
+
+/**
+ * Builds a SINGLE portable-text body containing multiple heading-led sections
+ * (P2-AI-005 landing pages: `optionsIdeas` is one body field, so its section
+ * headings live IN the body as h2 blocks — unlike the page builder, where each
+ * richText section carries its heading in a separate field). Headings are
+ * emitted as default-editor-legal `style:'h2'` blocks; blank headings/sections
+ * are dropped. Same key generation + href-only link markDefs as buildPageBody.
+ */
+export function buildPageSectionsBody(sections: PageBodySectionInput[]): PageTextBlock[] {
+  const out: PageTextBlock[] = [];
+  for (const section of sections) {
+    if (section.heading?.trim()) {
+      const h = toBlock(section.heading.trim(), 'h2');
+      if (h) out.push(h);
+    }
+    out.push(...buildPageBody(section));
+  }
+  return out;
+}

@@ -344,6 +344,7 @@
         <li><a href="#leads">Lead Submission</a></li>
         <li><a href="#custom-schema">Custom Schema (advanced SEO)</a></li>
         <li><a href="#site-refresh">Site Refresh (update product data)</a></li>
+        <li><a href="#landing">Landing Pages (local + topic pages)</a></li>
         <li><a href="#connect">How everything connects</a></li>
         <li><a href="#tasks">Common tasks (quick reference)</a></li>
         <li><a href="#warnings">Important warnings</a></li>
@@ -1299,7 +1300,66 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="connect">21. How everything connects</h2>
+    <h2 id="landing">21. Landing Pages (local + topic pages, written by AI)</h2>
+    <p>A <strong>Landing Page</strong> is a one-topic, one-city sales page — for example
+      <em>Custom Beach Towels in Destin, FL</em> at <code>/custom-beach-towels-destin-fl</code>. Every landing page uses
+      the same fixed, high-converting layout (you edit the words, not the structure): a headline, a local introduction
+      that names the landmarks you choose, an "options &amp; ideas" section with a live product row, a
+      "Why Perfect Imprints" trust section, FAQs, and a quote form at the bottom (the headline button jumps straight to
+      it). You tell it the city, the product, and the local landmarks — the AI writes the whole page for you to review.</p>
+
+    <h3>Creating one</h3>
+    <ol class="steps">
+      <li>Open <span class="path">Content <span class="arrow">›</span> Landing Page</span> and click
+        <strong>Create new</strong>.</li>
+      <li>Enter a <strong>Title</strong> (your own label, e.g. "Beach Towels Destin FL") and fill the
+        <strong>AI generation inputs</strong>: <strong>City</strong> (Destin), <strong>State</strong> (FL),
+        <strong>Product / topic</strong> (Custom Beach Towels), and the <strong>Local landmarks</strong> you want
+        mentioned (e.g. Crab Island, Henderson Beach State Park, Destin Harbor, HarborWalk Village, Okaloosa County).
+        Optionally add <strong>Topic Keywords</strong> to steer the product row and the internal links.</li>
+      <li>Click <strong>Generate Landing Page with AI</strong> (among the document actions, near Publish — it stays
+        disabled until City, State, and Product are filled). A spinner window opens while it writes; it usually takes
+        under two minutes. If it comes back with an error (thin result, or it dropped one of your landmarks), just
+        click Generate again.</li>
+      <li><strong>Review everything.</strong> The draft fills: the hero heading + subheading, a
+        <strong>Local intro</strong> that names <em>every landmark you listed</em> (the tool refuses to accept a result
+        that skipped one), the <strong>Options &amp; ideas</strong> content (product options plus creative
+        uses-around-town ideas), the <strong>Why Perfect Imprints</strong> trust text, FAQs, a pre-filled
+        <strong>Related products</strong> row, and the meta title/description. Internal links to related categories,
+        blogs, videos, and other landing pages are <strong>placed into the text automatically</strong> — the
+        <strong>Suggested Internal Links</strong> list records what it found and which were placed. Edit anything.</li>
+      <li>The <strong>Slug</strong> fills in automatically from Product + City + State (e.g.
+        <code>custom-beach-towels-destin-fl</code>); change it if you prefer a different address. Like Pages, a slug
+        that belongs to an existing site page (like <code>blog</code> or <code>contact</code>) is refused.</li>
+      <li>When it reads right, <strong>Publish</strong>. The page is live at <code>/your-slug</code> within seconds and
+        is added to your sitemap automatically.</li>
+    </ol>
+
+    <div class="callout info">
+      <span class="label">Every page should feel local</span>
+      <p>The AI is instructed to write for the specific city — its events, seasons, venues, and your landmarks — so two
+        landing pages never read as copies of each other. When you create several (different cities, different
+        products), skim each one to confirm it genuinely talks about <em>that</em> place, and re-generate any that feel
+        generic.</p>
+    </div>
+    <div class="callout info">
+      <span class="label">The quote form (for now)</span>
+      <p>The form at the bottom of every landing page is the standard site quote form — it emails you and saves a Lead
+        Submission, so it works today. The landing-specific version (required Quantity Needed + Date Needed, and the
+        <strong>Lead recipient email</strong> field you can already see on the document) is coming in the next update;
+        the recipient field is stored now but not used yet.</p>
+    </div>
+    <div class="callout warn">
+      <span class="label">Always review AI text</span>
+      <p>The AI writes a first draft, not a final page. Read it before publishing — especially any local claims — and
+        check the product row fits the topic (if nothing sufficiently relevant was found, the row is simply left out;
+        you can add products yourself by SKU under <strong>Related products</strong>).</p>
+    </div>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="connect">22. How everything connects</h2>
     <p>A quick mental map of what drives what:</p>
     <ul>
       <li><strong>Global Settings</strong> drives the header and footer of <em>every</em> page (contact details, social
@@ -1313,6 +1373,9 @@
         text; <strong>Custom Product</strong> supplies non-Geiger items that any of these can place.</li>
       <li><strong>Blog Post</strong> connects to <strong>Author</strong> and <strong>Blog Category</strong>.</li>
       <li><strong>Page</strong> drives the Services and legal/info pages through the section builder.</li>
+      <li><strong>Landing Page</strong> drives the local + topic sales pages (e.g.
+        <code>/custom-beach-towels-destin-fl</code>) — a fixed template the AI fills from your City / State / Product /
+        landmarks inputs.</li>
       <li><strong>FAQ</strong>, <strong>Video</strong>, and <strong>Brand</strong> each drive their own page
         (<code>/faq</code>, <code>/videos</code>, <code>/brands</code>).</li>
       <li><strong>Lead Submission</strong> is the inbox for your contact form.</li>
@@ -1328,7 +1391,7 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="tasks">22. Common tasks (quick reference)</h2>
+    <h2 id="tasks">23. Common tasks (quick reference)</h2>
     <table>
       <tr>
         <th>I want to…</th>
@@ -1411,6 +1474,10 @@
         <td>Page</td>
       </tr>
       <tr>
+        <td>Create a city + product sales page (e.g. beach towels in Destin)</td>
+        <td>Landing Page &rsaquo; fill City / State / Product / Landmarks &rsaquo; Generate Landing Page with AI</td>
+      </tr>
+      <tr>
         <td>Add or edit an FAQ</td>
         <td>FAQ</td>
       </tr>
@@ -1427,7 +1494,7 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="warnings">23. Important warnings (keep these in mind)</h2>
+    <h2 id="warnings">24. Important warnings (keep these in mind)</h2>
 
     <div class="callout danger">
       <span class="label">1. Always review products before publishing a pushed category</span>

@@ -47,7 +47,10 @@ function imageUrlField(name = 'imageUrl', title = 'Image URL (fallback)') {
 // INLINE images, so an editor can drop a picture between paragraphs — not only as
 // a separate Image section. Inline images render via the `image` handler in
 // components/page-sections/portable-text.tsx.
-const portableBody = (name = 'body', title = 'Content') =>
+// Exported (P2-AI-005) so the `landingPage` schema reuses the EXACT same body
+// field shape — its bodies render through the same pagePortableComponents and
+// are built by the same buildPageBody/buildPageSectionsBody (href-only links).
+export const portableBody = (name = 'body', title = 'Content') =>
   defineField({
     name,
     title,

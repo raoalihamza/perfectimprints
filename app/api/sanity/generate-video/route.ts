@@ -192,13 +192,19 @@ export async function POST(request: Request) {
       limit: STRIP_LIMIT,
     });
 
-    // 3) Internal links from real targets only.
-    const suggestions = await suggestInternalLinks({
-      keywords: promptKeywords,
-      categorySlug: resolvedCategory ?? undefined,
-      excludeSlug: (body.currentSlug || '').trim() || undefined,
-      limit: MAX_INTERNAL_LINKS,
-    });
+    // 3) Internal links from real targets only. `excludeSlug` covers the blog
+    //    source; since the engine also suggests VIDEO links (P2-AI-005), filter
+    //    this video's own href too so a regenerated published video never
+    //    auto-links to itself (mirrors the generate-page/-landing self-filter).
+    const currentSlug = (body.currentSlug || '').trim();
+    const suggestions = (
+      await suggestInternalLinks({
+        keywords: promptKeywords,
+        categorySlug: resolvedCategory ?? undefined,
+        excludeSlug: currentSlug || undefined,
+        limit: MAX_INTERNAL_LINKS,
+      })
+    ).filter((s) => !currentSlug || s.href !== `/videos/${currentSlug}`);
 
     // 4) AUTO-INSERT the links into the description paragraphs — in richAnswer
     //    link-shape mode, so the placed span links (and the markDefs built from

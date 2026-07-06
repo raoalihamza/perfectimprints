@@ -1,6 +1,6 @@
 /**
- * Offline verification harness for the Phase 2 AI blog + video + page engine
- * (P2-AI-001/002/003/004).
+ * Offline verification harness for the Phase 2 AI blog + video + page +
+ * landing-page engine (P2-AI-001/002/003/004/005).
  *
  *   pnpm verify:blog-engine        (or: pnpm tsx scripts/ai-pipeline/verify-blog-engine.ts)
  *
@@ -20,6 +20,11 @@
  *     (normal + list level 1, href-only link markDefs — the default
  *     block-editor link annotation), the 'page' link-shape mode, a synthetic
  *     productStrip section's shape, and page-keyword product matching
+ *   - P2-AI-005 (landing): buildPageSectionsBody emits heading-led multi-
+ *     section page bodies (h2 blocks in-body), the extended internal-link
+ *     interleave carries landing + video kinds (capped, href-deduped), the
+ *     landmark-inclusion enforcement, and the landing field shapes (plain-text
+ *     faqs, blogProduct strip entries, page-legal PT bodies)
  *
  * The Sanity-backed pieces (blog/page link suggestions, custom-product merge)
  * are guarded in the engine itself — offline they degrade gracefully, and they
@@ -33,7 +38,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { matchRelatedProducts, resolveCategoryForKeywords } from '../../lib/ai/related-products';
-import { suggestCategoryLinks } from '../../lib/ai/internal-links';
+import {
+  interleaveScoredSuggestions,
+  suggestCategoryLinks,
+  type ScoredLinkSuggestion,
+} from '../../lib/ai/internal-links';
+import { findMissingLandmarks } from '../../lib/ai/landing-landmarks';
 import { placeInternalLinks } from '../../lib/ai/place-internal-links';
 import {
   buildWordBudget,
@@ -50,7 +60,7 @@ import {
   type BlogInlineSpan,
 } from '../../lib/portable-text/build-blog-body';
 import { buildRichAnswerBody } from '../../lib/portable-text/build-rich-answer-body';
-import { buildPageBody } from '../../lib/portable-text/build-page-body';
+import { buildPageBody, buildPageSectionsBody } from '../../lib/portable-text/build-page-body';
 import type { GeigerProduct } from '../../lib/product-types';
 
 const ROOT = path.resolve(__dirname, '../..');
@@ -746,6 +756,278 @@ async function main() {
       new Set(stripProducts.map((p) => p.sku)).size === stripProducts.length &&
       stripProducts.every((p) => /water|bottle/i.test(`${p.name} ${p.brand ?? ''}`)),
     stripProducts.map((p) => p.name).join(' | '),
+  );
+
+  // -------------------------------------------------------------------------
+  console.log('\n[12] landing engine (P2-AI-005) — sectioned body + link kinds + landmarks');
+
+  // buildPageSectionsBody: one body carrying multiple heading-led sections —
+  // h2 heading blocks IN the body (unlike the page builder, where the heading
+  // is a separate section field), normal paragraphs, bullet lists at level 1.
+  const landingSectionsInput = [
+    {
+      heading: 'Options for Custom Beach Towels',
+      paragraphs: [
+        'Plain paragraph about custom beach towels.',
+        [
+          { text: 'Rich paragraph with a ' },
+          { text: 'category link', link: { href: '/cat/beach-towels' } },
+          { text: '.' },
+        ],
+      ],
+      list: { kind: 'bullet' as const, items: ['Velour', 'Woven', ''] },
+    },
+    {
+      heading: 'Ideas Around Destin Harbor',
+      paragraphs: ['Local usage ideas paragraph.'],
+    },
+    { heading: '   ', paragraphs: ['Blank heading is dropped, paragraph kept.'] },
+  ];
+  const sectionedBody = buildPageSectionsBody(landingSectionsInput);
+  const h2Blocks = sectionedBody.filter((b) => b.style === 'h2');
+  check(
+    'buildPageSectionsBody: h2 blocks emitted for each non-blank heading, in order',
+    h2Blocks.length === 2 &&
+      h2Blocks[0].children.map((c) => c.text).join('') === 'Options for Custom Beach Towels' &&
+      h2Blocks[1].children.map((c) => c.text).join('') === 'Ideas Around Destin Harbor',
+    JSON.stringify(h2Blocks.map((b) => b.children.map((c) => c.text).join(''))),
+  );
+  const sectionedList = sectionedBody.filter((b) => b.listItem);
+  check(
+    'buildPageSectionsBody: only block blocks (normal/h2), bullet list at level 1, blanks dropped',
+    sectionedBody.every((b) => b._type === 'block' && ['normal', 'h2'].includes(b.style)) &&
+      sectionedList.length === 2 &&
+      sectionedList.every((b) => b.listItem === 'bullet' && b.level === 1) &&
+      sectionedBody.every((b) => b.children.some((c) => c.text.trim().length > 0)),
+  );
+  const sectionedKeys: string[] = [];
+  for (const b of sectionedBody) {
+    sectionedKeys.push(b._key);
+    for (const c of b.children) sectionedKeys.push(c._key);
+    for (const m of b.markDefs) sectionedKeys.push(m._key);
+  }
+  check(
+    `buildPageSectionsBody: unique non-empty _keys (${sectionedKeys.length} keys)`,
+    new Set(sectionedKeys).size === sectionedKeys.length && sectionedKeys.every(Boolean),
+  );
+  const sectionedDefs = sectionedBody.flatMap((b) => b.markDefs);
+  check(
+    'buildPageSectionsBody: link markDefs are href-only (page shape), heading blocks carry none',
+    sectionedDefs.length === 1 &&
+      sectionedDefs.every(
+        (m) => Object.keys(m).sort().join(',') === '_key,_type,href' && m._type === 'link',
+      ) &&
+      h2Blocks.every((b) => b.markDefs.length === 0),
+    JSON.stringify(sectionedDefs),
+  );
+
+  // Extended internal-link interleave: landing + video kinds mix in with the
+  // rest (this seeds the per-kind lists directly — the Sanity reads behind
+  // suggestInternalLinks are exercised through the running generate routes).
+  const seed = (
+    kind: ScoredLinkSuggestion['kind'],
+    label: string,
+    href: string,
+    score: number,
+  ): ScoredLinkSuggestion => ({ kind, label, href, reason: `k: ${label}`, score });
+  const interleaved = interleaveScoredSuggestions(
+    [
+      [seed('category', 'Beach Towels', '/cat/beach-towels', 3)],
+      [seed('blog', 'Beach Towel Buying Guide', '/blog/beach-towel-buying-guide', 3)],
+      [seed('page', 'Kitting Services', '/duplicate-slug', 2)],
+      [seed('video', 'Custom Beach Towels Video', '/videos/custom-beach-towels', 3)],
+      [
+        seed('landing', 'Beach Towels Navarre FL', '/duplicate-slug', 3), // duped href → one survives
+        seed('landing', 'Beach Towels Destin FL', '/beach-towels-destin-fl', 3),
+      ],
+    ],
+    5,
+  );
+  const interleavedKinds = new Set(interleaved.map((s) => s.kind));
+  check(
+    'interleave: landing + video kinds both appear alongside category/blog/page',
+    interleavedKinds.has('landing') && interleavedKinds.has('video') && interleavedKinds.has('category'),
+    JSON.stringify([...interleavedKinds]),
+  );
+  check(
+    'interleave: capped at limit, deduped by href, score field stripped',
+    interleaved.length === 5 &&
+      new Set(interleaved.map((s) => s.href)).size === 5 &&
+      interleaved.every((s) => !('score' in s)),
+    JSON.stringify(interleaved.map((s) => s.href)),
+  );
+
+  // Landmark-inclusion enforcement (Patrick's hard requirement): the route
+  // rejects any generation missing a listed landmark.
+  const destinLandmarks = [
+    'Crab Island',
+    'Henderson Beach State Park',
+    'Destin Harbor',
+    'HarborWalk Village',
+    'Okaloosa County',
+  ];
+  const coveringText =
+    'From crab island charters to events at HENDERSON   BEACH state park, businesses along Destin Harbor and HarborWalk Village — plus offices across Okaloosa County — order early.';
+  check(
+    'findMissingLandmarks: all present (case/whitespace tolerant) → empty',
+    findMissingLandmarks(destinLandmarks, coveringText).length === 0,
+    JSON.stringify(findMissingLandmarks(destinLandmarks, coveringText)),
+  );
+  const partialText = 'Only Crab Island and Destin Harbor get a mention here.';
+  const missing = findMissingLandmarks(destinLandmarks, partialText);
+  check(
+    'findMissingLandmarks: dropped landmarks are reported (original casing), blanks ignored',
+    missing.length === 3 &&
+      missing.includes('Henderson Beach State Park') &&
+      missing.includes('HarborWalk Village') &&
+      missing.includes('Okaloosa County') &&
+      findMissingLandmarks(['  ', ''], partialText).length === 0,
+    JSON.stringify(missing),
+  );
+  check(
+    'findMissingLandmarks: word-bounded — "Destin" is NOT satisfied by "destination"',
+    findMissingLandmarks(['Destin'], 'Plan destination events all summer.').length === 1 &&
+      findMissingLandmarks(['Destin'], 'Businesses across Destin order early.').length === 0,
+  );
+  check(
+    'findMissingLandmarks: per-segment — a multi-word landmark never matches across two adjacent blocks',
+    findMissingLandmarks(['Harbor Village'], ['boats along the Harbor', 'Village shops open late'])
+      .length === 1 &&
+      findMissingLandmarks(['Harbor Village'], ['boutiques at Harbor Village draw crowds'])
+        .length === 0,
+  );
+
+  // Landing-style product strip: keyword-driven, sku-backed, relevance-floored
+  // — and omitted below the 2-product floor (the route's STRIP_MIN_PRODUCTS).
+  const landingCategory = resolveCategoryForKeywords('custom beach towels');
+  const landingStrip = await matchRelatedProducts({
+    categorySlug: landingCategory ?? undefined,
+    keywords: ['custom beach towels', 'beach towels'],
+    limit: 8,
+  });
+  check(
+    'landing strip: relevant, sku-backed, deduped products within limit',
+    landingStrip.length >= 2 &&
+      landingStrip.length <= 8 &&
+      landingStrip.every((p) => catalogSkus.has(p.sku)) &&
+      new Set(landingStrip.map((p) => p.sku)).size === landingStrip.length &&
+      landingStrip.every((p) => /towel|beach/i.test(`${p.name} ${p.brand ?? ''}`)),
+    landingStrip.map((p) => p.name).join(' | '),
+  );
+  const landingNonsense = await matchRelatedProducts({
+    keywords: ['xylophone submarines'],
+    limit: 8,
+  });
+  check(
+    'landing strip floor: irrelevant keywords match < 2 products → strip omitted',
+    landingNonsense.length < 2,
+  );
+
+  // Synthetic landing generation payload — the exact field shapes the
+  // generate-landing route returns and the landingPage schema stores: one
+  // placement pass across localIntro + optionsIdeas + whyUs (page link shape),
+  // split back on the same boundaries, three page-legal PT bodies, plain-text
+  // faqs, keyed blogProduct strip entries.
+  const landingGen = {
+    localIntro: [
+      'Businesses near Crab Island and Henderson Beach State Park order custom beach towels every spring.',
+    ],
+    optionsIdeas: [
+      {
+        heading: 'Beach Towel Options',
+        paragraphs: ['Velour and woven custom beach towels both take full-color printing.'],
+        listItems: ['Velour', 'Woven'],
+      },
+      {
+        heading: 'Ideas for Destin Events',
+        paragraphs: ['Hand branded tote bags and towels to charter guests along the harbor.'],
+        listItems: [] as string[],
+      },
+    ],
+    whyUs: ['Bulk ordering with free art proofs and fast turnaround for every event budget.'],
+  };
+  const landingPlacement = placeInternalLinks(
+    {
+      intro: landingGen.localIntro,
+      sections: [
+        ...landingGen.optionsIdeas.map((s) => ({ heading: s.heading, paragraphs: s.paragraphs })),
+        { heading: 'Why Perfect Imprints', paragraphs: landingGen.whyUs },
+      ],
+    },
+    [
+      {
+        label: 'Custom Beach Towels',
+        href: '/cat/beach-towels',
+        kind: 'category',
+        reason: 'Category page matching the keywords: beach, towels',
+      },
+      {
+        label: 'Tote Bags',
+        href: '/cat/tote-bags',
+        kind: 'category',
+        reason: 'Category page matching the keywords: tote, bags',
+      },
+    ],
+    5,
+    { linkShape: 'page' },
+  );
+  const landingIntroBody = buildPageBody({ paragraphs: landingPlacement.body.intro ?? [] });
+  const landingOptionsBody = buildPageSectionsBody(
+    landingPlacement.body.sections.slice(0, landingGen.optionsIdeas.length).map((placed, i) => ({
+      heading: landingGen.optionsIdeas[i].heading,
+      paragraphs: placed.paragraphs ?? [],
+      ...(landingGen.optionsIdeas[i].listItems.length > 0
+        ? { list: { kind: 'bullet' as const, items: landingGen.optionsIdeas[i].listItems } }
+        : {}),
+    })),
+  );
+  const landingWhyUsBody = buildPageBody({
+    paragraphs:
+      landingPlacement.body.sections[landingGen.optionsIdeas.length]?.paragraphs ??
+      landingGen.whyUs,
+  });
+  const landingBodies = [landingIntroBody, landingOptionsBody, landingWhyUsBody];
+  const landingAllDefs = landingBodies.flat().flatMap((b) => b.markDefs);
+  check(
+    'landing bodies: links placed across intro + options + whyUs in one pass, all href-only',
+    landingPlacement.placedHrefs.length === 2 &&
+      landingAllDefs.length === 2 &&
+      landingAllDefs.every(
+        (m) => Object.keys(m).sort().join(',') === '_key,_type,href' && m._type === 'link',
+      ),
+    JSON.stringify({ placed: landingPlacement.placedHrefs, defs: landingAllDefs }),
+  );
+  check(
+    'landing bodies: all three are page-legal PT (block-only, unique keys, no empty blocks); whyUs has NO headings (fixed H2 renders separately); optionsIdeas keeps its h2s',
+    landingBodies.flat().every((b) => b._type === 'block') &&
+      landingWhyUsBody.every((b) => b.style === 'normal') &&
+      landingOptionsBody.filter((b) => b.style === 'h2').length === 2 &&
+      (() => {
+        const keys = landingBodies
+          .flat()
+          .flatMap((b) => [b._key, ...b.children.map((c) => c._key), ...b.markDefs.map((m) => m._key)]);
+        return new Set(keys).size === keys.length && keys.every(Boolean);
+      })() &&
+      landingBodies.flat().every((b) => b.children.some((c) => c.text.trim().length > 0)),
+  );
+  const landingFaqs = [
+    { question: 'What is the minimum order?', answer: 'Most custom beach towels start at 25 pieces.' },
+  ].map((f, i) => ({ _key: `qa-test-${i}`, ...f }));
+  const landingStripEntries = landingStrip.map((p, i) => ({
+    _type: 'blogProduct',
+    _key: `rp-test-${i}`,
+    sku: p.sku,
+  }));
+  check(
+    'landing field shapes: faqs are keyed plain-text q/a; relatedProducts are keyed blogProduct entries with real catalog SKUs',
+    landingFaqs.every(
+      (f) => typeof f.question === 'string' && typeof f.answer === 'string' && !!f._key,
+    ) &&
+      landingStripEntries.length >= 2 &&
+      landingStripEntries.every(
+        (p) => p._type === 'blogProduct' && !!p._key && catalogSkus.has(p.sku),
+      ) &&
+      new Set(landingStripEntries.map((p) => p._key)).size === landingStripEntries.length,
   );
 
   // -------------------------------------------------------------------------

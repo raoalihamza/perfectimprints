@@ -21,6 +21,7 @@ ISR fallback.
 | `megaMenu`, `globalSettings` | The whole layout (`/`, `layout`) — header/footer/CTA on every page |
 | `homePage` | `/` |
 | `page` | `/services/<slug>`, `/<slug>` (top-level custom pages via `app/[slug]`), `/sitemap.xml` (+ busts the `pages` cache tag + `page:<slug>`) — needs `slug` in the projection (already present) |
+| `landingPage` | `/<slug>` (local/topic landing pages via `app/[...slug]`, P2-AI-005), `/sitemap.xml` (+ busts the `landing-pages` cache tag + `landing:<slug>`) — needs `slug` in the projection (already present). **NEW type — must be ADDED to the Filter (see below).** |
 | `blogPost` | `/blog`, `/blog/<slug>`, **live search delta** (`/api/search-index`) |
 | `video` | `/videos`, `/videos/<slug>`, **live search delta** |
 | `customProduct` | `/deals`, `/new-products`, `/rush-products`, **live search delta** |
@@ -78,7 +79,7 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
 | **URL** | `https://dev.perfectimprints.com/api/sanity/revalidate` |
 | **Dataset** | `production` |
 | **Trigger on** | ✅ Create  ✅ Update  ✅ Delete |
-| **Filter** | `!(_id in path("drafts.**")) && _type in ["megaMenu","globalSettings","homePage","page","blogPost","video","customProduct","customCategory","curatedCategory","faq","categoryOverride","productPlacement","customSchema","brand"]` |
+| **Filter** | `!(_id in path("drafts.**")) && _type in ["megaMenu","globalSettings","homePage","page","blogPost","video","customProduct","customCategory","curatedCategory","faq","categoryOverride","productPlacement","customSchema","brand","landingPage"]` |
 | **Projection** | `{_type, slug, categorySlug, pageUrl, addToCategories, removeFromCategories}` |
 | **HTTP method** | `POST` |
 | **HTTP headers** | none (Sanity adds the signature header automatically) |
@@ -95,10 +96,11 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
   (Keep this list in sync with the types handled in
   [app/api/sanity/revalidate/route.ts](../app/api/sanity/revalidate/route.ts) —
   `faq` was added when the `/faq` library shipped,
-  `categoryOverride` / `productPlacement` when M5-504 landed, and **`brand` when
+  `categoryOverride` / `productPlacement` when M5-504 landed, **`brand` when
   the Featured Brands strip shipped (Task F)** — it was deliberately excluded
   originally to save deliveries, but `/brands` now depends on the `featured`
-  flag. A handled type left out of this filter silently never revalidates.)
+  flag — and **`landingPage` when the local landing pages shipped (P2-AI-005)**.
+  A handled type left out of this filter silently never revalidates.)
 
 > **⚠️ Manual step for an EXISTING webhook (Task F):** if your staging /
 > production webhook was created before the Featured Brands strip, its Filter
@@ -107,6 +109,17 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
 > **staging now** and on **production at launch**. Projection is unchanged —
 > `brand`'s `_type` + `slug` are already covered. Until you do this, toggling a
 > brand's **Featured** flag will NOT refresh `/brands`.
+
+> **⚠️ Manual step for an EXISTING webhook (P2-AI-005, landing pages):**
+> `landingPage` is a NEW document type — both existing webhooks were created
+> before it, so their Filters omit it. Edit **each** webhook in Sanity → API →
+> Webhooks and paste the updated Filter above (the only change vs. the previous
+> filter is the trailing `,"landingPage"`). Do this on **staging now** and on
+> **production when P2-AI-005 promotes**. Projection is unchanged — the handler
+> only needs `_type` + `slug`, both already projected. Until you do this,
+> publishing or editing a landing page will NOT refresh `/<slug>` or the
+> sitemap (the page still appears on its first-ever visit via on-demand SSG,
+> but later edits stay silently stale until the next deploy).
 
 ### Why the projection
 

@@ -185,6 +185,42 @@ export function videoObjectSchema(input: VideoObjectInput) {
 }
 
 /**
+ * Service JSON-LD for a local/topic landing page (P2-AI-005) — ties the page's
+ * product/service to the city it targets, honestly and generically (no
+ * fabricated ratings/reviews/geo coordinates; Perfect Imprints is the provider,
+ * the city is the area served). Emitted only when both product and city exist.
+ */
+export function landingServiceSchema(input: {
+  /** The product/service the page centers on, e.g. "Custom Beach Towels". */
+  product: string;
+  city: string;
+  state?: string;
+  /** Absolute canonical URL of the landing page. */
+  url: string;
+  description?: string;
+}) {
+  const place = [input.city, input.state].filter(Boolean).join(', ');
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: `${input.product} in ${place}`,
+    serviceType: input.product,
+    areaServed: {
+      '@type': 'City',
+      name: input.city,
+      ...(input.state ? { containedInPlace: { '@type': 'State', name: input.state } } : {}),
+    },
+    provider: {
+      '@type': 'Organization',
+      name: 'Perfect Imprints',
+      url: SITE_URL,
+    },
+    url: input.url,
+    ...(input.description ? { description: input.description } : {}),
+  };
+}
+
+/**
  * FAQPage JSON-LD for the /faq library (M5-506). Pass only answered FAQs —
  * Google flags FAQPage entries with empty answers.
  */

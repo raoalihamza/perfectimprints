@@ -4,14 +4,21 @@ import { notFound } from 'next/navigation';
 import { Container } from '@/components/ui/Container';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { SectionRenderer } from '@/components/page-sections/SectionRenderer';
+import { LandingPageTemplate } from '@/components/landing/LandingPageTemplate';
 import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { getPageBySlug, getAllPageSlugs } from '@/lib/sanity/queries/pages';
+import {
+  getLandingPageBySlug,
+  getAllLandingPageSlugs,
+} from '@/lib/sanity/queries/landing-pages';
 import { RESERVED_SLUG_SET } from '@/lib/reserved-slugs';
 import { SIMPLE_NAV } from '@/lib/nav-data';
 import { socialMeta } from '@/lib/seo/open-graph';
+import { buildImageUrl } from '@/lib/sanity/client';
 
 /**
- * Top-level dynamic route for arbitrary custom `page` documents (Issue 2).
+ * Top-level dynamic route for arbitrary custom `page` documents (Issue 2) AND
+ * local/topic `landingPage` documents (P2-AI-005).
  *
  * Any published `page` whose slug is NOT reserved renders at `/<slug>` through
  * the same website-builder pipeline as Services/StaticPage (SectionRenderer +
@@ -19,6 +26,13 @@ import { socialMeta } from '@/lib/seo/open-graph';
  * lets Patrick recreate old-site top-level URLs (e.g. /llm-info-perfect-imprints)
  * from Studio without a code change — a publish goes live in seconds via the
  * Sanity webhook (revalidateTag PAGES_TAG + page:<slug> + revalidatePath).
+ *
+ * LANDING PAGES (P2-AI-005): a published `landingPage` (e.g.
+ * /custom-beach-towels-destin-fl) resolves FIRST and renders the fixed
+ * LandingPageTemplate; only when no landing page matches does the `page`
+ * resolution run, unchanged. Landing reads are cache-tagged (LANDING_TAG +
+ * landing:<slug>) so the route stays statically prerenderable while the webhook
+ * revalidates a publish in seconds.
  *
  * MULTI-SEGMENT slugs. This is a ROOT CATCH-ALL ([...slug]), not a single [slug],
  * so a page whose slug contains slashes (e.g. "industry/hvac",
@@ -75,25 +89,53 @@ function joinSlug(segments: string[]): string {
   return (segments ?? []).join('/');
 }
 
-// Dedupe the Sanity read between generateMetadata() and the page render.
+// Dedupe the Sanity reads between generateMetadata() and the page render.
 const getPage = cache((slug: string) => getPageBySlug(slug));
+const getLanding = cache((slug: string) => getLandingPageBySlug(slug));
 
 export async function generateStaticParams() {
-  const slugs = await getAllPageSlugs();
-  return slugs
-    .filter((slug) => !ROUTE_RESERVED.has(slug))
+  // Landing pages (P2-AI-005) share this catch-all with `page` docs. Merge +
+  // dedupe both slug sets (a slug should never be BOTH — see precedence below —
+  // but a dupe here would just emit the same path twice, so dedupe anyway).
+  const [pageSlugs, landingSlugs] = await Promise.all([
+    getAllPageSlugs(),
+    getAllLandingPageSlugs(),
+  ]);
+  return [...new Set([...landingSlugs, ...pageSlugs])]
+    .filter((slug) => slug && !ROUTE_RESERVED.has(slug))
     .map((slug) => ({ slug: slug.split('/') }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = joinSlug((await params).slug);
   if (ROUTE_RESERVED.has(slug)) return {};
+  const canonical = `${SITE_URL}/${slug}`;
+
+  // landingPage wins over page at the same slug (mirrors the render below).
+  const landing = await getLanding(slug);
+  if (landing) {
+    const title = landing.seo?.metaTitle?.trim() || `${landing.title} | Perfect Imprints`;
+    const description = landing.seo?.metaDescription?.trim() || undefined;
+    return {
+      title: { absolute: title },
+      description,
+      alternates: { canonical },
+      ...socialMeta({
+        title: landing.heroHeading?.trim() || landing.title,
+        description,
+        url: canonical,
+        // Honor an editor-uploaded OG image (same pattern as the video route);
+        // null falls back to the branded default inside socialMeta.
+        image: buildImageUrl(landing.seo?.ogImage, (b) => b.width(1200)),
+      }),
+    };
+  }
+
   const page = await getPage(slug);
   if (!page) return {};
 
   const title = page.seo?.metaTitle?.trim() || `${page.title} | Perfect Imprints`;
   const description = page.seo?.metaDescription?.trim() || undefined;
-  const canonical = `${SITE_URL}/${slug}`;
   return {
     title: { absolute: title },
     description,
@@ -105,6 +147,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function TopLevelPage({ params }: Props) {
   const slug = joinSlug((await params).slug);
   if (ROUTE_RESERVED.has(slug)) notFound();
+
+  // Precedence: a published landingPage OWNS its slug — if a `page` doc somehow
+  // shares the same slug, the landing page renders and the page doc is shadowed
+  // (a slug should never be both; this makes the collision deterministic).
+  const landing = await getLanding(slug);
+  if (landing) {
+    return (
+      <>
+        <CustomSchemaJsonLd path={`/${slug}`} />
+        <Container as="section" className="pb-2 pt-6">
+          <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: landing.title }]} />
+        </Container>
+
+        <LandingPageTemplate page={landing} />
+      </>
+    );
+  }
 
   const page = await getPage(slug);
   if (!page) notFound();

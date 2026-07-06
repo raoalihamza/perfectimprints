@@ -142,6 +142,22 @@ export function pageTag(slug: string): string {
 }
 
 /**
+ * Local/topic `landingPage` documents (P2-AI-005) — rendered at `/<slug>` via
+ * the root catch-all app/[...slug] (resolved BEFORE `page` docs). `LANDING_TAG`
+ * is the list-level tag busted on any `landingPage` publish/delete so
+ * generateStaticParams + the sitemap + the internal-link engine pick up a new
+ * or removed slug; `landingTag(slug)` busts a single landing page's content.
+ * All landingPage reads go through the non-CDN `cachedClient` so a publish
+ * revalidates deterministically while staying cache-tagged — keeping `/<slug>`
+ * static/SSG. Same rationale as PAGES_TAG.
+ */
+export const LANDING_TAG = 'landing-pages';
+export function landingTag(slug: string): string {
+  const s = sanitizeTagValue(slug);
+  return s ? `landing:${s}` : '';
+}
+
+/**
  * Per-path tag for the custom structured-data injector (Task C). Keyed by the
  * full page path (e.g. `customSchema:/cat/water-bottles`, `customSchema:/about`,
  * `customSchema:/`). The `CustomSchemaJsonLd` server component reads through a

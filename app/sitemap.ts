@@ -4,6 +4,7 @@ import path from 'node:path';
 import { getBlogPostSlugs, getAllBlogCategories } from '@/lib/sanity/queries/blogs';
 import { getVideoSlugs } from '@/lib/sanity/queries/videos';
 import { getAllPageSlugs } from '@/lib/sanity/queries/pages';
+import { getAllLandingPageSlugs } from '@/lib/sanity/queries/landing-pages';
 import { RESERVED_SLUG_SET } from '@/lib/reserved-slugs';
 import { SIMPLE_NAV } from '@/lib/nav-data';
 
@@ -108,6 +109,21 @@ async function readDynamicPageUrls(): Promise<string[]> {
   }
 }
 
+// Local/topic landing pages (P2-AI-005), served at /<slug> by app/[...slug]
+// (resolved BEFORE `page` docs). Indexable, self-canonical, one entry each.
+// Same exclusions as the route's ROUTE_RESERVED (reserved + Services slugs) so
+// the sitemap never lists a URL the route would 404.
+async function readLandingPageUrls(): Promise<string[]> {
+  try {
+    const slugs = await getAllLandingPageSlugs();
+    return slugs
+      .filter((s) => s && !RESERVED_SLUG_SET.has(s) && !SERVICE_SLUGS.has(s))
+      .map((s) => `/${s}`);
+  } catch {
+    return [];
+  }
+}
+
 function readBrandSlugs(): string[] {
   const file = path.join(process.cwd(), 'data', 'geiger', 'brands.json');
   if (!fs.existsSync(file)) return [];
@@ -120,7 +136,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [];
 
   // Per-section tallies for the build log so coverage is verifiable at a glance.
-  const counts = { static: 0, category: 0, blogPosts: 0, blogCats: 0, videos: 0, brands: 0, pages: 0 };
+  const counts = { static: 0, category: 0, blogPosts: 0, blogCats: 0, videos: 0, brands: 0, pages: 0, landingPages: 0 };
 
   for (const p of STATIC_PATHS) {
     entries.push({ url: `${SITE_URL}${p}`, lastModified: now, changeFrequency: 'weekly' });
@@ -189,9 +205,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
   counts.brands = brandSlugs.length;
 
+  // Local/topic landing pages (P2-AI-005) first, then arbitrary custom
+  // top-level pages — both live at /<slug> via app/[...slug]. A slug used by
+  // BOTH types renders the landing page (route precedence), so dedupe with the
+  // landing set winning to avoid listing the same URL twice.
+  const landingPageUrls = await readLandingPageUrls();
+  for (const url of landingPageUrls) {
+    entries.push({
+      url: `${SITE_URL}${url}`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    });
+  }
+  counts.landingPages = landingPageUrls.length;
+
   // Arbitrary custom top-level pages (/<slug> via app/[...slug]). Indexable, one
-  // entry each, deduped against services/static above.
-  const dynamicPageUrls = await readDynamicPageUrls();
+  // entry each, deduped against services/static above + the landing pages.
+  const landingUrlSet = new Set(landingPageUrls);
+  const dynamicPageUrls = (await readDynamicPageUrls()).filter((u) => !landingUrlSet.has(u));
   for (const url of dynamicPageUrls) {
     entries.push({
       url: `${SITE_URL}${url}`,
@@ -208,7 +240,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // CLAUDE.md §11 / docs.
   console.log(
     `[sitemap] ${entries.length} URLs — static:${counts.static} category:${counts.category} ` +
-      `blogPosts:${counts.blogPosts} blogCats:${counts.blogCats} videos:${counts.videos} brands:${counts.brands} pages:${counts.pages}`,
+      `blogPosts:${counts.blogPosts} blogCats:${counts.blogCats} videos:${counts.videos} brands:${counts.brands} pages:${counts.pages} landingPages:${counts.landingPages}`,
   );
 
   return entries;
