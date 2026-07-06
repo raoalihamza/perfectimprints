@@ -14,6 +14,19 @@ export interface VideoCategoryRef {
   slug: string;
 }
 
+/**
+ * One `relatedProducts` entry (the shared `blogProduct` object, P2-AI-003):
+ * SKU-backed (resolved live from products.json at render time) or manual
+ * (title/image/url) — same shape the blog body's product strips use.
+ */
+export interface VideoRelatedProductEntry {
+  _key?: string;
+  sku?: string;
+  title?: string;
+  image?: SanityImage & { alt?: string };
+  url?: string;
+}
+
 export interface VideoSummary {
   _id: string;
   title: string;
@@ -22,6 +35,8 @@ export interface VideoSummary {
   thumbnail?: SanityImage;
   /** Rich text (Task B). Rendered with links; plain-texted for meta + schema. */
   description?: PortableTextBlock[];
+  /** Product strip under the description on /videos/<slug> (P2-AI-003). */
+  relatedProducts?: VideoRelatedProductEntry[];
   publishDate?: string;
   category?: VideoCategoryRef;
   seo?: SeoFields;
@@ -34,6 +49,7 @@ const SUMMARY_PROJECTION = `
   embedUrl,
   thumbnail,
   description,
+  relatedProducts,
   publishDate,
   seo,
   "category": category->{ title, "slug": slug.current }

@@ -14,6 +14,9 @@ import { TWITTER_HANDLE, LOGO_OG_IMAGE } from '@/lib/seo/open-graph';
 import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { portableTextToPlain } from '@/lib/portable-text/to-plain';
 import { RichAnswer } from '@/components/portable-text/RichAnswer';
+import { VideoRelatedProducts } from '@/components/videos/VideoRelatedProducts';
+import { resolveProductsBySku } from '@/lib/categories';
+import type { GeigerProduct } from '@/lib/product-types';
 import type { SanityImage } from '@/lib/sanity/types';
 import { formatDate } from '@/lib/utils';
 
@@ -95,6 +98,24 @@ export default async function VideoDetailPage({ params }: Props) {
   const poster = resolvePosterUrl(video.thumbnail, video.embedUrl);
   const related = (await getRelatedVideos(video, 3)).map(toVideoCardData);
 
+  // Related-products strip (P2-AI-003): SKUs resolve server-side from
+  // products.json — same disk-read pattern as the blog page's product strips,
+  // so the route stays on-demand SSG (no searchParams, no uncached read).
+  const relatedProductEntries = video.relatedProducts ?? [];
+  const stripSkus = Array.from(
+    new Set(
+      relatedProductEntries
+        .map((e) => e.sku?.trim())
+        .filter((s): s is string => Boolean(s)),
+    ),
+  );
+  const skuProducts = new Map<string, GeigerProduct>();
+  if (stripSkus.length > 0) {
+    for (const product of resolveProductsBySku(stripSkus)) {
+      skuProducts.set(product.sku, product);
+    }
+  }
+
   const schema = videoObjectSchema({
     name: video.title,
     description: portableTextToPlain(video.description) || undefined,
@@ -142,6 +163,10 @@ export default async function VideoDetailPage({ params }: Props) {
               <RichAnswer value={video.description} />
             </div>
           ) : null}
+
+          {relatedProductEntries.length > 0 && (
+            <VideoRelatedProducts entries={relatedProductEntries} skuProducts={skuProducts} />
+          )}
 
           {related.length > 0 && (
             <section className="mt-12">

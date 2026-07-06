@@ -1,5 +1,6 @@
 /**
- * Offline verification harness for the Phase 2 AI blog engine (P2-AI-001/002).
+ * Offline verification harness for the Phase 2 AI blog + video engine
+ * (P2-AI-001/002/003).
  *
  *   pnpm verify:blog-engine        (or: pnpm tsx scripts/ai-pipeline/verify-blog-engine.ts)
  *
@@ -12,10 +13,14 @@
  *   - P2-AI-002b: the relevance floor (no bestseller padding), generic-word
  *     stripping in category resolution, cross-strip dedup via exclude sets,
  *     word-count budgeting, and auto-placed internal-link annotations
+ *   - P2-AI-003 (video): buildRichAnswerBody emits ONLY richAnswer-legal
+ *     blocks, and placeInternalLinks' two link shapes — blog markDefs carry
+ *     `openInNewTab`, richAnswer markDefs are `{_type:'link', href}` ONLY
  *
  * The Sanity-backed pieces (blog/page link suggestions, custom-product merge)
  * are guarded in the engine itself — offline they degrade gracefully, and they
- * are exercised end-to-end through the running /api/sanity/generate-blog route.
+ * are exercised end-to-end through the running /api/sanity/generate-blog and
+ * /api/sanity/generate-video routes.
  *
  * Prints an X/Y summary; exits non-zero on any failure.
  */
@@ -40,6 +45,7 @@ import {
   type BlogProductsBlock,
   type BlogInlineSpan,
 } from '../../lib/portable-text/build-blog-body';
+import { buildRichAnswerBody } from '../../lib/portable-text/build-rich-answer-body';
 import type { GeigerProduct } from '../../lib/product-types';
 
 const ROOT = path.resolve(__dirname, '../..');
@@ -405,6 +411,171 @@ async function main() {
     })),
   );
   check('total placements capped at 5', capPlacement.placedHrefs.length === 5);
+
+  // -------------------------------------------------------------------------
+  console.log('\n[10] video engine (P2-AI-003) — richAnswer body + link shapes');
+
+  // buildRichAnswerBody: plain paragraphs → normal blocks ONLY.
+  const raPlain = buildRichAnswerBody(['para one', 'para two', '   ', '']);
+  const raForbidden = raPlain.filter(
+    (b) =>
+      (b as { _type: string })._type !== 'block' ||
+      b.style !== 'normal' ||
+      'listItem' in b ||
+      'level' in b ||
+      b.children.some((c) => (c as { _type: string })._type !== 'span') ||
+      b.markDefs.some((m) => (m as { _type: string })._type !== 'link'),
+  );
+  check(
+    'buildRichAnswerBody emits ONLY normal blocks (no h2/h3/list/blogProducts/image, blanks dropped)',
+    raPlain.length === 2 && raForbidden.length === 0,
+    JSON.stringify(raForbidden),
+  );
+  const raKeys: string[] = [];
+  for (const b of raPlain) {
+    raKeys.push(b._key);
+    for (const c of b.children) raKeys.push(c._key);
+    for (const m of b.markDefs) raKeys.push(m._key);
+  }
+  check(
+    `buildRichAnswerBody: unique non-empty _keys (${raKeys.length} keys), non-empty children`,
+    new Set(raKeys).size === raKeys.length &&
+      raKeys.every(Boolean) &&
+      raPlain.every((b) => b.children.some((c) => c.text.trim().length > 0)),
+  );
+
+  // richAnswer-mode placement: same rules (dupe-href skip, unanchorable skip),
+  // link objects carry href ONLY.
+  const videoIntro = 'Ordering custom water bottles in bulk pays off for trade shows.';
+  const raPlacement = placeInternalLinks(
+    { intro: [videoIntro, 'A separate paragraph about branded tote bags for events.'], sections: [] },
+    [
+      {
+        label: 'Custom Water Bottles',
+        href: '/cat/water-bottles',
+        kind: 'category',
+        reason: 'Category page matching the keywords: water, bottles',
+      },
+      {
+        label: 'Water Bottles Buying Guide',
+        href: '/cat/water-bottles', // duplicate href → must not double-link
+        kind: 'blog',
+        reason: 'Existing blog post sharing the keywords: water, bottles',
+      },
+      {
+        label: 'Quantum Flux Capacitors', // no anchor anywhere → skipped
+        href: '/blog/quantum-flux',
+        kind: 'blog',
+        reason: 'Existing blog post sharing the keywords: quantum, flux',
+      },
+      {
+        label: 'Tote Bags',
+        href: '/cat/tote-bags',
+        kind: 'category',
+        reason: 'Category page matching the keywords: tote, bags',
+      },
+    ],
+    5,
+    { linkShape: 'richAnswer' },
+  );
+  check(
+    'richAnswer mode: places 2 links (dupe href + unanchorable skipped), text intact',
+    raPlacement.placedHrefs.length === 2 &&
+      raPlacement.placedHrefs[0] === '/cat/water-bottles' &&
+      raPlacement.placedHrefs[1] === '/cat/tote-bags' &&
+      (raPlacement.body.intro ?? [])
+        .map((p) => (typeof p === 'string' ? p : (p as BlogInlineSpan[]).map((s) => s.text).join('')))
+        .join('|') === `${videoIntro}|A separate paragraph about branded tote bags for events.`,
+    JSON.stringify(raPlacement.placedHrefs),
+  );
+  const raSpanLinks = (raPlacement.body.intro ?? [])
+    .filter((p): p is BlogInlineSpan[] => Array.isArray(p))
+    .flat()
+    .filter((s) => s.link)
+    .map((s) => s.link!);
+  check(
+    'richAnswer mode: placed span links carry href ONLY (no openInNewTab key)',
+    raSpanLinks.length === 2 && raSpanLinks.every((l) => !('openInNewTab' in l)),
+    JSON.stringify(raSpanLinks),
+  );
+
+  // The built richAnswer body: markDefs are {_type:'link', _key, href} with NO
+  // openInNewTab key — the single biggest P2-AI-003 gotcha (Studio would
+  // strip/flag the unknown field on the richAnswer link annotation).
+  const raBody = buildRichAnswerBody(raPlacement.body.intro ?? []);
+  const raMarkDefs = raBody.flatMap((b) => b.markDefs);
+  check(
+    'built richAnswer markDefs: {_type:link, href}, NO openInNewTab key, spans reference them',
+    raMarkDefs.length === 2 &&
+      raMarkDefs.every(
+        (m) =>
+          m._type === 'link' &&
+          typeof m.href === 'string' &&
+          !!m._key &&
+          !('openInNewTab' in m) &&
+          Object.keys(m).sort().join(',') === '_key,_type,href',
+      ) &&
+      raBody.every((b) => b.markDefs.every((m) => b.children.some((c) => c.marks.includes(m._key)))),
+    JSON.stringify(raMarkDefs),
+  );
+
+  // Contrast: blog mode (default) still emits openInNewTab in the built markDef.
+  const blogModePlacement = placeInternalLinks(
+    { intro: [videoIntro], sections: [] },
+    [
+      {
+        label: 'Custom Water Bottles',
+        href: '/cat/water-bottles',
+        kind: 'category',
+        reason: 'Category page matching the keywords: water, bottles',
+      },
+    ],
+  );
+  const blogModeDefs = buildBlogBody(blogModePlacement.body)
+    .filter((b): b is BlogTextBlock => b._type === 'block')
+    .flatMap((b) => b.markDefs);
+  check(
+    'blog mode (default) still emits openInNewTab in the built markDef',
+    blogModeDefs.length === 1 &&
+      'openInNewTab' in blogModeDefs[0] &&
+      blogModeDefs[0].openInNewTab === false,
+    JSON.stringify(blogModeDefs),
+  );
+
+  // richAnswer mode: total placements still capped at 5.
+  const raCapPlacement = placeInternalLinks(
+    {
+      intro: capWords.map((w) => `Great picks include branded ${w} for every event budget.`),
+      sections: [],
+    },
+    capWords.map((w) => ({
+      label: w[0].toUpperCase() + w.slice(1),
+      href: `/cat/${w}`,
+      kind: 'category' as const,
+      reason: `k: ${w}`,
+    })),
+    5,
+    { linkShape: 'richAnswer' },
+  );
+  check('richAnswer mode: total placements capped at 5', raCapPlacement.placedHrefs.length === 5);
+
+  // Video-style related-products strip: keyword/productType-driven matching
+  // (the video's Sanity category is a blogCategory, so matching never uses it).
+  const videoStripCategory = resolveCategoryForKeywords('stainless steel water bottles');
+  const videoStrip = await matchRelatedProducts({
+    categorySlug: videoStripCategory ?? undefined,
+    keywords: ['stainless steel water bottles'],
+    limit: 8,
+  });
+  check(
+    'video strip: returns relevant, sku-backed, deduped products within limit',
+    videoStrip.length > 0 &&
+      videoStrip.length <= 8 &&
+      videoStrip.every((p) => catalogSkus.has(p.sku)) &&
+      new Set(videoStrip.map((p) => p.sku)).size === videoStrip.length &&
+      videoStrip.every((p) => /water|bottle|steel|stainless/i.test(`${p.name} ${p.brand ?? ''}`)),
+    videoStrip.map((p) => p.name).join(' | '),
+  );
 
   // -------------------------------------------------------------------------
   const total = passed + failed;

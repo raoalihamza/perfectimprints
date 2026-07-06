@@ -20,6 +20,13 @@
  *   - No clean anchor → the target is SKIPPED (an awkward forced link is worse
  *     than no link). Total placements capped by `maxLinks`.
  *
+ * Link shape (P2-AI-003): the span-level link object is parametrized because
+ * the two consuming schemas differ — the blog body link annotation carries
+ * `openInNewTab`, the `richAnswer` link annotation (video descriptions, FAQ
+ * answers) has ONLY `href`. Pass `{ linkShape: 'richAnswer' }` when the placed
+ * body will be built by buildRichAnswerBody; default 'blog' keeps the original
+ * `{ href, openInNewTab: false }` shape for buildBlogBody.
+ *
  * Pure module: no fs, no Sanity (the InternalLinkSuggestion import is
  * type-only, erased at runtime) — unit-tested by the offline verifier.
  */
@@ -117,10 +124,27 @@ function paragraphHasLink(paragraph: BlogRichText): boolean {
 }
 
 /**
+ * The link object put on a placed span. 'blog' → `{ href, openInNewTab:false }`
+ * (what buildBlogBody's markDef expects); 'richAnswer' → `{ href }` ONLY (the
+ * richAnswer link annotation has no openInNewTab field).
+ */
+export type PlacedLinkShape = 'blog' | 'richAnswer';
+
+export interface PlaceInternalLinksOptions {
+  /** Default 'blog'. */
+  linkShape?: PlacedLinkShape;
+}
+
+/**
  * Try to wrap the first occurrence of `re` (searching only link-free spans)
  * in a link to `href`. Returns the new spans array, or null when no match.
  */
-function linkFirstMatch(paragraph: BlogRichText, re: RegExp, href: string): BlogInlineSpan[] | null {
+function linkFirstMatch(
+  paragraph: BlogRichText,
+  re: RegExp,
+  href: string,
+  linkShape: PlacedLinkShape,
+): BlogInlineSpan[] | null {
   const spans = toSpans(paragraph);
   for (let i = 0; i < spans.length; i++) {
     const span = spans[i];
@@ -131,9 +155,10 @@ function linkFirstMatch(paragraph: BlogRichText, re: RegExp, href: string): Blog
     const matched = m[2];
     const before = span.text.slice(0, start);
     const after = span.text.slice(start + matched.length);
+    const link = linkShape === 'richAnswer' ? { href } : { href, openInNewTab: false };
     const replacement: BlogInlineSpan[] = [];
     if (before) replacement.push({ ...span, text: before });
-    replacement.push({ ...span, text: matched, link: { href, openInNewTab: false } });
+    replacement.push({ ...span, text: matched, link });
     if (after) replacement.push({ ...span, text: after });
     return [...spans.slice(0, i), ...replacement, ...spans.slice(i + 1)];
   }
@@ -150,7 +175,9 @@ export function placeInternalLinks(
   input: BlogBodyInput,
   targets: InternalLinkSuggestion[],
   maxLinks = 5,
+  opts: PlaceInternalLinksOptions = {},
 ): PlaceInternalLinksResult {
+  const linkShape = opts.linkShape ?? 'blog';
   // Shallow-clone the structure so paragraph arrays can be swapped in place.
   const body: BlogBodyInput = {
     intro: [...(input.intro ?? [])],
@@ -199,7 +226,7 @@ export function placeInternalLinks(
           // Pass 1 (allowLinked=false): link-free paragraphs only (spread).
           // Pass 2 (allowLinked=true): revisit only already-linked paragraphs.
           if (paragraphHasLink(paragraph) !== allowLinked) continue;
-          const next = linkFirstMatch(paragraph, re, target.href);
+          const next = linkFirstMatch(paragraph, re, target.href, linkShape);
           if (next) {
             ref.set(next);
             placedHrefs.push(target.href);

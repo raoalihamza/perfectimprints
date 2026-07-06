@@ -3,8 +3,10 @@
  * BlogPosting lives here (extracted verbatim from app/blog/[slug]/page.tsx so
  * the blog route and any future consumer emit identical objects).
  *
- * // VideoObject emitter will live here (P2-AI-003) — extend this module, do
- * // not inline a new schema object in a page file.
+ * VideoObject (P2-AI-003): the canonical emitter is `videoObjectSchema()` in
+ * lib/seo/schema-generators.ts, already emitted by app/videos/[slug]/page.tsx —
+ * the AI video tool reuses it as-is (its `description` plain-texts the richer
+ * AI description automatically). Do not add a second VideoObject emitter here.
  *
  * Pure module: no node:fs, no Sanity, no server-only — unit-testable anywhere.
  */

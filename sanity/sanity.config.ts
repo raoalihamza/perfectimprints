@@ -6,6 +6,7 @@ import { deskStructure } from './desk-structure';
 import { generateWithAi } from './actions/generate-with-ai';
 import { generateSchemaWithAi } from './actions/generate-schema-with-ai';
 import { generateBlogWithAi } from './actions/generate-blog-with-ai';
+import { generateVideoWithAi } from './actions/generate-video-with-ai';
 import { pushCategoryTool } from './tools/push-category-tool';
 import { siteRefreshTool } from './tools/site-refresh-tool';
 import { projectId, dataset, apiVersion } from './env';
@@ -34,11 +35,13 @@ export default defineConfig({
   document: {
     // Per-type AI document actions: "Generate with AI" on customCategory (M5-505),
     // "Generate schema with AI" on customSchema (Task C-2), "Generate Blog with
-    // AI" on blogPost (P2-AI-002).
+    // AI" on blogPost (P2-AI-002), "Generate Video Details with AI" on video
+    // (P2-AI-003).
     actions: (prev, context) => {
       if (context.schemaType === 'customCategory') return [...prev, generateWithAi];
       if (context.schemaType === 'customSchema') return [...prev, generateSchemaWithAi];
       if (context.schemaType === 'blogPost') return [...prev, generateBlogWithAi];
+      if (context.schemaType === 'video') return [...prev, generateVideoWithAi];
       return prev;
     },
   },
