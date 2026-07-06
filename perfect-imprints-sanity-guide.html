@@ -876,6 +876,13 @@
         <td><strong>FAQ Accordion</strong></td>
         <td>Question-and-answer pairs that expand and collapse.</td>
       </tr>
+      <tr>
+        <td><strong>Product Strip</strong></td>
+        <td>A live row of product cards on any page. Add products by <strong>Geiger SKU</strong> (or fill the manual
+          title/image/link fields for a non-Geiger product) — prices, images, and affiliate links pull from the
+          catalog automatically, so nothing goes stale. Optional heading. This is also the strip the <a
+            href="#page-ai">Generate Page with AI</a> helper pre-fills.</td>
+      </tr>
     </table>
 
     <p>Every section has a <strong>Hidden</strong> toggle, so you can take a section off the live page and keep it for
@@ -887,6 +894,43 @@
       <p>Some Services pages may currently be drafts with placeholder text and empty image slots, waiting for your real
         copy and images. Fill those in and Publish when you are ready. The page addresses already match your site's
         menu, so you do not need to set up any links.</p>
+    </div>
+
+    <h4 id="page-ai">Generate Page with AI</h4>
+    <p>Pages have their own AI writing helper, like Blog Posts and Videos do. Type a page <strong>Title</strong>,
+      optionally add a short brief and a few keywords, click one button, and it drafts a full set of sections for you
+      to review — it saves a <strong>draft</strong> and never publishes anything on its own.</p>
+    <ol class="steps">
+      <li>Create a new <span class="path">Page</span> (or open one) and enter the <strong>Title</strong> — this is the
+        main input, so the button stays disabled until it is filled.</li>
+      <li>Optionally, in the <strong>AI generation</strong> section, add a <strong>Page brief</strong> (a sentence or
+        two on what the page is about) and <strong>Topic Keywords</strong> (a few plural phrases like "custom water
+        bottles" — these steer the product strip and the internal links).</li>
+      <li>Click <strong>Generate Page with AI</strong> (among the document actions, near Publish). A window with a
+        spinner opens while it writes — it usually takes under two minutes — and closes by itself when the draft fills
+        in (closing it early is fine; generation keeps running). If it comes back with an error saying the result was
+        thin, just click it again.</li>
+      <li><strong>Review everything.</strong> The draft gets: a text hero (heading + subheading + a button pointing to
+        your contact form), several body text sections with internal links <strong>placed into the text
+        automatically</strong> (the <strong>Suggested Internal Links</strong> list records everything it found and says
+        which were placed), a pre-filled <strong>Product Strip</strong>, a stat banner, an FAQ section, and a closing
+        call-to-action. The meta title/description fill in too. Reorder, edit, hide, or delete any section.</li>
+      <li><strong>Add your images and check the buttons.</strong> The AI writes <em>text sections only</em> — it never
+        picks images, so upload the hero/banner images yourself (and add Image or Infographic sections if you want
+        them). The hero and CTA buttons point to <code>/contact</code> by default; repoint them if you prefer.</li>
+      <li>When it reads right, <strong>Publish</strong>.</li>
+    </ol>
+    <div class="callout info">
+      <span class="label">Nothing gets overwritten</span>
+      <p>Generating <strong>appends</strong> its sections to the end of the Sections list — it never wipes or replaces
+        sections that are already on the page. That also means clicking Generate a second time adds a <em>second</em>
+        set of sections; just delete the set you do not want.</p>
+    </div>
+    <div class="callout warn">
+      <span class="label">Always review AI text</span>
+      <p>The AI writes a first draft, not a final page. Read it before publishing, fix anything generic or inaccurate,
+        and check that the product strip actually fits the topic (if nothing sufficiently relevant was found, the strip
+        is simply left out — you can add one yourself and fill it by SKU).</p>
     </div>
 
     <h3>Creating a brand-new page at your own address (recreate an old URL)</h3>

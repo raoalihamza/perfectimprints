@@ -1,0 +1,118 @@
+/**
+ * Page-builder richText body builder (P2-AI-004). Turns AI-generated section
+ * content into Portable Text matching the page-builder `portableBody()` field
+ * (sanity/schemas/objects/page-sections.ts) — the DEFAULT Sanity block editor:
+ *   - `block` blocks with styles normal/h2/h3 and bullet/number `listItem`
+ *     blocks with `level: 1` (all default-editor-legal)
+ *   - `strong`/`em` decorators and the DEFAULT `link` annotation, whose markDef
+ *     is `{_type:'link', _key, href}` with NO `openInNewTab` — that field does
+ *     not exist on the default block-editor link (unlike the blog body link),
+ *     and Studio would strip/flag it. Any `openInNewTab` that sneaks onto a
+ *     span link is deliberately dropped here, mirroring build-rich-answer-body.
+ *   - NO `blogProducts` strips (pages use the separate `productStrip` section)
+ *     and NO image blocks (the AI cannot source a real image file — inline
+ *     images stay manual inserts for Patrick).
+ *
+ * Input paragraphs use the same `BlogRichText` span shape as the blog builder
+ * so `placeInternalLinks` (in 'page' link-shape mode) can run on them first.
+ *
+ * Pure module: no React, no `sanity`, no `server-only`, no node:fs — safe in
+ * API routes, build scripts, and the offline verifier alike. Key generation
+ * mirrors build-blog-body.ts.
+ */
+
+import type { BlogInlineSpan, BlogRichText } from './build-blog-body';
+
+interface PageSpanChild {
+  _type: 'span';
+  _key: string;
+  text: string;
+  marks: string[];
+}
+
+/** Default block-editor link markDef — href only, NEVER `openInNewTab`. */
+interface PageLinkMarkDef {
+  _type: 'link';
+  _key: string;
+  href: string;
+}
+
+export interface PageTextBlock {
+  _type: 'block';
+  _key: string;
+  style: 'normal' | 'h2' | 'h3';
+  listItem?: 'bullet' | 'number';
+  level?: number;
+  markDefs: PageLinkMarkDef[];
+  children: PageSpanChild[];
+}
+
+/** Structured input for one page richText body. */
+export interface PageBodyInput {
+  paragraphs?: BlogRichText[];
+  list?: { kind: 'bullet' | 'number'; items: BlogRichText[] };
+}
+
+let keyCounter = 0;
+function nextKey(prefix: string): string {
+  keyCounter += 1;
+  // Uniqueness across a single build run is all PT keys require.
+  return `${prefix}-${keyCounter.toString(36)}-${Math.floor(Math.random() * 1e6).toString(36)}`;
+}
+
+function toBlock(
+  content: BlogRichText,
+  style: 'normal' | 'h2' | 'h3',
+  listItem?: 'bullet' | 'number',
+): PageTextBlock | null {
+  const spans = typeof content === 'string' ? [{ text: content }] : content;
+  const children: PageSpanChild[] = [];
+  const markDefs: PageLinkMarkDef[] = [];
+  for (const span of spans) {
+    const rich = span as BlogInlineSpan;
+    const text = rich.text ?? '';
+    if (!text.trim()) continue;
+    const marks: string[] = [];
+    if (rich.strong) marks.push('strong');
+    if (rich.link?.href) {
+      // href only — the default block-editor link annotation has no other field.
+      const def: PageLinkMarkDef = { _type: 'link', _key: nextKey('pl'), href: rich.link.href };
+      markDefs.push(def);
+      marks.push(def._key);
+    }
+    children.push({ _type: 'span', _key: nextKey('ps'), text, marks });
+  }
+  if (children.length === 0) return null; // blank content → dropped
+  const block: PageTextBlock = {
+    _type: 'block',
+    _key: nextKey('pb'),
+    style,
+    markDefs,
+    children,
+  };
+  if (listItem) {
+    block.listItem = listItem;
+    block.level = 1;
+  }
+  return block;
+}
+
+/**
+ * Builds ONE richText section's `body` array: paragraphs then an optional
+ * list. The section HEADING is not emitted here — it goes in the richText
+ * section's own `heading` field (rendered as an H2 by the RichText component).
+ */
+export function buildPageBody(input: PageBodyInput): PageTextBlock[] {
+  const out: PageTextBlock[] = [];
+  for (const p of input.paragraphs ?? []) {
+    const b = toBlock(p, 'normal');
+    if (b) out.push(b);
+  }
+  if (input.list) {
+    for (const item of input.list.items) {
+      const b = toBlock(item, 'normal', input.list.kind);
+      if (b) out.push(b);
+    }
+  }
+  return out;
+}

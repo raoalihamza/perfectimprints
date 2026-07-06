@@ -55,6 +55,18 @@ export default defineType({
   name: 'page',
   title: 'Page',
   type: 'document',
+  fieldsets: [
+    // AI generation inputs (P2-AI-004). Studio-only: consumed ONLY by the
+    // "Generate Page with AI" action + /api/sanity/generate-page — never read
+    // by any render path or the revalidate webhook.
+    {
+      name: 'ai',
+      title: 'AI generation (drafting helper — not shown on the live page)',
+      description:
+        'Enter a Title above (plus optionally a brief and keywords here), click "Generate Page with AI" (near Publish), then review the draft sections it appends: hero text, body copy with internal links, a product strip, a stat banner, FAQs, and a closing CTA. Add images and set CTA button links yourself. Nothing here renders on the live site.',
+      options: { collapsible: true, collapsed: false },
+    },
+  ],
   fields: [
     defineField({
       name: 'title',
@@ -90,6 +102,51 @@ export default defineType({
       of: pageSectionRefs,
       description:
         'Ordered page sections. Drag to reorder, insert any section type, delete, or toggle a section hidden.',
+    }),
+
+    // -----------------------------------------------------------------------
+    // AI generation inputs/outputs (P2-AI-004) — see the fieldset note above.
+    // -----------------------------------------------------------------------
+    defineField({
+      name: 'aiBrief',
+      title: 'Page brief (optional)',
+      type: 'text',
+      rows: 3,
+      fieldset: 'ai',
+      description:
+        'A sentence or two on what this page is about, to steer the AI. The page Title is the main input.',
+    }),
+    defineField({
+      name: 'aiTopicKeywords',
+      title: 'Topic Keywords (optional)',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: { layout: 'tags' },
+      fieldset: 'ai',
+      description:
+        'Optional. A few plural keywords (e.g. "custom water bottles") that steer the product strip and the internal links.',
+    }),
+    defineField({
+      name: 'aiSuggestedLinks',
+      title: 'Suggested Internal Links',
+      type: 'array',
+      fieldset: 'ai',
+      description:
+        'Internal links the AI found and whether each was placed in the body. Not shown on the live page.',
+      of: [
+        {
+          type: 'object',
+          name: 'aiSuggestedLink',
+          fields: [
+            { name: 'label', title: 'Label', type: 'string' },
+            { name: 'href', title: 'URL', type: 'string' },
+            { name: 'reason', title: 'Why suggested', type: 'string' },
+          ],
+          preview: {
+            select: { title: 'label', subtitle: 'href' },
+          },
+        },
+      ],
     }),
   ],
   preview: {

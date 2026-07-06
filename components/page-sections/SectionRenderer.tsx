@@ -10,6 +10,7 @@ import { CtaBlock } from './CtaBlock';
 import { EventList } from './EventList';
 import { VideoEmbedSection } from './VideoEmbedSection';
 import { FaqAccordion } from './FaqAccordion';
+import { ProductStrip } from './ProductStrip';
 
 /**
  * Maps each section `_type` to its renderer. Hidden sections are skipped here,
@@ -41,6 +42,8 @@ function renderSection(section: PageSection) {
       return <VideoEmbedSection section={section} />;
     case 'faqAccordion':
       return <FaqAccordion section={section} />;
+    case 'productStrip':
+      return <ProductStrip section={section} />;
     default:
       return null;
   }

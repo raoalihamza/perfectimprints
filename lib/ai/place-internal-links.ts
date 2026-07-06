@@ -125,10 +125,13 @@ function paragraphHasLink(paragraph: BlogRichText): boolean {
 
 /**
  * The link object put on a placed span. 'blog' → `{ href, openInNewTab:false }`
- * (what buildBlogBody's markDef expects); 'richAnswer' → `{ href }` ONLY (the
- * richAnswer link annotation has no openInNewTab field).
+ * (what buildBlogBody's markDef expects); 'richAnswer' and 'page' → `{ href }`
+ * ONLY. The page-builder `portableBody` uses the DEFAULT block-editor link
+ * annotation, which — like richAnswer — carries href and nothing else, so the
+ * two href-only shapes are identical; 'page' exists so call sites state their
+ * intent (P2-AI-004, consumed by buildPageBody).
  */
-export type PlacedLinkShape = 'blog' | 'richAnswer';
+export type PlacedLinkShape = 'blog' | 'richAnswer' | 'page';
 
 export interface PlaceInternalLinksOptions {
   /** Default 'blog'. */
@@ -155,7 +158,7 @@ function linkFirstMatch(
     const matched = m[2];
     const before = span.text.slice(0, start);
     const after = span.text.slice(start + matched.length);
-    const link = linkShape === 'richAnswer' ? { href } : { href, openInNewTab: false };
+    const link = linkShape === 'blog' ? { href, openInNewTab: false } : { href };
     const replacement: BlogInlineSpan[] = [];
     if (before) replacement.push({ ...span, text: before });
     replacement.push({ ...span, text: matched, link });

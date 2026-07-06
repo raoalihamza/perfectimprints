@@ -1,6 +1,6 @@
 /**
- * Offline verification harness for the Phase 2 AI blog + video engine
- * (P2-AI-001/002/003).
+ * Offline verification harness for the Phase 2 AI blog + video + page engine
+ * (P2-AI-001/002/003/004).
  *
  *   pnpm verify:blog-engine        (or: pnpm tsx scripts/ai-pipeline/verify-blog-engine.ts)
  *
@@ -14,13 +14,17 @@
  *     stripping in category resolution, cross-strip dedup via exclude sets,
  *     word-count budgeting, and auto-placed internal-link annotations
  *   - P2-AI-003 (video): buildRichAnswerBody emits ONLY richAnswer-legal
- *     blocks, and placeInternalLinks' two link shapes — blog markDefs carry
+ *     blocks, and placeInternalLinks' link shapes — blog markDefs carry
  *     `openInNewTab`, richAnswer markDefs are `{_type:'link', href}` ONLY
+ *   - P2-AI-004 (page): buildPageBody emits page-portableBody-legal blocks
+ *     (normal + list level 1, href-only link markDefs — the default
+ *     block-editor link annotation), the 'page' link-shape mode, a synthetic
+ *     productStrip section's shape, and page-keyword product matching
  *
  * The Sanity-backed pieces (blog/page link suggestions, custom-product merge)
  * are guarded in the engine itself — offline they degrade gracefully, and they
- * are exercised end-to-end through the running /api/sanity/generate-blog and
- * /api/sanity/generate-video routes.
+ * are exercised end-to-end through the running /api/sanity/generate-blog,
+ * /api/sanity/generate-video, and /api/sanity/generate-page routes.
  *
  * Prints an X/Y summary; exits non-zero on any failure.
  */
@@ -46,6 +50,7 @@ import {
   type BlogInlineSpan,
 } from '../../lib/portable-text/build-blog-body';
 import { buildRichAnswerBody } from '../../lib/portable-text/build-rich-answer-body';
+import { buildPageBody } from '../../lib/portable-text/build-page-body';
 import type { GeigerProduct } from '../../lib/product-types';
 
 const ROOT = path.resolve(__dirname, '../..');
@@ -575,6 +580,172 @@ async function main() {
       new Set(videoStrip.map((p) => p.sku)).size === videoStrip.length &&
       videoStrip.every((p) => /water|bottle|steel|stainless/i.test(`${p.name} ${p.brand ?? ''}`)),
     videoStrip.map((p) => p.name).join(' | '),
+  );
+
+  // -------------------------------------------------------------------------
+  console.log('\n[11] page engine (P2-AI-004) — page body + link shape + productStrip');
+
+  // buildPageBody: paragraphs + bullet list → page-portableBody-legal blocks.
+  const pageBody = buildPageBody({
+    paragraphs: [
+      'Plain paragraph about custom water bottles.',
+      [
+        { text: 'Rich paragraph with ' },
+        { text: 'bold', strong: true },
+        { text: ' and a ' },
+        { text: 'category link', link: { href: '/cat/water-bottles' } },
+        { text: '.' },
+      ],
+      '   ',
+    ],
+    list: { kind: 'bullet', items: ['First point', 'Second point', ''] },
+  });
+  check(
+    'buildPageBody: only block blocks, normal style, blanks dropped',
+    pageBody.length === 4 &&
+      pageBody.every((b) => b._type === 'block' && b.style === 'normal') &&
+      pageBody.every((b) => b.children.some((c) => c.text.trim().length > 0)),
+    JSON.stringify(pageBody.map((b) => b.style)),
+  );
+  const pageListBlocks = pageBody.filter((b) => b.listItem);
+  check(
+    'buildPageBody: list items carry listItem bullet + level 1',
+    pageListBlocks.length === 2 &&
+      pageListBlocks.every((b) => b.listItem === 'bullet' && b.level === 1),
+  );
+  const pageKeys: string[] = [];
+  for (const b of pageBody) {
+    pageKeys.push(b._key);
+    for (const c of b.children) pageKeys.push(c._key);
+    for (const m of b.markDefs) pageKeys.push(m._key);
+  }
+  check(
+    `buildPageBody: unique non-empty _keys (${pageKeys.length} keys)`,
+    new Set(pageKeys).size === pageKeys.length && pageKeys.every(Boolean),
+  );
+  // The single biggest P2-AI-004 gotcha: the page portableBody uses the DEFAULT
+  // block-editor link annotation — markDefs must be {_type:'link', _key, href}
+  // with NO openInNewTab key, or Studio strips/flags the unknown field.
+  const pageMarkDefs = pageBody.flatMap((b) => b.markDefs);
+  check(
+    'buildPageBody markDefs: {_type:link, href}, NO openInNewTab key, spans reference them',
+    pageMarkDefs.length === 1 &&
+      pageMarkDefs.every(
+        (m) =>
+          m._type === 'link' &&
+          typeof m.href === 'string' &&
+          !!m._key &&
+          !('openInNewTab' in m) &&
+          Object.keys(m).sort().join(',') === '_key,_type,href',
+      ) &&
+      pageBody.every((b) => b.markDefs.every((m) => b.children.some((c) => c.marks.includes(m._key)))),
+    JSON.stringify(pageMarkDefs),
+  );
+  check(
+    'buildPageBody: strong decorator applied',
+    pageBody.some((b) => b.children.some((c) => c.marks.includes('strong'))),
+  );
+
+  // 'page' link-shape mode: placed span links carry href ONLY (same as
+  // richAnswer), and the blog default is unchanged.
+  const pagePlacement = placeInternalLinks(
+    {
+      intro: [],
+      sections: [
+        {
+          heading: 'Why Order Custom Water Bottles', // headings never linked
+          paragraphs: ['Ordering custom water bottles in bulk pays off for trade shows.'],
+        },
+      ],
+    },
+    [
+      {
+        label: 'Custom Water Bottles',
+        href: '/cat/water-bottles',
+        kind: 'category',
+        reason: 'Category page matching the keywords: water, bottles',
+      },
+      {
+        label: 'Quantum Flux Capacitors', // no anchor anywhere → skipped
+        href: '/blog/quantum-flux',
+        kind: 'blog',
+        reason: 'Existing blog post sharing the keywords: quantum, flux',
+      },
+    ],
+    5,
+    { linkShape: 'page' },
+  );
+  const pageSpanLinks = (pagePlacement.body.sections[0].paragraphs ?? [])
+    .filter((p): p is BlogInlineSpan[] => Array.isArray(p))
+    .flat()
+    .filter((s) => s.link)
+    .map((s) => s.link!);
+  check(
+    "'page' link-shape: 1 link placed (unanchorable skipped), span link carries href ONLY",
+    pagePlacement.placedHrefs.length === 1 &&
+      pagePlacement.placedHrefs[0] === '/cat/water-bottles' &&
+      pageSpanLinks.length === 1 &&
+      pageSpanLinks.every((l) => !('openInNewTab' in l)),
+    JSON.stringify(pageSpanLinks),
+  );
+  const pagePlacedBody = buildPageBody({
+    paragraphs: pagePlacement.body.sections[0].paragraphs ?? [],
+  });
+  const pagePlacedDefs = pagePlacedBody.flatMap((b) => b.markDefs);
+  check(
+    "'page' placement built through buildPageBody keeps href-only markDefs, text intact",
+    pagePlacedDefs.length === 1 &&
+      !('openInNewTab' in pagePlacedDefs[0]) &&
+      pagePlacedBody[0].children.map((c) => c.text).join('') ===
+        'Ordering custom water bottles in bulk pays off for trade shows.',
+    JSON.stringify(pagePlacedDefs),
+  );
+
+  // Synthetic productStrip section — the exact shape the generate-page route
+  // assembles and the page schema stores (products[] of blogProduct entries).
+  const stripProducts = await matchRelatedProducts({
+    categorySlug: resolveCategoryForKeywords('water bottles') ?? undefined,
+    keywords: ['water bottles'],
+    limit: 8,
+  });
+  const stripSection = {
+    _type: 'productStrip',
+    _key: 'strip-test-1',
+    heading: 'Featured Custom Water Bottles',
+    products: stripProducts.map((p, i) => ({
+      _type: 'blogProduct',
+      _key: `sku-test-${i}`,
+      sku: p.sku,
+    })),
+    hidden: false,
+  };
+  check(
+    'productStrip section: _type/_key + products[] of blogProduct entries with _key + real catalog sku',
+    stripSection._type === 'productStrip' &&
+      stripSection.products.length >= 2 &&
+      stripSection.products.every(
+        (p) => p._type === 'blogProduct' && !!p._key && catalogSkus.has(p.sku),
+      ) &&
+      new Set(stripSection.products.map((p) => p._key)).size === stripSection.products.length,
+    JSON.stringify(stripSection.products.slice(0, 3)),
+  );
+  // Below the 2-product relevance floor the route omits the strip entirely.
+  const pageNonsenseStrip = await matchRelatedProducts({
+    keywords: ['xylophone submarines'],
+    limit: 8,
+  });
+  check(
+    'page strip floor: irrelevant keywords match < 2 products → strip would be omitted',
+    pageNonsenseStrip.length < 2,
+  );
+  check(
+    'page product match: relevant, sku-backed, deduped, within limit',
+    stripProducts.length > 0 &&
+      stripProducts.length <= 8 &&
+      stripProducts.every((p) => catalogSkus.has(p.sku)) &&
+      new Set(stripProducts.map((p) => p.sku)).size === stripProducts.length &&
+      stripProducts.every((p) => /water|bottle/i.test(`${p.name} ${p.brand ?? ''}`)),
+    stripProducts.map((p) => p.name).join(' | '),
   );
 
   // -------------------------------------------------------------------------

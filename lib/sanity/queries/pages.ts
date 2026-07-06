@@ -139,6 +139,25 @@ export interface VideoEmbedSection extends BaseSection {
   caption?: string;
 }
 
+/**
+ * One `productStrip` entry — the shared `blogProduct` object (P2-AI-004):
+ * SKU-backed (resolved live from products.json at render time) or manual
+ * (title/image/url), same shape as blog body strips and video.relatedProducts.
+ */
+export interface ProductStripEntry {
+  _key?: string;
+  sku?: string;
+  title?: string;
+  image?: PageImage;
+  url?: string;
+}
+
+export interface ProductStripSection extends BaseSection {
+  _type: 'productStrip';
+  heading?: string;
+  products?: ProductStripEntry[];
+}
+
 export type PageSection =
   | HeroBannerSection
   | RichTextSection
@@ -150,7 +169,8 @@ export type PageSection =
   | CtaBlockSection
   | EventListSection
   | VideoEmbedSection
-  | FaqAccordionSection;
+  | FaqAccordionSection
+  | ProductStripSection;
 
 export interface PageDoc {
   _id: string;
@@ -164,6 +184,9 @@ export interface PageDoc {
   sections: PageSection[];
 }
 
+// `sections[]{ ... }` spreads every field of every section object, including
+// nested arrays (productStrip.products[], faqAccordion.items[], …), so new
+// section types need no projection change — only a TS interface above.
 const PAGE_PROJECTION = `{
   _id,
   title,

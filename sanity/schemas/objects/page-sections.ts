@@ -338,6 +338,57 @@ export const videoEmbed = defineType({
   },
 });
 
+/**
+ * Live product strip (P2-AI-004). SKU-backed entries pull the live product
+ * (price, image, affiliate URL) from the Geiger catalog at render time —
+ * reusing the blog/video `blogProduct` entry — so nothing goes stale in the
+ * doc. Available to editors on any page from the insert menu, AND what the
+ * "Generate Page with AI" action pre-fills. Also the strip the landing pages
+ * (P2-AI-005) will reuse.
+ */
+export const productStrip = defineType({
+  name: 'productStrip',
+  title: 'Product Strip',
+  type: 'object',
+  fields: [
+    defineField({ name: 'heading', title: 'Heading (optional)', type: 'string' }),
+    defineField({
+      name: 'anchorId',
+      title: 'Anchor ID (optional)',
+      type: 'string',
+      description:
+        'If set, this section becomes an in-page jump target (e.g. "products" → linkable as #products).',
+    }),
+    defineField({
+      name: 'products',
+      title: 'Products',
+      type: 'array',
+      of: [{ type: 'blogProduct' }],
+      description:
+        'Add products by SKU. Shown as a live product strip (prices and links pull from the catalog). The AI pre-fills these; add or remove any.',
+    }),
+    hiddenField,
+  ],
+  preview: {
+    select: { heading: 'heading', products: 'products', hidden: 'hidden' },
+    prepare({
+      heading,
+      products,
+      hidden,
+    }: {
+      heading?: string;
+      products?: unknown[];
+      hidden?: boolean;
+    }) {
+      const count = Array.isArray(products) ? products.length : 0;
+      return {
+        title: `Product strip: ${heading || `${count} product${count === 1 ? '' : 's'}`}`,
+        subtitle: `Section${hidden ? ' · hidden' : ''}`,
+      };
+    },
+  },
+});
+
 export const faqAccordion = defineType({
   name: 'faqAccordion',
   title: 'FAQ Accordion',
@@ -377,6 +428,7 @@ export const pageSectionSchemas = [
   eventList,
   videoEmbed,
   faqAccordion,
+  productStrip,
 ];
 
 /** The `of` list for a `page.sections[]` array. */
