@@ -1,6 +1,6 @@
 {
-  "scrapedAt": "2026-06-13T16:19:15Z",
-  "totalNewProducts": 277,
+  "scrapedAt": "2026-07-06T01:19:39Z",
+  "totalNewProducts": 340,
   "products": [
     {
       "sku": "529459",
@@ -16,6 +16,7 @@
         "Home > Office & Technology",
         "Home > Office & Technology > Tech Accessories",
         "Home > Office & Technology > Tech Accessories > Speakers",
+        "Home > Shop By > Brand Names > JBL",
         "Home > Shop By > Brand Names",
         "Home > Shop By",
         "Home > Shop By > New Products"
@@ -30,6 +31,61 @@
       "is_on_sale": false,
       "product_type_unigram": "speaker",
       "geiger_url": "/p/jbl-clip-5-ultra-portable-waterproof-speaker-529459?pid=461087"
+    },
+    {
+      "sku": "529664",
+      "name": "Bamboo Folding Handheld Fan",
+      "brand": null,
+      "low_price": 2.97,
+      "high_price": 3.56,
+      "msrp": 3.56,
+      "min_qty": 75,
+      "imageUrl": "https://imgsirv.geiger.com/master/129664/web/129664_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Elegant folding fan with frame crafted out of Bamboo. Made of heavy paper with smooth Bamboo frame ribbing. Features a large easy-view imprint area. Perfect for weddings &amp; customers in the heating/cooling industries. Size: 9&quot;W x 1&quot;H x 1/2&quot;D Imprint Area: 4&quot;W x 2 1/2&quot;H (front of fan)",
+      "category_paths": [
+        "Home > Home & Auto",
+        "Home > Shop By > Deals",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "fan",
+      "geiger_url": "/p/bamboo-folding-handheld-fan-529664?pid=463079"
+    },
+    {
+      "sku": "529539",
+      "name": "Mochi Comfort Gel Pen",
+      "brand": null,
+      "low_price": 0.82,
+      "high_price": 0.98,
+      "msrp": 0.98,
+      "min_qty": 250,
+      "imageUrl": "https://imgsirv.geiger.com/master/129539/web/129539_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "The Mochi Comfort Gel Pen brings a soft, satisfying writing experience, much like its namesake, thanks to a smooth, cushioned barrel and effortless quick-dry anti-fraud gel ink. Made from recycled materials and finished with a velvety touch, it blends eco-friendly design with premium performance. Offered in a range of vibrant, trendy, and classic tones, it adds a subtly sweet pop of color to every brand, note, signature, and promotional message, making it perfect for giveaways, corporate gifts, and memorable branded experiences. Mechanism: push retractable. Special Inks: gel ink, anti-fraud ink. Tip type: ball point. rABS - this used to be plastic, now it’s fantastic! Made from recycled acrylonitrile butadiene styrene (ABS). When ordering an assortment of colors, there is a 250 piece minimum per color Size: 5 45/64&quot;W x 25/64&quot;Dia. Ink Color: Black Imprint Area: 2&quot;W x 1/2&quot;H (standard); 3 3/4&quot;W x 1/4&quot;H (full color)",
+      "category_paths": [
+        "Home > Writing Instruments",
+        "Home > Writing Instruments > Pens",
+        "Home > Writing Instruments > Pens > Gel Pens",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "pen",
+      "geiger_url": "/p/mochi-comfort-gel-pen-529539?pid=461987"
     },
     {
       "sku": "529435",
@@ -57,6 +113,33 @@
       "is_on_sale": false,
       "product_type_unigram": "pen",
       "geiger_url": "/p/nfc-slim-pen-529435?pid=460853"
+    },
+    {
+      "sku": "529415",
+      "name": "Sublimated Fob With Keyring",
+      "brand": null,
+      "low_price": 0.67,
+      "high_price": 0.8,
+      "msrp": 0.8,
+      "min_qty": 250,
+      "imageUrl": "https://imgsirv.geiger.com/master/129415/web/129415_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "When looking for a way to promote your business, these sublimated key fobs will come in quite handy! With digital sublimation, the item is a perfect giveaway at tradeshows, conventions and healthcare events. Size: 4 1/2&quot;W x 3/4&quot;H Imprint Area: 10&quot;W x 3/4&quot;H",
+      "category_paths": [
+        "Home > Home & Auto",
+        "Home > Home & Auto > Keychains",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "fob",
+      "geiger_url": "/p/sublimated-fob-with-keyring-529415?pid=460602"
     },
     {
       "sku": "529364",
@@ -87,8 +170,1754 @@
       "geiger_url": "/p/20-oz-top-cup-by-ball-recycled-aluminum-cup-529364?pid=460342"
     },
     {
+      "sku": "529704",
+      "name": "Mod Recycled Pen and Pencil Gift Set",
+      "brand": null,
+      "low_price": 4.29,
+      "high_price": 5.14,
+      "msrp": 5.14,
+      "min_qty": 100,
+      "imageUrl": "https://imgsirv.geiger.com/master/129704/web/129704_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "The Mod Recycled Pen and Pencil Set pairs modern design with everyday reliability. Each piece features a smooth, matte finish with sleek chrome accents for a polished look and comfortable feel. The pen includes a 1.0 mm tip with black ink for smooth, consistent writing, while the mechanical pencil offers a 0.7 mm tip for precise, controlled lines. Packaged in a premium black gift box, this set makes an excellent choice for the office or gifting. Made from 100% recycled aluminum – Combines durability with a modern finish. By choosing this product, you’re making a positive impact through a partnership with 1% For The Planet, as one percent of each sale supports environmental nonprofits. With one percent of this eco-product purchase being donated to environmental nonprofits, you're helping the planet in more ways than one. Size: 2&quot;W x 6 2/3&quot;H x 43/50&quot;D Imprint Area: 3&quot;W x 1/5&quot;H",
+      "category_paths": [
+        "Home > Writing Instruments",
+        "Home > Writing Instruments > Pens",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "gift",
+      "geiger_url": "/p/mod-recycled-pen-and-pencil-gift-set-529704?pid=463978"
+    },
+    {
+      "sku": "529702",
+      "name": "24 oz Red Cup Living® Reusable Beer Mug",
+      "brand": null,
+      "low_price": 13.94,
+      "high_price": 16.73,
+      "msrp": 16.73,
+      "min_qty": 144,
+      "imageUrl": "https://imgsirv.geiger.com/master/129702/web/129702_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Reusable. Reduce breakage of glasses by replacing with these sturdy cups. Side handle to hold drinks conveniently. Wash and reuse. Perfect for large celebrations, corporate events, bachelorette or bachelor parties, or just a casual poolside drink. Guests can take with them as an event souvenir. Meets FDA requirements. BPA free. Hand wash recommended. Size: 6&quot;H Imprint Area: 1 3/10&quot;W x 1 1/2&quot;H Sold in case quantities only: This product is sold in case quantities only. Please order in 144 piece increments.",
+      "category_paths": [
+        "Home > Drinkware",
+        "Home > Drinkware > Travel Mugs & Tumblers",
+        "Home > Drinkware > Travel Mugs & Tumblers > Plastic",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "mug",
+      "geiger_url": "/p/24-oz-red-cup-living-reusable-beer-mug-529702?pid=463970"
+    },
+    {
+      "sku": "529680",
+      "name": "Supply Line® Colored Pencils- 24 Count",
+      "brand": null,
+      "low_price": 7.4,
+      "high_price": 8.88,
+      "msrp": 8.88,
+      "min_qty": 96,
+      "imageUrl": "https://imgsirv.geiger.com/master/129680/web/129680_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "A vibrant 24-color pencil set packaged in a clear plastic box, perfect for classrooms, creative kits, and promotional gifting. Includes pre-sharpened colored pencils in wide range of bright, eye-catching hues. Comes with a built-in pencil sharpener inside the case. Your logo in full color on a sticker placed prominently on the case. Size: 4&quot;W x 9&quot;H x 1/2&quot;D Imprint Area: 2 3/4&quot;Dia. (circle); 2 3/4&quot;W x 1 3/4&quot;H (rectangle) Sold in case quantities only: This product is sold in case quantities only. Please order in 12 piece increments.",
+      "category_paths": [
+        "Home > Writing Instruments",
+        "Home > Writing Instruments > Pencils",
+        "Home > Writing Instruments > Pencils > Colored Pencils",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "pencils",
+      "geiger_url": "/p/supply-line-colored-pencils-24-count-529680?pid=463963"
+    },
+    {
+      "sku": "529701",
+      "name": "12 oz Red Cup Living® Reusable Cocktail Cup",
+      "brand": null,
+      "low_price": 11.89,
+      "high_price": 14.27,
+      "msrp": 14.27,
+      "min_qty": 144,
+      "imageUrl": "https://imgsirv.geiger.com/master/129701/web/129701_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Reusable. Reduce breakage of glasses by replacing with these sturdy cups. Wash and reuse. Can be used as stylish stemware for wine, martinis and other cocktails. Perfect for large celebrations, corporate events, bachelorette or bachelor parties, or just a casual poolside drink. Guests can take with them as an event souvenir . Meets FDA requirements. BPA free. Hand wash recommended. Size: 7 1/4&quot;H Imprint Area: 13/20&quot;W x 3/4&quot;H Sold in case quantities only: This product is sold in case quantities only. Please order in 144 piece increments.",
+      "category_paths": [
+        "Home > Drinkware",
+        "Home > Drinkware > Travel Mugs & Tumblers",
+        "Home > Drinkware > Travel Mugs & Tumblers > Plastic",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "cup",
+      "geiger_url": "/p/12-oz-red-cup-living-reusable-cocktail-cup-529701?pid=463954"
+    },
+    {
+      "sku": "529681",
+      "name": "Supply Line® Dual Tip Markers Set",
+      "brand": null,
+      "low_price": 10.0,
+      "high_price": 12.0,
+      "msrp": 12.0,
+      "min_qty": 96,
+      "imageUrl": "https://imgsirv.geiger.com/master/129681/web/129681_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "A vibrant 20-color marker set with dual tips for maximum versatility— perfect for offices, classrooms and creative teams. Features a fine tip for precision writing, drawing and outlining, and a coarse tip for bold marks, labeling, or filling larger areas. Organized in a compact, stylish carrying case that keeps all 20 colors neatly arranged and ready for quick use. Your logo in full color on a sticker placed prominently on the case. These markers are alcohol based with no P65 chemicals determined. Size: 3 1/2&quot;W x 6&quot;H x 3&quot;D Imprint Area: 2 3/4&quot;Dia. (circle); 2 3/4&quot;W x 1 3/4&quot;H (rectangle) Sold in case quantities only: This product is sold in case quantities only. Please order in 12 piece increments.",
+      "category_paths": [
+        "Home > Writing Instruments",
+        "Home > Writing Instruments > Highlighters & Markers",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "markers",
+      "geiger_url": "/p/supply-line-dual-tip-markers-set-529681?pid=463948"
+    },
+    {
+      "sku": "529699",
+      "name": "Charm &amp; Carry Kit",
+      "brand": null,
+      "low_price": 8.88,
+      "high_price": 10.66,
+      "msrp": 10.66,
+      "min_qty": 50,
+      "imageUrl": "https://imgsirv.geiger.com/master/129699/web/129699_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Kit includes: Foldaway Recycled Tote Bag and12 oz Recycled Cotton Mini Tote Bag Charm. Packaging : folded Tote Bag in pouch is kitted in Bag Charm. Size: 16&quot;W x 14 1/2&quot;H (foldaway tote); 4 1/2&quot;W x 5&quot;H (foldaway tote pouch); 4 3/4&quot;W x 3&quot;H x 1&quot;D (tote charm) Imprint Area: 9&quot;W x 8&quot;H (foldaway tote); 2 1/2&quot;W x 1&quot;H (tote charm)",
+      "category_paths": [
+        "Home > Bags & Totes",
+        "Home > Bags & Totes > Tote Bags",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "carry",
+      "geiger_url": "/p/charm-carry-kit-529699?pid=463927"
+    },
+    {
+      "sku": "529700",
+      "name": "2 oz Red Cup Living® Reusable Shot Cup",
+      "brand": null,
+      "low_price": 4.99,
+      "high_price": 5.99,
+      "msrp": 5.99,
+      "min_qty": 144,
+      "imageUrl": "https://imgsirv.geiger.com/master/129700/web/129700_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Made of ABS. Reusable. Can be stacked together for easy storage. Reduce breakage of glass shots by replacing with these sturdy cups. Wash and reuse. Perfect for large celebrations, corporate events, bachelorette or bachelor parties, or just a casual poolside drink. Guests can take with them as an event souvenir. Meets FDA requirements. BPA free. Hand wash recommended. Size: 2&quot;H Imprint Area: 1/3&quot;W x 3/8&quot;H Sold in case quantities only: This product is sold in case quantities only. Please order in 144 piece increments.",
+      "category_paths": [
+        "Home > Drinkware",
+        "Home > Drinkware > Beer, Wine & Barware",
+        "Home > Drinkware > Beer, Wine & Barware > Shot Glasses",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "cup",
+      "geiger_url": "/p/2-oz-red-cup-living-reusable-shot-cup-529700?pid=463919"
+    },
+    {
+      "sku": "529703",
+      "name": "201 oz Red Cup Living® Reusable Party Bucket",
+      "brand": null,
+      "low_price": 27.85,
+      "high_price": 33.42,
+      "msrp": 33.42,
+      "min_qty": 24,
+      "imageUrl": "https://imgsirv.geiger.com/master/129703/web/129703_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Made of ABS. Reusable. Can be stacked together for easy storage. Perfect for icing drinks, festive punch, appetizers and more! Can also be used for serving snacks and apps or as a centerpiece for entertaining guests. Wash and reuse. Perfect for large celebrations, corporate events, bachelorette or bachelor parties, or just a casual poolside drink. Designed for both indoor and outdoor use. Guests can take with them as an event souvenir. Meets FDA requirements. BPA free. Hand wash recommended. Size: 8&quot;H Imprint Area: 1 19/20&quot;W x 2 1/4&quot;H Sold in case quantities only: This product is sold in case quantities only. Please order in 24 piece increments.",
+      "category_paths": [
+        "Home > Home & Auto",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "bucket",
+      "geiger_url": "/p/201-oz-red-cup-living-reusable-party-bucket-529703?pid=463912"
+    },
+    {
+      "sku": "529697",
+      "name": "Outbound Adventure Kit",
+      "brand": null,
+      "low_price": 43.08,
+      "high_price": 51.7,
+      "msrp": 51.7,
+      "min_qty": 20,
+      "imageUrl": "https://imgsirv.geiger.com/master/129697/web/129697_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Kit Includes: 30 can Corey Can Cooler Backpack with tumbler pocket, and 40 oz Intrepid Stainless Steel Tumbler. Backpack: double zippered main compartment, front slip pocket, side pocket with hook and loop closure, side pocket fits 40 oz tumbler, and adjustable padded shoulder straps and web carrying handle. Tumbler: stainless steel outer and inner, stainless steel tumbler with handle, double wall construction for insulation of hot or cold liquids, keeps drinks cold up to 24 hours and hot up to 8 hours, and screw on, spill-resistant lid with straw hole and 12&quot; straw. Size: 13 1/2&quot;W x 14&quot;H (backpack); 10&quot;H (tumbler) Imprint Area: 9&quot;W x 5&quot;H (backpack); 3&quot;W x 2 3/4&quot;H (tumbler",
+      "category_paths": [
+        "Home > Bags & Totes",
+        "Home > Bags & Totes > Backpacks",
+        "Home > Drinkware",
+        "Home > Drinkware > Travel Mugs & Tumblers",
+        "Home > Drinkware > Travel Mugs & Tumblers > Tumblers with Handles",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "adventure",
+      "geiger_url": "/p/outbound-adventure-kit-529697?pid=463905"
+    },
+    {
+      "sku": "529698",
+      "name": "Weekender Travel Kit",
+      "brand": null,
+      "low_price": 53.58,
+      "high_price": 64.3,
+      "msrp": 64.3,
+      "min_qty": 10,
+      "imageUrl": "https://imgsirv.geiger.com/master/129698/web/129698_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Kit includes: The Weekender Toiletry Bag with Drop-Bottom and The Weekender Travel Bag with Drop-Bottom. Spot clean, air dry. Size: 9&quot;W x 9&quot;H x 5 1/2&quot;D (toiletry bag); 19&quot;W x 15 3/4&quot;H x 10&quot;D (travel bag) Imprint Area: 6&quot;W x 3&quot;H (toiletry bag); 6&quot;W x 3&quot;H (travel bag)",
+      "category_paths": [
+        "Home > Bags & Totes",
+        "Home > Bags & Totes > Travel",
+        "Home > Bags & Totes > Travel > Toiletry & Cosmetic Bags",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "travel",
+      "geiger_url": "/p/weekender-travel-kit-529698?pid=463897"
+    },
+    {
+      "sku": "529690",
+      "name": "reNew Rechargeable COB Beanie",
+      "brand": null,
+      "low_price": 15.49,
+      "high_price": 18.58,
+      "msrp": 18.58,
+      "min_qty": 50,
+      "imageUrl": "https://imgsirv.geiger.com/master/129690/web/129690_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Stay warm and visible with this functional beanie featuring a built-in rechargeable light. Offers four light modes including white and red settings, with a beam distance of up to 50 meters. Made from soft polyacrylic fabric and designed to fit most. ANSI certified and includes a Type-C charging cable. Beanie hat with rechargeable COB light​ on the front. 4 light modes: White light high, low and flashing and red flashing​. 50M distance. 500mAh polymer battery with Type C charging cable. 134 lumen brightness. Input 350mA / Output 430mA​. Made with polyacrylic fabric​. One size fits most. ANSI certified​. This item contains Lithium Ion Batteries. Certain freight methods may not be available, longer shipping times may apply. Size: 8 14&quot;W x 8 1/2&quot;H Imprint Area: 3&quot;W x 2&quot;H",
+      "category_paths": [
+        "Home > Apparel",
+        "Home > Apparel > Caps & Hats",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "beanie",
+      "geiger_url": "/p/renew-rechargeable-cob-beanie-529690?pid=463888"
+    },
+    {
+      "sku": "529693",
+      "name": "Milk Chocolate Dubai Bar - 3 oz",
+      "brand": null,
+      "low_price": 6.12,
+      "high_price": 7.35,
+      "msrp": 7.35,
+      "min_qty": 125,
+      "imageUrl": "https://imgsirv.geiger.com/master/129693/web/129693_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Taste the luxury with this milk chocolate bar filled with creamy pistachio and delicate kataifi, inspired by Dubai's viral confectionery sensation. Decadent layers of smooth milk chocolate paired with crunchy kataifi (shredded phyllo dough) and rich pistachio filling. Premium presentation &amp; wrapped in metallic foil with full-color printing for a high-end, eye-catching finish. Perfect for corporate gifting, holiday promotions, luxury events, and client appreciation. Warm Weather Shipping: If this is a meltable item, when the temperature reaches 75 degrees F. we will ship your order in insulated containers with ice packs. The product will remain cool for 2 full days. Expedited shipping is required for locations beyond a 2 day ground ship zone. Refrigerated trucking or insulated cartons will be used. The least expensive method will be selected. When cost effective, a larger carton can be used. Shelf Life: 10 weeks. Size: 3 1/2&quot;W x 5&quot;H Imprint Area: 3 1/2&quot;W x 5&quot;H",
+      "category_paths": [
+        "Home > Home & Auto",
+        "Home > Home & Auto > Food & Candy",
+        "Home > Home & Auto > Food & Candy > Chocolate",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "bar",
+      "geiger_url": "/p/milk-chocolate-dubai-bar-3-oz-529693?pid=463878"
+    },
+    {
+      "sku": "529692",
+      "name": "SweetHeart Stress Ball",
+      "brand": null,
+      "low_price": 3.89,
+      "high_price": 4.66,
+      "msrp": 4.66,
+      "min_qty": 100,
+      "imageUrl": "https://imgsirv.geiger.com/master/129692/web/129692_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Love at first squeeze! The SweetHeart Stress Ball is filled with squishy hearts that move with every press. It's perfect for healthcare, nonprofits, awareness campaigns, and wellness initiatives. Easy to clean when it gets dirty with water and a towel. Durable construction for long-lasting use. These products are not intended to be toys and should not be given to children or pets. Not for use by children under 12. Size: 2 1/4&quot;Dia. Imprint Area: 1 1/4&quot;Dia.",
+      "category_paths": [
+        "Home > Health & Wellness",
+        "Home > Health & Wellness > Stress Balls",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "ball",
+      "geiger_url": "/p/sweetheart-stress-ball-529692?pid=463871"
+    },
+    {
+      "sku": "529691",
+      "name": "Ice Breaker Stress Ball",
+      "brand": null,
+      "low_price": 4.29,
+      "high_price": 5.14,
+      "msrp": 5.14,
+      "min_qty": 100,
+      "imageUrl": "https://imgsirv.geiger.com/master/129691/web/129691_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Chill out with the Ice Breaker Stress Ball. This satisfying cube-shaped stress reliever is filled with five squishy ice cubes that move as you press. The thick inner material adds an extra layer of durability and resistance for a more satisfying squeeze. It's a refreshing twist on everyday stress relief. Easy to clean when it gets dirty with water and a towel. Durable construction for long-lasting use. These products are not intended to be toys and should not be given to children or pets. Not for use by children under 12. Size: 2&quot;W x 2&quot;H Imprint Area: 1 1/4&quot;W x 1 1/4&quot;H",
+      "category_paths": [
+        "Home > Health & Wellness",
+        "Home > Health & Wellness > Stress Balls",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "ball",
+      "geiger_url": "/p/ice-breaker-stress-ball-529691?pid=463864"
+    },
+    {
+      "sku": "529689",
+      "name": "reNew Rechargeable Mini Utility Flashlight",
+      "brand": null,
+      "low_price": 5.95,
+      "high_price": 7.14,
+      "msrp": 7.14,
+      "min_qty": 100,
+      "imageUrl": "https://imgsirv.geiger.com/master/129689/web/129689_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Compact and reliable, this rechargeable flashlight delivers 154 lumens of brightness with four light modes. Features both top and side lighting options and a beam distance of up to 20 meters. Made from recycled ABS material and ANSI certified. Includes a Type-C charging cable. Rechargeable mini flashlight with 300 mAh Li-ion battery​ and 20M beam distance. Input 800 mA / Output COB 1A, SMD 300mA​. GRS Certified - This item has been 3rd-party verified as made from recycled plastic and earned a Global Recycling Standard certification. rABS - this used to be plastic, now it’s fantastic Made from recycled Acrylonitrile Butadiene Styrene (ABS). This item contains Lithium Ion Batteries. Certain freight methods may not be available, longer shipping times may apply. Size: 3 1/2&quot;W x 1&quot;Dia. Imprint Area: 1 1/2&quot;W x 1/4&quot;H",
+      "category_paths": [
+        "Home > Home & Auto",
+        "Home > Home & Auto > Flashlights",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "flashlight",
+      "geiger_url": "/p/renew-rechargeable-mini-utility-flashlight-529689?pid=463857"
+    },
+    {
+      "sku": "529688",
+      "name": "Mini Charcuterie To Go Snack Tray",
+      "brand": null,
+      "low_price": 8.59,
+      "high_price": 10.3,
+      "msrp": 10.3,
+      "min_qty": 50,
+      "imageUrl": "https://imgsirv.geiger.com/master/129688/web/129688_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "A versatile mini snack tray with four removable compartments, a clear display lid, and secure snap-lock closures on all 4 sides for easy serving, storing, and transport. Holds up to 1500 ml or 50 oz. BPA-free. Meets FDA requirements. BPA free. Hand wash recommended. Size: 6 3/4&quot;W x 9 3/8&quot;H x 2 1/2&quot;D Imprint Area: 2&quot;W x 2&quot;H",
+      "category_paths": [
+        "Home > Home & Auto",
+        "Home > Home & Auto > Auto Accessories",
+        "Home > Home & Auto > Auto Accessories > Cleaning & Storage",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "tray",
+      "geiger_url": "/p/mini-charcuterie-to-go-snack-tray-529688?pid=463850"
+    },
+    {
+      "sku": "529687",
+      "name": "Cool &amp; Connect 4-in-1 Desk Fan",
+      "brand": null,
+      "low_price": 24.99,
+      "high_price": 29.98,
+      "msrp": 29.98,
+      "min_qty": 25,
+      "imageUrl": "https://imgsirv.geiger.com/master/129687/web/129687_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Stay cool, connected, and on schedule with the Cool &amp; Connect 4-in-1 Desk Fan. This versatile desktop accessory features 3 fan speeds for customizable comfort, a built-in wireless charger to power up your smartphone, and a digital clock with alarm mode to keep your day on track. It also doubles as a convenient phone stand, making it the perfect all-in-one solution for your desk, workspace, or nightstand. FSC Certified - This item is made from wood sourced from responsibly maintained forests monitored by the Forestry Stewardship Council. Bamboo - This is made from a renewable, durable material made from the fastest-growing plant on Earth. Plant a Tree with every order. HPG has partnered with Evertreen to plant a tree with every order of this item. Must have built-in Qi or an external Qi receiver on your device. Size: 4&quot;W x 7 1/4&quot;H x 1 1/4&quot;D Imprint Area: 2&quot;W x 1 1/2&quot;H (standard); 2 1/2&quot;W x 1 1/2K (full color)",
+      "category_paths": [
+        "Home > Office & Technology",
+        "Home > Office & Technology > Tech Accessories",
+        "Home > Office & Technology > Desk Accessories",
+        "Home > Office & Technology > Tech Accessories > Chargers & Power Banks",
+        "Home > Office & Technology > Desk Accessories > Clocks",
+        "Home > Office & Technology > Tech Accessories > Tablet & Phone Stands",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "fan",
+      "geiger_url": "/p/cool-connect-4-in-1-desk-fan-529687?pid=463843"
+    },
+    {
+      "sku": "529686",
+      "name": "Supply Line® Stationary Essentials Multi Set",
+      "brand": null,
+      "low_price": 7.0,
+      "high_price": 8.4,
+      "msrp": 8.4,
+      "min_qty": 96,
+      "imageUrl": "https://imgsirv.geiger.com/master/129686/web/129686_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "A compact, all-in-one desktop essentials kit packed in a rectangular case, perfect for offices, conferences, onboarding kits, and everyday organization. Includes 4 sticky note pads (50 sheets each), 100 multicolor paper clips, and 3 mini highlighters in green, orange, and yellow. Durable plastic case keeps everything organized, portable, and easy to access on the go. Your logo in full color on a sticker placed prominently on the case. Size: 8&quot;W x 3&quot;H x 1 1/2&quot;D Imprint Area: 2 3/4&quot;Dia. (circle); 2 3/4&quot;W x 1 3/4&quot;H Sold in case quantities only: This product is sold in case quantities only. Please order in 6 piece increments.",
+      "category_paths": [
+        "Home > Office & Technology",
+        "Home > Office & Technology > Desk Accessories",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "multi",
+      "geiger_url": "/p/supply-line-stationary-essentials-multi-set-529686?pid=463834"
+    },
+    {
+      "sku": "529685",
+      "name": "Supply Line® Square Clips &amp; Pins Set Neon",
+      "brand": null,
+      "low_price": 8.2,
+      "high_price": 9.84,
+      "msrp": 9.84,
+      "min_qty": 100,
+      "imageUrl": "https://imgsirv.geiger.com/master/129685/web/129685_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "A versatile desktop essentials kit designed for offices, classrooms, planning teams, and everyday organization. Includes 32 binder clips, 100 map pins, and 103 paper clips, each stored in dedicated compartments for quick access. Your logo in full color on a sticker placed prominently on the case. Size: 3 3/4&quot;W x 3 3/4&quot;H x 2 1/2&quot;D Imprint Area: 2 3/4&quot;Dia. (circle); 2 3/4&quot;W x 1 3/4&quot;H (rectangle) Sold in case quantities only: This product is sold in case quantities only. Please order in 10 piece increments.",
+      "category_paths": [
+        "Home > Office & Technology",
+        "Home > Office & Technology > Desk Accessories",
+        "Home > Office & Technology > Desk Accessories > Paper Clips & Dispensers",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "neon",
+      "geiger_url": "/p/supply-line-square-clips-pins-set-neon-529685?pid=463826"
+    },
+    {
+      "sku": "529684",
+      "name": "Supply Line® Square Clips &amp; Pins Set Black &amp; White",
+      "brand": null,
+      "low_price": 8.2,
+      "high_price": 9.84,
+      "msrp": 9.84,
+      "min_qty": 100,
+      "imageUrl": "https://imgsirv.geiger.com/master/129684/web/129684_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "A versatile desktop essentials kit designed for offices, classrooms, planning teams, and everyday organization. Includes 32 binder clips, 100 map pins, and 103 paper clips, each stored in dedicated compartments for quick access. Your logo in full color on a sticker placed prominently on the case. Size: 3 3/4&quot;W x 3 3/4&quot;H x 2 1/2&quot;D Imprint Area: 2 3/4&quot;Dia. (circle); 2 3/4&quot;W x 1 3/4&quot;H (rectangle) Sold in case quantities only: This product is sold in case quantities only. Please order in 10 piece increments.",
+      "category_paths": [
+        "Home > Office & Technology",
+        "Home > Office & Technology > Desk Accessories",
+        "Home > Office & Technology > Desk Accessories > Paper Clips & Dispensers",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "white",
+      "geiger_url": "/p/supply-line-square-clips-pins-set-black-white-529684?pid=463818"
+    },
+    {
+      "sku": "529683",
+      "name": "Supply Line® Round Clips &amp; Pins Set Neon",
+      "brand": null,
+      "low_price": 5.0,
+      "high_price": 6.0,
+      "msrp": 6.0,
+      "min_qty": 96,
+      "imageUrl": "https://imgsirv.geiger.com/master/129683/web/129683_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Keep your workspace organized with a compact, all-in-one pins and clips kit, great for desks, classrooms, and conference giveaways. Includes 20 jumbo paper clips, 30 push pins, 50 standard paper clips, and 10 binder clips, neatly arranged in individual storage compartments. Your logo in full color on a sticker placed prominently on the case. Size: 4&quot;W x 4&quot;H x 1&quot;D Imprint Area: 2 3/4&quot;Dia. Sold in case quantities only: This product is sold in case quantities only. Please order in 12 piece increments.",
+      "category_paths": [
+        "Home > Office & Technology",
+        "Home > Office & Technology > Desk Accessories",
+        "Home > Office & Technology > Desk Accessories > Paper Clips & Dispensers",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "neon",
+      "geiger_url": "/p/supply-line-round-clips-pins-set-neon-529683?pid=463810"
+    },
+    {
+      "sku": "529682",
+      "name": "Supply Line® Round Clips &amp; Pins Set Black &amp; White",
+      "brand": null,
+      "low_price": 5.0,
+      "high_price": 6.0,
+      "msrp": 6.0,
+      "min_qty": 96,
+      "imageUrl": "https://imgsirv.geiger.com/master/129682/web/129682_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Keep your workspace organized with a compact, all-in-one pins and clips kit, great for desks, classrooms, and conference giveaways. Includes 20 jumbo paper clips, 30 push pins, 50 standard paper clips, and 10 binder clips, neatly arranged in individual storage compartments. Your logo in full color on a sticker placed prominently on the case. Size: 4&quot;W x 4&quot;H x 1&quot;D Imprint Area: 2 3/4&quot;Dia. Sold in case quantities only: This product is sold in case quantities only. Please order in 12 piece increments.",
+      "category_paths": [
+        "Home > Office & Technology",
+        "Home > Office & Technology > Clips",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "white",
+      "geiger_url": "/p/supply-line-round-clips-pins-set-black-white-529682?pid=463803"
+    },
+    {
+      "sku": "529679",
+      "name": "Rumpl® Travel Puffy Blanket",
+      "brand": "Rumpl",
+      "low_price": 112.67,
+      "high_price": 135.2,
+      "msrp": 135.2,
+      "min_qty": 27,
+      "imageUrl": "https://imgsirv.geiger.com/master/129679/web/129679_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "This portable and packable Puffy Blanket is the perfect trekking and travel companion. Designed to balance warmth and comfort with packability, the Travel Puffy features a roll-top stuff sack that easily clips to backpacks, while NanoLoft insulation allows for maximum compression and rebound. Add your logo in full color to both the blanket and the stuff sack. Both locations are included with every order at no additional cost. Rumpl is a B Corp and certified carbon neutral through The Change Climate Project. This blanket is made from 100% recycled plastic bottles. 100% post-consumer recycled shell and insulation made from plastic bottles (1 Travel Puffy Blanket Recycles: 9.5 bottles). Rumpl donates 1% of our sales – comprised of dollars, product, and volunteering – to support environmental causes and conservation efforts. Certified B Corp Rumpl is proud to meet the highest standards of verified social and environmental performance, public transparency, and legal accountability to balance profit and purpose. Rumple considers the impact of our every decision on our workers, customers, suppliers, community, and the environment. Climate Label Certified Rumpl is a proud member of The Climate Label offsetting the entirety of our scopes 1, 2, and 3 emissions and our full carbon footprint by purchasing verified offsets. Clip or carry roll-top stuff sack included PFAS-free durable water repellent finish for stain and weather resistance. 100% post-consumer recycled shell, liner, and insulation made from plastic bottles. VersaWeave 30D ripstop shell and liner. NanoLoft insulation mimics down warmth, high-compression, and rebound. Nanoloft insulation stays warm even when wet. Cape Clip for hands-free wear. Machine-washable with conventional front-loading washing machines. Hang to dry or tumble dry on low heat setting. Size: 38&quot;W x 52&quot;H (flat); 4&quot;W x 10&quot;H (packed) Imprint Area: 3 1/2&quot;W x 3 1/2&quot;H (corner of blanket); 3 1/2&quot;W x 3 1/2&quot;H (corner of sack)",
+      "category_paths": [
+        "Home > Home & Auto",
+        "Home > Home & Auto > Blankets",
+        "Home > Sports & Outdoor",
+        "Home > Sports & Outdoor > Blankets",
+        "Home > Shop By > Brand Names",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "blanket",
+      "geiger_url": "/p/rumpl-travel-puffy-blanket-529679?pid=463796"
+    },
+    {
+      "sku": "529678",
+      "name": "Rumpl® Tech Towel",
+      "brand": "Rumpl",
+      "low_price": 55.8,
+      "high_price": 66.96,
+      "msrp": 66.96,
+      "min_qty": 27,
+      "imageUrl": "https://imgsirv.geiger.com/master/129678/web/129678_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "The Rumpl Tech Towel is lightweight, quick-drying, and designed to keep up with active use. Made from recycled microsuede with a Nanotex cooling finish, it absorbs four times its weight in water while helping regulate your body temperature. It resists odors with an antimicrobial treatment and packs down small so it’s always ready for the beach, the gym, or the trail. Rumpl is a B Corp and certified carbon neutral through The Change Climate Project. This blanket is made mostly from recycled plastic bottles. 100% post-consumer recycled shell and insulation made from plastic bottles (1 Tech Towel Recycles: 8 bottles). Rumpl donates 1% of our sales – comprised of dollars, product, and volunteering – to support environmental causes and conservation efforts. Certified B Corp Rumpl is proud to meet the highest standards of verified social and environmental performance, public transparency, and legal accountability to balance profit and purpose. Rumple considers the impact of our every decision on our workers, customers, suppliers, community, and the environment. Climate Label Certified Rumpl is a proud member of The Climate Label offsetting the entirety of our scopes 1, 2, and 3 emissions and our full carbon footprint by purchasing verified offsets. Sized for beach, travel, camping, and exercise. 55% post-consumer recycled polyester microsuede. Quick-drying and absorbs four times its weight in water. Nanotex Coolest comfort finish cools the body as it absorbs moisture. Anti-microbial finish for odor-resistance. Paracord hanging loop. Machine washable with conventional front-loading washing machines. Hang to dry or tumble dry on low heat setting. Size: 30&quot;W x 60&quot;H (flat); 17&quot;W x 8 1/2&quot;H x 1 1/2&quot;D (packed) Imprint Area: 5&quot;W x 5&quot;H (corner of blanket)",
+      "category_paths": [
+        "Home > Sports & Outdoor",
+        "Home > Sports & Outdoor > Towels",
+        "Home > Shop By > Brand Names",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "towel",
+      "geiger_url": "/p/rumpl-tech-towel-529678?pid=463788"
+    },
+    {
+      "sku": "529677",
+      "name": "Rumpl® Original Puffy Blanket",
+      "brand": "Rumpl",
+      "low_price": 124.59,
+      "high_price": 149.5,
+      "msrp": 149.5,
+      "min_qty": 27,
+      "imageUrl": "https://imgsirv.geiger.com/master/129677/web/129677_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "The original &quot;blanket for everywhere,&quot; Rumpl's most iconic design, and number one bestseller. Designed to be durable, packable, and warm beyond any expectation. Featuring a durable VersaWeave shell for debris and weather resistance, corner staking loops, and a hands-free Cape Clip. Add your logo in full color to both the blanket and the stuff sack. Both locations are included with every order at no additional cost. Rumpl is a B Corp and certified carbon neutral through The Change Climate Project. This blanket is made from 100% recycled plastic bottles. 1 Puffy Blanket Recycles: 60 bottles. Rumpl donates 1% of our sales – comprised of dollars, product, and volunteering – to support environmental causes and conservation efforts. Certified B Corp Rumpl is proud to meet the highest standards of verified social and environmental performance, public transparency, and legal accountability to balance profit and purpose. Rumple considers the impact of our every decision on our workers, customers, suppliers, community, and the environment. Climate Label Certified Rumpl is a proud member of The Climate Label offsetting the entirety of our scopes 1, 2, and 3 emissions and our full carbon footprint by purchasing verified offsets. Clip or carry roll-top stuff sack included. PFAS-free durable water repellent finish for stain and weather resistance. Paracord corner staking loops. Cape Clip for hands-free wear. Rumpl Puffy Blankets are machine washable. We recommend using a front-loading washing machine on cold, and adding in Grangers brand detergent for the best cleaning results while preserving the DWR. Hang dry or toss in the dryer on tumble dry low. All Rumpl Puffy blankets are treated with a PFAS-free 90/10 DWR, making it highly water and stain-resistant; however, they are not completely waterproof. While our Puffy blankets aren't temperature rated, they should keep you plenty warm in 45° weather and above. Size: 52&quot;W x 75&quot;H (flat); 7&quot;W x 16&quot;H (packed) Imprint Area: 5&quot;W x 5&quot;H (corner blanket &amp; corner of stuff sack)",
+      "category_paths": [
+        "Home > Home & Auto",
+        "Home > Home & Auto > Blankets",
+        "Home > Sports & Outdoor",
+        "Home > Sports & Outdoor > Blankets",
+        "Home > Shop By > Brand Names",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "blanket",
+      "geiger_url": "/p/rumpl-original-puffy-blanket-529677?pid=463779"
+    },
+    {
+      "sku": "529674",
+      "name": "Flip, Serve &amp; Store Board- Round",
+      "brand": null,
+      "low_price": 39.47,
+      "high_price": 47.36,
+      "msrp": 47.36,
+      "min_qty": 12,
+      "imageUrl": "https://imgsirv.geiger.com/master/129674/web/129674_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Round out your hosting game with a board that does it all. The Flip Serve and Store Board Round lets you cut, slice, and serve on a smooth bamboo surface, then simply snap on the high quality plastic cover for easy storage and transport. Crafted from durable Moso bamboo, it’s made from a rapidly renewable resource that grows quickly without clear cutting, artificial irrigation, or replanting. Strong, sustainable, and ready to shine at any gathering. Cleanup is refreshingly simple too. Just hand wash or wipe with a damp cloth. No soaking or dishwasher needed. The serving possibilities keep growing. Bamboo is better for the environment. Moso bamboo is an incredibly durable material and it is a renewable resource which grows quickly and doesn’t require clear cutting, artificial irrigation or replanting. Products made from natural materials will exhibit inherent variations. As a result, laser engraving decoration may differ in depth, tone, and appearance on each item. Each item includes retail brand subtly laser engraved on every piece. Retail branding cannot be moved or removed. Size: 12&quot;W x 12 3/4&quot;H x 2 7/8&quot;D Imprint Area: 3&quot;Dia. (front center)",
+      "category_paths": [
+        "Home > Home & Auto",
+        "Home > Home & Auto > Auto Accessories",
+        "Home > Home & Auto > Auto Accessories > Cleaning & Storage",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "flip",
+      "geiger_url": "/p/flip-serve-store-board-round-529674?pid=463766"
+    },
+    {
+      "sku": "529673",
+      "name": "Flip, Service &amp; Store Board- Rectangle",
+      "brand": null,
+      "low_price": 39.47,
+      "high_price": 47.36,
+      "msrp": 47.36,
+      "min_qty": 12,
+      "imageUrl": "https://imgsirv.geiger.com/master/129673/web/129673_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "One board, plenty of possibilities. The Flip Serve and Store Board makes it easy to prep, plate, and pack up without missing a beat. Cut, slice, and serve on the smooth bamboo surface, then snap on the high quality plastic cover to keep everything fresh for storage or transport. Crafted from durable Moso bamboo, this board is made from a rapidly renewable resource that grows quickly without clear cutting, artificial irrigation, or replanting. It’s a choice that feels as good as it looks. It’s a choice that feels as good as it looks. Cleanup is simple too. Just hand wash or wipe with a damp cloth. No soaking or dishwasher needed. Bamboo is better for the environment. Moso bamboo is an incredibly durable material and it is a renewable resource which grows quickly and doesn’t require clear cutting, artificial irrigation or replanting. Products made from natural materials will exhibit inherent variations. As a result, laser engraving decoration may differ in depth, tone, and appearance on each item. Size: 11 1/2&quot;W x 15 1/2&quot;H x 2 3/4&quot;D Imprint Area: 2 3/4&quot;Dia. (front center)",
+      "category_paths": [
+        "Home > Home & Auto",
+        "Home > Home & Auto > Kitchen Accessories",
+        "Home > Home & Auto > Kitchen Accessories > Cutting Boards",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "flip",
+      "geiger_url": "/p/flip-service-store-board-rectangle-529673?pid=463759"
+    },
+    {
+      "sku": "529672",
+      "name": "21 oz Libbey Soccer Chalice",
+      "brand": null,
+      "low_price": 5.29,
+      "high_price": 6.34,
+      "msrp": 6.34,
+      "min_qty": 36,
+      "imageUrl": "https://imgsirv.geiger.com/master/129672/web/129672_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Bring a little match-day energy to every pour with the Libbey Soccer Chalice 21 oz. Designed with eye-catching embossed soccer details, this soccer-themed glassware is a standout choice for 2026 World Cup promotions, sports bars, restaurants, and branded events. Its generous 21 oz. capacity and classic chalice shape make it ideal for serving beer, soda, and other cold beverages with a spirited, elevated look. Built for busy hospitality settings, this durable glass chalice is made to keep up with the pace of high-traffic bars and restaurants. It also features a clear area for custom decoration, giving your logo or message room to shine without printing over the embossed design. The Libbey Soccer Chalice blends promotional appeal, practical performance, and sporty style in one ready-to-cheer piece. Hand wash only. Not dishwasher safe. Glassware may have minor visual imperfections and variations that should not be considered as defective or flawed. Variations in raw materials, glazes, production equipment and firing temperatures may also result in variations of size, shape, glaze, color, pock marks, etc. Size: 7 1/5&quot;H x 4 3/5&quot;Dia. Imprint Area: 2 1/2&quot;W x 1 1/2&quot;H",
+      "category_paths": [
+        "Home > Drinkware",
+        "Home > Drinkware > Glassware",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "chalice",
+      "geiger_url": "/p/21-oz-libbey-soccer-chalice-529672?pid=463752"
+    },
+    {
+      "sku": "529671",
+      "name": "16 oz Libbey Soccer Pint",
+      "brand": null,
+      "low_price": 2.49,
+      "high_price": 2.98,
+      "msrp": 2.98,
+      "min_qty": 36,
+      "imageUrl": "https://imgsirv.geiger.com/master/129671/web/129671_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "The Libbey Soccer Pint 16 oz brings sporty style and everyday versatility to the table. This durable glass is a great fit for beer, soda, water, and highball cocktails, making it an easy choice for restaurants, bars, events, and branded drinkware programs. Designed with space for customization that works around the embossed details, it gives your logo room to stand out without covering the pint’s distinctive soccer-inspired look. Built to handle the pace of high-traffic bars and restaurants, this glass combines reliable durability with a fun, game-day-ready feel that plays well in any setting. Hand wash only. Not dishwasher safe. Glassware may have minor visual imperfections and variations that should not be considered as defective or flawed. Variations in raw materials, glazes, production equipment and firing temperatures may also result in variations of size, shape, glaze, color, pock marks, etc. Size: 5 9/10&quot;H x 3 1/2&quot;Dia. Imprint Area: 2 1/4&quot;W x 2 1/4&quot;H",
+      "category_paths": [
+        "Home > Drinkware",
+        "Home > Drinkware > Beer, Wine & Barware",
+        "Home > Drinkware > Beer, Wine & Barware > Beer Glasses",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "pint",
+      "geiger_url": "/p/16-oz-libbey-soccer-pint-529671?pid=463743"
+    },
+    {
+      "sku": "529675",
+      "name": "18 oz Danville Can Glass w Bamboo Lid and Straw",
+      "brand": null,
+      "low_price": 7.92,
+      "high_price": 9.5,
+      "msrp": 9.5,
+      "min_qty": 25,
+      "imageUrl": "https://imgsirv.geiger.com/master/129675/web/129675_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Sip happens in style. The Danville 18 oz Can Glass with Bamboo Lid and Straw brings a fresh twist to your favorite cold drinks. Designed with a sleek can silhouette and made from durable, lead free glass, it delivers that timeless, on trend look everyone loves. The natural bamboo lid adds a warm, elevated touch, while the reusable straw makes it perfect for iced coffee, smoothies, juices, and more. A wide mouth opening makes filling, cleaning, and adding ice or fruit refreshingly easy. The smooth glass surface and bamboo lid offer prime space for custom logos or laser engraving, turning every sip into a brand moment. Reusable, eye catching, and ready to impress. Hand wash only. Not dishwasher safe. Size: 5 9/10&quot;H x 3 7/100&quot;Dia. Imprint Area: 2 1/2&quot;W x 4&quot;H",
+      "category_paths": [
+        "Home > Drinkware",
+        "Home > Drinkware > Glassware",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "straw",
+      "geiger_url": "/p/18-oz-danville-can-glass-w-bamboo-lid-and-straw-529675?pid=463732"
+    },
+    {
+      "sku": "529676",
+      "name": "21 oz Rawlins Glass Bottle w/ Bamboo Lid",
+      "brand": null,
+      "low_price": 9.25,
+      "high_price": 11.1,
+      "msrp": 11.1,
+      "min_qty": 25,
+      "imageUrl": "https://imgsirv.geiger.com/master/129676/web/129676_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Clean lines. Cool sips. The Rawlins 21 oz Glass Bottle with Bamboo Lid is where everyday hydration meets elevated design. Crafted from thick, durable glass, it’s built for the long haul while keeping your drink front and center. The vertical ribbed pattern sits on the inside for a premium look and added grip, while the smooth outer surface stays flat and print friendly, making your logo pop. Up top, the sturdy bamboo lid features a silicone carrier loop that’s easy to grab and go. The bamboo surface is ideal for digital or laser engraving, creating a seamless match with artwork on the bottle. Finished with stylish lid color options, this bottle turns simple refreshment into a polished brand statement Hand wash only. Not dishwasher safe. Size: 9 9/20&quot;H x 2 19/25&quot;D Imprint Area: 1&quot;Dia.",
+      "category_paths": [
+        "Home > Drinkware",
+        "Home > Drinkware > Glassware",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "bottle",
+      "geiger_url": "/p/21-oz-rawlins-glass-bottle-w-bamboo-lid-529676?pid=463711"
+    },
+    {
+      "sku": "529670",
+      "name": "Cool Factor Power Fan Stand",
+      "brand": null,
+      "low_price": 12.49,
+      "high_price": 14.98,
+      "msrp": 14.98,
+      "min_qty": 25,
+      "imageUrl": "https://imgsirv.geiger.com/master/129670/web/129670_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Keep cool, charged, and ready to roll with the Cool Factor Power Fan Stand. This all-in-one design delivers three adjustable airflow speeds and a 180° foldable, flexible build that makes it easy to find the right angle whether you’re at your desk or on the go. The 3000mAh rechargeable lithium battery provides 4 to 6 hours of use on a single charge, while the integrated phone holder and desktop stand add everyday convenience. It also features a power bank function for charging your devices, plus a hands-free, neck-wearable design that makes staying cool feel effortless. This item contains Lithium Ion Batteries. Certain freight methods may not be available, longer shipping times may apply. Size: 3 3/20&quot;W x 6 49/100&quot;H Imprint Area: 1 7/20&quot;Dia.",
+      "category_paths": [
+        "Home > Home & Auto",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "stand",
+      "geiger_url": "/p/cool-factor-power-fan-stand-529670?pid=463696"
+    },
+    {
+      "sku": "529669",
+      "name": "Dual Flow Turbo Neck Fan",
+      "brand": null,
+      "low_price": 13.79,
+      "high_price": 16.54,
+      "msrp": 16.54,
+      "min_qty": 25,
+      "imageUrl": "https://imgsirv.geiger.com/master/129669/web/129669_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Stay cool in motion with the Dual Flow Turbo Neck Fan, a hands-free cooling solution designed for comfort and performance. Its high-speed turbo motor reaches up to 8800 RPM and delivers powerful 720° airflow circulation for all-around relief. The sleek bladeless design adds safety and efficiency, while ultra-quiet operation as low as 20 dB keeps distractions to a minimum. A 1500mAh rechargeable battery provides cordless convenience and up to 6 hours of continuous runtime, and the integrated digital display lets you check speed and battery levels at a glance. This item contains Lithium Ion Batteries. Certain freight methods may not be available, longer shipping times may apply. Size: 7 1/2&quot;W x 2 2/5&quot;H x 7 9/10&quot;D Imprint Area: 1 7/20&quot;Dia (right side)",
+      "category_paths": [
+        "Home > Home & Auto",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "fan",
+      "geiger_url": "/p/dual-flow-turbo-neck-fan-529669?pid=463686"
+    },
+    {
+      "sku": "529668",
+      "name": "Mini Tote Keytag",
+      "brand": null,
+      "low_price": 3.25,
+      "high_price": 3.9,
+      "msrp": 3.9,
+      "min_qty": 100,
+      "imageUrl": "https://imgsirv.geiger.com/master/129668/web/129668_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "A scaled-down take on the classic tote, designed to carry everyday essentials in a compact, grab-and-go format. Zippered closure and structured shape keep contents secure and easy to access on the move. Dual attachment options with split ring and swivel clasp for quick clip-on to bags, keys, or belt loops. Sized for the small things people reach for most like earbuds, cards, cash, lip balm, and ID. Taps into the bag charm trend with real function, making it an easy add-on item for retail, events, or gifting. Size: 4 3/4&quot;W x 3 1/2&quot;H x 1 1/4&quot;D Imprint Area: 1 1/4&quot;W x 1 1/2&quot;H",
+      "category_paths": [
+        "Home > Home & Auto",
+        "Home > Home & Auto > Keychains",
+        "Home > Home & Auto > Keychains > Key Tags",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "keytag",
+      "geiger_url": "/p/mini-tote-keytag-529668?pid=463679"
+    },
+    {
+      "sku": "529667",
+      "name": "Auto Owners Manual Holder- Large",
+      "brand": null,
+      "low_price": 1.58,
+      "high_price": 1.9,
+      "msrp": 1.9,
+      "min_qty": 250,
+      "imageUrl": "https://imgsirv.geiger.com/master/129667/web/129667_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Constructed with flexible vinyl. Single pocket design with flap. 2 business card pockets on the flap. Easy to store important auto documents. The Auto Owners Manual Holder fits perfectly into glove boxes! Fold over flap closure. Ample room for proof of insurance, maintenance records, auto manuals and more! Made in the U.S.A. Size: 11&quot;W x 8&quot;H Imprint Area: 15 3/4&quot;W x 4 2/5&quot;H",
+      "category_paths": [
+        "Home > Office & Technology",
+        "Home > Office & Technology > Binders & Document Holders",
+        "Home > Shop By > Made in the USA",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "holder",
+      "geiger_url": "/p/auto-owners-manual-holder-large-529667?pid=463660"
+    },
+    {
+      "sku": "529645",
+      "name": "Case Logic ERA 16&quot; Computer Backpack",
+      "brand": null,
+      "low_price": 63.29,
+      "high_price": 75.94,
+      "msrp": 75.94,
+      "min_qty": 12,
+      "imageUrl": "https://imgsirv.geiger.com/master/129645/web/129645_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "The Case Logic ERA is a 16'' PolyCanvas laptop backpack with a spacious main compartment that features a thickly-padded storage sleeve for laptops up to 16'', plus a dedicated slip pocket for tablets up to 10.5''. It also contains an additional storage compartment with an organizer panel, two side pockets designed for water bottles, and a quick-access front pocket for your small electronics and go-to items. The Case Logic ERA 16'' Computer Backpack has a luggage strap that securely attaches to almost any rolling suitcase, ideal for airports and travel. With heathered material, copper touch-points, and stylish trim details, this durable bag has a modern, professional look. Size: 11&quot;W x 18&quot;H x 6&quot;D Imprint Area: 5&quot;W x 5&quot;H",
+      "category_paths": [
+        "Home > Bags & Totes",
+        "Home > Bags & Totes > Laptop Bags & Sleeves",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "backpack",
+      "geiger_url": "/p/case-logic-era-16-computer-backpack-529645?pid=463650"
+    },
+    {
+      "sku": "529644",
+      "name": "High Sierra Forester RPET 22&quot; Duffle Bag",
+      "brand": "High Sierra",
+      "low_price": 60.39,
+      "high_price": 72.46,
+      "msrp": 72.46,
+      "min_qty": 12,
+      "imageUrl": "https://imgsirv.geiger.com/master/129644/web/129644_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "The High Sierra Forester RPET 22'' Duffle is designed for all casual travel needs. This duffle features a roomy single compartment design with large U-shaped opening for easy access. The front stash pocket and exterior pockets with organization add extra storage for your must-have items. This duffle is made from water resistant fabric and features a wipe clean interior. Carry using the top grab handles or the adjustable, padded shoulder strap. Size: 22 1/2&quot;W x 15&quot;H x 13&quot;D Imprint Area: 5&quot;W x 4&quot;H",
+      "category_paths": [
+        "Home > Bags & Totes",
+        "Home > Bags & Totes > Duffle & Gym Bags",
+        "Home > Shop By > Brand Names",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "bag",
+      "geiger_url": "/p/high-sierra-forester-rpet-22-duffle-bag-529644?pid=463641"
+    },
+    {
+      "sku": "529643",
+      "name": "Excursion Recycled 20 Can Backpack Cooler",
+      "brand": null,
+      "low_price": 15.22,
+      "high_price": 18.26,
+      "msrp": 18.26,
+      "min_qty": 25,
+      "imageUrl": "https://imgsirv.geiger.com/master/129643/web/129643_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "The Excursion Recycled Backpack Cooler is made from RPET. This backpack cooler features a large PEVA lined, zippered main compartment that's perfect for taking with you on a hike or picnic. The mesh side pocket makes carrying your water bottle an ease. Store essentials in the front zippered pocket. Get the perfect fit with the adjustable, padded shoulder straps. Padded shoulder straps. Waterproof white PEVA lining. Sturdy carry handle. Fits up to 20 cans. Through a partnership with 1% For The Planet one percent of sales of this and all EcoSmart products will be donated to nonprofits dedicated to protecting the planet. Size: 10&quot;W x 13&quot;H x 6 1/4&quot;D Imprint Area: 5&quot;W x 3 1/2&quot;H",
+      "category_paths": [
+        "Home > Bags & Totes",
+        "Home > Bags & Totes > Lunch Bags & Cooler Bags",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "cooler",
+      "geiger_url": "/p/excursion-recycled-20-can-backpack-cooler-529643?pid=463632"
+    },
+    {
+      "sku": "529642",
+      "name": "Fontaine Recycled Tote",
+      "brand": null,
+      "low_price": 14.99,
+      "high_price": 17.98,
+      "msrp": 17.98,
+      "min_qty": 40,
+      "imageUrl": "https://imgsirv.geiger.com/master/129642/web/129642_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Sleek and sophisticated, the Fontaine Recycled Tote offers a refined look for work, travel, or daily use. Made from durable 100% RPET fabric, it combines sustainability with timeless style. Recycled faux leather accents elevate the design, while the zippered main compartment and internal zippered pocket help keep essentials secure and organized. With its lightweight structure and 10.5&quot; drop handles for comfortable carrying, this tote is the perfect blend of form and function. Internal zippered pocket: 7&quot;W x 6&quot;H – Ideal for storing valuables. 10.5&quot; drop handles – Comfortable to carry over the shoulder or by hand. By choosing this product, you’re supporting environmental nonprofits through a partnership with 1% For The Planet. Size: 18&quot;W x 11 1/2&quot;H x 7&quot;D Imprint Area: 5&quot;W x 6&quot;H",
+      "category_paths": [
+        "Home > Bags & Totes",
+        "Home > Bags & Totes > Tote Bags",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "tote",
+      "geiger_url": "/p/fontaine-recycled-tote-529642?pid=463623"
+    },
+    {
+      "sku": "529641",
+      "name": "Wander &amp; Roam Packable Travel Tote",
+      "brand": null,
+      "low_price": 19.99,
+      "high_price": 23.98,
+      "msrp": 23.98,
+      "min_qty": 20,
+      "imageUrl": "https://imgsirv.geiger.com/master/129641/web/129641_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Lightweight and versatile, the Wander &amp; Roam Packable Travel Tote is designed to go anywhere. Made from 100% recycled rPET ripstop, it’s durable yet easily folds into its own internal pocket for compact storage when not in use. The spacious zippered main compartment and multiple pockets—including a front pocket and two side pockets—offer plenty of room for travel, shopping, or everyday essentials. A trolley sleeve adds convenience for airport travel, while the pop of blue on the zipper pulls brings a subtle touch of style. With sturdy 11.5&quot; drop handles, this tote is the perfect extra bag to keep on hand for any adventure. Packable design – Folds into its own internal pocket (folded size: 8 1/4&quot; x 8&quot;). Zippered front pocket and two side pockets – Keep small items organized and accessible. Trolley sleeve – Attaches easily to rolling luggage for travel convenience. Pop-of-color zipper pulls – Add a distinctive Wander &amp; Roam touch. Comfortable to carry by hand or over the shoulder. By choosing this product, you’re supporting environmental nonprofits through a partnership with 1% For The Planet. Size: 18 1/2&quot;W x 15 1/2&quot;H x 8&quot;D Imprint Area: 5&quot;W x 5&quot;H",
+      "category_paths": [
+        "Home > Bags & Totes",
+        "Home > Bags & Totes > Tote Bags",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "tote",
+      "geiger_url": "/p/wander-roam-packable-travel-tote-529641?pid=463614"
+    },
+    {
+      "sku": "529640",
+      "name": "Westover Premium Market Tote",
+      "brand": null,
+      "low_price": 10.64,
+      "high_price": 12.76,
+      "msrp": 12.76,
+      "min_qty": 50,
+      "imageUrl": "https://imgsirv.geiger.com/master/129640/web/129640_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "The Westover Premium Market Tote is perfect for your local farmer's market. This tote features an open main compartment and genuine leather accents. Size: 16&quot;W x 14&quot;H x 7 1/2&quot;D Imprint Area: 8&quot;W x 5&quot;H",
+      "category_paths": [
+        "Home > Bags & Totes",
+        "Home > Bags & Totes > Tote Bags",
+        "Home > Bags & Totes > Tote Bags > Jute Tote Bags",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "tote",
+      "geiger_url": "/p/westover-premium-market-tote-529640?pid=463605"
+    },
+    {
+      "sku": "529639",
+      "name": "ETL Listed 20W Wall Charger with Retractable Cable",
+      "brand": null,
+      "low_price": 17.99,
+      "high_price": 21.58,
+      "msrp": 21.58,
+      "min_qty": 20,
+      "imageUrl": "https://imgsirv.geiger.com/master/129639/web/129639_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "The ETL Listed 20W Wall Charger with Retractable Cable is a compact, reliable power solution for fast, efficient charging. Designed with foldable AC prongs for portability, this charger features a USB-A output port and a 27-inch retractable cable with a Type-C output tip. With a maximum output of 18W from USB-A and 20W from Type-C, it provides quick and dependable power for smartphones, tablets, and other devices. ETL certification ensures quality and safety, making it the perfect choice for home, office, or travel. Size: 1 9/10&quot;W x 1 19/50&quot;H x 2 1/10&quot;D Imprint Area: 1 3/4&quot;W x 1 3/4&quot;H",
+      "category_paths": [
+        "Home > Office & Technology",
+        "Home > Office & Technology > Tech Accessories",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "charger",
+      "geiger_url": "/p/etl-listed-20w-wall-charger-with-retractable-cable-529639?pid=463596"
+    },
+    {
+      "sku": "529666",
+      "name": "Men's Bulwark Flame Resistant Excel Work Shirt",
+      "brand": "Bulwark",
+      "low_price": 106.67,
+      "high_price": 130.74,
+      "msrp": 130.74,
+      "min_qty": 3,
+      "imageUrl": "https://imgsirv.geiger.com/master/129666/web/129666_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "EXCEL FR Flame-resistant. Two-piece, lined collar. Two chest pockets with button flap closures and sewn-in pencil stall. Hemmed front with button closure. One-piece lined cuff with button closure. Sleeve vent. Care industrial laundry - heavy soil, industrial laundry - light soil, home wash. Size: S-3XL Imprint Area: 4&quot;W x 4&quot;H",
+      "category_paths": [
+        "Home > Apparel",
+        "Home > Apparel > Workwear",
+        "Home > Shop By > Brand Names",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "shirt",
+      "geiger_url": "/p/mens-bulwark-flame-resistant-excel-work-shirt-529666?pid=463586"
+    },
+    {
+      "sku": "529665",
+      "name": "Men's Bulwark FR Lightweight Pocket T-Shirt",
+      "brand": "Bulwark",
+      "low_price": 87.32,
+      "high_price": 110.36,
+      "msrp": 110.36,
+      "min_qty": 3,
+      "imageUrl": "https://imgsirv.geiger.com/master/129665/web/129665_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Flame-resistant. Crewneck, rib knit collar and cuffs. Single spade chest pocket. Lightweight. Home wash. Size: S-5XL Imprint Area: 4&quot;W x 4&quot;H",
+      "category_paths": [
+        "Home > Apparel",
+        "Home > Apparel > T-Shirts",
+        "Home > Shop By > Brand Names",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "tshirt",
+      "geiger_url": "/p/mens-bulwark-fr-lightweight-pocket-t-shirt-529665?pid=463579"
+    },
+    {
+      "sku": "529638",
+      "name": "mophie® Power Boost 20,000 mAh Power Bank with USB-C Port",
+      "brand": "Mophie",
+      "low_price": 69.99,
+      "high_price": 83.98,
+      "msrp": 83.98,
+      "min_qty": 15,
+      "imageUrl": "https://imgsirv.geiger.com/master/129638/web/129638_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "The mophie Power Boost 20,000 mAh Power Bank delivers high-capacity portable power for extended use. Featuring a 20,000 mAh / 74Wh rechargeable lithium polymer battery, it can charge up to three devices simultaneously through one USB-C output port and two USB-A output ports. Ideal for travel, workdays, or long weekends, it keeps multiple devices powered when outlets aren’t available. A USB-A-to-Type-C cable is included, and the power bank comes packaged in a premium gift box for a polished presentation. Please charge the power bank before initial use. Compact, travel-ready design – Ideal for charging on the go. 20,000 mAh – Provides up to 4 charges for standard smartphones. Note: Power banks are permitted in carry-on luggage only and are subject to TSA discretion. This item contains Lithium Ion Batteries. Certain freight methods may not be available, longer shipping times may apply. Size: 3&quot;W x 6 1/4&quot;H x 3/4&quot;D Imprint Area: 1 49/50&quot;W x 5 9/10&quot;H",
+      "category_paths": [
+        "Home > Office & Technology",
+        "Home > Office & Technology > Tech Accessories",
+        "Home > Office & Technology > Tech Accessories > Chargers & Power Banks",
+        "Home > Shop By > Brand Names",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "bank",
+      "geiger_url": "/p/mophie-power-boost-20000-mah-power-bank-with-usb-c-port-529638?pid=463570"
+    },
+    {
+      "sku": "529637",
+      "name": "My Jolt 2000 mAh Power Bank with Integrated Cables",
+      "brand": null,
+      "low_price": 10.99,
+      "high_price": 13.18,
+      "msrp": 13.18,
+      "min_qty": 40,
+      "imageUrl": "https://imgsirv.geiger.com/master/129637/web/129637_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "The My Jolt 2000 mAh Power Bank is a compact and practical charging solution designed for life on the go. Equipped with a 2,000 mAh / 7.4Wh rechargeable lithium-ion battery, it features integrated Type-C and iOS cables compatible with iPhone models 5 through 14. Both the Type-C input and output support 5V/1A (10W), making it ideal for quickly charging smartphones and other small devices. The power bank can be recharged using the same Type-C cable, eliminating the need for extra cords. A built-in keychain allows for easy attachment to your keys, bag, or backpack for convenient portability. Note: Power banks are permitted in carry-on luggage only and are subject to TSA discretion. Please charge before initial use. This item contains Lithium Ion Batteries. Certain freight methods may not be available, longer shipping times may apply. Size: 1 17/20&quot;W x 3 1/2&quot;H x 1/2&quot;D Imprint Area: 1 1/2&quot;W x 1 3/4&quot;H",
+      "category_paths": [
+        "Home > Office & Technology",
+        "Home > Office & Technology > Tech Accessories",
+        "Home > Office & Technology > Tech Accessories > Chargers & Power Banks",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "bank",
+      "geiger_url": "/p/my-jolt-2000-mah-power-bank-with-integrated-cables-529637?pid=463561"
+    },
+    {
+      "sku": "529636",
+      "name": "PWR Boost 10000 mAh 20W PD Power Bank w/ Cables",
+      "brand": null,
+      "low_price": 27.29,
+      "high_price": 32.74,
+      "msrp": 32.74,
+      "min_qty": 20,
+      "imageUrl": "https://imgsirv.geiger.com/master/129636/web/129636_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "The PWR Boost 10,000 mAh 20W PD Power Bank with Cables is a high-capacity, all-in-one charging solution for multiple devices. Equipped with a 37Wh rechargeable lithium polymer battery, it supports Power Delivery (PD) fast charging and features a digital power display for real-time battery status. With a variety of output options—including two integrated charging cables, two USB-A output ports, and Type-C and Micro-USB input ports—this power bank offers exceptional flexibility for modern tech users. One integrated cable includes a Type-C tip for both input and output (up to 20W), while the other features a 2-in-1 tip compatible with iPhone 14 and below as well as Android devices (up to 10W). The power bank can be recharged via the built-in Type-C cable or with your own Type-C or Micro-USB cable. Whether commuting, traveling, or simply on the go, this unit is designed to keep your devices powered and your cables organized. Type-C Input Port &amp; Micro Input Port: 5V/3A, 9V/2A, 12V/1.5A (18W max); USB-A Output Port 1: 5V/3A, 9V/2A, 10V/2.25A, 12V/1.5A (18W max); USB-A Output Port 2: 5V/3A (18W max). Power banks are permitted in carry-on luggage only and at the discretion of TSA agents. Please charge the power bank before initial use. Multiple charging methods – Charge up to 4 devices simultaneously. Compact and travel-ready – Includes built-in cables, no need to pack extras. This item contains Lithium Ion Batteries. Certain freight methods may not be available, longer shipping times may apply. Size: 3&quot;W x 4/5&quot;H x 3 23/50&quot;D Imprint Area: 2 2/5&quot;W x 1 13/20&quot;H",
+      "category_paths": [
+        "Home > Office & Technology",
+        "Home > Office & Technology > Tech Accessories",
+        "Home > Office & Technology > Tech Accessories > Chargers & Power Banks",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "bank",
+      "geiger_url": "/p/pwr-boost-10000-mah-20w-pd-power-bank-w-cables-529636?pid=463552"
+    },
+    {
+      "sku": "529635",
+      "name": "13 oz Libbey Glass Coffee Mug",
+      "brand": null,
+      "low_price": 4.89,
+      "high_price": 5.86,
+      "msrp": 5.86,
+      "min_qty": 48,
+      "imageUrl": "https://imgsirv.geiger.com/master/129635/web/129635_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "The 13 oz Libbey Glass Coffee Mug adds clarity and class to every morning routine. Whether you’re sipping on freshly brewed coffee, steeped tea, or a cozy latte, this mug delivers a sleek, tapered silhouette that elevates the everyday. Crafted from crystal-clear glass, it showcases your favorite hot beverages beautifully, making it a great choice for both casual mornings and entertaining guests. This mug blends timeless design with durable construction—perfect for daily use at home or in the office. Made from durable glass – Ideal for everyday or guest use. Hand wash. Size: 4 3/4&quot;W x 3 3/4&quot;H Imprint Area: 2 43/100&quot;W x 2&quot;H (handle right)",
+      "category_paths": [
+        "Home > Drinkware",
+        "Home > Drinkware > Glassware",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "mug",
+      "geiger_url": "/p/13-oz-libbey-glass-coffee-mug-529635?pid=463542"
+    },
+    {
+      "sku": "529634",
+      "name": "14 oz Valhalla Copper Vacuum Insulated Camp Mug",
+      "brand": null,
+      "low_price": 21.99,
+      "high_price": 26.38,
+      "msrp": 26.38,
+      "min_qty": 24,
+      "imageUrl": "https://imgsirv.geiger.com/master/129634/web/129634_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "The 14 oz Valhalla Copper Vacuum Insulated Camp Mug combines a classic camp mug design with a stylish and functional skid-proof synthetic cork base. Its durable double-wall stainless steel vacuum construction with copper insulation, allows your beverage to stay cold for up to 24 hours and at hot for up to 8 hours. The construction also prevents condensation on the outside of the piece. On-trend, durable powder coating. Its transparent push-on lid features a slide closure. Cork color on lid slider &amp; bottom base varies because of its natural feature. Size: 4 1/2&quot;W x 5 1/2&quot;H x 3 7/20&quot;D Imprint Area: 2 11/25&quot;W x 2 1/2&quot;H (handle right)",
+      "category_paths": [
+        "Home > Drinkware",
+        "Home > Drinkware > Coffee Mugs",
+        "Home > Drinkware > Coffee Mugs > Camp Mugs",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "mug",
+      "geiger_url": "/p/14-oz-valhalla-copper-vacuum-insulated-camp-mug-529634?pid=463534"
+    },
+    {
+      "sku": "529633",
+      "name": "Silicone Hat Clip with Ball Marker",
+      "brand": null,
+      "low_price": 4.19,
+      "high_price": 5.02,
+      "msrp": 5.02,
+      "min_qty": 100,
+      "imageUrl": "https://imgsirv.geiger.com/master/129633/web/129633_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "The Silicone Hat Clip with Ball Marker keeps your essentials close while freeing up your pockets. Designed to securely attach to the brim of a hat, this clip features a removable ball marker that’s easy to access during your round. The soft silicone construction provides flexibility and comfort without damaging your hat. Compact, lightweight, and convenient—it's a simple yet functional accessory every golfer can appreciate. Stays securely in place without damaging hat fabric. Compact and lightweight – Won’t add bulk or weight to your gear. Convenient hands-free carry – Frees up pockets and keeps ball marker visible. Great for tournaments or golf giveaways – Practical and easy to brand. Size: 1 4/25&quot;W x 1 3/5&quot;H x 3/10&quot;D Imprint Area: 41/50&quot;Dia.",
+      "category_paths": [
+        "Home > Sports & Outdoor",
+        "Home > Sports & Outdoor > Golf",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "clip",
+      "geiger_url": "/p/silicone-hat-clip-with-ball-marker-529633?pid=463523"
+    },
+    {
+      "sku": "529632",
+      "name": "100% FSC® Bamboo Golf Brush",
+      "brand": null,
+      "low_price": 8.29,
+      "high_price": 9.94,
+      "msrp": 9.94,
+      "min_qty": 50,
+      "imageUrl": "https://imgsirv.geiger.com/master/129632/web/129632_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "This Bamboo Golf Brush combines function and sustainability in a compact, stylish tool that’s essential for any golfer. Crafted from FSC-certified bamboo, this brush offers a refined look while delivering reliable cleaning performance. The durable bristles effectively remove dirt and debris from club faces and grooves to help maintain spin and accuracy. A built-in clip attachment allows for easy access by securing the brush to your golf bag or belt loop. Compact and lightweight – Easy to carry without adding bulk to your gear. Great for tournaments and gifting – A thoughtful, eco-conscious golf accessory. Thoughtfully designed for on-the-course convenience, this brush also gives back—1% of sales are donated to environmental nonprofits through a partnership with 1% For The Planet. Size: 4/5&quot;W x 7 1/5&quot;H x 3/5&quot;D Imprint Area: 4 2/5&quot;W x 9/20&quot;H (handle right, brush down)",
+      "category_paths": [
+        "Home > Sports & Outdoor",
+        "Home > Sports & Outdoor > Golf",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "brush",
+      "geiger_url": "/p/100-fsc-bamboo-golf-brush-529632?pid=463513"
+    },
+    {
+      "sku": "529631",
+      "name": "Hang On Suction Phone Case Mount with Magnets",
+      "brand": null,
+      "low_price": 4.99,
+      "high_price": 5.98,
+      "msrp": 5.98,
+      "min_qty": 96,
+      "imageUrl": "https://imgsirv.geiger.com/master/129631/web/129631_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "The Hang On Suction Phone Case Mount with Magnets offers two convenient ways to keep your phone in view. One side features suction cups that securely attach to smooth, non-porous surfaces such as mirrors, glass, or treadmill screens, while the other side includes built-in magnets that connect to any MagSafe-compatible phone (iPhone 12 or newer) or metal surface. Attach it to your phone for hands-free viewing or use it on a refrigerator, tailgate, or gym equipment to keep your device within easy reach. Compact and versatile, it’s the ultimate accessory for home, travel, or workouts. Size: 2 2/3&quot;W x 3 17/20&quot;H x 3/10&quot;D Imprint Area: 1&quot;W x 3/4&quot;H",
+      "category_paths": [
+        "Home > Office & Technology",
+        "Home > Office & Technology > Desk Accessories",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "mount",
+      "geiger_url": "/p/hang-on-suction-phone-case-mount-with-magnets-529631?pid=463505"
+    },
+    {
+      "sku": "529630",
+      "name": "elleven™ Zenith Recycled 18&quot; Laptop Duffle Bag",
+      "brand": null,
+      "low_price": 47.99,
+      "high_price": 57.58,
+      "msrp": 57.58,
+      "min_qty": 10,
+      "imageUrl": "https://imgsirv.geiger.com/master/129630/web/129630_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "The Elleven Zenith Recycled 18&quot; Laptop Duffle Bag is a premium travel companion designed with organization, function, and sustainability in mind. Made with recycled materials, this versatile duffle features a padded laptop compartment for laptops up to 18-inches, a trolley sleeve, and multiple storage zones to keep everything in place. The front includes a large zippered pocket with built-in organization, plus a secondary pocket on the left side ideal for water bottles or other quick-access items. A dedicated shoe compartment keeps footwear separate from clean gear, making this the perfect all-in-one solution for work trips or weekend getaways. Light padding throughout – Offers extra protection and structure without added weight. Durable webbed handles – Comfortable to carry by hand or over the shoulder. Adjustable, removable shoulder strap – Wear crossbody or over-the-shoulder with padded comfort. Modern matte hardware and tonal branding – Delivers a polished, understated look for any setting. By choosing this duffle, you're making a positive impact on the environment through a partnership with 1% For The Planet, as a portion of each sale supports environmental nonprofits. Size: 17 1/2&quot;W x 11 3/4&quot;H x 10&quot;D Imprint Area: 6&quot;W x 6&quot;H",
+      "category_paths": [
+        "Home > Bags & Totes",
+        "Home > Bags & Totes > Duffle & Gym Bags",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "bag",
+      "geiger_url": "/p/elleven-zenith-recycled-18-laptop-duffle-bag-529630?pid=463494"
+    },
+    {
+      "sku": "529629",
+      "name": "Graphite 21 Inch Weekender Duffle Bag with Side Shoe Pocket",
+      "brand": null,
+      "low_price": 25.59,
+      "high_price": 30.7,
+      "msrp": 30.7,
+      "min_qty": 12,
+      "imageUrl": "https://imgsirv.geiger.com/master/129629/web/129629_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "The Graphite 21&quot; Weekender Duffel Bag includes a large u-shaped opening for easy loading and unpacking. This custom duffel bag includes a removable adjustable shoulder strap for easy carrying. The Graphite 21&quot; Weekender Duffel Bag provides ample space for all your items with an additional side pocket and front zippered pocket with signature Graphite patch. Size: 21 1/2&quot;W x 10&quot;H x 9 1/2&quot;D Imprint Area: 5&quot;W x 5&quot;H",
+      "category_paths": [
+        "Home > Bags & Totes",
+        "Home > Bags & Totes > Duffle & Gym Bags",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "bag",
+      "geiger_url": "/p/graphite-21-inch-weekender-duffle-bag-with-side-shoe-pocket-529629?pid=463485"
+    },
+    {
+      "sku": "529628",
+      "name": "Thule Lithos Backpack 20L",
+      "brand": "Thule",
+      "low_price": 97.49,
+      "high_price": 116.98,
+      "msrp": 116.98,
+      "min_qty": 6,
+      "imageUrl": "https://imgsirv.geiger.com/master/129628/web/129628_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "A stylish backpack with plenty of organization for commuting to campus or navigating through town. Elevated padded pocket safeguards a 16&quot; MacBook or 15.6&quot; PC. A dedicated slip pocket protects up to a 10.5&quot; tablet. Front pocket organization panel allows you to quickly access a phone, pens, keys, and other small accessories. Zippered interior mesh pocket allows you to locate accessories easily. Side pockets provide easy access to your water bottles or other smaller items. Padded back panel and shoulder straps create a comfortable carry. Exterior back panel stash pocket allows for quick access of smaller items. Lash points on the front panel allow you to easily attach extra gear. Strap management system secures excess any access shoulder strap webbing. Thule Group is committed to sustainability and positive developments in the sports and outdoor industry. As such, Thule is a proud member or partner of various organizations that work towards these goals through a range of initiatives. Thule is dedicated to sustainable textile production and is proud to be a partner in the bluesign system, which sets a global standard for this important industry. Size: 8 3/10&quot;W x 17 3/10&quot;H x 11&quot;D Imprint Area: 5&quot;W x 4&quot;H",
+      "category_paths": [
+        "Home > Bags & Totes",
+        "Home > Bags & Totes > Backpacks",
+        "Home > Shop By > Brand Names",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "20l",
+      "geiger_url": "/p/thule-lithos-backpack-20l-529628?pid=463397"
+    },
+    {
+      "sku": "529627",
+      "name": "Jansport Clear Backpack",
+      "brand": "Jansport",
+      "low_price": 64.15,
+      "high_price": 76.98,
+      "msrp": 76.98,
+      "min_qty": 9,
+      "imageUrl": "https://imgsirv.geiger.com/master/129627/web/129627_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "The JanSport Clear Backpack offers effortless visibility and organization for your gear. Store larger items in the spacious main compartment and smaller essentials in the front zippered pocket. A side water bottle pocket and adjustable shoulder straps provide convenience and comfort, making it perfect for school, events, or everyday use. Abrasion resistant mesh bottom panel. Reinforced haul handle. External binding for extra reinforcement. Size: 12 1/5&quot;W x 17 3/10&quot;H x 5 1/2&quot;D Imprint Area: 5&quot;W x 2 1/2&quot;H",
+      "category_paths": [
+        "Home > Bags & Totes",
+        "Home > Bags & Totes > Backpacks",
+        "Home > Shop By > Brand Names",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "backpack",
+      "geiger_url": "/p/jansport-clear-backpack-529627?pid=463387"
+    },
+    {
+      "sku": "529626",
+      "name": "Wander &amp; Roam Travel Backpack",
+      "brand": null,
+      "low_price": 48.99,
+      "high_price": 58.78,
+      "msrp": 58.78,
+      "min_qty": 9,
+      "imageUrl": "https://imgsirv.geiger.com/master/129626/web/129626_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Adventure looks different for everyone, and the Wander &amp; Roam Travel Backpack is built to adapt to yours. Thoughtfully designed to make travel effortless, it features a flat-opening main compartment that packs like a suitcase and a padded laptop sleeve to protect your tech on the move. Interior pockets keep clothes and accessories organized, while the front organization panel with a key fob keeps smaller essentials within reach. Side and top grab handles offer multiple ways to carry, and a trolley sleeve makes airport navigation simple. From weekend getaways to long-haul adventures, this backpack keeps you ready to roam. Made from RPET 300D – Durable and lightweight recycled fabric. By choosing this product, you’re supporting environmental nonprofits through a partnership with 1% For The Planet. With one percent of this eco-product purchase being donated to environmental nonprofits, you're helping the planet in more ways than one. Size: 13&quot;W x 18&quot;H x 7 1/2&quot;D Imprint Area: 5&quot;W x 5&quot;H (front pocket)",
+      "category_paths": [
+        "Home > Bags & Totes",
+        "Home > Bags & Totes > Backpacks",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "backpack",
+      "geiger_url": "/p/wander-roam-travel-backpack-529626?pid=463380"
+    },
+    {
+      "sku": "529646",
+      "name": "Unisex Kishigo EV Series® Enhanced Visibility Multi-Pocket Mesh Vest",
+      "brand": "Kishigo",
+      "low_price": 42.59,
+      "high_price": 56.68,
+      "msrp": 56.68,
+      "min_qty": 3,
+      "imageUrl": "https://imgsirv.geiger.com/master/129646/web/129646_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "100% polyester mesh. Plastic zipper front closure reinforced with durable webbing. 2” wide high-performance reflective material with 3” high-visibility contrasting lime. Left and right mic tabs. 2 lapel grommets. 2 lower outside cargo pockets with adjustable flaps. Right chest 2-tier pencil pockets. Left chest radio pocket &amp; clear ID pocket with flap. 2 inside patch pockets. Fabric dye lot variances may occur and meet luminance factor as stated in the standard. Size: S/M; L/XL; 2XL/3XL; 4XL/5XL Imprint Area: 4&quot;W x 4&quot;H (back)",
+      "category_paths": [
+        "Home > Apparel",
+        "Home > Apparel > Outerwear",
+        "Home > Apparel > Outerwear > Vests",
+        "Home > Shop By > Brand Names",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "vest",
+      "geiger_url": "/p/unisex-kishigo-ev-series-enhanced-visibility-multi-pocket-mesh-vest-529646?pid=463366"
+    },
+    {
+      "sku": "529647",
+      "name": "Unisex Kishigo Premium Black Series® Black Bottom Class 2 Vest",
+      "brand": "Kishigo",
+      "low_price": 57.77,
+      "high_price": 72.06,
+      "msrp": 72.06,
+      "min_qty": 3,
+      "imageUrl": "https://imgsirv.geiger.com/master/129647/web/129647_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Ultra-Cool 100% polyester mesh with heavy-duty black trim bottom. Plastic zipper front closure with durable webbing reinforcement. 2” wide high-performance reflective material with 3” breathable contrast-color. Reflective trim around arms &amp; piping down sides and along utility pocket for added low light visibility. Left and right chest mic tabs. Two lower outside heavy-duty expandable cargo pockets with adjustable flaps and grommets. Right chest 2-tier, 4-division pencil pocket. Left chest heavy-duty gusseted radio/utility pocket with reflective piping. Inside lower left heavy-duty tablet (iPad) pocket with load-bearing strap. Inside lower right patch pocket. Fabric dye lot variances may occur and meet luminance factor as stated in the standard. Size: M-5XL Imprint Area: 4&quot;W x 4&quot;H (left chest)",
+      "category_paths": [
+        "Home > Apparel",
+        "Home > Apparel > Outerwear",
+        "Home > Apparel > Outerwear > Vests",
+        "Home > Shop By > Brand Names",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "vest",
+      "geiger_url": "/p/unisex-kishigo-premium-black-series-black-bottom-class-2-vest-529647?pid=463351"
+    },
+    {
+      "sku": "529648",
+      "name": "Unisex Kishigo Premium Black Series® Long Sleeve T-Shirt",
+      "brand": "Kishigo",
+      "low_price": 58.82,
+      "high_price": 76.16,
+      "msrp": 76.16,
+      "min_qty": 3,
+      "imageUrl": "https://imgsirv.geiger.com/master/129648/web/129648_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "100% polyester birdseye. Microfiber moisture-management fabric. 2” wide high performance breathable reflective tape significantly reduces hot spots and provides greater flexibility over solid tapes. Black sides provide visual contrast. Left chest pocket. Fabric dye lot variances may occur and meet luminance factor as stated in the standard. Size: M-5XL; 2XL-5XL additional charges will apply Imprint Area: 4&quot;W x 4&quot;H (right chest)",
+      "category_paths": [
+        "Home > Apparel",
+        "Home > Apparel > T-Shirts",
+        "Home > Shop By > Brand Names",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "tshirt",
+      "geiger_url": "/p/unisex-kishigo-premium-black-series-long-sleeve-t-shirt-529648?pid=463343"
+    },
+    {
+      "sku": "529649",
+      "name": "Men's Red Kap Industrial Short Sleeve Work Shirt",
+      "brand": "Red Kap",
+      "low_price": 37.8,
+      "high_price": 48.1,
+      "msrp": 48.1,
+      "min_qty": 3,
+      "imageUrl": "https://imgsirv.geiger.com/master/129649/web/129649_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "65/35 polyester/cotton TouchTex poplin. Soil-release. Wrinkle-resistant. Moisture-management properties. Two-piece collar with sewn-in stays. Six buttons plus gripper at neck. Two button-through, hex-style pockets with angled bartacks. Bartacked pencil stall on left pocket. Separate two-piece yoke. Size: S-3XL Imprint Area: 4&quot;W x 4&quot;H (left chest)",
+      "category_paths": [
+        "Home > Apparel",
+        "Home > Apparel > Dress Shirts",
+        "Home > Shop By > Brand Names",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "shirt",
+      "geiger_url": "/p/mens-red-kap-industrial-short-sleeve-work-shirt-529649?pid=463308"
+    },
+    {
+      "sku": "529650",
+      "name": "Men's Red Kap Industrial Long Sleeve Work Shirt",
+      "brand": "Red Kap",
+      "low_price": 39.89,
+      "high_price": 50.6,
+      "msrp": 50.6,
+      "min_qty": 3,
+      "imageUrl": "https://imgsirv.geiger.com/master/129650/web/129650_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "Soil-release. Moisture-management properties. Two-piece collar with sewn-in stays. Six buttons plus gripper at neck. Two button-through hex-style pockets with angled bartacks. Bartacked pencil stall on left pocket. Size: S-3XL Imprint Area: 4&quot;W x 4&quot;H (left chest)",
+      "category_paths": [
+        "Home > Apparel",
+        "Home > Apparel > Dress Shirts",
+        "Home > Shop By > Brand Names",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "shirt",
+      "geiger_url": "/p/mens-red-kap-industrial-long-sleeve-work-shirt-529650?pid=463282"
+    },
+    {
+      "sku": "529651",
+      "name": "Men's Red Kap Performance Knit Pocket Polo",
+      "brand": "Red Kap",
+      "low_price": 39.89,
+      "high_price": 50.6,
+      "msrp": 50.6,
+      "min_qty": 3,
+      "imageUrl": "https://imgsirv.geiger.com/master/129651/web/129651_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
+      "description": "100% polyester, pique knit. Rib knit collar. One hemmed, spade-style. Industrial wash, light soil, home wash. Superior color retention, snag resistance, and wicking. Straight bottom hem with side vents for added mobility. Size: S-6XL Imprint Area: 4&quot;W x 4&quot;H (left chest)",
+      "category_paths": [
+        "Home > Apparel",
+        "Home > Apparel > Polos & Golf Shirts",
+        "Home > Shop By > Brand Names",
+        "Home > Shop By",
+        "Home > Shop By > New Products"
+      ],
+      "badges": [
+        {
+          "tag": "new",
+          "value": "New"
+        }
+      ],
+      "is_new_item": true,
+      "is_on_sale": false,
+      "product_type_unigram": "polo",
+      "geiger_url": "/p/mens-red-kap-performance-knit-pocket-polo-529651?pid=463256"
+    },
+    {
       "sku": "529652",
-      "name": "Men's Short Sleeve Work Shirt",
+      "name": "Men's Dickies Short Sleeve Work Shirt",
       "brand": "Dickies",
       "low_price": 41.47,
       "high_price": 52.56,
@@ -144,7 +1973,7 @@
     },
     {
       "sku": "529655",
-      "name": "Men's Basic Blended Long Sleeve Coverall",
+      "name": "Men's Dickies Basic Blended Long Sleeve Coverall",
       "brand": "Dickies",
       "low_price": 78.57,
       "high_price": 97.02,
@@ -256,10 +2085,10 @@
       "sku": "529660",
       "name": "Carhartt® Rugged Flex® Rigby Cargo Pant",
       "brand": "Carhartt",
-      "low_price": 71.77,
-      "high_price": 88.86,
-      "msrp": 88.86,
-      "min_qty": 3,
+      "low_price": 67.5,
+      "high_price": 87.0,
+      "msrp": 87.0,
+      "min_qty": 6,
       "imageUrl": "https://imgsirv.geiger.com/master/129660/web/129660_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
       "description": "These cargo pants have enough flex that you can easily crouch down to fix a busted taillight. They move with you, not against you. Rugged Flex durable stretch technology for ease of movement. Sits at the waist. Comfortable fit through the seat and thigh with room to move. Left-leg cargo pocket with secure cell phone storage. Right-leg cargo pocket with utility pocket. Stronger sewn-on-seam belt loops. Heavy hauling reinforced back pockets. Hidden hook and loop closures on cargo and back pocket flaps. Straight leg opening fits over boots. Carhartt label sewn on right rear pocket. Relaxed fit. Size: 30x30-44x32 Imprint Area: 3&quot;W x 3&quot;H (front hip left)",
       "category_paths": [
@@ -284,10 +2113,10 @@
       "sku": "529661",
       "name": "Carhartt® Rugged Flex® Rigby Cargo Short",
       "brand": "Carhartt",
-      "low_price": 60.94,
-      "high_price": 75.86,
-      "msrp": 75.86,
-      "min_qty": 3,
+      "low_price": 56.67,
+      "high_price": 74.0,
+      "msrp": 74.0,
+      "min_qty": 6,
       "imageUrl": "https://imgsirv.geiger.com/master/129661/web/129661_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
       "description": "Lightweight, flexible and built to last, these shorts give you the freedom to move through your work or while doing yardwork on the weekend. Rugged Flex durable stretch technology for ease of movement. Sits at the waist. Comfortable fit through the seat and thigh with room to move. Left-leg cargo pocket with secure cell phone storage. Right-leg cargo pocket with utility pocket. Stronger sewn-on-seam belt loops. Heavy hauling reinforced back pockets. Hidden hook and loop closures on cargo and back pocket flaps. 11-inch inseam. Carhartt label sewn on right rear pocket. Relaxed fit. Size: W30-W44 Imprint Area: 3&quot;W x 3&quot;H (front hip left)",
       "category_paths": [
@@ -310,38 +2139,12 @@
       "geiger_url": "/p/carharttrugged-flexrigby-cargo-short-529661?pid=463116"
     },
     {
-      "sku": "529664",
-      "name": "Bamboo Folding Handheld Fan",
-      "brand": null,
-      "low_price": 3.21,
-      "high_price": 3.86,
-      "msrp": 3.86,
-      "min_qty": 75,
-      "imageUrl": "https://imgsirv.geiger.com/master/129664/web/129664_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
-      "description": "Elegant folding fan with frame crafted out of Bamboo. Made of heavy paper with smooth Bamboo frame ribbing. Features a large easy-view imprint area. Perfect for weddings &amp; customers in the heating/cooling industries. Size: 9&quot;W x 1&quot;H x 1/2&quot;D Imprint Area: 4&quot;W x 2 1/2&quot;H (front of fan)",
-      "category_paths": [
-        "Home > Home & Auto",
-        "Home > Shop By",
-        "Home > Shop By > New Products"
-      ],
-      "badges": [
-        {
-          "tag": "new",
-          "value": "New"
-        }
-      ],
-      "is_new_item": true,
-      "is_on_sale": false,
-      "product_type_unigram": "fan",
-      "geiger_url": "/p/bamboo-folding-handheld-fan-529664?pid=463079"
-    },
-    {
       "sku": "529663",
       "name": "Mini Grip 3.25' Tape Measure Keychain",
       "brand": null,
-      "low_price": 1.59,
-      "high_price": 1.91,
-      "msrp": 1.91,
+      "low_price": 1.34,
+      "high_price": 1.6,
+      "msrp": 1.6,
       "min_qty": 100,
       "imageUrl": "https://imgsirv.geiger.com/master/129663/web/129663_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
       "description": "Long mini measuring tape extends 3.25 feet (39 inches). Self lock/release function on narrow side panel. Rubber textured bottom and side for easy grip. Compact design with metal key ring attached. Features measurements in inches and centimeters on #50 steel ruler. Size: 1 63/100&quot;W x 1 1/2&quot;H x 1/2&quot;D Imprint Area: 3/4&quot;W x 3/4&quot;H",
@@ -349,6 +2152,7 @@
         "Home > Home & Auto",
         "Home > Home & Auto > Tools & Tool Kits",
         "Home > Home & Auto > Tools & Tool Kits > Tape Measures",
+        "Home > Shop By > Deals",
         "Home > Shop By",
         "Home > Shop By > New Products"
       ],
@@ -613,15 +2417,16 @@
       "sku": "529625",
       "name": "Flower Highlighter",
       "brand": null,
-      "low_price": 1.79,
-      "high_price": 2.15,
-      "msrp": 2.15,
+      "low_price": 1.54,
+      "high_price": 1.84,
+      "msrp": 1.84,
       "min_qty": 100,
       "imageUrl": "https://imgsirv.geiger.com/master/129625/web/129625_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
       "description": "Flower-shaped frosted Plastic case houses 5 neon highlighters all in one fun piece. Each petal contains one color cap and matching ink: green, blue, orange, yellow and pink. Five highlighters in one saves space on your desk. Large imprint area and chisel tip. Size: 4&quot;Dia. X 1/2&quot;D Imprint Area: 2&quot;W x 2&quot;H",
       "category_paths": [
         "Home > Writing Instruments",
         "Home > Writing Instruments > Highlighters & Markers",
+        "Home > Shop By > Deals",
         "Home > Shop By",
         "Home > Shop By > New Products"
       ],
@@ -1450,6 +3255,7 @@
         "Home > Office & Technology",
         "Home > Office & Technology > Tech Accessories",
         "Home > Office & Technology > Tech Accessories > Speakers",
+        "Home > Shop By > Brand Names > JBL",
         "Home > Shop By > Brand Names",
         "Home > Shop By",
         "Home > Shop By > New Products"
@@ -1594,6 +3400,7 @@
         "Home > Writing Instruments",
         "Home > Writing Instruments > Pens",
         "Home > Writing Instruments > Pens > Ballpoint Pens",
+        "Home > Shop By > Brand Names > Cross",
         "Home > Shop By > Brand Names",
         "Home > Shop By",
         "Home > Shop By > New Products"
@@ -1982,11 +3789,12 @@
       "msrp": 49.4,
       "min_qty": 6,
       "imageUrl": "https://imgsirv.geiger.com/master/129577/web/129577_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
-      "description": "Substantial, yet streamlined. Traditional, yet on-trend. Cross Calais is an everyday favorite making smart new statements in style. With a tapered silhouette inspired by Art Deco design, Calais has an authoritative feel in hand. In a fine selection of finishes ranging from classic to contemporary, our collection invites a wonderful touch of luxury to the daily act of putting pen to paper. Packaging: premium retail gift box. Ink Color: Black Size: 5 1/4&quot;W x 5/8&quot;H Imprint Area: 1 1/8&quot;W x 1/4&quot;H",
+      "description": "Substantial, yet streamlined. Traditional, yet on-trend. Cross Calais is an everyday favorite making smart new statements in style. With a tapered silhouette inspired by Art Deco design, Calais has an authoritative feel in hand. In a fine selection of finishes ranging from classic to contemporary, our collection invites a wonderful touch of luxury to the daily act of putting pen to paper. Packaging: premium retail gift box. Personalization is available for an additional charge per pen. Ink Color: Black Size: 5 1/4&quot;W x 5/8&quot;H Imprint Area: 1 1/8&quot;W x 1/4&quot;H",
       "category_paths": [
         "Home > Writing Instruments",
         "Home > Writing Instruments > Pens",
         "Home > Writing Instruments > Pens > Ballpoint Pens",
+        "Home > Shop By > Brand Names > Cross",
         "Home > Shop By > Brand Names",
         "Home > Shop By",
         "Home > Shop By > New Products"
@@ -2011,11 +3819,12 @@
       "msrp": 49.4,
       "min_qty": 6,
       "imageUrl": "https://imgsirv.geiger.com/master/129576/web/129576_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
-      "description": "Substantial, yet streamlined. Traditional, yet on-trend. Cross Calais is an everyday favorite making smart new statements in style. With a tapered silhouette inspired by Art Deco design, Calais has an authoritative feel in hand. In a fine selection of finishes ranging from classic to contemporary, our collection invites a wonderful touch of luxury to the daily act of putting pen to paper. Packaging: premium retail gift box. Ink Color: Black Size: 5 1/4&quot;W x 5/8&quot;H Imprint Area: 1 1/8&quot;W x 1/4&quot;H",
+      "description": "Substantial, yet streamlined. Traditional, yet on-trend. Cross Calais is an everyday favorite making smart new statements in style. With a tapered silhouette inspired by Art Deco design, Calais has an authoritative feel in hand. In a fine selection of finishes ranging from classic to contemporary, our collection invites a wonderful touch of luxury to the daily act of putting pen to paper. Packaging: premium retail gift box. Personalization is available for an additional charge per pen. Ink Color: Black Size: 5 1/4&quot;W x 5/8&quot;H Imprint Area: 1 1/8&quot;W x 1/4&quot;H",
       "category_paths": [
         "Home > Writing Instruments",
         "Home > Writing Instruments > Pens",
         "Home > Writing Instruments > Pens > Ballpoint Pens",
+        "Home > Shop By > Brand Names > Cross",
         "Home > Shop By > Brand Names",
         "Home > Shop By",
         "Home > Shop By > New Products"
@@ -2040,11 +3849,12 @@
       "msrp": 83.2,
       "min_qty": 12,
       "imageUrl": "https://imgsirv.geiger.com/master/129573/web/129573_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
-      "description": "Cross brings modern industrial design trends to the fore with this smart ATX pen. Its sleek silhouette creates a uniquely modern and an ergonomic writing experience. Its wide girth is offset with elegantly tapered ends and is weighted symmetrically to create just the right feel when pen hits paper. Streamlined from integrated clip to tapered tip, ATX delivers singular style in a sophisticated, ergonomic package. Presented in a premium gift box. Ink Color: Black Size: 5 1/4&quot;W x 1/2&quot;H Imprint Area: 1 1/4&quot;W x 1/4&quot;H (black); 1&quot;W x 1/4&quot;H (chrome)",
+      "description": "Cross brings modern industrial design trends to the fore with this smart ATX pen. Its sleek silhouette creates a uniquely modern and an ergonomic writing experience. Its wide girth is offset with elegantly tapered ends and is weighted symmetrically to create just the right feel when pen hits paper. Streamlined from integrated clip to tapered tip, ATX delivers singular style in a sophisticated, ergonomic package. Presented in a premium gift box. Personalization is available for an additional charge per pen. Ink Color: Black Size: 5 1/4&quot;W x 1/2&quot;H Imprint Area: 1 1/4&quot;W x 1/4&quot;H (black); 1&quot;W x 1/4&quot;H (chrome)",
       "category_paths": [
         "Home > Writing Instruments",
         "Home > Writing Instruments > Pens",
         "Home > Writing Instruments > Pens > Ballpoint Pens",
+        "Home > Shop By > Brand Names > Cross",
         "Home > Shop By > Brand Names",
         "Home > Shop By",
         "Home > Shop By > New Products"
@@ -2069,11 +3879,12 @@
       "msrp": 79.3,
       "min_qty": 6,
       "imageUrl": "https://imgsirv.geiger.com/master/129574/web/129574_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
-      "description": "Cross brings modern industrial design trends to the fore with this smart ATX pen. Its sleek silhouette creates a uniquely modern and an ergonomic writing experience. Its wide girth is offset with elegantly tapered ends and is weighted symmetrically to create just the right feel when pen hits paper. Streamlined from integrated clip to tapered tip, ATX delivers singular style in a sophisticated, ergonomic package. Tapered silhouette with integrated clip. Presented in a premium gift box. Ink Color: Black Size: 6 3/4&quot;W x 1 3/4&quot;H Imprint Area: 1 1/4&quot;W x 1/4&quot;H",
+      "description": "Cross brings modern industrial design trends to the fore with this smart ATX pen. Its sleek silhouette creates a uniquely modern and an ergonomic writing experience. Its wide girth is offset with elegantly tapered ends and is weighted symmetrically to create just the right feel when pen hits paper. Streamlined from integrated clip to tapered tip, ATX delivers singular style in a sophisticated, ergonomic package. Tapered silhouette with integrated clip. Presented in a premium gift box. Personalization is available for an additional charge per pen. Ink Color: Black Size: 6 3/4&quot;W x 1 3/4&quot;H Imprint Area: 1 1/4&quot;W x 1/4&quot;H",
       "category_paths": [
         "Home > Writing Instruments",
         "Home > Writing Instruments > Pens",
         "Home > Writing Instruments > Pens > Ballpoint Pens",
+        "Home > Shop By > Brand Names > Cross",
         "Home > Shop By > Brand Names",
         "Home > Shop By",
         "Home > Shop By > New Products"
@@ -2102,6 +3913,7 @@
       "category_paths": [
         "Home > Office & Technology",
         "Home > Office & Technology > Notebooks & Journals",
+        "Home > Shop By > Brand Names > Cross",
         "Home > Shop By > Brand Names",
         "Home > Shop By",
         "Home > Shop By > New Products"
@@ -2131,6 +3943,7 @@
         "Home > Office & Technology",
         "Home > Office & Technology > Tech Accessories",
         "Home > Office & Technology > Tech Accessories > Speakers",
+        "Home > Shop By > Brand Names > JBL",
         "Home > Shop By > Brand Names",
         "Home > Shop By",
         "Home > Shop By > New Products"
@@ -2753,34 +4566,6 @@
       "geiger_url": "/p/5-x-7-small-value-windowpad-529540?pid=462017"
     },
     {
-      "sku": "529539",
-      "name": "Mochi Comfort Gel Pen",
-      "brand": null,
-      "low_price": 0.82,
-      "high_price": 0.98,
-      "msrp": 0.98,
-      "min_qty": 250,
-      "imageUrl": "https://imgsirv.geiger.com/master/129539/web/129539_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
-      "description": "The Mochi Comfort Gel Pen brings a soft, satisfying writing experience, much like its namesake, thanks to a smooth, cushioned barrel and effortless quick-dry anti-fraud gel ink. Made from recycled materials and finished with a velvety touch, it blends eco-friendly design with premium performance. Offered in a range of vibrant, trendy, and classic tones, it adds a subtly sweet pop of color to every brand, note, signature, and promotional message, making it perfect for giveaways, corporate gifts, and memorable branded experiences. Mechanism: push retractable. Special Inks: gel ink, anti-fraud ink. Tip type: ball point. rABS - this used to be plastic, now it’s fantastic! Made from recycled acrylonitrile butadiene styrene (ABS). When ordering an assortment of colors, there is a 250 piece minimum per color Size: 5 45/64&quot;W x 25/64&quot;Dia. Ink Color: Black Imprint Area: 2&quot;W x 1/2&quot;H (standard); 3 3/4&quot;W x 1/4&quot;H (full color)",
-      "category_paths": [
-        "Home > Writing Instruments",
-        "Home > Writing Instruments > Pens",
-        "Home > Writing Instruments > Pens > Gel Pens",
-        "Home > Shop By",
-        "Home > Shop By > New Products"
-      ],
-      "badges": [
-        {
-          "tag": "new",
-          "value": "New"
-        }
-      ],
-      "is_new_item": true,
-      "is_on_sale": false,
-      "product_type_unigram": "pen",
-      "geiger_url": "/p/mochi-comfort-gel-pen-529539?pid=461987"
-    },
-    {
       "sku": "529536",
       "name": "20 oz Stanley Aerolight™ Transit Bottle",
       "brand": "STANLEY",
@@ -3305,8 +5090,8 @@
       "name": "1.75 oz Clear Glass Shot Glasses",
       "brand": null,
       "low_price": 1.12,
-      "high_price": 3.08,
-      "msrp": 3.08,
+      "high_price": 4.17,
+      "msrp": 4.17,
       "min_qty": 24,
       "imageUrl": "https://imgsirv.geiger.com/master/129515/web/129515_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
       "description": "Fill your shot glass and toast for fun times with our 1.75 oz. Clear Glass Shot Glasses. Quality and look matter, so we bring you our high-quality, imported glassware with its elegant and classic style that makes lasting impression. Glassware products should be handwashed. These products are not guaranteed to be dishwasher safe. Size: 2&quot;W x 2 1/4&quot;H x 1 1/2&quot;D Imprint Area: 1 3/4&quot;W x 1 1/2&quot;H",
@@ -3920,7 +5705,7 @@
       "low_price": 2.49,
       "high_price": 2.98,
       "msrp": 2.98,
-      "min_qty": 25,
+      "min_qty": 35,
       "imageUrl": "https://imgsirv.geiger.com/master/129494/web/129494_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
       "description": "Slim circular magnetic patch for back-of-phone use. Ideal for tech giveaways, product launches, influencer kits, and employee swag. Turns smartphones into high-visibility logo space. Meet MagPatch, iClick's slim magnetic branding hero for the back of any phone. This circular, MagSafe-compatible patch adheres to most phones and cases, adding a strong magnetic connection that turns every device into a moving billboard. MagPatch works with MagSafe-style accessories and mounts and is RoHS and Prop 65 compliant, making it an easy add to tech kits, launch swag, and event giveaways. Size: 2 7/25&quot;Dia. Imprint Area: 2 3/10&quot;Dia.",
       "category_paths": [
@@ -4462,10 +6247,10 @@
       "sku": "529474",
       "name": "40&quot; Value Folding Umbrella",
       "brand": null,
-      "low_price": 8.29,
-      "high_price": 9.95,
-      "msrp": 9.95,
-      "min_qty": 25,
+      "low_price": 6.99,
+      "high_price": 8.38,
+      "msrp": 8.38,
+      "min_qty": 36,
       "imageUrl": "https://imgsirv.geiger.com/master/129474/web/129474_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
       "description": "The 40&quot; Value Folding Umbrella offers lightweight convenience and compact portability at a great price, making it the perfect companion for travel, commutes, or unexpected rain. Folding down to just 14.5 inches, it’s easy to stash in a tote, backpack, or car. Designed with a wood-look handle for a classic touch and a chrome-plated shaft and frame for a sleek, polished look. A matching sleeve is included for clean and simple storage when not in use. Not intended for ages under 13. Size: 1&quot;W x 14 1/2&quot;H (closed); 40&quot;W (arc) Imprint Area: 7&quot;W x 4&quot;H",
       "category_paths": [
@@ -4676,6 +6461,7 @@
         "Home > Office & Technology",
         "Home > Office & Technology > Tech Accessories",
         "Home > Office & Technology > Tech Accessories > Speakers",
+        "Home > Shop By > Brand Names > JBL",
         "Home > Shop By > Brand Names",
         "Home > Shop By",
         "Home > Shop By > New Products"
@@ -4705,6 +6491,7 @@
         "Home > Office & Technology",
         "Home > Office & Technology > Tech Accessories",
         "Home > Office & Technology > Tech Accessories > Headphones",
+        "Home > Shop By > Brand Names > JBL",
         "Home > Shop By > Brand Names",
         "Home > Shop By",
         "Home > Shop By > New Products"
@@ -4734,6 +6521,7 @@
         "Home > Office & Technology",
         "Home > Office & Technology > Tech Accessories",
         "Home > Office & Technology > Tech Accessories > Speakers",
+        "Home > Shop By > Brand Names > JBL",
         "Home > Shop By > Brand Names",
         "Home > Shop By",
         "Home > Shop By > New Products"
@@ -5853,33 +7641,6 @@
       "geiger_url": "/p/sublimated-neoprene-fob-with-keyring-529416?pid=460611"
     },
     {
-      "sku": "529415",
-      "name": "Sublimated Fob With Keyring",
-      "brand": null,
-      "low_price": 0.67,
-      "high_price": 0.8,
-      "msrp": 0.8,
-      "min_qty": 250,
-      "imageUrl": "https://imgsirv.geiger.com/master/129415/web/129415_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
-      "description": "When looking for a way to promote your business, these sublimated key fobs will come in quite handy! With digital sublimation, the item is a perfect giveaway at tradeshows, conventions and healthcare events. Size: 4 1/2&quot;W x 3/4&quot;H Imprint Area: 10&quot;W x 3/4&quot;H",
-      "category_paths": [
-        "Home > Home & Auto",
-        "Home > Home & Auto > Keychains",
-        "Home > Shop By",
-        "Home > Shop By > New Products"
-      ],
-      "badges": [
-        {
-          "tag": "new",
-          "value": "New"
-        }
-      ],
-      "is_new_item": true,
-      "is_on_sale": false,
-      "product_type_unigram": "fob",
-      "geiger_url": "/p/sublimated-fob-with-keyring-529415?pid=460602"
-    },
-    {
       "sku": "529412",
       "name": "BioBlend™ Cell Phone &amp; Tablet Stand",
       "brand": null,
@@ -6251,8 +8012,8 @@
       "name": "2027 Triumph® Calendars Small Monthly Desk Pad Calendar - Coloring",
       "brand": null,
       "low_price": 1.69,
-      "high_price": 2.03,
-      "msrp": 2.03,
+      "high_price": 2.7,
+      "msrp": 2.7,
       "min_qty": 100,
       "imageUrl": "https://imgsirv.geiger.com/master/129403/web/129403_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
       "description": "Add a creative touch to your year with this 13-month calendar featuring seasonal illustrations you can color yourself. 13-Month calendar beginning with December of current year. The perfect monthly desk pad for small spaces. Top markets: Retail, insurance, financial. Made in the U.S.A. Size: 8 1/2&quot;W x 11&quot;H x 1/4&quot;D Imprint Area: 3 3/10&quot;W x 1 17/50&quot;H",
@@ -7048,9 +8809,9 @@
       "sku": "529363",
       "name": "30 oz Mondo Insulated Tumbler",
       "brand": null,
-      "low_price": 6.84,
-      "high_price": 8.2,
-      "msrp": 8.2,
+      "low_price": 8.5,
+      "high_price": 10.2,
+      "msrp": 10.2,
       "min_qty": 25,
       "imageUrl": "https://imgsirv.geiger.com/master/129363/web/129363_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
       "description": "30 oz (887 mL) double wall tumbler with 201 Stainless Steel exterior and PP plastic interior. Includes AS Plastic slide action lid. Designed for use with both hot and cold beverages. Not microwave or dishwasher safe. Hand-wash only. Caution: item may leak if tipped or held upside-down. Size: 7 3/4&quot;H X 3 9/10&quot;Dia. Imprint Area: 3 1/2&quot;W x 2 1/2&quot;H",
@@ -7058,7 +8819,6 @@
         "Home > Drinkware",
         "Home > Drinkware > Travel Mugs & Tumblers",
         "Home > Drinkware > Travel Mugs & Tumblers > Tumblers with Handles",
-        "Home > Shop By > Deals",
         "Home > Shop By",
         "Home > Shop By > New Products"
       ],
@@ -7066,14 +8826,10 @@
         {
           "tag": "new",
           "value": "New"
-        },
-        {
-          "tag": "sale",
-          "value": "Sale"
         }
       ],
       "is_new_item": true,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "product_type_unigram": "tumbler",
       "geiger_url": "/p/30-oz-mondo-insulated-tumbler-529363?pid=460115"
     },
@@ -7081,9 +8837,9 @@
       "sku": "529362",
       "name": "Atlas Non-Woven Grocery Tote Bag",
       "brand": null,
-      "low_price": 1.49,
-      "high_price": 1.78,
-      "msrp": 1.78,
+      "low_price": 1.79,
+      "high_price": 2.15,
+      "msrp": 2.15,
       "min_qty": 150,
       "imageUrl": "https://imgsirv.geiger.com/master/129362/web/129362_1.jpg?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275",
       "description": "Our most compact reusable market or grocery tote made of durable, reusable and recyclable 80 GSM Non-Woven Polypropylene. Spacious open tote with 8&quot; box gusset and removable rigid covered bottom insert. 20&quot; long reinforced handles. Recommended weight tolerance: 11 lbs.. Size: 12&quot;W x 14&quot;H x 8&quot;D Imprint Area: 4 1/2&quot;W x 8&quot;H",
@@ -7091,7 +8847,6 @@
         "Home > Bags & Totes",
         "Home > Bags & Totes > Tote Bags",
         "Home > Bags & Totes > Tote Bags > Canvas Totes",
-        "Home > Shop By > Deals",
         "Home > Shop By",
         "Home > Shop By > New Products"
       ],
@@ -7099,14 +8854,10 @@
         {
           "tag": "new",
           "value": "New"
-        },
-        {
-          "tag": "sale",
-          "value": "Sale"
         }
       ],
       "is_new_item": true,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "product_type_unigram": "bag",
       "geiger_url": "/p/atlas-non-woven-grocery-tote-bag-529362?pid=460090"
     },
@@ -7742,13 +9493,35 @@
           "id": "Black",
           "value": "Black",
           "label": "Black",
-          "count": 165,
+          "count": 186,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
             "529459",
+            "529539",
             "529435",
+            "529704",
+            "529699",
+            "529697",
+            "529698",
+            "529690",
+            "529677",
+            "529676",
+            "529668",
+            "529667",
+            "529642",
+            "529641",
+            "529638",
+            "529634",
+            "529633",
+            "529631",
+            "529630",
+            "529628",
+            "529626",
+            "529649",
+            "529650",
+            "529651",
             "529652",
             "529653",
             "529660",
@@ -7808,7 +9581,6 @@
             "529537",
             "529544",
             "529540",
-            "529539",
             "529535",
             "529534",
             "529533",
@@ -7918,13 +9690,29 @@
           "id": "Blue",
           "value": "Blue",
           "label": "Blue",
-          "count": 119,
+          "count": 133,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
             "529459",
+            "529539",
             "529435",
+            "529699",
+            "529697",
+            "529677",
+            "529676",
+            "529668",
+            "529667",
+            "529666",
+            "529665",
+            "529634",
+            "529631",
+            "529629",
+            "529626",
+            "529649",
+            "529650",
+            "529651",
             "529652",
             "529653",
             "529655",
@@ -7971,7 +9759,6 @@
             "529549",
             "529544",
             "529540",
-            "529539",
             "529534",
             "529533",
             "529532",
@@ -8022,7 +9809,6 @@
             "529410",
             "529404",
             "529395",
-            "529393",
             "529392",
             "529391",
             "529386",
@@ -8048,13 +9834,30 @@
           "id": "White",
           "value": "White",
           "label": "White",
-          "count": 108,
+          "count": 123,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
             "529459",
             "529664",
+            "529539",
+            "529415",
+            "529672",
+            "529671",
+            "529675",
+            "529676",
+            "529667",
+            "529639",
+            "529636",
+            "529635",
+            "529634",
+            "529631",
+            "529627",
+            "529646",
+            "529649",
+            "529650",
+            "529651",
             "529663",
             "529662",
             "529565",
@@ -8083,7 +9886,6 @@
             "529584",
             "529578",
             "529549",
-            "529539",
             "529534",
             "529533",
             "529532",
@@ -8139,7 +9941,6 @@
             "529418",
             "529417",
             "529416",
-            "529415",
             "529390",
             "529389",
             "529388",
@@ -8167,13 +9968,25 @@
           "id": "Gray/Silver",
           "value": "Gray/Silver",
           "label": "Gray/Silver",
-          "count": 79,
+          "count": 90,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529539",
             "529435",
             "529364",
+            "529690",
+            "529676",
+            "529667",
+            "529645",
+            "529644",
+            "529643",
+            "529666",
+            "529629",
+            "529649",
+            "529650",
+            "529651",
             "529652",
             "529653",
             "529660",
@@ -8200,7 +10013,6 @@
             "529546",
             "529545",
             "529538",
-            "529539",
             "529536",
             "529535",
             "529522",
@@ -8257,13 +10069,25 @@
           "id": "Red",
           "value": "Red",
           "label": "Red",
-          "count": 63,
+          "count": 74,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
             "529459",
+            "529539",
             "529435",
+            "529702",
+            "529701",
+            "529699",
+            "529700",
+            "529703",
+            "529676",
+            "529668",
+            "529667",
+            "529649",
+            "529650",
+            "529651",
             "529663",
             "529662",
             "529565",
@@ -8290,7 +10114,6 @@
             "529556",
             "529544",
             "529540",
-            "529539",
             "529533",
             "529532",
             "529523",
@@ -8331,12 +10154,21 @@
           "id": "Green",
           "value": "Green",
           "label": "Green",
-          "count": 60,
+          "count": 68,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529539",
             "529435",
+            "529699",
+            "529668",
+            "529667",
+            "529647",
+            "529648",
+            "529649",
+            "529650",
+            "529651",
             "529652",
             "529653",
             "529565",
@@ -8361,7 +10193,6 @@
             "529550",
             "529545",
             "529537",
-            "529539",
             "529523",
             "529512",
             "529513",
@@ -8399,14 +10230,76 @@
           ]
         },
         {
-          "id": "Brown",
-          "value": "Brown",
-          "label": "Brown",
-          "count": 34,
+          "id": "Multi-Colored",
+          "value": "Multi-Colored",
+          "label": "Multi-Colored",
+          "count": 43,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529698",
+            "529693",
+            "529692",
+            "529691",
+            "529689",
+            "529688",
+            "529687",
+            "529683",
+            "529682",
+            "529679",
+            "529678",
+            "529677",
+            "529670",
+            "529669",
+            "529628",
+            "529646",
+            "529649",
+            "529650",
+            "529657",
+            "529567",
+            "529564",
+            "529625",
+            "529619",
+            "529613",
+            "529610",
+            "529592",
+            "529589",
+            "529586",
+            "529557",
+            "529543",
+            "529542",
+            "529541",
+            "529464",
+            "529445",
+            "529444",
+            "529427",
+            "529402",
+            "529387",
+            "529384",
+            "529371",
+            "529370",
+            "529368",
+            "529345"
+          ]
+        },
+        {
+          "id": "Brown",
+          "value": "Brown",
+          "label": "Brown",
+          "count": 41,
+          "type": "value",
+          "low": null,
+          "high": null,
+          "skus": [
+            "529539",
+            "529674",
+            "529673",
+            "529640",
+            "529665",
+            "529632",
+            "529649",
+            "529650",
             "529652",
             "529653",
             "529660",
@@ -8421,7 +10314,6 @@
             "529596",
             "529595",
             "529597",
-            "529539",
             "529526",
             "529521",
             "529495",
@@ -8447,11 +10339,18 @@
           "id": "Orange",
           "value": "Orange",
           "label": "Orange",
-          "count": 33,
+          "count": 39,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529539",
+            "529699",
+            "529667",
+            "529647",
+            "529648",
+            "529649",
+            "529650",
             "529658",
             "529659",
             "529663",
@@ -8463,7 +10362,6 @@
             "529606",
             "529609",
             "529602",
-            "529539",
             "529523",
             "529516",
             "529513",
@@ -8496,6 +10394,7 @@
           "low": null,
           "high": null,
           "skus": [
+            "529539",
             "529658",
             "529659",
             "529663",
@@ -8506,7 +10405,6 @@
             "529548",
             "529547",
             "529537",
-            "529539",
             "529513",
             "529508",
             "529507",
@@ -8529,55 +10427,21 @@
           ]
         },
         {
-          "id": "Multi-Colored",
-          "value": "Multi-Colored",
-          "label": "Multi-Colored",
-          "count": 25,
-          "type": "value",
-          "low": null,
-          "high": null,
-          "skus": [
-            "529657",
-            "529567",
-            "529564",
-            "529625",
-            "529619",
-            "529613",
-            "529610",
-            "529592",
-            "529589",
-            "529586",
-            "529557",
-            "529543",
-            "529542",
-            "529541",
-            "529464",
-            "529445",
-            "529444",
-            "529427",
-            "529402",
-            "529387",
-            "529384",
-            "529371",
-            "529370",
-            "529368",
-            "529345"
-          ]
-        },
-        {
           "id": "Purple",
           "value": "Purple",
           "label": "Purple",
-          "count": 22,
+          "count": 24,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
             "529459",
+            "529539",
+            "529699",
+            "529668",
             "529612",
             "529611",
             "529610",
-            "529539",
             "529523",
             "529513",
             "529495",
@@ -8606,10 +10470,10 @@
           "low": null,
           "high": null,
           "skus": [
+            "529539",
             "529612",
             "529611",
             "529606",
-            "529539",
             "529516",
             "529513",
             "529509",
@@ -8643,28 +10507,40 @@
           "low": "0.5",
           "high": "1",
           "skus": [
+            "529539",
+            "529415",
             "529583",
             "529582",
             "529550",
-            "529539",
             "529488",
             "529486",
-            "529481",
-            "529415"
+            "529481"
           ]
         },
         {
           "id": "1-5",
           "value": null,
           "label": "$1.00 - $5.00",
-          "count": 66,
+          "count": 78,
           "type": "range",
           "low": "1",
           "high": "5",
           "skus": [
+            "529664",
             "529435",
             "529364",
-            "529664",
+            "529704",
+            "529700",
+            "529692",
+            "529691",
+            "529683",
+            "529682",
+            "529671",
+            "529668",
+            "529667",
+            "529635",
+            "529633",
+            "529631",
             "529663",
             "529625",
             "529624",
@@ -8734,11 +10610,26 @@
           "id": "5-10",
           "value": null,
           "label": "$5.00 - $10.00",
-          "count": 46,
+          "count": 61,
           "type": "range",
           "low": "5",
           "high": "10",
           "skus": [
+            "529680",
+            "529681",
+            "529699",
+            "529693",
+            "529689",
+            "529688",
+            "529686",
+            "529685",
+            "529684",
+            "529683",
+            "529682",
+            "529672",
+            "529675",
+            "529676",
+            "529632",
             "529615",
             "529608",
             "529603",
@@ -8791,11 +10682,25 @@
           "id": "10-25",
           "value": null,
           "label": "$10.00 - $25.00",
-          "count": 44,
+          "count": 58,
           "type": "range",
           "low": "10",
           "high": "25",
           "skus": [
+            "529702",
+            "529701",
+            "529681",
+            "529690",
+            "529687",
+            "529670",
+            "529669",
+            "529643",
+            "529642",
+            "529641",
+            "529640",
+            "529639",
+            "529637",
+            "529634",
             "529659",
             "529619",
             "529618",
@@ -8846,11 +10751,23 @@
           "id": "25-50",
           "value": null,
           "label": "$25.00 - $50.00",
-          "count": 56,
+          "count": 68,
           "type": "range",
           "low": "25",
           "high": "50",
           "skus": [
+            "529703",
+            "529697",
+            "529674",
+            "529673",
+            "529636",
+            "529630",
+            "529629",
+            "529626",
+            "529646",
+            "529649",
+            "529650",
+            "529651",
             "529652",
             "529657",
             "529658",
@@ -8913,11 +10830,21 @@
           "id": "50-100",
           "value": null,
           "label": "$50.00 - $100.00",
-          "count": 35,
+          "count": 45,
           "type": "range",
           "low": "50",
           "high": "100",
           "skus": [
+            "529698",
+            "529678",
+            "529645",
+            "529644",
+            "529665",
+            "529638",
+            "529628",
+            "529627",
+            "529647",
+            "529648",
             "529653",
             "529655",
             "529660",
@@ -8959,12 +10886,15 @@
           "id": "100-*",
           "value": null,
           "label": "Greater than $100",
-          "count": 23,
+          "count": 26,
           "type": "range",
           "low": "100",
           "high": "*",
           "skus": [
             "529459",
+            "529679",
+            "529677",
+            "529666",
             "529571",
             "529580",
             "529555",
@@ -9012,11 +10942,14 @@
           "id": "2-4",
           "value": null,
           "label": "2-4 days",
-          "count": 53,
+          "count": 56,
           "type": "range",
           "low": "2",
           "high": "4",
           "skus": [
+            "529672",
+            "529671",
+            "529668",
             "529559",
             "529558",
             "529544",
@@ -9076,15 +11009,51 @@
           "id": "5-7",
           "value": null,
           "label": "5-7 days",
-          "count": 178,
+          "count": 212,
           "type": "range",
           "low": "5",
           "high": "7",
           "skus": [
             "529459",
-            "529435",
-            "529364",
             "529664",
+            "529539",
+            "529435",
+            "529415",
+            "529364",
+            "529704",
+            "529690",
+            "529692",
+            "529691",
+            "529689",
+            "529688",
+            "529687",
+            "529674",
+            "529673",
+            "529675",
+            "529676",
+            "529670",
+            "529669",
+            "529667",
+            "529645",
+            "529644",
+            "529643",
+            "529642",
+            "529641",
+            "529640",
+            "529639",
+            "529638",
+            "529637",
+            "529636",
+            "529635",
+            "529634",
+            "529633",
+            "529632",
+            "529631",
+            "529630",
+            "529629",
+            "529628",
+            "529627",
+            "529626",
             "529663",
             "529569",
             "529568",
@@ -9158,7 +11127,6 @@
             "529545",
             "529538",
             "529537",
-            "529539",
             "529536",
             "529535",
             "529523",
@@ -9228,7 +11196,6 @@
             "529423",
             "529420",
             "529421",
-            "529415",
             "529390",
             "529389",
             "529388",
@@ -9265,11 +11232,23 @@
           "id": "8-10",
           "value": null,
           "label": "8-10 days",
-          "count": 31,
+          "count": 43,
           "type": "range",
           "low": "8",
           "high": "10",
           "skus": [
+            "529699",
+            "529697",
+            "529698",
+            "529693",
+            "529666",
+            "529665",
+            "529646",
+            "529647",
+            "529648",
+            "529649",
+            "529650",
+            "529651",
             "529652",
             "529653",
             "529655",
@@ -9307,11 +11286,37 @@
           "id": "10-*",
           "value": null,
           "label": "10 or more days",
-          "count": 40,
+          "count": 66,
           "type": "range",
           "low": "10",
           "high": "*",
           "skus": [
+            "529702",
+            "529680",
+            "529701",
+            "529681",
+            "529699",
+            "529700",
+            "529703",
+            "529697",
+            "529698",
+            "529693",
+            "529686",
+            "529685",
+            "529684",
+            "529683",
+            "529682",
+            "529679",
+            "529678",
+            "529677",
+            "529666",
+            "529665",
+            "529646",
+            "529647",
+            "529648",
+            "529649",
+            "529650",
+            "529651",
             "529652",
             "529653",
             "529655",
@@ -9365,12 +11370,13 @@
           "id": "Made in the USA",
           "value": "Made in the USA",
           "label": "Made in the USA",
-          "count": 26,
+          "count": 27,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
             "529364",
+            "529667",
             "529581",
             "529590",
             "529583",
@@ -9402,11 +11408,14 @@
           "id": "Deals",
           "value": "Deals",
           "label": "Deals",
-          "count": 4,
+          "count": 7,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529664",
+            "529663",
+            "529625",
             "529523",
             "529522",
             "529363",
@@ -9531,6 +11540,48 @@
           ]
         },
         {
+          "id": "Kishigo",
+          "value": "Kishigo",
+          "label": "Kishigo",
+          "count": 3,
+          "type": "value",
+          "low": null,
+          "high": null,
+          "skus": [
+            "529646",
+            "529647",
+            "529648"
+          ]
+        },
+        {
+          "id": "Red Kap",
+          "value": "Red Kap",
+          "label": "Red Kap",
+          "count": 3,
+          "type": "value",
+          "low": null,
+          "high": null,
+          "skus": [
+            "529649",
+            "529650",
+            "529651"
+          ]
+        },
+        {
+          "id": "Rumpl",
+          "value": "Rumpl",
+          "label": "Rumpl",
+          "count": 3,
+          "type": "value",
+          "low": null,
+          "high": null,
+          "skus": [
+            "529679",
+            "529678",
+            "529677"
+          ]
+        },
+        {
           "id": "Solo",
           "value": "Solo",
           "label": "Solo",
@@ -9556,6 +11607,19 @@
             "529534",
             "529533",
             "529532"
+          ]
+        },
+        {
+          "id": "Bulwark",
+          "value": "Bulwark",
+          "label": "Bulwark",
+          "count": 2,
+          "type": "value",
+          "low": null,
+          "high": null,
+          "skus": [
+            "529666",
+            "529665"
           ]
         },
         {
@@ -9671,6 +11735,18 @@
           ]
         },
         {
+          "id": "High Sierra",
+          "value": "High Sierra",
+          "label": "High Sierra",
+          "count": 1,
+          "type": "value",
+          "low": null,
+          "high": null,
+          "skus": [
+            "529644"
+          ]
+        },
+        {
           "id": "Hydro Flask",
           "value": "Hydro Flask",
           "label": "Hydro Flask",
@@ -9692,6 +11768,18 @@
           "high": null,
           "skus": [
             "529370"
+          ]
+        },
+        {
+          "id": "Jansport",
+          "value": "Jansport",
+          "label": "Jansport",
+          "count": 1,
+          "type": "value",
+          "low": null,
+          "high": null,
+          "skus": [
+            "529627"
           ]
         },
         {
@@ -9719,6 +11807,18 @@
           ]
         },
         {
+          "id": "Mophie",
+          "value": "Mophie",
+          "label": "Mophie",
+          "count": 1,
+          "type": "value",
+          "low": null,
+          "high": null,
+          "skus": [
+            "529638"
+          ]
+        },
+        {
           "id": "Owala",
           "value": "Owala",
           "label": "Owala",
@@ -9740,6 +11840,18 @@
           "high": null,
           "skus": [
             "529450"
+          ]
+        },
+        {
+          "id": "Thule",
+          "value": "Thule",
+          "label": "Thule",
+          "count": 1,
+          "type": "value",
+          "low": null,
+          "high": null,
+          "skus": [
+            "529628"
           ]
         },
         {
@@ -9765,12 +11877,56 @@
           "id": "1-50",
           "value": null,
           "label": "1-50",
-          "count": 195,
+          "count": 239,
           "type": "range",
           "low": "1",
           "high": "50",
           "skus": [
             "529459",
+            "529699",
+            "529703",
+            "529697",
+            "529698",
+            "529690",
+            "529688",
+            "529687",
+            "529679",
+            "529678",
+            "529677",
+            "529674",
+            "529673",
+            "529672",
+            "529671",
+            "529675",
+            "529676",
+            "529670",
+            "529669",
+            "529645",
+            "529644",
+            "529643",
+            "529642",
+            "529641",
+            "529640",
+            "529639",
+            "529666",
+            "529665",
+            "529638",
+            "529637",
+            "529636",
+            "529635",
+            "529634",
+            "529632",
+            "529630",
+            "529629",
+            "529628",
+            "529627",
+            "529626",
+            "529646",
+            "529647",
+            "529648",
+            "529649",
+            "529650",
+            "529651",
             "529652",
             "529653",
             "529655",
@@ -9971,13 +12127,32 @@
           "id": "50-100",
           "value": null,
           "label": "51-100",
-          "count": 61,
+          "count": 80,
           "type": "range",
           "low": "50",
           "high": "100",
           "skus": [
-            "529435",
             "529664",
+            "529435",
+            "529704",
+            "529680",
+            "529681",
+            "529699",
+            "529690",
+            "529692",
+            "529691",
+            "529689",
+            "529688",
+            "529686",
+            "529685",
+            "529684",
+            "529683",
+            "529682",
+            "529668",
+            "529640",
+            "529633",
+            "529632",
+            "529631",
             "529663",
             "529625",
             "529621",
@@ -10043,13 +12218,28 @@
           "id": "100-250",
           "value": null,
           "label": "100-250",
-          "count": 72,
+          "count": 85,
           "type": "range",
           "low": "100",
           "high": "250",
           "skus": [
+            "529539",
             "529435",
+            "529415",
             "529364",
+            "529704",
+            "529702",
+            "529701",
+            "529700",
+            "529693",
+            "529692",
+            "529691",
+            "529689",
+            "529685",
+            "529684",
+            "529668",
+            "529667",
+            "529633",
             "529663",
             "529625",
             "529624",
@@ -10079,7 +12269,6 @@
             "529556",
             "529550",
             "529549",
-            "529539",
             "529523",
             "529491",
             "529488",
@@ -10103,7 +12292,6 @@
             "529414",
             "529418",
             "529416",
-            "529415",
             "529412",
             "529411",
             "529413",
@@ -10126,18 +12314,20 @@
           "id": "250-500",
           "value": null,
           "label": "250-500",
-          "count": 22,
+          "count": 23,
           "type": "range",
           "low": "250",
           "high": "500",
           "skus": [
+            "529539",
+            "529415",
+            "529667",
             "529622",
             "529599",
             "529583",
             "529582",
             "529556",
             "529550",
-            "529539",
             "529522",
             "529488",
             "529486",
@@ -10148,7 +12338,6 @@
             "529414",
             "529417",
             "529416",
-            "529415",
             "529405",
             "529380",
             "529378",
@@ -10182,11 +12371,16 @@
           "id": "Men",
           "value": "Men",
           "label": "Men",
-          "count": 9,
+          "count": 14,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529666",
+            "529665",
+            "529649",
+            "529650",
+            "529651",
             "529652",
             "529653",
             "529655",
@@ -10202,11 +12396,15 @@
           "id": "Unisex",
           "value": "Unisex",
           "label": "Unisex",
-          "count": 21,
+          "count": 25,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529690",
+            "529646",
+            "529647",
+            "529648",
             "529657",
             "529658",
             "529659",
@@ -10260,11 +12458,14 @@
           "id": "Long Sleeve",
           "value": "Long Sleeve",
           "label": "Long Sleeve",
-          "count": 12,
+          "count": 15,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529666",
+            "529648",
+            "529650",
             "529653",
             "529655",
             "529658",
@@ -10283,11 +12484,14 @@
           "id": "Short Sleeve",
           "value": "Short Sleeve",
           "label": "Short Sleeve",
-          "count": 9,
+          "count": 12,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529665",
+            "529649",
+            "529651",
             "529652",
             "529567",
             "529565",
@@ -10303,11 +12507,13 @@
           "id": "Sleeveless/Tank Top",
           "value": "Sleeveless/Tank Top",
           "label": "Sleeveless/Tank Top",
-          "count": 2,
+          "count": 4,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529646",
+            "529647",
             "529569",
             "529568"
           ]
@@ -10335,11 +12541,12 @@
           "id": "Hats",
           "value": "Hats",
           "label": "Hats",
-          "count": 9,
+          "count": 10,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529690",
             "529659",
             "529613",
             "529612",
@@ -10381,11 +12588,12 @@
           "id": "Polos",
           "value": "Polos",
           "label": "Polos",
-          "count": 2,
+          "count": 3,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529651",
             "529430",
             "529429"
           ]
@@ -10406,11 +12614,14 @@
           "id": "Shirts",
           "value": "Shirts",
           "label": "Shirts",
-          "count": 8,
+          "count": 11,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529666",
+            "529649",
+            "529650",
             "529652",
             "529653",
             "529567",
@@ -10452,11 +12663,13 @@
           "id": "T-Shirts",
           "value": "T-Shirts",
           "label": "T-Shirts",
-          "count": 4,
+          "count": 6,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529665",
+            "529648",
             "529658",
             "529584",
             "529432",
@@ -10467,11 +12680,13 @@
           "id": "Vests",
           "value": "Vests",
           "label": "Vests",
-          "count": 2,
+          "count": 4,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529646",
+            "529647",
             "529569",
             "529568"
           ]
@@ -10487,11 +12702,12 @@
           "id": "9-12",
           "value": null,
           "label": "9oz - 12oz",
-          "count": 5,
+          "count": 6,
           "type": "range",
           "low": "9",
           "high": "12",
           "skus": [
+            "529701",
             "529662",
             "529614",
             "529582",
@@ -10503,11 +12719,15 @@
           "id": "13-18",
           "value": null,
           "label": "13oz - 18oz",
-          "count": 11,
+          "count": 15,
           "type": "range",
           "low": "13",
           "high": "18",
           "skus": [
+            "529671",
+            "529675",
+            "529635",
+            "529634",
             "529616",
             "529601",
             "529590",
@@ -10525,12 +12745,15 @@
           "id": "19-31",
           "value": null,
           "label": "19oz - 31oz",
-          "count": 21,
+          "count": 24,
           "type": "range",
           "low": "19",
           "high": "31",
           "skus": [
             "529364",
+            "529702",
+            "529672",
+            "529676",
             "529618",
             "529617",
             "529586",
@@ -10557,11 +12780,13 @@
           "id": "32-*",
           "value": null,
           "label": "Greater than 32oz",
-          "count": 3,
+          "count": 5,
           "type": "range",
           "low": "32",
           "high": "*",
           "skus": [
+            "529703",
+            "529697",
             "529553",
             "529552",
             "529508"
@@ -10571,11 +12796,12 @@
           "id": "*-8",
           "value": null,
           "label": "Less than 8oz",
-          "count": 5,
+          "count": 6,
           "type": "range",
           "low": "*",
           "high": "8",
           "skus": [
+            "529700",
             "529550",
             "529515",
             "529510",
@@ -10594,12 +12820,42 @@
           "id": "No",
           "value": "No",
           "label": "No",
-          "count": 112,
+          "count": 141,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529664",
             "529364",
+            "529702",
+            "529701",
+            "529699",
+            "529700",
+            "529703",
+            "529697",
+            "529698",
+            "529692",
+            "529691",
+            "529689",
+            "529688",
+            "529674",
+            "529673",
+            "529675",
+            "529676",
+            "529670",
+            "529669",
+            "529668",
+            "529667",
+            "529666",
+            "529665",
+            "529631",
+            "529627",
+            "529646",
+            "529647",
+            "529648",
+            "529649",
+            "529650",
+            "529651",
             "529652",
             "529653",
             "529655",
@@ -10608,7 +12864,6 @@
             "529659",
             "529660",
             "529661",
-            "529664",
             "529663",
             "529662",
             "529569",
@@ -10717,13 +12972,49 @@
           "id": "Yes",
           "value": "Yes",
           "label": "Yes",
-          "count": 165,
+          "count": 199,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
             "529459",
+            "529539",
             "529435",
+            "529415",
+            "529704",
+            "529680",
+            "529681",
+            "529690",
+            "529693",
+            "529687",
+            "529686",
+            "529685",
+            "529684",
+            "529683",
+            "529682",
+            "529679",
+            "529678",
+            "529677",
+            "529672",
+            "529671",
+            "529645",
+            "529644",
+            "529643",
+            "529642",
+            "529641",
+            "529640",
+            "529639",
+            "529638",
+            "529637",
+            "529636",
+            "529635",
+            "529634",
+            "529633",
+            "529632",
+            "529630",
+            "529629",
+            "529628",
+            "529626",
             "529624",
             "529622",
             "529621",
@@ -10772,7 +13063,6 @@
             "529542",
             "529541",
             "529540",
-            "529539",
             "529536",
             "529535",
             "529526",
@@ -10849,7 +13139,6 @@
             "529418",
             "529417",
             "529416",
-            "529415",
             "529413",
             "529390",
             "529389",
@@ -10900,14 +13189,80 @@
           "id": "Yes",
           "value": "Yes",
           "label": "Yes",
-          "count": 274,
+          "count": 337,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
             "529459",
+            "529664",
+            "529539",
             "529435",
+            "529415",
             "529364",
+            "529704",
+            "529702",
+            "529680",
+            "529701",
+            "529681",
+            "529699",
+            "529700",
+            "529703",
+            "529697",
+            "529698",
+            "529690",
+            "529693",
+            "529692",
+            "529691",
+            "529689",
+            "529688",
+            "529687",
+            "529686",
+            "529685",
+            "529684",
+            "529683",
+            "529682",
+            "529679",
+            "529678",
+            "529677",
+            "529674",
+            "529673",
+            "529672",
+            "529671",
+            "529675",
+            "529676",
+            "529670",
+            "529669",
+            "529668",
+            "529667",
+            "529645",
+            "529644",
+            "529643",
+            "529642",
+            "529641",
+            "529640",
+            "529639",
+            "529666",
+            "529665",
+            "529638",
+            "529637",
+            "529636",
+            "529635",
+            "529634",
+            "529633",
+            "529632",
+            "529631",
+            "529630",
+            "529629",
+            "529628",
+            "529627",
+            "529626",
+            "529646",
+            "529647",
+            "529648",
+            "529649",
+            "529650",
+            "529651",
             "529652",
             "529653",
             "529655",
@@ -10916,7 +13271,6 @@
             "529659",
             "529660",
             "529661",
-            "529664",
             "529663",
             "529662",
             "529569",
@@ -11004,7 +13358,6 @@
             "529542",
             "529541",
             "529540",
-            "529539",
             "529536",
             "529535",
             "529534",
@@ -11114,7 +13467,6 @@
             "529418",
             "529417",
             "529416",
-            "529415",
             "529412",
             "529411",
             "529413",
@@ -11192,13 +13544,14 @@
           "id": "Retractable",
           "value": "Retractable",
           "label": "Retractable",
-          "count": 3,
+          "count": 4,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
-            "529435",
             "529539",
+            "529435",
+            "529704",
             "529465"
           ]
         },
@@ -11254,12 +13607,13 @@
           "id": "Aluminum",
           "value": "Aluminum",
           "label": "Aluminum",
-          "count": 8,
+          "count": 9,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
             "529435",
+            "529704",
             "529550",
             "529522",
             "529498",
@@ -11273,11 +13627,14 @@
           "id": "Bamboo",
           "value": "Bamboo",
           "label": "Bamboo",
-          "count": 2,
+          "count": 5,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529674",
+            "529673",
+            "529632",
             "529597",
             "529526"
           ]
@@ -11325,11 +13682,12 @@
           "id": "Cotton",
           "value": "Cotton",
           "label": "Cotton",
-          "count": 5,
+          "count": 6,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529666",
             "529622",
             "529621",
             "529585",
@@ -11341,11 +13699,13 @@
           "id": "Cotton / Polyester",
           "value": "Cotton / Polyester",
           "label": "Cotton / Polyester",
-          "count": 5,
+          "count": 7,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529649",
+            "529650",
             "529652",
             "529653",
             "529655",
@@ -11431,13 +13791,30 @@
           "id": "Glass",
           "value": "Glass",
           "label": "Glass",
-          "count": 2,
+          "count": 7,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529672",
+            "529671",
+            "529675",
+            "529676",
+            "529635",
             "529515",
             "529514"
+          ]
+        },
+        {
+          "id": "Jute / Cotton",
+          "value": "Jute / Cotton",
+          "label": "Jute / Cotton",
+          "count": 1,
+          "type": "value",
+          "low": null,
+          "high": null,
+          "skus": [
+            "529640"
           ]
         },
         {
@@ -11551,12 +13928,32 @@
           "id": "Plastic",
           "value": "Plastic",
           "label": "Plastic",
-          "count": 43,
+          "count": 62,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
             "529459",
+            "529539",
+            "529702",
+            "529680",
+            "529701",
+            "529681",
+            "529700",
+            "529703",
+            "529687",
+            "529686",
+            "529685",
+            "529684",
+            "529683",
+            "529682",
+            "529677",
+            "529670",
+            "529669",
+            "529639",
+            "529638",
+            "529637",
+            "529636",
             "529663",
             "529625",
             "529571",
@@ -11566,7 +13963,6 @@
             "529570",
             "529558",
             "529556",
-            "529539",
             "529527",
             "529525",
             "529524",
@@ -11602,14 +13998,38 @@
           ]
         },
         {
-          "id": "Polyester",
-          "value": "Polyester",
-          "label": "Polyester",
-          "count": 41,
+          "id": "Polycanvas",
+          "value": "Polycanvas",
+          "label": "Polycanvas",
+          "count": 1,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529645"
+          ]
+        },
+        {
+          "id": "Polyester",
+          "value": "Polyester",
+          "label": "Polyester",
+          "count": 53,
+          "type": "value",
+          "low": null,
+          "high": null,
+          "skus": [
+            "529690",
+            "529679",
+            "529678",
+            "529668",
+            "529644",
+            "529643",
+            "529641",
+            "529628",
+            "529646",
+            "529647",
+            "529648",
+            "529651",
             "529657",
             "529658",
             "529567",
@@ -11701,11 +14121,12 @@
           "id": "Polypropylene",
           "value": "Polypropylene",
           "label": "Polypropylene",
-          "count": 11,
+          "count": 12,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529688",
             "529617",
             "529615",
             "529588",
@@ -11735,11 +14156,12 @@
           "id": "PVC",
           "value": "PVC",
           "label": "PVC",
-          "count": 6,
+          "count": 7,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529627",
             "529424",
             "529412",
             "529411",
@@ -11752,11 +14174,16 @@
           "id": "Recycled PET",
           "value": "Recycled PET",
           "label": "Recycled PET",
-          "count": 10,
+          "count": 15,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529697",
+            "529642",
+            "529630",
+            "529629",
+            "529626",
             "529620",
             "529609",
             "529602",
@@ -11767,6 +14194,19 @@
             "529591",
             "529478",
             "529477"
+          ]
+        },
+        {
+          "id": "Rubber",
+          "value": "Rubber",
+          "label": "Rubber",
+          "count": 2,
+          "type": "value",
+          "low": null,
+          "high": null,
+          "skus": [
+            "529692",
+            "529691"
           ]
         },
         {
@@ -11785,11 +14225,13 @@
           "id": "Silicone",
           "value": "Silicone",
           "label": "Silicone",
-          "count": 3,
+          "count": 5,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529633",
+            "529631",
             "529368",
             "529347",
             "529344"
@@ -11799,11 +14241,12 @@
           "id": "Stainless Steel",
           "value": "Stainless Steel",
           "label": "Stainless Steel",
-          "count": 33,
+          "count": 34,
           "type": "value",
           "low": null,
           "high": null,
           "skus": [
+            "529634",
             "529662",
             "529618",
             "529616",
@@ -11874,6 +14317,18 @@
           "high": null,
           "skus": [
             "529619"
+          ]
+        },
+        {
+          "id": "Vinyl",
+          "value": "Vinyl",
+          "label": "Vinyl",
+          "count": 1,
+          "type": "value",
+          "low": null,
+          "high": null,
+          "skus": [
+            "529667"
           ]
         },
         {
