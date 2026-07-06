@@ -1925,6 +1925,17 @@ Engine + page-builder reuse — a new reusable section type plus a generation ac
 - **ASSUMPTIONS:** one-at-a-time draft-for-review (same as blogs/videos, no batch); CTA/hero buttons default to `/contact`; re-generate appends rather than replaces (non-destructive by Patrick-safety default).
 - **Conscious no-ops:** **no webhook Filter/Projection change** — `page` is already in the Filter and already revalidates `/services/<slug>` + `/<slug>` + the sitemap on publish; `productStrip` fields ride the app's own cached pages GROQ spread (not the webhook projection); `aiBrief`/`aiTopicKeywords`/`aiSuggestedLinks` are Studio-only. **No new cache tag** — the strip rides the existing `PAGES_TAG`/`pageTag` fetch. **No new env var** — reuses `DEEPSEEK_API_KEY`.
 
+### [x] P2-BLOG-CTA: Per-post CTA / Related Blogs topic override — DONE 2026-07-06
+
+The "Order Custom [topic] Today" button and the "See Related Blogs About [topic]" heading on a blog post both derive their topic from the post's FIRST category title, so a mini-footballs post filed under "Buying Guides" read "Order Custom Buying Guides Today" with no way for Patrick to fix the wording. Small per-post override:
+
+- **`blogPost.ctaTopic`** (optional string, "CTA / Related Blogs Topic (optional)", placed above Meta Title) — when filled, BOTH headings use it; blank = the existing automatic category-title behavior (clearing + republishing reverts). No validation beyond optional string.
+- **Render:** `deriveOrderTopic()` in [app/blog/[slug]/page.tsx](app/blog/[slug]/page.tsx) now prefers a non-blank `post.ctaTopic` over the first category title over the title-words fallback; the single `orderTopic` value still feeds both `<OrderTodayCTA>` and `<RelatedBlogsForPost>`, so the two headings stay in sync. `OrderTodayCTA` / `RelatedBlogsForPost` themselves unchanged.
+- **Query:** `ctaTopic` added to the `getBlogPostBySlug` GROQ projection + `BlogPostDetail` type in [lib/sanity/queries/blogs.ts](lib/sanity/queries/blogs.ts) (the single-post page is the only surface rendering these headings, so no other query needed). Rides the existing cached blog fetch.
+- **AI pre-fill:** [app/api/sanity/generate-blog/route.ts](app/api/sanity/generate-blog/route.ts) asks both templates for a `ctaTopic` (2-5 word Title Case "Custom [product]" phrase naming the post's ACTUAL product focus — never the editorial category) and returns it (best-effort, `''` when omitted); [sanity/actions/generate-blog-with-ai.tsx](sanity/actions/generate-blog-with-ai.tsx) patches it **only when the doc's field is empty** (never overwrites a value Patrick set). Never publishes.
+- **Guide updated:** new "CTA / Related Blogs Topic" subsection in the Blog section of `perfect-imprints-sanity-guide.html` (what it controls, blank = automatic, the mini-footballs example, AI pre-fill note) + a mention in the AI review step.
+- **Conscious no-ops:** **no webhook Filter/Projection change** — `blogPost` is already in the Filter and already revalidates `/blog/<slug>` on publish; `ctaTopic` rides the existing cached blog fetch. **No new cache tag, no render-path staticness change** (`/blog/[slug]` stays SSG), **no new env var**.
+
 ### [ ] P2-AI-005: AI Local & Topic Landing pages
 
 - Fixed high-converting template (hero, trust, problem, options, why us, lead form, FAQ) filled by AI.

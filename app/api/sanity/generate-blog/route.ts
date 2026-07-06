@@ -83,6 +83,8 @@ interface GeneratedBlog {
   metaTitle: string;
   metaDescription: string;
   excerpt: string;
+  /** Short "Custom [product]" phrase naming the post's actual product focus — feeds blogPost.ctaTopic. */
+  ctaTopic?: string;
   intro: string[];
   sections: (GeneratedListSection & GeneratedSingleSection)[];
   /** single template only */
@@ -115,6 +117,7 @@ Return a single JSON object, no prose, no code fences:
   "metaTitle": "<=60 chars",
   "metaDescription": "<=155 chars, soft CTA + topic keyword",
   "excerpt": "<=300 chars",
+  "ctaTopic": "2-5 word Title Case phrase starting with 'Custom' that names the post's ACTUAL product focus (e.g. \\"Custom Trade Show Giveaways\\") — derived from the subject, NEVER an editorial label like 'Buying Guides'",
   "intro": ["2-3 opening paragraphs as separate strings, at least ${budget.intro} words total"],
   "sections": [
     {
@@ -136,6 +139,7 @@ Return a single JSON object, no prose, no code fences:
   "metaTitle": "<=60 chars",
   "metaDescription": "<=155 chars, soft CTA + topic keyword",
   "excerpt": "<=300 chars",
+  "ctaTopic": "2-5 word Title Case phrase starting with 'Custom' that names the post's ACTUAL product focus (e.g. \\"Custom Mini Footballs\\") — derived from the subject, NEVER an editorial label like 'Buying Guides'",
   "intro": ["2-3 opening paragraphs as separate strings, at least ${budget.intro} words total"],
   "sections": [
     {
@@ -358,6 +362,10 @@ export async function POST(request: Request) {
       metaTitle: clampAtWordBoundary(gen.metaTitle, 60),
       metaDescription: clampAtWordBoundary(gen.metaDescription, 155),
       excerpt: clampAtWordBoundary(gen.excerpt, 300),
+      // Optional CTA/Related-Blogs topic override (blogPost.ctaTopic). Best
+      // effort: empty when the model omits it — the action only patches a
+      // non-empty value, and the page falls back to the category title.
+      ctaTopic: typeof gen.ctaTopic === 'string' ? gen.ctaTopic.trim() : '',
       body: blogBody,
       suggestedLinks,
     });

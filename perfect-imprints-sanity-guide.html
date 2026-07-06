@@ -1015,6 +1015,17 @@
       between paragraphs (each either pulled live by SKU or added manually with a title, image, and link), just like
       your old blog did.</p>
 
+    <h4>CTA / Related Blogs Topic (fix the "Order Custom … Today" wording)</h4>
+    <p>At the bottom of every post the site shows an <strong>"Order Custom [topic] Today"</strong> button and a
+      <strong>"See Related Blogs About [topic]"</strong> heading. By default the topic is taken automatically from the
+      post's <em>first category name</em> — which reads wrong when the category is an editorial one. Example: a post
+      about mini footballs filed under "Buying Guides" would say "Order Custom <em>Buying Guides</em> Today".</p>
+    <p>To fix it, fill the optional <strong>CTA / Related Blogs Topic</strong> field on the post (just above Meta
+      Title) — e.g. <code>Custom Mini Footballs</code> — and Publish. Both the button and the heading then use your
+      wording. Leave the field <strong>blank</strong> to keep the automatic category-based wording (clearing it and
+      publishing reverts to automatic). When you generate a post with AI (below), this field is pre-filled with a
+      sensible "Custom [product]" phrase for you — it never overwrites a value you already typed.</p>
+
     <h4 id="blog-ai">Generate a Blog Post with AI</h4>
     <p>Blog Posts have their own AI writing helper, just like Custom Categories do (see <a href="#ai">Generate with
         AI</a>). It drafts a complete long-form post — the body text, rows of matching product cards, the meta
@@ -1046,7 +1057,9 @@
         <strong>placed into the text automatically</strong> (they show as normal links — edit or remove any you do not
         want, and the <strong>Suggested Internal Links</strong> list records everything it found and says which were
         placed); <strong>add a header image</strong> (the AI does not pick images or videos — you drop those in
-        wherever you want); and set the <strong>Author</strong>.</li>
+        wherever you want); check the pre-filled <strong>CTA / Related Blogs Topic</strong> (the wording used in the
+        "Order Custom … Today" button and the "See Related Blogs About …" heading — tweak it if the phrase is off);
+        and set the <strong>Author</strong>.</li>
       <li>When it reads right, <strong>Publish</strong>.</li>
     </ol>
     <p class="small">About the product rows: each section's row is matched to <em>that section's</em> topic (a

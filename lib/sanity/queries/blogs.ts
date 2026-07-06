@@ -29,6 +29,8 @@ export interface BlogPostDetail extends BlogPostSummary {
   body: PortableTextBlock[];
   updatedDate?: string;
   metaTitle?: string;
+  /** Optional per-post override for the "Order Custom … Today" CTA + "See Related Blogs About …" heading. */
+  ctaTopic?: string;
   relatedCategorySlugs?: string[];
   relatedBlogs?: BlogPostSummary[];
 }
@@ -113,6 +115,7 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPostDetail | 
       body,
       updatedDate,
       metaTitle,
+      ctaTopic,
       relatedCategorySlugs,
       "relatedBlogs": relatedBlogs[]->{ ${SUMMARY_PROJECTION} }
     }`,

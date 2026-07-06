@@ -67,7 +67,15 @@ function formatDate(iso: string): string {
   return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 
-function deriveOrderTopic(post: { title: string; categories?: { title: string }[] }): string {
+function deriveOrderTopic(post: {
+  title: string;
+  ctaTopic?: string;
+  categories?: { title: string }[];
+}): string {
+  // Per-post override wins (feeds BOTH the "Order Custom … Today" CTA and the
+  // "See Related Blogs About …" heading). Blank → automatic category title.
+  const override = post.ctaTopic?.trim();
+  if (override) return override;
   if (post.categories && post.categories.length > 0) return post.categories[0].title;
   // Fallback: lift the first 2-3 keyword words from the title.
   return post.title.split(/[:|—–-]/)[0].trim();

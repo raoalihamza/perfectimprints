@@ -169,6 +169,13 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'ctaTopic',
+      title: 'CTA / Related Blogs Topic (optional)',
+      type: 'string',
+      description:
+        "Overrides the wording in the 'Order Custom … Today' button and the 'See Related Blogs About …' heading. Leave blank to use the category name automatically. Example: Custom Mini Footballs",
+    }),
+    defineField({
       name: 'metaTitle',
       title: 'Meta Title',
       type: 'string',

@@ -27,6 +27,7 @@ interface GeneratedBlogResponse {
   metaTitle: string;
   metaDescription: string;
   excerpt: string;
+  ctaTopic?: string;
   body: unknown[];
   suggestedLinks: SuggestedLink[];
 }
@@ -61,6 +62,7 @@ export const generateBlogWithAi: DocumentActionComponent = (props) => {
     title?: string;
     slug?: { current?: string };
     publishDate?: string;
+    ctaTopic?: string;
     aiTemplate?: string;
     aiTopicKeywords?: string[];
     aiPrimaryCategorySlug?: string;
@@ -114,6 +116,10 @@ export const generateBlogWithAi: DocumentActionComponent = (props) => {
               // publishDate is required — set it only when empty so the draft
               // is publishable after review. Patrick can adjust it.
               ...(!doc?.publishDate ? { publishDate: new Date().toISOString() } : {}),
+              // CTA/Related-Blogs topic — only when Patrick hasn't set one.
+              ...(!doc?.ctaTopic?.trim() && data.ctaTopic?.trim()
+                ? { ctaTopic: data.ctaTopic.trim() }
+                : {}),
               metaTitle: data.metaTitle,
               metaDescription: data.metaDescription,
               excerpt: data.excerpt,
