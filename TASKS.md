@@ -1969,6 +1969,14 @@ Landing pages are now COMPLETE. The existing Phase 1 form already had the right 
 
 ---
 
+### [x] /videos client-side pagination (Load more) — DONE 2026-07-07
+
+The videos library is growing, so the `/videos` index no longer renders every card at once. **Client-side pagination in [components/videos/VideosBrowser.tsx](components/videos/VideosBrowser.tsx) only** (the M5-507 render-all was fine for a small set): a `PAGE_SIZE = 24` cap (`visibleCount` state) renders `filtered.slice(0, visibleCount)`, a **"Load more"** button (outlined, brand-styled) reveals the next 24 until all are shown (then hides), and a "Showing X of Y videos" indicator sits under the grid. Selecting a category chip resets `visibleCount` to 24 so the newly filtered set starts from its first page; pagination slices the FILTERED list, so Load more works within a category. Empty states unchanged (no-videos message + no-videos-in-category message; no button rendered). Deliberately NOT a `/videos/page/N` route: cards are small metadata (the full list still ships — only the rendered count is capped), every `/videos/<slug>` is already in the sitemap for discovery, and server pagination would fight the client-side category filter.
+
+**Conscious no-ops:** [app/videos/page.tsx](app/videos/page.tsx) unchanged (still `force-static` + 1h ISR, still fetches all via `getAllVideos()` and passes down — no `searchParams`, no new route, `/videos` stays static). No Sanity schema/Studio change → no guide update; no webhook Filter/Projection change; no new cache tag; no sitemap change; no new env var. Pure client-component render capping; `/cat` untouched.
+
+---
+
 ## Phase 2A — Custom Product Pages, Form Builder, CTA
 
 ### [ ] P2-CP-001: Custom product detail pages

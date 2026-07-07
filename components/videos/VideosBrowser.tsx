@@ -10,14 +10,20 @@ interface VideosBrowserProps {
 
 const ALL = '__all__';
 
+/** Cards rendered per "page" — Load more reveals another batch of this size. */
+const PAGE_SIZE = 24;
+
 /**
  * Videos index grid with a blog-style category filter (M5-507). Filtering is
  * client-side over the full (small) video set — instant, no extra routes, no
  * server roundtrips. Chips are derived from the categories actually present, so
- * an empty taxonomy simply hides the filter row.
+ * an empty taxonomy simply hides the filter row. Rendering is capped at
+ * PAGE_SIZE cards with a Load more button (client-side pagination — the full
+ * list still ships, only the rendered count is limited; no URL change).
  */
 export function VideosBrowser({ videos }: VideosBrowserProps) {
   const [active, setActive] = useState<string>(ALL);
+  const [visibleCount, setVisibleCount] = useState<number>(PAGE_SIZE);
 
   // Unique categories present across the videos, alphabetical.
   const categories = useMemo(() => {
@@ -35,6 +41,8 @@ export function VideosBrowser({ videos }: VideosBrowserProps) {
     [videos, active],
   );
 
+  const visible = filtered.slice(0, visibleCount);
+
   if (videos.length === 0) {
     return (
       <p className="rounded-lg border border-border bg-bg-soft py-12 text-center text-text-muted">
@@ -43,6 +51,12 @@ export function VideosBrowser({ videos }: VideosBrowserProps) {
     );
   }
 
+  const selectCategory = (value: string) => {
+    setActive(value);
+    // Start the newly filtered set from its first page.
+    setVisibleCount(PAGE_SIZE);
+  };
+
   const chip = (label: string, value: string) => {
     const selected = active === value;
     return (
@@ -50,7 +64,7 @@ export function VideosBrowser({ videos }: VideosBrowserProps) {
         key={value}
         type="button"
         aria-pressed={selected}
-        onClick={() => setActive(value)}
+        onClick={() => selectCategory(value)}
         className={[
           'rounded-full border px-4 py-1.5 text-sm font-medium transition-colors',
           selected
@@ -75,11 +89,29 @@ export function VideosBrowser({ videos }: VideosBrowserProps) {
       {filtered.length === 0 ? (
         <p className="py-12 text-center text-text-muted">No videos in this category yet.</p>
       ) : (
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((v) => (
-            <VideoCard key={v.id} video={v} />
-          ))}
-        </div>
+        <>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {visible.map((v) => (
+              <VideoCard key={v.id} video={v} />
+            ))}
+          </div>
+
+          <p className="mt-8 text-center text-sm text-text-muted">
+            Showing {visible.length} of {filtered.length} video{filtered.length === 1 ? '' : 's'}
+          </p>
+
+          {visible.length < filtered.length && (
+            <div className="mt-4 text-center">
+              <button
+                type="button"
+                onClick={() => setVisibleCount((n) => n + PAGE_SIZE)}
+                className="rounded-md border border-brand-ink px-6 py-2.5 text-sm font-semibold text-brand-ink transition-colors hover:border-brand-red hover:text-brand-red"
+              >
+                Load more
+              </button>
+            </div>
+          )}
+        </>
       )}
     </div>
   );
