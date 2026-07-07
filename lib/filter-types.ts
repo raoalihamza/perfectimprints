@@ -193,6 +193,26 @@ export function parseFilterState(searchParams: QueryParams): FilterState {
   return state;
 }
 
+/**
+ * Parse a FilterState from a raw URL query string (no leading `?`).
+ *
+ * The /cat client components read the query from `window.location.search` in a
+ * post-mount effect and hand it around as this plain string — NEVER via
+ * `useSearchParams()`. Calling `useSearchParams()` during render forces a CSR
+ * bailout at prerender time that replaces the whole static page HTML with the
+ * route's loading.tsx skeleton while the build still reports `●` (M-SEO5; see
+ * CLAUDE.md §13).
+ */
+export function filterStateFromSearchKey(searchKey: string): FilterState {
+  const params = new URLSearchParams(searchKey);
+  const record: QueryParams = {};
+  for (const key of new Set(params.keys())) {
+    const all = params.getAll(key);
+    record[key] = all.length > 1 ? all : all[0];
+  }
+  return parseFilterState(record);
+}
+
 export function countActiveFilters(state: FilterState): number {
   let n = 0;
   for (const k of Object.keys(state.facets)) n += state.facets[k].length;

@@ -1,13 +1,12 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import {
   DEFAULT_SORT,
   countActiveFilters,
   emptyFilterState,
-  parseFilterState,
+  filterStateFromSearchKey,
   serializeFilterState,
   type FilterState,
   type SidebarData,
@@ -18,31 +17,23 @@ import { SearchWithinCategory } from './SearchWithinCategory';
 
 interface FilterSidebarProps {
   sidebar: SidebarData;
+  /**
+   * Current URL query string, owned by CategoryShell (read post-mount from
+   * window.location — NOT useSearchParams, which would CSR-bail the /cat
+   * prerender; see CategoryShell).
+   */
+  searchKey: string;
+  /** Push a new URL (router.push, scroll:false) + keep the shared query state in sync. */
+  navigate: (url: string) => void;
   /** Emits the search-within query string upward to the parent grid wrapper. */
   onSearchWithin?: (query: string) => void;
 }
 
-export function FilterSidebar({ sidebar, onSearchWithin }: FilterSidebarProps) {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParamsObj = useSearchParams();
+export function FilterSidebar({ sidebar, searchKey, navigate, onSearchWithin }: FilterSidebarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // Parse current filter state from URL (single source of truth).
-  const state: FilterState = useMemo(() => {
-    const obj: Record<string, string | string[]> = {};
-    searchParamsObj?.forEach((value, key) => {
-      const existing = obj[key];
-      if (existing == null) {
-        obj[key] = value;
-      } else if (Array.isArray(existing)) {
-        existing.push(value);
-      } else {
-        obj[key] = [existing, value];
-      }
-    });
-    return parseFilterState(obj);
-  }, [searchParamsObj]);
+  // Parse current filter state from the URL query (single source of truth).
+  const state: FilterState = useMemo(() => filterStateFromSearchKey(searchKey), [searchKey]);
 
   const activeCount = countActiveFilters(state);
 
@@ -72,15 +63,15 @@ export function FilterSidebar({ sidebar, onSearchWithin }: FilterSidebarProps) {
 
       // Case 1: single facet with a known static URL + no other state → navigate there.
       if (opts?.preferStaticUrl && singleFacetType && noOtherFilters && next.sort === DEFAULT_SORT) {
-        router.push(opts.preferStaticUrl.staticUrl, { scroll: false });
+        navigate(opts.preferStaticUrl.staticUrl);
         return;
       }
 
       // Default: stay on root URL + serialize state.
       const qs = serializeFilterState(next);
-      router.push(qs ? `${rootUrl}?${qs}` : rootUrl, { scroll: false });
+      navigate(qs ? `${rootUrl}?${qs}` : rootUrl);
     },
-    [router, rootUrl]
+    [navigate, rootUrl]
   );
 
   const toggleFacet = useCallback(

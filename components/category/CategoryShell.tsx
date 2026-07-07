@@ -1,12 +1,12 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 import type { GeigerProduct } from '@/lib/product-types';
 import { PRODUCTS_PER_PAGE } from '@/lib/product-types';
 import {
+  filterStateFromSearchKey,
   isStateEmpty,
-  parseFilterState,
   type SidebarData,
   type SortMode,
 } from '@/lib/filter-types';
@@ -38,6 +38,14 @@ interface FilterResponse {
  * statically prerendered. With no filters, the server's path-paginated slice is
  * shown (fast, indexable). When a filter/sort is applied, this client fetches the
  * full filtered list and paginates it in-browser.
+ *
+ * The URL query is read from `window.location.search` in a post-mount effect —
+ * NEVER via `useSearchParams()`. A render-time `useSearchParams()` anywhere in
+ * this tree forces a CSR bailout during prerender that swaps the ENTIRE page's
+ * static HTML (H1, product grid, JSON-LD) for the route's loading.tsx skeleton
+ * while the build still reports `●` static (M-SEO5; CLAUDE.md §13). This shell
+ * owns the query state and hands FilterSidebar/SortDropdown a `searchKey` +
+ * `navigate` pair so no child needs the hook either.
  */
 export function CategoryShell({
   sidebar,
@@ -48,20 +56,56 @@ export function CategoryShell({
   baseUrl,
   slug,
 }: CategoryShellProps) {
-  const searchParams = useSearchParams();
-  const searchKey = searchParams.toString();
+  const router = useRouter();
+  const pathname = usePathname();
 
-  // Active-filter detection from the URL (parseFilterState/isStateEmpty are
-  // client-safe — they live in filter-types, not the server-only filters module).
+  // Raw query string (no leading "?"). null until the mount effect reads the
+  // real URL, so the server prerender AND the first client render both show the
+  // unfiltered view — that keeps the full grid in the static HTML and makes
+  // hydration match.
+  const [qs, setQs] = useState<string | null>(null);
+
+  // Read the query after mount, again after every committed route transition
+  // (pathname dep), and on back/forward (pushState never fires popstate, so
+  // same-path filter clicks are synced by `navigate` below instead). The
+  // pathname guard skips mid-transition popstate reads — mirroring the old
+  // useSearchParams behavior of only updating at navigation commit — so a
+  // cross-category back/forward can't fire a fetch for a mismatched slug+query.
+  useEffect(() => {
+    const read = () => {
+      if (window.location.pathname !== pathname) return;
+      setQs(window.location.search.replace(/^\?/, ''));
+    };
+    read();
+    window.addEventListener('popstate', read);
+    return () => window.removeEventListener('popstate', read);
+  }, [pathname]);
+
+  const searchKey = qs ?? '';
+
+  // Active-filter detection from the URL (filterStateFromSearchKey/isStateEmpty
+  // are client-safe — they live in filter-types, not the server-only filters module).
   const { active, sort } = useMemo(() => {
-    const record: Record<string, string | string[]> = {};
-    for (const key of new Set(searchParams.keys())) {
-      const all = searchParams.getAll(key);
-      record[key] = all.length > 1 ? all : all[0];
-    }
-    const state = parseFilterState(record);
+    const state = filterStateFromSearchKey(searchKey);
     return { active: !isStateEmpty(state), sort: state.sort as SortMode };
-  }, [searchParams]);
+  }, [searchKey]);
+
+  // Filter/sort navigation for this page and its children. For a same-pathname
+  // (query-only) push the router remounts nothing and no event fires, so sync
+  // the local query state immediately; a cross-pathname push (e.g. a single
+  // facet's static URL) is picked up by the pathname-keyed effect above once
+  // the transition commits.
+  const navigate = useCallback(
+    (url: string) => {
+      router.push(url, { scroll: false });
+      const q = url.indexOf('?');
+      const targetPath = q === -1 ? url : url.slice(0, q);
+      if (targetPath === window.location.pathname) {
+        setQs(q === -1 ? '' : url.slice(q + 1));
+      }
+    },
+    [router],
+  );
 
   const [filtered, setFiltered] = useState<GeigerProduct[] | null>(null);
   const [loading, setLoading] = useState(false);
@@ -136,7 +180,12 @@ export function CategoryShell({
 
   return (
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-8">
-      <FilterSidebar sidebar={sidebar} onSearchWithin={setSearchQuery} />
+      <FilterSidebar
+        sidebar={sidebar}
+        searchKey={searchKey}
+        navigate={navigate}
+        onSearchWithin={setSearchQuery}
+      />
 
       <div ref={gridTopRef}>
         <div
@@ -146,7 +195,7 @@ export function CategoryShell({
           <h2 className="text-xl font-semibold text-brand-ink">
             {isBusy ? 'Filtering…' : showingLabel}
           </h2>
-          <SortDropdown current={sort} />
+          <SortDropdown current={sort} searchKey={searchKey} navigate={navigate} />
         </div>
 
         {searchQuery && visible.length < view.pageItems.length && (

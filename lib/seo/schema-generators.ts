@@ -103,6 +103,12 @@ export function collectionPageSchema(input: {
   name: string;
   url: string;
   description?: string;
+  /**
+   * Primary/representative image for the collection (M-SEO5) — e.g. the first
+   * product image upsized via largeSocialImage(), matching og:image. Omitted
+   * for CTA-only categories (no grid → no image claim).
+   */
+  image?: string;
 }) {
   const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
@@ -111,6 +117,7 @@ export function collectionPageSchema(input: {
     url: input.url,
   };
   if (input.description) schema.description = input.description;
+  if (input.image) schema.image = input.image;
   return schema;
 }
 

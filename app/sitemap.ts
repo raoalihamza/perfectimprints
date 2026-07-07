@@ -5,6 +5,8 @@ import { getBlogPostSlugs, getAllBlogCategories } from '@/lib/sanity/queries/blo
 import { getVideoSlugs } from '@/lib/sanity/queries/videos';
 import { getAllPageSlugs } from '@/lib/sanity/queries/pages';
 import { getAllLandingPageSlugs } from '@/lib/sanity/queries/landing-pages';
+import { getAllGeneratedCategorySlugs, resolveProductsBySku } from '@/lib/categories';
+import { largeSocialImage } from '@/lib/seo/open-graph';
 import { RESERVED_SLUG_SET } from '@/lib/reserved-slugs';
 import { SIMPLE_NAV } from '@/lib/nav-data';
 
@@ -131,12 +133,30 @@ function readBrandSlugs(): string[] {
   return parsed.brands.map((b) => b.slug).filter(Boolean);
 }
 
+// One representative image per category URL for the sitemap's <image:image>
+// entries (M-SEO5) — strengthens image-to-page association for Google Images /
+// SERP thumbnails. Mirrors the categoryOgImage logic: first resolvable SKU with
+// an image, upsized to the ~1200px variant. Costs one extra pass over the baked
+// category JSONs (the same read generateStaticParams already does each build)
+// plus lookups against the memoized products index — no network, build-time
+// only. CTA-only categories have no imageSkus (no grid → no image claim).
+function buildCategoryImageMap(): Map<string, string> {
+  const map = new Map<string, string>();
+  for (const s of getAllGeneratedCategorySlugs()) {
+    if (s.imageSkus.length === 0) continue;
+    const withImage = resolveProductsBySku(s.imageSkus).find((p) => p.imageUrl);
+    const image = largeSocialImage(withImage?.imageUrl);
+    if (image) map.set(`/cat/${s.urlSlug}`, image);
+  }
+  return map;
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const entries: MetadataRoute.Sitemap = [];
 
   // Per-section tallies for the build log so coverage is verifiable at a glance.
-  const counts = { static: 0, category: 0, blogPosts: 0, blogCats: 0, videos: 0, brands: 0, pages: 0, landingPages: 0 };
+  const counts = { static: 0, category: 0, categoryImages: 0, blogPosts: 0, blogCats: 0, videos: 0, brands: 0, pages: 0, landingPages: 0 };
 
   for (const p of STATIC_PATHS) {
     entries.push({ url: `${SITE_URL}${p}`, lastModified: now, changeFrequency: 'weekly' });
@@ -147,12 +167,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // page 2+ carries noindex,follow and canonicalizes to page 1, so they should not be
   // surfaced in the sitemap. They remain discoverable via the Pagination follow links.
   const categoryUrls = readCategoryUrls();
+  const categoryImages = buildCategoryImageMap();
   for (const url of categoryUrls) {
+    const image = categoryImages.get(url);
+    if (image) counts.categoryImages += 1;
     entries.push({
       url: `${SITE_URL}${url}`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.7,
+      ...(image ? { images: [image] } : {}),
     });
   }
   counts.category = categoryUrls.length;
@@ -240,7 +264,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // CLAUDE.md §11 / docs.
   console.log(
     `[sitemap] ${entries.length} URLs — static:${counts.static} category:${counts.category} ` +
-      `blogPosts:${counts.blogPosts} blogCats:${counts.blogCats} videos:${counts.videos} brands:${counts.brands} pages:${counts.pages} landingPages:${counts.landingPages}`,
+      `(with images:${counts.categoryImages}) blogPosts:${counts.blogPosts} blogCats:${counts.blogCats} ` +
+      `videos:${counts.videos} brands:${counts.brands} pages:${counts.pages} landingPages:${counts.landingPages}`,
   );
 
   return entries;

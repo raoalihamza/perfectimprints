@@ -114,6 +114,14 @@ export interface CategorySlugSummary {
   type: CategoryType;
   totalProducts: number;
   totalPages: number;
+  /**
+   * First few SKUs of the category grid — lets app/sitemap.ts resolve one
+   * representative image per category URL (Google image sitemap entries,
+   * M-SEO5) without a second read of the baked JSON. Empty for CTA-only
+   * categories (per the baked-JSON shouldShowEmptyStateCTA rule): a page that
+   * renders no grid claims no image.
+   */
+  imageSkus: string[];
 }
 
 /**
@@ -138,7 +146,8 @@ export function getAllGeneratedCategorySlugs(): CategorySlugSummary[] {
     const urlSlug = fileSlug.split('__').join('/');
     const totalProducts = data.productSkus?.length ?? 0;
     const totalPages = Math.max(1, Math.ceil(totalProducts / PRODUCTS_PER_PAGE));
-    out.push({ urlSlug, fileSlug, type: data.type, totalProducts, totalPages });
+    const imageSkus = shouldShowEmptyStateCTA(data) ? [] : (data.productSkus ?? []).slice(0, 12);
+    out.push({ urlSlug, fileSlug, type: data.type, totalProducts, totalPages, imageSkus });
   }
   return out;
 }

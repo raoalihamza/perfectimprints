@@ -391,11 +391,18 @@ export default async function CategoryPage({ params }: Props) {
   // Page-type JSON-LD: CollectionPage (always) + ItemList (only when products
   // render — omitted for CTA-only categories) + FAQPage (root pages with FAQs).
   // BreadcrumbList is emitted separately by the <Breadcrumbs> component.
+  // Schema images use the ~1200px social variant (largeSocialImage) so the
+  // structured-data image signal is large (M-SEO5); the rendered grid keeps
+  // requesting the 275px thumbnails.
+  const primaryImage = !showCTA
+    ? largeSocialImage(pageData.products.find((p) => p.imageUrl)?.imageUrl)
+    : null;
   const schemaGraph: Record<string, unknown>[] = [
     collectionPageSchema({
       name: content.h1,
       url: `${SITE_URL}${parsed.baseUrl}`,
       description: content.metaDescription,
+      image: primaryImage ?? undefined,
     }),
   ];
   if (!showCTA && pageData.products.length > 0) {
@@ -404,7 +411,7 @@ export default async function CategoryPage({ params }: Props) {
         pageData.products.map((p) => ({
           name: p.name,
           url: affiliateUrl(p.geiger_url),
-          image: p.imageUrl,
+          image: largeSocialImage(p.imageUrl) ?? p.imageUrl,
         })),
       ),
     );

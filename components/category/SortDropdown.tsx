@@ -1,28 +1,34 @@
 'use client';
 
-import { useRouter, useSearchParams, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { DEFAULT_SORT, SORT_OPTIONS, type SortMode } from '@/lib/filter-types';
 
 interface SortDropdownProps {
-  /** Current sort value from URL (server-resolved). */
+  /** Current sort value from the URL query (resolved by CategoryShell). */
   current: SortMode;
+  /**
+   * Current URL query string, owned by CategoryShell (read post-mount from
+   * window.location — NOT useSearchParams, which would CSR-bail the /cat
+   * prerender; see CategoryShell). usePathname stays: it is prerender-safe.
+   */
+  searchKey: string;
+  /** Push a new URL (router.push, scroll:false) + keep the shared query state in sync. */
+  navigate: (url: string) => void;
 }
 
-export function SortDropdown({ current }: SortDropdownProps) {
-  const router = useRouter();
+export function SortDropdown({ current, searchKey, navigate }: SortDropdownProps) {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   function handleChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const next = e.target.value as SortMode;
-    const params = new URLSearchParams(searchParams?.toString() || '');
+    const params = new URLSearchParams(searchKey);
     if (next === DEFAULT_SORT) {
       params.delete('sort');
     } else {
       params.set('sort', next);
     }
     const qs = params.toString();
-    router.push(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+    navigate(qs ? `${pathname}?${qs}` : pathname);
   }
 
   return (

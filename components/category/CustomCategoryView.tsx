@@ -8,6 +8,7 @@ import { ProductGrid } from '@/components/category/ProductGrid';
 import { Schema } from '@/components/seo/Schema';
 import { pagePortableComponents } from '@/components/page-sections/portable-text';
 import { collectionPageSchema, itemListSchema } from '@/lib/seo/schema-generators';
+import { largeSocialImage } from '@/lib/seo/open-graph';
 import { portableTextToPlain } from '@/lib/portable-text/to-plain';
 import { affiliateUrl } from '@/lib/affiliate-url';
 import { urlForImage } from '@/lib/sanity/client';
@@ -59,6 +60,12 @@ export function CustomCategoryView({ doc, baseUrl, products }: Props) {
           name: title,
           url: `${SITE_URL}${baseUrl}`,
           description: doc.seo?.metaDescription || doc.heroCopy || undefined,
+          // Primary image (M-SEO5): hero image when set (matches og:image),
+          // else the first product image at the ~1200px social variant.
+          image:
+            heroImageUrl ??
+            largeSocialImage(products.find((p) => p.imageUrl)?.imageUrl) ??
+            undefined,
         })}
       />
       {products.length > 0 && (
@@ -67,7 +74,7 @@ export function CustomCategoryView({ doc, baseUrl, products }: Props) {
             products.map((p) => ({
               name: p.name,
               url: affiliateUrl(p.geiger_url),
-              image: p.imageUrl,
+              image: largeSocialImage(p.imageUrl) ?? p.imageUrl,
             })),
           )}
         />

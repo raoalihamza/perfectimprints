@@ -40,8 +40,26 @@ export const metadata: Metadata = {
     site: TWITTER_HANDLE,
     creator: TWITTER_HANDLE,
   },
+  robots: {
+    // Let Google show LARGE image previews (SERP thumbnails / Discover) —
+    // M-SEO5. Absence of index/follow keys means indexability is unchanged
+    // (no robots restriction is emitted). Shallow-merge caveat: a page that
+    // sets its own `robots` (category /page/N noindex, /search noindex)
+    // replaces this whole key for that page — those are noindex anyway.
+    googleBot: {
+      'max-image-preview': 'large',
+    },
+  },
   icons: {
-    icon: '/favicon.ico',
+    // favicon.ico is a multi-size ICO (16/32/48 — Google recommends >48px and
+    // reads it from the homepage) served at a URL that must stay stable across
+    // deploys; the PNGs cover hi-DPI/modern surfaces. All are real files in
+    // public/ — a dangling href here 404s (the old apple-touch-icon bug).
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
     apple: '/apple-touch-icon.png',
   },
 };
