@@ -1,0 +1,96 @@
+{
+  "_comment": "Top 10 landing page seed inputs for Perfect Imprints (P2-AI-005). Products are matched to each city's fit (FL beach towns to beach/koozie/water-bottle/screen-printing products, NC mountain towns to screen printing / embroidered polos / t-shirts / tote bags). Landmarks for Destin and Sylva are Patrick's exact list; the rest are well-known local landmarks Patrick can edit. Keywords use plural + custom/personalized/branded/logo/bulk forms. leadRecipient defaults to patrick@perfectimprints.com. Review and adjust before seeding.",
+  "leadRecipientDefault": "patrick@perfectimprints.com",
+  "pages": [
+    {
+      "title": "Custom Koozies in Destin, FL",
+      "slug": "custom-koozies-destin-fl",
+      "city": "Destin",
+      "state": "FL",
+      "product": "Custom Koozies",
+      "landmarks": ["Crab Island", "Henderson Beach State Park", "Destin Harbor", "HarborWalk Village", "Okaloosa County"],
+      "keywords": ["custom koozies", "personalized koozies", "branded koozies", "logo koozies", "bulk koozies", "printed can coolers"]
+    },
+    {
+      "title": "Custom Beach Towels in Destin, FL",
+      "slug": "custom-beach-towels-destin-fl",
+      "city": "Destin",
+      "state": "FL",
+      "product": "Custom Beach Towels",
+      "landmarks": ["Crab Island", "Henderson Beach State Park", "Destin Harbor", "HarborWalk Village", "Okaloosa County"],
+      "keywords": ["custom beach towels", "personalized beach towels", "branded beach towels", "logo beach towels", "bulk beach towels", "printed beach towels"]
+    },
+    {
+      "title": "Screen Printing in Fort Walton Beach, FL",
+      "slug": "screen-printing-fort-walton-beach-fl",
+      "city": "Fort Walton Beach",
+      "state": "FL",
+      "product": "Screen Printed T-Shirts",
+      "landmarks": ["Gulfarium Marine Adventure Park", "Okaloosa Island", "John Beasley Park", "Downtown Fort Walton Beach", "Okaloosa County"],
+      "keywords": ["screen printed t-shirts", "custom screen printing", "printed apparel", "branded t-shirts", "bulk screen printing", "custom t-shirts"]
+    },
+    {
+      "title": "Custom Water Bottles in Miramar Beach, FL",
+      "slug": "custom-water-bottles-miramar-beach-fl",
+      "city": "Miramar Beach",
+      "state": "FL",
+      "product": "Custom Water Bottles",
+      "landmarks": ["Grand Boulevard at Sandestin", "Silver Sands Premium Outlets", "Miramar Beach", "Sandestin", "Walton County"],
+      "keywords": ["custom water bottles", "personalized water bottles", "branded water bottles", "logo water bottles", "bulk water bottles", "insulated tumblers"]
+    },
+    {
+      "title": "Custom Beach Towels in Navarre, FL",
+      "slug": "custom-beach-towels-navarre-fl",
+      "city": "Navarre",
+      "state": "FL",
+      "product": "Custom Beach Towels",
+      "landmarks": ["Navarre Beach", "Navarre Beach Fishing Pier", "Navarre Beach Marine Science Station", "Gulf Islands National Seashore", "Santa Rosa County"],
+      "keywords": ["custom beach towels", "personalized beach towels", "branded beach towels", "logo beach towels", "bulk beach towels", "printed beach towels"]
+    },
+    {
+      "title": "Screen Printing in Sylva, NC",
+      "slug": "screen-printing-sylva-nc",
+      "city": "Sylva",
+      "state": "NC",
+      "product": "Screen Printed T-Shirts",
+      "landmarks": ["Jackson County Historic Courthouse", "Judaculla Rock", "Appalachian Women's Museum", "Pinnacle Park", "Waterrock Knob", "Blue Ridge Parkway", "Downtown Sylva", "Great Smoky Mountains National Park", "Jackson County"],
+      "keywords": ["screen printed t-shirts", "custom screen printing", "printed apparel", "branded t-shirts", "bulk screen printing", "custom t-shirts"]
+    },
+    {
+      "title": "Embroidered Polos in Asheville, NC",
+      "slug": "embroidered-polos-asheville-nc",
+      "city": "Asheville",
+      "state": "NC",
+      "product": "Embroidered Polos",
+      "landmarks": ["Biltmore Estate", "Blue Ridge Parkway", "Downtown Asheville", "River Arts District", "Pisgah National Forest", "Buncombe County"],
+      "keywords": ["embroidered polos", "custom embroidered polos", "branded polo shirts", "logo polos", "bulk embroidered shirts", "personalized company polos"]
+    },
+    {
+      "title": "Screen Printed T-Shirts in Waynesville, NC",
+      "slug": "screen-printed-t-shirts-waynesville-nc",
+      "city": "Waynesville",
+      "state": "NC",
+      "product": "Screen Printed T-Shirts",
+      "landmarks": ["Downtown Waynesville", "Great Smoky Mountains National Park", "Blue Ridge Parkway", "Lake Junaluska", "Haywood County"],
+      "keywords": ["screen printed t-shirts", "custom t-shirts", "printed apparel", "branded t-shirts", "bulk t-shirts", "personalized shirts"]
+    },
+    {
+      "title": "Custom Tote Bags in Bryson City, NC",
+      "slug": "custom-tote-bags-bryson-city-nc",
+      "city": "Bryson City",
+      "state": "NC",
+      "product": "Custom Tote Bags",
+      "landmarks": ["Great Smoky Mountains Railroad", "Nantahala Outdoor Center", "Deep Creek", "Fontana Lake", "Swain County"],
+      "keywords": ["custom tote bags", "personalized tote bags", "branded tote bags", "logo tote bags", "bulk tote bags", "printed reusable bags"]
+    },
+    {
+      "title": "Custom T-Shirts in Franklin, NC",
+      "slug": "custom-t-shirts-franklin-nc",
+      "city": "Franklin",
+      "state": "NC",
+      "product": "Custom T-Shirts",
+      "landmarks": ["Downtown Franklin", "Nantahala National Forest", "Great Smoky Mountains", "Franklin Gem Mines", "Macon County"],
+      "keywords": ["custom t-shirts", "screen printed t-shirts", "printed apparel", "branded t-shirts", "bulk t-shirts", "personalized shirts"]
+    }
+  ]
+}
