@@ -1,10 +1,13 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@sanity/client';
 import {
+  sendCustomerConfirmationEmail,
   sendLeadEmail,
   type LeadEmailAttachment,
   type LeadEmailPayload,
 } from '@/lib/email/gmail-smtp';
+import { DEFAULT_LEAD_RECIPIENT, resolveLandingLeadRouting } from '@/lib/leads/landing-lead';
+import { getLandingLeadInfo } from '@/lib/sanity/queries/landing-pages';
 
 export const runtime = 'nodejs';
 
@@ -130,6 +133,11 @@ export async function POST(request: Request) {
   const dateNeeded = str(formData.get('dateNeeded'));
   const sourceUrl = str(formData.get('sourceUrl'));
   const turnstileToken = str(formData.get('cf-turnstile-response'));
+  // Optional landing-page context (P2-AI-005 part 2). The client sends ONLY the
+  // slug — never a recipient email — and the slug is resolved server-side
+  // against Sanity below, so a forged value cannot redirect lead email
+  // anywhere (an unknown slug simply behaves like a non-landing submission).
+  const landingSlug = str(formData.get('landingSlug')).slice(0, 200);
 
   const errors: Record<string, string> = {};
   if (!firstName) errors.firstName = 'First name is required.';
@@ -203,8 +211,18 @@ export async function POST(request: Request) {
     attachments: emailAttachments.length > 0 ? emailAttachments : undefined,
   };
 
+  // Landing-page routing (P2-AI-005 part 2): resolve the submitted slug to its
+  // stored `leadRecipient` SERVER-SIDE. `landing` is null for non-landing
+  // submissions, unknown slugs, and lookup failures — all of which keep the
+  // pre-existing behavior exactly (site-default recipient, no confirmation).
+  const landing = landingSlug ? await getLandingLeadInfo(landingSlug) : null;
+  const routing = resolveLandingLeadRouting(landing);
+
   try {
-    await sendLeadEmail(payload);
+    // `routing.to` is null outside the valid-landing-recipient case, and
+    // sendLeadEmail without an override resolves the site default itself —
+    // identical to the pre-part-2 call.
+    await sendLeadEmail(payload, routing.to ? { to: routing.to } : undefined);
   } catch (err) {
     console.error('[leads] email send failed', err);
     return NextResponse.json(
@@ -250,10 +268,37 @@ export async function POST(request: Request) {
         dateNeeded,
         sourceUrl: payload.sourceUrl,
         submittedAt,
+        // Traceability for landing submissions: the actual resolved
+        // destination (per-page recipient or the site default). Non-landing
+        // docs stay exactly as before.
+        ...(routing.sendConfirmation
+          ? { recipient: routing.to || process.env.LEAD_EMAIL_TO || DEFAULT_LEAD_RECIPIENT }
+          : {}),
         ...(attachmentRefs.length > 0 ? { attachments: attachmentRefs } : {}),
       });
     } catch (err) {
       console.error('[leads] sanity write failed (non-fatal)', err);
+    }
+  }
+
+  // Customer confirmation — LANDING submissions only, after the lead email +
+  // lead record. NON-FATAL by design: the lead already reached its recipient,
+  // so a confirmation failure logs and the submission still succeeds (same
+  // policy as the Sanity write above).
+  if (routing.sendConfirmation) {
+    try {
+      await sendCustomerConfirmationEmail({
+        to: email,
+        replyTo: routing.to || process.env.LEAD_EMAIL_TO || DEFAULT_LEAD_RECIPIENT,
+        firstName,
+        lookingFor,
+        quantityNeeded,
+        dateNeeded,
+        product: landing?.product?.trim() || landing?.title?.trim() || undefined,
+        sourceUrl: payload.sourceUrl,
+      });
+    } catch (err) {
+      console.error('[leads] customer confirmation failed (non-fatal)', err);
     }
   }
 

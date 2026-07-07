@@ -29,7 +29,7 @@ export interface BlogPostDetail extends BlogPostSummary {
   body: PortableTextBlock[];
   updatedDate?: string;
   metaTitle?: string;
-  /** Optional per-post override for the "Order Custom … Today" CTA + "See Related Blogs About …" heading. */
+  /** Optional VERBATIM heading for the CTA block only (rendered as-is, no "Order Custom … Today" wrapper). */
   ctaTopic?: string;
   relatedCategorySlugs?: string[];
   relatedBlogs?: BlogPostSummary[];

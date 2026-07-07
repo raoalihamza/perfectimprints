@@ -1016,16 +1016,19 @@
       between paragraphs (each either pulled live by SKU or added manually with a title, image, and link), just like
       your old blog did.</p>
 
-    <h4>CTA / Related Blogs Topic (fix the "Order Custom … Today" wording)</h4>
-    <p>At the bottom of every post the site shows an <strong>"Order Custom [topic] Today"</strong> button and a
-      <strong>"See Related Blogs About [topic]"</strong> heading. By default the topic is taken automatically from the
-      post's <em>first category name</em> — which reads wrong when the category is an editorial one. Example: a post
-      about mini footballs filed under "Buying Guides" would say "Order Custom <em>Buying Guides</em> Today".</p>
-    <p>To fix it, fill the optional <strong>CTA / Related Blogs Topic</strong> field on the post (just above Meta
-      Title) — e.g. <code>Custom Mini Footballs</code> — and Publish. Both the button and the heading then use your
-      wording. Leave the field <strong>blank</strong> to keep the automatic category-based wording (clearing it and
-      publishing reverts to automatic). When you generate a post with AI (below), this field is pre-filled with a
-      sensible "Custom [product]" phrase for you — it never overwrites a value you already typed.</p>
+    <h4>CTA Heading (fix the "Order Custom … Today" wording)</h4>
+    <p>At the bottom of every post the site shows an <strong>"Order Custom [category] Today"</strong> call-to-action
+      block, with the topic taken automatically from the post's <em>first category name</em> — which reads wrong when
+      the category is an editorial one. Example: a post about mini footballs filed under "Buying Guides" would say
+      "Order Custom <em>Buying Guides</em> Today".</p>
+    <p>To fix it, fill the optional <strong>CTA Heading</strong> field on the post (just above Meta Title) with the
+      <strong>full heading you want, exactly as it should appear</strong> — e.g.
+      <code>Order Custom Mini Footballs Today</code> — and Publish. Whatever you type is shown <strong>verbatim</strong>
+      as the CTA block's heading (nothing is added around it). Leave the field <strong>blank</strong> to keep the
+      automatic "Order Custom [category] Today" (clearing it and publishing reverts to automatic).</p>
+    <p class="small">This field changes <strong>only the CTA block's heading</strong>. The "See Related Blogs About …"
+      heading further down always uses the automatic category-based wording, and the AI blog generator never fills
+      this field — it stays blank unless you type something.</p>
 
     <h4 id="blog-ai">Generate a Blog Post with AI</h4>
     <p>Blog Posts have their own AI writing helper, just like Custom Categories do (see <a href="#ai">Generate with
@@ -1058,9 +1061,9 @@
         <strong>placed into the text automatically</strong> (they show as normal links — edit or remove any you do not
         want, and the <strong>Suggested Internal Links</strong> list records everything it found and says which were
         placed); <strong>add a header image</strong> (the AI does not pick images or videos — you drop those in
-        wherever you want); check the pre-filled <strong>CTA / Related Blogs Topic</strong> (the wording used in the
-        "Order Custom … Today" button and the "See Related Blogs About …" heading — tweak it if the phrase is off);
-        and set the <strong>Author</strong>.</li>
+        wherever you want); and set the <strong>Author</strong>. (The optional <strong>CTA Heading</strong> field is
+        never filled by the AI — set it yourself only if the automatic "Order Custom [category] Today" wording reads
+        wrong for this post.)</li>
       <li>When it reads right, <strong>Publish</strong>.</li>
     </ol>
     <p class="small">About the product rows: each section's row is matched to <em>that section's</em> topic (a
@@ -1342,12 +1345,28 @@
         products), skim each one to confirm it genuinely talks about <em>that</em> place, and re-generate any that feel
         generic.</p>
     </div>
+    <h3>The quote form and its settings</h3>
+    <p>Every landing page ends with a quote form (First/Last Name, Email, Phone, what they are looking for, Quantity
+      Needed, Date Needed — the last two required — plus an optional artwork upload). Three fields on the document
+      control it:</p>
+    <ul>
+      <li><strong>Lead recipient email</strong> — each landing page can send its leads to a <em>different</em> email
+        (e.g. a rep who covers that city). Leads from this page's form go to this address and the submission is still
+        saved under <a href="#leads">Lead Submission</a> (with a "Lead sent to" note). Blank or invalid falls back to
+        <code>patrick@perfectimprints.com</code>. The address is looked up on the server from the page itself — a
+        visitor's browser can never choose where leads go.</li>
+      <li><strong>Hero button label</strong> — the big green button under the headline (it jumps down to the form).
+        Blank uses "Request a Quote".</li>
+      <li><strong>Quote form heading</strong> — the heading above the form. Blank uses "Request a Quote in
+        {City}, {State}" automatically (the AI pre-fills this pattern; edit it freely — regenerating never overwrites
+        your wording).</li>
+    </ul>
     <div class="callout info">
-      <span class="label">The quote form (for now)</span>
-      <p>The form at the bottom of every landing page is the standard site quote form — it emails you and saves a Lead
-        Submission, so it works today. The landing-specific version (required Quantity Needed + Date Needed, and the
-        <strong>Lead recipient email</strong> field you can already see on the document) is coming in the next update;
-        the recipient field is stored now but not used yet.</p>
+      <span class="label">Customers get a confirmation email</span>
+      <p>On landing pages (and only on landing pages), the person who submits the form automatically receives a
+        friendly confirmation email summarizing what they sent — so they know the request went through, and replies to
+        it go to that page's lead recipient. Your other forms (the category "Find Products for Me" form, the contact
+        page) behave exactly as before: no confirmation, leads to you.</p>
     </div>
     <div class="callout warn">
       <span class="label">Always review AI text</span>

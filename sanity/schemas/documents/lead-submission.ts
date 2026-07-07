@@ -20,6 +20,14 @@ export default defineType({
     defineField({ name: 'quantityNeeded', title: 'Quantity Needed', type: 'string', readOnly: true }),
     defineField({ name: 'dateNeeded', title: 'Date Needed', type: 'string', readOnly: true }),
     defineField({ name: 'sourceUrl', title: 'Source URL', type: 'string', readOnly: true }),
+    defineField({
+      name: 'recipient',
+      title: 'Lead sent to',
+      type: 'string',
+      readOnly: true,
+      description:
+        'Set on landing-page submissions (P2-AI-005): the email the lead notification actually went to (the page’s Lead recipient, or the site default).',
+    }),
     defineField({ name: 'submittedAt', title: 'Submitted At', type: 'datetime', readOnly: true }),
     defineField({
       name: 'attachments',

@@ -359,6 +359,10 @@ export async function POST(request: Request) {
       whyUs: whyUsBody,
       faqs,
       relatedProducts,
+      // Deterministic pre-fill for the editable quote-form heading (part 2) —
+      // the template's automatic default pattern; the action sets it ONLY when
+      // the field is empty, so Patrick's wording is never overwritten.
+      leadFormHeading: `Request a Quote in ${city}, ${state}`,
       metaTitle: clampAtWordBoundary(gen.metaTitle, 60),
       metaDescription: clampAtWordBoundary(gen.metaDescription, 155),
       suggestedLinks,

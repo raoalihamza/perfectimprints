@@ -101,7 +101,7 @@ export function LandingPageTemplate({ page }: { page: LandingPageDoc }) {
             href={`#${QUOTE_FORM_ID}`}
             className="mt-6 inline-flex h-12 items-center justify-center rounded-md bg-brand-green px-6 text-base font-semibold text-white hover:opacity-90"
           >
-            Request a Quote
+            {page.heroCtaLabel?.trim() || 'Request a Quote'}
           </a>
         </Container>
       </section>
@@ -132,22 +132,27 @@ export function LandingPageTemplate({ page }: { page: LandingPageDoc }) {
       {/* 5. FAQ accordion (emits its own FAQPage JSON-LD). */}
       {faqSection && <FaqAccordion section={faqSection} />}
 
-      {/* 6. Lead form.
-          P2-AI-005 part 2: replace with the landing-specific form (Quantity
-          Needed + Date Needed required, per-page `leadRecipient`, customer
-          confirmation email). Until then the standard site quote form is a
-          working stand-in — it emails Patrick + saves a leadSubmission. */}
+      {/* 6. The landing lead form (P2-AI-005 part 2). `landingSlug` is the only
+          landing context the client sends — /api/leads resolves this page's
+          stored `leadRecipient` server-side and emails the customer an
+          automatic confirmation of their submission. Heading + hero button
+          label are Studio-editable with automatic defaults. */}
       <SectionShell>
         <div id={QUOTE_FORM_ID} className="scroll-mt-24 rounded-md border border-border bg-brand-white p-6 md:p-8">
           <h2 className="text-2xl font-bold text-brand-ink md:text-3xl">
-            {place ? `Request a Quote in ${place}` : 'Request a Quote'}
+            {page.leadFormHeading?.trim() ||
+              (place ? `Request a Quote in ${place}` : 'Request a Quote')}
           </h2>
           <p className="mt-2 text-text-muted">
             Tell us what you need and our team will get back to you fast with product ideas and
             pricing.
           </p>
           <div className="mt-6">
-            <LeadForm categoryTitle={page.product?.trim() || undefined} sourceUrl={`/${page.slug}`} />
+            <LeadForm
+              categoryTitle={page.product?.trim() || undefined}
+              sourceUrl={`/${page.slug}`}
+              landingSlug={page.slug}
+            />
           </div>
         </div>
       </SectionShell>

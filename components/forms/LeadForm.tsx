@@ -41,6 +41,13 @@ interface LeadFormProps {
   categoryTitle?: string;
   /** Optional fallback source URL; client also captures window.location.href. */
   sourceUrl?: string;
+  /**
+   * Landing-page context (P2-AI-005 part 2). When set, the slug is POSTed with
+   * the submission and /api/leads resolves that page's stored `leadRecipient`
+   * SERVER-SIDE (and sends the customer a confirmation email). Only the slug
+   * ever leaves the client — never a recipient address.
+   */
+  landingSlug?: string;
   /** Callback fired after a successful submission. */
   onSuccess?: () => void;
 }
@@ -64,7 +71,7 @@ const textareaClass =
 const labelClass = 'mb-1.5 block text-left text-sm font-semibold text-brand-ink';
 const errorClass = 'mt-1 text-xs font-medium text-brand-red';
 
-export function LeadForm({ categoryTitle, sourceUrl, onSuccess }: LeadFormProps) {
+export function LeadForm({ categoryTitle, sourceUrl, landingSlug, onSuccess }: LeadFormProps) {
   const formId = useId();
   const honeypotRef = useRef<HTMLInputElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -205,6 +212,10 @@ export function LeadForm({ categoryTitle, sourceUrl, onSuccess }: LeadFormProps)
           autoComplete="off"
         />
       </div>
+
+      {/* Landing-page context — the slug only (the server maps it to that
+          page's stored recipient; no email address is ever sent from here). */}
+      {landingSlug && <input type="hidden" name="landingSlug" value={landingSlug} />}
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
         <div>

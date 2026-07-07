@@ -170,10 +170,10 @@ export default defineType({
     }),
     defineField({
       name: 'ctaTopic',
-      title: 'CTA / Related Blogs Topic (optional)',
+      title: 'CTA Heading (optional)',
       type: 'string',
       description:
-        "Overrides the wording in the 'Order Custom … Today' button and the 'See Related Blogs About …' heading. Leave blank to use the category name automatically. Example: Custom Mini Footballs",
+        "The exact heading shown on the 'Order Custom … Today' call-to-action block on this post. Whatever you type appears exactly as-is. Leave blank to use the automatic 'Order Custom [category] Today'. This does not affect the Related Blogs heading.",
     }),
     defineField({
       name: 'metaTitle',

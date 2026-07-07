@@ -59,9 +59,11 @@ const RESERVED_SLUGS = [
  * document action, which drafts every content field for review — nothing
  * auto-publishes, and every generated field stays editable.
  *
- * The lead-form slot currently renders the standard site quote form; the
- * landing-specific form (Quantity Needed + Date Needed required, the
- * `leadRecipient` below, customer confirmation email) ships in part 2.
+ * The quote form (part 2) routes each page's lead email to that page's
+ * `leadRecipient` (resolved SERVER-SIDE from the slug — the browser never
+ * sends a recipient address) and emails the customer an automatic
+ * confirmation; `heroCtaLabel` + `leadFormHeading` make the CTA wording
+ * editable with automatic defaults.
  */
 export default defineType({
   name: 'landingPage',
@@ -169,6 +171,14 @@ export default defineType({
       type: 'text',
       rows: 2,
     }),
+    defineField({
+      name: 'heroCtaLabel',
+      title: 'Hero button label',
+      type: 'string',
+      description:
+        'The big button under the hero text (it jumps to the quote form). Blank uses "Request a Quote".',
+      initialValue: 'Request a Quote',
+    }),
     portableBody('localIntro', 'Local intro (mentions the landmarks)'),
     portableBody('optionsIdeas', 'Options & ideas (the main content)'),
     portableBody('whyUs', 'Why Perfect Imprints (trust section)'),
@@ -197,14 +207,21 @@ export default defineType({
     }),
 
     // -----------------------------------------------------------------------
-    // Lead form config (stored now, wired in P2-AI-005 part 2)
+    // Lead form config (P2-AI-005 part 2)
     // -----------------------------------------------------------------------
+    defineField({
+      name: 'leadFormHeading',
+      title: 'Quote form heading',
+      type: 'string',
+      description:
+        'The heading above the quote form. Blank uses "Request a Quote in {City}, {State}".',
+    }),
     defineField({
       name: 'leadRecipient',
       title: 'Lead recipient email',
       type: 'string',
       description:
-        'Lead notifications go to this email. (Used by the landing-specific lead form — coming in the next update; the page currently shows the standard quote form.)',
+        "Lead notifications from THIS page's quote form go to this email (the customer also gets an automatic confirmation copy of their submission). Blank or invalid falls back to patrick@perfectimprints.com.",
       initialValue: 'patrick@perfectimprints.com',
       validation: (Rule) =>
         Rule.custom((value?: string) => {

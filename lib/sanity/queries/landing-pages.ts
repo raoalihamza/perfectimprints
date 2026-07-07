@@ -42,12 +42,16 @@ export interface LandingPageDoc {
   product?: string;
   heroHeading?: string;
   heroSubheading?: string;
+  /** Hero button label (P2-AI-005 part 2). Blank → "Request a Quote". */
+  heroCtaLabel?: string;
   localIntro?: PortableTextBlock[];
   optionsIdeas?: PortableTextBlock[];
   whyUs?: PortableTextBlock[];
   relatedProducts?: LandingProductEntry[];
   faqs?: LandingFaq[];
-  /** Stored now; consumed by the landing-specific lead form in part 2. */
+  /** Quote-form heading (part 2). Blank → "Request a Quote in {City}, {State}". */
+  leadFormHeading?: string;
+  /** Where this page's lead emails go (part 2) — resolved server-side by slug. */
   leadRecipient?: string;
   seo?: {
     metaTitle?: string;
@@ -65,11 +69,13 @@ const LANDING_PROJECTION = `{
   product,
   heroHeading,
   heroSubheading,
+  heroCtaLabel,
   localIntro,
   optionsIdeas,
   whyUs,
   relatedProducts,
   faqs,
+  leadFormHeading,
   leadRecipient,
   seo
 }`;
@@ -96,5 +102,38 @@ export async function getAllLandingPageSlugs(): Promise<string[]> {
     return slugs ?? [];
   } catch {
     return [];
+  }
+}
+
+/**
+ * The stored lead-routing fields the /api/leads route needs (P2-AI-005 part 2).
+ * Same shape as `LandingLeadInfo` in lib/leads/landing-lead.ts.
+ */
+export interface LandingLeadLookup {
+  leadRecipient?: string | null;
+  product?: string | null;
+  title?: string | null;
+}
+
+/**
+ * Lightweight SERVER-SIDE lookup for the lead route: maps a client-submitted
+ * landing slug to the doc's stored `leadRecipient` (+ product/title for the
+ * confirmation copy). The client never sends a recipient — only this slug —
+ * so the stored value is the only possible destination (no open relay).
+ * Returns null when the slug is not a real landing page or the read fails; the
+ * route then treats the submission as non-landing (default recipient, no
+ * confirmation). Cache-tagged like every landing read, so editing
+ * `leadRecipient` in Studio re-routes within seconds of the webhook firing.
+ */
+export async function getLandingLeadInfo(slug: string): Promise<LandingLeadLookup | null> {
+  if (!slug) return null;
+  try {
+    return await cachedClient.fetch<LandingLeadLookup | null>(
+      `*[_type == "landingPage" && slug.current == $slug][0]{ leadRecipient, product, title }`,
+      { slug },
+      { next: { tags: [LANDING_TAG, landingTag(slug)].filter(Boolean), revalidate: false } },
+    );
+  } catch {
+    return null;
   }
 }

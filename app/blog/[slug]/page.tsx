@@ -67,15 +67,7 @@ function formatDate(iso: string): string {
   return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 
-function deriveOrderTopic(post: {
-  title: string;
-  ctaTopic?: string;
-  categories?: { title: string }[];
-}): string {
-  // Per-post override wins (feeds BOTH the "Order Custom … Today" CTA and the
-  // "See Related Blogs About …" heading). Blank → automatic category title.
-  const override = post.ctaTopic?.trim();
-  if (override) return override;
+function deriveOrderTopic(post: { title: string; categories?: { title: string }[] }): string {
   if (post.categories && post.categories.length > 0) return post.categories[0].title;
   // Fallback: lift the first 2-3 keyword words from the title.
   return post.title.split(/[:|—–-]/)[0].trim();
@@ -190,7 +182,14 @@ export default async function BlogPostPage({ params }: Props) {
             )}
             <BlogBody body={post.body} skuProducts={skuProducts} />
 
-            <OrderTodayCTA topic={orderTopic} sourceUrl={canonical} />
+            {/* ctaTopic is a VERBATIM CTA-heading override (no "Order Custom …
+                Today" wrapper) and affects ONLY this block — the Related Blogs
+                heading below always uses the automatic category-based topic. */}
+            <OrderTodayCTA
+              topic={orderTopic}
+              heading={post.ctaTopic?.trim() || undefined}
+              sourceUrl={canonical}
+            />
 
             <RelatedBlogsForPost posts={relatedBlogs} topic={orderTopic} />
           </div>

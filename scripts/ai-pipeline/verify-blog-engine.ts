@@ -25,6 +25,10 @@
  *     interleave carries landing + video kinds (capped, href-deduped), the
  *     landmark-inclusion enforcement, and the landing field shapes (plain-text
  *     faqs, blogProduct strip entries, page-legal PT bodies)
+ *   - P2-AI-005 part 2 (landing lead form): the server-side lead routing
+ *     (per-page recipient validated + fallback, confirmation only for real
+ *     landing submissions, client input structurally unable to set a
+ *     recipient) and the customer-confirmation email builder
  *
  * The Sanity-backed pieces (blog/page link suggestions, custom-product merge)
  * are guarded in the engine itself — offline they degrade gracefully, and they
@@ -44,6 +48,11 @@ import {
   type ScoredLinkSuggestion,
 } from '../../lib/ai/internal-links';
 import { findMissingLandmarks } from '../../lib/ai/landing-landmarks';
+import {
+  buildCustomerConfirmationEmail,
+  isValidLeadEmail,
+  resolveLandingLeadRouting,
+} from '../../lib/leads/landing-lead';
 import { placeInternalLinks } from '../../lib/ai/place-internal-links';
 import {
   buildWordBudget,
@@ -1028,6 +1037,89 @@ async function main() {
         (p) => p._type === 'blogProduct' && !!p._key && catalogSkus.has(p.sku),
       ) &&
       new Set(landingStripEntries.map((p) => p._key)).size === landingStripEntries.length,
+  );
+
+  // -------------------------------------------------------------------------
+  console.log('\n[13] landing lead form (P2-AI-005 part 2) — recipient routing + confirmation');
+
+  // Routing branches. `landing` is the SERVER-resolved doc for the submitted
+  // slug — null when the slug is absent, unknown, or the lookup failed.
+  const nonLanding = resolveLandingLeadRouting(null);
+  check(
+    'routing: no landing doc (absent/unknown slug, lookup failure) → site default, NO confirmation',
+    nonLanding.to === null && nonLanding.sendConfirmation === false,
+    JSON.stringify(nonLanding),
+  );
+  const validRecipient = resolveLandingLeadRouting({ leadRecipient: '  sales@example.com  ' });
+  check(
+    'routing: landing with a valid stored recipient → that recipient (trimmed) + confirmation',
+    validRecipient.to === 'sales@example.com' && validRecipient.sendConfirmation === true,
+    JSON.stringify(validRecipient),
+  );
+  const invalidRecipient = resolveLandingLeadRouting({ leadRecipient: 'not-an-email' });
+  const blankRecipient = resolveLandingLeadRouting({ leadRecipient: '   ' });
+  check(
+    'routing: landing with an invalid/blank stored recipient → site default fallback, confirmation STILL sent',
+    invalidRecipient.to === null &&
+      invalidRecipient.sendConfirmation === true &&
+      blankRecipient.to === null &&
+      blankRecipient.sendConfirmation === true,
+    JSON.stringify({ invalidRecipient, blankRecipient }),
+  );
+  // Abuse guard: the resolver reads ONLY the stored doc's leadRecipient — a
+  // client-shaped object smuggling other email fields changes nothing (the
+  // /api/leads route never passes client values into it; only the Sanity doc).
+  const smuggled = resolveLandingLeadRouting({
+    leadRecipient: 'not-an-email',
+    recipient: 'attacker@evil.com',
+    to: 'attacker@evil.com',
+    email: 'attacker@evil.com',
+  } as unknown as Parameters<typeof resolveLandingLeadRouting>[0]);
+  check(
+    'routing: only the STORED leadRecipient is consulted — smuggled recipient-like fields are ignored',
+    smuggled.to === null &&
+      smuggled.sendConfirmation === true &&
+      isValidLeadEmail('sales@example.com') &&
+      !isValidLeadEmail('attacker@evil') &&
+      !isValidLeadEmail('a b@c.com'),
+    JSON.stringify(smuggled),
+  );
+
+  // Confirmation builder: pure content check — summary fields present in text
+  // AND html, html-escaping applied, sensible default topic without a product.
+  const confirmation = buildCustomerConfirmationEmail({
+    firstName: 'Dana',
+    lookingFor: '500 towels with <script>alert(1)</script> & our logo',
+    quantityNeeded: '500',
+    dateNeeded: '08/15/2026',
+    product: 'Custom Beach Towels',
+    sourceUrl: '/custom-beach-towels-destin-fl',
+  });
+  check(
+    'confirmation email: subject set; text + html carry name, looking-for, quantity, date, product, page',
+    confirmation.subject.length > 0 &&
+      [confirmation.text, confirmation.html].every(
+        (body) =>
+          body.includes('Dana') &&
+          body.includes('500') &&
+          body.includes('08/15/2026') &&
+          body.includes('Custom Beach Towels') &&
+          body.includes('/custom-beach-towels-destin-fl'),
+      ) &&
+      confirmation.text.includes('500 towels with <script>alert(1)</script> & our logo'),
+  );
+  const noProduct = buildCustomerConfirmationEmail({
+    firstName: 'Dana',
+    lookingFor: 'shirts',
+    quantityNeeded: '100',
+    dateNeeded: 'next month',
+    sourceUrl: '/x',
+  });
+  check(
+    'confirmation email: html escapes user input; no product → generic topic fallback',
+    !confirmation.html.includes('<script>alert(1)</script>') &&
+      confirmation.html.includes('&lt;script&gt;alert(1)&lt;/script&gt;') &&
+      noProduct.text.includes('custom promotional products'),
   );
 
   // -------------------------------------------------------------------------

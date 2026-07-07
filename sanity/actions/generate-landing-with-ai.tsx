@@ -33,6 +33,7 @@ interface GeneratedLandingResponse {
   whyUs: Record<string, unknown>[];
   faqs: { question: string; answer: string }[];
   relatedProducts: { sku?: string }[];
+  leadFormHeading?: string;
   metaTitle: string;
   metaDescription: string;
   suggestedLinks: SuggestedLink[];
@@ -72,6 +73,7 @@ export const generateLandingWithAi: DocumentActionComponent = (props) => {
     product?: string;
     landmarks?: string[];
     aiTopicKeywords?: string[];
+    leadFormHeading?: string;
   } | null;
 
   const hasTargeting = Boolean(
@@ -154,6 +156,12 @@ export const generateLandingWithAi: DocumentActionComponent = (props) => {
               // rejects < 3 usable FAQs, so this is belt-and-suspenders).
               ...(faqs.length > 0 ? { faqs } : {}),
               ...(relatedProducts.length > 0 ? { relatedProducts } : {}),
+              // Quote-form heading pre-fill (part 2) — ONLY when empty, so
+              // Patrick's wording is never overwritten. heroCtaLabel is left
+              // alone entirely (schema initialValue / template default).
+              ...(data.leadFormHeading && !doc?.leadFormHeading?.trim()
+                ? { leadFormHeading: data.leadFormHeading }
+                : {}),
               aiSuggestedLinks: suggestedLinks,
             },
           },

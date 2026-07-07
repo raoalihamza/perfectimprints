@@ -1,4 +1,8 @@
 import nodemailer, { type Transporter } from 'nodemailer';
+import {
+  buildCustomerConfirmationEmail,
+  type CustomerConfirmationPayload,
+} from '@/lib/leads/landing-lead';
 
 export interface LeadEmailAttachment {
   filename: string;
@@ -96,9 +100,18 @@ function buildText(payload: LeadEmailPayload): string {
   ].join('\n');
 }
 
-export async function sendLeadEmail(payload: LeadEmailPayload): Promise<void> {
+/**
+ * Sends the internal lead notification. `opts.to` overrides the destination
+ * for landing-page submissions (P2-AI-005 part 2 — the per-page
+ * `leadRecipient`, resolved SERVER-SIDE from the landing slug, never from the
+ * client); when absent the destination is the site default, exactly as before.
+ */
+export async function sendLeadEmail(
+  payload: LeadEmailPayload,
+  opts?: { to?: string },
+): Promise<void> {
   const transporter = getTransporter();
-  const to = process.env.LEAD_EMAIL_TO || 'patrick@perfectimprints.com';
+  const to = opts?.to || process.env.LEAD_EMAIL_TO || 'patrick@perfectimprints.com';
   const from = process.env.LEAD_EMAIL_FROM || process.env.GMAIL_USER || to;
   const fullName = `${payload.firstName} ${payload.lastName}`.trim();
   await transporter.sendMail({
@@ -113,5 +126,34 @@ export async function sendLeadEmail(payload: LeadEmailPayload): Promise<void> {
       content: file.content,
       contentType: file.contentType,
     })),
+  });
+}
+
+/**
+ * Customer confirmation for LANDING-PAGE submissions only (P2-AI-005 part 2):
+ * a friendly copy of what they sent us, so the lead knows it went through.
+ * Body content is built by the pure `buildCustomerConfirmationEmail`
+ * (lib/leads/landing-lead.ts, offline-verified); `replyTo` is that landing
+ * page's lead recipient so a customer reply lands with the right person.
+ * Callers treat a failure here as NON-FATAL — the lead email already sent.
+ */
+export async function sendCustomerConfirmationEmail(
+  input: CustomerConfirmationPayload & {
+    /** The customer's (already server-validated) email address. */
+    to: string;
+    /** The landing recipient (or the site default) — where a reply goes. */
+    replyTo: string;
+  },
+): Promise<void> {
+  const transporter = getTransporter();
+  const from = process.env.LEAD_EMAIL_FROM || process.env.GMAIL_USER || input.replyTo;
+  const { subject, text, html } = buildCustomerConfirmationEmail(input);
+  await transporter.sendMail({
+    from,
+    to: input.to,
+    replyTo: input.replyTo,
+    subject,
+    text,
+    html,
   });
 }

@@ -5,15 +5,17 @@ import { LeadFormModal } from '@/components/forms/LeadFormModal';
 
 interface OrderTodayCTAProps {
   topic: string;
+  /** Verbatim heading override — rendered exactly as-is (no "Order Custom … Today" wrapper). */
+  heading?: string;
   sourceUrl?: string;
 }
 
-export function OrderTodayCTA({ topic, sourceUrl }: OrderTodayCTAProps) {
+export function OrderTodayCTA({ topic, heading, sourceUrl }: OrderTodayCTAProps) {
   const [open, setOpen] = useState(false);
   return (
     <section className="mt-12 rounded-lg border-l-4 border-brand-red bg-bg-soft p-6 sm:p-8">
       <h2 className="text-xl font-bold text-brand-ink md:text-2xl">
-        Order Custom {topic} Today
+        {heading || `Order Custom ${topic} Today`}
       </h2>
       <p className="mt-3 text-sm leading-relaxed text-text-primary md:text-base">
         Our team can help you pick the right product, decoration, and quantity for your project.
