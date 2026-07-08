@@ -223,7 +223,7 @@ export function ProductPurchasePanel({
               <span className="text-sm font-normal text-text-muted">estimated total</span>
             </p>
             <p className="mt-1 text-xs text-text-muted">
-              Estimated total — final pricing confirmed in your quote.
+              Estimated total - final pricing confirmed in your quote.
             </p>
           </div>
         )}
@@ -237,7 +237,7 @@ export function ProductPurchasePanel({
             Get a Quote
           </button>
           <p className="mt-2 text-xs text-text-muted">
-            No online checkout — we&rsquo;ll confirm exact pricing in your quote.
+            No online checkout - we&rsquo;ll confirm exact pricing in your quote.
           </p>
         </div>
       </div>

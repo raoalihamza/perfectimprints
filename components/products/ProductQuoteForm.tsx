@@ -200,8 +200,8 @@ export function ProductQuoteForm({
       >
         <h3 className="text-lg font-semibold">Quote request received!</h3>
         <p className="mt-2 text-sm text-text-primary">
-          We sent a confirmation copy to your email, and someone on our team will follow up
-          shortly with exact pricing for your {productTitle}. For anything urgent, call{' '}
+          We sent a confirmation copy to your email, and someone on our team will follow up shortly
+          with exact pricing for your {productTitle}. For anything urgent, call{' '}
           <strong>800-773-9472</strong>.
         </p>
       </div>
@@ -237,7 +237,7 @@ export function ProductQuoteForm({
             {estimate.setupCharge > 0 ? ` + ${formatUsd(estimate.setupCharge)} setup` : ''} ={' '}
             <strong>{formatUsd(estimate.total)}</strong>{' '}
             <span className="text-xs text-text-muted">
-              estimated total — final pricing confirmed in your quote
+              estimated total - final pricing confirmed in your quote
             </span>
           </p>
         )}
