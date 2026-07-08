@@ -148,6 +148,19 @@ function readBrandSlugs(): string[] {
   return parsed.brands.map((b) => b.slug).filter(Boolean);
 }
 
+// Next's sitemap serializer interpolates image URLs into <image:loc> verbatim
+// with NO XML escaping (resolve-route-data.js), so a raw `&` in a Geiger image
+// query string (?format=webp&w=1200...) makes the whole file invalid XML — GSC
+// rejects it with "Parsing error" and discovers 0 pages. Escape ONLY here, at
+// the XML boundary: og:image/twitter:image consume the same URLs as HTML meta
+// tags where the raw `&` is correct, so largeSocialImage() must stay unescaped.
+function xmlEscape(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
 // One representative image per category URL for the sitemap's <image:image>
 // entries (M-SEO5) — strengthens image-to-page association for Google Images /
 // SERP thumbnails. Mirrors the categoryOgImage logic: first resolvable SKU with
@@ -191,7 +204,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.7,
-      ...(image ? { images: [image] } : {}),
+      ...(image ? { images: [xmlEscape(image)] } : {}),
     });
   }
   counts.category = categoryUrls.length;
@@ -240,7 +253,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.6,
-      ...(p.image ? { images: [p.image] } : {}),
+      ...(p.image ? { images: [xmlEscape(p.image)] } : {}),
     });
   }
   counts.productPages = productPageEntries.length;
