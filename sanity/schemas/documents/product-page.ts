@@ -53,6 +53,16 @@ export default defineType({
       options: { collapsible: true, collapsed: true },
     },
     { name: 'visibility', title: 'Visibility & SEO', options: { collapsible: true, collapsed: true } },
+    // AI generation inputs (P2-CP follow-up). Studio-only: consumed ONLY by the
+    // "Generate Product Details with AI" action + /api/sanity/generate-product —
+    // never read by any render path or the revalidate webhook.
+    {
+      name: 'ai',
+      title: 'AI generation (drafting helper — not shown on the live page)',
+      description:
+        'Fill the Title above (plus optionally keywords here), click "Generate Product Details with AI" (near Publish), then review what it drafts: the Product details description (with internal links), the SEO meta, related keywords + category, and decoration-method suggestions. It NEVER touches your pricing, images, colors, or sizes. Nothing here renders on the live site.',
+      options: { collapsible: true, collapsed: true },
+    },
   ],
   fields: [
     // ---- Basics ----
@@ -376,6 +386,42 @@ export default defineType({
       title: 'SEO',
       type: 'seo',
       fieldset: 'visibility',
+    }),
+
+    // -----------------------------------------------------------------------
+    // AI generation inputs/outputs — see the fieldset note above.
+    // -----------------------------------------------------------------------
+    defineField({
+      name: 'aiTopicKeywords',
+      title: 'Topic Keywords (optional)',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: { layout: 'tags' },
+      fieldset: 'ai',
+      description:
+        'Optional. A few plural keywords (e.g. "custom travel tumblers") that steer the AI description, the related products, and the internal links. The product Title is the main input.',
+    }),
+    defineField({
+      name: 'aiSuggestedLinks',
+      title: 'Suggested Internal Links',
+      type: 'array',
+      fieldset: 'ai',
+      description:
+        'Internal links the AI found and whether each was placed in the description. Not shown on the live page.',
+      of: [
+        {
+          type: 'object',
+          name: 'aiSuggestedLink',
+          fields: [
+            { name: 'label', title: 'Label', type: 'string' },
+            { name: 'href', title: 'URL', type: 'string' },
+            { name: 'reason', title: 'Why suggested', type: 'string' },
+          ],
+          preview: {
+            select: { title: 'label', subtitle: 'href' },
+          },
+        },
+      ],
     }),
   ],
   preview: {
