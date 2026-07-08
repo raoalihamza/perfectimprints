@@ -32,6 +32,7 @@ ISR fallback.
 | `productPlacement` | each `/cat/<slug>` in `addToCategories` + `removeFromCategories` (needs those in the projection) |
 | `customSchema` | the doc's `pageUrl` page (+ busts the `customSchema:<pageUrl>` cache tag) — needs `pageUrl` in the projection |
 | `brand` | `/brands` + `/brands/<slug>` (+ busts the `brands` cache tag) — drives the Featured Brands strip + A–Z grid. **Originally excluded from the Filter — must be added (see below).** |
+| `productPage` | `/products/<slug>`, `/new-products`, **live search delta**, `/sitemap.xml` (+ busts the `product-pages` cache tag + `productPage:<slug>`) — needs `slug` in the projection (already present). **NEW type (P2-CP-001) — must be ADDED to the Filter (see below).** |
 
 "Live search delta" = the `/api/search-index` ISR route that carries the
 Sanity-managed slice of site search (blogs, videos, custom categories, custom
@@ -79,7 +80,7 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
 | **URL** | `https://dev.perfectimprints.com/api/sanity/revalidate` |
 | **Dataset** | `production` |
 | **Trigger on** | ✅ Create  ✅ Update  ✅ Delete |
-| **Filter** | `!(_id in path("drafts.**")) && _type in ["megaMenu","globalSettings","homePage","page","blogPost","video","customProduct","customCategory","curatedCategory","faq","categoryOverride","productPlacement","customSchema","brand","landingPage"]` |
+| **Filter** | `!(_id in path("drafts.**")) && _type in ["megaMenu","globalSettings","homePage","page","blogPost","video","customProduct","customCategory","curatedCategory","faq","categoryOverride","productPlacement","customSchema","brand","landingPage","productPage"]` |
 | **Projection** | `{_type, slug, categorySlug, pageUrl, addToCategories, removeFromCategories}` |
 | **HTTP method** | `POST` |
 | **HTTP headers** | none (Sanity adds the signature header automatically) |
@@ -120,6 +121,18 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
 > publishing or editing a landing page will NOT refresh `/<slug>` or the
 > sitemap (the page still appears on its first-ever visit via on-demand SSG,
 > but later edits stay silently stale until the next deploy).
+
+> **⚠️ Manual step for an EXISTING webhook (P2-CP-001, product pages):**
+> `productPage` is a NEW document type — both existing webhooks were created
+> before it, so their Filters omit it. Edit **each** webhook in Sanity → API →
+> Webhooks and paste the updated Filter above (the only change vs. the previous
+> filter is the trailing `,"productPage"`). Do this on **staging now** and on
+> **production when P2-CP-001 promotes**. Projection is unchanged — the handler
+> only needs `_type` + `slug`, both already projected. Until you do this,
+> publishing or editing a Product Page will NOT refresh `/products/<slug>`,
+> `/new-products`, search, or the sitemap (a brand-new product still appears on
+> its first-ever visit via on-demand SSG, but later edits stay silently stale
+> until the next deploy).
 
 ### Why the projection
 

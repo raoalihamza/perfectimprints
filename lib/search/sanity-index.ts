@@ -4,6 +4,7 @@ import { getAllBlogSearchEntries } from '@/lib/sanity/queries/blogs';
 import { getAllVideoSearchEntries } from '@/lib/sanity/queries/videos';
 import { getCustomCategorySearchEntries } from '@/lib/sanity/queries/custom-categories';
 import { getCustomProductSearchEntries } from '@/lib/sanity/queries/custom-products';
+import { getProductPageSearchEntries } from '@/lib/sanity/queries/product-pages';
 import { getAllFaqSearchEntries } from '@/lib/sanity/queries/faqs';
 import type { SearchItem } from './types';
 
@@ -26,11 +27,12 @@ async function safe<T>(fn: () => Promise<T[]>): Promise<T[]> {
  * Never import this from a client component — the browser fetches the route.
  */
 export async function buildSanitySearchItems(): Promise<SearchItem[]> {
-  const [blogs, videos, categories, products, faqs] = await Promise.all([
+  const [blogs, videos, categories, products, productPages, faqs] = await Promise.all([
     safe(getAllBlogSearchEntries),
     safe(getAllVideoSearchEntries),
     safe(getCustomCategorySearchEntries),
     safe(getCustomProductSearchEntries),
+    safe(getProductPageSearchEntries),
     safe(getAllFaqSearchEntries),
   ]);
 
@@ -49,6 +51,15 @@ export async function buildSanitySearchItems(): Promise<SearchItem[]> {
   }
   for (const p of products) {
     const item: SearchItem = { type: 'product', title: p.title, url: p.url };
+    if (p.brand) item.brand = p.brand;
+    if (p.image) item.image = p.image;
+    items.push(item);
+  }
+  // Product Pages (P2-CP-001): same `product` result group, but the url is the
+  // site's own /products/<slug> detail page — `internal: true` makes
+  // resultTarget navigate there instead of the affiliate host.
+  for (const p of productPages) {
+    const item: SearchItem = { type: 'product', title: p.title, url: p.url, internal: true };
     if (p.brand) item.brand = p.brand;
     if (p.image) item.image = p.image;
     items.push(item);

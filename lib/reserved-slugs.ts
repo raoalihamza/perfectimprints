@@ -39,6 +39,8 @@ export const RESERVED_SLUGS: readonly string[] = [
   'rush-products',
   'rush-promotional-products',
   'promotional-products',
+  // Custom product detail pages (P2-CP-001) — the /products/[slug] folder route.
+  'products',
   'faq',
   'search',
   'services',

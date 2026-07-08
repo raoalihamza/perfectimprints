@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { affiliateUrl } from '@/lib/affiliate-url';
 import { cn } from '@/lib/utils';
 import type { GeigerProduct } from '@/lib/product-types';
@@ -44,7 +45,12 @@ function pickRibbon(product: GeigerProduct): { label: string; className: string 
 }
 
 export function ProductCard({ product, priority = false }: ProductCardProps) {
-  const href = affiliateUrl(product.geiger_url);
+  // Products with an internal detail page (Sanity productPage docs, P2-CP-001)
+  // link to /products/<slug> in the SAME tab with no sponsored rel. Everything
+  // else (scraped Geiger + customProduct) keeps the affiliate behavior exactly
+  // as before: new tab, noopener noreferrer sponsored.
+  const detailHref = product.detailUrl || null;
+  const href = detailHref ?? affiliateUrl(product.geiger_url);
   const imageSrc = decodeImageUrl(product.imageUrl);
   const price = priceLabel(product.low_price, product.high_price);
   const ribbon = pickRibbon(product);
@@ -53,13 +59,11 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
   const itemNumber =
     product.sku && !product.sku.startsWith('custom-') ? product.sku : null;
 
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer sponsored"
-      className="group flex flex-col overflow-hidden rounded border border-border bg-brand-white transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:ring-offset-2"
-    >
+  const cardClassName =
+    'group flex flex-col overflow-hidden rounded border border-border bg-brand-white transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:ring-offset-2';
+
+  const cardInner = (
+    <>
       <div className="relative aspect-square overflow-hidden bg-bg-soft">
         {imageSrc ? (
           <ProductImage
@@ -114,6 +118,20 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
           </div>
         </div>
       </div>
+    </>
+  );
+
+  if (detailHref) {
+    return (
+      <Link href={detailHref} className={cardClassName}>
+        {cardInner}
+      </Link>
+    );
+  }
+
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer sponsored" className={cardClassName}>
+      {cardInner}
     </a>
   );
 }

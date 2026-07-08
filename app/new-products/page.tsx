@@ -3,6 +3,7 @@ import { NewProductsPageBody } from '@/components/new-products/NewProductsPageBo
 import { getAugmentedNewProductsData, applyHiddenSkus } from '@/lib/new-products';
 import { getNewProductsPageCopy } from '@/lib/sanity/queries/new-products';
 import { getCustomProductsForNewProducts } from '@/lib/sanity/queries/custom-products';
+import { getProductPagesForNewProducts } from '@/lib/sanity/queries/product-pages';
 import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { socialMeta } from '@/lib/seo/open-graph';
 
@@ -34,14 +35,16 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function NewProductsPage() {
-  const [copy, customDocs] = await Promise.all([
+  const [copy, customDocs, productPageDocs] = await Promise.all([
     getNewProductsPageCopy(),
     getCustomProductsForNewProducts(),
+    getProductPagesForNewProducts(),
   ]);
 
   const augmented = getAugmentedNewProductsData({
     pinnedSkus: copy.pinnedNewProductSkus || [],
     customDocs,
+    productPageDocs,
   });
   const data = applyHiddenSkus(augmented, copy.hiddenNewProductSkus || []);
 

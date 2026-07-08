@@ -17,6 +17,7 @@ import {
   LANDING_TAG,
   MEGA_MENU_TAG,
   PAGES_TAG,
+  PRODUCT_PAGES_TAG,
   RELATED_BLOGS_TAG,
   SETTINGS_TAG,
   VIDEOS_TAG,
@@ -24,6 +25,7 @@ import {
   customSchemaTag,
   landingTag,
   pageTag,
+  productPageTag,
 } from '@/lib/sanity/cache-tags';
 
 /**
@@ -184,6 +186,11 @@ export async function POST(request: Request) {
     // Videos are read through a non-CDN tagged fetch (see lib/sanity/queries/videos)
     // — bust the tag so /videos + /videos/<slug> + the search delta refresh deterministically.
     if (type === 'video') revalidateTag(VIDEOS_TAG, 'max');
+    // A productPage can reference a customProduct in its Related Products list
+    // (dereferenced inside the PRODUCT_PAGES_TAG-cached read, P2-CP-001) — bust
+    // the tag so /products/<slug> carousels pick up the edit/delete instead of
+    // serving the stale card forever (the route has revalidate=false).
+    if (type === 'customProduct') revalidateTag(PRODUCT_PAGES_TAG, 'max');
     return NextResponse.json({ revalidated: true, paths, type });
   }
 
@@ -234,6 +241,27 @@ export async function POST(request: Request) {
       return NextResponse.json({ revalidated: true, scope: pageUrl, type });
     }
     return NextResponse.json({ revalidated: false, reason: 'customSchema missing pageUrl', type });
+  }
+
+  // Custom product detail pages (P2-CP-001) render at /products/<slug>. All
+  // productPage reads are cache-tagged (PRODUCT_PAGES_TAG list-level +
+  // productPage:<slug> content-level), so bust both tags plus every surface
+  // the doc renders on: its own page, /new-products (it sits at the top of the
+  // grid), the live search delta (the ISR route that carries it), and the
+  // sitemap (a new/removed slug changes its listing).
+  // ⚠️ `productPage` must be in the Sanity webhook Filter `_type` list (it is a
+  // NEW type — added to neither webhook automatically) or this never fires —
+  // see docs/sanity-webhook-setup.md.
+  if (type === 'productPage') {
+    revalidateTag(PRODUCT_PAGES_TAG, 'max');
+    const slug = payload.slug?.current;
+    const paths = [SEARCH_INDEX_ROUTE, '/new-products', '/sitemap.xml'];
+    if (slug) {
+      bustTag(productPageTag(slug));
+      paths.push(`/products/${slug}`);
+    }
+    for (const p of paths) revalidatePath(p);
+    return NextResponse.json({ revalidated: true, paths, type });
   }
 
   // Local/topic landing pages (P2-AI-005) render at /<slug> via app/[...slug]

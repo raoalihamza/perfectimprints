@@ -71,11 +71,20 @@ export function resolveLandingLeadRouting(
 
 export interface CustomerConfirmationPayload {
   firstName: string;
-  lookingFor: string;
+  /**
+   * Optional as of P2-CP-002: product-quote submissions have no "looking for"
+   * textarea (the product itself is the subject). Landing/default callers keep
+   * passing it — an empty value simply skips the row.
+   */
+  lookingFor?: string;
   quantityNeeded: string;
   dateNeeded: string;
-  /** The landing page's product/topic (or its title) — names what they asked about. */
+  /** The landing page's product/topic (or the productPage title) — names what they asked about. */
   product?: string;
+  /** Product-quote extras (P2-CP-002) — rows are skipped when empty. */
+  company?: string;
+  shippingZip?: string;
+  comments?: string;
   sourceUrl: string;
 }
 
@@ -103,15 +112,28 @@ export function buildCustomerConfirmationEmail(payload: CustomerConfirmationPayl
   const topic = payload.product?.trim() || 'custom promotional products';
   const subject = 'We received your request — Perfect Imprints';
 
+  // Rows with an empty value are skipped, so the same builder serves landing
+  // submissions (always have "Looking for", never company/zip/comments) and
+  // product quotes (the reverse) without blank lines in either. The product
+  // name itself lives in the "Thanks for reaching out about <topic>" sentence
+  // — no separate row — so landing output is unchanged byte-for-byte.
+  const rows: Array<[string, string]> = [
+    ['Looking for', payload.lookingFor?.trim() ?? ''],
+    ['Company', payload.company?.trim() ?? ''],
+    ['Quantity needed', payload.quantityNeeded],
+    ['Date needed', payload.dateNeeded],
+    ['Shipping zip', payload.shippingZip?.trim() ?? ''],
+    ['Comments', payload.comments?.trim() ?? ''],
+    ['Page', payload.sourceUrl],
+  ].filter((row): row is [string, string] => Boolean(row[1]));
+
+  const pad = (label: string) => `${label}:`.padEnd(18, ' ');
   const text = [
     `Hi ${payload.firstName},`,
     '',
     `Thanks for reaching out about ${topic}! Your request is in — here is what you sent us:`,
     '',
-    `Looking for:      ${payload.lookingFor}`,
-    `Quantity needed:  ${payload.quantityNeeded}`,
-    `Date needed:      ${payload.dateNeeded}`,
-    `Page:             ${payload.sourceUrl}`,
+    ...rows.map(([label, value]) => `${pad(label)}${value}`),
     '',
     'Someone on our team will follow up shortly with product ideas and pricing tailored to your request. Need us sooner? Call 800-773-9472 (9am to 5pm EST).',
     '',
@@ -130,12 +152,7 @@ export function buildCustomerConfirmationEmail(payload: CustomerConfirmationPayl
       </p>
       <table style="border-collapse:collapse;width:100%;">
         <tbody>
-          ${[
-            ['Looking for', payload.lookingFor],
-            ['Quantity needed', payload.quantityNeeded],
-            ['Date needed', payload.dateNeeded],
-            ['Page', payload.sourceUrl],
-          ]
+          ${rows
             .map(
               ([label, value]) => `
               <tr>

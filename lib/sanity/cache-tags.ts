@@ -158,6 +158,23 @@ export function landingTag(slug: string): string {
 }
 
 /**
+ * Sanity `productPage` documents (P2-CP-001) — full custom product detail pages
+ * rendered at `/products/<slug>` (app/products/[slug]). `PRODUCT_PAGES_TAG` is
+ * the list-level tag busted on any productPage publish/delete so
+ * generateStaticParams, /new-products, the related carousels, the live search
+ * delta, and the sitemap pick up a new/removed product; `productPageTag(slug)`
+ * busts a single product's content. All productPage reads go through the
+ * non-CDN `cachedClient` so a publish revalidates deterministically while
+ * staying cache-tagged — keeping `/products/<slug>` static/SSG. Same rationale
+ * as PAGES_TAG / LANDING_TAG.
+ */
+export const PRODUCT_PAGES_TAG = 'product-pages';
+export function productPageTag(slug: string): string {
+  const s = sanitizeTagValue(slug);
+  return s ? `productPage:${s}` : '';
+}
+
+/**
  * Per-path tag for the custom structured-data injector (Task C). Keyed by the
  * full page path (e.g. `customSchema:/cat/water-bottles`, `customSchema:/about`,
  * `customSchema:/`). The `CustomSchemaJsonLd` server component reads through a

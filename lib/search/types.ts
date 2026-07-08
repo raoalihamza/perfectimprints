@@ -36,6 +36,14 @@ export interface SearchItem {
    * autocomplete overlay. Not a Fuse key; display only.
    */
   image?: string;
+  /**
+   * Only set for `product` entries whose `url` is an INTERNAL route — Sanity
+   * productPage detail pages at `/products/<slug>` (P2-CP-001). `resultTarget`
+   * routes these like any internal page (same tab, prefetchable) instead of
+   * rewriting through the affiliate host. Absent for Geiger/customProduct
+   * entries, which keep the affiliate behavior.
+   */
+  internal?: boolean;
 }
 
 export interface SearchIndexFile {

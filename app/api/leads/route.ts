@@ -8,6 +8,7 @@ import {
 } from '@/lib/email/gmail-smtp';
 import { DEFAULT_LEAD_RECIPIENT, resolveLandingLeadRouting } from '@/lib/leads/landing-lead';
 import { getLandingLeadInfo } from '@/lib/sanity/queries/landing-pages';
+import { getProductLeadInfo } from '@/lib/sanity/queries/product-pages';
 
 export const runtime = 'nodejs';
 
@@ -138,6 +139,15 @@ export async function POST(request: Request) {
   // against Sanity below, so a forged value cannot redirect lead email
   // anywhere (an unknown slug simply behaves like a non-landing submission).
   const landingSlug = str(formData.get('landingSlug')).slice(0, 200);
+  // Optional product-quote context (P2-CP-002) — the Get a Quote form on
+  // /products/<slug>. Same abuse guard as landing: ONLY the slug crosses the
+  // wire; the recipient AND the product title are resolved server-side from
+  // the productPage doc (a spoofed hidden field can't lie to Patrick).
+  const productSlug = str(formData.get('productSlug')).slice(0, 200);
+  const company = str(formData.get('company'));
+  const shippingZip = str(formData.get('shippingZip')).slice(0, 20);
+  const comments = str(formData.get('comments'));
+  const isProductQuote = productSlug.length > 0;
 
   const errors: Record<string, string> = {};
   if (!firstName) errors.firstName = 'First name is required.';
@@ -145,7 +155,10 @@ export async function POST(request: Request) {
   if (!email) errors.email = 'Email is required.';
   else if (!isValidEmail(email)) errors.email = 'Enter a valid email address.';
   if (!phone) errors.phone = 'Phone is required.';
-  if (!lookingFor) errors.lookingFor = 'Tell us what you are looking for.';
+  // Product quotes have no "looking for" textarea (the product is the subject)
+  // but require Company; every other form keeps the original requirements.
+  if (!lookingFor && !isProductQuote) errors.lookingFor = 'Tell us what you are looking for.';
+  if (isProductQuote && !company) errors.company = 'Company is required.';
   if (!quantityNeeded) errors.quantityNeeded = 'Quantity needed is required.';
   if (!dateNeeded) errors.dateNeeded = 'Date needed is required.';
 
@@ -197,6 +210,20 @@ export async function POST(request: Request) {
     contentType: f.contentType,
   }));
 
+  // Landing-page routing (P2-AI-005 part 2): resolve the submitted slug to its
+  // stored `leadRecipient` SERVER-SIDE. `landing` is null for non-landing
+  // submissions, unknown slugs, and lookup failures — all of which keep the
+  // pre-existing behavior exactly (site-default recipient, no confirmation).
+  const landing = landingSlug ? await getLandingLeadInfo(landingSlug) : null;
+  // Product-quote routing (P2-CP-002): identical model against the productPage
+  // doc. Landing wins if a submission somehow carries both slugs; an unknown
+  // product slug degrades to the default non-quote behavior. The lookup is
+  // structurally a LandingLeadInfo ({leadRecipient, title}), so the SAME
+  // routing resolver applies — one abuse-guarded code path for both.
+  const product = !landing && isProductQuote ? await getProductLeadInfo(productSlug) : null;
+  const productTitle = product?.title?.trim() || '';
+  const routing = resolveLandingLeadRouting(landing ?? product);
+
   const submittedAt = new Date().toISOString();
   const payload: LeadEmailPayload = {
     firstName,
@@ -209,14 +236,14 @@ export async function POST(request: Request) {
     sourceUrl: sourceUrl || 'unknown',
     submittedAt,
     attachments: emailAttachments.length > 0 ? emailAttachments : undefined,
+    // Quote-only extras — undefined for every other form, so the email rows
+    // and subject are byte-identical to before outside the quote path.
+    ...(company ? { company } : {}),
+    ...(shippingZip ? { shippingZip } : {}),
+    ...(comments ? { comments } : {}),
+    ...(productTitle ? { productTitle } : {}),
+    ...(product ? { productSlug } : {}),
   };
-
-  // Landing-page routing (P2-AI-005 part 2): resolve the submitted slug to its
-  // stored `leadRecipient` SERVER-SIDE. `landing` is null for non-landing
-  // submissions, unknown slugs, and lookup failures — all of which keep the
-  // pre-existing behavior exactly (site-default recipient, no confirmation).
-  const landing = landingSlug ? await getLandingLeadInfo(landingSlug) : null;
-  const routing = resolveLandingLeadRouting(landing);
 
   try {
     // `routing.to` is null outside the valid-landing-recipient case, and
@@ -263,17 +290,26 @@ export async function POST(request: Request) {
         lastName,
         email,
         phone,
-        lookingFor,
+        // Quote submissions have no "looking for" textarea — omit the empty
+        // string rather than storing a blank field. Non-quote forms always
+        // have it (validated above), so their records are unchanged.
+        ...(lookingFor ? { lookingFor } : {}),
         quantityNeeded,
         dateNeeded,
         sourceUrl: payload.sourceUrl,
         submittedAt,
-        // Traceability for landing submissions: the actual resolved
-        // destination (per-page recipient or the site default). Non-landing
-        // docs stay exactly as before.
+        // Traceability for landing + product-quote submissions: the actual
+        // resolved destination (per-page recipient or the site default).
+        // Other docs stay exactly as before.
         ...(routing.sendConfirmation
           ? { recipient: routing.to || process.env.LEAD_EMAIL_TO || DEFAULT_LEAD_RECIPIENT }
           : {}),
+        // Product-quote fields (P2-CP-002) — absent on every other form.
+        ...(company ? { company } : {}),
+        ...(shippingZip ? { shippingZip } : {}),
+        ...(comments ? { comments } : {}),
+        ...(productTitle ? { productTitle } : {}),
+        ...(product ? { productSlug } : {}),
         ...(attachmentRefs.length > 0 ? { attachments: attachmentRefs } : {}),
       });
     } catch (err) {
@@ -281,10 +317,10 @@ export async function POST(request: Request) {
     }
   }
 
-  // Customer confirmation — LANDING submissions only, after the lead email +
-  // lead record. NON-FATAL by design: the lead already reached its recipient,
-  // so a confirmation failure logs and the submission still succeeds (same
-  // policy as the Sanity write above).
+  // Customer confirmation — landing + product-quote submissions only, after
+  // the lead email + lead record. NON-FATAL by design: the lead already
+  // reached its recipient, so a confirmation failure logs and the submission
+  // still succeeds (same policy as the Sanity write above).
   if (routing.sendConfirmation) {
     try {
       await sendCustomerConfirmationEmail({
@@ -294,7 +330,13 @@ export async function POST(request: Request) {
         lookingFor,
         quantityNeeded,
         dateNeeded,
-        product: landing?.product?.trim() || landing?.title?.trim() || undefined,
+        product:
+          landing?.product?.trim() || landing?.title?.trim() || productTitle || undefined,
+        // Quote extras — empty values are skipped by the builder, so landing
+        // confirmations are unchanged.
+        ...(company ? { company } : {}),
+        ...(shippingZip ? { shippingZip } : {}),
+        ...(comments ? { comments } : {}),
         sourceUrl: payload.sourceUrl,
       });
     } catch (err) {

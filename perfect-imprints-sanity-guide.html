@@ -345,6 +345,7 @@
         <li><a href="#custom-schema">Custom Schema (advanced SEO)</a></li>
         <li><a href="#site-refresh">Site Refresh (update product data)</a></li>
         <li><a href="#landing">Landing Pages (local + topic pages)</a></li>
+        <li><a href="#product-pages">Product Pages (your own product detail pages)</a></li>
         <li><a href="#connect">How everything connects</a></li>
         <li><a href="#tasks">Common tasks (quick reference)</a></li>
         <li><a href="#warnings">Important warnings</a></li>
@@ -1160,6 +1161,10 @@
       past submissions: name, email, phone, what they are looking for, quantity, date needed, the page they came from,
       and any <strong>files they attached</strong> (logos or artwork). This is a record to read, not something you
       create.</p>
+    <p>Get-a-Quote submissions from your <a href="#product-pages">Product Pages</a> also carry the
+      <strong>company</strong>, <strong>shipping zip</strong>, <strong>comments</strong>, the <strong>quoted
+        product</strong>, and a <strong>"Lead sent to"</strong> note showing which email the notification went to
+      (landing-page leads show that note too).</p>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
@@ -1378,7 +1383,88 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="connect">22. How everything connects</h2>
+    <h2 id="product-pages">22. Product Pages (your own product detail pages)</h2>
+
+    <p><span class="path">Content <span class="arrow">›</span> Product Page</span> creates a full product of your own
+      with its <strong>own page</strong> on the website at <code>/products/&lt;slug&gt;</code> — a photo gallery with
+      color swatches, a quantity-price table, a description, related products, and a green <strong>Get a
+        Quote</strong> button. No cart, no checkout, no outside link: the button opens your quote form and the lead
+      lands in <a href="#leads">Lead Submission</a>.</p>
+
+    <div class="callout info">
+      <span class="label">Product Page vs Custom Product</span>
+      <p>These are two different things. A <a href="#custom-product"><strong>Custom Product</strong></a> is a simple
+        card that links OUT to another website (it has a required External URL). A <strong>Product Page</strong> is a
+        full product that lives ON your site with its own page. If you want people to land on your site and request a
+        quote, use a Product Page.</p>
+    </div>
+
+    <h3>Where these products show up</h3>
+    <ul>
+      <li>Their own page at <code>/products/&lt;slug&gt;</code> (indexable, in the sitemap, with Product schema for
+        Google).</li>
+      <li>At the <strong>top of the New Products page</strong> (<code>/new-products</code>) — controlled by the
+        "Show on /new-products" toggle under Visibility.</li>
+      <li>In <strong>site search</strong> (the magnifying glass) — the result opens your product page, not Geiger.</li>
+      <li>In <strong>Related Products carousels</strong> on other product pages.</li>
+      <li><strong>Not</strong> inside the <code>/cat/...</code> category pages — that is intentional.</li>
+    </ul>
+
+    <h3>Creating one, step by step</h3>
+    <ol>
+      <li><strong>Basics:</strong> Title (e.g. "32 oz Voyager Travel Tumbler"), Slug (click Generate), and optionally a
+        Brand.</li>
+      <li><strong>Images &amp; Colors:</strong> add one <strong>Color variant</strong> per color the product comes in.
+        Each variant has a color name (e.g. "Navy Blue"), an optional swatch color (a hex code like
+        <code>#1E3A8A</code> — this paints the little clickable circle), and up to 10 images. On the live page,
+        visitors see the FIRST variant's photos and can click the other swatches to swap the whole gallery to that
+        color's photos. If your product has no colors, skip variants and use <strong>Default images</strong>
+        instead.</li>
+      <li><strong>Pricing:</strong> add up to 5 tiers (quantity + price each), e.g. 100 → $4.99, 250 → $4.49, 500 →
+        $3.99. The page shows them as the QTY / PRICE table, and the product card price range comes from them
+        automatically. Turn on <strong>On sale</strong> for the red "Sale!" badge, optionally with a percent-off and an
+        expiry date.</li>
+      <li><strong>Details:</strong> the full description (bullets, bold, links, headings all work), decoration methods,
+        <strong>Sizes</strong> (just listed on the page — sizes do not change the price or the pictures), and
+        production time.</li>
+      <li><strong>Filters (optional):</strong> tag Material / Features / Types and the Made-in-USA / Eco / Closeout
+        toggles using the same names Geiger uses, so the product participates in the New Products page filters. Colors
+        are taken from your color variants automatically.</li>
+      <li><strong>Related products:</strong> pick a related category and/or a few keywords and the carousel fills
+        itself with matching products. Anything you add manually (a Geiger product by SKU, one of your Custom
+        Products, or another Product Page) is pinned to the front.</li>
+      <li><strong>Visibility &amp; SEO:</strong> the New Products toggle, the <strong>Lead recipient email</strong>
+        (see below), plus the usual Meta Title / Meta Description / social image.</li>
+      <li>Press <strong>Publish</strong> — the page is live at <code>/products/&lt;your-slug&gt;</code> within
+        seconds, and it appears in New Products and search shortly after.</li>
+    </ol>
+
+    <h3>The Get a Quote form (and where its leads go)</h3>
+    <p>The green <strong>Get a Quote</strong> button opens a quote form made for products: First Name, Last Name,
+      <strong>Company</strong>, Email, Phone, Shipping Zip, Quantity Needed, Date Needed, Comments, and an optional
+      logo/artwork upload. When someone submits it:</p>
+    <ul>
+      <li>The request is emailed to the address in that product's <strong>Lead recipient email</strong> field
+        (Visibility &amp; SEO). It starts as <code>patrick@perfectimprints.com</code>; change it per product if a
+        different person should handle that product's quotes. Blank or mistyped falls back to Patrick automatically.
+      </li>
+      <li>The email subject names the product ("Product Quote Request: …"), and the message lists every field plus
+        any attached artwork.</li>
+      <li>The customer automatically receives a <strong>confirmation email</strong> summarizing what they sent — same
+        as the landing pages.</li>
+      <li>A record appears under <a href="#leads">Lead Submission</a> with the company, shipping zip, comments, the
+        quoted product, and a "Lead sent to" note showing where the notification went.</li>
+    </ul>
+    <div class="callout info">
+      <span class="label">Safe by design</span>
+      <p>The visitor's browser never chooses where the lead goes — the website looks up the recipient from the
+        product itself, on the server. So the address you set in Studio is the only place quotes can be sent.</p>
+    </div>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="connect">23. How everything connects</h2>
     <p>A quick mental map of what drives what:</p>
     <ul>
       <li><strong>Global Settings</strong> drives the header and footer of <em>every</em> page (contact details, social
@@ -1395,6 +1481,9 @@
       <li><strong>Landing Page</strong> drives the local + topic sales pages (e.g.
         <code>/custom-beach-towels-destin-fl</code>) — a fixed template the AI fills from your City / State / Product /
         landmarks inputs.</li>
+      <li><strong>Product Page</strong> drives your own product detail pages (<code>/products/...</code>) — full
+        products with a gallery, tiered pricing, and a Get a Quote button. They also surface on New Products, in
+        search, and in related-product carousels (never inside <code>/cat</code> category pages).</li>
       <li><strong>FAQ</strong>, <strong>Video</strong>, and <strong>Brand</strong> each drive their own page
         (<code>/faq</code>, <code>/videos</code>, <code>/brands</code>).</li>
       <li><strong>Lead Submission</strong> is the inbox for your contact form.</li>
@@ -1410,11 +1499,16 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="tasks">23. Common tasks (quick reference)</h2>
+    <h2 id="tasks">24. Common tasks (quick reference)</h2>
     <table>
       <tr>
         <th>I want to…</th>
         <th>Go to</th>
+      </tr>
+      <tr>
+        <td>Add a product of my own with its own page and a Get a Quote button</td>
+        <td>Product Page &rsaquo; create, fill Basics / Images &amp; Colors / Pricing, Publish (see <a
+            href="#product-pages">section 22</a>)</td>
       </tr>
       <tr>
         <td>Change my phone, email, address, or hours</td>
@@ -1513,7 +1607,7 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="warnings">24. Important warnings (keep these in mind)</h2>
+    <h2 id="warnings">25. Important warnings (keep these in mind)</h2>
 
     <div class="callout danger">
       <span class="label">1. Always review products before publishing a pushed category</span>

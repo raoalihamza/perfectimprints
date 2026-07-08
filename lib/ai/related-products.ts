@@ -51,6 +51,18 @@ export interface MatchRelatedProductsOptions {
   minScore?: number;
   /** SKUs to never return (already used elsewhere in the same post). */
   exclude?: Set<string>;
+  /**
+   * Also surface Sanity `productPage` docs (P2-CP-001), returned with
+   * `detailUrl` set so their cards link to /products/<slug>. OPT-IN (default
+   * false): the AI generation routes persist strips as SKU-only blogProduct
+   * entries resolved against products.json at render time, where a
+   * productPage's synthetic `custom-<id>` SKU would silently resolve to
+   * nothing. Only consumers that render the returned GeigerProduct objects
+   * directly (the /products/<slug> related carousel) should enable this.
+   * Reads are cache-tagged (PRODUCT_PAGES_TAG), so enabling it inside a
+   * static render path is safe.
+   */
+  includeProductPages?: boolean;
 }
 
 /**
@@ -215,6 +227,21 @@ export async function matchRelatedProducts(
       for (const p of rankEligible(custom, tokens, minScore)) push(p);
     } catch {
       // Geiger-only fallback — suggestions stay useful without custom products.
+    }
+  }
+
+  // 2b) Sanity productPage docs (opt-in — see the option docstring), scored the
+  //     same way and carrying detailUrl so their cards link internally. Guarded
+  //     like the custom-products read: a failure degrades to Geiger-only.
+  if (opts.includeProductPages === true) {
+    try {
+      const { getAllProductPageCards, productPageToGeigerProduct } = await import(
+        '../sanity/queries/product-pages'
+      );
+      const pages = (await getAllProductPageCards()).map(productPageToGeigerProduct);
+      for (const p of rankEligible(pages, tokens, minScore)) push(p);
+    } catch {
+      // Geiger-only fallback.
     }
   }
 

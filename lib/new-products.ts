@@ -12,6 +12,11 @@ import {
   customProductToGeigerProduct,
   type CustomProductDoc,
 } from './sanity/queries/custom-products';
+import {
+  productPageAsCustomDoc,
+  productPageToGeigerProduct,
+  type ProductPageCard,
+} from './sanity/queries/product-pages';
 
 export type {
   NewProductsFacetSection,
@@ -106,6 +111,14 @@ export function getNewProductsData(): NewProductsData {
 export interface AugmentNewProductsInput {
   pinnedSkus?: string[];
   customDocs?: CustomProductDoc[];
+  /**
+   * Sanity productPage docs with the "Show on /new-products" toggle on
+   * (P2-CP-001). Normalized to internal-link cards (detailUrl →
+   * /products/<slug>) and placed FIRST — before custom products, pins, and the
+   * scraped feed — with their filter tags (brand/color/material/feature/type +
+   * Made-in-USA/Eco/Closeout/New-Items) injected like custom products.
+   */
+  productPageDocs?: ProductPageCard[];
 }
 
 /**
@@ -118,7 +131,16 @@ export function getAugmentedNewProductsData(
   const base = readScraped();
   const pinnedProducts = getGeigerProductsBySkus(input.pinnedSkus ?? []);
   const customDocs = input.customDocs ?? [];
-  const customProducts = customDocs.map(customProductToGeigerProduct);
+  const productPageDocs = input.productPageDocs ?? [];
+  // Product pages ride the same augment lane as custom products: their
+  // synthetic `custom-<_id>` SKU matches what injectCustomProductTags keys, so
+  // the CustomProductDoc-shaped view below lines the filters up. Prepending
+  // puts them first in the final grid order.
+  const customProducts = [
+    ...productPageDocs.map(productPageToGeigerProduct),
+    ...customDocs.map(customProductToGeigerProduct),
+  ];
+  const allCustomDocs = [...productPageDocs.map(productPageAsCustomDoc), ...customDocs];
 
   const augmented = augmentAggregator({
     scrapedAt: base.scrapedAt,
@@ -126,7 +148,7 @@ export function getAugmentedNewProductsData(
     scrapedFacets: base.scrapedFacets,
     pinnedProducts,
     customProducts,
-    customDocs,
+    customDocs: allCustomDocs,
   });
 
   return {

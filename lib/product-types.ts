@@ -27,4 +27,12 @@ export interface GeigerProduct {
   is_on_sale: boolean;
   product_type_unigram: string | null;
   geiger_url: string | null;
+  /**
+   * Internal detail-page route (`/products/<slug>`) for products that have one
+   * (Sanity `productPage` docs, P2-CP-001). When set, ProductCard links HERE
+   * (same tab, no `sponsored` rel) instead of the affiliate URL. Absent for
+   * scraped Geiger products and `customProduct` docs — those keep the affiliate
+   * link behavior unchanged.
+   */
+  detailUrl?: string;
 }
