@@ -11,7 +11,8 @@ import {
   ProductPageGallery,
   type GalleryVariant,
 } from '@/components/products/ProductPageGallery';
-import { GetQuoteButton } from '@/components/products/GetQuoteButton';
+import { ProductSelectionProvider } from '@/components/products/ProductSelectionContext';
+import { ProductPurchasePanel } from '@/components/products/ProductPurchasePanel';
 import { pagePortableComponents } from '@/components/page-sections/portable-text';
 import { buildImageUrl } from '@/lib/sanity/client';
 import {
@@ -265,6 +266,14 @@ export default async function ProductDetailPage({ params }: Props) {
   const related = await resolveRelatedProducts(doc);
   const plainDescription = portableTextToPlain(doc.description);
 
+  // Configurator inputs (P2-CP configurator). The minimum order quantity is
+  // the greater of the explicit minQty field and the lowest tier's quantity —
+  // one number shared by the panel hint, the default selection, and the form.
+  const colorOptions = galleryVariants.map((v) => v.colorName).filter(Boolean);
+  const sizeOptions = (doc.sizes ?? []).map((s) => s.trim()).filter(Boolean);
+  const decorationOptions = (doc.decorationMethods ?? []).map((d) => d.trim()).filter(Boolean);
+  const minOrderQty = Math.max(minQty ?? 1, tiers.length > 0 ? tiers[0].minQty : 1);
+
   // Product JSON-LD — honest, quote-based commerce: name/image/brand/description
   // plus an AggregateOffer derived from the real pricing tiers. No fabricated
   // availability, ratings, or reviews.
@@ -314,132 +323,81 @@ export default async function ProductDetailPage({ params }: Props) {
       </Container>
 
       <Container as="section" className="pb-10">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
-          {/* Gallery — the first color's images are in the prerendered HTML. */}
-          <div>
-            <ProductPageGallery variants={galleryVariants} productName={doc.title} />
-          </div>
-
-          {/* Summary column */}
-          <div>
-            <div className="flex flex-wrap items-center gap-3">
-              {doc.onSale && (
-                <span className="rounded bg-brand-red px-2.5 py-1 text-xs font-bold tracking-wide text-white">
-                  SALE!{doc.salePercentOff ? ` ${doc.salePercentOff}% OFF` : ''}
-                </span>
-              )}
-              {doc.brand && <span className="text-sm font-medium text-text-muted">{doc.brand}</span>}
+        {/* The selection provider is a client boundary, but everything inside
+            it — the H1, price, gallery imgs, the panel's tier table — is still
+            server-prerendered (deterministic initial state, no URL reads), so
+            the static HTML keeps its content. It exists so the gallery's color
+            swatches and the configurator share ONE selection for the quote. */}
+        <ProductSelectionProvider
+          colors={colorOptions}
+          sizes={sizeOptions}
+          decorations={decorationOptions}
+          initialQuantity={minOrderQty}
+        >
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+            {/* Gallery — the first color's images are in the prerendered HTML. */}
+            <div>
+              <ProductPageGallery variants={galleryVariants} productName={doc.title} />
             </div>
 
-            <h1 className="mt-2 text-3xl font-bold leading-tight text-brand-ink md:text-4xl">
-              {doc.title}
-            </h1>
-
-            {low != null && (
-              <p className="mt-3 text-2xl font-semibold text-brand-ink">
-                {high != null && high !== low
-                  ? `${formatPrice(low)} – ${formatPrice(high)}`
-                  : formatPrice(low)}
-                <span className="ml-2 text-sm font-normal text-text-muted">each</span>
-              </p>
-            )}
-
-            {doc.onSale && doc.saleExpires && (
-              <p className="mt-1 text-sm font-medium text-brand-red">
-                Sale pricing expires {formatSaleExpires(doc.saleExpires)}
-              </p>
-            )}
-
-            {/* Tiered pricing table */}
-            {tiers.length > 0 && (
-              <div className="mt-6 overflow-x-auto">
-                <table className="w-full min-w-[280px] border-collapse text-sm">
-                  <thead>
-                    <tr>
-                      <th className="border border-border bg-bg-soft px-3 py-2 text-left font-semibold text-brand-ink">
-                        QTY
-                      </th>
-                      {tiers.map((t, idx) => (
-                        <th
-                          key={`qty-${idx}`}
-                          className="border border-border bg-bg-soft px-3 py-2 text-center font-semibold text-brand-ink"
-                        >
-                          {t.minQty.toLocaleString('en-US')}+
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td className="border border-border px-3 py-2 font-semibold text-brand-ink">
-                        PRICE
-                      </td>
-                      {tiers.map((t, idx) => (
-                        <td
-                          key={`price-${idx}`}
-                          className="border border-border px-3 py-2 text-center text-text-primary"
-                        >
-                          {formatPrice(t.price)}
-                        </td>
-                      ))}
-                    </tr>
-                  </tbody>
-                </table>
+            {/* Summary + configurator column */}
+            <div>
+              <div className="flex flex-wrap items-center gap-3">
+                {doc.onSale && (
+                  <span className="rounded bg-brand-red px-2.5 py-1 text-xs font-bold tracking-wide text-white">
+                    SALE!{doc.salePercentOff ? ` ${doc.salePercentOff}% OFF` : ''}
+                  </span>
+                )}
+                {doc.brand && (
+                  <span className="text-sm font-medium text-text-muted">{doc.brand}</span>
+                )}
               </div>
-            )}
 
-            <dl className="mt-5 space-y-1.5 text-sm text-text-primary">
-              {minQty != null && (
-                <div className="flex gap-2">
-                  <dt className="font-semibold text-brand-ink">Minimum quantity:</dt>
-                  <dd>{minQty.toLocaleString('en-US')}</dd>
-                </div>
-              )}
-              {typeof doc.productionTime === 'number' && doc.productionTime > 0 && (
-                <div className="flex gap-2">
-                  <dt className="font-semibold text-brand-ink">Production time:</dt>
-                  <dd>
-                    {doc.productionTime} {doc.productionTime === 1 ? 'day' : 'days'}
-                  </dd>
-                </div>
-              )}
-              {(doc.decorationMethods ?? []).length > 0 && (
-                <div className="flex gap-2">
-                  <dt className="font-semibold text-brand-ink">Decoration:</dt>
-                  <dd>{(doc.decorationMethods ?? []).join(', ')}</dd>
-                </div>
-              )}
-            </dl>
+              <h1 className="mt-2 text-3xl font-bold leading-tight text-brand-ink md:text-4xl">
+                {doc.title}
+              </h1>
 
-            {/* Sizes are informational only — no price/image effect. */}
-            {(doc.sizes ?? []).length > 0 && (
-              <div className="mt-5">
-                <p className="text-sm font-medium text-brand-ink">Available sizes</p>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {(doc.sizes ?? []).map((size) => (
-                    <span
-                      key={size}
-                      className="rounded border border-border bg-bg-soft px-3 py-1 text-sm text-text-primary"
-                    >
-                      {size}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
+              {low != null && (
+                <p className="mt-3 text-2xl font-semibold text-brand-ink">
+                  {high != null && high !== low
+                    ? `${formatPrice(low)} – ${formatPrice(high)}`
+                    : formatPrice(low)}
+                  <span className="ml-2 text-sm font-normal text-text-muted">each</span>
+                </p>
+              )}
 
-            <div className="mt-8">
-              <GetQuoteButton
+              {doc.onSale && doc.saleExpires && (
+                <p className="mt-1 text-sm font-medium text-brand-red">
+                  Sale pricing expires {formatSaleExpires(doc.saleExpires)}
+                </p>
+              )}
+
+              {/* Configurator: tier table (active tier highlighted), quantity,
+                  size/decoration selectors, live ESTIMATED total, quote button. */}
+              <ProductPurchasePanel
                 productTitle={doc.title}
                 productSlug={doc.slug}
-                sourceUrl={`/products/${doc.slug}`}
+                tiers={tiers}
+                setupCharge={doc.setupCharge}
+                colors={colorOptions}
+                sizes={sizeOptions}
+                decorations={decorationOptions}
+                minQuantity={minOrderQty}
               />
-              <p className="mt-2 text-xs text-text-muted">
-                No online checkout — tell us what you need and we&rsquo;ll send an exact quote.
-              </p>
+
+              {typeof doc.productionTime === 'number' && doc.productionTime > 0 && (
+                <dl className="mt-5 space-y-1.5 text-sm text-text-primary">
+                  <div className="flex gap-2">
+                    <dt className="font-semibold text-brand-ink">Production time:</dt>
+                    <dd>
+                      {doc.productionTime} {doc.productionTime === 1 ? 'day' : 'days'}
+                    </dd>
+                  </div>
+                </dl>
+              )}
             </div>
           </div>
-        </div>
+        </ProductSelectionProvider>
 
         {/* Full description */}
         {hasBody && (

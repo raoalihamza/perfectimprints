@@ -1167,8 +1167,9 @@
       create.</p>
     <p>Get-a-Quote submissions from your <a href="#product-pages">Product Pages</a> also carry the
       <strong>company</strong>, <strong>shipping zip</strong>, <strong>comments</strong>, the <strong>quoted
-        product</strong>, and a <strong>"Lead sent to"</strong> note showing which email the notification went to
-      (landing-page leads show that note too).</p>
+        product</strong>, the configured <strong>color / size / decoration</strong>, the <strong>estimated
+        total</strong> the customer saw, and a <strong>"Lead sent to"</strong> note showing which email the
+      notification went to (landing-page leads show that note too).</p>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
@@ -1426,8 +1427,9 @@
         instead.</li>
       <li><strong>Pricing:</strong> add up to 5 tiers (quantity + price each), e.g. 100 → $4.99, 250 → $4.49, 500 →
         $3.99. The page shows them as the QTY / PRICE table, and the product card price range comes from them
-        automatically. Turn on <strong>On sale</strong> for the red "Sale!" badge, optionally with a percent-off and an
-        expiry date.</li>
+        automatically. Optionally add a <strong>Setup charge</strong> — a one-time flat fee (e.g. a screen-print setup)
+        added on top of quantity × price in the on-page <em>estimated</em> total. Turn on <strong>On sale</strong> for
+        the red "Sale!" badge, optionally with a percent-off and an expiry date.</li>
       <li><strong>Details:</strong> the full description (bullets, bold, links, headings all work), decoration methods,
         <strong>Sizes</strong> (just listed on the page — sizes do not change the price or the pictures), and
         production time. Don't want to write the description yourself? Use the AI helper (next heading).</li>
@@ -1465,21 +1467,34 @@
     <p>Re-clicking regenerates the description and SEO meta (that is the point of the button), so if you hand-polished
       the description, copy it somewhere before regenerating.</p>
 
+    <h3>The on-page configurator (what visitors see)</h3>
+    <p>The product page works like the Geiger page you know. Every choice starts with a sensible default already
+      selected — the quantity starts at your lowest pricing tier, and the first color / size / decoration are
+      pre-picked (anything with only one option just shows as text). As the visitor changes the quantity, the page
+      highlights the matching pricing tier and shows a live <strong>estimated total</strong> (quantity × that tier's
+      price, plus your Setup charge if you set one). It is always labeled <em>"Estimated total — final pricing
+        confirmed in your quote"</em> — there is no checkout, and no price is ever presented as final. Clicking a
+      color swatch under the photos swaps the gallery AND records the color for the quote.</p>
+
     <h3>The Get a Quote form (and where its leads go)</h3>
-    <p>The green <strong>Get a Quote</strong> button opens a quote form made for products: First Name, Last Name,
-      <strong>Company</strong>, Email, Phone, Shipping Zip, Quantity Needed, Date Needed, Comments, and an optional
-      logo/artwork upload. When someone submits it:</p>
+    <p>The green <strong>Get a Quote</strong> button opens the quote form <strong>pre-filled with whatever the
+        visitor configured</strong> — quantity, color, size, decoration, and the estimated total, plus a one-line
+      summary like "Custom Bamboo Folding Fan — White, Small, 150 units, Pad Print." — all still editable. The
+      visitor only types their contact details: First Name, Email, and Date Needed are required; Last Name, Phone,
+      Company, Shipping Zip, Comments, and a logo/artwork upload are optional. When someone submits it:</p>
     <ul>
       <li>The request is emailed to the address in that product's <strong>Lead recipient email</strong> field
         (Visibility &amp; SEO). It starts as <code>patrick@perfectimprints.com</code>; change it per product if a
         different person should handle that product's quotes. Blank or mistyped falls back to Patrick automatically.
       </li>
-      <li>The email subject names the product ("Product Quote Request: …"), and the message lists every field plus
-        any attached artwork.</li>
+      <li>The email subject names the product ("Product Quote Request: …"), and the message includes a clear
+        configuration block — quantity, color, size, decoration, and the estimated total — plus every contact field
+        and any attached artwork.</li>
       <li>The customer automatically receives a <strong>confirmation email</strong> summarizing what they sent — same
         as the landing pages.</li>
       <li>A record appears under <a href="#leads">Lead Submission</a> with the company, shipping zip, comments, the
-        quoted product, and a "Lead sent to" note showing where the notification went.</li>
+        quoted product, the selected color/size/decoration, the estimated total, and a "Lead sent to" note showing
+        where the notification went.</li>
     </ul>
     <div class="callout info">
       <span class="label">Safe by design</span>

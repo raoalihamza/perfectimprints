@@ -89,6 +89,8 @@ export interface ProductPageDoc extends ProductPageCard {
   decorationMethods?: string[];
   sizes?: string[];
   productionTime?: number;
+  /** One-time flat setup/decoration charge added to the on-page ESTIMATE. */
+  setupCharge?: number;
   relatedCategorySlug?: string;
   relatedKeywords?: string[];
   relatedProducts?: ProductPageRelatedEntry[];
@@ -129,6 +131,7 @@ const FULL_PROJECTION = `{
   decorationMethods,
   sizes,
   productionTime,
+  setupCharge,
   relatedCategorySlug,
   relatedKeywords,
   relatedProducts[]{

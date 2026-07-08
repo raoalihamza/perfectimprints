@@ -85,6 +85,12 @@ export interface CustomerConfirmationPayload {
   company?: string;
   shippingZip?: string;
   comments?: string;
+  /** Configurator selection (P2-CP configurator) — rows skipped when empty. */
+  selectedColor?: string;
+  selectedSize?: string;
+  selectedDecoration?: string;
+  /** LABELED ESTIMATE string — the row title says "Estimated total". */
+  estimatedTotal?: string;
   sourceUrl: string;
 }
 
@@ -120,10 +126,14 @@ export function buildCustomerConfirmationEmail(payload: CustomerConfirmationPayl
   const rows: Array<[string, string]> = [
     ['Looking for', payload.lookingFor?.trim() ?? ''],
     ['Company', payload.company?.trim() ?? ''],
+    ['Color', payload.selectedColor?.trim() ?? ''],
+    ['Size', payload.selectedSize?.trim() ?? ''],
+    ['Decoration', payload.selectedDecoration?.trim() ?? ''],
     ['Quantity needed', payload.quantityNeeded],
     ['Date needed', payload.dateNeeded],
     ['Shipping zip', payload.shippingZip?.trim() ?? ''],
     ['Comments', payload.comments?.trim() ?? ''],
+    ['Estimated total', payload.estimatedTotal?.trim() ?? ''],
     ['Page', payload.sourceUrl],
   ].filter((row): row is [string, string] => Boolean(row[1]));
 

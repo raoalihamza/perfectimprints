@@ -147,18 +147,26 @@ export async function POST(request: Request) {
   const company = str(formData.get('company'));
   const shippingZip = str(formData.get('shippingZip')).slice(0, 20);
   const comments = str(formData.get('comments'));
+  // Configurator selection (P2-CP configurator) — display strings echoed into
+  // the emails + the lead record. The estimated total is a LABELED ESTIMATE
+  // computed client-side from the published tiers, never a firm price.
+  const selectedColor = str(formData.get('selectedColor')).slice(0, 100);
+  const selectedSize = str(formData.get('selectedSize')).slice(0, 100);
+  const selectedDecoration = str(formData.get('selectedDecoration')).slice(0, 100);
+  const estimatedTotal = str(formData.get('estimatedTotal')).slice(0, 40);
   const isProductQuote = productSlug.length > 0;
 
   const errors: Record<string, string> = {};
   if (!firstName) errors.firstName = 'First name is required.';
-  if (!lastName) errors.lastName = 'Last name is required.';
   if (!email) errors.email = 'Email is required.';
   else if (!isValidEmail(email)) errors.email = 'Enter a valid email address.';
-  if (!phone) errors.phone = 'Phone is required.';
-  // Product quotes have no "looking for" textarea (the product is the subject)
-  // but require Company; every other form keeps the original requirements.
+  // The product-page quote form (P2-CP configurator) requires only First Name /
+  // Email / Quantity / Date — Last Name, Phone, Company are optional there and
+  // it has no "looking for" textarea (the product is the subject). Every other
+  // form keeps the original requirements exactly.
+  if (!lastName && !isProductQuote) errors.lastName = 'Last name is required.';
+  if (!phone && !isProductQuote) errors.phone = 'Phone is required.';
   if (!lookingFor && !isProductQuote) errors.lookingFor = 'Tell us what you are looking for.';
-  if (isProductQuote && !company) errors.company = 'Company is required.';
   if (!quantityNeeded) errors.quantityNeeded = 'Quantity needed is required.';
   if (!dateNeeded) errors.dateNeeded = 'Date needed is required.';
 
@@ -243,6 +251,10 @@ export async function POST(request: Request) {
     ...(comments ? { comments } : {}),
     ...(productTitle ? { productTitle } : {}),
     ...(product ? { productSlug } : {}),
+    ...(selectedColor ? { selectedColor } : {}),
+    ...(selectedSize ? { selectedSize } : {}),
+    ...(selectedDecoration ? { selectedDecoration } : {}),
+    ...(estimatedTotal ? { estimatedTotal } : {}),
   };
 
   try {
@@ -310,6 +322,11 @@ export async function POST(request: Request) {
         ...(comments ? { comments } : {}),
         ...(productTitle ? { productTitle } : {}),
         ...(product ? { productSlug } : {}),
+        // Configurator selection (P2-CP configurator).
+        ...(selectedColor ? { selectedColor } : {}),
+        ...(selectedSize ? { selectedSize } : {}),
+        ...(selectedDecoration ? { selectedDecoration } : {}),
+        ...(estimatedTotal ? { estimatedTotal } : {}),
         ...(attachmentRefs.length > 0 ? { attachments: attachmentRefs } : {}),
       });
     } catch (err) {
@@ -337,6 +354,10 @@ export async function POST(request: Request) {
         ...(company ? { company } : {}),
         ...(shippingZip ? { shippingZip } : {}),
         ...(comments ? { comments } : {}),
+        ...(selectedColor ? { selectedColor } : {}),
+        ...(selectedSize ? { selectedSize } : {}),
+        ...(selectedDecoration ? { selectedDecoration } : {}),
+        ...(estimatedTotal ? { estimatedTotal } : {}),
         sourceUrl: payload.sourceUrl,
       });
     } catch (err) {

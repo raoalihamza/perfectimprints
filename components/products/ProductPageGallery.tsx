@@ -2,15 +2,24 @@
 
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { useProductSelection } from './ProductSelectionContext';
 
 /**
  * Color-variant image gallery for /products/<slug> (P2-CP-001).
  *
+ * CONTROLLED COLOR (P2-CP configurator): the selected color lives in the
+ * shared ProductSelectionContext — the single source of truth the purchase
+ * panel and the quote form also read — so a swatch click here updates the
+ * captured selection, and there is never a second color state to drift.
+ * Which IMAGE of the active color shows (thumbnails) + the zoom/lightbox
+ * stay local — they are presentation, not selection.
+ *
  * STATIC-RENDER CONTRACT (the /cat CSR-bailout lesson): this component reads
  * NO URL state — no useSearchParams, no window reads during render. Its initial
- * render (variant 0, image 0) is what the server prerenders, so the FIRST
- * color's images are real <img> tags in the static HTML; swatch clicks and the
- * zoom/lightbox are post-hydration state changes over that markup.
+ * render (first color, image 0 — the provider's deterministic default) is what
+ * the server prerenders, so the FIRST color's images are real <img> tags in
+ * the static HTML; swatch clicks and the zoom/lightbox are post-hydration
+ * state changes over that markup.
  */
 
 export interface GalleryImage {
@@ -37,8 +46,18 @@ const MAIN_PX = 800;
 const THUMB_PX = 80;
 
 export function ProductPageGallery({ variants, productName }: ProductPageGalleryProps) {
-  const [variantIdx, setVariantIdx] = useState(0);
-  const [imageIdx, setImageIdx] = useState(0);
+  const { colorName, setColorName } = useProductSelection();
+  // The active variant follows the SHARED selection; a color with no matching
+  // variant (impossible via the UI, defensive anyway) falls back to the first.
+  const matchedIdx = variants.findIndex((v) => v.colorName && v.colorName === colorName);
+  const variantIdx = matchedIdx >= 0 ? matchedIdx : 0;
+  // Image choice is keyed to the variant it was made for, so switching colors
+  // (from anywhere) naturally shows that color's first image — no effect needed.
+  const [imageSel, setImageSel] = useState<{ variant: number; idx: number }>({
+    variant: 0,
+    idx: 0,
+  });
+  const imageIdx = imageSel.variant === variantIdx ? imageSel.idx : 0;
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [zoom, setZoom] = useState<{ x: number; y: number; active: boolean }>({
     x: 50,
@@ -116,7 +135,7 @@ export function ProductPageGallery({ variants, productName }: ProductPageGallery
               type="button"
               aria-label={`Show image ${idx + 1} of ${active.images.length}`}
               aria-current={idx === imageIdx}
-              onClick={() => setImageIdx(idx)}
+              onClick={() => setImageSel({ variant: variantIdx, idx })}
               className={cn(
                 'h-20 w-20 shrink-0 overflow-hidden rounded border bg-white p-1 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red',
                 idx === imageIdx ? 'border-brand-red ring-1 ring-brand-red' : 'border-border hover:border-brand-ink',
@@ -151,8 +170,8 @@ export function ProductPageGallery({ variants, productName }: ProductPageGallery
                 aria-label={`Show ${v.colorName || 'default'} images`}
                 aria-pressed={idx === variantIdx}
                 onClick={() => {
-                  setVariantIdx(idx);
-                  setImageIdx(0);
+                  setColorName(v.colorName || null);
+                  setImageSel({ variant: idx, idx: 0 });
                 }}
                 className={cn(
                   'flex items-center gap-2 rounded-full border px-2 py-1 text-xs font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red',

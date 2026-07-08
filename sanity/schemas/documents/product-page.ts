@@ -248,6 +248,15 @@ export default defineType({
       description: 'Leave blank to use the lowest pricing-tier quantity automatically.',
     }),
     defineField({
+      name: 'setupCharge',
+      title: 'Setup charge (USD, optional)',
+      type: 'number',
+      fieldset: 'pricing',
+      validation: (Rule) => Rule.min(0),
+      description:
+        'One-time flat setup/decoration charge (e.g. a screen or pad-print setup fee) added on top of quantity × unit price in the on-page ESTIMATED total. Leave blank for no setup charge. The estimate is clearly labeled as an estimate — final pricing is always confirmed in the quote.',
+    }),
+    defineField({
       name: 'onSale',
       title: 'On sale',
       type: 'boolean',

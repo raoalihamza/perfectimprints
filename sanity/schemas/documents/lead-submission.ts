@@ -56,6 +56,35 @@ export default defineType({
       readOnly: true,
       description: 'The /products/<slug> the quote came from.',
     }),
+    defineField({
+      name: 'selectedColor',
+      title: 'Selected Color',
+      type: 'string',
+      readOnly: true,
+      description: 'Set by the product-page configurator (P2-CP configurator).',
+    }),
+    defineField({
+      name: 'selectedSize',
+      title: 'Selected Size',
+      type: 'string',
+      readOnly: true,
+      description: 'Set by the product-page configurator.',
+    }),
+    defineField({
+      name: 'selectedDecoration',
+      title: 'Selected Decoration',
+      type: 'string',
+      readOnly: true,
+      description: 'Set by the product-page configurator.',
+    }),
+    defineField({
+      name: 'estimatedTotal',
+      title: 'Estimated Total',
+      type: 'string',
+      readOnly: true,
+      description:
+        'The on-page ESTIMATE shown to the customer (quantity × tier price + setup charge) — never a firm price; final pricing is confirmed in the quote.',
+    }),
     defineField({ name: 'sourceUrl', title: 'Source URL', type: 'string', readOnly: true }),
     defineField({
       name: 'recipient',

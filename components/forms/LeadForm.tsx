@@ -2,39 +2,20 @@
 
 import { useEffect, useId, useRef, useState } from 'react';
 import { Turnstile } from './Turnstile';
+import {
+  ACCEPT_ATTR,
+  MAX_FILES,
+  MAX_FILE_BYTES,
+  formatBytes,
+  validateFiles,
+} from './attachment-limits';
 
-/** Optional logo / artwork attachments. Kept in sync with the server-side
- *  limits in app/api/leads/route.ts — change both together. */
-const MAX_FILES = 3;
-const MAX_FILE_BYTES = 10 * 1024 * 1024; // 10MB per file
-const MAX_TOTAL_BYTES = 20 * 1024 * 1024; // ~20MB total (under Gmail's 25MB ceiling)
-const ACCEPTED_EXTENSIONS = ['.pdf', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.ai', '.eps'];
-const ACCEPT_ATTR = ACCEPTED_EXTENSIONS.join(',');
-
-function formatBytes(bytes: number): string {
-  if (bytes < 1024 * 1024) return `${Math.max(1, Math.round(bytes / 1024))} KB`;
-  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
-}
-
-/** Validates the selected attachments. Returns an error string, or null when OK. */
-function validateFiles(files: File[]): string | null {
-  if (files.length > MAX_FILES) return `Attach up to ${MAX_FILES} files.`;
-  let total = 0;
-  for (const file of files) {
-    const ext = `.${(file.name.split('.').pop() ?? '').toLowerCase()}`;
-    if (!ACCEPTED_EXTENSIONS.includes(ext)) {
-      return `${file.name}: unsupported file type. Allowed: ${ACCEPTED_EXTENSIONS.join(', ')}.`;
-    }
-    if (file.size > MAX_FILE_BYTES) {
-      return `${file.name} is larger than ${formatBytes(MAX_FILE_BYTES)}.`;
-    }
-    total += file.size;
-  }
-  if (total > MAX_TOTAL_BYTES) {
-    return `Total attachment size exceeds ${formatBytes(MAX_TOTAL_BYTES)}.`;
-  }
-  return null;
-}
+// NOTE (P2-CP configurator): the short-lived `variant="productQuote"` mode was
+// RETIRED — product pages now use the dedicated ProductQuoteForm
+// (components/products/ProductQuoteForm.tsx). This shared form serves the
+// category CTA, contact page, landing pages, blog, and search-empty exactly as
+// it always has. The attachment limits/validation moved to the shared
+// ./attachment-limits module (same values) so the two forms can't drift.
 
 interface LeadFormProps {
   /** Optional category title used to pre-fill the "looking for" field. */
@@ -48,22 +29,6 @@ interface LeadFormProps {
    * ever leaves the client — never a recipient address.
    */
   landingSlug?: string;
-  /**
-   * Form variant (P2-CP-002). `productQuote` is the Get a Quote form on
-   * /products/<slug>: adds required Company + optional Shipping Zip and
-   * Comments, drops the "looking for" textarea (the product IS the subject),
-   * and relabels the submit button. The default variant renders exactly the
-   * pre-existing form — every quote-only change is gated on this flag.
-   */
-  variant?: 'default' | 'productQuote';
-  /**
-   * Product-quote context: the /products/<slug> slug, POSTed as a hidden
-   * field. /api/leads resolves that product's stored `leadRecipient` AND its
-   * title SERVER-SIDE — only the slug ever leaves the client.
-   */
-  productSlug?: string;
-  /** Display-only product name for the quote variant's helper copy. */
-  productTitle?: string;
   /** Callback fired after a successful submission. */
   onSuccess?: () => void;
 }
@@ -73,7 +38,6 @@ interface FieldErrors {
   lastName?: string;
   email?: string;
   phone?: string;
-  company?: string;
   lookingFor?: string;
   quantityNeeded?: string;
   dateNeeded?: string;
@@ -88,16 +52,7 @@ const textareaClass =
 const labelClass = 'mb-1.5 block text-left text-sm font-semibold text-brand-ink';
 const errorClass = 'mt-1 text-xs font-medium text-brand-red';
 
-export function LeadForm({
-  categoryTitle,
-  sourceUrl,
-  landingSlug,
-  variant = 'default',
-  productSlug,
-  productTitle,
-  onSuccess,
-}: LeadFormProps) {
-  const isQuote = variant === 'productQuote';
+export function LeadForm({ categoryTitle, sourceUrl, landingSlug, onSuccess }: LeadFormProps) {
   const formId = useId();
   const honeypotRef = useRef<HTMLInputElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -152,7 +107,6 @@ export function LeadForm({
       lastName: String(formData.get('lastName') ?? ''),
       email: String(formData.get('email') ?? ''),
       phone: String(formData.get('phone') ?? ''),
-      company: String(formData.get('company') ?? ''),
       lookingFor: String(formData.get('lookingFor') ?? ''),
       quantityNeeded: String(formData.get('quantityNeeded') ?? ''),
       dateNeeded: String(formData.get('dateNeeded') ?? ''),
@@ -166,10 +120,7 @@ export function LeadForm({
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email.trim()))
       nextErrors.email = 'Enter a valid email address';
     if (!payload.phone.trim()) nextErrors.phone = 'Required';
-    // The quote variant requires Company and has no "looking for" textarea;
-    // every other variant keeps the original requirements.
-    if (isQuote && !payload.company.trim()) nextErrors.company = 'Required';
-    if (!isQuote && !payload.lookingFor.trim()) nextErrors.lookingFor = 'Required';
+    if (!payload.lookingFor.trim()) nextErrors.lookingFor = 'Required';
     if (!payload.quantityNeeded.trim()) nextErrors.quantityNeeded = 'Required';
     if (!payload.dateNeeded.trim()) nextErrors.dateNeeded = 'Required';
     const fileError = validateFiles(files);
@@ -219,14 +170,10 @@ export function LeadForm({
         role="status"
         className="rounded border border-brand-green/40 bg-brand-green/10 p-6 text-brand-ink"
       >
-        <h3 className="text-lg font-semibold">
-          {isQuote ? 'Quote request received!' : 'Thanks, we’ll be in touch.'}
-        </h3>
+        <h3 className="text-lg font-semibold">Thanks, we&rsquo;ll be in touch.</h3>
         <p className="mt-2 text-sm text-text-primary">
-          {isQuote
-            ? 'We sent a confirmation copy to your email, and someone on our team will follow up shortly with exact pricing. For anything urgent, call '
-            : 'Patrick or someone on our team will reach out shortly with product ideas tailored to your request. For anything urgent, call '}
-          <strong>800-773-9472</strong>.
+          Patrick or someone on our team will reach out shortly with product ideas tailored to your
+          request. For anything urgent, call <strong>800-773-9472</strong>.
         </p>
       </div>
     );
@@ -250,10 +197,6 @@ export function LeadForm({
       {/* Landing-page context — the slug only (the server maps it to that
           page's stored recipient; no email address is ever sent from here). */}
       {landingSlug && <input type="hidden" name="landingSlug" value={landingSlug} />}
-
-      {/* Product-quote context (P2-CP-002) — likewise the slug ONLY: the
-          server resolves the recipient AND the product title from Sanity. */}
-      {isQuote && productSlug && <input type="hidden" name="productSlug" value={productSlug} />}
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
         <div>
@@ -321,60 +264,22 @@ export function LeadForm({
         </div>
       </div>
 
-      {/* Quote variant: required Company + optional Shipping Zip. */}
-      {isQuote && (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
-          <div>
-            <label className={labelClass} htmlFor={`${formId}-company`}>
-              Company <span className="text-brand-red">*</span>
-            </label>
-            <input
-              id={`${formId}-company`}
-              name="company"
-              type="text"
-              autoComplete="organization"
-              required
-              className={inputClass}
-              aria-invalid={!!errors.company}
-            />
-            {errors.company && <p className={errorClass}>{errors.company}</p>}
-          </div>
-          <div>
-            <label className={labelClass} htmlFor={`${formId}-shippingZip`}>
-              Shipping Zip <span className="font-normal text-text-muted">(optional)</span>
-            </label>
-            <input
-              id={`${formId}-shippingZip`}
-              name="shippingZip"
-              type="text"
-              inputMode="numeric"
-              autoComplete="postal-code"
-              className={inputClass}
-            />
-          </div>
-        </div>
-      )}
-
-      {/* The quote variant has no "looking for" textarea — the product being
-          quoted is the subject; specifics go in Comments below. */}
-      {!isQuote && (
-        <div>
-          <label className={labelClass} htmlFor={`${formId}-lookingFor`}>
-            Tell Us Specifically What You&rsquo;re Looking For{' '}
-            <span className="text-brand-red">*</span>
-          </label>
-          <textarea
-            id={`${formId}-lookingFor`}
-            name="lookingFor"
-            rows={4}
-            required
-            placeholder={lookingForPlaceholder}
-            className={textareaClass}
-            aria-invalid={!!errors.lookingFor}
-          />
-          {errors.lookingFor && <p className={errorClass}>{errors.lookingFor}</p>}
-        </div>
-      )}
+      <div>
+        <label className={labelClass} htmlFor={`${formId}-lookingFor`}>
+          Tell Us Specifically What You&rsquo;re Looking For{' '}
+          <span className="text-brand-red">*</span>
+        </label>
+        <textarea
+          id={`${formId}-lookingFor`}
+          name="lookingFor"
+          rows={4}
+          required
+          placeholder={lookingForPlaceholder}
+          className={textareaClass}
+          aria-invalid={!!errors.lookingFor}
+        />
+        {errors.lookingFor && <p className={errorClass}>{errors.lookingFor}</p>}
+      </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
         <div>
@@ -409,26 +314,6 @@ export function LeadForm({
           {errors.dateNeeded && <p className={errorClass}>{errors.dateNeeded}</p>}
         </div>
       </div>
-
-      {/* Quote variant: free-form comments (imprint details, colors, deadline notes…). */}
-      {isQuote && (
-        <div>
-          <label className={labelClass} htmlFor={`${formId}-comments`}>
-            Comments <span className="font-normal text-text-muted">(optional)</span>
-          </label>
-          <textarea
-            id={`${formId}-comments`}
-            name="comments"
-            rows={4}
-            placeholder={
-              productTitle
-                ? `Imprint details, colors, sizes, or anything else about your ${productTitle} order`
-                : 'Imprint details, colors, sizes, or anything else about your order'
-            }
-            className={textareaClass}
-          />
-        </div>
-      )}
 
       <div>
         <label className={labelClass} htmlFor={`${formId}-attachments`}>
@@ -492,12 +377,10 @@ export function LeadForm({
           disabled={submitting}
           className="inline-flex h-12 w-full items-center justify-center rounded-md bg-brand-green px-6 text-base font-semibold text-white shadow-sm transition-colors hover:bg-brand-green/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {submitting ? 'Sending…' : isQuote ? 'Request My Quote' : 'Find Products for Me'}
+          {submitting ? 'Sending…' : 'Find Products for Me'}
         </button>
         <p className="mt-3 text-center text-xs text-text-muted">
-          {isQuote
-            ? 'Takes less than 60 seconds. We’ll reply with exact pricing — no obligation.'
-            : 'Takes less than 60 seconds. No pressure, just helpful product ideas sent your way fast!'}
+          Takes less than 60 seconds. No pressure, just helpful product ideas sent your way fast!
         </p>
       </div>
     </form>

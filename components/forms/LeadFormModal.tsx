@@ -8,27 +8,9 @@ interface LeadFormModalProps {
   onClose: () => void;
   categoryTitle?: string;
   sourceUrl?: string;
-  /** Modal heading — defaults to the pre-existing "Find Products for Me". */
-  heading?: string;
-  /** Modal sub-line — defaults to the pre-existing helper copy. */
-  subheading?: string;
-  /** Passed through to LeadForm (P2-CP-002 Get a Quote). */
-  variant?: 'default' | 'productQuote';
-  productSlug?: string;
-  productTitle?: string;
 }
 
-export function LeadFormModal({
-  open,
-  onClose,
-  categoryTitle,
-  sourceUrl,
-  heading = 'Find Products for Me',
-  subheading = 'Tell us what you need and we’ll send tailored product ideas - usually within one business day.',
-  variant,
-  productSlug,
-  productTitle,
-}: LeadFormModalProps) {
+export function LeadFormModal({ open, onClose, categoryTitle, sourceUrl }: LeadFormModalProps) {
   const dialogRef = useRef<HTMLDivElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
 
@@ -94,22 +76,17 @@ export function LeadFormModal({
             id="lead-form-modal-title"
             className="px-10 text-center text-2xl font-bold leading-tight text-brand-ink sm:text-3xl"
           >
-            {heading}
+            Find Products for Me
           </h2>
           <p className="mx-auto mt-2 max-w-xl px-10 text-center text-sm text-text-muted sm:text-base">
-            {subheading}
+            Tell us what you need and we&rsquo;ll send tailored product ideas - usually within one
+            business day.
           </p>
         </div>
 
         {/* Body — scrolls, scrollbar hidden */}
         <div className="flex-1 overflow-y-auto px-6 py-6 [-ms-overflow-style:none] [scrollbar-width:none] sm:px-8 sm:py-8 [&::-webkit-scrollbar]:hidden">
-          <LeadForm
-            categoryTitle={categoryTitle}
-            sourceUrl={sourceUrl}
-            variant={variant}
-            productSlug={productSlug}
-            productTitle={productTitle}
-          />
+          <LeadForm categoryTitle={categoryTitle} sourceUrl={sourceUrl} />
         </div>
       </div>
     </div>

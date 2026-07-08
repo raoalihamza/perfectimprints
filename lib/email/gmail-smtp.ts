@@ -34,6 +34,12 @@ export interface LeadEmailPayload {
   productTitle?: string;
   /** The /products/<slug> slug the quote came from. */
   productSlug?: string;
+  /** Configurator selection (P2-CP configurator) — rows skipped when empty. */
+  selectedColor?: string;
+  selectedSize?: string;
+  selectedDecoration?: string;
+  /** LABELED ESTIMATE string (e.g. "$748.50"), never presented as firm. */
+  estimatedTotal?: string;
 }
 
 let _transporter: Transporter | null = null;
@@ -75,12 +81,17 @@ function buildRows(payload: LeadEmailPayload): Array<[string, string]> {
       ['Email', payload.email],
       ['Phone', payload.phone],
       ['Company', payload.company?.trim() ?? ''],
+      // Configuration block (product quotes) — what exactly is being quoted.
       ['Product', payload.productTitle?.trim() ?? ''],
+      ['Color', payload.selectedColor?.trim() ?? ''],
+      ['Size', payload.selectedSize?.trim() ?? ''],
+      ['Decoration', payload.selectedDecoration?.trim() ?? ''],
       ['Looking for', payload.lookingFor?.trim() ?? ''],
       ['Quantity needed', payload.quantityNeeded],
       ['Date needed', payload.dateNeeded],
       ['Shipping zip', payload.shippingZip?.trim() ?? ''],
       ['Comments', payload.comments?.trim() ?? ''],
+      ['Estimated total', payload.estimatedTotal?.trim() ?? ''],
       ['Submitted at', payload.submittedAt],
     ] as Array<[string, string]>
   ).filter((row) => Boolean(row[1]));
