@@ -1,4 +1,5 @@
-import { client } from '@/lib/sanity/client';
+import { cachedClient, client } from '@/lib/sanity/client';
+import { RELATED_BLOGS_TAG } from '@/lib/sanity/cache-tags';
 import type { PortableTextBlock } from '@portabletext/react';
 import type { SanityImage, SanitySlug } from '@/lib/sanity/types';
 
@@ -87,6 +88,32 @@ export async function getAllBlogSearchEntries(): Promise<BlogSearchEntry[]> {
   return docs
     .map((d) => ({ title: d.title, slug: d.slug?.current }))
     .filter((e): e is BlogSearchEntry => Boolean(e.title && e.slug));
+}
+
+/**
+ * Published post summaries for an explicit slug list, RETURNED IN THE
+ * SLUG-LIST ORDER (P2-CP follow-up — the /products/<slug> "Related Blogs"
+ * strip resolves its manual refs + auto keyword matches to slugs, then loads
+ * card data here). Unlike the CDN-client reads above, this goes through the
+ * non-CDN `cachedClient` with RELATED_BLOGS_TAG (busted on any blogPost
+ * publish) so the static product page stays prerenderable AND fresh. Failures
+ * degrade to [] (the strip just doesn't render).
+ */
+export async function getBlogSummariesBySlugs(slugs: string[]): Promise<BlogPostSummary[]> {
+  const wanted = slugs.filter(Boolean);
+  if (wanted.length === 0) return [];
+  try {
+    const docs =
+      (await cachedClient.fetch<BlogPostSummary[]>(
+        `*[${PUBLISHED} && slug.current in $slugs]{ ${SUMMARY_PROJECTION} }`,
+        { slugs: wanted },
+        { next: { tags: [RELATED_BLOGS_TAG], revalidate: false } },
+      )) ?? [];
+    const bySlug = new Map(docs.map((d) => [d.slug.current, d]));
+    return wanted.map((s) => bySlug.get(s)).filter((d): d is BlogPostSummary => Boolean(d));
+  } catch {
+    return [];
+  }
 }
 
 export async function getBlogPostsPage(opts: {

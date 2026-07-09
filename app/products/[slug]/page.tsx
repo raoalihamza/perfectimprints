@@ -15,9 +15,12 @@ import { ProductSelectionProvider } from '@/components/products/ProductSelection
 import { ProductPurchasePanel } from '@/components/products/ProductPurchasePanel';
 import { pagePortableComponents } from '@/components/page-sections/portable-text';
 import { buildImageUrl } from '@/lib/sanity/client';
+import { VideoCard } from '@/components/videos/VideoCard';
+import { BlogCard } from '@/components/blog/BlogCard';
 import {
   getAllProductPageSlugs,
   getProductPageBySlug,
+  productPageDecorations,
   productPageMinQty,
   productPagePriceRange,
   productPageToGeigerProduct,
@@ -28,7 +31,11 @@ import {
   customProductToGeigerProduct,
   type CustomProductDoc,
 } from '@/lib/sanity/queries/custom-products';
+import { getVideoSummariesBySlugs } from '@/lib/sanity/queries/videos';
+import { getBlogSummariesBySlugs, type BlogPostSummary } from '@/lib/sanity/queries/blogs';
+import { toVideoCardData, type VideoCardData } from '@/lib/video/card-data';
 import { matchRelatedProducts } from '@/lib/ai/related-products';
+import { suggestLinksForKind } from '@/lib/ai/internal-links';
 import { resolveProductsBySku } from '@/lib/categories';
 import { portableTextToPlain } from '@/lib/portable-text/to-plain';
 import { socialMeta } from '@/lib/seo/open-graph';
@@ -243,6 +250,117 @@ async function resolveRelatedProducts(doc: ProductPageDoc): Promise<GeigerProduc
   return picked;
 }
 
+/**
+ * "Related Videos" + "Related Blogs" strips (P2-CP follow-up): manual
+ * references first (editor order), topped up with automatic keyword matches
+ * via the internal-link engine's video/blog sources (same scoring the AI
+ * suggestions use). All reads are cache-tagged (VIDEOS_TAG /
+ * RELATED_BLOGS_TAG) so the route stays static AND a video/blog publish
+ * revalidates the strips. Empty results render nothing.
+ */
+const RELATED_CONTENT_LIMIT = 4;
+
+async function resolveRelatedContent(
+  doc: ProductPageDoc,
+): Promise<{ videos: VideoCardData[]; blogs: BlogPostSummary[] }> {
+  const keywords = doc.relatedKeywords?.length ? doc.relatedKeywords : [doc.title];
+  const manualVideoSlugs = (doc.relatedVideoSlugs ?? []).filter(Boolean);
+  const manualBlogSlugs = (doc.relatedBlogSlugs ?? []).filter(Boolean);
+
+  const [autoVideos, autoBlogs] = await Promise.all([
+    manualVideoSlugs.length >= RELATED_CONTENT_LIMIT
+      ? Promise.resolve([])
+      : suggestLinksForKind('video', keywords, RELATED_CONTENT_LIMIT),
+    manualBlogSlugs.length >= RELATED_CONTENT_LIMIT
+      ? Promise.resolve([])
+      : suggestLinksForKind('blog', keywords, RELATED_CONTENT_LIMIT),
+  ]);
+
+  const dedupe = (slugs: string[]) => Array.from(new Set(slugs)).slice(0, RELATED_CONTENT_LIMIT);
+  const videoSlugs = dedupe([
+    ...manualVideoSlugs,
+    ...autoVideos.map((s) => s.href.replace(/^\/videos\//, '')),
+  ]);
+  const blogSlugs = dedupe([
+    ...manualBlogSlugs,
+    ...autoBlogs.map((s) => s.href.replace(/^\/blog\//, '')),
+  ]);
+
+  const [videoSummaries, blogs] = await Promise.all([
+    getVideoSummariesBySlugs(videoSlugs),
+    getBlogSummariesBySlugs(blogSlugs),
+  ]);
+  return { videos: videoSummaries.map(toVideoCardData), blogs };
+}
+
+/**
+ * Compact logistics lines (P2-CP follow-up) — only what's actually set:
+ * "500 units per carton" / "16 × 14 × 10 in / 27 lbs" / "Ships from
+ * Memphis, TN 38109". Pure string assembly, server-rendered.
+ */
+function buildLogisticsLines(doc: ProductPageDoc): string[] {
+  const num = (v?: number) => (typeof v === 'number' && Number.isFinite(v) && v > 0 ? v : null);
+  const lines: string[] = [];
+
+  const units = num(doc.unitsPerCarton);
+  if (units) lines.push(`${units.toLocaleString('en-US')} units per carton`);
+
+  const w = num(doc.cartonWidth);
+  const h = num(doc.cartonHeight);
+  const d = num(doc.cartonDepth);
+  const weight = num(doc.cartonWeight);
+  if (w && h && d) {
+    lines.push(`${w} × ${h} × ${d} in${weight ? ` / ${weight} lbs` : ''} per carton`);
+  } else if (weight) {
+    lines.push(`${weight} lbs per carton`);
+  }
+
+  const zip = doc.fobZip?.trim();
+  const city = doc.fobCity?.trim();
+  const state = doc.fobState?.trim();
+  if (zip || city) {
+    const place = [city, state].filter(Boolean).join(', ');
+    lines.push(`Ships from ${[place, zip].filter(Boolean).join(' ')}`);
+  }
+  return lines;
+}
+
+/**
+ * GMC-readiness shipping block (P2-CP follow-up): the carton weight/dims are
+ * PACKAGE facts, so they belong on OfferShippingDetails (Google's shipping
+ * structured data), NOT as Product-level weight/width/height/depth (those
+ * describe one unit — emitting a 27 lb carton as the product weight would be
+ * wrong). Only set fields are emitted; nothing is fabricated.
+ */
+function buildShippingDetails(doc: ProductPageDoc): Record<string, unknown> | null {
+  const qty = (v: number | undefined, unitCode: string) =>
+    typeof v === 'number' && Number.isFinite(v) && v > 0
+      ? { '@type': 'QuantitativeValue', value: v, unitCode }
+      : null;
+  const weight = qty(doc.cartonWeight, 'LBR'); // LBR = pounds (UN/CEFACT)
+  const width = qty(doc.cartonWidth, 'INH'); // INH = inches
+  const height = qty(doc.cartonHeight, 'INH');
+  const depth = qty(doc.cartonDepth, 'INH');
+  const zip = doc.fobZip?.trim();
+  const origin = zip
+    ? {
+        '@type': 'DefinedRegion',
+        addressCountry: 'US',
+        ...(doc.fobState?.trim() ? { addressRegion: doc.fobState.trim() } : {}),
+        postalCode: zip,
+      }
+    : null;
+  if (!weight && !width && !height && !depth && !origin) return null;
+  return {
+    '@type': 'OfferShippingDetails',
+    ...(weight ? { weight } : {}),
+    ...(width ? { width } : {}),
+    ...(height ? { height } : {}),
+    ...(depth ? { depth } : {}),
+    ...(origin ? { shippingOrigin: origin } : {}),
+  };
+}
+
 function formatPrice(value: number): string {
   return `$${value.toFixed(2)}`;
 }
@@ -263,7 +381,10 @@ export default async function ProductDetailPage({ params }: Props) {
   const tiers = productPageValidTiers(doc);
   const { low, high } = productPagePriceRange(doc);
   const minQty = productPageMinQty(doc);
-  const related = await resolveRelatedProducts(doc);
+  const [related, relatedContent] = await Promise.all([
+    resolveRelatedProducts(doc),
+    resolveRelatedContent(doc),
+  ]);
   const plainDescription = portableTextToPlain(doc.description);
 
   // Configurator inputs (P2-CP configurator). The minimum order quantity is
@@ -271,8 +392,12 @@ export default async function ProductDetailPage({ params }: Props) {
   // one number shared by the panel hint, the default selection, and the form.
   const colorOptions = galleryVariants.map((v) => v.colorName).filter(Boolean);
   const sizeOptions = (doc.sizes ?? []).map((s) => s.trim()).filter(Boolean);
-  const decorationOptions = (doc.decorationMethods ?? []).map((d) => d.trim()).filter(Boolean);
+  // Decoration methods + optional per-unit upcharges (legacy strings → 0).
+  const decorationOptions = productPageDecorations(doc);
+  const decorationNames = decorationOptions.map((d) => d.method);
   const minOrderQty = Math.max(minQty ?? 1, tiers.length > 0 ? tiers[0].minQty : 1);
+  const logisticsLines = buildLogisticsLines(doc);
+  const shippingDetails = buildShippingDetails(doc);
 
   // Product JSON-LD — honest, quote-based commerce: name/image/brand/description
   // plus an AggregateOffer derived from the real pricing tiers. No fabricated
@@ -295,6 +420,9 @@ export default async function ProductDetailPage({ params }: Props) {
             highPrice: high ?? low,
             offerCount: tiers.length || 1,
             url: canonical,
+            // GMC-readiness (P2-CP follow-up): carton weight/dims + FOB origin
+            // as OfferShippingDetails — emitted only when the fields are set.
+            ...(shippingDetails ? { shippingDetails } : {}),
           },
         }
       : {}),
@@ -331,7 +459,7 @@ export default async function ProductDetailPage({ params }: Props) {
         <ProductSelectionProvider
           colors={colorOptions}
           sizes={sizeOptions}
-          decorations={decorationOptions}
+          decorations={decorationNames}
           initialQuantity={minOrderQty}
         >
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
@@ -395,6 +523,15 @@ export default async function ProductDetailPage({ params }: Props) {
                   </div>
                 </dl>
               )}
+
+              {/* Compact carton/logistics facts — only lines with data render. */}
+              {logisticsLines.length > 0 && (
+                <ul className="mt-3 space-y-1 text-sm text-text-muted">
+                  {logisticsLines.map((line) => (
+                    <li key={line}>{line}</li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
         </ProductSelectionProvider>
@@ -413,6 +550,30 @@ export default async function ProductDetailPage({ params }: Props) {
             <h2 className="text-2xl font-bold text-brand-ink">Related Products</h2>
             <div className="mt-6">
               <ProductGrid products={related} priorityCount={0} />
+            </div>
+          </section>
+        )}
+
+        {/* Related videos — manual refs first, then automatic keyword matches. */}
+        {relatedContent.videos.length > 0 && (
+          <section className="mt-12 border-t border-border pt-8">
+            <h2 className="text-2xl font-bold text-brand-ink">Related Videos</h2>
+            <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {relatedContent.videos.map((video) => (
+                <VideoCard key={video.id} video={video} />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Related blogs — same manual + automatic pattern. */}
+        {relatedContent.blogs.length > 0 && (
+          <section className="mt-12 border-t border-border pt-8">
+            <h2 className="text-2xl font-bold text-brand-ink">Related Blogs</h2>
+            <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {relatedContent.blogs.map((post) => (
+                <BlogCard key={post._id} post={post} size="sm" />
+              ))}
             </div>
           </section>
         )}

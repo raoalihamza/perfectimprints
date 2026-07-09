@@ -11,8 +11,10 @@ import {
 } from '@/components/forms/attachment-limits';
 import {
   buildSelectionSummary,
+  decorationUpchargeFor,
   estimateForQuantity,
   formatUsd,
+  type DecorationOption,
   type QuoteTier,
 } from '@/lib/products/quote-estimate';
 
@@ -47,11 +49,19 @@ interface ProductQuoteFormProps {
   setupCharge?: number;
   colors: string[];
   sizes: string[];
-  decorations: string[];
+  /** Decoration methods + optional per-unit upcharges (feed the estimate). */
+  decorations: DecorationOption[];
   /** Same minimum-order-quantity number the panel shows (computed by the page). */
   minQuantity: number;
   initialSelection: QuoteSelection;
   onSuccess?: () => void;
+}
+
+/** "Pad Print (+$0.50/unit)" when there's an upcharge, else just the method. */
+function decorationLabel(option: DecorationOption): string {
+  return option.upcharge > 0
+    ? `${option.method} (+${formatUsd(option.upcharge)}/unit)`
+    : option.method;
 }
 
 interface FieldErrors {
@@ -101,7 +111,8 @@ export function ProductQuoteForm({
 
   const parsedQty = Number.parseInt(quantityText, 10);
   const quantity = Math.max(Number.isFinite(parsedQty) ? parsedQty : minQty, minQty);
-  const estimate = estimateForQuantity(tiers, quantity, setupCharge);
+  const decorationUpcharge = decorationUpchargeFor(decorations, decoration);
+  const estimate = estimateForQuantity(tiers, quantity, setupCharge, decorationUpcharge);
   const summary = buildSelectionSummary({
     productTitle,
     colorName,
@@ -161,9 +172,19 @@ export function ProductQuoteForm({
     }
 
     // Selection + computed fields — the CLAMPED quantity is what gets quoted;
-    // the estimate string is display-labeled, never a firm price.
+    // the estimate string is display-labeled, never a firm price. The selected
+    // decoration is annotated with its per-unit upcharge so the lead email and
+    // the leadSubmission record show both.
     formData.set('quantityNeeded', String(quantity));
     formData.set('estimatedTotal', estimate ? formatUsd(estimate.total) : '');
+    formData.set(
+      'selectedDecoration',
+      decoration
+        ? decorationUpcharge > 0
+          ? `${decoration} (+${formatUsd(decorationUpcharge)}/unit)`
+          : decoration
+        : '',
+    );
     formData.delete('attachments');
     for (const file of files) formData.append('attachments', file);
     formData.set('sourceUrl', resolvedSourceUrl);
@@ -234,6 +255,9 @@ export function ProductQuoteForm({
         {estimate && (
           <p className="mt-1 text-sm text-text-primary">
             {estimate.quantity.toLocaleString('en-US')} × {formatUsd(estimate.unitPrice)} each
+            {estimate.decorationUpcharge > 0
+              ? ` + ${formatUsd(estimate.decorationUpcharge)}/unit decoration`
+              : ''}
             {estimate.setupCharge > 0 ? ` + ${formatUsd(estimate.setupCharge)} setup` : ''} ={' '}
             <strong>{formatUsd(estimate.total)}</strong>{' '}
             <span className="text-xs text-text-muted">
@@ -334,17 +358,17 @@ export function ProductQuoteForm({
                   className={selectClass}
                 >
                   {decorations.map((d) => (
-                    <option key={d} value={d}>
-                      {d}
+                    <option key={d.method} value={d.method}>
+                      {decorationLabel(d)}
                     </option>
                   ))}
                 </select>
               ) : (
                 <>
                   <p className="flex h-11 items-center text-base text-text-primary">
-                    {decorations[0]}
+                    {decorationLabel(decorations[0])}
                   </p>
-                  <input type="hidden" name="selectedDecoration" value={decorations[0]} />
+                  <input type="hidden" name="selectedDecoration" value={decorations[0].method} />
                 </>
               )}
             </div>

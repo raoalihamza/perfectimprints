@@ -35,6 +35,13 @@ export interface InternalLinkSuggestion {
   href: string;
   kind: InternalLinkKind;
   reason: string;
+  /**
+   * Sanity document _id — set for the Sanity-backed kinds (blog/page/video/
+   * landing) only; disk-backed category suggestions have none. Lets consumers
+   * (e.g. the generate-product route's related-video/blog pre-fill) patch real
+   * references instead of re-querying by slug.
+   */
+  docId?: string;
 }
 
 export interface SuggestInternalLinksOptions {
@@ -160,11 +167,11 @@ async function suggestSanityDocLinks(
   excludeSlug?: string,
 ): Promise<Scored[]> {
   const tokens = keywordTokenSet(keywords);
-  let docs: { title?: string; slug?: string }[] = [];
+  let docs: { _id?: string; title?: string; slug?: string }[] = [];
   try {
     docs =
-      (await cachedClient.fetch<{ title?: string; slug?: string }[]>(
-        `*[_type == "${source.docType}" && !(_id in path("drafts.**")) && defined(title) && defined(slug.current)]{ title, "slug": slug.current }`,
+      (await cachedClient.fetch<{ _id?: string; title?: string; slug?: string }[]>(
+        `*[_type == "${source.docType}" && !(_id in path("drafts.**")) && defined(title) && defined(slug.current)]{ _id, title, "slug": slug.current }`,
         {},
         { next: { tags: [source.tag], revalidate: false } },
       )) ?? [];
@@ -181,11 +188,29 @@ async function suggestSanityDocLinks(
       href: `${source.hrefPrefix}${d.slug}`,
       kind: source.kind,
       reason: reasonFor(source.kind, matched),
+      ...(d._id ? { docId: d._id } : {}),
       score,
     });
   }
   scored.sort((a, b) => (b.score !== a.score ? b.score - a.score : a.href < b.href ? -1 : 1));
   return scored.slice(0, limit);
+}
+
+/**
+ * Kind-scoped suggestions for ONE Sanity-backed source (P2-CP follow-up) —
+ * used by the /products/<slug> "Related Videos" / "Related Blogs" strips
+ * (render-time auto matching) and the generate-product route's strip pre-fill.
+ * Same scoring/tagged read as the mixed suggestInternalLinks; returns [] on a
+ * zero-match or a failed read (the strip then simply doesn't render).
+ */
+export async function suggestLinksForKind(
+  kind: 'blog' | 'page' | 'video' | 'landing',
+  keywords: string[],
+  limit: number,
+  excludeSlug?: string,
+): Promise<InternalLinkSuggestion[]> {
+  const scored = await suggestSanityDocLinks(SANITY_LINK_SOURCES[kind], keywords, limit, excludeSlug);
+  return scored.map(({ score: _score, ...suggestion }) => suggestion);
 }
 
 /**

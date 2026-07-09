@@ -3,8 +3,24 @@ import 'server-only';
 import { cachedClient } from '@/lib/sanity/client';
 import { categoryTag } from '@/lib/sanity/cache-tags';
 import { customProductToGeigerProduct, type CustomProductDoc } from './custom-products';
+import {
+  PRODUCT_PAGE_CARD_FIELDS,
+  productPageToGeigerProduct,
+  type ProductPageCard,
+} from './product-pages';
 import { resolveProductsBySku } from '@/lib/categories';
 import type { GeigerProduct } from '@/lib/product-types';
+
+/**
+ * One resolved `addedProducts` reference (P2-CP-004 batch 3): either a
+ * customProduct (link-out card, the original M5-504 shape) or a productPage
+ * (internal card linking to /products/<slug>). Discriminated by `_type`
+ * (projected explicitly), routed through the matching normalizer in
+ * `mergeCategoryProducts` and the matching branch in `buildAddedAttrOverlay`.
+ */
+export type CategoryOverrideAddedProduct =
+  | ({ _type: 'customProduct' } & CustomProductDoc)
+  | ({ _type: 'productPage' } & ProductPageCard);
 
 export interface CategoryOverrideDoc {
   _id: string;
@@ -15,8 +31,8 @@ export interface CategoryOverrideDoc {
   replaceProducts?: boolean;
   hiddenSkus?: string[];
   addedSkus?: string[];
-  /** Resolved customProduct docs referenced by `addedProducts`. */
-  addedProducts?: CustomProductDoc[];
+  /** Resolved customProduct / productPage docs referenced by `addedProducts`. */
+  addedProducts?: CategoryOverrideAddedProduct[];
 }
 
 const PROJECTION = `
@@ -28,28 +44,34 @@ const PROJECTION = `
   hiddenSkus,
   addedSkus,
   "addedProducts": addedProducts[]->{
-    _id,
-    title,
-    description,
-    externalUrl,
-    image,
-    brand,
-    lowPrice,
-    highPrice,
-    msrp,
-    minQty,
-    productionTime,
-    colors,
-    material,
-    features,
-    types,
-    madeInUsa,
-    ecoFriendly,
-    closeout,
-    badges,
-    displayOrder,
-    placements,
-    "parentCategory": parentCategory->{ "slug": slug.current, title }
+    _type,
+    _type == "customProduct" => {
+      _id,
+      title,
+      description,
+      externalUrl,
+      image,
+      brand,
+      lowPrice,
+      highPrice,
+      msrp,
+      minQty,
+      productionTime,
+      colors,
+      material,
+      features,
+      types,
+      madeInUsa,
+      ecoFriendly,
+      closeout,
+      badges,
+      displayOrder,
+      placements,
+      "parentCategory": parentCategory->{ "slug": slug.current, title }
+    },
+    _type == "productPage" => {
+      ${PRODUCT_PAGE_CARD_FIELDS}
+    }
   }
 `;
 
@@ -141,10 +163,24 @@ export function mergeCategoryProducts(input: MergeCategoryProductsInput): Geiger
   }
   const geigerProducts = resolveProductsBySku(orderedSkus);
 
-  // Custom (non-Geiger) products: override.addedProducts + any extras passed in.
+  // Added (non-baked) products: override.addedProducts + any extras passed in.
+  // customProduct refs normalize to affiliate link-out cards; productPage refs
+  // (P2-CP-004 batch 3) normalize via productPageToGeigerProduct, which sets
+  // `detailUrl` so ProductCard renders an internal /products/<slug> link. A
+  // dangling/unpublished reference derefs to null and is dropped.
   const customProducts: GeigerProduct[] = [
     ...(input.extraCustomProducts ?? []),
-    ...(override?.addedProducts ?? []).map(customProductToGeigerProduct),
+    ...(override?.addedProducts ?? [])
+      .filter(
+        (doc): doc is CategoryOverrideAddedProduct =>
+          // Drop null derefs; a productPage without a slug can't link anywhere.
+          Boolean(doc?._type) && (doc._type !== 'productPage' || Boolean(doc.slug)),
+      )
+      .map((doc) =>
+        doc._type === 'productPage'
+          ? productPageToGeigerProduct(doc)
+          : customProductToGeigerProduct(doc),
+      ),
   ].filter((p) => !remove.has(p.sku));
 
   // Final de-dupe across custom + Geiger (custom first).

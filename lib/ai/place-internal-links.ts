@@ -125,11 +125,12 @@ function paragraphHasLink(paragraph: BlogRichText): boolean {
 
 /**
  * The link object put on a placed span. 'blog' → `{ href, openInNewTab:false }`
- * (what buildBlogBody's markDef expects); 'richAnswer' and 'page' → `{ href }`
- * ONLY. The page-builder `portableBody` uses the DEFAULT block-editor link
- * annotation, which — like richAnswer — carries href and nothing else, so the
- * two href-only shapes are identical; 'page' exists so call sites state their
- * intent (P2-AI-004, consumed by buildPageBody).
+ * (what buildBlogBody's markDef expects); 'richAnswer' → `{ href }` ONLY (that
+ * annotation has no other field — Studio would strip/flag extras); 'page' →
+ * `{ href, openInNewTab:true }` — the page-builder `portableBody` link
+ * annotation carries an "Open in new tab" toggle (P2-CP follow-up), and Patrick
+ * wants AI-placed links to default to a new tab (he can toggle any off in the
+ * link popover before publishing). Consumed by buildPageBody (P2-AI-004).
  */
 export type PlacedLinkShape = 'blog' | 'richAnswer' | 'page';
 
@@ -158,7 +159,12 @@ function linkFirstMatch(
     const matched = m[2];
     const before = span.text.slice(0, start);
     const after = span.text.slice(start + matched.length);
-    const link = linkShape === 'blog' ? { href, openInNewTab: false } : { href };
+    const link =
+      linkShape === 'blog'
+        ? { href, openInNewTab: false }
+        : linkShape === 'page'
+          ? { href, openInNewTab: true }
+          : { href };
     const replacement: BlogInlineSpan[] = [];
     if (before) replacement.push({ ...span, text: before });
     replacement.push({ ...span, text: matched, link });

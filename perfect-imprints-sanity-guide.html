@@ -735,7 +735,11 @@
       </li>
       <li><strong>Added SKUs</strong>: search and add existing Geiger products you want <strong>added</strong> to this
         page, even if Geiger does not file them under it.</li>
-      <li><strong>Added Products</strong>: add your own <a href="#custom-product">Custom Products</a> to this page.</li>
+      <li><strong>Added Products</strong>: add your own products to this page — a
+        <a href="#custom-product">Custom Product</a> (a card that links out to another website) <strong>or a
+        <a href="#product-pages">Product Page</a></strong> (a card that links to that product's own
+        <code>/products/…</code> page on your site, with its price range and first photo). Both are pinned to the front
+        of the grid and participate in the page's filters.</li>
     </ul>
     <p>Publish, and the page reflects your tweaks while keeping its original heading, text, and FAQs. This is the
       recommended way to fix an "off-topic" category without rewriting it: hide the wrong items, turn on Force CTA to
@@ -751,7 +755,8 @@
       <strong>Types</strong> (use the same value names Geiger uses, for example "Blue", "Stainless Steel",
       "With A Lid"), and switch on <strong>Made in USA</strong>, <strong>Eco-Friendly</strong>, or
       <strong>Closeout</strong> to have the product included by those filters. Anything you leave blank simply skips
-      that filter.</p>
+      that filter. An added <strong>Product Page</strong> participates the same way — its colors come from its color
+      variants automatically, and Material / Features / Types / the three toggles come from its Filters section.</p>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
@@ -1412,13 +1417,18 @@
         "Show on /new-products" toggle under Visibility.</li>
       <li>In <strong>site search</strong> (the magnifying glass) — the result opens your product page, not Geiger.</li>
       <li>In <strong>Related Products carousels</strong> on other product pages.</li>
-      <li><strong>Not</strong> inside the <code>/cat/...</code> category pages — that is intentional.</li>
+      <li>Inside a <code>/cat/...</code> category page <strong>only where you attach it yourself</strong>: add the
+        Product Page under a <a href="#category-override">Category Override</a>'s <strong>Added Products</strong> and
+        it appears in that category's grid as a card linking to its <code>/products/…</code> page (never automatically
+        — you choose the categories).</li>
     </ul>
 
     <h3>Creating one, step by step</h3>
     <ol>
-      <li><strong>Basics:</strong> Title (e.g. "32 oz Voyager Travel Tumbler"), Slug (click Generate), and optionally a
-        Brand.</li>
+      <li><strong>Basics:</strong> Title (e.g. "32 oz Voyager Travel Tumbler"), Slug (click Generate), optionally a
+        Brand, and optionally an <strong>Item / SKU number</strong> — if you give the product a real item number,
+        customers can find it by typing that number into the site search (all Geiger products are already searchable
+        by their item numbers).</li>
       <li><strong>Images &amp; Colors:</strong> add one <strong>Color variant</strong> per color the product comes in.
         Each variant has a color name (e.g. "Navy Blue"), an optional swatch color (a hex code like
         <code>#1E3A8A</code> — this paints the little clickable circle), and up to 10 images. On the live page,
@@ -1430,15 +1440,26 @@
         automatically. Optionally add a <strong>Setup charge</strong> — a one-time flat fee (e.g. a screen-print setup)
         added on top of quantity × price in the on-page <em>estimated</em> total. Turn on <strong>On sale</strong> for
         the red "Sale!" badge, optionally with a percent-off and an expiry date.</li>
-      <li><strong>Details:</strong> the full description (bullets, bold, links, headings all work), decoration methods,
-        <strong>Sizes</strong> (just listed on the page — sizes do not change the price or the pictures), and
-        production time. Don't want to write the description yourself? Use the AI helper (next heading).</li>
+      <li><strong>Details:</strong> the full description (bullets, bold, links, headings all work — and when you make
+        a link, the link popover now has an <strong>"Open in new tab"</strong> on/off switch), <strong>decoration
+        methods</strong> (each method can carry an optional <strong>per-unit upcharge</strong>, e.g. Pad Print +$0.50 —
+        it is added to the unit price in the live estimate when the visitor picks that method; leave it blank for no
+        upcharge), <strong>Sizes</strong> (just listed on the page — sizes do not change the price or the pictures),
+        and production time. Don't want to write the description yourself? Use the AI helper (next heading).</li>
+      <li><strong>Logistics / carton (optional):</strong> units per carton, carton weight (lbs), carton width /
+        height / depth (inches), and the FOB ships-from zip (plus optional city/state). Whatever you fill in shows as
+        compact lines near the product details — e.g. "500 units per carton", "16 × 14 × 10 in / 27 lbs per carton",
+        "Ships from Memphis, TN 38109" — and also feeds Google-Merchant-ready shipping structured data. Blank fields
+        simply don't render.</li>
       <li><strong>Filters (optional):</strong> tag Material / Features / Types and the Made-in-USA / Eco / Closeout
         toggles using the same names Geiger uses, so the product participates in the New Products page filters. Colors
         are taken from your color variants automatically.</li>
-      <li><strong>Related products:</strong> pick a related category and/or a few keywords and the carousel fills
-        itself with matching products. Anything you add manually (a Geiger product by SKU, one of your Custom
-        Products, or another Product Page) is pinned to the front.</li>
+      <li><strong>Related products, videos &amp; blogs:</strong> pick a related category and/or a few keywords and the
+        Related Products carousel fills itself with matching products. Anything you add manually (a Geiger product by
+        SKU, one of your Custom Products, or another Product Page) is pinned to the front. Below Related Products the
+        page also shows a <strong>"Related Videos"</strong> strip and a <strong>"Related Blogs"</strong> strip: they
+        fill automatically from the same keywords, and the <strong>Related videos / Related blogs</strong> fields let
+        you hand-pick which ones appear (your picks come first). No matches → the strip simply doesn't render.</li>
       <li><strong>Visibility &amp; SEO:</strong> the New Products toggle, the <strong>Lead recipient email</strong>
         (see below), plus the usual Meta Title / Meta Description / social image.</li>
       <li>Press <strong>Publish</strong> — the page is live at <code>/products/&lt;your-slug&gt;</code> within
@@ -1454,9 +1475,17 @@
       <li>The <strong>Product details description</strong> — B2B buying-guide-style copy (features, decoration and
         branding options, popular uses), with links to related pages on your own site already placed.</li>
       <li>The <strong>Meta Title and Meta Description</strong> (SEO).</li>
-      <li><strong>Related keywords + related category</strong> and <strong>decoration method</strong> suggestions —
-        but only if you left those fields blank; anything you already picked is never overwritten.</li>
+      <li><strong>Related keywords + related category</strong>, <strong>decoration method</strong> suggestions, and
+        matching <strong>Related videos / Related blogs</strong> for the strips — but only if you left those fields
+        blank; anything you already picked is never overwritten. (AI-suggested decoration methods come without an
+        upcharge — set the per-unit upcharge yourself if one applies.)</li>
     </ul>
+    <div class="callout info">
+      <span class="label">AI links open in a new tab</span>
+      <p>Internal links the AI places in a description default the <strong>"Open in new tab"</strong> switch to ON
+        (this applies to AI-written Page and Landing Page bodies too). You can turn any of them off in the link
+        popover while reviewing the draft; links you make by hand default to same-tab.</p>
+    </div>
     <div class="callout info">
       <span class="label">It never touches your facts</span>
       <p>The AI writes words only. Your <strong>pricing tiers, images and color variants, sizes, brand, minimum
@@ -1471,10 +1500,12 @@
     <p>The product page works like the Geiger page you know. Every choice starts with a sensible default already
       selected — the quantity starts at your lowest pricing tier, and the first color / size / decoration are
       pre-picked (anything with only one option just shows as text). As the visitor changes the quantity, the page
-      highlights the matching pricing tier and shows a live <strong>estimated total</strong> (quantity × that tier's
-      price, plus your Setup charge if you set one). It is always labeled <em>"Estimated total — final pricing
-        confirmed in your quote"</em> — there is no checkout, and no price is ever presented as final. Clicking a
-      color swatch under the photos swaps the gallery AND records the color for the quote.</p>
+      highlights the matching pricing tier <strong>in green</strong>, and the tier boxes themselves are
+      <strong>clickable</strong> — clicking one sets the quantity to that tier's minimum. The live <strong>estimated
+        total</strong> is quantity × (that tier's price + the selected decoration's per-unit upcharge, if any), plus
+      your Setup charge if you set one. It is always labeled <em>"Estimated total — final pricing confirmed in your
+        quote"</em> — there is no checkout, and no price is ever presented as final. Clicking a color swatch under the
+      photos swaps the gallery AND records the color for the quote.</p>
 
     <h3>The Get a Quote form (and where its leads go)</h3>
     <p>The green <strong>Get a Quote</strong> button opens the quote form <strong>pre-filled with whatever the
@@ -1488,8 +1519,9 @@
         different person should handle that product's quotes. Blank or mistyped falls back to Patrick automatically.
       </li>
       <li>The email subject names the product ("Product Quote Request: …"), and the message includes a clear
-        configuration block — quantity, color, size, decoration, and the estimated total — plus every contact field
-        and any attached artwork.</li>
+        configuration block — quantity, color, size, decoration (shown with its per-unit upcharge when one applies,
+        e.g. "Pad Print (+$0.50/unit)"), and the estimated total — plus every contact field and any attached
+        artwork.</li>
       <li>The customer automatically receives a <strong>confirmation email</strong> summarizing what they sent — same
         as the landing pages.</li>
       <li>A record appears under <a href="#leads">Lead Submission</a> with the company, shipping zip, comments, the

@@ -30,7 +30,7 @@ import { NextResponse } from 'next/server';
 import { brandVoiceSystemBlock, BUYER_PERSONA } from '@/lib/ai/brand-voice';
 import { generateJson, DeepSeekError } from '@/lib/ai/deepseek';
 import { resolveCategoryForKeywords } from '@/lib/ai/related-products';
-import { suggestInternalLinks } from '@/lib/ai/internal-links';
+import { suggestInternalLinks, suggestLinksForKind } from '@/lib/ai/internal-links';
 import { placeInternalLinks } from '@/lib/ai/place-internal-links';
 import { buildPageSectionsBody } from '@/lib/portable-text/build-page-body';
 import type { BlogBodyInput } from '@/lib/portable-text/build-blog-body';
@@ -40,6 +40,8 @@ export const dynamic = 'force-dynamic';
 
 /** Internal links placed into the description (shorter than a page body). */
 const MAX_INTERNAL_LINKS = 3;
+/** Auto matches pre-filled into the Related Videos / Related Blogs strips. */
+const MAX_RELATED_CONTENT = 4;
 /** Description thin floor — below this the editor is asked to retry. */
 const MIN_DESCRIPTION_WORDS = 150;
 /** Cap on suggested decoration methods / related keywords. */
@@ -207,14 +209,22 @@ export async function POST(request: Request) {
     // productPage source, so a self-link is impossible; currentSlug is kept as
     // a belt-and-suspenders filter anyway.
     const promptKeywords = keywords.length > 0 ? keywords : [title];
+    const matchingKeywords = [...promptKeywords, ...(productType ? [productType] : [])];
     const currentSlug = (body.currentSlug || '').trim();
-    const suggestions = (
-      await suggestInternalLinks({
-        keywords: [...promptKeywords, ...(productType ? [productType] : [])],
+    const [suggestionsRaw, videoMatches, blogMatches] = await Promise.all([
+      suggestInternalLinks({
+        keywords: matchingKeywords,
         categorySlug: relatedCategorySlug ?? undefined,
         limit: MAX_INTERNAL_LINKS,
-      })
-    ).filter((s) => !currentSlug || s.href !== `/products/${currentSlug}`);
+      }),
+      // Auto matches for the Related Videos / Related Blogs strips — the action
+      // patches them as references ONLY when Patrick left the fields empty.
+      suggestLinksForKind('video', matchingKeywords, MAX_RELATED_CONTENT),
+      suggestLinksForKind('blog', matchingKeywords, MAX_RELATED_CONTENT),
+    ]);
+    const suggestions = suggestionsRaw.filter(
+      (s) => !currentSlug || s.href !== `/products/${currentSlug}`,
+    );
 
     // AUTO-PLACE the links into the body paragraphs ('page' shape: href-only
     // markDefs, matching the portableBody link annotation), then build ONE
@@ -254,6 +264,9 @@ export async function POST(request: Request) {
       decorationMethods,
       relatedCategorySlug: relatedCategorySlug ?? undefined,
       suggestedLinks,
+      // Sanity _ids for the strips' only-if-empty reference pre-fill.
+      relatedVideoIds: videoMatches.map((m) => m.docId).filter(Boolean),
+      relatedBlogIds: blogMatches.map((m) => m.docId).filter(Boolean),
     });
   } catch (err) {
     if (err instanceof DeepSeekError) {

@@ -15,15 +15,37 @@ export interface QuoteTier {
   price: number;
 }
 
+/**
+ * One decoration-method choice on the configurator: the method name plus its
+ * optional per-unit upcharge (0 = no upcharge — legacy string entries and
+ * blank upcharges normalize to 0 upstream in `productPageDecorations()`).
+ */
+export interface DecorationOption {
+  method: string;
+  upcharge: number;
+}
+
 export interface QuoteEstimate {
   /** The quantity the estimate was computed for (clamped to the minimum). */
   quantity: number;
   /** The tier that priced this quantity — index into the sorted tier list. */
   tierIndex: number;
   unitPrice: number;
-  /** quantity × unitPrice + setupCharge. */
+  /** Per-unit upcharge of the selected decoration method (0 when none). */
+  decorationUpcharge: number;
+  /** quantity × (unitPrice + decorationUpcharge) + setupCharge. */
   total: number;
   setupCharge: number;
+}
+
+/** The selected decoration's per-unit upcharge (0 when unset/not found). */
+export function decorationUpchargeFor(
+  options: DecorationOption[],
+  method: string | null | undefined,
+): number {
+  if (!method) return 0;
+  const found = options.find((o) => o.method === method);
+  return found && Number.isFinite(found.upcharge) && found.upcharge > 0 ? found.upcharge : 0;
 }
 
 /** Lowest orderable quantity — the first (sorted) tier's minQty, else 1. */
@@ -43,6 +65,7 @@ export function estimateForQuantity(
   tiers: QuoteTier[],
   quantity: number,
   setupCharge?: number | null,
+  decorationUpcharge?: number | null,
 ): QuoteEstimate | null {
   if (tiers.length === 0) return null;
   const min = minimumQuantity(tiers);
@@ -54,11 +77,14 @@ export function estimateForQuantity(
   }
   const unitPrice = tiers[tierIndex].price;
   const setup = typeof setupCharge === 'number' && setupCharge > 0 ? setupCharge : 0;
+  const decoration =
+    typeof decorationUpcharge === 'number' && decorationUpcharge > 0 ? decorationUpcharge : 0;
   return {
     quantity: qty,
     tierIndex,
     unitPrice,
-    total: qty * unitPrice + setup,
+    decorationUpcharge: decoration,
+    total: qty * (unitPrice + decoration) + setup,
     setupCharge: setup,
   };
 }

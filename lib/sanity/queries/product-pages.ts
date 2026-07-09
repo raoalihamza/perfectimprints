@@ -5,6 +5,7 @@ import { cachedClient, buildImageUrl, urlForImage } from '@/lib/sanity/client';
 import { PRODUCT_PAGES_TAG, productPageTag } from '@/lib/sanity/cache-tags';
 import type { SanityImage, SeoFields } from '@/lib/sanity/types';
 import type { GeigerProduct } from '@/lib/product-types';
+import type { DecorationOption } from '@/lib/products/quote-estimate';
 import type { CustomProductDoc } from './custom-products';
 
 // ---------------------------------------------------------------------------
@@ -15,7 +16,9 @@ import type { CustomProductDoc } from './custom-products';
 // prerenderable while the webhook revalidates a publish in seconds.
 //
 // Surfacing (confirmed scope): the detail page, /new-products, related-products
-// carousels, and site search (live delta). Deliberately NOT /cat pages.
+// carousels, site search (live delta), and — per-category, only where Patrick
+// attaches one via categoryOverride.addedProducts (P2-CP-004 batch 3) — /cat
+// grids. Never inside /cat automatically.
 // ---------------------------------------------------------------------------
 
 export type ProductPageImage = SanityImage & { alt?: string; _key?: string };
@@ -84,20 +87,64 @@ export type ProductPageRelatedEntry =
   | RelatedCustomProductRef
   | RelatedProductPageRef;
 
+/**
+ * One decorationMethods entry. New entries are `{method, upcharge?}` objects
+ * (per-unit upcharge feeds the estimate); entries saved before the P2-CP
+ * follow-up are plain strings — `productPageDecorations()` normalizes both.
+ */
+export interface ProductPageDecorationEntry {
+  _key?: string;
+  method?: string;
+  upcharge?: number;
+}
+
 export interface ProductPageDoc extends ProductPageCard {
   description?: PortableTextBlock[];
-  decorationMethods?: string[];
+  decorationMethods?: (string | ProductPageDecorationEntry)[];
   sizes?: string[];
   productionTime?: number;
   /** One-time flat setup/decoration charge added to the on-page ESTIMATE. */
   setupCharge?: number;
+  // Logistics / carton (all optional — only set values render/emit).
+  unitsPerCarton?: number;
+  cartonWeight?: number;
+  cartonWidth?: number;
+  cartonHeight?: number;
+  cartonDepth?: number;
+  fobZip?: string;
+  fobCity?: string;
+  fobState?: string;
   relatedCategorySlug?: string;
   relatedKeywords?: string[];
   relatedProducts?: ProductPageRelatedEntry[];
+  /** Slugs of the manual `relatedVideos` references (deref'd in the projection). */
+  relatedVideoSlugs?: string[];
+  /** Slugs of the manual `relatedBlogs` references (deref'd in the projection). */
+  relatedBlogSlugs?: string[];
   seo?: SeoFields;
 }
 
-const CARD_FIELDS = `
+/**
+ * Normalized decoration options for the configurator/quote form: legacy string
+ * entries and blank upcharges become `{method, upcharge: 0}`; blank methods
+ * are dropped; duplicates (by method) keep the first entry.
+ */
+export function productPageDecorations(doc: ProductPageDoc): DecorationOption[] {
+  const out: DecorationOption[] = [];
+  for (const entry of doc.decorationMethods ?? []) {
+    const method = (typeof entry === 'string' ? entry : entry?.method ?? '').trim();
+    if (!method || out.some((o) => o.method === method)) continue;
+    const raw = typeof entry === 'string' ? undefined : entry?.upcharge;
+    const upcharge = typeof raw === 'number' && Number.isFinite(raw) && raw > 0 ? raw : 0;
+    out.push({ method, upcharge });
+  }
+  return out;
+}
+
+// Exported (P2-CP-004 batch 3) so getCategoryOverride's addedProducts[]->
+// productPage branch projects EXACTLY the card subset productPageToGeigerProduct
+// needs — one fragment, no drift.
+export const PRODUCT_PAGE_CARD_FIELDS = `
   _id,
   title,
   "slug": slug.current,
@@ -126,14 +173,24 @@ const CARD_FIELDS = `
 // 'reference' — so the deref condition keys on `defined(_ref)` (true for any
 // reference item, named or not, and never for blogProduct objects).
 const FULL_PROJECTION = `{
-  ${CARD_FIELDS},
+  ${PRODUCT_PAGE_CARD_FIELDS},
   description,
   decorationMethods,
   sizes,
   productionTime,
   setupCharge,
+  unitsPerCarton,
+  cartonWeight,
+  cartonWidth,
+  cartonHeight,
+  cartonDepth,
+  fobZip,
+  fobCity,
+  fobState,
   relatedCategorySlug,
   relatedKeywords,
+  "relatedVideoSlugs": relatedVideos[]->slug.current,
+  "relatedBlogSlugs": relatedBlogs[]->slug.current,
   relatedProducts[]{
     _type == 'blogProduct' => { _type, _key, sku, title, image, url },
     defined(_ref) => @->{
@@ -340,7 +397,7 @@ export async function getProductPagesForNewProducts(): Promise<ProductPageCard[]
   try {
     return (
       (await cachedClient.fetch<ProductPageCard[]>(
-        `*[_type == "productPage" && defined(slug.current) && showInNewProducts == true] | order(_createdAt desc) { ${CARD_FIELDS} }`,
+        `*[_type == "productPage" && defined(slug.current) && showInNewProducts == true] | order(_createdAt desc) { ${PRODUCT_PAGE_CARD_FIELDS} }`,
         {},
         { next: { tags: [PRODUCT_PAGES_TAG], revalidate: false } },
       )) ?? []
@@ -355,7 +412,7 @@ export async function getAllProductPageCards(): Promise<ProductPageCard[]> {
   try {
     return (
       (await cachedClient.fetch<ProductPageCard[]>(
-        `*[_type == "productPage" && defined(slug.current)] | order(title asc) { ${CARD_FIELDS} }`,
+        `*[_type == "productPage" && defined(slug.current)] | order(title asc) { ${PRODUCT_PAGE_CARD_FIELDS} }`,
         {},
         { next: { tags: [PRODUCT_PAGES_TAG], revalidate: false } },
       )) ?? []
@@ -372,6 +429,8 @@ export interface ProductPageSearchEntry {
   brand?: string;
   /** Small thumbnail for the autocomplete overlay. */
   image?: string;
+  /** The manually-entered REAL item number (search key) — never `custom-<id>`. */
+  sku?: string;
 }
 
 /**
@@ -392,6 +451,7 @@ export async function getProductPageSearchEntries(): Promise<ProductPageSearchEn
           title?: string;
           slug?: string;
           brand?: string;
+          sku?: string;
           colorVariants?: ProductPageColorVariant[];
           defaultImages?: ProductPageImage[];
         }[]
@@ -400,6 +460,7 @@ export async function getProductPageSearchEntries(): Promise<ProductPageSearchEn
           title,
           "slug": slug.current,
           brand,
+          sku,
           colorVariants,
           defaultImages
         }`,
@@ -413,6 +474,9 @@ export async function getProductPageSearchEntries(): Promise<ProductPageSearchEn
           url: d.slug ? `/products/${d.slug}` : '',
         };
         if (d.brand) entry.brand = d.brand.trim();
+        // The REAL item number Patrick entered (search key) — the synthetic
+        // custom-<_id> SKU is an internal id and is deliberately NOT indexed.
+        if (d.sku?.trim()) entry.sku = d.sku.trim();
         const image = productPageFirstImage({
           _id: '',
           title: '',

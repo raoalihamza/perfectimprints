@@ -22,6 +22,10 @@ const FUSE_OPTIONS: IFuseOptions<GeigerProduct> = {
     { name: 'name', weight: 0.7 },
     { name: 'brand', weight: 0.2 },
     { name: 'product_type_unigram', weight: 0.1 },
+    // Item number / SKU (P2 batch 2) — same rationale + weight as the overlay
+    // index (lib/search/load-index.ts): strong for numeric queries, inert for
+    // word queries.
+    { name: 'sku', weight: 0.5 },
   ],
   threshold: 0.32,
   ignoreLocation: true,

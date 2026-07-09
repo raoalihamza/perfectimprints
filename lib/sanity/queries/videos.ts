@@ -90,6 +90,30 @@ export async function getVideoBySlug(slug: string): Promise<VideoSummary | null>
   );
 }
 
+/**
+ * Published videos for an explicit slug list, RETURNED IN THE SLUG-LIST ORDER
+ * (P2-CP follow-up — the /products/<slug> "Related Videos" strip resolves its
+ * manual refs + auto keyword matches to slugs, then loads card data here).
+ * Rides VIDEOS_TAG, so a video publish revalidates every product page that
+ * rendered the strip. Failures degrade to [] (the strip just doesn't render).
+ */
+export async function getVideoSummariesBySlugs(slugs: string[]): Promise<VideoSummary[]> {
+  const wanted = slugs.filter(Boolean);
+  if (wanted.length === 0) return [];
+  try {
+    const docs =
+      (await cachedClient.fetch<VideoSummary[]>(
+        `*[${PUBLISHED} && slug.current in $slugs]{ ${SUMMARY_PROJECTION} }`,
+        { slugs: wanted },
+        VIDEO_FETCH_OPTS,
+      )) ?? [];
+    const bySlug = new Map(docs.map((d) => [d.slug.current, d]));
+    return wanted.map((s) => bySlug.get(s)).filter((d): d is VideoSummary => Boolean(d));
+  } catch {
+    return [];
+  }
+}
+
 /** Other published videos in the same category, newest first. */
 export async function getRelatedVideos(video: VideoSummary, limit = 6): Promise<VideoSummary[]> {
   const categorySlug = video.category?.slug;

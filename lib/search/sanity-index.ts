@@ -57,11 +57,15 @@ export async function buildSanitySearchItems(): Promise<SearchItem[]> {
   }
   // Product Pages (P2-CP-001): same `product` result group, but the url is the
   // site's own /products/<slug> detail page — `internal: true` makes
-  // resultTarget navigate there instead of the affiliate host.
+  // resultTarget navigate there instead of the affiliate host. The real item
+  // number (when Patrick entered one) is a search key; customProduct entries
+  // above carry NO sku on purpose — their only SKU is the synthetic
+  // custom-<id> internal id, which would be pure noise in search.
   for (const p of productPages) {
     const item: SearchItem = { type: 'product', title: p.title, url: p.url, internal: true };
     if (p.brand) item.brand = p.brand;
     if (p.image) item.image = p.image;
+    if (p.sku) item.sku = p.sku;
     items.push(item);
   }
   // Answered FAQs only (the query already filters) — link to the FAQ's section

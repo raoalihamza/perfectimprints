@@ -43,6 +43,12 @@ const FUSE_OPTIONS: IFuseOptions<SearchItem> = {
     // Video category title — lets a video be found by its category, ranked below
     // a real category page (title-matched at 0.8) so pages still win.
     { name: 'category', weight: 0.3 },
+    // Item number / SKU (P2 batch 2 — Patrick's request). Numeric-ish queries
+    // barely match any title, so an exact/partial SKU hit naturally dominates;
+    // 0.5 keeps a strong SKU match ranked high without letting a coincidental
+    // digit overlap outrank a real name match on word queries (SKUs are digits
+    // + short suffixes, so name/brand searches don't hit this key at all).
+    { name: 'sku', weight: 0.5 },
   ],
   threshold: 0.32,
   ignoreLocation: true,

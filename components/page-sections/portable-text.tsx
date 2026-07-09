@@ -68,18 +68,24 @@ export const pagePortableComponents: PortableTextComponents = {
     link: ({ value, children }) => {
       const href = (value?.href as string) || '#';
       const cls = 'text-brand-red underline hover:no-underline';
+      // "Open in new tab" toggle on the shared page-builder link annotation
+      // (page/landing/productPage bodies). AI-placed links default it ON.
+      const newTab = value?.openInNewTab === true;
+      const newTabProps = newTab
+        ? ({ target: '_blank', rel: 'noopener noreferrer' } as const)
+        : {};
       // External (affiliate/outbound) and same-page hash links render as plain
       // <a>; only internal app paths use next/link.
       const external = /^https?:\/\//i.test(href);
       if (external || href.startsWith('#')) {
         return (
-          <a href={href} className={cls}>
+          <a href={href} className={cls} {...newTabProps}>
             {children}
           </a>
         );
       }
       return (
-        <Link href={href} className={cls}>
+        <Link href={href} className={cls} {...newTabProps}>
           {children}
         </Link>
       );

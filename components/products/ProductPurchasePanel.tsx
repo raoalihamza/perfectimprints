@@ -3,7 +3,13 @@
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { cn } from '@/lib/utils';
-import { estimateForQuantity, formatUsd, type QuoteTier } from '@/lib/products/quote-estimate';
+import {
+  decorationUpchargeFor,
+  estimateForQuantity,
+  formatUsd,
+  type DecorationOption,
+  type QuoteTier,
+} from '@/lib/products/quote-estimate';
 import { useProductSelection } from './ProductSelectionContext';
 
 // The quote modal (+ form + Turnstile + file validation) is interaction-only —
@@ -22,7 +28,8 @@ interface ProductPurchasePanelProps {
   /** Color option names (gallery order) — selection happens via the swatches. */
   colors: string[];
   sizes: string[];
-  decorations: string[];
+  /** Decoration methods + optional per-unit upcharges (feed the estimate). */
+  decorations: DecorationOption[];
   /**
    * The minimum order quantity (the greater of the explicit minQty field and
    * the lowest tier's minQty) — computed by the page so the panel, the form,
@@ -31,14 +38,23 @@ interface ProductPurchasePanelProps {
   minQuantity: number;
 }
 
+/** "Pad Print (+$0.50/unit)" when there's an upcharge, else just the method. */
+function decorationLabel(option: DecorationOption): string {
+  return option.upcharge > 0
+    ? `${option.method} (+${formatUsd(option.upcharge)}/unit)`
+    : option.method;
+}
+
 /**
  * The Geiger-style configurator on /products/<slug> (P2-CP configurator): the
- * QTY/PRICE tier table with the ACTIVE tier highlighted, a quantity input
- * (floored at the minimum order quantity), size/decoration selectors (fixed
- * text when there is only one option), a live ESTIMATED total (quantity × unit
- * price + optional setup charge — always labeled as an estimate; this site is
- * quote-based, no checkout), and the Get a Quote button that opens the
- * dedicated quote form pre-filled with the current selection.
+ * QTY/PRICE tier table with the ACTIVE tier highlighted in brand green (each
+ * tier is clickable — it sets the quantity to that tier's minimum), a quantity
+ * input (floored at the minimum order quantity), size/decoration selectors
+ * (fixed text when there is only one option; a decoration's optional per-unit
+ * upcharge shows in its label), a live ESTIMATED total (quantity × (unit price
+ * + decoration upcharge) + optional setup charge — always labeled as an
+ * estimate; this site is quote-based, no checkout), and the Get a Quote button
+ * that opens the dedicated quote form pre-filled with the current selection.
  *
  * Client island over static HTML: the initial render (default selection =
  * lowest tier quantity + first options) is deterministic, so the full tier
@@ -62,7 +78,8 @@ export function ProductPurchasePanel({
   const [quantityText, setQuantityText] = useState(String(quantity));
 
   const minQty = minQuantity;
-  const estimate = estimateForQuantity(tiers, quantity, setupCharge);
+  const decorationUpcharge = decorationUpchargeFor(decorations, decoration);
+  const estimate = estimateForQuantity(tiers, quantity, setupCharge, decorationUpcharge);
   const belowMinimum = Number.parseInt(quantityText, 10) < minQty;
 
   function commitQuantity(raw: string) {
@@ -72,10 +89,20 @@ export function ProductPurchasePanel({
     setQuantityText(String(clamped));
   }
 
+  // Clicking a tier sets the quantity to that tier's minimum — the estimate
+  // recalculates through the same estimateForQuantity, never a second formula.
+  function selectTier(tier: QuoteTier) {
+    const clamped = Math.max(tier.minQty, minQty);
+    setQuantity(clamped);
+    setQuantityText(String(clamped));
+  }
+
   return (
     <div className="mt-6">
       {/* Tier table — the active tier (the one pricing the current quantity)
-          is highlighted, Geiger-style. */}
+          is highlighted in brand green, Geiger-style. Every tier cell is a
+          button: clicking sets the quantity to that tier's minimum and the
+          estimate recalculates through the shared estimateForQuantity. */}
       {tiers.length > 0 && (
         <div className="overflow-x-auto">
           <table className="w-full min-w-[280px] border-collapse text-sm">
@@ -88,11 +115,19 @@ export function ProductPurchasePanel({
                   <th
                     key={`qty-${idx}`}
                     className={cn(
-                      'border border-border px-3 py-2 text-center font-semibold text-brand-ink',
-                      estimate?.tierIndex === idx ? 'bg-brand-red/10' : 'bg-bg-soft',
+                      'border border-border p-0 text-center font-semibold text-brand-ink',
+                      estimate?.tierIndex === idx ? 'bg-brand-green/15' : 'bg-bg-soft',
                     )}
                   >
-                    {t.minQty.toLocaleString('en-US')}+
+                    <button
+                      type="button"
+                      onClick={() => selectTier(t)}
+                      aria-label={`Set quantity to ${t.minQty.toLocaleString('en-US')}`}
+                      aria-pressed={estimate?.tierIndex === idx}
+                      className="w-full cursor-pointer px-3 py-2 font-semibold hover:bg-brand-green/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-green"
+                    >
+                      {t.minQty.toLocaleString('en-US')}+
+                    </button>
                   </th>
                 ))}
               </tr>
@@ -106,13 +141,21 @@ export function ProductPurchasePanel({
                   <td
                     key={`price-${idx}`}
                     className={cn(
-                      'border border-border px-3 py-2 text-center',
+                      'border border-border p-0 text-center',
                       estimate?.tierIndex === idx
-                        ? 'bg-brand-red/10 font-semibold text-brand-ink'
+                        ? 'bg-brand-green/15 font-semibold text-brand-ink'
                         : 'text-text-primary',
                     )}
                   >
-                    {formatUsd(t.price)}
+                    <button
+                      type="button"
+                      onClick={() => selectTier(t)}
+                      tabIndex={-1}
+                      aria-hidden="true"
+                      className="w-full cursor-pointer px-3 py-2 hover:bg-brand-green/10"
+                    >
+                      {formatUsd(t.price)}
+                    </button>
                   </td>
                 ))}
               </tr>
@@ -199,15 +242,16 @@ export function ProductPurchasePanel({
               className="block h-11 w-full max-w-xs rounded-md border border-border bg-white px-3 text-base text-text-primary focus:border-brand-red focus:outline-none focus:ring-2 focus:ring-brand-red/20"
             >
               {decorations.map((d) => (
-                <option key={d} value={d}>
-                  {d}
+                <option key={d.method} value={d.method}>
+                  {decorationLabel(d)}
                 </option>
               ))}
             </select>
           </div>
         ) : decorations.length === 1 ? (
           <p className="text-sm text-text-primary">
-            <span className="font-semibold text-brand-ink">Decoration:</span> {decorations[0]}
+            <span className="font-semibold text-brand-ink">Decoration:</span>{' '}
+            {decorationLabel(decorations[0])}
           </p>
         ) : null}
 
@@ -216,6 +260,9 @@ export function ProductPurchasePanel({
           <div className="rounded border border-border bg-bg-soft px-4 py-3">
             <p className="text-sm text-text-primary">
               {estimate.quantity.toLocaleString('en-US')} × {formatUsd(estimate.unitPrice)} each
+              {estimate.decorationUpcharge > 0
+                ? ` + ${formatUsd(estimate.decorationUpcharge)}/unit decoration`
+                : ''}
               {estimate.setupCharge > 0 ? ` + ${formatUsd(estimate.setupCharge)} setup` : ''}
             </p>
             <p className="mt-1 text-xl font-bold text-brand-ink">
@@ -237,7 +284,7 @@ export function ProductPurchasePanel({
             Get a Quote
           </button>
           <p className="mt-2 text-xs text-text-muted">
-            No online checkout - we&rsquo;ll confirm exact pricing in your quote.
+            We&rsquo;ll quickly confirm exact pricing and inventory.
           </p>
         </div>
       </div>

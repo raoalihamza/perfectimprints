@@ -2,10 +2,8 @@ import 'server-only';
 import fs from 'node:fs';
 import path from 'node:path';
 import type { GeigerProduct } from './categories';
-import {
-  customProductIsCloseout,
-  type CustomProductDoc,
-} from '@/lib/sanity/queries/custom-products';
+import { customProductIsCloseout } from '@/lib/sanity/queries/custom-products';
+import type { CategoryOverrideAddedProduct } from '@/lib/sanity/queries/category-overrides';
 import { getAllCategoryUrls } from './pi-urls';
 import {
   FACET_REGISTRY,
@@ -67,6 +65,8 @@ export function getMembershipSkus(url: string): Set<string> | null {
 //     pinned from (GeigerProduct itself carries no color/material — only brand).
 //   - Custom products: colors[]/material/brand/features[]/types[] plus the
 //     madeInUsa/ecoFriendly/closeout toggles, all read off the customProduct doc.
+//   - Product Pages (P2-CP-004 batch 3): same participation, colors derived
+//     from colorVariants[].colorName, everything read off the productPage doc.
 //
 // Scoped to color/material/brand/feature/type + the 3 refine-by facets only, so
 // the reverse index stays lean (one pass over the membership file, ~a few
@@ -171,50 +171,63 @@ function loadReverseAttrIndex(): Map<string, AddedAttrOverlay> {
 /**
  * Build the per-render attribute overlay for the products shown on a
  * Replace-products category. Keyed by SKU:
- *   - custom products (sku `custom-<id>`): colors[]/material/brand/features[]/
- *     types[] off the doc (slugified to Geiger's value format), plus the
- *     madeInUsa/ecoFriendly/closeout toggles (closeout also honors the
+ *   - added customProducts (sku `custom-<id>`): colors[]/material/brand/
+ *     features[]/types[] off the doc (slugified to Geiger's value format), plus
+ *     the madeInUsa/ecoFriendly/closeout toggles (closeout also honors the
  *     CLOSEOUT badge).
+ *   - added productPages (sku `custom-<id>` too, P2-CP-004 batch 3): colors
+ *     from `colorVariants[].colorName`, material/features/types + the
+ *     madeInUsa/ecoFriendly/closeout toggles off the doc — same slugified
+ *     participation in the Color/Material/Brand/Feature/Type filters.
  *   - pinned Geiger SKUs: looked up in the reverse index (real Geiger tags).
  * Only the products actually shown are included, so counts reflect the grid.
  */
 export function buildAddedAttrOverlay(
   products: GeigerProduct[],
-  addedProducts: CustomProductDoc[] | undefined,
+  addedProducts: CategoryOverrideAddedProduct[] | undefined,
 ): AddedAttrOverlayMap {
   const reverse = loadReverseAttrIndex();
-  const customBySku = new Map<string, CustomProductDoc>();
-  for (const doc of addedProducts ?? []) customBySku.set(`custom-${doc._id}`, doc);
+  const addedBySku = new Map<string, CategoryOverrideAddedProduct>();
+  for (const doc of addedProducts ?? []) {
+    if (doc?._id) addedBySku.set(`custom-${doc._id}`, doc);
+  }
 
   const overlay: AddedAttrOverlayMap = new Map();
   for (const p of products) {
-    const custom = customBySku.get(p.sku);
-    if (custom) {
+    const added = addedBySku.get(p.sku);
+    if (added) {
       const entry = emptyOverlayEntry();
-      for (const c of custom.colors ?? []) {
+      const colors =
+        added._type === 'productPage'
+          ? (added.colorVariants ?? []).map((v) => v.colorName ?? '')
+          : added.colors ?? [];
+      for (const c of colors) {
         const s = slugifyFacetValue(c);
         if (s) entry.color.add(s);
       }
-      if (custom.material) {
-        const s = slugifyFacetValue(custom.material);
+      if (added.material) {
+        const s = slugifyFacetValue(added.material);
         if (s) entry.material.add(s);
       }
-      const brand = custom.brand ?? p.brand ?? undefined;
+      const brand = added.brand ?? p.brand ?? undefined;
       if (brand) {
         const s = slugifyFacetValue(brand);
         if (s) entry.brand.add(s);
       }
-      for (const f of custom.features ?? []) {
+      for (const f of added.features ?? []) {
         const s = slugifyFacetValue(f);
         if (s) entry.feature.add(s);
       }
-      for (const t of custom.types ?? []) {
+      for (const t of added.types ?? []) {
         const s = slugifyFacetValue(t);
         if (s) entry.type.add(s);
       }
-      entry.madeInUsa = custom.madeInUsa === true;
-      entry.ecoFriendly = custom.ecoFriendly === true;
-      entry.closeout = customProductIsCloseout(custom);
+      entry.madeInUsa = added.madeInUsa === true;
+      entry.ecoFriendly = added.ecoFriendly === true;
+      // customProduct closeout also honors the CLOSEOUT badge; productPage has
+      // only the boolean (its SALE/CLOSEOUT ribbons derive from onSale/closeout).
+      entry.closeout =
+        added._type === 'productPage' ? added.closeout === true : customProductIsCloseout(added);
       overlay.set(p.sku, entry);
       continue;
     }

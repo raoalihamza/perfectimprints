@@ -9,8 +9,10 @@ export type SearchItemType = 'category' | 'product' | 'brand' | 'blog' | 'video'
 /**
  * One entry in the prebuilt Fuse index. Kept deliberately minimal — see
  * `scripts/search-index/build-index.ts` and CLAUDE.md M5-502. Products carry
- * ONLY name + brand + the raw Geiger URL (rewritten to the affiliate host at
- * click time via `lib/affiliate-url.ts`); never a description, SKU, or image.
+ * name + brand + the raw Geiger URL (rewritten to the affiliate host at click
+ * time via `lib/affiliate-url.ts`), a thumbnail for the overlay (M5-502b), and
+ * the item number / SKU as a search key (P2 batch 2 — Patrick's request);
+ * never a description.
  */
 export interface SearchItem {
   type: SearchItemType;
@@ -25,6 +27,14 @@ export interface SearchItem {
   url: string;
   /** Only set for products — secondary Fuse key. */
   brand?: string;
+  /**
+   * Only set for products with a REAL, user-facing item number — the Geiger
+   * catalog SKU (may contain a space, e.g. "529664 90A") or a productPage's
+   * manually-entered item number. Secondary Fuse key so searching an item
+   * number finds the product. Synthetic `custom-<id>` SKUs are deliberately
+   * NEVER indexed (internal ids, pure noise).
+   */
+  sku?: string;
   /**
    * Only set for videos — the video's category title. Secondary Fuse key so a
    * video is findable by its category (e.g. "trade shows"); also shown as the

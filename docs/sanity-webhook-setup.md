@@ -29,6 +29,7 @@ ISR fallback.
 | `faq` | `/faq`, **live search delta** (+ busts the `faqs` cache tag) |
 | `video` | (rows above) **also busts the `videos` cache tag** |
 | `categoryOverride` | `/cat/<categorySlug>` (needs `categorySlug` in the projection) |
+| `productPage` / `customProduct` (attached to categories) | every `/cat/<slug>` whose `categoryOverride.addedProducts` references the edited doc (P2-CP-004 batch 3 — `references($id)` lookup; needs `_id` in the projection, with a slug-deref fallback covering `productPage` only) |
 | `productPlacement` | each `/cat/<slug>` in `addToCategories` + `removeFromCategories` (needs those in the projection) |
 | `customSchema` | the doc's `pageUrl` page (+ busts the `customSchema:<pageUrl>` cache tag) — needs `pageUrl` in the projection |
 | `brand` | `/brands` + `/brands/<slug>` (+ busts the `brands` cache tag) — drives the Featured Brands strip + A–Z grid. **Originally excluded from the Filter — must be added (see below).** |
@@ -81,7 +82,7 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
 | **Dataset** | `production` |
 | **Trigger on** | ✅ Create  ✅ Update  ✅ Delete |
 | **Filter** | `!(_id in path("drafts.**")) && _type in ["megaMenu","globalSettings","homePage","page","blogPost","video","customProduct","customCategory","curatedCategory","faq","categoryOverride","productPlacement","customSchema","brand","landingPage","productPage"]` |
-| **Projection** | `{_type, slug, categorySlug, pageUrl, addToCategories, removeFromCategories}` |
+| **Projection** | `{_id, _type, slug, categorySlug, pageUrl, addToCategories, removeFromCategories}` |
 | **HTTP method** | `POST` |
 | **HTTP headers** | none (Sanity adds the signature header automatically) |
 | **API version** | latest (leave default) |
@@ -134,13 +135,28 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
 > its first-ever visit via on-demand SSG, but later edits stay silently stale
 > until the next deploy).
 
+> **⚠️ Manual step for an EXISTING webhook (P2-CP-004 batch 3, products in
+> categories):** add **`_id`** to the Projection (the updated Projection above —
+> the only change is the leading `_id,`). When a `productPage` or
+> `customProduct` that is attached to category grids via
+> `categoryOverride.addedProducts` is edited, the handler looks up the
+> embedding overrides with `references($id)` and busts each `cat:<slug>` tag so
+> the category pages refresh. Without `_id`: **productPage** edits still work
+> via a slug-deref fallback (`$slug in addedProducts[]->slug.current`), but an
+> attached **customProduct** edit (no slug field) will NOT refresh its embedding
+> category pages until something else busts them. Do this on **staging now**
+> and on **production when batch 3 promotes**. Adding `_id` is harmless for
+> every other type.
+
 ### Why the projection
 
 The route reads `_type` + `slug.current` for most types, plus `categorySlug`
 (for `categoryOverride`), `addToCategories` / `removeFromCategories` (for
-`productPlacement`), and `pageUrl` (for `customSchema`). Including those keeps the
-payload small while still giving the handler everything it needs; unused fields
-are simply absent for other types.
+`productPlacement`), `pageUrl` (for `customSchema`), and `_id` (for the
+`references($id)` lookup that busts category pages embedding an edited
+`productPage`/`customProduct` via `categoryOverride.addedProducts` — P2-CP-004
+batch 3). Including those keeps the payload small while still giving the handler
+everything it needs; unused fields are simply absent for other types.
 
 ## Production webhook (✅ created 2026-07-01)
 

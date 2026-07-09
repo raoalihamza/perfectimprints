@@ -4,11 +4,11 @@
  * (sanity/schemas/objects/page-sections.ts) — the DEFAULT Sanity block editor:
  *   - `block` blocks with styles normal/h2/h3 and bullet/number `listItem`
  *     blocks with `level: 1` (all default-editor-legal)
- *   - `strong`/`em` decorators and the DEFAULT `link` annotation, whose markDef
- *     is `{_type:'link', _key, href}` with NO `openInNewTab` — that field does
- *     not exist on the default block-editor link (unlike the blog body link),
- *     and Studio would strip/flag it. Any `openInNewTab` that sneaks onto a
- *     span link is deliberately dropped here, mirroring build-rich-answer-body.
+ *   - `strong`/`em` decorators and the page-builder `link` annotation, whose
+ *     markDef is `{_type:'link', _key, href, openInNewTab?}` — the annotation
+ *     carries an optional "Open in new tab" toggle (P2-CP follow-up; declared
+ *     explicitly in page-sections.ts portableBody). The flag is emitted only
+ *     when the span link carries it; plain `{href}` links stay `{href}`.
  *   - NO `blogProducts` strips (pages use the separate `productStrip` section)
  *     and NO image blocks (the AI cannot source a real image file — inline
  *     images stay manual inserts for Patrick).
@@ -30,11 +30,12 @@ interface PageSpanChild {
   marks: string[];
 }
 
-/** Default block-editor link markDef — href only, NEVER `openInNewTab`. */
+/** Page-builder link markDef — href + the optional "Open in new tab" flag. */
 interface PageLinkMarkDef {
   _type: 'link';
   _key: string;
   href: string;
+  openInNewTab?: boolean;
 }
 
 export interface PageTextBlock {
@@ -75,8 +76,10 @@ function toBlock(
     const marks: string[] = [];
     if (rich.strong) marks.push('strong');
     if (rich.link?.href) {
-      // href only — the default block-editor link annotation has no other field.
       const def: PageLinkMarkDef = { _type: 'link', _key: nextKey('pl'), href: rich.link.href };
+      // The 'page' placement shape sets openInNewTab (AI links default it ON);
+      // spans without the flag stay plain {href}.
+      if (typeof rich.link.openInNewTab === 'boolean') def.openInNewTab = rich.link.openInNewTab;
       markDefs.push(def);
       marks.push(def._key);
     }

@@ -38,6 +38,18 @@ interface GeneratedProductResponse {
   decorationMethods: string[];
   relatedCategorySlug?: string;
   suggestedLinks: SuggestedLink[];
+  /** Auto-matched video/blog _ids for the strips' only-if-empty pre-fill. */
+  relatedVideoIds?: string[];
+  relatedBlogIds?: string[];
+}
+
+/** decorationMethods entries: {method, upcharge?} objects (legacy: strings). */
+type DecorationEntry = string | { method?: string; upcharge?: number };
+
+function decorationNames(entries: DecorationEntry[] | undefined): string[] {
+  return (entries ?? [])
+    .map((e) => (typeof e === 'string' ? e : e?.method ?? '').trim())
+    .filter(Boolean);
 }
 
 let itemKey = 0;
@@ -62,10 +74,12 @@ export const generateProductWithAi: DocumentActionComponent = (props) => {
     brand?: string;
     material?: string;
     sizes?: string[];
-    decorationMethods?: string[];
+    decorationMethods?: DecorationEntry[];
     colorVariants?: { colorName?: string }[];
     relatedKeywords?: string[];
     relatedCategorySlug?: string;
+    relatedVideos?: unknown[];
+    relatedBlogs?: unknown[];
     aiTopicKeywords?: string[];
   } | null;
 
@@ -92,7 +106,7 @@ export const generateProductWithAi: DocumentActionComponent = (props) => {
               .map((v) => v?.colorName?.trim())
               .filter(Boolean),
             sizes: doc?.sizes ?? [],
-            decorationMethods: doc?.decorationMethods ?? [],
+            decorationMethods: decorationNames(doc?.decorationMethods),
             currentSlug: doc?.slug?.current,
           }),
         });
@@ -111,7 +125,17 @@ export const generateProductWithAi: DocumentActionComponent = (props) => {
 
         const hasOwnKeywords = (doc?.relatedKeywords ?? []).some((k) => k?.trim());
         const hasOwnCategory = Boolean(doc?.relatedCategorySlug?.trim());
-        const hasOwnDecoration = (doc?.decorationMethods ?? []).some((m) => m?.trim());
+        const hasOwnDecoration = decorationNames(doc?.decorationMethods).length > 0;
+        const hasOwnVideos = (doc?.relatedVideos ?? []).length > 0;
+        const hasOwnBlogs = (doc?.relatedBlogs ?? []).length > 0;
+        const toRefs = (ids: string[] | undefined, prefix: string) =>
+          (ids ?? []).filter(Boolean).map((id) => ({
+            _type: 'reference' as const,
+            _key: nextItemKey(prefix),
+            _ref: id,
+          }));
+        const videoRefs = toRefs(data.relatedVideoIds, 'rv');
+        const blogRefs = toRefs(data.relatedBlogIds, 'rb');
 
         patch.execute([
           // Deep-set the seo fields without clobbering an existing ogImage.
@@ -128,9 +152,21 @@ export const generateProductWithAi: DocumentActionComponent = (props) => {
               ...(!hasOwnCategory && data.relatedCategorySlug
                 ? { relatedCategorySlug: data.relatedCategorySlug }
                 : {}),
+              // Decoration suggestions patch as {method, upcharge-less} objects
+              // (the P2-CP follow-up schema shape) — Patrick sets upcharges.
               ...(!hasOwnDecoration && (data.decorationMethods ?? []).length > 0
-                ? { decorationMethods: data.decorationMethods }
+                ? {
+                    decorationMethods: (data.decorationMethods ?? []).map((m) => ({
+                      _type: 'decorationMethod',
+                      _key: nextItemKey('dm'),
+                      method: m,
+                    })),
+                  }
                 : {}),
+              // Related Videos / Related Blogs strips: pre-fill the auto
+              // matches as real references, only when the fields are empty.
+              ...(!hasOwnVideos && videoRefs.length > 0 ? { relatedVideos: videoRefs } : {}),
+              ...(!hasOwnBlogs && blogRefs.length > 0 ? { relatedBlogs: blogRefs } : {}),
               aiSuggestedLinks: suggestedLinks,
             },
           },

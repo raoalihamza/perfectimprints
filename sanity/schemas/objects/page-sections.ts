@@ -49,14 +49,45 @@ function imageUrlField(name = 'imageUrl', title = 'Image URL (fallback)') {
 // components/page-sections/portable-text.tsx.
 // Exported (P2-AI-005) so the `landingPage` schema reuses the EXACT same body
 // field shape — its bodies render through the same pagePortableComponents and
-// are built by the same buildPageBody/buildPageSectionsBody (href-only links).
+// are built by the same buildPageBody/buildPageSectionsBody.
+// The link annotation is declared explicitly (P2-CP follow-up) so it carries an
+// "Open in new tab" toggle in the Studio link popover — page/landing/productPage
+// descriptions all share it; AI-placed links default the toggle ON (the 'page'
+// link-shape in lib/ai/place-internal-links.ts), manual links default OFF.
+// Existing `{_type:'link', href}` data stays valid (the new field is optional).
 export const portableBody = (name = 'body', title = 'Content') =>
   defineField({
     name,
     title,
     type: 'array',
     of: [
-      { type: 'block' },
+      {
+        type: 'block',
+        marks: {
+          annotations: [
+            {
+              name: 'link',
+              type: 'object',
+              title: 'Link',
+              fields: [
+                defineField({
+                  name: 'href',
+                  title: 'URL',
+                  type: 'string',
+                  description: 'External URL or an internal path like /rush-products.',
+                  validation: (Rule) => Rule.required(),
+                }),
+                defineField({
+                  name: 'openInNewTab',
+                  title: 'Open in new tab',
+                  type: 'boolean',
+                  initialValue: false,
+                }),
+              ],
+            },
+          ],
+        },
+      },
       {
         type: 'image',
         title: 'Inline image',

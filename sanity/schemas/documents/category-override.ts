@@ -83,9 +83,9 @@ export default defineType({
       name: 'addedProducts',
       title: 'Added Products',
       type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'customProduct' }] }],
+      of: [{ type: 'reference', to: [{ type: 'customProduct' }, { type: 'productPage' }] }],
       description:
-        'Custom (non-Geiger) products to prepend to this category grid. Same customProduct documents used by /deals and /new-products.',
+        'Your own products to prepend to this category grid: a Custom Product (link-out card, same documents /deals and /new-products use) or a Product Page (the card links to its /products/… detail page on this site). Both participate in the category\'s Color/Material/Brand filters.',
     }),
   ],
   preview: {

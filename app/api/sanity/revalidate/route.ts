@@ -9,6 +9,7 @@
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import { revalidatePath, revalidateTag } from 'next/cache';
 import { NextResponse } from 'next/server';
+import { cachedClient } from '@/lib/sanity/client';
 import { SEARCH_INDEX_ROUTE } from '@/lib/search/constants';
 import {
   BRANDS_TAG,
@@ -53,6 +54,58 @@ const SEARCH_TYPES = new Set([
   'curatedCategory',
   'faq',
 ]);
+
+/**
+ * Category slugs of every `categoryOverride` whose `addedProducts` references
+ * the published doc (P2-CP-004 batch 3 — productPage/customProduct attached to
+ * category grids). Needed because the embedding `/cat/<slug>` read is tagged
+ * `cat:<slug>` (via getCategoryOverride), NOT by the product's own tags — so an
+ * edit to the ATTACHED product would otherwise stay stale on the category page
+ * until some unrelated event busted it.
+ *
+ * Lookup order: `references($id)` when the webhook projection includes `_id`
+ * (robust — matches even a dangling ref after delete/unpublish); else a
+ * slug-deref fallback (`$slug in addedProducts[]->slug.current`, works for
+ * productPage on the CURRENT projection, which has no `_id`). Uncached read
+ * (`no-store`) so it always sees the live reference graph. Best-effort: a
+ * failed lookup returns [] and the rest of the revalidation proceeds.
+ */
+async function findEmbeddingCategorySlugs(
+  id: string | undefined,
+  slug: string | undefined,
+): Promise<string[]> {
+  try {
+    let slugs: (string | null)[] | null = null;
+    if (id) {
+      slugs = await cachedClient.fetch<(string | null)[]>(
+        `*[_type == "categoryOverride" && references($id)].categorySlug`,
+        { id },
+        { cache: 'no-store' },
+      );
+    } else if (slug) {
+      slugs = await cachedClient.fetch<(string | null)[]>(
+        `*[_type == "categoryOverride" && $slug in addedProducts[]->slug.current].categorySlug`,
+        { slug },
+        { cache: 'no-store' },
+      );
+    }
+    return [...new Set((slugs ?? []).filter((s): s is string => Boolean(s)))];
+  } catch {
+    return [];
+  }
+}
+
+/** Bust + revalidate every /cat/<slug> that embeds the doc via an override. */
+function bustEmbeddingCategories(slugs: string[]): string[] {
+  const paths: string[] = [];
+  for (const s of slugs) {
+    bustTag(categoryTag(s));
+    const path = `/cat/${s}`;
+    revalidatePath(path);
+    paths.push(path);
+  }
+  return paths;
+}
 
 /** Page routes to revalidate for a given search-affecting type. */
 function searchTypePaths(type: string, slug: string | undefined): string[] {
@@ -115,6 +168,7 @@ export async function POST(request: Request) {
   }
 
   let payload: {
+    _id?: string;
     _type?: string;
     slug?: { current?: string };
     categorySlug?: string;
@@ -190,7 +244,15 @@ export async function POST(request: Request) {
     // (dereferenced inside the PRODUCT_PAGES_TAG-cached read, P2-CP-001) — bust
     // the tag so /products/<slug> carousels pick up the edit/delete instead of
     // serving the stale card forever (the route has revalidate=false).
-    if (type === 'customProduct') revalidateTag(PRODUCT_PAGES_TAG, 'max');
+    if (type === 'customProduct') {
+      revalidateTag(PRODUCT_PAGES_TAG, 'max');
+      // A customProduct attached to category grids via categoryOverride
+      // .addedProducts is dereferenced inside the cat:<slug>-tagged read —
+      // bust each embedding category so the edit shows there too (P2-CP-004
+      // batch 3; needs `_id` in the webhook projection — customProduct has no
+      // slug, so the slug-deref fallback can't cover it).
+      paths.push(...bustEmbeddingCategories(await findEmbeddingCategorySlugs(payload._id, undefined)));
+    }
     return NextResponse.json({ revalidated: true, paths, type });
   }
 
@@ -261,6 +323,13 @@ export async function POST(request: Request) {
       paths.push(`/products/${slug}`);
     }
     for (const p of paths) revalidatePath(p);
+    // A productPage attached to category grids via categoryOverride
+    // .addedProducts (P2-CP-004 batch 3) is dereferenced inside the
+    // cat:<slug>-tagged getCategoryOverride read — NOT under the productPage
+    // tags busted above — so find every override that references this doc and
+    // bust its category tag/path too, or an edit to the attached product
+    // (title/price/image) would stay stale on the embedding /cat page.
+    paths.push(...bustEmbeddingCategories(await findEmbeddingCategorySlugs(payload._id, slug)));
     return NextResponse.json({ revalidated: true, paths, type });
   }
 

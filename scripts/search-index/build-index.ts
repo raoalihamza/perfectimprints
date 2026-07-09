@@ -6,7 +6,7 @@
  * Writes `public/search-index.json` as `{ generatedAt, items: [...] }` covering
  * ONLY the slow-changing Geiger bulk (baked from /data, no Sanity calls):
  *   - every generated category page (title = H1/metaTitle, url = internal route)
- *   - every Geiger product (name + brand + raw geiger_url ONLY)
+ *   - every Geiger product (name + brand + raw geiger_url + thumbnail + SKU)
  *   - every brand (name, /brands/<slug>)
  *   - FAQs are NOT here — answered FAQs (the /faq library, M5-506) are Sanity
  *     editor content served via the LIVE delta below, not this static bulk.
@@ -68,6 +68,9 @@ function collectProducts(): SearchItem[] {
     if (product.brand) item.brand = product.brand.trim();
     // Thumbnail for the autocomplete overlay (already entity-decoded by getAllProducts).
     if (product.imageUrl) item.image = product.imageUrl;
+    // Item number as a search key (P2 batch 2) — a short string per product;
+    // spaces preserved (e.g. "529664 90A") so both forms match.
+    if (product.sku) item.sku = product.sku.trim();
     items.push(item);
   }
   return items;

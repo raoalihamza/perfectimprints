@@ -642,12 +642,12 @@ async function main() {
     `buildPageBody: unique non-empty _keys (${pageKeys.length} keys)`,
     new Set(pageKeys).size === pageKeys.length && pageKeys.every(Boolean),
   );
-  // The single biggest P2-AI-004 gotcha: the page portableBody uses the DEFAULT
-  // block-editor link annotation — markDefs must be {_type:'link', _key, href}
-  // with NO openInNewTab key, or Studio strips/flags the unknown field.
+  // The page portableBody link annotation now carries an OPTIONAL openInNewTab
+  // toggle (P2-CP follow-up) — buildPageBody emits the flag only when the span
+  // link carries it, so plain {href} input links stay {_key,_type,href}.
   const pageMarkDefs = pageBody.flatMap((b) => b.markDefs);
   check(
-    'buildPageBody markDefs: {_type:link, href}, NO openInNewTab key, spans reference them',
+    'buildPageBody markDefs: plain {href} links stay {_type:link, href} (no openInNewTab), spans reference them',
     pageMarkDefs.length === 1 &&
       pageMarkDefs.every(
         (m) =>
@@ -665,8 +665,9 @@ async function main() {
     pageBody.some((b) => b.children.some((c) => c.marks.includes('strong'))),
   );
 
-  // 'page' link-shape mode: placed span links carry href ONLY (same as
-  // richAnswer), and the blog default is unchanged.
+  // 'page' link-shape mode: placed span links carry openInNewTab:true (the
+  // page-builder annotation has the toggle and AI links default to a new tab —
+  // P2-CP follow-up), and the blog default is unchanged.
   const pagePlacement = placeInternalLinks(
     {
       intro: [],
@@ -700,11 +701,11 @@ async function main() {
     .filter((s) => s.link)
     .map((s) => s.link!);
   check(
-    "'page' link-shape: 1 link placed (unanchorable skipped), span link carries href ONLY",
+    "'page' link-shape: 1 link placed (unanchorable skipped), span link carries openInNewTab:true",
     pagePlacement.placedHrefs.length === 1 &&
       pagePlacement.placedHrefs[0] === '/cat/water-bottles' &&
       pageSpanLinks.length === 1 &&
-      pageSpanLinks.every((l) => !('openInNewTab' in l)),
+      pageSpanLinks.every((l) => l.openInNewTab === true),
     JSON.stringify(pageSpanLinks),
   );
   const pagePlacedBody = buildPageBody({
@@ -712,9 +713,9 @@ async function main() {
   });
   const pagePlacedDefs = pagePlacedBody.flatMap((b) => b.markDefs);
   check(
-    "'page' placement built through buildPageBody keeps href-only markDefs, text intact",
+    "'page' placement built through buildPageBody keeps openInNewTab:true markDefs, text intact",
     pagePlacedDefs.length === 1 &&
-      !('openInNewTab' in pagePlacedDefs[0]) &&
+      pagePlacedDefs[0].openInNewTab === true &&
       pagePlacedBody[0].children.map((c) => c.text).join('') ===
         'Ordering custom water bottles in bulk pays off for trade shows.',
     JSON.stringify(pagePlacedDefs),
@@ -998,11 +999,14 @@ async function main() {
   const landingBodies = [landingIntroBody, landingOptionsBody, landingWhyUsBody];
   const landingAllDefs = landingBodies.flat().flatMap((b) => b.markDefs);
   check(
-    'landing bodies: links placed across intro + options + whyUs in one pass, all href-only',
+    'landing bodies: links placed across intro + options + whyUs in one pass, all openInNewTab:true',
     landingPlacement.placedHrefs.length === 2 &&
       landingAllDefs.length === 2 &&
       landingAllDefs.every(
-        (m) => Object.keys(m).sort().join(',') === '_key,_type,href' && m._type === 'link',
+        (m) =>
+          Object.keys(m).sort().join(',') === '_key,_type,href,openInNewTab' &&
+          m._type === 'link' &&
+          m.openInNewTab === true,
       ),
     JSON.stringify({ placed: landingPlacement.placedHrefs, defs: landingAllDefs }),
   );

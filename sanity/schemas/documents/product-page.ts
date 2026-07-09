@@ -39,6 +39,13 @@ export default defineType({
     },
     { name: 'details', title: 'Details', options: { collapsible: true, collapsed: false } },
     {
+      name: 'logistics',
+      title: 'Logistics / carton (optional)',
+      description:
+        'Shipping-carton facts. Filled-in lines show compactly on the page (e.g. "500 units per carton", "16 × 14 × 10 in / 27 lbs", "Ships from Memphis, TN 38109") and feed Google-Merchant-ready shipping structured data. Leave anything blank to skip it.',
+      options: { collapsible: true, collapsed: true },
+    },
+    {
       name: 'filters',
       title: 'Filters (optional tags)',
       description:
@@ -47,9 +54,9 @@ export default defineType({
     },
     {
       name: 'related',
-      title: 'Related products',
+      title: 'Related products, videos & blogs',
       description:
-        'Drives the "Related Products" carousel at the bottom of the page: automatic matches from the category/keywords, plus anything you add manually.',
+        'Drives the "Related Products" carousel plus the "Related Videos" and "Related Blogs" strips at the bottom of the page: automatic matches from the category/keywords, plus anything you add manually (manual picks come first).',
       options: { collapsible: true, collapsed: true },
     },
     { name: 'visibility', title: 'Visibility & SEO', options: { collapsible: true, collapsed: true } },
@@ -98,6 +105,14 @@ export default defineType({
       fieldset: 'basics',
       description: 'Shown on the product card and used by search and the Brand filter.',
     }),
+    defineField({
+      name: 'sku',
+      title: 'Item / SKU number (optional)',
+      type: 'string',
+      fieldset: 'basics',
+      description:
+        'A real item number for this product (e.g. 529664). Customers can find the product by typing it into site search. Leave blank if it has none.',
+    }),
     {
       ...portableBody('description', 'Product details / description'),
       fieldset: 'details',
@@ -108,10 +123,45 @@ export default defineType({
       name: 'decorationMethods',
       title: 'Decoration methods (optional)',
       type: 'array',
-      of: [{ type: 'string' }],
-      options: { layout: 'tags' },
       fieldset: 'details',
-      description: 'e.g. "Pad Print", "Screen Print", "Laser Engraving" — type one and press ENTER.',
+      of: [
+        {
+          type: 'object',
+          name: 'decorationMethod',
+          title: 'Decoration method',
+          fields: [
+            defineField({
+              name: 'method',
+              title: 'Method',
+              type: 'string',
+              description: 'e.g. "Pad Print", "Screen Print", "Laser Engraving".',
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'upcharge',
+              title: 'Per-unit upcharge (USD, optional)',
+              type: 'number',
+              validation: (Rule) => Rule.min(0),
+              description:
+                'Added to the unit price in the on-page ESTIMATED total when this decoration is selected. Leave blank for no upcharge.',
+            }),
+          ],
+          preview: {
+            select: { method: 'method', upcharge: 'upcharge' },
+            prepare({ method, upcharge }) {
+              return {
+                title: method || 'Decoration method',
+                subtitle:
+                  typeof upcharge === 'number' && upcharge > 0
+                    ? `+$${upcharge.toFixed(2)} per unit`
+                    : 'No upcharge',
+              };
+            },
+          },
+        },
+      ],
+      description:
+        'Each method can carry an optional per-unit upcharge that feeds the live estimate. Older entries saved as plain text still render (with no upcharge) — re-add them here to set an upcharge.',
     }),
     defineField({
       name: 'sizes',
@@ -128,6 +178,64 @@ export default defineType({
       title: 'Production time in days (optional)',
       type: 'number',
       fieldset: 'details',
+    }),
+
+    // ---- Logistics / carton (all optional; only set values render/emit) ----
+    defineField({
+      name: 'unitsPerCarton',
+      title: 'Units per carton',
+      type: 'number',
+      fieldset: 'logistics',
+      validation: (Rule) => Rule.min(1),
+    }),
+    defineField({
+      name: 'cartonWeight',
+      title: 'Carton weight (lbs)',
+      type: 'number',
+      fieldset: 'logistics',
+      validation: (Rule) => Rule.min(0),
+    }),
+    defineField({
+      name: 'cartonWidth',
+      title: 'Carton width (inches)',
+      type: 'number',
+      fieldset: 'logistics',
+      validation: (Rule) => Rule.min(0),
+    }),
+    defineField({
+      name: 'cartonHeight',
+      title: 'Carton height (inches)',
+      type: 'number',
+      fieldset: 'logistics',
+      validation: (Rule) => Rule.min(0),
+    }),
+    defineField({
+      name: 'cartonDepth',
+      title: 'Carton depth (inches)',
+      type: 'number',
+      fieldset: 'logistics',
+      validation: (Rule) => Rule.min(0),
+    }),
+    defineField({
+      name: 'fobZip',
+      title: 'FOB / ships-from zip',
+      type: 'string',
+      fieldset: 'logistics',
+      description: 'e.g. 38109 — shown as "Ships from …" and used as the shipping origin in the structured data.',
+    }),
+    defineField({
+      name: 'fobCity',
+      title: 'FOB city (optional)',
+      type: 'string',
+      fieldset: 'logistics',
+      description: 'e.g. Memphis — shown before the zip when set.',
+    }),
+    defineField({
+      name: 'fobState',
+      title: 'FOB state (optional)',
+      type: 'string',
+      fieldset: 'logistics',
+      description: 'Two-letter state, e.g. TN.',
     }),
 
     // ---- Images & Colors ----
@@ -365,6 +473,24 @@ export default defineType({
       ],
       description:
         'Pinned to the FRONT of the carousel, before the automatic matches. Add a Geiger product by SKU (the "Product" entry), or reference one of your own Custom Products / Product Pages.',
+    }),
+    defineField({
+      name: 'relatedVideos',
+      title: 'Related videos (manual)',
+      type: 'array',
+      fieldset: 'related',
+      of: [{ type: 'reference', to: [{ type: 'video' }] }],
+      description:
+        'Pinned first in the "Related Videos" strip below Related Products. Leave empty to let matching videos fill in automatically from the related keywords.',
+    }),
+    defineField({
+      name: 'relatedBlogs',
+      title: 'Related blogs (manual)',
+      type: 'array',
+      fieldset: 'related',
+      of: [{ type: 'reference', to: [{ type: 'blogPost' }] }],
+      description:
+        'Pinned first in the "Related Blogs" strip below Related Products. Leave empty to let matching blog posts fill in automatically from the related keywords.',
     }),
 
     // ---- Visibility & SEO ----
