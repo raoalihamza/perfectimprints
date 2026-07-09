@@ -2101,6 +2101,14 @@ Patrick can surface a `productPage` inside chosen `/cat/<slug>` grids through th
 - `pnpm typecheck` clean. Staged, not committed.
 - **Manual test plan (deploy):** (1) add the bamboo fan productPage to a categoryOverride's Added Products, publish → card appears on `/cat/<slug>` linking to `/products/...`, participates in Color/Material filters (replaceProducts mode). (2) Edit the fan's title/price, publish → the category reflects it within seconds (after the `_id` projection update; via slug fallback even before). (3) Raw-HTML gate: `curl -s <deploy>/cat/<slug>` → product `<img>` incl. the attached card + CollectionPage/ItemList JSON-LD, no `BAILOUT_TO_CLIENT_SIDE_RENDERING`; build still shows `/cat/[...slug]` `●` with ~1,840 prebuilt paths. (4) Geiger/customProduct cards still affiliate; untouched categories byte-identical (their overrides don't change, and non-override pages never run this code).
 
+### [x] P2-CP-004 follow-up: migrate legacy string decorationMethods — RUN 2026-07-09
+
+Batch 1 changed `productPage.decorationMethods` to `{method, upcharge}` objects; docs created before that held plain strings (fine on the live page via `productPageDecorations()`, but INVALID/uneditable items in Studio). One-off migration [scripts/migrations/migrate-decoration-methods.ts](scripts/migrations/migrate-decoration-methods.ts) (`pnpm migrate-decoration-methods`, default dry-run / `--apply` writes; requires `SANITY_API_TOKEN` — also for the READ, since the scan covers drafts via `perspective:'raw'`).
+
+- **Phase 1 (diagnose) found:** 2 productPages, both PUBLISHED, no drafts — "Custom BamBams Thundersticks" (1 legacy string) + "Custom Bamboo Folding Fan" (4). **Phase 2 (--apply):** 2/2 patched, 5 strings converted to `{_type:'decorationMethod', _key: dm-<slug>-<i> (stable — no re-run churn), method, upcharge: 0}` — `_type` included (omitting it would re-flag the items invalid). Only `decorationMethods` touched; publish state unchanged; already-object entries kept as-is (+ missing `_key`/`_type` back-filled); exact duplicates dropped; method-less objects would be kept + flagged, never silently dropped (none found).
+- **Freshness:** the API patch is a dataset mutation, so the Sanity GROQ webhook fires like a Studio publish (if `productPage` is in the Filter) — AND the script posted signed revalidate calls (same HMAC scheme the route verifies) to production for both slugs (`/products/bb-101-bam`, `/products/custom-bamboo-folding-fan`) → both **200**. Re-run verified idempotent ("nothing to migrate").
+- No render-path/schema/webhook-config change; script staged, data migrated. Remaining manual check: open either product in Studio and confirm the decoration rows are editable `{method, upcharge}` objects; set real upcharges where they apply.
+
 ### [ ] P2-CP-003: Bulk upload custom products
 
 - Import from a Google Sheet link (or CSV). Columns include up to 10 image URLs, pricing tiers, description, category, etc.

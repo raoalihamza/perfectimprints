@@ -53,7 +53,8 @@
     "backfill-blog-images": "tsx scripts/migrations/backfill-blog-images.ts",
     "rescrape-report": "tsx scripts/migrations/write-rescrape-report.ts",
     "dedupe-header-images": "tsx scripts/migrations/dedupe-header-images.ts",
-    "delete-affected-blogs": "tsx scripts/migrations/delete-affected-blogs.ts"
+    "delete-affected-blogs": "tsx scripts/migrations/delete-affected-blogs.ts",
+    "migrate-decoration-methods": "tsx scripts/migrations/migrate-decoration-methods.ts"
   },
   "dependencies": {
     "@next/third-parties": "^16.2.0",
