@@ -13,8 +13,9 @@ import { CATEGORY_CONTROL_TAG } from '@/lib/sanity/cache-tags';
  * dynamic and the webhook can refresh it in seconds:
  *   - `owned`  — slugs with a published `customCategory`. Sanity OWNS these
  *     `/cat/<slug>` pages and wins over baked JSON.
- *   - `edited` — `owned` ∪ slugs touched by a `categoryOverride` or a
- *     `productPlacement`. Only these pages run the per-slug override/placement
+ *   - `edited` — `owned` ∪ slugs touched by a `categoryOverride`, a
+ *     `productPlacement`, or a `productPage.addToCategories` placement
+ *     (P2-CP-004 batch 4). Only these pages run the per-slug override/placement
  *     fetches; every untouched baked page renders from JSON with zero Sanity.
  *
  * The build-time `public/custom-category-slugs.json` artifact is the offline
@@ -36,13 +37,15 @@ interface ControlQueryResult {
   overrides: string[];
   placementsAdd: string[];
   placementsRemove: string[];
+  pagePlacements: string[];
 }
 
 const CONTROL_QUERY = `{
   "owned": *[_type == "customCategory" && defined(slug.current)].slug.current,
   "overrides": *[_type == "categoryOverride" && defined(categorySlug)].categorySlug,
   "placementsAdd": *[_type == "productPlacement"].addToCategories[],
-  "placementsRemove": *[_type == "productPlacement"].removeFromCategories[]
+  "placementsRemove": *[_type == "productPlacement"].removeFromCategories[],
+  "pagePlacements": *[_type == "productPage"].addToCategories[]
 }`;
 
 const clean = (list: string[] | undefined): string[] =>
@@ -78,7 +81,12 @@ export async function getCategoryControlSets(): Promise<CategoryControlSets> {
     );
     const owned = new Set(clean(res?.owned));
     const edited = new Set<string>(owned);
-    for (const s of [...clean(res?.overrides), ...clean(res?.placementsAdd), ...clean(res?.placementsRemove)]) {
+    for (const s of [
+      ...clean(res?.overrides),
+      ...clean(res?.placementsAdd),
+      ...clean(res?.placementsRemove),
+      ...clean(res?.pagePlacements),
+    ]) {
       edited.add(s);
     }
     return { owned, edited };

@@ -739,7 +739,9 @@
         <a href="#custom-product">Custom Product</a> (a card that links out to another website) <strong>or a
         <a href="#product-pages">Product Page</a></strong> (a card that links to that product's own
         <code>/products/…</code> page on your site, with its price range and first photo). Both are pinned to the front
-        of the grid and participate in the page's filters.</li>
+        of the grid and participate in the page's filters. (Tip: for Product Pages the easier route is usually the
+        product's own <strong>"Add to categories"</strong> field — same result, and a product attached both ways still
+        shows once.)</li>
     </ul>
     <p>Publish, and the page reflects your tweaks while keeping its original heading, text, and FAQs. This is the
       recommended way to fix an "off-topic" category without rewriting it: hide the wrong items, turn on Force CTA to
@@ -1417,10 +1419,12 @@
         "Show on /new-products" toggle under Visibility.</li>
       <li>In <strong>site search</strong> (the magnifying glass) — the result opens your product page, not Geiger.</li>
       <li>In <strong>Related Products carousels</strong> on other product pages.</li>
-      <li>Inside a <code>/cat/...</code> category page <strong>only where you attach it yourself</strong>: add the
-        Product Page under a <a href="#category-override">Category Override</a>'s <strong>Added Products</strong> and
-        it appears in that category's grid as a card linking to its <code>/products/…</code> page (never automatically
-        — you choose the categories).</li>
+      <li>Inside <code>/cat/...</code> category pages <strong>only where you attach it yourself</strong> — the easy
+        way is the product's own <strong>"Add to categories"</strong> field (next bullet's step 7); the alternative is
+        adding it under a <a href="#category-override">Category Override</a>'s <strong>Added Products</strong> from
+        the category's side. Either way it appears in that category's grid as a card linking to its
+        <code>/products/…</code> page (never automatically — you choose the categories, and attaching it both ways
+        still shows it once).</li>
     </ul>
 
     <h3>Creating one, step by step</h3>
@@ -1454,6 +1458,13 @@
       <li><strong>Filters (optional):</strong> tag Material / Features / Types and the Made-in-USA / Eco / Closeout
         toggles using the same names Geiger uses, so the product participates in the New Products page filters. Colors
         are taken from your color variants automatically.</li>
+      <li><strong>Show on category pages ("Add to categories"):</strong> search a category by title or slug and click
+        to add it — multi-select, add as many as you like. If the category you want does not exist yet, the picker
+        offers <strong>"Create new category page"</strong> right there (it creates a Custom Category at
+        <code>/cat/&lt;slug&gt;</code> and selects it). Publish, and the product appears as a card on each chosen
+        category page (linking to this product page) and joins that category's Color/Material filters. This is
+        <strong>different from "Related category"</strong> below, which only fills the Related Products carousel — it
+        does not put the product on any category page.</li>
       <li><strong>Related products, videos &amp; blogs:</strong> pick a related category and/or a few keywords and the
         Related Products carousel fills itself with matching products. Anything you add manually (a Geiger product by
         SKU, one of your Custom Products, or another Product Page) is pinned to the front. Below Related Products the

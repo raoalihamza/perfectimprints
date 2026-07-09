@@ -30,6 +30,7 @@ ISR fallback.
 | `video` | (rows above) **also busts the `videos` cache tag** |
 | `categoryOverride` | `/cat/<categorySlug>` (needs `categorySlug` in the projection) |
 | `productPage` / `customProduct` (attached to categories) | every `/cat/<slug>` whose `categoryOverride.addedProducts` references the edited doc (P2-CP-004 batch 3 — `references($id)` lookup; needs `_id` in the projection, with a slug-deref fallback covering `productPage` only) |
+| `productPage` (product-side "Add to categories") | every `/cat/<slug>` in the doc's `addToCategories` + the `category-control-sets` tag (P2-CP-004 batch 4 — needs `addToCategories` in the projection as the **before ∪ after union** so detaches bust too) |
 | `productPlacement` | each `/cat/<slug>` in `addToCategories` + `removeFromCategories` (needs those in the projection) |
 | `customSchema` | the doc's `pageUrl` page (+ busts the `customSchema:<pageUrl>` cache tag) — needs `pageUrl` in the projection |
 | `brand` | `/brands` + `/brands/<slug>` (+ busts the `brands` cache tag) — drives the Featured Brands strip + A–Z grid. **Originally excluded from the Filter — must be added (see below).** |
@@ -82,7 +83,7 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
 | **Dataset** | `production` |
 | **Trigger on** | ✅ Create  ✅ Update  ✅ Delete |
 | **Filter** | `!(_id in path("drafts.**")) && _type in ["megaMenu","globalSettings","homePage","page","blogPost","video","customProduct","customCategory","curatedCategory","faq","categoryOverride","productPlacement","customSchema","brand","landingPage","productPage"]` |
-| **Projection** | `{_id, _type, slug, categorySlug, pageUrl, addToCategories, removeFromCategories}` |
+| **Projection** | `{_id, _type, slug, categorySlug, pageUrl, "addToCategories": array::unique([...coalesce(before().addToCategories, []), ...coalesce(after().addToCategories, [])]), "removeFromCategories": array::unique([...coalesce(before().removeFromCategories, []), ...coalesce(after().removeFromCategories, [])])}` |
 | **HTTP method** | `POST` |
 | **HTTP headers** | none (Sanity adds the signature header automatically) |
 | **API version** | latest (leave default) |
@@ -148,15 +149,31 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
 > and on **production when batch 3 promotes**. Adding `_id` is harmless for
 > every other type.
 
+> **⚠️ Manual step for an EXISTING webhook (P2-CP-004 batch 4, product-side
+> "Add to categories"):** upgrade the Projection's `addToCategories` /
+> `removeFromCategories` to the **before() ∪ after() unions** shown above.
+> Plain `addToCategories` only carries the CURRENT (after) value, so
+> **detaching** a category from a `productPage.addToCategories` (or a
+> `productPlacement`) would not bust the detached category's tag — the removed
+> product would keep showing there until an unrelated event refreshed that page
+> (`revalidate:false` pages never self-refresh). The delta-GROQ union includes
+> the before-publish slugs, so attach, detach, and content edits ALL bust the
+> right `cat:<slug>` tags. `coalesce(..., [])` keeps create/delete events (where
+> `before()`/`after()` is null) working. Do this on **staging now** and on
+> **production when batch 4 promotes**. Until then, attaches + edits work;
+> detaches go stale on the detached category only.
+
 ### Why the projection
 
 The route reads `_type` + `slug.current` for most types, plus `categorySlug`
 (for `categoryOverride`), `addToCategories` / `removeFromCategories` (for
-`productPlacement`), `pageUrl` (for `customSchema`), and `_id` (for the
-`references($id)` lookup that busts category pages embedding an edited
-`productPage`/`customProduct` via `categoryOverride.addedProducts` — P2-CP-004
-batch 3). Including those keeps the payload small while still giving the handler
-everything it needs; unused fields are simply absent for other types.
+`productPlacement` AND — batch 4 — `productPage.addToCategories`, both as
+before/after unions so detaches bust too), `pageUrl` (for `customSchema`), and
+`_id` (for the `references($id)` lookup that busts category pages embedding an
+edited `productPage`/`customProduct` via `categoryOverride.addedProducts` —
+P2-CP-004 batch 3). Including those keeps the payload small while still giving
+the handler everything it needs; unused fields are simply absent for other
+types.
 
 ## Production webhook (✅ created 2026-07-01)
 

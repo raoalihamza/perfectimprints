@@ -12,7 +12,10 @@
 import { NextResponse } from 'next/server';
 import { getCategoryContent } from '@/lib/categories';
 import { getCategoryOverride, mergeCategoryProducts } from '@/lib/sanity/queries/category-overrides';
-import { getPlacementSkusForCategory } from '@/lib/sanity/queries/product-placements';
+import {
+  getPlacedProductPagesForCategory,
+  getPlacementSkusForCategory,
+} from '@/lib/sanity/queries/product-placements';
 import {
   applyFiltersAndSort,
   buildAddedAttrOverlay,
@@ -44,22 +47,29 @@ export async function GET(request: Request) {
   }
 
   const rootSlug = slug.split('/')[0];
-  const [override, placement] = await Promise.all([
+  const [override, placement, placedPages] = await Promise.all([
     getCategoryOverride(slug),
     getPlacementSkusForCategory(slug),
+    getPlacedProductPagesForCategory(slug),
   ]);
   const allProducts = mergeCategoryProducts({
     bakedSkus: content.productSkus || [],
     override,
     placementAddSkus: placement.addSkus,
     placementRemoveSkus: placement.removeSkus,
+    placedProductPages: placedPages.products,
   });
 
   // Replace-products (curated) mode: fold the added products' own attributes in
   // so a facet selection keeps them instead of dropping them (they aren't in the
   // scraped facet memberships). Mirrors the page's sidebar build so the two agree.
   const curated = override?.replaceProducts === true;
-  const overlay = curated ? buildAddedAttrOverlay(allProducts, override?.addedProducts) : undefined;
+  const overlay = curated
+    ? buildAddedAttrOverlay(allProducts, [
+        ...(override?.addedProducts ?? []),
+        ...placedPages.overlayDocs,
+      ])
+    : undefined;
 
   const state = parseFilterState(record);
   const filtered = isStateEmpty(state)

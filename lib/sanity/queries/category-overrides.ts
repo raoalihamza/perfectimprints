@@ -111,6 +111,14 @@ export interface MergeCategoryProductsInput {
    * `customProduct`s (attached via `parentCategory`). Already normalized.
    */
   extraCustomProducts?: GeigerProduct[];
+  /**
+   * productPages placed into this category from the PRODUCT side via
+   * `productPage.addToCategories` (P2-CP-004 batch 4) — already normalized
+   * through `productPageToGeigerProduct` (they carry `detailUrl`). De-duped by
+   * SKU against the category-side `override.addedProducts`, so a product
+   * attached both ways renders once.
+   */
+  placedProductPages?: GeigerProduct[];
 }
 
 function trimList(list: string[] | undefined): string[] {
@@ -124,6 +132,8 @@ function trimList(list: string[] | undefined): string[] {
  *   1. baked `productSkus` (ignored when `categoryOverride.replaceProducts`)
  *   2. + `categoryOverride.addedSkus` / `addedProducts`
  *   3. + every `productPlacement` whose `addToCategories` includes this slug
+ *      and every `productPage` placed here via its own `addToCategories`
+ *      (`placedProductPages`, P2-CP-004 batch 4)
  *   4. − `categoryOverride.hiddenSkus`
  *   5. − every `productPlacement` whose `removeFromCategories` includes this slug
  *
@@ -181,6 +191,9 @@ export function mergeCategoryProducts(input: MergeCategoryProductsInput): Geiger
           ? productPageToGeigerProduct(doc)
           : customProductToGeigerProduct(doc),
       ),
+    // Product-side placements last within the added block (editorial override
+    // picks stay first); the sku de-dupe below collapses both-ways attaches.
+    ...(input.placedProductPages ?? []),
   ].filter((p) => !remove.has(p.sku));
 
   // Final de-dupe across custom + Geiger (custom first).

@@ -323,13 +323,26 @@ export async function POST(request: Request) {
       paths.push(`/products/${slug}`);
     }
     for (const p of paths) revalidatePath(p);
-    // A productPage attached to category grids via categoryOverride
-    // .addedProducts (P2-CP-004 batch 3) is dereferenced inside the
-    // cat:<slug>-tagged getCategoryOverride read — NOT under the productPage
-    // tags busted above — so find every override that references this doc and
-    // bust its category tag/path too, or an edit to the attached product
-    // (title/price/image) would stay stale on the embedding /cat page.
-    paths.push(...bustEmbeddingCategories(await findEmbeddingCategorySlugs(payload._id, slug)));
+    // Categories that RENDER this productPage — both attach directions:
+    //   (a) category-side (batch 3): categoryOverride.addedProducts references
+    //       → found via the references($id) lookup;
+    //   (b) product-side (batch 4): the doc's own addToCategories → in the
+    //       payload. With the recommended before()∪after() Projection this
+    //       covers attach, DETACH (the removed slug is still in before()), and
+    //       content edits; on the plain-field projection it is the current
+    //       (after) set only — a detached category then stays stale until its
+    //       tag is next busted (documented in docs/sanity-webhook-setup.md).
+    // Both read the doc inside the cat:<slug>-tagged fetches, which the
+    // productPage tags busted above do NOT cover — so bust each category tag.
+    const placedSlugs = (payload.addToCategories ?? []).filter(
+      (s): s is string => typeof s === 'string' && s.length > 0,
+    );
+    const embeddingSlugs = await findEmbeddingCategorySlugs(payload._id, slug);
+    paths.push(...bustEmbeddingCategories([...new Set([...placedSlugs, ...embeddingSlugs])]));
+    // A placement set change alters which slugs are "edited" — refresh the
+    // shared control sets so newly-placed categories start running the
+    // per-slug fetches (same as categoryOverride/productPlacement publishes).
+    if (placedSlugs.length > 0) revalidateTag(CATEGORY_CONTROL_TAG, 'max');
     return NextResponse.json({ revalidated: true, paths, type });
   }
 

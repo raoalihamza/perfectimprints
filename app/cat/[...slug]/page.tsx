@@ -29,7 +29,10 @@ import {
   getCategoryOverride,
   mergeCategoryProducts,
 } from '@/lib/sanity/queries/category-overrides';
-import { getPlacementSkusForCategory } from '@/lib/sanity/queries/product-placements';
+import {
+  getPlacedProductPagesForCategory,
+  getPlacementSkusForCategory,
+} from '@/lib/sanity/queries/product-placements';
 import {
   getCustomCategoryBySlug,
   type CustomCategoryDoc,
@@ -261,9 +264,10 @@ async function renderCustomCategory(
   baseUrl: string,
   categorySlug: string,
 ) {
-  const [override, placement] = await Promise.all([
+  const [override, placement, placedPages] = await Promise.all([
     getCategoryOverride(categorySlug),
     getPlacementSkusForCategory(categorySlug),
+    getPlacedProductPagesForCategory(categorySlug),
   ]);
   const products = mergeCategoryProducts({
     bakedSkus: custom.productSkus ?? [],
@@ -271,6 +275,7 @@ async function renderCustomCategory(
     placementAddSkus: placement.addSkus,
     placementRemoveSkus: placement.removeSkus,
     extraCustomProducts: custom.customProducts.map(customProductToGeigerProduct),
+    placedProductPages: placedPages.products,
   });
   return (
     <>
@@ -316,15 +321,22 @@ export default async function CategoryPage({ params }: Props) {
     notFound();
   }
 
-  // Only "edited" slugs pay the per-slug override + placement Sanity fetches.
+  // Only "edited" slugs pay the per-slug override + placement Sanity fetches
+  // (incl. product-side placed productPages, P2-CP-004 batch 4 — their slugs
+  // are in the edited set via the control query's pagePlacements).
   // Every untouched page skips them entirely and resolves from baked SKUs.
   const isEdited = edited.has(categorySlug);
-  const [override, placement] = isEdited
+  const [override, placement, placedPages] = isEdited
     ? await Promise.all([
         getCategoryOverride(categorySlug),
         getPlacementSkusForCategory(categorySlug),
+        getPlacedProductPagesForCategory(categorySlug),
       ])
-    : [null, { addSkus: [], removeSkus: [] }];
+    : [
+        null,
+        { addSkus: [], removeSkus: [] },
+        { products: [], overlayDocs: [] },
+      ];
 
   // Unified resolver: baked SKUs + override adds + placement adds − override hides
   // − placement removes (removal wins). When override.replaceProducts is on the
@@ -337,6 +349,7 @@ export default async function CategoryPage({ params }: Props) {
     override,
     placementAddSkus: placement.addSkus,
     placementRemoveSkus: placement.removeSkus,
+    placedProductPages: placedPages.products,
   });
   const effectiveSkus = allProducts.map((p) => p.sku);
 
@@ -371,7 +384,11 @@ export default async function CategoryPage({ params }: Props) {
   // "edited"), and reads only facet-memberships.json, so /cat stays static.
   const curated = override?.replaceProducts === true;
   const addedAttrOverlay = curated
-    ? buildAddedAttrOverlay(allProducts, override?.addedProducts)
+    ? buildAddedAttrOverlay(allProducts, [
+        ...(override?.addedProducts ?? []),
+        // Product-side placed productPages (batch 4) participate identically.
+        ...placedPages.overlayDocs,
+      ])
     : undefined;
 
   // Sidebar data is derived from the unfiltered category SKU set so filter counts

@@ -1,5 +1,5 @@
 import { defineField, defineType } from 'sanity';
-import { CategorySlugInput } from '../../components/CategoryPicker';
+import { CategoryPicker, CategorySlugInput } from '../../components/CategoryPicker';
 import { portableBody } from '../objects/page-sections';
 
 /**
@@ -51,6 +51,13 @@ export default defineType({
       description:
         'Use the same value names Geiger uses so this product participates in the New Products filters alongside scraped products. Colors are taken automatically from the color variants above.',
       options: { collapsible: true, collapsed: true },
+    },
+    {
+      name: 'categories',
+      title: 'Show on category pages',
+      description:
+        'Put this product ON specific /cat/… category pages. It appears there as a card linking to this product page and joins that category\'s filters. (Separate from "Related category" below, which only fills the Related Products carousel.)',
+      options: { collapsible: true, collapsed: false },
     },
     {
       name: 'related',
@@ -435,6 +442,18 @@ export default defineType({
       initialValue: false,
       fieldset: 'filters',
       description: 'Shows the CLOSEOUT ribbon and puts the product under the Closeout/Deals filter.',
+    }),
+
+    // ---- Show on category pages (product-side placement, P2-CP-004 batch 4) ----
+    defineField({
+      name: 'addToCategories',
+      title: 'Add to categories',
+      type: 'array',
+      of: [{ type: 'string' }],
+      fieldset: 'categories',
+      components: { input: CategoryPicker },
+      description:
+        'Show this product on these category pages. Search by title or slug and click to add; if the category does not exist yet, use "Create new category page". The product then appears as a card on each /cat/<slug> (linking to this product page) and participates in that category\'s filters.',
     }),
 
     // ---- Related ----
