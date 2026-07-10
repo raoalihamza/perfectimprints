@@ -175,16 +175,28 @@ const eventList = (
   events: events.map((e) => ({ _key: key(), ...e })),
   hidden: false,
 });
-const ctaBlock = (heading: string, subheading: string, buttons: { label: string; href: string }[]) => ({
+const ctaBlock = (
+  heading: string,
+  subheading: string,
+  buttons: { label: string; href: string; formSlug?: string }[],
+) => ({
   _type: 'ctaBlock',
   _key: key(),
   heading,
   subheading,
-  buttons: buttons.map((b) => ({ _key: key(), label: b.label, href: b.href })),
+  buttons: buttons.map((b) => ({
+    _key: key(),
+    label: b.label,
+    href: b.href,
+    ...(b.formSlug ? { formSlug: b.formSlug } : {}),
+  })),
   hidden: false,
 });
 
-const QUOTE_CTA = { label: 'Request a Quote', href: '/contact' };
+// P2-FB-002: each service page's quote button opens that service's form
+// (seeded by scripts/seed/seed-service-forms.ts) in a popup; the /contact href
+// stays as the fallback while the form is unpublished.
+const quoteCta = (formSlug: string) => ({ label: 'Request a Quote', href: '/contact', formSlug });
 
 // --- the four pages (original placeholder copy) -----------------------------
 function buildPages(): PageSeed[] {
@@ -230,7 +242,7 @@ function buildPages(): PageSeed[] {
         ctaBlock(
           'Ready to start a custom kit?',
           'Tell us about your project and our team will help you build the perfect kit.',
-          [QUOTE_CTA],
+          [quoteCta('kitting-quote')],
         ),
       ],
     },
@@ -277,7 +289,7 @@ function buildPages(): PageSeed[] {
         ]),
         statBanner('red', '88% of people remember the advertiser on a promotional product.', 'Put your brand in their hands.'),
         ctaBlock('Interested in a company store?', 'Contact us to scope a program that fits your team.', [
-          QUOTE_CTA,
+          quoteCta('company-stores-quote'),
         ]),
       ],
     },
@@ -308,7 +320,7 @@ function buildPages(): PageSeed[] {
           { title: 'Team Orders', text: 'Collect sizes and preferences without holding inventory.' },
         ]),
         ctaBlock('Planning an event or launch?', 'We can have your popup store ready quickly.', [
-          QUOTE_CTA,
+          quoteCta('popup-stores-quote'),
         ]),
       ],
     },
@@ -348,7 +360,9 @@ function buildPages(): PageSeed[] {
           },
         ]),
         statBanner('ink', '300+ associates. Hundreds of promotional consultants.', 'Experience that delivers custom right.'),
-        ctaBlock('Have a custom idea?', 'Share your vision and we will help bring it to life.', [QUOTE_CTA]),
+        ctaBlock('Have a custom idea?', 'Share your vision and we will help bring it to life.', [
+          quoteCta('custom-products-quote'),
+        ]),
       ],
     },
   ];

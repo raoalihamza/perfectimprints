@@ -1,12 +1,26 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@sanity/client';
 import {
+  sendBuiltEmail,
   sendCustomerConfirmationEmail,
   sendLeadEmail,
   type LeadEmailAttachment,
   type LeadEmailPayload,
 } from '@/lib/email/gmail-smtp';
 import { DEFAULT_LEAD_RECIPIENT, resolveLandingLeadRouting } from '@/lib/leads/landing-lead';
+import {
+  buildFormConfirmationEmail,
+  buildFormLeadEmail,
+  resolveFormLeadRouting,
+} from '@/lib/leads/form-lead';
+import {
+  buildAnswerRows,
+  extractContactFields,
+  fieldName,
+  validateAnswers,
+  type AnswerValue,
+} from '@/lib/forms/form-def';
+import { getFormBySlug } from '@/lib/sanity/queries/forms';
 import { getLandingLeadInfo } from '@/lib/sanity/queries/landing-pages';
 import { getProductLeadInfo } from '@/lib/sanity/queries/product-pages';
 
@@ -123,6 +137,18 @@ export async function POST(request: Request) {
   // Honeypot — silently accept to avoid signalling bots.
   if (str(formData.get('website')).length > 0) {
     return NextResponse.json({ ok: true }, { status: 200 });
+  }
+
+  // Form-builder submissions (P2-FB-001): a hidden `formSlug` routes the
+  // request to the generalized handler below — the form DEFINITION (fields,
+  // required flags, recipient, confirmation toggle) is re-resolved from Sanity
+  // server-side, so the client can neither pick a recipient nor skip a
+  // required field. Every pre-existing form (contact, category CTA, landing,
+  // product quote, blog, search-empty) never sends `formSlug`, so the fixed
+  // path below stays byte-for-byte identical.
+  const builderFormSlug = str(formData.get('formSlug')).slice(0, 200);
+  if (builderFormSlug) {
+    return handleBuilderFormSubmission(request, formData, builderFormSlug);
   }
 
   const firstName = str(formData.get('firstName'));
@@ -360,6 +386,210 @@ export async function POST(request: Request) {
         ...(estimatedTotal ? { estimatedTotal } : {}),
         sourceUrl: payload.sourceUrl,
       });
+    } catch (err) {
+      console.error('[leads] customer confirmation failed (non-fatal)', err);
+    }
+  }
+
+  return NextResponse.json({ ok: true });
+}
+
+/**
+ * Form-builder submissions (P2-FB-001). One generalized path for every `form`
+ * document: resolve the definition server-side, validate the answers against
+ * it, email the form's stored recipient with a label:value block of all
+ * answers, write a `leadSubmission` (formTitle/formSlug/answers[]), and send
+ * the customer confirmation when the form enables it. Shares the exact spam
+ * stack of the fixed path — honeypot (checked before dispatch), rate limit,
+ * Turnstile, and the shared attachment limits.
+ */
+async function handleBuilderFormSubmission(
+  request: Request,
+  formData: FormData,
+  formSlug: string,
+): Promise<NextResponse> {
+  // The SERVER's copy of the form is authoritative — recipient, confirmation
+  // toggle, and required fields all come from Sanity, never the client.
+  const form = await getFormBySlug(formSlug);
+  if (!form || form.fields.length === 0) {
+    return NextResponse.json(
+      { error: 'This form is unavailable. Please try again later or call 800-773-9472.' },
+      { status: 400 },
+    );
+  }
+
+  const sourceUrl = str(formData.get('sourceUrl')) || 'unknown';
+  const turnstileToken = str(formData.get('cf-turnstile-response'));
+
+  // Collect answers + files under the definition-derived field names (the
+  // client computes the same names from the same definition via fieldName()).
+  const answers: Record<string, AnswerValue> = {};
+  const fileCounts: Record<string, number> = {};
+  const fileNames: Record<string, string[]> = {};
+  const rawFiles: File[] = [];
+  form.fields.forEach((field, index) => {
+    const name = fieldName(field, index);
+    if (field.fieldType === 'fileUpload') {
+      const files = formData
+        .getAll(name)
+        .filter((v): v is File => v instanceof File && v.size > 0);
+      fileCounts[name] = files.length;
+      fileNames[name] = files.map((f) => f.name);
+      rawFiles.push(...files);
+      return;
+    }
+    if (field.fieldType === 'checkboxGroup') {
+      answers[name] = formData
+        .getAll(name)
+        .filter((v): v is string => typeof v === 'string')
+        .map((v) => v.trim().slice(0, 500))
+        .filter(Boolean);
+      return;
+    }
+    answers[name] = str(formData.get(name)).slice(0, 5000);
+  });
+
+  // Server-side validation against the resolved definition — a crafted client
+  // payload can't skip a required field or invent dropdown values.
+  const errors = validateAnswers(form, answers, fileCounts);
+  if (Object.keys(errors).length > 0) {
+    return NextResponse.json({ error: 'Validation failed.', fields: errors }, { status: 400 });
+  }
+
+  // Attachments across ALL fileUpload fields share the same limits as every
+  // other lead form — re-validated server-side.
+  const fileError = validateFiles(rawFiles);
+  if (fileError) {
+    return NextResponse.json(
+      { error: 'Attachment problem.', fields: { files: fileError } },
+      { status: 400 },
+    );
+  }
+
+  const ip = getClientIp(request);
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      { error: 'Too many submissions. Please try again later.' },
+      { status: 429 },
+    );
+  }
+
+  const captchaOk = await verifyTurnstile(turnstileToken, ip);
+  if (!captchaOk) {
+    return NextResponse.json(
+      { error: 'Could not verify you are human. Please try again.' },
+      { status: 400 },
+    );
+  }
+
+  // Read each file's bytes once and reuse for the email + Sanity asset upload.
+  const fileBuffers = await Promise.all(
+    rawFiles.map(async (file) => ({
+      filename: file.name,
+      contentType: file.type || undefined,
+      buffer: Buffer.from(await file.arrayBuffer()),
+    })),
+  );
+  const emailAttachments: LeadEmailAttachment[] = fileBuffers.map((f) => ({
+    filename: f.filename,
+    content: f.buffer,
+    contentType: f.contentType,
+  }));
+
+  const contact = extractContactFields(form, answers);
+  const answerRows = buildAnswerRows(form, answers, fileNames);
+  const routing = resolveFormLeadRouting(form);
+  const to = routing.to || process.env.LEAD_EMAIL_TO || DEFAULT_LEAD_RECIPIENT;
+  const submittedAt = new Date().toISOString();
+  const fromName = `${contact.firstName} ${contact.lastName}`.trim() || contact.email;
+
+  const leadEmail = buildFormLeadEmail({
+    formTitle: form.title,
+    fromName,
+    answers: answerRows,
+    sourceUrl,
+    submittedAt,
+  });
+  try {
+    await sendBuiltEmail({
+      to,
+      replyTo: contact.email || undefined,
+      ...leadEmail,
+      attachments: emailAttachments.length > 0 ? emailAttachments : undefined,
+    });
+  } catch (err) {
+    console.error('[leads] form-builder email send failed', err);
+    return NextResponse.json(
+      { error: 'We could not send your request. Please try again or call 800-773-9472.' },
+      { status: 500 },
+    );
+  }
+
+  // Lead record + attachments — non-fatal, same policy as the fixed path.
+  const sanity = getSanityWriteClient();
+  if (sanity) {
+    const attachmentRefs: Array<{
+      _key: string;
+      _type: 'file';
+      asset: { _type: 'reference'; _ref: string };
+    }> = [];
+    for (let i = 0; i < fileBuffers.length; i += 1) {
+      const f = fileBuffers[i];
+      try {
+        const asset = await sanity.assets.upload('file', f.buffer, {
+          filename: f.filename,
+          contentType: f.contentType,
+        });
+        attachmentRefs.push({
+          _key: `att-${i}`,
+          _type: 'file',
+          asset: { _type: 'reference', _ref: asset._id },
+        });
+      } catch (err) {
+        console.error('[leads] sanity asset upload failed (non-fatal)', err);
+      }
+    }
+
+    try {
+      await sanity.create({
+        _type: 'leadSubmission',
+        // Core columns filled from label/type heuristics (see
+        // extractContactFields) so the Studio list stays scannable; the FULL
+        // submission is always in answers[].
+        ...(contact.firstName ? { firstName: contact.firstName } : {}),
+        ...(contact.lastName ? { lastName: contact.lastName } : {}),
+        ...(contact.email ? { email: contact.email } : {}),
+        ...(contact.phone ? { phone: contact.phone } : {}),
+        ...(contact.company ? { company: contact.company } : {}),
+        formTitle: form.title,
+        formSlug,
+        answers: answerRows.map((row, i) => ({
+          _key: `ans-${i}`,
+          _type: 'formAnswer',
+          label: row.label,
+          value: row.value,
+        })),
+        sourceUrl,
+        submittedAt,
+        recipient: to,
+        ...(attachmentRefs.length > 0 ? { attachments: attachmentRefs } : {}),
+      });
+    } catch (err) {
+      console.error('[leads] sanity write failed (non-fatal)', err);
+    }
+  }
+
+  // Customer confirmation — when the form enables it AND it captured an email
+  // field. NON-FATAL: the lead already reached its recipient.
+  if (routing.sendConfirmation && contact.email) {
+    try {
+      const confirmation = buildFormConfirmationEmail({
+        firstName: contact.firstName,
+        formTitle: form.title,
+        answers: answerRows,
+        sourceUrl,
+      });
+      await sendBuiltEmail({ to: contact.email, replyTo: to, ...confirmation });
     } catch (err) {
       console.error('[leads] customer confirmation failed (non-fatal)', err);
     }

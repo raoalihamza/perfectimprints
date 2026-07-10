@@ -130,6 +130,13 @@ export const heroBanner = defineType({
     }),
     defineField({ name: 'ctaLabel', title: 'CTA label', type: 'string' }),
     defineField({ name: 'ctaHref', title: 'CTA link', type: 'string' }),
+    defineField({
+      name: 'ctaFormSlug',
+      title: 'CTA opens a form (form slug)',
+      type: 'string',
+      description:
+        'Optional (P2-FB-001). Enter a Form document’s slug (see Forms in Studio, e.g. "kitting-quote") to open that form in a popup instead of following the CTA link. The link above stays as the fallback if the form is unpublished.',
+    }),
     hiddenField,
   ],
   preview: { select: { heading: 'heading', hidden: 'hidden' }, ...previewWithHidden('Hero') },
@@ -300,6 +307,13 @@ export const ctaBlock = defineType({
           fields: [
             { name: 'label', type: 'string', title: 'Label' },
             { name: 'href', type: 'string', title: 'Link' },
+            {
+              name: 'formSlug',
+              type: 'string',
+              title: 'Open a form instead (form slug)',
+              description:
+                'Optional (P2-FB-001). Enter a Form document’s slug (see Forms in Studio, e.g. "kitting-quote") to open that form in a popup instead of following the link. The link stays as the fallback if the form is unpublished.',
+            },
           ],
           preview: { select: { title: 'label', subtitle: 'href' } },
         },

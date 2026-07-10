@@ -29,6 +29,7 @@
     "import-brands": "tsx scripts/migrations/import-brands.ts",
     "seed-mega-menu": "tsx scripts/migrations/seed-mega-menu.ts",
     "seed-service-pages": "tsx scripts/seed/seed-service-pages.ts",
+    "seed-service-forms": "tsx scripts/seed/seed-service-forms.ts",
     "seed-landing-pages": "tsx scripts/seed/seed-landing-pages.ts",
     "seed-static-pages": "tsx scripts/seed/seed-static-pages.ts",
     "seed-faqs": "tsx scripts/seed/seed-faqs.ts",

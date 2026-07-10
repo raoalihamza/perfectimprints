@@ -347,6 +347,7 @@
         <li><a href="#landing">Landing Pages (local + topic pages)</a></li>
         <li><a href="#product-pages">Product Pages (your own product detail pages)</a></li>
         <li><a href="#bulk-upload">Bulk Upload Product Pages (import from a spreadsheet)</a></li>
+        <li><a href="#forms">Forms (build your own quote forms)</a></li>
         <li><a href="#connect">How everything connects</a></li>
         <li><a href="#tasks">Common tasks (quick reference)</a></li>
         <li><a href="#warnings">Important warnings</a></li>
@@ -1178,6 +1179,9 @@
         product</strong>, the configured <strong>color / size / decoration</strong>, the <strong>estimated
         total</strong> the customer saw, and a <strong>"Lead sent to"</strong> note showing which email the
       notification went to (landing-page leads show that note too).</p>
+    <p>Submissions from a <a href="#forms">builder Form</a> (e.g. the four service quote forms) show the
+      <strong>Form</strong> name plus an <strong>Answers</strong> list — every question with the answer the visitor
+      gave, in the form's order — alongside the usual name / email / phone / company columns and any attached files.</p>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
@@ -1656,7 +1660,57 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="connect">24. How everything connects</h2>
+    <h2 id="forms">24. Forms (build your own quote forms)</h2>
+    <p>The <strong>Form</strong> document type is a form builder: you choose the questions, and the site renders a
+      working form — with spam protection, the lead email to you, an automatic confirmation email to the customer, and
+      a <a href="#leads">Lead Submission</a> record — all handled for you. Four service quote forms are already set up
+      (Kitting, Company Stores, 100% Custom Products, Pop-Up Stores), and you can build brand-new ones for future
+      Service or Landing pages yourself.</p>
+
+    <p>Open <span class="path">Content <span class="arrow">›</span> Form</span> and <strong>Create new</strong> (or
+      open one of the four seeded forms). The fields:</p>
+    <ul>
+      <li><strong>Title</strong> — the form's heading, also used in the subject line of the lead email you receive.</li>
+      <li><strong>Slug</strong> — the form's id. Page buttons point at it, so avoid changing it after wiring a button.</li>
+      <li><strong>Lead recipient email</strong> — where submissions are emailed. Defaults to
+        patrick@perfectimprints.com; change it per form if someone else should get those leads. This address is kept
+        server-side — it is never visible in the page code.</li>
+      <li><strong>Email the customer a confirmation copy</strong> — on by default; the customer gets a friendly summary
+        of what they sent.</li>
+      <li><strong>Intro</strong> — optional blurb shown above the questions.</li>
+      <li><strong>Fields</strong> — the questions, in order (drag to reorder). Each has a <strong>Label</strong>, a
+        <strong>Field type</strong> (short text, paragraph, email, phone, number, date, dropdown, yes/no checkbox,
+        checkbox group, or file upload), a <strong>Required</strong> toggle, and an optional
+        <strong>Placeholder</strong>. Dropdowns and checkbox groups also take a list of <strong>Options</strong>.</li>
+      <li><strong>Submit button label</strong> and <strong>Success message</strong> — the button text and the thank-you
+        note shown after sending.</li>
+    </ul>
+
+    <div class="callout">
+      <span class="label">Putting a form on a page</span>
+      <p>Forms open as a popup from a page button. In any <a href="#page">Page</a>, edit a <strong>CTA Block</strong>
+        button (or a Hero Banner's CTA) and fill its <strong>"Open a form instead (form slug)"</strong> field with the
+        form's slug (e.g. <code>kitting-quote</code>). Clicking the button then opens that form instead of following
+        the link. Keep the button's normal link filled in too — if the form is unpublished (or the slug has a typo),
+        the button safely falls back to the link. The four Services pages' "Request a Quote" buttons are already wired
+        this way.</p>
+    </div>
+
+    <div class="callout warn">
+      <span class="label">Publish the form</span>
+      <p>A form only opens on the live site once it is <strong>published</strong>. The four seeded service forms start
+        as drafts — review each one and press <strong>Publish</strong>. Until then, the "Request a Quote" buttons keep
+        linking to the contact page.</p>
+    </div>
+
+    <p>Edits go live within seconds of publishing (add a question, change the recipient, reword the button). File
+      uploads use the same rules as the contact form: up to 3 files, 10&nbsp;MB each (PDF, PNG, JPG, GIF, SVG, AI,
+      EPS), and the files arrive attached to your lead email and stored on the Lead Submission.</p>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="connect">25. How everything connects</h2>
     <p>A quick mental map of what drives what:</p>
     <ul>
       <li><strong>Global Settings</strong> drives the header and footer of <em>every</em> page (contact details, social
@@ -1691,7 +1745,7 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="tasks">25. Common tasks (quick reference)</h2>
+    <h2 id="tasks">26. Common tasks (quick reference)</h2>
     <table>
       <tr>
         <th>I want to…</th>
@@ -1804,7 +1858,7 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="warnings">26. Important warnings (keep these in mind)</h2>
+    <h2 id="warnings">27. Important warnings (keep these in mind)</h2>
 
     <div class="callout danger">
       <span class="label">1. Always review products before publishing a pushed category</span>

@@ -175,6 +175,21 @@ export function productPageTag(slug: string): string {
 }
 
 /**
+ * Reusable form-builder `form` documents (P2-FB-001) — rendered wherever a
+ * page CTA opens them (the four /services pages at minimum). `FORMS_TAG` is
+ * the list-level tag busted on any `form` publish/delete; `formTag(slug)`
+ * busts a single form's definition. All form reads go through the non-CDN
+ * `cachedClient` so a Studio edit (add a field, change the recipient)
+ * revalidates deterministically while staying cache-tagged — keeping every
+ * page that embeds a form static/SSG. Same rationale as PAGES_TAG.
+ */
+export const FORMS_TAG = 'forms';
+export function formTag(slug: string): string {
+  const s = sanitizeTagValue(slug);
+  return s ? `form:${s}` : '';
+}
+
+/**
  * Per-path tag for the custom structured-data injector (Task C). Keyed by the
  * full page path (e.g. `customSchema:/cat/water-bottles`, `customSchema:/about`,
  * `customSchema:/`). The `CustomSchemaJsonLd` server component reads through a

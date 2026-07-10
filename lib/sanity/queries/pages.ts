@@ -29,6 +29,8 @@ export interface HeroBannerSection extends BaseSection {
   overlayText?: boolean;
   ctaLabel?: string;
   ctaHref?: string;
+  /** When set (P2-FB-001), the CTA opens this form-builder form in a modal instead of linking. */
+  ctaFormSlug?: string;
 }
 
 export interface RichTextSection extends BaseSection {
@@ -96,6 +98,8 @@ export interface CtaButton {
   _key?: string;
   label?: string;
   href?: string;
+  /** When set (P2-FB-001), the button opens this form-builder form in a modal instead of linking. */
+  formSlug?: string;
 }
 
 export interface CtaBlockSection extends BaseSection {

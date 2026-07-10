@@ -178,6 +178,37 @@ export async function sendLeadEmail(
 }
 
 /**
+ * Sends a pre-built email (subject/text/html from a pure builder — the
+ * form-builder lead + confirmation emails in lib/leads/form-lead.ts). Purely
+ * additive transport: the pre-existing lead paths keep using sendLeadEmail /
+ * sendCustomerConfirmationEmail byte-for-byte.
+ */
+export async function sendBuiltEmail(input: {
+  to: string;
+  replyTo?: string;
+  subject: string;
+  text: string;
+  html: string;
+  attachments?: LeadEmailAttachment[];
+}): Promise<void> {
+  const transporter = getTransporter();
+  const from = process.env.LEAD_EMAIL_FROM || process.env.GMAIL_USER || input.to;
+  await transporter.sendMail({
+    from,
+    to: input.to,
+    ...(input.replyTo ? { replyTo: input.replyTo } : {}),
+    subject: input.subject,
+    text: input.text,
+    html: input.html,
+    attachments: input.attachments?.map((file) => ({
+      filename: file.filename,
+      content: file.content,
+      contentType: file.contentType,
+    })),
+  });
+}
+
+/**
  * Customer confirmation for LANDING-PAGE submissions only (P2-AI-005 part 2):
  * a friendly copy of what they sent us, so the lead knows it went through.
  * Body content is built by the pure `buildCustomerConfirmationEmail`

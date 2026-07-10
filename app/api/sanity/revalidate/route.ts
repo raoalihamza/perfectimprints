@@ -15,6 +15,7 @@ import {
   BRANDS_TAG,
   CATEGORY_CONTROL_TAG,
   FAQS_TAG,
+  FORMS_TAG,
   LANDING_TAG,
   MEGA_MENU_TAG,
   PAGES_TAG,
@@ -24,6 +25,7 @@ import {
   VIDEOS_TAG,
   categoryTag,
   customSchemaTag,
+  formTag,
   landingTag,
   pageTag,
   productPageTag,
@@ -364,6 +366,30 @@ export async function POST(request: Request) {
     }
     revalidatePath('/sitemap.xml');
     return NextResponse.json({ revalidated: false, reason: 'landingPage missing slug', type });
+  }
+
+  // Reusable form-builder `form` documents (P2-FB-001) render wherever a page
+  // CTA opens them — the four /services pages at minimum, plus any page whose
+  // ctaBlock / hero CTA carries a formSlug. Every form read is cache-tagged
+  // (FORMS_TAG list-level + form:<slug> content-level), and tag invalidation
+  // reaches EVERY route whose render used the tagged fetch — so arbitrary
+  // embedders refresh without being enumerable here. The four service paths
+  // are also revalidated explicitly (the known primary embedders).
+  // ⚠️ `form` must be in the Sanity webhook Filter `_type` list (it is a NEW
+  // type — added to neither webhook automatically) or this never fires — see
+  // docs/sanity-webhook-setup.md.
+  if (type === 'form') {
+    revalidateTag(FORMS_TAG, 'max');
+    const slug = payload.slug?.current;
+    if (slug) bustTag(formTag(slug));
+    const paths = [
+      '/services/kitting',
+      '/services/company-stores',
+      '/services/popup-stores',
+      '/services/custom-products',
+    ];
+    for (const p of paths) revalidatePath(p);
+    return NextResponse.json({ revalidated: true, paths, type });
   }
 
   // Generic section-based `page` documents power the Services routes

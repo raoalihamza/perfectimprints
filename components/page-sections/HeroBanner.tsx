@@ -1,27 +1,40 @@
 import Link from 'next/link';
 import { Container } from '@/components/ui/Container';
 import { SectionImage } from './SectionImage';
+import { FormModalButton } from '@/components/forms/FormModalButton';
+import { getFormBySlug, toFormRenderDef } from '@/lib/sanity/queries/forms';
+import type { FormDef } from '@/lib/forms/form-def';
 import type { HeroBannerSection } from '@/lib/sanity/queries/pages';
 
-function Cta({ label, href }: { label?: string; href?: string }) {
-  if (!label || !href) return null;
+const ctaClass =
+  'mt-6 inline-flex h-12 items-center justify-center rounded-md bg-brand-green px-6 text-base font-semibold text-white hover:opacity-90';
+
+// A hero CTA with a resolved form-builder form (P2-FB-001) opens it in a
+// modal; otherwise it is the pre-existing link. An unresolved form slug falls
+// back to the link so the CTA never dead-ends.
+function Cta({ label, href, form }: { label?: string; href?: string; form?: FormDef | null }) {
+  if (!label) return null;
+  if (form) return <FormModalButton form={form} label={label} className={ctaClass} />;
+  if (!href) return null;
   const external = /^https?:\/\//i.test(href);
-  const cls =
-    'mt-6 inline-flex h-12 items-center justify-center rounded-md bg-brand-green px-6 text-base font-semibold text-white hover:opacity-90';
   return external ? (
-    <a href={href} className={cls}>
+    <a href={href} className={ctaClass}>
       {label}
     </a>
   ) : (
-    <Link href={href} className={cls}>
+    <Link href={href} className={ctaClass}>
       {label}
     </Link>
   );
 }
 
-export function HeroBanner({ section }: { section: HeroBannerSection }) {
-  const { image, imageUrl, heading, subheading, overlayText, ctaLabel, ctaHref } = section;
+export async function HeroBanner({ section }: { section: HeroBannerSection }) {
+  const { image, imageUrl, heading, subheading, overlayText, ctaLabel, ctaHref, ctaFormSlug } =
+    section;
   const hasImage = Boolean(image?.asset?._ref || imageUrl);
+  // Tag-cached read (FORMS_TAG + form:<slug>) — static-safe, webhook-revalidated.
+  const formDoc = ctaFormSlug ? await getFormBySlug(ctaFormSlug) : null;
+  const form = formDoc ? toFormRenderDef(formDoc) : null;
 
   if (overlayText && hasImage) {
     return (
@@ -45,7 +58,7 @@ export function HeroBanner({ section }: { section: HeroBannerSection }) {
               {subheading}
             </p>
           )}
-          <Cta label={ctaLabel} href={ctaHref} />
+          <Cta label={ctaLabel} href={ctaHref} form={form} />
         </Container>
       </section>
     );
@@ -65,7 +78,7 @@ export function HeroBanner({ section }: { section: HeroBannerSection }) {
             {subheading}
           </p>
         )}
-        <Cta label={ctaLabel} href={ctaHref} />
+        <Cta label={ctaLabel} href={ctaHref} form={form} />
       </Container>
       {hasImage && (
         <Container className="pb-10">

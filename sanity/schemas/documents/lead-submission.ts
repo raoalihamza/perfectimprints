@@ -85,6 +85,39 @@ export default defineType({
       description:
         'The on-page ESTIMATE shown to the customer (quantity × tier price + setup charge) — never a firm price; final pricing is confirmed in the quote.',
     }),
+    defineField({
+      name: 'formTitle',
+      title: 'Form',
+      type: 'string',
+      readOnly: true,
+      description: 'Set on form-builder submissions (P2-FB-001): the Form document’s title.',
+    }),
+    defineField({
+      name: 'formSlug',
+      title: 'Form Slug',
+      type: 'string',
+      readOnly: true,
+      description: 'The form-builder slug the submission came through.',
+    }),
+    defineField({
+      name: 'answers',
+      title: 'Answers',
+      type: 'array',
+      readOnly: true,
+      description:
+        'Form-builder submissions (P2-FB-001): every answered field as label + value, in the form’s field order.',
+      of: [
+        {
+          type: 'object',
+          name: 'formAnswer',
+          fields: [
+            defineField({ name: 'label', title: 'Question', type: 'string', readOnly: true }),
+            defineField({ name: 'value', title: 'Answer', type: 'text', rows: 2, readOnly: true }),
+          ],
+          preview: { select: { title: 'label', subtitle: 'value' } },
+        },
+      ],
+    }),
     defineField({ name: 'sourceUrl', title: 'Source URL', type: 'string', readOnly: true }),
     defineField({
       name: 'recipient',
