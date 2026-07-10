@@ -1603,7 +1603,8 @@
       <li><strong>Description</strong> — plain text; a blank line inside the cell starts a new paragraph. Formatting
         (bullets, links, headings) is added later in Studio or via the AI helper.</li>
       <li><strong>Min Qty</strong>, <strong>Setup Charge</strong>, <strong>Production Time</strong> — numbers
-        (production time is in days).</li>
+        (production time is in days; writing <code>7 working days</code> is understood as 7). A number cell that
+        can't be read is simply left unset with a note — it never blocks the row.</li>
       <li><strong>On Sale</strong>, <strong>Show In New Products</strong>, <strong>Made In USA</strong>,
         <strong>Eco Friendly</strong>, <strong>Closeout</strong> — write <code>yes</code> or <code>no</code> (blank =
         not set; new products default to showing on /new-products).</li>
@@ -1646,8 +1647,10 @@
       <span class="label">Good to know</span>
       <p>Up to 50 product rows per upload (split bigger lists into several files) and files up to 4 MB. Prices can be
         written with a dollar sign (<code>$4.99</code> works). One bad row never blocks the rest — it is skipped with
-        a note while the other rows import. And because everything arrives as a draft, there is no risk to the live
-        site: review, then publish.</p>
+        a note while the other rows import. If you edit the file as raw text (not in Excel/Google Sheets), wrap any
+        cell that contains a comma in double quotes — otherwise the row's columns shift and the preview flags it with
+        a clear error. And because everything arrives as a draft, there is no risk to the live site: review, then
+        publish.</p>
     </div>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>

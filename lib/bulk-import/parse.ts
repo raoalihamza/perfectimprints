@@ -293,29 +293,42 @@ function makeRowReader(headerRefs: ColumnRef[], cells: unknown[]): RowReader {
   };
 }
 
+/**
+ * Optional-number cell. All these fields are optional on the schema, so an
+ * unreadable value is a WARNING (field left unset, row still imports) — never a
+ * row-blocking error. A cell that STARTS with a number but carries extra words
+ * (e.g. "7 working days", "10 days") is read as that number, with a note.
+ */
 function parseNumberField(
   r: RowReader,
   key: SingleKey,
   label: string,
-  errors: string[],
-  opts: { integer?: boolean; min?: number; max?: number } = {},
+  warnings: string[],
+  opts: { integer?: boolean; min?: number; max?: number; unit?: string } = {},
 ): number | undefined {
-  const parsed = parseNumberCell(r.single(key));
+  const raw = r.single(key);
+  let parsed = parseNumberCell(raw);
   if (parsed === undefined) return undefined;
   if (parsed === null) {
-    errors.push(`${label} is not a number ("${r.single(key)}").`);
-    return undefined;
+    const leading = raw.match(/^\s*\$?(\d+(?:\.\d+)?)(?=\D)/);
+    if (leading) {
+      parsed = Number(leading[1]);
+      warnings.push(`${label} "${raw}" — read as ${leading[1]}${opts.unit ? ` ${opts.unit}` : ''}.`);
+    } else {
+      warnings.push(`${label} is not a number ("${raw}") — left unset.`);
+      return undefined;
+    }
   }
   if (opts.integer && !Number.isInteger(parsed)) {
-    errors.push(`${label} must be a whole number ("${r.single(key)}").`);
+    warnings.push(`${label} must be a whole number ("${raw}") — left unset.`);
     return undefined;
   }
   if (opts.min !== undefined && parsed < opts.min) {
-    errors.push(`${label} must be at least ${opts.min} ("${r.single(key)}").`);
+    warnings.push(`${label} must be at least ${opts.min} ("${raw}") — left unset.`);
     return undefined;
   }
   if (opts.max !== undefined && parsed > opts.max) {
-    errors.push(`${label} must be at most ${opts.max} ("${r.single(key)}").`);
+    warnings.push(`${label} must be at most ${opts.max} ("${raw}") — left unset.`);
     return undefined;
   }
   return parsed;
@@ -427,24 +440,24 @@ function parseRow(headerRefs: ColumnRef[], cells: unknown[], rowNumber: number):
   const closeout = parseYesNoField(r, 'closeout', 'Closeout', warnings);
   if (closeout !== undefined) fields.closeout = closeout;
 
-  // Numbers
-  const minQty = parseNumberField(r, 'min qty', 'Min Qty', errors, { integer: true, min: 1 });
+  // Numbers (optional fields — unreadable values warn + stay unset, see parseNumberField)
+  const minQty = parseNumberField(r, 'min qty', 'Min Qty', warnings, { integer: true, min: 1 });
   if (minQty !== undefined) fields.minQty = minQty;
-  const setupCharge = parseNumberField(r, 'setup charge', 'Setup Charge', errors, { min: 0 });
+  const setupCharge = parseNumberField(r, 'setup charge', 'Setup Charge', warnings, { min: 0 });
   if (setupCharge !== undefined) fields.setupCharge = setupCharge;
-  const salePct = parseNumberField(r, 'sale percent off', 'Sale Percent Off', errors, { min: 1, max: 99 });
+  const salePct = parseNumberField(r, 'sale percent off', 'Sale Percent Off', warnings, { min: 1, max: 99 });
   if (salePct !== undefined) fields.salePercentOff = salePct;
-  const prodTime = parseNumberField(r, 'production time', 'Production Time', errors, { min: 0 });
+  const prodTime = parseNumberField(r, 'production time', 'Production Time', warnings, { min: 0, unit: 'days' });
   if (prodTime !== undefined) fields.productionTime = prodTime;
-  const unitsPerCarton = parseNumberField(r, 'units per carton', 'Units Per Carton', errors, { integer: true, min: 1 });
+  const unitsPerCarton = parseNumberField(r, 'units per carton', 'Units Per Carton', warnings, { integer: true, min: 1 });
   if (unitsPerCarton !== undefined) fields.unitsPerCarton = unitsPerCarton;
-  const cartonWeight = parseNumberField(r, 'carton weight', 'Carton Weight', errors, { min: 0 });
+  const cartonWeight = parseNumberField(r, 'carton weight', 'Carton Weight', warnings, { min: 0 });
   if (cartonWeight !== undefined) fields.cartonWeight = cartonWeight;
-  const cartonWidth = parseNumberField(r, 'carton width', 'Carton Width', errors, { min: 0 });
+  const cartonWidth = parseNumberField(r, 'carton width', 'Carton Width', warnings, { min: 0 });
   if (cartonWidth !== undefined) fields.cartonWidth = cartonWidth;
-  const cartonHeight = parseNumberField(r, 'carton height', 'Carton Height', errors, { min: 0 });
+  const cartonHeight = parseNumberField(r, 'carton height', 'Carton Height', warnings, { min: 0 });
   if (cartonHeight !== undefined) fields.cartonHeight = cartonHeight;
-  const cartonDepth = parseNumberField(r, 'carton depth', 'Carton Depth', errors, { min: 0 });
+  const cartonDepth = parseNumberField(r, 'carton depth', 'Carton Depth', warnings, { min: 0 });
   if (cartonDepth !== undefined) fields.cartonDepth = cartonDepth;
 
   // Sizes
@@ -644,7 +657,25 @@ export function parseProductSheet(data: Uint8Array): BulkParseResult {
     };
   }
 
-  const rows = dataRows.map(({ cells, rowNumber }) => parseRow(headerRefs, cells, rowNumber));
+  // Effective heading count (SheetJS pads every row — the header included — to
+  // the widest row in the sheet, so trailing blanks don't count as headings).
+  let headerCount = headerCells.length;
+  while (headerCount > 0 && !headerCells[headerCount - 1]) headerCount -= 1;
+
+  const rows = dataRows.map(({ cells, rowNumber }) => {
+    const row = parseRow(headerRefs, cells, rowNumber);
+    // FILLED cells beyond the last heading ⇒ the row's columns are shifted —
+    // almost always a comma inside a cell that isn't wrapped in double quotes.
+    // One clear error beats a cascade of misaligned-value noise.
+    if (cells.length > headerCount && cells.slice(headerCount).some((c) => cellString(c) !== '')) {
+      row.errors.push(
+        `This row has more filled cells than the file has column headings, so its values are shifted — ` +
+          `usually a comma inside a cell that is not wrapped in double quotes (often the Description). ` +
+          `Put quotes around that cell's text and re-upload.`,
+      );
+    }
+    return row;
+  });
 
   // Duplicate slugs within the same file: the first row wins, later ones error.
   const seenSlugs = new Map<string, number>();

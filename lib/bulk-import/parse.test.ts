@@ -125,6 +125,28 @@ describe('parseProductSheet', () => {
     expect(row.warnings.join(' ')).toMatch(/On Sale should be "yes" or "no"/);
   });
 
+  it('reads "7 working days" as 7 and treats unreadable numbers as warnings, not errors', () => {
+    const csv =
+      'Title,Production Time,Min Qty,Setup Charge\n' +
+      'Widget,7 working days,PI-TOTE-4022,yes\n';
+    const row = parseProductSheet(csvBytes(csv)).rows[0];
+    expect(row.errors).toEqual([]);
+    expect(row.fields.productionTime).toBe(7);
+    expect(row.fields.minQty).toBeUndefined();
+    expect(row.fields.setupCharge).toBeUndefined();
+    expect(row.warnings.join(' ')).toMatch(/Production Time "7 working days" — read as 7 days/);
+    expect(row.warnings.join(' ')).toMatch(/Min Qty is not a number \("PI-TOTE-4022"\) — left unset/);
+    expect(row.warnings.join(' ')).toMatch(/Setup Charge is not a number \("yes"\) — left unset/);
+  });
+
+  it('flags a row with more filled cells than headings (unquoted comma) with one clear error', () => {
+    const csv =
+      'Title,Description,Brand\n' +
+      'Widget,Reusable, ideal for events, and promos,Acme\n';
+    const row = parseProductSheet(csvBytes(csv)).rows[0];
+    expect(row.errors.join(' ')).toMatch(/not wrapped in double quotes/);
+  });
+
   it('errors the later of two rows sharing a slug', () => {
     const csv = 'Title\nCustom Pens\nCustom Pens\n';
     const result = parseProductSheet(csvBytes(csv));
