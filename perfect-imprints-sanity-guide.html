@@ -346,6 +346,7 @@
         <li><a href="#site-refresh">Site Refresh (update product data)</a></li>
         <li><a href="#landing">Landing Pages (local + topic pages)</a></li>
         <li><a href="#product-pages">Product Pages (your own product detail pages)</a></li>
+        <li><a href="#bulk-upload">Bulk Upload Product Pages (import from a spreadsheet)</a></li>
         <li><a href="#connect">How everything connects</a></li>
         <li><a href="#tasks">Common tasks (quick reference)</a></li>
         <li><a href="#warnings">Important warnings</a></li>
@@ -1548,7 +1549,111 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="connect">23. How everything connects</h2>
+    <h2 id="bulk-upload">23. Bulk Upload Product Pages (import from a spreadsheet)</h2>
+
+    <p>Instead of building <a href="#product-pages">Product Pages</a> one by one, you can create or update up to
+      <strong>50 at a time</strong> from a spreadsheet. Open the <span class="path">Bulk Upload</span> tab at the top
+      of the Studio (next to Site Refresh), and follow the flow:</p>
+    <ol>
+      <li><strong>Download the sample template</strong> (the link at the top of the panel). It is a .csv file with
+        the exact column headings and one filled-in example row. You can edit it in Excel or Google Sheets and save
+        as <code>.csv</code> or <code>.xlsx</code> — both work.</li>
+      <li><strong>Fill in your products</strong> — one row per product. <strong>Title is the only required
+          column.</strong> Leave any other cell blank and that field is simply not set. You can also delete whole
+        columns you don't need; only keep the headings spelled exactly like the template.</li>
+      <li><strong>Upload the file and press Preview.</strong> Nothing is saved yet — you get a table showing, for
+        every row, whether it will <strong>CREATE</strong> a new product, <strong>UPDATE</strong> an existing one, or
+        has an <strong>ERROR</strong> (with a plain-language note of what to fix). Misspelled column headings are
+        listed too, so a typo never silently disappears.</li>
+      <li><strong>Press Apply.</strong> The products import as <strong>drafts</strong> — the panel shows progress and
+        a final per-row summary. Nothing appears on the live site yet.</li>
+      <li><strong>Review and publish.</strong> Find the new drafts under <span class="path">Content
+          <span class="arrow">›</span> Product Page</span>, open each one, adjust anything (you can run
+        <a href="#product-pages">Generate Product Details with AI</a> on them like any other product), and press
+        <strong>Publish</strong> when it looks right.</li>
+    </ol>
+
+    <div class="callout info">
+      <span class="label">Re-uploading is safe — no duplicates</span>
+      <p>Each product's <strong>web address (slug)</strong> is the key: the <code>Slug</code> column if you filled it
+        in, otherwise it is made from the Title (e.g. "20 oz Travel Tumbler" → <code>20-oz-travel-tumbler</code>).
+        If a Product Page with that slug already exists — draft or published — the import <strong>updates</strong> it
+        instead of creating a second one, and it only changes the columns you filled in. A blank cell never erases
+        something you already wrote in Studio. So a good workflow is: import, notice a wrong price, fix the price
+        cell in the sheet, and upload the same file again.</p>
+    </div>
+
+    <div class="callout info">
+      <span class="label">Images are downloaded for you</span>
+      <p>Image cells hold <strong>picture web addresses (URLs)</strong> — right-click a picture on the supplier's
+        site and choose "Copy image address", or use a link from your own file storage. On import, each picture is
+        <strong>downloaded and stored in Sanity</strong>, so your product pages never depend on someone else's server
+        staying up. A picture that can't be downloaded is skipped with a note in the results (the product still
+        imports) — add it by hand in Studio afterwards.</p>
+    </div>
+
+    <h3>The columns, one by one</h3>
+    <p>Single-value columns (each row = one product; all optional except Title):</p>
+    <ul>
+      <li><strong>Title</strong> (required) — the product name and page heading.</li>
+      <li><strong>Slug</strong> — the web address after <code>/products/</code>. Leave blank to derive it from the
+        Title. Lowercase letters, numbers, and dashes only (anything else is cleaned up automatically).</li>
+      <li><strong>Brand</strong>, <strong>Item SKU</strong> — same as the fields in Studio (the SKU makes the product
+        findable by number in site search).</li>
+      <li><strong>Description</strong> — plain text; a blank line inside the cell starts a new paragraph. Formatting
+        (bullets, links, headings) is added later in Studio or via the AI helper.</li>
+      <li><strong>Min Qty</strong>, <strong>Setup Charge</strong>, <strong>Production Time</strong> — numbers
+        (production time is in days).</li>
+      <li><strong>On Sale</strong>, <strong>Show In New Products</strong>, <strong>Made In USA</strong>,
+        <strong>Eco Friendly</strong>, <strong>Closeout</strong> — write <code>yes</code> or <code>no</code> (blank =
+        not set; new products default to showing on /new-products).</li>
+      <li><strong>Sale Percent Off</strong> — a number 1–99, only used with On Sale = yes.</li>
+      <li><strong>Lead Recipient</strong> — the email that receives this product's quote requests (blank =
+        patrick@perfectimprints.com).</li>
+      <li><strong>Related Category</strong> — one category slug (e.g. <code>water-bottles</code>) that fills the
+        Related Products carousel.</li>
+      <li><strong>Add To Categories</strong> — comma-separated category slugs the product should appear ON (e.g.
+        <code>water-bottles, coffee-mugs</code>). Slugs that don't exist yet are flagged as a warning — the import
+        never creates category pages; create those from the product form's picker as usual.</li>
+      <li><strong>Related Keywords</strong> — comma-separated plural keywords (steer the automatic related
+        matching).</li>
+      <li><strong>Material</strong>, <strong>Features</strong>, <strong>Types</strong> — filter tags; Features and
+        Types take comma-separated lists. Use the same names Geiger uses.</li>
+      <li><strong>Units Per Carton</strong>, <strong>Carton Weight</strong>, <strong>Carton Width / Height /
+          Depth</strong>, <strong>FOB Zip / City / State</strong> — the optional logistics facts (weight in lbs,
+        dimensions in inches).</li>
+    </ul>
+
+    <p>Multi-value fields use <strong>numbered columns</strong> — the same heading with 1, 2, 3… Add as many numbered
+      columns as you need (up to 10 sizes/colors/decorations/images, and up to 5 pricing tiers):</p>
+    <ul>
+      <li><strong>Size 1, Size 2, …</strong> — one size per column (e.g. <code>S</code>, <code>M</code>, or
+        <code>20 oz</code>). Sizes are listed on the page; they don't change price or pictures.</li>
+      <li><strong>Tier 1 Qty + Tier 1 Price, Tier 2 Qty + Tier 2 Price, …</strong> — the quantity-price table. A tier
+        needs BOTH cells; a half-filled tier is skipped with a warning.</li>
+      <li><strong>Decoration 1 (+ Decoration 1 Upcharge), Decoration 2 …</strong> — decoration methods, each with an
+        optional per-unit dollar upcharge (blank = no upcharge).</li>
+      <li><strong>Image 1, Image 2, …</strong> — picture URLs for a product WITHOUT color variants (the "Default
+        images").</li>
+      <li><strong>Color 1 Name + Color 1 Images (+ Color 1 Swatch), Color 2 …</strong> — one set per color.
+        <em>Color N Images</em> is a <strong>comma-separated list of picture URLs</strong> for that color (put the
+        whole list in one cell), and the optional <em>Color N Swatch</em> is a hex color like <code>#1E3A8A</code>
+        for the clickable circle. On the page, visitors click a swatch to swap the gallery to that color's photos —
+        exactly like a hand-built product.</li>
+    </ul>
+
+    <div class="callout warn">
+      <span class="label">Good to know</span>
+      <p>Up to 50 product rows per upload (split bigger lists into several files) and files up to 4 MB. Prices can be
+        written with a dollar sign (<code>$4.99</code> works). One bad row never blocks the rest — it is skipped with
+        a note while the other rows import. And because everything arrives as a draft, there is no risk to the live
+        site: review, then publish.</p>
+    </div>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="connect">24. How everything connects</h2>
     <p>A quick mental map of what drives what:</p>
     <ul>
       <li><strong>Global Settings</strong> drives the header and footer of <em>every</em> page (contact details, social
@@ -1583,7 +1688,7 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="tasks">24. Common tasks (quick reference)</h2>
+    <h2 id="tasks">25. Common tasks (quick reference)</h2>
     <table>
       <tr>
         <th>I want to…</th>
@@ -1593,6 +1698,11 @@
         <td>Add a product of my own with its own page and a Get a Quote button</td>
         <td>Product Page &rsaquo; create, fill Basics / Images &amp; Colors / Pricing, Publish (see <a
             href="#product-pages">section 22</a>)</td>
+      </tr>
+      <tr>
+        <td>Add or update many products at once from a spreadsheet</td>
+        <td>Bulk Upload tab &rsaquo; download the template, fill it, Preview, Apply (see <a
+            href="#bulk-upload">section 23</a>)</td>
       </tr>
       <tr>
         <td>Change my phone, email, address, or hours</td>
@@ -1691,7 +1801,7 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="warnings">25. Important warnings (keep these in mind)</h2>
+    <h2 id="warnings">26. Important warnings (keep these in mind)</h2>
 
     <div class="callout danger">
       <span class="label">1. Always review products before publishing a pushed category</span>

@@ -12,6 +12,7 @@ import { generateLandingWithAi } from './actions/generate-landing-with-ai';
 import { generateProductWithAi } from './actions/generate-product-with-ai';
 import { pushCategoryTool } from './tools/push-category-tool';
 import { siteRefreshTool } from './tools/site-refresh-tool';
+import { bulkImportTool } from './tools/bulk-import-tool';
 import { projectId, dataset, apiVersion } from './env';
 
 export default defineConfig({
@@ -31,7 +32,9 @@ export default defineConfig({
   //  • "Push to Sanity" (M5-504) — take over any baked category page.
   //  • "Site Refresh" (2026-06-30) — trigger / watch / cancel the data-refresh
   //    GitHub Actions workflows (weekly scrapes + monthly full rebuild).
-  tools: (prev) => [...prev, pushCategoryTool, siteRefreshTool],
+  //  • "Bulk Upload" (P2-CP-003) — import/update Product Pages from a CSV/Excel
+  //    spreadsheet (dry-run preview → drafts).
+  tools: (prev) => [...prev, pushCategoryTool, siteRefreshTool, bulkImportTool],
   schema: {
     types: schemaTypes,
   },
