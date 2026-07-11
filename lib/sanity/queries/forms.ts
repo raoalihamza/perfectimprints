@@ -30,7 +30,7 @@ const FORM_PROJECTION = `{
   successMessage,
   submitButtonLabel,
   intro,
-  fields[]{ _key, label, fieldType, options, required, placeholder }
+  fields[]{ _key, label, fieldType, options, required, placeholder, width }
 }`;
 
 export async function getFormBySlug(slug: string): Promise<FormDoc | null> {

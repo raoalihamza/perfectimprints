@@ -128,15 +128,38 @@ export default defineType({
               title: 'Placeholder (optional)',
               type: 'string',
             }),
+            defineField({
+              name: 'width',
+              title: 'Layout width',
+              type: 'string',
+              options: {
+                list: [
+                  { title: 'Full width (own row)', value: 'full' },
+                  { title: 'Half — pairs with the next half-width field', value: 'half' },
+                ],
+                layout: 'radio',
+              },
+              initialValue: 'full',
+              description:
+                'Set two fields in a row to "Half" to show them side by side on desktop (e.g. First Name + Last Name). A half-width field with no half-width neighbor still takes the full row. Mobile is always one column.',
+            }),
           ],
           preview: {
-            select: { label: 'label', fieldType: 'fieldType', required: 'required' },
-            prepare({ label, fieldType, required }) {
+            select: {
+              label: 'label',
+              fieldType: 'fieldType',
+              required: 'required',
+              width: 'width',
+            },
+            prepare({ label, fieldType, required, width }) {
               const typeTitle =
                 FIELD_TYPES.find((t) => t.value === fieldType)?.title ?? fieldType ?? '?';
+              const parts = [typeTitle];
+              if (required) parts.push('required');
+              if (width === 'half') parts.push('half width');
               return {
                 title: label || '(no label)',
-                subtitle: `${typeTitle}${required ? ' · required' : ''}`,
+                subtitle: parts.join(' · '),
               };
             },
           },

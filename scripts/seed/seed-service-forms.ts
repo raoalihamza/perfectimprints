@@ -73,6 +73,8 @@ interface FieldSeed {
   required: boolean;
   options?: string[];
   placeholder?: string;
+  /** 'half' pairs with the adjacent half field on desktop; unset = full row. */
+  width?: 'full' | 'half';
 }
 
 interface FormSeed {
@@ -94,17 +96,19 @@ const field = (
   label: string,
   fieldType: string,
   required = false,
-  extra: { options?: string[]; placeholder?: string } = {},
+  extra: { options?: string[]; placeholder?: string; width?: 'full' | 'half' } = {},
 ): FieldSeed => ({ _key: key(), _type: 'formField', label, fieldType, required, ...extra });
 
 // Common contact block on all four forms. Company/First/Email/Phone required,
 // Last Name optional (reasonable default — adjustable per form in Studio).
+// Widths give the LeadForm look: Company on its own row, then First+Last and
+// Phone+Email paired two-up on desktop (editor-adjustable per field).
 const commonFields = (): FieldSeed[] => [
   field('Company Name', 'shortText', true),
-  field('First Name', 'shortText', true),
-  field('Last Name', 'shortText', false),
-  field('Phone', 'phone', true),
-  field('Email', 'email', true),
+  field('First Name', 'shortText', true, { width: 'half' }),
+  field('Last Name', 'shortText', false, { width: 'half' }),
+  field('Phone', 'phone', true, { width: 'half' }),
+  field('Email', 'email', true, { width: 'half' }),
 ];
 
 const COMMENT_LABEL = 'Comment Box (anything else we need to know to accurately quote you)';
@@ -127,8 +131,11 @@ function buildForms(): FormSeed[] {
         ...commonFields(),
         field('What products do you have in mind for the kit?', 'longText', true),
         field('What type of packaging would you like?', 'shortText', false),
-        field('What quantity do you need?', 'shortText', true, { placeholder: '500 or 100-200' }),
-        field('When do you need your kits delivered?', 'date', true),
+        field('What quantity do you need?', 'shortText', true, {
+          placeholder: '500 or 100-200',
+          width: 'half',
+        }),
+        field('When do you need your kits delivered?', 'date', true, { width: 'half' }),
         field(COMMENT_LABEL, 'longText', false),
       ],
     },
@@ -148,8 +155,12 @@ function buildForms(): FormSeed[] {
         field("If so, what's the URL?", 'shortText', false, {
           placeholder: 'https://store.yourcompany.com',
         }),
-        field('What is your approximate annual sales from the company store?', 'shortText', false),
-        field('Approximately how many items are in your store?', 'number', false),
+        field('What is your approximate annual sales from the company store?', 'shortText', false, {
+          width: 'half',
+        }),
+        field('Approximately how many items are in your store?', 'number', false, {
+          width: 'half',
+        }),
         field(COMMENT_LABEL, 'longText', false),
       ],
     },
@@ -170,10 +181,15 @@ function buildForms(): FormSeed[] {
           'longText',
           true,
         ),
-        field('What quantity do you need?', 'shortText', true, { placeholder: '500 or 100-200' }),
-        field('When do you need them by?', 'date', true),
-        field('What item color do you need?', 'shortText', false),
-        field('How many colors will be printed on the custom items?', 'number', false),
+        field('What quantity do you need?', 'shortText', true, {
+          placeholder: '500 or 100-200',
+          width: 'half',
+        }),
+        field('When do you need them by?', 'date', true, { width: 'half' }),
+        field('What item color do you need?', 'shortText', false, { width: 'half' }),
+        field('How many colors will be printed on the custom items?', 'number', false, {
+          width: 'half',
+        }),
         field(
           'Do you have a photo or a sketch you can share with us for inspiration?',
           'fileUpload',
@@ -193,11 +209,19 @@ function buildForms(): FormSeed[] {
       successMessage: SUCCESS,
       fields: [
         ...commonFields(),
-        field('What is the estimated amount of sales for this popup store?', 'shortText', false),
-        field('How many different items will you sell for this popup store?', 'number', false),
+        field('What is the estimated amount of sales for this popup store?', 'shortText', false, {
+          width: 'half',
+        }),
+        field('How many different items will you sell for this popup store?', 'number', false, {
+          width: 'half',
+        }),
         field('What specific items would you like to sell on the popup store?', 'longText', true),
-        field('What date would you like to go live with your popup store?', 'date', false),
-        field('How long will you want to keep the popup store open?', 'shortText', false),
+        field('What date would you like to go live with your popup store?', 'date', false, {
+          width: 'half',
+        }),
+        field('How long will you want to keep the popup store open?', 'shortText', false, {
+          width: 'half',
+        }),
         field(
           'Would you like us to distribute and ship the items to the individuals who order, or will we bulk ship to one location?',
           'dropdown',
@@ -207,6 +231,49 @@ function buildForms(): FormSeed[] {
       ],
     },
   ];
+}
+
+// --- field-width backfill (layout follow-up) ----------------------------------
+
+/**
+ * The seed skips forms that are already PUBLISHED, so this second idempotent
+ * pass carries the seed's `width` layout onto EXISTING form docs (published +
+ * draft): each live field whose label matches a seeded half-width field and
+ * whose own `width` is still unset gets `width: 'half'`. A width Patrick has
+ * explicitly set (full OR half) is never touched.
+ */
+async function applyFieldWidths(client: SanityClient, forms: FormSeed[]): Promise<void> {
+  for (const seed of forms) {
+    const halfLabels = new Set(
+      seed.fields.filter((f) => f.width === 'half').map((f) => f.label),
+    );
+    if (halfLabels.size === 0) continue;
+    const publishedId = seed._id.replace(/^drafts\./, '');
+    for (const id of [publishedId, seed._id]) {
+      const doc = await client.fetch<{
+        _id: string;
+        fields?: Array<{ _key: string; label?: string; width?: string }>;
+      } | null>(`*[_id == $id][0]{ _id, fields[]{ _key, label, width } }`, { id });
+      if (!doc) continue;
+      const patches: Record<string, string> = {};
+      for (const f of doc.fields ?? []) {
+        if (f.width) continue; // explicit editor choice — leave it
+        if (f.label && halfLabels.has(f.label)) {
+          patches[`fields[_key=="${f._key}"].width`] = 'half';
+        }
+      }
+      if (Object.keys(patches).length === 0) {
+        console.log(`  ${id}: field widths already set (ok)`);
+        continue;
+      }
+      if (DRY_RUN) {
+        console.log(`  ${id}: would set width=half on ${Object.keys(patches).length} field(s)`);
+        continue;
+      }
+      await client.patch(id).set(patches).commit();
+      console.log(`  ${id}: set width=half on ${Object.keys(patches).length} field(s)`);
+    }
+  }
 }
 
 // --- service page button wiring ----------------------------------------------
@@ -288,6 +355,9 @@ async function main(): Promise<void> {
     await client.createOrReplace(f);
     console.log(`  wrote ${f._id}`);
   }
+
+  console.log('\nBackfilling field widths on existing forms:');
+  await applyFieldWidths(client, forms);
 
   console.log('\nWiring service page "Request a Quote" buttons:');
   await wireQuoteButtons(client);

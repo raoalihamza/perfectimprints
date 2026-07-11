@@ -59,36 +59,22 @@ const INPUT_TYPE_ATTR: Partial<Record<FormFieldDef['fieldType'], string>> = {
 };
 
 /**
- * Compact field types pair up two-per-row on desktop (single column on
- * mobile), matching the LeadForm / ProductQuoteForm look — e.g. First Name +
- * Last Name side by side. Long text, checkboxes, and file uploads always take
- * the full width.
- */
-const COMPACT_TYPES = new Set<FormFieldDef['fieldType']>([
-  'shortText',
-  'email',
-  'phone',
-  'number',
-  'date',
-  'dropdown',
-]);
-
-/**
- * Group the definition-ordered fields into layout rows: consecutive compact
- * fields chunk into pairs (an odd leftover renders as a half-width single,
- * like ProductQuoteForm's Shipping Zip row); every other field is a row of
- * its own. Indexes are preserved — fieldName() depends on them.
+ * Group the definition-ordered fields into layout rows by the EDITOR-set
+ * `width` (never guessed from field type — Sanity can send any number of
+ * fields in any order, so only an explicit choice lays out predictably):
+ * two consecutive `half` fields share a desktop row; everything else —
+ * including a lone `half` with no partner — takes the full width. Mobile is
+ * always single column. Indexes are preserved — fieldName() depends on them.
  */
 function groupFieldRows(fields: FormFieldDef[]): Array<Array<{ field: FormFieldDef; index: number }>> {
   const rows: Array<Array<{ field: FormFieldDef; index: number }>> = [];
   fields.forEach((field, index) => {
-    const compact = COMPACT_TYPES.has(field.fieldType);
     const last = rows[rows.length - 1];
     if (
-      compact &&
+      field.width === 'half' &&
       last &&
       last.length === 1 &&
-      COMPACT_TYPES.has(last[0].field.fieldType)
+      last[0].field.width === 'half'
     ) {
       last.push({ field, index });
       return;
@@ -430,17 +416,22 @@ export function FormRenderer({ form, sourceUrl, onSuccess }: FormRendererProps) 
 
       {form.intro?.trim() && <p className="text-sm text-text-muted">{form.intro}</p>}
 
-      {/* Consecutive compact fields render two-up on desktop (LeadForm /
-          ProductQuoteForm style); everything else takes the full width. A
-          lone compact field sits in the same half-width grid, matching the
-          product-quote form's Shipping Zip row. */}
+      {/* Two consecutive Half-width fields (editor-set in Studio) share a
+          desktop row; everything else — including an unpaired Half — takes
+          the full width. Each paired cell bottom-aligns its input so a
+          longer, wrapping label in one cell doesn't push the inputs out of
+          line with each other. */}
       {groupFieldRows(form.fields).map((row) =>
-        row.length === 1 && !COMPACT_TYPES.has(row[0].field.fieldType) ? (
-          renderField(row[0].field, row[0].index)
-        ) : (
+        row.length === 2 ? (
           <div key={row[0].field._key} className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
-            {row.map(({ field, index }) => renderField(field, index))}
+            {row.map(({ field, index }) => (
+              <div key={field._key} className="flex flex-col justify-end">
+                {renderField(field, index)}
+              </div>
+            ))}
           </div>
+        ) : (
+          renderField(row[0].field, row[0].index)
         ),
       )}
 

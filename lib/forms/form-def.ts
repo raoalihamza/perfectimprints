@@ -32,6 +32,14 @@ export interface FormFieldDef {
   options?: string[];
   required?: boolean;
   placeholder?: string;
+  /**
+   * Layout width (P2-FB follow-up): 'half' pairs the field with an adjacent
+   * 'half' field two-per-row on desktop (e.g. First Name + Last Name);
+   * unset/'full' takes the whole row. Editor-controlled in Studio — the
+   * renderer never guesses by field type, so a form with any number of
+   * unknown fields always lays out predictably.
+   */
+  width?: 'full' | 'half';
 }
 
 /**
