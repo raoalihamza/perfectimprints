@@ -9,6 +9,7 @@ import {
   formatBytes,
   validateFiles,
 } from './attachment-limits';
+import { usDateFromIso } from '@/lib/forms/form-def';
 
 // NOTE (P2-CP configurator): the short-lived `variant="productQuote"` mode was
 // RETIRED — product pages now use the dedicated ProductQuoteForm
@@ -131,10 +132,13 @@ export function LeadForm({ categoryTitle, sourceUrl, landingSlug, onSuccess }: L
     }
 
     // Re-attach the validated files from state (the live file input may have
-    // been cleared by remove actions) and set the resolved source URL.
+    // been cleared by remove actions) and set the resolved source URL. The
+    // native date input posts ISO (YYYY-MM-DD) — convert to US format so the
+    // lead email + record read naturally.
     formData.delete('attachments');
     for (const file of files) formData.append('attachments', file);
     formData.set('sourceUrl', resolvedSourceUrl);
+    formData.set('dateNeeded', usDateFromIso(payload.dateNeeded));
 
     setSubmitting(true);
     try {
@@ -305,8 +309,7 @@ export function LeadForm({ categoryTitle, sourceUrl, landingSlug, onSuccess }: L
           <input
             id={`${formId}-dateNeeded`}
             name="dateNeeded"
-            type="text"
-            placeholder="MM/DD/YYYY or 'next month'"
+            type="date"
             required
             className={inputClass}
             aria-invalid={!!errors.dateNeeded}

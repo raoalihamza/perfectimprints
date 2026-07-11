@@ -79,6 +79,19 @@ export function isValidEmailAnswer(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+/**
+ * Convert a native date-input value (YYYY-MM-DD) to US display format
+ * (MM/DD/YYYY) for the lead emails + leadSubmission records. Every date entry
+ * site-wide is a native `<input type="date">` (LeadForm / ProductQuoteForm
+ * `dateNeeded` + the form-builder `date` fieldType), and all of them run the
+ * picked value through this at submit. Non-ISO input passes through unchanged
+ * (safety for any legacy free-text value).
+ */
+export function usDateFromIso(value: string): string {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value.trim());
+  return m ? `${m[2]}/${m[3]}/${m[1]}` : value.trim();
+}
+
 /** Join a checkboxGroup selection for display / storage. */
 export function formatAnswerValue(value: AnswerValue | undefined | null): string {
   if (Array.isArray(value)) return value.map((v) => v.trim()).filter(Boolean).join(', ');

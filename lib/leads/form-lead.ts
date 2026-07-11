@@ -61,14 +61,14 @@ function rowsTable(rows: AnswerRow[]): string {
       <table style="border-collapse:collapse;width:100%;max-width:560px;">
         <tbody>
           ${rows
-            .map(
-              ({ label, value }) => `
+      .map(
+        ({ label, value }) => `
               <tr>
                 <td style="padding:6px 12px 6px 0;vertical-align:top;color:#666;width:180px;">${escapeHtml(label)}</td>
                 <td style="padding:6px 0;vertical-align:top;white-space:pre-wrap;">${escapeHtml(value)}</td>
               </tr>`,
-            )
-            .join('')}
+      )
+      .join('')}
         </tbody>
       </table>`;
 }
@@ -133,7 +133,7 @@ export interface FormConfirmationInput {
  */
 export function buildFormConfirmationEmail(input: FormConfirmationInput): BuiltEmail {
   const greeting = input.firstName.trim() ? `Hi ${input.firstName.trim()},` : 'Hi,';
-  const subject = 'We received your request — Perfect Imprints';
+  const subject = 'We received your request - Perfect Imprints';
 
   const text = [
     greeting,

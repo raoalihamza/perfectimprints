@@ -17,6 +17,7 @@ import {
   type DecorationOption,
   type QuoteTier,
 } from '@/lib/products/quote-estimate';
+import { usDateFromIso } from '@/lib/forms/form-def';
 
 /**
  * The DEDICATED Get a Quote form for /products/<slug> (P2-CP configurator) —
@@ -189,6 +190,9 @@ export function ProductQuoteForm({
     for (const file of files) formData.append('attachments', file);
     formData.set('sourceUrl', resolvedSourceUrl);
     formData.set('website', honeypotRef.current?.value ?? '');
+    // The native date input posts ISO (YYYY-MM-DD) — convert to US format so
+    // the lead email + record read naturally.
+    formData.set('dateNeeded', usDateFromIso(dateNeeded));
 
     setSubmitting(true);
     try {
@@ -456,8 +460,7 @@ export function ProductQuoteForm({
           <input
             id={`${formId}-dateNeeded`}
             name="dateNeeded"
-            type="text"
-            placeholder="MM/DD/YYYY or 'next month'"
+            type="date"
             required
             className={inputClass}
             aria-invalid={!!errors.dateNeeded}

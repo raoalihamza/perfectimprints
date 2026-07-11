@@ -116,7 +116,7 @@ function escapeHtml(value: string): string {
  */
 export function buildCustomerConfirmationEmail(payload: CustomerConfirmationPayload): BuiltEmail {
   const topic = payload.product?.trim() || 'custom promotional products';
-  const subject = 'We received your request — Perfect Imprints';
+  const subject = 'We received your request - Perfect Imprints';
 
   // Rows with an empty value are skipped, so the same builder serves landing
   // submissions (always have "Looking for", never company/zip/comments) and
@@ -163,14 +163,14 @@ export function buildCustomerConfirmationEmail(payload: CustomerConfirmationPayl
       <table style="border-collapse:collapse;width:100%;">
         <tbody>
           ${rows
-            .map(
-              ([label, value]) => `
+      .map(
+        ([label, value]) => `
               <tr>
                 <td style="padding:6px 12px 6px 0;vertical-align:top;color:#666;width:140px;">${escapeHtml(label)}</td>
                 <td style="padding:6px 0;vertical-align:top;white-space:pre-wrap;">${escapeHtml(value)}</td>
               </tr>`,
-            )
-            .join('')}
+      )
+      .join('')}
         </tbody>
       </table>
       <p style="margin:16px 0 0 0;">
