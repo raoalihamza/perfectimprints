@@ -6,19 +6,14 @@ import type { SanityImage } from '@/lib/sanity/types';
 import type { GeigerProduct } from '@/lib/product-types';
 import { ProductCard } from '@/components/category/ProductCard';
 import { affiliateUrl } from '@/lib/affiliate-url';
-
-interface BlogProductEntry {
-  _key?: string;
-  sku?: string;
-  title?: string;
-  image?: SanityImage & { alt?: string };
-  url?: string;
-}
+import { isStripRefEntry, type StripProductEntry } from '@/lib/sanity/strip-product-entries';
+import { stripRefToGeigerProduct } from '@/lib/sanity/queries/strip-entries';
 
 interface BlogProductsValue {
   _key?: string;
   heading?: string;
-  products?: BlogProductEntry[];
+  /** SKU/manual entries + dereferenced productPage/customProduct refs (null = dangling ref). */
+  products?: (StripProductEntry | null)[];
 }
 
 interface BlogBodyProps {
@@ -104,8 +99,20 @@ function buildComponents(
     blogProducts: ({ value }) => {
       const v = value as BlogProductsValue;
       const entries = v?.products ?? [];
+      // De-dup referenced docs within the strip (same product referenced twice
+      // renders once).
+      const seenRefSkus = new Set<string>();
       const cards = entries
         .map((entry, idx) => {
+          if (!entry) return null; // dangling reference — target deleted/unpublished
+          if (isStripRefEntry(entry)) {
+            // productPage → internal /products/<slug> card; customProduct →
+            // affiliate/external card. Unresolvable refs are dropped.
+            const product = stripRefToGeigerProduct(entry);
+            if (!product || seenRefSkus.has(product.sku)) return null;
+            seenRefSkus.add(product.sku);
+            return <ProductCard key={`ref-${entry._id}-${idx}`} product={product} />;
+          }
           const sku = entry.sku?.trim();
           const resolved = sku ? skuProducts.get(sku) : undefined;
           if (resolved) {

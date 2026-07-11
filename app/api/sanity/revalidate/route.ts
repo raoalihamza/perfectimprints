@@ -109,6 +109,96 @@ function bustEmbeddingCategories(slugs: string[]): string[] {
   return paths;
 }
 
+/**
+ * Content docs whose PRODUCT STRIP embeds the published productPage /
+ * customProduct (2026-07-11 — the strips on blog posts, page-builder pages,
+ * landing pages, and videos accept doc references alongside SKU entries). The
+ * referenced doc's card data is dereferenced INSIDE each embedder's own read
+ * (blog: the CDN read behind /blog/<slug>; page: PAGES_TAG/page:<slug>;
+ * landing: LANDING_TAG/landing:<slug>; video: VIDEOS_TAG), none of which the
+ * product's own tags cover — so an edit to the referenced product would
+ * otherwise stay stale on those pages forever (they are `revalidate:false`).
+ *
+ * Lookup order mirrors findEmbeddingCategorySlugs: `references($id)` when the
+ * webhook projection includes `_id` (robust, matches dangling refs after a
+ * delete); else a slug-deref fallback over the three strip field shapes
+ * (works for productPage, which has a slug — customProduct needs `_id`).
+ * Uncached read; best-effort (failure returns [] and the rest proceeds).
+ */
+async function findEmbeddingContentDocs(
+  id: string | undefined,
+  slug: string | undefined,
+): Promise<{ _type: string; slug: string }[]> {
+  try {
+    let docs: { _type?: string; slug?: string | null }[] | null = null;
+    if (id) {
+      docs = await cachedClient.fetch<{ _type?: string; slug?: string | null }[]>(
+        `*[_type in ["blogPost", "page", "landingPage", "video"] && references($id)]{ _type, "slug": slug.current }`,
+        { id },
+        { cache: 'no-store' },
+      );
+    } else if (slug) {
+      docs = await cachedClient.fetch<{ _type?: string; slug?: string | null }[]>(
+        `*[_type in ["blogPost", "page", "landingPage", "video"] && (
+            $slug in body[].products[]->slug.current ||
+            $slug in sections[].products[]->slug.current ||
+            $slug in relatedProducts[]->slug.current
+          )]{ _type, "slug": slug.current }`,
+        { slug },
+        { cache: 'no-store' },
+      );
+    }
+    const out: { _type: string; slug: string }[] = [];
+    const seen = new Set<string>();
+    for (const d of docs ?? []) {
+      if (!d._type || !d.slug) continue;
+      const key = `${d._type}:${d.slug}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push({ _type: d._type, slug: d.slug });
+    }
+    return out;
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Bust + revalidate every blog post / page / landing page / video whose
+ * product strip embeds the published doc. Each type uses ITS OWN freshness
+ * mechanism: blog = path-only (the detail read is the CDN client, same model
+ * as a blogPost publish itself); video = VIDEOS_TAG (+ paths); page/landing =
+ * their per-slug tags (+ both candidate paths for `page`, which can render at
+ * /services/<slug> or /<slug> — revalidating a non-existent one is a no-op).
+ */
+function bustEmbeddingContentDocs(docs: { _type: string; slug: string }[]): string[] {
+  const paths = new Set<string>();
+  for (const d of docs) {
+    switch (d._type) {
+      case 'blogPost':
+        paths.add(`/blog/${d.slug}`);
+        break;
+      case 'video':
+        revalidateTag(VIDEOS_TAG, 'max');
+        paths.add('/videos');
+        paths.add(`/videos/${d.slug}`);
+        break;
+      case 'landingPage':
+        bustTag(landingTag(d.slug));
+        paths.add(`/${d.slug}`);
+        break;
+      case 'page':
+        bustTag(pageTag(d.slug));
+        paths.add(`/services/${d.slug}`);
+        paths.add(`/${d.slug}`);
+        break;
+    }
+  }
+  const unique = [...paths];
+  for (const p of unique) revalidatePath(p);
+  return unique;
+}
+
 /** Page routes to revalidate for a given search-affecting type. */
 function searchTypePaths(type: string, slug: string | undefined): string[] {
   switch (type) {
@@ -254,6 +344,11 @@ export async function POST(request: Request) {
       // batch 3; needs `_id` in the webhook projection — customProduct has no
       // slug, so the slug-deref fallback can't cover it).
       paths.push(...bustEmbeddingCategories(await findEmbeddingCategorySlugs(payload._id, undefined)));
+      // A customProduct referenced by a PRODUCT STRIP (blog body, page
+      // productStrip, landing relatedProducts, video relatedProducts —
+      // 2026-07-11) is dereferenced inside each embedder's own read — bust
+      // those too (also needs `_id`; customProduct has no slug fallback).
+      paths.push(...bustEmbeddingContentDocs(await findEmbeddingContentDocs(payload._id, undefined)));
     }
     return NextResponse.json({ revalidated: true, paths, type });
   }
@@ -341,6 +436,12 @@ export async function POST(request: Request) {
     );
     const embeddingSlugs = await findEmbeddingCategorySlugs(payload._id, slug);
     paths.push(...bustEmbeddingCategories([...new Set([...placedSlugs, ...embeddingSlugs])]));
+    // Blog posts / pages / landing pages / videos whose PRODUCT STRIP
+    // references this productPage (2026-07-11) dereference its card data
+    // inside their own reads — bust each embedder so a title/price/image edit
+    // shows there in seconds (slug-deref fallback works here until the
+    // Projection carries `_id`).
+    paths.push(...bustEmbeddingContentDocs(await findEmbeddingContentDocs(payload._id, slug)));
     // A placement set change alters which slugs are "edited" — refresh the
     // shared control sets so newly-placed categories start running the
     // per-slug fetches (same as categoryOverride/productPlacement publishes).

@@ -1,6 +1,10 @@
 import type { PortableTextBlock } from '@portabletext/react';
 import { cachedClient } from '@/lib/sanity/client';
 import { VIDEOS_TAG } from '@/lib/sanity/cache-tags';
+import {
+  STRIP_PRODUCT_ENTRIES_PROJECTION,
+  type StripProductEntry,
+} from '@/lib/sanity/strip-product-entries';
 import type { SanityImage, SanitySlug, SeoFields } from '@/lib/sanity/types';
 
 // Tagged, non-CDN fetch options shared by every video read. Reading off
@@ -15,17 +19,12 @@ export interface VideoCategoryRef {
 }
 
 /**
- * One `relatedProducts` entry (the shared `blogProduct` object, P2-AI-003):
- * SKU-backed (resolved live from products.json at render time) or manual
- * (title/image/url) — same shape the blog body's product strips use.
+ * One `relatedProducts` entry (P2-AI-003; extended 2026-07-11): the shared
+ * `blogProduct` object (SKU-backed or manual) OR a dereferenced
+ * productPage/customProduct reference — same union every product strip uses.
+ * A dangling reference projects to null, so consumers null-guard each item.
  */
-export interface VideoRelatedProductEntry {
-  _key?: string;
-  sku?: string;
-  title?: string;
-  image?: SanityImage & { alt?: string };
-  url?: string;
-}
+export type VideoRelatedProductEntry = StripProductEntry;
 
 export interface VideoSummary {
   _id: string;
@@ -36,12 +35,17 @@ export interface VideoSummary {
   /** Rich text (Task B). Rendered with links; plain-texted for meta + schema. */
   description?: PortableTextBlock[];
   /** Product strip under the description on /videos/<slug> (P2-AI-003). */
-  relatedProducts?: VideoRelatedProductEntry[];
+  relatedProducts?: (VideoRelatedProductEntry | null)[];
   publishDate?: string;
   category?: VideoCategoryRef;
   seo?: SeoFields;
 }
 
+// relatedProducts is re-projected so productPage/customProduct references
+// dereference in place (blogProduct entries pass through verbatim) — see
+// STRIP_PRODUCT_ENTRIES_PROJECTION. The deref rides this same VIDEOS_TAG-cached
+// read, so the route stays static; the webhook's productPage/customProduct
+// branches bust VIDEOS_TAG for embedding videos on an edit.
 const SUMMARY_PROJECTION = `
   _id,
   title,
@@ -49,7 +53,7 @@ const SUMMARY_PROJECTION = `
   embedUrl,
   thumbnail,
   description,
-  relatedProducts,
+  relatedProducts[]${STRIP_PRODUCT_ENTRIES_PROJECTION},
   publishDate,
   seo,
   "category": category->{ title, "slug": slug.current }

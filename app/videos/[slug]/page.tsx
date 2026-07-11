@@ -16,6 +16,7 @@ import { portableTextToPlain } from '@/lib/portable-text/to-plain';
 import { RichAnswer } from '@/components/portable-text/RichAnswer';
 import { VideoRelatedProducts } from '@/components/videos/VideoRelatedProducts';
 import { resolveProductsBySku } from '@/lib/categories';
+import { isStripRefEntry } from '@/lib/sanity/strip-product-entries';
 import type { GeigerProduct } from '@/lib/product-types';
 import type { SanityImage } from '@/lib/sanity/types';
 import { formatDate } from '@/lib/utils';
@@ -102,10 +103,13 @@ export default async function VideoDetailPage({ params }: Props) {
   // products.json — same disk-read pattern as the blog page's product strips,
   // so the route stays on-demand SSG (no searchParams, no uncached read).
   const relatedProductEntries = video.relatedProducts ?? [];
+  // Referenced productPage/customProduct entries carry no `sku` in the
+  // projection (and a dangling ref is null) — only blogProduct SKU entries
+  // feed the catalog lookup; the strip renders refs from their own doc data.
   const stripSkus = Array.from(
     new Set(
       relatedProductEntries
-        .map((e) => e.sku?.trim())
+        .map((e) => (e && !isStripRefEntry(e) ? e.sku?.trim() : undefined))
         .filter((s): s is string => Boolean(s)),
     ),
   );

@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity';
+import { productStripEntryDescription, productStripEntryMembers } from './blog-products';
 
 /**
  * Reusable page-builder section objects (M5-506b).
@@ -411,9 +412,8 @@ export const productStrip = defineType({
       name: 'products',
       title: 'Products',
       type: 'array',
-      of: [{ type: 'blogProduct' }],
-      description:
-        'Add products by SKU. Shown as a live product strip (prices and links pull from the catalog). The AI pre-fills these; add or remove any.',
+      of: productStripEntryMembers,
+      description: `${productStripEntryDescription} The AI pre-fills SKU entries; add or remove any.`,
     }),
     hiddenField,
   ],

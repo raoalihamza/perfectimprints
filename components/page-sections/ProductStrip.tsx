@@ -3,6 +3,8 @@ import { urlForImage } from '@/lib/sanity/client';
 import { affiliateUrl } from '@/lib/affiliate-url';
 import { ProductCard } from '@/components/category/ProductCard';
 import { SectionShell } from './SectionShell';
+import { isStripRefEntry } from '@/lib/sanity/strip-product-entries';
+import { stripRefToGeigerProduct } from '@/lib/sanity/queries/strip-entries';
 import type { ProductStripSection } from '@/lib/sanity/queries/pages';
 
 /**
@@ -13,7 +15,12 @@ import type { ProductStripSection } from '@/lib/sanity/queries/pages';
  * searchParams) and render the shared ProductCard, so pricing / affiliate URLs
  * are never stale in the doc; manual entries (title/image/url, no resolvable
  * SKU) render the same fallback card, with Geiger URLs rewritten through the
- * affiliate host. Server component with no network I/O — /services/[slug],
+ * affiliate host. Dereferenced productPage/customProduct entries (2026-07-11)
+ * render ProductCard too — productPage as an INTERNAL /products/<slug> card,
+ * customProduct as the usual affiliate/external card; unresolvable refs
+ * (dangling, or missing slug/externalUrl) are dropped, never a broken card.
+ * Server component with no network I/O of its own (the refs were dereferenced
+ * inside the page's existing tagged Sanity read) — /services/[slug],
  * app/[...slug], and the footer/legal pages stay SSG.
  */
 
@@ -29,12 +36,23 @@ export function ProductStrip({ section }: { section: ProductStripSection }) {
   if (entries.length === 0) return null;
 
   const skus = entries
-    .map((e) => e.sku?.trim())
+    .map((e) => (e && !isStripRefEntry(e) ? e.sku?.trim() : undefined))
     .filter((s): s is string => Boolean(s));
   const skuProducts = new Map(resolveProductsBySku(skus).map((p) => [p.sku, p]));
 
+  // De-dup referenced docs within the strip (a productPage attached twice —
+  // or once directly and once via a customProduct — renders once).
+  const seenRefSkus = new Set<string>();
+
   const cards = entries
     .map((entry, idx) => {
+      if (!entry) return null; // dangling reference — target deleted/unpublished
+      if (isStripRefEntry(entry)) {
+        const product = stripRefToGeigerProduct(entry);
+        if (!product || seenRefSkus.has(product.sku)) return null;
+        seenRefSkus.add(product.sku);
+        return <ProductCard key={`ref-${entry._id}-${idx}`} product={product} />;
+      }
       const sku = entry.sku?.trim();
       const resolved = sku ? skuProducts.get(sku) : undefined;
       if (resolved) {

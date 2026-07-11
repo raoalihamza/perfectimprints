@@ -3,6 +3,10 @@ import 'server-only';
 import type { PortableTextBlock } from '@portabletext/react';
 import { cachedClient } from '@/lib/sanity/client';
 import { LANDING_TAG, landingTag } from '@/lib/sanity/cache-tags';
+import {
+  STRIP_PRODUCT_ENTRIES_PROJECTION,
+  type StripProductEntry,
+} from '@/lib/sanity/strip-product-entries';
 import type { SanityImage } from '@/lib/sanity/types';
 
 // ---------------------------------------------------------------------------
@@ -21,17 +25,13 @@ export interface LandingFaq {
 }
 
 /**
- * One related-products entry — the shared `blogProduct` object: SKU-backed
- * (resolved live from products.json at render time) or manual (title/image/url).
- * Structurally identical to ProductStripEntry / VideoRelatedProductEntry.
+ * One related-products entry (extended 2026-07-11): the shared `blogProduct`
+ * object (SKU-backed or manual) OR a dereferenced productPage/customProduct
+ * reference — same union every product strip uses (identical to
+ * ProductStripEntry / VideoRelatedProductEntry). A dangling reference projects
+ * to null, so consumers null-guard each item.
  */
-export interface LandingProductEntry {
-  _key?: string;
-  sku?: string;
-  title?: string;
-  image?: (SanityImage & { alt?: string }) | undefined;
-  url?: string;
-}
+export type LandingProductEntry = StripProductEntry;
 
 export interface LandingPageDoc {
   _id: string;
@@ -47,7 +47,7 @@ export interface LandingPageDoc {
   localIntro?: PortableTextBlock[];
   optionsIdeas?: PortableTextBlock[];
   whyUs?: PortableTextBlock[];
-  relatedProducts?: LandingProductEntry[];
+  relatedProducts?: (LandingProductEntry | null)[];
   faqs?: LandingFaq[];
   /** Quote-form heading (part 2). Blank → "Request a Quote in {City}, {State}". */
   leadFormHeading?: string;
@@ -73,7 +73,7 @@ const LANDING_PROJECTION = `{
   localIntro,
   optionsIdeas,
   whyUs,
-  relatedProducts,
+  relatedProducts[]${STRIP_PRODUCT_ENTRIES_PROJECTION},
   faqs,
   leadFormHeading,
   leadRecipient,

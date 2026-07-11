@@ -1,4 +1,31 @@
-import { defineField, defineType } from 'sanity';
+import { defineArrayMember, defineField, defineType } from 'sanity';
+
+/**
+ * The shared `of` members for EVERY product strip array — the blog body's
+ * `blogProducts` block, the page-builder `productStrip` section,
+ * `landingPage.relatedProducts`, and `video.relatedProducts` (Patrick feedback
+ * 2026-07-11: the strips previously took only a Geiger SKU / manual card).
+ * Mirrors `productPage.relatedProducts`: alongside the `blogProduct` entry,
+ * editors can reference one of their own Product Pages (renders as an internal
+ * card linking to /products/<slug>) or Custom Products (affiliate/external
+ * card), with live title/price/image from the doc. The reference member is
+ * NAMED `relatedProductRef` — Sanity stores the member name as the item's
+ * `_type`, which the render projections key on via `defined(_ref)`.
+ * Factored here so the four strips can never drift.
+ */
+export const productStripEntryMembers = [
+  defineArrayMember({ type: 'blogProduct' }),
+  defineArrayMember({
+    type: 'reference',
+    name: 'relatedProductRef',
+    title: 'Custom Product / Product Page',
+    to: [{ type: 'customProduct' }, { type: 'productPage' }],
+  }),
+];
+
+/** Shared field description for the strip arrays (kept in one place). */
+export const productStripEntryDescription =
+  'Add a Geiger product by SKU (the "Product" entry — prices and links pull live from the catalog), or reference one of your own Product Pages (links to its /products page) or Custom Products (links to its external URL). Manual title/image/URL fields on the "Product" entry are the fallback when no SKU is set.';
 
 /**
  * A single product entry — SKU-backed (live data pulled from the Geiger catalog
@@ -67,7 +94,8 @@ export default defineType({
       name: 'products',
       title: 'Products',
       type: 'array',
-      of: [{ type: 'blogProduct' }],
+      of: productStripEntryMembers,
+      description: productStripEntryDescription,
     }),
   ],
   preview: {

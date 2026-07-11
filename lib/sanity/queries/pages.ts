@@ -3,6 +3,10 @@ import 'server-only';
 import type { PortableTextBlock } from '@portabletext/react';
 import { cachedClient } from '@/lib/sanity/client';
 import { PAGES_TAG, pageTag } from '@/lib/sanity/cache-tags';
+import {
+  STRIP_PRODUCT_ENTRIES_PROJECTION,
+  type StripProductEntry,
+} from '@/lib/sanity/strip-product-entries';
 import type { SanityImage } from '@/lib/sanity/types';
 
 // ---------------------------------------------------------------------------
@@ -144,22 +148,18 @@ export interface VideoEmbedSection extends BaseSection {
 }
 
 /**
- * One `productStrip` entry — the shared `blogProduct` object (P2-AI-004):
- * SKU-backed (resolved live from products.json at render time) or manual
- * (title/image/url), same shape as blog body strips and video.relatedProducts.
+ * One `productStrip` entry (P2-AI-004; extended 2026-07-11): the shared
+ * `blogProduct` object (SKU-backed or manual) OR a dereferenced
+ * productPage/customProduct reference — same union every product strip uses
+ * (blog body strips, video.relatedProducts, landingPage.relatedProducts).
+ * A dangling reference projects to null, so consumers null-guard each item.
  */
-export interface ProductStripEntry {
-  _key?: string;
-  sku?: string;
-  title?: string;
-  image?: PageImage;
-  url?: string;
-}
+export type ProductStripEntry = StripProductEntry;
 
 export interface ProductStripSection extends BaseSection {
   _type: 'productStrip';
   heading?: string;
-  products?: ProductStripEntry[];
+  products?: (ProductStripEntry | null)[];
 }
 
 export type PageSection =
@@ -189,14 +189,25 @@ export interface PageDoc {
 }
 
 // `sections[]{ ... }` spreads every field of every section object, including
-// nested arrays (productStrip.products[], faqAccordion.items[], …), so new
-// section types need no projection change — only a TS interface above.
+// nested arrays (faqAccordion.items[], …), so new section types need no
+// projection change — only a TS interface above. The ONE exception is
+// `productStrip`: its products[] can carry productPage/customProduct
+// REFERENCES (2026-07-11), which a bare spread would return as unresolved
+// `{_ref}` stubs — the conditional re-projects only that array, dereferencing
+// refs in place (see STRIP_PRODUCT_ENTRIES_PROJECTION). The deref rides this
+// same PAGES_TAG/page:<slug>-tagged read, so the routes stay static.
 const PAGE_PROJECTION = `{
   _id,
   title,
   "slug": slug.current,
   seo,
-  sections[]{ ... }
+  sections[]{
+    ...,
+    _type == 'productStrip' => {
+      ...,
+      products[]${STRIP_PRODUCT_ENTRIES_PROJECTION}
+    }
+  }
 }`;
 
 export async function getPageBySlug(slug: string): Promise<PageDoc | null> {

@@ -1,5 +1,9 @@
 import { defineField, defineType } from 'sanity';
 import { portableBody } from '../objects/page-sections';
+import {
+  productStripEntryDescription,
+  productStripEntryMembers,
+} from '../objects/blog-products';
 
 /**
  * Reserved top-level slugs a `landingPage` must not use — the SAME list the
@@ -187,9 +191,8 @@ export default defineType({
       name: 'relatedProducts',
       title: 'Related products',
       type: 'array',
-      of: [{ type: 'blogProduct' }],
-      description:
-        'Shown as a live product strip inside the Options & Ideas section (prices and links pull from the catalog). The AI pre-fills these; add or remove any.',
+      of: productStripEntryMembers,
+      description: `Shown as a live product strip inside the Options & Ideas section. ${productStripEntryDescription} The AI pre-fills SKU entries; add or remove any.`,
     }),
     defineField({
       name: 'faqs',

@@ -1,4 +1,8 @@
 import { defineField, defineType } from 'sanity';
+import {
+  productStripEntryDescription,
+  productStripEntryMembers,
+} from '../objects/blog-products';
 
 export default defineType({
   name: 'video',
@@ -66,9 +70,8 @@ export default defineType({
       name: 'relatedProducts',
       title: 'Related Products',
       type: 'array',
-      of: [{ type: 'blogProduct' }],
-      description:
-        'Shown as a product strip under the description on the video page. The AI pre-fills these; add or remove any (add by Geiger SKU, or fill the manual fields for a non-Geiger product).',
+      of: productStripEntryMembers,
+      description: `Shown as a product strip under the description on the video page. ${productStripEntryDescription} The AI pre-fills SKU entries; add or remove any.`,
     }),
     defineField({
       name: 'category',

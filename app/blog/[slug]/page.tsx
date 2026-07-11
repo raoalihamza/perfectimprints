@@ -78,10 +78,13 @@ function collectBlogProductSkus(body: PortableTextBlock[] | undefined): string[]
   const skus: string[] = [];
   const seen = new Set<string>();
   for (const block of body) {
-    const b = block as { _type?: string; products?: { sku?: string }[] };
+    // Entries can also be dereferenced productPage/customProduct refs (which
+    // carry no `sku` here) or null (dangling ref) — both are skipped; only
+    // blogProduct SKU entries feed the catalog lookup.
+    const b = block as { _type?: string; products?: ({ sku?: string } | null)[] };
     if (b._type !== 'blogProducts') continue;
     for (const entry of b.products ?? []) {
-      const sku = entry.sku?.trim();
+      const sku = entry?.sku?.trim();
       if (sku && !seen.has(sku)) {
         seen.add(sku);
         skus.push(sku);

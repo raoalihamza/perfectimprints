@@ -1,5 +1,6 @@
 import { cachedClient, client } from '@/lib/sanity/client';
 import { RELATED_BLOGS_TAG } from '@/lib/sanity/cache-tags';
+import { STRIP_PRODUCT_ENTRIES_PROJECTION } from '@/lib/sanity/strip-product-entries';
 import type { PortableTextBlock } from '@portabletext/react';
 import type { SanityImage, SanitySlug } from '@/lib/sanity/types';
 
@@ -136,10 +137,21 @@ export async function getBlogPostsPage(opts: {
 }
 
 export async function getBlogPostBySlug(slug: string): Promise<BlogPostDetail | null> {
+  // `body` is projected block-by-block so `blogProducts` strips can carry
+  // productPage/customProduct REFERENCES alongside SKU/manual entries: the
+  // spread keeps every block verbatim; the conditional re-projects only the
+  // strip's products array, dereferencing refs in place (a dangling ref
+  // yields null — BlogBody drops it). All other block types are unchanged.
   const doc = await client.fetch<BlogPostDetail | null>(
     `*[${PUBLISHED} && slug.current == $slug][0]{
       ${SUMMARY_PROJECTION},
-      body,
+      body[]{
+        ...,
+        _type == 'blogProducts' => {
+          ...,
+          products[]${STRIP_PRODUCT_ENTRIES_PROJECTION}
+        }
+      },
       updatedDate,
       metaTitle,
       ctaTopic,
