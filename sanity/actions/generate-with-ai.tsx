@@ -10,7 +10,7 @@
  */
 import { useState } from 'react';
 import { useDocumentOperation, type DocumentActionComponent } from 'sanity';
-import { htmlToBlocks, buildGuideBlocks } from '../../lib/portable-text/html-to-blocks';
+import { htmlToBlocks, buildGuideBlocks, plainTextToBlocks } from '../../lib/portable-text/html-to-blocks';
 import { AiProgressContent } from '../components/AiProgressDialog';
 
 interface GeneratedContent {
@@ -60,7 +60,15 @@ export const generateWithAi: DocumentActionComponent = (props) => {
           throw new Error(data.error || 'AI generation failed.');
         }
 
-        const faqs = (data.faqs ?? []).map((f) => ({ _key: nextFaqKey(), q: f.q, a: f.a }));
+        // `customCategory.faqs[].a` is rich text (richAnswer, M5-516/Task B) —
+        // DeepSeek returns a plain string, so convert it to Portable Text here,
+        // exactly like the push-to-Sanity route does for the same field. A raw
+        // string would show "Invalid property value" on every FAQ in Studio.
+        const faqs = (data.faqs ?? []).map((f) => ({
+          _key: nextFaqKey(),
+          q: f.q,
+          a: plainTextToBlocks(f.a),
+        }));
 
         patch.execute([
           {

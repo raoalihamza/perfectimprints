@@ -20,6 +20,8 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { createClient, type SanityClient } from '@sanity/client';
+import { plainTextToBlocks } from '../../lib/portable-text/html-to-blocks';
+import { portableTextToPlain } from '../../lib/portable-text/to-plain';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const PROJECT_ROOT = resolve(__dirname, '../..');
@@ -206,7 +208,20 @@ interface FaqRow {
   _id: string;
   question?: string;
   faqCategory?: string;
-  answer?: string;
+  // Rich text (richAnswer, M5-516/Task B) on current docs; a plain string only
+  // on pre-migration data. Treated as opaque and plain-texted for comparison.
+  answer?: unknown;
+}
+
+/**
+ * `faq.answer` is the rich-text `richAnswer` type — always WRITE Portable Text
+ * blocks (a raw string shows "Invalid property value" in Studio). An existing
+ * answer that is already Portable Text is kept as-is; a legacy string is
+ * converted on the way through.
+ */
+function toRichAnswerBlocks(value: unknown): unknown {
+  if (typeof value === 'string') return plainTextToBlocks(value);
+  return value;
 }
 
 async function main(): Promise<void> {
@@ -243,11 +258,12 @@ async function main(): Promise<void> {
     }
 
     // Never clobber an answer Patrick already wrote — keep his over ours.
-    const existingAnswer = (doc.answer ?? '').trim();
+    // portableTextToPlain tolerates both the rich-text and legacy string shapes.
+    const existingAnswer = portableTextToPlain(doc.answer);
 
     if (doc._id.startsWith('drafts.')) {
       const pubId = doc._id.replace(/^drafts\./, '');
-      const finalAnswer = existingAnswer || a;
+      const finalAnswer = existingAnswer ? toRichAnswerBlocks(doc.answer) : plainTextToBlocks(a);
       console.log(
         `  publish  ${pubId}  ${q.slice(0, 56)}${existingAnswer ? '  (kept existing answer)' : ''}`,
       );
@@ -266,7 +282,7 @@ async function main(): Promise<void> {
       skipped++;
     } else {
       console.log(`  patch    ${doc._id}  ${q.slice(0, 56)}`);
-      if (!DRY_RUN) await client.patch(doc._id).set({ answer: a }).commit();
+      if (!DRY_RUN) await client.patch(doc._id).set({ answer: plainTextToBlocks(a) }).commit();
       patched++;
     }
   }

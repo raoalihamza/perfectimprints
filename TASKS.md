@@ -2163,6 +2163,17 @@ Patrick feedback: the product strips (blog body `blogProducts`, page-builder `pr
 - **AI unchanged:** generation still pre-fills SKU entries only; including productPages in AI matching noted as a possible follow-up, not done.
 - Guide updated in all five places (blog body, blog AI, page-builder Product Strip table + AI page, video, landing, productPage "where it shows up"). `pnpm typecheck` clean, `verify:blog-engine` 77/77, vitest 21/21.
 
+### [x] P2-FIX: AI-generated customCategory FAQs invalid in Studio (string vs richAnswer) — FIXED + MIGRATED 2026-07-12
+
+Patrick report: every "Generate with AI" category showed "Invalid property value" on all 5 FAQs (Studio: "must be of type richAnswer … current value (string)"). Root cause: `customCategory.faqs[].a` became rich text in M5-516/Task B, but the M5-505 Studio action still patched DeepSeek's plain-string answer verbatim. Live pages were unaffected (`<RichAnswer>` tolerates both shapes) — only Studio validity/editability broke.
+
+- **Audit (all FAQ writers):** Generate-with-AI action → customCategory `richAnswer` = **MISMATCH (the bug)**; push-category route → already converts via `plainTextToBlocks` = match; `fill-faq-answers.ts` seed → `faq.answer` richAnswer as string = **stale mismatch** (would also crash re-run on `.trim()` of migrated arrays); generate-page `faqAccordion.items[].answer` + generate-landing `faqs[].answer` are plain `text` fields by schema = correct as-is (left alone); generate-video already uses `buildRichAnswerBody`; curatedCategory FAQs are references = N/A.
+- **Fix 1:** [sanity/actions/generate-with-ai.tsx](sanity/actions/generate-with-ai.tsx) converts each answer with `plainTextToBlocks(f.a)` (the proven same-field converter from the push route / Task B migration — richAnswer-legal `normal` blocks, splits multi-paragraph answers) before patching. Same copy, new shape. Route response unchanged (transport stays strings).
+- **Fix 2:** [scripts/seed/fill-faq-answers.ts](scripts/seed/fill-faq-answers.ts) re-run-safe: existing-answer check via `portableTextToPlain` (tolerates both shapes), all writes converted to blocks, existing PT answers passed through untouched.
+- **Migration RUN (2026-07-12, not committed as data):** re-ran the idempotent `scripts/migrations/migrate-richtext-answers.ts` — dry-run diagnosed **24 string FAQ items across 5 customCategory docs** (published: Custom Metal Coffee Mugs, Custom Matches; drafts: Bulk Trade Show, Custom Wooden Ornaments, + the Mugs draft); `faq.answer` 0/74 and `video.description` 0/49 already clean. Live run converted all 24 (published + drafts, `_key`s/order preserved, only `faqs` touched); re-run dry-run confirms 0 remaining.
+- **Freshness:** rendered text is identical either way (same plain text through `<RichAnswer>` + `portableTextToPlain`), and Sanity GROQ webhooks fire on API mutations too, so the published-doc patches triggered the normal `cat:<slug>` revalidation. Verified live `/cat/matches`: FAQs render, single FAQPage JSON-LD with full answer text.
+- Conscious no-ops: no schema change, no new doc type → no webhook Filter/Projection change, no new cache tag/env. `pnpm typecheck` clean, `verify:blog-engine` 77/77.
+
 ### [ ] P2-CTA-001: CTA bar on product-bearing category/facet pages
 
 - On all category and facet pages that show products (including deeper facet pages), placed directly below the products and above the FAQs.
