@@ -14,9 +14,15 @@ const LeadFormModal = dynamic(
 interface EmptyStateCTAButtonProps {
   categoryTitle: string;
   sourceUrl: string;
+  /** Button text. Defaults to the empty-state wording so existing uses are unchanged. */
+  label?: string;
 }
 
-export function EmptyStateCTAButton({ categoryTitle, sourceUrl }: EmptyStateCTAButtonProps) {
+export function EmptyStateCTAButton({
+  categoryTitle,
+  sourceUrl,
+  label = 'Find Products for Me',
+}: EmptyStateCTAButtonProps) {
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -25,7 +31,7 @@ export function EmptyStateCTAButton({ categoryTitle, sourceUrl }: EmptyStateCTAB
         onClick={() => setOpen(true)}
         className="inline-flex h-12 items-center justify-center rounded bg-brand-green px-8 text-base font-semibold text-white shadow-sm transition-colors hover:bg-brand-green/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2"
       >
-        Find Products for Me
+        {label}
       </button>
       {open && (
         <LeadFormModal

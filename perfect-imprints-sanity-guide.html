@@ -508,6 +508,24 @@
     <p>Default wording for the call-to-action banner used in places around the site (heading, body, button label and
       link).</p>
 
+    <h4>Category CTA Bar</h4>
+    <p>The prompt shown <strong>below the products and above the FAQs</strong> on every category and filter page that
+      displays products: <em>"Not finding the exact water bottles you're looking for? We have other options. Contact us
+        and we'll search through our database of over 1,000,000 promotional items."</em> The button opens the same
+      <strong>Find Products for Me</strong> form used elsewhere on the site, and the lead lands in your inbox the same
+      way.</p>
+    <ul>
+      <li><strong>Enabled</strong>: turn the bar off everywhere with one switch.</li>
+      <li><strong>Heading / Body / Button Label</strong>: the wording. Type <code>{category}</code> anywhere in the
+        heading or body and it is replaced automatically with that page's category name (remove the token and the
+        sentence simply renders without it). Leave a field blank and the default wording shown in its description is
+        used.</li>
+    </ul>
+    <p class="small">Pages that have <em>no</em> products already show the big "Don't See The Products Listed?" block
+      in place of the grid — those pages never get this bar, so there is never a doubled-up ask. Because this copy
+      appears on thousands of category pages, publishing a change here refreshes them all; each page picks up the new
+      wording the next time it is viewed (this takes seconds per page and is completely normal).</p>
+
     <h4>Deals / New Products / Rush Products page controls</h4>
     <p>Each of these three aggregator pages has a small set of controls here:</p>
     <ul>
@@ -1750,7 +1768,7 @@
     <p>A quick mental map of what drives what:</p>
     <ul>
       <li><strong>Global Settings</strong> drives the header and footer of <em>every</em> page (contact details, social
-        icons, footer link columns, copyright).</li>
+        icons, footer link columns, copyright), plus the "Not finding the exact …?" CTA bar under category products.</li>
       <li><strong>Home Page</strong> drives only the homepage.</li>
       <li><strong>Mega Menu</strong> drives the top navigation bar across the site.</li>
       <li><strong>Category pages</strong> (<code>/cat/...</code>) run automatically, and are shaped by the three tools:
@@ -1808,6 +1826,10 @@
       <tr>
         <td>Change a footer link (About / Popular / Customer Service)</td>
         <td>Global Settings &rsaquo; Footer Columns</td>
+      </tr>
+      <tr>
+        <td>Reword (or hide) the "Not finding the exact …?" bar under category products</td>
+        <td>Global Settings &rsaquo; Category CTA Bar</td>
       </tr>
       <tr>
         <td>Edit the big homepage headline text</td>

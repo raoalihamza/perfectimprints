@@ -3,6 +3,7 @@ import { Container } from '@/components/ui/Container';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { FAQsAccordion } from '@/components/category/FAQsAccordion';
 import { CTABanner } from '@/components/category/CTABanner';
+import { CategoryCtaBar } from '@/components/category/CategoryCtaBar';
 import { EmptyStateCTA } from '@/components/category/EmptyStateCTA';
 import { ProductGrid } from '@/components/category/ProductGrid';
 import { Schema } from '@/components/seo/Schema';
@@ -128,6 +129,10 @@ export function CustomCategoryView({ doc, baseUrl, products }: Props) {
           <EmptyStateCTA categoryTitle={title} sourceUrl={baseUrl} />
         )}
       </Container>
+
+      {/* P2-CTA-001: "Not finding the exact …?" bar — only when the page shows
+          products (the empty state above already carries its own CTA). */}
+      {products.length > 0 && <CategoryCtaBar categoryTitle={title} sourceUrl={baseUrl} />}
 
       {doc.bodySections && doc.bodySections.length > 0 && (
         <Container as="section" className="py-10">

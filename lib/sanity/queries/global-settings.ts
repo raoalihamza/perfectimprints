@@ -67,6 +67,33 @@ export interface FooterColumn {
   links: FooterLink[];
 }
 
+/**
+ * The category CTA bar (P2-CTA-001) — the "Not finding the exact … you're
+ * looking for?" prompt shown below the product grid (above the FAQs) on every
+ * product-bearing category/facet page. Copy is Patrick-editable in Global
+ * Settings; the `{category}` token in heading/body is replaced with the
+ * category name at render time by <CategoryCtaBar>.
+ */
+export interface CategoryCtaBarSettings {
+  enabled: boolean;
+  heading: string;
+  body: string;
+  buttonLabel: string;
+}
+
+/**
+ * Patrick's confirmed default copy. Applied in code (not just schema
+ * `initialValue`) because the globalSettings document already exists in
+ * production — `initialValue` never retro-fills an existing doc, so without
+ * these the bar would render nothing until the fields were typed in by hand.
+ * Blank field → default; hiding the bar is the `enabled` toggle's job.
+ */
+export const CATEGORY_CTA_BAR_DEFAULTS: Omit<CategoryCtaBarSettings, 'enabled'> = {
+  heading: "Not finding the exact {category} you're looking for?",
+  body: "We have other options. Contact us and we'll search through our database of over 1,000,000 promotional items.",
+  buttonLabel: 'Find Products for Me',
+};
+
 export interface SiteSettings {
   /** Enabled social links only, in array order (disabled ones are dropped). */
   socialLinks: ResolvedSocialLink[];
@@ -76,6 +103,8 @@ export interface SiteSettings {
    * Empty when unset — the Footer falls back to its hardcoded NAV_COLUMNS.
    */
   footerColumns: FooterColumn[];
+  /** Category CTA bar copy (defaults applied — strings are never blank). */
+  categoryCtaBar: CategoryCtaBarSettings;
 }
 
 interface RawSocialLink {
@@ -97,10 +126,18 @@ interface RawFooterColumn {
   links?: Array<{ label?: string; href?: string; external?: boolean }>;
 }
 
+interface RawCategoryCtaBar {
+  enabled?: boolean;
+  heading?: string;
+  body?: string;
+  buttonLabel?: string;
+}
+
 interface RawSettings {
   socialLinks?: RawSocialLink[];
   contact?: RawContact;
   footerColumns?: RawFooterColumn[];
+  categoryCtaBar?: RawCategoryCtaBar;
   // legacy flat fields — fallback only
   phoneNumber?: string;
   contactEmail?: string;
@@ -110,14 +147,18 @@ const QUERY = `*[_type == "globalSettings"][0]{
   socialLinks[]{ platform, label, url, enabled, customIcon },
   contact,
   footerColumns[]{ heading, links[]{ label, href, external } },
+  categoryCtaBar{ enabled, heading, body, buttonLabel },
   phoneNumber,
   contactEmail
 }`;
+
+const DEFAULT_CTA_BAR: CategoryCtaBarSettings = { enabled: true, ...CATEGORY_CTA_BAR_DEFAULTS };
 
 const EMPTY: SiteSettings = {
   socialLinks: [],
   contact: { phones: [], email: null, address: null },
   footerColumns: [],
+  categoryCtaBar: DEFAULT_CTA_BAR,
 };
 
 function resolveIconUrl(image: SanityImage | undefined): string | null {
@@ -191,7 +232,23 @@ function resolve(raw: RawSettings | null): SiteSettings {
     }))
     .filter((col) => col.heading && col.links.length > 0);
 
-  return { socialLinks, contact: { phones: resolvedPhones, email, address }, footerColumns };
+  // Category CTA bar: only an explicit `enabled: false` hides it (an unset
+  // field on the existing singleton counts as on), and blank copy falls back to
+  // Patrick's confirmed defaults so the bar always renders complete wording.
+  const bar = raw.categoryCtaBar;
+  const categoryCtaBar: CategoryCtaBarSettings = {
+    enabled: bar?.enabled !== false,
+    heading: clean(bar?.heading) ?? CATEGORY_CTA_BAR_DEFAULTS.heading,
+    body: clean(bar?.body) ?? CATEGORY_CTA_BAR_DEFAULTS.body,
+    buttonLabel: clean(bar?.buttonLabel) ?? CATEGORY_CTA_BAR_DEFAULTS.buttonLabel,
+  };
+
+  return {
+    socialLinks,
+    contact: { phones: resolvedPhones, email, address },
+    footerColumns,
+    categoryCtaBar,
+  };
 }
 
 export const getSiteSettings = cache(async (): Promise<SiteSettings> => {

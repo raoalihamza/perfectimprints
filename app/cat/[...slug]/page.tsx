@@ -4,6 +4,7 @@ import { Container } from '@/components/ui/Container';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { FAQsAccordion } from '@/components/category/FAQsAccordion';
 import { CTABanner } from '@/components/category/CTABanner';
+import { CategoryCtaBar } from '@/components/category/CategoryCtaBar';
 import { EmptyStateCTA } from '@/components/category/EmptyStateCTA';
 import { CategoryShell } from '@/components/category/CategoryShell';
 import { RelatedBlogsSection } from '@/components/category/RelatedBlogsSection';
@@ -472,6 +473,14 @@ export default async function CategoryPage({ params }: Props) {
           />
         )}
       </Container>
+
+      {/* P2-CTA-001: "Not finding the exact …?" bar — product-bearing pages
+          only (EmptyStateCTA pages already carry their own CTA in the grid
+          slot, so they must never get a second one). Server-rendered into the
+          static HTML; copy editable in Global Settings. */}
+      {!showCTA && sidebar && (
+        <CategoryCtaBar categoryTitle={title} sourceUrl={parsed.baseUrl} />
+      )}
 
       {isRoot && (
         <Container as="section">

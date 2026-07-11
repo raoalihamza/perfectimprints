@@ -174,6 +174,48 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'categoryCtaBar',
+      title: 'Category CTA Bar',
+      type: 'object',
+      description:
+        'The "Not finding the exact … you\'re looking for?" bar shown below the products (above the FAQs) on every category and filter page that displays products. Pages with no products already show the big "Don\'t See The Products Listed?" block instead, so they never get this bar. The button opens the same "Find Products for Me" form. Leave any text field blank to use the default wording shown in its description.',
+      options: { collapsible: true, collapsed: true },
+      fields: [
+        {
+          name: 'enabled',
+          type: 'boolean',
+          title: 'Enabled',
+          initialValue: true,
+          description: 'Off = the bar is hidden on every category page.',
+        },
+        {
+          name: 'heading',
+          type: 'string',
+          title: 'Heading',
+          initialValue: "Not finding the exact {category} you're looking for?",
+          description:
+            'The token {category} is replaced automatically with the category name (remove it and the copy simply renders without it). Blank = default: "Not finding the exact {category} you\'re looking for?"',
+        },
+        {
+          name: 'body',
+          type: 'text',
+          rows: 3,
+          title: 'Body',
+          initialValue:
+            "We have other options. Contact us and we'll search through our database of over 1,000,000 promotional items.",
+          description:
+            'Supports the {category} token too. Blank = default: "We have other options. Contact us and we\'ll search through our database of over 1,000,000 promotional items."',
+        },
+        {
+          name: 'buttonLabel',
+          type: 'string',
+          title: 'Button Label',
+          initialValue: 'Find Products for Me',
+          description: 'Blank = default: "Find Products for Me".',
+        },
+      ],
+    }),
+    defineField({
       name: 'dealsPage',
       title: 'Deals Page',
       type: 'object',
