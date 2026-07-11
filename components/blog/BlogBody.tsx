@@ -2,6 +2,10 @@ import Link from 'next/link';
 import { PortableText, type PortableTextComponents } from '@portabletext/react';
 import type { PortableTextBlock } from '@portabletext/react';
 import { urlForImage } from '@/lib/sanity/client';
+import {
+  inlineImageAssetWidth,
+  inlineImageSizingClasses,
+} from '@/lib/portable-text/inline-image-size';
 import type { SanityImage } from '@/lib/sanity/types';
 import type { GeigerProduct } from '@/lib/product-types';
 import { ProductCard } from '@/components/category/ProductCard';
@@ -51,11 +55,16 @@ function buildComponents(
   return {
   types: {
     image: ({ value }) => {
-      const v = value as SanityImage & { alt?: string };
+      const v = value as SanityImage & { alt?: string; size?: string; align?: string };
       if (!v?.asset) return null;
-      const src = urlForImage(v).width(1200).fit('max').url();
+      // Asset width matched to the editor-chosen size (full/unset = 1200,
+      // exactly as before) so a quarter-width image doesn't fetch 1200px.
+      const src = urlForImage(v).width(inlineImageAssetWidth(v)).fit('max').url();
+      // size/align (optional Studio fields) cap + align the FIGURE so the
+      // caption follows the image; unset/full returns '' → today's full width.
+      const sizing = inlineImageSizingClasses(v);
       return (
-        <figure className="my-6">
+        <figure className={sizing ? `my-6 ${sizing}` : 'my-6'}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={src}

@@ -1,9 +1,13 @@
 import Link from 'next/link';
 import { type PortableTextComponents } from '@portabletext/react';
 import { urlForImage } from '@/lib/sanity/client';
+import {
+  inlineImageAssetWidth,
+  inlineImageSizingClasses,
+} from '@/lib/portable-text/inline-image-size';
 
 /** Shape of an inline `image` block dropped into rich-text body. */
-type InlineImageValue = { asset?: { _ref?: string }; alt?: string };
+type InlineImageValue = { asset?: { _ref?: string }; alt?: string; size?: string; align?: string };
 
 /**
  * Shared PortableText renderer config for page-builder rich text
@@ -20,14 +24,24 @@ export const pagePortableComponents: PortableTextComponents = {
       if (!v?.asset?._ref) return null;
       let src: string | null = null;
       try {
-        src = urlForImage(v).width(1200).fit('max').auto('format').url();
+        // Asset width matched to the editor-chosen size (full/unset = 1200,
+        // exactly as before) so a quarter-width image doesn't fetch 1200px.
+        src = urlForImage(v).width(inlineImageAssetWidth(v)).fit('max').auto('format').url();
       } catch {
         return null;
       }
       if (!src) return null;
+      // size/align (optional Studio fields) append a responsive max-width cap
+      // + auto-margin alignment; unset/full returns '' → today's full width.
+      const sizing = inlineImageSizingClasses(v);
       return (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={src} alt={v.alt || ''} loading="lazy" className="my-6 w-full rounded-md" />
+        <img
+          src={src}
+          alt={v.alt || ''}
+          loading="lazy"
+          className={sizing ? `my-6 w-full rounded-md ${sizing}` : 'my-6 w-full rounded-md'}
+        />
       );
     },
   },

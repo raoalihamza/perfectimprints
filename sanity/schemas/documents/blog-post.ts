@@ -1,5 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { CategorySlugInput } from '../../components/CategoryPicker';
+import { inlineImageAlignField, inlineImageSizeField } from '../objects/inline-image-fields';
 
 export default defineType({
   name: 'blogPost',
@@ -73,7 +74,13 @@ export default defineType({
         {
           type: 'image',
           options: { hotspot: true },
-          fields: [{ name: 'alt', type: 'string', title: 'Alt text' }],
+          // size/align are optional (NO initialValue): unset = full width, the
+          // pre-existing behavior, so nothing already published shifts.
+          fields: [
+            { name: 'alt', type: 'string', title: 'Alt text' },
+            inlineImageSizeField,
+            inlineImageAlignField,
+          ],
         },
         {
           type: 'object',

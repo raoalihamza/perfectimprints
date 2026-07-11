@@ -1,5 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { productStripEntryDescription, productStripEntryMembers } from './blog-products';
+import { inlineImageAlignField, inlineImageSizeField } from './inline-image-fields';
 
 /**
  * Reusable page-builder section objects (M5-506b).
@@ -93,7 +94,13 @@ export const portableBody = (name = 'body', title = 'Content') =>
         type: 'image',
         title: 'Inline image',
         options: { hotspot: true },
-        fields: [{ name: 'alt', type: 'string', title: 'Alt text' }],
+        // size/align are optional (NO initialValue): unset = full width, the
+        // pre-existing behavior, so nothing already published shifts.
+        fields: [
+          { name: 'alt', type: 'string', title: 'Alt text' },
+          inlineImageSizeField,
+          inlineImageAlignField,
+        ],
       },
     ],
   });
