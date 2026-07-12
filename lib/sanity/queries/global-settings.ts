@@ -94,6 +94,19 @@ export const CATEGORY_CTA_BAR_DEFAULTS: Omit<CategoryCtaBarSettings, 'enabled'> 
   buttonLabel: 'Find Products for Me',
 };
 
+/**
+ * The video variant of the CTA bar (P2-CTA-001 extension) — shown on
+ * `/videos/<slug>` below the related-products strip. Patrick chose the heading
+ * verbatim; there is no product category on a video page, so no `{category}`
+ * token (if one is typed in anyway, the renderer substitutes a generic
+ * "promotional products" rather than leaving a raw token on the page).
+ */
+export const VIDEO_CTA_BAR_DEFAULTS: Omit<CategoryCtaBarSettings, 'enabled'> = {
+  heading: "Need help choosing the right Promotional Products? We're here.",
+  body: "Contact us and we'll search through our database of over 1,000,000 promotional items.",
+  buttonLabel: 'Find Products for Me',
+};
+
 export interface SiteSettings {
   /** Enabled social links only, in array order (disabled ones are dropped). */
   socialLinks: ResolvedSocialLink[];
@@ -105,6 +118,8 @@ export interface SiteSettings {
   footerColumns: FooterColumn[];
   /** Category CTA bar copy (defaults applied — strings are never blank). */
   categoryCtaBar: CategoryCtaBarSettings;
+  /** Video-page CTA bar copy (defaults applied — strings are never blank). */
+  videoCtaBar: CategoryCtaBarSettings;
 }
 
 interface RawSocialLink {
@@ -138,6 +153,7 @@ interface RawSettings {
   contact?: RawContact;
   footerColumns?: RawFooterColumn[];
   categoryCtaBar?: RawCategoryCtaBar;
+  videoCtaBar?: RawCategoryCtaBar;
   // legacy flat fields — fallback only
   phoneNumber?: string;
   contactEmail?: string;
@@ -148,17 +164,20 @@ const QUERY = `*[_type == "globalSettings"][0]{
   contact,
   footerColumns[]{ heading, links[]{ label, href, external } },
   categoryCtaBar{ enabled, heading, body, buttonLabel },
+  videoCtaBar{ enabled, heading, body, buttonLabel },
   phoneNumber,
   contactEmail
 }`;
 
 const DEFAULT_CTA_BAR: CategoryCtaBarSettings = { enabled: true, ...CATEGORY_CTA_BAR_DEFAULTS };
+const DEFAULT_VIDEO_CTA_BAR: CategoryCtaBarSettings = { enabled: true, ...VIDEO_CTA_BAR_DEFAULTS };
 
 const EMPTY: SiteSettings = {
   socialLinks: [],
   contact: { phones: [], email: null, address: null },
   footerColumns: [],
   categoryCtaBar: DEFAULT_CTA_BAR,
+  videoCtaBar: DEFAULT_VIDEO_CTA_BAR,
 };
 
 function resolveIconUrl(image: SanityImage | undefined): string | null {
@@ -232,22 +251,26 @@ function resolve(raw: RawSettings | null): SiteSettings {
     }))
     .filter((col) => col.heading && col.links.length > 0);
 
-  // Category CTA bar: only an explicit `enabled: false` hides it (an unset
-  // field on the existing singleton counts as on), and blank copy falls back to
-  // Patrick's confirmed defaults so the bar always renders complete wording.
-  const bar = raw.categoryCtaBar;
-  const categoryCtaBar: CategoryCtaBarSettings = {
+  // CTA bars (category + video variants): only an explicit `enabled: false`
+  // hides one (an unset field on the existing singleton counts as on), and
+  // blank copy falls back to Patrick's confirmed defaults so a bar always
+  // renders complete wording.
+  const resolveCtaBar = (
+    bar: RawCategoryCtaBar | undefined,
+    defaults: Omit<CategoryCtaBarSettings, 'enabled'>,
+  ): CategoryCtaBarSettings => ({
     enabled: bar?.enabled !== false,
-    heading: clean(bar?.heading) ?? CATEGORY_CTA_BAR_DEFAULTS.heading,
-    body: clean(bar?.body) ?? CATEGORY_CTA_BAR_DEFAULTS.body,
-    buttonLabel: clean(bar?.buttonLabel) ?? CATEGORY_CTA_BAR_DEFAULTS.buttonLabel,
-  };
+    heading: clean(bar?.heading) ?? defaults.heading,
+    body: clean(bar?.body) ?? defaults.body,
+    buttonLabel: clean(bar?.buttonLabel) ?? defaults.buttonLabel,
+  });
 
   return {
     socialLinks,
     contact: { phones: resolvedPhones, email, address },
     footerColumns,
-    categoryCtaBar,
+    categoryCtaBar: resolveCtaBar(raw.categoryCtaBar, CATEGORY_CTA_BAR_DEFAULTS),
+    videoCtaBar: resolveCtaBar(raw.videoCtaBar, VIDEO_CTA_BAR_DEFAULTS),
   };
 }
 

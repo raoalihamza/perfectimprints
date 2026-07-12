@@ -216,6 +216,48 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'videoCtaBar',
+      title: 'Video CTA Bar',
+      type: 'object',
+      description:
+        'The "Need help choosing…?" bar shown on every video page (below the featured products, above Related Videos). Same style and same "Find Products for Me" form as the Category CTA Bar above — this one is just the wording for video pages, where there is no product category to name. Leave any text field blank to use the default wording shown in its description.',
+      options: { collapsible: true, collapsed: true },
+      fields: [
+        {
+          name: 'enabled',
+          type: 'boolean',
+          title: 'Enabled',
+          initialValue: true,
+          description: 'Off = the bar is hidden on every video page.',
+        },
+        {
+          name: 'heading',
+          type: 'string',
+          title: 'Heading',
+          initialValue: "Need help choosing the right Promotional Products? We're here.",
+          description:
+            'Blank = default: "Need help choosing the right Promotional Products? We\'re here."',
+        },
+        {
+          name: 'body',
+          type: 'text',
+          rows: 3,
+          title: 'Body',
+          initialValue:
+            "Contact us and we'll search through our database of over 1,000,000 promotional items.",
+          description:
+            'Blank = default: "Contact us and we\'ll search through our database of over 1,000,000 promotional items."',
+        },
+        {
+          name: 'buttonLabel',
+          type: 'string',
+          title: 'Button Label',
+          initialValue: 'Find Products for Me',
+          description: 'Blank = default: "Find Products for Me".',
+        },
+      ],
+    }),
+    defineField({
       name: 'dealsPage',
       title: 'Deals Page',
       type: 'object',

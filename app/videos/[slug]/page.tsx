@@ -15,6 +15,7 @@ import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { portableTextToPlain } from '@/lib/portable-text/to-plain';
 import { RichAnswer } from '@/components/portable-text/RichAnswer';
 import { VideoRelatedProducts } from '@/components/videos/VideoRelatedProducts';
+import { CategoryCtaBar } from '@/components/category/CategoryCtaBar';
 import { resolveProductsBySku } from '@/lib/categories';
 import { isStripRefEntry } from '@/lib/sanity/strip-product-entries';
 import type { GeigerProduct } from '@/lib/product-types';
@@ -171,6 +172,19 @@ export default async function VideoDetailPage({ params }: Props) {
           {relatedProductEntries.length > 0 && (
             <VideoRelatedProducts entries={relatedProductEntries} skuProducts={skuProducts} />
           )}
+
+          {/* P2-CTA-001 video variant: "Need help choosing…?" lead bar — below
+              the featured-products strip (and deliberately rendered even when
+              that strip is empty: that is exactly when a visitor needs a next
+              step). Server-rendered; wording in Global Settings › Video CTA
+              Bar; same "Find Products for Me" modal + lead flow, with the
+              video title as the lead's context. */}
+          <CategoryCtaBar
+            variant="video"
+            inline
+            categoryTitle={video.title}
+            sourceUrl={`/videos/${video.slug.current}`}
+          />
 
           {related.length > 0 && (
             <section className="mt-12">
