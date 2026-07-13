@@ -162,6 +162,9 @@ export default async function BlogPostPage({ params }: Props) {
               </h1>
               <div className="mt-3 text-sm text-text-muted">
                 <span>Published: {formatDate(post.publishDate)}</span>
+                {post.updatedDate && (
+                  <span className="ml-4">Updated: {formatDate(post.updatedDate)}</span>
+                )}
                 {post.author?.name && <span className="ml-4">Author: {post.author.name}</span>}
               </div>
               <div className="mt-4 lg:hidden">
