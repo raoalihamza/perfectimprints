@@ -183,6 +183,14 @@ export default defineType({
         "The exact heading shown on the 'Order Custom … Today' call-to-action block on this post. Whatever you type appears exactly as-is. Leave blank to use the automatic 'Order Custom [category] Today'. This does not affect the Related Blogs heading.",
     }),
     defineField({
+      name: 'ctaBody',
+      title: 'CTA Body Text (optional)',
+      type: 'text',
+      rows: 3,
+      description:
+        "The paragraph shown under the CTA heading on this post. Whatever you type appears exactly as-is. Leave blank to use the default 'Our team can help you pick the right product, decoration, and quantity for your project. Reach out and we'll send tailored ideas — usually within one business day.'",
+    }),
+    defineField({
       name: 'metaTitle',
       title: 'Meta Title',
       type: 'string',

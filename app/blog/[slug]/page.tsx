@@ -191,6 +191,7 @@ export default async function BlogPostPage({ params }: Props) {
             <OrderTodayCTA
               topic={orderTopic}
               heading={post.ctaTopic?.trim() || undefined}
+              body={post.ctaBody?.trim() || undefined}
               sourceUrl={canonical}
             />
 

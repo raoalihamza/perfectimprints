@@ -33,6 +33,8 @@ export interface BlogPostDetail extends BlogPostSummary {
   metaTitle?: string;
   /** Optional VERBATIM heading for the CTA block only (rendered as-is, no "Order Custom … Today" wrapper). */
   ctaTopic?: string;
+  /** Optional per-post body paragraph for the CTA block (rendered as-is; blank → default copy). */
+  ctaBody?: string;
   relatedCategorySlugs?: string[];
   relatedBlogs?: BlogPostSummary[];
 }
@@ -155,6 +157,7 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPostDetail | 
       updatedDate,
       metaTitle,
       ctaTopic,
+      ctaBody,
       relatedCategorySlugs,
       "relatedBlogs": relatedBlogs[]->{ ${SUMMARY_PROJECTION} }
     }`,
