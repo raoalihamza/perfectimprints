@@ -61,6 +61,15 @@ export const REFRESH_WORKFLOWS: RefreshWorkflow[] = [
     duration: 'about 1–2 minutes',
   },
   {
+    key: 'catalogs',
+    file: 'scrape-catalogs.yml',
+    branch: 'chore/catalog-refresh',
+    label: 'Refresh Catalogs',
+    description:
+      "Re-pulls each Geiger catalog's products and its catalog link (Ideas, Green Guide, Women's Collection, Holiday Guide, USA Made). Your manually added products and hidden products are kept. Use it when Geiger publishes new catalog editions — usually about once a year.",
+    duration: 'about 5–10 minutes',
+  },
+  {
     key: 'monthly-rebuild',
     file: 'monthly-rebuild.yml',
     branch: 'monthly-rebuild',

@@ -1,0 +1,89 @@
+name: Catalog products scrape
+
+on:
+  # No cron — Geiger's themed catalogs turn over roughly yearly, so this is
+  # dispatch-only: the Studio "Site Refresh" panel's "Refresh Catalogs" button
+  # or a manual dispatch here.
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  scrape:
+    name: Scrape Geiger catalogs and open auto-merge PR
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install scraper deps
+        working-directory: scripts/scrapers/geiger
+        run: |
+          pip install --upgrade pip
+          pip install -e .
+
+      - name: Run catalogs scraper
+        run: python -m scripts.scrapers.geiger.scrape_catalogs
+
+      - name: Diff data/geiger/catalogs.json
+        id: diff
+        run: |
+          if git diff --quiet --exit-code data/geiger/catalogs.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open auto-merge PR
+        id: cpr
+        if: steps.diff.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: 'chore(catalogs): catalog products snapshot refresh'
+          title: 'chore(catalogs): catalog products snapshot refresh'
+          body: |
+            Automated refresh of `data/geiger/catalogs.json` — each Geiger
+            catalog's product set + per-facet-value SKU memberships (via
+            Searchspring) and its flipbook/PDF metadata (via the embedded
+            yupub viewer). Manually curated products and hidden products
+            live in Sanity and are unaffected.
+
+            Vercel will redeploy on merge.
+          branch: chore/catalog-refresh
+          delete-branch: true
+          add-paths: |
+            data/geiger/catalogs.json
+
+      # Auto-merge as the FINAL step — only after the scrape succeeded AND a PR
+      # was opened (no PR for an empty run). Squash-merges to main so the change
+      # ships and Vercel redeploys without anyone touching GitHub. The merge is
+      # LAST so a Cancel before it leaves main untouched (the Site Refresh
+      # Cancel button additionally closes this PR + deletes the branch).
+      - name: Auto-merge the PR
+        if: steps.cpr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ steps.cpr.outputs.pull-request-number }}
+        run: |
+          for i in 1 2 3 4 5 6; do
+            if gh pr merge "$PR" --squash --delete-branch \
+                 --subject 'chore(catalogs): catalog products snapshot refresh'; then
+              echo "Merged PR #$PR."
+              exit 0
+            fi
+            echo "Merge attempt $i failed (PR may still be computing mergeability); retrying in 10s…"
+            sleep 10
+          done
+          echo "::error::Could not auto-merge PR #$PR after retries."
+          exit 1
+
+      - name: No changes — skip PR
+        if: steps.diff.outputs.changed == 'false'
+        run: echo "catalogs.json unchanged — nothing to commit."
