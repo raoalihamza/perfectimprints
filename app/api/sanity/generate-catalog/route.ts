@@ -85,7 +85,7 @@ Return a single JSON object, no prose, no code fences:
   "bodySections": [
     {
       "heading": "an H2 for this section",
-      "paragraphs": ["2 to 4 paragraphs of AT LEAST 150 words total per section"],
+      "paragraphs": ["2 to 4 paragraphs of AT LEAST 180 words total per section"],
       "listItems": ["optional — 3 to 6 short bullet points when a list genuinely helps"]
     }
   ],
@@ -96,7 +96,7 @@ Return a single JSON object, no prose, no code fences:
 }
 
 HARD LIMITS (count before returning, rewrite if any fail):
-- bodySections: 3 to 6 sections, totalling AT LEAST 600 words and at most about 1000 across all paragraphs
+- bodySections: 4 to 6 sections, EACH with at least 180 words of paragraphs, totalling AT LEAST 700 words and at most about 1100 across all paragraphs — if any section is short, EXPAND it before returning
 - metaTitle <= 60 chars
 - metaDescription <= 155 chars
 - mention only product TYPES that plausibly belong to the theme; if example product names were provided, stay consistent with them — never invent specs or prices`;
