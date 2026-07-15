@@ -185,6 +185,8 @@ export async function sendLeadEmail(
  */
 export async function sendBuiltEmail(input: {
   to: string;
+  /** Optional cc — used by the catalog gated-link email (P2-CAT-002) so Patrick sees the link went out. */
+  cc?: string;
   replyTo?: string;
   subject: string;
   text: string;
@@ -196,6 +198,7 @@ export async function sendBuiltEmail(input: {
   await transporter.sendMail({
     from,
     to: input.to,
+    ...(input.cc ? { cc: input.cc } : {}),
     ...(input.replyTo ? { replyTo: input.replyTo } : {}),
     subject: input.subject,
     text: input.text,

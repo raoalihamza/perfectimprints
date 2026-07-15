@@ -86,6 +86,21 @@ export default defineType({
         'The on-page ESTIMATE shown to the customer (quantity × tier price + setup charge) — never a firm price; final pricing is confirmed in the quote.',
     }),
     defineField({
+      name: 'catalogTitle',
+      title: 'Requested Catalog',
+      type: 'string',
+      readOnly: true,
+      description:
+        'Set on catalog-request submissions (P2-CAT-002): the Catalog Page title, resolved server-side. The customer was emailed that catalog’s gated link (Patrick cc’d).',
+    }),
+    defineField({
+      name: 'catalogSlug',
+      title: 'Requested Catalog Slug',
+      type: 'string',
+      readOnly: true,
+      description: 'The /shop-by-theme/<slug> catalog the request came from.',
+    }),
+    defineField({
       name: 'formTitle',
       title: 'Form',
       type: 'string',

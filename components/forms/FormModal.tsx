@@ -15,9 +15,11 @@ interface FormModalProps {
   onClose: () => void;
   form: FormDef;
   sourceUrl?: string;
+  /** Extra hidden values posted with the submission — see FormModalButton. */
+  hiddenFields?: Record<string, string>;
 }
 
-export function FormModal({ open, onClose, form, sourceUrl }: FormModalProps) {
+export function FormModal({ open, onClose, form, sourceUrl, hiddenFields }: FormModalProps) {
   const dialogRef = useRef<HTMLDivElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
 
@@ -95,7 +97,11 @@ export function FormModal({ open, onClose, form, sourceUrl }: FormModalProps) {
         {/* Body — scrolls, scrollbar hidden. The intro is shown in the header,
             so the renderer gets a copy WITHOUT it (no double display). */}
         <div className="flex-1 overflow-y-auto px-6 py-6 [-ms-overflow-style:none] [scrollbar-width:none] sm:px-8 sm:py-8 [&::-webkit-scrollbar]:hidden">
-          <FormRenderer form={{ ...form, intro: undefined }} sourceUrl={sourceUrl} />
+          <FormRenderer
+            form={{ ...form, intro: undefined }}
+            sourceUrl={sourceUrl}
+            hiddenFields={hiddenFields}
+          />
         </div>
       </div>
     </div>

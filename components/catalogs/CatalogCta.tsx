@@ -1,31 +1,45 @@
 import Link from 'next/link';
+import { FormModalButton } from '@/components/forms/FormModalButton';
+import type { FormDef } from '@/lib/forms/form-def';
 
 interface CatalogCtaProps {
   /** Studio-editable heading line (catalogPage.ctaHeading). */
   heading?: string;
   /** Studio-editable button label (catalogPage.ctaButtonLabel). */
   buttonLabel?: string;
-  /** The catalog's slug — the lead form (prompt 3) needs it to route the email. */
+  /** The catalog's slug — posted as a hidden field so /api/leads emails THIS catalog's gated link. */
   catalogSlug: string;
   /** Distinguishes the three placements for analytics/testing hooks later. */
   placement: 'top' | 'middle' | 'end';
+  /**
+   * The resolved `catalog-request` builder form (P2-CAT-002) — resolved ONCE
+   * by the landing page via the tag-cached getFormBySlug and shared by all
+   * three CTA instances. Null (form unpublished / slug typo) falls back to a
+   * plain /contact link so the CTA never dead-ends.
+   */
+  form?: FormDef | null;
 }
 
 const DEFAULT_HEADING = 'Want the full catalog?';
 const DEFAULT_BUTTON_LABEL = 'Get the Catalog';
+
+const buttonClass =
+  'mt-4 inline-flex h-12 items-center justify-center rounded-md bg-brand-green px-6 text-base font-semibold text-white hover:opacity-90';
 
 /**
  * The "Get the Catalog" CTA block on the public /shop-by-theme/<slug> landing
  * page — rendered three times (top / middle / end), all from the same
  * Studio-editable copy.
  *
- * M3 prompt 3: open catalog lead form for `catalogSlug` — replace the interim
- * /contact link below with the gated-catalog lead form modal (the form emails
- * the visitor the /shop-by-theme/<slug>/catalog link and cc's Patrick). The
- * placeholder deliberately links to /contact so the button never dead-ends in
- * the meantime; `catalogSlug` + `placement` are already plumbed for the modal.
+ * P2-CAT-002: the button opens the seeded `catalog-request` form in a modal
+ * (the standard FormModalButton client island — the landing page stays
+ * static). The hidden `catalogSlug` rides the submission so the customer's
+ * confirmation email carries THIS catalog's gated-page link; it is context
+ * only — the lead recipient is always the form doc's stored address, resolved
+ * server-side in /api/leads.
  */
-export function CatalogCta({ heading, buttonLabel, catalogSlug, placement }: CatalogCtaProps) {
+export function CatalogCta({ heading, buttonLabel, catalogSlug, placement, form }: CatalogCtaProps) {
+  const label = buttonLabel?.trim() || DEFAULT_BUTTON_LABEL;
   return (
     <div
       data-catalog-cta={placement}
@@ -35,14 +49,20 @@ export function CatalogCta({ heading, buttonLabel, catalogSlug, placement }: Cat
       <h2 className="text-xl font-bold text-brand-ink md:text-2xl">
         {heading?.trim() || DEFAULT_HEADING}
       </h2>
-      {/* M3 prompt 3: open catalog lead form for {catalogSlug} — swap this
-          link for the lead-form modal button (keep the same visual style). */}
-      <Link
-        href="/contact"
-        className="mt-4 inline-flex h-12 items-center justify-center rounded-md bg-brand-green px-6 text-base font-semibold text-white hover:opacity-90"
-      >
-        {buttonLabel?.trim() || DEFAULT_BUTTON_LABEL}
-      </Link>
+      {form ? (
+        <FormModalButton
+          form={form}
+          label={label}
+          className={buttonClass}
+          hiddenFields={{ catalogSlug }}
+        />
+      ) : (
+        // Fallback while the catalog-request form is unpublished — the CTA
+        // never dead-ends (same pattern as CtaBlock's formSlug fallback).
+        <Link href="/contact" className={buttonClass}>
+          {label}
+        </Link>
+      )}
     </div>
   );
 }

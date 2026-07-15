@@ -559,7 +559,8 @@
       <li><strong>Plain link</strong>: a single clickable word with one address (New Products, Deals, Brands, Videos,
         Blog).</li>
       <li><strong>Dropdown (flat list)</strong>: a simple drop-down of links (Services: Kitting, Company Stores, and so
-        on).</li>
+        on — and <strong>Shop by Theme</strong>, which lists the published <a href="#catalog-pages">Catalog Pages</a>'
+        landing pages; when you publish a new catalog page, add its link here yourself).</li>
       <li><strong>Mega panel (columns)</strong>: the big multi-column panels (Shop by, All Categories). These have
         columns, each with a header and a list of links.</li>
     </ul>
@@ -1736,9 +1737,11 @@
     <h2 id="forms">24. Forms (build your own quote forms)</h2>
     <p>The <strong>Form</strong> document type is a form builder: you choose the questions, and the site renders a
       working form — with spam protection, the lead email to you, an automatic confirmation email to the customer, and
-      a <a href="#leads">Lead Submission</a> record — all handled for you. Four service quote forms are already set up
-      (Kitting, Company Stores, 100% Custom Products, Pop-Up Stores), and you can build brand-new ones for future
-      Service or Landing pages yourself.</p>
+      a <a href="#leads">Lead Submission</a> record — all handled for you. Five forms are already set up: four service
+      quote forms (Kitting, Company Stores, 100% Custom Products, Pop-Up Stores) and the <strong>Catalog
+      Request</strong> form (the "Get the Catalog" buttons on the <a href="#catalog-pages">Catalog Pages</a> — its
+      confirmation email delivers the gated catalog link, so keep an Email field on it). You can build brand-new ones
+      for future Service or Landing pages yourself.</p>
 
     <p>Open <span class="path">Content <span class="arrow">›</span> Form</span> and <strong>Create new</strong> (or
       open one of the four seeded forms). The fields:</p>
@@ -1826,10 +1829,25 @@
     </ul>
 
     <div class="callout">
-      <span class="label">The "Get the Catalog" form is coming next</span>
-      <p>Right now the three "Get the Catalog" buttons on the landing page link to the contact page as a temporary
-        stand-in. The dedicated form — which emails the visitor the gated catalog link automatically and copies you —
-        ships in the next update, and the buttons will switch to it with no action needed from you.</p>
+      <span class="label">How the "Get the Catalog" buttons work</span>
+      <p>All three CTA buttons on the landing page open the shared <strong>"Catalog Request"</strong> form (a normal
+        <a href="#forms">Form</a> document, slug <code>catalog-request</code> — First Name, Last Name, Company, Phone,
+        Email required, Comments optional). On submit: you get the lead email, a <a href="#leads">Lead Submission</a>
+        is recorded (with a "Requested Catalog" field), and <strong>the visitor instantly receives an email containing
+        the link to that catalog's gated page — with you cc'd</strong>, so the catalog link only ever reaches a real,
+        working email address. You can edit the form's wording, fields, and recipient in Studio like any other form —
+        just <strong>keep an Email field on it</strong> (that answer is where the catalog link is sent). Until the
+        form is published, the buttons safely link to the contact page instead.</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">The "Shop by Theme" menu</span>
+      <p>The main menu's <strong>Shop by Theme</strong> dropdown lists the published catalog landing pages (never the
+        gated pages). It is a normal <a href="#mega">Mega Menu</a> item — edit, reorder, or remove links in Studio.
+        When you publish a NEW catalog page, add its link to the dropdown yourself (Mega Menu → Shop by Theme → add a
+        link to <code>/shop-by-theme/&lt;slug&gt;</code>), or ask us to re-run the menu updater
+        (<code>pnpm seed-shop-by-theme-menu</code>, which refreshes just that dropdown from the published catalog
+        pages without touching the rest of your menu).</p>
     </div>
 
     <p>Publishing (or editing) a Catalog Page goes live within seconds. Deleting/unpublishing removes both pages.</p>

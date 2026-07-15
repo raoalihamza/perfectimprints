@@ -37,6 +37,14 @@ interface FormRendererProps {
   form: FormDef;
   /** Optional fallback source URL; the client also captures window.location.href. */
   sourceUrl?: string;
+  /**
+   * Extra hidden values posted with the submission (P2-CAT-002 — e.g.
+   * `{catalogSlug}` from the catalog landing CTAs). Context only, never
+   * routing: /api/leads validates each value server-side and the recipient is
+   * always resolved from the form doc. Set BEFORE formSlug/sourceUrl so a
+   * hidden field can never override those.
+   */
+  hiddenFields?: Record<string, string>;
   onSuccess?: () => void;
 }
 
@@ -89,7 +97,7 @@ function RequiredMark({ required }: { required?: boolean }) {
   return <span className="text-brand-red"> *</span>;
 }
 
-export function FormRenderer({ form, sourceUrl, onSuccess }: FormRendererProps) {
+export function FormRenderer({ form, sourceUrl, hiddenFields, onSuccess }: FormRendererProps) {
   const formId = useId();
   const honeypotRef = useRef<HTMLInputElement>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -183,6 +191,9 @@ export function FormRenderer({ form, sourceUrl, onSuccess }: FormRendererProps) 
       return;
     }
 
+    for (const [key, value] of Object.entries(hiddenFields ?? {})) {
+      if (value) formData.set(key, value);
+    }
     formData.set('formSlug', form.slug);
     formData.set('sourceUrl', resolvedSourceUrl);
 

@@ -14,6 +14,8 @@ import {
   type CatalogPageDoc,
 } from '@/lib/sanity/queries/catalog-pages';
 import { getCatalogPreviewProducts } from '@/lib/catalogs';
+import { getFormBySlug, toFormRenderDef } from '@/lib/sanity/queries/forms';
+import { CATALOG_FORM_SLUG } from '@/lib/leads/catalog-lead';
 import { buildImageUrl } from '@/lib/sanity/client';
 import { collectionPageSchema } from '@/lib/seo/schema-generators';
 import { largeSocialImage, socialMeta } from '@/lib/seo/open-graph';
@@ -93,6 +95,13 @@ export default async function CatalogLandingPage({ params }: Props) {
   const doc = await getCatalogPageBySlug(slug);
   if (!doc) notFound();
 
+  // The catalog lead form (P2-CAT-002): the seeded `catalog-request` builder
+  // form, resolved ONCE through the tag-cached read (FORMS_TAG + form:<slug> —
+  // static-safe, webhook-revalidated) and shared by all three CTA instances.
+  // Unpublished → null → the CTAs fall back to a /contact link.
+  const catalogFormDoc = await getFormBySlug(CATALOG_FORM_SLUG);
+  const catalogForm = catalogFormDoc ? toFormRenderDef(catalogFormDoc) : null;
+
   const canonical = `${SITE_URL}/shop-by-theme/${doc.slug}`;
   const heading = doc.heroHeading?.trim() || doc.title;
   const heroImageUrl = doc.heroImage
@@ -116,6 +125,7 @@ export default async function CatalogLandingPage({ params }: Props) {
       buttonLabel={doc.ctaButtonLabel}
       catalogSlug={doc.slug}
       placement={placement}
+      form={catalogForm}
     />
   );
 

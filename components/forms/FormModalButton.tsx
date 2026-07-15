@@ -15,6 +15,14 @@ interface FormModalButtonProps {
   form: FormDef;
   label: string;
   className?: string;
+  /**
+   * Extra hidden values posted with the submission (P2-CAT-002) — e.g. the
+   * catalog landing CTAs pass `{catalogSlug}` so /api/leads can send the
+   * gated-catalog link. CONTEXT only, never routing: the recipient is always
+   * the form doc's stored address, resolved server-side, and the route
+   * validates each hidden value itself (an unknown slug is simply ignored).
+   */
+  hiddenFields?: Record<string, string>;
 }
 
 /**
@@ -23,7 +31,7 @@ interface FormModalButtonProps {
  * arrives resolved from the server's tag-cached read, so the embedding page
  * stays static and a Studio edit revalidates it via the webhook.
  */
-export function FormModalButton({ form, label, className }: FormModalButtonProps) {
+export function FormModalButton({ form, label, className, hiddenFields }: FormModalButtonProps) {
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -37,7 +45,9 @@ export function FormModalButton({ form, label, className }: FormModalButtonProps
       >
         {label}
       </button>
-      {open && <FormModal open form={form} onClose={() => setOpen(false)} />}
+      {open && (
+        <FormModal open form={form} hiddenFields={hiddenFields} onClose={() => setOpen(false)} />
+      )}
     </>
   );
 }

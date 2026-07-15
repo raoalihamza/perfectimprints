@@ -127,6 +127,35 @@ export async function getCatalogPageBySlug(slug: string): Promise<CatalogPageDoc
   }
 }
 
+/** The catalog fields the /api/leads route needs to deliver the gated link. */
+export interface CatalogLeadLookup {
+  title: string;
+  slug: string;
+}
+
+/**
+ * Lightweight SERVER-SIDE lookup for the lead route (P2-CAT-002): validates a
+ * client-submitted `catalogSlug` against a real published catalogPage and
+ * returns the title (for the emails + lead record) + the canonical slug (for
+ * the gated-page URL). The client never sends a recipient OR a URL — only this
+ * slug — so an unknown/forged slug simply degrades to a plain builder-form
+ * submission (no catalog email). Cache-tagged like every catalogPage read, so
+ * a Studio rename shows in the emails within seconds of the webhook firing.
+ */
+export async function getCatalogLeadInfo(slug: string): Promise<CatalogLeadLookup | null> {
+  if (!slug) return null;
+  try {
+    const doc = await cachedClient.fetch<CatalogLeadLookup | null>(
+      `*[_type == "catalogPage" && slug.current == $slug][0]{ title, "slug": slug.current }`,
+      { slug },
+      { next: { tags: [CATALOG_PAGES_TAG, catalogPageTag(slug)].filter(Boolean), revalidate: false } },
+    );
+    return doc?.title && doc.slug ? doc : null;
+  } catch {
+    return null;
+  }
+}
+
 /** Every published catalogPage slug — feeds generateStaticParams + the sitemap. */
 export async function getAllCatalogPageSlugs(): Promise<string[]> {
   try {

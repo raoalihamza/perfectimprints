@@ -30,6 +30,8 @@
     "seed-mega-menu": "tsx scripts/migrations/seed-mega-menu.ts",
     "seed-service-pages": "tsx scripts/seed/seed-service-pages.ts",
     "seed-service-forms": "tsx scripts/seed/seed-service-forms.ts",
+    "seed-catalog-form": "tsx scripts/seed/seed-catalog-form.ts",
+    "seed-shop-by-theme-menu": "tsx scripts/seed/seed-shop-by-theme-menu.ts",
     "seed-landing-pages": "tsx scripts/seed/seed-landing-pages.ts",
     "seed-static-pages": "tsx scripts/seed/seed-static-pages.ts",
     "seed-faqs": "tsx scripts/seed/seed-faqs.ts",

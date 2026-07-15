@@ -20,11 +20,20 @@ import {
   validateAnswers,
   type AnswerValue,
 } from '@/lib/forms/form-def';
+import { buildCatalogConfirmationEmail, gatedCatalogUrl } from '@/lib/leads/catalog-lead';
 import { getFormBySlug } from '@/lib/sanity/queries/forms';
 import { getLandingLeadInfo } from '@/lib/sanity/queries/landing-pages';
 import { getProductLeadInfo } from '@/lib/sanity/queries/product-pages';
+import { getCatalogLeadInfo } from '@/lib/sanity/queries/catalog-pages';
 
 export const runtime = 'nodejs';
+
+// Same site-URL constant convention as the sitemap/canonicals — the gated
+// catalog link in the customer email is built from this, server-side only.
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
+  /\/$/,
+  '',
+);
 
 const RATE_LIMIT_MAX = 5;
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
@@ -420,6 +429,12 @@ async function handleBuilderFormSubmission(
 
   const sourceUrl = str(formData.get('sourceUrl')) || 'unknown';
   const turnstileToken = str(formData.get('cf-turnstile-response'));
+  // Optional catalog context (P2-CAT-002) — the catalog landing CTAs pass a
+  // hidden `catalogSlug`. CONTEXT only, never routing: the slug is validated
+  // against a published catalogPage below (title + canonical slug resolved
+  // server-side); an unknown/forged slug degrades to a plain builder-form
+  // submission. The recipient stays the form doc's stored address regardless.
+  const catalogSlug = str(formData.get('catalogSlug')).slice(0, 200);
 
   // Collect answers + files under the definition-derived field names (the
   // client computes the same names from the same definition via fieldName()).
@@ -497,7 +512,17 @@ async function handleBuilderFormSubmission(
   }));
 
   const contact = extractContactFields(form, answers);
-  const answerRows = buildAnswerRows(form, answers, fileNames);
+  // Catalog delivery context (P2-CAT-002): resolve the submitted catalogSlug
+  // against a published catalogPage SERVER-SIDE. `catalog` is null for
+  // non-catalog submissions, unknown slugs, and lookup failures — all of which
+  // keep the plain builder-form behavior exactly.
+  const catalog = catalogSlug ? await getCatalogLeadInfo(catalogSlug) : null;
+  const answerRows = [
+    // Patrick sees at a glance which catalog was requested — first row of the
+    // lead email + the record (absent on non-catalog submissions).
+    ...(catalog ? [{ label: 'Catalog', value: catalog.title }] : []),
+    ...buildAnswerRows(form, answers, fileNames),
+  ];
   const routing = resolveFormLeadRouting(form);
   const to = routing.to || process.env.LEAD_EMAIL_TO || DEFAULT_LEAD_RECIPIENT;
   const submittedAt = new Date().toISOString();
@@ -572,6 +597,8 @@ async function handleBuilderFormSubmission(
         sourceUrl,
         submittedAt,
         recipient: to,
+        // Catalog request context (P2-CAT-002) — absent on other submissions.
+        ...(catalog ? { catalogTitle: catalog.title, catalogSlug: catalog.slug } : {}),
         ...(attachmentRefs.length > 0 ? { attachments: attachmentRefs } : {}),
       });
     } catch (err) {
@@ -581,15 +608,35 @@ async function handleBuilderFormSubmission(
 
   // Customer confirmation — when the form enables it AND it captured an email
   // field. NON-FATAL: the lead already reached its recipient.
-  if (routing.sendConfirmation && contact.email) {
+  //
+  // Catalog submissions (P2-CAT-002) get the GATED-LINK email instead of the
+  // generic summary — the email-gated delivery: the /shop-by-theme/<slug>/catalog
+  // link only ever goes to the (validated) address the visitor entered, with
+  // Patrick's resolved recipient cc'd so he sees the link went out. The gated
+  // URL is built server-side from the validated catalogPage slug. The link
+  // email sends REGARDLESS of the form's confirmation toggle — it is the
+  // deliverable of the catalog flow, not a courtesy copy, so an innocuous
+  // Studio toggle can't silently break catalog delivery.
+  if (contact.email && isValidEmail(contact.email) && (catalog || routing.sendConfirmation)) {
     try {
-      const confirmation = buildFormConfirmationEmail({
-        firstName: contact.firstName,
-        formTitle: form.title,
-        answers: answerRows,
-        sourceUrl,
+      const confirmation = catalog
+        ? buildCatalogConfirmationEmail({
+            firstName: contact.firstName,
+            catalogTitle: catalog.title,
+            catalogUrl: gatedCatalogUrl(SITE_URL, catalog.slug),
+          })
+        : buildFormConfirmationEmail({
+            firstName: contact.firstName,
+            formTitle: form.title,
+            answers: answerRows,
+            sourceUrl,
+          });
+      await sendBuiltEmail({
+        to: contact.email,
+        ...(catalog ? { cc: to } : {}),
+        replyTo: to,
+        ...confirmation,
       });
-      await sendBuiltEmail({ to: contact.email, replyTo: to, ...confirmation });
     } catch (err) {
       console.error('[leads] customer confirmation failed (non-fatal)', err);
     }
