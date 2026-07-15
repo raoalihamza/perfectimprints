@@ -175,6 +175,24 @@ export function productPageTag(slug: string): string {
 }
 
 /**
+ * Sanity `catalogPage` documents (P2-CAT-001) — Geiger themed-catalog lead
+ * pages, each rendering a PUBLIC landing page at `/shop-by-theme/<slug>` and a
+ * GATED (noindex) product page at `/shop-by-theme/<slug>/catalog`.
+ * `CATALOG_PAGES_TAG` is the list-level tag busted on any catalogPage
+ * publish/delete so generateStaticParams + the sitemap pick up a new/removed
+ * slug; `catalogPageTag(slug)` busts a single catalog's content (both routes
+ * read the same doc). All catalogPage reads go through the non-CDN
+ * `cachedClient` so a publish revalidates deterministically while staying
+ * cache-tagged — keeping both routes static/SSG. Same rationale as PAGES_TAG /
+ * LANDING_TAG / PRODUCT_PAGES_TAG.
+ */
+export const CATALOG_PAGES_TAG = 'catalog-pages';
+export function catalogPageTag(slug: string): string {
+  const s = sanitizeTagValue(slug);
+  return s ? `catalog-page:${s}` : '';
+}
+
+/**
  * Reusable form-builder `form` documents (P2-FB-001) — rendered wherever a
  * page CTA opens them (the four /services pages at minimum). `FORMS_TAG` is
  * the list-level tag busted on any `form` publish/delete; `formTag(slug)`

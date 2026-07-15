@@ -348,6 +348,7 @@
         <li><a href="#product-pages">Product Pages (your own product detail pages)</a></li>
         <li><a href="#bulk-upload">Bulk Upload Product Pages (import from a spreadsheet)</a></li>
         <li><a href="#forms">Forms (build your own quote forms)</a></li>
+        <li><a href="#catalog-pages">Catalog Pages (Shop-by-Theme lead pages)</a></li>
         <li><a href="#connect">How everything connects</a></li>
         <li><a href="#tasks">Common tasks (quick reference)</a></li>
         <li><a href="#warnings">Important warnings</a></li>
@@ -1782,7 +1783,61 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="connect">25. How everything connects</h2>
+    <h2 id="catalog-pages">25. Catalog Pages (Shop-by-Theme lead pages)</h2>
+    <p>A <strong>Catalog Page</strong> turns one of Geiger's themed catalogs (Ideas, Green Guide, Women's Collection,
+      Holiday Guide, USA Made, Retail Collective, Trend Talk) into a lead-capture pair of pages:</p>
+    <ul>
+      <li><strong>The public landing page</strong> at <code>/shop-by-theme/&lt;slug&gt;</code> — your long-form SEO
+        page: a hero, as much body text and catalog photos as you like, and a "Get the Catalog" button repeated at the
+        top, middle, and end. This page IS on Google and in the sitemap.</li>
+      <li><strong>The gated catalog page</strong> at <code>/shop-by-theme/&lt;slug&gt;/catalog</code> — the page
+        visitors receive <em>by email after they submit the form</em>. It has a big <strong>BROWSE CATALOG</strong>
+        button that opens the digital catalog, every product in that catalog with the same filter sidebar as the
+        Deals page, and Related Blogs + Related Videos at the bottom. This page is hidden from Google (it is not in
+        the sitemap and tells search engines not to index it) and never appears in the menu.</li>
+    </ul>
+
+    <div class="callout warn">
+      <span class="label">"Hidden" means hidden from Google — not locked</span>
+      <p>Anyone who has the gated page's link can open it (that is the point — the email delivers the link). It is
+        kept out of Google, the sitemap, and the menus, but it is not password-protected.</p>
+    </div>
+
+    <p>Open <span class="path">Content <span class="arrow">›</span> Catalog Page</span> and <strong>Create
+        new</strong>. The fields, by group:</p>
+    <ul>
+      <li><strong>Title / Slug</strong> — the catalog's name and its web address segment (e.g. <code>usa-made</code>
+        → <code>/shop-by-theme/usa-made</code>).</li>
+      <li><strong>Catalog key</strong> — which scraped catalog supplies the products, filters, and the Browse link.
+        Use the exact key from the list in the field's help text (e.g. <code>usa-made</code>, <code>ideas</code>,
+        <code>green-guide</code>). Retail Collective and Trend Talk have no scraped products — for those two, the
+        products you add yourself are the whole grid.</li>
+      <li><strong>Browse Catalog URL (override)</strong> — normally leave blank; the button uses the catalog's own
+        digital-viewer link automatically. Fill it only to point the button somewhere else.</li>
+      <li><strong>Landing page content</strong> — hero heading/subheading/image, the long-form body (headings,
+        paragraphs, photos dropped between paragraphs), the CTA heading + button label, and the SEO fields.</li>
+      <li><strong>Gated page: products</strong> — the same add/hide levers as category pages: <strong>Added
+          SKUs</strong> (search the Geiger catalog and click to add), <strong>Added Products</strong> (your own
+        Custom Products or Product Pages — a Product Page card links to its page on your site), and <strong>Hidden
+          SKUs</strong> (remove scraped items). Added products join the filter sidebar with their own
+        brand/color/material tags.</li>
+      <li><strong>Gated page: related blogs &amp; videos</strong> — pick posts/videos to show at the bottom; empty
+        slots fill in automatically from the <strong>Related keywords</strong>.</li>
+    </ul>
+
+    <div class="callout">
+      <span class="label">The "Get the Catalog" form is coming next</span>
+      <p>Right now the three "Get the Catalog" buttons on the landing page link to the contact page as a temporary
+        stand-in. The dedicated form — which emails the visitor the gated catalog link automatically and copies you —
+        ships in the next update, and the buttons will switch to it with no action needed from you.</p>
+    </div>
+
+    <p>Publishing (or editing) a Catalog Page goes live within seconds. Deleting/unpublishing removes both pages.</p>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="connect">26. How everything connects</h2>
     <p>A quick mental map of what drives what:</p>
     <ul>
       <li><strong>Global Settings</strong> drives the header and footer of <em>every</em> page (contact details, social
@@ -1817,7 +1872,7 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="tasks">26. Common tasks (quick reference)</h2>
+    <h2 id="tasks">27. Common tasks (quick reference)</h2>
     <table>
       <tr>
         <th>I want to…</th>
@@ -1938,7 +1993,7 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="warnings">27. Important warnings (keep these in mind)</h2>
+    <h2 id="warnings">28. Important warnings (keep these in mind)</h2>
 
     <div class="callout danger">
       <span class="label">1. Always review products before publishing a pushed category</span>

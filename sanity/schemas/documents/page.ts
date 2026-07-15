@@ -25,6 +25,7 @@ const RESERVED_SLUGS = [
   'rush-promotional-products',
   'promotional-products',
   'products',
+  'shop-by-theme',
   'faq',
   'search',
   'services',

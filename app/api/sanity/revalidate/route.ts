@@ -13,6 +13,7 @@ import { cachedClient } from '@/lib/sanity/client';
 import { SEARCH_INDEX_ROUTE } from '@/lib/search/constants';
 import {
   BRANDS_TAG,
+  CATALOG_PAGES_TAG,
   CATEGORY_CONTROL_TAG,
   FAQS_TAG,
   FORMS_TAG,
@@ -23,6 +24,7 @@ import {
   RELATED_BLOGS_TAG,
   SETTINGS_TAG,
   VIDEOS_TAG,
+  catalogPageTag,
   categoryTag,
   customSchemaTag,
   formTag,
@@ -112,7 +114,8 @@ function bustEmbeddingCategories(slugs: string[]): string[] {
 /**
  * Content docs whose PRODUCT STRIP embeds the published productPage /
  * customProduct (2026-07-11 — the strips on blog posts, page-builder pages,
- * landing pages, and videos accept doc references alongside SKU entries). The
+ * landing pages, and videos accept doc references alongside SKU entries; the
+ * P2-CAT-001 catalogPage's `addedProducts` gated-grid references count too). The
  * referenced doc's card data is dereferenced INSIDE each embedder's own read
  * (blog: the CDN read behind /blog/<slug>; page: PAGES_TAG/page:<slug>;
  * landing: LANDING_TAG/landing:<slug>; video: VIDEOS_TAG), none of which the
@@ -133,16 +136,17 @@ async function findEmbeddingContentDocs(
     let docs: { _type?: string; slug?: string | null }[] | null = null;
     if (id) {
       docs = await cachedClient.fetch<{ _type?: string; slug?: string | null }[]>(
-        `*[_type in ["blogPost", "page", "landingPage", "video"] && references($id)]{ _type, "slug": slug.current }`,
+        `*[_type in ["blogPost", "page", "landingPage", "video", "catalogPage"] && references($id)]{ _type, "slug": slug.current }`,
         { id },
         { cache: 'no-store' },
       );
     } else if (slug) {
       docs = await cachedClient.fetch<{ _type?: string; slug?: string | null }[]>(
-        `*[_type in ["blogPost", "page", "landingPage", "video"] && (
+        `*[_type in ["blogPost", "page", "landingPage", "video", "catalogPage"] && (
             $slug in body[].products[]->slug.current ||
             $slug in sections[].products[]->slug.current ||
-            $slug in relatedProducts[]->slug.current
+            $slug in relatedProducts[]->slug.current ||
+            $slug in addedProducts[]->slug.current
           )]{ _type, "slug": slug.current }`,
         { slug },
         { cache: 'no-store' },
@@ -191,6 +195,14 @@ function bustEmbeddingContentDocs(docs: { _type: string; slug: string }[]): stri
         bustTag(pageTag(d.slug));
         paths.add(`/services/${d.slug}`);
         paths.add(`/${d.slug}`);
+        break;
+      // A catalogPage derefs the referenced product inside its own
+      // catalog-page:<slug>-tagged read (`addedProducts`, P2-CAT-001) — bust
+      // it + both routes (the landing page and the gated catalog grid).
+      case 'catalogPage':
+        bustTag(catalogPageTag(d.slug));
+        paths.add(`/shop-by-theme/${d.slug}`);
+        paths.add(`/shop-by-theme/${d.slug}/catalog`);
         break;
     }
   }
@@ -467,6 +479,32 @@ export async function POST(request: Request) {
     }
     revalidatePath('/sitemap.xml');
     return NextResponse.json({ revalidated: false, reason: 'landingPage missing slug', type });
+  }
+
+  // Catalog lead pages (P2-CAT-001) render TWO routes per doc — the public
+  // landing page /shop-by-theme/<slug> and the gated (noindex)
+  // /shop-by-theme/<slug>/catalog. Both read the same doc through the
+  // cache-tagged fetch (CATALOG_PAGES_TAG list-level + catalog-page:<slug>
+  // content-level), so bust both tags plus both paths + the sitemap (only the
+  // landing page is listed; a new/removed slug changes it). The related
+  // blogs/videos strips ride RELATED_BLOGS_TAG / VIDEOS_TAG (already busted on
+  // those types' publishes), and edits to a referenced productPage /
+  // customProduct reach here via findEmbeddingContentDocs above — no extra
+  // handling needed in either direction.
+  // ⚠️ `catalogPage` must be in the Sanity webhook Filter `_type` list (it is a
+  // NEW type — added to neither webhook automatically) or this never fires —
+  // see docs/sanity-webhook-setup.md.
+  if (type === 'catalogPage') {
+    revalidateTag(CATALOG_PAGES_TAG, 'max');
+    const slug = payload.slug?.current;
+    if (slug) {
+      bustTag(catalogPageTag(slug));
+      const paths = [`/shop-by-theme/${slug}`, `/shop-by-theme/${slug}/catalog`, '/sitemap.xml'];
+      for (const p of paths) revalidatePath(p);
+      return NextResponse.json({ revalidated: true, paths, type });
+    }
+    revalidatePath('/sitemap.xml');
+    return NextResponse.json({ revalidated: false, reason: 'catalogPage missing slug', type });
   }
 
   // Reusable form-builder `form` documents (P2-FB-001) render wherever a page

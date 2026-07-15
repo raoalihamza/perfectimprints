@@ -41,6 +41,8 @@ export const RESERVED_SLUGS: readonly string[] = [
   'promotional-products',
   // Custom product detail pages (P2-CP-001) — the /products/[slug] folder route.
   'products',
+  // Catalog lead pages (P2-CAT-001) — the /shop-by-theme/[slug] folder route.
+  'shop-by-theme',
   'faq',
   'search',
   'services',

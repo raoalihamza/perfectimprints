@@ -5,6 +5,7 @@ import { getBlogPostSlugs, getAllBlogCategories } from '@/lib/sanity/queries/blo
 import { getVideoSlugs } from '@/lib/sanity/queries/videos';
 import { getAllPageSlugs } from '@/lib/sanity/queries/pages';
 import { getAllLandingPageSlugs } from '@/lib/sanity/queries/landing-pages';
+import { getAllCatalogPageSlugs } from '@/lib/sanity/queries/catalog-pages';
 import {
   getProductPageSitemapEntries,
   type ProductPageSitemapEntry,
@@ -141,6 +142,19 @@ async function readProductPageEntries(): Promise<ProductPageSitemapEntry[]> {
   }
 }
 
+// Catalog lead pages (P2-CAT-001). ONLY the public landing page
+// (/shop-by-theme/<slug>) is listed — the gated /shop-by-theme/<slug>/catalog
+// page is noindex and deliberately EXCLUDED (it is reached only via the link
+// emailed after the lead form is submitted).
+async function readCatalogLandingUrls(): Promise<string[]> {
+  try {
+    const slugs = await getAllCatalogPageSlugs();
+    return slugs.filter(Boolean).map((s) => `/shop-by-theme/${s}`);
+  } catch {
+    return [];
+  }
+}
+
 function readBrandSlugs(): string[] {
   const file = path.join(process.cwd(), 'data', 'geiger', 'brands.json');
   if (!fs.existsSync(file)) return [];
@@ -184,7 +198,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [];
 
   // Per-section tallies for the build log so coverage is verifiable at a glance.
-  const counts = { static: 0, category: 0, categoryImages: 0, blogPosts: 0, blogCats: 0, videos: 0, brands: 0, pages: 0, landingPages: 0, productPages: 0 };
+  const counts = { static: 0, category: 0, categoryImages: 0, blogPosts: 0, blogCats: 0, videos: 0, brands: 0, pages: 0, landingPages: 0, productPages: 0, catalogPages: 0 };
 
   for (const p of STATIC_PATHS) {
     entries.push({ url: `${SITE_URL}${p}`, lastModified: now, changeFrequency: 'weekly' });
@@ -258,6 +272,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
   counts.productPages = productPageEntries.length;
 
+  // Catalog lead landing pages (P2-CAT-001) at /shop-by-theme/<slug>. Indexable;
+  // the gated /catalog sub-pages are noindex and intentionally NOT listed.
+  const catalogLandingUrls = await readCatalogLandingUrls();
+  for (const url of catalogLandingUrls) {
+    entries.push({
+      url: `${SITE_URL}${url}`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    });
+  }
+  counts.catalogPages = catalogLandingUrls.length;
+
   // Per-brand pages. Paginated /brands/<slug>/page/N variants are intentionally
   // excluded, matching the noindex convention used for category pagination.
   const brandSlugs = readBrandSlugs();
@@ -308,7 +335,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     `[sitemap] ${entries.length} URLs — static:${counts.static} category:${counts.category} ` +
       `(with images:${counts.categoryImages}) blogPosts:${counts.blogPosts} blogCats:${counts.blogCats} ` +
       `videos:${counts.videos} brands:${counts.brands} pages:${counts.pages} landingPages:${counts.landingPages} ` +
-      `productPages:${counts.productPages}`,
+      `productPages:${counts.productPages} catalogPages:${counts.catalogPages}`,
   );
 
   return entries;

@@ -20,6 +20,7 @@ import leadSubmission from './documents/lead-submission';
 import form from './documents/form';
 import page from './documents/page';
 import landingPage from './documents/landing-page';
+import catalogPage from './documents/catalog-page';
 import customSchema from './documents/custom-schema';
 
 import seo from './objects/seo';
@@ -49,6 +50,7 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   form,
   page,
   landingPage,
+  catalogPage,
   customSchema,
   seo,
   link,

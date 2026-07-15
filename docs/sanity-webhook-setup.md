@@ -37,6 +37,7 @@ ISR fallback.
 | `brand` | `/brands` + `/brands/<slug>` (+ busts the `brands` cache tag) — drives the Featured Brands strip + A–Z grid. **Originally excluded from the Filter — must be added (see below).** |
 | `productPage` | `/products/<slug>`, `/new-products`, **live search delta**, `/sitemap.xml` (+ busts the `product-pages` cache tag + `productPage:<slug>`) — needs `slug` in the projection (already present). **NEW type (P2-CP-001) — must be ADDED to the Filter (see below).** |
 | `form` | the four `/services/<slug>` pages (+ busts the `forms` cache tag + `form:<slug>` — tag invalidation also refreshes ANY other page whose CTA embeds the form) — needs `slug` in the projection (already present). **NEW type (P2-FB-001) — must be ADDED to the Filter (see below).** |
+| `catalogPage` | `/shop-by-theme/<slug>` (public landing) + `/shop-by-theme/<slug>/catalog` (gated grid) + `/sitemap.xml` (+ busts the `catalog-pages` cache tag + `catalog-page:<slug>`) — needs `slug` in the projection (already present). Edits to a referenced `productPage`/`customProduct` in `addedProducts` reach the embedding catalog pages via the same `references($id)` strip lookup; the related blogs/videos strips ride the `related-blogs`/`videos` tags. **NEW type (P2-CAT-001) — must be ADDED to the Filter (see below).** |
 
 "Live search delta" = the `/api/search-index` ISR route that carries the
 Sanity-managed slice of site search (blogs, videos, custom categories, custom
@@ -84,7 +85,7 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
 | **URL** | `https://dev.perfectimprints.com/api/sanity/revalidate` |
 | **Dataset** | `production` |
 | **Trigger on** | ✅ Create  ✅ Update  ✅ Delete |
-| **Filter** | `!(_id in path("drafts.**")) && _type in ["megaMenu","globalSettings","homePage","page","blogPost","video","customProduct","customCategory","curatedCategory","faq","categoryOverride","productPlacement","customSchema","brand","landingPage","productPage","form"]` |
+| **Filter** | `!(_id in path("drafts.**")) && _type in ["megaMenu","globalSettings","homePage","page","blogPost","video","customProduct","customCategory","curatedCategory","faq","categoryOverride","productPlacement","customSchema","brand","landingPage","productPage","form","catalogPage"]` |
 | **Projection** | `{_id, _type, slug, categorySlug, pageUrl, "addToCategories": array::unique([...coalesce(before().addToCategories, []), ...coalesce(after().addToCategories, [])]), "removeFromCategories": array::unique([...coalesce(before().removeFromCategories, []), ...coalesce(after().removeFromCategories, [])])}` |
 | **HTTP method** | `POST` |
 | **HTTP headers** | none (Sanity adds the signature header automatically) |
@@ -149,6 +150,21 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
 > wording) will NOT refresh the rendered form OR the submit route's cached copy
 > — the old definition (including the old recipient) keeps serving until the
 > next deploy.
+
+> **⚠️ Manual step for an EXISTING webhook (P2-CAT-001, catalog lead pages):**
+> `catalogPage` is a NEW document type — both existing webhooks were created
+> before it, so their Filters omit it. Edit **each** webhook in Sanity → API →
+> Webhooks and paste the updated Filter above (the only change vs. the previous
+> filter is the trailing `,"catalogPage"`). Do this on **staging now** and on
+> **production when P2-CAT-001 promotes**. Projection is unchanged — the
+> handler only needs `_type` + `slug` (+ `_id` for the referenced-product
+> lookup, already recommended by the batch-3 step below). Until you do this,
+> publishing or editing a Catalog Page will NOT refresh
+> `/shop-by-theme/<slug>`, its gated `/catalog` page, or the sitemap (a
+> brand-new catalog page still appears on its first-ever visit via on-demand
+> SSG, but later edits stay silently stale until the next deploy).
+
+> **⚠️ Manual step for an EXISTING webhook (P2-CP-004 batch 3, products attached to
 > categories):** add **`_id`** to the Projection (the updated Projection above —
 > the only change is the leading `_id,`). When a `productPage` or
 > `customProduct` that is attached to category grids via
