@@ -70,6 +70,16 @@ export default defineType({
         'Strips at the bottom of the gated catalog page. Pick posts/videos manually; empty slots top up automatically from the keywords.',
       options: { collapsible: true, collapsed: true },
     },
+    // AI generation inputs (P2-CAT-004). Studio-only: consumed ONLY by the
+    // "Generate Catalog Page with AI" action + /api/sanity/generate-catalog —
+    // never read by any render path or the revalidate webhook.
+    {
+      name: 'ai',
+      title: 'AI generation (drafting helper — not shown on the live page)',
+      description:
+        'Enter the Title (and Catalog key, so the copy is grounded in that catalog\'s real products), optionally keywords and a brief here, then click "Generate Catalog Page with AI" (near Publish). The AI drafts the hero, the long-form landing body with internal links, and the SEO meta for you to review and edit. It never touches your catalog key, products, or links, and nothing publishes automatically.',
+      options: { collapsible: true, collapsed: true },
+    },
   ],
   fields: [
     defineField({
@@ -244,6 +254,51 @@ export default defineType({
       of: [{ type: 'reference', to: [{ type: 'video' }] }],
       fieldset: 'gatedStrips',
       description: 'Shown first, in this order, at the bottom of the gated catalog page.',
+    }),
+
+    // -----------------------------------------------------------------------
+    // AI generation (Studio-only drafting helpers — no render path reads these)
+    // -----------------------------------------------------------------------
+    defineField({
+      name: 'aiTopicKeywords',
+      title: 'Topic Keywords (optional)',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: { layout: 'tags' },
+      fieldset: 'ai',
+      description:
+        'A few plural keywords (e.g. "made in usa promotional products") that steer the AI copy and the internal links.',
+    }),
+    defineField({
+      name: 'aiBrief',
+      title: 'Brief (optional)',
+      type: 'text',
+      rows: 3,
+      fieldset: 'ai',
+      description:
+        'A sentence or two steering the AI, e.g. "Angle it at year-end corporate gifting; mention employee appreciation programs."',
+    }),
+    defineField({
+      name: 'aiSuggestedLinks',
+      title: 'Suggested Internal Links',
+      type: 'array',
+      fieldset: 'ai',
+      description:
+        'Internal links the AI found and whether each was placed in the body. Not shown on the live page. Filled only when empty.',
+      of: [
+        {
+          type: 'object',
+          name: 'aiSuggestedLink',
+          fields: [
+            { name: 'label', title: 'Label', type: 'string' },
+            { name: 'href', title: 'URL', type: 'string' },
+            { name: 'reason', title: 'Why suggested', type: 'string' },
+          ],
+          preview: {
+            select: { title: 'label', subtitle: 'href' },
+          },
+        },
+      ],
     }),
   ],
   preview: {

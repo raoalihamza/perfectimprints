@@ -10,6 +10,7 @@ import { generateVideoWithAi } from './actions/generate-video-with-ai';
 import { generatePageWithAi } from './actions/generate-page-with-ai';
 import { generateLandingWithAi } from './actions/generate-landing-with-ai';
 import { generateProductWithAi } from './actions/generate-product-with-ai';
+import { generateCatalogWithAi } from './actions/generate-catalog-with-ai';
 import { pushCategoryTool } from './tools/push-category-tool';
 import { siteRefreshTool } from './tools/site-refresh-tool';
 import { bulkImportTool } from './tools/bulk-import-tool';
@@ -44,7 +45,8 @@ export default defineConfig({
     // AI" on blogPost (P2-AI-002), "Generate Video Details with AI" on video
     // (P2-AI-003), "Generate Page with AI" on page (P2-AI-004), "Generate
     // Landing Page with AI" on landingPage (P2-AI-005), "Generate Product
-    // Details with AI" on productPage (P2-CP follow-up).
+    // Details with AI" on productPage (P2-CP follow-up), "Generate Catalog
+    // Page with AI" on catalogPage (P2-CAT-004).
     actions: (prev, context) => {
       if (context.schemaType === 'customCategory') return [...prev, generateWithAi];
       if (context.schemaType === 'customSchema') return [...prev, generateSchemaWithAi];
@@ -53,6 +55,7 @@ export default defineConfig({
       if (context.schemaType === 'page') return [...prev, generatePageWithAi];
       if (context.schemaType === 'landingPage') return [...prev, generateLandingWithAi];
       if (context.schemaType === 'productPage') return [...prev, generateProductWithAi];
+      if (context.schemaType === 'catalogPage') return [...prev, generateCatalogWithAi];
       return prev;
     },
   },

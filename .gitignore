@@ -72,6 +72,10 @@ sanity/dist/
 # Local data overrides
 data/.local/
 
+# Catalog page-image scratch dir (pnpm fetch-catalog-images) — editorial
+# candidates Patrick picks from and uploads to Sanity; never committed.
+tmp/catalog-images/
+
 # Blog scrape intermediate artifacts (snapshot archived outside repo at
 # Documents/perfectimprints-archive/blogs-snapshot-YYYY-MM-DD/). Sanity is
 # the source of truth for blog content post-migration.

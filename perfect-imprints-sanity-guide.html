@@ -1850,6 +1850,35 @@
         pages without touching the rest of your menu).</p>
     </div>
 
+    <h3>Generate the landing page with AI</h3>
+    <p>When Geiger releases a new catalog, you can write the whole landing page in one click. Enter the
+      <strong>Title</strong> and the <strong>Catalog key</strong> (so the copy is grounded in that catalog's real
+      products), optionally add keywords or a short brief in the collapsed <strong>"AI generation"</strong> section,
+      then click <strong>"Generate Catalog Page with AI"</strong> (in the menu next to Publish). After 30-90 seconds
+      the draft gets: the hero heading + subheading, a long-form SEO body with internal links already placed, the SEO
+      meta title/description, and (only if you haven't set your own) the related keywords. Everything is editable, and
+      <strong>nothing publishes automatically</strong>.</p>
+    <div class="callout warn">
+      <span class="label">What the AI never touches</span>
+      <p>Only the words: hero, body, SEO meta, keywords. It never changes your <strong>Catalog key</strong>, the gated
+        page's <strong>products</strong> (added/hidden), the <strong>Browse Catalog link</strong>, or any price or
+        product spec. Clicking Generate again rewrites the hero/body/meta (so finish your own edits first, or just
+        re-generate until you like it, then edit).</p>
+    </div>
+
+    <h3>Adding catalog photos to the landing page</h3>
+    <p>Two ways — use either or both:</p>
+    <ul>
+      <li><strong>Upload your own</strong>: the <strong>Hero image</strong> field, plus inline images anywhere in the
+        landing <strong>body</strong> (place the cursor between paragraphs, insert an Image — it has a size control).
+        Any screenshot or photo you have works.</li>
+      <li><strong>Pull pages from the catalog itself</strong>: ask us to run <code>pnpm fetch-catalog-images
+        &lt;slug&gt;</code> — it downloads every page of that catalog as a JPEG into a local folder so you (or we) can
+        flip through, pick the best-looking pages, and upload just those via the image fields above. Nothing is
+        inserted automatically — you choose the photos. (Retail Collective and Trend Talk are external flipbooks with
+        no downloadable pages — for those two, screenshot the flipbook instead.)</li>
+    </ul>
+
     <p>Publishing (or editing) a Catalog Page goes live within seconds. Deleting/unpublishing removes both pages.</p>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
