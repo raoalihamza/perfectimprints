@@ -151,7 +151,8 @@ export default async function CatalogLandingPage({ params }: Props) {
             {doc.heroSubheading.trim()}
           </p>
         )}
-        <div className="mt-6 max-w-2xl">{cta('top')}</div>
+        {/* CatalogCta self-centers (mx-auto max-w-2xl) — no width wrapper here. */}
+        <div className="mt-8">{cta('top')}</div>
         {heroImageUrl && (
           // eslint-disable-next-line @next/next/no-img-element
           <img

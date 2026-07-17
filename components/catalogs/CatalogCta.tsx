@@ -24,7 +24,7 @@ const DEFAULT_HEADING = 'Want the full catalog?';
 const DEFAULT_BUTTON_LABEL = 'Get the Catalog';
 
 const buttonClass =
-  'mt-4 inline-flex h-12 items-center justify-center rounded-md bg-brand-green px-6 text-base font-semibold text-white hover:opacity-90';
+  'mt-6 inline-flex h-12 items-center justify-center rounded-md bg-brand-green px-8 text-base font-semibold text-white hover:opacity-90';
 
 /**
  * The "Get the Catalog" CTA block on the public /shop-by-theme/<slug> landing
@@ -41,12 +41,14 @@ const buttonClass =
 export function CatalogCta({ heading, buttonLabel, catalogSlug, placement, form }: CatalogCtaProps) {
   const label = buttonLabel?.trim() || DEFAULT_BUTTON_LABEL;
   return (
+    // Self-centering card, uniform across all three placements (top/middle/
+    // end) — the block sizes itself so the page never has to wrap it.
     <div
       data-catalog-cta={placement}
       data-catalog-slug={catalogSlug}
-      className="rounded-md border border-border bg-bg-soft px-6 py-8 text-center"
+      className="mx-auto w-full max-w-2xl rounded-lg border border-border bg-bg-soft px-6 py-10 text-center shadow-sm sm:px-12"
     >
-      <h2 className="text-xl font-bold text-brand-ink md:text-2xl">
+      <h2 className="text-2xl font-bold text-brand-ink md:text-3xl">
         {heading?.trim() || DEFAULT_HEADING}
       </h2>
       {form ? (
