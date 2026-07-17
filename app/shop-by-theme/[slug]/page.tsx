@@ -7,6 +7,7 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { ProductGrid } from '@/components/category/ProductGrid';
 import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { CatalogCta } from '@/components/catalogs/CatalogCta';
+import { CatalogRelatedContent } from '@/components/catalogs/CatalogRelatedContent';
 import { pagePortableComponents } from '@/components/page-sections/portable-text';
 import {
   getAllCatalogPageSlugs,
@@ -194,6 +195,13 @@ export default async function CatalogLandingPage({ params }: Props) {
       <Container as="section" className="pb-12">
         {cta('end')}
       </Container>
+
+      {/* Related Blogs + Related Videos strips — the SAME resolution +
+          renderer as the gated /catalog page (shared component), so both
+          routes show one consistent set for the catalog. On the indexed
+          landing page this is the SEO surface Patrick asked for. Tag-cached
+          reads only (RELATED_BLOGS_TAG / VIDEOS_TAG) — route stays static. */}
+      <CatalogRelatedContent doc={doc} />
     </>
   );
 }

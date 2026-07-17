@@ -34,9 +34,23 @@ import type { BuiltEmail } from './landing-lead';
  */
 export const CATALOG_FORM_SLUG = 'catalog-request';
 
-/** The gated catalog URL for a validated catalogPage slug (server-derived). */
+/**
+ * Force an https origin from whatever the site-URL env/constant holds.
+ * The caller passes the SAME `NEXT_PUBLIC_SITE_URL`-derived base the
+ * sitemap/canonicals use, but this link lands in a customer's inbox — a
+ * mis-set env var (`http://…` or a bare host with no scheme) must not put an
+ * http link in the email, so the scheme is normalized here defensively
+ * rather than trusted. Host is untouched (staging stays dev.…, prod www.…).
+ */
+function httpsOrigin(siteUrl: string): string {
+  const base = siteUrl.trim().replace(/\/+$/, '');
+  if (!base) return 'https://www.perfectimprints.com';
+  return `https://${base.replace(/^https?:\/\//i, '')}`;
+}
+
+/** The gated catalog URL for a validated catalogPage slug (server-derived, always https). */
 export function gatedCatalogUrl(siteUrl: string, catalogSlug: string): string {
-  return `${siteUrl.replace(/\/$/, '')}/shop-by-theme/${catalogSlug}/catalog`;
+  return `${httpsOrigin(siteUrl)}/shop-by-theme/${catalogSlug}/catalog`;
 }
 
 function escapeHtml(value: string): string {
