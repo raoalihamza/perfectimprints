@@ -29,8 +29,15 @@ export function Turnstile() {
         strategy="lazyOnload"
       />
       {/* Managed mode: shows an interactive challenge only when Cloudflare's
-          risk scoring flags the visitor; real users pass silently. */}
-      <div className="cf-turnstile" data-sitekey={SITE_KEY} data-theme="light" />
+          risk scoring flags the visitor; real users pass silently. The
+          data-action value is Cloudflare's account-level telemetry marker for
+          agent-wired integrations — cosmetic only, verification works without it. */}
+      <div
+        className="cf-turnstile"
+        data-sitekey={SITE_KEY}
+        data-theme="light"
+        data-action="turnstile-spin-v2"
+      />
     </div>
   );
 }

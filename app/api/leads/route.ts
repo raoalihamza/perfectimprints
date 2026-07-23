@@ -88,16 +88,32 @@ function getSanityWriteClient() {
   });
 }
 
+// siteverify error codes that mean OUR configuration is broken (wrong/missing
+// secret), as opposed to the visitor's token being bad. Config errors must
+// never block leads — see the fail-open policy in verifyTurnstile.
+const TURNSTILE_CONFIG_ERROR_CODES = new Set(['invalid-input-secret', 'missing-input-secret']);
+
 /**
- * Verifies a Cloudflare Turnstile token. No-ops (returns true) when
- * TURNSTILE_SECRET_KEY is not configured so the form keeps working on
- * environments without the CAPTCHA set up — it activates automatically once
- * the key is present. The honeypot + rate limit remain active regardless.
+ * Verifies a Cloudflare Turnstile token against siteverify.
+ *
+ * Failure-mode policy (leads are revenue — a config mistake must never
+ * silently swallow them, but a bot with a bad token must be blocked):
+ *
+ * - FAIL OPEN (accept the lead, log loudly) on CONFIGURATION errors:
+ *   TURNSTILE_SECRET_KEY unset (staging/local without keys — the widget
+ *   doesn't render there either), siteverify rejecting OUR secret
+ *   (`invalid-input-secret`), siteverify unreachable, or a non-JSON/non-2xx
+ *   siteverify response. The honeypot + rate limit remain active regardless.
+ * - FAIL CLOSED (reject with 400) on ACTUAL verification failures: no token
+ *   submitted while the widget is configured, or siteverify answering
+ *   `success: false` for the token (invalid/expired/already-redeemed).
  */
 async function verifyTurnstile(token: string, ip: string): Promise<boolean> {
   const secret = process.env.TURNSTILE_SECRET_KEY;
   if (!secret) {
-    console.warn('[leads] TURNSTILE_SECRET_KEY not set — skipping CAPTCHA verification');
+    console.error(
+      '[leads] TURNSTILE MISCONFIGURED: TURNSTILE_SECRET_KEY is not set — CAPTCHA verification SKIPPED (fail open). Set it in Vercel to activate bot protection.'
+    );
     return true;
   }
   if (!token) return false;
@@ -111,11 +127,29 @@ async function verifyTurnstile(token: string, ip: string): Promise<boolean> {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: form,
     });
-    const data = (await res.json()) as { success?: boolean };
-    return data.success === true;
-  } catch (err) {
-    console.error('[leads] turnstile verify error', err);
+    if (!res.ok) {
+      console.error(
+        `[leads] TURNSTILE SERVICE ERROR: siteverify returned HTTP ${res.status} — accepting lead (fail open).`
+      );
+      return true;
+    }
+    const data = (await res.json()) as { success?: boolean; 'error-codes'?: string[] };
+    if (data.success === true) return true;
+    const codes = data['error-codes'] ?? [];
+    if (codes.some((code) => TURNSTILE_CONFIG_ERROR_CODES.has(code))) {
+      console.error(
+        `[leads] TURNSTILE MISCONFIGURED: siteverify rejected our secret (${codes.join(', ')}) — accepting lead (fail open). Fix TURNSTILE_SECRET_KEY in Vercel.`
+      );
+      return true;
+    }
+    console.warn(`[leads] turnstile rejected token (${codes.join(', ') || 'no error codes'})`);
     return false;
+  } catch (err) {
+    console.error(
+      '[leads] TURNSTILE UNREACHABLE: siteverify call failed — accepting lead (fail open).',
+      err
+    );
+    return true;
   }
 }
 
