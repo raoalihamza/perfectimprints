@@ -43,6 +43,8 @@ export interface ParsedTier {
 export interface ParsedDecoration {
   method: string;
   upcharge?: number;
+  /** One-time setup fee for this method (Q-100); 0 is a real value ("no setup fee"), absent = blank. */
+  setupCharge?: number;
 }
 
 export interface ParsedColorVariant {
@@ -146,7 +148,7 @@ const SINGLE_COLUMNS = [
 type SingleKey = (typeof SINGLE_COLUMNS)[number];
 
 interface NumberedRef {
-  group: 'size' | 'tierQty' | 'tierPrice' | 'decoration' | 'decorationUpcharge' | 'image' | 'colorName' | 'colorImages' | 'colorSwatch';
+  group: 'size' | 'tierQty' | 'tierPrice' | 'decoration' | 'decorationUpcharge' | 'decorationSetup' | 'image' | 'colorName' | 'colorImages' | 'colorSwatch';
   n: number;
 }
 
@@ -156,7 +158,11 @@ const NUMBERED_PATTERNS: Array<{ re: RegExp; group: NumberedRef['group'] }> = [
   { re: /^size (\d+)$/, group: 'size' },
   { re: /^tier (\d+) qty$/, group: 'tierQty' },
   { re: /^tier (\d+) price$/, group: 'tierPrice' },
+  // Longer suffixes BEFORE the bare pattern - "decoration 1 setup" must never
+  // fall through to /^decoration (\d+)$/ (which would not match, but the order
+  // rule is load-bearing for any pattern set sharing a prefix, so keep it).
   { re: /^decoration (\d+) upcharge$/, group: 'decorationUpcharge' },
+  { re: /^decoration (\d+) setup$/, group: 'decorationSetup' },
   { re: /^decoration (\d+)$/, group: 'decoration' },
   { re: /^image (\d+)$/, group: 'image' },
   { re: /^color (\d+) name$/, group: 'colorName' },
@@ -504,12 +510,18 @@ function parseRow(headerRefs: ColumnRef[], cells: unknown[], rowNumber: number):
 
   // Decorations
   const decorations: ParsedDecoration[] = [];
-  const decMax = Math.max(r.maxIndex('decoration'), r.maxIndex('decorationUpcharge'));
+  const decMax = Math.max(
+    r.maxIndex('decoration'),
+    r.maxIndex('decorationUpcharge'),
+    r.maxIndex('decorationSetup'),
+  );
   for (let n = 1; n <= decMax; n += 1) {
     const method = r.numbered('decoration', n);
     const upRaw = r.numbered('decorationUpcharge', n);
+    const setupRaw = r.numbered('decorationSetup', n);
     if (!method) {
       if (upRaw) warnings.push(`Decoration ${n} Upcharge has no Decoration ${n} name — skipped.`);
+      if (setupRaw) warnings.push(`Decoration ${n} Setup has no Decoration ${n} name - skipped.`);
       continue;
     }
     if (decorations.length >= MAX_DECORATIONS) {
@@ -523,6 +535,17 @@ function parseRow(headerRefs: ColumnRef[], cells: unknown[], rowNumber: number):
         warnings.push(`Decoration ${n} Upcharge "${upRaw}" is not a valid amount — imported with no upcharge.`);
       } else {
         dec.upcharge = up;
+      }
+    }
+    if (setupRaw) {
+      // A cell of exactly 0 must import as 0 (it means "this method has no
+      // setup fee" and overrides the flat Setup Charge) - only blank stays
+      // omitted. Unreadable or negative warns and the decoration still imports.
+      const setup = parseNumberCell(setupRaw);
+      if (setup === null || setup === undefined || setup < 0) {
+        warnings.push(`Decoration ${n} Setup "${setupRaw}" is not a valid amount - imported with no setup charge.`);
+      } else {
+        dec.setupCharge = setup;
       }
     }
     decorations.push(dec);

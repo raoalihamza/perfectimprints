@@ -490,8 +490,10 @@ function BulkImportComponent() {
         “Color 1 Images” (a comma-separated list of picture URLs), “Color 2 Name” + “Color 2
         Images”, and so on. The same numbering pattern covers sizes (“Size 1”, “Size 2”…), pricing
         tiers (“Tier 1 Qty” + “Tier 1 Price”…), decorations (“Decoration 1” + “Decoration 1
-        Upcharge”…), and plain images (“Image 1”, “Image 2”…). The full column reference is in your
-        Studio guide.
+        Upcharge” + “Decoration 1 Setup”…), and plain images (“Image 1”, “Image 2”…). “Decoration N
+        Setup” is that method’s own one-time setup fee: blank means the product’s Setup Charge
+        column applies, and 0 means that method has no setup fee at all. The full column reference
+        is in your Studio guide.
       </p>
     </div>
   );

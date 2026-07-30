@@ -18,11 +18,20 @@ export interface QuoteTier {
 /**
  * One decoration-method choice on the configurator: the method name plus its
  * optional per-unit upcharge (0 = no upcharge — legacy string entries and
- * blank upcharges normalize to 0 upstream in `productPageDecorations()`).
+ * blank upcharges normalize to 0 upstream in `productPageDecorations()`),
+ * plus an optional one-time setup charge for THIS method (Q-100).
+ *
+ * `setupCharge` semantics differ from `upcharge` on purpose: for the setup
+ * override, 0 and "not set" mean different things. `undefined` = the method
+ * has no setup of its own, fall back to the product-level flat setup charge;
+ * an explicit 0 = this method deliberately has NO setup fee (cancels the flat
+ * fee). The normalizer only carries finite values of 0 or more; anything else
+ * stays undefined.
  */
 export interface DecorationOption {
   method: string;
   upcharge: number;
+  setupCharge?: number;
 }
 
 export interface QuoteEstimate {
@@ -46,6 +55,50 @@ export function decorationUpchargeFor(
   if (!method) return 0;
   const found = options.find((o) => o.method === method);
   return found && Number.isFinite(found.upcharge) && found.upcharge > 0 ? found.upcharge : 0;
+}
+
+/**
+ * The setup charge the estimate should actually use (Q-100) - the ONE place
+ * setup resolution happens; no caller may re-derive it. Precedence:
+ *
+ *  1. The selected decoration's own `setupCharge`, when it is a finite number
+ *     of 0 or more. An explicit 0 WINS here: it means "this method has no
+ *     setup fee" and cancels the flat product-level charge (different from
+ *     the per-unit upcharge, where anything not above 0 is just "none").
+ *  2. Otherwise the product's flat setup charge, under the same finite-and-
+ *     0-or-more rule.
+ *  3. Otherwise 0 (no setup). Negative or non-finite values are treated as
+ *     "not set" in either position.
+ *
+ * Returns a plain number ready to pass into `estimateForQuantity` as its
+ * `setupCharge` argument (which keeps its existing signature and behavior).
+ */
+export function effectiveSetupCharge(
+  options: DecorationOption[],
+  method: string | null | undefined,
+  flatSetupCharge?: number | null,
+): number {
+  const usable = (v: unknown): v is number =>
+    typeof v === 'number' && Number.isFinite(v) && v >= 0;
+  if (method) {
+    const found = options.find((o) => o.method === method);
+    if (found && usable(found.setupCharge)) return found.setupCharge;
+  }
+  return usable(flatSetupCharge) ? flatSetupCharge : 0;
+}
+
+/**
+ * Display label for a decoration option, e.g. "Pad Print (+$0.50/unit)" when
+ * there is a per-unit upcharge, else just the method name. Consolidated here
+ * (Q-100) from identical copies in ProductPurchasePanel and ProductQuoteForm
+ * so the two surfaces can never drift; output is unchanged. Deliberately does
+ * NOT mention the setup fee - whether the dropdown label should is Patrick's
+ * call, not part of Q-100.
+ */
+export function decorationLabel(option: DecorationOption): string {
+  return option.upcharge > 0
+    ? `${option.method} (+${formatUsd(option.upcharge)}/unit)`
+    : option.method;
 }
 
 /** Lowest orderable quantity — the first (sorted) tier's minQty, else 1. */

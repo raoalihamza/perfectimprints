@@ -1516,8 +1516,11 @@
         instead.</li>
       <li><strong>Pricing:</strong> add up to 5 tiers (quantity + price each), e.g. 100 → $4.99, 250 → $4.49, 500 →
         $3.99. The page shows them as the QTY / PRICE table, and the product card price range comes from them
-        automatically. Optionally add a <strong>Setup charge</strong> — a one-time flat fee (e.g. a screen-print setup)
-        added on top of quantity × price in the on-page <em>estimated</em> total. Turn on <strong>On sale</strong> for
+        automatically. Optionally add a <strong>Setup charge</strong>, a one-time fee (e.g. a screen-print setup)
+        added on top of quantity × price in the on-page <em>estimated</em> total. This is now the <strong>default</strong>
+        setup fee: it applies whenever the selected decoration method has no setup charge of its own. A decoration
+        method that carries its own setup charge (in the Details section, next step) overrides this amount for that
+        method. Turn on <strong>On sale</strong> for
         the red "Sale!" badge, optionally with a percent-off and an expiry date.</li>
       <li><strong>Details:</strong> the full description (bullets, bold, links, headings all work — and when you make
         a link, the link popover now has an <strong>"Open in new tab"</strong> on/off switch). You can also drop
@@ -1528,7 +1531,20 @@
         methods</strong> (each method can carry an optional <strong>per-unit upcharge</strong>, e.g. Pad Print +$0.50 —
         it is added to the unit price in the live estimate when the visitor picks that method; leave it blank for no
         upcharge), <strong>Sizes</strong> (just listed on the page — sizes do not change the price or the pictures),
-        and production time. Don't want to write the description yourself? Use the AI helper (next heading).</li>
+        and production time. Each decoration method can also carry its own <strong>Setup charge</strong>, the one-time
+        fee for that specific method (e.g. $45 for a screen print, $0 for laser engraving). The rule:
+        <ul>
+          <li><strong>Blank</strong> = the product's own Setup charge from the Pricing section applies (the default).</li>
+          <li><strong>An amount</strong> = that amount is used instead of the product's Setup charge when the visitor
+            picks this method.</li>
+          <li><strong>Exactly 0</strong> = this method has <em>no setup fee at all</em>, even when the product has a
+            Setup charge. Entering 0 and leaving it blank are NOT the same thing.</li>
+        </ul>
+        <strong>Pricing a multi-color job:</strong> a two-color screen print is simply its own decoration entry.
+        Add "Screen Print, 1 Color" with a $45 setup and "Screen Print, 2 Colors" with a $90 setup as two separate
+        methods, and the visitor picks one from the Decoration dropdown. There is no color-count multiplier field;
+        each entry carries its full setup fee.
+        Don't want to write the description yourself? Use the AI helper (next heading).</li>
       <li><strong>Logistics / carton (optional):</strong> units per carton, carton weight (lbs), carton width /
         height / depth (inches), and the FOB ships-from zip (plus optional city/state). Whatever you fill in shows as
         compact lines near the product details — e.g. "500 units per carton", "16 × 14 × 10 in / 27 lbs per carton",
@@ -1568,7 +1584,7 @@
       <li><strong>Related keywords + related category</strong>, <strong>decoration method</strong> suggestions, and
         matching <strong>Related videos / Related blogs</strong> for the strips — but only if you left those fields
         blank; anything you already picked is never overwritten. (AI-suggested decoration methods come without an
-        upcharge — set the per-unit upcharge yourself if one applies.)</li>
+        upcharge or a setup charge; set those amounts yourself if they apply. The AI never writes pricing.)</li>
     </ul>
     <div class="callout info">
       <span class="label">AI links open in a new tab</span>
@@ -1593,8 +1609,11 @@
       highlights the matching pricing tier <strong>in green</strong>, and the tier boxes themselves are
       <strong>clickable</strong> — clicking one sets the quantity to that tier's minimum. The live <strong>estimated
         total</strong> is quantity × (that tier's price + the selected decoration's per-unit upcharge, if any), plus
-      your Setup charge if you set one. It is always labeled <em>"Estimated total — final pricing confirmed in your
-        quote"</em> — there is no checkout, and no price is ever presented as final. Clicking a color swatch under the
+      the setup fee that applies: the selected decoration's own Setup charge when you gave it one (a 0 there means no
+      setup fee), otherwise the product's Setup charge. So when the visitor switches decoration methods, the setup
+      line in the estimate breakdown and the total update along with it. It is always labeled <em>"Estimated total -
+        final pricing confirmed in your
+        quote"</em>; there is no checkout, and no price is ever presented as final. Clicking a color swatch under the
       photos swaps the gallery AND records the color for the quote.</p>
 
     <h3>The Get a Quote form (and where its leads go)</h3>
@@ -1682,7 +1701,8 @@
         (bullets, links, headings) is added later in Studio or via the AI helper.</li>
       <li><strong>Min Qty</strong>, <strong>Setup Charge</strong>, <strong>Production Time</strong> — numbers
         (production time is in days; writing <code>7 working days</code> is understood as 7). A number cell that
-        can't be read is simply left unset with a note — it never blocks the row.</li>
+        can't be read is simply left unset with a note - it never blocks the row. Setup Charge is the product's
+        <em>default</em> setup fee; a "Decoration N Setup" column (below) overrides it for that method.</li>
       <li><strong>On Sale</strong>, <strong>Show In New Products</strong>, <strong>Made In USA</strong>,
         <strong>Eco Friendly</strong>, <strong>Closeout</strong> — write <code>yes</code> or <code>no</code> (blank =
         not set; new products default to showing on /new-products).</li>
@@ -1710,8 +1730,13 @@
         <code>20 oz</code>). Sizes are listed on the page; they don't change price or pictures.</li>
       <li><strong>Tier 1 Qty + Tier 1 Price, Tier 2 Qty + Tier 2 Price, …</strong> — the quantity-price table. A tier
         needs BOTH cells; a half-filled tier is skipped with a warning.</li>
-      <li><strong>Decoration 1 (+ Decoration 1 Upcharge), Decoration 2 …</strong> — decoration methods, each with an
-        optional per-unit dollar upcharge (blank = no upcharge).</li>
+      <li><strong>Decoration 1 (+ Decoration 1 Upcharge + Decoration 1 Setup), Decoration 2 …</strong> - decoration
+        methods, each with an optional per-unit dollar upcharge (blank = no upcharge) and an optional one-time
+        <strong>Setup</strong> fee for that method. Setup rules: blank = the product's Setup Charge column applies;
+        an amount = that method uses its own fee instead; <strong>exactly 0 = that method has no setup fee at
+        all</strong> (0 and blank are different on purpose). A Setup cell with no matching Decoration name is skipped
+        with a note, and an unreadable or negative Setup value is skipped with a note while the decoration still
+        imports.</li>
       <li><strong>Image 1, Image 2, …</strong> — picture URLs for a product WITHOUT color variants (the "Default
         images").</li>
       <li><strong>Color 1 Name + Color 1 Images (+ Color 1 Swatch), Color 2 …</strong> — one set per color.

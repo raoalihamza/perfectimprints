@@ -95,6 +95,9 @@ export function buildProductPageSetFields(
       _key: `dec-${i + 1}`,
       method: d.method,
       ...(d.upcharge !== undefined ? { upcharge: d.upcharge } : {}),
+      // 0 is a real stored value here ("no setup fee for this method"); only a
+      // blank cell is omitted so the product-level Setup Charge keeps applying.
+      ...(d.setupCharge !== undefined ? { setupCharge: d.setupCharge } : {}),
     }));
   }
 

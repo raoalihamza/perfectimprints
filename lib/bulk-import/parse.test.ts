@@ -114,6 +114,44 @@ describe('parseProductSheet', () => {
     expect(row.warnings.join(' ')).toMatch(/Decoration 2 Upcharge has no Decoration 2 name/);
   });
 
+  it('parses Decoration N Setup columns, keeping an explicit 0 (Q-100)', () => {
+    const csv =
+      'Title,Setup Charge,Decoration 1,Decoration 1 Upcharge,Decoration 1 Setup,' +
+      'Decoration 2,Decoration 2 Setup,Decoration 3,Decoration 3 Setup\n' +
+      'Widget,45,Screen Print,0.50,90,Laser Engraving,0,Pad Print,\n';
+    const row = parseProductSheet(csvBytes(csv)).rows[0];
+    expect(row.errors).toEqual([]);
+    expect(row.fields.setupCharge).toBe(45);
+    expect(row.fields.decorationMethods).toEqual([
+      { method: 'Screen Print', upcharge: 0.5, setupCharge: 90 },
+      // 0 is a real value ("no setup fee") and must NOT be dropped as blank.
+      { method: 'Laser Engraving', setupCharge: 0 },
+      // Blank stays omitted so the flat Setup Charge keeps applying.
+      { method: 'Pad Print' },
+    ]);
+    expect(row.warnings).toEqual([]);
+  });
+
+  it('warns on an orphan Decoration N Setup and on an unreadable/negative setup value', () => {
+    const csv =
+      'Title,Decoration 1,Decoration 1 Setup,Decoration 2 Setup,Decoration 3,Decoration 3 Setup\n' +
+      'Widget,Screen Print,ninety,,Embroidery,-10\n';
+    const row = parseProductSheet(csvBytes(csv)).rows[0];
+    expect(row.errors).toEqual([]);
+    // Unreadable value: the decoration still imports, just without a setup.
+    expect(row.fields.decorationMethods).toEqual([
+      { method: 'Screen Print' },
+      { method: 'Embroidery' },
+    ]);
+    expect(row.warnings.join(' ')).toMatch(/Decoration 1 Setup "ninety" is not a valid amount/);
+    expect(row.warnings.join(' ')).toMatch(/Decoration 3 Setup "-10" is not a valid amount/);
+    // Blank orphan cell is not flagged; a FILLED orphan cell is:
+    const orphanCsv = 'Title,Decoration 2 Setup\nWidget,25\n';
+    const orphanRow = parseProductSheet(csvBytes(orphanCsv)).rows[0];
+    expect(orphanRow.fields.decorationMethods).toBeUndefined();
+    expect(orphanRow.warnings.join(' ')).toMatch(/Decoration 2 Setup has no Decoration 2 name/);
+  });
+
   it('flags bad image URLs and bad yes/no values as warnings, not errors', () => {
     const csv = 'Title,Image 1,On Sale\nWidget,not-a-url,maybe\n';
     const result = parseProductSheet(csvBytes(csv));
@@ -251,5 +289,18 @@ describe('buildProductPageSetFields', () => {
     expect('brand' in set).toBe(false);
     expect('description' in set).toBe(false);
     expect('onSale' in set).toBe(false);
+  });
+
+  it('writes per-decoration setup charges including an explicit 0, omitting blanks (Q-100)', () => {
+    const csv =
+      'Title,Decoration 1,Decoration 1 Upcharge,Decoration 1 Setup,Decoration 2,Decoration 2 Setup,Decoration 3\n' +
+      'Widget,Screen Print,0.50,90,Laser Engraving,0,Pad Print\n';
+    const row = parseProductSheet(csvBytes(csv)).rows[0];
+    const set = buildProductPageSetFields(row, new Map());
+    expect(set.decorationMethods).toEqual([
+      { _type: 'decorationMethod', _key: 'dec-1', method: 'Screen Print', upcharge: 0.5, setupCharge: 90 },
+      { _type: 'decorationMethod', _key: 'dec-2', method: 'Laser Engraving', setupCharge: 0 },
+      { _type: 'decorationMethod', _key: 'dec-3', method: 'Pad Print' },
+    ]);
   });
 });

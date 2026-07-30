@@ -88,14 +88,17 @@ export type ProductPageRelatedEntry =
   | RelatedProductPageRef;
 
 /**
- * One decorationMethods entry. New entries are `{method, upcharge?}` objects
- * (per-unit upcharge feeds the estimate); entries saved before the P2-CP
- * follow-up are plain strings — `productPageDecorations()` normalizes both.
+ * One decorationMethods entry. New entries are `{method, upcharge?,
+ * setupCharge?}` objects (per-unit upcharge + optional per-method one-time
+ * setup charge, Q-100 - both feed the estimate); entries saved before the
+ * P2-CP follow-up are plain strings - `productPageDecorations()` normalizes
+ * both.
  */
 export interface ProductPageDecorationEntry {
   _key?: string;
   method?: string;
   upcharge?: number;
+  setupCharge?: number;
 }
 
 export interface ProductPageDoc extends ProductPageCard {
@@ -128,6 +131,13 @@ export interface ProductPageDoc extends ProductPageCard {
  * Normalized decoration options for the configurator/quote form: legacy string
  * entries and blank upcharges become `{method, upcharge: 0}`; blank methods
  * are dropped; duplicates (by method) keep the first entry.
+ *
+ * Per-method setup charge (Q-100): carried through ONLY when it is a finite
+ * number of 0 or more - an explicit 0 is kept (it means "no setup fee for
+ * this method" and overrides the flat product charge in
+ * `effectiveSetupCharge`); blank / negative / non-finite values stay
+ * undefined so the flat charge applies. Legacy string entries never carry
+ * one, so they fall back to the flat charge exactly as before.
  */
 export function productPageDecorations(doc: ProductPageDoc): DecorationOption[] {
   const out: DecorationOption[] = [];
@@ -136,7 +146,12 @@ export function productPageDecorations(doc: ProductPageDoc): DecorationOption[] 
     if (!method || out.some((o) => o.method === method)) continue;
     const raw = typeof entry === 'string' ? undefined : entry?.upcharge;
     const upcharge = typeof raw === 'number' && Number.isFinite(raw) && raw > 0 ? raw : 0;
-    out.push({ method, upcharge });
+    const rawSetup = typeof entry === 'string' ? undefined : entry?.setupCharge;
+    const setupCharge =
+      typeof rawSetup === 'number' && Number.isFinite(rawSetup) && rawSetup >= 0
+        ? rawSetup
+        : undefined;
+    out.push({ method, upcharge, ...(setupCharge !== undefined ? { setupCharge } : {}) });
   }
   return out;
 }

@@ -11,7 +11,9 @@ import {
 } from '@/components/forms/attachment-limits';
 import {
   buildSelectionSummary,
+  decorationLabel,
   decorationUpchargeFor,
+  effectiveSetupCharge,
   estimateForQuantity,
   formatUsd,
   type DecorationOption,
@@ -56,13 +58,6 @@ interface ProductQuoteFormProps {
   minQuantity: number;
   initialSelection: QuoteSelection;
   onSuccess?: () => void;
-}
-
-/** "Pad Print (+$0.50/unit)" when there's an upcharge, else just the method. */
-function decorationLabel(option: DecorationOption): string {
-  return option.upcharge > 0
-    ? `${option.method} (+${formatUsd(option.upcharge)}/unit)`
-    : option.method;
 }
 
 interface FieldErrors {
@@ -113,7 +108,11 @@ export function ProductQuoteForm({
   const parsedQty = Number.parseInt(quantityText, 10);
   const quantity = Math.max(Number.isFinite(parsedQty) ? parsedQty : minQty, minQty);
   const decorationUpcharge = decorationUpchargeFor(decorations, decoration);
-  const estimate = estimateForQuantity(tiers, quantity, setupCharge, decorationUpcharge);
+  // Same setup resolution as the panel (Q-100): the selected decoration's own
+  // setup charge wins (0 included), else the product's flat charge - so the
+  // total shown here and the posted estimatedTotal match the panel exactly.
+  const resolvedSetup = effectiveSetupCharge(decorations, decoration, setupCharge);
+  const estimate = estimateForQuantity(tiers, quantity, resolvedSetup, decorationUpcharge);
   const summary = buildSelectionSummary({
     productTitle,
     colorName,

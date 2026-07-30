@@ -4,7 +4,9 @@ import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { cn } from '@/lib/utils';
 import {
+  decorationLabel,
   decorationUpchargeFor,
+  effectiveSetupCharge,
   estimateForQuantity,
   formatUsd,
   type DecorationOption,
@@ -36,13 +38,6 @@ interface ProductPurchasePanelProps {
    * and the "Minimum order quantity" hint all share one number.
    */
   minQuantity: number;
-}
-
-/** "Pad Print (+$0.50/unit)" when there's an upcharge, else just the method. */
-function decorationLabel(option: DecorationOption): string {
-  return option.upcharge > 0
-    ? `${option.method} (+${formatUsd(option.upcharge)}/unit)`
-    : option.method;
 }
 
 /**
@@ -79,7 +74,11 @@ export function ProductPurchasePanel({
 
   const minQty = minQuantity;
   const decorationUpcharge = decorationUpchargeFor(decorations, decoration);
-  const estimate = estimateForQuantity(tiers, quantity, setupCharge, decorationUpcharge);
+  // Setup resolution (Q-100): the selected decoration's own setup charge wins
+  // (an explicit 0 cancels the flat fee); otherwise the product's flat charge.
+  // All through the shared helper - never a second formula.
+  const resolvedSetup = effectiveSetupCharge(decorations, decoration, setupCharge);
+  const estimate = estimateForQuantity(tiers, quantity, resolvedSetup, decorationUpcharge);
   const belowMinimum = Number.parseInt(quantityText, 10) < minQty;
 
   function commitQuantity(raw: string) {

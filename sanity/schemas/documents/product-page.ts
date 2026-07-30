@@ -152,23 +152,40 @@ export default defineType({
               description:
                 'Added to the unit price in the on-page ESTIMATED total when this decoration is selected. Leave blank for no upcharge.',
             }),
+            defineField({
+              name: 'setupCharge',
+              title: 'Setup charge for this method (USD, optional)',
+              type: 'number',
+              validation: (Rule) => Rule.min(0),
+              description:
+                'The one-time setup fee for THIS decoration method (e.g. the screen fee for a screen print). Leave blank to use the product\'s own Setup charge from the Pricing section instead. Entering 0 means this method has NO setup fee at all - that is not the same as leaving it blank. For a job with more colors (e.g. a 2-color screen print), add it as its own decoration method entry with its own setup charge.',
+            }),
           ],
           preview: {
-            select: { method: 'method', upcharge: 'upcharge' },
-            prepare({ method, upcharge }) {
+            select: { method: 'method', upcharge: 'upcharge', setupCharge: 'setupCharge' },
+            prepare({ method, upcharge, setupCharge }) {
+              const upchargePart =
+                typeof upcharge === 'number' && upcharge > 0
+                  ? `+$${upcharge.toFixed(2)} per unit`
+                  : 'No upcharge';
+              // Blank vs 0 matters: 0 = "no setup fee for this method"; blank
+              // = the product's flat Setup charge applies (not shown here).
+              const setupPart =
+                typeof setupCharge === 'number' && setupCharge >= 0
+                  ? setupCharge === 0
+                    ? 'no setup fee'
+                    : `$${setupCharge.toFixed(2)} setup`
+                  : null;
               return {
                 title: method || 'Decoration method',
-                subtitle:
-                  typeof upcharge === 'number' && upcharge > 0
-                    ? `+$${upcharge.toFixed(2)} per unit`
-                    : 'No upcharge',
+                subtitle: setupPart ? `${upchargePart} · ${setupPart}` : upchargePart,
               };
             },
           },
         },
       ],
       description:
-        'Each method can carry an optional per-unit upcharge that feeds the live estimate. Older entries saved as plain text still render (with no upcharge) — re-add them here to set an upcharge.',
+        'Each method can carry an optional per-unit upcharge and an optional one-time setup charge that feed the live estimate. Older entries saved as plain text still render (with no upcharge and the product-level setup charge) - re-add them here to set either amount.',
     }),
     defineField({
       name: 'sizes',
@@ -369,7 +386,7 @@ export default defineType({
       fieldset: 'pricing',
       validation: (Rule) => Rule.min(0),
       description:
-        'One-time flat setup/decoration charge (e.g. a screen or pad-print setup fee) added on top of quantity × unit price in the on-page ESTIMATED total. Leave blank for no setup charge. The estimate is clearly labeled as an estimate — final pricing is always confirmed in the quote.',
+        'The DEFAULT one-time setup/decoration charge (e.g. a screen or pad-print setup fee) added on top of quantity × unit price in the on-page ESTIMATED total. It applies whenever the selected decoration method has no setup charge of its own - a method with its own setup charge (in the Details section) overrides this amount. Leave blank for no setup charge. The estimate is clearly labeled as an estimate - final pricing is always confirmed in the quote.',
     }),
     defineField({
       name: 'onSale',
