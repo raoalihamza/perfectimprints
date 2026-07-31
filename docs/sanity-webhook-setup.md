@@ -87,7 +87,7 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
 | **URL** | `https://dev.perfectimprints.com/api/sanity/revalidate` |
 | **Dataset** | `production` |
 | **Trigger on** | ✅ Create  ✅ Update  ✅ Delete |
-| **Filter** | `!(_id in path("drafts.**")) && _type in ["megaMenu","globalSettings","homePage","page","blogPost","video","customProduct","customCategory","curatedCategory","faq","categoryOverride","productPlacement","customSchema","brand","landingPage","productPage","form","catalogPage","quote"]` |
+| **Filter** | `!(_id in path("drafts.**")) && _type in ["megaMenu","globalSettings","homePage","page","blogPost","video","customProduct","customCategory","curatedCategory","categoryOverride","productPlacement","faq","customSchema","brand","landingPage", "productPage","form", "catalogPage", "quote"]` |
 | **Projection** | `{_id, _type, slug, categorySlug, pageUrl, "addToCategories": array::unique([...coalesce(before().addToCategories, []), ...coalesce(after().addToCategories, [])]), "removeFromCategories": array::unique([...coalesce(before().removeFromCategories, []), ...coalesce(after().removeFromCategories, [])])}` |
 | **HTTP method** | `POST` |
 | **HTTP headers** | none (Sanity adds the signature header automatically) |
