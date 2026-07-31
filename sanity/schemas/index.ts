@@ -22,6 +22,12 @@ import page from './documents/page';
 import landingPage from './documents/landing-page';
 import catalogPage from './documents/catalog-page';
 import customSchema from './documents/custom-schema';
+// Quick Quote (Q-110). NOTE: the numbering counter (`quoteCounter`) is
+// DELIBERATELY not registered - it must never appear in the Studio desk
+// (the siteRefreshAuth invisible-type precedent; see lib/quotes/numbering.ts).
+import quote from './documents/quote';
+import quoteResponse from './documents/quote-response';
+import { quoteLineItemTypes } from './objects/quote-line-items';
 
 import seo from './objects/seo';
 import link from './objects/link';
@@ -52,6 +58,9 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   landingPage,
   catalogPage,
   customSchema,
+  quote,
+  quoteResponse,
+  ...quoteLineItemTypes,
   seo,
   link,
   richAnswer,

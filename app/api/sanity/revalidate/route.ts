@@ -21,6 +21,7 @@ import {
   MEGA_MENU_TAG,
   PAGES_TAG,
   PRODUCT_PAGES_TAG,
+  QUOTES_TAG,
   RELATED_BLOGS_TAG,
   SETTINGS_TAG,
   VIDEOS_TAG,
@@ -31,6 +32,7 @@ import {
   landingTag,
   pageTag,
   productPageTag,
+  quoteTag,
 } from '@/lib/sanity/cache-tags';
 
 /**
@@ -529,6 +531,38 @@ export async function POST(request: Request) {
     ];
     for (const p of paths) revalidatePath(p);
     return NextResponse.json({ revalidated: true, paths, type });
+  }
+
+  // Quick Quote `quote` documents (Q-110). The token IS the document slug, so
+  // the existing projection needs no change. Bust the collection tag + the
+  // per-quote tag and revalidate the future customer path /quote/<token> -
+  // the route does not exist yet, and revalidatePath on a nonexistent route is
+  // a harmless no-op, so this case is safely forward-wired for the next
+  // prompt. The quote is deliberately NOT in the sitemap and never will be.
+  // ⚠️ `quote` must be in the Sanity webhook Filter `_type` list (it is a NEW
+  // type - added to neither webhook automatically) or this never fires - see
+  // docs/sanity-webhook-setup.md.
+  //
+  // `quoteResponse` is DELIBERATELY NOT in the webhook Filter and has no case
+  // here: responses are written ONLY by a future server route, which will
+  // revalidate the affected quote tag directly after the write. Routing them
+  // through the webhook would add pointless deliveries plus one more manual
+  // Filter step that can be forgotten - the exact silent-failure class this
+  // project has been bitten by before (faq, brand).
+  if (type === 'quote') {
+    revalidateTag(QUOTES_TAG, 'max');
+    const token = payload.slug?.current;
+    if (token) {
+      bustTag(quoteTag(token));
+      revalidatePath(`/quote/${token}`);
+      // Never echo a full token (this JSON lands in the webhook delivery log).
+      return NextResponse.json({
+        revalidated: true,
+        scope: `/quote/${token.slice(0, 6)}[redacted]`,
+        type,
+      });
+    }
+    return NextResponse.json({ revalidated: false, reason: 'quote missing slug', type });
   }
 
   // Generic section-based `page` documents power the Services routes

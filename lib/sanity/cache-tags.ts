@@ -208,6 +208,26 @@ export function formTag(slug: string): string {
 }
 
 /**
+ * Quick Quote `quote` documents (Q-110) - private customer quotes that will
+ * render at /quote/<token> (the token IS the document slug: 32 lowercase hex
+ * chars). `QUOTES_TAG` is the collection-level tag busted on any `quote`
+ * publish/delete; `quoteTag(token)` busts a single quote's content. The read
+ * (`getQuoteByToken`) goes through the non-CDN `cachedClient` with these tags
+ * and `revalidate: false` - never `no-store` - so the future customer route
+ * stays statically prerenderable while a Studio publish refreshes it in
+ * seconds. Same rationale as PAGES_TAG / PRODUCT_PAGES_TAG.
+ *
+ * The token is generated LOWERCASE hex on purpose: `sanitizeTagValue`
+ * lowercases tag values, so a mixed-case token would collapse two different
+ * tokens onto one cache tag (see lib/quotes/token.ts).
+ */
+export const QUOTES_TAG = 'quotes';
+export function quoteTag(token: string): string {
+  const s = sanitizeTagValue(token);
+  return s ? `quote:${s}` : '';
+}
+
+/**
  * Per-path tag for the custom structured-data injector (Task C). Keyed by the
  * full page path (e.g. `customSchema:/cat/water-bottles`, `customSchema:/about`,
  * `customSchema:/`). The `CustomSchemaJsonLd` server component reads through a

@@ -349,6 +349,7 @@
         <li><a href="#bulk-upload">Bulk Upload Product Pages (import from a spreadsheet)</a></li>
         <li><a href="#forms">Forms (build your own quote forms)</a></li>
         <li><a href="#catalog-pages">Catalog Pages (Shop-by-Theme lead pages)</a></li>
+        <li><a href="#quotes">Quotes (build a customer quotation)</a></li>
         <li><a href="#connect">How everything connects</a></li>
         <li><a href="#tasks">Common tasks (quick reference)</a></li>
         <li><a href="#warnings">Important warnings</a></li>
@@ -1912,7 +1913,75 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="connect">26. How everything connects</h2>
+    <h2 id="quotes">26. Quotes (build a customer quotation)</h2>
+    <p>A <strong>Quote</strong> is a real quotation you build for one customer: product lines with quantities and
+      prices, extra charges (an art fee, a rush charge), the customer's details, dates, and totals. The customer will
+      eventually open it at a private link and either accept it or ask for changes.</p>
+
+    <div class="callout warn">
+      <span class="label">Half-built on purpose (for now)</span>
+      <p>Right now you can <strong>build and save</strong> quotes. The customer-facing quote page, the PDF, and the
+        <strong>send button arrive in the next update</strong> - so if you open Studio and wonder where "Send" is,
+        it is not missing, it just is not built yet. Nothing you create now is wasted; every quote you build will
+        work with the customer page when it ships.</p>
+    </div>
+
+    <p>Open <span class="path">Content <span class="arrow">›</span> Quote</span> and <strong>Create new</strong>.
+      The fields, by group:</p>
+    <ul>
+      <li><strong>Quote identity</strong> - click <strong>"Assign quote number"</strong> once to get the next
+        sequential number (Q-1001, Q-1002, ...). The <strong>private link token</strong> is created automatically.
+        <strong>Neither can be edited by hand</strong> - the number keeps your sequence honest, and the token is the
+        unguessable part of the customer's private link. The <strong>Internal label</strong> is just for you (e.g.
+        the customer's company name) so you can find the quote in the list.</li>
+      <li><strong>Customer</strong> - company, contact name, email (required - the link will be emailed there),
+        phone, address.</li>
+      <li><strong>Your details</strong> - your name, email, and phone as they should appear on the quote. They
+        pre-fill automatically; edit freely.</li>
+      <li><strong>Dates</strong> - the quote date (today) and the expiry date (30 days later by default - change
+        it freely).</li>
+      <li><strong>Line items</strong> - click Add and pick what you are adding: a <strong>Geiger product</strong>
+        (search by name/SKU and pick; you type the cost, since Geiger only publishes price ranges), one of your
+        <strong>own Product Pages</strong>, a fully <strong>custom item</strong> (own name, image, description), or a
+        <strong>charge</strong> (art fee, second color run, rush charge). Product lines carry quantity, unit cost,
+        an optional setup charge, optional per-line shipping, and a note.</li>
+      <li><strong>Tax &amp; totals</strong> - <strong>Sales tax is a number you type, in dollars. It is NOT
+          calculated for you.</strong> Whatever you enter is added to the grand total as-is. The totals box below it
+        updates itself as you edit lines - subtotal, shipping, tax, grand total. Totals are never stored anywhere;
+        they are always recalculated from your line items, so they cannot go stale.</li>
+      <li><strong>Sending &amp; responses</strong> - "Sent at" fills in automatically once sending exists, and the
+        <strong>Responses</strong> box will list what the customer did (opened the link, accepted, asked for a
+        revision), newest first.</li>
+    </ul>
+
+    <div class="callout">
+      <span class="label">Prices on a quote are frozen</span>
+      <p>The unit cost, setup, and shipping you enter on a quote line are <strong>stored on that quote</strong>.
+        If you later change a Product Page's pricing, quotes you already built <strong>do not change</strong> - a
+        quote a customer received must show the same numbers next week. To re-price something, edit the quote line
+        itself.</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">Customer responses are separate, permanent records</span>
+      <p>When a customer accepts or asks for a revision (once the customer page ships), that action is saved as its
+        own read-only <strong>Quote Response</strong> record - it appears in the quote's Responses box and in
+        <span class="path">Content <span class="arrow">›</span> Quote Response</span>. Nothing you edit or publish
+        on the quote can erase a response, and responses cannot be edited by anyone.</p>
+    </div>
+
+    <div class="callout warn">
+      <span class="label">Two things not to do</span>
+      <p><strong>Do not duplicate a quote</strong> (the "Duplicate" menu item): the copy would carry the same number
+        and the same private link, and it will refuse to publish. Create a new quote instead. And <strong>do not
+        share the private link casually</strong> - anyone who has it can open the quote (it is hidden, not
+        password-protected, exactly like the gated catalog pages).</p>
+    </div>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="connect">27. How everything connects</h2>
     <p>A quick mental map of what drives what:</p>
     <ul>
       <li><strong>Global Settings</strong> drives the header and footer of <em>every</em> page (contact details, social
@@ -1934,6 +2003,9 @@
         search, and in related-product carousels (never inside <code>/cat</code> category pages).</li>
       <li><strong>FAQ</strong>, <strong>Video</strong>, and <strong>Brand</strong> each drive their own page
         (<code>/faq</code>, <code>/videos</code>, <code>/brands</code>).</li>
+      <li><strong>Quote</strong> is a customer quotation you build (products, charges, totals); <strong>Quote
+          Response</strong> is the permanent record of what the customer did with it. The customer-facing quote page
+        and sending arrive in a later update.</li>
       <li><strong>Lead Submission</strong> is the inbox for your contact form.</li>
       <li><strong>Custom Schema</strong> is an optional advanced tool that adds extra SEO structured data to any page,
         without taking the page over.</li>
@@ -1947,7 +2019,7 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="tasks">27. Common tasks (quick reference)</h2>
+    <h2 id="tasks">28. Common tasks (quick reference)</h2>
     <table>
       <tr>
         <th>I want to…</th>
@@ -2068,7 +2140,7 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="warnings">28. Important warnings (keep these in mind)</h2>
+    <h2 id="warnings">29. Important warnings (keep these in mind)</h2>
 
     <div class="callout danger">
       <span class="label">1. Always review products before publishing a pushed category</span>

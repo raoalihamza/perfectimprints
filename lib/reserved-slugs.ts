@@ -43,6 +43,10 @@ export const RESERVED_SLUGS: readonly string[] = [
   'products',
   // Catalog lead pages (P2-CAT-001) — the /shop-by-theme/[slug] folder route.
   'shop-by-theme',
+  // Private customer quote links (Q-110) - the future /quote/[token] folder
+  // route. Reserved BEFORE the route exists so no page/landingPage can ever
+  // collide with it.
+  'quote',
   'faq',
   'search',
   'services',

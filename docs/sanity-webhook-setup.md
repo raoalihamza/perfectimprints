@@ -39,6 +39,8 @@ ISR fallback.
 | `form` | the four `/services/<slug>` pages (+ busts the `forms` cache tag + `form:<slug>` — tag invalidation also refreshes ANY other page whose CTA embeds the form) — needs `slug` in the projection (already present). **NEW type (P2-FB-001) — must be ADDED to the Filter (see below).** |
 | `catalogPage` | `/shop-by-theme/<slug>` (public landing) + `/shop-by-theme/<slug>/catalog` (gated grid) + `/sitemap.xml` (+ busts the `catalog-pages` cache tag + `catalog-page:<slug>`) — needs `slug` in the projection (already present). Edits to a referenced `productPage`/`customProduct` in `addedProducts` reach the embedding catalog pages via the same `references($id)` strip lookup; the related blogs/videos strips ride the `related-blogs`/`videos` tags. **NEW type (P2-CAT-001) — must be ADDED to the Filter (see below).** |
 
+| `quote` | the future customer page `/quote/<token>` (+ busts the `quotes` cache tag + `quote:<token>` - the token IS the slug, so no Projection change). The route does not exist yet; the case is forward-wired for the Quick Quote milestone. Never in the sitemap. **NEW type (Q-110) - must be ADDED to the Filter (see below).** `quoteResponse` is DELIBERATELY NOT in the Filter: responses are written only by a future server route, which revalidates the affected tag directly - a webhook delivery would be redundant. |
+
 "Live search delta" = the `/api/search-index` ISR route that carries the
 Sanity-managed slice of site search (blogs, videos, custom categories, custom
 products). See CLAUDE.md Section 17 + the M5-507 hybrid notes.
@@ -85,7 +87,7 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
 | **URL** | `https://dev.perfectimprints.com/api/sanity/revalidate` |
 | **Dataset** | `production` |
 | **Trigger on** | ✅ Create  ✅ Update  ✅ Delete |
-| **Filter** | `!(_id in path("drafts.**")) && _type in ["megaMenu","globalSettings","homePage","page","blogPost","video","customProduct","customCategory","curatedCategory","faq","categoryOverride","productPlacement","customSchema","brand","landingPage","productPage","form","catalogPage"]` |
+| **Filter** | `!(_id in path("drafts.**")) && _type in ["megaMenu","globalSettings","homePage","page","blogPost","video","customProduct","customCategory","curatedCategory","faq","categoryOverride","productPlacement","customSchema","brand","landingPage","productPage","form","catalogPage","quote"]` |
 | **Projection** | `{_id, _type, slug, categorySlug, pageUrl, "addToCategories": array::unique([...coalesce(before().addToCategories, []), ...coalesce(after().addToCategories, [])]), "removeFromCategories": array::unique([...coalesce(before().removeFromCategories, []), ...coalesce(after().removeFromCategories, [])])}` |
 | **HTTP method** | `POST` |
 | **HTTP headers** | none (Sanity adds the signature header automatically) |
@@ -163,6 +165,20 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
 > `/shop-by-theme/<slug>`, its gated `/catalog` page, or the sitemap (a
 > brand-new catalog page still appears on its first-ever visit via on-demand
 > SSG, but later edits stay silently stale until the next deploy).
+
+> **⚠️ Manual step for an EXISTING webhook (Q-110, Quick Quote):**
+> `quote` is a NEW document type - both existing webhooks were created before
+> it, so their Filters omit it. Edit **each** webhook in Sanity → API →
+> Webhooks and paste the updated Filter above (the only change vs. the
+> previous filter is the trailing `,"quote"`). Do this on **staging now** and
+> on **production when the Quick Quote milestone promotes**. Projection is
+> unchanged - the private link token is stored AS the document `slug`, which
+> the Projection already carries. Until you do this, publishing or editing a
+> quote will NOT refresh its (future) customer page - edits stay silently
+> stale until the next deploy. Do NOT add `quoteResponse`: it is written only
+> by a server route that revalidates the affected quote tag directly, so a
+> webhook delivery for it would be pure waste plus one more forgettable
+> manual step.
 
 > **⚠️ Manual step for an EXISTING webhook (P2-CP-004 batch 3, products attached to
 > categories):** add **`_id`** to the Projection (the updated Projection above —

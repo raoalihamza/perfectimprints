@@ -1,0 +1,223 @@
+/**
+ * Studio inputs for the `quote` document (Q-110 - data foundation):
+ *
+ *   - `QuoteNumberInput` - displays the assigned quote number, and when the
+ *     field is still empty shows one "Assign quote number" button that runs
+ *     the concurrency-safe allocator (lib/quotes/numbering.ts) through the
+ *     cookie-authed Studio client. Display-only otherwise: there is no text
+ *     box, so the number cannot be hand-edited (hand edits would break
+ *     uniqueness). A deliberate button (not auto-assign on open) so an
+ *     abandoned "create new" pane never burns a sequential number.
+ *   - `QuoteTotalsInput` - the read-only computed totals summary. Calls the
+ *     SAME pure module every future surface (customer page, PDF, email) will
+ *     call, and stores NOTHING (totals are never written to the document).
+ *   - `QuoteResponsesInput` - lists this quote's `quoteResponse` records,
+ *     newest first, so Patrick is not hunting through the response list.
+ *
+ * Studio-only: plain React + the `sanity` form API (no @sanity/ui), matching
+ * ProductPicker/CategoryPicker. The lib imports are pure, dependency-free
+ * modules (the site-refresh-tool precedent) - no fs, no server-only.
+ */
+import { useCallback, useEffect, useState } from 'react';
+import { set, useClient, useFormValue, type StringInputProps } from 'sanity';
+import {
+  QuoteNumberAllocationError,
+  allocateQuoteNumber,
+} from '../../lib/quotes/numbering';
+import { computeQuoteTotals, formatUsd } from '../../lib/quotes/quote-totals';
+
+const API_VERSION = '2024-10-01';
+
+const box: React.CSSProperties = {
+  border: '1px solid var(--card-border-color, #ced2d9)',
+  borderRadius: 4,
+  padding: 10,
+  background: 'var(--card-bg-color, #fff)',
+};
+
+const mono: React.CSSProperties = {
+  fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
+  fontSize: 14,
+  fontWeight: 600,
+};
+
+const muted: React.CSSProperties = {
+  fontSize: 12,
+  color: 'var(--card-muted-fg-color, #6e7683)',
+};
+
+const errorText: React.CSSProperties = { fontSize: 12, color: '#b91c1c' };
+
+// ---------------------------------------------------------------------------
+// Quote number
+// ---------------------------------------------------------------------------
+export function QuoteNumberInput(props: StringInputProps) {
+  const { onChange } = props;
+  const value = typeof props.value === 'string' ? props.value : '';
+  const client = useClient({ apiVersion: API_VERSION });
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const assign = useCallback(async () => {
+    setBusy(true);
+    setError(null);
+    try {
+      const allocated = await allocateQuoteNumber(client);
+      onChange(set(allocated.quoteNumber));
+    } catch (err) {
+      // Fail loudly: no number was issued, the quote stays unnumbered (and
+      // unpublishable), and Patrick retries. Never guess a number here.
+      setError(
+        err instanceof QuoteNumberAllocationError
+          ? err.message
+          : 'Could not assign a quote number. Check your connection and try again.',
+      );
+    } finally {
+      setBusy(false);
+    }
+  }, [client, onChange]);
+
+  if (value) {
+    return (
+      <div style={box}>
+        <span style={mono}>{value}</span>
+        <div style={muted}>Assigned automatically. Not editable.</div>
+      </div>
+    );
+  }
+  return (
+    <div style={{ ...box, display: 'flex', flexDirection: 'column', gap: 6 }}>
+      <button type="button" onClick={assign} disabled={busy} style={{ alignSelf: 'flex-start' }}>
+        {busy ? 'Assigning...' : 'Assign quote number'}
+      </button>
+      <div style={muted}>
+        Click once to get the next sequential number. Required before the quote can be published.
+      </div>
+      {error && <div style={errorText}>{error}</div>}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Computed totals (read-only; stores nothing)
+// ---------------------------------------------------------------------------
+export function QuoteTotalsInput(_props: StringInputProps) {
+  const lineItems = useFormValue(['lineItems']);
+  const salesTax = useFormValue(['salesTax']);
+  const totals = computeQuoteTotals(lineItems, salesTax);
+
+  const row = (label: string, amount: number, strong = false): React.ReactElement => (
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        fontWeight: strong ? 700 : 400,
+        fontSize: strong ? 15 : 13,
+        padding: '2px 0',
+      }}
+    >
+      <span>{label}</span>
+      <span style={{ fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace' }}>
+        {formatUsd(amount)}
+      </span>
+    </div>
+  );
+
+  return (
+    <div style={box}>
+      {row('Subtotal', totals.subtotal)}
+      {row('Shipping', totals.shippingTotal)}
+      {row('Sales tax (as entered above)', totals.salesTax)}
+      <div style={{ borderTop: '1px solid var(--card-border-color, #ced2d9)', marginTop: 4 }} />
+      {row('Grand total', totals.grandTotal, true)}
+      <div style={{ ...muted, marginTop: 6 }}>
+        Computed live from the line items. Totals are never stored - every page, PDF, and email
+        recalculates from the same formula.
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Responses list (read-only)
+// ---------------------------------------------------------------------------
+interface ResponseRow {
+  _id: string;
+  kind?: string;
+  createdAt?: string;
+  comment?: string;
+  fileCount?: number;
+}
+
+const KIND_LABELS: Record<string, string> = {
+  viewed: 'Link opened',
+  accepted: 'Accepted',
+  revisionRequested: 'Revision requested',
+};
+
+export function QuoteResponsesInput(_props: StringInputProps) {
+  const docId = useFormValue(['_id']);
+  const publishedId = typeof docId === 'string' ? docId.replace(/^drafts\./, '') : '';
+  const client = useClient({ apiVersion: API_VERSION });
+  const [rows, setRows] = useState<ResponseRow[] | null>(null);
+  const [failed, setFailed] = useState(false);
+
+  const load = useCallback(async () => {
+    if (!publishedId) return;
+    try {
+      const result = await client.fetch<ResponseRow[]>(
+        `*[_type == "quoteResponse" && quote._ref == $id] | order(createdAt desc)[0...50]{
+          _id, kind, createdAt, comment, "fileCount": count(files)
+        }`,
+        { id: publishedId },
+      );
+      setRows(Array.isArray(result) ? result : []);
+      setFailed(false);
+    } catch {
+      setFailed(true);
+    }
+  }, [client, publishedId]);
+
+  useEffect(() => {
+    void load();
+  }, [load]);
+
+  return (
+    <div style={{ ...box, display: 'flex', flexDirection: 'column', gap: 8 }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <span style={{ fontWeight: 600, fontSize: 13 }}>Customer responses (newest first)</span>
+        <button type="button" onClick={load} style={{ fontSize: 12 }}>
+          Refresh
+        </button>
+      </div>
+      {failed && <div style={errorText}>Could not load responses. Try Refresh.</div>}
+      {!failed && rows !== null && rows.length === 0 && (
+        <div style={muted}>
+          No responses yet. Responses appear here automatically once the customer quote page goes
+          live in a later update.
+        </div>
+      )}
+      {!failed &&
+        rows !== null &&
+        rows.map((r) => (
+          <div
+            key={r._id}
+            style={{
+              borderTop: '1px solid var(--card-border-color, #e4e8ed)',
+              paddingTop: 6,
+              fontSize: 13,
+            }}
+          >
+            <strong>{KIND_LABELS[r.kind ?? ''] ?? r.kind ?? 'Response'}</strong>
+            {r.createdAt && (
+              <span style={muted}> - {new Date(r.createdAt).toLocaleString('en-US')}</span>
+            )}
+            {typeof r.fileCount === 'number' && r.fileCount > 0 && (
+              <span style={muted}> - {r.fileCount} file(s)</span>
+            )}
+            {r.comment && <div style={{ marginTop: 2 }}>{r.comment}</div>}
+          </div>
+        ))}
+    </div>
+  );
+}
