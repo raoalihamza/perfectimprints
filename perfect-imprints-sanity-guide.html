@@ -1922,8 +1922,17 @@
     <div class="callout warn">
       <span class="label">You send the link yourself. There is no Send button.</span>
       <p>Studio will not email the quote for you. You press <strong>Copy customer link</strong> and paste it into your
-        own email. That is deliberate for now, not a missing feature - emailing from Studio is a separate later update.
-        If you go hunting for a Send button, this is why you cannot find one.</p>
+        own email. That is deliberate for now, not a missing feature - emailing the quote directly from Studio is not
+        part of this version. If you go hunting for a Send button, this is why you cannot find one.</p>
+      <p>There are three steps, and they always go in this order:</p>
+      <ol>
+        <li><strong>Copy customer link</strong>.</li>
+        <li>Paste it into an email in your own mail program and send it to the customer.</li>
+        <li>Come back and press <strong>"I have emailed this to the customer"</strong>, right under the link.</li>
+      </ol>
+      <p>Step 3 does <strong>not</strong> email anybody. It just tells the site the quote is out there, so it can start
+        alerting you when the customer opens it. Skip it and you will still see everything in Studio, but you will not
+        get the email alerts.</p>
     </div>
 
     <h3>Building a quote, start to finish</h3>
@@ -2053,6 +2062,23 @@
       change request leads with what they want changed.</p>
 
     <div class="callout">
+      <span class="label">Marking a quote as sent, and why it matters</span>
+      <p>Under the private link there is a line saying <strong>Not sent yet</strong> and a button reading <strong>"I
+          have emailed this to the customer"</strong>. Press it once, after you have actually sent the email. The line
+        then changes to <strong>Marked as sent</strong> with the date and time, and the quote list shows
+        <strong>Sent</strong> instead of <strong>NOT SENT</strong>.</p>
+      <p><strong>Until you press it, you get no "opened" emails.</strong> Opens are still recorded in the Responses
+        box, but nothing lands in your inbox. That is on purpose: without it, every time you previewed your own quote
+        before sending it, you would email yourself. This button is what tells the site the difference between you
+        checking your work and the customer reading the quote.</p>
+      <p>Pressed it by mistake, or reworking a quote you already sent? Press <strong>"Mark as not sent"</strong>. It
+        clears the date and the alerts go quiet again. Anything the customer has already done stays on record and is
+        never affected.</p>
+      <p>The button is greyed out while the quote is still a <strong>draft</strong>, because a draft's link does not
+        open for anyone yet. Publish first, then send, then mark it.</p>
+    </div>
+
+    <div class="callout">
       <span class="label">"Opened" does not mean "read"</span>
       <p>The <strong>opened</strong> email tells you the quote page was loaded. Company email systems and chat apps
         routinely open links automatically to scan or preview them, and that looks exactly the same from our side.
@@ -2060,8 +2086,8 @@
         says "was opened" rather than "your customer read it".</p>
       <p>You will not get flooded either: <strong>a refresh does not send another email</strong>. Repeat opens inside
         half an hour are ignored completely, and you get at most one alert every six hours for the same quote. And
-        while <strong>Sent at</strong> is still blank, opening the link sends you nothing at all, so you can safely
-        check your own quote before you send it.</p>
+        until you have pressed <strong>"I have emailed this to the customer"</strong>, opening the link sends you
+        nothing at all, so you can safely check your own quote first.</p>
     </div>
 
     <div class="callout">
@@ -2115,10 +2141,11 @@
 
     <div class="callout warn">
       <span class="label">What is still coming</span>
-      <p>Building a quote, publishing it, sending the link yourself, and the customer accepting or asking for changes
-        all work today. Still to come: a <strong>real PDF download</strong> (replacing the print button in the same
-        place), and a <strong>Send</strong> button that emails the quote for you and fills in "Sent at". Reminder
-        emails and editable email wording are not planned at the moment. Nothing you build now is wasted.</p>
+      <p>Building a quote, publishing it, sending the link yourself, marking it as sent, and the customer accepting or
+        asking for changes all work today. Still to come: a <strong>real PDF download</strong> (replacing the print
+        button in the same place), and a <strong>Send</strong> button that emails the quote to the customer for you,
+        which would then mark it as sent by itself. Reminder emails and editable email wording are not planned at the
+        moment. Nothing you build now is wasted.</p>
     </div>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>

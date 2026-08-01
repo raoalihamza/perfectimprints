@@ -63,14 +63,69 @@ export const dynamic = 'force-dynamic';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com';
 
 /**
- * Two separate buckets, because the two kinds of request have opposite shapes.
- * A deliberate action is rare and gets the same 5-per-hour allowance as a lead.
- * A view fires on every page load, so a customer who opens the quote, shows it
- * to a colleague and comes back must not exhaust the allowance they need in
- * order to press Accept.
+ * Rate limiting, revised in Q-155 after the Q-150 verification run refused a
+ * legitimate acceptance.
+ *
+ * THE PROBLEM WITH THE FIRST VERSION. There was one action bucket of 5 per hour
+ * per IP, checked BEFORE any validation. So every rejected attempt cost the
+ * customer the same as a completed one: attach a 12MB logo (rejected), try a
+ * different file (rejected), submit a change request with an empty box
+ * (rejected), and four fifths of the allowance is gone before a single valid
+ * submission. Refusing the attempt that finally gets it right is the worst
+ * possible moment to fail, and it punishes exactly the customer who is trying
+ * honestly rather than the one abusing the endpoint.
+ *
+ * THE SHAPE NOW. Attempts and successes are counted separately, because they
+ * mean different things:
+ *
+ *   - ATTEMPTS (`attemptLimiter`, 30/hour per IP, checked early) exist only to
+ *     stop someone hammering the endpoint. Being wrong is not abuse, so the
+ *     ceiling is high enough that no honest customer can reach it while still
+ *     capping a flood.
+ *   - SUCCESSES (`submitLimiter`, 10/hour per IP AND QUOTE, checked immediately
+ *     before the write) cap how many records one customer can actually put on
+ *     one quote. This is the number that matters, and it is only ever spent by
+ *     a submission that passed expiry, comment, file and CAPTCHA validation.
+ *
+ * WHY THE SUBMIT KEY INCLUDES THE TOKEN. Keying on IP alone means one office
+ * behind a single NAT address shares one budget across unrelated quotes, so one
+ * busy customer can silently refuse another. Adding the token makes different
+ * quotes independent, and a token is not guessable, so it cannot be used to
+ * widen the limit.
+ *
+ * VIEWS get the same per-IP-and-quote key for the same NAT reason, and their
+ * own bucket: the beacon fires on every page load, so it must never be able to
+ * exhaust the allowance a customer needs in order to press Accept. The 30
+ * minute record debounce means almost all of these do no work at all.
+ *
+ * HONEST LIMITATION, unchanged: the store is per serverless instance and is
+ * lost on a cold start, so this is spam damping and not a security boundary.
+ * The durable protections are the unguessable token, the honeypot, Turnstile,
+ * and server-side validation.
  */
-const actionLimiter = createRateLimiter({ max: 5, windowMs: 60 * 60 * 1000 });
-const viewLimiter = createRateLimiter({ max: 40, windowMs: 60 * 60 * 1000 });
+const attemptLimiter = createRateLimiter({ max: 30, windowMs: 60 * 60 * 1000 });
+const submitLimiter = createRateLimiter({ max: 10, windowMs: 60 * 60 * 1000 });
+const viewLimiter = createRateLimiter({ max: 20, windowMs: 60 * 60 * 1000 });
+
+/** Per customer AND per quote, so unrelated quotes never share an allowance. */
+function perQuoteKey(ip: string, token: string): string {
+  return `${ip}|${token}`;
+}
+
+/**
+ * The one message a rate-limited customer sees. It always names a way out,
+ * and the page adds the rep's email address underneath it, so nobody is ever
+ * left at a dead end because of a counter.
+ */
+function tooManyRequests(): NextResponse {
+  return NextResponse.json(
+    {
+      error:
+        'That is a few too many attempts in a short time. Please wait a few minutes and try again, or email your contact and we will take it from there.',
+    },
+    { status: 429 },
+  );
+}
 
 function str(value: FormDataEntryValue | null): string {
   return typeof value === 'string' ? value.trim() : '';
@@ -130,11 +185,14 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Unknown action.' }, { status: 400 });
   }
 
-  if ((isView ? viewLimiter : actionLimiter).isRateLimited(ip)) {
-    return NextResponse.json(
-      { error: 'Too many requests. Please try again shortly.' },
-      { status: 429 },
-    );
+  // The FLOOD guard only. A deliberate action spends its real allowance much
+  // later, immediately before the write, so an attempt the route itself
+  // rejects (bad file, empty comment, expired quote) does not cost the
+  // customer the submission they are about to get right.
+  if (isView) {
+    if (viewLimiter.isRateLimited(perQuoteKey(ip, token))) return tooManyRequests();
+  } else if (attemptLimiter.isRateLimited(ip)) {
+    return tooManyRequests();
   }
 
   const quote = await getQuoteForResponse(token);
@@ -252,6 +310,12 @@ export async function POST(request: Request) {
       { status: 503 },
     );
   }
+
+  // The REAL allowance, spent here and nowhere else: everything above has
+  // passed (expiry, comment, files, CAPTCHA), so this request is going to be
+  // recorded. Checked before the attachments are uploaded so a refused
+  // submission never leaves orphaned assets behind.
+  if (submitLimiter.isRateLimited(perQuoteKey(ip, token))) return tooManyRequests();
 
   // Bytes read ONCE and reused for the Sanity asset and the email attachment.
   const buffers = await readFileBuffers(rawFiles);

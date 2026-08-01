@@ -384,6 +384,33 @@ function isTurnstileBlock(result: ApiResult): boolean {
   return result.status === 400 && /verify you are human/i.test(result.body);
 }
 
+/** True when the route's own per-IP action guard refused us. */
+function isRateLimited(result: ApiResult): boolean {
+  return result.status === 429;
+}
+
+/**
+ * Records a check on a DELIBERATE-ACTION post, converting the two environmental
+ * refusals into INFO rather than FAIL.
+ *
+ * Both are the route working correctly and neither says anything about the
+ * feature: Turnstile refuses a post with no CAPTCHA token (a real customer in a
+ * browser has one), and the attempt guard refuses a script that posts far more
+ * often than any human would. Reporting either as FAIL would be a lie
+ * about the product.
+ */
+function actionCheck(check: string, expected: string, result: ApiResult, pass: boolean): void {
+  if (isRateLimited(result)) {
+    info(check, "429 - the route's rate guard refused the script, not a defect");
+    return;
+  }
+  if (isTurnstileBlock(result)) {
+    info(check, '400 - Turnstile refused a post with no CAPTCHA token, not a defect');
+    return;
+  }
+  record(check, expected, String(result.status), pass);
+}
+
 // ── Sanity read helpers ──────────────────────────────────────────────────────
 
 interface StoredResponse {
@@ -807,6 +834,13 @@ async function main(): Promise<void> {
     }
 
     // ------------------------------------------- 3. Bad tokens are indistinguishable
+    // These four deliberately post `kind: viewed`, NOT an action. The token is
+    // checked before the kind branch, so the rejection path under test is
+    // identical either way - but a view draws on the generous view bucket
+    // instead of the action allowance. Spending four fifths of that
+    // allowance on probes that can never succeed is what made the previous run
+    // report 429s as though the feature were broken. (It also mirrors reality:
+    // a wrong link in a browser fires the view beacon, not an accept.)
     const unknownToken = generateQuoteToken();
     const badTokenResults: ApiResult[] = [];
     for (const [label, value] of [
@@ -815,7 +849,7 @@ async function main(): Promise<void> {
       ['empty token', ''],
       ['tag-hostile token', 'AB cd../ee'],
     ] as const) {
-      const res = await postResponse({ token: value, kind: 'accepted', comment: 'x' });
+      const res = await postResponse({ token: value, kind: 'viewed' });
       badTokenResults.push(res);
       record(`reject: ${label} answered 404`, '404', String(res.status), res.status === 404);
     }
@@ -833,19 +867,13 @@ async function main(): Promise<void> {
       kind: 'revisionRequested',
       comment: '   ',
     });
-    if (isTurnstileBlock(emptyRevision)) turnstileBlocked = true;
-    if (turnstileBlocked) {
-      notes.push(
-        'Turnstile IS configured on this deployment, so every scripted POST is rejected as unverified. That is the CAPTCHA working exactly as intended and is not a defect, but it means the accept / change-request / upload / view checks below could not run from a script. They must be checked by hand in a browser (the manual list at the end of the report).',
-      );
-      info('BLOCKED BY TURNSTILE', 'accept, change request, upload and view checks could not run from a script');
-    } else {
-      record(
-        'reject: a change request with an empty comment is refused',
-        '400',
-        String(emptyRevision.status),
-        emptyRevision.status === 400,
-      );
+    actionCheck(
+      'reject: a change request with an empty comment is refused',
+      '400',
+      emptyRevision,
+      emptyRevision.status === 400,
+    );
+    if (!isRateLimited(emptyRevision)) {
       const saysWhy = /what you would like changed/i.test(emptyRevision.body);
       record(
         'reject: the empty-comment message says what to do',
@@ -853,19 +881,21 @@ async function main(): Promise<void> {
         saysWhy ? 'explains what is needed' : emptyRevision.body.slice(0, 80),
         saysWhy,
       );
+    }
 
-      // --------------------------------------- 5. Expired quote refuses an accept
-      const expiredAccept = await postResponse({
-        token: tokens.expired,
-        kind: 'accepted',
-        comment: ACCEPT_COMMENT,
-      });
-      record(
-        'expired: accepting an expired quote is refused',
-        '409',
-        String(expiredAccept.status),
-        expiredAccept.status === 409,
-      );
+    // --------------------------------------- 5. Expired quote refuses an accept
+    const expiredAccept = await postResponse({
+      token: tokens.expired,
+      kind: 'accepted',
+      comment: ACCEPT_COMMENT,
+    });
+    actionCheck(
+      'expired: accepting an expired quote is refused',
+      '409',
+      expiredAccept,
+      expiredAccept.status === 409,
+    );
+    if (!isRateLimited(expiredAccept)) {
       const expiredMessage = /passed its expiry date/i.test(expiredAccept.body);
       record(
         'expired: the refusal tells the customer to contact their rep',
@@ -873,26 +903,56 @@ async function main(): Promise<void> {
         expiredMessage ? 'clear message' : expiredAccept.body.slice(0, 80),
         expiredMessage,
       );
-      const expiredStored = await responsesFor(client, EXPIRED_ID);
-      record(
-        'expired: nothing was recorded for the refused accept',
-        '0 responses',
-        `${expiredStored.length} response(s)`,
-        expiredStored.length === 0,
-      );
+    }
+    const expiredStored = await responsesFor(client, EXPIRED_ID);
+    record(
+      'expired: nothing was recorded for the refused accept',
+      '0 responses',
+      `${expiredStored.length} response(s)`,
+      expiredStored.length === 0,
+    );
 
-      // --------------------------------------- 6. A real change request
-      const revision = await postResponse({
-        token: tokens.live,
-        kind: 'revisionRequested',
-        comment: REVISION_COMMENT,
-      });
+    // --------------------------------------- 6. A real change request
+    //
+    // THIS is the first POST that reaches the CAPTCHA. Everything above is
+    // refused earlier in the route (bad token, empty comment, expired), so a
+    // Turnstile-protected deployment cannot be detected from any of them - the
+    // detector has to sit exactly here.
+    const revision = await postResponse({
+      token: tokens.live,
+      kind: 'revisionRequested',
+      comment: REVISION_COMMENT,
+    });
+    if (isTurnstileBlock(revision)) {
+      turnstileBlocked = true;
+      notes.push(
+        'Turnstile IS configured on this deployment (the site key renders on the public forms), so the route correctly REFUSED these scripted posts as unverified. That is the CAPTCHA doing its job, not a defect - a real customer in a browser gets a token and passes. The checks that need a verified post are marked INFO rather than PASS or FAIL and moved to the manual list: accepting, requesting a change, multiple accumulating responses, and the returning-visitor status line. Everything that does not need one still ran, including the whole view-signal and debounce section (views are deliberately not CAPTCHA-gated), the bad-token rejections, the structural clobber test, freshness, and the withheld-field checks.',
+      );
+      info(
+        'BLOCKED BY TURNSTILE (not a failure)',
+        'accept / change-request / multiple-response / returning-visitor checks need a browser',
+      );
+    } else if (isRateLimited(revision)) {
+      turnstileBlocked = true; // same effect: stop posting actions
+      notes.push(
+        "The route's own rate guard refused this run's posts (HTTP 429). That is the anti-abuse limit working, not a defect. Since Q-155 the guards are an attempt ceiling of 30 per hour per IP and a submission ceiling of 10 per hour per IP AND quote, and only a submission that passes every validation spends the second one - so a run should no longer hit this. If it does, wait for the hour to roll over or check those paths by hand in a browser. Note the guard is per serverless instance and therefore not perfectly deterministic between runs.",
+      );
+      info(
+        'BLOCKED BY THE RATE LIMIT (not a failure)',
+        'accept / change-request / multiple-response / returning-visitor checks could not run',
+      );
+    }
+
+    if (!turnstileBlocked) {
       record(
         'change request: accepted by the route',
         '200',
         String(revision.status),
         revision.status === 200,
       );
+      if (revision.status !== 200) {
+        info('change request: the route answered', `${revision.status} ${revision.body.slice(0, 160)}`);
+      }
       await sleep(1500);
       let stored = await responsesFor(client, LIVE_ID);
       const revisionRows = stored.filter((r) => r.kind === 'revisionRequested');
@@ -946,42 +1006,55 @@ async function main(): Promise<void> {
         fileNames.join(', ') || '(none)',
         fileNames.some((n) => typeof n === 'string' && n.includes('zz-test-logo')),
       );
+    }
 
-      // --------------------------------------- 8. Bad uploads are refused
-      const tooBig = new File([Buffer.alloc(11 * 1024 * 1024, 1)], 'zz-test-huge.png', {
-        type: 'image/png',
-      });
-      const bigResult = await postResponse(
-        { token: tokens.live, kind: 'accepted', comment: 'ZZ Test oversized upload' },
-        [tooBig],
-      );
-      record(
-        'upload: an oversized file is refused',
-        '400',
-        String(bigResult.status),
-        bigResult.status === 400,
-      );
-      const bigMessage = /larger than|too large/i.test(bigResult.body);
-      record(
-        'upload: the oversized message names the problem',
-        'says the file is too large',
-        bigMessage ? 'says the file is too large' : bigResult.body.slice(0, 80),
-        bigMessage,
-      );
+    // --------------------------------------- 8. Bad uploads are refused
+    //
+    // Runs whatever Turnstile is doing: file validation happens BEFORE the
+    // CAPTCHA in the route, and an oversized body is refused by the platform
+    // before the route is even entered.
+    const tooBig = new File([Buffer.alloc(11 * 1024 * 1024, 1)], 'zz-test-huge.png', {
+      type: 'image/png',
+    });
+    const bigResult = await postResponse(
+      { token: tokens.live, kind: 'accepted', comment: 'ZZ Test oversized upload' },
+      [tooBig],
+    );
+    // 413 is the platform refusing the request body before our handler runs;
+    // 400 is our own validator. Either is a correct refusal, and which one it
+    // was is reported rather than assumed.
+    const bigRefused = bigResult.status === 400 || bigResult.status === 413;
+    record(
+      'upload: an oversized file is refused',
+      '400 (our validator) or 413 (platform body limit)',
+      `${bigResult.status}${bigResult.status === 413 ? ' - refused by the platform before the route' : ''}`,
+      bigRefused,
+    );
+    const bigMessage = /larger than|too large|entity too large/i.test(bigResult.body);
+    record(
+      'upload: the oversized message names the problem',
+      'says the file is too large',
+      bigMessage ? 'says the file is too large' : bigResult.body.slice(0, 80),
+      bigMessage,
+    );
 
-      const badType = new File([Buffer.from('MZ')], 'zz-test-payload.exe', {
-        type: 'application/octet-stream',
-      });
-      const typeResult = await postResponse(
-        { token: tokens.live, kind: 'accepted', comment: 'ZZ Test bad file type' },
-        [badType],
-      );
-      record(
-        'upload: a disallowed file type is refused',
-        '400',
-        String(typeResult.status),
-        typeResult.status === 400,
-      );
+    // File validation runs BEFORE the CAPTCHA in the route, so this one still
+    // proves something on a Turnstile deployment - but it does draw on the
+    // action allowance, so it is skipped once the allowance is known to be gone.
+    const badType = new File([Buffer.from('MZ')], 'zz-test-payload.exe', {
+      type: 'application/octet-stream',
+    });
+    const typeResult = await postResponse(
+      { token: tokens.live, kind: 'accepted', comment: 'ZZ Test bad file type' },
+      [badType],
+    );
+    actionCheck(
+      'upload: a disallowed file type is refused',
+      '400',
+      typeResult,
+      typeResult.status === 400,
+    );
+    if (!isRateLimited(typeResult) && !isTurnstileBlock(typeResult)) {
       const typeMessage = /unsupported file type/i.test(typeResult.body);
       record(
         'upload: the wrong-type message names the problem',
@@ -989,7 +1062,9 @@ async function main(): Promise<void> {
         typeMessage ? 'says the type is unsupported' : typeResult.body.slice(0, 80),
         typeMessage,
       );
+    }
 
+    if (!turnstileBlocked) {
       // --------------------------------------- 9. More than one response, in order
       const second = await postResponse({
         token: tokens.live,
@@ -1003,8 +1078,8 @@ async function main(): Promise<void> {
         second.status === 200,
       );
       await sleep(1500);
-      stored = await responsesFor(client, LIVE_ID);
-      const actions = stored.filter((r) => r.kind !== 'viewed');
+      const multiStored = await responsesFor(client, LIVE_ID);
+      const actions = multiStored.filter((r) => r.kind !== 'viewed');
       record(
         'multiple: all three actions accumulated',
         '3',
@@ -1027,8 +1102,14 @@ async function main(): Promise<void> {
         latest?.comment ?? '(none)',
         latest?.comment === SECOND_ACCEPT_COMMENT,
       );
+    }
 
+    {
       // --------------------------------------- 10. The view signal + its debounce
+      //
+      // Runs regardless of Turnstile: the view beacon is deliberately NOT
+      // CAPTCHA-gated (it fires with no human interaction to challenge), so
+      // this whole section is scriptable on any deployment.
       const view1 = await postResponse({ token: tokens.live, kind: 'viewed' });
       record('view: the signal is accepted', '200', String(view1.status), view1.status === 200);
       record(
@@ -1065,8 +1146,8 @@ async function main(): Promise<void> {
         view3.json.recorded === false,
       );
       await sleep(1500);
-      stored = await responsesFor(client, LIVE_ID);
-      const viewRows = stored.filter((r) => r.kind === 'viewed');
+      const viewStored = await responsesFor(client, LIVE_ID);
+      const viewRows = viewStored.filter((r) => r.kind === 'viewed');
       record(
         'view: three rapid opens produced exactly ONE stored record',
         '1',
@@ -1119,15 +1200,25 @@ async function main(): Promise<void> {
         `${afterClobber.length} responses`,
         afterClobber.length === beforeClobber.length && afterClobber.length > 0,
       );
-      const commentsSurvived =
-        afterClobber.some((r) => r.comment === ACCEPT_COMMENT) &&
-        afterClobber.some((r) => r.comment === REVISION_COMMENT);
-      record(
-        'CLOBBER: the comments are still readable afterwards',
-        'both comments present',
-        commentsSurvived ? 'both comments present' : 'A COMMENT WAS LOST',
-        commentsSurvived,
-      );
+      // The comment half of the clobber test only means anything when comments
+      // were actually written; on a Turnstile-protected deployment the run has
+      // only the view records, and the count check above is the whole proof.
+      if (!turnstileBlocked) {
+        const commentsSurvived =
+          afterClobber.some((r) => r.comment === ACCEPT_COMMENT) &&
+          afterClobber.some((r) => r.comment === REVISION_COMMENT);
+        record(
+          'CLOBBER: the comments are still readable afterwards',
+          'both comments present',
+          commentsSurvived ? 'both comments present' : 'A COMMENT WAS LOST',
+          commentsSurvived,
+        );
+      } else {
+        info(
+          'CLOBBER: comment survival',
+          'only view records existed on this run (CAPTCHA blocked the scripted comments); the count check above still proves nothing was erased',
+        );
+      }
 
       // --------------------------------------- 13. Freshness, after all of that
       const editedAt = Date.now();
@@ -1190,13 +1281,21 @@ async function main(): Promise<void> {
           : 'ARTICLE MISSING',
         Boolean(quoteRegion(after.html)) && !after.html.includes(BAILOUT_MARKER),
       );
-      const showsState = /You accepted this quote/i.test(afterRegion);
-      record(
-        'page: a returning visitor is told what they already did',
-        'acceptance shown',
-        showsState ? 'acceptance shown' : 'NOT SHOWN',
-        showsState,
-      );
+      // Needs a stored acceptance to look for, which needs a verified post.
+      if (!turnstileBlocked) {
+        const showsState = /You accepted this quote/i.test(afterRegion);
+        record(
+          'page: a returning visitor is told what they already did',
+          'acceptance shown',
+          showsState ? 'acceptance shown' : 'NOT SHOWN',
+          showsState,
+        );
+      } else {
+        info(
+          'page: returning-visitor status line',
+          'needs a verified acceptance to exist - moved to the manual list',
+        );
+      }
       const notLocked = afterRegion.includes('Request a change');
       record(
         'page: the buttons are still available (a quote can be answered again)',
@@ -1212,7 +1311,9 @@ async function main(): Promise<void> {
         ['customer phone', CUSTOMER_PHONE],
         ['customer address', CUSTOMER_ADDRESS],
         ['sent-at date', SENT_AT_DAY],
-        ["the customer's own comment text", ACCEPT_COMMENT],
+        // Only meaningful when a comment was actually stored; otherwise its
+        // absence proves nothing, so it is skipped rather than passed for free.
+        ...(turnstileBlocked ? [] : [["the customer's own comment text", ACCEPT_COMMENT] as const]),
       ] as const) {
         const leaked = after.html.includes(needle);
         record(

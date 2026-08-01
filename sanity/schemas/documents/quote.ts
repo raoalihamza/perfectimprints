@@ -285,7 +285,7 @@ export default defineType({
       fieldset: 'sending',
       readOnly: true,
       description:
-        'Set automatically when the quote is emailed to the customer. Emailing from Studio arrives in a later update - for now you copy the link above and send it yourself. While this is blank, opening the customer link does NOT email you an alert, so you can safely check your own quote first.',
+        'Set by the "I have emailed this to the customer" button, which sits with the private link at the top of this quote. While this is blank, opening the customer link is still recorded but does NOT email you an alert, so previewing your own quote never alerts you.',
     }),
     defineField({
       // Display-only: lists this quote's quoteResponse records (read-only
@@ -334,9 +334,12 @@ export default defineType({
     },
     prepare({ quoteNumber, title, company, email, sentAt, lineItems, salesTax }) {
       const label = company || title || email || 'Untitled quote';
+      // Reads at a glance and costs nothing: `sentAt` is already selected, so
+      // this is the same single query the list always ran, and it updates the
+      // moment the Mark-as-sent button patches the document (Q-155).
       const status = sentAt
         ? `Sent ${new Date(sentAt).toLocaleDateString('en-US')}`
-        : 'Not sent yet';
+        : 'NOT SENT';
       const lines = Array.isArray(lineItems) ? lineItems.length : 0;
       const total = lines > 0 ? ` - ${formatUsd(computeQuoteTotals(lineItems, salesTax).grandTotal)}` : '';
       return {

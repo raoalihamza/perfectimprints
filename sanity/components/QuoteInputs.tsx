@@ -121,8 +121,8 @@ export function QuoteNumberInput(props: StringInputProps) {
  * `readOnly: true` in the schema; this component removes the text box entirely
  * so there is nothing to type into in the first place.
  *
- * The customer route /quote/<token> does not exist yet (it ships with the
- * customer page), which is why the copy button says so.
+ * It also carries the MARK AS SENT control (Q-155) - see QuoteSentControl for
+ * why it lives here rather than beside the read-only `sentAt` field.
  */
 function useCopyAction(): [string | null, (text: string, label: string) => void] {
   const [copied, setCopied] = useState<string | null>(null);
@@ -151,6 +151,180 @@ function useCopyAction(): [string | null, (text: string, label: string) => void]
     }
   }, []);
   return [copied, copy];
+}
+
+/**
+ * "Mark as sent" / "Not sent yet" (Q-155).
+ *
+ * WHY IT LIVES INSIDE THE TOKEN FIELD. Copying the link and marking the quote
+ * sent are the same moment in Patrick's workflow: he copies, pastes it into his
+ * own email, hits send there, then comes back and presses this. Putting the
+ * control anywhere else (beside the read-only `sentAt` field in a collapsed
+ * section, or behind a document-actions menu) would mean hunting for it after
+ * every single quote. So it sits directly under the copy buttons.
+ *
+ * WHAT IT IS NOT. It does not email anybody, does not compose a message, and
+ * has no preview. It sets one timestamp. The word "Send" is deliberately absent
+ * from the control, because a button saying Send that does not send would be a
+ * lie about what the site does.
+ *
+ * WHY IT EXISTS AT ALL. The view-notification rule (Q-150) stays silent while
+ * `sentAt` is blank, so Patrick is never emailed about previewing his own
+ * quote. Nothing filled `sentAt` in, which left the "tell me when the customer
+ * opens it" feature permanently inert. This is the smallest thing that turns it
+ * on, and the reason it is a manual press rather than something automatic is
+ * that only Patrick knows when he actually pressed send in his mail client.
+ *
+ * WHY IT PATCHES BOTH THE DRAFT AND THE PUBLISHED DOCUMENT. The customer route
+ * reads the PUBLISHED quote, so patching only the draft would leave alerts off
+ * until the next publish - marking it sent would appear to do nothing. But
+ * patching only the published document would let Patrick's next publish (from a
+ * draft opened before he pressed this) replace it and silently un-send the
+ * quote, which is the exact clobber problem the whole module is built around.
+ * Writing both, in one transaction, is the only version with neither failure.
+ */
+function QuoteSentControl() {
+  const client = useClient({ apiVersion: API_VERSION });
+  const docId = useFormValue(['_id']);
+  const sentAt = useFormValue(['sentAt']);
+  const publishedId = typeof docId === 'string' ? docId.replace(/^drafts\./, '') : '';
+  const sentValue = typeof sentAt === 'string' && sentAt.trim() ? sentAt : '';
+
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  // null while we are still finding out - the control renders as loading rather
+  // than briefly claiming the quote is unpublished.
+  const [isPublished, setIsPublished] = useState<boolean | null>(null);
+
+  const checkPublished = useCallback(async (): Promise<boolean> => {
+    if (!publishedId) return false;
+    const found = await client.fetch<string | null>(`*[_id == $id][0]._id`, { id: publishedId });
+    const exists = Boolean(found);
+    setIsPublished(exists);
+    return exists;
+  }, [client, publishedId]);
+
+  useEffect(() => {
+    void checkPublished().catch(() => setIsPublished(null));
+  }, [checkPublished]);
+
+  const apply = useCallback(
+    async (value: string | null) => {
+      setBusy(true);
+      setError(null);
+      try {
+        // Re-checked HERE, not trusted from the render above: Patrick may have
+        // published in another tab since this panel loaded.
+        const live = await checkPublished();
+        if (!live) {
+          setError(
+            'Publish this quote first. Its customer link does not open until it is published, so there is nothing to mark as sent yet.',
+          );
+          return;
+        }
+        const ids = await client.fetch<string[]>(`*[_id in [$pub, $draft]]._id`, {
+          pub: publishedId,
+          draft: `drafts.${publishedId}`,
+        });
+        if (!Array.isArray(ids) || ids.length === 0) {
+          setError('Could not find this quote. Reload the page and try again.');
+          return;
+        }
+        const tx = ids.reduce(
+          (acc, id) =>
+            value === null
+              ? acc.patch(id, (p) => p.unset(['sentAt']))
+              : acc.patch(id, (p) => p.set({ sentAt: value })),
+          client.transaction(),
+        );
+        await tx.commit();
+      } catch {
+        setError('Could not update this quote. Check your connection and try again.');
+      } finally {
+        setBusy(false);
+      }
+    },
+    [checkPublished, client, publishedId],
+  );
+
+  const markSent = useCallback(() => {
+    void apply(new Date().toISOString());
+  }, [apply]);
+
+  const undo = useCallback(() => {
+    const ok = window.confirm(
+      'Mark this quote as NOT sent?\n\nThe sent date will be cleared, and you will stop getting an email when the customer opens their link. Anything the customer has already done stays on record.',
+    );
+    if (ok) void apply(null);
+  }, [apply]);
+
+  if (sentValue) {
+    return (
+      <div
+        style={{
+          borderTop: '1px solid var(--card-border-color, #e4e8ed)',
+          paddingTop: 8,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 6,
+        }}
+      >
+        <div style={{ fontSize: 13, fontWeight: 600, color: '#16a34a' }}>
+          Marked as sent on {new Date(sentValue).toLocaleString('en-US')}
+        </div>
+        <div style={muted}>
+          You will now get an email when the customer opens this link. Repeat opens are ignored, so
+          a customer refreshing the page will not fill your inbox.
+        </div>
+        <button
+          type="button"
+          onClick={undo}
+          disabled={busy}
+          style={{ font: 'inherit', fontSize: 12, padding: '4px 10px', alignSelf: 'flex-start' }}
+        >
+          {busy ? 'Working...' : 'Mark as not sent'}
+        </button>
+        {error && <div style={errorText}>{error}</div>}
+      </div>
+    );
+  }
+
+  return (
+    <div
+      style={{
+        borderTop: '1px solid var(--card-border-color, #e4e8ed)',
+        paddingTop: 8,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 6,
+      }}
+    >
+      <div style={{ fontSize: 13, fontWeight: 600 }}>Not sent yet</div>
+      <button
+        type="button"
+        onClick={markSent}
+        disabled={busy || isPublished === false}
+        style={{ font: 'inherit', fontSize: 13, padding: '6px 12px', alignSelf: 'flex-start' }}
+      >
+        {busy ? 'Working...' : 'I have emailed this to the customer'}
+      </button>
+      {isPublished === false ? (
+        <div style={muted}>
+          Publish this quote first. Its customer link does not open while it is a draft, so there is
+          nothing to mark as sent yet.
+        </div>
+      ) : (
+        <div style={muted}>
+          Copy the link above, email it to the customer from your own email program, then press this
+          button. It does <strong>not</strong> email anyone - it just tells the site to start
+          watching, so you get an alert when the customer opens their link. Until you press it,
+          opens are still recorded but you are not emailed, which is what stops your own preview
+          from alerting you.
+        </div>
+      )}
+      {error && <div style={errorText}>{error}</div>}
+    </div>
+  );
 }
 
 export function QuoteTokenInput(props: SlugInputProps) {
@@ -206,6 +380,7 @@ export function QuoteTokenInput(props: SlugInputProps) {
         draft, opening it shows a page-not-found - that is deliberate, so an unfinished quote can
         never be seen by a customer.
       </div>
+      <QuoteSentControl />
     </div>
   );
 }
