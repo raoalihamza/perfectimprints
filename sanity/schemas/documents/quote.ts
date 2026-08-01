@@ -2,8 +2,10 @@ import { defineField, defineType, type SlugValue } from 'sanity';
 import {
   QuoteNumberInput,
   QuoteResponsesInput,
+  QuoteTokenInput,
   QuoteTotalsInput,
 } from '../../components/QuoteInputs';
+import { computeQuoteTotals, formatUsd } from '../../../lib/quotes/quote-totals';
 
 /**
  * A customer quotation (Q-110 - Quick Quote data foundation). Patrick builds
@@ -91,9 +93,14 @@ export default defineType({
       title: 'Private link token',
       type: 'slug',
       fieldset: 'identity',
+      // Belt AND braces (Q-130): `readOnly` refuses edits, and the custom input
+      // renders the token as text with copy buttons so there is no form control
+      // to type into at all. Editing a token would silently kill a link already
+      // sitting in a customer's inbox.
       readOnly: true,
+      components: { input: QuoteTokenInput },
       description:
-        'The unguessable token in the customer\'s private link (/quote/<token>). Generated automatically - never edit or reuse it.',
+        'The unguessable token in the customer\'s private link (/quote/<token>). Generated automatically - it cannot be edited, and it must never be reused.',
       // Generated ONCE at document creation. Note: "Duplicate" copies this
       // value, which is why the uniqueness rule below exists (a duplicated
       // quote cannot be published until it is recreated properly).
@@ -144,7 +151,12 @@ export default defineType({
       title: 'Email',
       type: 'string',
       fieldset: 'customer',
-      validation: (Rule) => Rule.required().email(),
+      validation: (Rule) =>
+        Rule.required()
+          .email()
+          .error(
+            'Add the customer\'s email address. The quote link is sent here, so a quote cannot be published without it.',
+          ),
       description: 'Required - the private quote link is emailed here.',
     }),
     defineField({
@@ -208,7 +220,7 @@ export default defineType({
       title: 'Quote date',
       type: 'date',
       fieldset: 'dates',
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required().error('Pick the date this quote is dated.'),
       initialValue: () => new Date().toISOString().slice(0, 10),
     }),
     defineField({
@@ -232,8 +244,14 @@ export default defineType({
         { type: 'quoteCustomLine' },
         { type: 'quoteChargeLine' },
       ],
+      // A quote with no lines has nothing to quote. Like every rule here this
+      // blocks PUBLISHING, not editing: a half-built draft saves normally.
+      validation: (Rule) =>
+        Rule.required()
+          .min(1)
+          .error('Add at least one product or charge before you publish this quote.'),
       description:
-        'Products and charges on this quote, in the order they should appear. Prices entered here are frozen on the quote - see each line\'s fields.',
+        'Products and charges on this quote, in the order they should appear. Use "Add item" and pick the kind of line you need. Prices entered here are frozen on the quote - see each line\'s fields.',
     }),
 
     // ---- Totals ----
@@ -242,7 +260,7 @@ export default defineType({
       title: 'Sales tax (USD)',
       type: 'number',
       fieldset: 'totals',
-      validation: (Rule) => Rule.min(0),
+      validation: (Rule) => Rule.min(0).error('Sales tax cannot be a negative amount.'),
       description:
         'Type the tax amount in dollars. It is NOT calculated - whatever you enter here is added to the grand total as-is. Leave blank for no tax.',
     }),
@@ -280,24 +298,48 @@ export default defineType({
   ],
   orderings: [
     {
+      title: 'Newest first',
+      name: 'createdAtDesc',
+      by: [{ field: '_createdAt', direction: 'desc' }],
+    },
+    {
       title: 'Quote number (newest first)',
       name: 'quoteNumberDesc',
       by: [{ field: 'quoteNumber', direction: 'desc' }],
     },
+    {
+      title: 'Customer company (A to Z)',
+      name: 'companyAsc',
+      by: [{ field: 'customerCompany', direction: 'asc' }],
+    },
   ],
   preview: {
+    // The list row answers "which quote is this, who is it for, has it gone
+    // out, and what is it worth" without opening it. `lineItems` is selected so
+    // the grand total can be computed through the SHARED module - totals are
+    // never stored, so there is no field to read instead. Quotes carry a
+    // handful of lines each, so this stays cheap; `computeQuoteTotals` accepts
+    // anything (including a value the preview did not resolve) and never
+    // throws, so a half-filled draft still previews.
     select: {
       quoteNumber: 'quoteNumber',
       title: 'title',
       company: 'customerCompany',
       email: 'customerEmail',
       sentAt: 'sentAt',
+      lineItems: 'lineItems',
+      salesTax: 'salesTax',
     },
-    prepare({ quoteNumber, title, company, email, sentAt }) {
-      const label = title || company || email || 'Untitled quote';
+    prepare({ quoteNumber, title, company, email, sentAt, lineItems, salesTax }) {
+      const label = company || title || email || 'Untitled quote';
+      const status = sentAt
+        ? `Sent ${new Date(sentAt).toLocaleDateString('en-US')}`
+        : 'Not sent yet';
+      const lines = Array.isArray(lineItems) ? lineItems.length : 0;
+      const total = lines > 0 ? ` - ${formatUsd(computeQuoteTotals(lineItems, salesTax).grandTotal)}` : '';
       return {
         title: quoteNumber ? `${quoteNumber} - ${label}` : label,
-        subtitle: sentAt ? `Sent ${new Date(sentAt).toLocaleDateString('en-US')}` : 'Not sent yet',
+        subtitle: `${status}${total}`,
       };
     },
   },

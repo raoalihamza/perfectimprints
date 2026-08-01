@@ -1920,46 +1920,84 @@
 
     <div class="callout warn">
       <span class="label">Half-built on purpose (for now)</span>
-      <p>Right now you can <strong>build and save</strong> quotes. The customer-facing quote page, the PDF, and the
-        <strong>send button arrive in the next update</strong> - so if you open Studio and wonder where "Send" is,
-        it is not missing, it just is not built yet. Nothing you create now is wasted; every quote you build will
-        work with the customer page when it ships.</p>
+      <p>Today you can <strong>build and save</strong> quotes. If you go looking for a <strong>Send</strong> button,
+        it is not missing, it is just not built yet. See <em>What is still coming</em> at the end of this section.</p>
     </div>
 
-    <p>Open <span class="path">Content <span class="arrow">›</span> Quote</span> and <strong>Create new</strong>.
-      The fields, by group:</p>
+    <h3>Building a quote, start to finish</h3>
+    <p>Quotes live under <span class="path">Content <span class="arrow">›</span> Quotes</span>, which holds
+      <strong>All quotes</strong> (newest first) and the <strong>Customer responses</strong> list. Open All quotes and
+      press <strong>Create new</strong>.</p>
+
+    <p><strong>Step 1: the header.</strong> Click <strong>"Assign quote number"</strong> once and you get the next
+      number in your sequence (Q-1001, Q-1002, and so on). Fill in the customer's details next; the
+      <strong>email is the only one that is required</strong>, because that is where the quote link gets sent. Your own
+      name, email, and phone pre-fill from your login and your Global Settings, and the quote date and a 30-day expiry
+      date are already filled in. The <strong>Internal label</strong> is only for you, so you can spot the quote in the
+      list.</p>
+
+    <p><strong>Step 2: add your lines.</strong> Under Line items press <strong>Add item</strong> and choose what kind
+      of line you need. There are four, and they differ in how much fills itself in:</p>
     <ul>
-      <li><strong>Quote identity</strong> - click <strong>"Assign quote number"</strong> once to get the next
-        sequential number (Q-1001, Q-1002, ...). The <strong>private link token</strong> is created automatically.
-        <strong>Neither can be edited by hand</strong> - the number keeps your sequence honest, and the token is the
-        unguessable part of the customer's private link. The <strong>Internal label</strong> is just for you (e.g.
-        the customer's company name) so you can find the quote in the list.</li>
-      <li><strong>Customer</strong> - company, contact name, email (required - the link will be emailed there),
-        phone, address.</li>
-      <li><strong>Your details</strong> - your name, email, and phone as they should appear on the quote. They
-        pre-fill automatically; edit freely.</li>
-      <li><strong>Dates</strong> - the quote date (today) and the expiry date (30 days later by default - change
-        it freely).</li>
-      <li><strong>Line items</strong> - click Add and pick what you are adding: a <strong>Geiger product</strong>
-        (search by name/SKU and pick; you type the cost, since Geiger only publishes price ranges), one of your
-        <strong>own Product Pages</strong>, a fully <strong>custom item</strong> (own name, image, description), or a
-        <strong>charge</strong> (art fee, second color run, rush charge). Product lines carry quantity, unit cost,
-        an optional setup charge, optional per-line shipping, and a note.</li>
-      <li><strong>Tax &amp; totals</strong> - <strong>Sales tax is a number you type, in dollars. It is NOT
-          calculated for you.</strong> Whatever you enter is added to the grand total as-is. The totals box below it
-        updates itself as you edit lines - subtotal, shipping, tax, grand total. Totals are never stored anywhere;
-        they are always recalculated from your line items, so they cannot go stale.</li>
-      <li><strong>Sending &amp; responses</strong> - "Sent at" fills in automatically once sending exists, and the
-        <strong>Responses</strong> box will list what the customer did (opened the link, accepted, asked for a
-        revision), newest first.</li>
+      <li><strong>Geiger product</strong> - search the catalog by name, SKU, or brand and click the product. The
+        <strong>name, image, and a short description fill in for you</strong>. You will also see the catalog's
+        <strong>price range</strong> and <strong>minimum quantity</strong> just above the fields. Then type the
+        quantity, your unit cost, and any setup charge.</li>
+      <li><strong>Own product (Product Page)</strong> - pick one of your own Product Pages, type the quantity, then
+        press <strong>"Pull details from this product"</strong>. That fills in the name, image, description,
+        <strong>the unit cost for the quantity you entered</strong>, and <strong>the setup charge for the decoration
+          method you chose</strong>. If you have not chosen a decoration yet, the product's own methods appear as
+        buttons so you can pick one rather than typing a name.</li>
+      <li><strong>Custom item</strong> - anything that is not in either place. You type the name, image, description,
+        and prices yourself.</li>
+      <li><strong>Charge</strong> - a non-product fee such as an art fee, a second color run, or a rush charge. Just a
+        label, a quantity, and a price each.</li>
     </ul>
+    <p>Every line shows <strong>its own total</strong> at the bottom of the line, and the collapsed row shows it too
+      (for example <em>Geiger #501003 - 250 x $3.20 = $890.00</em>), so you can check one line without doing the whole
+      quote in your head.</p>
+
+    <p><strong>Step 3: tax and totals.</strong> <strong>Sales tax is a number you type, in dollars. It is NOT
+        calculated for you.</strong> Whatever you enter is added to the grand total exactly as typed. The totals box
+      below updates itself as you edit: subtotal, shipping, tax, grand total.</p>
+
+    <p><strong>Step 4: publish.</strong> A quote will not publish until it has a quote number, a customer email, and at
+      least one line. If Publish is blocked, Studio tells you in plain language what is missing. A half-finished draft
+      always saves fine; you can leave it and come back.</p>
+
+    <div class="callout">
+      <span class="label">The catalog price range is a guide, not a price</span>
+      <p>On a Geiger line you will see something like "Catalog price range: $2.10 to $3.40". That is
+        <strong>reference information to help you decide what to charge</strong>. Geiger publishes a range, never a
+        real cost, so the <strong>unit cost and setup charge are always yours to enter</strong>. Nothing ever copies a
+        range into a price on your quote.</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">Auto-fill never overwrites what you typed</span>
+      <p>Filling in happens on <strong>empty fields only</strong>. If you have already typed a name, a description, or
+        a price, it is left alone, even if the lookup finishes after you started typing. The
+        <strong>"Refresh name, image and description"</strong> button and the <strong>"Pull details"</strong> button
+        are the only things that replace an existing value, and both ask you first, naming exactly which fields they
+        would change. Your quantity, shipping, and notes are never touched by either.</p>
+    </div>
 
     <div class="callout">
       <span class="label">Prices on a quote are frozen</span>
-      <p>The unit cost, setup, and shipping you enter on a quote line are <strong>stored on that quote</strong>.
-        If you later change a Product Page's pricing, quotes you already built <strong>do not change</strong> - a
-        quote a customer received must show the same numbers next week. To re-price something, edit the quote line
-        itself.</p>
+      <p>The unit cost, setup, and shipping on a quote line are <strong>stored on that quote</strong>. Pulling a price
+        from a Product Page takes a <strong>copy</strong> of it. If you change that product's pricing next week,
+        <strong>quotes you already built do not change</strong> - a quote a customer received must show the same
+        numbers when they come back to it. To re-price something, edit the quote line, or pull the details again.</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">The private link</span>
+      <p>The <strong>private link token</strong> is created automatically and <strong>cannot be edited</strong> - there
+        is deliberately no box to type in, because changing it would kill a link already sitting in a customer's inbox.
+        Use <strong>Copy customer link</strong> to put the full address on your clipboard. Note that
+        <strong>the link will not open yet</strong>: the customer page ships in the next update. And do
+        <strong>not share it casually</strong> - anyone who has it can open the quote (it is hidden, not
+        password-protected, exactly like the gated catalog pages).</p>
     </div>
 
     <div class="callout">
@@ -1971,11 +2009,19 @@
     </div>
 
     <div class="callout warn">
-      <span class="label">Two things not to do</span>
-      <p><strong>Do not duplicate a quote</strong> (the "Duplicate" menu item): the copy would carry the same number
-        and the same private link, and it will refuse to publish. Create a new quote instead. And <strong>do not
-        share the private link casually</strong> - anyone who has it can open the quote (it is hidden, not
-        password-protected, exactly like the gated catalog pages).</p>
+      <span class="label">Do not duplicate a quote</span>
+      <p>Avoid the <strong>"Duplicate"</strong> menu item: the copy would carry the same quote number and the same
+        private link as the original, and it will refuse to publish. Create a new quote instead.</p>
+    </div>
+
+    <div class="callout warn">
+      <span class="label">What is still coming</span>
+      <p>Building and saving quotes works today. Still to come in the next updates: the
+        <strong>customer-facing quote page</strong> at the private link, the <strong>PDF</strong>, the
+        <strong>Send</strong> button (which is what fills in "Sent at"), and the customer's
+        <strong>accept / request-a-revision</strong> buttons, which is what will start filling the
+        <strong>Responses</strong> box. Nothing you build now is wasted; every quote you create will work with those
+        when they ship.</p>
     </div>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>

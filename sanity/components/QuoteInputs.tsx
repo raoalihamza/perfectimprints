@@ -19,14 +19,23 @@
  * modules (the site-refresh-tool precedent) - no fs, no server-only.
  */
 import { useCallback, useEffect, useState } from 'react';
-import { set, useClient, useFormValue, type StringInputProps } from 'sanity';
+import { set, useClient, useFormValue, type SlugInputProps, type StringInputProps } from 'sanity';
 import {
   QuoteNumberAllocationError,
   allocateQuoteNumber,
 } from '../../lib/quotes/numbering';
 import { computeQuoteTotals, formatUsd } from '../../lib/quotes/quote-totals';
+import { quoteCustomerUrl } from '../../lib/quotes/quote-link';
 
 const API_VERSION = '2024-10-01';
+
+/**
+ * The public site origin, for building the customer's quote link. Read with
+ * the same both-ways pattern as sanity/env.ts so it resolves in the embedded
+ * Studio (Next inlines NEXT_PUBLIC_*) and in the standalone Studio alike.
+ * A missing or http value is normalized to https by `quoteCustomerUrl`.
+ */
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? process.env.SANITY_STUDIO_SITE_URL ?? '';
 
 const box: React.CSSProperties = {
   border: '1px solid var(--card-border-color, #ced2d9)',
@@ -94,6 +103,100 @@ export function QuoteNumberInput(props: StringInputProps) {
         Click once to get the next sequential number. Required before the quote can be published.
       </div>
       {error && <div style={errorText}>{error}</div>}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Private link token (display + copy only; NEVER an editable box)
+// ---------------------------------------------------------------------------
+/**
+ * The token is the customer's private link. Editing it would silently kill a
+ * link already sitting in a customer's inbox, so this input renders the value
+ * as TEXT with copy buttons and no form control at all. The field also carries
+ * `readOnly: true` in the schema; this component removes the text box entirely
+ * so there is nothing to type into in the first place.
+ *
+ * The customer route /quote/<token> does not exist yet (it ships with the
+ * customer page), which is why the copy button says so.
+ */
+function useCopyAction(): [string | null, (text: string, label: string) => void] {
+  const [copied, setCopied] = useState<string | null>(null);
+  const copy = useCallback((text: string, label: string) => {
+    const done = () => {
+      setCopied(label);
+      setTimeout(() => setCopied(null), 2000);
+    };
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(() => setCopied('failed'));
+      return;
+    }
+    // Fallback for browsers/contexts without the async clipboard API.
+    try {
+      const el = document.createElement('textarea');
+      el.value = text;
+      el.style.position = 'fixed';
+      el.style.opacity = '0';
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+      done();
+    } catch {
+      setCopied('failed');
+    }
+  }, []);
+  return [copied, copy];
+}
+
+export function QuoteTokenInput(props: SlugInputProps) {
+  const token = typeof props.value?.current === 'string' ? props.value.current : '';
+  const url = quoteCustomerUrl(SITE_URL, token);
+  const [copied, copy] = useCopyAction();
+
+  if (!token) {
+    return (
+      <div style={box}>
+        <div style={muted}>
+          The private link is created automatically when the quote is created. If nothing appears
+          here, create a new quote rather than editing this one.
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ ...box, display: 'flex', flexDirection: 'column', gap: 8 }}>
+      <span style={{ ...mono, wordBreak: 'break-all' }}>{token}</span>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+        {url && (
+          <button
+            type="button"
+            onClick={() => copy(url, 'link')}
+            style={{ font: 'inherit', fontSize: 12, padding: '4px 10px' }}
+          >
+            Copy customer link
+          </button>
+        )}
+        <button
+          type="button"
+          onClick={() => copy(token, 'token')}
+          style={{ font: 'inherit', fontSize: 12, padding: '4px 10px' }}
+        >
+          Copy token only
+        </button>
+        {copied === 'link' && <span style={{ ...muted, color: '#16a34a' }}>Link copied.</span>}
+        {copied === 'token' && <span style={{ ...muted, color: '#16a34a' }}>Token copied.</span>}
+        {copied === 'failed' && (
+          <span style={errorText}>Could not copy. Select the text above and copy it manually.</span>
+        )}
+      </div>
+      {url && <div style={{ ...muted, wordBreak: 'break-all' }}>{url}</div>}
+      <div style={muted}>
+        This is the link the customer will use to open their quote. It is created automatically and
+        can never be edited, because changing it would break a link you have already sent. The
+        customer quote page itself goes live in a later update, so this link will not open yet.
+      </div>
     </div>
   );
 }

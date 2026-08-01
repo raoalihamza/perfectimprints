@@ -5,8 +5,13 @@ import { cachedClient, buildImageUrl, urlForImage } from '@/lib/sanity/client';
 import { PRODUCT_PAGES_TAG, productPageTag } from '@/lib/sanity/cache-tags';
 import type { SanityImage, SeoFields } from '@/lib/sanity/types';
 import type { GeigerProduct } from '@/lib/product-types';
-import type { DecorationOption } from '@/lib/products/quote-estimate';
 import type { CustomProductDoc } from './custom-products';
+// Pure pricing rules (Q-130) - defined once in a client-safe module so the
+// Studio quote builder shares them; re-exported below under their old names.
+import {
+  productPageMinQty,
+  productPagePriceRange,
+} from '@/lib/products/product-page-pricing';
 
 // ---------------------------------------------------------------------------
 // Sanity `productPage` documents (P2-CP-001 part 1) — full custom product
@@ -128,33 +133,19 @@ export interface ProductPageDoc extends ProductPageCard {
 }
 
 /**
- * Normalized decoration options for the configurator/quote form: legacy string
- * entries and blank upcharges become `{method, upcharge: 0}`; blank methods
- * are dropped; duplicates (by method) keep the first entry.
- *
- * Per-method setup charge (Q-100): carried through ONLY when it is a finite
- * number of 0 or more - an explicit 0 is kept (it means "no setup fee for
- * this method" and overrides the flat product charge in
- * `effectiveSetupCharge`); blank / negative / non-finite values stay
- * undefined so the flat charge applies. Legacy string entries never carry
- * one, so they fall back to the flat charge exactly as before.
+ * Tier selection, price range, minimum quantity, and decoration normalization
+ * moved to the PURE lib/products/product-page-pricing.ts (Q-130) so the Studio
+ * quote builder can pre-fill an own-product line from the exact same rules
+ * this server module uses. This file is `server-only`, so the Studio could not
+ * import it; re-exporting keeps every existing import path working and keeps
+ * exactly one definition of each rule. Do not re-implement them here.
  */
-export function productPageDecorations(doc: ProductPageDoc): DecorationOption[] {
-  const out: DecorationOption[] = [];
-  for (const entry of doc.decorationMethods ?? []) {
-    const method = (typeof entry === 'string' ? entry : entry?.method ?? '').trim();
-    if (!method || out.some((o) => o.method === method)) continue;
-    const raw = typeof entry === 'string' ? undefined : entry?.upcharge;
-    const upcharge = typeof raw === 'number' && Number.isFinite(raw) && raw > 0 ? raw : 0;
-    const rawSetup = typeof entry === 'string' ? undefined : entry?.setupCharge;
-    const setupCharge =
-      typeof rawSetup === 'number' && Number.isFinite(rawSetup) && rawSetup >= 0
-        ? rawSetup
-        : undefined;
-    out.push({ method, upcharge, ...(setupCharge !== undefined ? { setupCharge } : {}) });
-  }
-  return out;
-}
+export {
+  productPageValidTiers,
+  productPagePriceRange,
+  productPageMinQty,
+  productPageDecorations,
+} from '@/lib/products/product-page-pricing';
 
 // Exported (P2-CP-004 batch 3) so getCategoryOverride's addedProducts[]->
 // productPage branch projects EXACTLY the card subset productPageToGeigerProduct
@@ -249,49 +240,6 @@ export function productPageFirstImage(doc: ProductPageCard): ProductPageImage | 
     if (img) return img;
   }
   return (doc.defaultImages ?? []).find((i) => i?.asset?._ref) ?? null;
-}
-
-/**
- * The SINGLE source of truth for which pricing tiers count: both minQty and
- * price must be positive numbers, sorted by quantity, capped at the 5 the
- * table renders (the schema max-5 rule is warning-level, so 6+ can publish).
- * The detail-page table, the card price range, the price line, and the
- * JSON-LD AggregateOffer ALL derive from this list so they can never disagree
- * (review finding: the range previously admitted tiers the table dropped).
- */
-export function productPageValidTiers(
-  doc: ProductPageCard,
-): { minQty: number; price: number }[] {
-  return (doc.pricingTiers ?? [])
-    .filter(
-      (t): t is ProductPagePricingTier & { minQty: number; price: number } =>
-        typeof t.minQty === 'number' &&
-        Number.isFinite(t.minQty) &&
-        t.minQty > 0 &&
-        typeof t.price === 'number' &&
-        Number.isFinite(t.price) &&
-        t.price > 0,
-    )
-    .sort((a, b) => a.minQty - b.minQty)
-    .slice(0, 5)
-    .map((t) => ({ minQty: t.minQty, price: t.price }));
-}
-
-/** Low/high card price derived from the (valid, displayed) pricing tiers. */
-export function productPagePriceRange(doc: ProductPageCard): {
-  low: number | null;
-  high: number | null;
-} {
-  const prices = productPageValidTiers(doc).map((t) => t.price);
-  if (prices.length === 0) return { low: null, high: null };
-  return { low: Math.min(...prices), high: Math.max(...prices) };
-}
-
-/** Explicit minQty, else the lowest (valid, displayed) tier quantity. */
-export function productPageMinQty(doc: ProductPageCard): number | null {
-  if (typeof doc.minQty === 'number' && doc.minQty > 0) return doc.minQty;
-  const tiers = productPageValidTiers(doc);
-  return tiers.length > 0 ? tiers[0].minQty : null;
 }
 
 /** Color filter values — derived from the color variants (no separate tags field). */
