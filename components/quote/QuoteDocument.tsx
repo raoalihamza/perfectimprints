@@ -1,7 +1,9 @@
 import { Container } from '@/components/ui/Container';
 import { ProductImage } from '@/components/category/ProductImage';
+import { QuoteActions } from '@/components/quote/QuoteActions';
 import { QuoteLineDescription } from '@/components/quote/QuoteLineDescription';
 import { QuotePrintStyles } from '@/components/quote/QuotePrintStyles';
+import { latestCustomerAction } from '@/lib/quotes/quote-response';
 import { buildImageUrl } from '@/lib/sanity/client';
 import { computeQuoteTotals, formatUsd } from '@/lib/quotes/quote-totals';
 import {
@@ -48,6 +50,12 @@ import type { QuoteDoc, QuoteLineItem } from '@/lib/sanity/queries/quotes';
  * Every field is treated as possibly absent: a missing image, description,
  * decoration, setup, shipping or tax renders as nothing at all, never as an
  * error and never as the word undefined.
+ *
+ * Q-150 added the customer's ACTIONS (accept / request a change / save a copy)
+ * in place of the reply-by-email note that used to sit below the totals. They
+ * live in the QuoteActions client island, but every value it draws is resolved
+ * here and handed over as a prop, so this page is still fully rendered on the
+ * server and the accept/change status is in the static HTML.
  */
 
 interface LineImage {
@@ -211,6 +219,12 @@ export function QuoteDocument({ quote, now }: { quote: QuoteDoc; now: Date }) {
   const repEmail = cleanText(quote.rep?.email);
   const repPhone = cleanText(quote.rep?.phone);
 
+  // The customer's most recent deliberate action (Q-150), resolved here so the
+  // status line is part of the STATIC HTML: a returning visitor sees what they
+  // already did without waiting for any client-side fetch. Views are excluded
+  // by the projection - "you opened this page" is not worth telling anyone.
+  const latestAction = latestCustomerAction(quote.responses);
+
   return (
     <>
       <QuotePrintStyles />
@@ -364,40 +378,26 @@ export function QuoteDocument({ quote, now }: { quote: QuoteDoc; now: Date }) {
             </div>
           ) : null}
 
-          {/* ---- How to respond. Replaced by the accept / request-a-revision
-                  buttons in a later update; deliberately no dead buttons. ---- */}
-          <div className="quote-surface mt-8 rounded-lg border border-border bg-bg-soft p-5">
-            <h2 className="text-base font-semibold text-brand-ink">Ready to go ahead?</h2>
-            <p className="mt-1 text-sm leading-relaxed text-text-primary">
-              {repEmail ? (
-                <>
-                  Reply to{' '}
-                  <a
-                    href={`mailto:${repEmail}${quoteNumber ? `?subject=${encodeURIComponent(`Quote ${quoteNumber}`)}` : ''}`}
-                    className="font-semibold text-brand-red underline hover:no-underline"
-                  >
-                    {repEmail}
-                  </a>{' '}
-                  to approve this quote or ask for any changes
-                  {repPhone ? (
-                    <>
-                      , or call{' '}
-                      <a href={`tel:${repPhone}`} className="font-semibold text-brand-red underline hover:no-underline">
-                        {repPhone}
-                      </a>
-                    </>
-                  ) : null}
-                  . We will confirm artwork and timing with you before anything goes into production.
-                </>
-              ) : (
-                <>
-                  Get in touch with your Perfect Imprints contact to approve this quote or ask for
-                  any changes. We will confirm artwork and timing with you before anything goes into
-                  production.
-                </>
-              )}
-            </p>
-          </div>
+          {/* ---- What the customer can DO (Q-150) ----
+                  A client island, but every value it renders is computed HERE
+                  and passed as a prop, so the page stays statically generated
+                  and the first client render matches the server's. See the
+                  staticness note in components/quote/QuoteActions.tsx. */}
+          <QuoteActions
+            token={quote.token ?? ''}
+            expired={expired}
+            repEmail={repEmail}
+            repPhone={repPhone}
+            quoteNumber={quoteNumber}
+            previousAction={
+              latestAction
+                ? {
+                    kind: latestAction.kind,
+                    when: formatQuoteDate(latestAction.createdAt) || null,
+                  }
+                : null
+            }
+          />
 
           {/* ---- Footer note ---- */}
           <footer className="mt-6 border-t border-border pt-4 text-sm leading-relaxed text-text-muted">

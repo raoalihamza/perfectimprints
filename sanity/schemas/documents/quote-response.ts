@@ -16,10 +16,12 @@ import { defineField, defineType } from 'sanity';
  *   - accepted           - the customer accepted the quote
  *   - revisionRequested  - the customer asked for changes
  *
- * NOTHING writes these yet. The customer routes that create them (and then
- * revalidate the quote's cache tag directly) arrive in later prompts - which
- * is also why this type is DELIBERATELY NOT in the Sanity webhook Filter
- * (see app/api/sanity/revalidate/route.ts).
+ * These are written by ONE place: app/api/quote-response/route.ts (Q-150),
+ * which creates a record and then revalidates the affected quote's cache tag
+ * itself, in the same request. That is exactly why this type is DELIBERATELY
+ * NOT in the Sanity webhook Filter - a delivery would be a redundant round trip
+ * plus one more manual Filter step that can be forgotten (see the note in
+ * app/api/sanity/revalidate/route.ts).
  *
  * The quote reference is WEAK on purpose: a strong reference would block
  * deleting a quote while responses exist. Weak means Patrick can delete a

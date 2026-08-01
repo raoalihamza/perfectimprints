@@ -1915,20 +1915,22 @@
     <!-- ============================================================ -->
     <h2 id="quotes">26. Quotes (build a customer quotation)</h2>
     <p>A <strong>Quote</strong> is a real quotation you build for one customer: product lines with quantities and
-      prices, extra charges (an art fee, a rush charge), the customer's details, dates, and totals. The customer will
-      eventually open it at a private link and either accept it or ask for changes.</p>
+      prices, extra charges (an art fee, a rush charge), the customer's details, dates, and totals. You publish it,
+      copy the private link, and email it yourself. The customer opens that link, reads the quote, and can
+      <strong>accept it or ask you for changes right on the page</strong> - and you get an email when they do.</p>
 
     <div class="callout warn">
-      <span class="label">Half-built on purpose (for now)</span>
-      <p>Today you can <strong>build a quote, publish it, and send the link yourself</strong>. If you go looking for a
-        <strong>Send</strong> button that emails it for you, it is not missing, it is just not built yet. See
-        <em>What is still coming</em> at the end of this section.</p>
+      <span class="label">You send the link yourself. There is no Send button.</span>
+      <p>Studio will not email the quote for you. You press <strong>Copy customer link</strong> and paste it into your
+        own email. That is deliberate for now, not a missing feature - emailing from Studio is a separate later update.
+        If you go hunting for a Send button, this is why you cannot find one.</p>
     </div>
 
     <h3>Building a quote, start to finish</h3>
     <p>Quotes live under <span class="path">Content <span class="arrow">›</span> Quotes</span>, which holds
-      <strong>All quotes</strong> (newest first) and the <strong>Customer responses</strong> list. Open All quotes and
-      press <strong>Create new</strong>.</p>
+      <strong>All quotes</strong> (newest first), <strong>Accepted by customer</strong>, <strong>Change
+        requested</strong>, and the full <strong>Customer responses</strong> list. Open All quotes and press
+      <strong>Create new</strong>.</p>
 
     <p><strong>Step 1: the header.</strong> Click <strong>"Assign quote number"</strong> once and you get the next
       number in your sequence (Q-1001, Q-1002, and so on). Fill in the customer's details next; the
@@ -2015,9 +2017,9 @@
         sitemap, and it is never in any menu. The only way in is the link.</li>
       <li><strong>Long descriptions are folded up</strong> behind a "Read more" link so a quote with eight items is
         still readable.</li>
-      <li><strong>It prints properly.</strong> If the customer presses Ctrl+P (or Print to PDF), the website header and
-        footer drop away and they get a clean quote document. That is how they save or forward it until the real PDF
-        ships.</li>
+      <li><strong>It prints properly.</strong> The <strong>Print or save as PDF</strong> button (and Ctrl+P) drops the
+        website header, footer and buttons away and leaves a clean quote document. That is how they save or forward it
+        until the real PDF download ships.</li>
       <li><strong>Some things are deliberately not on the page:</strong> your <strong>Internal label</strong>, the
         <strong>Sent at</strong> date, the customer's own email, phone and address, and the Geiger item number on a
         catalog line. If you want any of those shown, say so and it can be added.</li>
@@ -2031,19 +2033,78 @@
         revive a quote, just change the expiry date and publish.</p>
     </div>
 
+    <h3>What the customer can do, and what you get told</h3>
+    <p>Under the totals the customer gets three buttons:</p>
+    <ul>
+      <li><strong>Accept this quote</strong> - opens a box where they can add a message and, if they have it,
+        <strong>attach their artwork</strong>. The artwork is optional on purpose: someone accepting from their phone
+        will not have the file to hand, and the page tells them you will follow up about it.</li>
+      <li><strong>Request a change</strong> - opens a box where they say what they want different.
+        <strong>A message is required here</strong>, because "please change something" with no explanation would just
+        cost you a phone call.</li>
+      <li><strong>Print or save as PDF</strong> - opens their browser's own print dialog, where they choose "Save as
+        PDF". It is labelled that way honestly because that is what it does today; a proper downloadable PDF replaces
+        it in the next update, in the same spot.</li>
+    </ul>
+    <p>You get an <strong>email for each of the three things that can happen</strong> - the link was opened, the quote
+      was accepted, or a change was requested - sent to your email address on the quote. The subject leads with the
+      quote number and what happened (for example <em>Quote Q-1007 ACCEPTED - Acme Corp</em>) so you can read it from
+      a phone notification without unlocking the screen. An acceptance email carries the artwork they attached; a
+      change request leads with what they want changed.</p>
+
     <div class="callout">
-      <span class="label">There are no Accept or Download buttons yet</span>
-      <p>Rather than show buttons that do nothing, the page ends with a short line telling the customer to reply to
-        your email address or call you to approve the quote or ask for changes. The <strong>Accept</strong> and
-        <strong>Request a revision</strong> buttons, and the PDF download, replace that line in a later update.</p>
+      <span class="label">"Opened" does not mean "read"</span>
+      <p>The <strong>opened</strong> email tells you the quote page was loaded. Company email systems and chat apps
+        routinely open links automatically to scan or preview them, and that looks exactly the same from our side.
+        Treat it as a nudge to follow up, not as proof the customer sat down and read it. This is also why the wording
+        says "was opened" rather than "your customer read it".</p>
+      <p>You will not get flooded either: <strong>a refresh does not send another email</strong>. Repeat opens inside
+        half an hour are ignored completely, and you get at most one alert every six hours for the same quote. And
+        while <strong>Sent at</strong> is still blank, opening the link sends you nothing at all, so you can safely
+        check your own quote before you send it.</p>
     </div>
 
     <div class="callout">
       <span class="label">Customer responses are separate, permanent records</span>
-      <p>When a customer accepts or asks for a revision (once the customer page ships), that action is saved as its
-        own read-only <strong>Quote Response</strong> record - it appears in the quote's Responses box and in
-        <span class="path">Content <span class="arrow">›</span> Quote Response</span>. Nothing you edit or publish
-        on the quote can erase a response, and responses cannot be edited by anyone.</p>
+      <p>Every accept, change request, and open is saved as its own read-only <strong>Quote Response</strong> record.
+        They appear in the quote's <strong>Responses</strong> box (newest first, with any artwork as a download link)
+        and in the <strong>Customer responses</strong> list under Quotes. <strong>Nothing you edit or publish on the
+          quote can erase a response</strong>, and nobody can edit one - that is exactly why they are stored
+        separately rather than as a status field on the quote.</p>
+      <p>A customer can respond <strong>more than once</strong>: they might request a change, you revise and publish,
+        and they accept a week later. The page always shows them the latest thing they did and leaves the buttons
+        available, so nothing is locked. The two lists <strong>Accepted by customer</strong> and <strong>Change
+          requested</strong> are the quickest way to see what is waiting for you.</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">An expired quote cannot be accepted online</span>
+      <p>Past the expiry date the buttons are shown <strong>greyed out</strong> rather than hidden, with a line
+        explaining why and pointing at your email. That way it is obvious what happened instead of looking broken.
+        Change the expiry date and publish, and it works again immediately.</p>
+    </div>
+
+    <h3>When a customer asks for a quote from a product page</h3>
+    <p>When someone fills in <strong>Get a Quote</strong> on one of your Product Pages, two things now happen. You get
+      the lead email exactly as before, <strong>and</strong> a <strong>draft quote is started for you</strong> in
+      Quotes, so you are not retyping the request. The lead email tells you it is waiting.</p>
+    <ul>
+      <li>It arrives as a <strong>draft</strong>, with the customer's details filled in and the product on it as a
+        line, at the quantity and decoration they picked.</li>
+      <li>The <strong>prices are worked out from the product's own pricing tiers</strong>, not from anything the
+        website visitor typed. Check them anyway before you send.</li>
+      <li>It has <strong>no quote number</strong>. Press <strong>Assign quote number</strong> when you decide to send
+        it, so abandoned enquiries do not eat numbers out of your sequence.</li>
+      <li>Anything worth a second look (a quantity below the product's minimum, a decoration the product does not
+        offer) is called out in the lead email.</li>
+    </ul>
+
+    <div class="callout warn">
+      <span class="label">A draft quote's link will not open</span>
+      <p>While a quote is still a <strong>draft</strong>, its private link shows a page-not-found. That is deliberate:
+        an unfinished quote must never be openable by a customer. <strong>The link starts working the moment you
+          press Publish</strong> - so if you have sent a link and the customer says it is broken, check that the quote
+        is published, not drafted.</p>
     </div>
 
     <div class="callout warn">
@@ -2054,12 +2115,10 @@
 
     <div class="callout warn">
       <span class="label">What is still coming</span>
-      <p>Building a quote, publishing it, and sending the link yourself all work today, and the customer page is live.
-        Still to come in the next updates: the <strong>PDF</strong>, the <strong>Send</strong> button that emails the
-        link for you (which is what fills in "Sent at"), a <strong>notification when the link is opened</strong>, and
-        the customer's <strong>accept / request-a-revision</strong> buttons, which is what will start filling the
-        <strong>Responses</strong> box. Nothing you build now is wasted; every quote you create will work with those
-        when they ship.</p>
+      <p>Building a quote, publishing it, sending the link yourself, and the customer accepting or asking for changes
+        all work today. Still to come: a <strong>real PDF download</strong> (replacing the print button in the same
+        place), and a <strong>Send</strong> button that emails the quote for you and fills in "Sent at". Reminder
+        emails and editable email wording are not planned at the moment. Nothing you build now is wasted.</p>
     </div>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
@@ -2087,9 +2146,11 @@
         search, and in related-product carousels (never inside <code>/cat</code> category pages).</li>
       <li><strong>FAQ</strong>, <strong>Video</strong>, and <strong>Brand</strong> each drive their own page
         (<code>/faq</code>, <code>/videos</code>, <code>/brands</code>).</li>
-      <li><strong>Quote</strong> is a customer quotation you build (products, charges, totals); <strong>Quote
-          Response</strong> is the permanent record of what the customer did with it. The customer-facing quote page
-        and sending arrive in a later update.</li>
+      <li><strong>Quote</strong> is a customer quotation you build (products, charges, totals), which the customer
+        opens at a private link you copy and email yourself; <strong>Quote Response</strong> is the permanent
+        read-only record of what they did with it (opened, accepted, asked for a change). A Get a Quote submission on
+        a Product Page also starts a <strong>draft</strong> quote for you. The real PDF and a Send button arrive in a
+        later update.</li>
       <li><strong>Lead Submission</strong> is the inbox for your contact form.</li>
       <li><strong>Custom Schema</strong> is an optional advanced tool that adds extra SEO structured data to any page,
         without taking the page over.</li>

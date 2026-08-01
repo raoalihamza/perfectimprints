@@ -40,6 +40,13 @@ export interface LeadEmailPayload {
   selectedDecoration?: string;
   /** LABELED ESTIMATE string (e.g. "$748.50"), never presented as firm. */
   estimatedTotal?: string;
+  /**
+   * Q-150 part 6: set ONLY when a product-quote submission also created a draft
+   * quote in Studio, so Patrick knows to go and finish it rather than starting
+   * one from scratch. Absent (and therefore invisible) on every other form and
+   * on any submission where draft creation was skipped or failed.
+   */
+  draftQuoteNote?: string;
 }
 
 let _transporter: Transporter | null = null;
@@ -93,6 +100,7 @@ function buildRows(payload: LeadEmailPayload): Array<[string, string]> {
       ['Comments', payload.comments?.trim() ?? ''],
       ['Estimated total', payload.estimatedTotal?.trim() ?? ''],
       ['Submitted at', payload.submittedAt],
+      ['Draft quote', payload.draftQuoteNote?.trim() ?? ''],
     ] as Array<[string, string]>
   ).filter((row) => Boolean(row[1]));
 }

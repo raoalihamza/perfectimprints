@@ -5,6 +5,7 @@ import { cachedClient, buildImageUrl, urlForImage } from '@/lib/sanity/client';
 import { PRODUCT_PAGES_TAG, productPageTag } from '@/lib/sanity/cache-tags';
 import type { SanityImage, SeoFields } from '@/lib/sanity/types';
 import type { GeigerProduct } from '@/lib/product-types';
+import { portableTextToPlain } from '@/lib/portable-text/to-plain';
 import type { CustomProductDoc } from './custom-products';
 // Pure pricing rules (Q-130) - defined once in a client-safe module so the
 // Studio quote builder shares them; re-exported below under their old names.
@@ -491,6 +492,72 @@ export async function getProductLeadInfo(slug: string): Promise<ProductLeadLooku
       { slug },
       { next: { tags: [PRODUCT_PAGES_TAG, productPageTag(slug)].filter(Boolean), revalidate: false } },
     );
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Everything needed to price a DRAFT quote line from a Get a Quote submission
+ * (Q-150 part 6), read SERVER-SIDE from the product itself.
+ *
+ * Shaped to satisfy `OwnProductSource` in lib/quotes/quote-prefill.ts, so the
+ * draft is priced through exactly the helpers the live configurator uses. The
+ * browser posts a display string and an annotated decoration label and nothing
+ * numeric, so this read is not an optimisation - it is the only trustworthy
+ * source of a price.
+ */
+export interface ProductQuoteSource {
+  _id: string;
+  title?: string | null;
+  imageUrl?: string | null;
+  descriptionPlain?: string | null;
+  pricingTiers?: { minQty?: number; price?: number }[];
+  minQty?: number;
+  setupCharge?: number;
+  decorationMethods?: (string | { method?: string; upcharge?: number; setupCharge?: number })[];
+}
+
+/** The raw shape before the image and description are flattened. */
+interface ProductQuoteSourceRaw extends Omit<ProductQuoteSource, 'imageUrl' | 'descriptionPlain'> {
+  image?: SanityImage | null;
+  description?: PortableTextBlock[] | null;
+}
+
+/**
+ * Pricing source for a product slug. Cache-tagged like every other productPage
+ * read, so a Studio price edit reaches the next generated draft within seconds
+ * of the webhook firing. Returns null for an unknown slug or a failed read; the
+ * caller then simply skips the draft and the lead is unaffected.
+ */
+export async function getProductQuoteSource(slug: string): Promise<ProductQuoteSource | null> {
+  if (!slug) return null;
+  try {
+    const raw = await cachedClient.fetch<ProductQuoteSourceRaw | null>(
+      `*[_type == "productPage" && slug.current == $slug][0]{
+        _id,
+        title,
+        "image": coalesce(colorVariants[0].images[0], defaultImages[0]),
+        description,
+        pricingTiers[]{ minQty, price },
+        minQty,
+        setupCharge,
+        decorationMethods
+      }`,
+      { slug },
+      { next: { tags: [PRODUCT_PAGES_TAG, productPageTag(slug)].filter(Boolean), revalidate: false } },
+    );
+    if (!raw?._id) return null;
+    return {
+      _id: raw._id,
+      title: raw.title ?? null,
+      imageUrl: buildImageUrl(raw.image, (b) => b.width(240).fit('max')),
+      descriptionPlain: portableTextToPlain(raw.description) || null,
+      pricingTiers: raw.pricingTiers,
+      minQty: raw.minQty,
+      setupCharge: raw.setupCharge,
+      decorationMethods: raw.decorationMethods,
+    };
   } catch {
     return null;
   }

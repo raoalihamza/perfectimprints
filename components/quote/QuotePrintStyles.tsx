@@ -29,6 +29,11 @@ const PRINT_CSS = `
   .quote-screen-only { display: none !important; }
   .quote-print-only { display: block !important; }
 
+  /* The accept / request-a-change controls (Q-150). Buttons and a file picker
+     are meaningless on paper, and a printed copy showing a greyed-out "Accept
+     this quote" would read as though the quote could not be accepted. */
+  .quote-actions { display: none !important; }
+
   /* Keep a line item, and the totals, whole on one page. */
   .quote-line,
   .quote-totals,

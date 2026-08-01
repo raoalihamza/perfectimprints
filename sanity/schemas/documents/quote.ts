@@ -10,10 +10,12 @@ import { computeQuoteTotals, formatUsd } from '../../../lib/quotes/quote-totals'
 /**
  * A customer quotation (Q-110 - Quick Quote data foundation). Patrick builds
  * a quote (product lines + charge lines + customer block + dates), and the
- * customer will eventually open it at a private link (/quote/<token>) and
- * accept it or request a revision. This prompt ships the DOCUMENT only: the
- * customer page, the PDF, the send button, and the accept/revise flow arrive
- * in later updates.
+ * customer opens it at a private link (/quote/<token>) where they can accept
+ * it or ask for changes (Q-140 + Q-150).
+ *
+ * There is deliberately NO Send button: Patrick copies the private link from
+ * the field below and emails it himself. Emailing the quote from here, the
+ * real PDF download, and reminders are all separate later updates.
  *
  * Identity rules:
  *   - `quoteNumber` is sequential ("Q-1001", ...), assigned by the one-click
@@ -283,11 +285,11 @@ export default defineType({
       fieldset: 'sending',
       readOnly: true,
       description:
-        'Set automatically when the quote is emailed to the customer. Sending arrives in a later update.',
+        'Set automatically when the quote is emailed to the customer. Emailing from Studio arrives in a later update - for now you copy the link above and send it yourself. While this is blank, opening the customer link does NOT email you an alert, so you can safely check your own quote first.',
     }),
     defineField({
       // Display-only: lists this quote's quoteResponse records (read-only
-      // documents written by the future customer routes). Stores nothing.
+      // documents written by app/api/quote-response/route.ts). Stores nothing.
       name: 'responses',
       title: 'Responses',
       type: 'string',

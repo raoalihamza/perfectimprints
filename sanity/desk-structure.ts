@@ -43,6 +43,37 @@ export const deskStructure: StructureResolver = (S) =>
                     .title('All quotes (newest first)')
                     .defaultOrdering([{ field: '_createdAt', direction: 'desc' }]),
                 ),
+              // The two "needs attention" panes (Q-150). Deliberately separate
+              // LISTS rather than a badge on every row in "All quotes": a
+              // quote's response state lives in other documents, and Sanity's
+              // list preview cannot join across documents, so showing it inline
+              // would mean a query per row. This costs ONE query, only when
+              // Patrick opens the pane, and the main list stays exactly as fast
+              // as it was.
+              S.listItem()
+                .title('Accepted by customer')
+                .id('quotesAccepted')
+                .child(
+                  S.documentList()
+                    .title('Accepted by customer')
+                    .schemaType('quote')
+                    .filter(
+                      '_type == "quote" && _id in *[_type == "quoteResponse" && kind == "accepted"].quote._ref',
+                    )
+                    .defaultOrdering([{ field: '_createdAt', direction: 'desc' }]),
+                ),
+              S.listItem()
+                .title('Change requested')
+                .id('quotesRevisionRequested')
+                .child(
+                  S.documentList()
+                    .title('Change requested')
+                    .schemaType('quote')
+                    .filter(
+                      '_type == "quote" && _id in *[_type == "quoteResponse" && kind == "revisionRequested"].quote._ref',
+                    )
+                    .defaultOrdering([{ field: '_createdAt', direction: 'desc' }]),
+                ),
               S.listItem()
                 .title('Customer responses')
                 .id('quoteResponses')

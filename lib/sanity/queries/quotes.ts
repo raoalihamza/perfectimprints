@@ -96,6 +96,17 @@ export type QuoteLineItem =
   | QuoteCustomLine
   | QuoteChargeLine;
 
+/**
+ * A deliberate customer action, as carried on the quote for display (Q-150).
+ * Views are excluded by the projection: telling a customer "you opened this
+ * page" is noise, and the page only needs to show what they DID.
+ */
+export interface QuoteResponseSummary {
+  kind?: string;
+  createdAt?: string;
+  comment?: string;
+}
+
 export interface QuoteDoc {
   _id: string;
   quoteNumber?: string;
@@ -109,6 +120,13 @@ export interface QuoteDoc {
   lineItems?: QuoteLineItem[];
   salesTax?: number;
   sentAt?: string;
+  /**
+   * This quote's accept / request-a-change records, newest first (Q-150). Rides
+   * the SAME tag-cached fetch as the quote itself, so the response route's
+   * `quoteTag(token)` bust refreshes both in one go and the page still makes
+   * exactly ONE Sanity read.
+   */
+  responses?: QuoteResponseSummary[];
 }
 
 const QUOTE_PROJECTION = /* groq */ `{
@@ -142,7 +160,12 @@ const QUOTE_PROJECTION = /* groq */ `{
     }
   },
   salesTax,
-  sentAt
+  sentAt,
+  "responses": *[
+    _type == "quoteResponse" &&
+    quote._ref == ^._id &&
+    kind in ["accepted", "revisionRequested"]
+  ] | order(createdAt desc)[0...5]{ kind, createdAt, comment }
 }`;
 
 /**
@@ -161,6 +184,68 @@ export async function getQuoteByToken(token: string): Promise<QuoteDoc | null> {
       `*[_type == "quote" && slug.current == $slug][0]${QUOTE_PROJECTION}`,
       { slug: token },
       { next: { tags: [QUOTES_TAG, quoteTag(token)].filter(Boolean), revalidate: false } },
+    );
+    return doc ?? null;
+  } catch {
+    return null;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Reads for the response WRITE route (Q-150)
+//
+// Deliberately UNCACHED (`cache: 'no-store'`), unlike everything above. These
+// run inside a force-dynamic API route, never on a render path, so they cannot
+// affect the staticness of any page - and they must see the truth right now.
+// Deciding whether a quote has expired, or whether a view was already recorded
+// two minutes ago, from a cached copy would be the one place a stale read does
+// real damage. The client is still the `perspective: 'published'` cachedClient,
+// so an unreviewed DRAFT quote is invisible here exactly as it is to the page.
+// ---------------------------------------------------------------------------
+
+export interface QuoteForResponse {
+  _id: string;
+  quoteNumber?: string;
+  expiryDate?: string;
+  sentAt?: string;
+  customerCompany?: string;
+  customerName?: string;
+  customerEmail?: string;
+  repEmail?: string;
+  /** Line items, so the notification email can state the quote's total. */
+  lineItems?: unknown;
+  salesTax?: number;
+  /** `createdAt` of the newest existing `viewed` response, for the debounce. */
+  lastViewedAt?: string | null;
+}
+
+/**
+ * The minimum a response needs about its quote: who it is for, whether it has
+ * expired, whether it was ever sent, and enough to price it in the email.
+ * Returns null for an unknown, malformed, unpublished or deleted token, which
+ * the route turns into the same 404 shape the page uses.
+ */
+export async function getQuoteForResponse(token: string): Promise<QuoteForResponse | null> {
+  if (!isQuoteToken(token)) return null;
+  try {
+    const doc = await cachedClient.fetch<QuoteForResponse | null>(
+      `*[_type == "quote" && slug.current == $slug][0]{
+        _id,
+        quoteNumber,
+        expiryDate,
+        sentAt,
+        customerCompany,
+        customerName,
+        customerEmail,
+        repEmail,
+        lineItems,
+        salesTax,
+        "lastViewedAt": *[
+          _type == "quoteResponse" && quote._ref == ^._id && kind == "viewed"
+        ] | order(createdAt desc)[0].createdAt
+      }`,
+      { slug: token },
+      { cache: 'no-store' },
     );
     return doc ?? null;
   } catch {

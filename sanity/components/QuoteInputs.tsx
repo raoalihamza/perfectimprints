@@ -11,8 +11,12 @@
  *   - `QuoteTotalsInput` - the read-only computed totals summary. Calls the
  *     SAME pure module every future surface (customer page, PDF, email) will
  *     call, and stores NOTHING (totals are never written to the document).
+ *   - `QuoteTokenInput` - the private customer link, as TEXT with copy buttons
+ *     and no form control at all, because editing a token would kill a link
+ *     already sitting in a customer's inbox.
  *   - `QuoteResponsesInput` - lists this quote's `quoteResponse` records,
- *     newest first, so Patrick is not hunting through the response list.
+ *     newest first, with any artwork the customer attached (Q-150), so Patrick
+ *     is not hunting through the response list.
  *
  * Studio-only: plain React + the `sanity` form API (no @sanity/ui), matching
  * ProductPicker/CategoryPicker. The lib imports are pure, dependency-free
@@ -193,9 +197,14 @@ export function QuoteTokenInput(props: SlugInputProps) {
       </div>
       {url && <div style={{ ...muted, wordBreak: 'break-all' }}>{url}</div>}
       <div style={muted}>
-        This is the link the customer will use to open their quote. It is created automatically and
-        can never be edited, because changing it would break a link you have already sent. The
-        customer quote page itself goes live in a later update, so this link will not open yet.
+        This is the customer&apos;s private link. Copy it and email it to them yourself - there is
+        no Send button here. It is created automatically and can never be edited, because changing
+        it would break a link you have already sent.
+      </div>
+      <div style={muted}>
+        <strong>The link only works once this quote is PUBLISHED.</strong> While it is still a
+        draft, opening it shows a page-not-found - that is deliberate, so an unfinished quote can
+        never be seen by a customer.
       </div>
     </div>
   );
@@ -244,20 +253,40 @@ export function QuoteTotalsInput(_props: StringInputProps) {
 // ---------------------------------------------------------------------------
 // Responses list (read-only)
 // ---------------------------------------------------------------------------
+interface ResponseFile {
+  url?: string;
+  name?: string;
+}
+
 interface ResponseRow {
   _id: string;
   kind?: string;
   createdAt?: string;
   comment?: string;
-  fileCount?: number;
+  files?: ResponseFile[];
 }
 
 const KIND_LABELS: Record<string, string> = {
   viewed: 'Link opened',
   accepted: 'Accepted',
-  revisionRequested: 'Revision requested',
+  revisionRequested: 'Change requested',
 };
 
+/** The colour each kind is worth in a glance. */
+const KIND_COLORS: Record<string, string> = {
+  accepted: '#16a34a',
+  revisionRequested: '#b91c1c',
+};
+
+/**
+ * This quote's customer responses (Q-150), newest first, with any artwork the
+ * customer attached as a direct download.
+ *
+ * READ ONLY, by design and not just by convention: a quoteResponse is a record
+ * of something a customer did, and the schema marks the type and every field
+ * readOnly. Patrick reads them here, he does not edit them - which is also why
+ * the customer's state can survive his publishing the quote a dozen times.
+ */
 export function QuoteResponsesInput(_props: StringInputProps) {
   const docId = useFormValue(['_id']);
   const publishedId = typeof docId === 'string' ? docId.replace(/^drafts\./, '') : '';
@@ -270,7 +299,8 @@ export function QuoteResponsesInput(_props: StringInputProps) {
     try {
       const result = await client.fetch<ResponseRow[]>(
         `*[_type == "quoteResponse" && quote._ref == $id] | order(createdAt desc)[0...50]{
-          _id, kind, createdAt, comment, "fileCount": count(files)
+          _id, kind, createdAt, comment,
+          "files": files[]{ "url": asset->url, "name": asset->originalFilename }
         }`,
         { id: publishedId },
       );
@@ -296,31 +326,52 @@ export function QuoteResponsesInput(_props: StringInputProps) {
       {failed && <div style={errorText}>Could not load responses. Try Refresh.</div>}
       {!failed && rows !== null && rows.length === 0 && (
         <div style={muted}>
-          No responses yet. Responses appear here automatically once the customer quote page goes
-          live in a later update.
+          Nothing yet. When the customer opens their link, accepts the quote, or asks for a change,
+          it appears here (and you get an email).
         </div>
       )}
       {!failed &&
         rows !== null &&
-        rows.map((r) => (
-          <div
-            key={r._id}
-            style={{
-              borderTop: '1px solid var(--card-border-color, #e4e8ed)',
-              paddingTop: 6,
-              fontSize: 13,
-            }}
-          >
-            <strong>{KIND_LABELS[r.kind ?? ''] ?? r.kind ?? 'Response'}</strong>
-            {r.createdAt && (
-              <span style={muted}> - {new Date(r.createdAt).toLocaleString('en-US')}</span>
-            )}
-            {typeof r.fileCount === 'number' && r.fileCount > 0 && (
-              <span style={muted}> - {r.fileCount} file(s)</span>
-            )}
-            {r.comment && <div style={{ marginTop: 2 }}>{r.comment}</div>}
-          </div>
-        ))}
+        rows.map((r) => {
+          const files = (r.files ?? []).filter((f) => f?.url);
+          return (
+            <div
+              key={r._id}
+              style={{
+                borderTop: '1px solid var(--card-border-color, #e4e8ed)',
+                paddingTop: 6,
+                fontSize: 13,
+              }}
+            >
+              <strong style={{ color: KIND_COLORS[r.kind ?? ''] }}>
+                {KIND_LABELS[r.kind ?? ''] ?? r.kind ?? 'Response'}
+              </strong>
+              {r.createdAt && (
+                <span style={muted}> - {new Date(r.createdAt).toLocaleString('en-US')}</span>
+              )}
+              {r.comment && <div style={{ marginTop: 2, whiteSpace: 'pre-wrap' }}>{r.comment}</div>}
+              {files.length > 0 && (
+                <div style={{ marginTop: 4, display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                  {files.map((f, i) => (
+                    <a
+                      key={`${r._id}-file-${i}`}
+                      href={f.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ fontSize: 12 }}
+                    >
+                      {f.name || `File ${i + 1}`}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      <div style={muted}>
+        A "Link opened" entry means the quote page was loaded. Automatic email scanners can do that
+        too, so treat it as a nudge rather than proof the customer has read it.
+      </div>
     </div>
   );
 }

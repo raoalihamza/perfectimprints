@@ -1,5 +1,13 @@
 import { NextResponse } from 'next/server';
-import { createClient } from '@sanity/client';
+import { createRateLimiter, getClientIp } from '@/lib/api/rate-limit';
+import { verifyTurnstile } from '@/lib/api/turnstile';
+import { getSanityWriteClient } from '@/lib/sanity/write-client';
+import {
+  readFileBuffers,
+  toEmailAttachments,
+  uploadAttachmentRefs,
+} from '@/lib/leads/attachments';
+import { createDraftQuoteFromSubmission } from '@/lib/leads/quote-draft-creator';
 import {
   sendBuiltEmail,
   sendCustomerConfirmationEmail,
@@ -35,36 +43,19 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprin
   '',
 );
 
-const RATE_LIMIT_MAX = 5;
-const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
-const rateLimitStore = new Map<string, number[]>();
-
 // Attachment limits — kept in sync with the client (components/forms/LeadForm.tsx).
 const MAX_FILES = 3;
 const MAX_FILE_BYTES = 10 * 1024 * 1024; // 10MB per file
 const MAX_TOTAL_BYTES = 20 * 1024 * 1024; // ~20MB total (under Gmail's 25MB ceiling)
 const ACCEPTED_EXTENSIONS = ['.pdf', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.ai', '.eps'];
 
-function isRateLimited(ip: string): boolean {
-  const now = Date.now();
-  const cutoff = now - RATE_LIMIT_WINDOW_MS;
-  const hits = (rateLimitStore.get(ip) ?? []).filter((t) => t > cutoff);
-  if (hits.length >= RATE_LIMIT_MAX) {
-    rateLimitStore.set(ip, hits);
-    return true;
-  }
-  hits.push(now);
-  rateLimitStore.set(ip, hits);
-  return false;
-}
-
-function getClientIp(request: Request): string {
-  const forwarded = request.headers.get('x-forwarded-for');
-  if (forwarded) return forwarded.split(',')[0].trim();
-  const real = request.headers.get('x-real-ip');
-  if (real) return real.trim();
-  return 'unknown';
-}
+// The rate limiter, the IP reader, the Turnstile policy, the write client, and
+// the read-once-then-reuse attachment handling all MOVED OUT of this file in
+// Q-150 (lib/api/rate-limit.ts, lib/api/turnstile.ts, lib/sanity/write-client.ts,
+// lib/leads/attachments.ts) so the quote-response route reuses them instead of
+// forking a second copy of each. Pure code motion: same constants, same
+// behaviour, same log strings.
+const leadRateLimiter = createRateLimiter({ max: 5, windowMs: 60 * 60 * 1000 });
 
 function str(value: FormDataEntryValue | null): string {
   return typeof value === 'string' ? value.trim() : '';
@@ -72,85 +63,6 @@ function str(value: FormDataEntryValue | null): string {
 
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-function getSanityWriteClient() {
-  const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
-  const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET ?? 'production';
-  const token = process.env.SANITY_API_TOKEN;
-  if (!projectId || !token) return null;
-  return createClient({
-    projectId,
-    dataset,
-    apiVersion: '2024-10-01',
-    token,
-    useCdn: false,
-  });
-}
-
-// siteverify error codes that mean OUR configuration is broken (wrong/missing
-// secret), as opposed to the visitor's token being bad. Config errors must
-// never block leads — see the fail-open policy in verifyTurnstile.
-const TURNSTILE_CONFIG_ERROR_CODES = new Set(['invalid-input-secret', 'missing-input-secret']);
-
-/**
- * Verifies a Cloudflare Turnstile token against siteverify.
- *
- * Failure-mode policy (leads are revenue — a config mistake must never
- * silently swallow them, but a bot with a bad token must be blocked):
- *
- * - FAIL OPEN (accept the lead, log loudly) on CONFIGURATION errors:
- *   TURNSTILE_SECRET_KEY unset (staging/local without keys — the widget
- *   doesn't render there either), siteverify rejecting OUR secret
- *   (`invalid-input-secret`), siteverify unreachable, or a non-JSON/non-2xx
- *   siteverify response. The honeypot + rate limit remain active regardless.
- * - FAIL CLOSED (reject with 400) on ACTUAL verification failures: no token
- *   submitted while the widget is configured, or siteverify answering
- *   `success: false` for the token (invalid/expired/already-redeemed).
- */
-async function verifyTurnstile(token: string, ip: string): Promise<boolean> {
-  const secret = process.env.TURNSTILE_SECRET_KEY;
-  if (!secret) {
-    console.error(
-      '[leads] TURNSTILE MISCONFIGURED: TURNSTILE_SECRET_KEY is not set — CAPTCHA verification SKIPPED (fail open). Set it in Vercel to activate bot protection.'
-    );
-    return true;
-  }
-  if (!token) return false;
-  try {
-    const form = new URLSearchParams();
-    form.set('secret', secret);
-    form.set('response', token);
-    if (ip && ip !== 'unknown') form.set('remoteip', ip);
-    const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: form,
-    });
-    if (!res.ok) {
-      console.error(
-        `[leads] TURNSTILE SERVICE ERROR: siteverify returned HTTP ${res.status} — accepting lead (fail open).`
-      );
-      return true;
-    }
-    const data = (await res.json()) as { success?: boolean; 'error-codes'?: string[] };
-    if (data.success === true) return true;
-    const codes = data['error-codes'] ?? [];
-    if (codes.some((code) => TURNSTILE_CONFIG_ERROR_CODES.has(code))) {
-      console.error(
-        `[leads] TURNSTILE MISCONFIGURED: siteverify rejected our secret (${codes.join(', ')}) — accepting lead (fail open). Fix TURNSTILE_SECRET_KEY in Vercel.`
-      );
-      return true;
-    }
-    console.warn(`[leads] turnstile rejected token (${codes.join(', ') || 'no error codes'})`);
-    return false;
-  } catch (err) {
-    console.error(
-      '[leads] TURNSTILE UNREACHABLE: siteverify call failed — accepting lead (fail open).',
-      err
-    );
-    return true;
-  }
 }
 
 /** Validates uploaded files server-side (never trust the client). */
@@ -256,7 +168,7 @@ export async function POST(request: Request) {
   }
 
   const ip = getClientIp(request);
-  if (isRateLimited(ip)) {
+  if (leadRateLimiter.isRateLimited(ip)) {
     return NextResponse.json(
       { error: 'Too many submissions. Please try again later.' },
       { status: 429 }
@@ -273,19 +185,8 @@ export async function POST(request: Request) {
   }
 
   // Read each file's bytes once and reuse for the email + Sanity asset upload.
-  const fileBuffers = await Promise.all(
-    rawFiles.map(async (file) => ({
-      filename: file.name,
-      contentType: file.type || undefined,
-      buffer: Buffer.from(await file.arrayBuffer()),
-    }))
-  );
-
-  const emailAttachments: LeadEmailAttachment[] = fileBuffers.map((f) => ({
-    filename: f.filename,
-    content: f.buffer,
-    contentType: f.contentType,
-  }));
+  const fileBuffers = await readFileBuffers(rawFiles);
+  const emailAttachments: LeadEmailAttachment[] = toEmailAttachments(fileBuffers);
 
   // Landing-page routing (P2-AI-005 part 2): resolve the submitted slug to its
   // stored `leadRecipient` SERVER-SIDE. `landing` is null for non-landing
@@ -301,6 +202,36 @@ export async function POST(request: Request) {
   const productTitle = product?.title?.trim() || '';
   const routing = resolveLandingLeadRouting(landing ?? product);
 
+  // Customer-initiated DRAFT quote (Q-150 part 6): a product-quote submission
+  // starts a quote Patrick can finish, instead of him retyping the request.
+  //
+  // Ordering is deliberate. It runs BEFORE the lead email so that email can
+  // tell him a draft is waiting, and it is wrapped in a helper that CANNOT
+  // throw, so a Sanity outage or a product with no pricing costs the draft and
+  // never the lead. Every other form on the site skips this entirely.
+  const draft =
+    product && isProductQuote
+      ? await createDraftQuoteFromSubmission({
+          productSlug,
+          repEmail: routing.to || process.env.LEAD_EMAIL_TO || DEFAULT_LEAD_RECIPIENT,
+          submission: {
+            firstName,
+            lastName,
+            email,
+            phone,
+            company,
+            quantityNeeded,
+            dateNeeded,
+            selectedColor,
+            selectedSize,
+            selectedDecoration,
+            comments,
+            shippingZip,
+            sourceUrl,
+          },
+        })
+      : null;
+
   const submittedAt = new Date().toISOString();
   const payload: LeadEmailPayload = {
     firstName,
@@ -313,6 +244,14 @@ export async function POST(request: Request) {
     sourceUrl: sourceUrl || 'unknown',
     submittedAt,
     attachments: emailAttachments.length > 0 ? emailAttachments : undefined,
+    // Present only when a draft was actually written (Q-150 part 6).
+    ...(draft?.note
+      ? {
+          draftQuoteNote: draft.warnings.length
+            ? `${draft.note}\n\nCheck before sending: ${draft.warnings.join(' ')}`
+            : draft.note,
+        }
+      : {}),
     // Quote-only extras — undefined for every other form, so the email rows
     // and subject are byte-identical to before outside the quote path.
     ...(company ? { company } : {}),
@@ -342,27 +281,7 @@ export async function POST(request: Request) {
   const sanity = getSanityWriteClient();
   if (sanity) {
     // Upload attachments as Sanity file assets (non-fatal — the email already sent).
-    const attachmentRefs: Array<{
-      _key: string;
-      _type: 'file';
-      asset: { _type: 'reference'; _ref: string };
-    }> = [];
-    for (let i = 0; i < fileBuffers.length; i += 1) {
-      const f = fileBuffers[i];
-      try {
-        const asset = await sanity.assets.upload('file', f.buffer, {
-          filename: f.filename,
-          contentType: f.contentType,
-        });
-        attachmentRefs.push({
-          _key: `att-${i}`,
-          _type: 'file',
-          asset: { _type: 'reference', _ref: asset._id },
-        });
-      } catch (err) {
-        console.error('[leads] sanity asset upload failed (non-fatal)', err);
-      }
-    }
+    const attachmentRefs = await uploadAttachmentRefs(sanity, fileBuffers);
 
     try {
       await sanity.create({
@@ -516,7 +435,7 @@ async function handleBuilderFormSubmission(
   }
 
   const ip = getClientIp(request);
-  if (isRateLimited(ip)) {
+  if (leadRateLimiter.isRateLimited(ip)) {
     return NextResponse.json(
       { error: 'Too many submissions. Please try again later.' },
       { status: 429 },
@@ -532,18 +451,8 @@ async function handleBuilderFormSubmission(
   }
 
   // Read each file's bytes once and reuse for the email + Sanity asset upload.
-  const fileBuffers = await Promise.all(
-    rawFiles.map(async (file) => ({
-      filename: file.name,
-      contentType: file.type || undefined,
-      buffer: Buffer.from(await file.arrayBuffer()),
-    })),
-  );
-  const emailAttachments: LeadEmailAttachment[] = fileBuffers.map((f) => ({
-    filename: f.filename,
-    content: f.buffer,
-    contentType: f.contentType,
-  }));
+  const fileBuffers = await readFileBuffers(rawFiles);
+  const emailAttachments: LeadEmailAttachment[] = toEmailAttachments(fileBuffers);
 
   const contact = extractContactFields(form, answers);
   // Catalog delivery context (P2-CAT-002): resolve the submitted catalogSlug
@@ -587,27 +496,7 @@ async function handleBuilderFormSubmission(
   // Lead record + attachments — non-fatal, same policy as the fixed path.
   const sanity = getSanityWriteClient();
   if (sanity) {
-    const attachmentRefs: Array<{
-      _key: string;
-      _type: 'file';
-      asset: { _type: 'reference'; _ref: string };
-    }> = [];
-    for (let i = 0; i < fileBuffers.length; i += 1) {
-      const f = fileBuffers[i];
-      try {
-        const asset = await sanity.assets.upload('file', f.buffer, {
-          filename: f.filename,
-          contentType: f.contentType,
-        });
-        attachmentRefs.push({
-          _key: `att-${i}`,
-          _type: 'file',
-          asset: { _type: 'reference', _ref: asset._id },
-        });
-      } catch (err) {
-        console.error('[leads] sanity asset upload failed (non-fatal)', err);
-      }
-    }
+    const attachmentRefs = await uploadAttachmentRefs(sanity, fileBuffers);
 
     try {
       await sanity.create({
