@@ -37,6 +37,21 @@ const nextConfig: NextConfig = {
         source: '/(.*)',
         headers: securityHeaders,
       },
+      {
+        // Private customer quotes (Q-140). The page already emits
+        // `robots: index/follow false` in its metadata; this is the same
+        // instruction at the HTTP level, so a crawler that fetches the URL
+        // without parsing the HTML still gets it. Deliberately a DIFFERENT
+        // header key from the site-wide block above, so nothing is emitted
+        // twice and the global Referrer-Policy is not shadowed here (the
+        // quote page tightens that to no-referrer via its own page metadata,
+        // which overrides the header for that document).
+        //
+        // robots.txt is deliberately NOT used for this - see the note in
+        // app/robots.ts.
+        source: '/quote/:token*',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow, noarchive' }],
+      },
     ];
   },
 

@@ -58,6 +58,15 @@ export type QuoteOwnProductLine = QuoteProductLineInput &
   QuoteLineBase & {
     _type: 'quoteOwnProductLine';
     displayName?: string;
+    /**
+     * Snapshot copies written by the Q-130 "Pull details from this product"
+     * button. Blank means fall back to the referenced product below - which is
+     * why the deref exists at all. (These were added to the schema in Q-130 and
+     * always arrived through the projection's `...` spread; the type simply had
+     * not caught up, so a consumer could not read them - Q-140.)
+     */
+    imageUrl?: string;
+    description?: string;
     /** Display-only deref of the referenced productPage (never priced from). */
     product?: {
       _id: string;
