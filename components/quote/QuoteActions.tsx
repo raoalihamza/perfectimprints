@@ -15,7 +15,9 @@ import { QUOTE_COMMENT_MAX_CHARS, type CustomerActionKind } from '@/lib/quotes/q
 /**
  * What the customer can DO with their quote (Q-150): accept it, ask for a
  * change, or save a copy. Replaces the reply-by-email note Q-140 left in this
- * slot.
+ * slot. Q-160 turned the third control into a real generated PDF download (the
+ * browser print dialog is now only the fallback) and gave the status banner
+ * enough weight that a customer who has just responded cannot miss it.
  *
  * STATICNESS - the thing this component must not break
  *
@@ -82,6 +84,23 @@ const ACTION_COPY: Record<
 const inputBase =
   'block w-full rounded-md border border-border bg-white px-3.5 py-2.5 text-base text-text-primary placeholder:text-text-muted/60 focus:border-brand-red focus:outline-none focus:ring-2 focus:ring-brand-red/20';
 
+/**
+ * The download filename the SERVER chose, so the browser and the
+ * Content-Disposition header can never disagree. Falls back to the same shape
+ * the server builds (see quotePdfFileName) when the header is missing or
+ * unparseable - a download must never be named "download".
+ */
+function fileNameFromDisposition(
+  disposition: string | null,
+  quoteNumber?: string | null,
+): string {
+  const match = disposition ? /filename="?([^";]+)"?/i.exec(disposition) : null;
+  const fromHeader = match?.[1]?.trim();
+  if (fromHeader) return fromHeader;
+  const safe = (quoteNumber ?? '').replace(/[^A-Za-z0-9._-]+/g, '-').replace(/^-+|-+$/g, '');
+  return safe ? `Quote-${safe}-Perfect-Imprints.pdf` : 'Quote-Perfect-Imprints.pdf';
+}
+
 export function QuoteActions({
   token,
   expired,
@@ -101,6 +120,8 @@ export function QuoteActions({
   const [error, setError] = useState<string | null>(null);
   /** Set once the customer's own submission in THIS session succeeds. */
   const [justDid, setJustDid] = useState<CustomerActionKind | null>(null);
+  /** The PDF download's own state, separate from the form's (Q-160). */
+  const [pdfState, setPdfState] = useState<'idle' | 'working' | 'error'>('idle');
 
   // ---- The view beacon ---------------------------------------------------
   //
@@ -179,9 +200,49 @@ export function QuoteActions({
     }
   }
 
-  /** The browser's own Save as PDF. Q-160 replaces the body of this function. */
-  function saveAsPdf() {
-    window.print();
+  /**
+   * Downloads the real PDF (Q-160), built server-side at /api/quote-pdf/<token>.
+   *
+   * WHY FETCH-THEN-DOWNLOAD RATHER THAN JUST NAVIGATING TO THE URL. A plain
+   * navigation hands the customer whatever the route returns, including a raw
+   * error page if generation fails - on their own quote, that reads as though
+   * the quote itself is broken. Fetching lets a failure become one plain
+   * sentence with the print fallback beside it, which is the whole point.
+   *
+   * The print stylesheet is deliberately KEPT. It costs nothing, it is what
+   * Ctrl+P uses anyway, and it is the honest answer when the PDF route is
+   * briefly unavailable.
+   */
+  async function downloadPdf() {
+    if (pdfState === 'working') return;
+    setPdfState('working');
+    let objectUrl: string | null = null;
+    try {
+      const res = await fetch(`/api/quote-pdf/${encodeURIComponent(token)}`);
+      if (!res.ok) {
+        setPdfState('error');
+        return;
+      }
+      const blob = await res.blob();
+      objectUrl = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = objectUrl;
+      link.download = fileNameFromDisposition(res.headers.get('content-disposition'), quoteNumber);
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setPdfState('idle');
+    } catch {
+      setPdfState('error');
+    } finally {
+      // Revoked on a delay: some browsers have not finished reading the blob by
+      // the time the click handler returns, and revoking too early produces an
+      // empty download.
+      if (objectUrl) {
+        const url = objectUrl;
+        setTimeout(() => URL.revokeObjectURL(url), 60_000);
+      }
+    }
   }
 
   const mailto = repEmail
@@ -197,23 +258,40 @@ export function QuoteActions({
 
   return (
     <div className="quote-surface quote-actions mt-8 rounded-lg border border-border bg-bg-soft p-5">
+      {/* THE STATUS BANNER (Q-160 gave it real weight).
+          It used to be a quiet note above a large green Accept button, and in
+          testing that read as though the acceptance had not registered. It is
+          now the first thing in this block and visually outranks the buttons:
+          a thick left rule, a filled panel, and a heading a size larger than
+          anything beneath it.
+
+          It is a STATUS LINE, never a lock. No button below is disabled,
+          hidden or reordered because of it - see the note above the controls. */}
       {settled ? (
         <div
           role="status"
           className={
             settled === 'accepted'
-              ? 'mb-4 rounded-md border border-brand-green/40 bg-brand-green/10 p-4'
-              : 'mb-4 rounded-md border border-brand-red/40 bg-brand-red/5 p-4'
+              ? 'mb-5 rounded-md border-2 border-l-8 border-brand-green bg-brand-green/10 p-5'
+              : 'mb-5 rounded-md border-2 border-l-8 border-brand-red bg-brand-red/5 p-5'
           }
         >
-          <p className="text-base font-semibold text-brand-ink">
+          <p className="text-lg font-bold leading-snug text-brand-ink sm:text-xl">
             {ACTION_COPY[settled].done}
             {settledWhen ? ` on ${settledWhen}` : ''}.
           </p>
-          <p className="mt-1 text-sm leading-relaxed text-text-primary">
+          <p className="mt-1.5 text-sm leading-relaxed text-text-primary">
             {settled === 'accepted'
               ? 'Thank you. We have let your Perfect Imprints contact know, and they will be in touch to confirm artwork and timing.'
               : 'Thank you. Your Perfect Imprints contact has your notes and will send an updated quote.'}
+          </p>
+          {/* Nobody should think they are now stuck. A customer who accepted
+              and then spots a problem needs to know the change request is
+              still open to them, and vice versa. */}
+          <p className="mt-2 text-sm font-semibold text-brand-ink">
+            {settled === 'accepted'
+              ? 'Changed your mind or spotted something? You can still request a change below, or download a copy of this quote.'
+              : 'You can still accept this quote below, ask for something else, or download a copy.'}
           </p>
         </div>
       ) : null}
@@ -253,8 +331,17 @@ export function QuoteActions({
         </p>
       )}
 
-      {/* The three controls. Expired quotes show them DISABLED rather than
-          hidden, so it is obvious why they cannot be used. */}
+      {/* The three controls, in a fixed order that NEVER changes.
+          Nothing here is hidden, reordered, or disabled because of what the
+          customer already did: accept, then request a change, then accept
+          again after a revision is a real sequence, and any per-state button
+          rule creates edge cases that get got wrong. State is shown in the
+          banner above; the actions stay exactly as they are.
+
+          Expired is the one exception, and it is about the quote and not about
+          the customer's history: the two response buttons are DISABLED rather
+          than hidden so it is obvious why they cannot be used. The download is
+          never disabled. */}
       <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <button
           type="button"
@@ -274,17 +361,40 @@ export function QuoteActions({
         >
           Request a change
         </button>
-        {/* Honest label: this is the browser's print dialog, not a file we
-            generate. Q-160 swaps the click handler for a real PDF download and
-            the button stays exactly where it is. */}
+        {/* Q-160: a real generated PDF now, in exactly the place the print
+            button stood. Always available - an expired quote can still be
+            saved, because a customer must be able to keep a copy of what they
+            were quoted. */}
         <button
           type="button"
-          onClick={saveAsPdf}
-          className="quote-screen-only inline-flex h-12 items-center justify-center rounded-md border border-border px-6 text-base font-semibold text-text-primary transition-colors hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-ink focus-visible:ring-offset-2"
+          onClick={downloadPdf}
+          disabled={pdfState === 'working'}
+          aria-busy={pdfState === 'working'}
+          className="quote-screen-only inline-flex h-12 items-center justify-center rounded-md border border-border px-6 text-base font-semibold text-text-primary transition-colors hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-ink focus-visible:ring-offset-2 disabled:cursor-progress disabled:opacity-70"
         >
-          Print or save as PDF
+          {pdfState === 'working' ? 'Preparing your PDF...' : 'Download PDF'}
         </button>
       </div>
+
+      {/* The PDF fallback. Never a raw error page: one plain sentence, and the
+          browser's own print dialog is one click away over the print
+          stylesheet, which is exactly what this button used to do. */}
+      {pdfState === 'error' ? (
+        <div
+          role="alert"
+          className="quote-screen-only mt-3 rounded border border-brand-red/40 bg-brand-red/5 px-3 py-2 text-sm text-brand-red"
+        >
+          We could not prepare the PDF just now. You can{' '}
+          <button
+            type="button"
+            onClick={() => window.print()}
+            className="font-semibold underline hover:no-underline"
+          >
+            use your browser&apos;s print option
+          </button>{' '}
+          to save a copy instead, or try the button again in a moment.
+        </div>
+      ) : null}
 
       {panel !== 'none' && !expired ? (
         <form

@@ -1917,7 +1917,8 @@
     <p>A <strong>Quote</strong> is a real quotation you build for one customer: product lines with quantities and
       prices, extra charges (an art fee, a rush charge), the customer's details, dates, and totals. You publish it,
       copy the private link, and email it yourself. The customer opens that link, reads the quote, and can
-      <strong>accept it or ask you for changes right on the page</strong> - and you get an email when they do.</p>
+      <strong>accept it, ask you for changes, or download it as a PDF right on the page</strong> - and you get an
+      email when they accept or ask for a change.</p>
 
     <div class="callout warn">
       <span class="label">You send the link yourself. There is no Send button.</span>
@@ -2026,9 +2027,10 @@
         sitemap, and it is never in any menu. The only way in is the link.</li>
       <li><strong>Long descriptions are folded up</strong> behind a "Read more" link so a quote with eight items is
         still readable.</li>
-      <li><strong>It prints properly.</strong> The <strong>Print or save as PDF</strong> button (and Ctrl+P) drops the
-        website header, footer and buttons away and leaves a clean quote document. That is how they save or forward it
-        until the real PDF download ships.</li>
+      <li><strong>They can download a real PDF.</strong> The <strong>Download PDF</strong> button hands them a proper
+        one or two page quotation document, named after the quote (for example
+        <code>Quote-Q-1007-Perfect-Imprints.pdf</code>) so it is still recognisable in their Downloads folder weeks
+        later. See the next section for exactly what is on it.</li>
       <li><strong>Some things are deliberately not on the page:</strong> your <strong>Internal label</strong>, the
         <strong>Sent at</strong> date, the customer's own email, phone and address, and the Geiger item number on a
         catalog line. If you want any of those shown, say so and it can be added.</li>
@@ -2051,10 +2053,50 @@
       <li><strong>Request a change</strong> - opens a box where they say what they want different.
         <strong>A message is required here</strong>, because "please change something" with no explanation would just
         cost you a phone call.</li>
-      <li><strong>Print or save as PDF</strong> - opens their browser's own print dialog, where they choose "Save as
-        PDF". It is labelled that way honestly because that is what it does today; a proper downloadable PDF replaces
-        it in the next update, in the same spot.</li>
+      <li><strong>Download PDF</strong> - downloads a real quotation document. It is always available, including on
+        an expired quote, because a customer must be able to keep a copy of what they were quoted.</li>
     </ul>
+
+    <h3>The PDF they download</h3>
+    <p>The PDF is generated fresh each time from the quote as it stands, so a customer who downloads it again after
+      you have edited and republished gets the updated numbers. It is a deliberately plain business document rather
+      than a copy of the web page:</p>
+    <ul>
+      <li>Perfect Imprints at the top with the quote number, the quote date, and the valid-until date.</li>
+      <li><strong>Prepared for</strong> (their company and contact name) and <strong>your</strong> name, email and
+        phone, so they know who to reply to.</li>
+      <li>A table of every line: the picture, the name, the decoration, the description, your line note, the quantity,
+        the unit price, setup, shipping, and that line's total. Charge lines show no setup or shipping, and if
+        <em>no</em> line on the quote has a setup or a shipping amount those columns are left off entirely.</li>
+      <li>The subtotal, shipping, tax and grand total, then a footer stating that this is a quotation and not an
+        invoice.</li>
+      <li>On a long quote the table header repeats at the top of each page, no line is ever split across a page break,
+        and every page is numbered.</li>
+      <li>The same things are left off as on the page: your <strong>Internal label</strong>, the <strong>Sent
+          at</strong> date, the customer's own email, phone and address, and the Geiger item number.</li>
+    </ul>
+    <p>If a product photo cannot be loaded when the PDF is built, that one picture is simply left as an empty box and
+      <strong>the rest of the quote downloads exactly as normal</strong>. A missing photo never costs the customer
+      their document.</p>
+
+    <div class="callout">
+      <span class="label">If the PDF ever fails</span>
+      <p>The button takes a moment and says <strong>"Preparing your PDF..."</strong> while it works. In the rare case
+        it cannot be built, the customer gets one plain sentence and a link to use their browser's own print option
+        instead, which produces a clean printed quote the same way it always did. They never see an error page, and
+        they are never left with no way to keep a copy.</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">What they already did is shown first</span>
+      <p>Once a customer has accepted or asked for a change, a <strong>banner at the top of that section</strong> tells
+        them so, with the date. It is deliberately the most prominent thing there, because in testing a quiet note
+        above a big green Accept button read as though the acceptance had not registered.</p>
+      <p><strong>The buttons stay exactly as they are underneath it.</strong> Nothing is hidden, greyed out or moved
+        because of what they already did, and the banner says outright that they can still do something else. That is
+        on purpose: accepting, then asking for a change, then accepting again after you revise is a perfectly normal
+        sequence, and every one of those responses is recorded.</p>
+    </div>
     <p>You get an <strong>email for each of the three things that can happen</strong> - the link was opened, the quote
       was accepted, or a change was requested - sent to your email address on the quote. The subject leads with the
       quote number and what happened (for example <em>Quote Q-1007 ACCEPTED - Acme Corp</em>) so you can read it from
@@ -2139,13 +2181,48 @@
         private link as the original, and it will refuse to publish. Create a new quote instead.</p>
     </div>
 
+    <h3>Closing a quote out: what to do when it is done</h3>
+    <p>There is no "close" or "archive" button, and there deliberately is not one - three things you already have
+      cover every case, and each does something different. Pick by what you want the customer to see:</p>
+    <ul>
+      <li><strong>Stop them responding, but let them still read it: set the expiry date to today</strong> (or any past
+        date) and publish. The link keeps working, every price stays visible, and the page explains that the quote has
+        passed its expiry date. The Accept and Request-a-change buttons go grey. They can still download the PDF. This
+        is the right one for almost every finished quote - the order is placed, or the customer went quiet, and you
+        simply do not want it accepted at that price any more.</li>
+      <li><strong>Take the link offline completely: unpublish the quote.</strong> The link then shows a page-not-found
+        for everybody, including the customer. Use this only when they no longer need it - if they have the link in an
+        email and click it, it will look broken to them.</li>
+      <li><strong>Remove it permanently: delete the quote.</strong> Do this only for a mistake or a genuine
+        duplicate.</li>
+    </ul>
+    <p>To bring a quote back, set the expiry date forward again and publish. Nothing is lost by expiring one.</p>
+
+    <div class="callout">
+      <span class="label">Deleting a quote does not delete what the customer said</span>
+      <p><strong>Quote Response</strong> records are separate documents, so an acceptance or a change request survives
+        the quote being deleted, and each one carries the quote number so you can still tell what it was about. They
+        also cannot be edited by anyone, including you - they are a record of what the customer actually did, not a
+        status you set.</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">A published link stays live, on purpose</span>
+      <p>Accepting does <strong>not</strong> close the quote, and the link keeps working afterwards. That is deliberate:
+        customers come back to a quote they accepted to check a quantity or forward it to whoever signs off. If you
+        want it to stop being acceptable, expire it.</p>
+      <p>And <strong>accepting is not placing an order.</strong> Nothing is charged and nothing goes into production
+        from that click - it tells you they are happy with the price, and you follow up to confirm artwork and timing.
+        The quote page says exactly that to the customer too.</p>
+    </div>
+
     <div class="callout warn">
       <span class="label">What is still coming</span>
-      <p>Building a quote, publishing it, sending the link yourself, marking it as sent, and the customer accepting or
-        asking for changes all work today. Still to come: a <strong>real PDF download</strong> (replacing the print
-        button in the same place), and a <strong>Send</strong> button that emails the quote to the customer for you,
-        which would then mark it as sent by itself. Reminder emails and editable email wording are not planned at the
-        moment. Nothing you build now is wasted.</p>
+      <p>Building a quote, publishing it, sending the link yourself, marking it as sent, the customer accepting or
+        asking for changes, and the <strong>PDF download</strong> all work today. Still to come: a
+        <strong>Send</strong> button that emails the quote to the customer for you, which would then mark it as sent by
+        itself. Reminder emails and editable email wording are not planned at the moment. Nothing you build now is
+        wasted.</p>
     </div>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
@@ -2176,8 +2253,8 @@
       <li><strong>Quote</strong> is a customer quotation you build (products, charges, totals), which the customer
         opens at a private link you copy and email yourself; <strong>Quote Response</strong> is the permanent
         read-only record of what they did with it (opened, accepted, asked for a change). A Get a Quote submission on
-        a Product Page also starts a <strong>draft</strong> quote for you. The real PDF and a Send button arrive in a
-        later update.</li>
+        a Product Page also starts a <strong>draft</strong> quote for you. The customer can download the quote as a
+        PDF; a Send button that emails it for you arrives in a later update.</li>
       <li><strong>Lead Submission</strong> is the inbox for your contact form.</li>
       <li><strong>Custom Schema</strong> is an optional advanced tool that adds extra SEO structured data to any page,
         without taking the page over.</li>
