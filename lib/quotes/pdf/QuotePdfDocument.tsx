@@ -3,6 +3,11 @@ import { Document, Image, Page, StyleSheet, Text, View } from '@react-pdf/render
 import { formatUsd } from '../quote-totals';
 import type { QuotePdfLine, QuotePdfModel } from '../quote-pdf-model';
 import type { QuotePdfImage } from './quote-pdf-images';
+import {
+  QUOTE_PDF_LOGO,
+  QUOTE_PDF_LOGO_HEIGHT,
+  QUOTE_PDF_LOGO_WIDTH,
+} from './quote-pdf-logo';
 
 /**
  * The printed quote (Q-160): a plain, professional business document a buyer
@@ -19,6 +24,15 @@ import type { QuotePdfImage } from './quote-pdf-images';
  * the repo has no binary font asset today, every existing HTML email is already
  * on the same Arial/Helvetica stack, and the Q-120 spike's explicit
  * recommendation was not to introduce one.
+ *
+ * THE LOGO is the real one, not a typeface. The renderer decodes JPEG and PNG
+ * only and cannot load an SVG file, so `public/logo.svg` is rasterised once by
+ * scripts/quick-quote/generate-pdf-logo.mjs into the generated, inlined
+ * ./quote-pdf-logo module. It is inlined rather than read from public/ at
+ * request time because public assets are served by the static layer and are not
+ * guaranteed to be on a serverless function's filesystem, and a customer's
+ * quote silently losing its logo is exactly the failure worth spending 48 KB to
+ * remove. Re-run that script if the logo ever changes.
  *
  * THE LAYOUT TRAP, from the spike, in one line: every flexible cell needs
  * `flexBasis: 0`. With the default `flexBasis: auto` a single long product name
@@ -39,6 +53,15 @@ const INK = '#231F20';
 const MUTED = '#666666';
 const BORDER = '#D9D9D9';
 const SOFT = '#F5F5F5';
+
+/**
+ * The logo's printed size. 150 pt is two inches, which matches the visual
+ * weight the wordmark had, and the 600 px raster across it works out near 290
+ * dpi - sharp on paper and when a customer zooms in a PDF viewer. The height is
+ * derived from the raster so the aspect ratio can never be wrong by hand.
+ */
+const LOGO_PT_WIDTH = 150;
+const LOGO_PT_HEIGHT = Math.round((LOGO_PT_WIDTH * QUOTE_PDF_LOGO_HEIGHT) / QUOTE_PDF_LOGO_WIDTH);
 
 const COL_QTY = 40;
 const COL_UNIT = 58;
@@ -68,8 +91,11 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     marginBottom: 14,
   },
+  // The real logo, sized so its 600 px raster lands near 290 dpi on paper.
+  logo: { width: LOGO_PT_WIDTH, height: LOGO_PT_HEIGHT, objectFit: 'contain' },
+  /** Only reached if the generated logo module is ever empty. */
   wordmark: { fontFamily: 'Helvetica-Bold', fontSize: 17, color: RED, letterSpacing: 0.3 },
-  tagline: { fontSize: 8, color: MUTED, marginTop: 3 },
+  tagline: { fontSize: 8, color: MUTED, marginTop: 5 },
   headerRight: { alignItems: 'flex-end' },
   docLabel: { fontFamily: 'Helvetica-Bold', fontSize: 9, color: MUTED, letterSpacing: 1.2 },
   quoteNumber: { fontFamily: 'Helvetica-Bold', fontSize: 16, color: INK, marginTop: 2 },
@@ -302,7 +328,17 @@ export function QuotePdfDocument({ model, images }: Props) {
         {/* ---- Who it is from, and which quote it is ---- */}
         <View style={styles.header}>
           <View>
-            <Text style={styles.wordmark}>PERFECT IMPRINTS</Text>
+            {/* The REAL logo, rasterised from public/logo.svg at build-script
+                time into an inlined PNG (the renderer cannot load an SVG file,
+                and this is what the browser's own print output shows, so the
+                two should not disagree). The text wordmark survives only as a
+                fallback for a corrupted regeneration - it is never reached in
+                a healthy build. */}
+            {QUOTE_PDF_LOGO.data.byteLength > 0 ? (
+              <Image style={styles.logo} src={QUOTE_PDF_LOGO} />
+            ) : (
+              <Text style={styles.wordmark}>PERFECT IMPRINTS</Text>
+            )}
             <Text style={styles.tagline}>Custom promotional products and branded apparel</Text>
           </View>
           <View style={styles.headerRight}>

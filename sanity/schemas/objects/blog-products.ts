@@ -1,4 +1,5 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
+import { ProductSkuInput } from '../../components/ProductPicker';
 
 /**
  * The shared `of` members for EVERY product strip array — the blog body's
@@ -40,12 +41,21 @@ export const blogProduct = defineType({
   title: 'Product',
   type: 'object',
   fields: [
+    // Q-170 improvement 1: search-and-pick instead of typing a number from
+    // memory. `ProductSkuInput` stores the SAME bare SKU string this field has
+    // always held (it emits set(<sku>) / unset(), exactly like the plain string
+    // input), so there is NO data migration and every already-stored entry keeps
+    // working untouched. Attaching it HERE gives the picker to every surface that
+    // uses `blogProduct` at once: blog bodies, the page-builder product strip,
+    // video related products, landing-page related products, and productPage
+    // related products.
     defineField({
       name: 'sku',
       title: 'Geiger SKU',
       type: 'string',
+      components: { input: ProductSkuInput },
       description:
-        'When set, the live product (price, image, affiliate URL) is pulled from the Geiger catalog by SKU. Manual fields below are only used as a fallback if the SKU is not found.',
+        'Search the Geiger catalog by product name, SKU, or brand and click a result to pick it. When set, the live product (price, image, affiliate URL) is pulled from the catalog by SKU. Manual fields below are only used as a fallback if the SKU is not found.',
     }),
     defineField({
       name: 'title',

@@ -2,6 +2,7 @@ import 'server-only';
 
 import Fuse, { type IFuseOptions } from 'fuse.js';
 import { getAllProducts } from '@/lib/categories';
+import { isSearchHiddenSku } from '@/lib/search/hidden-skus';
 import type { GeigerProduct } from '@/lib/product-types';
 
 /**
@@ -40,11 +41,26 @@ function getFuse(): Fuse<GeigerProduct> {
   return _fuse;
 }
 
-/** Ranked product matches for a query (full product objects). */
-export function searchProducts(query: string, limit = 300): GeigerProduct[] {
+/**
+ * Ranked product matches for a query (full product objects).
+ *
+ * `hiddenSkus` (Q-170 improvement 2) is Patrick's search hide list, read from
+ * Sanity by the caller. It is applied AFTER ranking rather than by rebuilding
+ * the Fuse index: the index is a per-process singleton over ~7,957 products and
+ * the list is normally empty, so rebuilding it per request to remove a handful
+ * of items would cost far more than it saves. Facets are derived from the value
+ * this returns, so a hidden product also leaves no trace in the facet counts.
+ */
+export function searchProducts(
+  query: string,
+  limit = 300,
+  hiddenSkus?: ReadonlySet<string>,
+): GeigerProduct[] {
   const q = query.trim();
   if (!q) return [];
-  return getFuse()
+  const ranked = getFuse()
     .search(q, { limit })
     .map((r) => r.item);
+  if (!hiddenSkus || hiddenSkus.size === 0) return ranked;
+  return ranked.filter((p) => !isSearchHiddenSku(p.sku, hiddenSkus));
 }

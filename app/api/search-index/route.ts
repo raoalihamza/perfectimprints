@@ -14,6 +14,8 @@
 
 import { NextResponse } from 'next/server';
 import { buildSanitySearchItems } from '@/lib/search/sanity-index';
+import { getSiteSettings } from '@/lib/sanity/queries/global-settings';
+import { filterHiddenSkuItems, buildHiddenSkuSet } from '@/lib/search/hidden-skus';
 import type { SearchIndexFile } from '@/lib/search/types';
 
 // ISR: cache the GET response, auto-refresh weekly, bust on-demand via the
@@ -26,7 +28,28 @@ import type { SearchIndexFile } from '@/lib/search/types';
 export const revalidate = 604800;
 
 export async function GET() {
-  const items = await buildSanitySearchItems();
-  const payload: SearchIndexFile = { generatedAt: new Date().toISOString(), items };
+  // The hide list rides along on this response (Q-170 improvement 2). It is the
+  // only search read path a Sanity edit can reach without a rebuild, so it is
+  // where the list has to travel; the client applies it to the merged index so
+  // static-bulk Geiger products are suppressed too. The settings read is the
+  // same tag-cached `getSiteSettings()` the layout already uses, so a publish
+  // busts it via SETTINGS_TAG, and the webhook now also revalidates THIS route
+  // (app/api/sanity/revalidate/route.ts, globalSettings branch), without which
+  // the change would sit behind this route's 1-week ISR floor.
+  const [items, settings] = await Promise.all([
+    buildSanitySearchItems(),
+    getSiteSettings().catch(() => null),
+  ]);
+
+  const hiddenProductSkus = settings?.searchHiddenSkus ?? [];
+  // Also applied to the delta's OWN entries here, so a hidden productPage item
+  // number never reaches the client in the first place.
+  const visible = filterHiddenSkuItems(items, buildHiddenSkuSet(hiddenProductSkus));
+
+  const payload: SearchIndexFile = {
+    generatedAt: new Date().toISOString(),
+    items: visible,
+    hiddenProductSkus,
+  };
   return NextResponse.json(payload);
 }

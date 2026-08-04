@@ -1,8 +1,8 @@
 # Q-160: Automated verification of the quote PDF, the status banner, and the lifecycle
 
-Run: 2026-08-02T02:01:15.295Z. Target: https://dev.perfectimprints.com. Script: scripts/quick-quote/verify-q160.ts (verification only - no app code touched). Mode: dry run (offline checks + a local render).
+Run: 2026-08-02T03:56:16.404Z. Target: https://dev.perfectimprints.com. Script: scripts/quick-quote/verify-q160.ts (verification only - no app code touched). Mode: apply.
 
-Nothing was written to Sanity in this mode. The safety machinery is still in the script and is used by `--apply`: the `zz-test-quote-` id prefix, a `ZZ Test` label, a guard re-checked against the stored document at the moment of deletion, cleanup in a finally that survives a crash, and the quote counter recorded before the run and restored exactly.
+The dataset is SHARED between staging and production. Every fixture quote used the `zz-test-quote-` id prefix and a `ZZ Test` label, every guard was re-checked against the stored document at the moment of deletion, and the quote counter was recorded before the run and restored exactly (values in the table). Tokens are never printed in full.
 
 **Test emails go nowhere on purpose.** Every fixture rep address is on the reserved `.invalid` TLD, which can never be delivered to and never bounces into a real mailbox. Earlier runs on this project put bounce messages into Patrick's inbox; this is deliberate, not careless.
 
@@ -47,11 +47,15 @@ The fixture is deliberately awkward: a 130-character product name (the spike's `
 | layout: rows are wrap={false}, so a line item never splits across a page | wrap={false} | wrap={false} | PASS |
 | layout: a page number is printed | Page N of M | Page N of M | PASS |
 | layout: no font file is registered (the built-in Helvetica, no binary asset) | no Font.register | no Font.register | PASS |
+| logo: the document renders the real logo, not a text wordmark | QUOTE_PDF_LOGO used as an Image | QUOTE_PDF_LOGO used as an Image | PASS |
 | withheld: the PDF document never references `sku` | absent | absent | PASS |
 | withheld: the PDF document never references `sentAt` | absent | absent | PASS |
 | withheld: the PDF document never references `customerEmail` | absent | absent | PASS |
 | withheld: the PDF document never references `customerPhone` | absent | absent | PASS |
 | withheld: the PDF document never references `customerAddress` | absent | absent | PASS |
+| logo: the generated module lib/quotes/pdf/quote-pdf-logo.ts exists | present | present | PASS |
+| logo: it decodes to a real PNG (the renderer cannot use an SVG) | PNG magic bytes | PNG, 36.2 KB | PASS |
+| logo: it is inlined, not read from disk at request time | no fs read | no fs read | PASS |
 | island: no useSearchParams (the silent prerender killer) | absent | absent | PASS |
 | button: the PDF control calls the real route | /api/quote-pdf/ | /api/quote-pdf/ | PASS |
 | button: a working state is shown while the PDF is generated | Preparing your PDF | Preparing your PDF | PASS |
@@ -65,7 +69,7 @@ The fixture is deliberately awkward: a 130-character product name (the spike's `
 | webhook: no new document type, so no Filter change (quote was wired in Q-110) | the 'quote' branch already exists | the 'quote' branch already exists | PASS |
 | sitemap: no quote route and no PDF route anywhere | absent | absent | PASS |
 | local render: produces a real PDF | %PDF- header | %PDF- header | PASS |
-| local render | (informational) | 5110 ms, 19273 bytes, 2 page(s) | INFO |
+| local render | (informational) | 1545 ms, 51734 bytes, 2 page(s) | INFO |
 | local render: 17 lines produce more than one page | 2 or more pages | 2 page(s) | PASS |
 | local render: the table header repeats on every page | at least 2 | 2 occurrence(s) | PASS |
 | local render: every line item name is on the document | 0 missing | 0 missing | PASS |
@@ -74,26 +78,72 @@ The fixture is deliberately awkward: a 130-character product name (the spike's `
 | local render: internal label is NOT printed | absent | absent | PASS |
 | local render: the Geiger item number is NOT printed | absent | absent | PASS |
 | local render: the sent-at date is NOT printed | absent | absent | PASS |
+| preflight: the PDF route is live on the target | (informational) | probe answered 404 with the route's own message | INFO |
+| counter: state BEFORE the run | (informational) | prefix="Q-" lastNumber=1003 | INFO |
+| pdf: a published quote returns 200 | 200 | 200 | PASS |
+| pdf: the content type is application/pdf | application/pdf | application/pdf | PASS |
+| pdf: it is a real, openable PDF | %PDF- header | %PDF- header | PASS |
+| pdf: the download filename carries the quote number | filename containing Q-1004 | attachment; filename="Quote-Q-1004-Perfect-Imprints.pdf" | PASS |
+| pdf: shape | (informational) | 19222 bytes, 2 page(s), 2 decoded stream(s) | INFO |
+| pdf: contains the quote number | Q-1004 | present | PASS |
+| pdf: contains the customer company | ZZ Test Buyer Company Q160 | present | PASS |
+| pdf: contains the rep name | ZZ Test Rep | present | PASS |
+| pdf: EVERY line item name is present, including the 130-character one | 0 missing of 16 | 0 missing of 16 | PASS |
+| pdf: the charge line is present | ZZ Test Art Fee | present | PASS |
+| pdf: a product line total (100 x $2.50 + $25 + $10) | $285.00 | $285.00 | PASS |
+| pdf: the charge line total (2 x $40.00) | $80.00 | $80.00 | PASS |
+| pdf: the subtotal ($4,400 merchandise + $80 charge) | $4,480.00 | $4,480.00 | PASS |
+| pdf: the shipping total (16 x $10.00) | $160.00 | $160.00 | PASS |
+| pdf: the sales tax as typed | $45.25 | $45.25 | PASS |
+| pdf: THE GRAND TOTAL ($4,480 + $160 + $45.25) | $4,685.25 | $4,685.25 | PASS |
+| pdf: 17 lines produce more than one page | 2 or more pages | 2 page(s) | PASS |
+| pdf: the table header repeats on every page | at least 2 | 2 occurrence(s) | PASS |
+| pdf: every page is numbered | at least 2 | 2 page number(s) | PASS |
+| pdf: a 130-character product name does not push anything off the page | every text run starts between 0 and 576 pt | 36.0 to 542.5 pt | PASS |
+| withheld: the internal label is not in the PDF text | absent | absent | PASS |
+| withheld: the customer's own email is not in the PDF text | absent | absent | PASS |
+| withheld: the customer's own phone is not in the PDF text | absent | absent | PASS |
+| withheld: the customer's own address is not in the PDF text | absent | absent | PASS |
+| withheld: the sent-at date is not in the PDF text | absent | absent | PASS |
+| withheld: the Geiger supplier item number is not in the PDF text | absent | absent | PASS |
+| withheld: a /products/ link is not in the PDF text | absent | absent | PASS |
+| timing: cold / warm-median / network baseline | (informational) | 1423 / 974 / 338 ms | INFO |
+| timing: a warm download stays under 10 seconds even with a dead image on the quote | under 10000 ms | 974 ms | PASS |
+| images: a quote carrying a dead image URL still produces a valid PDF | valid PDF | valid PDF | PASS |
+| expired: the PDF still downloads | 200 | 200 | PASS |
+| expired: the document says so | passed its expiry date | stated | PASS |
+| expired: the price is still on it | $50.00 | $50.00 | PASS |
+| expired: the expiry date is labelled as expired, not as valid until | Expired: | Expired: | PASS |
+| reject: unknown (well-formed) token answered 404 | 404 | 404 | PASS |
+| reject: malformed token answered 404 | 404 | 404 | PASS |
+| reject: tag-hostile token answered 404 | 404 | 404 | PASS |
+| reject: an empty token answers 404 (the route does not exist without one) | 404 | 404 | PASS |
+| reject: unknown and malformed tokens are INDISTINGUISHABLE (same status, same message) | 1 distinct response | 1 distinct response(s) | PASS |
+| STATICNESS: raw HTML carries the rendered quote, with NO client-side-render bailout | article present, no BAILOUT marker | article present, no marker | PASS |
+| STATICNESS: "Accept this quote" is in the server-rendered HTML | present | present | PASS |
+| STATICNESS: "Request a change" is in the server-rendered HTML | present | present | PASS |
+| STATICNESS: "Download PDF" is in the server-rendered HTML | present | present | PASS |
+| page: the grand total is still in the raw HTML | $4,685.25 | present | PASS |
+| cleanup: fixtures AND their responses deleted | all zz-test-quote-* gone | 2 deleted | PASS |
+| cleanup: zero test quotes remain | 0 | 0 | PASS |
+| cleanup: zero test RESPONSES remain | 0 | 0 | PASS |
+| counter: state AFTER restore | (informational) | prefix="Q-" lastNumber=1003 (restored to prefix="Q-" lastNumber=1003) | INFO |
+| counter: restored EXACTLY to its before-run state | prefix="Q-" lastNumber=1003 | prefix="Q-" lastNumber=1003 | PASS |
 
 ## Timings
 
-- Local render (this machine, includes the remote image fetch): 5110 ms, 19273 bytes
+- Local render (this machine, includes the remote image fetch): 1545 ms, 51734 bytes
+- Deployed cold (first request, includes the dead-image timeout): 1423 ms round trip
+- Deployed warm: 1184, 824, 974, 891 ms round trip (median 974 ms)
+- Baseline round trip to a no-work route on the same deployment (median of 4, first discarded): 338 ms
+- So generating and sending the PDF costs roughly 636 ms warm and 1085 ms cold on top of the network. Everything else in the numbers above is latency from this location, which a customer in the United States does not pay.
 
 ## Notes / findings
 
 - A sample PDF from the local render was written to C:\Users\aliha\AppData\Local\Temp\pi-quote-pdf-q160\q160-sample.pdf (outside the repo, nothing untracked is left behind). Open it to judge whether it reads as a document a buyer would forward.
-
-## What this run did NOT cover
-
-This was a dry run, so nothing was written to Sanity and the DEPLOYED route was never called. The local render above proves the document itself: it exercises the real model, the real image fetch (including a dead host and a `format=webp` Geiger URL), and the real renderer, on the real awkward fixture.
-
-Still to run, once the branch is deployed:
-
-```
-pnpm tsx scripts/quick-quote/verify-q160.ts --apply
-```
-
-That adds: the deployed route answering 200 with `application/pdf` and the right download filename, deployed cold and warm timings with the network baseline separated out, the expired quote still downloading, unknown / malformed / empty tokens all answering an identical 404, and the quote page still being static with all three buttons in the raw HTML. It refuses to write anything if the route is not live on the target yet.
+- The LOCAL RENDER checks read the current working tree; the DEPLOYED checks read whatever is live on the target. If a change has landed since the last deploy the two will legitimately differ (a different PDF byte size is the usual tell), so redeploy and re-run before reading the deployed numbers as current.
+- The 16-line fixture deliberately carries one DEAD image URL and one format=webp URL, so every timing above is a worst case rather than a clean one. A real quote with working photos is faster.
+- The webp-format image URL on line 1 and the dead host on line 2 are both in the live fixture, so "a broken image still renders" and "a webp URL still renders its image" are proved by the same response that carried every line and the correct grand total. Whether the photo is visually present is on the manual list - text extraction cannot see a picture.
 
 ## What a script cannot prove (for Ali, after the single deploy)
 

@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity';
+import { ProductSkuPicker } from '../../components/ProductPicker';
 
 export default defineType({
   name: 'globalSettings',
@@ -362,6 +363,30 @@ export default defineType({
           options: { layout: 'tags' },
           description:
             'Geiger SKUs to promote to /rush-products even if Geiger\'s scrape did not include them. Looked up from data/geiger/products.json. Invalid/unknown SKUs are silently skipped.',
+        },
+      ],
+    }),
+    // Q-170 improvement 2. Deliberately its own group rather than a field on one
+    // of the three aggregator objects above: those hide lists each control ONE
+    // page's grid, this one controls SEARCH across the whole site and nothing
+    // else. Read at request time by every search read path, so an edit takes
+    // effect on publish without a rebuild, and removing a SKU brings it back.
+    defineField({
+      name: 'siteSearch',
+      title: 'Site Search',
+      type: 'object',
+      description:
+        'Controls what the site search can find. Everything else about a product is unaffected.',
+      options: { collapsible: true, collapsed: true },
+      fields: [
+        {
+          name: 'hiddenSkus',
+          title: 'Hide these SKUs from site search',
+          type: 'array',
+          of: [{ type: 'string' }],
+          components: { input: ProductSkuPicker },
+          description:
+            'Search the catalog and click a product to stop it appearing in the search box suggestions and on the /search results page, everywhere on the site. It is NOT removed from anywhere else: it still appears on its category pages, in the sitemap, and on any page that lists it. Remove it from this list to bring it back to search. Takes effect within seconds of publishing.',
         },
       ],
     }),

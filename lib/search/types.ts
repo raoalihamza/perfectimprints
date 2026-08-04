@@ -59,6 +59,16 @@ export interface SearchItem {
 export interface SearchIndexFile {
   generatedAt: string;
   items: SearchItem[];
+  /**
+   * SKUs Patrick has hidden from SITE SEARCH (Q-170 improvement 2). Only the
+   * LIVE delta route (`app/api/search-index`) ever sets this. The static bulk
+   * file is a build artifact and cannot carry an editor's decision, which is
+   * exactly why the list travels on the live response instead: an edit takes
+   * effect on publish, with no rebuild. The client applies it to the MERGED set
+   * (see lib/search/load-index.ts), so it suppresses static-bulk Geiger products
+   * too, not just the delta's own entries.
+   */
+  hiddenProductSkus?: string[];
 }
 
 /** Human-readable badge label per result type. */

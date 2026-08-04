@@ -28,6 +28,14 @@ const GROUP_ORDER: { type: SearchItemType; cap: number; heading: string }[] = [
 interface SearchBoxProps {
   className?: string;
   placeholder?: string;
+  /**
+   * Extra classes for the results dropdown (Q-170). The panel is normally as
+   * wide as the input, which is right in the header but cramped where the box
+   * sits in a narrow column. The blog and video index pages use this to let the
+   * panel grow leftwards instead of squeezing product rows. Purely additive:
+   * unset, the panel is byte-identical to before.
+   */
+  panelClassName?: string;
 }
 
 /**
@@ -38,7 +46,11 @@ interface SearchBoxProps {
  * arrow keys move the highlight across all rows + the "See all results" footer,
  * Enter selects, Escape closes.
  */
-export function SearchBox({ className, placeholder = SEARCH_PLACEHOLDER }: SearchBoxProps) {
+export function SearchBox({
+  className,
+  placeholder = SEARCH_PLACEHOLDER,
+  panelClassName,
+}: SearchBoxProps) {
   const router = useRouter();
   const { navigate } = useResultNavigation();
 
@@ -192,7 +204,7 @@ export function SearchBox({ className, placeholder = SEARCH_PLACEHOLDER }: Searc
           id={listboxId}
           role="listbox"
           aria-label="Search results"
-          className="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-lg border border-border bg-white shadow-xl"
+          className={`absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-lg border border-border bg-white shadow-xl ${panelClassName ?? ''}`}
         >
           {hasResults ? (
             <>

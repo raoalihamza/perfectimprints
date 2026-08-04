@@ -297,7 +297,17 @@ export async function POST(request: Request) {
   // (the old CDN/untagged read stayed stale — e.g. a removed footer link kept
   // rendering). The tag bust is what makes the edit go live in seconds.
   if (type && LAYOUT_TYPES.has(type)) {
-    if (type === 'globalSettings') revalidateTag(SETTINGS_TAG, 'max');
+    if (type === 'globalSettings') {
+      revalidateTag(SETTINGS_TAG, 'max');
+      // Q-170 improvement 2: globalSettings now carries the site-search hide
+      // list, which is served to the browser by the live search-delta route.
+      // That route is ISR with a ONE WEEK floor, and this branch used to return
+      // without touching it, so hiding a SKU would have looked like it did
+      // nothing in the search box for up to a week. `SETTINGS_TAG` alone does
+      // not cover it: the tag busts the settings FETCH, not the cached response
+      // of a route that happens to call it.
+      revalidatePath(SEARCH_INDEX_ROUTE);
+    }
     if (type === 'megaMenu') revalidateTag(MEGA_MENU_TAG, 'max');
     revalidatePath('/', 'layout');
     return NextResponse.json({ revalidated: true, scope: 'layout', type });

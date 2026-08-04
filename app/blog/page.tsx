@@ -5,6 +5,7 @@ import { BlogGrid } from '@/components/blog/BlogGrid';
 import { BlogPagination } from '@/components/blog/BlogPagination';
 import { BlogSidebar } from '@/components/blog/BlogSidebar';
 import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
+import { IndexHeadingWithSearch } from '@/components/layout/IndexHeadingWithSearch';
 import { getBlogPostsPage, getAllBlogCategories } from '@/lib/sanity/queries/blogs';
 import { socialMeta } from '@/lib/seo/open-graph';
 
@@ -42,13 +43,15 @@ export default async function BlogIndexPage() {
       </Container>
 
       <Container as="section" className="pb-6">
-        <h1 className="text-3xl font-bold leading-tight text-brand-ink md:text-4xl lg:text-5xl">
-          Perfect Imprints Blog
-        </h1>
-        <p className="mt-3 max-w-3xl text-lg leading-relaxed text-text-primary">
-          Stay ahead with proven promotional product ideas, trade show strategies, and marketing
-          insights that drive real results.
-        </p>
+        <IndexHeadingWithSearch>
+          <h1 className="text-3xl font-bold leading-tight text-brand-ink md:text-4xl lg:text-5xl">
+            Perfect Imprints Blog
+          </h1>
+          <p className="mt-3 max-w-3xl text-lg leading-relaxed text-text-primary">
+            Stay ahead with proven promotional product ideas, trade show strategies, and marketing
+            insights that drive real results.
+          </p>
+        </IndexHeadingWithSearch>
       </Container>
 
       <Container as="section" className="pb-12">

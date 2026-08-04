@@ -547,6 +547,19 @@
     <p class="small">The products on these three pages are refreshed automatically from Geiger every week. These
       controls let you nudge what shows without anyone touching the feed.</p>
 
+    <h4>Site Search</h4>
+    <p>One control: <strong>Hide these SKUs from site search</strong>. Search the catalog by name, SKU, or brand, click
+      a product, and it stops appearing in the search box suggestions and on the search results page, everywhere on the
+      site. Publish, and it is gone within seconds. Remove it from the list and publish again, and it comes straight
+      back.</p>
+    <p><strong>It only affects search.</strong> The product still appears on its category pages, still counts in the
+      filter numbers there, and is still in the sitemap for Google. Nothing else about it changes. This is for the case
+      where a product keeps turning up in search and you would rather it did not, not for taking a product off the
+      site.</p>
+    <p class="small">This is a different list from the three <strong>Hide these SKUs</strong> lists above. Those each
+      remove a product from one page's grid (Deals, New Products, Rush Products). This one is about search only. Adding
+      a SKU here does not remove it from those pages, and vice versa.</p>
+
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
@@ -928,9 +941,11 @@
       </tr>
       <tr>
         <td><strong>Product Strip</strong></td>
-        <td>A live row of product cards on any page. Add products by <strong>Geiger SKU</strong> (or fill the manual
-          title/image/link fields for a non-Geiger product) — prices, images, and affiliate links pull from the
-          catalog automatically, so nothing goes stale. You can also add one of your own <strong>Product
+        <td>A live row of product cards on any page. Add products by <strong>Geiger SKU</strong>. The SKU field is a
+          <strong>search box</strong>: type part of a product name, SKU, or brand and click a result, no typing numbers
+          from memory (if you ever need a SKU the catalog list does not know about yet, click <em>Enter a SKU
+          manually</em> underneath). Or fill the manual title/image/link fields for a non-Geiger product. Prices,
+          images, and affiliate links pull from the catalog automatically, so nothing goes stale. You can also add one of your own <strong>Product
             Pages</strong> (the card links to its <code>/products/…</code> page on your site) or <strong>Custom
             Products</strong> (the card links to its external URL) — pick the "Custom Product / Product Page" entry
           and its title, price, and image pull live from the document, so editing the product updates every strip
@@ -1125,8 +1140,8 @@
         fills in (closing it early is fine; generation keeps running). If it comes back with an error saying the
         result was thin, just click it again.</li>
       <li><strong>Review everything:</strong> edit the body text; swap or remove products in the product rows (each row
-        is a Products Block you can edit — add by SKU, add one of your own Product Pages / Custom Products, or delete
-        entries); check the internal links the AI
+        is a Products Block you can edit: add by SKU using the search-and-pick box, add one of your own Product Pages /
+        Custom Products, or delete entries); check the internal links the AI
         <strong>placed into the text automatically</strong> (they show as normal links — edit or remove any you do not
         want, and the <strong>Suggested Internal Links</strong> list records everything it found and says which were
         placed); <strong>add a header image</strong> (the AI does not pick images or videos — you drop those in
@@ -2062,7 +2077,8 @@
       you have edited and republished gets the updated numbers. It is a deliberately plain business document rather
       than a copy of the web page:</p>
     <ul>
-      <li>Perfect Imprints at the top with the quote number, the quote date, and the valid-until date.</li>
+      <li><strong>Your logo</strong> at the top with the quote number, the quote date, and the valid-until date - the
+        same logo the page shows, so a printed copy and a downloaded copy match.</li>
       <li><strong>Prepared for</strong> (their company and contact name) and <strong>your</strong> name, email and
         phone, so they know who to reply to.</li>
       <li>A table of every line: the picture, the name, the decoration, the description, your line note, the quantity,
@@ -2303,6 +2319,10 @@
       <tr>
         <td>Reword (or hide) the "Need help choosing…?" bar on video pages</td>
         <td>Global Settings &rsaquo; Video CTA Bar</td>
+      </tr>
+      <tr>
+        <td>Stop one product turning up in site search (it stays on its category pages)</td>
+        <td>Global Settings &rsaquo; Site Search &rsaquo; Hide these SKUs from site search</td>
       </tr>
       <tr>
         <td>Edit the big homepage headline text</td>

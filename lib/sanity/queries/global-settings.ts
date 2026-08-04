@@ -120,6 +120,16 @@ export interface SiteSettings {
   categoryCtaBar: CategoryCtaBarSettings;
   /** Video-page CTA bar copy (defaults applied — strings are never blank). */
   videoCtaBar: CategoryCtaBarSettings;
+  /**
+   * Geiger SKUs Patrick has hidden from SITE SEARCH only (Q-170 improvement 2).
+   * Trimmed, blanks dropped, raw case preserved. The search read paths
+   * normalize for comparison via `lib/search/hidden-skus.ts`. Empty is the
+   * overwhelmingly common case and costs every read path nothing.
+   *
+   * This list affects search visibility and NOTHING else: category pages, the
+   * aggregators, and the sitemap never consult it.
+   */
+  searchHiddenSkus: string[];
 }
 
 interface RawSocialLink {
@@ -154,6 +164,7 @@ interface RawSettings {
   footerColumns?: RawFooterColumn[];
   categoryCtaBar?: RawCategoryCtaBar;
   videoCtaBar?: RawCategoryCtaBar;
+  siteSearch?: { hiddenSkus?: string[] };
   // legacy flat fields — fallback only
   phoneNumber?: string;
   contactEmail?: string;
@@ -165,6 +176,7 @@ const QUERY = `*[_type == "globalSettings"][0]{
   footerColumns[]{ heading, links[]{ label, href, external } },
   categoryCtaBar{ enabled, heading, body, buttonLabel },
   videoCtaBar{ enabled, heading, body, buttonLabel },
+  siteSearch{ hiddenSkus },
   phoneNumber,
   contactEmail
 }`;
@@ -178,6 +190,7 @@ const EMPTY: SiteSettings = {
   footerColumns: [],
   categoryCtaBar: DEFAULT_CTA_BAR,
   videoCtaBar: DEFAULT_VIDEO_CTA_BAR,
+  searchHiddenSkus: [],
 };
 
 function resolveIconUrl(image: SanityImage | undefined): string | null {
@@ -265,12 +278,19 @@ function resolve(raw: RawSettings | null): SiteSettings {
     buttonLabel: clean(bar?.buttonLabel) ?? defaults.buttonLabel,
   });
 
+  // Search hide list (Q-170): trim and drop blanks here so no consumer has to.
+  // Case is left as typed; comparison is normalized in lib/search/hidden-skus.
+  const searchHiddenSkus = (raw.siteSearch?.hiddenSkus ?? [])
+    .map((s) => clean(s))
+    .filter((s): s is string => Boolean(s));
+
   return {
     socialLinks,
     contact: { phones: resolvedPhones, email, address },
     footerColumns,
     categoryCtaBar: resolveCtaBar(raw.categoryCtaBar, CATEGORY_CTA_BAR_DEFAULTS),
     videoCtaBar: resolveCtaBar(raw.videoCtaBar, VIDEO_CTA_BAR_DEFAULTS),
+    searchHiddenSkus,
   };
 }
 

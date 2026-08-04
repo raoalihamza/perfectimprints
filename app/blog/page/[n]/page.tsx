@@ -6,6 +6,7 @@ import { BlogGrid } from '@/components/blog/BlogGrid';
 import { BlogPagination } from '@/components/blog/BlogPagination';
 import { BlogSidebar } from '@/components/blog/BlogSidebar';
 import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
+import { IndexHeadingWithSearch } from '@/components/layout/IndexHeadingWithSearch';
 import { getBlogPostsPage, getAllBlogCategories } from '@/lib/sanity/queries/blogs';
 import { socialMeta } from '@/lib/seo/open-graph';
 
@@ -64,10 +65,14 @@ export default async function BlogIndexPaginated({ params }: Props) {
         />
       </Container>
 
+      {/* The paginated variant carries the box too, because it is the same index and a
+          search field that vanishes on page 2 reads as a bug. */}
       <Container as="section" className="pb-6">
-        <h1 className="text-3xl font-bold leading-tight text-brand-ink md:text-4xl">
-          Perfect Imprints Blog — Page {page}
-        </h1>
+        <IndexHeadingWithSearch>
+          <h1 className="text-3xl font-bold leading-tight text-brand-ink md:text-4xl">
+            Perfect Imprints Blog — Page {page}
+          </h1>
+        </IndexHeadingWithSearch>
       </Container>
 
       <Container as="section" className="pb-12">

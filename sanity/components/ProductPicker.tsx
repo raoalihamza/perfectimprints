@@ -245,6 +245,7 @@ export function ProductSkuInput(props: StringInputProps) {
   const { onChange } = props;
   const current = typeof props.value === 'string' ? props.value : '';
   const opts = useProductOptions();
+  const [manual, setManual] = useState(false);
 
   const select = useCallback(
     (sku: string) => {
@@ -254,15 +255,66 @@ export function ProductSkuInput(props: StringInputProps) {
     [onChange, opts],
   );
 
+  // The catalog search is the normal path, but it must never be the ONLY path.
+  // `product-list.json` is a build-time artifact: it can fail to load (standalone
+  // `sanity dev`, a stale build), and a SKU newer than the last catalog scrape is
+  // simply not in it. Either way the author still has to be able to finish the
+  // field, so a plain text box is always one click away and opens automatically
+  // when the list could not be loaded at all. Both paths store the SAME bare
+  // string, so nothing downstream can tell which one was used.
+  const showManual = manual || opts.loadError;
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-      {current && (
+      {current && !showManual && (
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
           <Chip label={opts.labelFor(current)} onRemove={() => onChange(unset())} />
         </div>
       )}
-      <SearchInput opts={opts} placeholder="Search a product by name, SKU, or brand…" />
-      <ResultsDropdown opts={opts} isSelected={(s) => s === current} onPick={select} />
+
+      {showManual ? (
+        <input
+          type="text"
+          value={current}
+          onChange={(e) => {
+            const next = e.currentTarget.value;
+            onChange(next ? set(next) : unset());
+          }}
+          placeholder="Type the SKU exactly as Geiger lists it, e.g. 501014 90A"
+          style={{ ...box, width: '100%', font: 'inherit' }}
+        />
+      ) : (
+        <>
+          <SearchInput opts={opts} placeholder="Search a product by name, SKU, or brand…" />
+          <ResultsDropdown opts={opts} isSelected={(s) => s === current} onPick={select} />
+        </>
+      )}
+
+      <button
+        type="button"
+        onClick={() => setManual((m) => !m)}
+        style={{
+          alignSelf: 'flex-start',
+          border: 'none',
+          background: 'transparent',
+          padding: 0,
+          color: '#6b7280',
+          font: 'inherit',
+          fontSize: 12,
+          textDecoration: 'underline',
+          cursor: 'pointer',
+        }}
+      >
+        {showManual ? 'Search the catalog instead' : 'Enter a SKU manually'}
+      </button>
+
+      {opts.loadError && !manual && (
+        <p style={{ margin: 0, fontSize: 12, color: '#e11f1e' }}>
+          Couldn&rsquo;t load the product list, so search is unavailable. Type the SKU above, or open
+          the Studio at the app URL (e.g. <code>http://localhost:3000/admin3773752</code>) to get
+          search back.
+        </p>
+      )}
     </div>
   );
 }

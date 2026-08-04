@@ -3,6 +3,7 @@ import { Container } from '@/components/ui/Container';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { VideosBrowser } from '@/components/videos/VideosBrowser';
 import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
+import { IndexHeadingWithSearch } from '@/components/layout/IndexHeadingWithSearch';
 import { getAllVideos } from '@/lib/sanity/queries/videos';
 import { toVideoCardData } from '@/lib/video/card-data';
 import { socialMeta } from '@/lib/seo/open-graph';
@@ -37,12 +38,14 @@ export default async function VideosIndexPage() {
       </Container>
 
       <Container as="section" className="pb-6">
-        <h1 className="text-3xl font-bold leading-tight text-brand-ink md:text-4xl lg:text-5xl">
-          Videos
-        </h1>
-        <p className="mt-3 max-w-3xl text-lg leading-relaxed text-text-primary">
-          Promotional product demos, ideas, and inspiration to help your brand make an impression.
-        </p>
+        <IndexHeadingWithSearch>
+          <h1 className="text-3xl font-bold leading-tight text-brand-ink md:text-4xl lg:text-5xl">
+            Videos
+          </h1>
+          <p className="mt-3 max-w-3xl text-lg leading-relaxed text-text-primary">
+            Promotional product demos, ideas, and inspiration to help your brand make an impression.
+          </p>
+        </IndexHeadingWithSearch>
       </Container>
 
       <Container as="section" className="pb-12">

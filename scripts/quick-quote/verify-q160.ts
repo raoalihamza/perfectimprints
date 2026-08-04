@@ -606,16 +606,27 @@ async function fetchPdf(token: string): Promise<PdfResult> {
 
 /**
  * A baseline round trip to a route on the SAME deployment that does almost no
- * work (a malformed token is rejected before any Sanity call). Subtracting it
- * from the PDF timing separates network latency from the actual generation.
+ * work (a malformed token is rejected before any Sanity call), so subtracting
+ * it from the PDF timing separates network latency from real generation cost.
+ *
+ * MEASURED SEVERAL TIMES AND MEDIANED, and the first sample is thrown away.
+ * That route has its own container, so a single reading includes ITS cold start
+ * and can easily come out slower than a warm PDF request - which produced a
+ * nonsense "generation costs 0 ms" line on the first run of this script.
  */
 async function baselineRoundTripMs(): Promise<number> {
-  const body = new FormData();
-  body.set('token', 'not-a-real-token');
-  body.set('kind', 'viewed');
-  const started = Date.now();
-  await fetch(`${SITE}/api/quote-response`, { method: 'POST', body });
-  return Date.now() - started;
+  async function once(): Promise<number> {
+    const body = new FormData();
+    body.set('token', 'not-a-real-token');
+    body.set('kind', 'viewed');
+    const started = Date.now();
+    await fetch(`${SITE}/api/quote-response`, { method: 'POST', body });
+    return Date.now() - started;
+  }
+  await once(); // discarded: warms that route's container
+  const samples: number[] = [];
+  for (let i = 0; i < 4; i++) samples.push(await once());
+  return samples.sort((a, b) => a - b)[Math.floor(samples.length / 2)];
 }
 
 async function fetchPage(path: string): Promise<{ status: number; html: string }> {
@@ -818,6 +829,14 @@ function offlineChecks(): void {
       /Font\.register/.test(code) ? 'A FONT IS REGISTERED' : 'no Font.register',
       !/Font\.register/.test(code),
     );
+    record(
+      'logo: the document renders the real logo, not a text wordmark',
+      'QUOTE_PDF_LOGO used as an Image',
+      /<Image style=\{styles\.logo\} src=\{QUOTE_PDF_LOGO\}/.test(code)
+        ? 'QUOTE_PDF_LOGO used as an Image'
+        : 'STILL A WORDMARK',
+      /<Image style=\{styles\.logo\} src=\{QUOTE_PDF_LOGO\}/.test(code),
+    );
     // Nothing internal may be modelled, so it cannot be printed by accident.
     for (const forbidden of ['sku', 'sentAt', 'customerEmail', 'customerPhone', 'customerAddress']) {
       record(
@@ -827,6 +846,44 @@ function offlineChecks(): void {
         !new RegExp(`\\b${forbidden}\\b`).test(code),
       );
     }
+  }
+
+  // 4b. The generated logo module: it must decode to a REAL PNG, because the
+  //     renderer decodes JPEG and PNG only and a broken regeneration would
+  //     silently drop the logo off every customer's quote.
+  const logoPath = resolve(PROJECT_ROOT, 'lib/quotes/pdf/quote-pdf-logo.ts');
+  const logoExists = existsSync(logoPath);
+  record(
+    'logo: the generated module lib/quotes/pdf/quote-pdf-logo.ts exists',
+    'present',
+    logoExists ? 'present' : 'MISSING - re-run scripts/quick-quote/generate-pdf-logo.mjs',
+    logoExists,
+  );
+  if (logoExists) {
+    const src = readFileSync(logoPath, 'utf8');
+    const b64 = /const LOGO_BASE64 = `([\s\S]*?)`/.exec(src)?.[1] ?? '';
+    const bytes = Buffer.from(b64.replace(/\s+/g, ''), 'base64');
+    const isPng =
+      bytes.length > 8 &&
+      bytes[0] === 0x89 &&
+      bytes[1] === 0x50 &&
+      bytes[2] === 0x4e &&
+      bytes[3] === 0x47;
+    record(
+      'logo: it decodes to a real PNG (the renderer cannot use an SVG)',
+      'PNG magic bytes',
+      isPng ? `PNG, ${(bytes.length / 1024).toFixed(1)} KB` : 'NOT A PNG',
+      isPng,
+    );
+    // Inlined on purpose: reading from public/ at request time is not reliable
+    // on a serverless function, and a quote quietly losing its logo is worse
+    // than 48 KB of generated source.
+    record(
+      'logo: it is inlined, not read from disk at request time',
+      'no fs read',
+      /readFileSync|process\.cwd\(\)/.test(src) ? 'READS FROM DISK' : 'no fs read',
+      !/readFileSync|process\.cwd\(\)/.test(src),
+    );
   }
 
   // 5. The button, and the banner.
@@ -1146,6 +1203,9 @@ async function main(): Promise<void> {
       process.exit(1);
     }
     info('preflight: the PDF route is live on the target', `probe answered ${probe.status} with the route's own message`);
+    notes.push(
+      'The LOCAL RENDER checks read the current working tree; the DEPLOYED checks read whatever is live on the target. If a change has landed since the last deploy the two will legitimately differ (a different PDF byte size is the usual tell), so redeploy and re-run before reading the deployed numbers as current.',
+    );
   }
 
   const client = buildClient();
@@ -1375,8 +1435,10 @@ async function main(): Promise<void> {
     timings.push(
       `Deployed cold (first request, includes the dead-image timeout): ${cold.ms} ms round trip`,
       `Deployed warm: ${warm.join(', ')} ms round trip (median ${warmMedian} ms)`,
-      `Baseline round trip to a no-work route on the same deployment: ${baseline} ms`,
-      `So the generation plus payload is roughly ${Math.max(0, warmMedian - baseline)} ms warm and ${Math.max(0, cold.ms - baseline)} ms cold, the rest is network latency from this location.`,
+      `Baseline round trip to a no-work route on the same deployment (median of 4, first discarded): ${baseline} ms`,
+      warmMedian > baseline
+        ? `So generating and sending the PDF costs roughly ${warmMedian - baseline} ms warm and ${Math.max(0, cold.ms - baseline)} ms cold on top of the network. Everything else in the numbers above is latency from this location, which a customer in the United States does not pay.`
+        : `The warm PDF round trip came out AT OR BELOW the no-work baseline (${warmMedian} vs ${baseline} ms), so on this connection the generation cost is smaller than the run-to-run network noise and cannot be separated out from here. Read it as "well under the latency", not as zero. The Q-121 addendum measured the render itself at about 322 ms warm inside the function.`,
     );
     info('timing: cold / warm-median / network baseline', `${cold.ms} / ${warmMedian} / ${baseline} ms`);
     record(

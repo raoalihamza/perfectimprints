@@ -22,6 +22,7 @@ import type FuseClass from 'fuse.js';
 import type { IFuseOptions } from 'fuse.js';
 import type { SearchIndexFile, SearchItem } from './types';
 import { SEARCH_INDEX_ROUTE } from './constants';
+import { buildHiddenSkuSet, filterHiddenSkuItems } from './hidden-skus';
 
 export type { SearchItem, SearchItemType } from './types';
 
@@ -55,10 +56,16 @@ const FUSE_OPTIONS: IFuseOptions<SearchItem> = {
   includeScore: true,
 };
 
-// Mutable module state. `items` starts as the static bulk and is upgraded to the
-// merged set when the live delta lands; `fuse`/`rootFuse` are nulled on every
-// change so the next search rebuilds against the current items.
+// Mutable module state. The two sources are kept SEPARATE and `items` is derived
+// from them (merge, then drop anything on the search hide list), so a late-
+// arriving delta can recompute without having lost the static bulk. `fuse`/
+// `rootFuse` are nulled on every change so the next search rebuilds against the
+// current items.
 let staticReady: Promise<SearchItem[]> | null = null;
+let staticItems: SearchItem[] = [];
+let liveItems: SearchItem[] = [];
+/** SKUs hidden from search (Q-170). Arrives with the live delta, empty until then. */
+let hiddenSkus: ReadonlySet<string> = new Set<string>();
 let items: SearchItem[] = [];
 let fuse: FuseClass<SearchItem> | null = null;
 let rootFuse: FuseClass<SearchItem> | null = null;
@@ -85,11 +92,10 @@ function escapeRegExp(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-async function fetchIndex(url: string): Promise<SearchItem[]> {
+async function fetchIndexFile(url: string): Promise<SearchIndexFile> {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`search index HTTP ${res.status} (${url})`);
-  const data = (await res.json()) as SearchIndexFile;
-  return data.items ?? [];
+  return (await res.json()) as SearchIndexFile;
 }
 
 /**
@@ -121,33 +127,55 @@ function loadFuseCtor(): Promise<typeof FuseClass> {
 }
 
 /**
- * Kick off loading (idempotent). Resolves as soon as the STATIC bulk is ready —
- * it does NOT wait for the live delta, which loads in the background and upgrades
- * the index in place.
+ * Recompute the searchable set from whatever has arrived so far: Sanity delta
+ * first (so an authored category overrides a bulk slug), then the static bulk,
+ * then drop anything on the search hide list. Nulls the Fuse indexes so the next
+ * search rebuilds. Cheap and idempotent, called at most twice per page.
+ */
+function recomputeItems(): void {
+  const merged = dedupe([...liveItems, ...staticItems]);
+  // Q-170: applied to the MERGED set on purpose. The hide list arrives with the
+  // delta but the SKUs it names live in the static bulk, so filtering the delta
+  // alone would hide nothing at all.
+  items = filterHiddenSkuItems(merged, hiddenSkus);
+  fuse = null;
+  rootFuse = null;
+}
+
+/**
+ * Kick off loading (idempotent). Resolves as soon as the STATIC bulk is ready.
+ * It does NOT wait for the live delta, which loads alongside it and upgrades the
+ * index in place.
+ *
+ * The two fetches run in PARALLEL rather than the delta being chained behind the
+ * static file. It still does not gate the first search (this promise resolves on
+ * the static bulk either way), but it matters for the Q-170 hide list, which
+ * travels on the delta: starting both at once means the list is usually in hand
+ * by the time the much larger static file has finished parsing. See the honest
+ * limitation noted on `search()`.
  */
 function startLoading(): Promise<SearchItem[]> {
   if (!staticReady) {
-    staticReady = fetchIndex(STATIC_INDEX_URL)
-      .then((staticItems) => {
-        items = staticItems;
-        fuse = null;
-        rootFuse = null;
-        return staticItems;
+    const liveRequest = fetchIndexFile(SANITY_INDEX_URL);
+
+    staticReady = fetchIndexFile(STATIC_INDEX_URL)
+      .then((file) => {
+        staticItems = file.items ?? [];
+        recomputeItems();
+        return items;
       })
       .catch((err) => {
         staticReady = null; // let a transient failure retry next time
         throw err;
       });
 
-    // Background: merge the live Sanity delta when it arrives. Best-effort —
+    // Background: merge the live Sanity delta when it arrives. Best-effort:
     // failures leave search running on the static bulk.
-    void staticReady
-      .then(() => fetchIndex(SANITY_INDEX_URL))
-      .then((liveItems) => {
-        if (liveItems.length === 0) return;
-        items = dedupe([...liveItems, ...items]);
-        fuse = null; // rebuilt with the merged set on the next search
-        rootFuse = null;
+    void liveRequest
+      .then((file) => {
+        liveItems = file.items ?? [];
+        hiddenSkus = buildHiddenSkuSet(file.hiddenProductSkus);
+        recomputeItems();
       })
       .catch(() => {
         /* live delta is best-effort */
@@ -194,6 +222,15 @@ async function ensureFuses(): Promise<{
  * the front so the "main" category outranks its own modifier/facet children
  * (e.g. "beer accessories" → the root, above "Closeout …"). Consumers group by
  * type, so front-of-list = first in the Categories group.
+ *
+ * Q-170 honest limitation, stated rather than hidden: this never blocks on the
+ * live delta, so a search fired in the gap between the static bulk resolving and
+ * the delta resolving runs against an EMPTY hide list and can briefly surface a
+ * hidden product in the overlay. It corrects itself on the next keystroke, the
+ * two fetches now start together so the gap is usually negative (the delta is a
+ * few KB, the static bulk is ~570 KB gzipped), and the /search results page is
+ * filtered server-side and is never affected. Blocking the first search on a
+ * cold Sanity route to close it would be a worse trade.
  */
 export async function search(query: string, limit = 10): Promise<SearchResult[]> {
   const q = query.trim();

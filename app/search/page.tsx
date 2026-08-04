@@ -6,6 +6,8 @@ import { SearchFacetedResults } from '@/components/search/SearchFacetedResults';
 import { SearchEmptyCTA } from '@/components/search/SearchEmptyCTA';
 import { searchProducts } from '@/lib/search/server-search';
 import { buildSearchFacets } from '@/lib/search/build-facets';
+import { buildHiddenSkuSet } from '@/lib/search/hidden-skus';
+import { getSiteSettings } from '@/lib/sanity/queries/global-settings';
 import { socialMeta } from '@/lib/seo/open-graph';
 
 interface Props {
@@ -40,7 +42,16 @@ export default async function SearchPage({ searchParams }: Props) {
 
   // Product matches + facets are resolved server-side from the full catalog
   // (products.json) — the lightweight client index can't render cards/facets.
-  const products = query ? searchProducts(query) : [];
+  //
+  // Q-170: this is the SECOND of the two search read paths, and it is the one
+  // that would otherwise keep showing a product Patrick had already hidden from
+  // the overlay. `getSiteSettings()` is the same React-cache()d, SETTINGS_TAG
+  // tagged read the layout Footer already performs in this render, so it costs
+  // no extra Sanity fetch. Facets are built from the FILTERED list, so a hidden
+  // product leaves no trace in the sidebar counts either.
+  const settings = query ? await getSiteSettings() : null;
+  const hiddenSkus = buildHiddenSkuSet(settings?.searchHiddenSkus);
+  const products = query ? searchProducts(query, 300, hiddenSkus) : [];
   const facets = products.length > 0 ? buildSearchFacets(products) : [];
 
   return (
