@@ -23,9 +23,11 @@ import {
   set,
   unset,
   useClient,
+  useFormValue,
   type ArrayOfPrimitivesInputProps,
   type StringInputProps,
 } from 'sanity';
+import { IntentLink } from 'sanity/router';
 import { loadStudioJson } from './load-json';
 
 interface CategoryEntry {
@@ -299,6 +301,87 @@ export function CategorySlugInput(props: StringInputProps) {
       )}
 
       {opts.error && <div style={{ color: '#e11f1e', fontSize: 12 }}>{opts.error}</div>}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// categoryOverride.categorySlug input: CategorySlugInput + a duplicate check.
+//
+// Only ONE override per category takes effect at render time, so a second doc
+// for the same slug silently does nothing — which reads as "my edits are
+// ignored" (exactly what happened with the duplicate `bags` overrides,
+// 2026-08-05). As soon as a slug is picked that another override already
+// targets, this shows that override's key details and a link to open it, and
+// the schema's uniqueness validation blocks publishing the duplicate.
+// ---------------------------------------------------------------------------
+interface ExistingOverrideInfo {
+  _id: string;
+  replaceProducts?: boolean;
+  addedCount: number;
+}
+
+export function OverrideCategorySlugInput(props: StringInputProps) {
+  const current = typeof props.value === 'string' ? props.value.trim() : '';
+  const client = useClient({ apiVersion: '2024-10-01' });
+  const docId = (useFormValue(['_id']) as string | undefined) ?? '';
+  const [existing, setExisting] = useState<ExistingOverrideInfo | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    if (!current) {
+      setExisting(null);
+      return;
+    }
+    const id = docId.replace(/^drafts\./, '');
+    client
+      .fetch<ExistingOverrideInfo | null>(
+        `*[_type == "categoryOverride" && categorySlug == $slug && !(_id in [$id, $draftId])][0]{
+          _id,
+          replaceProducts,
+          "addedCount": coalesce(count(addedSkus), 0) + coalesce(count(addedProducts), 0)
+        }`,
+        { slug: current, id, draftId: `drafts.${id}` },
+      )
+      .then((d) => {
+        if (!cancelled) setExisting(d ?? null);
+      })
+      .catch(() => {
+        if (!cancelled) setExisting(null);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [client, current, docId]);
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+      <CategorySlugInput {...props} />
+      {existing && (
+        <div
+          style={{
+            border: '1px solid #e11f1e',
+            borderRadius: 4,
+            background: '#fef2f2',
+            color: '#7f1d1d',
+            padding: '8px 10px',
+            fontSize: 13,
+            lineHeight: 1.5,
+          }}
+        >
+          <strong>An override for /cat/{current} already exists</strong> ({existing.addedCount}{' '}
+          added product{existing.addedCount === 1 ? '' : 's'}, Replace products{' '}
+          {existing.replaceProducts ? 'ON' : 'OFF'}). Only one override per category works —{' '}
+          <IntentLink
+            intent="edit"
+            params={{ id: existing._id.replace(/^drafts\./, ''), type: 'categoryOverride' }}
+            style={{ color: '#e11f1e', fontWeight: 600 }}
+          >
+            open the existing override
+          </IntentLink>{' '}
+          and make your changes there. Publishing this document will be blocked.
+        </div>
+      )}
     </div>
   );
 }

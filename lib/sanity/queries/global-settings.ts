@@ -53,6 +53,12 @@ export interface SiteContact {
   phones: string[];
   email: string | null;
   address: SiteAddress | null;
+  /**
+   * Hours of Operation (the `hoursOfOperation` text field — may be multi-line).
+   * Rendered in the footer Contact column and the category CTA banner. Null when
+   * blank — consumers hide their hours line/fall back to default wording.
+   */
+  hours: string | null;
 }
 
 export interface FooterLink {
@@ -165,6 +171,7 @@ interface RawSettings {
   categoryCtaBar?: RawCategoryCtaBar;
   videoCtaBar?: RawCategoryCtaBar;
   siteSearch?: { hiddenSkus?: string[] };
+  hoursOfOperation?: string;
   // legacy flat fields — fallback only
   phoneNumber?: string;
   contactEmail?: string;
@@ -177,6 +184,7 @@ const QUERY = `*[_type == "globalSettings"][0]{
   categoryCtaBar{ enabled, heading, body, buttonLabel },
   videoCtaBar{ enabled, heading, body, buttonLabel },
   siteSearch{ hiddenSkus },
+  hoursOfOperation,
   phoneNumber,
   contactEmail
 }`;
@@ -186,7 +194,7 @@ const DEFAULT_VIDEO_CTA_BAR: CategoryCtaBarSettings = { enabled: true, ...VIDEO_
 
 const EMPTY: SiteSettings = {
   socialLinks: [],
-  contact: { phones: [], email: null, address: null },
+  contact: { phones: [], email: null, address: null, hours: null },
   footerColumns: [],
   categoryCtaBar: DEFAULT_CTA_BAR,
   videoCtaBar: DEFAULT_VIDEO_CTA_BAR,
@@ -286,7 +294,7 @@ function resolve(raw: RawSettings | null): SiteSettings {
 
   return {
     socialLinks,
-    contact: { phones: resolvedPhones, email, address },
+    contact: { phones: resolvedPhones, email, address, hours: clean(raw.hoursOfOperation) },
     footerColumns,
     categoryCtaBar: resolveCtaBar(raw.categoryCtaBar, CATEGORY_CTA_BAR_DEFAULTS),
     videoCtaBar: resolveCtaBar(raw.videoCtaBar, VIDEO_CTA_BAR_DEFAULTS),

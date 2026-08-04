@@ -86,8 +86,12 @@ export async function getCategoryOverride(
 ): Promise<CategoryOverrideDoc | null> {
   if (!categorySlug) return null;
   try {
+    // `order(_updatedAt desc)`: schema validation blocks NEW duplicates for a
+    // slug, but pre-guard duplicates can exist (the `bags` incident) — if one
+    // slips through, the most recently edited doc wins, matching editor intent,
+    // instead of an arbitrary [0] pick silently ignoring the edited doc.
     const doc = await cachedClient.fetch<CategoryOverrideDoc | null>(
-      `*[_type == "categoryOverride" && categorySlug == $slug][0] { ${PROJECTION} }`,
+      `*[_type == "categoryOverride" && categorySlug == $slug] | order(_updatedAt desc)[0] { ${PROJECTION} }`,
       { slug: categorySlug },
       { next: { tags: [categoryTag(categorySlug)].filter(Boolean), revalidate: false } },
     );

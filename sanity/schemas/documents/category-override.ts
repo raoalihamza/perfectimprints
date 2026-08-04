@@ -1,5 +1,5 @@
 import { defineField, defineType } from 'sanity';
-import { CategorySlugInput } from '../../components/CategoryPicker';
+import { OverrideCategorySlugInput } from '../../components/CategoryPicker';
 import { ProductSkuPicker } from '../../components/ProductPicker';
 
 /**
@@ -26,14 +26,27 @@ export default defineType({
       type: 'string',
       description:
         'Search and pick the category to override (by title or slug). Selecting writes its exact slug — the path AFTER /cat/, e.g. "water-bottles" or "water-bottles/color/blue" for a facet — so a typo can\'t silently target nothing.',
-      components: { input: CategorySlugInput },
+      components: { input: OverrideCategorySlugInput },
       validation: (Rule) =>
-        Rule.required().custom((value) => {
+        Rule.required().custom(async (value, context) => {
           if (typeof value !== 'string') return 'Required.';
           const v = value.trim();
           if (!v) return 'Required.';
           if (v.startsWith('/') || v.endsWith('/')) return 'No leading or trailing slash.';
           if (v.startsWith('cat/')) return 'Drop the leading "cat/" — just the slug after it.';
+          // One override per category. The render path reads a single override
+          // per slug, so a second doc for the same category silently does
+          // nothing — the editor's changes just never appear (the duplicate
+          // `bags` overrides incident, 2026-08-05). Block publishing it.
+          const id = (context.document?._id ?? '').replace(/^drafts\./, '');
+          const client = context.getClient({ apiVersion: '2024-10-01' });
+          const dupe = await client.fetch<string | null>(
+            `*[_type == "categoryOverride" && categorySlug == $slug && !(_id in [$id, $draftId])][0]._id`,
+            { slug: v, id, draftId: `drafts.${id}` },
+          );
+          if (dupe) {
+            return 'An override for this category already exists. Open and edit that one instead — a second override for the same category is ignored by the website.';
+          }
           return true;
         }),
     }),

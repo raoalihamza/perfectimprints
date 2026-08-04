@@ -134,7 +134,18 @@ export async function Footer() {
                 </address>
               </li>
             )}
-            <li className="text-sm text-white/80">Mon-Fri 8am-5pm CST</li>
+            {/* Hours of Operation — Sanity-driven (globalSettings.hoursOfOperation,
+                a multi-line text field). Hidden when blank. Was hardcoded until
+                2026-08-05, which made the Studio field appear broken. */}
+            {contact.hours && (
+              <li className="text-sm text-white/80">
+                {contact.hours.split('\n').map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+              </li>
+            )}
           </ul>
         </div>
       </Container>
