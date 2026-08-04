@@ -16,6 +16,9 @@ import {
   getPlacedProductPagesForCategory,
   getPlacementSkusForCategory,
 } from '@/lib/sanity/queries/product-placements';
+import { getCategoryControlSets } from '@/lib/sanity/queries/owned-categories';
+import { getCustomCategoryBySlug } from '@/lib/sanity/queries/custom-categories';
+import { customProductToGeigerProduct } from '@/lib/sanity/queries/custom-products';
 import {
   applyFiltersAndSort,
   buildAddedAttrOverlay,
@@ -32,12 +35,6 @@ export async function GET(request: Request) {
     return NextResponse.json({ products: [], totalProducts: 0 });
   }
 
-  const fileSlug = slug.split('/').join('__');
-  const content = getCategoryContent(fileSlug);
-  if (!content) {
-    return NextResponse.json({ products: [], totalProducts: 0 });
-  }
-
   // Rebuild the filter-params record from the query string (drop our own `slug`).
   const record: Record<string, string | string[]> = {};
   for (const key of new Set(url.searchParams.keys())) {
@@ -47,6 +44,52 @@ export async function GET(request: Request) {
   }
 
   const rootSlug = slug.split('/')[0];
+  const fileSlug = slug.split('/').join('__');
+  const content = getCategoryContent(fileSlug);
+
+  // Sanity-owned customCategory (pushed/custom page): its grid is the doc's OWN
+  // product set (productSkus + attached customProducts + override/placement
+  // edits), NOT the baked JSON's — mirror renderCustomCategory exactly so the
+  // filtered results match the grid the customer is looking at. Owned-set check
+  // first (one shared tag-cached read); the !content fallback covers a page
+  // published moments ago that the cached owned set hasn't picked up yet (same
+  // two entry points as the page route).
+  const { owned } = await getCategoryControlSets();
+  const custom =
+    owned.has(slug) || !content ? await getCustomCategoryBySlug(slug) : null;
+
+  if (custom) {
+    const [override, placement, placedPages] = await Promise.all([
+      getCategoryOverride(slug),
+      getPlacementSkusForCategory(slug),
+      getPlacedProductPagesForCategory(slug),
+    ]);
+    const allProducts = mergeCategoryProducts({
+      bakedSkus: custom.productSkus ?? [],
+      override,
+      placementAddSkus: placement.addSkus,
+      placementRemoveSkus: placement.removeSkus,
+      extraCustomProducts: custom.customProducts.map(customProductToGeigerProduct),
+      placedProductPages: placedPages.products,
+    });
+    // Hand-picked grid → always curated-mode filtering (attribute overlay), the
+    // same build the page's sidebar uses so the two can never disagree.
+    const overlay = buildAddedAttrOverlay(allProducts, [
+      ...(override?.addedProducts ?? []),
+      ...placedPages.overlayDocs,
+      ...custom.customProducts.map((d) => ({ ...d, _type: 'customProduct' as const })),
+    ]);
+    const state = parseFilterState(record);
+    const filtered = isStateEmpty(state)
+      ? allProducts
+      : applyFiltersAndSort(allProducts, state, rootSlug, overlay);
+    return NextResponse.json({ products: filtered, totalProducts: filtered.length });
+  }
+
+  if (!content) {
+    return NextResponse.json({ products: [], totalProducts: 0 });
+  }
+
   const [override, placement, placedPages] = await Promise.all([
     getCategoryOverride(slug),
     getPlacementSkusForCategory(slug),

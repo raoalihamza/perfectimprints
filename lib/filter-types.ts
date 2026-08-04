@@ -104,6 +104,13 @@ export interface SidebarData {
   price: PriceRange | null;
   minQtyBuckets: MinQtyBucketCount[];
   refineBy: RefineByCounts;
+  /**
+   * URL filter clicks navigate to (with query params). Defaults to
+   * `/cat/<rootSlug>`. Set on Sanity-owned customCategory pages, whose slug can
+   * be deeper than the root (e.g. `/cat/headwear/theme/christmas`) — without it
+   * a filter click would leave Patrick's page for the baked root category.
+   */
+  filterBaseUrl?: string;
 }
 
 export interface FilterState {

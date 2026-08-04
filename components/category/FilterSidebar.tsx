@@ -37,8 +37,12 @@ export function FilterSidebar({ sidebar, searchKey, navigate, onSearchWithin }: 
 
   const activeCount = countActiveFilters(state);
 
-  /** Root URL for the current category (e.g. /cat/water-bottles). */
-  const rootUrl = `/cat/${sidebar.rootSlug}`;
+  /**
+   * URL filter state serializes onto. Baked categories: the root URL (e.g.
+   * /cat/water-bottles). Sanity-owned custom pages pin `filterBaseUrl` to their
+   * own (possibly deeper) URL so a filter click never leaves the page.
+   */
+  const rootUrl = sidebar.filterBaseUrl ?? `/cat/${sidebar.rootSlug}`;
 
   /**
    * Navigate to a new filter state. If exactly one facet is selected AND it has a

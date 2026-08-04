@@ -278,10 +278,49 @@ async function renderCustomCategory(
     extraCustomProducts: custom.customProducts.map(customProductToGeigerProduct),
     placedProductPages: placedPages.products,
   });
+
+  // Filter sidebar for Sanity-owned pages: a customCategory's grid is fully
+  // hand-picked (its own SKU list + attached/placed products), so it is built
+  // exactly like a Replace-products (curated) category — the attribute overlay
+  // recovers real Geiger tags for picked SKUs via the reverse membership index
+  // and reads customProduct/productPage tags off their docs, and every facet
+  // value's staticUrl is nulled so a filter click stays on this URL (hitting
+  // the customCategory-aware /api/category-products) instead of navigating to
+  // a baked child facet page that would serve the ORIGINAL products. Reads only
+  // facet-memberships.json (fs) — no extra Sanity call, page stays static.
+  const sidebar =
+    products.length > 0
+      ? {
+          ...enrichSidebarWithProductStats(
+            buildSidebarData(
+              categorySlug.split('/')[0],
+              products.map((p) => p.sku),
+              buildAddedAttrOverlay(products, [
+                ...(override?.addedProducts ?? []),
+                ...placedPages.overlayDocs,
+                ...custom.customProducts.map((d) => ({ ...d, _type: 'customProduct' as const })),
+              ]),
+              true,
+            ),
+            products,
+          ),
+          // Custom slugs can be deeper than the root (headwear/theme/christmas):
+          // pin filter-click navigation to THIS page so it never jumps to the
+          // baked root category (FilterSidebar defaults to /cat/<rootSlug>).
+          filterBaseUrl: baseUrl,
+        }
+      : null;
+
   return (
     <>
       <CustomSchemaJsonLd path={baseUrl} />
-      <CustomCategoryView doc={custom} baseUrl={baseUrl} products={products} />
+      <CustomCategoryView
+        doc={custom}
+        baseUrl={baseUrl}
+        products={products}
+        sidebar={sidebar}
+        slug={categorySlug}
+      />
     </>
   );
 }

@@ -5,6 +5,7 @@ import { FAQsAccordion } from '@/components/category/FAQsAccordion';
 import { CTABanner } from '@/components/category/CTABanner';
 import { CategoryCtaBar } from '@/components/category/CategoryCtaBar';
 import { EmptyStateCTA } from '@/components/category/EmptyStateCTA';
+import { CategoryShell } from '@/components/category/CategoryShell';
 import { ProductGrid } from '@/components/category/ProductGrid';
 import { Schema } from '@/components/seo/Schema';
 import { pagePortableComponents } from '@/components/page-sections/portable-text';
@@ -14,6 +15,7 @@ import { portableTextToPlain } from '@/lib/portable-text/to-plain';
 import { affiliateUrl } from '@/lib/affiliate-url';
 import { urlForImage } from '@/lib/sanity/client';
 import type { GeigerProduct } from '@/lib/product-types';
+import type { SidebarData } from '@/lib/filter-types';
 import type { CustomCategoryDoc } from '@/lib/sanity/queries/custom-categories';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
@@ -25,6 +27,15 @@ interface Props {
   doc: CustomCategoryDoc;
   baseUrl: string;
   products: GeigerProduct[];
+  /**
+   * Filter sidebar data, computed by the route (server-only membership reads).
+   * When set the grid renders inside CategoryShell with the FilterSidebar —
+   * filter clicks stay on this URL and fetch /api/category-products. When
+   * null/absent the plain ProductGrid renders (the pre-filter behavior).
+   */
+  sidebar?: SidebarData | null;
+  /** Category slug after /cat/ — CategoryShell's API fetch key. */
+  slug?: string;
 }
 
 /**
@@ -32,7 +43,7 @@ interface Props {
  * require a Geiger mapping. CTAs default to the contact form when `externalUrl`
  * is blank.
  */
-export function CustomCategoryView({ doc, baseUrl, products }: Props) {
+export function CustomCategoryView({ doc, baseUrl, products, sidebar, slug }: Props) {
   const title = doc.title;
   const hasFaqs = Array.isArray(doc.faqs) && doc.faqs.length > 0;
   const externalUrl = doc.externalUrl?.trim();
@@ -124,7 +135,22 @@ export function CustomCategoryView({ doc, baseUrl, products }: Props) {
 
       <Container as="section" className="pb-10">
         {products.length > 0 ? (
-          <ProductGrid products={products} />
+          sidebar ? (
+            // Custom pages have no path pagination (page 1 only, whole grid in
+            // the static HTML) — totalPages 1 keeps the unfiltered view showing
+            // everything; filtered results client-paginate inside the shell.
+            <CategoryShell
+              sidebar={sidebar}
+              products={products}
+              totalProducts={products.length}
+              totalPages={1}
+              currentPage={1}
+              baseUrl={baseUrl}
+              slug={slug ?? baseUrl.replace(/^\/cat\//, '')}
+            />
+          ) : (
+            <ProductGrid products={products} />
+          )
         ) : (
           <EmptyStateCTA categoryTitle={title} sourceUrl={baseUrl} />
         )}
