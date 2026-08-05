@@ -1,8 +1,8 @@
 # Q-175: Automated verification of the freshness fixes
 
-Run: 2026-08-05T06:27:56.288Z. Target: https://dev.perfectimprints.com. Script: scripts/quick-quote/verify-q175.ts (verification only, no app code touched). Mode: dry run.
+Run: 2026-08-05T07:09:43.667Z. Target: https://dev.perfectimprints.com. Script: scripts/quick-quote/verify-q175.ts (verification only, no app code touched). Mode: apply.
 
-Result: 34 passed, 0 failed.
+Result: 44 passed, 0 failed.
 
 ## The gate
 
@@ -10,12 +10,12 @@ The category page check runs FIRST and stops the run on failure. `/cat/<slug>` i
 
 ## Singletons (real documents Patrick uses)
 
-- `homePage.heroText` BEFORE: `(not read in this mode)`
-- `homePage.heroText` AFTER:  `(not written in this mode)`
-- `globalSettings.dealsPage` BEFORE: `(not read in this mode)`
-- `globalSettings.dealsPage` AFTER:  `(not written in this mode)`
+- `homePage.heroText` BEFORE: `heroText: {"eyebrow":"BULK PROMOTIONAL EXPERTS SINCE 1999","headline":"Custom Promotional Products That People Actually Use","subheadline":"Branded apparel, drinkware, bags, tech, and giveaways for trade shows, employee gifts, safety programs, and customer thank-yous. 22,000+ products with bulk volume pricing, rush options, and free art proofs. "}`
+- `homePage.heroText` AFTER:  `heroText: {"eyebrow":"BULK PROMOTIONAL EXPERTS SINCE 1999","headline":"Custom Promotional Products That People Actually Use","subheadline":"Branded apparel, drinkware, bags, tech, and giveaways for trade shows, employee gifts, safety programs, and customer thank-yous. 22,000+ products with bulk volume pricing, rush options, and free art proofs. "}`
+- `globalSettings.dealsPage` BEFORE: `dealsPage: UNSET`
+- `globalSettings.dealsPage` AFTER:  `dealsPage: UNSET`
 
-No write was made in this mode. The record-and-restore machinery is still in the script and is what `--apply` uses.
+Both values were recorded before the first write and restored in a `finally` that survives a crash. An UNSET field is restored by unsetting it, never by writing an empty value. Neither DRAFT was touched. The dataset is shared between staging and production, so for the couple of minutes this run took, the production home page hero eyebrow and the /deals intro carried a ZZ Test marker.
 
 ## Results
 
@@ -64,10 +64,26 @@ No write was made in this mode. The record-and-restore machinery is still in the
 | route blog category is not client-side rendered | no BAILOUT_TO_CLIENT_SIDE_RENDERING | absent | PASS |
 | route blog category prerender header | (informational) | x-nextjs-prerender: 1 | INFO |
 | route blog category page 2 responds | 200 or 404 | 404 | PASS |
+| freshness: home page | the published eyebrow appears on / within 120s | after 4.8s | PASS |
+| freshness: /deals (aggregator copy + hidden/pinned SKU lever) | the published intro appears within 120s, not the route's 1-week interval | after 3.5s | PASS |
+| blog category page lists a newly published post | the post appears on /blog/cat/zz-test-q175-blog-category within 120s | after 3.8s | PASS |
+| freshness: blog CATEGORY page on a blogPost publish | the edited post title appears on /blog/cat/zz-test-q175-blog-category within 120s (was frozen until deploy) | after 6.3s | PASS |
+| freshness: blog index on a blogPost publish | the edited title appears on /blog within 120s | after 3.9s | PASS |
+| freshness: the blog post itself (the original Q-175 bug) | the edited title appears on /blog/zz-test-q175-blog-post within 120s | after 3.4s | PASS |
+| freshness: blog category page on a blogCategory publish (NEEDS the manual Filter step) | the edited category title appears within 120s | after 3.0s | PASS |
+| GATE re-check after all publishing | category page still 200, still has its content, still no bailout marker | intact | PASS |
+| homePage.heroText restored exactly | heroText: {"eyebrow":"BULK PROMOTIONAL EXPERTS SINCE 1999","headline":"Custom Promotional Products That People Actually Use","subheadline":"Branded apparel, drinkware, bags, tech, and giveaways for trade shows, employee gifts, safety programs, and customer thank-yous. 22,000+ products with bulk volume pricing, rush options, and free art proofs. "} | heroText: {"eyebrow":"BULK PROMOTIONAL EXPERTS SINCE 1999","headline":"Custom Promotional Products That People Actually Use","subheadline":"Branded apparel, drinkware, bags, tech, and giveaways for trade shows, employee gifts, safety programs, and customer thank-yous. 22,000+ products with bulk volume pricing, rush options, and free art proofs. "} | PASS |
+| globalSettings.dealsPage restored exactly | dealsPage: UNSET | dealsPage: UNSET | PASS |
+| cleanup: fixture documents | (informational) | zz-test-q175-blog-post; drafts.zz-test-q175-blog-post; zz-test-q175-blog-category; drafts.zz-test-q175-blog-category | INFO |
 
-## Notes / findings
+## Freshness timings (publish to visible)
 
-- Dry run: nothing was published, so the freshness round trips (the actual point of this task) were not exercised. Re-run with --apply against the deployment.
+- home page publish to visible: 4.8s
+- /deals publish to visible: 3.5s
+- blog category page on blogPost publish: 6.3s
+- blog index on blogPost publish: 3.9s
+- blog post detail on publish: 3.4s
+- blog category page on blogCategory publish: 3.0s
 
 ## Manual step this run cannot do
 

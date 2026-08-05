@@ -24,7 +24,9 @@
  * `finally` that survives a crash, printed before and after in the report. An
  * UNSET field is restored by unsetting, never by writing an empty value. Neither
  * DRAFT is touched. Two ZZ Test documents (a blog category and a blog post) also
- * exist briefly and are deleted under a guard re-checked at deletion.
+ * exist briefly and are deleted under a guard re-checked at deletion; the post is
+ * dated today so it is the TOP entry on the live blog index for those ~30 seconds,
+ * which is the only way to observe whether the blog index actually refreshed.
  * =======================================================================
  *
  * THE CATEGORY PAGE CHECK RUNS FIRST AND GATES EVERYTHING. `/cat/<slug>` is
@@ -630,12 +632,22 @@ async function main(): Promise<void> {
         slug: { _type: 'slug', current: TEST_CATEGORY_SLUG },
         description: 'Temporary verification fixture.',
       });
+      // Dated TODAY on purpose. The first version used 2020-01-01 and the blog
+      // INDEX check failed for a reason that said nothing about freshness: the
+      // index orders by publishDate desc at 12 per page, and 455 published posts
+      // are newer than 2020, so the fixture sat on PAGE 38 and could never have
+      // appeared on `/blog` no matter how correctly the cache was busted. A test
+      // that cannot observe the thing it claims to measure is worse than no test.
+      // Cost of dating it today: for the ~30s before cleanup, a clearly labelled
+      // ZZ Test post is the top entry on the blog index. Same disclosed tradeoff
+      // as the singleton markers above.
+      const today = new Date().toISOString().slice(0, 10);
       await client.createOrReplace({
         _id: TEST_POST_ID,
         _type: 'blogPost',
         title: `${TEST_LABEL_PREFIX} Q175 Post`,
         slug: { _type: 'slug', current: TEST_POST_SLUG },
-        publishDate: '2020-01-01',
+        publishDate: today,
         categories: [{ _type: 'reference', _key: 'zzq175cat', _ref: TEST_CATEGORY_ID }],
         body: [],
       });
