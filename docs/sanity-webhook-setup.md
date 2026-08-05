@@ -22,7 +22,8 @@ ISR fallback.
 | `homePage` | `/` |
 | `page` | `/services/<slug>`, `/<slug>` (top-level custom pages via `app/[slug]`), `/sitemap.xml` (+ busts the `pages` cache tag + `page:<slug>`) — needs `slug` in the projection (already present) |
 | `landingPage` | `/<slug>` (local/topic landing pages via `app/[...slug]`, P2-AI-005), `/sitemap.xml` (+ busts the `landing-pages` cache tag + `landing:<slug>`) — needs `slug` in the projection (already present). **NEW type — must be ADDED to the Filter (see below).** |
-| `blogPost` | `/blog`, `/blog/<slug>`, **live search delta** (`/api/search-index`) |
+| `blogPost` | `/blog`, `/blog/<slug>`, **live search delta** (`/api/search-index`), + busts `blogPost:<slug>`, `related-blogs` and (Q-175) the `blog-list` tag, which is what refreshes the blog CATEGORY pages and every `/page/N` variant the path list cannot name |
+| `blogCategory` | `/blog`, `/blog/cat/<slug>`, `/sitemap.xml` (+ busts the `blog-list` cache tag). **NEW type (Q-175) - must be ADDED to the Filter (see below).** Before Q-175 this type was handled NOWHERE, so `/blog/cat/<slug>` (which is `revalidate = false`) was frozen until the next deploy |
 | `video` | `/videos`, `/videos/<slug>`, **live search delta** |
 | `customProduct` | `/deals`, `/new-products`, `/rush-products`, **live search delta** |
 | `customCategory`, `curatedCategory` | `/cat/<slug>`, **live search delta** |
@@ -87,7 +88,7 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
 | **URL** | `https://dev.perfectimprints.com/api/sanity/revalidate` |
 | **Dataset** | `production` |
 | **Trigger on** | ✅ Create  ✅ Update  ✅ Delete |
-| **Filter** | `!(_id in path("drafts.**")) && _type in ["megaMenu","globalSettings","homePage","page","blogPost","video","customProduct","customCategory","curatedCategory","categoryOverride","productPlacement","faq","customSchema","brand","landingPage", "productPage","form", "catalogPage", "quote"]` |
+| **Filter** | `!(_id in path("drafts.**")) && _type in ["megaMenu","globalSettings","homePage","page","blogPost","blogCategory","video","customProduct","customCategory","curatedCategory","categoryOverride","productPlacement","faq","customSchema","brand","landingPage", "productPage","form", "catalogPage", "quote"]` |
 | **Projection** | `{_id, _type, slug, categorySlug, pageUrl, "addToCategories": array::unique([...coalesce(before().addToCategories, []), ...coalesce(after().addToCategories, [])]), "removeFromCategories": array::unique([...coalesce(before().removeFromCategories, []), ...coalesce(after().removeFromCategories, [])])}` |
 | **HTTP method** | `POST` |
 | **HTTP headers** | none (Sanity adds the signature header automatically) |
@@ -206,6 +207,23 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
 > `before()`/`after()` is null) working. Do this on **staging now** and on
 > **production when batch 4 promotes**. Until then, attaches + edits work;
 > detaches go stale on the detached category only.
+
+> **⚠️ Manual step for an EXISTING webhook (Q-175, blog category pages):**
+> `blogCategory` is a NEW type in this Filter - both existing webhooks were
+> created before it, so their Filters omit it. Edit **each** webhook in Sanity →
+> API → Webhooks and paste the updated Filter above. The only change vs. the
+> previous filter is `"blogCategory"` inserted after `"blogPost"`:
+>
+> ```
+> !(_id in path("drafts.**")) && _type in ["megaMenu","globalSettings","homePage","page","blogPost","blogCategory","video","customProduct","customCategory","curatedCategory","categoryOverride","productPlacement","faq","customSchema","brand","landingPage", "productPage","form", "catalogPage", "quote"]
+> ```
+>
+> Do this on **staging now** and on **production with the same deploy**.
+> Projection is unchanged - the handler needs only `_type` + `slug`, both
+> already projected. Until you do this, renaming a blog category or editing its
+> description will NOT refresh `/blog/cat/<slug>`. Note that publishing a blog
+> POST already refreshes those pages via the `blog-list` tag, so this step
+> covers category edits specifically, not the main freshness fix.
 
 ### Why the projection
 

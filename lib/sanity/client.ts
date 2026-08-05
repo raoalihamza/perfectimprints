@@ -13,14 +13,14 @@ export const client: SanityClient = createClient({
   perspective: 'published',
 });
 
-export const previewClient: SanityClient = createClient({
-  projectId,
-  dataset,
-  apiVersion,
-  useCdn: false,
-  token: process.env.SANITY_API_TOKEN,
-  perspective: 'previewDrafts',
-});
+// Q-175 removed `previewClient` (a tokened `perspective: 'previewDrafts'` client)
+// and the `getClient(preview)` selector. Nothing imported either - verified by
+// search across app/, components/, lib/, scripts/ and sanity/ before deleting.
+// The reason is not tidiness: that client read UNPUBLISHED drafts and carried a
+// write token, so wiring it into a render path by mistake would have published
+// Patrick's drafts to the world. Deleting it removes the possibility rather than
+// relying on nobody making that mistake. If drafts preview is ever wanted, build
+// it deliberately behind an auth check, not by reviving a stray export.
 
 /**
  * Cache-able published client for the `/cat/<slug>` render path. `useCdn: false`
@@ -36,10 +36,6 @@ export const cachedClient: SanityClient = createClient({
   useCdn: false,
   perspective: 'published',
 });
-
-export function getClient(preview = false): SanityClient {
-  return preview ? previewClient : client;
-}
 
 const builder = imageUrlBuilder({ projectId, dataset });
 

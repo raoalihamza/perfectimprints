@@ -156,10 +156,12 @@ function buildGalleryVariants(doc: ProductPageDoc): GalleryVariant[] {
  * matches from the related category/keywords. productPage results carry
  * `detailUrl` (internal link); Geiger/customProduct results keep affiliate.
  *
- * `includeCustom` is OFF for the automatic top-up: `getAllCustomProducts()` is
- * an untagged no-store read that would flip this route dynamic (§13). Custom
- * products still appear via the manual reference entries, which ride the
- * page's own tagged GROQ read.
+ * `includeCustom` is OFF for the automatic top-up. It was originally off because
+ * `getAllCustomProducts()` was an untagged read that would flip this route
+ * dynamic (§13); Q-175 made that read tagged and non-CDN, so the constraint is
+ * gone, but the flag STAYS off on purpose - turning it on would change what this
+ * page renders, which is a separate decision. Custom products still appear via
+ * the manual reference entries, which ride the page's own tagged GROQ read.
  */
 async function resolveRelatedProducts(doc: ProductPageDoc): Promise<GeigerProduct[]> {
   const LIMIT = 8;

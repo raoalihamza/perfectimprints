@@ -12,10 +12,14 @@ import { NextResponse } from 'next/server';
 import { cachedClient } from '@/lib/sanity/client';
 import { SEARCH_INDEX_ROUTE } from '@/lib/search/constants';
 import {
+  BLOG_LIST_TAG,
   BRANDS_TAG,
   CATALOG_PAGES_TAG,
   CATEGORY_CONTROL_TAG,
+  CUSTOM_CATEGORIES_TAG,
+  CUSTOM_PRODUCTS_TAG,
   FAQS_TAG,
+  HOME_TAG,
   FORMS_TAG,
   LANDING_TAG,
   MEGA_MENU_TAG,
@@ -25,6 +29,7 @@ import {
   RELATED_BLOGS_TAG,
   SETTINGS_TAG,
   VIDEOS_TAG,
+  blogPostTag,
   catalogPageTag,
   categoryTag,
   customSchemaTag,
@@ -313,10 +318,35 @@ export async function POST(request: Request) {
     return NextResponse.json({ revalidated: true, scope: 'layout', type });
   }
 
-  // Home page singleton only affects "/".
+  // Home page singleton only affects "/". Q-175: bust HOME_TAG too. `/` is
+  // `force-static` with no `revalidate`, so it never self-refreshes and this
+  // path revalidation was rebuilding it straight from a stale CDN read that
+  // then froze - the blog-detail bug on the page Patrick edits most. The read is
+  // now non-CDN + tagged, and without this bust the rebuild would just reuse the
+  // tag-cached copy and the edit would still never appear.
   if (type === 'homePage') {
+    revalidateTag(HOME_TAG, 'max');
     revalidatePath('/');
     return NextResponse.json({ revalidated: true, scope: '/', type });
+  }
+
+  // Blog categories (Q-175). Previously handled NOWHERE: `blogCategory` was in
+  // no branch and in no type set, so `/blog/cat/<slug>` (which is
+  // `revalidate = false`) was frozen from generation until the next deploy no
+  // matter what anyone published. Busting BLOG_LIST_TAG reaches every page that
+  // read a blog list - the category page, its `/page/N` variants which are not
+  // prebuilt and which no path revalidation ever named, the blog index, the
+  // home preview, the sitemap and the search delta - without the webhook having
+  // to enumerate paths it cannot know.
+  // NOTE: `blogCategory` must be in the Sanity webhook Filter `_type` list or
+  // this never fires. See docs/sanity-webhook-setup.md.
+  if (type === 'blogCategory') {
+    revalidateTag(BLOG_LIST_TAG, 'max');
+    const slug = payload.slug?.current;
+    const paths = ['/blog', '/sitemap.xml'];
+    if (slug) paths.push(`/blog/cat/${slug}`);
+    for (const p of paths) revalidatePath(p);
+    return NextResponse.json({ revalidated: true, scope: '/blog/cat', type });
   }
 
   // Brands are read through a non-CDN tagged fetch (see lib/brands.ts). A
@@ -348,8 +378,27 @@ export async function POST(request: Request) {
       revalidateTag(CATEGORY_CONTROL_TAG, 'max');
       if (slug) bustTag(categoryTag(slug));
     }
+    // Q-175: the Sanity-authored category LIST that feeds the search delta.
+    // Its own tag, deliberately not CATEGORY_CONTROL_TAG (which every /cat page
+    // reads) - widening what busts that would be a real cost on 22,180 pages.
+    if (type === 'customCategory' || type === 'curatedCategory') {
+      revalidateTag(CUSTOM_CATEGORIES_TAG, 'max');
+    }
     // Blog relatedness on root category pages is a cached read — refresh it.
-    if (type === 'blogPost') revalidateTag(RELATED_BLOGS_TAG, 'max');
+    // The post's OWN content is a per-slug tagged read (2026-08-05): without
+    // this bust, `revalidatePath('/blog/<slug>')` above would rebuild the page
+    // from the tag-cached copy and the edit would never appear. `/blog/<slug>`
+    // is `revalidate = false`, so a miss here is permanent, not merely slow.
+    if (type === 'blogPost') {
+      revalidateTag(RELATED_BLOGS_TAG, 'max');
+      if (slug) bustTag(blogPostTag(slug));
+      // Q-175: every LIST-level blog read. This is what finally refreshes the
+      // blog CATEGORY pages, which the path list above does not name and cannot
+      // - a post can move between categories and the webhook payload carries
+      // only its slug, never its categories. It also covers `/blog/page/N` and
+      // `/blog/cat/<slug>/page/N`, neither of which was ever revalidated.
+      revalidateTag(BLOG_LIST_TAG, 'max');
+    }
     // FAQ answers are read through a non-CDN tagged fetch (see getAnsweredFaqs)
     // — bust the tag so /faq + the search delta pick up the edit deterministically.
     if (type === 'faq') revalidateTag(FAQS_TAG, 'max');
@@ -362,6 +411,12 @@ export async function POST(request: Request) {
     // serving the stale card forever (the route has revalidate=false).
     if (type === 'customProduct') {
       revalidateTag(PRODUCT_PAGES_TAG, 'max');
+      // Q-175: the customProduct reads themselves (the three aggregator
+      // placement lists + the search-delta entries). The three paths were
+      // already revalidated above; without this the rebuild would read the
+      // tag-cached copy, and before Q-175 it read a stale CDN copy that then
+      // sat for the aggregators' full one-week revalidate.
+      revalidateTag(CUSTOM_PRODUCTS_TAG, 'max');
       // A customProduct attached to category grids via categoryOverride
       // .addedProducts is dereferenced inside the cat:<slug>-tagged read —
       // bust each embedding category so the edit shows there too (P2-CP-004

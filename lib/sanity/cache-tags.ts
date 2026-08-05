@@ -25,6 +25,73 @@ export const CATEGORY_CONTROL_TAG = 'category-control-sets';
 export const RELATED_BLOGS_TAG = 'related-blogs';
 
 /**
+ * A single blog post's own content, read by `/blog/<slug>`.
+ *
+ * That route is `revalidate = false`, so it is generated once and NEVER
+ * refreshes on its own; only the webhook can rebuild it. It used to read through
+ * the plain CDN `client`, which made a publish a RACE it could lose permanently:
+ * the webhook fires within a second, the page regenerates immediately, the
+ * Sanity CDN is still serving its own ~60s copy from BEFORE the publish, and
+ * that pre-publish body gets baked in and frozen forever. Reported 2026-08-05
+ * after a product strip that had been deleted and published kept rendering.
+ *
+ * Fix is the FAQs / videos / brands / settings pattern: read through the
+ * non-CDN `cachedClient` so a regeneration always sees fresh data, tagged so it
+ * stays cached (never `no-store`, which would force the route dynamic). The tag
+ * is PER SLUG on purpose - publishing one post must not invalidate the other
+ * 644.
+ */
+export function blogPostTag(slug: string): string {
+  const s = sanitizeTagValue(slug);
+  return s ? `blogPost:${s}` : '';
+}
+
+/**
+ * LIST-level blog reads (Q-175): the slug list, the post count, the category
+ * list, the per-category listing, the paginated index queries, and the blog
+ * entries in the live search delta.
+ *
+ * One tag rather than per-slug on purpose. A blogPost publish can change what
+ * ANY of these return (a post moving between categories changes two category
+ * listings and neither slug is in the webhook payload), and the webhook cannot
+ * resolve that without an extra query. Busting one list tag is correct, needs
+ * no lookup, and reaches every embedder including paths the webhook never names
+ * such as `/blog/cat/<slug>/page/N`.
+ *
+ * Blast radius is small and bounded: the blog index and its pagination, the
+ * blog category pages and theirs, the home page's 3-post preview, the sitemap,
+ * and the search delta. It deliberately does NOT touch `/cat` (22,180 pages) -
+ * those read related blogs through RELATED_BLOGS_TAG, which is a separate tag.
+ */
+export const BLOG_LIST_TAG = 'blog-list';
+
+/**
+ * The `homePage` singleton (Q-175). `/` is `force-static` with no `revalidate`,
+ * so it never self-refreshes and the webhook's `revalidatePath('/')` was
+ * rebuilding it straight into a stale CDN read - the blog-detail bug on the
+ * page Patrick edits most. The read is now non-CDN and tagged, and the webhook
+ * busts this alongside the path.
+ */
+export const HOME_TAG = 'home-page';
+
+/**
+ * `customProduct` document reads (Q-175): the three aggregator placement lists
+ * and the search-delta entries. Busted on any customProduct publish, which the
+ * webhook already handled by path for `/deals`, `/new-products` and
+ * `/rush-products`; the tag is what makes those paths rebuild from FRESH data
+ * instead of a stale CDN copy that then sat for the route's full week.
+ */
+export const CUSTOM_PRODUCTS_TAG = 'custom-products';
+
+/**
+ * The Sanity-authored category LIST read that feeds the live search delta
+ * (Q-175). Deliberately its own tag rather than reusing CATEGORY_CONTROL_TAG:
+ * that one is read by every `/cat` page, and widening what busts it is exactly
+ * the kind of change this codebase cannot afford. Nothing else reads this tag.
+ */
+export const CUSTOM_CATEGORIES_TAG = 'custom-categories';
+
+/**
  * Answered FAQs shown on the `/faq` library page + the live search delta. A
  * global tag busted on any `faq` publish. The reads go through the non-CDN
  * `cachedClient` (so revalidation always sees fresh data, never a stale CDN

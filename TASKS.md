@@ -2517,3 +2517,74 @@ Two bugs from Patrick's testing, both confirmed real on our side before touching
   - **Data cleanup pending Patrick's answer** (do NOT delete yet): confirm with Patrick that his edit targeted `/cat/bags` and whether the old June doc's 136-SKU list should be merged into his 126 or just deleted. Then delete the losing doc.
 
 Typecheck clean; 200/200 vitest. Docs: CLAUDE.md globalSettings + CTABanner + categoryOverride entries updated; guide Global Settings hours note + Category Override one-per-category callout.
+
+---
+
+### [x] BUGFIX: blog detail pages froze with stale content on publish - FIXED 2026-08-05 (staged, NOT committed)
+
+Reported by Patrick while testing the Q-170 SKU picker: he added a product strip to a blog body, published, saw it live, then DELETED the strip and published, and the strip kept rendering on https://dev.perfectimprints.com/blog/10-types-of-emotions-promotional-products-can-evoke. **Not caused by Q-170** - `app/blog/[slug]/page.tsx` and `lib/sanity/queries/blogs.ts` were never touched by it; the new picker is simply what made him exercise the add/remove path. Editing a paragraph or swapping an image would have hit it identically.
+
+**Diagnosis (data, not guesswork).** The published doc had **zero** `blogProducts` blocks and there was no draft, so the delete had saved correctly. The live page was a stale prerender: `X-Nextjs-Prerender: 1`, `X-Vercel-Cache: HIT`, `Age: 7307s`. The doc's `_updatedAt` was 03:21:55Z and the page age put its generation at ~03:22Z - **the same moment**. So the webhook fired and the page DID rebuild; it rebuilt with the old body.
+
+**Root cause.** Two things combined:
+
+1. `/blog/[slug]` is `revalidate = false` - generated once, never self-refreshes, only the webhook can rebuild it.
+2. `getBlogPostBySlug` read through the plain CDN `client` (`useCdn: true`, untagged).
+
+So: publish, webhook fires within ~1s, page regenerates immediately, the render asks the **Sanity CDN** for the post, the CDN is still serving its own ~60s copy from BEFORE the publish, the pre-publish body is baked in, and `revalidate = false` freezes it **forever**. It is a race, which is why it looked inconsistent to Patrick and why it survived this long: his ADD won the race, his DELETE lost it.
+
+This is the exact defect class already recorded as fixed for globalSettings, megaMenu, FAQs, videos and brands. Blog post detail was never converted.
+
+**Fix** (the same established pattern):
+
+- New per-slug `blogPostTag(slug)` in [lib/sanity/cache-tags.ts](lib/sanity/cache-tags.ts). **Per slug on purpose** - a list-level tag would invalidate all 645 blog pages on every publish.
+- `getBlogPostBySlug` reads through the non-CDN `cachedClient` with `{ next: { tags: [blogPostTag(slug)], revalidate: false } }`. `useCdn:false` is what removes the race; the tag is what keeps the read CACHED so the route stays static rather than flipping dynamic (a bare `cachedClient` read defaults to `no-store` in Next 16 and would have made every blog post dynamic - the trap this pattern exists to avoid).
+- `getRelatedBlogsForPost`'s auto query got the same treatment, tagged `RELATED_BLOGS_TAG` rather than per slug because its answer depends on OTHER posts publishing, and the webhook already busts that tag on any blogPost publish. It runs in the same frozen render, so a CDN read there could bake a stale related list in permanently too.
+- The webhook's `blogPost` branch now busts `blogPostTag(slug)`. **This is load-bearing:** without it the existing `revalidatePath('/blog/<slug>')` would rebuild the page straight from the tag-cached copy and the edit would still never appear.
+
+**Blast radius.** A blogPost publish invalidates that one post's cached read plus `RELATED_BLOGS_TAG` (which the webhook already busted before this change, so no increase there). Nothing else changes. No new webhook Filter or Projection entry - `blogPost` has been in the Filter since M5-512.
+
+**Known remaining gap, deliberately left.** `getAllBlogCategories` (the blog sidebar's category list) is still a CDN read and can freeze the same way. Tagging it alone would achieve nothing, because `blogCategory` is not in the webhook's `SEARCH_TYPES` either - nothing would ever bust the tag. Fixing it properly means adding the type to the webhook as well; that is a separate change and blog categories almost never change.
+
+**Clearing the already-frozen page.** The fix prevents future races; it does not retroactively unfreeze pages already baked wrong. `generateStaticParams` prebuilds every blog slug, so **the deploy itself regenerates them all** and clears the reported page. Republishing the post also clears it (and did, before the deploy, since the CDN copy was hours old and correct by then).
+
+- **Deploy gates (Ali):** (1) confirm https://dev.perfectimprints.com/blog/10-types-of-emotions-promotional-products-can-evoke no longer shows the Related Products strip; (2) add a product strip to any blog post, publish, confirm it appears; (3) **delete it, publish, and confirm it disappears within seconds** - this is the actual regression test and it is the step that failed before; (4) confirm the blog post page is still statically prerendered (`curl -I` shows `X-Nextjs-Prerender: 1`) and its raw HTML still carries the article body, so the route did not flip dynamic.
+
+---
+
+### [x] Q-175: Freshness fixes across the remaining read paths - CODE COMPLETE 2026-08-05 (staged, NOT committed)
+
+The sweep that followed the blog-detail bug found the identical defect on every remaining Sanity read path. This is the SIXTH through TWELFTH time this exact defect has been fixed in this repo (FAQs, videos, brands, the footer, the mega menu, blog detail came first); these routes were simply never converted. Ships in the SAME deploy as the blog-detail fix.
+
+**The defect, restated once.** A CDN `client` read (`useCdn: true`, untagged) inside a route that rebuilds on publish and then does not refresh again. The webhook fires within a second, the rebuild asks the Sanity CDN, the CDN is still serving its own ~60s pre-publish copy, and that stale copy is baked in. Where `revalidate = false` it is frozen permanently; where an interval exists it sits until the interval expires.
+
+**The trap, and why the client swap and the tag are ONE change.** Moving to `cachedClient` without passing `next.tags` leaves the fetch uncached, which in Next 16 turns the route DYNAMIC. On a site whose entire architecture is static prerendering that is a catastrophic outcome, not a cosmetic one. Every conversion below passes tags in the same edit, and the verification script asserts structurally that no converted module uses `cachedClient` without a tags array.
+
+**Part 1 - the home page.** `/` is `force-static` with no `revalidate`, so it never self-refreshes and only the webhook rebuilds it: the blog-detail bug on the page Patrick edits most. `getHomePage` now reads non-CDN + `HOME_TAG`; `getHomeCtaBanner` + `SETTINGS_TAG`, because that copy lives on `globalSettings`, not `homePage`, and the webhook already busts that tag. The webhook's `homePage` branch busts `HOME_TAG` alongside its existing `revalidatePath('/')` - without it the rebuild would just reuse the tag-cached copy and the edit still would not appear.
+
+**Part 2 - the blog category pages.** Broken twice over, and worse than blog detail was:
+
+- CDN reads, and
+- **`blogCategory` was handled in NO webhook branch and in no type set**, so `/blog/cat/<slug>` (`revalidate = false`) was frozen from generation until the next deploy no matter what anyone published. `/blog/cat/<slug>/page/N` is not prebuilt either, so a deploy did not even clear those.
+
+Both halves fixed. All list-level blog reads carry `BLOG_LIST_TAG`, and the webhook's `blogPost` branch busts it. **That tag, not path revalidation, is what refreshes the category pages** - a post can move between categories and the webhook payload carries only its slug, never its categories, so the webhook cannot name the affected paths without an extra query. A tag needs no lookup and reaches every embedder including the `/page/N` variants nothing ever named. A new `blogCategory` branch handles the type itself (bust + `/blog/cat/<slug>` + `/blog` + sitemap).
+
+**Paginated variants: left on demand, deliberately.** Reported rather than quietly chosen. Prebuilding them would guarantee a deploy clears them, but it multiplies static paths on a site that has already hit Vercel's `ENOSPC` output ceiling once (Section 13), and it is no longer needed: tag invalidation now refreshes them whether or not they were prebuilt. The only remaining cost is that a never-visited page 2 generates on its first visit, which is the normal on-demand SSG behaviour used everywhere else here. Revisit only if the path budget stops being a concern.
+
+**Part 3 - the three aggregators.** `/deals`, `/new-products`, `/rush-products`. Copy reads (which carry the hidden/pinned SKU levers) now `SETTINGS_TAG`; the customProduct placement reads now `CUSTOM_PRODUCTS_TAG`, busted in the webhook's `customProduct` branch. This matters because those lists are exactly the editorial lever Patrick pulls and expects to take effect, the same class of action as the Q-170 search hiding: losing the race meant a hidden product kept showing for up to the route's ONE WEEK revalidate with no explanation. **The weekly intervals are unchanged and stay as the backstop.**
+
+**Part 4 - blog index, search delta, sitemap.** All ride `BLOG_LIST_TAG` / `CUSTOM_PRODUCTS_TAG` / `CUSTOM_CATEGORIES_TAG`. The blog index's `/page/N` variants are covered by the tag rather than by enumerating paths. `CUSTOM_CATEGORIES_TAG` is deliberately its own tag rather than reusing `CATEGORY_CONTROL_TAG`, which every `/cat` page reads - widening what busts that would be a real cost across 22,180 pages. The Q-170 search hide list reads through the already-correct `getSiteSettings()` and is untouched.
+
+**Part 5 - deleted the dead preview client.** `previewClient` and `getClient()` removed from [lib/sanity/client.ts](lib/sanity/client.ts). Nothing imported either, verified by search across app/, components/, lib/, scripts/ and sanity/ before deleting (the `getClientIp` and `context.getClient` matches are unrelated functions). The reason is not tidiness: that client carried a write token and `perspective: 'previewDrafts'`, so wiring it into a render path by mistake would have made Patrick's unpublished drafts publicly visible. Deleting it removes the possibility rather than relying on nobody making that mistake.
+
+**Tag granularity, chosen deliberately.** `blogPost:<slug>` is per slug so publishing one post does not invalidate the other 644. `BLOG_LIST_TAG` is ONE list tag because list results change in ways the webhook payload cannot identify. Blast radius of a blog publish: the blog index + its pagination, the blog category pages + theirs, the home page's 3-post preview, the sitemap, and the search delta. **Never `/cat`**, which reads related blogs through the separate `RELATED_BLOGS_TAG`.
+
+**The category pages were NOT touched.** Confirmed by diff (no file under `app/cat/`, `components/category/`, or the six category query modules is in the changeset) and asserted by the script. The one file in the diff that renders a public page is `app/products/[slug]/page.tsx`, and that change is **comment-only**: a comment there claimed `getAllCustomProducts()` was untagged, which Q-175 made false. `includeCustom: false` STAYS off - turning it on would change what that page renders, which is a separate decision.
+
+**Verification** ([scripts/quick-quote/verify-q175.ts](scripts/quick-quote/verify-q175.ts)). Dry run: **34 pass, 0 fail**. The category-page check runs FIRST and aborts the run before writing anything if it is not intact and static, then runs AGAIN after all publishing so a tag blast radius that reached the category pages would also be caught. `--apply` publishes a real change and times how long it takes to appear, per route. `homePage` and `globalSettings` are real singletons: both recorded before the first write, restored in a `finally` that survives a crash (an UNSET field restored by unsetting, never by writing an empty value), printed before and after; neither draft touched. **The home-page round trip doubles as the behavioural preflight** - there is no static marker that distinguishes this deploy, so if that round trip fails the script skips the remaining fixtures rather than writing more documents for a result that would say nothing.
+
+**A finding from the script worth recording:** the home page contains ONE scoped CSR bailout, the `TestimonialsLazy` island (`next/dynamic`, `ssr: false`, M5-508 Part 8). It is pre-existing and intentional, and it is NOT the M-SEO5 failure mode: the page body is fully server-rendered (H1, 48 product cards, footer all present in the raw HTML) and only that below-the-fold widget is not. The script's first version flagged it as a failure, which was the check being blunt rather than a real defect; it now distinguishes a route-level bailout that swallows the body from a scoped `ssr:false` boundary. The SEO cost is that the testimonials carousel is not in the server HTML, which was a deliberate performance tradeoff, not a bug.
+
+- **⚠️ MANUAL DASHBOARD STEP (Ali, BOTH environments):** add `blogCategory` to the Sanity webhook Filter. Exact string in [docs/sanity-webhook-setup.md](docs/sanity-webhook-setup.md); the only change is `"blogCategory"` inserted after `"blogPost"`. Projection unchanged. Until this is done, publishing a blog POST still refreshes the blog category pages (that rides the tag), but renaming a CATEGORY does not refresh its own page.
+
+- **Deploy gates (Ali, ONE deploy):** (1) **first**, open a category page, confirm it looks normal, and confirm its raw HTML has no bailout marker; (2) run `pnpm tsx scripts/quick-quote/verify-q175.ts --apply`; (3) open the blog post that showed the problem and confirm the product strip is gone; (4) add a product strip to a post, publish, confirm it appears, then delete it, publish, and confirm it disappears **within seconds** - the test that failed before; (5) edit the home page hero, publish, confirm it changes within seconds; (6) open a blog category page, publish a change to a post in it, and confirm the listing updates.

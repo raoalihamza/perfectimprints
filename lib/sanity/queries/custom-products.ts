@@ -1,6 +1,17 @@
 import 'server-only';
 
-import { client, urlForImage } from '@/lib/sanity/client';
+import { cachedClient, urlForImage } from '@/lib/sanity/client';
+import { CUSTOM_PRODUCTS_TAG } from '@/lib/sanity/cache-tags';
+
+// Q-175: every read below moved off the CDN `client` onto the non-CDN
+// `cachedClient` with CUSTOM_PRODUCTS_TAG. The three placement lists render on
+// /deals, /new-products and /rush-products, which the webhook already rebuilt
+// by path on a customProduct publish - straight into a stale CDN copy that then
+// sat for the route's full one-week revalidate. The tag is also what keeps these
+// reads CACHED, so those routes stay static rather than flipping dynamic.
+const CUSTOM_PRODUCT_FETCH_OPTS = {
+  next: { tags: [CUSTOM_PRODUCTS_TAG], revalidate: false as const },
+};
 import type { SanityImage } from '@/lib/sanity/types';
 import type { GeigerProduct } from '@/lib/product-types';
 
@@ -73,14 +84,20 @@ export function customProductIsCloseout(doc: CustomProductDoc): boolean {
  * Every customProduct doc (any placement). Used by the Phase 2 AI engine's
  * related-products matcher (lib/ai/related-products.ts) so AI-suggested strips
  * can include Patrick's non-Geiger products, not just the scraped catalog. Runs
- * only inside the force-dynamic generate routes — not a render-path read, so no
- * cache tag is needed (same untagged CDN client as the placement reads above).
+ * only inside the force-dynamic generate routes.
+ *
+ * Q-175 made this a tagged non-CDN read like its siblings, so it is no longer
+ * capable of flipping a route dynamic. That does NOT re-open it for render-path
+ * use: `/products/<slug>` still passes `includeCustom: false` to the related
+ * matcher deliberately, and changing what that page renders is out of scope here.
  */
 export async function getAllCustomProducts(): Promise<CustomProductDoc[]> {
   try {
     return (
-      (await client.fetch<CustomProductDoc[]>(
+      (await cachedClient.fetch<CustomProductDoc[]>(
         `*[_type == "customProduct"] | order(displayOrder asc, title asc) { ${PROJECTION} }`,
+        {},
+        CUSTOM_PRODUCT_FETCH_OPTS,
       )) ?? []
     );
   } catch {
@@ -91,8 +108,10 @@ export async function getAllCustomProducts(): Promise<CustomProductDoc[]> {
 export async function getCustomProductsForDeals(): Promise<CustomProductDoc[]> {
   try {
     return (
-      (await client.fetch<CustomProductDoc[]>(
+      (await cachedClient.fetch<CustomProductDoc[]>(
         `*[_type == "customProduct" && placements.onDeals == true] | order(displayOrder asc, title asc) { ${PROJECTION} }`,
+        {},
+        CUSTOM_PRODUCT_FETCH_OPTS,
       )) ?? []
     );
   } catch {
@@ -103,8 +122,10 @@ export async function getCustomProductsForDeals(): Promise<CustomProductDoc[]> {
 export async function getCustomProductsForNewProducts(): Promise<CustomProductDoc[]> {
   try {
     return (
-      (await client.fetch<CustomProductDoc[]>(
+      (await cachedClient.fetch<CustomProductDoc[]>(
         `*[_type == "customProduct" && placements.onNewProducts == true] | order(displayOrder asc, title asc) { ${PROJECTION} }`,
+        {},
+        CUSTOM_PRODUCT_FETCH_OPTS,
       )) ?? []
     );
   } catch {
@@ -115,8 +136,10 @@ export async function getCustomProductsForNewProducts(): Promise<CustomProductDo
 export async function getCustomProductsForRushProducts(): Promise<CustomProductDoc[]> {
   try {
     return (
-      (await client.fetch<CustomProductDoc[]>(
+      (await cachedClient.fetch<CustomProductDoc[]>(
         `*[_type == "customProduct" && placements.onRush == true] | order(displayOrder asc, title asc) { ${PROJECTION} }`,
+        {},
+        CUSTOM_PRODUCT_FETCH_OPTS,
       )) ?? []
     );
   } catch {
@@ -142,8 +165,10 @@ export interface CustomProductSearchEntry {
 export async function getCustomProductSearchEntries(): Promise<CustomProductSearchEntry[]> {
   try {
     const docs =
-      (await client.fetch<{ title?: string; externalUrl?: string; brand?: string; image?: SanityImage }[]>(
+      (await cachedClient.fetch<{ title?: string; externalUrl?: string; brand?: string; image?: SanityImage }[]>(
         `*[_type == "customProduct" && defined(title) && defined(externalUrl)]{ title, externalUrl, brand, image }`,
+        {},
+        CUSTOM_PRODUCT_FETCH_OPTS,
       )) ?? [];
     return docs
       .map((d) => {

@@ -1,6 +1,19 @@
 import type { PortableTextBlock } from '@portabletext/react';
-import { client, urlForImage } from '@/lib/sanity/client';
+import { cachedClient, urlForImage } from '@/lib/sanity/client';
+import { HOME_TAG, SETTINGS_TAG } from '@/lib/sanity/cache-tags';
 import type { SanityImage } from '@/lib/sanity/types';
+
+// Q-175. Both reads below moved off the CDN `client` onto the non-CDN
+// `cachedClient` with a cache tag. `/` is `force-static` with no `revalidate`,
+// so it is generated once and only the webhook rebuilds it - which made every
+// publish the same race the blog detail page lost: rebuild fires within a
+// second, the Sanity CDN is still serving its pre-publish copy, and that stale
+// copy is then frozen. `useCdn: false` removes the race; the tag is what keeps
+// the read CACHED so `/` stays static instead of flipping dynamic.
+const HOME_FETCH_OPTS = { next: { tags: [HOME_TAG], revalidate: false as const } };
+// The CTA banner copy lives on `globalSettings`, NOT `homePage`, so it carries
+// the settings tag the webhook already busts - not HOME_TAG.
+const CTA_FETCH_OPTS = { next: { tags: [SETTINGS_TAG], revalidate: false as const } };
 
 export interface HomeHero {
   eyebrow: string | null;
@@ -88,7 +101,11 @@ const CTA_QUERY = `*[_type == "globalSettings"][0].ctaBanner{
 
 export async function getHomeCtaBanner(): Promise<HomeCtaBannerCopy> {
   try {
-    const result = await client.fetch<HomeCtaBannerCopy | null>(CTA_QUERY);
+    const result = await cachedClient.fetch<HomeCtaBannerCopy | null>(
+      CTA_QUERY,
+      {},
+      CTA_FETCH_OPTS,
+    );
     return result ?? { title: null, body: null, buttonLabel: null, buttonHref: null };
   } catch {
     return { title: null, body: null, buttonLabel: null, buttonHref: null };
@@ -230,7 +247,7 @@ function resolveImage(image: (SanityImage & { alt?: string }) | undefined, width
 export async function getHomePage(): Promise<HomePageData> {
   let doc: RawHomeDoc | null = null;
   try {
-    doc = await client.fetch<RawHomeDoc | null>(HOME_QUERY);
+    doc = await cachedClient.fetch<RawHomeDoc | null>(HOME_QUERY, {}, HOME_FETCH_OPTS);
   } catch {
     doc = null;
   }

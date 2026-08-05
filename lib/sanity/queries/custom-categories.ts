@@ -1,6 +1,6 @@
 import type { PortableTextBlock } from '@portabletext/react';
-import { client, cachedClient } from '@/lib/sanity/client';
-import { categoryTag } from '@/lib/sanity/cache-tags';
+import { cachedClient } from '@/lib/sanity/client';
+import { CUSTOM_CATEGORIES_TAG, categoryTag } from '@/lib/sanity/cache-tags';
 import type { SanityImage, SeoFields } from '@/lib/sanity/types';
 import type { CustomProductDoc } from './custom-products';
 
@@ -106,9 +106,15 @@ export async function getCustomCategoryBySlug(
 export async function getCustomCategorySearchEntries(): Promise<CustomCategorySearchEntry[]> {
   try {
     const docs =
-      (await client.fetch<{ title?: string; slug?: { current?: string } }[]>(
+      // Q-175: non-CDN + tagged like every other search-delta builder, so a
+      // newly published category page is searchable in seconds rather than
+      // whenever the CDN and the route's one-week ISR floor happen to align.
+      // Its own tag, NOT the CATEGORY_CONTROL_TAG every /cat page reads.
+      (await cachedClient.fetch<{ title?: string; slug?: { current?: string } }[]>(
         `*[(_type == "customCategory" || _type == "curatedCategory")
             && defined(title) && defined(slug.current)]{ title, slug }`,
+        {},
+        { next: { tags: [CUSTOM_CATEGORIES_TAG], revalidate: false } },
       )) ?? [];
     return docs
       .map((d) => ({ title: (d.title ?? '').trim(), slug: d.slug?.current ?? '' }))
