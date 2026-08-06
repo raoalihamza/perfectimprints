@@ -309,7 +309,7 @@
 <body>
   <div class="wrap">
 
-    <header class="top">
+    <header class="top" id="top">
       <div class="brand">Perfect Imprints</div>
       <h1>Your Sanity Studio Guide</h1>
       <p class="sub">How to manage your website content, step by step. Written for someone brand new to Sanity. No
@@ -369,10 +369,17 @@
       called <strong>Content</strong>. That list is your table of contents for the whole website.</p>
 
     <h3>The Content list (the left menu)</h3>
-    <p>Everything you can edit is one of the items in that left list: Home Page, Global Settings, Mega Menu, Custom
-      Category, Category Override, Product Placement, Custom Product, Blog Post, Blog Category, Author, FAQ, Video,
-      Brand, Lead Submission, Page (and one item, Curated Category, that you should ignore). The rest of this guide
-      walks through each one.</p>
+    <p>Everything you can edit is one of the items in that left list. It is grouped, top to bottom:</p>
+    <ul>
+      <li><strong>The three one-of-a-kind pages</strong>: Home Page, Global Settings, Mega Menu.</li>
+      <li><strong>Quotes</strong>, which opens into four lists: All quotes (newest first), Accepted by customer, Change
+        requested, and Customer responses.</li>
+      <li><strong>Everything else, alphabetically</strong>: Author, Blog Category, Blog Post, Brand, Catalog Page,
+        Category Override, Curated Category, Custom Category, Custom Product, Custom Schema (Structured Data), FAQ,
+        Form, Landing Page, Lead Submission, Page, Product Page, Product Placement, Video.</li>
+    </ul>
+    <p>The rest of this guide walks through each one. (Curated Category is the one item you should ignore, see <a
+        href="#curated">section 12</a>.)</p>
 
     <h3>Two kinds of items: singletons and collections</h3>
     <ul>
@@ -397,8 +404,16 @@
       before it goes live.</p>
 
     <h3>How a change reaches the live site</h3>
-    <p>After you Publish, the website rebuilds the affected page automatically, usually within a minute. You do not need
-      to call your developer, and nothing needs to be "deployed". Publish is all it takes.</p>
+    <p>After you Publish, the affected page updates on the live website <strong>within a few seconds</strong>. You do
+      not need to call your developer, nothing needs to be "deployed", and there is nothing to refresh or clear. Publish
+      is all it takes. If you are looking at the page in another browser tab, reload it once and your change is there.</p>
+    <div class="callout info">
+      <span class="label">The one thing that is slower, and why</span>
+      <p>Everything you edit in Studio goes live in seconds. The <strong>only</strong> exception is the
+        <a href="#site-refresh">Site Refresh</a> buttons, which pull brand-new product data in from Geiger. That is not
+        a Studio edit, it is a fresh batch of product information for the whole site, so it takes about 12 to 15 minutes
+        to appear after the job finishes. Section 20 explains it.</p>
+    </div>
 
     <h3>Editing fields</h3>
     <p>Inside a document you will see labelled boxes (fields). Some are simple text, some are rich text (where you can
@@ -414,18 +429,23 @@
         file.</li>
       <li><strong>Lists:</strong> drag the handle on the left of a row to reorder. Use the <strong>+</strong> or "Add
         item" to add. Click the three dots or the X to remove.</li>
-      <li><strong>Hide instead of delete:</strong> in several places (the page builder especially) there is a "Hidden"
-        toggle. Turning it on removes a section from the live page without deleting your work, so you can bring it back
-        later.</li>
+      <li><strong>Hide instead of delete:</strong> the <a href="#page">page builder</a> gives every section a
+        <strong>Hidden</strong> toggle. Turning it on takes that section off the live page without deleting your work,
+        so you can bring it back later. This is the only place with a Hidden switch, everywhere else you remove the item
+        from its list.</li>
     </ul>
 
-    <h3>The three tabs at the very top</h3>
+    <h3>The five tabs at the very top</h3>
     <ul>
       <li><strong>Structure</strong> is the normal editing view (the Content list). You will be here almost all the
         time.</li>
       <li><strong>Vision</strong> is a technical query tool. <strong>Ignore it.</strong> You will never need it.</li>
-      <li><strong>Push to Sanity</strong> is a special tool for taking over one of your existing category pages so you
-        can edit it. It has its own section below (<a href="#push">jump to it</a>).</li>
+      <li><strong>Push to Sanity</strong> takes over one of your existing category pages so you can edit it (<a
+          href="#push">section 7</a>).</li>
+      <li><strong>Site Refresh</strong> pulls the newest product information from Geiger and puts it live (<a
+          href="#site-refresh">section 20</a>).</li>
+      <li><strong>Bulk Upload</strong> creates or updates your own Product Pages from a spreadsheet (<a
+          href="#bulk-upload">section 23</a>).</li>
     </ul>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
@@ -441,35 +461,52 @@
       <strong>sub-paragraph</strong> below it. Change the words here and Publish. (There is also an older image-banner
       field kept as a fallback; you do not need it.)</p>
 
+    <h4>Value Pillars (the feature boxes under the hero)</h4>
+    <p>The boxes like "Bulk Pricing on 22,000+ Products" and "Rush Production Available". Each has a <strong>Title</strong>
+      and a <strong>Body</strong>. The body is rich text, so you can <strong>add links</strong> inside it (select the
+      words, click the link button). If you ever add a <strong>fourth or more</strong> pillar, the row automatically
+      turns into a rotating carousel showing three at a time.</p>
+
     <h4>Banner Row heading + the three banners</h4>
-    <p>Just under the hero is a row of up to three image banners (Sunglasses, Event Tents, Hats, by default). You can
+    <p>Below the pillars is a row of up to three image banners (Sunglasses, Event Tents, Hats, by default). You can
       edit:</p>
     <ul>
-      <li>The <strong>heading</strong> above the row ("Featured Product Categories") and its <strong>sub-line</strong>.
-      </li>
+      <li>The <strong>Banner Row Heading</strong> above the row ("Featured Product Categories") and the
+        <strong>Banner Row Subheading</strong> under it.</li>
       <li>Each <strong>banner</strong>: its image, the link it goes to (for example <code>/cat/sunglasses</code>), and
         its alt text. Swap any image, change any link, or remove a banner. An empty row simply shows nothing.</li>
     </ul>
 
-    <h4>Value Pillars (the three feature boxes)</h4>
-    <p>The boxes like "Bulk Pricing on 22,000+ Products" and "Rush Production Available". Each has a heading and a body.
-      The body is rich text, so you can <strong>add links</strong> inside it (select the words, click the link button).
-      If you ever add a <strong>fourth or more</strong> pillar, the row automatically turns into a rotating carousel
-      showing three at a time.</p>
+    <h4>Section headings for the two product rows</h4>
+    <p>Editable headings for the "New and Trending Promotional Products" row (<strong>New Products Rail Heading</strong>)
+      and the "Rush Production Promotional Products" row (<strong>Rush Products Rail Heading</strong>). The products in
+      those rows are pulled in automatically; you control only the headings here.</p>
 
     <h4>Testimonials + heading</h4>
-    <p>The customer quotes section. You can edit the <strong>heading</strong> ("What Our Customers are Saying") and the
-      list of testimonials (each has the quote, the person's name, and their title/company). The section shows three at
-      a time and scrolls/rotates automatically when there are more than three.</p>
+    <p>The customer quotes section. You can edit the <strong>Testimonials Heading</strong> ("What Our Customers are
+      Saying") and the list of testimonials (each has the <strong>Quote</strong>, an <strong>Attribution</strong>, and
+      an optional <strong>Company</strong>). It shows three at a time and rotates automatically when there are more than
+      three. Empty the list and the whole section disappears from the page.</p>
 
-    <h4>Section headings for the product rows</h4>
-    <p>There are editable headings for the "New and Trending Promotional Products" row and the "Rush Production
-      Promotional Products" row. The products in those rows are pulled in automatically; you control the headings here.
-    </p>
+    <h4>Brands strip heading + subheading</h4>
+    <p><strong>Brands Strip Heading</strong> ("Brands We Carry") and <strong>Brands Strip Subheading</strong> sit above
+      the row of brand logos. The logos themselves come from your <a href="#brand">Brand</a> documents.</p>
+
+    <h4>Blog Preview Heading</h4>
+    <p>The heading above the three latest blog posts near the bottom ("From the Blog"). The posts themselves are pulled
+      in automatically, newest first.</p>
 
     <h4>Bottom SEO text</h4>
-    <p>The long paragraph block near the footer ("Perfect Imprints has been helping businesses..."). It is rich text and
-      spans the full width; links inside it show in red.</p>
+    <p>The long paragraph block near the footer ("Perfect Imprints has been helping businesses..."), in the
+      <strong>SEO Text Content</strong> field. It is rich text and spans the full width; links inside it show in red.
+      Leave it empty and the block does not render.</p>
+
+    <div class="callout warn">
+      <span class="label">One field on this page does nothing yet</span>
+      <p><strong>Featured Image Blocks (six)</strong> is switched off on the live homepage. The field is built and your
+        content is saved safely, but the row is not currently displayed. If you want those six image blocks turned on,
+        ask us and it is a one-line change. Until then, filling it in will not show anything.</p>
+    </div>
 
     <h4>Homepage meta title and description</h4>
     <p>The title and description Google shows for your homepage in search results. Pre-set to your approved copy; edit
@@ -484,12 +521,27 @@
           class="arrow">›</span> Global Settings</span>.</p>
 
     <h4>Contact details + hours</h4>
-    <p>Your <strong>phone number</strong>, <strong>email</strong>, <strong>mailing address</strong>, and <strong>hours
-        of operation</strong> ("M-F 9:00 AM-5:00 PM EST"). These feed the footer, the contact areas, and the business
-      information Google reads about you. Update them here in one place.</p>
-    <p>The <strong>Hours of Operation</strong> field shows up in two places: the footer's Contact column and the red
-      "Need help choosing…" banner at the bottom of category pages. Editing the field updates both. Leave it blank and
-      the footer simply drops its hours line (the red banner falls back to standard wording).</p>
+    <div class="callout warn">
+      <span class="label">Use the Contact Info group, not the three fields above it</span>
+      <p>The top of this document has three older fields, <strong>Phone Number</strong>, <strong>Contact Email</strong>
+        and <strong>Mailing Address</strong>. Below them is a group called <strong>Contact Info</strong>. The
+        <strong>Contact Info group is the one the website reads.</strong></p>
+      <p>Phone Number and Contact Email are only used as a backup, if you leave the matching Contact Info field empty.
+        <strong>Mailing Address is not used at all any more</strong> - your address comes only from Contact Info ›
+        Address. So if you edit Mailing Address and the footer does not change, that is why. Edit Contact Info ›
+        Address instead.</p>
+    </div>
+    <p>Inside <strong>Contact Info</strong>:</p>
+    <ul>
+      <li><strong>Phone Numbers</strong> - one or more. The first one is the main number Google is told about; all of
+        them show in the footer.</li>
+      <li><strong>Email</strong> - shown in the footer as a clickable email link.</li>
+      <li><strong>Address</strong> - Street, City, State / Region, Postal / ZIP Code, Country.</li>
+    </ul>
+    <p>The separate <strong>Hours of Operation</strong> field ("M-F 9:00 AM-5:00 PM EST") shows in two places: the
+      footer's Contact column and the red "Need help choosing…" banner at the bottom of category pages. Editing it
+      updates both, so they can never disagree. You can type more than one line. Leave it blank and the footer simply
+      drops its hours line, while the red banner falls back to standard wording.</p>
 
     <h4>Social Links</h4>
     <p>Your social media profiles (Instagram, TikTok, LinkedIn, Facebook, X, YouTube, Pinterest). For each one you set
@@ -501,9 +553,18 @@
         Service</strong>) are fully editable here. Change a label, change where a link points, add or remove links, or
       reorder them. The Contact column and the social icons are handled separately (above), not in this list.</p>
     <p class="small">For an <strong>internal</strong> link (a page on your own site) you can type the address with or
-      without the leading slash — both <code>/llm-info-perfect-imprints</code> and
+      without the leading slash - both <code>/llm-info-perfect-imprints</code> and
       <code>llm-info-perfect-imprints</code> work; the slash is added for you. An <strong>external</strong> link (an
-      outside site) must include the full <code>https://...</code> address.</p>
+      outside site) must include the full <code>https://...</code> address and needs its <strong>External</strong>
+      switch turned on so it opens in a new tab.</p>
+    <p class="small">A link with a blank label or a blank address is silently dropped, and a column with no heading or
+      no working links does not render at all. If you empty out every column, the footer falls back to its original
+      built-in links rather than going blank.</p>
+
+    <h4>Popular Links (leave this one alone)</h4>
+    <p class="small">There is a separate <strong>Popular Links</strong> list further down. It is left over from an
+      earlier version and <strong>is not shown anywhere on the site</strong>. To edit the footer's "Popular Links"
+      column, use <strong>Footer Columns</strong> above.</p>
 
     <h4>Copyright text</h4>
     <p>The line at the very bottom. Use <code>(year)</code> as a placeholder and it is replaced with the current year
@@ -527,7 +588,7 @@
         used.</li>
     </ul>
     <p class="small">Pages that have <em>no</em> products already show the big "Don't See The Products Listed?" block
-      in place of the grid — those pages never get this bar, so there is never a doubled-up ask. Because this copy
+      in place of the grid - those pages never get this bar, so there is never a doubled-up ask. Because this copy
       appears on thousands of category pages, publishing a change here refreshes them all; each page picks up the new
       wording the next time it is viewed (this takes seconds per page and is completely normal).</p>
 
@@ -537,18 +598,22 @@
         Promotional Products? We're here. Contact us and we'll search through our database of over 1,000,000
         promotional items."</em> Same <strong>Enabled</strong> switch and <strong>Heading / Body / Button Label</strong>
       fields as the category one (blank = the default wording), and the button opens the same <strong>Find Products
-        for Me</strong> form — the lead email tells you which video it came from.</p>
+        for Me</strong> form - the lead email tells you which video it came from.</p>
 
     <h4>Deals / New Products / Rush Products page controls</h4>
     <p>Each of these three aggregator pages has a small set of controls here:</p>
     <ul>
-      <li><strong>Heading, intro paragraph, meta title and description</strong> for the page.</li>
-      <li><strong>Hide these SKUs</strong>: paste a product's SKU to remove it from that page's grid.</li>
-      <li><strong>Pin these SKUs</strong>: paste a SKU to force a product onto that page even if the automatic feed
-        missed it.</li>
+      <li><strong>Heading (H1), Intro paragraph, Meta title and Meta description</strong> for the page.</li>
+      <li><strong>Hide these SKUs from /deals</strong> (and the matching <code>/new-products</code> and
+        <code>/rush-products</code> versions): type a product's SKU to remove it from that page's grid. The filter
+        counts in the sidebar re-calculate themselves so nothing looks out of step.</li>
+      <li><strong>Pin these Geiger SKUs to /deals</strong> (and its two siblings): type a SKU to force a product onto
+        that page even if the automatic feed missed it. A SKU that does not exist is quietly ignored.</li>
     </ul>
-    <p class="small">The products on these three pages are refreshed automatically from Geiger every week. These
-      controls let you nudge what shows without anyone touching the feed.</p>
+    <p class="small">These two lists are <strong>typed</strong>, not searched, so you need the SKU to hand (you can copy
+      it off any product card, where it shows as "Item # …"). The products on these three pages are refreshed from
+      Geiger whenever you press the matching button in <a href="#site-refresh">Site Refresh</a>. These controls let you
+      nudge what shows without anyone touching the feed.</p>
 
     <h4>Site Search</h4>
     <p>One control: <strong>Hide these SKUs from site search</strong>. Search the catalog by name, SKU, or brand, click
@@ -559,9 +624,22 @@
       filter numbers there, and is still in the sitemap for Google. Nothing else about it changes. This is for the case
       where a product keeps turning up in search and you would rather it did not, not for taking a product off the
       site.</p>
-    <p class="small">This is a different list from the three <strong>Hide these SKUs</strong> lists above. Those each
-      remove a product from one page's grid (Deals, New Products, Rush Products). This one is about search only. Adding
-      a SKU here does not remove it from those pages, and vice versa.</p>
+    <p class="small">This is a different list from the three <strong>Hide these SKUs from …</strong> lists above. Those
+      each remove a product from one page's grid (Deals, New Products, Rush Products). This one is about search only.
+      Adding a SKU here does not remove it from those pages, and vice versa.</p>
+
+    <div class="callout info">
+      <span class="label">Where the search box appears, and what it searches</span>
+      <p>Besides the magnifying glass in the header, there is a search box beside the heading on your <strong>Blog</strong>
+        page and your <strong>Videos</strong> page (and on the later pages of the blog).</p>
+      <p><strong>All of these search the whole site, not just that section.</strong> Search from the Videos page and you
+        can still get products, categories and blog posts back. That is deliberate, not a fault: a visitor who is
+        looking for water bottles should find them wherever they happen to be standing. What the page-specific boxes do
+        is put the <em>matching</em> kind of result first, so searching from the Blog page shows blog posts at the top
+        of the list and searching from Videos shows videos at the top.</p>
+      <p>There is nothing to set up and nothing to edit here. If you would rather one of those boxes searched only blogs
+        or only videos, that is a change we would need to build, so tell us.</p>
+    </div>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
@@ -569,20 +647,31 @@
     <h2 id="mega">4. Mega Menu (the top navigation)</h2>
     <p>This singleton is your main website menu, the bar across the top (Shop by, All Categories, New Products, Rush
       Products, Deals, Brands, Services, Videos, Blog). Open <span class="path">Content <span class="arrow">›</span>
-        Mega Menu</span>. The <strong>Items</strong> list is the menu, left to right; drag to reorder, and the live
+        Mega Menu</span>. The <strong>Menu Items</strong> list is the menu, left to right; drag to reorder, and the live
       header follows.</p>
-    <p>Each item has a <strong>Type</strong>:</p>
+    <p>Each item has a <strong>Label</strong> (the word shown in the bar) and a <strong>Type</strong>:</p>
     <ul>
       <li><strong>Plain link</strong>: a single clickable word with one address (New Products, Deals, Brands, Videos,
         Blog).</li>
       <li><strong>Dropdown (flat list)</strong>: a simple drop-down of links (Services: Kitting, Company Stores, and so
-        on — and <strong>Shop by Theme</strong>, which lists the published <a href="#catalog-pages">Catalog Pages</a>'
+        on - and <strong>Shop by Theme</strong>, which lists the published <a href="#catalog-pages">Catalog Pages</a>'
         landing pages; when you publish a new catalog page, add its link here yourself).</li>
       <li><strong>Mega panel (columns)</strong>: the big multi-column panels (Shop by, All Categories). These have
-        columns, each with a header and a list of links.</li>
+        columns, each with a <strong>Column Header</strong>, an optional header link, and a list of links. A
+        <strong>Panel Style</strong> setting picks between the two looks: <em>Cascade</em> (the Shop by style, where
+        hovering a column reveals its links) and <em>Grid</em> (the All Categories style, a wide grid).</li>
     </ul>
-    <p>You can rename items, change where they link, hide them, add new ones, or reorder them. For most day-to-day needs
-      you will only ever tweak a label or a link here.</p>
+    <p>You can rename items, change where they link, add new ones, or reorder them. For most day-to-day needs you will
+      only ever tweak a label or a link here.</p>
+    <div class="callout warn">
+      <span class="label">There is no "hide" switch on a menu item</span>
+      <p>Unlike page-builder sections, a menu item has no Hidden toggle. To take something out of the menu you
+        <strong>remove the item from the list</strong> (the three dots or the X on its row), then Publish. If you might
+        want it back, note down its label and link first, or duplicate the whole document before you start.</p>
+    </div>
+    <p class="small">Two fields on a mega panel, <strong>Featured</strong> and <strong>Product References</strong>, are
+      marked "reserved, not currently rendered". They are placeholders for a future featured-products panel and show
+      nothing on the site today. Leave them empty.</p>
     <p class="small">As with the footer, an <strong>internal</strong> link can be typed with or without the leading
       slash (<code>/blog</code> or <code>blog</code> both work); an <strong>external</strong> link must include the full
       <code>https://...</code> address.</p>
@@ -669,19 +758,29 @@
 
     <h3>The fields you will see</h3>
     <ul>
-      <li><strong>Title / heading (H1)</strong>: the big page title.</li>
+      <li><strong>Title</strong>: the big page heading.</li>
       <li><strong>Slug</strong>: the web address segment after <code>/cat/</code>. Pick carefully; this is the page's
         address.</li>
-      <li><strong>SEO (meta title and description)</strong>: what Google shows in search results.</li>
-      <li><strong>Intro</strong>: the lead-in paragraph under the heading (rich text).</li>
-      <li><strong>Body / buying guide</strong>: the longer content lower on the page (rich text, with headings).</li>
-      <li><strong>FAQs</strong>: question-and-answer pairs that appear on the page (and help your SEO).</li>
-      <li><strong>Products</strong>: the product list for the page. You add products with the searchable picker (type a
-        product name, SKU, or brand and click to add). You can also add <a href="#custom-product">Custom Products</a>
-        here.</li>
-      <li><strong>External link (optional)</strong>: if set, the page's buttons point there; if left blank, buttons
-        point to your contact form.</li>
+      <li><strong>Is Custom Category</strong>: a marker switch. Leave it as you find it.</li>
+      <li><strong>Target Keyword</strong>: the plural phrase this page is about, for example "custom water bottles".
+        Only the <a href="#ai">Generate with AI</a> button reads it, so fill it in before you use that button.</li>
+      <li><strong>Hero Image</strong> and <strong>Hero Copy</strong>: an optional banner image and the short line beside
+        the heading.</li>
+      <li><strong>Intro (Portable Text)</strong>: the lead-in paragraphs under the heading (rich text).</li>
+      <li><strong>Body Sections</strong>: the longer buying-guide content further down the page (rich text, with
+        headings).</li>
+      <li><strong>FAQs</strong>: question-and-answer pairs that appear on the page (and help your SEO). The
+        <strong>Answer</strong> is rich text, so you can put links inside an answer.</li>
+      <li><strong>Product SKUs</strong>: the product list for the page. Add products with the searchable picker (type a
+        product name, SKU, or brand and click to add), and drag to reorder.</li>
+      <li><strong>External CTA URL (optional)</strong>: if set, the page's buttons point there; if left blank, buttons
+        open your contact form.</li>
+      <li><strong>Related Blog Posts</strong>: pick blog posts to show in a related-reading row on this page.</li>
+      <li><strong>SEO</strong>: the Meta Title and Meta Description Google shows in search results, plus a social image.</li>
     </ul>
+    <p class="small">To put one of your own <a href="#custom-product">Custom Products</a> on this page, open that
+      product and set its <strong>Parent Category</strong> to this page. It then appears in the grid alongside the
+      Geiger products you picked.</p>
 
     <h3>Editing, then publishing</h3>
     <ol class="steps">
@@ -695,7 +794,7 @@
     <div class="callout">
       <span class="label">Filters appear automatically</span>
       <p>As long as the page has products, it shows the same <strong>filter sidebar</strong> (Color, Brand, Price,
-        Minimum Quantity, and so on) as every normal category page — you do not have to set anything up.</p>
+        Minimum Quantity, and so on) as every normal category page - you do not have to set anything up.</p>
       <p>Which filter options appear depends on the products themselves:</p>
       <ul>
         <li><strong>Geiger products you picked by SKU</strong> bring their real filters (color, material, brand, etc.)
@@ -732,14 +831,22 @@
       <li>Click the <strong>Push to Sanity</strong> tab at the top.</li>
       <li>Search for the category you want (by name or slug, for example "backpacks").</li>
       <li>Click <strong>Push to Sanity</strong> on that result.</li>
-      <li>It creates a <a href="#custom-category">Custom Category</a> document <strong>already filled in</strong> with
-        that page's current heading, meta, intro, buying guide, FAQs, and products.</li>
-      <li>Go to <span class="path">Content <span class="arrow">›</span> Custom Category</span>, open the new document,
+      <li>It creates a <a href="#custom-category">Custom Category</a> <strong>draft</strong> already filled in with that
+        page's current heading, meta title and description, intro, buying guide, FAQs, and products. Nothing on the live
+        site has changed yet.</li>
+      <li>Go to <span class="path">Content <span class="arrow">›</span> Custom Category</span>, open the new draft,
         edit what you want, <strong>review the product list</strong> (see the warning above), and
         <strong>Publish</strong>.</li>
     </ol>
     <p>From then on, that web address is served from your edited version. If you ever want the original automatic
       version back, delete or unpublish the Custom Category.</p>
+    <div class="callout info">
+      <span class="label">Pushing the same page twice</span>
+      <p>If a Custom Category already exists for that address, the tool refuses and tells you so ("A Custom Category
+        already exists for /cat/…"). That is a safeguard, not an error: open the existing one under
+        <span class="path">Content <span class="arrow">›</span> Custom Category</span> and edit that, so your earlier
+        work is never overwritten by a fresh copy.</p>
+    </div>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
@@ -748,7 +855,7 @@
     <p>This is a button that appears <strong>only on Custom Category documents</strong> (you will see it among the
       document's actions, near the Publish button). It uses AI to draft page content for you.</p>
     <p>Similar "Generate … with AI" buttons exist on <a href="#blog">Blog Post</a>, <a href="#video">Video</a>, <a
-        href="#page">Page</a>, <a href="#landing">Landing Page</a>, and <a href="#product-pages">Product Page</a> —
+        href="#page">Page</a>, <a href="#landing">Landing Page</a>, and <a href="#product-pages">Product Page</a> -
       each is described in its own section. They all work the same way: you provide a title (and optionally
       keywords), the AI drafts, you review and Publish.</p>
     <ul>
@@ -758,10 +865,11 @@
         in control.</li>
     </ul>
     <ol class="steps">
-      <li>Open a Custom Category document.</li>
-      <li>Click <strong>Generate with AI</strong>.</li>
+      <li>Open a Custom Category document and check its <strong>Title</strong> and <strong>Target Keyword</strong> are
+        filled in. Those two are what the AI writes from.</li>
+      <li>Click <strong>Generate with AI</strong> (in the menu beside the Publish button).</li>
       <li>A small window with a spinner opens while it writes the intro, body, and FAQs (usually 20 to 40
-        seconds) and closes by itself when the fields fill in. You can close it early — generation keeps running.</li>
+        seconds) and closes by itself when the fields fill in. You can close it early - generation keeps running.</li>
       <li><strong>Read and edit</strong> the result so it sounds right for you.</li>
       <li>Set the product list yourself, then <strong>Publish</strong>.</li>
     </ol>
@@ -782,7 +890,7 @@
     <div class="callout">
       <span class="label">One override per category</span>
       <p>Each category page can have <strong>only one</strong> Category Override. If you pick a category that already
-        has one, a red notice appears with a link to the existing override — <strong>open that one and make your changes
+        has one, a red notice appears with a link to the existing override - <strong>open that one and make your changes
         there</strong>. Publishing a second override for the same category is blocked (a duplicate would be ignored by
         the website, so your changes would appear to do nothing).</p>
     </div>
@@ -812,12 +920,12 @@
       </li>
       <li><strong>Added SKUs</strong>: search and add existing Geiger products you want <strong>added</strong> to this
         page, even if Geiger does not file them under it.</li>
-      <li><strong>Added Products</strong>: add your own products to this page — a
+      <li><strong>Added Products</strong>: add your own products to this page - a
         <a href="#custom-product">Custom Product</a> (a card that links out to another website) <strong>or a
         <a href="#product-pages">Product Page</a></strong> (a card that links to that product's own
         <code>/products/…</code> page on your site, with its price range and first photo). Both are pinned to the front
         of the grid and participate in the page's filters. (Tip: for Product Pages the easier route is usually the
-        product's own <strong>"Add to categories"</strong> field — same result, and a product attached both ways still
+        product's own <strong>"Add to categories"</strong> field - same result, and a product attached both ways still
         shows once.)</li>
     </ul>
     <p>Publish, and the page reflects your tweaks while keeping its original heading, text, and FAQs. This is the
@@ -834,7 +942,7 @@
       <strong>Types</strong> (use the same value names Geiger uses, for example "Blue", "Stainless Steel",
       "With A Lid"), and switch on <strong>Made in USA</strong>, <strong>Eco-Friendly</strong>, or
       <strong>Closeout</strong> to have the product included by those filters. Anything you leave blank simply skips
-      that filter. An added <strong>Product Page</strong> participates the same way — its colors come from its color
+      that filter. An added <strong>Product Page</strong> participates the same way - its colors come from its color
       variants automatically, and Material / Features / Types / the three toggles come from its Filters section.</p>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
@@ -864,29 +972,45 @@
     <ul>
       <li><strong>Title, image, description</strong>: the basics shown on the product card.</li>
       <li><strong>External URL</strong>: where the card links (any vendor; your own Geiger links are handled
-        automatically).</li>
-      <li><strong>Parent category</strong>: the category page this product should appear on.</li>
-      <li><strong>Display order</strong>: where it sits in the grid.</li>
-      <li><strong>Placements</strong>: toggles to also show it on Deals, New Products, and/or Rush Products.</li>
+        automatically). This one is <strong>required</strong> - a Custom Product is a card that links out.</li>
+      <li><strong>Parent Category</strong>: see the warning below. It does <em>not</em> put the product on any of the
+        22,180 automatic category pages.</li>
+      <li><strong>Display Order</strong>: where it sits in the grid (lower numbers first).</li>
+      <li><strong>Show On Pages</strong>: three toggles, <em>Show on /deals</em>, <em>Show on /new-products</em>, and
+        <em>Show on /rush-products</em>.</li>
       <li><strong>Optional details</strong> (only needed for the Deals/New/Rush pages): brand, prices, minimum quantity,
         production time, and "new/sale/closeout" badges.</li>
-      <li><strong>Optional filter fields</strong> — all optional; tag them to make the product show up under that
+      <li><strong>Optional filter fields</strong> - all optional; tag them to make the product show up under that
         filter on /deals, /new-products, /rush-products, and on any Replace-products category page; leave blank to
         skip that filter. <strong>Colors</strong>, <strong>Material</strong>, <strong>Features</strong>, and
         <strong>Types</strong> are word tags (use the same words Geiger uses, for example "Blue", "Stainless Steel",
         "With A Lid"); <strong>Made in USA</strong>, <strong>Eco-Friendly</strong>, and <strong>Closeout</strong> are
-        simple on/off switches. There is no separate "New Item" switch — the NEW badge (or "Show on /new-products")
+        simple on/off switches. There is no separate "New Item" switch - the NEW badge (or "Show on /new-products")
         already puts the product under the New Items filter, and the CLOSEOUT badge also counts for the Closeout
         filter.</li>
     </ul>
-    <p>A Custom Product can be attached to a category in three ways: its own Parent category field, an <a
-        href="#category-override">Category Override</a> "Added Products", or a <a href="#custom-category">Custom
-        Category</a>'s product list.</p>
+    <div class="callout warn">
+      <span class="label">What "Parent Category" really does</span>
+      <p>It is tempting to read this as "the category page this product appears on". It is not that. Parent Category can
+        only point at a <a href="#custom-category">Custom Category</a> (a page you have taken over or built yourself),
+        so it cannot reach any of your 22,180 automatic category pages. It does two jobs:</p>
+      <ul>
+        <li>If it points at a Custom Category, the product appears in that page's grid.</li>
+        <li>It decides which <strong>Category</strong> heading the product is filed under in the filter sidebar on
+          <code>/deals</code>, <code>/new-products</code> and <code>/rush-products</code>.</li>
+      </ul>
+      <p><strong>To put a Custom Product on an ordinary category page</strong>, use a
+        <a href="#category-override">Category Override</a> for that page and add it under <strong>Added Products</strong>.
+        That is the only route.</p>
+    </div>
+    <p>So a Custom Product reaches a category page in one of two ways: a <a href="#category-override">Category
+        Override</a>'s <strong>Added Products</strong> (works on any page), or its own <strong>Parent Category</strong>
+      (Custom Category pages only).</p>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="curated">12. Curated Category — do not use</h2>
+    <h2 id="curated">12. Curated Category - do not use</h2>
     <div class="callout warn">
       <span class="label">Skip this one</span>
       <p>There is an old menu item called <strong>Curated Category</strong>. It still appears in your Content list and
@@ -925,8 +1049,8 @@
         <td><strong>Rich Text</strong></td>
         <td>A block of formatted text: headings, sub-headings, paragraphs, <strong>bullet &amp; numbered lists</strong>,
           bold/italic, quotes, and links. You can also <strong>drop an image inline between paragraphs</strong> (use the
-          insert menu inside the text box). Each inline image has a <strong>Size</strong> option — Small (about a
-          quarter width), Medium (about half), Large (about three quarters), or Full width — and an
+          insert menu inside the text box). Each inline image has a <strong>Size</strong> option - Small (about a
+          quarter width), Medium (about half), Large (about three quarters), or Full width - and an
           <strong>Alignment</strong> (left / center / right). Leave Size blank for full width (how images have always
           rendered); a smaller image is centered unless you pick an alignment, and it automatically widens on phones so
           it stays legible. The same Size/Alignment control appears on inline images in <a href="#blog">blog
@@ -964,7 +1088,7 @@
       <tr>
         <td><strong>Video Embed</strong></td>
         <td>Paste a <strong>YouTube, YouTube Shorts, Vimeo, Instagram, or Facebook</strong> link and it plays in a
-          responsive player right on the page. The correct player is detected automatically — you do not pick a
+          responsive player right on the page. The correct player is detected automatically - you do not pick a
           provider. Optional heading and caption. (The video stays on its source platform; nothing is uploaded here.)
         </td>
       </tr>
@@ -980,7 +1104,7 @@
           manually</em> underneath). Or fill the manual title/image/link fields for a non-Geiger product. Prices,
           images, and affiliate links pull from the catalog automatically, so nothing goes stale. You can also add one of your own <strong>Product
             Pages</strong> (the card links to its <code>/products/…</code> page on your site) or <strong>Custom
-            Products</strong> (the card links to its external URL) — pick the "Custom Product / Product Page" entry
+            Products</strong> (the card links to its external URL) - pick the "Custom Product / Product Page" entry
           and its title, price, and image pull live from the document, so editing the product updates every strip
           that shows it. Optional heading. This is also the strip the <a
             href="#page-ai">Generate Page with AI</a> helper pre-fills (the AI adds SKU entries; add your own
@@ -1002,15 +1126,15 @@
     <h4 id="page-ai">Generate Page with AI</h4>
     <p>Pages have their own AI writing helper, like Blog Posts and Videos do. Type a page <strong>Title</strong>,
       optionally add a short brief and a few keywords, click one button, and it drafts a full set of sections for you
-      to review — it saves a <strong>draft</strong> and never publishes anything on its own.</p>
+      to review - it saves a <strong>draft</strong> and never publishes anything on its own.</p>
     <ol class="steps">
-      <li>Create a new <span class="path">Page</span> (or open one) and enter the <strong>Title</strong> — this is the
+      <li>Create a new <span class="path">Page</span> (or open one) and enter the <strong>Title</strong> - this is the
         main input, so the button stays disabled until it is filled.</li>
       <li>Optionally, in the <strong>AI generation</strong> section, add a <strong>Page brief</strong> (a sentence or
         two on what the page is about) and <strong>Topic Keywords</strong> (a few plural phrases like "custom water
-        bottles" — these steer the product strip and the internal links).</li>
+        bottles" - these steer the product strip and the internal links).</li>
       <li>Click <strong>Generate Page with AI</strong> (among the document actions, near Publish). A window with a
-        spinner opens while it writes — it usually takes under two minutes — and closes by itself when the draft fills
+        spinner opens while it writes - it usually takes under two minutes - and closes by itself when the draft fills
         in (closing it early is fine; generation keeps running). If it comes back with an error saying the result was
         thin, just click it again.</li>
       <li><strong>Review everything.</strong> The draft gets: a text hero (heading + subheading + a button pointing to
@@ -1018,14 +1142,14 @@
         automatically</strong> (the <strong>Suggested Internal Links</strong> list records everything it found and says
         which were placed), a pre-filled <strong>Product Strip</strong>, a stat banner, an FAQ section, and a closing
         call-to-action. The meta title/description fill in too. Reorder, edit, hide, or delete any section.</li>
-      <li><strong>Add your images and check the buttons.</strong> The AI writes <em>text sections only</em> — it never
+      <li><strong>Add your images and check the buttons.</strong> The AI writes <em>text sections only</em> - it never
         picks images, so upload the hero/banner images yourself (and add Image or Infographic sections if you want
         them). The hero and CTA buttons point to <code>/contact</code> by default; repoint them if you prefer.</li>
       <li>When it reads right, <strong>Publish</strong>.</li>
     </ol>
     <div class="callout info">
       <span class="label">Nothing gets overwritten</span>
-      <p>Generating <strong>appends</strong> its sections to the end of the Sections list — it never wipes or replaces
+      <p>Generating <strong>appends</strong> its sections to the end of the Sections list - it never wipes or replaces
         sections that are already on the page. That also means clicking Generate a second time adds a <em>second</em>
         set of sections; just delete the set you do not want.</p>
     </div>
@@ -1033,7 +1157,7 @@
       <span class="label">Always review AI text</span>
       <p>The AI writes a first draft, not a final page. Read it before publishing, fix anything generic or inaccurate,
         and check that the product strip actually fits the topic (if nothing sufficiently relevant was found, the strip
-        is simply left out — you can add one yourself and fill it by SKU, or with your own Product Pages / Custom
+        is simply left out - you can add one yourself and fill it by SKU, or with your own Product Pages / Custom
         Products).</p>
     </div>
 
@@ -1046,7 +1170,7 @@
     <p><strong>To create one:</strong></p>
     <ol>
       <li>Open <span class="path">Content <span class="arrow">›</span> Page</span> and click <strong>Create new</strong>.</li>
-      <li>Enter a <strong>Title</strong> and set the <strong>Slug</strong> (its address — type it or let it fill from the
+      <li>Enter a <strong>Title</strong> and set the <strong>Slug</strong> (its address - type it or let it fill from the
         title). The slug is the exact address, so <code>my-page</code> becomes <code>/my-page</code>.</li>
       <li>Add your <strong>Sections</strong> (the same website-builder blocks listed above) and fill in the
         <strong>SEO</strong> section (meta title + description).</li>
@@ -1056,7 +1180,7 @@
 
     <div class="callout info">
       <span class="label">Live within seconds</span>
-      <p>Just like categories, publishing a Page updates the live site within a few seconds — you do not wait for a code
+      <p>Just like categories, publishing a Page updates the live site within a few seconds - you do not wait for a code
         deploy. Editing an existing page works the same way.</p>
     </div>
 
@@ -1066,27 +1190,28 @@
         "This URL is reserved by the site; choose another slug") if you try to save a Page at one of them:</p>
       <p class="small"><code>cat</code>, <code>blog</code>, <code>videos</code>, <code>brands</code>, <code>deals</code>,
         <code>new-products</code>, <code>rush-products</code>, <code>rush-promotional-products</code>,
-        <code>promotional-products</code>, <code>faq</code>, <code>search</code>, <code>services</code>,
+        <code>promotional-products</code>, <code>products</code>, <code>shop-by-theme</code>, <code>quote</code>,
+        <code>faq</code>, <code>search</code>, <code>services</code>,
         <code>admin3773752</code>, <code>api</code>, <code>about</code>, <code>contact</code>, <code>terms</code>,
         <code>privacy-security</code>, <code>returns</code>, <code>shipping-policy</code>, <code>sample-policy</code>,
         <code>company-core-values</code>.</p>
       <p class="small">Just pick a different slug. (The Services pages keep using <code>kitting</code>,
-        <code>company-stores</code>, <code>popup-stores</code>, <code>custom-products</code> — those stay at their
+        <code>company-stores</code>, <code>popup-stores</code>, <code>custom-products</code> - those stay at their
         <code>/services/…</code> addresses.)</p>
     </div>
 
     <h3>Linking a new page into your menus (a separate, optional step)</h3>
     <p>Creating and publishing a page makes it live and findable by its address and by Google, <strong>but it does not
       automatically add it to any menu.</strong> Adding it to the top navigation or the footer is a <strong>separate
-      step you do afterward, in a different part of Studio</strong> — the Page document itself has no "add to menu"
+      step you do afterward, in a different part of Studio</strong> - the Page document itself has no "add to menu"
       switch, because the menus are their own documents. Think of it as two steps:</p>
 
     <ol>
-      <li><strong>Step 1 — Create the page (required).</strong> <span class="path">Content <span class="arrow">›</span>
+      <li><strong>Step 1 - Create the page (required).</strong> <span class="path">Content <span class="arrow">›</span>
         Page <span class="arrow">›</span> Create new</span> → Title + Slug + Sections + SEO → <strong>Publish</strong>.
         The page is now live at <code>/your-slug</code> and in the sitemap. It is <em>not</em> yet in any menu, but
-        anyone with the link — and Google — can already reach it.</li>
-      <li><strong>Step 2 — Link it into navigation (optional).</strong> Only do this if you want the page to appear in
+        anyone with the link - and Google - can already reach it.</li>
+      <li><strong>Step 2 - Link it into navigation (optional).</strong> Only do this if you want the page to appear in
         the site's menus or footer. Go to a <em>different</em> collection and paste the page's slug (for example
         <code>/llm-info-perfect-imprints</code>) as the link address:
         <ul>
@@ -1096,7 +1221,7 @@
           <li><strong>Footer:</strong> open <span class="path">Content <span class="arrow">›</span> Global Settings</span>
             and add a link (label + address) to one of the footer columns.</li>
         </ul>
-        No code change is needed for either — the menus and footer are all edited here in Studio, and they update live
+        No code change is needed for either - the menus and footer are all edited here in Studio, and they update live
         within seconds when you Publish.</li>
     </ol>
 
@@ -1110,55 +1235,77 @@
 
     <!-- ============================================================ -->
     <h2 id="blog">14. Blog Post, Blog Category, Author</h2>
-    <p>These three work together for your blog (around 649 posts already migrated).</p>
+    <p>These three work together for your blog (your posts from the old site are already migrated in).</p>
 
     <h4>Blog Post</h4>
     <p>Open <span class="path">Content <span class="arrow">›</span> Blog Post</span> to edit an existing post or create
-      a new one. A post has a title, slug (its address under <code>/blog/</code>), header image, the body (rich text),
-      an author, and a blog category. An image dropped inline in the body has a <strong>Size</strong> option (Small ≈
+      a new one. The fields:</p>
+    <ul>
+      <li><strong>Title</strong> and <strong>Slug</strong> (its address under <code>/blog/</code>).</li>
+      <li><strong>Header Image</strong> (with alt text) and <strong>Excerpt</strong>, the short summary used on the blog
+        listing cards.</li>
+      <li><strong>Body</strong>, the article itself (rich text). Besides text you can insert images, a row of product
+        cards, and a <strong>Video Embed</strong> block.</li>
+      <li><strong>Author</strong>, <strong>Publish Date</strong>, and an optional <strong>Updated Date</strong> (both
+        dates show under the heading on the post).</li>
+      <li><strong>Categories</strong>. This is a <strong>list</strong>, so a post can sit in more than one blog
+        category. The <em>first</em> one in the list is what the automatic "Order Custom … Today" heading uses, so put
+        the most relevant one first.</li>
+      <li><strong>Related Category Slugs</strong>. This is what makes the post show up in the "Related Blogs About …"
+        row on your <em>product category</em> pages. Add a category slug such as <code>water-bottles</code> and the post
+        appears on that category page. Leave it empty and the post simply is not featured on any category page.</li>
+      <li><strong>Related Blogs (manual override)</strong>. Pick the posts you want under "See Related Blogs About …" at
+        the bottom of this post, in your own order. Leave it empty and the site picks them for you, using posts that
+        share a category, newest first.</li>
+      <li><strong>CTA Heading</strong> and <strong>CTA Body Text</strong> (see the next heading).</li>
+      <li><strong>Meta Title</strong> (up to 60 characters) and <strong>Meta Description</strong> (up to 155) for
+        Google. There is also an <strong>SEO (extra)</strong> group for a social share image; the two fields above are
+        used by default.</li>
+    </ul>
+    <p>An image dropped inline in the body has a <strong>Size</strong> option (Small ≈
       quarter width, Medium ≈ half, Large ≈ three quarters, Full width) and an <strong>Alignment</strong> (left /
-      center / right) — leave Size blank for full width, exactly how existing images already render; smaller images
+      center / right) - leave Size blank for full width, exactly how existing images already render; smaller images
       are centered unless you pick an alignment. Inside the body you can also insert a <strong>row of product
         cards</strong>
       between paragraphs, just like your old blog did. Each entry in the row can be a Geiger product pulled live by
-      <strong>SKU</strong>, a manual card (title, image, and link), or — pick the "Custom Product / Product Page"
-      entry — one of your own <strong>Product Pages</strong> (the card links to its <code>/products/…</code> page on
+      <strong>SKU</strong>, a manual card (title, image, and link), or - pick the "Custom Product / Product Page"
+      entry - one of your own <strong>Product Pages</strong> (the card links to its <code>/products/…</code> page on
       your site) or <strong>Custom Products</strong> (the card links to its external URL), with the title, price, and
       image pulled live from the document.</p>
 
     <h4>CTA Heading (fix the "Order Custom … Today" wording)</h4>
     <p>At the bottom of every post the site shows an <strong>"Order Custom [category] Today"</strong> call-to-action
-      block, with the topic taken automatically from the post's <em>first category name</em> — which reads wrong when
+      block, with the topic taken automatically from the post's <em>first category name</em> - which reads wrong when
       the category is an editorial one. Example: a post about mini footballs filed under "Buying Guides" would say
       "Order Custom <em>Buying Guides</em> Today".</p>
     <p>To fix it, fill the optional <strong>CTA Heading</strong> field on the post (just above Meta Title) with the
-      <strong>full heading you want, exactly as it should appear</strong> — e.g.
-      <code>Order Custom Mini Footballs Today</code> — and Publish. Whatever you type is shown <strong>verbatim</strong>
+      <strong>full heading you want, exactly as it should appear</strong> - e.g.
+      <code>Order Custom Mini Footballs Today</code> - and Publish. Whatever you type is shown <strong>verbatim</strong>
       as the CTA block's heading (nothing is added around it). Leave the field <strong>blank</strong> to keep the
       automatic "Order Custom [category] Today" (clearing it and publishing reverts to automatic).</p>
     <p>The paragraph <strong>under</strong> that heading is editable too, in the <strong>CTA Body Text</strong> field
       right below CTA Heading. Type whatever you want (it shows exactly as typed), or leave it <strong>blank</strong> to
       use the default "Our team can help you pick the right product, decoration, and quantity for your project. Reach
-      out and we'll send tailored ideas — usually within one business day." Every existing post already has that default
+      out and we'll send tailored ideas - usually within one business day." Every existing post already has that default
       text filled in for you, so you can open any post and tweak just its wording. As always, <strong>Publish</strong>
       for the change to go live.</p>
     <p class="small">This field changes <strong>only the CTA block's heading</strong>. The "See Related Blogs About …"
       heading further down always uses the automatic category-based wording, and the AI blog generator never fills
-      this field — it stays blank unless you type something.</p>
+      this field - it stays blank unless you type something.</p>
 
     <h4 id="blog-ai">Generate a Blog Post with AI</h4>
     <p>Blog Posts have their own AI writing helper, just like Custom Categories do (see <a href="#ai">Generate with
-        AI</a>). It drafts a complete long-form post — the body text, rows of matching product cards, the meta
-      title/description, the excerpt, and a list of suggested internal links — for you to review and edit. It saves a
+        AI</a>). It drafts a complete long-form post - the body text, rows of matching product cards, the meta
+      title/description, the excerpt, and a list of suggested internal links - for you to review and edit. It saves a
       <strong>draft</strong>; it never publishes anything on its own.</p>
     <ol class="steps">
       <li>Create a new <span class="path">Blog Post</span> (or open one you want to rewrite).</li>
-      <li>Enter a <strong>Title</strong> — this is the topic the AI writes about.</li>
+      <li>Enter a <strong>Title</strong> - this is the topic the AI writes about.</li>
       <li>In the <strong>AI generation</strong> section, pick a <strong>Template</strong>:
         <ul>
-          <li><strong>List-style</strong> — a "10 Ideas …" post with a row of matching products under each idea. Best
+          <li><strong>List-style</strong> - a "10 Ideas …" post with a row of matching products under each idea. Best
             for idea round-ups and giveaway lists.</li>
-          <li><strong>Single-category focus</strong> — a deep dive on one product category with one recommended-products
+          <li><strong>Single-category focus</strong> - a deep dive on one product category with one recommended-products
             row. Best for buying-guide-style posts.</li>
         </ul>
       </li>
@@ -1167,25 +1314,25 @@
       <li>Optionally pick a <strong>Primary Category</strong>. For a single-category post the products come from here
         first; for a list post each idea finds its own product type automatically and this is only a fallback.</li>
       <li>Set the <strong>Approximate word count</strong> (default 1500, roughly 1300 to 1900). This is a target, not
-        an exact count — expect the post to land within about 15 percent of it.</li>
+        an exact count - expect the post to land within about 15 percent of it.</li>
       <li>Click <strong>Generate Blog with AI</strong> (among the document actions, near Publish). A window with a
-        spinner opens while it writes — a full post can take a minute or two — and closes by itself when the draft
+        spinner opens while it writes - a full post can take a minute or two - and closes by itself when the draft
         fills in (closing it early is fine; generation keeps running). If it comes back with an error saying the
         result was thin, just click it again.</li>
       <li><strong>Review everything:</strong> edit the body text; swap or remove products in the product rows (each row
         is a Products Block you can edit: add by SKU using the search-and-pick box, add one of your own Product Pages /
         Custom Products, or delete entries); check the internal links the AI
-        <strong>placed into the text automatically</strong> (they show as normal links — edit or remove any you do not
+        <strong>placed into the text automatically</strong> (they show as normal links - edit or remove any you do not
         want, and the <strong>Suggested Internal Links</strong> list records everything it found and says which were
-        placed); <strong>add a header image</strong> (the AI does not pick images or videos — you drop those in
+        placed); <strong>add a header image</strong> (the AI does not pick images or videos - you drop those in
         wherever you want); and set the <strong>Author</strong>. (The optional <strong>CTA Heading</strong> field is
-        never filled by the AI — set it yourself only if the automatic "Order Custom [category] Today" wording reads
+        never filled by the AI - set it yourself only if the automatic "Order Custom [category] Today" wording reads
         wrong for this post.)</li>
       <li>When it reads right, <strong>Publish</strong>.</li>
     </ol>
     <p class="small">About the product rows: each section's row is matched to <em>that section's</em> topic (a
       power-bank idea shows power banks, a tote-bag idea shows tote bags), and no product repeats anywhere in the post.
-      If nothing sufficiently relevant is found for a section, that section simply has no product row — that is
+      If nothing sufficiently relevant is found for a section, that section simply has no product row - that is
       intentional; you can always insert a Products Block there yourself.</p>
     <div class="callout warn">
       <span class="label">Always review AI text</span>
@@ -1205,21 +1352,59 @@
     <!-- ============================================================ -->
     <h2 id="faq">15. FAQ</h2>
     <p>Open <span class="path">Content <span class="arrow">›</span> FAQ</span> to manage the questions on your
-      <code>/faq</code> page. Each FAQ has a question, an answer, and a category it belongs to, so the page stays
-      organized into groups. Add, edit, reorder, or remove questions, then Publish. (This is the site-wide FAQ library;
-      it is separate from the FAQs you can put on an individual <a href="#custom-category">Custom Category</a> page.)
-    </p>
+      <code>/faq</code> page. Each question is its own document with four fields:</p>
+    <ul>
+      <li><strong>Question</strong>.</li>
+      <li><strong>Answer</strong> - rich text, so you can put links inside an answer.</li>
+      <li><strong>FAQ Category</strong> - which of the seven groups it appears under on the page: Product Selection
+        &amp; Availability, Ordering, Quotes &amp; Minimums, Artwork, Proofs &amp; Branding, Production, Rush Orders
+        &amp; Delivery, Company Stores, Kitting &amp; Custom Programs, Order Changes, Cancellations &amp; Problems, and
+        Getting Started.</li>
+      <li><strong>Category Tags</strong> (optional) - links this question to one or more of your Custom Category pages.</li>
+    </ul>
+    <p>Add or edit a question and Publish. To take one off the page, delete or unpublish it.</p>
+
+    <div class="callout warn">
+      <span class="label">Two things that surprise people</span>
+      <p><strong>A question with a blank Answer does not appear on the site at all.</strong> Some questions were set up
+        as empty starters waiting for your wording, so if a question is missing from <code>/faq</code>, open it and
+        check whether the Answer is still empty. Fill it in and Publish and it appears.</p>
+      <p><strong>You cannot drag questions into an order.</strong> Within each of the seven groups the page lists them
+        <strong>alphabetically by the question</strong>, automatically. If you want a particular question near the top
+        of its group, the only lever is how you word it. There is no ordering field to look for.</p>
+    </div>
+    <p class="small">This is the site-wide FAQ library. It is separate from the FAQs you can put on an individual
+      <a href="#custom-category">Custom Category</a> page, and from the FAQ Accordion section in the
+      <a href="#page">page builder</a>.</p>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
     <h2 id="video">16. Video</h2>
     <p>Open <span class="path">Content <span class="arrow">›</span> Video</span> to manage the items on your Videos
-      page. Add a video with its details and Publish. Use this whenever you want a new video to appear in the Videos
-      section.</p>
-    <p>Each video can also carry a <strong>Related Products</strong> list — it shows as a row of product cards under
+      page. Nothing is uploaded here: you paste a link and the video keeps playing from wherever it already lives.</p>
+    <ul>
+      <li><strong>Title</strong> and <strong>Slug</strong> (its address under <code>/videos/</code>). Both required.</li>
+      <li><strong>Video Link</strong> (required) - paste a YouTube video or Shorts, Vimeo, Instagram, or Facebook link.
+        The right player is picked automatically; you never choose a provider.</li>
+      <li><strong>Custom Thumbnail</strong> (optional) - the picture on the video card and when the page is shared.
+        YouTube links find their own thumbnail, so this is mainly for the other platforms.</li>
+      <li><strong>Description</strong> - rich text shown under the player. Links work inside it.</li>
+      <li><strong>Related Products</strong> - see below.</li>
+      <li><strong>Categories</strong> - see below.</li>
+      <li><strong>Publish Date</strong> - controls the order on the Videos page (newest first).</li>
+      <li><strong>SEO</strong> (optional) - leave it blank and the meta title comes from the Title, the description from
+        the Description, and the share image from the thumbnail.</li>
+    </ul>
+    <div class="callout warn">
+      <span class="label">Test Instagram and Facebook links</span>
+      <p>YouTube and Vimeo always embed cleanly. Instagram and Facebook sometimes refuse to embed depending on the
+        post's own privacy settings, and there is nothing we can change from this side when they do. For those two,
+        set a <strong>Custom Thumbnail</strong> and open the published page once to check the player actually appears.</p>
+    </div>
+    <p>Each video can also carry a <strong>Related Products</strong> list - it shows as a row of product cards under
       the description on the video's page. Add products by Geiger SKU, fill the manual title/image/link fields for a
-      non-Geiger product, or — pick the "Custom Product / Product Page" entry — add one of your own <strong>Product
+      non-Geiger product, or - pick the "Custom Product / Product Page" entry - add one of your own <strong>Product
         Pages</strong> (the card links to its <code>/products/…</code> page on your site) or <strong>Custom
         Products</strong> (the card links to its external URL), with title, price, and image pulled live from the
       document. The AI helper below pre-fills this list for you (with SKU entries).</p>
@@ -1237,31 +1422,31 @@
 
     <h4 id="video-ai">Generate Video Details with AI</h4>
     <p>Videos have their own AI writing helper, like Blog Posts do (see <a href="#blog-ai">Generate a Blog Post with
-        AI</a>). Paste the video's script or transcript and it drafts everything else — the title, meta
+        AI</a>). Paste the video's script or transcript and it drafts everything else - the title, meta
       title/description, a long-form description with internal links already placed in it, and a pre-filled
-      related-products row — for you to review and edit. It saves a <strong>draft</strong>; it never publishes
+      related-products row - for you to review and edit. It saves a <strong>draft</strong>; it never publishes
       anything on its own.</p>
     <ol class="steps">
       <li>Create a new <span class="path">Video</span> (or open one).</li>
       <li>Paste the <strong>Video Link</strong> (YouTube, Shorts, Vimeo, Instagram, or Facebook).</li>
-      <li>In the <strong>AI generation</strong> section, paste the <strong>Video Script / Transcript</strong> — this
+      <li>In the <strong>AI generation</strong> section, paste the <strong>Video Script / Transcript</strong> - this
         is what the AI writes from, so the button stays disabled until it is filled.</li>
-      <li>Optionally add <strong>Topic Keywords</strong> (a few plural phrases like "custom water bottles" — these
+      <li>Optionally add <strong>Topic Keywords</strong> (a few plural phrases like "custom water bottles" - these
         steer the related products and the internal links) and pick one or more <strong>Categories</strong>.</li>
       <li>Click <strong>Generate Video Details with AI</strong> (among the document actions, near Publish). A window
-        with a spinner opens while it writes — it usually takes under a minute — and closes by itself when the draft
+        with a spinner opens while it writes - it usually takes under a minute - and closes by itself when the draft
         fills in (closing it early is fine; generation keeps running). If it comes back with an error saying the
         result was thin, just click it again.</li>
       <li><strong>Review everything:</strong> the title, meta title/description, and a 500-to-750-word description
-        fill in, with internal links <strong>placed into the text automatically</strong> (they show as normal links —
+        fill in, with internal links <strong>placed into the text automatically</strong> (they show as normal links -
         edit or remove any you do not want; the <strong>Suggested Internal Links</strong> list records everything it
         found and says which were placed). The <strong>Related Products</strong> row is pre-filled with matching
-        products — add or remove any. If the platform needs one (Instagram/Facebook), set a custom
+        products - add or remove any. If the platform needs one (Instagram/Facebook), set a custom
         <strong>Thumbnail</strong> and test the link.</li>
       <li>When it reads right, <strong>Publish</strong>.</li>
     </ol>
     <p class="small">About the related products: they are matched to the concrete item the video is about (a water
-      bottle video gets water bottles). If nothing sufficiently relevant is found, the row is simply left as it was —
+      bottle video gets water bottles). If nothing sufficiently relevant is found, the row is simply left as it was -
       you can always add products yourself by SKU, or add your own Product Pages / Custom Products.</p>
     <div class="callout warn">
       <span class="label">Always review AI text</span>
@@ -1274,11 +1459,19 @@
     <!-- ============================================================ -->
     <h2 id="brand">17. Brand</h2>
     <p>Open <span class="path">Content <span class="arrow">›</span> Brand</span> to manage your brand pages (around 205
-      brands with logos, shown on <code>/brands</code>). Each brand has its name and logo. Add or edit a brand and
-      Publish to update the brands grid.</p>
+      brands with logos, shown on <code>/brands</code>). Add or edit a brand and Publish to update the brands grid.
+      The fields:</p>
+    <ul>
+      <li><strong>Name</strong> and <strong>Slug</strong> (its address under <code>/brands/</code>).</li>
+      <li><strong>Logo</strong> (with alt text) - what shows in the grid.</li>
+      <li><strong>Description</strong> (optional) - a short paragraph shown on that brand's own page.</li>
+      <li><strong>Geiger URL</strong> and <strong>Product Count</strong> - filled in automatically when the catalog is
+        rebuilt. You do not normally touch these.</li>
+      <li><strong>Featured</strong> - see below.</li>
+    </ul>
     <p>Turn on the <strong>Featured</strong> toggle on any brand to spotlight it in a <strong>Featured Brands</strong>
       strip at the very top of the <code>/brands</code> page (above the full A–Z list). The brand still appears in the
-      A–Z list below as well — the strip is just an extra highlight. Feature a few brands and they show in that strip;
+      A–Z list below as well - the strip is just an extra highlight. Feature a few brands and they show in that strip;
       turn them all off and the strip disappears. Publish and the change shows on the live <code>/brands</code> page
       within a few seconds.</p>
 
@@ -1297,15 +1490,15 @@
         total</strong> the customer saw, and a <strong>"Lead sent to"</strong> note showing which email the
       notification went to (landing-page leads show that note too).</p>
     <p>Submissions from a <a href="#forms">builder Form</a> (e.g. the four service quote forms) show the
-      <strong>Form</strong> name plus an <strong>Answers</strong> list — every question with the answer the visitor
-      gave, in the form's order — alongside the usual name / email / phone / company columns and any attached files.</p>
+      <strong>Form</strong> name plus an <strong>Answers</strong> list - every question with the answer the visitor
+      gave, in the form's order - alongside the usual name / email / phone / company columns and any attached files.</p>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
     <h2 id="custom-schema">19. Custom Schema (advanced SEO / structured data)</h2>
     <p>This is an <strong>optional, advanced</strong> tool. It lets you add extra
-      <strong>structured data</strong> (also called "schema" or "JSON-LD") to <strong>any page on the site</strong> —
+      <strong>structured data</strong> (also called "schema" or "JSON-LD") to <strong>any page on the site</strong> -
       a category page, a blog post, a video, the home page, an info page, anything. Structured data is invisible code
       that helps Google and AI tools understand a page. You do <strong>not</strong> need this for normal SEO; the site
       already adds the important schema for you automatically. Use this only when you want to add a specific extra type.</p>
@@ -1321,19 +1514,20 @@
       <strong>Create new</strong>.</p>
     <ul>
       <li><strong>Page URL (path):</strong> the page you are adding schema to. Start typing a category name to find a
-        <code>/cat/...</code> page, or type any other path directly — for example <code>/about</code>,
+        <code>/cat/...</code> page, or type any other path directly - for example <code>/about</code>,
         <code>/blog/your-post</code>, <code>/videos/your-video</code>, or just <code>/</code> for the home page.</li>
-      <li><strong>Schema type (for AI):</strong> only used by the AI button below.</li>
-      <li><strong>Details for AI:</strong> optional notes the AI should use.</li>
+      <li><strong>Label (optional note):</strong> a note for yourself, so you can tell entries apart in the list.</li>
+      <li><strong>Schema type (for AI generation):</strong> only used by the AI button below.</li>
+      <li><strong>Details for AI (optional):</strong> notes the AI should use.</li>
       <li><strong>JSON-LD blocks:</strong> the actual schema. You can add more than one block to the same page.</li>
     </ul>
 
     <h3>Two ways to add a schema block</h3>
-    <p><strong>Option 1 — paste it in.</strong> If you already have JSON-LD (for example from a free online
+    <p><strong>Option 1 - paste it in.</strong> If you already have JSON-LD (for example from a free online
       "schema markup generator"), click <strong>Add item</strong> under JSON-LD blocks and paste it in. It must be valid
       JSON containing <code>@context</code> and <code>@type</code>; if it is broken, Sanity won't let you publish until
       you fix it.</p>
-    <p><strong>Option 2 — let AI write it (easiest).</strong> No outside tool needed:</p>
+    <p><strong>Option 2 - let AI write it (easiest).</strong> No outside tool needed:</p>
     <ol class="steps">
       <li>Set the <strong>Page URL</strong>.</li>
       <li>Pick a <strong>Schema type</strong> from the dropdown (e.g. Web Application, Product, How-To, Event).</li>
@@ -1346,14 +1540,14 @@
     <div class="callout warn">
       <span class="label">Don't re-add schema the site already provides</span>
       <p>The site automatically adds <strong>FAQ</strong>, <strong>Organization</strong>, <strong>Website</strong>,
-        <strong>Breadcrumb</strong>, and <strong>Video</strong> schema on the right pages. Do not add those here — it
+        <strong>Breadcrumb</strong>, and <strong>Video</strong> schema on the right pages. Do not add those here - it
         would create duplicates. That is why they are not in the Schema type dropdown.</p>
     </div>
 
     <div class="callout warn">
       <span class="label">Always review AI output</span>
       <p>The AI gives you a solid starting point, but check the values (prices, names, links, descriptions) before
-        publishing. If you are unsure whether you need schema on a page, you can safely skip this tool — it is optional.</p>
+        publishing. If you are unsure whether you need schema on a page, you can safely skip this tool - it is optional.</p>
     </div>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
@@ -1361,85 +1555,85 @@
     <!-- ============================================================ -->
     <h2 id="site-refresh">20. Site Refresh (update your product data)</h2>
     <p>This is a tab at the very top of the Studio (next to <strong>Push to Sanity</strong>). It is your one-click way to
-      pull the newest product information from Geiger and put it live on your site — no GitHub, no developer, no waiting.
+      pull the newest product information from Geiger and put it live on your site - no GitHub, no developer, no waiting.
       You see six buttons, each with a short note and a <strong>status line</strong> that tells you whether it is idle,
       running, finished, or failed.</p>
 
     <h3>The six buttons</h3>
     <ul>
-      <li><strong>Refresh New Products</strong> — updates the <em>New Products</em> page with Geiger's latest arrivals.
+      <li><strong>Refresh New Products</strong> - updates the <em>New Products</em> page with Geiger's latest arrivals.
         Takes about a minute or two.</li>
-      <li><strong>Refresh Deals</strong> — updates the <em>Deals</em> page with the current sale and closeout items.
+      <li><strong>Refresh Deals</strong> - updates the <em>Deals</em> page with the current sale and closeout items.
         About a minute or two.</li>
-      <li><strong>Refresh Rush Products</strong> — updates the <em>Rush Products</em> page (24-hour rush items). About a
+      <li><strong>Refresh Rush Products</strong> - updates the <em>Rush Products</em> page (24-hour rush items). About a
         minute or two.</li>
-      <li><strong>Refresh Catalogs</strong> — re-pulls each Geiger catalog's products and its catalog link (Ideas, Green
-        Guide, Women's Collection, Holiday Guide, USA Made — the catalogs behind the catalog pages). Any products you
-        added by hand and any products you hid are <strong>kept</strong> — this only updates what comes from Geiger.
+      <li><strong>Refresh Catalogs</strong> - re-pulls each Geiger catalog's products and its catalog link (Ideas, Green
+        Guide, Women's Collection, Holiday Guide, USA Made - the catalogs behind the catalog pages). Any products you
+        added by hand and any products you hid are <strong>kept</strong> - this only updates what comes from Geiger.
         Use it when Geiger publishes new catalog editions, usually about once a year. Takes about 5–10 minutes.</li>
-      <li><strong>Full Catalog Rebuild</strong> — the <strong>big one</strong>. It rebuilds your entire catalog (22,000+
+      <li><strong>Full Catalog Rebuild</strong> - the <strong>big one</strong>. It rebuilds your entire catalog (22,000+
         category pages, every product, every brand logo). Use it occasionally, roughly once a month. It can take a few
         hours, and your most-visited pages <strong>re-warm automatically</strong> when it is done.</li>
-      <li><strong>Warm All Pages</strong> — visits every category page on your live site (22,000+ pages) so each one
+      <li><strong>Warm All Pages</strong> - visits every category page on your live site (22,000+ pages) so each one
         loads fast for its first visitor. See the section just below for when to use it.</li>
     </ul>
 
     <div class="callout">
-      <span class="label">Nothing runs on a schedule anymore — you are in control</span>
+      <span class="label">Nothing runs on a schedule anymore - you are in control</span>
       <p>New Products, Deals, and Rush Products used to refresh automatically every Sunday. That schedule is now
         <strong>turned off</strong> to keep hosting costs in your hands: the data only refreshes <strong>when you press
-        a button here</strong>. Press them as often or as rarely as you like — once a week is a good rhythm if you want
-        to keep the old cadence. The Full Catalog Rebuild has never run on a schedule — it also only happens when you
+        a button here</strong>. Press them as often or as rarely as you like - once a week is a good rhythm if you want
+        to keep the old cadence. The Full Catalog Rebuild has never run on a schedule - it also only happens when you
         press it.</p>
     </div>
 
     <h3>The "Warm All Pages" button</h3>
     <p>Your site has 22,000+ category pages. After a deploy, the most important ones (about 5,000) are prepared in
       advance so they load instantly; the rest get prepared <strong>automatically the first time someone visits
-      them</strong> — that first visit is just slightly slower (well under a second), and after that the page stays
+      them</strong> - that first visit is just slightly slower (well under a second), and after that the page stays
       fast. So most of the time you do not need this button at all.</p>
     <p><strong>Warm All Pages</strong> visits every single page for you, in advance, so no visitor ever gets that
       slightly slower first load. It runs for about 15–30 minutes against your live site
       (www.perfectimprints.com).</p>
     <div class="callout warn">
-      <span class="label">It can increase your hosting cost — use it occasionally</span>
+      <span class="label">It can increase your hosting cost - use it occasionally</span>
       <p>Because it touches all 22,000+ pages in one go, it uses real hosting resources, which is why it asks you to
         <strong>confirm before it starts</strong>. It is optional, and most useful right after a <strong>Full Catalog
-        Rebuild</strong> or another big content change — that is when lots of pages go "cold" at once. There is no need
+        Rebuild</strong> or another big content change - that is when lots of pages go "cold" at once. There is no need
         to run it after small edits or on a routine basis.</p>
     </div>
     <p>While it runs you see the same status line as the other buttons (Queued → Running… → finished), and you can
-      press <strong>Cancel</strong> to stop it — pages already warmed stay warm, and nothing on your site changes.</p>
+      press <strong>Cancel</strong> to stop it - pages already warmed stay warm, and nothing on your site changes.</p>
 
     <h3>How a refresh works</h3>
     <ol class="steps">
       <li>Press a button. The status line changes to <strong>Queued</strong>, then <strong>Running…</strong>.</li>
       <li>When it finishes, if there was anything new, the change is <strong>published for you automatically</strong> and
         your site rebuilds. You do not need to approve anything in GitHub.</li>
-      <li>If nothing changed since last time, it simply finishes with nothing to publish — that is normal.</li>
+      <li>If nothing changed since last time, it simply finishes with nothing to publish - that is normal.</li>
     </ol>
 
     <div class="callout">
-      <span class="label">Good to know — allow ~12–15 minutes after it finishes</span>
-      <p>The refresh job itself is quick — about a minute or two for the three product refreshes (New Products, Deals,
+      <span class="label">Good to know - allow ~12–15 minutes after it finishes</span>
+      <p>The refresh job itself is quick - about a minute or two for the three product refreshes (New Products, Deals,
         Rush Products). But when it finds new data and publishes it, your site has to <strong>rebuild and redeploy</strong>
-        before the change actually shows up. That rebuild happens <strong>automatically</strong> — you do not need to do
-        anything — but it takes roughly <strong>12–15 minutes AFTER the job finishes</strong> (the site runs two builds,
+        before the change actually shows up. That rebuild happens <strong>automatically</strong> - you do not need to do
+        anything - but it takes roughly <strong>12–15 minutes AFTER the job finishes</strong> (the site runs two builds,
         about 7 minutes each). So the flow is: the button says it is done → then wait about 12–15 more minutes → then the
         new data is live.</p>
       <p>If a refresh found <strong>nothing new</strong>, there is no publish and no rebuild, so there is nothing to wait
-        for. And the <strong>Full Catalog Rebuild</strong> is different — that job runs for a few hours on its own, and
+        for. And the <strong>Full Catalog Rebuild</strong> is different - that job runs for a few hours on its own, and
         the same 12–15 minute redeploy happens after it finishes too.</p>
     </div>
 
     <h3>The Cancel button</h3>
-    <p>While a refresh is running you will see a <strong>Cancel</strong> button. Pressing it safely stops the run, and —
-      this is the important part — <strong>nothing on your site changes</strong>. The refresh only ever goes live as its
+    <p>While a refresh is running you will see a <strong>Cancel</strong> button. Pressing it safely stops the run, and -
+      this is the important part - <strong>nothing on your site changes</strong>. The refresh only ever goes live as its
       very last step, so cancelling before then leaves your site exactly as it was. After you cancel, the status shows
-      <strong>"Cancelled — no changes applied."</strong></p>
+      <strong>"Cancelled - no changes applied."</strong></p>
     <div class="callout warn">
       <span class="label">One honest exception</span>
-      <p>If a run has <em>already finished</em> the moment you press Cancel, it is too late to undo — the change has gone
+      <p>If a run has <em>already finished</em> the moment you press Cancel, it is too late to undo - the change has gone
         live. The panel will tell you this plainly instead of pretending to cancel.</p>
     </div>
 
@@ -1447,12 +1641,12 @@
 
     <!-- ============================================================ -->
     <h2 id="landing">21. Landing Pages (local + topic pages, written by AI)</h2>
-    <p>A <strong>Landing Page</strong> is a one-topic, one-city sales page — for example
+    <p>A <strong>Landing Page</strong> is a one-topic, one-city sales page - for example
       <em>Custom Beach Towels in Destin, FL</em> at <code>/custom-beach-towels-destin-fl</code>. Every landing page uses
       the same fixed, high-converting layout (you edit the words, not the structure): a headline, a local introduction
       that names the landmarks you choose, an "options &amp; ideas" section with a live product row, a
       "Why Perfect Imprints" trust section, FAQs, and a quote form at the bottom (the headline button jumps straight to
-      it). You tell it the city, the product, and the local landmarks — the AI writes the whole page for you to review.</p>
+      it). You tell it the city, the product, and the local landmarks - the AI writes the whole page for you to review.</p>
 
     <h3>Creating one</h3>
     <ol class="steps">
@@ -1463,7 +1657,7 @@
         <strong>Product / topic</strong> (Custom Beach Towels), and the <strong>Local landmarks</strong> you want
         mentioned (e.g. Crab Island, Henderson Beach State Park, Destin Harbor, HarborWalk Village, Okaloosa County).
         Optionally add <strong>Topic Keywords</strong> to steer the product row and the internal links.</li>
-      <li>Click <strong>Generate Landing Page with AI</strong> (among the document actions, near Publish — it stays
+      <li>Click <strong>Generate Landing Page with AI</strong> (among the document actions, near Publish - it stays
         disabled until City, State, and Product are filled). A spinner window opens while it writes; it usually takes
         under two minutes. If it comes back with an error (thin result, or it dropped one of your landmarks), just
         click Generate again.</li>
@@ -1472,14 +1666,14 @@
         that skipped one), the <strong>Options &amp; ideas</strong> content (product options plus creative
         uses-around-town ideas), the <strong>Why Perfect Imprints</strong> trust text, FAQs, a pre-filled
         <strong>Related products</strong> row, and the meta title/description. Internal links to related categories,
-        blogs, videos, and other landing pages are <strong>placed into the text automatically</strong> — the
+        blogs, videos, and other landing pages are <strong>placed into the text automatically</strong> - the
         <strong>Suggested Internal Links</strong> list records what it found and which were placed. Edit anything.</li>
       <li>The <strong>Slug</strong> fills in automatically from Product + City + State (e.g.
         <code>custom-beach-towels-destin-fl</code>); change it if you prefer a different address. Like Pages, a slug
         that belongs to an existing site page (like <code>blog</code> or <code>contact</code>) is refused.</li>
       <li>Want a picture in the text? The Local intro, Options &amp; ideas, and Why Perfect Imprints boxes all accept
         <strong>inline images</strong> (insert menu inside the text box), each with the same <strong>Size</strong>
-        (Small / Medium / Large / Full width) and <strong>Alignment</strong> options as everywhere else — leave Size
+        (Small / Medium / Large / Full width) and <strong>Alignment</strong> options as everywhere else - leave Size
         blank for full width. The AI never adds images; they are always yours to insert.</li>
       <li>When it reads right, <strong>Publish</strong>. The page is live at <code>/your-slug</code> within seconds and
         is added to your sitemap automatically.</li>
@@ -1487,39 +1681,39 @@
 
     <div class="callout info">
       <span class="label">Every page should feel local</span>
-      <p>The AI is instructed to write for the specific city — its events, seasons, venues, and your landmarks — so two
+      <p>The AI is instructed to write for the specific city - its events, seasons, venues, and your landmarks - so two
         landing pages never read as copies of each other. When you create several (different cities, different
         products), skim each one to confirm it genuinely talks about <em>that</em> place, and re-generate any that feel
         generic.</p>
     </div>
     <h3>The quote form and its settings</h3>
     <p>Every landing page ends with a quote form (First/Last Name, Email, Phone, what they are looking for, Quantity
-      Needed, Date Needed — the last two required — plus an optional artwork upload). Three fields on the document
+      Needed, Date Needed - the last two required - plus an optional artwork upload). Three fields on the document
       control it:</p>
     <ul>
-      <li><strong>Lead recipient email</strong> — each landing page can send its leads to a <em>different</em> email
+      <li><strong>Lead recipient email</strong> - each landing page can send its leads to a <em>different</em> email
         (e.g. a rep who covers that city). Leads from this page's form go to this address and the submission is still
         saved under <a href="#leads">Lead Submission</a> (with a "Lead sent to" note). Blank or invalid falls back to
-        <code>patrick@perfectimprints.com</code>. The address is looked up on the server from the page itself — a
+        <code>patrick@perfectimprints.com</code>. The address is looked up on the server from the page itself - a
         visitor's browser can never choose where leads go.</li>
-      <li><strong>Hero button label</strong> — the big green button under the headline (it jumps down to the form).
+      <li><strong>Hero button label</strong> - the big green button under the headline (it jumps down to the form).
         Blank uses "Request a Quote".</li>
-      <li><strong>Quote form heading</strong> — the heading above the form. Blank uses "Request a Quote in
-        {City}, {State}" automatically (the AI pre-fills this pattern; edit it freely — regenerating never overwrites
+      <li><strong>Quote form heading</strong> - the heading above the form. Blank uses "Request a Quote in
+        {City}, {State}" automatically (the AI pre-fills this pattern; edit it freely - regenerating never overwrites
         your wording).</li>
     </ul>
     <div class="callout info">
       <span class="label">Customers get a confirmation email</span>
       <p>On landing pages (and only on landing pages), the person who submits the form automatically receives a
-        friendly confirmation email summarizing what they sent — so they know the request went through, and replies to
+        friendly confirmation email summarizing what they sent - so they know the request went through, and replies to
         it go to that page's lead recipient. Your other forms (the category "Find Products for Me" form, the contact
         page) behave exactly as before: no confirmation, leads to you.</p>
     </div>
     <div class="callout warn">
       <span class="label">Always review AI text</span>
-      <p>The AI writes a first draft, not a final page. Read it before publishing — especially any local claims — and
+      <p>The AI writes a first draft, not a final page. Read it before publishing - especially any local claims - and
         check the product row fits the topic (if nothing sufficiently relevant was found, the row is simply left out;
-        you can add products yourself under <strong>Related products</strong> — by SKU, or one of your own Product
+        you can add products yourself under <strong>Related products</strong> - by SKU, or one of your own Product
         Pages / Custom Products).</p>
     </div>
 
@@ -1529,7 +1723,7 @@
     <h2 id="product-pages">22. Product Pages (your own product detail pages)</h2>
 
     <p><span class="path">Content <span class="arrow">›</span> Product Page</span> creates a full product of your own
-      with its <strong>own page</strong> on the website at <code>/products/&lt;slug&gt;</code> — a photo gallery with
+      with its <strong>own page</strong> on the website at <code>/products/&lt;slug&gt;</code> - a photo gallery with
       color swatches, a quantity-price table, a description, related products, and a green <strong>Get a
         Quote</strong> button. No cart, no checkout, no outside link: the button opens your quote form and the lead
       lands in <a href="#leads">Lead Submission</a>.</p>
@@ -1546,31 +1740,31 @@
     <ul>
       <li>Their own page at <code>/products/&lt;slug&gt;</code> (indexable, in the sitemap, with Product schema for
         Google).</li>
-      <li>At the <strong>top of the New Products page</strong> (<code>/new-products</code>) — controlled by the
+      <li>At the <strong>top of the New Products page</strong> (<code>/new-products</code>) - controlled by the
         "Show on /new-products" toggle under Visibility.</li>
-      <li>In <strong>site search</strong> (the magnifying glass) — the result opens your product page, not Geiger.</li>
+      <li>In <strong>site search</strong> (the magnifying glass) - the result opens your product page, not Geiger.</li>
       <li>In <strong>Related Products carousels</strong> on other product pages.</li>
-      <li>In any <strong>product strip</strong> where you add it — the product rows inside a blog post's body, a
+      <li>In any <strong>product strip</strong> where you add it - the product rows inside a blog post's body, a
         page's Product Strip section, a landing page's Related products, and a video's Related Products all accept
         your Product Pages (the card links to its <code>/products/…</code> page) and Custom Products alongside
         Geiger SKUs.</li>
-      <li>Inside <code>/cat/...</code> category pages <strong>only where you attach it yourself</strong> — the easy
+      <li>Inside <code>/cat/...</code> category pages <strong>only where you attach it yourself</strong> - the easy
         way is the product's own <strong>"Add to categories"</strong> field (next bullet's step 7); the alternative is
         adding it under a <a href="#category-override">Category Override</a>'s <strong>Added Products</strong> from
         the category's side. Either way it appears in that category's grid as a card linking to its
-        <code>/products/…</code> page (never automatically — you choose the categories, and attaching it both ways
+        <code>/products/…</code> page (never automatically - you choose the categories, and attaching it both ways
         still shows it once).</li>
     </ul>
 
     <h3>Creating one, step by step</h3>
     <ol>
       <li><strong>Basics:</strong> Title (e.g. "32 oz Voyager Travel Tumbler"), Slug (click Generate), optionally a
-        Brand, and optionally an <strong>Item / SKU number</strong> — if you give the product a real item number,
+        Brand, and optionally an <strong>Item / SKU number</strong> - if you give the product a real item number,
         customers can find it by typing that number into the site search (all Geiger products are already searchable
         by their item numbers).</li>
       <li><strong>Images &amp; Colors:</strong> add one <strong>Color variant</strong> per color the product comes in.
         Each variant has a color name (e.g. "Navy Blue"), an optional swatch color (a hex code like
-        <code>#1E3A8A</code> — this paints the little clickable circle), and up to 10 images. On the live page,
+        <code>#1E3A8A</code> - this paints the little clickable circle), and up to 10 images. On the live page,
         visitors see the FIRST variant's photos and can click the other swatches to swap the whole gallery to that
         color's photos. If your product has no colors, skip variants and use <strong>Default images</strong>
         instead.</li>
@@ -1582,15 +1776,15 @@
         method that carries its own setup charge (in the Details section, next step) overrides this amount for that
         method. Turn on <strong>On sale</strong> for
         the red "Sale!" badge, optionally with a percent-off and an expiry date.</li>
-      <li><strong>Details:</strong> the full description (bullets, bold, links, headings all work — and when you make
+      <li><strong>Details:</strong> the full description (bullets, bold, links, headings all work - and when you make
         a link, the link popover now has an <strong>"Open in new tab"</strong> on/off switch). You can also drop
         <strong>images inline</strong> in the description (insert menu inside the text box); click a placed image to
-        set its <strong>Size</strong> — Small (about a quarter width), Medium (about half), Large (about three
-        quarters), or Full width — and its <strong>Alignment</strong> (left / center / right). Leave Size blank for
+        set its <strong>Size</strong> - Small (about a quarter width), Medium (about half), Large (about three
+        quarters), or Full width - and its <strong>Alignment</strong> (left / center / right). Leave Size blank for
         full width; pick Medium or Small when a photo is dominating the page. Also here: <strong>decoration
-        methods</strong> (each method can carry an optional <strong>per-unit upcharge</strong>, e.g. Pad Print +$0.50 —
+        methods</strong> (each method can carry an optional <strong>per-unit upcharge</strong>, e.g. Pad Print +$0.50 -
         it is added to the unit price in the live estimate when the visitor picks that method; leave it blank for no
-        upcharge), <strong>Sizes</strong> (just listed on the page — sizes do not change the price or the pictures),
+        upcharge), <strong>Sizes</strong> (just listed on the page - sizes do not change the price or the pictures),
         and production time. Each decoration method can also carry its own <strong>Setup charge</strong>, the one-time
         fee for that specific method (e.g. $45 for a screen print, $0 for laser engraving). The rule:
         <ul>
@@ -1604,21 +1798,29 @@
         Add "Screen Print, 1 Color" with a $45 setup and "Screen Print, 2 Colors" with a $90 setup as two separate
         methods, and the visitor picks one from the Decoration dropdown. There is no color-count multiplier field;
         each entry carries its full setup fee.
-        Don't want to write the description yourself? Use the AI helper (next heading).</li>
+        Don't want to write the description yourself? Use the AI helper (next heading).
+        <div class="callout warn">
+          <span class="label">An older decoration entry may look broken in Studio</span>
+          <p>Decoration methods used to be plain words with no charges attached. If a product was set up back then, its
+            decoration rows may show a red "invalid" warning in Studio. <strong>The live page is fine</strong> - the
+            method still shows and the estimate still works, using the product's own Setup charge. To give that method
+            its own upcharge or setup fee, delete the row and add it again, typing the name in fresh.</p>
+        </div>
+      </li>
       <li><strong>Logistics / carton (optional):</strong> units per carton, carton weight (lbs), carton width /
         height / depth (inches), and the FOB ships-from zip (plus optional city/state). Whatever you fill in shows as
-        compact lines near the product details — e.g. "500 units per carton", "16 × 14 × 10 in / 27 lbs per carton",
-        "Ships from Memphis, TN 38109" — and also feeds Google-Merchant-ready shipping structured data. Blank fields
+        compact lines near the product details - e.g. "500 units per carton", "16 × 14 × 10 in / 27 lbs per carton",
+        "Ships from Memphis, TN 38109" - and also feeds Google-Merchant-ready shipping structured data. Blank fields
         simply don't render.</li>
       <li><strong>Filters (optional):</strong> tag Material / Features / Types and the Made-in-USA / Eco / Closeout
         toggles using the same names Geiger uses, so the product participates in the New Products page filters. Colors
         are taken from your color variants automatically.</li>
       <li><strong>Show on category pages ("Add to categories"):</strong> search a category by title or slug and click
-        to add it — multi-select, add as many as you like. If the category you want does not exist yet, the picker
+        to add it - multi-select, add as many as you like. If the category you want does not exist yet, the picker
         offers <strong>"Create new category page"</strong> right there (it creates a Custom Category at
         <code>/cat/&lt;slug&gt;</code> and selects it). Publish, and the product appears as a card on each chosen
         category page (linking to this product page) and joins that category's Color/Material filters. This is
-        <strong>different from "Related category"</strong> below, which only fills the Related Products carousel — it
+        <strong>different from "Related category"</strong> below, which only fills the Related Products carousel - it
         does not put the product on any category page.</li>
       <li><strong>Related products, videos &amp; blogs:</strong> pick a related category and/or a few keywords and the
         Related Products carousel fills itself with matching products. Anything you add manually (a Geiger product by
@@ -1628,7 +1830,7 @@
         you hand-pick which ones appear (your picks come first). No matches → the strip simply doesn't render.</li>
       <li><strong>Visibility &amp; SEO:</strong> the New Products toggle, the <strong>Lead recipient email</strong>
         (see below), plus the usual Meta Title / Meta Description / social image.</li>
-      <li>Press <strong>Publish</strong> — the page is live at <code>/products/&lt;your-slug&gt;</code> within
+      <li>Press <strong>Publish</strong> - the page is live at <code>/products/&lt;your-slug&gt;</code> within
         seconds, and it appears in New Products and search shortly after.</li>
     </ol>
 
@@ -1638,11 +1840,11 @@
       "custom travel tumblers"), then click <strong>Generate Product Details with AI</strong> in the menu next to
       Publish. In about 20–60 seconds it drafts, for your review:</p>
     <ul>
-      <li>The <strong>Product details description</strong> — B2B buying-guide-style copy (features, decoration and
+      <li>The <strong>Product details description</strong> - B2B buying-guide-style copy (features, decoration and
         branding options, popular uses), with links to related pages on your own site already placed.</li>
       <li>The <strong>Meta Title and Meta Description</strong> (SEO).</li>
       <li><strong>Related keywords + related category</strong>, <strong>decoration method</strong> suggestions, and
-        matching <strong>Related videos / Related blogs</strong> for the strips — but only if you left those fields
+        matching <strong>Related videos / Related blogs</strong> for the strips - but only if you left those fields
         blank; anything you already picked is never overwritten. (AI-suggested decoration methods come without an
         upcharge or a setup charge; set those amounts yourself if they apply. The AI never writes pricing.)</li>
     </ul>
@@ -1655,7 +1857,7 @@
     <div class="callout info">
       <span class="label">It never touches your facts</span>
       <p>The AI writes words only. Your <strong>pricing tiers, images and color variants, sizes, brand, minimum
-          quantity, production time, and lead recipient</strong> are never generated or changed — those stay yours.
+          quantity, production time, and lead recipient</strong> are never generated or changed - those stay yours.
         If you filled in material/colors/sizes first, the AI mentions them; otherwise it stays generic and invents
         nothing. As always: it drafts, you review, nothing publishes by itself.</p>
     </div>
@@ -1664,10 +1866,10 @@
 
     <h3>The on-page configurator (what visitors see)</h3>
     <p>The product page works like the Geiger page you know. Every choice starts with a sensible default already
-      selected — the quantity starts at your lowest pricing tier, and the first color / size / decoration are
+      selected - the quantity starts at your lowest pricing tier, and the first color / size / decoration are
       pre-picked (anything with only one option just shows as text). As the visitor changes the quantity, the page
       highlights the matching pricing tier <strong>in green</strong>, and the tier boxes themselves are
-      <strong>clickable</strong> — clicking one sets the quantity to that tier's minimum. The live <strong>estimated
+      <strong>clickable</strong> - clicking one sets the quantity to that tier's minimum. The live <strong>estimated
         total</strong> is quantity × (that tier's price + the selected decoration's per-unit upcharge, if any), plus
       the setup fee that applies: the selected decoration's own Setup charge when you gave it one (a 0 there means no
       setup fee), otherwise the product's Setup charge. So when the visitor switches decoration methods, the setup
@@ -1678,8 +1880,8 @@
 
     <h3>The Get a Quote form (and where its leads go)</h3>
     <p>The green <strong>Get a Quote</strong> button opens the quote form <strong>pre-filled with whatever the
-        visitor configured</strong> — quantity, color, size, decoration, and the estimated total, plus a one-line
-      summary like "Custom Bamboo Folding Fan — White, Small, 150 units, Pad Print." — all still editable. The
+        visitor configured</strong> - quantity, color, size, decoration, and the estimated total, plus a one-line
+      summary like "Custom Bamboo Folding Fan - White, Small, 150 units, Pad Print." - all still editable. The
       visitor only types their contact details: First Name, Email, and Date Needed are required; Last Name, Phone,
       Company, Shipping Zip, Comments, and a logo/artwork upload are optional. When someone submits it:</p>
     <ul>
@@ -1688,10 +1890,10 @@
         different person should handle that product's quotes. Blank or mistyped falls back to Patrick automatically.
       </li>
       <li>The email subject names the product ("Product Quote Request: …"), and the message includes a clear
-        configuration block — quantity, color, size, decoration (shown with its per-unit upcharge when one applies,
-        e.g. "Pad Print (+$0.50/unit)"), and the estimated total — plus every contact field and any attached
+        configuration block - quantity, color, size, decoration (shown with its per-unit upcharge when one applies,
+        e.g. "Pad Print (+$0.50/unit)"), and the estimated total - plus every contact field and any attached
         artwork.</li>
-      <li>The customer automatically receives a <strong>confirmation email</strong> summarizing what they sent — same
+      <li>The customer automatically receives a <strong>confirmation email</strong> summarizing what they sent - same
         as the landing pages.</li>
       <li>A record appears under <a href="#leads">Lead Submission</a> with the company, shipping zip, comments, the
         quoted product, the selected color/size/decoration, the estimated total, and a "Lead sent to" note showing
@@ -1699,7 +1901,7 @@
     </ul>
     <div class="callout info">
       <span class="label">Safe by design</span>
-      <p>The visitor's browser never chooses where the lead goes — the website looks up the recipient from the
+      <p>The visitor's browser never chooses where the lead goes - the website looks up the recipient from the
         product itself, on the server. So the address you set in Studio is the only place quotes can be sent.</p>
     </div>
 
@@ -1714,15 +1916,15 @@
     <ol>
       <li><strong>Download the sample template</strong> (the link at the top of the panel). It is a .csv file with
         the exact column headings and one filled-in example row. You can edit it in Excel or Google Sheets and save
-        as <code>.csv</code> or <code>.xlsx</code> — both work.</li>
-      <li><strong>Fill in your products</strong> — one row per product. <strong>Title is the only required
+        as <code>.csv</code> or <code>.xlsx</code> - both work.</li>
+      <li><strong>Fill in your products</strong> - one row per product. <strong>Title is the only required
           column.</strong> Leave any other cell blank and that field is simply not set. You can also delete whole
         columns you don't need; only keep the headings spelled exactly like the template.</li>
-      <li><strong>Upload the file and press Preview.</strong> Nothing is saved yet — you get a table showing, for
+      <li><strong>Upload the file and press Preview.</strong> Nothing is saved yet - you get a table showing, for
         every row, whether it will <strong>CREATE</strong> a new product, <strong>UPDATE</strong> an existing one, or
         has an <strong>ERROR</strong> (with a plain-language note of what to fix). Misspelled column headings are
         listed too, so a typo never silently disappears.</li>
-      <li><strong>Press Apply.</strong> The products import as <strong>drafts</strong> — the panel shows progress and
+      <li><strong>Press Apply.</strong> The products import as <strong>drafts</strong> - the panel shows progress and
         a final per-row summary. Nothing appears on the live site yet.</li>
       <li><strong>Review and publish.</strong> Find the new drafts under <span class="path">Content
           <span class="arrow">›</span> Product Page</span>, open each one, adjust anything (you can run
@@ -1731,10 +1933,10 @@
     </ol>
 
     <div class="callout info">
-      <span class="label">Re-uploading is safe — no duplicates</span>
+      <span class="label">Re-uploading is safe - no duplicates</span>
       <p>Each product's <strong>web address (slug)</strong> is the key: the <code>Slug</code> column if you filled it
         in, otherwise it is made from the Title (e.g. "20 oz Travel Tumbler" → <code>20-oz-travel-tumbler</code>).
-        If a Product Page with that slug already exists — draft or published — the import <strong>updates</strong> it
+        If a Product Page with that slug already exists - draft or published - the import <strong>updates</strong> it
         instead of creating a second one, and it only changes the columns you filled in. A blank cell never erases
         something you already wrote in Studio. So a good workflow is: import, notice a wrong price, fix the price
         cell in the sheet, and upload the same file again.</p>
@@ -1742,53 +1944,53 @@
 
     <div class="callout info">
       <span class="label">Images are downloaded for you</span>
-      <p>Image cells hold <strong>picture web addresses (URLs)</strong> — right-click a picture on the supplier's
+      <p>Image cells hold <strong>picture web addresses (URLs)</strong> - right-click a picture on the supplier's
         site and choose "Copy image address", or use a link from your own file storage. On import, each picture is
         <strong>downloaded and stored in Sanity</strong>, so your product pages never depend on someone else's server
         staying up. A picture that can't be downloaded is skipped with a note in the results (the product still
-        imports) — add it by hand in Studio afterwards.</p>
+        imports) - add it by hand in Studio afterwards.</p>
     </div>
 
     <h3>The columns, one by one</h3>
     <p>Single-value columns (each row = one product; all optional except Title):</p>
     <ul>
-      <li><strong>Title</strong> (required) — the product name and page heading.</li>
-      <li><strong>Slug</strong> — the web address after <code>/products/</code>. Leave blank to derive it from the
+      <li><strong>Title</strong> (required) - the product name and page heading.</li>
+      <li><strong>Slug</strong> - the web address after <code>/products/</code>. Leave blank to derive it from the
         Title. Lowercase letters, numbers, and dashes only (anything else is cleaned up automatically).</li>
-      <li><strong>Brand</strong>, <strong>Item SKU</strong> — same as the fields in Studio (the SKU makes the product
+      <li><strong>Brand</strong>, <strong>Item SKU</strong> - same as the fields in Studio (the SKU makes the product
         findable by number in site search).</li>
-      <li><strong>Description</strong> — plain text; a blank line inside the cell starts a new paragraph. Formatting
+      <li><strong>Description</strong> - plain text; a blank line inside the cell starts a new paragraph. Formatting
         (bullets, links, headings) is added later in Studio or via the AI helper.</li>
-      <li><strong>Min Qty</strong>, <strong>Setup Charge</strong>, <strong>Production Time</strong> — numbers
+      <li><strong>Min Qty</strong>, <strong>Setup Charge</strong>, <strong>Production Time</strong> - numbers
         (production time is in days; writing <code>7 working days</code> is understood as 7). A number cell that
         can't be read is simply left unset with a note - it never blocks the row. Setup Charge is the product's
         <em>default</em> setup fee; a "Decoration N Setup" column (below) overrides it for that method.</li>
       <li><strong>On Sale</strong>, <strong>Show In New Products</strong>, <strong>Made In USA</strong>,
-        <strong>Eco Friendly</strong>, <strong>Closeout</strong> — write <code>yes</code> or <code>no</code> (blank =
+        <strong>Eco Friendly</strong>, <strong>Closeout</strong> - write <code>yes</code> or <code>no</code> (blank =
         not set; new products default to showing on /new-products).</li>
-      <li><strong>Sale Percent Off</strong> — a number 1–99, only used with On Sale = yes.</li>
-      <li><strong>Lead Recipient</strong> — the email that receives this product's quote requests (blank =
+      <li><strong>Sale Percent Off</strong> - a number 1–99, only used with On Sale = yes.</li>
+      <li><strong>Lead Recipient</strong> - the email that receives this product's quote requests (blank =
         patrick@perfectimprints.com).</li>
-      <li><strong>Related Category</strong> — one category slug (e.g. <code>water-bottles</code>) that fills the
+      <li><strong>Related Category</strong> - one category slug (e.g. <code>water-bottles</code>) that fills the
         Related Products carousel.</li>
-      <li><strong>Add To Categories</strong> — comma-separated category slugs the product should appear ON (e.g.
-        <code>water-bottles, coffee-mugs</code>). Slugs that don't exist yet are flagged as a warning — the import
+      <li><strong>Add To Categories</strong> - comma-separated category slugs the product should appear ON (e.g.
+        <code>water-bottles, coffee-mugs</code>). Slugs that don't exist yet are flagged as a warning - the import
         never creates category pages; create those from the product form's picker as usual.</li>
-      <li><strong>Related Keywords</strong> — comma-separated plural keywords (steer the automatic related
+      <li><strong>Related Keywords</strong> - comma-separated plural keywords (steer the automatic related
         matching).</li>
-      <li><strong>Material</strong>, <strong>Features</strong>, <strong>Types</strong> — filter tags; Features and
+      <li><strong>Material</strong>, <strong>Features</strong>, <strong>Types</strong> - filter tags; Features and
         Types take comma-separated lists. Use the same names Geiger uses.</li>
       <li><strong>Units Per Carton</strong>, <strong>Carton Weight</strong>, <strong>Carton Width / Height /
-          Depth</strong>, <strong>FOB Zip / City / State</strong> — the optional logistics facts (weight in lbs,
+          Depth</strong>, <strong>FOB Zip / City / State</strong> - the optional logistics facts (weight in lbs,
         dimensions in inches).</li>
     </ul>
 
-    <p>Multi-value fields use <strong>numbered columns</strong> — the same heading with 1, 2, 3… Add as many numbered
+    <p>Multi-value fields use <strong>numbered columns</strong> - the same heading with 1, 2, 3… Add as many numbered
       columns as you need (up to 10 sizes/colors/decorations/images, and up to 5 pricing tiers):</p>
     <ul>
-      <li><strong>Size 1, Size 2, …</strong> — one size per column (e.g. <code>S</code>, <code>M</code>, or
+      <li><strong>Size 1, Size 2, …</strong> - one size per column (e.g. <code>S</code>, <code>M</code>, or
         <code>20 oz</code>). Sizes are listed on the page; they don't change price or pictures.</li>
-      <li><strong>Tier 1 Qty + Tier 1 Price, Tier 2 Qty + Tier 2 Price, …</strong> — the quantity-price table. A tier
+      <li><strong>Tier 1 Qty + Tier 1 Price, Tier 2 Qty + Tier 2 Price, …</strong> - the quantity-price table. A tier
         needs BOTH cells; a half-filled tier is skipped with a warning.</li>
       <li><strong>Decoration 1 (+ Decoration 1 Upcharge + Decoration 1 Setup), Decoration 2 …</strong> - decoration
         methods, each with an optional per-unit dollar upcharge (blank = no upcharge) and an optional one-time
@@ -1797,21 +1999,21 @@
         all</strong> (0 and blank are different on purpose). A Setup cell with no matching Decoration name is skipped
         with a note, and an unreadable or negative Setup value is skipped with a note while the decoration still
         imports.</li>
-      <li><strong>Image 1, Image 2, …</strong> — picture URLs for a product WITHOUT color variants (the "Default
+      <li><strong>Image 1, Image 2, …</strong> - picture URLs for a product WITHOUT color variants (the "Default
         images").</li>
-      <li><strong>Color 1 Name + Color 1 Images (+ Color 1 Swatch), Color 2 …</strong> — one set per color.
+      <li><strong>Color 1 Name + Color 1 Images (+ Color 1 Swatch), Color 2 …</strong> - one set per color.
         <em>Color N Images</em> is a <strong>comma-separated list of picture URLs</strong> for that color (put the
         whole list in one cell), and the optional <em>Color N Swatch</em> is a hex color like <code>#1E3A8A</code>
-        for the clickable circle. On the page, visitors click a swatch to swap the gallery to that color's photos —
+        for the clickable circle. On the page, visitors click a swatch to swap the gallery to that color's photos -
         exactly like a hand-built product.</li>
     </ul>
 
     <div class="callout warn">
       <span class="label">Good to know</span>
       <p>Up to 50 product rows per upload (split bigger lists into several files) and files up to 4 MB. Prices can be
-        written with a dollar sign (<code>$4.99</code> works). One bad row never blocks the rest — it is skipped with
+        written with a dollar sign (<code>$4.99</code> works). One bad row never blocks the rest - it is skipped with
         a note while the other rows import. If you edit the file as raw text (not in Excel/Google Sheets), wrap any
-        cell that contains a comma in double quotes — otherwise the row's columns shift and the preview flags it with
+        cell that contains a comma in double quotes - otherwise the row's columns shift and the preview flags it with
         a clear error. And because everything arrives as a draft, there is no risk to the live site: review, then
         publish.</p>
     </div>
@@ -1821,46 +2023,61 @@
     <!-- ============================================================ -->
     <h2 id="forms">24. Forms (build your own quote forms)</h2>
     <p>The <strong>Form</strong> document type is a form builder: you choose the questions, and the site renders a
-      working form — with spam protection, the lead email to you, an automatic confirmation email to the customer, and
-      a <a href="#leads">Lead Submission</a> record — all handled for you. Five forms are already set up: four service
+      working form - with spam protection, the lead email to you, an automatic confirmation email to the customer, and
+      a <a href="#leads">Lead Submission</a> record - all handled for you. Five forms are already set up: four service
       quote forms (Kitting, Company Stores, 100% Custom Products, Pop-Up Stores) and the <strong>Catalog
-      Request</strong> form (the "Get the Catalog" buttons on the <a href="#catalog-pages">Catalog Pages</a> — its
+      Request</strong> form (the "Get the Catalog" buttons on the <a href="#catalog-pages">Catalog Pages</a> - its
       confirmation email delivers the gated catalog link, so keep an Email field on it). You can build brand-new ones
       for future Service or Landing pages yourself.</p>
 
     <p>Open <span class="path">Content <span class="arrow">›</span> Form</span> and <strong>Create new</strong> (or
       open one of the four seeded forms). The fields:</p>
     <ul>
-      <li><strong>Title</strong> — the form's heading, also used in the subject line of the lead email you receive.</li>
-      <li><strong>Slug</strong> — the form's id. Page buttons point at it, so avoid changing it after wiring a button.</li>
-      <li><strong>Lead recipient email</strong> — where submissions are emailed. Defaults to
+      <li><strong>Title</strong> - the form's heading, also used in the subject line of the lead email you receive.</li>
+      <li><strong>Slug</strong> - the form's id. Page buttons point at it, so avoid changing it after wiring a button.</li>
+      <li><strong>Lead recipient email</strong> - where submissions are emailed. Defaults to
         patrick@perfectimprints.com; change it per form if someone else should get those leads. This address is kept
-        server-side — it is never visible in the page code.</li>
-      <li><strong>Email the customer a confirmation copy</strong> — on by default; the customer gets a friendly summary
+        server-side - it is never visible in the page code.</li>
+      <li><strong>Email the customer a confirmation copy</strong> - on by default; the customer gets a friendly summary
         of what they sent.</li>
-      <li><strong>Intro</strong> — optional blurb shown above the questions.</li>
-      <li><strong>Fields</strong> — the questions, in order (drag to reorder). Each has a <strong>Label</strong>, a
-        <strong>Field type</strong> (short text, paragraph, email, phone, number, date, dropdown, yes/no checkbox,
-        checkbox group, or file upload), a <strong>Required</strong> toggle, and an optional
-        <strong>Placeholder</strong>. Dropdowns and checkbox groups also take a list of <strong>Options</strong>.</li>
-      <li><strong>Submit button label</strong> and <strong>Success message</strong> — the button text and the thank-you
+      <li><strong>Intro</strong> - optional blurb shown above the questions.</li>
+      <li><strong>Fields</strong> - the questions, in order (drag to reorder). Each has:
+        <ul>
+          <li><strong>Label</strong> - the question as the visitor reads it.</li>
+          <li><strong>Field type</strong> - Short text (single line), Long text (paragraph), Email address, Phone
+            number, Number, Date, Dropdown (pick one), Checkbox (yes / no), Checkbox group (pick many), or File upload.
+            A Date field shows a proper calendar picker, so nobody types a date wrong.</li>
+          <li><strong>Options</strong> - the list of choices. Required for Dropdown and Checkbox group, ignored
+            otherwise.</li>
+          <li><strong>Required</strong> - the visitor cannot submit without answering.</li>
+          <li><strong>Placeholder</strong> (optional) - grey hint text inside the box.</li>
+          <li><strong>Layout width</strong> - <em>Full width (own row)</em> is the default. Choose <em>Half</em> on
+            <strong>two questions in a row</strong> and they sit side by side on a desktop screen, which is how you get
+            First Name and Last Name on one line. A half-width question with no half-width neighbour just takes the
+            whole row, and on a phone everything stacks into one column regardless.</li>
+        </ul>
+      </li>
+      <li><strong>Submit button label</strong> and <strong>Success message</strong> - the button text and the thank-you
         note shown after sending.</li>
     </ul>
 
     <div class="callout">
       <span class="label">Putting a form on a page</span>
-      <p>Forms open as a popup from a page button. In any <a href="#page">Page</a>, edit a <strong>CTA Block</strong>
-        button (or a Hero Banner's CTA) and fill its <strong>"Open a form instead (form slug)"</strong> field with the
-        form's slug (e.g. <code>kitting-quote</code>). Clicking the button then opens that form instead of following
-        the link. Keep the button's normal link filled in too — if the form is unpublished (or the slug has a typo),
-        the button safely falls back to the link. The four Services pages' "Request a Quote" buttons are already wired
-        this way.</p>
+      <p>Forms open as a popup from a page button. In any <a href="#page">Page</a>, put the form's slug (e.g.
+        <code>kitting-quote</code>) into one of these two fields:</p>
+      <ul>
+        <li>a <strong>CTA Block</strong> button's <strong>"Open a form instead (form slug)"</strong> field, or</li>
+        <li>a <strong>Hero Banner</strong>'s <strong>"CTA opens a form (form slug)"</strong> field.</li>
+      </ul>
+      <p>Clicking the button then opens that form instead of following the link. Keep the button's normal link filled in
+        too - if the form is unpublished (or the slug has a typo), the button safely falls back to the link. The four
+        Services pages' "Request a Quote" buttons are already wired this way.</p>
     </div>
 
     <div class="callout warn">
       <span class="label">Publish the form</span>
       <p>A form only opens on the live site once it is <strong>published</strong>. The four seeded service forms start
-        as drafts — review each one and press <strong>Publish</strong>. Until then, the "Request a Quote" buttons keep
+        as drafts - review each one and press <strong>Publish</strong>. Until then, the "Request a Quote" buttons keep
         linking to the contact page.</p>
     </div>
 
@@ -1875,11 +2092,11 @@
     <p>A <strong>Catalog Page</strong> turns one of Geiger's themed catalogs (Ideas, Green Guide, Women's Collection,
       Holiday Guide, USA Made, Retail Collective, Trend Talk) into a lead-capture pair of pages:</p>
     <ul>
-      <li><strong>The public landing page</strong> at <code>/shop-by-theme/&lt;slug&gt;</code> — your long-form SEO
+      <li><strong>The public landing page</strong> at <code>/shop-by-theme/&lt;slug&gt;</code> - your long-form SEO
         page: a hero, as much body text and catalog photos as you like, a "Get the Catalog" button repeated at the
         top, middle, and end, and Related Blogs + Related Videos at the very bottom (the same set as the gated page).
         This page IS on Google and in the sitemap.</li>
-      <li><strong>The gated catalog page</strong> at <code>/shop-by-theme/&lt;slug&gt;/catalog</code> — the page
+      <li><strong>The gated catalog page</strong> at <code>/shop-by-theme/&lt;slug&gt;/catalog</code> - the page
         visitors receive <em>by email after they submit the form</em>. It has a big <strong>BROWSE INTERACTIVE
           CATALOG</strong> button that opens the digital catalog, every product in that catalog with the same filter
         sidebar as the Deals page, and Related Blogs + Related Videos at the bottom. This page is hidden from Google
@@ -1887,30 +2104,30 @@
     </ul>
 
     <div class="callout warn">
-      <span class="label">"Hidden" means hidden from Google — not locked</span>
-      <p>Anyone who has the gated page's link can open it (that is the point — the email delivers the link). It is
+      <span class="label">"Hidden" means hidden from Google - not locked</span>
+      <p>Anyone who has the gated page's link can open it (that is the point - the email delivers the link). It is
         kept out of Google, the sitemap, and the menus, but it is not password-protected.</p>
     </div>
 
     <p>Open <span class="path">Content <span class="arrow">›</span> Catalog Page</span> and <strong>Create
         new</strong>. The fields, by group:</p>
     <ul>
-      <li><strong>Title / Slug</strong> — the catalog's name and its web address segment (e.g. <code>usa-made</code>
+      <li><strong>Title / Slug</strong> - the catalog's name and its web address segment (e.g. <code>usa-made</code>
         → <code>/shop-by-theme/usa-made</code>).</li>
-      <li><strong>Catalog key</strong> — which scraped catalog supplies the products, filters, and the Browse link.
+      <li><strong>Catalog key</strong> - which scraped catalog supplies the products, filters, and the Browse link.
         Use the exact key from the list in the field's help text (e.g. <code>usa-made</code>, <code>ideas</code>,
-        <code>green-guide</code>). Retail Collective and Trend Talk have no scraped products — for those two, the
+        <code>green-guide</code>). Retail Collective and Trend Talk have no scraped products - for those two, the
         products you add yourself are the whole grid.</li>
-      <li><strong>Browse Catalog URL (override)</strong> — normally leave blank; the button uses the catalog's own
+      <li><strong>Browse Catalog URL (override)</strong> - normally leave blank; the button uses the catalog's own
         digital-viewer link automatically. Fill it only to point the button somewhere else.</li>
-      <li><strong>Landing page content</strong> — hero heading/subheading/image, the long-form body (headings,
+      <li><strong>Landing page content</strong> - hero heading/subheading/image, the long-form body (headings,
         paragraphs, photos dropped between paragraphs), the CTA heading + button label, and the SEO fields.</li>
-      <li><strong>Gated page: products</strong> — the same add/hide levers as category pages: <strong>Added
+      <li><strong>Gated page: products</strong> - the same add/hide levers as category pages: <strong>Added
           SKUs</strong> (search the Geiger catalog and click to add), <strong>Added Products</strong> (your own
-        Custom Products or Product Pages — a Product Page card links to its page on your site), and <strong>Hidden
+        Custom Products or Product Pages - a Product Page card links to its page on your site), and <strong>Hidden
           SKUs</strong> (remove scraped items). Added products join the filter sidebar with their own
         brand/color/material tags.</li>
-      <li><strong>Related blogs &amp; videos</strong> — pick posts/videos to show at the bottom of <strong>both
+      <li><strong>Related blogs &amp; videos</strong> - pick posts/videos to show at the bottom of <strong>both
           pages</strong> (the public landing page and the gated catalog page show the same set); empty slots fill in
         automatically from the <strong>Related keywords</strong>, and if nothing matches the strips simply don't
         appear.</li>
@@ -1919,11 +2136,11 @@
     <div class="callout">
       <span class="label">How the "Get the Catalog" buttons work</span>
       <p>All three CTA buttons on the landing page open the shared <strong>"Catalog Request"</strong> form (a normal
-        <a href="#forms">Form</a> document, slug <code>catalog-request</code> — First Name, Last Name, Company, Phone,
+        <a href="#forms">Form</a> document, slug <code>catalog-request</code> - First Name, Last Name, Company, Phone,
         Email required, Comments optional). On submit: you get the lead email, a <a href="#leads">Lead Submission</a>
         is recorded (with a "Requested Catalog" field), and <strong>the visitor instantly receives an email containing
-        the link to that catalog's gated page — with you cc'd</strong>, so the catalog link only ever reaches a real,
-        working email address. You can edit the form's wording, fields, and recipient in Studio like any other form —
+        the link to that catalog's gated page - with you cc'd</strong>, so the catalog link only ever reaches a real,
+        working email address. You can edit the form's wording, fields, and recipient in Studio like any other form -
         just <strong>keep an Email field on it</strong> (that answer is where the catalog link is sent). Until the
         form is published, the buttons safely link to the contact page instead.</p>
     </div>
@@ -1931,7 +2148,7 @@
     <div class="callout">
       <span class="label">The "Shop by Theme" menu</span>
       <p>The main menu's <strong>Shop by Theme</strong> dropdown lists the published catalog landing pages (never the
-        gated pages). It is a normal <a href="#mega">Mega Menu</a> item — edit, reorder, or remove links in Studio.
+        gated pages). It is a normal <a href="#mega">Mega Menu</a> item - edit, reorder, or remove links in Studio.
         When you publish a NEW catalog page, add its link to the dropdown yourself (Mega Menu → Shop by Theme → add a
         link to <code>/shop-by-theme/&lt;slug&gt;</code>), or ask us to re-run the menu updater
         (<code>pnpm seed-shop-by-theme-menu</code>, which refreshes just that dropdown from the published catalog
@@ -1955,16 +2172,16 @@
     </div>
 
     <h3>Adding catalog photos to the landing page</h3>
-    <p>Two ways — use either or both:</p>
+    <p>Two ways - use either or both:</p>
     <ul>
       <li><strong>Upload your own</strong>: the <strong>Hero image</strong> field, plus inline images anywhere in the
-        landing <strong>body</strong> (place the cursor between paragraphs, insert an Image — it has a size control).
+        landing <strong>body</strong> (place the cursor between paragraphs, insert an Image - it has a size control).
         Any screenshot or photo you have works.</li>
       <li><strong>Pull pages from the catalog itself</strong>: ask us to run <code>pnpm fetch-catalog-images
-        &lt;slug&gt;</code> — it downloads every page of that catalog as a JPEG into a local folder so you (or we) can
+        &lt;slug&gt;</code> - it downloads every page of that catalog as a JPEG into a local folder so you (or we) can
         flip through, pick the best-looking pages, and upload just those via the image fields above. Nothing is
-        inserted automatically — you choose the photos. (Retail Collective and Trend Talk are external flipbooks with
-        no downloadable pages — for those two, screenshot the flipbook instead.)</li>
+        inserted automatically - you choose the photos. (Retail Collective and Trend Talk are external flipbooks with
+        no downloadable pages - for those two, screenshot the flipbook instead.)</li>
     </ul>
 
     <p>Publishing (or editing) a Catalog Page goes live within seconds. Deleting/unpublishing removes both pages.</p>
@@ -2300,14 +2517,21 @@
         products), and <strong>Product Placement</strong> (push one product across many pages). <strong>Push to
           Sanity</strong> is how you start a takeover; <strong>Generate with AI</strong> helps write a Custom Category's
         text; <strong>Custom Product</strong> supplies non-Geiger items that any of these can place.</li>
-      <li><strong>Blog Post</strong> connects to <strong>Author</strong> and <strong>Blog Category</strong>.</li>
-      <li><strong>Page</strong> drives the Services and legal/info pages through the section builder.</li>
+      <li><strong>Blog Post</strong> connects to <strong>Author</strong> and <strong>Blog Category</strong>, and its
+        Related Category Slugs field is what puts a post on a product category page.</li>
+      <li><strong>Page</strong> drives the Services and legal/info pages through the section builder, and any brand-new
+        page you create at your own address.</li>
+      <li><strong>Form</strong> is a form you build yourself; a Page button opens it as a popup, and its submissions
+        land in Lead Submission like every other form.</li>
+      <li><strong>Catalog Page</strong> drives a pair of Shop-by-Theme pages: a public one Google can see, and a hidden
+        one the visitor is emailed after they fill in the catalog request form.</li>
       <li><strong>Landing Page</strong> drives the local + topic sales pages (e.g.
-        <code>/custom-beach-towels-destin-fl</code>) — a fixed template the AI fills from your City / State / Product /
+        <code>/custom-beach-towels-destin-fl</code>) - a fixed template the AI fills from your City / State / Product /
         landmarks inputs.</li>
-      <li><strong>Product Page</strong> drives your own product detail pages (<code>/products/...</code>) — full
+      <li><strong>Product Page</strong> drives your own product detail pages (<code>/products/...</code>) - full
         products with a gallery, tiered pricing, and a Get a Quote button. They also surface on New Products, in
-        search, and in related-product carousels (never inside <code>/cat</code> category pages).</li>
+        search, and in related-product carousels, and on any <code>/cat</code> category page you attach them to with
+        the product's own <strong>Add to categories</strong> field (never automatically).</li>
       <li><strong>FAQ</strong>, <strong>Video</strong>, and <strong>Brand</strong> each drive their own page
         (<code>/faq</code>, <code>/videos</code>, <code>/brands</code>).</li>
       <li><strong>Quote</strong> is a customer quotation you build (products, charges, totals), which the customer
@@ -2319,7 +2543,7 @@
       <li><strong>Custom Schema</strong> is an optional advanced tool that adds extra SEO structured data to any page,
         without taking the page over.</li>
       <li><strong>Site Refresh</strong> is the top-tab panel that pulls fresh product data from Geiger (Deals, New
-        Products, Rush Products, the yearly Catalogs, or the full catalog) and publishes it for you — with a Cancel
+        Products, Rush Products, the yearly Catalogs, or the full catalog) and publishes it for you - with a Cancel
         that safely stops a run with no changes. It also has the optional <strong>Warm All Pages</strong> button to pre-load every category
         page after a big rebuild.</li>
       <li><strong>Curated Category</strong> still shows in the list but no longer powers any page; ignore it.</li>
@@ -2456,6 +2680,35 @@
         <td>See who submitted the contact form</td>
         <td>Lead Submission</td>
       </tr>
+      <tr>
+        <td>Build a quote for a customer and send them the link</td>
+        <td>Quotes &rsaquo; All quotes &rsaquo; Create new, then Copy customer link and mark it sent (see <a
+            href="#quotes">section 26</a>)</td>
+      </tr>
+      <tr>
+        <td>See which quotes a customer accepted or asked to change</td>
+        <td>Quotes &rsaquo; Accepted by customer / Change requested</td>
+      </tr>
+      <tr>
+        <td>Build my own quote or contact form and put it behind a button</td>
+        <td>Form &rsaquo; create, then paste its slug into a page's CTA button (see <a href="#forms">section 24</a>)</td>
+      </tr>
+      <tr>
+        <td>Add a catalog lead page with an email-gated catalog link</td>
+        <td>Catalog Page (see <a href="#catalog-pages">section 25</a>)</td>
+      </tr>
+      <tr>
+        <td>Get fresh Deals / New / Rush products from Geiger</td>
+        <td>Site Refresh tab &rsaquo; the matching button (see <a href="#site-refresh">section 20</a>)</td>
+      </tr>
+      <tr>
+        <td>Make a blog post show up on a product category page</td>
+        <td>Blog Post &rsaquo; Related Category Slugs &rsaquo; add the category slug</td>
+      </tr>
+      <tr>
+        <td>Fix a question missing from the FAQ page</td>
+        <td>FAQ &rsaquo; open it and check the Answer is not empty (see <a href="#faq">section 15</a>)</td>
+      </tr>
     </table>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
@@ -2495,8 +2748,27 @@
         <code>&lt;a href...&gt;</code>; it will show as plain text instead of a working link.</p>
     </div>
 
+    <div class="callout danger">
+      <span class="label">6. There is no Send button on a quote</span>
+      <p>You copy the customer link and email it yourself from your own mail program. Then come back and press
+        <strong>"I have emailed this to the customer"</strong> - <strong>until you press it you get no email when the
+        customer opens the quote.</strong> And because the site cannot tell you apart from your customer, opening your
+        own quote link after you have marked it sent will email you as if they had. Full detail in <a
+          href="#quotes">section 26</a>.</p>
+    </div>
+
+    <div class="callout warn">
+      <span class="label">7. Three fields exist that do nothing</span>
+      <p>Do not spend time on these: <strong>Global Settings › Mailing Address</strong> (use Contact Info › Address
+        instead), <strong>Global Settings › Popular Links</strong> (use Footer Columns instead), and <strong>Home Page ›
+        Featured Image Blocks</strong> (built, but switched off on the live homepage). Each is explained in its own
+        section.</p>
+    </div>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
     <footer>
-      <p>Perfect Imprints — Sanity Studio Guide. If anything in your Studio looks different from this guide, or you are
+      <p>Perfect Imprints - Sanity Studio Guide. If anything in your Studio looks different from this guide, or you are
         unsure before changing something, ask your developer first. When in doubt, you can always unpublish or delete a
         Custom Category or Override to return a page to its automatic version.</p>
     </footer>
