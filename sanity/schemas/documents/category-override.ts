@@ -75,6 +75,15 @@ export default defineType({
         'When on, this category ignores the products Geiger files under it and shows ONLY the SKUs and custom products you add below (Added SKUs / Added Products). Use this for empty or off-topic categories where Geiger returns the wrong products. Hidden SKUs still apply. If you turn this on but add nothing, the page shows the contact form instead.',
     }),
     defineField({
+      name: 'pinnedSkus',
+      title: 'Pinned SKUs (show first)',
+      type: 'array',
+      of: [{ type: 'string' }],
+      components: { input: ProductSkuPicker },
+      description:
+        'Products to show at the TOP of this category page, in the order you arrange them here (drag to reorder). Pinning changes ORDER ONLY, never which products appear: a pinned SKU that is not in this category is ignored (use Added SKUs to add it), and a SKU that is also in Hidden SKUs stays hidden. Pins apply to the default view; when a visitor picks a sort (price, MOQ, newest) their choice wins.',
+    }),
+    defineField({
       name: 'hiddenSkus',
       title: 'Hidden SKUs',
       type: 'array',

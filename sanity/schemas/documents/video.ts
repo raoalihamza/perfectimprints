@@ -73,11 +73,31 @@ export default defineType({
       of: productStripEntryMembers,
       description: `Shown as a product strip under the description on the video page. ${productStripEntryDescription} The AI pre-fills SKU entries; add or remove any.`,
     }),
+    // Q-180 improvement 1: a video can belong to MORE THAN ONE category. This
+    // list supersedes the single legacy `category` reference below. Read paths
+    // honor both (new list wins when non-empty - see lib/video/video-categories.ts),
+    // so existing videos keep working untouched until the separate idempotent
+    // migration script (scripts/migrations/migrate-video-categories.ts) runs.
+    defineField({
+      name: 'categories',
+      title: 'Categories',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'blogCategory' }] }],
+      description:
+        'The categories this video belongs to. It appears under EACH of them in the /videos category filter (and only once when no filter is active). Order does not matter.',
+      validation: (Rule) => Rule.unique(),
+    }),
     defineField({
       name: 'category',
-      title: 'Category',
+      title: 'Category (legacy single value)',
       type: 'reference',
       to: [{ type: 'blogCategory' }],
+      readOnly: true,
+      // Only surfaces on docs that still carry the old value, so new videos
+      // never see it. The migration script moves it into `categories`.
+      hidden: ({ document }) => !document?.category,
+      description:
+        'Superseded by Categories above. Still honored when Categories is empty; the migration script moves this value into Categories.',
     }),
     defineField({
       name: 'publishDate',

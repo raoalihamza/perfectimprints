@@ -43,7 +43,7 @@ export default async function BlogIndexPage() {
       </Container>
 
       <Container as="section" className="pb-6">
-        <IndexHeadingWithSearch>
+        <IndexHeadingWithSearch priorityType="blog">
           <h1 className="text-3xl font-bold leading-tight text-brand-ink md:text-4xl lg:text-5xl">
             Perfect Imprints Blog
           </h1>

@@ -38,7 +38,7 @@ export default async function VideosIndexPage() {
       </Container>
 
       <Container as="section" className="pb-6">
-        <IndexHeadingWithSearch>
+        <IndexHeadingWithSearch priorityType="video">
           <h1 className="text-3xl font-bold leading-tight text-brand-ink md:text-4xl lg:text-5xl">
             Videos
           </h1>

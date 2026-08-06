@@ -25,19 +25,25 @@ export function VideosBrowser({ videos }: VideosBrowserProps) {
   const [active, setActive] = useState<string>(ALL);
   const [visibleCount, setVisibleCount] = useState<number>(PAGE_SIZE);
 
-  // Unique categories present across the videos, alphabetical.
+  // Unique categories present across the videos, alphabetical. A multi-category
+  // video (Q-180) contributes each of its categories to the chip row.
   const categories = useMemo(() => {
     const map = new Map<string, string>();
     for (const v of videos) {
-      if (v.category?.slug) map.set(v.category.slug, v.category.title);
+      for (const c of v.categories) {
+        if (c.slug) map.set(c.slug, c.title);
+      }
     }
     return [...map.entries()]
       .map(([slug, title]) => ({ slug, title }))
       .sort((a, b) => a.title.localeCompare(b.title));
   }, [videos]);
 
+  // Filtering FILTERS the video list, it never expands it: a video with three
+  // categories shows under each chip, and exactly ONCE when the filter is
+  // cleared (the "All" view is the video list itself, one card per video).
   const filtered = useMemo(
-    () => (active === ALL ? videos : videos.filter((v) => v.category?.slug === active)),
+    () => (active === ALL ? videos : videos.filter((v) => v.categories.some((c) => c.slug === active))),
     [videos, active],
   );
 

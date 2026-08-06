@@ -6,7 +6,12 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { VideoEmbed } from '@/components/videos/VideoEmbed';
 import { VideoCard } from '@/components/videos/VideoCard';
 import { buildImageUrl } from '@/lib/sanity/client';
-import { getVideoBySlug, getVideoSlugs, getRelatedVideos } from '@/lib/sanity/queries/videos';
+import {
+  getVideoBySlug,
+  getVideoSlugs,
+  getRelatedVideos,
+  videoCategoriesOf,
+} from '@/lib/sanity/queries/videos';
 import { toVideoCardData } from '@/lib/video/card-data';
 import { parseVideoEmbed, videoThumbnailUrl } from '@/lib/video/embed';
 import { videoObjectSchema } from '@/lib/seo/schema-generators';
@@ -150,14 +155,15 @@ export default async function VideoDetailPage({ params }: Props) {
             </h1>
             <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-text-muted">
               {video.publishDate ? <span>Published: {formatDate(video.publishDate)}</span> : null}
-              {video.category ? (
+              {videoCategoriesOf(video).map((c) => (
                 <Link
+                  key={c.slug}
                   href="/videos"
                   className="rounded-full bg-bg-soft px-2.5 py-0.5 font-semibold text-brand-red hover:underline"
                 >
-                  {video.category.title}
+                  {c.title}
                 </Link>
-              ) : null}
+              ))}
             </div>
           </header>
 

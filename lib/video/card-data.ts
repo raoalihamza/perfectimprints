@@ -1,7 +1,7 @@
 import { buildImageUrl } from '@/lib/sanity/client';
 import { parseVideoEmbed, videoThumbnailUrl, type VideoAspect } from '@/lib/video/embed';
 import { portableTextToPlain } from '@/lib/portable-text/to-plain';
-import type { VideoCategoryRef, VideoSummary } from '@/lib/sanity/queries/videos';
+import { videoCategoriesOf, type VideoCategoryRef, type VideoSummary } from '@/lib/sanity/queries/videos';
 
 /**
  * Fully-resolved, serializable shape for a video card. Computed server-side so
@@ -17,7 +17,11 @@ export interface VideoCardData {
   aspect: VideoAspect;
   description?: string;
   publishDate?: string;
-  category?: VideoCategoryRef;
+  /**
+   * Effective category list (Q-180 multi-category) - already normalized
+   * (new-list-wins-else-legacy), so client components render it verbatim.
+   */
+  categories: VideoCategoryRef[];
 }
 
 export function toVideoCardData(video: VideoSummary): VideoCardData {
@@ -37,6 +41,6 @@ export function toVideoCardData(video: VideoSummary): VideoCardData {
     // detail page only.
     description: portableTextToPlain(video.description) || undefined,
     publishDate: video.publishDate,
-    category: video.category,
+    categories: videoCategoriesOf(video),
   };
 }

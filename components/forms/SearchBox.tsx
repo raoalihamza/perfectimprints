@@ -8,22 +8,13 @@ import { SearchResultRow } from '@/components/search/SearchResultRow';
 import { SearchEmptyCTA } from '@/components/search/SearchEmptyCTA';
 import { useResultNavigation } from '@/components/search/useResultNavigation';
 import { prefetchSearchIndex, search, type SearchResult } from '@/lib/search/load-index';
+import { orderedSearchGroups } from '@/lib/search/group-order';
 import type { SearchItemType } from '@/lib/search/types';
 
 const SEARCH_PLACEHOLDER =
   'Search custom tote bags, branded drinkware, personalized pens, brands...';
 const FETCH_LIMIT = 50;
 const DEBOUNCE_MS = 150;
-
-// Display order + per-group caps for the grouped dropdown.
-const GROUP_ORDER: { type: SearchItemType; cap: number; heading: string }[] = [
-  { type: 'category', cap: 4, heading: 'Categories' },
-  { type: 'product', cap: 6, heading: 'Products' },
-  { type: 'brand', cap: 3, heading: 'Brands' },
-  { type: 'blog', cap: 3, heading: 'Blogs' },
-  { type: 'video', cap: 3, heading: 'Videos' },
-  { type: 'faq', cap: 3, heading: 'FAQs' },
-];
 
 interface SearchBoxProps {
   className?: string;
@@ -36,6 +27,15 @@ interface SearchBoxProps {
    * unset, the panel is byte-identical to before.
    */
   panelClassName?: string;
+  /**
+   * Result group to show FIRST in the dropdown (Q-180 improvement 3). The blog
+   * index passes 'blog' and the video index 'video' so a visitor searching from
+   * those pages sees the matching content type up top instead of below four
+   * groups of categories and products. Presentation only: the search stays
+   * site-wide, the index/ranking/caps are untouched, the other groups keep
+   * their existing relative order, and the header box (no prop) is unchanged.
+   */
+  priorityType?: SearchItemType;
 }
 
 /**
@@ -50,6 +50,7 @@ export function SearchBox({
   className,
   placeholder = SEARCH_PLACEHOLDER,
   panelClassName,
+  priorityType,
 }: SearchBoxProps) {
   const router = useRouter();
   const { navigate } = useResultNavigation();
@@ -72,17 +73,21 @@ export function SearchBox({
   const trimmed = query.trim();
 
   // Group results into ordered sections; `ordered` is the flat keyboard-nav list.
+  // `priorityType` (Q-180) lifts one group to the front; everything else keeps
+  // its default position. Which items match, and how many, never changes - the
+  // ordering rule itself lives in lib/search/group-order.ts (pure, tested).
   const { sections, ordered } = useMemo(() => {
+    const groups = orderedSearchGroups(priorityType);
     const secs: { heading: string; type: SearchItemType; startIndex: number; items: SearchResult[] }[] = [];
     const flat: SearchResult[] = [];
-    for (const g of GROUP_ORDER) {
+    for (const g of groups) {
       const items = results.filter((r) => r.type === g.type).slice(0, g.cap);
       if (items.length === 0) continue;
       secs.push({ heading: g.heading, type: g.type, startIndex: flat.length, items });
       flat.push(...items);
     }
     return { sections: secs, ordered: flat };
-  }, [results]);
+  }, [results, priorityType]);
 
   const hasResults = ordered.length > 0;
   const seeAllIndex = ordered.length; // the "See all results" row

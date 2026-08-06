@@ -1,6 +1,6 @@
 # Q-170: Automated verification of the three batched improvements
 
-Run: 2026-08-04T22:05:52.298Z. Target: https://dev.perfectimprints.com. Script: scripts/quick-quote/verify-q170.ts (verification only, no app code touched). Mode: apply.
+Run: 2026-08-06T19:58:53.090Z. Target: https://dev.perfectimprints.com. Script: scripts/quick-quote/verify-q170.ts (verification only, no app code touched). Mode: apply.
 
 Result: 43 passed, 0 failed.
 
@@ -53,15 +53,15 @@ The value above was recorded before the first write and restored in a `finally` 
 | 1. existing strip SKUs are still bare strings | every stored value is a string (checked 560 real entries) | all strings | PASS |
 | 1. picker value round trips as the same bare string | typeof "string" and exactly "501032" | string "501032" | PASS |
 | 2. baseline - the product is findable before hiding | Item # 501032 on /search?q=501032 | found | PASS |
-| 2. hiding takes effect without a rebuild | both read paths drop the SKU within 120s | after 17.7s | PASS |
-| 2. [hidden] read path A - client merge (overlay + also-matching) | the SKU does not survive the merge rule | removed | PASS |
+| 2. hiding takes effect without a rebuild | both read paths drop the SKU within 120s | after 7.3s | PASS |
+| 2. [hidden] read path A - client merge (overlay + also-matching) | the SKU does not survive the merge rule | removed (settled after 9.2s) | PASS |
 | 2. [hidden] the filter is doing real work | the SKU IS in the deployed static bulk, so only the rule removes it | present in the bulk | PASS |
 | 2. [hidden] the hide list reached the browser | the delta route carries the SKU in hiddenProductSkus | carried | PASS |
 | 2. [hidden] read path B - /search results page | the product card is gone | card absent | PASS |
 | 2. [hidden] category page unaffected | /cat/water-bottles still shows Item # 501032 | still shown | PASS |
 | 2. [hidden] category page still static | no BAILOUT_TO_CLIENT_SIDE_RENDERING marker on /cat/water-bottles | absent | PASS |
-| 2. removing the SKU brings it back | both read paths show it again within 120s | after 23.5s | PASS |
-| 2. [restored] read path A - client merge (overlay + also-matching) | the SKU survives the merge rule | survives | PASS |
+| 2. removing the SKU brings it back | both read paths show it again within 120s | after 12.4s | PASS |
+| 2. [restored] read path A - client merge (overlay + also-matching) | the SKU survives the merge rule | survives (settled after 7.9s) | PASS |
 | 2. [restored] read path B - /search results page | the product card is back | card rendered | PASS |
 | 2. [restored] category page unaffected | /cat/water-bottles still shows Item # 501032 | still shown | PASS |
 | 2. [restored] category page still static | no BAILOUT_TO_CLIENT_SIDE_RENDERING marker on /cat/water-bottles | absent | PASS |
@@ -70,8 +70,8 @@ The value above was recorded before the first write and restored in a `finally` 
 
 ## Timings
 
-- publish to hidden, both read paths: 17.7s
-- removal to visible again, both read paths: 23.5s
+- publish to hidden, both read paths: 7.3s
+- removal to visible again, both read paths: 12.4s
 
 ## The complete list of search read paths, and how completeness was established
 

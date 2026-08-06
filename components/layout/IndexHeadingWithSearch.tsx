@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { SearchBox } from '@/components/forms/SearchBox';
+import type { SearchItemType } from '@/lib/search/types';
 
 /**
  * Heading block with the site search box beside it (Q-170 improvement 3), used
@@ -20,9 +21,18 @@ import { SearchBox } from '@/components/forms/SearchBox';
  *
  * Scope note: this is the SITE-WIDE search, identical to the header box. It
  * searches everything and lands on /search. Scoping it to blogs or videos would
- * be a different feature; see the Q-170 report.
+ * be a different feature; see the Q-170 report. `priorityType` (Q-180) only
+ * changes which result GROUP the dropdown shows first - the blog index passes
+ * 'blog', the video index 'video' - so a visitor searching from those pages
+ * sees the matching content type up top instead of possibly not at all.
  */
-export function IndexHeadingWithSearch({ children }: { children: ReactNode }) {
+export function IndexHeadingWithSearch({
+  children,
+  priorityType,
+}: {
+  children: ReactNode;
+  priorityType?: SearchItemType;
+}) {
   return (
     <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
       <div className="min-w-0 lg:flex-1">{children}</div>
@@ -30,6 +40,7 @@ export function IndexHeadingWithSearch({ children }: { children: ReactNode }) {
         <SearchBox
           placeholder="Search the site…"
           panelClassName="lg:left-auto lg:right-0 lg:w-[26rem] lg:max-w-[calc(100vw-3rem)]"
+          priorityType={priorityType}
         />
       </div>
     </div>

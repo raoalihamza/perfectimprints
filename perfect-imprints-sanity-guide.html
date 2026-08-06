@@ -800,6 +800,14 @@
         your items show. Hidden SKUs still apply. If you turn it on but add nothing, the page shows the contact form
         instead. (You do not also need Force Products when using this; a non-empty replaced list shows the grid on its
         own.)</li>
+      <li><strong>Pinned SKUs (show first)</strong>: search and add products you want at the <strong>top of the
+        page</strong>, and drag them into the order you want. Pinning changes the <strong>order only</strong>, never
+        which products appear: a pinned product that is not in this category is simply ignored (use Added SKUs to add
+        it first), and a product that is also in Hidden SKUs stays hidden. When a visitor applies a sidebar filter, a
+        pinned product that matches the filter stays first and one that does not match disappears like any other
+        product; when the visitor picks a sort (price, minimum quantity, newest), <strong>their sort wins</strong> and
+        the pins step aside until they return to the default "Best Sellers" view. Product counts and the filter
+        options are untouched by pinning.</li>
       <li><strong>Hidden SKUs</strong>: search and add products you want <strong>removed</strong> from this page's grid.
       </li>
       <li><strong>Added SKUs</strong>: search and add existing Geiger products you want <strong>added</strong> to this
@@ -1216,6 +1224,17 @@
         Products</strong> (the card links to its external URL), with title, price, and image pulled live from the
       document. The AI helper below pre-fills this list for you (with SKU entries).</p>
 
+    <h4 id="video-categories">A video in more than one category</h4>
+    <p>The <strong>Categories</strong> field is a list, so a video can belong to several categories at once. On the
+      Videos page the video then appears under <strong>each</strong> of its categories when a filter chip is clicked,
+      and exactly <strong>once</strong> in the unfiltered "All" view (the filter narrows the list, it never duplicates
+      a card). Its category badges all show on the card and on the video's own page, and <strong>Related
+      Videos</strong> picks videos that share <em>any</em> category with it, and videos sharing more of its categories
+      rank higher. In site search the video stays a single result, findable by any of its category names.</p>
+    <p class="small">Older videos may still show a read-only <strong>Category (legacy single value)</strong> field:
+      that is the old one-category value, still honored until it is moved into the Categories list. Adding anything to
+      Categories takes over immediately; you do not need to wait for the cleanup.</p>
+
     <h4 id="video-ai">Generate Video Details with AI</h4>
     <p>Videos have their own AI writing helper, like Blog Posts do (see <a href="#blog-ai">Generate a Blog Post with
         AI</a>). Paste the video's script or transcript and it drafts everything else — the title, meta
@@ -1228,7 +1247,7 @@
       <li>In the <strong>AI generation</strong> section, paste the <strong>Video Script / Transcript</strong> — this
         is what the AI writes from, so the button stays disabled until it is filled.</li>
       <li>Optionally add <strong>Topic Keywords</strong> (a few plural phrases like "custom water bottles" — these
-        steer the related products and the internal links) and pick a <strong>Category</strong>.</li>
+        steer the related products and the internal links) and pick one or more <strong>Categories</strong>.</li>
       <li>Click <strong>Generate Video Details with AI</strong> (among the document actions, near Publish). A window
         with a spinner opens while it writes — it usually takes under a minute — and closes by itself when the draft
         fills in (closing it early is fine; generation keeps running). If it comes back with an error saying the
@@ -2388,6 +2407,14 @@
       <tr>
         <td>Add a product to a category</td>
         <td>Category Override &rsaquo; Added SKUs (one page) or Product Placement (many pages)</td>
+      </tr>
+      <tr>
+        <td>Show chosen products at the top of a category page</td>
+        <td>Category Override &rsaquo; Pinned SKUs (drag into order; changes order only, never which products appear)</td>
+      </tr>
+      <tr>
+        <td>Put a video in more than one category</td>
+        <td>Video &rsaquo; Categories (it shows under each on the Videos page, once with no filter)</td>
       </tr>
       <tr>
         <td>Make a category show the contact form instead of products</td>

@@ -549,12 +549,28 @@ async function pollUntil(
 async function verifyHiddenState(sku: string, categorySlug: string, hidden: boolean): Promise<void> {
   const phase = hidden ? 'hidden' : 'restored';
 
-  // Read path A: the data the browser merges.
-  const merge = await observeClientMerge(sku);
+  // Read path A: the data the browser merges. The delta route is ISR — for a
+  // few seconds after a revalidation, requests can still be served the PRIOR
+  // copy (stale-while-revalidate), so a single-shot read here races the cache
+  // and fails spuriously even though the pollUntil above already SAW the
+  // flipped state (measured 2026-08-06: fresh and stale responses interleave
+  // briefly, then settle — 6/6 consistent at rest). Poll for the settled state
+  // instead; the check still FAILs honestly if it never settles in the budget.
+  let merge = await observeClientMerge(sku);
+  const settled = await pollUntil(`${phase} settle`, async () => {
+    merge = await observeClientMerge(sku);
+    return (
+      merge.survivesRule === !hidden && (!hidden || localIsHidden(sku, merge.hiddenList))
+    );
+  });
   record(
     `2. [${phase}] read path A - client merge (overlay + also-matching)`,
     hidden ? 'the SKU does not survive the merge rule' : 'the SKU survives the merge rule',
-    merge.survivesRule ? 'survives' : 'removed',
+    `${merge.survivesRule ? 'survives' : 'removed'}${
+      settled.ok
+        ? ` (settled after ${(settled.ms / 1000).toFixed(1)}s)`
+        : ` (never settled in ${(settled.ms / 1000).toFixed(0)}s)`
+    }`,
     merge.survivesRule === !hidden,
   );
   if (hidden) {

@@ -9,6 +9,7 @@ import {
   type ProductPageCard,
 } from './product-pages';
 import { resolveProductsBySku } from '@/lib/categories';
+import { applyPinnedOrder } from '@/lib/products/pin-order';
 import type { GeigerProduct } from '@/lib/product-types';
 
 /**
@@ -29,6 +30,11 @@ export interface CategoryOverrideDoc {
   forceProducts?: boolean;
   /** When true, ignore baked `productSkus` — show only added SKUs/products. */
   replaceProducts?: boolean;
+  /**
+   * SKUs to show FIRST in the default view, in Patrick's arranged order
+   * (Q-180 improvement 2). Reorder only - never adds or removes a product.
+   */
+  pinnedSkus?: string[];
   hiddenSkus?: string[];
   addedSkus?: string[];
   /** Resolved customProduct / productPage docs referenced by `addedProducts`. */
@@ -41,6 +47,7 @@ const PROJECTION = `
   forceCTA,
   forceProducts,
   replaceProducts,
+  pinnedSkus,
   hiddenSkus,
   addedSkus,
   "addedProducts": addedProducts[]->{
@@ -152,7 +159,9 @@ function trimList(list: string[] | undefined): string[] {
  * categories whose Geiger fallback set is wrong.
  *
  * Display order: custom/added products first (editorial picks), then placement
- * adds, then baked Geiger products.
+ * adds, then baked Geiger products - and finally `override.pinnedSkus` moves
+ * its matches to the very front in Patrick's arranged order (Q-180: reorder
+ * only, membership untouched; see lib/products/pin-order.ts).
  */
 export function mergeCategoryProducts(input: MergeCategoryProductsInput): GeigerProduct[] {
   const { override } = input;
@@ -208,5 +217,12 @@ export function mergeCategoryProducts(input: MergeCategoryProductsInput): Geiger
     seen.add(p.sku);
     out.push(p);
   }
-  return out;
+
+  // Pinned SKUs last (Q-180 improvement 2): a pure REORDER of the finished
+  // list - pinned products move to the front in Patrick's arranged order.
+  // Running after hides/removes and the de-dupe means hiding always wins and a
+  // pin can never resurrect or add a product. Because BOTH render paths (the
+  // static /cat page and /api/category-products) assemble their list through
+  // this one function, they cannot disagree about the default order.
+  return applyPinnedOrder(out, override?.pinnedSkus);
 }

@@ -6,6 +6,11 @@ import {
   type StripProductEntry,
 } from '@/lib/sanity/strip-product-entries';
 import type { SanityImage, SanitySlug, SeoFields } from '@/lib/sanity/types';
+import {
+  effectiveVideoCategories,
+  rankRelatedVideos,
+  type VideoCategoryRef,
+} from '@/lib/video/video-categories';
 
 // Tagged, non-CDN fetch options shared by every video read. Reading off
 // api.sanity.io (not the CDN) means a publish-triggered revalidation always sees
@@ -13,10 +18,7 @@ import type { SanityImage, SanitySlug, SeoFields } from '@/lib/sanity/types';
 // search delta in seconds. Both pages stay static/on-demand (tagged, not no-store).
 const VIDEO_FETCH_OPTS = { next: { tags: [VIDEOS_TAG], revalidate: false as const } };
 
-export interface VideoCategoryRef {
-  title: string;
-  slug: string;
-}
+export type { VideoCategoryRef };
 
 /**
  * One `relatedProducts` entry (P2-AI-003; extended 2026-07-11): the shared
@@ -37,8 +39,22 @@ export interface VideoSummary {
   /** Product strip under the description on /videos/<slug> (P2-AI-003). */
   relatedProducts?: (VideoRelatedProductEntry | null)[];
   publishDate?: string;
-  category?: VideoCategoryRef;
+  /**
+   * Multi-category (Q-180): the new `categories` list + the legacy single
+   * `category` (projected as `legacyCategory`). NEVER read these raw - use
+   * `videoCategoriesOf(video)` so every consumer applies the same
+   * new-list-wins-else-legacy rule (lib/video/video-categories.ts).
+   */
+  categories?: (VideoCategoryRef | null)[] | null;
+  legacyCategory?: VideoCategoryRef | null;
   seo?: SeoFields;
+}
+
+/** Effective category list for a video (new list wins, else legacy single). */
+export function videoCategoriesOf(
+  video: Pick<VideoSummary, 'categories' | 'legacyCategory'>,
+): VideoCategoryRef[] {
+  return effectiveVideoCategories(video);
 }
 
 // relatedProducts is re-projected so productPage/customProduct references
@@ -56,7 +72,8 @@ const SUMMARY_PROJECTION = `
   relatedProducts[]${STRIP_PRODUCT_ENTRIES_PROJECTION},
   publishDate,
   seo,
-  "category": category->{ title, "slug": slug.current }
+  "categories": categories[]->{ title, "slug": slug.current },
+  "legacyCategory": category->{ title, "slug": slug.current }
 `;
 
 // Belt-and-suspenders draft guard (the public client already uses the published
@@ -118,51 +135,74 @@ export async function getVideoSummariesBySlugs(slugs: string[]): Promise<VideoSu
   }
 }
 
-/** Other published videos in the same category, newest first. */
+/**
+ * Other published videos sharing at least one category, ranked by HOW MANY
+ * categories they share (more shared = more related), newest first within a
+ * band (Q-180 multi-category). With single-category videos this reduces to the
+ * old "same category, newest first" rule. Candidates come from the same
+ * getAllVideos query the index uses (identical query string → deduped in the
+ * Next data cache, same VIDEOS_TAG), and the ranking itself is the pure,
+ * legacy-tolerant rankRelatedVideos (lib/video/video-categories.ts).
+ */
 export async function getRelatedVideos(video: VideoSummary, limit = 6): Promise<VideoSummary[]> {
-  const categorySlug = video.category?.slug;
-  if (!categorySlug) return [];
-  return (
-    (await cachedClient.fetch<VideoSummary[]>(
-      `*[${PUBLISHED}
-          && slug.current != $self
-          && category->slug.current == $cat]
-        | order(publishDate desc, _createdAt desc) [0...$limit] { ${SUMMARY_PROJECTION} }`,
-      { self: video.slug.current, cat: categorySlug, limit },
-      VIDEO_FETCH_OPTS,
-    )) ?? []
+  const selfSlugs = videoCategoriesOf(video).map((c) => c.slug);
+  if (selfSlugs.length === 0) return [];
+  const all = await getAllVideos();
+  return rankRelatedVideos(
+    all.map((v) => ({
+      item: v,
+      slug: v.slug.current,
+      categorySlugs: videoCategoriesOf(v).map((c) => c.slug),
+    })),
+    video.slug.current,
+    selfSlugs,
+    limit,
   );
 }
 
 export interface VideoSearchEntry {
   title: string;
   slug: string;
-  /** Category title — secondary search key in the build-time index. */
+  /**
+   * Category title(s) - secondary search key in the live search delta. A
+   * multi-category video joins its titles into this ONE string ("Drinkware,
+   * Tote Bags") so it stays searchable by every category while producing
+   * exactly ONE index entry (Q-180: never one entry per category).
+   */
   category?: string;
 }
 
 /**
- * Minimal list of every published video for the build-time search index
- * (M5-507): title + category (both searchable) + slug (internal route).
+ * Minimal list of every published video for the search index delta (M5-507):
+ * title + category titles (both searchable) + slug (internal route).
  */
 export async function getAllVideoSearchEntries(): Promise<VideoSearchEntry[]> {
   const docs =
-    (await cachedClient.fetch<{ title: string; slug: { current: string }; category?: string }[]>(
+    (await cachedClient.fetch<
+      {
+        title: string;
+        slug: { current: string };
+        categories?: (VideoCategoryRef | null)[] | null;
+        legacyCategory?: VideoCategoryRef | null;
+      }[]
+    >(
       `*[${PUBLISHED} && defined(title) && defined(slug.current)]{
         title,
         slug,
-        "category": category->title
+        "categories": categories[]->{ title, "slug": slug.current },
+        "legacyCategory": category->{ title, "slug": slug.current }
       }`,
       {},
       VIDEO_FETCH_OPTS,
     )) ?? [];
   return docs
-    .map(
-      (d): VideoSearchEntry => ({
+    .map((d): VideoSearchEntry => {
+      const titles = effectiveVideoCategories(d).map((c) => c.title);
+      return {
         title: d.title,
         slug: d.slug?.current,
-        category: d.category,
-      }),
-    )
+        category: titles.length > 0 ? titles.join(', ') : undefined,
+      };
+    })
     .filter((e) => Boolean(e.title && e.slug));
 }

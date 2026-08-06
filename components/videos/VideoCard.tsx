@@ -25,7 +25,7 @@ function PlayIcon() {
  * overlay signals it's a video; the thumbnail follows custom → YouTube → none.
  */
 export function VideoCard({ video }: VideoCardProps) {
-  const { href, title, thumbnailUrl, description, publishDate, category } = video;
+  const { href, title, thumbnailUrl, description, publishDate, categories } = video;
   const excerpt =
     description && description.length > 120 ? `${description.slice(0, 120).trimEnd()}…` : description;
 
@@ -50,13 +50,16 @@ export function VideoCard({ video }: VideoCardProps) {
         </div>
       </Link>
       <div className="flex flex-1 flex-col gap-2 p-5">
-        <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-text-muted">
+        <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-wider text-text-muted">
           {publishDate ? <span>{formatDate(publishDate)}</span> : null}
-          {category ? (
-            <span className="rounded-full bg-bg-soft px-2 py-0.5 font-semibold text-brand-red">
-              {category.title}
+          {categories.map((c) => (
+            <span
+              key={c.slug}
+              className="rounded-full bg-bg-soft px-2 py-0.5 font-semibold text-brand-red"
+            >
+              {c.title}
             </span>
-          ) : null}
+          ))}
         </div>
         <h3 className="text-lg font-semibold leading-snug text-brand-ink">
           <Link href={href} className="hover:text-brand-red hover:underline">
