@@ -8,7 +8,7 @@ import { SearchResultRow } from '@/components/search/SearchResultRow';
 import { SearchEmptyCTA } from '@/components/search/SearchEmptyCTA';
 import { useResultNavigation } from '@/components/search/useResultNavigation';
 import { prefetchSearchIndex, search, type SearchResult } from '@/lib/search/load-index';
-import { orderedSearchGroups } from '@/lib/search/group-order';
+import { SEARCH_GROUP_ORDER, orderedSearchGroups } from '@/lib/search/group-order';
 import type { SearchItemType } from '@/lib/search/types';
 
 const SEARCH_PLACEHOLDER =
@@ -104,7 +104,21 @@ export function SearchBox({
     setLoading(true);
     const id = ++reqId.current;
     const t = setTimeout(() => {
-      search(trimmed, FETCH_LIMIT)
+      // Q-180: on the blog/video index pages, guarantee the priority group is
+      // populated from ACTUAL matches. Without this the global top-50 over ~30k
+      // categories/products crowds out every video/blog on a broad query and the
+      // lifted group renders nothing even though matches exist. The header box
+      // passes no priorityType and searches exactly as before.
+      search(
+        trimmed,
+        FETCH_LIMIT,
+        priorityType
+          ? {
+              ensureType: priorityType,
+              ensureCount: SEARCH_GROUP_ORDER.find((g) => g.type === priorityType)?.cap ?? 3,
+            }
+          : undefined,
+      )
         .then((res) => {
           if (id !== reqId.current) return;
           setResults(res);
@@ -119,7 +133,7 @@ export function SearchBox({
         });
     }, DEBOUNCE_MS);
     return () => clearTimeout(t);
-  }, [trimmed]);
+  }, [trimmed, priorityType]);
 
   // Close on outside pointer-down.
   useEffect(() => {

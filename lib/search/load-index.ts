@@ -69,6 +69,8 @@ let hiddenSkus: ReadonlySet<string> = new Set<string>();
 let items: SearchItem[] = [];
 let fuse: FuseClass<SearchItem> | null = null;
 let rootFuse: FuseClass<SearchItem> | null = null;
+/** Lazy per-type indexes for the Q-180 priority-group guarantee (see search()). */
+const typeFuses = new Map<string, FuseClass<SearchItem>>();
 let fuseCtorPromise: Promise<typeof FuseClass> | null = null;
 
 /**
@@ -140,6 +142,7 @@ function recomputeItems(): void {
   items = filterHiddenSkuItems(merged, hiddenSkus);
   fuse = null;
   rootFuse = null;
+  typeFuses.clear();
 }
 
 /**
@@ -216,6 +219,40 @@ async function ensureFuses(): Promise<{
 }
 
 /**
+ * Lazy Fuse index over ONLY the items of one type (Q-180). Built on first use
+ * on the pages that pass `ensureType` (never for the header box), over a tiny
+ * subset (all videos, or all blogs), and cleared whenever the item set changes.
+ */
+async function ensureTypeFuse(type: SearchItem['type']): Promise<FuseClass<SearchItem>> {
+  await startLoading();
+  const Fuse = await loadFuseCtor();
+  let tf = typeFuses.get(type);
+  if (!tf) {
+    tf = new Fuse(
+      items.filter((i) => i.type === type),
+      FUSE_OPTIONS,
+    );
+    typeFuses.set(type, tf);
+  }
+  return tf;
+}
+
+/**
+ * Pure merge for the priority-group guarantee: append type-scoped `extras`
+ * (already ranked best-first) that the global result list does not carry,
+ * skipping duplicates by url. Exported for unit tests.
+ */
+export function mergeEnsuredResults(
+  results: SearchResult[],
+  extras: SearchResult[],
+  type: SearchItem['type'],
+): SearchResult[] {
+  const seen = new Set(results.filter((r) => r.type === type).map((r) => r.url));
+  const missing = extras.filter((e) => e.type === type && !seen.has(e.url));
+  return missing.length === 0 ? results : [...results, ...missing];
+}
+
+/**
  * Run a ranked search. Returns [] for an empty/whitespace query.
  *
  * When the query strongly matches a root category page, that root is promoted to
@@ -232,7 +269,26 @@ async function ensureFuses(): Promise<{
  * filtered server-side and is never affected. Blocking the first search on a
  * cold Sanity route to close it would be a worse trade.
  */
-export async function search(query: string, limit = 10): Promise<SearchResult[]> {
+export async function search(
+  query: string,
+  limit = 10,
+  opts?: {
+    /**
+     * Q-180 priority-group guarantee, used ONLY by the blog/video index boxes
+     * (the header box passes nothing and is untouched). The global top-`limit`
+     * list over ~30k entries can crowd out every result of a small type - a
+     * broad query like "custom" fills all 50 slots with categories/products,
+     * so the Videos group had NOTHING to render even though matching videos
+     * exist, which is exactly the "reads as broken" the improvement was meant
+     * to fix. When set, the best `ensureCount` matches of this type (from a
+     * tiny type-scoped index, same Fuse options) are appended if the global
+     * list missed them. Global ranking is untouched - other groups see the
+     * exact same results as before.
+     */
+    ensureType?: SearchItem['type'];
+    ensureCount?: number;
+  },
+): Promise<SearchResult[]> {
   const q = query.trim();
   if (!q) return [];
   const { fuse, rootFuse } = await ensureFuses();
@@ -254,6 +310,7 @@ export async function search(query: string, limit = 10): Promise<SearchResult[]>
         (r.score ?? 1) <= ROOT_PROMOTE_MAX_SCORE &&
         wordPrefix.test(r.item.title.toLowerCase()),
     );
+  let out = results;
   if (rootHit && results[0]?.url !== rootHit.item.url) {
     const rootUrl = rootHit.item.url;
     const promoted: SearchResult = {
@@ -261,8 +318,21 @@ export async function search(query: string, limit = 10): Promise<SearchResult[]>
       refIndex: rootHit.refIndex,
       score: rootHit.score ?? 1,
     };
-    return [promoted, ...results.filter((r) => r.url !== rootUrl)].slice(0, limit);
+    out = [promoted, ...results.filter((r) => r.url !== rootUrl)].slice(0, limit);
   }
 
-  return results;
+  if (opts?.ensureType) {
+    const want = Math.max(1, opts.ensureCount ?? 3);
+    if (out.filter((r) => r.type === opts.ensureType).length < want) {
+      const tf = await ensureTypeFuse(opts.ensureType);
+      const extras: SearchResult[] = tf.search(q, { limit: want }).map((r) => ({
+        ...r.item,
+        refIndex: r.refIndex,
+        score: r.score ?? 1,
+      }));
+      out = mergeEnsuredResults(out, extras, opts.ensureType);
+    }
+  }
+
+  return out;
 }

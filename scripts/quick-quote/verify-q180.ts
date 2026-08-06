@@ -231,24 +231,47 @@ async function pollFor(
   }
 }
 
-/** Rendered product order: the "Item # <sku>" lines, in document order. */
+/**
+ * Rendered product order: the "Item # <sku>" lines, in document order. React's
+ * SSR inserts a comment separator between adjacent text nodes, so the served
+ * markup is `Item # <!-- -->501030` - the regex must skip that comment (the
+ * first --apply run captured the whitespace before it and read every SKU as
+ * an empty string).
+ */
 function extractItemOrder(html: string): string[] {
   const out: string[] = [];
-  const re = /Item #\s*([^<]+)</g;
+  const re = /Item #(?:\s*<!--[\s\S]*?-->)*\s*([^<]+)</g;
   let m: RegExpExecArray | null;
-  while ((m = re.exec(html)) !== null) out.push(m[1].trim());
+  while ((m = re.exec(html)) !== null) {
+    const sku = m[1].trim();
+    if (sku) out.push(sku);
+  }
   return out;
 }
 
-/** The sidebar's static facet links for a category (order-insensitive set). */
-function extractFacetLinks(html: string, categorySlug: string): Set<string> {
-  const out = new Set<string>();
-  const re = new RegExp(`href="(/cat/${categorySlug.replace(/\//g, '\\/')}/[^"?]+)"`, 'g');
+/** Strip <script> blocks (the RSC flight payload) so DOM-level counting is not
+ *  polluted by the serialized props that repeat every string in the page. */
+function stripScripts(html: string): string {
+  return html.replace(/<script[\s\S]*?<\/script>/g, '');
+}
+
+/**
+ * The sidebar's rendered filter OPTIONS: every facet checkbox's
+ * `aria-label="Section: Value"` (a set), plus the multiset of rendered
+ * `(count)</span>` values. The facet values render as checkboxes, not links,
+ * so this - not an href scrape - is what proves the filter options and their
+ * counts are identical before and after pinning.
+ */
+function extractSidebarFacets(html: string): { options: Set<string>; counts: string } {
+  const dom = stripScripts(html);
+  const options = new Set<string>();
+  const optRe = /aria-label="([^"]+: [^"]+)"/g;
   let m: RegExpExecArray | null;
-  while ((m = re.exec(html)) !== null) {
-    if (!m[1].includes('/page/')) out.add(m[1]);
-  }
-  return out;
+  while ((m = optRe.exec(dom)) !== null) options.add(m[1]);
+  const counts: string[] = [];
+  const countRe = /\((\d+)\)<\/span>/g;
+  while ((m = countRe.exec(dom)) !== null) counts.push(m[1]);
+  return { options, counts: counts.sort((a, b) => Number(a) - Number(b)).join(',') };
 }
 
 // -- Source-level checks (every mode, no network, no writes) -----------------
@@ -428,14 +451,40 @@ function sourceChecks(): void {
     /priorityType/.test(header) ? 'HEADER PASSES IT' : 'no priorityType',
     !/priorityType/.test(header),
   );
+  // The index and the RANKING stay untouched: the static bulk builder and the
+  // server /search path carry no Q-180 edit, and load-index keeps the exact
+  // Fuse options (weights/threshold). load-index DOES gain the additive
+  // ensureType guarantee (the priority group is populated from a tiny
+  // type-scoped index when the global top-50 crowds it out) - that appends
+  // matches, it never reorders or rescores the global list.
   record(
-    'search: index and ranking untouched',
-    'no Q-180 edit in load-index.ts / server-search.ts / build-index.ts',
-    ['lib/search/load-index.ts', 'lib/search/server-search.ts', 'scripts/search-index/build-index.ts']
+    'search: static index + server /search untouched',
+    'no Q-180 edit in server-search.ts / build-index.ts',
+    ['lib/search/server-search.ts', 'scripts/search-index/build-index.ts']
       .filter((f) => readSource(f).includes('Q-180'))
       .join(', ') || 'untouched',
-    ['lib/search/load-index.ts', 'lib/search/server-search.ts', 'scripts/search-index/build-index.ts']
-      .every((f) => !readSource(f).includes('Q-180')),
+    ['lib/search/server-search.ts', 'scripts/search-index/build-index.ts'].every(
+      (f) => !readSource(f).includes('Q-180'),
+    ),
+  );
+  const loadIndex = readCode('lib/search/load-index.ts');
+  record(
+    'search: ranking options unchanged, guarantee is additive',
+    'FUSE_OPTIONS keeps threshold 0.32 + title 0.8, and mergeEnsuredResults appends without reordering',
+    /threshold: 0\.32/.test(loadIndex) &&
+      /weight: 0\.8/.test(loadIndex) &&
+      /mergeEnsuredResults/.test(loadIndex)
+      ? 'unchanged + additive'
+      : 'CHANGED',
+    /threshold: 0\.32/.test(loadIndex) &&
+      /weight: 0\.8/.test(loadIndex) &&
+      /mergeEnsuredResults/.test(loadIndex),
+  );
+  record(
+    'search: priority group populated from actual matches',
+    'SearchBox passes ensureType/ensureCount when priorityType is set (the crowding fix)',
+    /ensureType: priorityType/.test(searchBox) ? 'wired' : 'MISSING',
+    /ensureType: priorityType/.test(searchBox),
   );
 
   // ---- Guardrails: quote module + freshness work untouched.
@@ -718,16 +767,16 @@ async function main(): Promise<void> {
   try {
     // ======================= Improvement 2: pins =======================
     if (plan) {
-      // Baseline BEFORE any write: page order, facet links, API list.
+      // Baseline BEFORE any write: page order, sidebar facet options, API list.
       const before = await get(plan.path);
       const beforeOrder = extractItemOrder(before.body);
-      const beforeFacetLinks = extractFacetLinks(before.body, plan.slug);
+      const beforeFacets = extractSidebarFacets(before.body);
       const apiBefore = (await (
         await fetch(`${SITE}/api/category-products?slug=${encodeURIComponent(plan.slug)}`)
       ).json()) as { products: { sku: string; low_price?: number }[]; totalProducts: number };
       info(
         'pin baseline',
-        `${apiBefore.totalProducts} products via API, ${beforeOrder.length} Item # lines on page 1, ${beforeFacetLinks.size} facet links`,
+        `${apiBefore.totalProducts} products via API, ${beforeOrder.length} Item # lines on page 1, ${beforeFacets.options.size} facet options`,
       );
 
       // Phase 1: pins only (incl. the alien). Membership must not change.
@@ -797,17 +846,18 @@ async function main(): Promise<void> {
           sameTotal && sameSet ? 'unchanged' : `CHANGED (total ${apiRes.totalProducts}, set equal: ${sameSet})`,
           sameTotal && sameSet,
         );
-        const afterFacetLinks = extractFacetLinks(pinPoll.body, plan.slug);
-        const linksEqual =
-          beforeFacetLinks.size === afterFacetLinks.size &&
-          [...beforeFacetLinks].every((l) => afterFacetLinks.has(l));
+        const afterFacets = extractSidebarFacets(pinPoll.body);
+        const optionsEqual =
+          beforeFacets.options.size === afterFacets.options.size &&
+          [...beforeFacets.options].every((l) => afterFacets.options.has(l));
+        const countsEqual = beforeFacets.counts === afterFacets.counts;
         record(
-          'pinning changed presentation only: sidebar facet links',
-          'the set of static facet links on the page is identical before and after',
-          linksEqual
-            ? `identical (${afterFacetLinks.size} links)`
-            : `CHANGED (${beforeFacetLinks.size} -> ${afterFacetLinks.size})`,
-          linksEqual,
+          'pinning changed presentation only: filter options + facet counts',
+          'the rendered sidebar options and their counts are identical before and after',
+          optionsEqual && countsEqual
+            ? `identical (${afterFacets.options.size} options, counts match)`
+            : `CHANGED (options ${beforeFacets.options.size} -> ${afterFacets.options.size}, counts equal: ${countsEqual})`,
+          optionsEqual && countsEqual,
         );
         record(
           'an alien pinned SKU breaks nothing',
@@ -953,8 +1003,10 @@ async function main(): Promise<void> {
         both,
       );
       // One card when the filter is cleared: the unfiltered grid renders the
-      // video in exactly one <article> card.
-      const cards = idxPoll.body
+      // video in exactly one <article> card. Scripts are stripped first - the
+      // RSC flight payload after the last card repeats every string in the
+      // page and the first --apply run double-counted because of it.
+      const cards = stripScripts(idxPoll.body)
         .split('<article')
         .filter((seg) => seg.includes(`/videos/${TEST_VIDEO_A_SLUG}`)).length;
       record(
