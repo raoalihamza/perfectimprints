@@ -220,7 +220,7 @@ describe('buildQuotePdfModel', () => {
     expect(withSetup.showShippingColumn).toBe(true);
   });
 
-  it('models nothing internal: no sku, no title, no customer contact details', () => {
+  it('models nothing internal: no supplier sku, no internal title, no sentAt', () => {
     const model = buildQuotePdfModel(
       {
         ...quote,
@@ -241,7 +241,66 @@ describe('buildQuotePdfModel', () => {
     expect(serialized).not.toContain('501003');
     expect(Object.keys(model)).not.toContain('title');
     expect(Object.keys(model)).not.toContain('sentAt');
-    expect(serialized).not.toContain('customerEmail');
+    // The customer's own contact details are DELIBERATELY modelled as of
+    // Q-200 (see the customer-block tests below). Everything else on the
+    // withheld list stayed withheld, which is what the assertions above are.
+  });
+
+  // -------------------------------------------------------------- Q-200
+  // The full customer block. Only `customerEmail` is required on a quote, so
+  // "phone and address are absent" is the ordinary case rather than the edge.
+
+  it('models the full customer block when every field is filled', () => {
+    const model = buildQuotePdfModel(
+      {
+        ...quote,
+        customer: {
+          company: 'Acme Corp',
+          name: 'Dana Buyer',
+          email: 'dana@acme.example',
+          phone: '555-0100',
+          address: '12 Main St\nSuite 4\nAustin, TX 78701',
+        },
+      },
+      NOW,
+    );
+    expect(model.customerCompany).toBe('Acme Corp');
+    expect(model.customerName).toBe('Dana Buyer');
+    expect(model.customerEmail).toBe('dana@acme.example');
+    expect(model.customerPhone).toBe('555-0100');
+    expect(model.customerAddressLines).toEqual(['12 Main St', 'Suite 4', 'Austin, TX 78701']);
+  });
+
+  it('leaves a missing phone and address as nothing to print, never as a blank row', () => {
+    const model = buildQuotePdfModel(
+      { ...quote, customer: { company: 'Acme Corp', email: 'dana@acme.example' } },
+      NOW,
+    );
+    expect(model.customerEmail).toBe('dana@acme.example');
+    expect(model.customerPhone).toBeNull();
+    expect(model.customerAddressLines).toEqual([]);
+    expect(JSON.stringify(model)).not.toContain('undefined');
+  });
+
+  it('treats blank strings on the customer block as absent', () => {
+    const model = buildQuotePdfModel(
+      { ...quote, customer: { company: '  ', name: '', email: '   ', phone: '\n', address: ' \n ' } },
+      NOW,
+    );
+    expect(model.customerCompany).toBeNull();
+    expect(model.customerName).toBeNull();
+    expect(model.customerEmail).toBeNull();
+    expect(model.customerPhone).toBeNull();
+    expect(model.customerAddressLines).toEqual([]);
+  });
+
+  it('has no customer block at all when the quote has no customer', () => {
+    const model = buildQuotePdfModel({ lineItems: [] }, NOW);
+    expect(model.customerCompany).toBeNull();
+    expect(model.customerEmail).toBeNull();
+    expect(model.customerPhone).toBeNull();
+    expect(model.customerAddressLines).toEqual([]);
+    expect(JSON.stringify(model)).not.toContain('undefined');
   });
 
   it('survives a half-filled draft without throwing or emitting undefined', () => {

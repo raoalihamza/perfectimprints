@@ -30,6 +30,38 @@ export function cleanText(value: unknown): string | null {
   return trimmed.length > 0 ? trimmed : null;
 }
 
+/**
+ * How many lines of a customer address are printed. `customerAddress` is a
+ * free-text area, so nothing stops a pasted signature block arriving in it. A
+ * generous cap keeps one pathological value from pushing the line-item table
+ * down a page without ever truncating a real postal address, which is at most
+ * five lines.
+ */
+export const QUOTE_ADDRESS_MAX_LINES = 8;
+
+/**
+ * The customer's address as the lines it should be PRINTED on (Q-200).
+ *
+ * Shared by the web page and the PDF on purpose: both show the same block, and
+ * two independent splitters would drift. Blank lines are dropped rather than
+ * printed, because a stray newline in the middle of a pasted address would
+ * otherwise open a visible gap in what is meant to read as one address block.
+ *
+ * Returns an EMPTY ARRAY when there is no address, which is the whole point:
+ * the callers render nothing at all rather than an empty labelled row. Address
+ * and phone are optional on a quote (only the email is required), so absent is
+ * the common case, not the edge case.
+ */
+export function quoteAddressLines(value: unknown): string[] {
+  const text = cleanText(value);
+  if (!text) return [];
+  return text
+    .split(/\r?\n/)
+    .map((line) => line.replace(/[ \t]+/g, ' ').trim())
+    .filter((line) => line.length > 0)
+    .slice(0, QUOTE_ADDRESS_MAX_LINES);
+}
+
 const MONTHS = [
   'January',
   'February',

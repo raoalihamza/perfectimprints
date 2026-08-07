@@ -11,6 +11,7 @@ import {
   formatQuoteDate,
   isQuoteChargeLine,
   isQuoteExpired,
+  quoteAddressLines,
   quoteLineTitle,
   shownAmount,
   shownQuantity,
@@ -26,24 +27,27 @@ import type { QuoteDoc, QuoteLineItem } from '@/lib/sanity/queries/quotes';
  *
  * WHAT THE CUSTOMER SEES, AND WHAT IS DELIBERATELY WITHHELD
  *
- * Rendered: quoteNumber, quoteDate, expiryDate, customerCompany,
- * customerName, repName / repEmail / repPhone, and per line the display name,
- * image, decoration method, description, note, quantity, unit cost, setup,
- * shipping and that line's total, plus subtotal / shipping / salesTax /
+ * Rendered: quoteNumber, quoteDate, expiryDate, the FULL customer block
+ * (customerCompany, customerName, customerEmail, customerPhone,
+ * customerAddress), repName / repEmail / repPhone, and per line the display
+ * name, image, decoration method, description, note, quantity, unit cost,
+ * setup, shipping and that line's total, plus subtotal / shipping / salesTax /
  * grandTotal.
+ *
+ * The customer's own email, phone and address were WITHHELD in Q-140, on the
+ * reasoning that a forwarded quote should carry less of their information.
+ * Patrick reviewed that and decided he wants the full block, the way a
+ * business quotation normally carries a "prepared for" address (Q-200). It is
+ * the ONLY field that moved from withheld to shown; everything below stayed.
  *
  * Withheld on purpose:
  *   - `title` (Internal label) - the schema says outright it is never shown.
  *   - `sentAt` - internal workflow state, meaningless to the customer.
  *   - `_id` and the token itself - the token is already in the address bar;
  *     printing it as text invites it into a screenshot or a forwarded photo.
- *   - `customerEmail`, `customerPhone`, `customerAddress` - the recipient
- *     gains nothing from being shown their own contact details, and a
- *     forwarded link then leaks less. (Add the address later if Patrick wants
- *     a ship-to block; it is a business call, not a technical limit.)
  *   - A Geiger line's `sku` - a supplier item number lets the customer price
  *     shop the quote against the catalog; the display name is what Patrick
- *     chose to call the item. Patrick's call to reverse.
+ *     chose to call the item. Confirmed by Patrick in Q-200: it stays hidden.
  *   - A link to `/products/<slug>` for own-product lines - the product page
  *     shows LIVE pricing, which would contradict the frozen quote price.
  *
@@ -215,6 +219,18 @@ export function QuoteDocument({ quote, now }: { quote: QuoteDoc; now: Date }) {
 
   const company = cleanText(quote.customer?.company);
   const contactName = cleanText(quote.customer?.name);
+  // Q-200: the customer's own contact details are now shown. Only the email is
+  // required on a quote, so phone and address are blank on most of them - each
+  // one renders as nothing at all rather than as an empty labelled row.
+  const customerEmail = cleanText(quote.customer?.email);
+  const customerPhone = cleanText(quote.customer?.phone);
+  const addressLines = quoteAddressLines(quote.customer?.address);
+  const hasCustomerBlock =
+    Boolean(company) ||
+    Boolean(contactName) ||
+    Boolean(customerEmail) ||
+    Boolean(customerPhone) ||
+    addressLines.length > 0;
   const repName = cleanText(quote.rep?.name);
   const repEmail = cleanText(quote.rep?.email);
   const repPhone = cleanText(quote.rep?.phone);
@@ -298,7 +314,39 @@ export function QuoteDocument({ quote, now }: { quote: QuoteDoc; now: Date }) {
               {contactName ? (
                 <p className="text-sm text-text-primary">{contactName}</p>
               ) : null}
-              {!company && !contactName ? (
+              {/* Email and phone are tappable, exactly as the rep block's are:
+                  on a phone these are the two things anyone actually uses.
+                  `break-words` because an email is one unbreakable token and a
+                  narrow screen would otherwise widen the card to fit it. */}
+              {customerEmail ? (
+                <p className="mt-1 text-sm">
+                  <a
+                    href={`mailto:${customerEmail}`}
+                    className="break-words text-brand-red underline hover:no-underline"
+                  >
+                    {customerEmail}
+                  </a>
+                </p>
+              ) : null}
+              {customerPhone ? (
+                <p className="text-sm">
+                  <a
+                    href={`tel:${customerPhone}`}
+                    className="text-brand-red underline hover:no-underline"
+                  >
+                    {customerPhone}
+                  </a>
+                </p>
+              ) : null}
+              {/* One block, its stored line breaks kept, so a pasted address
+                  reads the way it was typed. Blank lines were already dropped
+                  by quoteAddressLines, so there is never a gap in the middle. */}
+              {addressLines.length > 0 ? (
+                <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-text-primary">
+                  {addressLines.join('\n')}
+                </p>
+              ) : null}
+              {!hasCustomerBlock ? (
                 <p className="mt-1 text-sm text-text-muted">Your custom quotation</p>
               ) : null}
             </div>

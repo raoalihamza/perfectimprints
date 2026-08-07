@@ -47,6 +47,14 @@ function generateQuoteToken(): string {
 
 const TOKEN_PATTERN = /^[a-f0-9]{32}$/;
 
+/**
+ * The last-resort rep phone, used only when Global Settings cannot be read or
+ * carries no number at all. It is the company's main published line, the same
+ * one the site header shows. Settings remain the source of truth - this is the
+ * value that keeps a brand new quote from showing a blank phone.
+ */
+const FALLBACK_REP_PHONE = '800-773-9472';
+
 export default defineType({
   name: 'quote',
   title: 'Quote',
@@ -197,21 +205,32 @@ export default defineType({
       title: 'Your phone',
       type: 'string',
       fieldset: 'rep',
-      // Sourced from Global Settings (Contact Info) so the number is not
-      // hardcoded twice; falls back to the legacy field, then the known
-      // company line.
+      // Sourced from Global Settings so the number is not hardcoded twice.
+      //
+      // ORDER MATTERS, and it was reversed in Q-200. `phoneNumber` is the
+      // single MAIN company line, the one the site header advertises and the
+      // one a customer expects on a quotation. `contact.phones` is an ordered
+      // LIST whose first entry is whatever Patrick happens to have put at the
+      // top of the footer (a direct line today), and reading that first is why
+      // new quotes were defaulting to a direct number instead of the main one.
+      // Reordering the settings list would have moved the footer's primary
+      // number and the Organization schema telephone with it, so the fix is
+      // here, in the one place that decides what a QUOTE defaults to.
+      //
+      // Only NEW quotes are affected: an initialValue runs once, when the
+      // document is created. Nothing already written to a quote is touched.
       initialValue: async (_params, context) => {
         try {
           const client = context.getClient({ apiVersion: '2024-10-01' });
           const settings = await client.fetch<{
+            mainPhone?: string;
             contactPhone?: string;
-            legacyPhone?: string;
           } | null>(
-            `*[_id == "globalSettings"][0]{ "contactPhone": contact.phones[0], "legacyPhone": phoneNumber }`,
+            `*[_id == "globalSettings"][0]{ "mainPhone": phoneNumber, "contactPhone": contact.phones[0] }`,
           );
-          return settings?.contactPhone || settings?.legacyPhone || '800-773-9472';
+          return settings?.mainPhone || settings?.contactPhone || FALLBACK_REP_PHONE;
         } catch {
-          return '800-773-9472';
+          return FALLBACK_REP_PHONE;
         }
       },
     }),

@@ -3,6 +3,17 @@
  * the quote lifecycle, against the DEPLOYED staging site and the REAL shared
  * Sanity dataset.
  *
+ * EXTENDED BY Q-200 (Patrick's two confirmed changes), rather than forked into
+ * a second script: both changes are about what a quote shows, which is exactly
+ * what this script already drives end to end.
+ *   1. A NEW quote's rep phone defaults to the main company line.
+ *   2. The customer's full block (email, phone, address) is shown on the page
+ *      AND in the PDF. It is the only field that moved from withheld to shown,
+ *      so the withheld assertions below still cover everything else.
+ * The Q-200 additions also carry a THIRD fixture with no phone and no address,
+ * because "renders cleanly when the optional fields are blank" is the case a
+ * full fixture can never prove.
+ *
  *   pnpm tsx scripts/quick-quote/verify-q160.ts                 # dry run: offline checks + a LOCAL render, no Sanity writes
  *   pnpm tsx scripts/quick-quote/verify-q160.ts --apply         # real run: create fixtures, drive the deployed route, verify, clean up
  *   pnpm tsx scripts/quick-quote/verify-q160.ts --cleanup-only  # sweep every zz-test-quote-* document AND its responses
@@ -475,13 +486,12 @@ const EXPIRED_TOTAL_DISPLAY = '$50.00';
 
 const LIVE_ID = 'zz-test-quote-q160-live';
 const EXPIRED_ID = 'zz-test-quote-q160-expired';
-const ALL_FIXTURE_IDS = [LIVE_ID, EXPIRED_ID];
+/** Q-200: only the required email, so the optional fields are proved absent. */
+const MINIMAL_ID = 'zz-test-quote-q200-minimal';
+const ALL_FIXTURE_IDS = [LIVE_ID, EXPIRED_ID, MINIMAL_ID];
 
 // Values that must NEVER reach the PDF.
 const INTERNAL_LABEL = 'ZZ Test INTERNAL-LABEL-MUST-NOT-PRINT-Q160';
-const CUSTOMER_EMAIL = 'zz-test-customer-q160@example.invalid';
-const CUSTOMER_PHONE = '555-0160-DO-NOT-PRINT';
-const CUSTOMER_ADDRESS = '999 ZZ Test Withheld Street, Nowhere';
 const SENT_AT = '2021-02-03T04:05:06Z';
 const SENT_AT_DAY = '2021-02-03';
 const GEIGER_SKU = 'ZZTESTSKU501003';
@@ -489,6 +499,36 @@ const GEIGER_SKU = 'ZZTESTSKU501003';
 // Values that MUST reach the PDF.
 const CUSTOMER_COMPANY = 'ZZ Test Buyer Company Q160';
 const REP_NAME = 'ZZ Test Rep';
+
+// ---------------------------------------------------------------- Q-200
+// The customer's own contact details. These were "must never print" values
+// until Patrick decided the quote should carry the full block, so the same
+// three constants now sit on the MUST-PRINT side and are asserted PRESENT.
+//
+// The address is deliberately MULTI-LINE with a blank line in the middle: a
+// pasted address arrives like that, and the shared quoteAddressLines is meant
+// to drop the blank rather than open a gap. Every line is checked separately,
+// because both surfaces print one line per line.
+const CUSTOMER_EMAIL = 'zz-test-customer-q160@example.invalid';
+const CUSTOMER_PHONE = '555-0160-4477';
+const CUSTOMER_ADDRESS_LINES = [
+  '999 ZZ Test Receiving Dock Road',
+  'Building C, Suite 1400',
+  'Fort Walton Beach, FL 32547',
+];
+const CUSTOMER_ADDRESS = `${CUSTOMER_ADDRESS_LINES[0]}\n\n${CUSTOMER_ADDRESS_LINES[1]}\n${CUSTOMER_ADDRESS_LINES[2]}`;
+
+/** The minimal fixture carries ONLY the required email. */
+const MINIMAL_COMPANY = 'ZZ Test Minimal Buyer Q200';
+const MINIMAL_EMAIL = 'zz-test-minimal-q200@example.invalid';
+
+/**
+ * The number a brand new quote must default its rep phone to. It is the main
+ * company line, the one the site header shows. Written here as a literal on
+ * purpose: importing it from the schema would let the code mark its own
+ * homework, which is the same rule the arithmetic above follows.
+ */
+const EXPECTED_REP_PHONE = '800-773-9472';
 // Reserved TLD: undeliverable by definition, so no notification from this run
 // can ever land in (or bounce into) a real mailbox. Deliberate, see the header.
 const REP_EMAIL = 'zz-test-rep-q160@example.invalid';
@@ -577,6 +617,39 @@ function expiredLines(): Record<string, unknown>[] {
   ];
 }
 
+/**
+ * Q-200's minimal fixture: one plain line, no image, so the render is fast and
+ * the check is about the customer block and nothing else. 20 x $3.00 = $60.00,
+ * worked out here by hand like every other number in this file.
+ */
+const MINIMAL_TOTAL_DISPLAY = '$60.00';
+
+function minimalLines(): Record<string, unknown>[] {
+  return [
+    {
+      _key: 'q200-minimal-line',
+      _type: 'quoteCustomLine',
+      displayName: 'ZZ Test Minimal Line Item',
+      quantity: 20,
+      unitCost: 3,
+    },
+  ];
+}
+
+/**
+ * The strings that would appear if a blank optional field were rendered as an
+ * empty row: the word undefined, a label with nothing after it, or the stray
+ * punctuation an address joined by commas leaves behind when its parts are
+ * missing. Checked on BOTH surfaces.
+ */
+const EMPTY_FIELD_ARTIFACTS: readonly [string, string][] = [
+  ['the word undefined', 'undefined'],
+  ['a stray null', 'null'],
+  ['a NaN value', 'NaN'],
+  ['a stray spaced comma', ', ,'],
+  ['a doubled comma', ',,'],
+];
+
 // ── HTTP helpers ─────────────────────────────────────────────────────────────
 
 interface PdfResult {
@@ -645,6 +718,20 @@ function quoteRegion(html: string): string | null {
   if (start === -1) return null;
   const end = html.indexOf('</article>', start);
   return end === -1 ? html.slice(start) : html.slice(start, end + '</article>'.length);
+}
+
+/**
+ * Just the "Prepared for" card (Q-200). The empty-field checks are scoped to it
+ * rather than run over the whole page for a reason: the page carries a React
+ * payload full of legitimate nulls, so searching the whole document for "null"
+ * would fail on a healthy page and teach everyone to ignore the check. The card
+ * ends where the sibling rep card's heading begins.
+ */
+function customerCardRegion(html: string): string | null {
+  const start = html.indexOf('Prepared for');
+  if (start === -1) return null;
+  const end = html.indexOf('Your Perfect Imprints contact', start);
+  return end === -1 ? html.slice(start, start + 1500) : html.slice(start, end);
 }
 
 // ── Offline checks ───────────────────────────────────────────────────────────
@@ -838,7 +925,10 @@ function offlineChecks(): void {
       /<Image style=\{styles\.logo\} src=\{QUOTE_PDF_LOGO\}/.test(code),
     );
     // Nothing internal may be modelled, so it cannot be printed by accident.
-    for (const forbidden of ['sku', 'sentAt', 'customerEmail', 'customerPhone', 'customerAddress']) {
+    // `customerEmail` / `customerPhone` / `customerAddress` were on this list
+    // until Q-200 and are now DELIBERATELY printed - they are asserted present
+    // further down instead. Everything else on the withheld list stayed.
+    for (const forbidden of ['sku', 'sentAt']) {
       record(
         `withheld: the PDF document never references \`${forbidden}\``,
         'absent',
@@ -846,6 +936,119 @@ function offlineChecks(): void {
         !new RegExp(`\\b${forbidden}\\b`).test(code),
       );
     }
+
+    // Q-200: the full customer block is actually rendered by the document.
+    for (const [label, pattern] of [
+      ["the customer's email", /model\.customerEmail/],
+      ["the customer's phone", /model\.customerPhone/],
+      ["the customer's address lines", /model\.customerAddressLines/],
+    ] as const) {
+      record(
+        `pdf source: ${label} is rendered`,
+        'referenced',
+        pattern.test(code) ? 'referenced' : 'MISSING',
+        pattern.test(code),
+      );
+    }
+    record(
+      'pdf source: the address is printed one line per line, not as one blob',
+      'customerAddressLines.map',
+      /customerAddressLines\.map/.test(code) ? 'customerAddressLines.map' : 'NOT SPLIT',
+      /customerAddressLines\.map/.test(code),
+    );
+    // A long address must wrap INSIDE the party box. flexBasis: 0 on `.party`
+    // is what stops it widening the column and shoving the other box sideways.
+    record(
+      'layout: the party boxes are flexBasis 0, so a long address wraps inside its own block',
+      'present on the party style',
+      /party: \{[^}]*flexBasis: 0/s.test(code) ? 'present on the party style' : 'MISSING',
+      /party: \{[^}]*flexBasis: 0/s.test(code),
+    );
+  }
+
+  // 3c. Q-200: ONE shared rule for splitting the address, imported by both
+  //     surfaces. Two independent splitters would drift the first time either
+  //     is touched, and the page and the PDF must show the same block.
+  const displayPath = resolve(PROJECT_ROOT, 'lib/quotes/quote-display.ts');
+  if (existsSync(displayPath)) {
+    const code = stripComments(readFileSync(displayPath, 'utf8'));
+    record(
+      'address: the split rule lives once, in lib/quotes/quote-display.ts',
+      'quoteAddressLines exported',
+      /export function quoteAddressLines/.test(code) ? 'quoteAddressLines exported' : 'MISSING',
+      /export function quoteAddressLines/.test(code),
+    );
+  }
+  for (const [label, file] of [
+    ['the PDF model', 'lib/quotes/quote-pdf-model.ts'],
+    ['the web page', 'components/quote/QuoteDocument.tsx'],
+  ] as const) {
+    const p = resolve(PROJECT_ROOT, file);
+    if (!existsSync(p)) continue;
+    const code = stripComments(readFileSync(p, 'utf8'));
+    record(
+      `address: ${label} uses the shared rule rather than its own split`,
+      'quoteAddressLines imported',
+      /quoteAddressLines/.test(code) ? 'quoteAddressLines imported' : 'ITS OWN SPLIT',
+      /quoteAddressLines/.test(code),
+    );
+  }
+
+  // 3d. Q-200: the customer block on the WEB page, tappable the way the rep
+  //     block already is.
+  const pageDocPath = resolve(PROJECT_ROOT, 'components/quote/QuoteDocument.tsx');
+  if (existsSync(pageDocPath)) {
+    const code = stripComments(readFileSync(pageDocPath, 'utf8'));
+    record(
+      "page source: the customer's email is a mailto link",
+      'mailto:${customerEmail}',
+      /mailto:\$\{customerEmail\}/.test(code) ? 'mailto:${customerEmail}' : 'MISSING',
+      /mailto:\$\{customerEmail\}/.test(code),
+    );
+    record(
+      "page source: the customer's phone is a tel link",
+      'tel:${customerPhone}',
+      /tel:\$\{customerPhone\}/.test(code) ? 'tel:${customerPhone}' : 'MISSING',
+      /tel:\$\{customerPhone\}/.test(code),
+    );
+    record(
+      'page source: the address block keeps its stored line breaks',
+      'whitespace-pre-line',
+      /whitespace-pre-line/.test(code) ? 'whitespace-pre-line' : 'MISSING',
+      /whitespace-pre-line/.test(code),
+    );
+  }
+
+  // 3e. Q-200: a NEW quote's rep phone default. The schema reads Global
+  //     Settings, and the ORDER is the whole fix: the single main company line
+  //     (`phoneNumber`) before the ordered contact LIST (`contact.phones[0]`),
+  //     whose first entry is a direct line today.
+  const quoteSchemaPath = resolve(PROJECT_ROOT, 'sanity/schemas/documents/quote.ts');
+  if (existsSync(quoteSchemaPath)) {
+    const code = stripComments(readFileSync(quoteSchemaPath, 'utf8'));
+    const prefersMain = /settings\?\.mainPhone \|\| settings\?\.contactPhone/.test(code);
+    record(
+      'rep phone: the default prefers the main company line over the contact list',
+      'mainPhone before contactPhone',
+      prefersMain ? 'mainPhone before contactPhone' : 'STILL PREFERS contact.phones[0]',
+      prefersMain,
+    );
+    const fallbackMatch = /const FALLBACK_REP_PHONE = '([^']+)'/.exec(code);
+    record(
+      'rep phone: the last-resort fallback is the main company line',
+      EXPECTED_REP_PHONE,
+      fallbackMatch ? fallbackMatch[1] : 'NOT FOUND',
+      fallbackMatch?.[1] === EXPECTED_REP_PHONE,
+    );
+    // An initialValue runs once, at creation. Nothing already stored moves.
+    record(
+      'rep phone: it is an initialValue, so no EXISTING quote is rewritten',
+      'initialValue only',
+      /name: 'repPhone'[\s\S]{0,900}?initialValue: async/.test(code)
+        ? 'initialValue only'
+        : 'NOT AN initialValue',
+      /name: 'repPhone'[\s\S]{0,900}?initialValue: async/.test(code),
+    );
   }
 
   // 4b. The generated logo module: it must decode to a REAL PNG, because the
@@ -1034,8 +1237,15 @@ async function localRenderCheck(): Promise<void> {
     quoteNumber: 'ZZ-TEST-LOCAL',
     quoteDate: isoDayOffset(0),
     expiryDate: isoDayOffset(30),
-    customer: { company: CUSTOMER_COMPANY, name: 'ZZ Test Contact Person' },
-    rep: { name: REP_NAME, email: REP_EMAIL, phone: '800-773-9472' },
+    customer: {
+      company: CUSTOMER_COMPANY,
+      name: 'ZZ Test Contact Person',
+      // Q-200: these must now PRINT.
+      email: CUSTOMER_EMAIL,
+      phone: CUSTOMER_PHONE,
+      address: CUSTOMER_ADDRESS,
+    },
+    rep: { name: REP_NAME, email: REP_EMAIL, phone: EXPECTED_REP_PHONE },
     lineItems: fixtureLines(),
     salesTax: SALES_TAX,
     // Deliberately present, and deliberately expected NOT to print.
@@ -1104,6 +1314,24 @@ async function localRenderCheck(): Promise<void> {
     );
   }
 
+  // Q-200: the full customer block is on the printed document.
+  for (const [label, needle] of [
+    ["the customer's email", CUSTOMER_EMAIL],
+    ["the customer's phone", CUSTOMER_PHONE],
+    ['address line 1', CUSTOMER_ADDRESS_LINES[0]],
+    ['address line 2', CUSTOMER_ADDRESS_LINES[1]],
+    ['address line 3', CUSTOMER_ADDRESS_LINES[2]],
+  ] as const) {
+    record(
+      `local render: ${label} IS printed`,
+      'present',
+      pdfContains(extracted, needle) ? 'present' : 'MISSING',
+      pdfContains(extracted, needle),
+    );
+  }
+
+  await localMinimalRenderCheck(renderQuotePdf);
+
   try {
     mkdirSync(LOCAL_OUT_DIR, { recursive: true });
     const out = join(LOCAL_OUT_DIR, 'q160-sample.pdf');
@@ -1113,6 +1341,81 @@ async function localRenderCheck(): Promise<void> {
   } catch {
     /* writing the sample is a convenience, never a failure */
   }
+}
+
+/**
+ * Q-200: the case a full fixture can never prove. Phone and address are
+ * OPTIONAL on a quote (only the email is required), so most real quotes look
+ * like this one, and "renders cleanly with them blank" is the check that
+ * matters most. Run locally as well as against the deployment so a dry run
+ * catches a regression before anything is deployed at all.
+ */
+async function localMinimalRenderCheck(
+  renderQuotePdf: (quote: unknown, now: Date) => Promise<{ buffer: Buffer; fileName: string }>,
+): Promise<void> {
+  let buffer: Buffer;
+  try {
+    buffer = (
+      await renderQuotePdf(
+        {
+          quoteNumber: 'ZZ-TEST-LOCAL-MIN',
+          quoteDate: isoDayOffset(0),
+          expiryDate: isoDayOffset(30),
+          // Only the required email. No phone, no address, no contact name.
+          customer: { company: MINIMAL_COMPANY, email: MINIMAL_EMAIL },
+          rep: { name: REP_NAME, email: REP_EMAIL, phone: EXPECTED_REP_PHONE },
+          lineItems: minimalLines(),
+        },
+        new Date(),
+      )
+    ).buffer;
+  } catch (err) {
+    record(
+      'local render (no phone, no address): renders without throwing',
+      'renders',
+      `THREW: ${(err as Error).message.slice(0, 140)}`,
+      false,
+    );
+    return;
+  }
+
+  record(
+    'local render (no phone, no address): produces a real PDF',
+    '%PDF- header',
+    isPdf(buffer) ? '%PDF- header' : 'NOT A PDF',
+    isPdf(buffer),
+  );
+  if (!isPdf(buffer)) return;
+  const extracted = extractPdfText(buffer);
+
+  record(
+    'local render (no phone, no address): the email that IS set still prints',
+    MINIMAL_EMAIL,
+    pdfContains(extracted, MINIMAL_EMAIL) ? 'present' : 'MISSING',
+    pdfContains(extracted, MINIMAL_EMAIL),
+  );
+  record(
+    'local render (no phone, no address): the quote still prices correctly',
+    MINIMAL_TOTAL_DISPLAY,
+    pdfContains(extracted, MINIMAL_TOTAL_DISPLAY) ? MINIMAL_TOTAL_DISPLAY : 'MISSING',
+    pdfContains(extracted, MINIMAL_TOTAL_DISPLAY),
+  );
+  for (const [label, artifact] of EMPTY_FIELD_ARTIFACTS) {
+    record(
+      `local render (no phone, no address): ${label} does not appear`,
+      'absent',
+      extracted.text.includes(artifact) ? 'FOUND' : 'absent',
+      !extracted.text.includes(artifact),
+    );
+  }
+  // The empty-state sentence belongs to a quote with NO customer at all. This
+  // one has a company and an email, so it must not appear.
+  record(
+    'local render (no phone, no address): the no-customer fallback line is not used',
+    'absent',
+    pdfContains(extracted, 'Your custom quotation') ? 'FOUND' : 'absent',
+    !pdfContains(extracted, 'Your custom quotation'),
+  );
 }
 
 // ── Cleanup ──────────────────────────────────────────────────────────────────
@@ -1253,10 +1556,50 @@ async function main(): Promise<void> {
     const numbering = client as unknown as QuoteNumberingClient;
     const liveNumber = (await allocateQuoteNumber(numbering)).quoteNumber;
     const expiredNumber = (await allocateQuoteNumber(numbering)).quoteNumber;
+    const minimalNumber = (await allocateQuoteNumber(numbering)).quoteNumber;
 
     tokens.live = generateQuoteToken();
     tokens.expired = generateQuoteToken();
-    console.log(`Fixture tokens: live=${redact(tokens.live)} expired=${redact(tokens.expired)}`);
+    tokens.minimal = generateQuoteToken();
+    console.log(
+      `Fixture tokens: live=${redact(tokens.live)} expired=${redact(tokens.expired)} minimal=${redact(tokens.minimal)}`,
+    );
+
+    // ------------------------------------------- Q-200: the rep phone default
+    // An initialValue only runs inside the Studio, so it cannot be triggered
+    // from a script. What CAN be checked, and is what actually matters, is the
+    // value the schema's own query would resolve against live Global Settings
+    // right now. The query is repeated here rather than imported, so the schema
+    // cannot mark its own homework.
+    const settings = await client.fetch<{ mainPhone?: string; contactPhone?: string } | null>(
+      `*[_id == "globalSettings"][0]{ "mainPhone": phoneNumber, "contactPhone": contact.phones[0] }`,
+    );
+    const resolvedRepPhone = settings?.mainPhone || settings?.contactPhone || EXPECTED_REP_PHONE;
+    record(
+      'rep phone: a NEW quote created today would default to the main company line',
+      EXPECTED_REP_PHONE,
+      resolvedRepPhone,
+      resolvedRepPhone === EXPECTED_REP_PHONE,
+    );
+    info(
+      'rep phone: what Global Settings holds',
+      `phoneNumber="${settings?.mainPhone ?? '(unset)'}", contact.phones[0]="${settings?.contactPhone ?? '(unset)'}"`,
+    );
+
+    // Existing quotes keep whatever they were given. This run must not change
+    // a single one of them, so the stored values are recorded before and
+    // compared after (fixtures excluded - they are created by this script).
+    const realQuotePhonesBefore = await client.fetch<{ _id: string; repPhone?: string }[]>(
+      `*[_type == "quote" && !(_id match "${TEST_PREFIX}*") && !(_id match "drafts.${TEST_PREFIX}*")]{_id, repPhone} | order(_id asc)`,
+    );
+    info(
+      'rep phone: existing quotes found (none are touched by this run)',
+      realQuotePhonesBefore.length
+        ? realQuotePhonesBefore
+            .map((q) => `${q._id.replace('drafts.', 'draft ')}=${q.repPhone ?? '(none)'}`)
+            .join(', ')
+        : '(none)',
+    );
 
     const commonCustomer = {
       customerCompany: CUSTOMER_COMPANY,
@@ -1266,7 +1609,7 @@ async function main(): Promise<void> {
       customerAddress: CUSTOMER_ADDRESS,
       repName: REP_NAME,
       repEmail: REP_EMAIL,
-      repPhone: '800-773-9472',
+      repPhone: EXPECTED_REP_PHONE,
     };
 
     await client.createOrReplace({
@@ -1294,6 +1637,23 @@ async function main(): Promise<void> {
       expiryDate: isoDayOffset(-5),
       lineItems: expiredLines(),
       sentAt: SENT_AT,
+    } as never);
+
+    // Q-200: only the required email. No contact name, no phone, no address.
+    await client.createOrReplace({
+      _id: MINIMAL_ID,
+      _type: 'quote',
+      quoteNumber: minimalNumber,
+      slug: { _type: 'slug', current: tokens.minimal },
+      title: INTERNAL_LABEL,
+      customerCompany: MINIMAL_COMPANY,
+      customerEmail: MINIMAL_EMAIL,
+      repName: REP_NAME,
+      repEmail: REP_EMAIL,
+      repPhone: EXPECTED_REP_PHONE,
+      quoteDate: isoDayOffset(0),
+      expiryDate: isoDayOffset(30),
+      lineItems: minimalLines(),
     } as never);
 
     await sleep(2500);
@@ -1339,6 +1699,12 @@ async function main(): Promise<void> {
         ['the quote number', liveNumber],
         ['the customer company', CUSTOMER_COMPANY],
         ['the rep name', REP_NAME],
+        // Q-200: the full customer block, one line per address line.
+        ["the customer's own email", CUSTOMER_EMAIL],
+        ["the customer's own phone", CUSTOMER_PHONE],
+        ["the customer's address line 1", CUSTOMER_ADDRESS_LINES[0]],
+        ["the customer's address line 2", CUSTOMER_ADDRESS_LINES[1]],
+        ["the customer's address line 3", CUSTOMER_ADDRESS_LINES[2]],
       ] as const) {
         record(
           `pdf: contains ${label}`,
@@ -1402,12 +1768,11 @@ async function main(): Promise<void> {
       );
       recordLayoutExtent('pdf', extracted);
 
-      // 5. NOTHING INTERNAL.
+      // 5. NOTHING INTERNAL. The customer's own email / phone / address were on
+      //    this list until Q-200 and are now asserted PRESENT above; this list
+      //    is everything that did NOT move.
       for (const [label, needle] of [
         ['the internal label', INTERNAL_LABEL],
-        ["the customer's own email", CUSTOMER_EMAIL],
-        ["the customer's own phone", CUSTOMER_PHONE],
-        ["the customer's own address", CUSTOMER_ADDRESS],
         ['the sent-at date', SENT_AT_DAY],
         ['the Geiger supplier item number', GEIGER_SKU],
         ['a /products/ link', '/products/'],
@@ -1547,6 +1912,189 @@ async function main(): Promise<void> {
       hay.includes(GRAND_TOTAL_DISPLAY) ? 'present' : 'MISSING',
       hay.includes(GRAND_TOTAL_DISPLAY),
     );
+
+    // ---------------- 11. Q-200: THE CUSTOMER BLOCK ON THE PAGE (raw HTML)
+    for (const [label, needle] of [
+      ['the customer company', CUSTOMER_COMPANY],
+      ["the customer's own email", CUSTOMER_EMAIL],
+      ["the customer's own phone", CUSTOMER_PHONE],
+      ['address line 1', CUSTOMER_ADDRESS_LINES[0]],
+      ['address line 2', CUSTOMER_ADDRESS_LINES[1]],
+      ['address line 3', CUSTOMER_ADDRESS_LINES[2]],
+    ] as const) {
+      record(
+        `page: ${label} is in the SERVER-RENDERED HTML`,
+        'present',
+        hay.includes(needle) ? 'present' : 'MISSING',
+        hay.includes(needle),
+      );
+    }
+    // Tappable, the same way the rep block already is.
+    record(
+      "page: the customer's email is a mailto link",
+      `mailto:${CUSTOMER_EMAIL}`,
+      hay.includes(`mailto:${CUSTOMER_EMAIL}`) ? 'present' : 'MISSING',
+      hay.includes(`mailto:${CUSTOMER_EMAIL}`),
+    );
+    record(
+      "page: the customer's phone is a tel link",
+      `tel:${CUSTOMER_PHONE}`,
+      hay.includes(`tel:${CUSTOMER_PHONE}`) ? 'present' : 'MISSING',
+      hay.includes(`tel:${CUSTOMER_PHONE}`),
+    );
+    if (!hay.includes(CUSTOMER_EMAIL)) {
+      notes.push(
+        `The customer block did not appear on ${SITE}. The most likely reason is that the deployment predates Q-200: this script drives whatever is deployed, so deploy the change first and re-run. Nothing is wrong with the fixture - the same quote is checked for the same strings in the PDF.`,
+      );
+    }
+    // The blank line pasted into the middle of the address must not survive.
+    const card = customerCardRegion(page.html);
+    record(
+      'page: the customer card was found in the HTML',
+      'present',
+      card ? 'present' : 'MISSING',
+      Boolean(card),
+    );
+    if (card) {
+      // The fixture address has a BLANK LINE after line 1. The block is
+      // rendered with the stored line breaks kept, so if the blank survived it
+      // would appear here as line 1 followed by two newlines.
+      const gap = card.includes(`${CUSTOMER_ADDRESS_LINES[0]}\n\n`);
+      record(
+        'page: the pasted blank line does not open a gap in the address block',
+        'no empty line',
+        gap ? 'AN EMPTY LINE SURVIVED' : 'no empty line',
+        !gap,
+      );
+      record(
+        'page: the address prints line 1 immediately followed by line 2',
+        'consecutive lines',
+        card.includes(`${CUSTOMER_ADDRESS_LINES[0]}\n${CUSTOMER_ADDRESS_LINES[1]}`)
+          ? 'consecutive lines'
+          : 'NOT CONSECUTIVE',
+        card.includes(`${CUSTOMER_ADDRESS_LINES[0]}\n${CUSTOMER_ADDRESS_LINES[1]}`),
+      );
+    }
+    // Still withheld on the page, exactly as in the PDF.
+    for (const [label, needle] of [
+      ['the internal label', INTERNAL_LABEL],
+      ['the sent-at date', SENT_AT_DAY],
+      ['the Geiger supplier item number', GEIGER_SKU],
+      ['a /products/ link', '/products/'],
+    ] as const) {
+      record(
+        `withheld: ${label} is not in the page HTML`,
+        'absent',
+        hay.includes(needle) ? 'LEAKED' : 'absent',
+        !hay.includes(needle),
+      );
+    }
+
+    // ------- 12. Q-200: A QUOTE WITH NO PHONE AND NO ADDRESS, BOTH SURFACES
+    const minPage = await fetchPage(`/quote/${tokens.minimal}`);
+    const minRegion = quoteRegion(minPage.html);
+    const minBailed = minPage.html.includes(BAILOUT_MARKER);
+    record(
+      'minimal: the page renders and is still static (no bailout marker)',
+      'article present, no BAILOUT marker',
+      minRegion ? (minBailed ? 'BAILOUT MARKER FOUND' : 'article present, no marker') : 'ARTICLE MISSING',
+      Boolean(minRegion) && !minBailed,
+    );
+    const minHay = minRegion ?? minPage.html;
+    for (const label of ['Accept this quote', 'Request a change', 'Download PDF']) {
+      record(
+        `minimal: "${label}" is still in the server-rendered HTML`,
+        'present',
+        minHay.includes(label) ? 'present' : 'MISSING',
+        minHay.includes(label),
+      );
+    }
+    record(
+      'minimal: the email that IS set still shows on the page',
+      MINIMAL_EMAIL,
+      minHay.includes(MINIMAL_EMAIL) ? 'present' : 'MISSING',
+      minHay.includes(MINIMAL_EMAIL),
+    );
+    const minCard = customerCardRegion(minPage.html);
+    record(
+      'minimal: the customer card was found in the HTML',
+      'present',
+      minCard ? 'present' : 'MISSING',
+      Boolean(minCard),
+    );
+    if (minCard) {
+      for (const [label, artifact] of EMPTY_FIELD_ARTIFACTS) {
+        record(
+          `minimal: ${label} does not appear in the customer card`,
+          'absent',
+          minCard.includes(artifact) ? 'FOUND' : 'absent',
+          !minCard.includes(artifact),
+        );
+      }
+      // No tel: link at all, rather than an empty one.
+      record(
+        'minimal: no empty tel link is rendered for the missing phone',
+        'no tel: link',
+        /href="tel:/.test(minCard) ? 'A TEL LINK EXISTS' : 'no tel: link',
+        !/href="tel:/.test(minCard),
+      );
+      record(
+        'minimal: the no-customer fallback line is not used (company and email are set)',
+        'absent',
+        minCard.includes('Your custom quotation') ? 'FOUND' : 'absent',
+        !minCard.includes('Your custom quotation'),
+      );
+    }
+
+    const minPdf = await fetchPdf(tokens.minimal);
+    record('minimal: the PDF downloads', '200', String(minPdf.status), minPdf.status === 200);
+    if (isPdf(minPdf.bytes)) {
+      const minExtracted = extractPdfText(minPdf.bytes);
+      record(
+        'minimal: the email that IS set still prints in the PDF',
+        MINIMAL_EMAIL,
+        pdfContains(minExtracted, MINIMAL_EMAIL) ? 'present' : 'MISSING',
+        pdfContains(minExtracted, MINIMAL_EMAIL),
+      );
+      record(
+        'minimal: the PDF still prices correctly (20 x $3.00)',
+        MINIMAL_TOTAL_DISPLAY,
+        pdfContains(minExtracted, MINIMAL_TOTAL_DISPLAY) ? MINIMAL_TOTAL_DISPLAY : 'MISSING',
+        pdfContains(minExtracted, MINIMAL_TOTAL_DISPLAY),
+      );
+      for (const [label, artifact] of EMPTY_FIELD_ARTIFACTS) {
+        record(
+          `minimal: ${label} does not appear in the PDF text`,
+          'absent',
+          minExtracted.text.includes(artifact) ? 'FOUND' : 'absent',
+          !minExtracted.text.includes(artifact),
+        );
+      }
+      recordLayoutExtent('minimal pdf', minExtracted);
+    } else {
+      record('minimal: the PDF is a real PDF', '%PDF- header', 'NOT A PDF', false);
+    }
+
+    // ------- 13. Q-200: NO EXISTING QUOTE WAS MODIFIED BY THIS RUN
+    const realQuotePhonesAfter = await client.fetch<{ _id: string; repPhone?: string }[]>(
+      `*[_type == "quote" && !(_id match "${TEST_PREFIX}*") && !(_id match "drafts.${TEST_PREFIX}*")]{_id, repPhone} | order(_id asc)`,
+    );
+    const unchanged =
+      JSON.stringify(realQuotePhonesBefore) === JSON.stringify(realQuotePhonesAfter);
+    record(
+      'existing quotes: not one was modified by this run',
+      `${realQuotePhonesBefore.length} quote(s), byte-identical`,
+      unchanged ? `${realQuotePhonesAfter.length} quote(s), byte-identical` : 'A QUOTE CHANGED',
+      unchanged,
+    );
+    const staleNumbers = realQuotePhonesAfter.filter(
+      (q) => (q.repPhone ?? '') !== EXPECTED_REP_PHONE,
+    );
+    if (staleNumbers.length) {
+      notes.push(
+        `${staleNumbers.length} existing quote(s) still carry a rep phone other than ${EXPECTED_REP_PHONE} (${staleNumbers.map((q) => q.repPhone ?? '(none)').join(', ')}). That is deliberate: whatever is stored on a quote is what that customer was given, so nothing was rewritten. Patrick can change any of them by hand in Studio if he wants to.`,
+      );
+    }
   } catch (e) {
     runError = e;
     console.error('Run failed:', e);
@@ -1648,6 +2196,8 @@ function writeReport(): void {
   const stamp = new Date().toISOString();
   const lines: string[] = [
     '# Q-160: Automated verification of the quote PDF, the status banner, and the lifecycle',
+    '',
+    'Extended by **Q-200** (Patrick\'s two confirmed changes): a new quote\'s rep phone defaults to the main company line, and the customer\'s full block (email, phone, address) is shown on the page AND in the PDF. A third fixture carrying only the required email proves the optional fields render cleanly when they are blank.',
     '',
     `Run: ${stamp}. Target: ${SITE}. Script: scripts/quick-quote/verify-q160.ts (verification only - no app code touched). Mode: ${DRY_RUN ? 'dry run (offline checks + a local render)' : 'apply'}.`,
     '',

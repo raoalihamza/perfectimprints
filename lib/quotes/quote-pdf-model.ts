@@ -17,10 +17,16 @@
  *
  * WHAT IS WITHHELD, and it is the SAME list the page withholds (see the header
  * comment in components/quote/QuoteDocument.tsx): the internal `title`, the
- * `sentAt` date, the customer's own email / phone / address, a Geiger line's
- * supplier `sku`, and any link to /products/<slug> (whose live pricing would
- * contradict the frozen quote price). Nothing internal is modelled here at all,
- * so the renderer cannot print it by accident.
+ * `sentAt` date, a Geiger line's supplier `sku`, and any link to
+ * /products/<slug> (whose live pricing would contradict the frozen quote
+ * price). Nothing internal is modelled here at all, so the renderer cannot
+ * print it by accident.
+ *
+ * The customer's own email, phone and address WERE on that list until Q-200,
+ * when Patrick decided the printed quote should carry the full "prepared for"
+ * block the way a business quotation normally does. They are modelled below and
+ * printed; the rest of the withheld list is unchanged, and the page and the PDF
+ * still show exactly the same set of fields.
  */
 
 import {
@@ -28,6 +34,7 @@ import {
   formatQuoteDate,
   isQuoteChargeLine,
   isQuoteExpired,
+  quoteAddressLines,
   quoteLineTitle,
   shownAmount,
   shownQuantity,
@@ -85,7 +92,13 @@ export interface QuotePdfQuoteSource {
   quoteNumber?: unknown;
   quoteDate?: unknown;
   expiryDate?: unknown;
-  customer?: { company?: unknown; name?: unknown } | null;
+  customer?: {
+    company?: unknown;
+    name?: unknown;
+    email?: unknown;
+    phone?: unknown;
+    address?: unknown;
+  } | null;
   rep?: { name?: unknown; email?: unknown; phone?: unknown } | null;
   lineItems?: unknown;
   salesTax?: unknown;
@@ -122,6 +135,14 @@ export interface QuotePdfModel {
   expired: boolean;
   customerCompany: string | null;
   customerName: string | null;
+  customerEmail: string | null;
+  customerPhone: string | null;
+  /**
+   * The address as the lines to print, already split and cleaned. An EMPTY
+   * array means print nothing: phone and address are optional on a quote, and
+   * an empty line under a heading reads as information that went missing.
+   */
+  customerAddressLines: string[];
   repName: string | null;
   repEmail: string | null;
   repPhone: string | null;
@@ -252,6 +273,9 @@ export function buildQuotePdfModel(
     expired: isQuoteExpired(quote.expiryDate, now),
     customerCompany: cleanText(quote.customer?.company),
     customerName: cleanText(quote.customer?.name),
+    customerEmail: cleanText(quote.customer?.email),
+    customerPhone: cleanText(quote.customer?.phone),
+    customerAddressLines: quoteAddressLines(quote.customer?.address),
     repName: cleanText(quote.rep?.name),
     repEmail: cleanText(quote.rep?.email),
     repPhone: cleanText(quote.rep?.phone),

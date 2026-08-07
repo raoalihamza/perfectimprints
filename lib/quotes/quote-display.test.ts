@@ -1,12 +1,14 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  QUOTE_ADDRESS_MAX_LINES,
   QUOTE_DESCRIPTION_PREVIEW_CHARS,
   cleanText,
   formatQuoteDate,
   isQuoteChargeLine,
   isQuoteExpired,
   isoDayUtc,
+  quoteAddressLines,
   quoteDateParts,
   quoteDescriptionPreview,
   quoteLineTitle,
@@ -197,5 +199,57 @@ describe('shownAmount / shownQuantity', () => {
     expect(shownQuantity(0)).toBeNull();
     expect(shownQuantity(undefined)).toBeNull();
     expect(shownQuantity('250')).toBeNull();
+  });
+});
+
+describe('quoteAddressLines', () => {
+  it('splits a stored address into the lines it should print', () => {
+    expect(quoteAddressLines('913 Beal Pkwy NW\nSte A153\nFort Walton Beach, FL 32547')).toEqual([
+      '913 Beal Pkwy NW',
+      'Ste A153',
+      'Fort Walton Beach, FL 32547',
+    ]);
+  });
+
+  it('handles Windows line endings and trims each line', () => {
+    expect(quoteAddressLines('  12 Main St \r\n  Suite 4  \r\nAustin, TX 78701 ')).toEqual([
+      '12 Main St',
+      'Suite 4',
+      'Austin, TX 78701',
+    ]);
+  });
+
+  it('drops blank lines so the block never opens a gap in the middle', () => {
+    expect(quoteAddressLines('12 Main St\n\n\nAustin, TX 78701')).toEqual([
+      '12 Main St',
+      'Austin, TX 78701',
+    ]);
+  });
+
+  it('collapses runs of spaces and tabs inside a line', () => {
+    expect(quoteAddressLines('12   Main\tSt')).toEqual(['12 Main St']);
+  });
+
+  it('returns an EMPTY array for every absent value, so callers render nothing', () => {
+    expect(quoteAddressLines(undefined)).toEqual([]);
+    expect(quoteAddressLines(null)).toEqual([]);
+    expect(quoteAddressLines('')).toEqual([]);
+    expect(quoteAddressLines('   ')).toEqual([]);
+    expect(quoteAddressLines('\n\n \n')).toEqual([]);
+    expect(quoteAddressLines(42)).toEqual([]);
+    expect(quoteAddressLines({})).toEqual([]);
+  });
+
+  it('caps a pasted block so one bad value cannot push the page around', () => {
+    const many = Array.from({ length: 30 }, (_, i) => `line ${i + 1}`).join('\n');
+    const lines = quoteAddressLines(many);
+    expect(lines).toHaveLength(QUOTE_ADDRESS_MAX_LINES);
+    expect(lines[0]).toBe('line 1');
+  });
+
+  it('leaves a real one-line address alone', () => {
+    expect(quoteAddressLines('913 Beal Pkwy NW, Ste A153, Fort Walton Beach, FL 32547')).toEqual([
+      '913 Beal Pkwy NW, Ste A153, Fort Walton Beach, FL 32547',
+    ]);
   });
 });

@@ -133,6 +133,14 @@ const styles = StyleSheet.create({
   },
   partyName: { fontFamily: 'Helvetica-Bold', fontSize: 10, color: INK },
   partyLine: { fontSize: 8.5, color: INK },
+  /**
+   * The address block sits slightly apart from the name / email / phone lines
+   * above it so the two read as separate things rather than one long list. The
+   * box itself is already `flexBasis: 0`, so a long address line wraps INSIDE
+   * this column instead of widening it and pushing the other party box sideways
+   * (the spike's exact failure, in a different place).
+   */
+  partyAddress: { marginTop: 3 },
 
   // ---- Table --------------------------------------------------------------
   tableHeader: {
@@ -376,7 +384,30 @@ export function QuotePdfDocument({ model, images }: Props) {
               <Text style={styles.partyName}>{model.customerCompany}</Text>
             ) : null}
             {model.customerName ? <Text style={styles.partyLine}>{model.customerName}</Text> : null}
-            {!model.customerCompany && !model.customerName ? (
+            {/* Q-200: the full customer block, the way a business quotation
+                carries a "prepared for" address. Each field is optional on the
+                quote (only the email is required), so each renders only when
+                it has a value - never an empty line under the heading. */}
+            {model.customerEmail ? (
+              <Text style={styles.partyLine}>{model.customerEmail}</Text>
+            ) : null}
+            {model.customerPhone ? (
+              <Text style={styles.partyLine}>{model.customerPhone}</Text>
+            ) : null}
+            {model.customerAddressLines.length > 0 ? (
+              <View style={styles.partyAddress}>
+                {model.customerAddressLines.map((line, index) => (
+                  <Text key={`addr-${index}`} style={styles.partyLine}>
+                    {line}
+                  </Text>
+                ))}
+              </View>
+            ) : null}
+            {!model.customerCompany &&
+            !model.customerName &&
+            !model.customerEmail &&
+            !model.customerPhone &&
+            model.customerAddressLines.length === 0 ? (
               <Text style={styles.partyLine}>Your custom quotation</Text>
             ) : null}
           </View>
