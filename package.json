@@ -49,6 +49,7 @@
     "scrape-rush-products": "python -m scripts.scrapers.geiger.scrape_rush_products",
     "scrape-catalogs": "python -m scripts.scrapers.geiger.scrape_catalogs",
     "monthly:prune-skus": "tsx scripts/monthly/prune-removed-skus.ts",
+    "monthly:expand-safe": "tsx scripts/monthly/expand-safe-capped-categories.ts",
     "monthly:summary": "tsx scripts/monthly/compute-summary.ts",
     "monthly:email": "tsx scripts/monthly/send-summary-email.ts",
     "import-blogs": "tsx scripts/migrations/import-blogs.ts",

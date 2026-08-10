@@ -29,6 +29,10 @@ import {
 } from 'sanity';
 import { IntentLink } from 'sanity/router';
 import { loadStudioJson } from './load-json';
+import { rankMatches } from './rank-matches';
+
+/** How many ranked matches the dropdown renders. */
+const RESULT_LIMIT = 30;
 
 interface CategoryEntry {
   slug: string;
@@ -124,17 +128,15 @@ function useCategoryOptions() {
     };
   }, [query]);
 
-  const results = useMemo(() => {
-    if (!debounced) return [];
-    const out: CategoryEntry[] = [];
-    for (const c of all) {
-      if (c.slug.includes(debounced) || c.title.toLowerCase().includes(debounced)) {
-        out.push(c);
-        if (out.length >= 30) break;
-      }
-    }
-    return out;
-  }, [all, debounced]);
+  // Score every match and keep the best 30 — NOT the first 30 in alphabetical
+  // file order, which buried the root `pens` category at position 50 behind 28
+  // `dispensary-containers/*` rows and made it unselectable (see rank-matches.ts).
+  const ranked = useMemo(
+    () => rankMatches(all, debounced, (c) => ({ primary: c.slug, labels: [c.title] }), RESULT_LIMIT),
+    [all, debounced],
+  );
+  const results = ranked.items;
+  const totalMatches = ranked.total;
 
   const exactExists = useMemo(() => {
     const s = slugify(debounced);
@@ -178,6 +180,7 @@ function useCategoryOptions() {
     setQuery,
     debounced,
     results,
+    totalMatches,
     exactExists,
     creating,
     error,
@@ -241,6 +244,7 @@ export function CategoryPicker(props: ArrayOfPrimitivesInputProps) {
               <ResultLabel entry={c} />
             </button>
           ))}
+          <MoreMatchesHint opts={opts} />
           <NoResults opts={opts} />
           <CreateNew opts={opts} onCreate={onCreate} />
         </div>
@@ -295,6 +299,7 @@ export function CategorySlugInput(props: StringInputProps) {
               <ResultLabel entry={c} />
             </button>
           ))}
+          <MoreMatchesHint opts={opts} />
           <NoResults opts={opts} />
           <CreateNew opts={opts} onCreate={onCreate} />
         </div>
@@ -410,6 +415,29 @@ function ResultLabel({ entry }: { entry: CategoryEntry }) {
       <span style={{ fontSize: 13 }}>{entry.title}</span>
       <span style={{ display: 'block', fontSize: 11, color: '#6b7280' }}>/cat/{entry.slug}</span>
     </>
+  );
+}
+
+/**
+ * "Showing the 30 closest of 246 matches" — without this the list truncates
+ * silently, which is what made the old picker read as "the category isn't there"
+ * rather than "it's further down". Best matches are first now, so this is a hint
+ * to refine the query, not a warning.
+ */
+function MoreMatchesHint({ opts }: { opts: Opts }) {
+  if (opts.totalMatches <= opts.results.length) return null;
+  return (
+    <div
+      style={{
+        padding: '6px 10px',
+        fontSize: 12,
+        color: '#6b7280',
+        borderTop: '1px solid #e5e5e5',
+      }}
+    >
+      Showing the {opts.results.length} closest of {opts.totalMatches} matches — keep typing to
+      narrow it down.
+    </div>
   );
 }
 

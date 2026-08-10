@@ -65,7 +65,7 @@
   "model": "deepseek-chat",
   "promptVersion": "root-v2",
   "openingStyle": "use_case",
-  "skuFilterMode": "full-capped-60",
+  "skuFilterMode": "full",
   "rawSkuCount": 29,
   "filteredSkuCount": 29
 }

@@ -807,9 +807,17 @@
 
     <div class="callout danger">
       <span class="label">Important: the "full-capped-60" categories</span>
-      <p>A small number of categories (around 65, such as <code>belt-buckles</code>) do not have a clean set of Geiger
-        products, so the automatic system quietly hid an off-topic fallback set of about 60 products behind a "show the
-        contact form instead" rule. That is fine while the page runs automatically.</p>
+      <p>A small number of categories (around 58, such as <code>belt-buckles</code> or <code>laser-pointers</code>) do
+        not have a clean set of Geiger products, so the automatic system quietly hid an off-topic fallback set of about
+        60 products behind a "show the contact form instead" rule. That is fine while the page runs automatically.</p>
+      <p><em>Updated 10 August 2026:</em> seven categories that were caught by this rule <strong>by mistake</strong> have
+        been fixed and now show their full product grid: <strong>Pens</strong> (365 products), <strong>Office</strong>
+        (1,738), <strong>Bags</strong> (1,015), <strong>Health</strong> (617), <strong>Medical &amp; Healthcare
+        Items</strong> (362), <strong>Calendars</strong> (87) and <strong>Workwear</strong> (29). Those seven had good
+        Geiger products all along - the system had simply mis-read them, because almost no pen is actually named
+        "pen" (they are Bic Clic Stic, Sharpie, Javalina, and so on). The remaining ~58 genuinely still need the rule:
+        they are linked to a broad Geiger department rather than to their own product type, so switching them on would
+        fill them with unrelated items - a "Laser Pointers" page showing notepads and staplers.</p>
       <p><strong>But the moment you take such a page over with Push to Sanity, those ~60 off-topic products get copied
           into your product list and the "hide" rule no longer applies, so they become visible.</strong> Before you
         Publish a page like this, look through the Products list and remove anything off-topic (or turn on Force CTA /
@@ -896,7 +904,13 @@
     </div>
     <ul>
       <li><strong>Category Slug</strong>: search and pick the page you want to affect (this writes the exact address so
-        a typo cannot point at nothing).</li>
+        a typo cannot point at nothing). <em>Improved 10 August 2026:</em> the search now puts the <strong>closest match
+        first</strong>. It previously listed results alphabetically and stopped at 30, so a short name could be pushed
+        out of sight by longer ones that happened to contain it - typing <code>pens</code> filled the list with
+        <code>dispensary-containers</code> ("dis-<strong>pens</strong>-ary") and the real Pens page never appeared. If a
+        category ever seemed to be missing from this box, that was why; it is fixed. When there are more matches than
+        fit, the box now tells you how many, so you can keep typing to narrow it down. The same improvement applies to
+        the product search boxes, so an exact item number or brand comes up first.</li>
       <li><strong>Force CTA (hide product grid)</strong>: turn on to make the page always show the lead/contact form
         instead of products. Highest priority.</li>
       <li><strong>Force Products (always show grid)</strong>: turn on to make a page show products even if the automatic

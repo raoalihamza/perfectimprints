@@ -16,6 +16,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { set, unset, type ArrayOfPrimitivesInputProps, type StringInputProps } from 'sanity';
 import { loadStudioJson } from './load-json';
+import { rankMatches } from './rank-matches';
+
+/** How many ranked matches the dropdown renders. */
+const RESULT_LIMIT = 30;
 
 interface ProductEntry {
   sku: string;
@@ -67,21 +71,21 @@ function useProductOptions() {
     };
   }, [query]);
 
-  const results = useMemo(() => {
-    if (!debounced) return [];
-    const out: ProductEntry[] = [];
-    for (const p of all) {
-      if (
-        p.sku.toLowerCase().includes(debounced) ||
-        p.name.toLowerCase().includes(debounced) ||
-        (p.brand ? p.brand.toLowerCase().includes(debounced) : false)
-      ) {
-        out.push(p);
-        if (out.length >= 30) break;
-      }
-    }
-    return out;
-  }, [all, debounced]);
+  // Score every match and keep the best 30 — the old loop took the FIRST 30 in
+  // file order, so an exact SKU or brand could sit behind dozens of incidental
+  // substring hits and never render (see rank-matches.ts).
+  const ranked = useMemo(
+    () =>
+      rankMatches(
+        all,
+        debounced,
+        (p) => ({ primary: p.sku, labels: [p.name, p.brand ?? ''] }),
+        RESULT_LIMIT,
+      ),
+    [all, debounced],
+  );
+  const results = ranked.items;
+  const totalMatches = ranked.total;
 
   const labelFor = useCallback(
     (sku: string) => {
@@ -92,7 +96,7 @@ function useProductOptions() {
     [bySku],
   );
 
-  return { loading, loadError, query, setQuery, debounced, results, labelFor };
+  return { loading, loadError, query, setQuery, debounced, results, totalMatches, labelFor };
 }
 
 type Opts = ReturnType<typeof useProductOptions>;
@@ -151,6 +155,19 @@ function ResultsDropdown({
           </button>
         );
       })}
+      {opts.totalMatches > opts.results.length && (
+        <div
+          style={{
+            padding: '6px 10px',
+            fontSize: 12,
+            color: '#6b7280',
+            borderTop: '1px solid #e5e5e5',
+          }}
+        >
+          Showing the {opts.results.length} closest of {opts.totalMatches} matches — keep typing to
+          narrow it down.
+        </div>
+      )}
       {opts.results.length === 0 &&
         (opts.loadError ? (
           <div style={{ padding: '8px 10px', fontSize: 13, color: '#e11f1e' }}>
