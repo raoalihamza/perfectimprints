@@ -1,8 +1,9 @@
 name: Monthly rebuild
 
 # Full-catalog refresh (M6-606). Re-scrapes Geiger Phases A/B/C/E, regenerates
-# AI content for any NEW categories, prunes removed products, and opens a
-# reviewable PR with a change summary + emails Patrick.
+# AI content for any NEW categories, prunes removed products, re-expands the
+# seven allowlisted categories from FIX-810, and opens a reviewable PR with a
+# change summary + emails Patrick.
 #
 # ── The 6-hour-per-job constraint ────────────────────────────────────────────
 # GitHub-hosted runners cap a single job at 6h. Phase C (facet memberships) is
@@ -11,7 +12,7 @@ name: Monthly rebuild
 #   • scrape-ab  — Phase A → B            (~25-45 min)
 #   • scrape-e   — Phase A → E (parallel) (~5 min)
 #   • scrape-c   — Phase C  (the long pole)
-#   • assemble   — AI content + prune + summary + PR + email
+#   • assemble   - AI content + prune + re-expand + summary + PR + email
 # Phase C runs with `--workers 6` (6 independent 1-req/sec clients per
 # CLAUDE.md §16 → ~1h wall-clock, comfortably under 6h) AND keeps `--resume`
 # with a cached checkpoint, so an overrun resumes from the last 100-URL
@@ -222,7 +223,7 @@ jobs:
 
   # ── Assemble: AI content, prune, summary, PR, email ────────────────────────
   assemble:
-    name: Content + prune + PR + email
+    name: Content + prune + re-expand + PR + email
     needs: [config, scrape-ab, scrape-c, scrape-e]
     # Run as long as at least one scrape job succeeded (so a phase-subset test
     # still assembles), and none of the requested jobs hard-failed.
@@ -305,6 +306,18 @@ jobs:
       - name: Prune removed products from category pages
         if: needs.scrape-ab.result == 'success'
         run: pnpm tsx scripts/monthly/prune-removed-skus.ts
+
+      # Re-derive the seven allowlisted categories whose slug-token filter
+      # misfired (FIX-810). Nothing else in this job ADDS products to an
+      # existing page - generate_content.py runs --skip-existing and the prune
+      # only ever removes - so without this step those seven pages shrink a
+      # little with every rebuild. Must stay AFTER the prune (it re-derives from
+      # the catalog, so it would undo a prune that ran later) and BEFORE the
+      # summary, so its changes reach the diff, the PR and Patrick's email.
+      # `add-paths` already covers data/categories.
+      - name: Re-expand the safe capped categories
+        if: needs.scrape-ab.result == 'success'
+        run: pnpm tsx scripts/monthly/expand-safe-capped-categories.ts
 
       - name: Compute change summary
         id: summary
