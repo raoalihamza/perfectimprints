@@ -1,5 +1,6 @@
 import { getSiteSettings } from '@/lib/sanity/queries/global-settings';
 import { organizationSchema } from '@/lib/seo/schema-generators';
+import { jsonLdHtml } from '@/lib/seo/json-ld';
 
 /**
  * Sitewide Organization JSON-LD, rendered in the root layout.
@@ -15,7 +16,7 @@ export async function OrganizationJsonLd() {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema(settings)) }}
+      dangerouslySetInnerHTML={{ __html: jsonLdHtml(organizationSchema(settings)) }}
     />
   );
 }

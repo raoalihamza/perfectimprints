@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { jsonLdHtml } from '@/lib/seo/json-ld';
 
 export interface BreadcrumbItem {
   label: string;
@@ -62,7 +63,7 @@ export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
       </ol>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdHtml(schema) }}
       />
     </nav>
   );

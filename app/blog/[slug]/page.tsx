@@ -20,6 +20,7 @@ import { resolveProductsBySku } from '@/lib/categories';
 import { socialMeta } from '@/lib/seo/open-graph';
 import { buildBlogPostingSchema } from '@/lib/seo/content-schema';
 import type { GeigerProduct } from '@/lib/product-types';
+import { jsonLdHtml } from '@/lib/seo/json-ld';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
   /\/$/,
@@ -208,7 +209,7 @@ export default async function BlogPostPage({ params }: Props) {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdHtml(blogPostingSchema) }}
       />
       <CustomSchemaJsonLd path={`/blog/${post.slug.current}`} />
     </>

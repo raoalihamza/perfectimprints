@@ -7,6 +7,7 @@ import { ChromeGate } from '@/components/layout/ChromeGate';
 import { websiteSchema } from '@/lib/seo/schema-generators';
 import { TWITTER_HANDLE } from '@/lib/seo/open-graph';
 import './globals.css';
+import { jsonLdHtml } from '@/lib/seo/json-ld';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -117,7 +118,7 @@ export default function RootLayout({
             SearchAction stays site-wide (enables the sitelinks search box). */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}
+          dangerouslySetInnerHTML={{ __html: jsonLdHtml(websiteSchema()) }}
         />
       </body>
     </html>

@@ -5,6 +5,7 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { FaqList } from '@/components/faqs/FaqList';
 import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { faqPageSchema } from '@/lib/seo/schema-generators';
+import { jsonLdHtml } from '@/lib/seo/json-ld';
 import { portableTextToPlain } from '@/lib/portable-text/to-plain';
 import { socialMeta } from '@/lib/seo/open-graph';
 import { getAnsweredFaqs } from '@/lib/sanity/queries/faqs';
@@ -56,7 +57,7 @@ export default async function FaqsPage() {
             <script
               type="application/ld+json"
               dangerouslySetInnerHTML={{
-                __html: JSON.stringify(
+                __html: jsonLdHtml(
                   faqPageSchema(
                     faqs.map((f) => ({
                       question: f.question,

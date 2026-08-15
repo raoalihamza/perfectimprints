@@ -203,6 +203,25 @@ export default defineType({
       type: 'number',
       fieldset: 'details',
     }),
+    defineField({
+      name: 'availability',
+      title: 'Availability',
+      type: 'string',
+      fieldset: 'details',
+      initialValue: 'InStock',
+      options: {
+        list: [
+          { title: 'Available to order (default)', value: 'InStock' },
+          { title: 'Limited availability', value: 'LimitedAvailability' },
+          { title: 'Back-ordered', value: 'BackOrder' },
+          { title: 'Out of stock', value: 'OutOfStock' },
+          { title: 'Discontinued', value: 'Discontinued' },
+        ],
+        layout: 'dropdown',
+      },
+      description:
+        'What Google is told about this product being orderable. We do not track stock levels, so this is your call, not a number pulled from anywhere. Leave it on "Available to order" unless you know otherwise. Anything other than the default is also shown on the page, so the page and Google always say the same thing.',
+    }),
 
     // ---- Logistics / carton (all optional; only set values render/emit) ----
     defineField({

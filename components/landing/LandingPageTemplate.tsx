@@ -9,6 +9,7 @@ import { FaqAccordion } from '@/components/page-sections/FaqAccordion';
 import { landingServiceSchema } from '@/lib/seo/schema-generators';
 import type { FaqAccordionSection, ProductStripSection } from '@/lib/sanity/queries/pages';
 import type { LandingPageDoc } from '@/lib/sanity/queries/landing-pages';
+import { jsonLdHtml } from '@/lib/seo/json-ld';
 
 /**
  * The FIXED local/topic landing-page template (P2-AI-005 part 1), rendered at
@@ -160,7 +161,7 @@ export function LandingPageTemplate({ page }: { page: LandingPageDoc }) {
       {serviceSchema && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema).replace(/</g, '\\u003c') }}
+          dangerouslySetInnerHTML={{ __html: jsonLdHtml(serviceSchema) }}
         />
       )}
     </>

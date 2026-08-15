@@ -21,6 +21,7 @@ import { buildImageUrl } from '@/lib/sanity/client';
 import { collectionPageSchema } from '@/lib/seo/schema-generators';
 import { largeSocialImage, socialMeta } from '@/lib/seo/open-graph';
 import { portableTextToPlain } from '@/lib/portable-text/to-plain';
+import { jsonLdHtml } from '@/lib/seo/json-ld';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -134,7 +135,7 @@ export default async function CatalogLandingPage({ params }: Props) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }}
+        dangerouslySetInnerHTML={{ __html: jsonLdHtml(schema) }}
       />
       <CustomSchemaJsonLd path={`/shop-by-theme/${doc.slug}`} />
 

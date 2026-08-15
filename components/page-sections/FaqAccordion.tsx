@@ -1,5 +1,6 @@
 import { SectionShell } from './SectionShell';
 import type { FaqAccordionSection } from '@/lib/sanity/queries/pages';
+import { jsonLdHtml } from '@/lib/seo/json-ld';
 
 /**
  * Native <details>/<summary> accordion — no client JS needed, fully accessible,
@@ -49,7 +50,7 @@ export function FaqAccordion({ section }: { section: FaqAccordionSection }) {
       {schema && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          dangerouslySetInnerHTML={{ __html: jsonLdHtml(schema) }}
         />
       )}
     </SectionShell>

@@ -1,4 +1,5 @@
 import { getCustomSchemaForPath } from '@/lib/sanity/queries/custom-schema';
+import { jsonLdHtml } from '@/lib/seo/json-ld';
 
 /**
  * Injects Patrick's custom JSON-LD blocks onto a page (Task C Part 2).
@@ -43,10 +44,10 @@ export async function CustomSchemaJsonLd({ path }: { path: string }) {
           // eslint-disable-next-line react/no-array-index-key
           key={i}
           type="application/ld+json"
-          // Escape `<` so a pasted value can't break out of the <script> tag.
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(block).replace(/</g, '\\u003c'),
-          }}
+          // jsonLdHtml escapes `<` so a pasted value can't break out of the
+          // <script> tag (the same escape this file has always used, now shared
+          // by every emitter - FIX-830 task 4).
+          dangerouslySetInnerHTML={{ __html: jsonLdHtml(block) }}
         />
       ))}
     </>

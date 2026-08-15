@@ -1821,6 +1821,12 @@
             its own upcharge or setup fee, delete the row and add it again, typing the name in fresh.</p>
         </div>
       </li>
+      <li><strong>Availability (Details section):</strong> a dropdown that tells Google whether this product can be
+        ordered. It starts on <strong>"Available to order"</strong> and you can leave every product there. We do not
+        track stock levels anywhere, so this is your statement, not a number pulled from a system. If you switch it to
+        <strong>Limited availability</strong>, <strong>Back-ordered</strong>, <strong>Out of stock</strong> or
+        <strong>Discontinued</strong>, that also appears on the live page as an "Availability:" line next to the
+        production time, so the page and Google always say the same thing. The default says nothing on the page.</li>
       <li><strong>Logistics / carton (optional):</strong> units per carton, carton weight (lbs), carton width /
         height / depth (inches), and the FOB ships-from zip (plus optional city/state). Whatever you fill in shows as
         compact lines near the product details - e.g. "500 units per carton", "16 × 14 × 10 in / 27 lbs per carton",
@@ -1847,6 +1853,31 @@
       <li>Press <strong>Publish</strong> - the page is live at <code>/products/&lt;your-slug&gt;</code> within
         seconds, and it appears in New Products and search shortly after.</li>
     </ol>
+
+    <div class="callout info">
+      <span class="label">What Google is told about a product, and where it comes from</span>
+      <p>Google Search Console was asking for four things on these pages. Nothing new to fill in - it all comes from
+        fields you already use:</p>
+      <ul>
+        <li><strong>Price:</strong> the cost of a <em>full minimum order including setup</em>, not the each-price. If
+          the minimum is 100 at $2.00 with a $50 setup, Google is told <strong>$250 for 100 units</strong> - the
+          quantity always travels with the figure, so nobody can read it as the price of one. It is exactly the
+          <em>Estimated total</em> the page itself shows when it first loads, so the page and Google never disagree. A
+          product with no pricing tiers sends no price at all rather than a guess.</li>
+        <li><strong>Product identifier:</strong> the <strong>Item / SKU number</strong> from the Basics section. It was
+          always on the document and simply was not being sent. There is no barcode / GTIN on promotional blanks, so
+          Google may still note that one is missing - that is expected, and we will not invent one.</li>
+        <li><strong>Return policy:</strong> decorated items cannot be returned unless the error is ours. Google is told
+          returns are not accepted, with a link to your full <strong>Returns</strong> page where the exception lives.
+          The 14-day window and restocking fee on that page apply to blank goods, so they are deliberately <em>not</em>
+          sent from a product page.</li>
+        <li><strong>Availability:</strong> the dropdown described above.</li>
+      </ul>
+      <p>The <strong>shipping</strong> figures Google would also like (a delivery cost and a delivery time) are not
+        sent, because the business quotes shipping rather than publishing a rate. Only what we do know - the carton
+        weight and dimensions and the ships-from location, from the Logistics section - is sent. If you ever want to
+        publish a flat shipping rate, that is a business decision and we can add it then.</p>
+    </div>
 
     <h3>Generate Product Details with AI (the writing helper)</h3>
     <p>Same idea as the AI helpers on blogs, videos, pages, and landing pages. Enter the <strong>Title</strong> (and

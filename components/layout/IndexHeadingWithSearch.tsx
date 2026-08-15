@@ -26,6 +26,21 @@ import type { SearchItemType } from '@/lib/search/types';
  * 'blog', the video index 'video' - so a visitor searching from those pages
  * sees the matching content type up top instead of possibly not at all.
  */
+
+/**
+ * Wording only (FIX-830 task 3, Patrick's request): the blog index box reads
+ * "Search Blogs" and the video index box "Search Videos". Derived from
+ * `priorityType` rather than passed per page so page 1 and /page/N of the blog
+ * index cannot drift apart - an index whose box is worded differently on page 2
+ * reads as a bug. WHAT IS SEARCHED IS UNCHANGED: both boxes still search the
+ * whole site and land on /search. Scoping them to their own content type is the
+ * separate, already-agreed piece of work.
+ */
+const SEARCH_PLACEHOLDERS: Partial<Record<SearchItemType, string>> = {
+  blog: 'Search Blogs',
+  video: 'Search Videos',
+};
+
 export function IndexHeadingWithSearch({
   children,
   priorityType,
@@ -33,12 +48,17 @@ export function IndexHeadingWithSearch({
   children: ReactNode;
   priorityType?: SearchItemType;
 }) {
+  const placeholder = (priorityType && SEARCH_PLACEHOLDERS[priorityType]) || 'Search the site…';
+
   return (
     <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
       <div className="min-w-0 lg:flex-1">{children}</div>
       <div className="w-full lg:w-1/4 lg:min-w-[280px] lg:shrink-0">
         <SearchBox
-          placeholder="Search the site…"
+          placeholder={placeholder}
+          // Screen readers get the same wording as sighted users; without this
+          // both index boxes and the header box announce as plain "Search".
+          label={placeholder}
           panelClassName="lg:left-auto lg:right-0 lg:w-[26rem] lg:max-w-[calc(100vw-3rem)]"
           priorityType={priorityType}
         />

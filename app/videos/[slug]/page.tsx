@@ -26,6 +26,7 @@ import { isStripRefEntry } from '@/lib/sanity/strip-product-entries';
 import type { GeigerProduct } from '@/lib/product-types';
 import type { SanityImage } from '@/lib/sanity/types';
 import { formatDate } from '@/lib/utils';
+import { jsonLdHtml } from '@/lib/seo/json-ld';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
   /\/$/,
@@ -126,6 +127,11 @@ export default async function VideoDetailPage({ params }: Props) {
     }
   }
 
+  // FIX-830 task 2: `contentUrl` is passed through the generator's
+  // isDirectMediaUrl gate, so a YouTube watch/Shorts page (which is what every
+  // video here holds) is no longer emitted as if it were a video file - Google
+  // fetches contentUrl to verify the video and explicitly says not to point it
+  // at the embedding page. `url` ties the VideoObject to this page.
   const schema = videoObjectSchema({
     name: video.title,
     description: portableTextToPlain(video.description) || undefined,
@@ -133,6 +139,7 @@ export default async function VideoDetailPage({ params }: Props) {
     uploadDate: video.publishDate,
     embedUrl: embedSrc || undefined,
     contentUrl: video.embedUrl,
+    url: canonical,
   });
 
   return (
@@ -207,7 +214,7 @@ export default async function VideoDetailPage({ params }: Props) {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdHtml(schema) }}
       />
       <CustomSchemaJsonLd path={`/videos/${video.slug.current}`} />
     </>

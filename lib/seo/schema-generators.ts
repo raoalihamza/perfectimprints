@@ -164,19 +164,52 @@ export function breadcrumbSchema(items: Array<{ name: string; url: string }>) {
 export interface VideoObjectInput {
   name: string;
   description?: string;
-  /** One or more thumbnail URLs. Recommended by Google for rich results. */
+  /** One or more thumbnail URLs. Required by Google for video rich results. */
   thumbnailUrl?: string | string[];
   /** ISO date — maps to the video's publishDate. */
   uploadDate?: string;
   /** Player embed URL (iframe src). */
   embedUrl?: string;
-  /** Canonical source/watch URL. */
+  /**
+   * The pasted source URL. Emitted as `contentUrl` ONLY when it points at an
+   * actual media file - see `isDirectMediaUrl` below.
+   */
   contentUrl?: string;
+  /** Canonical URL of the page the video lives on (FIX-830 task 2). */
+  url?: string;
+}
+
+/**
+ * Is this a link to a video FILE, as opposed to a page a player is embedded in?
+ *
+ * Google's video structured-data reference is explicit about `contentUrl`: "A
+ * URL pointing to the actual video media file... Don't link to the page that
+ * the video is embedded in; provide the video file URL directly." Every video
+ * on this site is a pasted YouTube link, so the URL we hold is a watch/Shorts
+ * page, not a file - and until FIX-830 it was being emitted as `contentUrl` on
+ * all 71 video pages. Google fetches `contentUrl` to verify the video; handing
+ * it an HTML page is the one documented spec violation these pages carried.
+ *
+ * The test is deliberately narrow: a recognised media extension, optionally
+ * followed by a query string. Anything else (including every YouTube, Vimeo,
+ * Instagram and Facebook URL) is treated as a page and the field is omitted.
+ * `embedUrl` alone is a complete and correct answer for third-party-hosted
+ * video, so nothing is lost.
+ */
+export function isDirectMediaUrl(url: string | undefined): boolean {
+  if (!url) return false;
+  return /^https?:\/\/[^\s]+\.(mp4|m4v|mov|webm|ogv|ogg|mpd|m3u8)(\?[^\s]*)?$/i.test(url.trim());
 }
 
 /**
  * VideoObject JSON-LD for the video detail page (M5-507). Undefined fields are
  * dropped by JSON.stringify, so callers can pass only what they have.
+ *
+ * Google requires name, description, thumbnailUrl and uploadDate; all four come
+ * from the `video` document and none is ever fabricated here - a video missing
+ * one simply emits without it rather than being given a made-up value.
+ * `duration` is recommended by Google and is deliberately NOT emitted: nothing
+ * in Sanity records it, and inventing one would be worse than omitting it.
  */
 export function videoObjectSchema(input: VideoObjectInput) {
   return {
@@ -187,7 +220,8 @@ export function videoObjectSchema(input: VideoObjectInput) {
     thumbnailUrl: input.thumbnailUrl,
     uploadDate: input.uploadDate,
     embedUrl: input.embedUrl,
-    contentUrl: input.contentUrl,
+    contentUrl: isDirectMediaUrl(input.contentUrl) ? input.contentUrl : undefined,
+    url: input.url,
   };
 }
 

@@ -40,6 +40,8 @@ import { resolveProductsBySku } from '@/lib/categories';
 import { portableTextToPlain } from '@/lib/portable-text/to-plain';
 import { socialMeta } from '@/lib/seo/open-graph';
 import type { GeigerProduct } from '@/lib/product-types';
+import { jsonLdHtml } from '@/lib/seo/json-ld';
+import { availabilityLabel, buildMinimumOrderOffer } from '@/lib/products/product-schema';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -363,6 +365,32 @@ function buildShippingDetails(doc: ProductPageDoc): Record<string, unknown> | nu
   };
 }
 
+/**
+ * Images for the Product JSON-LD (FIX-830 task 1).
+ *
+ * Same source order as the gallery (every colour variant, then the defaults),
+ * but built fresh from the image objects with an explicit `.format('jpg')`
+ * rather than reusing the gallery's display URLs. Google's supported formats
+ * for structured-data images are BMP, GIF, JPEG, PNG, WebP and SVG - AVIF is
+ * not among them, and two live product pages were serving AVIF schema images
+ * because that is how the asset happened to be uploaded. Forcing jpg here
+ * removes the possibility entirely; the on-page gallery keeps its own modern
+ * formats, so nothing gets slower.
+ */
+function buildSchemaImages(doc: ProductPageDoc): string[] {
+  const sources: ProductPageDoc['defaultImages'] = [];
+  for (const variant of doc.colorVariants ?? []) sources.push(...(variant.images ?? []));
+  sources.push(...(doc.defaultImages ?? []));
+
+  const urls: string[] = [];
+  for (const img of sources) {
+    if (urls.length >= 10) break;
+    const url = buildImageUrl(img, (b) => b.width(1200).fit('max').format('jpg'));
+    if (url && !urls.includes(url)) urls.push(url);
+  }
+  return urls;
+}
+
 function formatPrice(value: number): string {
   return `$${value.toFixed(2)}`;
 }
@@ -400,11 +428,33 @@ export default async function ProductDetailPage({ params }: Props) {
   const minOrderQty = Math.max(minQty ?? 1, tiers.length > 0 ? tiers[0].minQty : 1);
   const logisticsLines = buildLogisticsLines(doc);
   const shippingDetails = buildShippingDetails(doc);
+  const availabilityNote = availabilityLabel(doc.availability);
 
   // Product JSON-LD — honest, quote-based commerce: name/image/brand/description
-  // plus an AggregateOffer derived from the real pricing tiers. No fabricated
-  // availability, ratings, or reviews.
-  const schemaImages = galleryVariants.flatMap((v) => v.images.map((i) => i.url)).slice(0, 10);
+  // plus ONE offer for a full minimum order. No fabricated ratings or reviews.
+  //
+  // FIX-830 task 1, answering Google's Merchant Listings report:
+  //  - price: the total for one minimum order INCLUDING setup (Patrick's
+  //    decision), always carrying the quantity it buys - see
+  //    lib/products/product-schema.ts. It replaces the per-unit lowPrice /
+  //    highPrice AggregateOffer, which reported $4.99 as "the price" of a
+  //    product whose smallest real order is 288 of them.
+  //  - identifier: the real item number Patrick already enters in Studio. It
+  //    was on the document and simply never emitted. gtin/mpn stay absent -
+  //    promotional blanks carry no GTIN and we will not invent one.
+  //  - return policy + item condition + availability: below and in that module.
+  //  - description: unchanged, already emitted from the rich description.
+  const schemaImages = buildSchemaImages(doc);
+  const minimumOrder = buildMinimumOrderOffer({
+    tiers,
+    minOrderQty,
+    decorations: decorationOptions,
+    flatSetupCharge: doc.setupCharge,
+    url: canonical,
+    availability: doc.availability,
+    siteUrl: SITE_URL,
+    shippingDetails,
+  });
   const productSchema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -413,21 +463,8 @@ export default async function ProductDetailPage({ params }: Props) {
     ...(schemaImages.length > 0 ? { image: schemaImages } : {}),
     ...(plainDescription ? { description: plainDescription } : {}),
     ...(doc.brand ? { brand: { '@type': 'Brand', name: doc.brand } } : {}),
-    ...(low != null
-      ? {
-          offers: {
-            '@type': 'AggregateOffer',
-            priceCurrency: 'USD',
-            lowPrice: low,
-            highPrice: high ?? low,
-            offerCount: tiers.length || 1,
-            url: canonical,
-            // GMC-readiness (P2-CP follow-up): carton weight/dims + FOB origin
-            // as OfferShippingDetails — emitted only when the fields are set.
-            ...(shippingDetails ? { shippingDetails } : {}),
-          },
-        }
-      : {}),
+    ...(doc.sku?.trim() ? { sku: doc.sku.trim() } : {}),
+    ...(minimumOrder ? { offers: minimumOrder.offer } : {}),
   };
 
   const hasBody = Array.isArray(doc.description) && doc.description.length > 0;
@@ -437,7 +474,7 @@ export default async function ProductDetailPage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(productSchema).replace(/</g, '\\u003c'),
+          __html: jsonLdHtml(productSchema),
         }}
       />
       <CustomSchemaJsonLd path={`/products/${doc.slug}`} />
@@ -515,16 +552,29 @@ export default async function ProductDetailPage({ params }: Props) {
                 minQuantity={minOrderQty}
               />
 
-              {typeof doc.productionTime === 'number' && doc.productionTime > 0 && (
+              {(typeof doc.productionTime === 'number' && doc.productionTime > 0) ||
+              availabilityNote ? (
                 <dl className="mt-5 space-y-1.5 text-sm text-text-primary">
-                  <div className="flex gap-2">
-                    <dt className="font-semibold text-brand-ink">Production time:</dt>
-                    <dd>
-                      {doc.productionTime} {doc.productionTime === 1 ? 'day' : 'days'}
-                    </dd>
-                  </div>
+                  {typeof doc.productionTime === 'number' && doc.productionTime > 0 && (
+                    <div className="flex gap-2">
+                      <dt className="font-semibold text-brand-ink">Production time:</dt>
+                      <dd>
+                        {doc.productionTime} {doc.productionTime === 1 ? 'day' : 'days'}
+                      </dd>
+                    </div>
+                  )}
+                  {/* Availability is shown ONLY when it is not the default, so
+                      the page never states the obvious - but a product Patrick
+                      has marked out of stock or discontinued says so here as
+                      well as in the structured data, and the two agree. */}
+                  {availabilityNote && (
+                    <div className="flex gap-2">
+                      <dt className="font-semibold text-brand-ink">Availability:</dt>
+                      <dd>{availabilityNote}</dd>
+                    </div>
+                  )}
                 </dl>
-              )}
+              ) : null}
 
               {/* Compact carton/logistics facts — only lines with data render. */}
               {logisticsLines.length > 0 && (

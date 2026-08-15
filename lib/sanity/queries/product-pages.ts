@@ -108,10 +108,25 @@ export interface ProductPageDecorationEntry {
 }
 
 export interface ProductPageDoc extends ProductPageCard {
+  /**
+   * The real item number Patrick types in Studio (Basics fieldset). Already
+   * powered SKU search; FIX-830 also emits it as the Product JSON-LD `sku`,
+   * which is the product identifier Google's Merchant Listings report was
+   * asking for. Deliberately NOT on ProductPageCard - the card normalizer
+   * synthesizes `custom-<_id>` and must keep doing so.
+   */
+  sku?: string;
   description?: PortableTextBlock[];
   decorationMethods?: (string | ProductPageDecorationEntry)[];
   sizes?: string[];
   productionTime?: number;
+  /**
+   * Editor-set orderability for the Product JSON-LD (FIX-830 task 1). One of
+   * PRODUCT_AVAILABILITY_VALUES; blank falls back to the default in
+   * lib/products/product-schema.ts. The business tracks no stock, so this is
+   * a stated position, never a measured one.
+   */
+  availability?: string;
   /** One-time flat setup/decoration charge added to the on-page ESTIMATE. */
   setupCharge?: number;
   // Logistics / carton (all optional — only set values render/emit).
@@ -181,10 +196,12 @@ export const PRODUCT_PAGE_CARD_FIELDS = `
 // reference item, named or not, and never for blogProduct objects).
 const FULL_PROJECTION = `{
   ${PRODUCT_PAGE_CARD_FIELDS},
+  sku,
   description,
   decorationMethods,
   sizes,
   productionTime,
+  availability,
   setupCharge,
   unitsPerCarton,
   cartonWeight,

@@ -28,6 +28,13 @@ interface SearchBoxProps {
    */
   panelClassName?: string;
   /**
+   * Accessible name for the input (FIX-830 task 3). Defaults to "Search", which
+   * is what every box announced before; the blog and video index boxes pass
+   * their own wording so a screen-reader user hears the same thing a sighted
+   * one reads in the placeholder. Additive: unset, the markup is unchanged.
+   */
+  label?: string;
+  /**
    * Result group to show FIRST in the dropdown (Q-180 improvement 3). The blog
    * index passes 'blog' and the video index 'video' so a visitor searching from
    * those pages sees the matching content type up top instead of below four
@@ -50,6 +57,7 @@ export function SearchBox({
   className,
   placeholder = SEARCH_PLACEHOLDER,
   panelClassName,
+  label = 'Search',
   priorityType,
 }: SearchBoxProps) {
   const router = useRouter();
@@ -191,7 +199,7 @@ export function SearchBox({
       className={`relative ${className ?? ''}`}
     >
       <label htmlFor={inputId} className="sr-only">
-        Search
+        {label}
       </label>
       <div className="flex gap-2">
         <Input
