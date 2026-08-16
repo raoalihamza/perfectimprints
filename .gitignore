@@ -58,6 +58,12 @@ env/
 # Scraper checkpoints
 scripts/scrapers/*/.checkpoint/
 
+# SCRAPE-910 per-run fetch-status markers (Phase A / Phase E write these on
+# every run; the workflow ships them between jobs as artifacts and the
+# summary reads them, but they are run metadata and never belong in a commit)
+data/geiger/taxonomy-fetch-status.json
+data/geiger/brand-index-fetch-status.json
+
 # Monthly rebuild intermediate artifacts (summary/pr-body/prune-report)
 scripts/monthly/.artifacts/
 

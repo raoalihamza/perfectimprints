@@ -1587,7 +1587,14 @@
         Use it when Geiger publishes new catalog editions, usually about once a year. Takes about 5–10 minutes.</li>
       <li><strong>Full Catalog Rebuild</strong> - the <strong>big one</strong>. It rebuilds your entire catalog (22,000+
         category pages, every product, every brand logo). Use it occasionally, roughly once a month. It can take a few
-        hours, and your most-visited pages <strong>re-warm automatically</strong> when it is done.</li>
+        hours, and your most-visited pages <strong>re-warm automatically</strong> when it is done. Two safety features
+        run for you automatically: if Geiger's website happens to block the automated visit that reads their category
+        menu (it sometimes does for cloud servers), the rebuild <strong>keeps your existing category and brand lists and
+        finishes anyway</strong> - your summary email will say so right at the top, and the only thing missed is
+        anything brand-new Geiger added that month. And before anything is published, a <strong>safety check compares
+        the new catalog against the current one</strong>; if products or pages would go missing, the run stops itself
+        and <strong>nothing on your site changes</strong> - the run just shows as failed in this panel, which means
+        "refused to publish bad data", not "your site broke".</li>
       <li><strong>Warm All Pages</strong> - visits every category page on your live site (22,000+ pages) so each one
         loads fast for its first visitor. See the section just below for when to use it.</li>
     </ul>

@@ -23,6 +23,11 @@ interface Summary {
   products: { oldCount: number; newCount: number; added: number; removed: number; priceChanged: number };
   brands: { oldCount: number; newCount: number; added: string[]; removed: string[]; logosAddedOrChanged: number };
   categories: { newPages: number; updatedPages: number };
+  // SCRAPE-910: present when compute-summary.ts found geiger.com fallback
+  // status files or the data-loss guard report. Optional so an email for an
+  // older summary.json still sends.
+  fallbacks?: { any: boolean; notices: string[] };
+  guard?: { ok?: boolean } | null;
 }
 
 function escapeHtml(value: string): string {
@@ -59,6 +64,15 @@ async function main(): Promise<void> {
   const p = summary.products;
   const b = summary.brands;
   const c = summary.categories;
+  // SCRAPE-910: when part of the refresh fell back to committed data, that
+  // is the first thing Patrick reads, before any table of numbers.
+  const fallbackNotices = summary.fallbacks?.any ? summary.fallbacks.notices : [];
+  const guardLine =
+    summary.guard == null
+      ? null
+      : summary.guard.ok
+        ? 'Data-loss guard: passed (nothing was lost against the committed catalog).'
+        : 'Data-loss guard: FAILED (this should never reach an email; check the workflow run).';
 
   const rows: [string, string][] = [
     ['Products (was → now)', `${p.oldCount} → ${p.newCount}`],
@@ -72,9 +86,18 @@ async function main(): Promise<void> {
     ['Updated category pages', String(c.updatedPages)],
   ];
 
+  const fallbackHtml = fallbackNotices.length
+    ? `<div style="border-left:5px solid #E11F1E;background:#FDECEC;padding:12px 16px;margin:0 0 16px 0;">
+        <p style="margin:0 0 8px 0;font-weight:bold;color:#E11F1E;">Incomplete refresh: parts of this rebuild fell back to the previous data.</p>
+        ${fallbackNotices.map((n) => `<p style="margin:0 0 6px 0;">${escapeHtml(n)}</p>`).join('')}
+        <p style="margin:6px 0 0 0;color:#666;font-size:13px;">Everything already on the site stays correct; only brand-new Geiger additions are missed. A rebuild run from an unblocked machine picks them up.</p>
+      </div>`
+    : '';
+
   const html = `
     <div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#231F20;">
       <h2 style="margin:0 0 12px 0;color:#231F20;">Perfect Imprints — monthly catalog rebuild</h2>
+      ${fallbackHtml}
       ${prUrl ? `<p style="margin:0 0 16px 0;">Review &amp; merge PR: <a href="${escapeHtml(prUrl)}" style="color:#E11F1E;font-weight:bold;">${escapeHtml(prUrl)}</a></p>` : ''}
       <table style="border-collapse:collapse;width:100%;max-width:560px;">
         <tbody>
@@ -89,23 +112,34 @@ async function main(): Promise<void> {
             .join('')}
         </tbody>
       </table>
+      ${guardLine ? `<p style="margin:14px 0 0 0;color:${summary.guard?.ok ? '#16A34A' : '#E11F1E'};font-size:13px;">${escapeHtml(guardLine)}</p>` : ''}
       <p style="margin:18px 0 0 0;color:#666;font-size:13px;">On merge, Vercel rebuilds production and the post-deploy warmup re-warms facet pages.</p>
     </div>
   `;
 
   const text = [
     'Perfect Imprints — monthly catalog rebuild',
+    ...(fallbackNotices.length
+      ? [
+          '',
+          'INCOMPLETE REFRESH: parts of this rebuild fell back to the previous data.',
+          ...fallbackNotices.map((n) => `- ${n}`),
+          '',
+        ]
+      : []),
     prUrl ? `\nReview & merge PR: ${prUrl}\n` : '',
     ...rows.map(([label, value]) => `${label}: ${value}`),
+    ...(guardLine ? ['', guardLine] : []),
     '',
     bodyMd,
   ].join('\n');
 
   const transporter = nodemailer.createTransport({ service: 'gmail', auth: { user, pass } });
+  const subjectPrefix = fallbackNotices.length ? '[Needs attention] ' : '';
   await transporter.sendMail({
     from,
     to,
-    subject: `Perfect Imprints monthly rebuild — +${p.added}/-${p.removed} products, ${p.priceChanged} price changes`,
+    subject: `${subjectPrefix}Perfect Imprints monthly rebuild - +${p.added}/-${p.removed} products, ${p.priceChanged} price changes`,
     text,
     html,
   });

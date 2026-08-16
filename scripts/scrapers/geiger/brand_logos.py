@@ -16,6 +16,22 @@ or `geiger-public-hosted-files-dev.s3.amazonaws.com`). We:
 The original spec assumed per-brand pages with hero logos; in practice every
 logo is inline on the A-Z index, so this is a 1-fetch HTML pull + N image
 downloads. Total runtime: ~3-5 minutes for ~200 brands at 1 req/sec.
+
+SCRAPE-910 fallback: `www.geiger.com` challenges requests from datacenter IPs
+(GitHub-hosted runners), so the single index fetch used to kill the scrape-e
+job (SCRAPE-900/901). A failed fetch, or a parse that yields zero brands, is
+now NON-FATAL: we keep the committed brands.json and logo files untouched
+(the scrape_catalogs.py keep-previous-on-failure pattern), warn loudly, write
+`data/geiger/brand-index-fetch-status.json` (read by the monthly summary so
+Patrick's email says so), and exit cleanly. Cost of a fallback run: a brand
+new to Geiger is missed until a run from an unblocked machine succeeds;
+existing brands and logos stay correct. The per-logo downloads below were
+deliberately LEFT on plain httpx (no Chrome TLS impersonation): they only
+ever execute after the index fetch succeeded, i.e. from a machine Geiger is
+not challenging, they have worked from such machines since May, and each
+download is already individually non-fatal. Switching their transport to
+curl_cffi would change the error-handling path of code that only runs where
+it already works.
 """
 
 from __future__ import annotations
@@ -48,6 +64,30 @@ PRODUCTS_JSON_PATH = OUTPUT_DIR / "products.json"
 
 LOGO_DOWNLOAD_TIMEOUT = 30
 ALLOWED_EXTS = {".gif", ".png", ".jpg", ".jpeg", ".webp", ".svg"}
+
+# Written on every Phase E run. mode is "fresh" (index scraped, brands.json
+# rewritten) or "fallback-committed" (index fetch/parse failed; committed
+# brands.json + logos kept). Gitignored; never part of the rebuild PR.
+BRAND_STATUS_FILE = OUTPUT_DIR / "brand-index-fetch-status.json"
+
+
+def _write_brand_status(mode: str, error: str | None = None) -> None:
+    status: dict[str, Any] = {
+        "phase": "e",
+        "mode": mode,
+        "at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "source": SHOP_BY_BRAND_URL,
+    }
+    if error:
+        status["error"] = error
+    if mode == "fallback-committed" and BRANDS_JSON_PATH.exists():
+        try:
+            kept = orjson.loads(BRANDS_JSON_PATH.read_bytes())
+            status["keptScrapedAt"] = kept.get("scrapedAt")
+            status["keptTotalBrands"] = kept.get("totalBrands")
+        except Exception:  # noqa: BLE001 - status is best-effort metadata
+            pass
+    BRAND_STATUS_FILE.write_bytes(orjson.dumps(status, option=orjson.OPT_INDENT_2))
 
 
 def _slugify(name: str) -> str:
@@ -230,14 +270,45 @@ def run() -> None:
     print("Phase E: Brand logo scrape starting...")
     BRAND_LOGOS_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Step 1: fetch the A-Z brand index (single request via Cloudflare-aware client)
+    # Step 1: fetch the A-Z brand index (single request via Cloudflare-aware
+    # client) and parse out brand records. SCRAPE-910: both are NON-FATAL.
+    # On failure we keep the committed brands.json + logos untouched (the
+    # scrape_catalogs.py keep-previous pattern) instead of failing the job.
+    # A parse yielding ZERO brands is treated as a failure too: proceeding
+    # would overwrite a good brands.json with a logo-less orphan-only file.
     print(f"  Fetching {SHOP_BY_BRAND_URL}")
-    with ScraperClient() as client:
-        response = client.get(SHOP_BY_BRAND_URL)
-    print(f"  Got {len(response.text):,} bytes (status {response.status_code})")
+    try:
+        with ScraperClient() as client:
+            response = client.get(SHOP_BY_BRAND_URL)
+        print(f"  Got {len(response.text):,} bytes (status {response.status_code})")
+        index_brands = _extract_brands_from_index(response.text)
+        if not index_brands:
+            raise RuntimeError(
+                "Brand index parse produced zero brands (page shape changed?)"
+            )
+    except Exception as e:  # noqa: BLE001 - any fetch/parse failure falls back
+        reason = f"{type(e).__name__}: {e}"
+        _write_brand_status("fallback-committed", error=reason)
+        print("::warning::Phase E brand index fetch FAILED - keeping the "
+              "committed brands.json and logo files. Brands new to Geiger "
+              "will be missed until a run from an unblocked machine succeeds.")
+        print("\n" + "!" * 72)
+        print("PHASE E FALLBACK: brand index fetch failed; keeping the previous")
+        print("data/geiger/brands.json and logo files for this rebuild.")
+        print(f"  Reason: {reason}")
+        if BRANDS_JSON_PATH.exists():
+            try:
+                kept = orjson.loads(BRANDS_JSON_PATH.read_bytes())
+                print(f"  Kept brands.json scrapedAt: {kept.get('scrapedAt')} "
+                      f"({kept.get('totalBrands')} brands)")
+            except Exception:  # noqa: BLE001
+                pass
+        else:
+            print("  NOTE: no previous brands.json exists either - the brands")
+            print("  index page will be empty until a successful Phase E run.")
+        print("!" * 72 + "\n")
+        return
 
-    # Step 2: parse out brand records
-    index_brands = _extract_brands_from_index(response.text)
     print(f"  Parsed {len(index_brands)} brands from index")
     by_letter: dict[str, int] = defaultdict(int)
     for b in index_brands:
@@ -332,6 +403,7 @@ def run() -> None:
         "brands": index_brands,
     }
     BRANDS_JSON_PATH.write_bytes(orjson.dumps(payload, option=orjson.OPT_INDENT_2))
+    _write_brand_status("fresh")
 
     print("\nPhase E complete.")
     print(f"  Total brands:        {len(index_brands)}")

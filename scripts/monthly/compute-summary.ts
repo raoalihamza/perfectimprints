@@ -15,6 +15,15 @@
  * Emits `changed=<true|false>` to $GITHUB_OUTPUT when run in CI so later steps
  * can gate the PR + email. "changed" means any tracked data file or category
  * JSON differs from HEAD.
+ *
+ * SCRAPE-910: also reads the geiger.com fallback status files that Phase A
+ * (data/geiger/taxonomy-fetch-status.json) and Phase E
+ * (data/geiger/brand-index-fetch-status.json) write on every run, plus the
+ * data-loss guard's report (scripts/monthly/.artifacts/guard-report.json).
+ * When a fetch fell back to committed data, that is the FIRST thing the PR
+ * body says, and a `fallback=true` output is emitted so the email step fires
+ * even on a no-change run. A silent fallback that quietly ships stale
+ * taxonomy would be its own kind of failure.
  */
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -116,6 +125,35 @@ function anyDataChanged(): boolean {
   }
 }
 
+interface FetchStatus {
+  phase?: string;
+  mode?: string;
+  at?: string;
+  error?: string;
+  keptScrapedAt?: string;
+}
+
+interface GuardReport {
+  ok?: boolean;
+  findings?: { label?: string; baseline?: number | null; fresh?: number; dropPct?: number | null; allowedPct?: number }[];
+}
+
+/** Read one of the SCRAPE-910 status/report JSONs; null when absent/invalid. */
+function readJsonIfExists<T>(absPath: string): T | null {
+  try {
+    if (!fs.existsSync(absPath)) return null;
+    return JSON.parse(fs.readFileSync(absPath, 'utf8')) as T;
+  } catch {
+    return null;
+  }
+}
+
+function fallbackLine(label: string, status: FetchStatus | null, consequence: string): string | null {
+  if (!status || status.mode !== 'fallback-committed') return null;
+  const kept = status.keptScrapedAt ? ` (kept data last scraped ${status.keptScrapedAt})` : '';
+  return `${label} could not be fetched from www.geiger.com, so this rebuild kept the committed copy${kept}. ${consequence}`;
+}
+
 function priceLabel(p: Product | undefined): string {
   if (!p) return '—';
   const lo = p.low_price ?? null;
@@ -176,9 +214,38 @@ function main(): void {
 
   const changed = anyDataChanged();
 
+  // ---- SCRAPE-910: geiger.com fallback statuses + data-loss guard --------
+  const taxonomyStatus = readJsonIfExists<FetchStatus>(
+    path.join(ROOT, 'data/geiger/taxonomy-fetch-status.json')
+  );
+  const brandStatus = readJsonIfExists<FetchStatus>(
+    path.join(ROOT, 'data/geiger/brand-index-fetch-status.json')
+  );
+  const guardReport = readJsonIfExists<GuardReport>(path.join(ARTIFACTS_DIR, 'guard-report.json'));
+  const fallbackNotices = [
+    fallbackLine(
+      'The Geiger category tree (taxonomy)',
+      taxonomyStatus,
+      'New Geiger categories are missed until a rebuild from an unblocked machine succeeds; existing pages are unaffected.'
+    ),
+    fallbackLine(
+      'The Geiger brand index',
+      brandStatus,
+      'Brands new to Geiger are missed until a rebuild from an unblocked machine succeeds; existing brands and logos are unchanged.'
+    ),
+  ].filter((line): line is string => line != null);
+  const anyFallback = fallbackNotices.length > 0;
+
   const summary = {
     generatedAt: new Date().toISOString(),
     changed,
+    fallbacks: {
+      any: anyFallback,
+      notices: fallbackNotices,
+      taxonomy: taxonomyStatus,
+      brandIndex: brandStatus,
+    },
+    guard: guardReport,
     products: {
       oldCount: oldProducts.size,
       newCount: newProducts.size,
@@ -210,6 +277,13 @@ function main(): void {
   const lines: string[] = [];
   lines.push('## Monthly catalog rebuild');
   lines.push('');
+  // SCRAPE-910: a fallback is the FIRST thing the PR body and email say.
+  if (anyFallback) {
+    lines.push('> [!WARNING]');
+    lines.push('> **Incomplete refresh: www.geiger.com was unreachable from the runner, so parts of this rebuild fell back to the committed data.**');
+    for (const notice of fallbackNotices) lines.push(`> - ${notice}`);
+    lines.push('');
+  }
   lines.push('Automated refresh of the Geiger data (Phases A/B/C/E) plus AI content for any new categories and a prune of removed products. **Review the data-file diffs before merging.**');
   lines.push('');
   lines.push('### Summary');
@@ -226,6 +300,22 @@ function main(): void {
   lines.push(`| New category pages | ${catStatus.added.length} |`);
   lines.push(`| Updated category pages | ${catStatus.modified.length} |`);
   lines.push('');
+  // SCRAPE-910: fold the data-loss guard's numbers into the PR body so the
+  // "nothing was lost" evidence is part of the record Patrick reviews.
+  if (guardReport?.findings?.length) {
+    lines.push(`### Data-loss guard: ${guardReport.ok ? 'passed' : 'FAILED'}`);
+    lines.push('');
+    lines.push('| Check | Committed | Fresh | Drop | Allowed |');
+    lines.push('| --- | --- | --- | --- | --- |');
+    for (const f of guardReport.findings) {
+      lines.push(
+        `| ${f.label ?? ''} | ${f.baseline ?? 'n/a'} | ${f.fresh ?? 'n/a'} | ${
+          f.dropPct == null ? 'n/a' : `${f.dropPct}%`
+        } | ${f.allowedPct ?? 'n/a'}% |`
+      );
+    }
+    lines.push('');
+  }
   if (priceChanges.length) {
     lines.push('### Sample price changes');
     lines.push('');
@@ -249,13 +339,17 @@ function main(): void {
   // ---- CI output ---------------------------------------------------------
   if (process.env.GITHUB_OUTPUT) {
     fs.appendFileSync(process.env.GITHUB_OUTPUT, `changed=${changed ? 'true' : 'false'}\n`);
+    fs.appendFileSync(process.env.GITHUB_OUTPUT, `fallback=${anyFallback ? 'true' : 'false'}\n`);
   }
 
   console.log(
     `Summary: +${addedSkus.length}/-${removedSkus.length} products, ` +
       `${priceChanges.length} price changes, ${addedBrands.length} new brands, ` +
-      `${catStatus.added.length} new category pages. changed=${changed}`
+      `${catStatus.added.length} new category pages. changed=${changed} fallback=${anyFallback}`
   );
+  if (anyFallback) {
+    for (const notice of fallbackNotices) console.log(`FALLBACK: ${notice}`);
+  }
 }
 
 main();

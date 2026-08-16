@@ -10,7 +10,7 @@ import httpx
 from curl_cffi import requests as curl_requests
 from tenacity import (
     retry,
-    retry_if_exception_type,
+    retry_if_exception,
     stop_after_attempt,
     wait_exponential,
 )
@@ -42,10 +42,50 @@ class RateLimiter:
 
 
 def _is_retryable_status(exc: BaseException) -> bool:
-    """Retry on 5xx but not 4xx."""
+    """Retry on 5xx and transport errors, never on 4xx.
+
+    SCRAPE-910: this predicate is now actually wired into tenacity (via
+    retry_if_exception). The original code retried on the exception TYPE
+    (httpx.HTTPStatusError) regardless of status, so a deterministic 403
+    from Cloudflare's bot challenge was hammered five times with ~30s of
+    backoff before failing. A 4xx now fails on the first attempt.
+    """
     if isinstance(exc, httpx.HTTPStatusError):
         return 500 <= exc.response.status_code < 600
     return isinstance(exc, (httpx.RequestError, httpx.TimeoutException))
+
+
+# Response headers worth carrying into an error message. cf-mitigated is the
+# smoking gun for a Cloudflare bot challenge (SCRAPE-900); retry-after matters
+# for rate limits; cf-ray/server identify the edge that answered.
+_EVIDENCE_HEADERS = ("cf-mitigated", "cf-ray", "retry-after", "server", "content-type")
+_BODY_SNIPPET_CHARS = 300
+
+
+def _response_evidence(response: Any) -> dict[str, Any]:
+    """Extract loggable evidence from a failed response, never raising.
+
+    Returns {"summary": str, "headers": dict, "body_snippet": str}. The
+    summary is a single bracketed suffix for the exception message so the
+    next blocked run is self-explanatory straight from the job log.
+    """
+    headers: dict[str, str] = {}
+    body_snippet = ""
+    try:
+        raw_headers = getattr(response, "headers", None) or {}
+        for name in _EVIDENCE_HEADERS:
+            value = raw_headers.get(name)
+            if value:
+                headers[name] = str(value)
+        text = getattr(response, "text", "") or ""
+        body_snippet = " ".join(text[:_BODY_SNIPPET_CHARS].split())
+    except Exception:  # noqa: BLE001 - evidence must never mask the real error
+        pass
+    parts = [f"{k}: {v}" for k, v in headers.items()]
+    if body_snippet:
+        parts.append(f"body[:{_BODY_SNIPPET_CHARS}]: {body_snippet}")
+    summary = f" [{'; '.join(parts)}]" if parts else ""
+    return {"summary": summary, "headers": headers, "body_snippet": body_snippet}
 
 
 class ScraperClient:
@@ -89,10 +129,11 @@ class ScraperClient:
 
     @retry(
         stop=stop_after_attempt(MAX_RETRIES),
+        # SCRAPE-910: retry on the PREDICATE (5xx / transport errors), not on the
+        # exception type. A 4xx (e.g. Cloudflare's 403 bot challenge) is
+        # deterministic and now fails fast on the first attempt.
         wait=wait_exponential(multiplier=RETRY_BACKOFF_MULTIPLIER, min=1, max=30),
-        retry=retry_if_exception_type(
-            (httpx.HTTPStatusError, httpx.RequestError, httpx.TimeoutException)
-        ),
+        retry=retry_if_exception(_is_retryable_status),
         reraise=True,
     )
     def _do_get(self, url: str, params: dict[str, Any] | None = None) -> Any:
@@ -103,12 +144,23 @@ class ScraperClient:
             # Convert curl_cffi failure into the httpx exception type the
             # rest of the pipeline already handles, so retry/error logic
             # downstream keeps working unchanged.
+            #
+            # SCRAPE-910: preserve the evidence. The original code raised a
+            # synthetic EMPTY response, discarding the real headers and body,
+            # which is why the run #3 log could only say "403" and the
+            # Cloudflare challenge had to be re-diagnosed from scratch
+            # (SCRAPE-900). Keep the salient headers and a body snippet in
+            # both the message and the attached response.
+            evidence = _response_evidence(response)
             request = httpx.Request("GET", url)
             httpx_response = httpx.Response(
-                status_code=response.status_code, request=request
+                status_code=response.status_code,
+                request=request,
+                headers=evidence["headers"],
+                content=evidence["body_snippet"].encode("utf-8", "replace"),
             )
             raise httpx.HTTPStatusError(
-                f"{response.status_code} for {url}",
+                f"{response.status_code} for {url}{evidence['summary']}",
                 request=request,
                 response=httpx_response,
             )
@@ -118,13 +170,7 @@ class ScraperClient:
         self, url: str, params: dict[str, Any] | None = None
     ) -> Any:
         self._limiter.wait()
-        try:
-            return self._do_get(url, params)
-        except httpx.HTTPStatusError as e:
-            # 4xx errors are not retryable - re-raise immediately for caller handling.
-            if not _is_retryable_status(e):
-                raise
-            raise
+        return self._do_get(url, params)
 
     def get_json(
         self, url: str, params: dict[str, Any] | None = None

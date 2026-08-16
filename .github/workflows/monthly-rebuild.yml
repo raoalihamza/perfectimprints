@@ -6,17 +6,42 @@ name: Monthly rebuild
 # change summary + emails Patrick.
 #
 # ── The 6-hour-per-job constraint ────────────────────────────────────────────
-# GitHub-hosted runners cap a single job at 6h. Phase C (facet memberships) is
-# ~6h at 1 req/sec, and A+B+E add ~1h+, so a single job would overrun. We split
-# into separate jobs joined by artifacts:
-#   • scrape-ab  — Phase A → B            (~25-45 min)
-#   • scrape-e   — Phase A → E (parallel) (~5 min)
-#   • scrape-c   — Phase C  (the long pole)
-#   • assemble   - AI content + prune + re-expand + summary + PR + email
+# GitHub-hosted runners cap a single job at 6h. Phase C's main pass is
+# ~2.6-2.8h at 6 workers (SCRAPE-901 counted ~60k paginated Searchspring
+# requests, not the ~21.7k one-per-URL floor older comments assumed), and the
+# recovery passes add an unbounded-ish search crawl on top, so the work is
+# split into separate jobs joined by artifacts:
+#   - scrape-ab         Phase A -> B -> B global top-up   (~30-50 min)
+#   - scrape-e          Phase E (parallel; no Phase A)    (~5 min)
+#   - scrape-c          Phase C main pass (the long pole)
+#   - scrape-c-recover  Phase C brand + search fallbacks
+#   - assemble          guard + AI content + prune + re-expand + summary + PR + email
 # Phase C runs with `--workers 6` (6 independent 1-req/sec clients per
-# CLAUDE.md §16 → ~1h wall-clock, comfortably under 6h) AND keeps `--resume`
-# with a cached checkpoint, so an overrun resumes from the last 100-URL
-# checkpoint on a re-run instead of restarting.
+# CLAUDE.md §16) AND keeps `--resume` with a cached checkpoint, so an overrun
+# resumes from the last 100-URL checkpoint on a re-run instead of restarting.
+#
+# ── SCRAPE-910: survive the blocked geiger.com fetches + never lose data ─────
+# Two problems fixed together (docs/scrape-900-rebuild-403-diagnosis.md +
+# docs/scrape-901-request-count.md):
+# 1. Of the rebuild's ~61k requests, exactly three hit www.geiger.com, which
+#    challenges GitHub's datacenter IPs. Phase A now falls back to the
+#    committed categories.json (loudly, recorded in
+#    data/geiger/taxonomy-fetch-status.json), Phase E keeps the committed
+#    brands.json + logos on an index-fetch failure, and the redundant Phase A
+#    step in scrape-e was removed (its comment claimed Phase E reads
+#    categories.json; brand_logos.py never does). A fallback run misses only
+#    NEW Geiger categories/brands; the summary email says so up front.
+# 2. Two passes that built the committed data were only ever run BY HAND and
+#    were never wired into any workflow - our own gap, nobody blocked us and
+#    nothing changed underneath us. Without them a "successful" rebuild would
+#    have LOST data: the Phase B global top-up (822 of 7,957 products exist
+#    only through it; losing them would strip 55,891 product references off
+#    4,319 category pages via the prune) and the Phase C brand/search
+#    recovery passes (~3,434 facet URLs' filter data). Both are now steps in
+#    this workflow. The assemble job additionally runs a data-loss guard
+#    (scripts/monthly/verify-rebuild-data.ts) that FAILS the run instead of
+#    opening a PR when products, product-bearing pages, or facet coverage
+#    drop past deliberate margins.
 #
 # Phase D (PI→Geiger mapping) is intentionally NOT re-run: it's stable after the
 # first run and the committed data/mappings/pi-to-geiger.json is used as-is.
@@ -113,11 +138,26 @@ jobs:
           restore-keys: |
             phase-b-
 
+      # SCRAPE-910: on a blocked/failed fetch this no longer kills the job -
+      # it keeps the committed categories.json and records the fallback in
+      # data/geiger/taxonomy-fetch-status.json (surfaced in the PR + email).
       - name: Phase A — taxonomy discovery
         run: python -m scripts.scrapers.geiger.run --phase a
 
       - name: Phase B — product catalog
         run: python -m scripts.scrapers.geiger.run --phase b --resume
+
+      # SCRAPE-910: the global no-filter pass. 822 of the committed 7,957
+      # products (10.3%) are reachable ONLY through it - they sit in "Shop By"
+      # virtual collections no leaf category lists. It was run by hand in May
+      # 2026 and never wired in, so every fresh Phase B silently dropped those
+      # products and the prune then stripped them from 4,319 category pages.
+      # ~137 Searchspring requests, ~2-3 min, idempotent (merges by SKU into
+      # the products.json Phase B just wrote). A failure fails this job: no
+      # PR opens, and the data-loss guard would refuse the shrunken catalog
+      # anyway.
+      - name: Phase B - global top-up (products outside the leaf walk)
+        run: python -m scripts.scrapers.geiger.run --phase b --global-only
 
       - name: Upload A+B output
         uses: actions/upload-artifact@v4
@@ -127,6 +167,7 @@ jobs:
           path: |
             data/geiger/categories.json
             data/geiger/products.json
+            data/geiger/taxonomy-fetch-status.json
 
   # ── Phase E: brand logos (independent — re-runs quick Phase A) ──────────────
   scrape-e:
@@ -149,11 +190,13 @@ jobs:
           pip install --upgrade pip
           pip install -e .
 
-      # Phase E reads categories.json; regenerate it cheaply (~30s) so this job
-      # doesn't depend on scrape-ab and can run in parallel.
-      - name: Phase A — taxonomy (for Phase E inputs)
-        run: python -m scripts.scrapers.geiger.run --phase a
-
+      # SCRAPE-910: the Phase A step that used to run here was removed. Its
+      # comment claimed Phase E reads categories.json; it does not
+      # (brand_logos.py reads only products.json and the shop-by-brand page,
+      # verified in SCRAPE-910). Removing it drops one of the three blocked
+      # www.geiger.com requests. Phase E itself is now non-fatal on an
+      # index-fetch failure: it keeps the committed brands.json + logos and
+      # records the fallback in data/geiger/brand-index-fetch-status.json.
       - name: Phase E — brand logos
         run: python -m scripts.scrapers.geiger.run --phase e
 
@@ -166,6 +209,7 @@ jobs:
             data/geiger/brands.json
             data/geiger/brand-logos
             public/brand-logos
+            data/geiger/brand-index-fetch-status.json
 
   # ── Phase C: facet/modifier memberships (the long pole) ────────────────────
   scrape-c:
@@ -221,17 +265,84 @@ jobs:
           retention-days: 3
           path: data/geiger/facet-memberships.json
 
+  # ── Phase C recovery: the brand + search fallback passes ───────────────────
+  # SCRAPE-910: these two passes were run BY HAND when the catalog was first
+  # built (May 2026) and never wired into any workflow - our own gap, nobody
+  # blocked us. They recovered ~3,434 zero-result URLs (809 via brand-only
+  # queries, 2,625 via full-text search; CLAUDE.md §16 Tiers 1-2). Without
+  # them a fresh Phase C regenerates facet-memberships.json WITHOUT those
+  # recoveries and the filter sidebar/facet counts lose those URLs. Both
+  # passes hit ONLY Searchspring (never geiger.com), are idempotent, and are
+  # self-narrowing: they touch only currently-zero URLs, write back only URLs
+  # that GAIN products, so a re-run redoes less each time. They live in their
+  # own job (not extra steps in scrape-c) so the combined crawl cannot push a
+  # single job past the 6h runner cap; Tier 1 is minutes, Tier 2 re-queries
+  # every remaining zero facet URL (~10k searches, roughly 1-3h at 6 workers).
+  # A failure here BLOCKS assemble (see its `if`): shipping the unrecovered
+  # memberships file would regress ~3,434 URLs, which is exactly what the
+  # data-loss guard exists to refuse.
+  scrape-c-recover:
+    name: Phase C recovery (brand + search fallbacks)
+    needs: [config, scrape-ab, scrape-c]
+    if: needs.config.outputs.run_c == 'true' && !cancelled() && needs.scrape-c.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install scraper deps
+        working-directory: scripts/scrapers/geiger
+        run: |
+          pip install --upgrade pip
+          pip install -e .
+
+      # Both passes read products.json (brand-name index + SKU-to-category
+      # filtering); use the fresh copy when Phase B ran, else the committed one.
+      - name: Download A+B output
+        if: needs.scrape-ab.result == 'success'
+        uses: actions/download-artifact@v4
+        with:
+          name: geiger-ab
+          path: data/geiger
+
+      - name: Download Phase C output
+        uses: actions/download-artifact@v4
+        with:
+          name: geiger-c
+          path: data/geiger
+
+      - name: Tier 1 - brand fallback for zero brand URLs
+        run: python -m scripts.scrapers.geiger.run --phase c --retry-brands --workers ${{ env.PHASE_C_WORKERS }}
+
+      - name: Tier 2 - search fallback for remaining zero facet URLs
+        run: python -m scripts.scrapers.geiger.run --phase c --retry-search --workers ${{ env.PHASE_C_WORKERS }}
+
+      - name: Upload recovered Phase C output
+        uses: actions/upload-artifact@v4
+        with:
+          name: geiger-c-recovered
+          retention-days: 3
+          path: data/geiger/facet-memberships.json
+
   # ── Assemble: AI content, prune, summary, PR, email ────────────────────────
   assemble:
-    name: Content + prune + re-expand + PR + email
-    needs: [config, scrape-ab, scrape-c, scrape-e]
+    name: Guard + content + prune + re-expand + PR + email
+    needs: [config, scrape-ab, scrape-c, scrape-c-recover, scrape-e]
     # Run as long as at least one scrape job succeeded (so a phase-subset test
-    # still assembles), and none of the requested jobs hard-failed.
+    # still assembles), and none of the requested jobs hard-failed. A failed
+    # scrape-c-recover blocks assembly too (SCRAPE-910): shipping the
+    # unrecovered memberships file would regress ~3,434 facet URLs.
     if: >
       !cancelled() &&
       (needs.scrape-ab.result == 'success' || needs.scrape-c.result == 'success' || needs.scrape-e.result == 'success') &&
       needs.scrape-ab.result != 'failure' &&
       needs.scrape-c.result != 'failure' &&
+      needs.scrape-c-recover.result != 'failure' &&
       needs.scrape-e.result != 'failure'
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -280,12 +391,32 @@ jobs:
           name: geiger-c
           path: data/geiger
 
+      # SCRAPE-910: the recovered memberships file (brand + search fallbacks
+      # merged in) overwrites the main-pass file downloaded above.
+      - name: Download recovered Phase C output
+        if: needs.scrape-c-recover.result == 'success'
+        uses: actions/download-artifact@v4
+        with:
+          name: geiger-c-recovered
+          path: data/geiger
+
       - name: Download Phase E output
         if: needs.scrape-e.result == 'success'
         uses: actions/download-artifact@v4
         with:
           name: geiger-e
           path: .
+
+      # SCRAPE-910 data-loss guard: compare the fresh data on disk against the
+      # committed versions at HEAD and FAIL the run (no PR, no email, no
+      # merge) if the catalog shrank past deliberate margins: total products
+      # -5%, product-bearing category pages -2%, facet URLs with products -5%.
+      # Products legitimately disappear when Geiger discontinues them; a small
+      # drop is normal and a large one is a bug. Runs BEFORE prune so the
+      # baked category JSONs on disk are still the HEAD baseline. This step is
+      # the reason Patrick can press the button unattended.
+      - name: Data-loss guard (fail instead of shipping a shrunken catalog)
+        run: pnpm tsx scripts/monthly/verify-rebuild-data.ts
 
       # Generate AI content ONLY for categories that don't yet have a JSON
       # (--skip-existing). New Geiger categories that surfaced this month get
@@ -342,8 +473,11 @@ jobs:
             public/brand-logos
             data/categories
 
+      # SCRAPE-910: also email when a geiger.com fallback happened even if no
+      # data changed - a silent fallback that quietly ships stale taxonomy is
+      # its own kind of failure, so Patrick hears about it either way.
       - name: Email Patrick the summary
-        if: steps.summary.outputs.changed == 'true'
+        if: steps.summary.outputs.changed == 'true' || steps.summary.outputs.fallback == 'true'
         env:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
