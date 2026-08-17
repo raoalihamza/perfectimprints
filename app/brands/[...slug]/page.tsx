@@ -17,6 +17,8 @@ import {
 } from '@/lib/brands';
 import { PRODUCTS_PER_PAGE, paginateProducts } from '@/lib/categories';
 import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
+import { Schema } from '@/components/seo/Schema';
+import { productItemListSchema } from '@/lib/seo/product-list-schema';
 import { socialMeta } from '@/lib/seo/open-graph';
 
 interface Props {
@@ -156,8 +158,16 @@ export default async function BrandPage({ params }: Props) {
 
   const intro = brand.description?.trim() || buildBrandIntroFallback(brand.name);
 
+  // Full-product ItemList (SNIP-100): each page describes ONLY the products it
+  // renders, positions restarting at 1 per page. Products come from the same
+  // in-memory objects the grid renders, so this stays static (no new read).
+  // Omitted entirely for brands with no products rather than an empty list.
+  // BreadcrumbList stays with the <Breadcrumbs> component, untouched.
+  const itemList = pageData.products.length > 0 ? productItemListSchema(pageData.products) : null;
+
   return (
     <>
+      {itemList ? <Schema data={itemList} /> : null}
       <CustomSchemaJsonLd path={parsed.baseUrl} />
       <Container as="section" className="pb-4 pt-6">
         <Breadcrumbs
