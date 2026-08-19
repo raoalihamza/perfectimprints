@@ -8,10 +8,12 @@
  * `itemListSchema()` emits. It reads nothing: no fs, no Sanity, no network.
  * Nothing here can make a route dynamic.
  *
- * WHO CALLS IT. As of SNIP-100 only the brand pages
- * (`app/brands/[...slug]/page.tsx`). `/cat` is the next piece and must reuse
- * this function rather than growing a second serializer; the guards below are
- * written for the full catalog, not just the brand subset.
+ * WHO CALLS IT. The brand pages (`app/brands/[...slug]/page.tsx`, SNIP-100)
+ * and the category pages (`app/cat/[...slug]/page.tsx` +
+ * `components/category/CustomCategoryView.tsx`, SNIP-110). Any future product
+ * listing surface (Deals, New, Rush, /promotional-products, blog/video strips)
+ * must reuse this function rather than growing a second serializer; the guards
+ * below are written for the full catalog.
  *
  * PAGINATION SEMANTICS. Callers pass the products RENDERED ON THIS PAGE, so a
  * `/page/N` document describes its own grid only, with positions restarting at

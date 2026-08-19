@@ -9,7 +9,8 @@ import { CategoryShell } from '@/components/category/CategoryShell';
 import { ProductGrid } from '@/components/category/ProductGrid';
 import { Schema } from '@/components/seo/Schema';
 import { pagePortableComponents } from '@/components/page-sections/portable-text';
-import { collectionPageSchema, itemListSchema } from '@/lib/seo/schema-generators';
+import { collectionPageSchema } from '@/lib/seo/schema-generators';
+import { productItemListSchema } from '@/lib/seo/product-list-schema';
 import { largeSocialImage } from '@/lib/seo/open-graph';
 import { portableTextToPlain } from '@/lib/portable-text/to-plain';
 import { affiliateUrl } from '@/lib/affiliate-url';
@@ -80,17 +81,12 @@ export function CustomCategoryView({ doc, baseUrl, products, sidebar, slug }: Pr
             undefined,
         })}
       />
-      {products.length > 0 && (
-        <Schema
-          data={itemListSchema(
-            products.map((p) => ({
-              name: p.name,
-              url: affiliateUrl(p.geiger_url),
-              image: largeSocialImage(p.imageUrl) ?? p.imageUrl,
-            })),
-          )}
-        />
-      )}
+      {/* Full-product ItemList (SNIP-110) via the shared SNIP-100 serializer:
+          nested Product entities with conditional brand/sku/offer. Guards mean
+          an override-added product with no destination gets NO url (never the
+          bare affiliate homepage) and synthetic custom-<id> SKUs are suppressed.
+          Custom pages are unpaginated, so this describes the whole grid. */}
+      {products.length > 0 && <Schema data={productItemListSchema(products)} />}
       {hasFaqs && (
         <Schema
           data={{

@@ -18,13 +18,9 @@ import {
 } from '@/lib/categories';
 import { Schema } from '@/components/seo/Schema';
 import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
-import {
-  collectionPageSchema,
-  faqPageSchema,
-  itemListSchema,
-} from '@/lib/seo/schema-generators';
+import { collectionPageSchema, faqPageSchema } from '@/lib/seo/schema-generators';
+import { productItemListSchema } from '@/lib/seo/product-list-schema';
 import { socialMeta, largeSocialImage } from '@/lib/seo/open-graph';
-import { affiliateUrl } from '@/lib/affiliate-url';
 import { buildImageUrl } from '@/lib/sanity/client';
 import {
   getCategoryOverride,
@@ -462,16 +458,14 @@ export default async function CategoryPage({ params }: Props) {
       image: primaryImage ?? undefined,
     }),
   ];
+  // Full-product ItemList (SNIP-110): each ListItem carries a nested Product
+  // (name, url, image, conditional brand/sku, AggregateOffer + min qty) via the
+  // shared SNIP-100 serializer, which is pure and reads nothing, so the route
+  // stays static.
+  // This /page/N document describes ONLY the products it renders, positions
+  // restarting at 1. CTA-only pages emit no list at all.
   if (!showCTA && pageData.products.length > 0) {
-    schemaGraph.push(
-      itemListSchema(
-        pageData.products.map((p) => ({
-          name: p.name,
-          url: affiliateUrl(p.geiger_url),
-          image: largeSocialImage(p.imageUrl) ?? p.imageUrl,
-        })),
-      ),
-    );
+    schemaGraph.push(productItemListSchema(pageData.products));
   }
   if (isRoot && content.faqs.length > 0) {
     schemaGraph.push(faqPageSchema(content.faqs.map((f) => ({ question: f.q, answer: f.a }))));
