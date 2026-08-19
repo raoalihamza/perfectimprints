@@ -494,13 +494,27 @@ def _save_output(
     urls_with_errors: list[str],
     total_processed: int,
 ) -> None:
+    # SCRAPE-940: `memberships` and `urls_with_errors` are filled in worker-
+    # COMPLETION order, and with 6 parallel workers that order is different on
+    # every run, starting from the very first key. This sort is NOT a pointless
+    # tidy-up - it is what keeps the monthly-rebuild PR reviewable and is why
+    # its creation no longer 500s: run #5's PR carried ~1.42 MILLION diff lines
+    # in this one file, and 12,818 of its 21,486 entries were byte-for-byte
+    # IDENTICAL to the committed data, churning the diff purely by moving
+    # position (measured in SCRAPE-930; GitHub's PR-create endpoint timed out
+    # on the compare and returned a 500). Sorting only at the write point keeps
+    # the scrape itself fully parallel. The nested SKU lists are deliberately
+    # NOT sorted: each list is one sequential paginated fetch, so its order is
+    # Searchspring's relevance order, not race noise - it is largely stable
+    # between runs, and generate_content.py feeds it into new pages' baked
+    # productSkus (grid order), so it carries meaning.
     payload = {
         "scrapedAt": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "totalUrlsProcessed": total_processed,
         "urlsWithProducts": sum(1 for v in memberships.values() if v),
         "urlsWithZeroProducts": urls_with_zero,
-        "urlsWithErrors": urls_with_errors,
-        "memberships": memberships,
+        "urlsWithErrors": sorted(urls_with_errors),
+        "memberships": {url: memberships[url] for url in sorted(memberships)},
     }
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     with open(OUTPUT_FILE, "wb") as f:

@@ -46,6 +46,19 @@ name: Monthly rebuild
 # Phase D (PI→Geiger mapping) is intentionally NOT re-run: it's stable after the
 # first run and the committed data/mappings/pi-to-geiger.json is used as-is.
 #
+# ── SCRAPE-930: survive a GitHub 500 at the PR-creation step ─────────────────
+# Run #5 completed every scrape, the guard, the prune and the summary, then
+# GitHub's PR-creation endpoint returned "Server Error" on the ~1.44M-line
+# diff - while the PR HAD actually been created. The action treated the 500 as
+# fatal, so the email and auto-merge never ran and the PR had to be found and
+# merged by hand. The create step now has continue-on-error, and the next step
+# (scripts/monthly/recover-rebuild-pr.sh) verifies or recovers: reuse the PR
+# the 500 created anyway, or retry the creation with growing waits, or fail
+# LOUDLY - but only after the email step has told Patrick what needs doing.
+# The run always ends in one of two clear states: a PR exists and everything
+# downstream ran against it, or no PR exists and the run is red with the
+# reason (and the pushed branch/artifacts named so nothing looks lost).
+#
 # ── Manual-only + auto-merge (Site Refresh, 2026-06-30) ──────────────────────
 # The monthly cron was REMOVED: this full-catalog rebuild now runs ONLY when
 # Patrick presses "Full Catalog Rebuild" in the Sanity "Site Refresh" panel (or a
@@ -455,9 +468,23 @@ jobs:
         id: summary
         run: pnpm tsx scripts/monthly/compute-summary.ts
 
+      # SCRAPE-930: the recovery step needs to tell "this run's push landed"
+      # from "a stale branch is left over from an old run". Record the moment
+      # before the create step; any commit this run pushes is dated after it
+      # (the commit is made on this same runner, so the clocks agree).
+      - name: Record the PR-creation window start
+        id: prwindow
+        if: steps.summary.outputs.changed == 'true'
+        run: echo "start=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
+
+      # SCRAPE-930: continue-on-error because GitHub's PR-create endpoint can
+      # return a 500 on a diff this size even when the PR record WAS created
+      # (run #5). The next step verifies or recovers; a genuine failure is
+      # re-raised by the final "Fail if no pull request" step, AFTER the email.
       - name: Open rebuild PR
         id: pr
         if: steps.summary.outputs.changed == 'true'
+        continue-on-error: true
         uses: peter-evans/create-pull-request@v7
         with:
           commit-message: 'chore(data): monthly catalog rebuild'
@@ -474,33 +501,73 @@ jobs:
             public/brand-logos
             data/categories
 
+      # SCRAPE-930: end the PR step in one of two clear states - a PR exists
+      # (created normally, found after a 500 that created it anyway, updated
+      # from an earlier run, or created on a retry) and its number/url feed
+      # the email + auto-merge below, or status=failed with a plain reason
+      # and the final step fails the run loudly AFTER the email. The script
+      # always exits 0 on purpose; exiting non-zero here would skip the email
+      # exactly the way run #5 did.
+      - name: Verify or recover the rebuild PR
+        id: prfinal
+        if: steps.summary.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_STEP_OUTCOME: ${{ steps.pr.outcome }}
+          PR_NUMBER: ${{ steps.pr.outputs.pull-request-number }}
+          PR_URL: ${{ steps.pr.outputs.pull-request-url }}
+          PR_BRANCH: monthly-rebuild
+          PR_BASE: main
+          PR_TITLE: 'chore(data): monthly catalog rebuild'
+          PR_BODY_PATH: scripts/monthly/.artifacts/pr-body.md
+          PR_WINDOW_START: ${{ steps.prwindow.outputs.start }}
+        run: bash scripts/monthly/recover-rebuild-pr.sh
+
       # SCRAPE-910: also email when a geiger.com fallback happened even if no
       # data changed - a silent fallback that quietly ships stale taxonomy is
       # its own kind of failure, so Patrick hears about it either way.
+      # SCRAPE-930: `!cancelled()` so an unexpected crash in the recovery step
+      # cannot skip the email again; the email leads with the PR status when a
+      # PR was expected but could not be confirmed.
       - name: Email Patrick the summary
-        if: steps.summary.outputs.changed == 'true' || steps.summary.outputs.fallback == 'true'
+        if: >
+          !cancelled() &&
+          (steps.summary.outputs.changed == 'true' || steps.summary.outputs.fallback == 'true')
         env:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           LEAD_EMAIL_TO: ${{ secrets.LEAD_EMAIL_TO }}
           LEAD_EMAIL_FROM: ${{ secrets.LEAD_EMAIL_FROM }}
-          MONTHLY_PR_URL: ${{ steps.pr.outputs.pull-request-url }}
+          MONTHLY_PR_URL: ${{ steps.prfinal.outputs.pr-url }}
+          MONTHLY_PR_STATUS: ${{ steps.prfinal.outputs.status }}
+          MONTHLY_PR_REASON: ${{ steps.prfinal.outputs.reason }}
+          MONTHLY_CHANGED: ${{ steps.summary.outputs.changed }}
         run: pnpm tsx scripts/monthly/send-summary-email.ts
 
       # Auto-merge as the FINAL step — only after the whole rebuild succeeded AND a
-      # PR was opened (no PR for an empty run). The squash subject MUST stay exactly
+      # PR exists (no PR for an empty run). The squash subject MUST stay exactly
       # `chore(data): monthly catalog rebuild` so monthly-warmup.yml's gate fires
       # and the 21K facet warmup runs once after the production redeploy (see
       # monthly-warmup.yml + post-deploy-warmup.yml). Merge is LAST so a Cancel
       # before it leaves main untouched (Site Refresh Cancel also closes this PR +
       # deletes the `monthly-rebuild` branch). Patrick still gets the summary email
-      # above for the record.
+      # above for the record. SCRAPE-930: the PR number comes from the recovery
+      # step (which passes through the create step's outputs on the normal path),
+      # and an already-merged PR (a re-run after a partial failure) exits clean.
       - name: Auto-merge the rebuild PR
-        if: steps.summary.outputs.changed == 'true' && steps.pr.outputs.pull-request-number != ''
+        if: >
+          !cancelled() &&
+          steps.summary.outputs.changed == 'true' &&
+          steps.prfinal.outputs.pr-number != ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR: ${{ steps.pr.outputs.pull-request-number }}
+          PR: ${{ steps.prfinal.outputs.pr-number }}
         run: |
+          state=$(gh pr view "$PR" --json state --jq .state 2>/dev/null || echo '')
+          if [ "$state" = "MERGED" ]; then
+            echo "PR #$PR is already merged; nothing to do."
+            exit 0
+          fi
           for i in 1 2 3 4 5 6; do
             if gh pr merge "$PR" --squash --delete-branch \
                  --subject 'chore(data): monthly catalog rebuild'; then
@@ -511,6 +578,20 @@ jobs:
             sleep 10
           done
           echo "::error::Could not auto-merge PR #$PR after retries."
+          exit 1
+
+      # SCRAPE-930: the loud failure, deliberately AFTER the email. Reached only
+      # when data changed but no PR could be created or found; the run goes red
+      # with the reason instead of looking like the data was lost.
+      - name: Fail if no pull request could be created or found
+        if: >
+          !cancelled() &&
+          steps.summary.outputs.changed == 'true' &&
+          steps.prfinal.outputs.status == 'failed'
+        env:
+          REASON: ${{ steps.prfinal.outputs.reason }}
+        run: |
+          echo "::error::PR recovery failed: $REASON"
           exit 1
 
       - name: No changes — skip PR/email
