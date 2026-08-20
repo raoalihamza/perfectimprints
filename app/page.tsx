@@ -1,3 +1,4 @@
+import { getHiddenProductContext } from '@/lib/products/site-wide-hidden';
 import type { Metadata } from 'next';
 import { PortableText, type PortableTextComponents } from '@portabletext/react';
 
@@ -17,6 +18,9 @@ import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { socialMeta } from '@/lib/seo/open-graph';
 import { getHomePage, getHomeCtaBanner } from '@/lib/sanity/queries/home';
 import { getNewProducts } from '@/lib/new-products';
+import { getNewProductsPageCopy } from '@/lib/sanity/queries/new-products';
+import { getRushProductsPageCopy } from '@/lib/sanity/queries/rush-products';
+import { getSiteSettings } from '@/lib/sanity/queries/global-settings';
 import { getRushProducts } from '@/lib/rush-products';
 import { getAllBrands } from '@/lib/brands';
 import { getBlogPostsPage } from '@/lib/sanity/queries/blogs';
@@ -62,11 +66,24 @@ export const metadata: Metadata = {
 };
 
 export default async function HomePage() {
+  // HIDE-000 follow-up + HIDE-100: the rails now honour the same hide lists as
+  // the pages they link to (a product hidden from /new-products must not show
+  // in the New rail) plus the site-wide list. All three reads are tag-cached,
+  // and getSiteSettings() is the layout's deduped one, so the home page stays
+  // force-static.
+  const [newCopy, rushCopy, hidden] = await Promise.all([
+    getNewProductsPageCopy(),
+    getRushProductsPageCopy(),
+    getHiddenProductContext(),
+  ]);
+  const hiddenNew = [...(newCopy.hiddenNewProductSkus || []), ...hidden.hiddenSkus];
+  const hiddenRush = [...(rushCopy.hiddenRushSkus || []), ...hidden.hiddenSkus];
+
   const [home, ctaBanner, newProducts, rushProducts, brands, blogPage] = await Promise.all([
     getHomePage(),
     getHomeCtaBanner(),
-    Promise.resolve(getNewProducts(12)),
-    Promise.resolve(getRushProducts(12)),
+    Promise.resolve(getNewProducts(12, hiddenNew)),
+    Promise.resolve(getRushProducts(12, hiddenRush)),
     getAllBrands(),
     getBlogPostsPage({ page: 1, perPage: 3 }).catch(() => ({
       posts: [],

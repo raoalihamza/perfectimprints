@@ -1,3 +1,4 @@
+import { buildSkuSet, isHiddenSku } from '@/lib/products/hidden-skus';
 import fs from 'node:fs';
 import path from 'node:path';
 import { decodeHtmlEntities } from './text-utils';
@@ -82,15 +83,19 @@ export function applyHiddenSkus(
   hiddenSkus: string[],
 ): NewProductsData {
   if (!hiddenSkus || hiddenSkus.length === 0) return data;
-  const hidden = new Set(hiddenSkus.map((s) => s.trim()).filter(Boolean));
+  // HIDE-100: matching moved to the shared normalized rule so the aggregator
+  // hide lists and the site-wide list behave identically (trimmed,
+  // case-insensitive, internal spaces preserved). Strictly more forgiving than
+  // the previous exact match, so nothing that was hidden before can reappear.
+  const hidden = buildSkuSet(hiddenSkus);
   if (hidden.size === 0) return data;
 
-  const products = data.products.filter((p) => !hidden.has(p.sku));
+  const products = data.products.filter((p) => !isHiddenSku(p.sku, hidden));
   const facets: NewProductsFacetSection[] = [];
   for (const section of data.facets) {
     const values: NewProductsFacetValue[] = [];
     for (const v of section.values) {
-      const visibleSkus = v.skus.filter((s) => !hidden.has(s));
+      const visibleSkus = v.skus.filter((s) => !isHiddenSku(s, hidden));
       if (visibleSkus.length === 0) continue;
       values.push({ ...v, skus: visibleSkus, count: visibleSkus.length });
     }
@@ -163,6 +168,15 @@ export function getAugmentedNewProductsData(
  * scraped-only view (no Sanity augmentation, no async work) so the rail
  * stays a sync server-component call.
  */
-export function getNewProducts(limit = 12): GeigerProduct[] {
-  return getNewProductsData().products.slice(0, limit);
+export function getNewProducts(limit = 12, hiddenSkus: string[] = []): GeigerProduct[] {
+  // HIDE-000 follow-up: this used to slice straight off the data with NO hide
+  // list applied, so a product hidden from the aggregator page still showed in
+  // the home rail and the control looked inert. Filtering happens BEFORE the
+  // slice, so hiding one product backfills from the rest instead of leaving a
+  // short rail with a gap in it.
+  const products = getNewProductsData().products;
+  const hidden = buildSkuSet(hiddenSkus);
+  const visible =
+    hidden.size === 0 ? products : products.filter((p) => !isHiddenSku(p.sku, hidden));
+  return visible.slice(0, limit);
 }

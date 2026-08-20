@@ -1,3 +1,4 @@
+import { getHiddenProductContext } from '@/lib/products/site-wide-hidden';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Container } from '@/components/ui/Container';
@@ -30,6 +31,7 @@ import {
   getPlacedProductPagesForCategory,
   getPlacementSkusForCategory,
 } from '@/lib/sanity/queries/product-placements';
+import { getSiteSettings } from '@/lib/sanity/queries/global-settings';
 import {
   getCustomCategoryBySlug,
   type CustomCategoryDoc,
@@ -261,14 +263,20 @@ async function renderCustomCategory(
   baseUrl: string,
   categorySlug: string,
 ) {
-  const [override, placement, placedPages] = await Promise.all([
+  // `getSiteSettings()` is the same React-cache()d, SETTINGS_TAG-cached read the
+  // layout Footer already performs in this render, so the site-wide hide list
+  // (HIDE-100) costs no extra Sanity fetch here and keeps the route static.
+  const [override, placement, placedPages, hidden] = await Promise.all([
     getCategoryOverride(categorySlug),
     getPlacementSkusForCategory(categorySlug),
     getPlacedProductPagesForCategory(categorySlug),
+    getHiddenProductContext(),
   ]);
   const products = mergeCategoryProducts({
     bakedSkus: custom.productSkus ?? [],
     override,
+    hiddenEverywhereSkus: hidden.hiddenSkus,
+    replacementBySku: hidden.replacementBySku,
     placementAddSkus: placement.addSkus,
     placementRemoveSkus: placement.removeSkus,
     extraCustomProducts: custom.customProducts.map(customProductToGeigerProduct),
@@ -362,6 +370,11 @@ export default async function CategoryPage({ params }: Props) {
   // are in the edited set via the control query's pagePlacements).
   // Every untouched page skips them entirely and resolves from baked SKUs.
   const isEdited = edited.has(categorySlug);
+  // Site-wide hide list (HIDE-100). Read for EVERY category, edited or not,
+  // because "hidden everywhere" has to reach untouched pages too. It is the
+  // layout's already-deduped settings read, so an untouched page still makes
+  // zero ADDITIONAL Sanity calls and the route stays static.
+  const hidden = await getHiddenProductContext();
   const [override, placement, placedPages] = isEdited
     ? await Promise.all([
         getCategoryOverride(categorySlug),
@@ -383,6 +396,8 @@ export default async function CategoryPage({ params }: Props) {
   const allProducts = mergeCategoryProducts({
     bakedSkus: content.productSkus || [],
     override,
+    hiddenEverywhereSkus: hidden.hiddenSkus,
+    replacementBySku: hidden.replacementBySku,
     placementAddSkus: placement.addSkus,
     placementRemoveSkus: placement.removeSkus,
     placedProductPages: placedPages.products,
@@ -419,13 +434,22 @@ export default async function CategoryPage({ params }: Props) {
   // fetched `override` (no extra Sanity read — replaceProducts slugs are always
   // "edited"), and reads only facet-memberships.json, so /cat stays static.
   const curated = override?.replaceProducts === true;
-  const addedAttrOverlay = curated
-    ? buildAddedAttrOverlay(allProducts, [
-        ...(override?.addedProducts ?? []),
-        // Product-side placed productPages (batch 4) participate identically.
-        ...placedPages.overlayDocs,
-      ])
-    : undefined;
+  // HIDE-110: a substituted product-page card is not in this category's scraped
+  // facet memberships, so without an overlay it would disappear the moment a
+  // visitor clicked any filter. Its own tags are folded in so it behaves like
+  // the Geiger product it replaced. `curated` is deliberately NOT changed by
+  // this: that flag is what nulls each facet value's staticUrl, and flipping it
+  // on an ordinary category would swap its SEO facet links for client-side
+  // filtering. The overlay argument alone has no effect on those links.
+  const addedAttrOverlay =
+    curated || hidden.replacementOverlayDocs.length > 0
+      ? buildAddedAttrOverlay(allProducts, [
+          ...(override?.addedProducts ?? []),
+          // Product-side placed productPages (batch 4) participate identically.
+          ...placedPages.overlayDocs,
+          ...hidden.replacementOverlayDocs,
+        ])
+      : undefined;
 
   // Sidebar data is derived from the unfiltered category SKU set so filter counts
   // reflect "products available if I add this filter," not "products after current filters."

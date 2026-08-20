@@ -1,3 +1,4 @@
+import { buildSkuSet, isHiddenSku } from '@/lib/products/hidden-skus';
 import fs from 'node:fs';
 import path from 'node:path';
 import { decodeHtmlEntities } from './text-utils';
@@ -75,15 +76,19 @@ function readScraped(): RawScrapedDeals {
  */
 export function applyHiddenSkus(data: DealsData, hiddenSkus: string[]): DealsData {
   if (!hiddenSkus || hiddenSkus.length === 0) return data;
-  const hidden = new Set(hiddenSkus.map((s) => s.trim()).filter(Boolean));
+  // HIDE-100: matching moved to the shared normalized rule so the aggregator
+  // hide lists and the site-wide list behave identically (trimmed,
+  // case-insensitive, internal spaces preserved). Strictly more forgiving than
+  // the previous exact match, so nothing that was hidden before can reappear.
+  const hidden = buildSkuSet(hiddenSkus);
   if (hidden.size === 0) return data;
 
-  const products = data.products.filter((p) => !hidden.has(p.sku));
+  const products = data.products.filter((p) => !isHiddenSku(p.sku, hidden));
   const facets: DealsFacetSection[] = [];
   for (const section of data.facets) {
     const values: DealsFacetValue[] = [];
     for (const v of section.values) {
-      const visibleSkus = v.skus.filter((s) => !hidden.has(s));
+      const visibleSkus = v.skus.filter((s) => !isHiddenSku(s, hidden));
       if (visibleSkus.length === 0) continue;
       values.push({ ...v, skus: visibleSkus, count: visibleSkus.length });
     }

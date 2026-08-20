@@ -9,6 +9,7 @@
 // GET ?slug=<cat slug>&<filter params> → { products, totalProducts }.
 // Returns the FULL filtered + sorted list (client paginates).
 
+import { getHiddenProductContext } from '@/lib/products/site-wide-hidden';
 import { NextResponse } from 'next/server';
 import { getCategoryContent } from '@/lib/categories';
 import { getCategoryOverride, mergeCategoryProducts } from '@/lib/sanity/queries/category-overrides';
@@ -59,14 +60,17 @@ export async function GET(request: Request) {
     owned.has(slug) || !content ? await getCustomCategoryBySlug(slug) : null;
 
   if (custom) {
-    const [override, placement, placedPages] = await Promise.all([
+    const [override, placement, placedPages, hidden] = await Promise.all([
       getCategoryOverride(slug),
       getPlacementSkusForCategory(slug),
       getPlacedProductPagesForCategory(slug),
+      getHiddenProductContext(),
     ]);
     const allProducts = mergeCategoryProducts({
       bakedSkus: custom.productSkus ?? [],
       override,
+      hiddenEverywhereSkus: hidden.hiddenSkus,
+      replacementBySku: hidden.replacementBySku,
       placementAddSkus: placement.addSkus,
       placementRemoveSkus: placement.removeSkus,
       extraCustomProducts: custom.customProducts.map(customProductToGeigerProduct),
@@ -77,6 +81,7 @@ export async function GET(request: Request) {
     const overlay = buildAddedAttrOverlay(allProducts, [
       ...(override?.addedProducts ?? []),
       ...placedPages.overlayDocs,
+      ...hidden.replacementOverlayDocs,
       ...custom.customProducts.map((d) => ({ ...d, _type: 'customProduct' as const })),
     ]);
     const state = parseFilterState(record);
@@ -90,14 +95,17 @@ export async function GET(request: Request) {
     return NextResponse.json({ products: [], totalProducts: 0 });
   }
 
-  const [override, placement, placedPages] = await Promise.all([
+  const [override, placement, placedPages, hidden] = await Promise.all([
     getCategoryOverride(slug),
     getPlacementSkusForCategory(slug),
     getPlacedProductPagesForCategory(slug),
+    getHiddenProductContext(),
   ]);
   const allProducts = mergeCategoryProducts({
     bakedSkus: content.productSkus || [],
     override,
+    hiddenEverywhereSkus: hidden.hiddenSkus,
+    replacementBySku: hidden.replacementBySku,
     placementAddSkus: placement.addSkus,
     placementRemoveSkus: placement.removeSkus,
     placedProductPages: placedPages.products,
@@ -107,12 +115,21 @@ export async function GET(request: Request) {
   // so a facet selection keeps them instead of dropping them (they aren't in the
   // scraped facet memberships). Mirrors the page's sidebar build so the two agree.
   const curated = override?.replaceProducts === true;
-  const overlay = curated
-    ? buildAddedAttrOverlay(allProducts, [
-        ...(override?.addedProducts ?? []),
-        ...placedPages.overlayDocs,
-      ])
-    : undefined;
+  // HIDE-110: a substituted product-page card is not in this category's scraped
+  // facet memberships, so without an overlay it would disappear the moment a
+  // visitor clicked any filter. Its own tags are folded in so it behaves like
+  // the Geiger product it replaced. `curated` is deliberately NOT changed by
+  // this: that flag is what nulls each facet value's staticUrl, and flipping it
+  // on an ordinary category would swap its SEO facet links for client-side
+  // filtering. The overlay argument alone has no effect on those links.
+  const overlay =
+    curated || hidden.replacementOverlayDocs.length > 0
+      ? buildAddedAttrOverlay(allProducts, [
+          ...(override?.addedProducts ?? []),
+          ...placedPages.overlayDocs,
+          ...hidden.replacementOverlayDocs,
+        ])
+      : undefined;
 
   const state = parseFilterState(record);
   const filtered = isStateEmpty(state)

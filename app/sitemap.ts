@@ -1,3 +1,5 @@
+import { getHiddenProductContext } from '@/lib/products/site-wide-hidden';
+import { buildSkuSet, isHiddenSku } from '@/lib/products/hidden-skus';
 import type { MetadataRoute } from 'next';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -182,11 +184,16 @@ function xmlEscape(value: string): string {
 // category JSONs (the same read generateStaticParams already does each build)
 // plus lookups against the memoized products index — no network, build-time
 // only. CTA-only categories have no imageSkus (no grid → no image claim).
-function buildCategoryImageMap(): Map<string, string> {
+function buildCategoryImageMap(hidden: ReadonlySet<string>): Map<string, string> {
   const map = new Map<string, string>();
   for (const s of getAllGeneratedCategorySlugs()) {
     if (s.imageSkus.length === 0) continue;
-    const withImage = resolveProductsBySku(s.imageSkus).find((p) => p.imageUrl);
+    // HIDE-100: a product hidden everywhere must not be the image Google is
+    // shown for a category it no longer appears in. The next resolvable product
+    // is used instead, so the category keeps an image rather than losing one.
+    const withImage = resolveProductsBySku(s.imageSkus).find(
+      (p) => p.imageUrl && !isHiddenSku(p.sku, hidden),
+    );
     const image = largeSocialImage(withImage?.imageUrl);
     if (image) map.set(`/cat/${s.urlSlug}`, image);
   }
@@ -209,7 +216,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // page 2+ carries noindex,follow and canonicalizes to page 1, so they should not be
   // surfaced in the sitemap. They remain discoverable via the Pagination follow links.
   const categoryUrls = readCategoryUrls();
-  const categoryImages = buildCategoryImageMap();
+  // HIDE-100. The sitemap is regenerated on deploy and by the webhook's
+  // /sitemap.xml revalidation, so this list is honoured without a rebuild.
+  const categoryImages = buildCategoryImageMap(
+    buildSkuSet((await getHiddenProductContext()).hiddenSkus),
+  );
   for (const url of categoryUrls) {
     const image = categoryImages.get(url);
     if (image) counts.categoryImages += 1;

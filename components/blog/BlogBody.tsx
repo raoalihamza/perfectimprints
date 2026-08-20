@@ -12,6 +12,7 @@ import { ProductCard } from '@/components/category/ProductCard';
 import { affiliateUrl } from '@/lib/affiliate-url';
 import { isStripRefEntry, type StripProductEntry } from '@/lib/sanity/strip-product-entries';
 import { stripRefToGeigerProduct } from '@/lib/sanity/queries/strip-entries';
+import { isHiddenSku, normalizeSku } from '@/lib/products/hidden-skus';
 
 interface BlogProductsValue {
   _key?: string;
@@ -23,6 +24,19 @@ interface BlogProductsValue {
 interface BlogBodyProps {
   body: PortableTextBlock[];
   skuProducts?: Map<string, GeigerProduct>;
+  /**
+   * Site-wide hidden SKUs (HIDE-100). An entry whose SKU is on this set is
+   * dropped entirely, INCLUDING its manual title/image/url fallback: the SKU
+   * identifies the hidden product, so falling back to a hand-typed card for it
+   * would defeat the hide.
+   */
+  hiddenSkus?: ReadonlySet<string>;
+  /**
+   * HIDE-110: normalized hidden SKU to the product-page card that replaced it.
+   * A replaced entry SWAPS to that card instead of being dropped, so a strip
+   * the editor built keeps its length and still shows the product they meant.
+   */
+  replacementBySku?: ReadonlyMap<string, GeigerProduct>;
 }
 
 const GEIGER_HOST_PATTERN = /^https?:\/\/(www\.)?geiger\.com\//i;
@@ -51,6 +65,8 @@ interface ListBlock {
 
 function buildComponents(
   skuProducts: Map<string, GeigerProduct>,
+  hiddenSkus: ReadonlySet<string> | undefined,
+  replacementBySku: ReadonlyMap<string, GeigerProduct> | undefined,
 ): PortableTextComponents {
   return {
   types: {
@@ -123,6 +139,12 @@ function buildComponents(
             return <ProductCard key={`ref-${entry._id}-${idx}`} product={product} />;
           }
           const sku = entry.sku?.trim();
+          if (hiddenSkus && isHiddenSku(sku, hiddenSkus)) {
+            const replacement = replacementBySku?.get(normalizeSku(sku));
+            if (!replacement || seenRefSkus.has(replacement.sku)) return null;
+            seenRefSkus.add(replacement.sku);
+            return <ProductCard key={`rep-${replacement.sku}-${idx}`} product={replacement} />;
+          }
           const resolved = sku ? skuProducts.get(sku) : undefined;
           if (resolved) {
             return (
@@ -313,9 +335,9 @@ function normalizeBody(body: PortableTextBlock[]): PortableTextBlock[] {
   return out;
 }
 
-export function BlogBody({ body, skuProducts }: BlogBodyProps) {
+export function BlogBody({ body, skuProducts, hiddenSkus, replacementBySku }: BlogBodyProps) {
   const normalized = normalizeBody(body);
-  const components = buildComponents(skuProducts ?? EMPTY_SKU_MAP);
+  const components = buildComponents(skuProducts ?? EMPTY_SKU_MAP, hiddenSkus, replacementBySku);
   return (
     <div className="blog-body">
       <PortableText value={normalized} components={components} />

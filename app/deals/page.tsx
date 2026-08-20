@@ -1,3 +1,5 @@
+import { getHiddenProductContext } from '@/lib/products/site-wide-hidden';
+import { getSiteSettings } from '@/lib/sanity/queries/global-settings';
 import type { Metadata } from 'next';
 import { DealsPageBody } from '@/components/deals/DealsPageBody';
 import { getAugmentedDealsData, applyHiddenSkus } from '@/lib/deals';
@@ -43,7 +45,13 @@ export default async function DealsPage() {
     pinnedSkus: copy.pinnedDealSkus || [],
     customDocs,
   });
-  const data = applyHiddenSkus(augmented, copy.hiddenDealSkus || []);
+  // HIDE-100: the site-wide hide list is folded in alongside this page's own
+  // list, so facet counts re-derive together and the sidebar cannot disagree
+  // with the grid. `getSiteSettings()` is the layout's deduped, tag-cached read.
+  const data = applyHiddenSkus(augmented, [
+    ...(copy.hiddenDealSkus || []),
+    ...(await getHiddenProductContext()).hiddenSkus,
+  ]);
 
   return (
     <>

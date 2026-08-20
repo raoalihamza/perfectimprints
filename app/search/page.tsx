@@ -7,7 +7,7 @@ import { SearchEmptyCTA } from '@/components/search/SearchEmptyCTA';
 import { searchProducts } from '@/lib/search/server-search';
 import { buildSearchFacets } from '@/lib/search/build-facets';
 import { buildHiddenSkuSet } from '@/lib/search/hidden-skus';
-import { getSiteSettings } from '@/lib/sanity/queries/global-settings';
+import { searchHiddenSkus } from '@/lib/products/site-wide-hidden';
 import { socialMeta } from '@/lib/seo/open-graph';
 
 interface Props {
@@ -45,12 +45,13 @@ export default async function SearchPage({ searchParams }: Props) {
   //
   // Q-170: this is the SECOND of the two search read paths, and it is the one
   // that would otherwise keep showing a product Patrick had already hidden from
-  // the overlay. `getSiteSettings()` is the same React-cache()d, SETTINGS_TAG
-  // tagged read the layout Footer already performs in this render, so it costs
-  // no extra Sanity fetch. Facets are built from the FILTERED list, so a hidden
+  // the overlay. HIDE-110: `searchHiddenSkus()` is the single definition of what
+  // search hides (the search-only list, the site-wide list, and every SKU a
+  // published product page has replaced). Both reads behind it are
+  // React-cache()d and tag-cached, and the layout already performs one of them
+  // in this render. Facets are built from the FILTERED list, so a hidden
   // product leaves no trace in the sidebar counts either.
-  const settings = query ? await getSiteSettings() : null;
-  const hiddenSkus = buildHiddenSkuSet(settings?.searchHiddenSkus);
+  const hiddenSkus = buildHiddenSkuSet(query ? await searchHiddenSkus() : []);
   const products = query ? searchProducts(query, 300, hiddenSkus) : [];
   const facets = products.length > 0 ? buildSearchFacets(products) : [];
 

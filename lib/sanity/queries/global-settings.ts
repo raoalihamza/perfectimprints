@@ -134,8 +134,41 @@ export interface SiteSettings {
    *
    * This list affects search visibility and NOTHING else: category pages, the
    * aggregators, and the sitemap never consult it.
+   *
+   * It is NOT the site-wide list. For "hidden everywhere" use
+   * `hiddenEverywhereSkus` below, and for what SEARCH actually hides (the union
+   * of the two) use `searchHiddenSkuList()`.
    */
   searchHiddenSkus: string[];
+  /**
+   * Geiger SKUs Patrick has hidden from the WHOLE SITE (HIDE-100), i.e.
+   * `globalSettings.hiddenProducts.skus`. Trimmed, blanks dropped, raw case
+   * preserved; consumers normalize via `lib/products/hidden-skus.ts`.
+   *
+   * Purpose, in his words: these are Geiger products he has replaced with his
+   * own `/products/<slug>` page, so the plain Geiger card should not compete
+   * with it. Every surface that can show a Geiger product consults this list.
+   *
+   * Deliberately SEPARATE from `categoryOverride.hiddenSkus`, which hides a
+   * product from one category only and is still the right control for an item
+   * landing in a category it does not belong in. Nothing was migrated into this
+   * list; it starts empty and Patrick fills it.
+   */
+  hiddenEverywhereSkus: string[];
+}
+
+/**
+ * What SITE SEARCH hides: the search-only list plus the site-wide list, because
+ * "hidden everywhere" includes search.
+ *
+ * One definition, consumed by all three search read paths (the live delta
+ * route, the server-side /search Fuse, and the client overlay index) so they
+ * cannot drift. Tolerates a null settings object: every search path already
+ * degrades to "hide nothing" when the settings read fails.
+ */
+export function searchHiddenSkuList(settings: SiteSettings | null | undefined): string[] {
+  if (!settings) return [];
+  return [...settings.searchHiddenSkus, ...settings.hiddenEverywhereSkus];
 }
 
 interface RawSocialLink {
@@ -171,6 +204,7 @@ interface RawSettings {
   categoryCtaBar?: RawCategoryCtaBar;
   videoCtaBar?: RawCategoryCtaBar;
   siteSearch?: { hiddenSkus?: string[] };
+  hiddenProducts?: { skus?: string[] };
   hoursOfOperation?: string;
   // legacy flat fields — fallback only
   phoneNumber?: string;
@@ -184,6 +218,7 @@ const QUERY = `*[_type == "globalSettings"][0]{
   categoryCtaBar{ enabled, heading, body, buttonLabel },
   videoCtaBar{ enabled, heading, body, buttonLabel },
   siteSearch{ hiddenSkus },
+  hiddenProducts{ skus },
   hoursOfOperation,
   phoneNumber,
   contactEmail
@@ -199,6 +234,7 @@ const EMPTY: SiteSettings = {
   categoryCtaBar: DEFAULT_CTA_BAR,
   videoCtaBar: DEFAULT_VIDEO_CTA_BAR,
   searchHiddenSkus: [],
+  hiddenEverywhereSkus: [],
 };
 
 function resolveIconUrl(image: SanityImage | undefined): string | null {
@@ -292,6 +328,11 @@ function resolve(raw: RawSettings | null): SiteSettings {
     .map((s) => clean(s))
     .filter((s): s is string => Boolean(s));
 
+  // Site-wide hide list (HIDE-100), same trim-and-drop-blanks treatment.
+  const hiddenEverywhereSkus = (raw.hiddenProducts?.skus ?? [])
+    .map((s) => clean(s))
+    .filter((s): s is string => Boolean(s));
+
   return {
     socialLinks,
     contact: { phones: resolvedPhones, email, address, hours: clean(raw.hoursOfOperation) },
@@ -299,6 +340,7 @@ function resolve(raw: RawSettings | null): SiteSettings {
     categoryCtaBar: resolveCtaBar(raw.categoryCtaBar, CATEGORY_CTA_BAR_DEFAULTS),
     videoCtaBar: resolveCtaBar(raw.videoCtaBar, VIDEO_CTA_BAR_DEFAULTS),
     searchHiddenSkus,
+    hiddenEverywhereSkus,
   };
 }
 

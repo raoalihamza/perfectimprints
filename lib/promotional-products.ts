@@ -5,6 +5,7 @@ import { buildSearchFacets } from '@/lib/search/build-facets';
 import { applyDealsFilters, type DealsFacetSection, type DealsFilterState } from '@/lib/deals-filter';
 import { PRODUCTS_PER_PAGE, type GeigerProduct } from '@/lib/product-types';
 import type { PromoSort } from '@/lib/promotional-products-sorts';
+import { buildSkuSet, filterHiddenSkuItems } from '@/lib/products/hidden-skus';
 
 /**
  * Server-side data layer for the /promotional-products browse-all page (M5-506).
@@ -30,6 +31,35 @@ function getFacets(): DealsFacetSection[] {
   return _facets;
 }
 
+// HIDE-100. The unfiltered products and facets above are memoized once per
+// server process because building facets over ~7,957 products is not something
+// to redo per request. The site-wide hide list is tiny and changes only when
+// Patrick publishes, so the filtered view gets its own single-entry memo keyed
+// by the list. When nothing is hidden (the overwhelmingly common case) the
+// original memoized objects are returned untouched and this costs nothing.
+let _hiddenKey: string | null = null;
+let _visibleProducts: GeigerProduct[] | null = null;
+let _visibleFacets: DealsFacetSection[] | null = null;
+
+function getVisible(hiddenSkus: string[]): {
+  products: GeigerProduct[];
+  facets: DealsFacetSection[];
+} {
+  const hidden = buildSkuSet(hiddenSkus);
+  if (hidden.size === 0) return { products: getProducts(), facets: getFacets() };
+
+  const key = [...hidden].sort().join('|');
+  if (key !== _hiddenKey || !_visibleProducts || !_visibleFacets) {
+    _visibleProducts = filterHiddenSkuItems(getProducts(), hidden);
+    // Facets are rebuilt from the VISIBLE list rather than filtered, so every
+    // count in the sidebar matches the grid instead of drifting by the number
+    // of hidden products.
+    _visibleFacets = buildSearchFacets(_visibleProducts);
+    _hiddenKey = key;
+  }
+  return { products: _visibleProducts, facets: _visibleFacets };
+}
+
 function sortProducts(products: GeigerProduct[], sort: PromoSort): GeigerProduct[] {
   if (sort === 'featured') return products;
   const copy = [...products];
@@ -48,8 +78,8 @@ function sortProducts(products: GeigerProduct[], sort: PromoSort): GeigerProduct
 
 /** Facets with each value's `skus` emptied — safe to send to the client sidebar
  *  (it only needs id/label/count; filtering already happened server-side). */
-export function getPromoClientFacets(): DealsFacetSection[] {
-  return getFacets().map((f) => ({
+export function getPromoClientFacets(hiddenSkus: string[] = []): DealsFacetSection[] {
+  return getVisible(hiddenSkus).facets.map((f) => ({
     ...f,
     values: f.values.map((v) => ({ ...v, skus: [] })),
   }));
@@ -69,9 +99,10 @@ export function getPromoResult(
   state: DealsFilterState,
   sort: PromoSort,
   page: number,
+  hiddenSkus: string[] = [],
 ): PromoResult {
-  const all = getProducts();
-  const filtered = applyDealsFilters(all, getFacets(), state);
+  const { products: all, facets } = getVisible(hiddenSkus);
+  const filtered = applyDealsFilters(all, facets, state);
   const sorted = sortProducts(filtered, sort);
 
   const totalMatched = sorted.length;

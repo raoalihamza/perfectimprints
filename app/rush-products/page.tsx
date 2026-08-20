@@ -1,3 +1,5 @@
+import { getHiddenProductContext } from '@/lib/products/site-wide-hidden';
+import { getSiteSettings } from '@/lib/sanity/queries/global-settings';
 import type { Metadata } from 'next';
 import { RushProductsPageBody } from '@/components/rush-products/RushProductsPageBody';
 import { getAugmentedRushProductsData, applyHiddenSkus } from '@/lib/rush-products';
@@ -43,7 +45,13 @@ export default async function RushProductsPage() {
     pinnedSkus: copy.pinnedRushSkus || [],
     customDocs,
   });
-  const data = applyHiddenSkus(augmented, copy.hiddenRushSkus || []);
+  // HIDE-100: the site-wide hide list is folded in alongside this page's own
+  // list, so facet counts re-derive together and the sidebar cannot disagree
+  // with the grid. `getSiteSettings()` is the layout's deduped, tag-cached read.
+  const data = applyHiddenSkus(augmented, [
+    ...(copy.hiddenRushSkus || []),
+    ...(await getHiddenProductContext()).hiddenSkus,
+  ]);
 
   return (
     <>

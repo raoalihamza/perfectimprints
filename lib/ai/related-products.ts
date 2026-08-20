@@ -36,6 +36,7 @@
 import { getAllGeneratedRootSlugs, getAllProducts, getProductsForCategorySlug } from '../categories';
 import type { GeigerProduct } from '../product-types';
 import { GENERIC_PROMO_WORDS } from './brand-voice';
+import { buildSkuSet, isHiddenSku } from '../products/hidden-skus';
 
 export interface MatchRelatedProductsOptions {
   /** URL-style category slug (path after /cat/), e.g. 'water-bottles'. */
@@ -63,6 +64,23 @@ export interface MatchRelatedProductsOptions {
    * static render path is safe.
    */
   includeProductPages?: boolean;
+  /**
+   * Site-wide hidden SKUs (HIDE-100), i.e. `globalSettings.hiddenProducts.skus`.
+   * Applied to EVERY source below, so a hidden Geiger product can never be
+   * suggested by any generated strip or carousel. Callers on a render path pass
+   * `settings.hiddenEverywhereSkus`; the AI generate routes pass it too, so a
+   * hidden product is never persisted into a new strip in the first place.
+   */
+  hiddenSkus?: string[];
+  /**
+   * Normalized Geiger SKU to the product-page card that REPLACES it (HIDE-110).
+   * Passed through to the category source so a replaced Geiger product leaves
+   * the strip carrying Patrick's own card rather than a gap. Only render-path
+   * callers pass it; the AI generate routes deliberately do not, because a
+   * generated strip is PERSISTED as SKU entries and a synthetic `custom-<id>`
+   * id would not resolve when that strip is later rendered.
+   */
+  replacementBySku?: ReadonlyMap<string, GeigerProduct>;
 }
 
 /**
@@ -198,8 +216,13 @@ export async function matchRelatedProducts(
 
   const picked: GeigerProduct[] = [];
   const seen = new Set<string>(opts.exclude ?? []);
+  // One gate for every source (category, custom products, productPages, catalog
+  // top-up), so a site-wide hidden SKU cannot slip in through whichever branch
+  // happens to reach it first.
+  const hidden = buildSkuSet(opts.hiddenSkus);
   const push = (p: GeigerProduct) => {
     if (picked.length >= limit || seen.has(p.sku)) return;
+    if (isHiddenSku(p.sku, hidden)) return;
     seen.add(p.sku);
     picked.push(p);
   };
@@ -209,8 +232,34 @@ export async function matchRelatedProducts(
   //    carry off-topic SKUs (that is exactly the full-capped-60 failure mode),
   //    so category membership alone is not proof of relevance.
   if (opts.categorySlug) {
-    const fileSlug = opts.categorySlug.split('/').join('__');
-    const categoryProducts = getProductsForCategorySlug(fileSlug);
+    // HIDE-000: this used to read the BAKED category JSON off disk, so a strip
+    // drawn from one of Patrick's curated categories ignored his curation of it
+    // and re-suggested products he had hidden there. Resolve the category the
+    // same way the category page does instead. All reads are tag-cached, so a
+    // static caller such as /products/<slug> stays static. A failure (offline
+    // verifier, Sanity down) degrades to the baked list rather than to nothing,
+    // which is the pre-existing behaviour.
+    let categoryProducts: GeigerProduct[];
+    try {
+      const { getEffectiveCategoryProducts } = await import(
+        '../sanity/queries/effective-category-products'
+      );
+      categoryProducts = await getEffectiveCategoryProducts(
+        opts.categorySlug,
+        opts.hiddenSkus,
+        {
+          // Removal only: the curation fix must not ALSO start pulling custom
+          // products in through this branch. Callers that want them say so via
+          // `includeCustom`, which has its own source below. A HIDE-110
+          // substitution is exempt, because it stands in for a Geiger product
+          // the caller already had rather than adding a new one.
+          geigerOnly: opts.includeCustom === false,
+        },
+        opts.replacementBySku,
+      );
+    } catch {
+      categoryProducts = getProductsForCategorySlug(opts.categorySlug.split('/').join('__'));
+    }
     for (const p of rankEligible(categoryProducts, tokens, minScore)) push(p);
   }
 

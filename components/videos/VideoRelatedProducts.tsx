@@ -1,5 +1,6 @@
 import { urlForImage } from '@/lib/sanity/client';
 import { affiliateUrl } from '@/lib/affiliate-url';
+import { isHiddenSku, normalizeSku } from '@/lib/products/hidden-skus';
 import { ProductCard } from '@/components/category/ProductCard';
 import { isStripRefEntry } from '@/lib/sanity/strip-product-entries';
 import { stripRefToGeigerProduct } from '@/lib/sanity/queries/strip-entries';
@@ -26,6 +27,19 @@ interface VideoRelatedProductsProps {
   /** SKU → live product, resolved by the page via resolveProductsBySku. */
   skuProducts: Map<string, GeigerProduct>;
   heading?: string;
+  /**
+   * Site-wide hidden SKUs (HIDE-100). An entry whose SKU is on this set is
+   * dropped entirely, INCLUDING its manual title/image/url fallback: the SKU
+   * identifies the hidden product, so falling back to a hand-typed card for it
+   * would defeat the hide.
+   */
+  hiddenSkus?: ReadonlySet<string>;
+  /**
+   * HIDE-110: normalized hidden SKU to the product-page card that replaced it.
+   * A replaced entry SWAPS to that card instead of being dropped, so a strip
+   * the editor built keeps its length and still shows the product they meant.
+   */
+  replacementBySku?: ReadonlyMap<string, GeigerProduct>;
 }
 
 const GEIGER_HOST_PATTERN = /^https?:\/\/(www\.)?geiger\.com\//i;
@@ -39,6 +53,8 @@ export function VideoRelatedProducts({
   entries,
   skuProducts,
   heading = 'Featured Custom Promotional Products',
+  hiddenSkus,
+  replacementBySku,
 }: VideoRelatedProductsProps) {
   // De-dup referenced docs within the strip (same product referenced twice
   // renders once).
@@ -54,6 +70,12 @@ export function VideoRelatedProducts({
         return <ProductCard key={`ref-${entry._id}-${idx}`} product={product} />;
       }
       const sku = entry.sku?.trim();
+      if (hiddenSkus && isHiddenSku(sku, hiddenSkus)) {
+        const replacement = replacementBySku?.get(normalizeSku(sku));
+        if (!replacement || seenRefSkus.has(replacement.sku)) return null;
+        seenRefSkus.add(replacement.sku);
+        return <ProductCard key={`rep-${replacement.sku}-${idx}`} product={replacement} />;
+      }
       const resolved = sku ? skuProducts.get(sku) : undefined;
       if (resolved) {
         return <ProductCard key={entry._key || `sku-${sku}-${idx}`} product={resolved} />;

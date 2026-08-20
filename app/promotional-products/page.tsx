@@ -1,3 +1,4 @@
+import { getHiddenProductContext } from '@/lib/products/site-wide-hidden';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Container } from '@/components/ui/Container';
@@ -47,7 +48,10 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
 export default async function PromotionalProductsPage({ searchParams }: Props) {
   const sp = await searchParams;
 
-  const clientFacets = getPromoClientFacets();
+  // HIDE-100: both the sidebar facets and the result set are built from the
+  // same visible list, so counts and grid cannot disagree.
+  const hiddenEverywhere = (await getHiddenProductContext()).hiddenSkus;
+  const clientFacets = getPromoClientFacets(hiddenEverywhere);
 
   // Parse the active filter selections out of the query string.
   const state: DealsFilterState = {};
@@ -63,7 +67,7 @@ export default async function PromotionalProductsPage({ searchParams }: Props) {
     PROMO_SORTS.find((s) => s.value === one(sp.sort))?.value ?? 'featured';
   const page = Math.max(1, Number.parseInt(one(sp.page) ?? '1', 10) || 1);
 
-  const result = getPromoResult(state, sort, page);
+  const result = getPromoResult(state, sort, page, hiddenEverywhere);
 
   // Base query (filters + sort, no page) for the pagination links.
   const baseParams = new URLSearchParams();

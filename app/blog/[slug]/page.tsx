@@ -1,3 +1,4 @@
+import { getHiddenProductContext } from '@/lib/products/site-wide-hidden';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import type { PortableTextBlock } from '@portabletext/react';
@@ -17,6 +18,7 @@ import {
   getRelatedBlogsForPost,
 } from '@/lib/sanity/queries/blogs';
 import { resolveProductsBySku } from '@/lib/categories';
+import { buildSkuSet } from '@/lib/products/hidden-skus';
 import { socialMeta } from '@/lib/seo/open-graph';
 import { buildBlogPostingSchema } from '@/lib/seo/content-schema';
 import type { GeigerProduct } from '@/lib/product-types';
@@ -116,6 +118,11 @@ export default async function BlogPostPage({ params }: Props) {
     }
   }
 
+  // Site-wide hide list (HIDE-100) for the in-body product strips. Same
+  // deduped, tag-cached settings read the layout already performs.
+  const hiddenContext = await getHiddenProductContext();
+  const hiddenSkus = buildSkuSet(hiddenContext.hiddenSkus);
+
   const relatedBlogs = await getRelatedBlogsForPost(post, 8);
 
   const blogPostingSchema = buildBlogPostingSchema({
@@ -187,7 +194,12 @@ export default async function BlogPostPage({ params }: Props) {
                 />
               </figure>
             )}
-            <BlogBody body={post.body} skuProducts={skuProducts} />
+            <BlogBody
+              body={post.body}
+              skuProducts={skuProducts}
+              hiddenSkus={hiddenSkus}
+              replacementBySku={hiddenContext.replacementBySku}
+            />
 
             {/* ctaTopic is a VERBATIM CTA-heading override (no "Order Custom …
                 Today" wrapper) and affects ONLY this block — the Related Blogs

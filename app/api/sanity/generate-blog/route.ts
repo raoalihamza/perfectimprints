@@ -18,6 +18,7 @@
 // so it must NEVER be statically evaluated or moved to the Edge runtime —
 // runtime/dynamic exports below mirror the generate-content route exactly.
 
+import { siteWideHiddenSkus } from '@/lib/products/site-wide-hidden';
 import { NextResponse } from 'next/server';
 import { brandVoiceSystemBlock, BUYER_PERSONA } from '@/lib/ai/brand-voice';
 import { generateJson, DeepSeekError } from '@/lib/ai/deepseek';
@@ -265,6 +266,7 @@ export async function POST(request: Request) {
         const stripKeywords = productType ? [productType] : [s.heading];
         const ideaCategory = productType ? resolveCategoryForKeywords(productType) : null;
         let products = await matchRelatedProducts({
+          hiddenSkus: await siteWideHiddenSkus(),
           categorySlug: ideaCategory ?? undefined,
           keywords: stripKeywords,
           limit: LIST_STRIP_LIMIT,
@@ -276,6 +278,7 @@ export async function POST(request: Request) {
         // source for every idea (that is what made every strip identical).
         if (products.length < MIN_STRIP_PRODUCTS && categorySlug && categorySlug !== ideaCategory) {
           const fallback = await matchRelatedProducts({
+            hiddenSkus: await siteWideHiddenSkus(),
             categorySlug,
             keywords: stripKeywords,
             limit: LIST_STRIP_LIMIT,
@@ -312,6 +315,7 @@ export async function POST(request: Request) {
       }
       const stripKeywords = (gen.productKeywords ?? []).filter(Boolean);
       const products = await matchRelatedProducts({
+        hiddenSkus: await siteWideHiddenSkus(),
         categorySlug, // primary category stays the primary source for single-focus posts
         keywords: stripKeywords.length > 0 ? stripKeywords : promptKeywords,
         limit: SINGLE_STRIP_LIMIT,

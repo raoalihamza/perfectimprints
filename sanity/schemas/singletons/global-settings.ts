@@ -366,6 +366,37 @@ export default defineType({
         },
       ],
     }),
+    // HIDE-100. Sits directly above "Site Search" on purpose: the two controls
+    // look alike in Studio and the difference has to be readable at a glance.
+    // This one is the broad one (everywhere), that one is the narrow exception
+    // (search only). Both are read at request time, so an edit takes effect on
+    // publish without a rebuild and removing a SKU brings the product back.
+    //
+    // Patrick's stated purpose, which the wording below reflects: this is the
+    // list for Geiger products he has REPLACED with his own /products/<slug>
+    // page, so the plain Geiger card stops competing with his own. It is NOT
+    // the tool for an item showing in the wrong category; that stays the
+    // per-category "Hidden SKUs" field on a Category Override, which is
+    // unchanged and still the right control for that job.
+    defineField({
+      name: 'hiddenProducts',
+      title: 'Hidden Products (whole site)',
+      type: 'object',
+      description:
+        'Products here are removed from every part of the site at once. Use this when you have built your own product page for a Geiger item and do not want the plain Geiger version showing next to it.',
+      options: { collapsible: true, collapsed: true },
+      fields: [
+        {
+          name: 'skus',
+          title: 'Hide these products everywhere',
+          type: 'array',
+          of: [{ type: 'string' }],
+          components: { input: ProductSkuPicker },
+          description:
+            'Search the catalog and click a product to remove it from the WHOLE site: every category page, related products, product strips in blogs, videos, pages and landing pages, Deals, New Products, Rush Products, brand pages, Promotional Products, and site search. Use it for a Geiger product you have replaced with your own product page. To remove an item from ONE category only, because it does not belong there, use the Hidden SKUs field on that Category Override instead. Your own custom products and product pages can never be hidden by this list. Remove a product from this list to bring it back everywhere. Takes effect within seconds of publishing.',
+        },
+      ],
+    }),
     // Q-170 improvement 2. Deliberately its own group rather than a field on one
     // of the three aggregator objects above: those hide lists each control ONE
     // page's grid, this one controls SEARCH across the whole site and nothing
@@ -376,17 +407,17 @@ export default defineType({
       title: 'Site Search',
       type: 'object',
       description:
-        'Controls what the site search can find. Everything else about a product is unaffected.',
+        'Controls what the site search can find, and nothing else. A product hidden here still appears on its category pages and anywhere else that lists it. To remove a product from the whole site, use Hidden Products (whole site) above.',
       options: { collapsible: true, collapsed: true },
       fields: [
         {
           name: 'hiddenSkus',
-          title: 'Hide these SKUs from site search',
+          title: 'Hide these SKUs from site search only',
           type: 'array',
           of: [{ type: 'string' }],
           components: { input: ProductSkuPicker },
           description:
-            'Search the catalog and click a product to stop it appearing in the search box suggestions and on the /search results page, everywhere on the site. It is NOT removed from anywhere else: it still appears on its category pages, in the sitemap, and on any page that lists it. Remove it from this list to bring it back to search. Takes effect within seconds of publishing.',
+            'Search the catalog and click a product to stop it appearing in the search box suggestions and on the /search results page. It is NOT removed from anywhere else: it still appears on its category pages, in the sitemap, and on any page that lists it. If you want it gone from the whole site, use Hidden Products (whole site) above instead, and leave this list alone. Remove it from this list to bring it back to search. Takes effect within seconds of publishing.',
         },
       ],
     }),

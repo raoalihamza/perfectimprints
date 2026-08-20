@@ -23,6 +23,7 @@
  * under plain tsx like the rest of lib/ai/*.
  */
 
+import { siteWideHiddenSkus } from '@/lib/products/site-wide-hidden';
 import { brandVoiceSystemBlock, BUYER_PERSONA } from './brand-voice';
 import { generateJson } from './deepseek';
 import { findMissingLandmarks } from './landing-landmarks';
@@ -361,6 +362,7 @@ export async function generateLandingContent(input: LandingGenInput): Promise<La
   //    products.json at render time — a synthetic `custom-<id>` SKU can never
   //    resolve there, so it would count toward the floor yet render nothing.
   const products = await matchRelatedProducts({
+    hiddenSkus: await siteWideHiddenSkus(),
     categorySlug: resolvedCategory ?? undefined,
     keywords: matchKeywords,
     limit: STRIP_LIMIT,

@@ -615,6 +615,47 @@
       Geiger whenever you press the matching button in <a href="#site-refresh">Site Refresh</a>. These controls let you
       nudge what shows without anyone touching the feed.</p>
 
+    <h4 id="hidden-products">Hidden Products (whole site)</h4>
+    <p>One control: <strong>Hide these products everywhere</strong>. Search the catalog by name, SKU, or brand, click a
+      product, and it disappears from the <em>entire</em> site. Publish, and it is gone within seconds. Remove it from
+      the list and publish again, and it comes straight back everywhere it used to be.</p>
+    <p><strong>What this is for.</strong> A Geiger product you simply do not want on the site, with nothing taking its
+      place.</p>
+    <div class="callout warn">
+      <span class="label">If you have built your own page for it, use the other control instead</span>
+      <p>When your own product page replaces a Geiger item, put the Geiger item in
+        <strong><a href="#replaces-geiger">Replaces a Geiger product</a></strong> on that page rather than here. It
+        hides the Geiger product exactly the same way AND puts your page in its place, and it is one field instead of
+        two. Use the list below only when nothing is replacing the product.</p>
+    </div>
+    <p>It removes the product from every one of these at once:</p>
+    <ul>
+      <li>every category page it appeared on, and the filter numbers on those pages</li>
+      <li>the <strong>Related Products</strong> row on your own product pages</li>
+      <li>product rows inside blogs, videos, pages and landing pages</li>
+      <li>Deals, New Products, Rush Products, and the two rows on the home page</li>
+      <li>brand pages and the Promotional Products browse page</li>
+      <li>site search, the search suggestions box, and the sitemap image for a category</li>
+    </ul>
+    <p class="small">Your own products are safe. This list can only ever contain real Geiger item numbers, so a product
+      you created yourself can never be hidden by it.</p>
+
+    <div class="callout warn">
+      <span class="label">Three similar-looking controls. This is the difference.</span>
+      <ul>
+        <li><strong>A Product Page&rsquo;s "Replaces a Geiger product"</strong> - the Geiger item is gone from
+          everywhere AND your page appears in its place. This is the one to reach for most of the time.</li>
+        <li><strong>Hidden Products (whole site)</strong> - gone from everywhere, with nothing in its place.</li>
+        <li><strong>A Category Override&rsquo;s Hidden SKUs</strong> - gone from <em>that one category page</em> only.
+          Use it when a product is showing in a category it does not belong in. It stays everywhere else, which is
+          usually what you want.</li>
+        <li><strong>Site Search &rsaquo; Hide these SKUs from site search only</strong> - gone from search, still on its
+          category pages. Rarely what you want; if you want it gone properly, use the first one.</li>
+      </ul>
+      <p class="small">These lists are independent. Adding a product to one does not add it to the others, and you do
+        not need to fill in more than one. Your existing entries were left exactly as they were.</p>
+    </div>
+
     <h4>Site Search</h4>
     <p>One control: <strong>Hide these SKUs from site search</strong>. Search the catalog by name, SKU, or brand, click
       a product, and it stops appearing in the search box suggestions and on the search results page, everywhere on the
@@ -627,6 +668,9 @@
     <p class="small">This is a different list from the three <strong>Hide these SKUs from …</strong> lists above. Those
       each remove a product from one page's grid (Deals, New Products, Rush Products). This one is about search only.
       Adding a SKU here does not remove it from those pages, and vice versa.</p>
+    <p class="small"><strong>If what you actually want is the product gone from the site, use
+      <a href="#hidden-products">Hidden Products (whole site)</a> instead</strong> and leave this list alone. Anything
+      hidden there is already hidden from search, so you never need to add it in both places.</p>
 
     <div class="callout info">
       <span class="label">Where the search box appears, and what it searches</span>
@@ -1777,12 +1821,55 @@
         still shows it once).</li>
     </ul>
 
+    <div class="callout info" id="replaces-geiger">
+      <span class="label">"Replaces a Geiger product": one field, two effects</span>
+      <p>This is how you retire a Geiger product in favour of your own page for the same item. Fill it in, publish, and
+        <strong>both</strong> of these happen at once:</p>
+      <ol>
+        <li>That Geiger product <strong>disappears from the whole site</strong>: every category page it was on, related
+          products, product rows in blogs and videos and pages, Deals, New Products, Rush, brand pages, Promotional
+          Products, and site search.</li>
+        <li><strong>Your page takes its place.</strong> On category pages, related products and product rows, your card
+          appears in the exact spot the Geiger one used to sit, so nothing is left with a gap in it.</li>
+      </ol>
+      <div class="callout warn">
+        <span class="label">You do NOT also need to add the category by hand</span>
+        <p>Filling in this field is enough on its own. Your product turns up automatically on every category page the
+          Geiger item was on, sitting in exactly the spot it used to sit in. You do not have to go to
+          <strong>Show on category pages</strong> and tick those categories as well.</p>
+        <p>If you do tick the same category there too, your card still shows <strong>only once</strong>, so nothing is
+          duplicated. But it moves to the <strong>top</strong> of that grid instead of staying in the Geiger product's
+          old position. So if you want it to stay where the Geiger one was, leave that category out of
+          <strong>Show on category pages</strong> and let this field do the work.</p>
+        <p class="small">Use <strong>Show on category pages</strong> for the other job it is meant for: putting a
+          product on a category it was never in to begin with.</p>
+      </div>
+
+      <p>You can name <strong>more than one</strong> Geiger item if your page covers several of them. If two of them
+        were sitting next to each other in the same grid, your page shows once rather than twice, so that grid ends up
+        one item shorter. That is correct: there is only one of your product.</p>
+      <p><strong>Nothing happens until you press Publish.</strong> While the page is still a draft the Geiger product
+        carries on as normal, so you can never blank out a spot on the site while you are still working on the page
+        that is meant to fill it. Clearing the field and publishing again brings the Geiger product straight back.</p>
+      <p class="small">Two Geiger products cannot be claimed by two different pages. If you pick one that another page
+        already replaces, Studio will tell you which page it is and stop you publishing until you sort it out.</p>
+      <p class="small"><strong>Where your card does NOT appear:</strong> Deals, New Products, Rush Products and the two
+        home page rows. Those lists are Geiger's own feeds ("what is on sale at Geiger this week"), and your product is
+        not in them. The Geiger item is still removed from those pages, it is just not replaced. If you want your
+        product on New Products, use the <strong>Show in New Products</strong> toggle in Visibility, which is the
+        control built for exactly that. Brand pages and Promotional Products work the same way: removal only, because
+        they list the Geiger catalogue itself.</p>
+    </div>
+
     <h3>Creating one, step by step</h3>
     <ol>
       <li><strong>Basics:</strong> Title (e.g. "32 oz Voyager Travel Tumbler"), Slug (click Generate), optionally a
         Brand, and optionally an <strong>Item / SKU number</strong> - if you give the product a real item number,
         customers can find it by typing that number into the site search (all Geiger products are already searchable
         by their item numbers).</li>
+      <li><strong>Replaces a Geiger product</strong> (optional, but this is the big one): if this page is your own
+        better version of something in the Geiger catalog, search for that Geiger product and click it. See the box
+        below for exactly what happens.</li>
       <li><strong>Images &amp; Colors:</strong> add one <strong>Color variant</strong> per color the product comes in.
         Each variant has a color name (e.g. "Navy Blue"), an optional swatch color (a hex code like
         <code>#1E3A8A</code> - this paints the little clickable circle), and up to 10 images. On the live page,
@@ -2650,8 +2737,20 @@
         <td>Global Settings &rsaquo; Video CTA Bar</td>
       </tr>
       <tr>
+        <td>Swap a Geiger product for your own product page (hides it AND puts your page in its place)</td>
+        <td>That Product Page &rsaquo; Replaces a Geiger product</td>
+      </tr>
+      <tr>
+        <td>Remove a Geiger product from the whole site with nothing replacing it</td>
+        <td>Global Settings &rsaquo; Hidden Products (whole site)</td>
+      </tr>
+      <tr>
+        <td>Remove a product from one category only (it is in the wrong category)</td>
+        <td>Category Override for that category &rsaquo; Hidden SKUs</td>
+      </tr>
+      <tr>
         <td>Stop one product turning up in site search (it stays on its category pages)</td>
-        <td>Global Settings &rsaquo; Site Search &rsaquo; Hide these SKUs from site search</td>
+        <td>Global Settings &rsaquo; Site Search &rsaquo; Hide these SKUs from site search only</td>
       </tr>
       <tr>
         <td>Edit the big homepage headline text</td>

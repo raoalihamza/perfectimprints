@@ -1,3 +1,4 @@
+import { getHiddenProductContext } from '@/lib/products/site-wide-hidden';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -22,6 +23,7 @@ import { RichAnswer } from '@/components/portable-text/RichAnswer';
 import { VideoRelatedProducts } from '@/components/videos/VideoRelatedProducts';
 import { CategoryCtaBar } from '@/components/category/CategoryCtaBar';
 import { resolveProductsBySku } from '@/lib/categories';
+import { buildSkuSet } from '@/lib/products/hidden-skus';
 import { isStripRefEntry } from '@/lib/sanity/strip-product-entries';
 import type { GeigerProduct } from '@/lib/product-types';
 import type { SanityImage } from '@/lib/sanity/types';
@@ -120,6 +122,9 @@ export default async function VideoDetailPage({ params }: Props) {
         .filter((s): s is string => Boolean(s)),
     ),
   );
+  // Site-wide hide list (HIDE-100), from the layout's already-deduped read.
+  const hiddenContext = await getHiddenProductContext();
+  const hiddenSkus = buildSkuSet(hiddenContext.hiddenSkus);
   const skuProducts = new Map<string, GeigerProduct>();
   if (stripSkus.length > 0) {
     for (const product of resolveProductsBySku(stripSkus)) {
@@ -183,7 +188,12 @@ export default async function VideoDetailPage({ params }: Props) {
           ) : null}
 
           {relatedProductEntries.length > 0 && (
-            <VideoRelatedProducts entries={relatedProductEntries} skuProducts={skuProducts} />
+            <VideoRelatedProducts
+              entries={relatedProductEntries}
+              skuProducts={skuProducts}
+              hiddenSkus={hiddenSkus}
+              replacementBySku={hiddenContext.replacementBySku}
+            />
           )}
 
           {/* P2-CTA-001 video variant: "Need help choosing…?" lead bar — below

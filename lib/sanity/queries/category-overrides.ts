@@ -9,6 +9,8 @@ import {
   type ProductPageCard,
 } from './product-pages';
 import { resolveProductsBySku } from '@/lib/categories';
+import { buildSkuSet, isHiddenSku } from '@/lib/products/hidden-skus';
+import { planProductSlots } from '@/lib/products/substitution';
 import { applyPinnedOrder } from '@/lib/products/pin-order';
 import type { GeigerProduct } from '@/lib/product-types';
 
@@ -130,6 +132,28 @@ export interface MergeCategoryProductsInput {
    * attached both ways renders once.
    */
   placedProductPages?: GeigerProduct[];
+  /**
+   * Site-wide hidden SKUs (HIDE-100), i.e. `globalSettings.hiddenProducts.skus`.
+   * Removed from EVERY category, on top of this category's own
+   * `override.hiddenSkus`. Compared case-insensitively on trimmed text (the
+   * shared rule in `lib/products/hidden-skus.ts`), unlike the per-category
+   * removal set, which matches the exact stored string.
+   *
+   * Passed in rather than read here so this function stays pure and both render
+   * paths (the static /cat page and /api/category-products) keep sharing it.
+   */
+  hiddenEverywhereSkus?: string[];
+  /**
+   * Normalized Geiger SKU to the product-page card that REPLACES it (HIDE-110,
+   * `productPage.replacesGeigerSkus`). When a SKU is hidden site-wide and has a
+   * replacement, the replacing card takes its slot instead of leaving a gap.
+   *
+   * Deliberately NOT applied to a per-category hide or a placement removal: if
+   * Patrick hid a product from THIS category because it does not belong here,
+   * his own version of the same product does not belong here either. Only the
+   * site-wide hide substitutes.
+   */
+  replacementBySku?: ReadonlyMap<string, GeigerProduct>;
 }
 
 function trimList(list: string[] | undefined): string[] {
@@ -172,19 +196,50 @@ export function mergeCategoryProducts(input: MergeCategoryProductsInput): Geiger
     ...trimList(input.placementRemoveSkus),
   ]);
 
+  // Site-wide hides (HIDE-100) are a SECOND removal rule, not merged into the
+  // set above: this one is case-insensitive, and folding it in would silently
+  // change how the existing per-category list matches. One predicate is used
+  // everywhere `remove` was consulted, so the two rules can never disagree
+  // about a product and "removal wins over add" still holds for both.
+  const hiddenEverywhere = buildSkuSet(input.hiddenEverywhereSkus);
+  const isRemoved = (sku: string): boolean =>
+    remove.has(sku) || isHiddenSku(sku, hiddenEverywhere);
+
   // Geiger SKUs in display order: override adds → placement adds → baked.
   // When `replaceProducts` is on, the baked set is ignored entirely.
   const addSkus = trimList(override?.addedSkus);
   const placementAdds = trimList(input.placementAddSkus);
   const bakedSkus = override?.replaceProducts ? [] : trimList(input.bakedSkus);
-  const orderedSkus: string[] = [];
-  const seenSku = new Set<string>();
-  for (const sku of [...addSkus, ...placementAdds, ...bakedSkus]) {
-    if (remove.has(sku) || seenSku.has(sku)) continue;
-    seenSku.add(sku);
-    orderedSkus.push(sku);
+
+  // HIDE-110: plan ORDERED SLOTS before resolving, so a product page that
+  // replaced a hidden Geiger product takes its exact position rather than the
+  // grid simply losing an item. The rule itself is the pure, unit-tested
+  // `planProductSlots`; this function only resolves what it decided.
+  const slots = planProductSlots<GeigerProduct>({
+    skus: [...addSkus, ...placementAdds, ...bakedSkus],
+    perCategoryRemove: remove,
+    hiddenEverywhere,
+    replacementBySku: input.replacementBySku,
+    identify: (p) => p.sku,
+  });
+
+  // Resolve every remaining Geiger SKU in ONE pass (the lookup is a shared
+  // index), then rebuild the list in slot order.
+  const resolvedBySku = new Map(
+    resolveProductsBySku(slots.flatMap((s) => (s.kind === 'sku' ? [s.sku] : []))).map((p) => [
+      p.sku,
+      p,
+    ]),
+  );
+  const geigerProducts: GeigerProduct[] = [];
+  for (const slot of slots) {
+    if (slot.kind === 'product') {
+      geigerProducts.push(slot.product);
+      continue;
+    }
+    const resolved = resolvedBySku.get(slot.sku);
+    if (resolved) geigerProducts.push(resolved);
   }
-  const geigerProducts = resolveProductsBySku(orderedSkus);
 
   // Added (non-baked) products: override.addedProducts + any extras passed in.
   // customProduct refs normalize to affiliate link-out cards; productPage refs
@@ -207,7 +262,7 @@ export function mergeCategoryProducts(input: MergeCategoryProductsInput): Geiger
     // Product-side placements last within the added block (editorial override
     // picks stay first); the sku de-dupe below collapses both-ways attaches.
     ...(input.placedProductPages ?? []),
-  ].filter((p) => !remove.has(p.sku));
+  ].filter((p) => !isRemoved(p.sku));
 
   // Final de-dupe across custom + Geiger (custom first).
   const out: GeigerProduct[] = [];

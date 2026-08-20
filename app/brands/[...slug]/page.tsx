@@ -1,3 +1,5 @@
+import { getHiddenProductContext } from '@/lib/products/site-wide-hidden';
+import { buildSkuSet, filterHiddenSkuItems } from '@/lib/products/hidden-skus';
 import type { Metadata } from 'next';
 import { notFound, redirect } from 'next/navigation';
 
@@ -150,7 +152,13 @@ export default async function BrandPage({ params }: Props) {
   const brand = await getBrandBySlug(parsed.slug);
   if (!brand) notFound();
 
-  const allProducts = getProductsForBrandSlug(brand.slug);
+  // HIDE-100: filter BEFORE pagination so a hidden product does not leave a
+  // gap on its page, and the page count reflects what is actually shown.
+  // generateStaticParams deliberately still counts the unfiltered list: it only
+  // decides which paths to prebuild, and over-prebuilding one page is harmless
+  // where under-prebuilding would 404 a page that a later un-hide brings back.
+  const hidden = buildSkuSet((await getHiddenProductContext()).hiddenSkus);
+  const allProducts = filterHiddenSkuItems(getProductsForBrandSlug(brand.slug), hidden);
   const pageData = paginateProducts(allProducts, parsed.page, PRODUCTS_PER_PAGE);
 
   // Out-of-range pages 404.

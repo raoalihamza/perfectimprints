@@ -37,6 +37,8 @@ import { toVideoCardData, type VideoCardData } from '@/lib/video/card-data';
 import { matchRelatedProducts } from '@/lib/ai/related-products';
 import { suggestLinksForKind } from '@/lib/ai/internal-links';
 import { resolveProductsBySku } from '@/lib/categories';
+import { getHiddenProductContext } from '@/lib/products/site-wide-hidden';
+import { buildSkuSet, isHiddenSku, normalizeSku } from '@/lib/products/hidden-skus';
 import { portableTextToPlain } from '@/lib/portable-text/to-plain';
 import { socialMeta } from '@/lib/seo/open-graph';
 import type { GeigerProduct } from '@/lib/product-types';
@@ -170,10 +172,33 @@ async function resolveRelatedProducts(doc: ProductPageDoc): Promise<GeigerProduc
   const selfSku = `custom-${doc._id}`;
   const picked: GeigerProduct[] = [];
   const seen = new Set<string>([selfSku]);
+  // Site-wide hide list (HIDE-100). Applied to the MANUAL entries here as well
+  // as inside matchRelatedProducts, because Patrick confirmed a site-wide hide
+  // outranks a hand-picked placement: the point of the list is that his own
+  // product page replaces the Geiger card, so the Geiger card must not survive
+  // in a carousel he happened to pin it into. His own customProduct and
+  // productPage entries carry synthetic `custom-<id>` SKUs, which are not
+  // pickable in the SKU picker, so they can never be hidden by this.
+  const context = await getHiddenProductContext();
+  const hidden = buildSkuSet(context.hiddenSkus);
+  // HIDE-110: a hidden Geiger product that one of Patrick's pages has replaced
+  // is SWAPPED for that page rather than dropped, so a hand-picked carousel
+  // keeps its length and still points at the product the editor meant. This
+  // carousel already opted IN to product pages (`includeProductPages: true`
+  // below), so a product-page card here is not smuggling anything in.
   const push = (p: GeigerProduct) => {
-    if (picked.length >= LIMIT || seen.has(p.sku)) return;
-    seen.add(p.sku);
-    picked.push(p);
+    if (picked.length >= LIMIT) return;
+    let card = p;
+    if (isHiddenSku(card.sku, hidden)) {
+      const replacement = context.replacementBySku.get(normalizeSku(card.sku));
+      // No replacement, or the replacement IS this very product page: drop it.
+      // (A page must never appear in its own related carousel.)
+      if (!replacement || replacement.sku === selfSku) return;
+      card = replacement;
+    }
+    if (seen.has(card.sku)) return;
+    seen.add(card.sku);
+    picked.push(card);
   };
 
   const entries = doc.relatedProducts ?? [];
@@ -247,6 +272,8 @@ async function resolveRelatedProducts(doc: ProductPageDoc): Promise<GeigerProduc
       includeCustom: false,
       includeProductPages: true,
       exclude: new Set(seen),
+      hiddenSkus: context.hiddenSkus,
+      replacementBySku: context.replacementBySku,
     });
     for (const p of auto) push(p);
   }

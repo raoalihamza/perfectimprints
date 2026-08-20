@@ -1,4 +1,6 @@
 import { resolveProductsBySku } from '@/lib/categories';
+import { getHiddenProductContext } from '@/lib/products/site-wide-hidden';
+import { buildSkuSet, isHiddenSku, normalizeSku } from '@/lib/products/hidden-skus';
 import { urlForImage } from '@/lib/sanity/client';
 import { affiliateUrl } from '@/lib/affiliate-url';
 import { ProductCard } from '@/components/category/ProductCard';
@@ -31,9 +33,17 @@ function isGeigerUrl(url: string): boolean {
   return GEIGER_HOST_PATTERN.test(url) || AFFILIATE_HOST_PATTERN.test(url);
 }
 
-export function ProductStrip({ section }: { section: ProductStripSection }) {
+// Async server component (HIDE-100). It reads `getSiteSettings()` itself rather
+// than taking a prop, because SectionRenderer is used by four different page
+// routes and threading a prop through all of them would be far more invasive.
+// The read is the layout's already-deduped, SETTINGS_TAG-cached one, so this
+// costs no extra Sanity fetch and every embedding route stays static.
+export async function ProductStrip({ section }: { section: ProductStripSection }) {
   const entries = section.products ?? [];
   if (entries.length === 0) return null;
+
+  const context = await getHiddenProductContext();
+  const hidden = buildSkuSet(context.hiddenSkus);
 
   const skus = entries
     .map((e) => (e && !isStripRefEntry(e) ? e.sku?.trim() : undefined))
@@ -54,6 +64,16 @@ export function ProductStrip({ section }: { section: ProductStripSection }) {
         return <ProductCard key={`ref-${entry._id}-${idx}`} product={product} />;
       }
       const sku = entry.sku?.trim();
+      // Drop the whole entry, not just the resolved card: the manual
+      // title/image/url fallback below would otherwise resurrect a hidden
+      // product as a hand-typed card. HIDE-110: if one of Patrick's pages has
+      // replaced it, swap in that card instead of leaving a gap.
+      if (isHiddenSku(sku, hidden)) {
+        const replacement = context.replacementBySku.get(normalizeSku(sku));
+        if (!replacement || seenRefSkus.has(replacement.sku)) return null;
+        seenRefSkus.add(replacement.sku);
+        return <ProductCard key={`rep-${replacement.sku}-${idx}`} product={replacement} />;
+      }
       const resolved = sku ? skuProducts.get(sku) : undefined;
       if (resolved) {
         return <ProductCard key={entry._key || `sku-${sku}-${idx}`} product={resolved} />;

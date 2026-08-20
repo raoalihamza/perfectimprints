@@ -1,5 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { CategoryPicker, CategorySlugInput } from '../../components/CategoryPicker';
+import { ProductSkuPicker } from '../../components/ProductPicker';
 import { portableBody } from '../objects/page-sections';
 
 /**
@@ -23,6 +24,13 @@ export default defineType({
   type: 'document',
   fieldsets: [
     { name: 'basics', title: 'Basics', options: { collapsible: true, collapsed: false } },
+    {
+      name: 'replaces',
+      title: 'Replaces a Geiger product',
+      description:
+        'If this page is your own better version of a product in the Geiger catalog, name that Geiger item here. It disappears from the whole site and this page takes its place wherever it used to show.',
+      options: { collapsible: true, collapsed: false },
+    },
     {
       name: 'imagesColors',
       title: 'Images & Colors',
@@ -111,6 +119,47 @@ export default defineType({
       type: 'string',
       fieldset: 'basics',
       description: 'Shown on the product card and used by search and the Brand filter.',
+    }),
+    defineField({
+      name: 'replacesGeigerSkus',
+      title: 'This page replaces these Geiger products',
+      type: 'array',
+      of: [{ type: 'string' }],
+      fieldset: 'replaces',
+      components: { input: ProductSkuPicker },
+      description:
+        'Search the Geiger catalog and click the product this page is your version of. TWO things happen when you publish: that Geiger product disappears from the entire site (category pages, related products, product rows in blogs and videos, Deals, New Products, Rush, brand pages, Promotional Products and search), AND this page shows up in its place on category pages, related products and product rows. Add more than one if this page covers several Geiger items. Leave blank if this product is not replacing anything. Nothing happens until you PUBLISH, and clearing the field brings the Geiger product straight back.',
+      validation: (Rule) =>
+        Rule.custom(async (value, context) => {
+          if (!Array.isArray(value) || value.length === 0) return true;
+          const entries = value
+            .map((v) => (typeof v === 'string' ? v.trim() : ''))
+            .filter(Boolean);
+          if (entries.length === 0) return true;
+
+          // Same SKU twice on this page is a no-op, but it reads as a mistake.
+          const seen = new Set<string>();
+          for (const e of entries) {
+            const key = e.toUpperCase();
+            if (seen.has(key)) return `"${e}" is listed twice.`;
+            seen.add(key);
+          }
+
+          // One Geiger product can only be replaced by ONE page. Two pages
+          // claiming it would make which one a visitor sees depend on document
+          // order, so block publishing the second (the duplicate-override
+          // lesson, 2026-08-05).
+          const id = (context.document?._id ?? '').replace(/^drafts\./, '');
+          const client = context.getClient({ apiVersion: '2024-10-01' });
+          const clash = await client.fetch<{ title?: string } | null>(
+            `*[_type == "productPage" && !(_id in [$id, $draftId]) && count((replacesGeigerSkus[])[@ in $skus]) > 0][0]{title}`,
+            { id, draftId: `drafts.${id}`, skus: entries },
+          );
+          if (clash) {
+            return `Another product page (${clash.title || 'untitled'}) already replaces one of these Geiger products. Remove it there first, or pick a different item.`;
+          }
+          return true;
+        }),
     }),
     defineField({
       name: 'sku',

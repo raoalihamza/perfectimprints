@@ -15,6 +15,7 @@
 import { NextResponse } from 'next/server';
 import { buildSanitySearchItems } from '@/lib/search/sanity-index';
 import { getSiteSettings } from '@/lib/sanity/queries/global-settings';
+import { searchHiddenSkus } from '@/lib/products/site-wide-hidden';
 import { filterHiddenSkuItems, buildHiddenSkuSet } from '@/lib/search/hidden-skus';
 import type { SearchIndexFile } from '@/lib/search/types';
 
@@ -41,7 +42,10 @@ export async function GET() {
     getSiteSettings().catch(() => null),
   ]);
 
-  const hiddenProductSkus = settings?.searchHiddenSkus ?? [];
+  // HIDE-100: search hides its own list PLUS the site-wide list, because
+  // "hidden everywhere" includes search. One definition, shared by all three
+  // search read paths.
+  const hiddenProductSkus = await searchHiddenSkus();
   // Also applied to the delta's OWN entries here, so a hidden productPage item
   // number never reaches the client in the first place.
   const visible = filterHiddenSkuItems(items, buildHiddenSkuSet(hiddenProductSkus));

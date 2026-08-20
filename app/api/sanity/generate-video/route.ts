@@ -21,6 +21,7 @@
 // so it must NEVER be statically evaluated or moved to the Edge runtime —
 // runtime/dynamic exports below mirror the generate-blog route exactly.
 
+import { siteWideHiddenSkus } from '@/lib/products/site-wide-hidden';
 import { NextResponse } from 'next/server';
 import { brandVoiceSystemBlock, BUYER_PERSONA } from '@/lib/ai/brand-voice';
 import { generateJson, DeepSeekError } from '@/lib/ai/deepseek';
@@ -187,6 +188,7 @@ export async function POST(request: Request) {
       ? resolveCategoryForKeywords(productType)
       : resolveCategoryForKeywords(promptKeywords.join(' '));
     const products = await matchRelatedProducts({
+      hiddenSkus: await siteWideHiddenSkus(),
       categorySlug: resolvedCategory ?? undefined,
       keywords: stripKeywords.length > 0 ? stripKeywords : promptKeywords,
       limit: STRIP_LIMIT,

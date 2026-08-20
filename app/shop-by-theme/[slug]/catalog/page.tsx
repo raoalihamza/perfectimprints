@@ -1,3 +1,4 @@
+import { getHiddenProductContext } from '@/lib/products/site-wide-hidden';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -55,7 +56,8 @@ export default async function GatedCatalogPage({ params }: Props) {
     catalogKey: doc.catalogKey,
     addedSkus: doc.addedSkus,
     addedProducts: doc.addedProducts,
-    hiddenSkus: doc.hiddenSkus,
+    // HIDE-100: the catalog's own hide list plus the site-wide one.
+    hiddenSkus: [...(doc.hiddenSkus ?? []), ...(await getHiddenProductContext()).hiddenSkus],
   });
 
   // Sanity override wins; else the scraped viewer link for this catalog key.
