@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { decodeHtmlEntities } from './text-utils';
+import { decodeProductEntities } from './products/decode-product';
 
 export { PRODUCTS_PER_PAGE, type GeigerProduct, type ProductBadge } from './product-types';
 import { PRODUCTS_PER_PAGE, type GeigerProduct } from './product-types';
@@ -73,11 +73,15 @@ function loadProductsIndex(): Map<string, GeigerProduct> {
   const parsed = JSON.parse(raw) as ProductsFile;
   const map = new Map<string, GeigerProduct>();
   for (const p of parsed.products) {
-    // Geiger image URLs in products.json carry literal `&amp;` entities (e.g.
-    // `?format=webp&amp;w=275`). Decode once here at the data-loading layer so
-    // EVERY consumer — product grid, og:image, twitter:image, ItemList image —
-    // gets a clean `&` URL. (HTML entity decoding lives only in this file.)
-    map.set(p.sku, p.imageUrl ? { ...p, imageUrl: decodeHtmlEntities(p.imageUrl) } : p);
+    // Geiger stores HTML entities directly in its values. Decode ALL of them
+    // once here at the data-loading layer (name, description, imageUrl and
+    // brand) so EVERY consumer (product grid, og:image, twitter:image,
+    // ItemList image, the brand badge and `brand.name` in the JSON-LD) gets
+    // clean text. The two paths out of this index, `resolveProducts` and
+    // `getAllProducts`, therefore decode nothing of their own; before SNIP-130
+    // they each re-decoded a DIFFERENT subset of fields on top, which is how
+    // `brand` stayed encoded on every surface.
+    map.set(p.sku, decodeProductEntities(p));
   }
   _productsBySku = map;
   return map;
@@ -159,22 +163,19 @@ export function getProductsForCategorySlug(slug: string): GeigerProduct[] {
 }
 
 /**
- * Returns every product in the catalog (deduped by SKU), with names/descriptions
- * HTML-decoded at the loader level per the project convention. Used by the
- * build-time search-index builder (M5-502); not for runtime page rendering.
+ * Returns every product in the catalog (deduped by SKU), already HTML-decoded
+ * by `loadProductsIndex` per the project convention. Used by the build-time
+ * search-index builder (M5-502); not for runtime page rendering.
+ *
+ * The copy is deliberate: the index is memoized for the process lifetime, so
+ * handing out its objects directly would let one caller's mutation reach every
+ * later render.
  */
 export function getAllProducts(): GeigerProduct[] {
   const index = loadProductsIndex();
   const out: GeigerProduct[] = [];
   for (const product of index.values()) {
-    out.push({
-      ...product,
-      name: decodeHtmlEntities(product.name),
-      description: product.description
-        ? decodeHtmlEntities(product.description)
-        : product.description,
-      imageUrl: product.imageUrl ? decodeHtmlEntities(product.imageUrl) : product.imageUrl,
-    });
+    out.push({ ...product });
   }
   return out;
 }
@@ -193,7 +194,7 @@ export interface CategoryProductsPage {
 export function getProductsPageForCategorySlug(
   slug: string,
   page: number,
-  perPage: number = PRODUCTS_PER_PAGE
+  perPage: number = PRODUCTS_PER_PAGE,
 ): CategoryProductsPage {
   const content = getCategoryContent(slug);
   const allSkus = content?.productSkus ?? [];
@@ -214,7 +215,7 @@ export function resolveProductsBySku(skus: string[]): GeigerProduct[] {
 export function paginateProducts(
   products: GeigerProduct[],
   page: number,
-  perPage: number = PRODUCTS_PER_PAGE
+  perPage: number = PRODUCTS_PER_PAGE,
 ): CategoryProductsPage {
   const totalProducts = products.length;
   const totalPages = Math.max(1, Math.ceil(totalProducts / perPage));
@@ -235,11 +236,9 @@ function resolveProducts(skus: string[]): GeigerProduct[] {
   for (const sku of skus) {
     const product = index.get(sku);
     if (product) {
-      out.push({
-        ...product,
-        name: decodeHtmlEntities(product.name),
-        description: product.description ? decodeHtmlEntities(product.description) : product.description,
-      });
+      // Already decoded in `loadProductsIndex`; copied so a caller cannot
+      // mutate the memoized index.
+      out.push({ ...product });
     }
   }
   return out;

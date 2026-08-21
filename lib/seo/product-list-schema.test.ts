@@ -45,8 +45,56 @@ describe('productListItem', () => {
       priceCurrency: 'USD',
       lowPrice: 1.52,
       highPrice: 2.84,
+      offerCount: 2,
       eligibleQuantity: { '@type': 'QuantitativeValue', value: 100, unitCode: 'C62' },
     });
+  });
+
+  /**
+   * SNIP-130. Google Search Console emailed Patrick about 146 items missing
+   * `offerCount`, all of them on four /cat/ pages. The number is not a constant:
+   * it is the count of DISTINCT prices the record publishes, which is exactly
+   * what the AggregateOffer beside it states and exactly what the visible card
+   * prints. Overstating it would be fabrication, so a single-price record must
+   * report 1 even though every scraped Geiger record today reports 2.
+   */
+  it('counts the two known prices when the record publishes a genuine range', () => {
+    const entry = productListItem(fullProduct({ low_price: 1.52, high_price: 2.84 }), 1)!;
+    const offers = (entry.item as Record<string, unknown>).offers as Record<string, unknown>;
+    expect(offers.offerCount).toBe(2);
+  });
+
+  it('counts ONE price when low and high are the same, never a hard-coded 2', () => {
+    // A `customProduct` with only a low price, or a `productPage` with a single
+    // pricing tier, both normalize to low === high. Reporting 2 there would be
+    // a false statement about a product that has exactly one price.
+    const entry = productListItem(fullProduct({ low_price: 4, high_price: 4 }), 1)!;
+    const offers = (entry.item as Record<string, unknown>).offers as Record<string, unknown>;
+    expect(offers.offerCount).toBe(1);
+  });
+
+  it('counts ONE price when the high price is missing entirely', () => {
+    const entry = productListItem(fullProduct({ low_price: 4, high_price: null }), 1)!;
+    const offers = (entry.item as Record<string, unknown>).offers as Record<string, unknown>;
+    expect(offers.lowPrice).toBe(4);
+    expect(offers.highPrice).toBe(4);
+    expect(offers.offerCount).toBe(1);
+  });
+
+  it('emits no offer at all, and so no offerCount, when there is no usable price', () => {
+    const entry = productListItem(fullProduct({ low_price: null, high_price: null }), 1)!;
+    const item = entry.item as Record<string, unknown>;
+    expect(item).not.toHaveProperty('offers');
+    expect(JSON.stringify(item)).not.toContain('offerCount');
+  });
+
+  it('never fabricates the ratings and reviews Google also warns about', () => {
+    // The site collects no customer reviews. These two warnings stay unfixed on
+    // purpose; inventing values to silence a validator would be dishonest.
+    const json = JSON.stringify(productListItem(fullProduct(), 1));
+    expect(json).not.toContain('aggregateRating');
+    expect(json).not.toContain('review');
+    expect(json).not.toContain('ratingValue');
   });
 
   it('upsizes the image to the ~1200px social variant', () => {
@@ -102,10 +150,8 @@ describe('productListItem', () => {
   });
 
   it('prefers the internal detailUrl over the affiliate url, absolutized', () => {
-    const item = productListItem(
-      fullProduct({ detailUrl: '/products/vinyl-football' }),
-      1,
-    )!.item as Record<string, unknown>;
+    const item = productListItem(fullProduct({ detailUrl: '/products/vinyl-football' }), 1)!
+      .item as Record<string, unknown>;
     expect(item.url).toBe('https://www.perfectimprints.com/products/vinyl-football');
   });
 
@@ -176,7 +222,8 @@ describe('productListItem', () => {
   it('leaves a non-Geiger (Sanity) image URL untouched apart from decoding', () => {
     const item = productListItem(
       fullProduct({
-        imageUrl: 'https://cdn.sanity.io/images/ii96lcy9/production/abc-1500x1501.jpg?w=400&fit=max',
+        imageUrl:
+          'https://cdn.sanity.io/images/ii96lcy9/production/abc-1500x1501.jpg?w=400&fit=max',
       }),
       1,
     )!.item as Record<string, unknown>;
@@ -240,10 +287,7 @@ describe('aggregatorItemListSchema', () => {
 
   it('preserves the page order, so pinned and custom products stay first', () => {
     const list = aggregatorItemListSchema(
-      [
-        fullProduct({ name: 'Pinned', sku: 'PIN1' }),
-        fullProduct({ name: 'Scraped', sku: 'SCR1' }),
-      ],
+      [fullProduct({ name: 'Pinned', sku: 'PIN1' }), fullProduct({ name: 'Scraped', sku: 'SCR1' })],
       60,
     )!;
     const elements = list.itemListElement as Array<Record<string, unknown>>;

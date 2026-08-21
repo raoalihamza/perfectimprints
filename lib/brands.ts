@@ -7,6 +7,7 @@ import path from 'node:path';
 import { cachedClient, urlForImage } from './sanity/client';
 import { BRANDS_TAG } from './sanity/cache-tags';
 import type { SanityImage } from './sanity/types';
+import { decodeProductEntities } from './products/decode-product';
 import { decodeHtmlEntities } from './text-utils';
 import type { GeigerProduct } from './categories';
 
@@ -228,13 +229,12 @@ function loadProductsByBrandSlug(): Map<string, GeigerProduct[]> {
     const slug = slugifyBrandName(p.brand);
     if (!slug) continue;
     const list = out.get(slug) ?? [];
-    list.push({
-      ...p,
-      name: decodeHtmlEntities(p.name),
-      description: p.description ? decodeHtmlEntities(p.description) : p.description,
-      // Geiger image URLs carry literal `&amp;` entities — decode for clean URLs.
-      imageUrl: p.imageUrl ? decodeHtmlEntities(p.imageUrl) : p.imageUrl,
-    });
+    // Decoded at the loader (name, description, imageUrl, brand). `brand`
+    // matters most on THIS page: the card badge prints it and the ItemList
+    // JSON-LD claims it, so before SNIP-130 all 16 cards on /brands/cutter-buck
+    // read "Cutter &amp; Buck" underneath a heading that read "Cutter & Buck"
+    // (the heading comes from brands.json, which carries no entities).
+    list.push(decodeProductEntities(p));
     out.set(slug, list);
   }
   _productsByBrandSlug = out;

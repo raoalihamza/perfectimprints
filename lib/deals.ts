@@ -1,7 +1,7 @@
 import { buildSkuSet, isHiddenSku } from '@/lib/products/hidden-skus';
 import fs from 'node:fs';
 import path from 'node:path';
-import { decodeHtmlEntities } from './text-utils';
+import { decodeProductList } from './products/decode-product';
 import type { GeigerProduct } from './product-types';
 import type { DealsFacetSection, DealsFacetValue } from './deals-filter';
 import { augmentAggregator } from './products/augment';
@@ -13,11 +13,7 @@ import {
 
 // Re-export client-safe types + filter helper so server callers can import
 // everything from "@/lib/deals" without crossing into the client-safe module.
-export type {
-  DealsFacetSection,
-  DealsFacetValue,
-  DealsFilterState,
-} from './deals-filter';
+export type { DealsFacetSection, DealsFacetValue, DealsFilterState } from './deals-filter';
 export { applyDealsFilters } from './deals-filter';
 
 const DEALS_FILE = path.join(process.cwd(), 'data', 'geiger', 'deals.json');
@@ -54,21 +50,15 @@ function readScraped(): RawScrapedDeals {
   const raw = fs.readFileSync(DEALS_FILE, 'utf8');
   const parsed = JSON.parse(raw) as DealsFile;
 
-  // IMG-100: Geiger's scraped `imageUrl` carries literal `&amp;` between its
-  // query parameters (`?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275`).
-  // The image host REJECTS those with HTTP 400 ("Additional properties not
-  // allowed: amp;thumbnail, amp;w, amp;h"), so an undecoded URL is a BROKEN
-  // image, not merely a large one. Decode once here, exactly as
-  // lib/categories.ts and lib/products/lookup.ts already do, so every consumer
-  // gets a clean URL: the grid, the ItemList image, and anything added later.
-  // ProductCard used to patch this at render time; that patch is gone, so this
-  // line is now the only thing keeping these images working.
-  const products: GeigerProduct[] = parsed.products.map((p) => ({
-    ...p,
-    name: decodeHtmlEntities(p.name),
-    description: p.description ? decodeHtmlEntities(p.description) : p.description,
-    imageUrl: p.imageUrl ? decodeHtmlEntities(p.imageUrl) : p.imageUrl,
-  }));
+  // Decode Geiger's HTML entities once, here at the loader, so every consumer
+  // sees clean text: the grid, the ItemList JSON-LD, and anything added later.
+  // `imageUrl` is the loud failure (the image host answers HTTP 400 to the
+  // literal `&amp;`, so an undecoded URL is a BROKEN image rather than merely a
+  // large one, IMG-100) and `brand` is the quiet one (it renders as the visible
+  // badge text and as `brand.name` in the markup, SNIP-130). The shared helper
+  // covers every entity-bearing field, so this loader cannot fall behind the
+  // others again. Do NOT reintroduce a decode at a render site.
+  const products: GeigerProduct[] = decodeProductList(parsed.products);
 
   _rawCache = {
     scrapedAt: parsed.scrapedAt,

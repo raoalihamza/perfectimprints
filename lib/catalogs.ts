@@ -1,7 +1,7 @@
 import { buildSkuSet, isHiddenSku } from '@/lib/products/hidden-skus';
 import fs from 'node:fs';
 import path from 'node:path';
-import { decodeHtmlEntities } from './text-utils';
+import { decodeProductList } from './products/decode-product';
 import type { GeigerProduct } from './product-types';
 import type { DealsFacetSection, DealsFacetValue } from './deals-filter';
 import { augmentAggregator } from './products/augment';
@@ -93,16 +93,12 @@ function readCatalogsFile(): Map<string, RawScrapedCatalog> {
         scrapedAt: parsed.scrapedAt ?? null,
         title: entry.title ?? null,
         browseUrl: entry.browseUrl ?? null,
-        // IMG-100: same decode gap as the deals / new / rush loaders. The
-        // gated catalog pages render through the shared ProductGrid ->
-        // ProductCard, whose render-time patch has been removed, so without
-        // this line all 1,043 catalog images would 400 at the image host.
-        products: (entry.products ?? []).map((p) => ({
-          ...p,
-          name: decodeHtmlEntities(p.name),
-          description: p.description ? decodeHtmlEntities(p.description) : p.description,
-          imageUrl: p.imageUrl ? decodeHtmlEntities(p.imageUrl) : p.imageUrl,
-        })),
+        // Decoded at the loader like every other product source. The gated
+        // catalog pages render through the shared ProductGrid -> ProductCard,
+        // whose render-time patch was removed by IMG-100, so without this all
+        // 1,043 catalog images would 400 at the image host and the two
+        // entity-bearing brands here would render as `W&amp;P`-style text.
+        products: decodeProductList(entry.products ?? []),
         scrapedFacets: entry.facets ?? [],
       });
     }

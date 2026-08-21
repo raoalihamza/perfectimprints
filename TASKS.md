@@ -2914,6 +2914,87 @@ For reference, the same Geiger images with the size parameters stripped would be
 
 **Separately observed while measuring, not a defect and not in scope: `/new-products` carries 967.4 KB of images, the heaviest of the three, and none of it is Geiger.** All 60 are Patrick's own product pages served from `cdn.sanity.io`, 57 of 60 as `image/jpeg` rather than WebP or AVIF, requested at `w=400` for a 275px slot. If mobile page speed on that page is the goal, that is where the weight is, and it is a Sanity image-URL question rather than an entity-decoding one.
 
+### [x] SNIP-130: clear the offerCount warning and fix the double-encoded brand names - CODE COMPLETE 2026-08-22 (staged, NOT committed)
+
+Two cleanups after the Product Snippets work landed. Google now reads **149 valid items with zero invalid**, up from 43. One task, because both halves touch the same surfaces and a partial fix to either would have left the site saying two different things on two different pages.
+
+---
+
+**PART ONE: `offers.offerCount`.**
+
+**What Google actually reported.** The Search Console export (`Missing field 'offerCount' (in 'offers')`) names **146 affected items across exactly four URLs** - `/cat/rubber-ducks`, `/cat/coolers`, `/cat/tote-bags` and `/cat/sunscreen/ounce-capacity/3-oz` - all first counted on 2026-08-20 and last crawled 2026-08-21. Every row is a `/cat/` page. It would have grown as Google crawled more of the 14,344 grid-bearing category pages. Genuinely non-critical, but Google warns such issues can be reclassified, and Patrick reads these emails.
+
+**Does it apply to the product pages? No, and structurally so.** `/products/<slug>` emits a single `Offer` (`buildMinimumOrderOffer`, FIX-830), and `offerCount` is an `AggregateOffer` property. Confirmed both ways: zero `/products/` rows appear in Google's export, and a rendered `/products/1785-illini` has `offers['@type'] === 'Offer'` with no `offerCount`. Nothing to fix there and nothing was changed there.
+
+**Establishing what the number can truthfully be, before writing anything.** One read-only call to the Searchspring endpoint the pipeline already uses returned the full raw product payload. It carries exactly four price fields - `low_price`, `high_price`, `msrp` (byte-for-byte `high_price`) and `price` (byte-for-byte `low_price`) - and **no tier count, no variant count, no offer count of any kind**. So the scraper drops nothing: there is no truer figure sitting unread in the source, and any number has to be derived from the two prices the site holds.
+
+**The rule: `offerCount` = the count of DISTINCT PRICES this record publishes.** That is exactly what the AggregateOffer beside it states and exactly what the visible card prints.
+
+| record | card reads | offerCount |
+| --- | --- | --- |
+| `low !== high` | "$3.15 - $3.78" | **2** |
+| `low === high` | "$4.00" | **1** |
+| no usable price | no price | **no offer emitted at all** |
+
+**It is computed per product and is never a constant.** Every scraped record with a usable price resolves to 2 today, because every one has `low < high` (verified across products.json, deals.json, new-products.json, rush-products.json and catalogs.json). But a `customProduct` with only a low price, or a `productPage` with a single pricing tier, normalizes to `low === high` through its own normalizer and correctly reports **1**; hard-coding 2 would become false the moment Patrick creates one. Tests cover all four cases, including that a priceless record still emits no offer rather than a guess.
+
+**Why it is true, and what it deliberately does not claim.** A promotional product usually has more than two quantity breaks, and Geiger may well sell an item at five prices. We do not know that number and will not invent it, so this **understates rather than overstates**. Understating is safe: the two figures published are demonstrably real offers, so the count is a floor, never a fabrication. If a feed ever exposes a real tier count, that replaces this - a guess does not.
+
+**`aggregateRating` and `review` stay unfixed, forever and on purpose.** The site collects no customer reviews; inventing values to silence a validator would be dishonest. Verified still absent in the rendered markup and asserted by test so nobody "completes" them later.
+
+Emitted through the ONE shared serializer (`knownOfferCount` inside `offerFor` in [lib/seo/product-list-schema.ts](lib/seo/product-list-schema.ts)), so `/cat` + customCategory, `/brands` and the three aggregators all gained it in a single change with **no call site touched**. About 20 bytes per product.
+
+---
+
+**PART TWO: the double-encoded brand names.**
+
+**What shoppers were reading.** `brand` reaches a visitor twice on every card: the badge over the image, and `brand.name` in the ItemList JSON-LD. Because the stored value already contained `&amp;`, React correctly escaped it again, so the HTML held `Cutter &amp;amp; Buck` - which a browser renders as the literal text **"Cutter &amp; Buck"**, on all 16 cards of /brands/cutter-buck, directly beneath an H1 reading "Cutter & Buck" (the heading comes from `brands.json`, which carries no entities - which is exactly why this looked like a page arguing with itself). Affected brands: Cutter & Buck, Travis & Wells, W&P, M&M's, Port & Co.
+
+**Before and after, measured on the same page by rendering it with and without the change:**
+
+| | badge markup (x16) | JSON-LD `brand.name` |
+| --- | --- | --- |
+| before | `Cutter &amp;amp; Buck` -> reads "Cutter &amp; Buck" | `"Cutter &amp; Buck"` |
+| after | `Cutter &amp; Buck` -> reads "Cutter & Buck" | `"Cutter & Buck"` |
+
+**Every field was audited, not just brand.** A recursive scan of every string in all seven data files found entities in **exactly four fields and nowhere else**: `imageUrl` (9,602 records), `description` (9,538), `name` (1,119), `brand` (32 - 30 in products.json, 2 in catalogs.json). Clean: facet labels and values, `category_paths`, `badges`, `product_type_unigram`, `geiger_url`, all of `brands.json`, all of `categories.json`.
+
+**Every loader was audited.** All seven. `brand` was decoded by **none** of them.
+
+**The fix is the cause, not the symptom.** The real defect was that each loader hand-wrote its own three-field decode - which is precisely how IMG-100 came to fix ONE field across FOUR loaders while leaving ONE field broken in ALL SEVEN. The field list now lives in one place, [lib/products/decode-product.ts](lib/products/decode-product.ts) (`decodeProductEntities` / `decodeProductList`, pure and client-safe), called by all seven loaders. Add a field there and every surface gets it at once. **No patch was added at a render site**; `ProductCard` still renders `product.brand` verbatim, and a test asserts it does no decoding, because a card-level patch is exactly what hid the IMG-100 gap for months.
+
+**Source files or loading? The loading, unambiguously.** Searchspring publishes these values with entities in them, the scraper stores what it is given, and the loader is the layer this project decodes at (CLAUDE.md section 17). **No scraper was changed**, and none needs to be.
+
+**One consolidation.** `lib/categories.ts` used to decode `imageUrl` in `loadProductsIndex` and then re-decode a *different* subset (`name` + `description`) in `resolveProducts` and `getAllProducts` on top of it. All decoding now happens once in the index; the two paths out only copy, deliberately, because the index is memoized for the process lifetime and handing out its objects would let one caller's mutation reach every later render.
+
+**Nothing moved that a visitor navigates by.** `slugifyBrandName` already decoded before slugifying, so `/brands/cutter-buck` is the address it always was, and the 205-brand A-Z grouping is unchanged. As a side effect the curated-mode filter overlay (`buildAddedAttrOverlay`) now slugifies these brands to the same value the scraped facets use, where before an encoded brand produced a second, separate Brand facet value for the same brand.
+
+---
+
+**Verification.** `pnpm typecheck` clean. **372/372 tests pass** (346 before: +29 new in [lib/products/decode-product.test.ts](lib/products/decode-product.test.ts), +5 new offerCount/ratings cases in [lib/seo/product-list-schema.test.ts](lib/seo/product-list-schema.test.ts), -8 moved out of [lib/products/image-url-decode.test.ts](lib/products/image-url-decode.test.ts), which keeps the behavioural HTTP 400 record while its loader guard moved to the new file so two lists of loaders cannot drift apart).
+
+**Whole-catalog sweep** rather than page sampling: every product in all five data files pushed through the serializer gave **9,600 items, 9,599 offers, 0 missing an `offerCount`**, distribution `{2: 9599}`, **0 brands still carrying an entity, and 0 HTML entities of any kind anywhere in the emitted JSON**. The single item with no offer is `1GB USB Pen Drive 1300` (sku `503848 1GB`), whose `low_price` is `0`; the pre-existing `low <= 0` guard refuses it as not a real price, so it emits no offer and therefore no `offerCount` - the third row of the table above, occurring for real in the live catalog rather than only in a test.
+
+**Rendered-output validation** at validator.schema.org, from real rendered HTML, one page of each type:
+
+| page | detected types | errors | warnings |
+| --- | --- | --- | --- |
+| `/cat/rubber-ducks` (a GSC-flagged URL) | CollectionPage, ItemList, FAQPage, BreadcrumbList, WebSite | **0** | **0** |
+| `/brands/cutter-buck` | ItemList, BreadcrumbList, WebSite | **0** | **0** |
+| `/deals` | ItemList, BreadcrumbList, WebSite | **0** | **0** |
+| `/products/1785-illini` | Product, BreadcrumbList, WebSite | **0** | **0** |
+
+Every AggregateOffer on all three ItemList pages carries `offerCount` (6/6, 16/16, 12/12); the Product page correctly has none. **Zero `BAILOUT_TO_CLIENT_SIDE_RENDERING` markers** and zero JSON-LD parse failures on all four, so the pages are still static. No Sanity, webhook, cache-tag, env or dependency change; no route became dynamic. Landed identically in all three repos (verified by `diff -rq`), staged, NOT committed.
+
+**Honest limit on the offerCount claim.** validator.schema.org reports 0 errors / 0 warnings both before and after, because `offerCount` is a Google **Rich Results recommendation**, not a schema.org validity rule - that validator never showed the warning and so cannot be the thing that shows it clearing. What is proven here is the substance of it: the field is now present on 100% of the AggregateOffers on the exact URLs Google flagged, which is what the warning asks for. Confirmation that the report itself clears comes from Google's Rich Results Test and then from GSC after a recrawl, both post-deploy.
+
+**Risky things typecheck cannot catch, stated plainly.**
+
+1. **A new product source added without calling the shared decoder** reproduces this class of bug. The test guards the seven loaders that exist; it cannot guard one added tomorrow. That is why the field list is in one file with a comment saying so.
+2. **`offerCount` is a floor, not a census.** If Patrick or Geiger ever expect it to mean "number of quantity breaks", it does not and cannot with this data. It is the number of prices published.
+3. **The GSC number will not drop instantly.** It clears per URL only as Google recrawls, and the count may rise before it falls as more of the 14,344 category pages are crawled with markup predating this deploy.
+4. **A stale `.next` cache can serve 404s for `/cat` and `/brands`** with `x-nextjs-cache: HIT` - hit while verifying, present on the unmodified baseline too, and cleared by deleting `.next`. Not caused by this change and not a production concern (`revalidate = false` pages are rebuilt per deploy), but worth knowing before diagnosing a phantom 404 locally.
+
 ### HIDE-100: hide a Geiger product everywhere on the site (2026-08-20) - BUILT, NOT COMMITTED
 
 Follow-up to [docs/hide-000-hidden-sku-reach-diagnosis.md](docs/hide-000-hidden-sku-reach-diagnosis.md), which found that products Patrick had hidden were still appearing in the Related Products strip on `/products/soft-loop-halloween-trick-or-treat-bags`. Patrick's answers reshaped the feature: the purpose is not removal but REPLACEMENT ("the ones I'll hide sitewide are those I'll create a custom product page for with more and better information than the Geiger products"), he still wants per-category hiding for items in the wrong category, and hand-picked placements are not sacred ("those aren't critical if they are removed from a blog post or video").

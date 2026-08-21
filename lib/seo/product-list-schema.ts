@@ -30,7 +30,15 @@
  *   inventing InStock for third-party catalog items would be fabrication.
  * - a single `price` / `msrp`-as-list-price: `msrp` is a byte-for-byte alias of
  *   `high_price` on all 7,957 records; the only honest price is the range.
- * - `gtin` / `mpn` / ratings / reviews / `priceValidUntil`: not in the data.
+ * - `gtin` / `mpn` / `priceValidUntil`: not in the data.
+ * - `aggregateRating` / `review`: Google warns about both, and both stay
+ *   unfixed ON PURPOSE. The site collects no customer reviews, so there is
+ *   nothing to report; inventing ratings to silence a validator would be
+ *   dishonest. Those two warnings are expected to persist forever.
+ *
+ * WHAT WAS ADDED LATER: `offers.offerCount` (SNIP-130), the one warning of
+ * the three that COULD be answered from real data. See `knownOfferCount`
+ * for how the number is derived and why it is true per product.
  *
  * THE OFFER URL. The Product `url` is the affiliate destination
  * (patrickblack.geiger.com), the same URL the visible card links to; products
@@ -79,6 +87,42 @@ function realSku(sku: string | null | undefined): string | null {
 }
 
 /**
+ * The number of offers an AggregateOffer over this record covers (SNIP-130).
+ *
+ * WHY THIS NUMBER IS TRUE. `offerCount` is documented as "the number of offers
+ * for the product", and the honest answer is bounded by what the source
+ * publishes. A single read-only call to Searchspring confirms the upstream feed
+ * carries exactly four price fields per product - `low_price`, `high_price`,
+ * `msrp` (a byte-for-byte alias of `high_price`) and `price` (an alias of
+ * `low_price`) - and no tier count, variant count or offer count of any kind.
+ * The scraper therefore drops nothing: there is no offer count to lose.
+ *
+ * So the only number that is both derivable and defensible is the count of
+ * DISTINCT PRICES this record actually publishes, which is exactly what the
+ * AggregateOffer beside it states and exactly what the visible card prints:
+ *
+ *   low !== high  ->  2   the card reads "$3.15 - $3.78", two known prices
+ *   low === high  ->  1   the card reads "$4.00", one known price
+ *
+ * It is computed PER PRODUCT, never written as a constant. Today every one of
+ * the 9,602 scraped Geiger records has low < high, so they all resolve to 2;
+ * but a `customProduct` with only a low price, or a `productPage` with a single
+ * pricing tier, normalizes to low === high and correctly gets 1. Hard-coding 2
+ * would be false for those the moment Patrick creates one.
+ *
+ * WHAT THIS DELIBERATELY DOES NOT CLAIM. A promotional product usually has more
+ * quantity breaks than two, and Geiger may well sell this item at five prices.
+ * We do not know that number and will not invent it, so this understates rather
+ * than overstates. Understating is safe: the two figures we publish are
+ * demonstrably real offers, so the count is never a fabrication, only a floor.
+ * If a future feed ever exposes a real tier count, that is what should replace
+ * this - not a guess.
+ */
+function knownOfferCount(low: number, high: number): number {
+  return high > low ? 2 : 1;
+}
+
+/**
  * AggregateOffer for the catalog's genuine price range, qualified with the
  * minimum order quantity so the low price cannot be read as a single-unit
  * consumer price (the FIX-830 rule). Returns null when there is no usable
@@ -97,6 +141,7 @@ function offerFor(p: GeigerProduct): Record<string, unknown> | null {
     priceCurrency: 'USD',
     lowPrice: low,
     highPrice: high,
+    offerCount: knownOfferCount(low, high),
   };
 
   const minQty = p.min_qty;
@@ -142,7 +187,10 @@ function schemaImageUrl(imageUrl: string | null | undefined): string | null {
  * usable name (a nameless Product is noise; the caller renumbers positions).
  * Every field beyond the name is conditional on the data actually being there.
  */
-export function productListItem(p: GeigerProduct, position: number): Record<string, unknown> | null {
+export function productListItem(
+  p: GeigerProduct,
+  position: number,
+): Record<string, unknown> | null {
   const name = (p.name ?? '').trim();
   if (!name) return null;
 

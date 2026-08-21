@@ -3,7 +3,7 @@ import 'server-only';
 import fs from 'node:fs';
 import path from 'node:path';
 
-import { decodeHtmlEntities } from '../text-utils';
+import { decodeProductEntities } from './decode-product';
 import type { GeigerProduct } from '../product-types';
 
 const PRODUCTS_FILE = path.join(process.cwd(), 'data', 'geiger', 'products.json');
@@ -26,13 +26,9 @@ function loadIndex(): Map<string, GeigerProduct> {
   const raw = fs.readFileSync(PRODUCTS_FILE, 'utf8');
   const parsed = JSON.parse(raw) as ProductsFile;
   for (const p of parsed.products) {
-    map.set(String(p.sku), {
-      ...p,
-      name: decodeHtmlEntities(p.name),
-      description: p.description ? decodeHtmlEntities(p.description) : p.description,
-      // Geiger image URLs carry literal `&amp;` entities — decode for clean URLs.
-      imageUrl: p.imageUrl ? decodeHtmlEntities(p.imageUrl) : p.imageUrl,
-    });
+    // Decoded once here at the loader (name, description, imageUrl, brand) so
+    // every consumer of a resolved SKU gets clean text and a working image URL.
+    map.set(String(p.sku), decodeProductEntities(p));
   }
   _bySku = map;
   return map;
