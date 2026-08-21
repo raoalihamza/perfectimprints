@@ -2871,6 +2871,49 @@ Rush is proportionally the largest because its document is the smallest of the t
 3. **`getSiteSettings` is imported but never called** in all three page files (dead import left over from HIDE-100). Harmless and tree-shaken, one line each.
 4. **`/new-products` page 1 is 100% Patrick's product pages** (60 of 60), so the entire scraped Geiger new-products feed sits on client pages 2 and beyond, invisible to a crawler that does not run JS. Not a bug, but if the point of the page is the Geiger feed it is worth Patrick knowing, and it is an argument for giving these three a real `/page/N` route.
 
+### [x] IMG-100: decode Geiger image URLs at the loader, delete the ProductCard patch - CODE COMPLETE 2026-08-21 (staged, NOT committed)
+
+Closes the two findings SNIP-120 reported but correctly left alone. **The measurement came first, and it corrected the premise: there is NO byte saving here, because the images were never actually being served at full size.** What this change removes is a latent break, not a weight problem. That distinction is the whole entry, so it is stated up front rather than buried.
+
+**What was actually happening.** Four loaders never decoded `imageUrl`, so the value in memory was `?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275`. But `ProductCard` carried its own local `decodeImageUrl` that stripped the entities at render time, so the `src` React emitted was the correct URL and **the browser has always requested and received the 275px thumbnail**. SNIP-120's finding 1 said the malformed parameters were "silently ignored" and full-size images were being served; that was an inference and it was wrong. The image host does not ignore them:
+
+```
+GET .../102385_1.jpg?format=webp&thumbnail=275&w=275&h=275   -> 200, 14,762 B, image/webp
+GET .../102385_1.jpg?format=webp&amp;thumbnail=275&amp;...   -> 400, 249 B, application/json
+     {"name":"ApiDataValidationError", ... "properties":["amp;thumbnail","amp;w","amp;h"]}
+GET .../102385_1.jpg                                          -> 200, 26,776 B  (no params, full size)
+```
+
+So an undecoded URL is a **broken image**, not a large one. The real risk was the opposite of the one reported: removing the card's patch without fixing the loaders would have 400'd every Geiger image on four surfaces.
+
+**Measured before, on real pages, fetching what the browser actually fetches** (mobile Chrome UA, real Accept header):
+
+| page | product images | host | total bytes today | HTTP failures |
+| --- | --- | --- | --- | --- |
+| /deals | 12 | imgsirv.geiger.com | 120,306 B (117.5 KB), all WebP | 0 |
+| /rush-products | 60 | imgsirv.geiger.com | 503,118 B (491.3 KB), all WebP | 0 |
+| /new-products | 60 | cdn.sanity.io | 990,637 B (967.4 KB) | 0 |
+
+For reference, the same Geiger images with the size parameters stripped would be 307.2 KB (/deals) and 1,860.2 KB (/rush-products), so the parameters are working and already saving 62% and 73%. And with the raw loader value, all 72 return HTTP 400.
+
+**After: byte-for-byte identical.** 120,306 / 503,118 / 990,637 B, 0 failures, same content types. Every rendered `src` and every `alt` on all three pages is **identical to the live production HTML**, as are the SNIP-120 ItemList blocks (`JSON.stringify` equal on all three). A real fetch of a post-fix URL returns `200, 14,762 B, image/webp`, RIFF/WEBP magic bytes confirmed. **The saving is zero and no saving is claimed.**
+
+**What changed.** The decode moved to where it belongs (CLAUDE.md section 17, the M-SEO3 rule these four were simply missed by): [lib/deals.ts](lib/deals.ts), [lib/new-products.ts](lib/new-products.ts), [lib/rush-products.ts](lib/rush-products.ts) and [lib/catalogs.ts](lib/catalogs.ts) now decode `imageUrl` alongside `name` and `description`, and the local patch in [components/category/ProductCard.tsx](components/category/ProductCard.tsx) is deleted so the two cannot drift.
+
+**A fourth loader had the same gap, and fixing it was mandatory rather than optional.** `lib/catalogs.ts` (Phase I, 1,043 products) decoded only name and description, and the gated `/shop-by-theme/<slug>/catalog` pages render through the shared `ProductGrid` to `ProductCard`. Removing the card's patch without fixing that loader would have broken every catalog image with a 400. Verified after the change on both published catalogs: `/shop-by-theme/green-guide/catalog` (62 images) and `/shop-by-theme/usa-made/catalog` (68), URLs identical to live, sampled fetches 5 of 5 OK.
+
+**Loaders audited, all seven.** `lib/categories.ts` (both `loadProductsIndex` and `getAllProducts`), `lib/products/lookup.ts` and `lib/brands.ts` already decoded `imageUrl`; the four above did not and now do. `lib/data/load-products.ts` is a dead TODO stub returning `[]`. `lib/filters.ts` reads only facet memberships, which are SKU lists with no product fields. `scripts/build-product-list.ts` never touches `imageUrl`. Since `ProductCard` is shared by roughly ten surfaces, every source feeding it was traced before the patch came out: `/promotional-products` and `/search` go through `getAllProducts`, blog and video strips and the aggregators' pinned SKUs go through `resolveProductsBySku`, and all of those were already decoded.
+
+**A second field has the same gap, and it is a live user-visible defect: `brand` is decoded by NO loader.** 30 of 8,185 `products.json` records and 2 of 1,043 `catalogs.json` records carry entities: `Cutter &amp; Buck`, `Travis &amp; Wells`, `W&amp;P`, `M&amp;M's`, `Port &amp; Co`. Verified live on `/brands/cutter-buck`: 16 occurrences of the double-escaped form, meaning shoppers literally read `Cutter &amp; Buck` on the brand badge of every card, and the ItemList JSON-LD emits `"brand":{"name":"Cutter &amp; Buck"}`. **Deliberately not fixed here**, because it lands on the category and brand pages this task fences off, and because a partial fix in only the four loaders touched here would leave the same brand spelled two different ways on two different pages. It wants one change across all the loaders with its own verification pass. `deals` / `new-products` / `rush-products` have zero affected records, so none of the three pages in this task is impacted. The only other field carrying entities is `name`, which every loader already decodes.
+
+**Is the SNIP-120 workaround now redundant? Yes, and it is kept anyway.** `schemaImageUrl()` in [lib/seo/product-list-schema.ts](lib/seo/product-list-schema.ts) is now a no-op for every product source on the site. It stays because the failure modes are not symmetric: an undecoded URL reaching an `<img>` fails LOUDLY (400 plus the card's placeholder, so someone sees it), while the same URL in JSON-LD fails SILENTLY (the markup validates and only a crawler fetching the image discovers the 400). Removing it is safe today and unsafe the first time a new product source is added without a decode. Its comment was rewritten to say so, with no behaviour change; the emitted structured data is byte-identical.
+
+**Verification.** `pnpm typecheck` clean. **346/346 tests pass** (335 pre-existing + 11 new in [lib/products/image-url-decode.test.ts](lib/products/image-url-decode.test.ts), which asserts the decode behaviour on a real Geiger URL, the presence of the decode in all seven loaders, and its absence from the card, since the realistic regression is someone dropping the line now that nothing masks it). Rendered and compared against live production: `/deals`, `/new-products`, `/rush-products`, both gated catalog pages, the home rails (24 Geiger images), `/brands/bic`, `/promotional-products` and `/cat/tote-bags/color/multi-color`; every request URL and alt identical, **zero double-escaped entities**, **zero `BAILOUT_TO_CLIENT_SIDE_RENDERING` markers** anywhere. No Sanity, webhook, env, dashboard or dependency change; no route became dynamic. Landed identically in all three repos (verified by `diff -rq` of app/ components/ lib/), staged, NOT committed.
+
+**Risky things typecheck cannot catch, stated plainly.** `ProductCard` is now the single point where a loader mistake becomes visible, and it will show as a missing image rather than a slow one: any FUTURE product source added without a loader decode breaks images on every surface that renders it. The test file guards the seven loaders that exist today; it cannot guard one added tomorrow. The monthly catalog rebuild and the weekly aggregator scrapes keep writing entity-encoded `imageUrl` into the JSON, which is correct and unchanged, so the loaders remain the only defence.
+
+**Separately observed while measuring, not a defect and not in scope: `/new-products` carries 967.4 KB of images, the heaviest of the three, and none of it is Geiger.** All 60 are Patrick's own product pages served from `cdn.sanity.io`, 57 of 60 as `image/jpeg` rather than WebP or AVIF, requested at `w=400` for a 275px slot. If mobile page speed on that page is the goal, that is where the weight is, and it is a Sanity image-URL question rather than an entity-decoding one.
+
 ### HIDE-100: hide a Geiger product everywhere on the site (2026-08-20) - BUILT, NOT COMMITTED
 
 Follow-up to [docs/hide-000-hidden-sku-reach-diagnosis.md](docs/hide-000-hidden-sku-reach-diagnosis.md), which found that products Patrick had hidden were still appearing in the Related Products strip on `/products/soft-loop-halloween-trick-or-treat-bags`. Patrick's answers reshaped the feature: the purpose is not removal but REPLACEMENT ("the ones I'll hide sitewide are those I'll create a custom product page for with more and better information than the Geiger products"), he still wants per-category hiding for items in the wrong category, and hand-picked placements are not sacred ("those aren't critical if they are removed from a blog post or video").

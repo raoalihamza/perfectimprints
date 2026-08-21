@@ -12,11 +12,6 @@ interface ProductCardProps {
 const IMAGE_W = 275;
 const IMAGE_H = 275;
 
-function decodeImageUrl(url: string | null): string | null {
-  if (!url) return null;
-  return url.replace(/&amp;/g, '&');
-}
-
 function formatPrice(value: number): string {
   return `$${value.toFixed(2)}`;
 }
@@ -51,7 +46,13 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
   // as before: new tab, noopener noreferrer sponsored.
   const detailHref = product.detailUrl || null;
   const href = detailHref ?? affiliateUrl(product.geiger_url);
-  const imageSrc = decodeImageUrl(product.imageUrl);
+  // IMG-100: no entity decoding happens here any more. `imageUrl` arrives
+  // already decoded from the data loader, which is where HTML entity decoding
+  // belongs (CLAUDE.md section 17). The local patch this card used to carry
+  // masked four loaders that never decoded the field, so the bug stayed
+  // invisible until a NON-card consumer (the SNIP-120 ItemList image) read the
+  // same field and got the raw entity. Do not reintroduce it: fix the loader.
+  const imageSrc = product.imageUrl;
   const price = priceLabel(product.low_price, product.high_price);
   const ribbon = pickRibbon(product);
   // Show the Geiger SKU ("Item #") like geiger.com. Hide synthesized SKUs for

@@ -93,10 +93,15 @@ function readCatalogsFile(): Map<string, RawScrapedCatalog> {
         scrapedAt: parsed.scrapedAt ?? null,
         title: entry.title ?? null,
         browseUrl: entry.browseUrl ?? null,
+        // IMG-100: same decode gap as the deals / new / rush loaders. The
+        // gated catalog pages render through the shared ProductGrid ->
+        // ProductCard, whose render-time patch has been removed, so without
+        // this line all 1,043 catalog images would 400 at the image host.
         products: (entry.products ?? []).map((p) => ({
           ...p,
           name: decodeHtmlEntities(p.name),
           description: p.description ? decodeHtmlEntities(p.description) : p.description,
+          imageUrl: p.imageUrl ? decodeHtmlEntities(p.imageUrl) : p.imageUrl,
         })),
         scrapedFacets: entry.facets ?? [],
       });

@@ -115,22 +115,22 @@ function offerFor(p: GeigerProduct): Record<string, unknown> | null {
  * The ~1200px structured-data image (M-SEO5), same variant as og:image, with
  * HTML entities decoded first.
  *
- * The decode is load-bearing, not defensive tidying. Geiger's scraped
- * `imageUrl` carries literal `&amp;` between its query parameters. The three
- * loaders that feed `/cat` and `/brands` (lib/categories.ts,
- * lib/products/lookup.ts, lib/brands.ts) decode it at read time (M-SEO3), but
- * the three AGGREGATOR loaders (lib/deals.ts, lib/new-products.ts,
- * lib/rush-products.ts) decode only name and description - all 374 records in
- * deals.json / new-products.json / rush-products.json still hold `&amp;` in
- * `imageUrl`. The visible grid is unaffected because ProductCard carries its
- * own local decode at the render site, so nothing looked wrong; but JSON-LD is
- * not HTML, where `&amp;` stays literal and hands Google a URL whose size
- * parameters are named `amp;w` and `amp;h`. Decoding here mirrors what
- * ProductCard already does one layer up and is a NO-OP for every already-decoded
- * surface, so brands, /cat and customCategory output is byte-identical.
+ * The decode is now a DEFENSIVE no-op, kept deliberately. It was load-bearing
+ * when SNIP-120 shipped, because four loaders (lib/deals.ts, lib/new-products.ts,
+ * lib/rush-products.ts, lib/catalogs.ts) never decoded `imageUrl` and their raw
+ * `&amp;` reached this serializer. IMG-100 fixed all four at the loader, which
+ * is where entity decoding belongs (CLAUDE.md section 17), so every product
+ * source feeding this function now arrives decoded and this call changes
+ * nothing for any of them.
  *
- * The underlying loader gap is reported as a separate piece of work; fixing it
- * there would also change the rendered `<img src>`, which SNIP-120 must not do.
+ * It stays because the failure modes are not symmetric. An undecoded URL that
+ * reaches a rendered `<img>` fails LOUDLY: the image host returns HTTP 400 and
+ * ProductCard swaps in its placeholder, so someone sees it. The same URL in
+ * JSON-LD fails SILENTLY: the markup validates, and only a crawler fetching the
+ * image ever discovers it is a 400. This is the boundary where a future
+ * un-decoded source would do the most damage and be noticed last, so the guard
+ * is worth its one function call. Removing it would be safe today and unsafe
+ * the first time a new product source is added without a decode.
  */
 function schemaImageUrl(imageUrl: string | null | undefined): string | null {
   if (!imageUrl) return null;

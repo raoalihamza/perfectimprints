@@ -54,10 +54,20 @@ function readScraped(): RawScrapedDeals {
   const raw = fs.readFileSync(DEALS_FILE, 'utf8');
   const parsed = JSON.parse(raw) as DealsFile;
 
+  // IMG-100: Geiger's scraped `imageUrl` carries literal `&amp;` between its
+  // query parameters (`?format=webp&amp;thumbnail=275&amp;w=275&amp;h=275`).
+  // The image host REJECTS those with HTTP 400 ("Additional properties not
+  // allowed: amp;thumbnail, amp;w, amp;h"), so an undecoded URL is a BROKEN
+  // image, not merely a large one. Decode once here, exactly as
+  // lib/categories.ts and lib/products/lookup.ts already do, so every consumer
+  // gets a clean URL: the grid, the ItemList image, and anything added later.
+  // ProductCard used to patch this at render time; that patch is gone, so this
+  // line is now the only thing keeping these images working.
   const products: GeigerProduct[] = parsed.products.map((p) => ({
     ...p,
     name: decodeHtmlEntities(p.name),
     description: p.description ? decodeHtmlEntities(p.description) : p.description,
+    imageUrl: p.imageUrl ? decodeHtmlEntities(p.imageUrl) : p.imageUrl,
   }));
 
   _rawCache = {
