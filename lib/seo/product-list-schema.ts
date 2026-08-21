@@ -8,12 +8,14 @@
  * `itemListSchema()` emits. It reads nothing: no fs, no Sanity, no network.
  * Nothing here can make a route dynamic.
  *
- * WHO CALLS IT. The brand pages (`app/brands/[...slug]/page.tsx`, SNIP-100)
- * and the category pages (`app/cat/[...slug]/page.tsx` +
- * `components/category/CustomCategoryView.tsx`, SNIP-110). Any future product
- * listing surface (Deals, New, Rush, /promotional-products, blog/video strips)
- * must reuse this function rather than growing a second serializer; the guards
- * below are written for the full catalog.
+ * WHO CALLS IT. The brand pages (`app/brands/[...slug]/page.tsx`, SNIP-100),
+ * the category pages (`app/cat/[...slug]/page.tsx` +
+ * `components/category/CustomCategoryView.tsx`, SNIP-110), and the three
+ * aggregator pages `/deals`, `/new-products` and `/rush-products` via
+ * `aggregatorItemListSchema` at the bottom of this file (SNIP-120). Any further
+ * product listing surface (/promotional-products, blog/video strips, home rails,
+ * shop-by-theme) must reuse this function rather than growing a second
+ * serializer; the guards below are written for the full catalog.
  *
  * PAGINATION SEMANTICS. Callers pass the products RENDERED ON THIS PAGE, so a
  * `/page/N` document describes its own grid only, with positions restarting at
@@ -40,6 +42,7 @@
 
 import { affiliateUrl } from '../affiliate-url';
 import type { GeigerProduct } from '../product-types';
+import { decodeHtmlEntities } from '../text-utils';
 import { largeSocialImage } from './open-graph';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
@@ -109,6 +112,32 @@ function offerFor(p: GeigerProduct): Record<string, unknown> | null {
 }
 
 /**
+ * The ~1200px structured-data image (M-SEO5), same variant as og:image, with
+ * HTML entities decoded first.
+ *
+ * The decode is load-bearing, not defensive tidying. Geiger's scraped
+ * `imageUrl` carries literal `&amp;` between its query parameters. The three
+ * loaders that feed `/cat` and `/brands` (lib/categories.ts,
+ * lib/products/lookup.ts, lib/brands.ts) decode it at read time (M-SEO3), but
+ * the three AGGREGATOR loaders (lib/deals.ts, lib/new-products.ts,
+ * lib/rush-products.ts) decode only name and description - all 374 records in
+ * deals.json / new-products.json / rush-products.json still hold `&amp;` in
+ * `imageUrl`. The visible grid is unaffected because ProductCard carries its
+ * own local decode at the render site, so nothing looked wrong; but JSON-LD is
+ * not HTML, where `&amp;` stays literal and hands Google a URL whose size
+ * parameters are named `amp;w` and `amp;h`. Decoding here mirrors what
+ * ProductCard already does one layer up and is a NO-OP for every already-decoded
+ * surface, so brands, /cat and customCategory output is byte-identical.
+ *
+ * The underlying loader gap is reported as a separate piece of work; fixing it
+ * there would also change the rendered `<img src>`, which SNIP-120 must not do.
+ */
+function schemaImageUrl(imageUrl: string | null | undefined): string | null {
+  if (!imageUrl) return null;
+  return largeSocialImage(decodeHtmlEntities(imageUrl));
+}
+
+/**
  * One ListItem carrying a full Product entity, or null for a product with no
  * usable name (a nameless Product is noise; the caller renumbers positions).
  * Every field beyond the name is conditional on the data actually being there.
@@ -125,9 +154,7 @@ export function productListItem(p: GeigerProduct, position: number): Record<stri
   const url = productDestinationUrl(p);
   if (url) product.url = url;
 
-  // Structured-data image gets the ~1200px social variant (M-SEO5), same as
-  // og:image; the rendered grid keeps requesting its own thumbnails.
-  const image = p.imageUrl ? largeSocialImage(p.imageUrl) : null;
+  const image = schemaImageUrl(p.imageUrl);
   if (image) product.image = image;
 
   const brand = (p.brand ?? '').trim();
@@ -165,4 +192,36 @@ export function productItemListSchema(products: GeigerProduct[]): Record<string,
     numberOfItems: itemListElement.length,
     itemListElement,
   };
+}
+
+/**
+ * The ItemList for a CLIENT-PAGINATED aggregator page: Deals, New Products and
+ * Rush Products (SNIP-120).
+ *
+ * Those three differ from `/cat` and `/brands` in one way that matters here.
+ * They have exactly ONE URL each - there is no `/page/N` route, the URL never
+ * changes, and paging is React state inside `DealsClient` /
+ * `NewProductsClient` / `RushProductsClient`, which slice the full list down to
+ * `PRODUCTS_PER_PAGE` before handing it to `ProductGrid`. So the rendered HTML
+ * of `/deals` contains the first page of cards and nothing else, and describing
+ * the whole list would claim products that are not on the page. This helper
+ * takes the FULL post-hide, post-pin list the page holds and applies exactly
+ * the slice the client applies on first render, so the markup states only what
+ * the document actually renders - the same rule `/cat/<slug>/page/N` follows,
+ * expressed for a surface whose pages are not separate URLs.
+ *
+ * It exists so that rule lives in ONE place rather than being retyped at three
+ * call sites. `productItemListSchema` is unchanged and every existing surface
+ * (brands, /cat, customCategory) is byte-for-byte unaffected.
+ *
+ * Returns null for an empty grid, so a caller emits no block at all rather than
+ * an empty list.
+ */
+export function aggregatorItemListSchema(
+  allProducts: GeigerProduct[],
+  perPage: number,
+): Record<string, unknown> | null {
+  const rendered = allProducts.slice(0, Math.max(0, perPage));
+  if (rendered.length === 0) return null;
+  return productItemListSchema(rendered);
 }

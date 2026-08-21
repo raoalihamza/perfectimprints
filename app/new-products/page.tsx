@@ -7,6 +7,9 @@ import { getNewProductsPageCopy } from '@/lib/sanity/queries/new-products';
 import { getCustomProductsForNewProducts } from '@/lib/sanity/queries/custom-products';
 import { getProductPagesForNewProducts } from '@/lib/sanity/queries/product-pages';
 import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
+import { Schema } from '@/components/seo/Schema';
+import { aggregatorItemListSchema } from '@/lib/seo/product-list-schema';
+import { PRODUCTS_PER_PAGE } from '@/lib/product-types';
 import { socialMeta } from '@/lib/seo/open-graph';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
@@ -56,8 +59,19 @@ export default async function NewProductsPage() {
     ...(await getHiddenProductContext()).hiddenSkus,
   ]);
 
+  // Full-product ItemList (SNIP-120), via the shared SNIP-100 serializer. Built
+  // from `data.products` - the SAME array handed to the grid below - so the
+  // markup cannot describe anything the page does not show: site-wide hidden
+  // SKUs, product-page-replaced SKUs and this page's own hidden list are all
+  // already gone, and the pinned/custom/scraped order is preserved. Paging here
+  // is client state at a single URL, so the block covers the first
+  // PRODUCTS_PER_PAGE - exactly what the initial HTML renders. Pure function,
+  // no read of any kind: the route stays static.
+  const itemList = aggregatorItemListSchema(data.products, PRODUCTS_PER_PAGE);
+
   return (
     <>
+      {itemList ? <Schema data={itemList} /> : null}
       <CustomSchemaJsonLd path="/new-products" />
       <NewProductsPageBody copy={copy} facets={data.facets} products={data.products} />
     </>
