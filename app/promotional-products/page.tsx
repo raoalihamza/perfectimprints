@@ -115,7 +115,7 @@ export default async function PromotionalProductsPage({ searchParams }: Props) {
         <h1 className="text-3xl font-bold leading-tight text-brand-ink md:text-4xl lg:text-5xl">
           Custom Promotional Products
         </h1>
-        <p className="mt-4 max-w-3xl text-lg leading-relaxed text-text-primary">
+        <p className="prose-lede mt-4 text-lg leading-relaxed text-text-primary">
           Browse our full catalog of custom promotional products, branded giveaways, and
           personalized corporate gifts. Filter thousands of bulk, wholesale, and logo-printed items
           by category, price, brand, and minimum quantity to find the perfect fit for your next
