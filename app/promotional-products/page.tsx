@@ -11,9 +11,11 @@ import { PromoPagination } from '@/components/promotional-products/PromoPaginati
 import { getPromoClientFacets, getPromoResult } from '@/lib/promotional-products';
 import { PROMO_SORTS, type PromoSort } from '@/lib/promotional-products-sorts';
 import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
+import { Schema } from '@/components/seo/Schema';
 import type { DealsFilterState } from '@/lib/deals-filter';
 import { PRODUCTS_PER_PAGE } from '@/lib/product-types';
 import { socialMeta } from '@/lib/seo/open-graph';
+import { productItemListSchema } from '@/lib/seo/product-list-schema';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
   /\/$/,
@@ -85,8 +87,23 @@ export default async function PromotionalProductsPage({ searchParams }: Props) {
         ? `Showing ${result.totalMatched.toLocaleString()} of ${result.totalAll.toLocaleString()} products`
         : `${result.totalAll.toLocaleString()} products`;
 
+  // SNIP-140: full-product ItemList for THIS document only. `result.products` is
+  // the exact server-side slice the grid renders (this route filters, sorts and
+  // paginates on the server, so `?page=N` and every filter variant is its own
+  // document), which is why this calls `productItemListSchema` directly rather
+  // than `aggregatorItemListSchema`: re-slicing from position 0 would describe
+  // page 1's products on page 2's document. Positions restart at 1 per page,
+  // the same rule /cat/<slug>/page/N and /brands follow. Hidden and replaced
+  // SKUs are already gone from `result.products` (getVisible filters before
+  // paging), so the markup structurally cannot name a product the grid does
+  // not show; this page removes and never substitutes (HIDE-110), so Patrick's
+  // own products are never on it and never described here. An empty grid
+  // emits no block at all rather than an empty list.
+  const itemList = result.products.length > 0 ? productItemListSchema(result.products) : null;
+
   return (
     <>
+      {itemList ? <Schema data={itemList} /> : null}
       {/* Custom schema is keyed to the clean canonical, which every filter/sort/
           page variant of this route canonicalizes back to. */}
       <CustomSchemaJsonLd path="/promotional-products" />

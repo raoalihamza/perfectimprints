@@ -12,10 +12,13 @@
  * the category pages (`app/cat/[...slug]/page.tsx` +
  * `components/category/CustomCategoryView.tsx`, SNIP-110), and the three
  * aggregator pages `/deals`, `/new-products` and `/rush-products` via
- * `aggregatorItemListSchema` at the bottom of this file (SNIP-120). Any further
- * product listing surface (/promotional-products, blog/video strips, home rails,
- * shop-by-theme) must reuse this function rather than growing a second
- * serializer; the guards below are written for the full catalog.
+ * `aggregatorItemListSchema` at the bottom of this file (SNIP-120), and the
+ * server-paginated `/promotional-products` (`app/promotional-products/page.tsx`,
+ * SNIP-140), which passes `result.products`, the exact server-side slice its
+ * grid renders, straight to `productItemListSchema`. Any further product
+ * listing surface (blog/video strips, home rails, shop-by-theme) must reuse
+ * this function rather than growing a second serializer; the guards below are
+ * written for the full catalog.
  *
  * PAGINATION SEMANTICS. Callers pass the products RENDERED ON THIS PAGE, so a
  * `/page/N` document describes its own grid only, with positions restarting at
