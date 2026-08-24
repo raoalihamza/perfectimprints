@@ -121,32 +121,14 @@ export function collectionPageSchema(input: {
   return schema;
 }
 
-export interface ItemListProduct {
-  name: string;
-  /** Product/affiliate URL (already affiliate-rewritten by the caller). */
-  url: string;
-  image?: string | null;
-}
-
-/**
- * ItemList JSON-LD listing the products shown on a category page (M-SEO3 Part 2).
- * Callers must omit this entirely for CTA-only categories (no products) rather
- * than emitting an empty list.
- */
-export function itemListSchema(products: ItemListProduct[]) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    numberOfItems: products.length,
-    itemListElement: products.map((p, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      name: p.name,
-      url: p.url,
-      ...(p.image ? { image: p.image } : {}),
-    })),
-  };
-}
+// The thin 3-field `itemListSchema()` (M-SEO3 Part 2: ListItem name + url +
+// image) that used to live here was retired in SNIP-150. Every product surface
+// moved to the full-product `productItemListSchema()` in
+// lib/seo/product-list-schema.ts (SNIP-100..140), and the blog listings it was
+// kept for use the summary-page `buildBlogListingSchemas()` in
+// lib/seo/content-schema.ts instead (position + url per item), so it reached
+// zero callers with no caller in waiting. Do not reintroduce a per-surface list
+// serializer; use one of those two.
 
 export function breadcrumbSchema(items: Array<{ name: string; url: string }>) {
   return {

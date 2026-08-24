@@ -8,18 +8,12 @@ import {
 } from '@/lib/portable-text/inline-image-size';
 import type { SanityImage } from '@/lib/sanity/types';
 import type { GeigerProduct } from '@/lib/product-types';
-import { ProductCard } from '@/components/category/ProductCard';
-import { affiliateUrl } from '@/lib/affiliate-url';
-import { isStripRefEntry, type StripProductEntry } from '@/lib/sanity/strip-product-entries';
-import { stripRefToGeigerProduct } from '@/lib/sanity/queries/strip-entries';
-import { isHiddenSku, normalizeSku } from '@/lib/products/hidden-skus';
-
-interface BlogProductsValue {
-  _key?: string;
-  heading?: string;
-  /** SKU/manual entries + dereferenced productPage/customProduct refs (null = dangling ref). */
-  products?: (StripProductEntry | null)[];
-}
+import { StripCardGrid } from '@/components/products/StripCardGrid';
+import {
+  resolveStripCards,
+  type BlogProductsBlock,
+  type StripResolveContext,
+} from '@/lib/sanity/queries/strip-entries';
 
 interface BlogBodyProps {
   body: PortableTextBlock[];
@@ -39,13 +33,6 @@ interface BlogBodyProps {
   replacementBySku?: ReadonlyMap<string, GeigerProduct>;
 }
 
-const GEIGER_HOST_PATTERN = /^https?:\/\/(www\.)?geiger\.com\//i;
-const AFFILIATE_HOST_PATTERN = /^https?:\/\/[^/]*\.geiger\.com\//i;
-
-function isGeigerUrl(url: string): boolean {
-  return GEIGER_HOST_PATTERN.test(url) || AFFILIATE_HOST_PATTERN.test(url);
-}
-
 interface EmbedValue {
   provider?: 'youtube' | 'vimeo' | 'iframe';
   url?: string;
@@ -63,11 +50,7 @@ interface ListBlock {
   style?: string;
 }
 
-function buildComponents(
-  skuProducts: Map<string, GeigerProduct>,
-  hiddenSkus: ReadonlySet<string> | undefined,
-  replacementBySku: ReadonlyMap<string, GeigerProduct> | undefined,
-): PortableTextComponents {
+function buildComponents(stripCtx: StripResolveContext): PortableTextComponents {
   return {
   types: {
     image: ({ value }) => {
@@ -122,93 +105,12 @@ function buildComponents(
       );
     },
     blogProducts: ({ value }) => {
-      const v = value as BlogProductsValue;
-      const entries = v?.products ?? [];
-      // De-dup referenced docs within the strip (same product referenced twice
-      // renders once).
-      const seenRefSkus = new Set<string>();
-      const cards = entries
-        .map((entry, idx) => {
-          if (!entry) return null; // dangling reference — target deleted/unpublished
-          if (isStripRefEntry(entry)) {
-            // productPage → internal /products/<slug> card; customProduct →
-            // affiliate/external card. Unresolvable refs are dropped.
-            const product = stripRefToGeigerProduct(entry);
-            if (!product || seenRefSkus.has(product.sku)) return null;
-            seenRefSkus.add(product.sku);
-            return <ProductCard key={`ref-${entry._id}-${idx}`} product={product} />;
-          }
-          const sku = entry.sku?.trim();
-          if (hiddenSkus && isHiddenSku(sku, hiddenSkus)) {
-            const replacement = replacementBySku?.get(normalizeSku(sku));
-            if (!replacement || seenRefSkus.has(replacement.sku)) return null;
-            seenRefSkus.add(replacement.sku);
-            return <ProductCard key={`rep-${replacement.sku}-${idx}`} product={replacement} />;
-          }
-          const resolved = sku ? skuProducts.get(sku) : undefined;
-          if (resolved) {
-            return (
-              <ProductCard
-                key={entry._key || `sku-${sku}-${idx}`}
-                product={resolved}
-              />
-            );
-          }
-          if (!entry.title && !entry.image && !entry.url) return null;
-          const title = entry.title || sku || 'Product';
-          const imageSrc = entry.image?.asset
-            ? urlForImage(entry.image).width(550).height(550).fit('crop').url()
-            : null;
-          const rawUrl = entry.url?.trim() || null;
-          const href = rawUrl ? (isGeigerUrl(rawUrl) ? affiliateUrl(rawUrl) : rawUrl) : null;
-          const isExternal = !href || !href.startsWith('/');
-          const cardInner = (
-            <>
-              <div className="relative aspect-square overflow-hidden bg-bg-soft">
-                {imageSrc ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={imageSrc}
-                    alt={entry.image?.alt || title}
-                    loading="lazy"
-                    className="h-full w-full object-contain p-3 transition-transform duration-200 group-hover:scale-105"
-                  />
-                ) : (
-                  <div className="flex h-full w-full items-center justify-center text-xs text-text-muted">
-                    No image
-                  </div>
-                )}
-              </div>
-              <div className="flex flex-1 flex-col gap-2 p-4">
-                <h3 className="line-clamp-2 min-h-[2.6em] text-sm font-medium leading-snug text-text-primary group-hover:text-brand-red">
-                  {title}
-                </h3>
-              </div>
-            </>
-          );
-          const cardClassName =
-            'group flex flex-col overflow-hidden rounded border border-border bg-brand-white transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:ring-offset-2';
-          if (!href) {
-            return (
-              <div key={entry._key || `manual-${idx}`} className={cardClassName}>
-                {cardInner}
-              </div>
-            );
-          }
-          return (
-            <a
-              key={entry._key || `manual-${idx}`}
-              href={href}
-              target={isExternal ? '_blank' : undefined}
-              rel={isExternal ? 'noopener noreferrer sponsored' : undefined}
-              className={cardClassName}
-            >
-              {cardInner}
-            </a>
-          );
-        })
-        .filter(Boolean);
-
+      const v = value as BlogProductsBlock;
+      // SNIP-150: the SAME shared resolver (and the same inputs) the blog post
+      // page uses to build its product ItemList, so the cards rendered here
+      // and the products described to Google cannot disagree: a hidden SKU is
+      // dropped and a replaced SKU swapped for its product page on both sides.
+      const cards = resolveStripCards(v?.products ?? [], stripCtx);
       if (cards.length === 0) return null;
       return (
         <section className="my-8">
@@ -217,9 +119,7 @@ function buildComponents(
               {v.heading}
             </h2>
           )}
-          <div className="mt-5 grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">
-            {cards}
-          </div>
+          <StripCardGrid cards={cards} />
         </section>
       );
     },
@@ -337,7 +237,11 @@ function normalizeBody(body: PortableTextBlock[]): PortableTextBlock[] {
 
 export function BlogBody({ body, skuProducts, hiddenSkus, replacementBySku }: BlogBodyProps) {
   const normalized = normalizeBody(body);
-  const components = buildComponents(skuProducts ?? EMPTY_SKU_MAP, hiddenSkus, replacementBySku);
+  const components = buildComponents({
+    skuProducts: skuProducts ?? EMPTY_SKU_MAP,
+    hiddenSkus,
+    replacementBySku,
+  });
   return (
     <div className="blog-body">
       <PortableText value={normalized} components={components} />

@@ -9,6 +9,8 @@ import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { IndexHeadingWithSearch } from '@/components/layout/IndexHeadingWithSearch';
 import { getBlogPostsPage, getAllBlogCategories } from '@/lib/sanity/queries/blogs';
 import { socialMeta } from '@/lib/seo/open-graph';
+import { buildBlogListingSchemas } from '@/lib/seo/content-schema';
+import { Schema } from '@/components/seo/Schema';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
   /\/$/,
@@ -52,8 +54,18 @@ export default async function BlogIndexPaginated({ params }: Props) {
 
   if (page > totalPages) notFound();
 
+  // SNIP-150: this /page/N document describes ONLY the posts it renders,
+  // positions restarting at 1 (the same per-page rule as /cat/<slug>/page/N);
+  // the CollectionPage url is the canonical page-1 URL, as on /cat.
+  const listingSchemas = buildBlogListingSchemas({
+    name: `Perfect Imprints Blog - Page ${page}`,
+    url: `${SITE_URL}/blog`,
+    postUrls: posts.map((p) => `${SITE_URL}/blog/${p.slug.current}`),
+  });
+
   return (
     <>
+      <Schema data={listingSchemas} />
       <CustomSchemaJsonLd path={`/blog/page/${page}`} />
       <Container as="section" className="pb-4 pt-6">
         <Breadcrumbs

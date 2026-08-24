@@ -8,6 +8,8 @@ import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { IndexHeadingWithSearch } from '@/components/layout/IndexHeadingWithSearch';
 import { getBlogPostsPage, getAllBlogCategories } from '@/lib/sanity/queries/blogs';
 import { socialMeta } from '@/lib/seo/open-graph';
+import { buildBlogListingSchemas } from '@/lib/seo/content-schema';
+import { Schema } from '@/components/seo/Schema';
 
 export const dynamic = 'force-static';
 export const revalidate = 3600;
@@ -35,8 +37,19 @@ export default async function BlogIndexPage() {
     getAllBlogCategories(),
   ]);
 
+  // SNIP-150: CollectionPage + an ItemList of the posts THIS page renders
+  // (summary-page shape: position + url per item, positions from 1). Pure over
+  // the summaries already fetched - no new read, the route stays static.
+  const listingSchemas = buildBlogListingSchemas({
+    name: 'Perfect Imprints Blog',
+    url: `${SITE_URL}/blog`,
+    description: BLOG_DESCRIPTION,
+    postUrls: posts.map((p) => `${SITE_URL}/blog/${p.slug.current}`),
+  });
+
   return (
     <>
+      <Schema data={listingSchemas} />
       <CustomSchemaJsonLd path="/blog" />
       <Container as="section" className="pb-4 pt-6">
         <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Blog' }]} />

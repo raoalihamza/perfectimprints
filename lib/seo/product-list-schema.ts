@@ -5,8 +5,8 @@
  * function turning the `GeigerProduct` objects a listing page already holds at
  * render time into an ItemList whose entries are nested `Product` entities
  * (name, url, image, brand, sku, offer) instead of the thin 3-field ListItem
- * `itemListSchema()` emits. It reads nothing: no fs, no Sanity, no network.
- * Nothing here can make a route dynamic.
+ * the retired `itemListSchema()` used to emit. It reads nothing: no fs, no
+ * Sanity, no network. Nothing here can make a route dynamic.
  *
  * WHO CALLS IT. The brand pages (`app/brands/[...slug]/page.tsx`, SNIP-100),
  * the category pages (`app/cat/[...slug]/page.tsx` +
@@ -15,9 +15,13 @@
  * `aggregatorItemListSchema` at the bottom of this file (SNIP-120), and the
  * server-paginated `/promotional-products` (`app/promotional-products/page.tsx`,
  * SNIP-140), which passes `result.products`, the exact server-side slice its
- * grid renders, straight to `productItemListSchema`. Any further product
- * listing surface (blog/video strips, home rails, shop-by-theme) must reuse
- * this function rather than growing a second serializer; the guards below are
+ * grid renders, straight to `productItemListSchema`, and the blog post page
+ * (`app/blog/[slug]/page.tsx`, SNIP-150), which passes the products its
+ * in-body product strips render, gathered by the shared strip resolver
+ * (`collectBlogStripProducts` in lib/sanity/queries/strip-entries.ts) so the
+ * list and the cards are one resolution. Any further product listing surface
+ * (video/page/landing strips, home rails, shop-by-theme) must reuse this
+ * function rather than growing a second serializer; the guards below are
  * written for the full catalog.
  *
  * PAGINATION SEMANTICS. Callers pass the products RENDERED ON THIS PAGE, so a

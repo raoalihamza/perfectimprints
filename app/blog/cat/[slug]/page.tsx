@@ -12,6 +12,8 @@ import {
   getBlogPostsByCategorySlug,
 } from '@/lib/sanity/queries/blogs';
 import { socialMeta } from '@/lib/seo/open-graph';
+import { buildBlogListingSchemas } from '@/lib/seo/content-schema';
+import { Schema } from '@/components/seo/Schema';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
   /\/$/,
@@ -61,8 +63,19 @@ export default async function BlogCategoryPage({ params }: Props) {
     perPage: BLOG_PER_PAGE,
   });
 
+  // SNIP-150: CollectionPage always (the page exists even when the category
+  // holds no posts yet); the ItemList only when at least one post renders,
+  // never an empty list. Summary-page shape: position + url per item.
+  const listingSchemas = buildBlogListingSchemas({
+    name: `Posts in ${category.title}`,
+    url: `${SITE_URL}/blog/cat/${category.slug.current}`,
+    description: category.description,
+    postUrls: posts.map((p) => `${SITE_URL}/blog/${p.slug.current}`),
+  });
+
   return (
     <>
+      <Schema data={listingSchemas} />
       <CustomSchemaJsonLd path={`/blog/cat/${category.slug.current}`} />
       <Container as="section" className="pb-4 pt-6">
         <Breadcrumbs

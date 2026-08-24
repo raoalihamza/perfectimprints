@@ -21,6 +21,9 @@ import { resolveProductsBySku } from '@/lib/categories';
 import { buildSkuSet } from '@/lib/products/hidden-skus';
 import { socialMeta } from '@/lib/seo/open-graph';
 import { buildBlogPostingSchema } from '@/lib/seo/content-schema';
+import { productItemListSchema } from '@/lib/seo/product-list-schema';
+import { collectBlogStripProducts } from '@/lib/sanity/queries/strip-entries';
+import { Schema } from '@/components/seo/Schema';
 import type { GeigerProduct } from '@/lib/product-types';
 import { jsonLdHtml } from '@/lib/seo/json-ld';
 
@@ -123,6 +126,22 @@ export default async function BlogPostPage({ params }: Props) {
   const hiddenContext = await getHiddenProductContext();
   const hiddenSkus = buildSkuSet(hiddenContext.hiddenSkus);
 
+  // SNIP-150: the products the body's strips actually render, resolved by the
+  // SAME shared resolver BlogBody calls per block with the SAME inputs
+  // (catalog lookups, HIDE-100 hide set, HIDE-110 replacements), so the
+  // ItemList below cannot name a product the reader does not see: a hidden
+  // SKU is absent from both, a replaced SKU is its product page's card in
+  // both. One ItemList per post over every strip, each product once, in
+  // reading order; a post with no strips (or whose strips all resolved to
+  // nothing) emits no list at all. Pure over objects already in scope - no new
+  // read, so the route stays statically generated.
+  const stripProducts = collectBlogStripProducts(post.body, {
+    skuProducts,
+    hiddenSkus,
+    replacementBySku: hiddenContext.replacementBySku,
+  });
+  const stripItemList = stripProducts.length > 0 ? productItemListSchema(stripProducts) : null;
+
   const relatedBlogs = await getRelatedBlogsForPost(post, 8);
 
   const blogPostingSchema = buildBlogPostingSchema({
@@ -223,6 +242,11 @@ export default async function BlogPostPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdHtml(blogPostingSchema) }}
       />
+      {/* SNIP-150: a SEPARATE ItemList block beside the BlogPosting, not a
+          nesting inside it. Google reads each top-level entity on its own;
+          ItemList > ListItem > Product is the exact shape proven on the seven
+          product surfaces, and the BlogPosting stays byte-identical. */}
+      {stripItemList && <Schema data={stripItemList} />}
       <CustomSchemaJsonLd path={`/blog/${post.slug.current}`} />
     </>
   );
