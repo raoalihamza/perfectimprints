@@ -19,10 +19,19 @@
  * (`app/blog/[slug]/page.tsx`, SNIP-150), which passes the products its
  * in-body product strips render, gathered by the shared strip resolver
  * (`collectBlogStripProducts` in lib/sanity/queries/strip-entries.ts) so the
- * list and the cards are one resolution. Any further product listing surface
- * (video/page/landing strips, home rails, shop-by-theme) must reuse this
- * function rather than growing a second serializer; the guards below are
- * written for the full catalog.
+ * list and the cards are one resolution. SNIP-160 closed the series: the
+ * video strip (`components/videos/VideoRelatedProducts.tsx`) and the
+ * page-builder / landing-page strip (`components/page-sections/ProductStrip.tsx`)
+ * each emit a list over their own rendered `cards` via `stripSchemaProducts`,
+ * the two home rails (`components/home/NewProductsRail.tsx`) over the
+ * post-hide `products` they render, and the shop-by-theme landing preview
+ * (`app/shop-by-theme/[slug]/page.tsx`) over its four preview products. Any
+ * further product listing surface must reuse this function rather than
+ * growing a second serializer; the guards below are written for the full
+ * catalog. Deliberately WITHOUT a list: the gated `/shop-by-theme/<slug>/catalog`
+ * grid (noindex + nofollow), the `/products/<slug>` related carousel (a
+ * single-product page whose one `Product` block is the point), `/search`
+ * (noindex, dynamic) and `/quote/<token>` (private, noindex).
  *
  * PAGINATION SEMANTICS. Callers pass the products RENDERED ON THIS PAGE, so a
  * `/page/N` document describes its own grid only, with positions restarting at

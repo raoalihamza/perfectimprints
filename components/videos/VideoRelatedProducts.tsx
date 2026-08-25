@@ -1,5 +1,8 @@
 import { StripCardGrid } from '@/components/products/StripCardGrid';
+import { Schema } from '@/components/seo/Schema';
 import { resolveStripCards } from '@/lib/sanity/queries/strip-entries';
+import { stripSchemaProducts } from '@/lib/products/strip-cards';
+import { productItemListSchema } from '@/lib/seo/product-list-schema';
 import type { GeigerProduct } from '@/lib/product-types';
 import type { VideoRelatedProductEntry } from '@/lib/sanity/queries/videos';
 
@@ -21,8 +24,17 @@ import type { VideoRelatedProductEntry } from '@/lib/sanity/queries/videos';
  * now come from the shared `resolveStripCards` in
  * lib/sanity/queries/strip-entries.ts, the same resolver the blog body and the
  * page-builder ProductStrip use, instead of a second inline copy. Output is
- * unchanged. This strip does NOT yet emit structured data for its products -
- * that is the video/page/landing strip piece of the Product Snippets series.
+ * unchanged.
+ *
+ * SNIP-160: the strip emits a full-product ItemList through the shared
+ * `productItemListSchema`, built from the SAME `cards` array the grid below
+ * renders (via `stripSchemaProducts`), so a hidden SKU is absent from both and
+ * a replaced SKU is its product page's card in both. It is a separate
+ * top-level block beside the page's VideoObject, never nested inside it: Google
+ * reads each top-level entity on its own, and the VideoObject stays
+ * byte-identical. Pure over objects already in scope, so /videos/[slug] stays
+ * SSG. A strip whose entries all resolve to nothing renders nothing and emits
+ * nothing.
  */
 
 interface VideoRelatedProductsProps {
@@ -55,10 +67,12 @@ export function VideoRelatedProducts({
   const cards = resolveStripCards(entries, { skuProducts, hiddenSkus, replacementBySku });
 
   if (cards.length === 0) return null;
+  const schemaProducts = stripSchemaProducts(cards);
   return (
     <section className="mt-10">
       <h2 className="text-2xl font-bold text-brand-ink">{heading}</h2>
       <StripCardGrid cards={cards} />
+      {schemaProducts.length > 0 && <Schema data={productItemListSchema(schemaProducts)} />}
     </section>
   );
 }

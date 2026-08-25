@@ -177,3 +177,17 @@ export function dedupeProductsBySku(products: readonly GeigerProduct[]): GeigerP
   }
   return out;
 }
+
+/**
+ * The products ONE strip's structured data should name (SNIP-160): the
+ * product cards it renders, in order, each product once. This is what the
+ * video strip, the page-builder strip and the landing-page strip hand to
+ * `productItemListSchema`, computed from the very `cards` array they render,
+ * so the list and the row structurally cannot disagree. Manual cards are
+ * excluded for the reason `stripCardProducts` gives; the de-duplication
+ * matches the blog post's `collectBlogStripProducts` rule, so an editor who
+ * pasted the same SKU twice gets two cards and one entity.
+ */
+export function stripSchemaProducts(cards: readonly StripCard[]): GeigerProduct[] {
+  return dedupeProductsBySku(stripCardProducts(cards));
+}

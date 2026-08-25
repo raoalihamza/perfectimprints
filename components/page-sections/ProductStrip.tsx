@@ -2,7 +2,10 @@ import { resolveProductsBySku } from '@/lib/categories';
 import { getHiddenProductContext } from '@/lib/products/site-wide-hidden';
 import { buildSkuSet } from '@/lib/products/hidden-skus';
 import { StripCardGrid } from '@/components/products/StripCardGrid';
+import { Schema } from '@/components/seo/Schema';
 import { SectionShell } from './SectionShell';
+import { stripSchemaProducts } from '@/lib/products/strip-cards';
+import { productItemListSchema } from '@/lib/seo/product-list-schema';
 import { isStripRefEntry } from '@/lib/sanity/strip-product-entries';
 import { resolveStripCards } from '@/lib/sanity/queries/strip-entries';
 import type { ProductStripSection } from '@/lib/sanity/queries/pages';
@@ -26,10 +29,19 @@ import type { ProductStripSection } from '@/lib/sanity/queries/pages';
  * SNIP-150: the entry-by-entry decisions (hidden / replaced / resolved / manual)
  * now come from the shared `resolveStripCards` in
  * lib/sanity/queries/strip-entries.ts, the same resolver the blog body and the
- * video strip use, instead of a third inline copy. Output is unchanged. This
- * strip does NOT yet emit structured data for its products - that is the
- * video/page/landing strip piece of the Product Snippets series; when it lands
- * it is `productItemListSchema(stripCardProducts(cards))` on the list below.
+ * video strip use, instead of a third inline copy. Output is unchanged.
+ *
+ * SNIP-160: the strip emits a full-product ItemList through the shared
+ * `productItemListSchema`, built from the SAME `cards` array the grid below
+ * renders (via `stripSchemaProducts`), so a hidden SKU is absent from both and
+ * a replaced SKU is its product page's card in both. Emitted HERE, per strip,
+ * because this one component is what every page-builder page (/services,
+ * /<slug>, the footer/legal pages) AND the landing-page template render their
+ * strips through: a page with two strips carries two ItemLists, each a true
+ * statement about its own row. It sits beside whatever else the page emits
+ * (BreadcrumbList, FAQPage, the landing Service schema) as its own top-level
+ * block. Pure over the cards already in scope, so every embedding route keeps
+ * its rendering mode. An empty strip renders nothing and emits nothing.
  */
 
 // Async server component (HIDE-100). It reads `getSiteSettings()` itself rather
@@ -56,12 +68,14 @@ export async function ProductStrip({ section }: { section: ProductStripSection }
   });
 
   if (cards.length === 0) return null;
+  const schemaProducts = stripSchemaProducts(cards);
   return (
     <SectionShell>
       {section.heading && (
         <h2 className="text-2xl font-bold text-brand-ink md:text-3xl">{section.heading}</h2>
       )}
       <StripCardGrid cards={cards} />
+      {schemaProducts.length > 0 && <Schema data={productItemListSchema(schemaProducts)} />}
     </SectionShell>
   );
 }

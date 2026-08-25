@@ -6,6 +6,7 @@ import { Container } from '@/components/ui/Container';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { ProductGrid } from '@/components/category/ProductGrid';
 import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
+import { Schema } from '@/components/seo/Schema';
 import { CatalogCta } from '@/components/catalogs/CatalogCta';
 import { CatalogRelatedContent } from '@/components/catalogs/CatalogRelatedContent';
 import { pagePortableComponents } from '@/components/page-sections/portable-text';
@@ -15,6 +16,8 @@ import {
   type CatalogPageDoc,
 } from '@/lib/sanity/queries/catalog-pages';
 import { getCatalogPreviewProducts } from '@/lib/catalogs';
+import { getHiddenProductContext } from '@/lib/products/site-wide-hidden';
+import { productItemListSchema } from '@/lib/seo/product-list-schema';
 import { getFormBySlug, toFormRenderDef } from '@/lib/sanity/queries/forms';
 import { CATALOG_FORM_SLUG } from '@/lib/leads/catalog-lead';
 import { buildImageUrl } from '@/lib/sanity/client';
@@ -55,8 +58,8 @@ function clampAtWord(text: string, max: number): string {
   return `${cut.slice(0, lastSpace > 40 ? lastSpace : max).trimEnd()}…`;
 }
 
-/** og:image priority: seo.ogImage → hero image → first scraped product image. */
-function catalogOgImage(doc: CatalogPageDoc): string | null {
+/** og:image priority: seo.ogImage, then hero image, then first visible scraped product image. */
+function catalogOgImage(doc: CatalogPageDoc, hiddenSkus: readonly string[]): string | null {
   if (doc.seo?.ogImage) {
     const url = buildImageUrl(doc.seo.ogImage, (b) => b.width(1200).fit('max'));
     if (url) return url;
@@ -65,7 +68,7 @@ function catalogOgImage(doc: CatalogPageDoc): string | null {
     const url = buildImageUrl(doc.heroImage, (b) => b.width(1200).fit('max'));
     if (url) return url;
   }
-  const first = getCatalogPreviewProducts(doc.catalogKey, 1)[0];
+  const first = getCatalogPreviewProducts(doc.catalogKey, 1, hiddenSkus)[0];
   return largeSocialImage(first?.imageUrl);
 }
 
@@ -82,7 +85,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     (plain
       ? clampAtWord(plain, 155)
       : `Browse the ${doc.title} catalog of custom promotional products from Perfect Imprints.`);
-  const image = catalogOgImage(doc);
+  // Same deduped, tag-cached read the page render performs (HIDE-100).
+  const image = catalogOgImage(doc, (await getHiddenProductContext()).hiddenSkus);
 
   return {
     title: { absolute: title },
@@ -110,16 +114,28 @@ export default async function CatalogLandingPage({ params }: Props) {
     ? buildImageUrl(doc.heroImage, (b) => b.width(1600).fit('max'))
     : null;
   const hasBody = Array.isArray(doc.body) && doc.body.length > 0;
-  // A small static peek at the catalog's products (scraped set only — cheap,
+  // A small static peek at the catalog's products (scraped set only: cheap,
   // sync disk read; manual-only catalogs have none and render no strip).
-  const previewProducts = getCatalogPreviewProducts(doc.catalogKey, 4);
+  // SNIP-160: the site-wide hide list (HIDE-100 + HIDE-110 claims) is applied
+  // before the slice, remove-only, exactly as the gated /catalog page already
+  // does. The read is the layout's deduped, tag-cached one: no new fetch, the
+  // route stays statically prerenderable.
+  const hiddenSkus = (await getHiddenProductContext()).hiddenSkus;
+  const previewProducts = getCatalogPreviewProducts(doc.catalogKey, 4, hiddenSkus);
 
   const schema = collectionPageSchema({
     name: heading,
     url: canonical,
     description: doc.seo?.metaDescription?.trim() || undefined,
-    image: catalogOgImage(doc) || undefined,
+    image: catalogOgImage(doc, hiddenSkus) || undefined,
   });
+
+  // SNIP-160: a full-product ItemList over the SAME four products the preview
+  // grid below renders, through the shared serializer, beside the
+  // CollectionPage. Nothing is emitted for a manual-only catalog (no preview).
+  // The gated /catalog page deliberately emits none: it is noindex + nofollow.
+  const previewItemList =
+    previewProducts.length > 0 ? productItemListSchema(previewProducts) : null;
 
   const cta = (placement: 'top' | 'middle' | 'end') => (
     <CatalogCta
@@ -137,6 +153,7 @@ export default async function CatalogLandingPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdHtml(schema) }}
       />
+      {previewItemList && <Schema data={previewItemList} />}
       <CustomSchemaJsonLd path={`/shop-by-theme/${doc.slug}`} />
 
       <Container as="section" className="pb-4 pt-6">

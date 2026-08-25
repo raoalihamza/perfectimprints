@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { Container } from '@/components/ui/Container';
 import { ProductCard } from '@/components/category/ProductCard';
+import { Schema } from '@/components/seo/Schema';
+import { productItemListSchema } from '@/lib/seo/product-list-schema';
 import type { GeigerProduct } from '@/lib/product-types';
 
 interface NewProductsRailProps {
@@ -25,6 +27,14 @@ export function NewProductsRail({
   background = 'soft',
 }: NewProductsRailProps) {
   if (products.length === 0) return null;
+
+  // SNIP-160: a full-product ItemList over the SAME `products` array the rail
+  // renders, through the shared serializer. The page hands this rail the
+  // post-hide list (this page's own hide list + the site-wide one, applied
+  // before the slice in getNewProducts / getRushProducts), so the block cannot
+  // name a product the rail does not show. Each rail is its own list: the home
+  // page carries one for New and one for Rush. Pure, so `/` stays force-static.
+  const itemList = productItemListSchema(products);
 
   const sectionBg = background === 'white' ? 'bg-white' : 'bg-bg-soft';
   const fadeFrom = background === 'white' ? 'from-white' : 'from-bg-soft';
@@ -68,6 +78,7 @@ export function NewProductsRail({
           </ul>
         </div>
       </Container>
+      <Schema data={itemList} />
     </section>
   );
 }

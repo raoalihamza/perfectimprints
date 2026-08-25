@@ -1,4 +1,4 @@
-import { buildSkuSet, isHiddenSku } from '@/lib/products/hidden-skus';
+import { buildSkuSet, filterHiddenSkuItems, isHiddenSku } from '@/lib/products/hidden-skus';
 import fs from 'node:fs';
 import path from 'node:path';
 import { decodeProductList } from './products/decode-product';
@@ -130,9 +130,22 @@ export function getCatalogBrowseUrl(catalogKey: string): string | null {
   return readScrapedCatalog(catalogKey).browseUrl;
 }
 
-/** First N scraped products of a catalog — the landing page's static preview strip. */
-export function getCatalogPreviewProducts(catalogKey: string, limit = 4): GeigerProduct[] {
-  return readScrapedCatalog(catalogKey).products.slice(0, limit);
+/**
+ * First N scraped products of a catalog: the landing page's static preview
+ * strip (and its og:image fallback). `hiddenSkus` is the site-wide hide list
+ * (HIDE-100 + the HIDE-110 claims), applied BEFORE the slice so the strip
+ * stays full. Remove-only, never a substitution, because this is Geiger's
+ * catalog membership and Patrick's own pages are not in it (the HIDE-110
+ * catalogue rule the gated page already follows). Added in SNIP-160: until
+ * then this was the one product surface the site-wide list never reached.
+ */
+export function getCatalogPreviewProducts(
+  catalogKey: string,
+  limit = 4,
+  hiddenSkus: readonly string[] = [],
+): GeigerProduct[] {
+  const products = readScrapedCatalog(catalogKey).products;
+  return filterHiddenSkuItems(products, buildSkuSet(hiddenSkus)).slice(0, limit);
 }
 
 /**
