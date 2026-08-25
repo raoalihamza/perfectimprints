@@ -1,4 +1,5 @@
 import { defineArrayMember, defineType } from 'sanity';
+import { rawHtmlValidationMessage } from './raw-html';
 
 /**
  * Minimal rich-text field for short answers/descriptions (Task B). Reused by the
@@ -14,6 +15,12 @@ export default defineType({
   name: 'richAnswer',
   title: 'Answer',
   type: 'array',
+  // FIX-840: typed HTML (`<a href="...">here</a>`) in a paragraph is shown to
+  // visitors exactly as typed, because the renderer escapes text and must keep
+  // doing so. Warn at the source and point at the link button. A WARNING, not an
+  // error, so nothing already published is blocked from being republished; the
+  // yellow flag still appears on the field and in the publish dialog.
+  validation: (Rule) => Rule.custom((value) => rawHtmlValidationMessage(value) ?? true).warning(),
   of: [
     defineArrayMember({
       type: 'block',
