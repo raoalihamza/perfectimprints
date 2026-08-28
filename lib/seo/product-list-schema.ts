@@ -56,6 +56,25 @@
  * the three that COULD be answered from real data. See `knownOfferCount`
  * for how the number is derived and why it is true per product.
  *
+ * THE IMAGE, AND THE ONE CREDIT THAT IS TRUE (SNIP-170, then SNIP-172).
+ * Google's image metadata feature needs a content URL plus at least one of a
+ * creator, a credit line, a copyright notice or a licence page. SNIP-170 found
+ * none of the four fillable and emitted nothing; SNIP-172 kept that answer for
+ * three of them and revised it for the fourth. `creator` and `copyrightNotice`
+ * claim authorship and ownership this business does not have, and `license`
+ * triggers Google's Licensable badge, which exists to route viewers into the
+ * licensing enquiries Patrick declined. Those three are never emitted anywhere.
+ * `creditText` is different: it names who is credited when the image is
+ * published, and every scraped product photo is served by Geiger from Geiger's
+ * own host (9,602 of 9,602 measured), which is a fact the URL itself carries.
+ * So a Geiger-served image is emitted as an ImageObject with `contentUrl` plus
+ * `creditText: "Geiger"`, and every other image keeps the plain URL string it
+ * has always had, because no true credit exists for it. The rule is host-
+ * derived and lives in lib/seo/image-credit.ts; the evidence is in
+ * docs/product-snippets/SNIP-172-image-credit.md and
+ * docs/product-snippets/SNIP-170-image-metadata-assessment.md, and
+ * lib/seo/image-metadata.test.ts is what keeps the three forbidden fields out.
+ *
  * THE OFFER URL. The Product `url` is the affiliate destination
  * (patrickblack.geiger.com), the same URL the visible card links to; products
  * with an internal detail page (`detailUrl`) point there instead, mirroring
@@ -67,6 +86,7 @@
 import { affiliateUrl } from '../affiliate-url';
 import type { GeigerProduct } from '../product-types';
 import { decodeHtmlEntities } from '../text-utils';
+import { schemaImage } from './image-credit';
 import { largeSocialImage } from './open-graph';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
@@ -218,7 +238,7 @@ export function productListItem(
   const url = productDestinationUrl(p);
   if (url) product.url = url;
 
-  const image = schemaImageUrl(p.imageUrl);
+  const image = schemaImage(schemaImageUrl(p.imageUrl));
   if (image) product.image = image;
 
   const brand = (p.brand ?? '').trim();

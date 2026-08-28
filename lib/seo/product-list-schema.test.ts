@@ -29,6 +29,22 @@ function fullProduct(overrides: Partial<GeigerProduct> = {}): GeigerProduct {
   };
 }
 
+/**
+ * The image URL an entry claims, whichever shape `image` is in. SNIP-172 wraps
+ * a Geiger-served image in a credited ImageObject (`contentUrl` + `creditText`)
+ * and leaves every other image a plain string, so the URL assertions below read
+ * through this rather than assuming one shape. What they test - the ~1200px
+ * upsize and the HTML entity decode - is unchanged by that wrapping.
+ */
+function imageUrlOf(item: Record<string, unknown>): string | undefined {
+  const image = item.image;
+  if (typeof image === 'string') return image;
+  if (image && typeof image === 'object') {
+    return (image as Record<string, unknown>).contentUrl as string;
+  }
+  return undefined;
+}
+
 describe('productListItem', () => {
   it('emits a full nested Product for a complete catalog record', () => {
     const entry = productListItem(fullProduct(), 3)!;
@@ -100,7 +116,7 @@ describe('productListItem', () => {
   it('upsizes the image to the ~1200px social variant', () => {
     const entry = productListItem(fullProduct(), 1)!;
     const item = entry.item as Record<string, unknown>;
-    expect(item.image).toBe(
+    expect(imageUrlOf(item)).toBe(
       'https://imgsirv.geiger.com/image.jpg?format=webp&thumbnail=1200&w=1200&h=1200',
     );
   });
@@ -200,10 +216,10 @@ describe('productListItem', () => {
       }),
       1,
     )!.item as Record<string, unknown>;
-    expect(item.image).toBe(
+    expect(imageUrlOf(item)).toBe(
       'https://imgsirv.geiger.com/master/102385/web/102385_1.jpg?format=webp&thumbnail=1200&w=1200&h=1200',
     );
-    expect(String(item.image)).not.toContain('&amp;');
+    expect(String(imageUrlOf(item))).not.toContain('&amp;');
   });
 
   it('leaves an already-decoded image URL byte-identical (brands and /cat unaffected)', () => {
@@ -214,7 +230,7 @@ describe('productListItem', () => {
       }),
       1,
     )!.item as Record<string, unknown>;
-    expect(item.image).toBe(
+    expect(imageUrlOf(item)).toBe(
       'https://imgsirv.geiger.com/master/101032/web/101032_1.jpg?format=webp&thumbnail=1200&w=1200&h=1200',
     );
   });
