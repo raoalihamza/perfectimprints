@@ -32,19 +32,86 @@ export const TWITTER_HANDLE = '@perfectimprints';
 export const LOGO_OG_IMAGE = `${SITE_URL}/og-default.png`;
 
 /**
- * Geiger product images are stored at the 275px grid-thumbnail size
- * (`?format=webp&thumbnail=275&w=275&h=275`). That's too small/square for X's
- * `summary_large_image` card to render a LARGE image. For the SOCIAL meta only
- * (og:image + twitter:image) we bump those size params to ~1200px so X/Facebook
- * render a proper large card. The on-page grid keeps requesting 275px — this
- * only rewrites the URL handed to the social tags, never the rendered <img>.
- * Non-Geiger URLs (Sanity images, the logo) pass through unchanged.
+ * The ~1200px variant of a product image, for the SOCIAL and STRUCTURED-DATA
+ * tags only. It never touches the rendered `<img>`: every caller hands it a URL
+ * it is about to put in og:image, twitter:image, a sitemap `<image:loc>` or a
+ * JSON-LD `image`, while the grid keeps requesting its own smaller size from
+ * the unmodified `product.imageUrl`.
+ *
+ * TWO HOSTS, BECAUSE THERE ARE TWO SOURCES OF PRODUCT IMAGE (IMG-110).
+ *
+ * Geiger images arrive at the 275px grid-thumbnail size
+ * (`?format=webp&thumbnail=275&w=275&h=275`), too small and too square for X's
+ * `summary_large_image` card, so their size params are rewritten to 1200. That
+ * branch is unchanged and byte-identical, and the on-page grid still requests
+ * its own 275px variant.
+ *
+ * Patrick's OWN products (`cdn.sanity.io`) were the gap SNIP-170 reported and
+ * deliberately did not fix. `productPageToGeigerProduct` and
+ * `customProductToGeigerProduct` normalise a card image at `w=400`, and this
+ * helper used to return every non-Geiger URL untouched, so Google was handed a
+ * 400px rendering of images Patrick uploaded at 1500px or more. Measured live
+ * before the fix: 60 of 60 structured-data images on `/new-products`, and on
+ * `/cat/pens` both the `CollectionPage.image` and the five products his
+ * overrides place at positions 1 to 5.
+ *
+ * NEVER AN UPSCALE. 22 of his 153 published product pages have a first image
+ * NARROWER than 1200 (a 390x750, a 600x525, several 640s and 768s), so a blind
+ * `w=1200` would ask for pixels that do not exist. Two independent guards stop
+ * that, and both were measured against the live CDN rather than assumed:
+ *
+ *  1. `fit=max` must be present. With it, `w=1200` on a 768px asset returns the
+ *     true 768x768 original; WITHOUT it the same request returns a fabricated
+ *     1200x1200 upscale. A URL carrying no `fit=max` is therefore left exactly
+ *     as it is, because under-delivering beats inventing detail.
+ *  2. The target is clamped to the asset's own width, which Sanity encodes in
+ *     the filename (`-1500x1500.jpg`). The emitted URL then names a size that
+ *     really exists rather than trusting the server to clamp it, so a future
+ *     caller that builds the URL with a different `fit` cannot start upscaling.
+ *
+ * A URL with no `w` to raise is left alone: it already resolves to the
+ * full-size original, and adding a width would SHRINK it.
  */
 const SOCIAL_IMAGE_PX = 1200;
+
+/**
+ * Widen a Sanity image URL toward SOCIAL_IMAGE_PX without ever asking for more
+ * pixels than the stored asset actually has. Any URL that is not a parseable
+ * Sanity CDN URL, or where no-upscale cannot be guaranteed, is returned
+ * unchanged.
+ */
+function largeSanityImage(url: string): string {
+  let pathname: string;
+  try {
+    const parsed = new URL(url);
+    if (parsed.hostname.toLowerCase().replace(/\.$/, '') !== 'cdn.sanity.io') return url;
+    pathname = parsed.pathname;
+  } catch {
+    return url;
+  }
+
+  // Guard 1: without fit=max the CDN will happily fabricate an upscale.
+  if (!/[?&]fit=max(?:&|$)/i.test(url)) return url;
+
+  const current = Number(url.match(/[?&]w=(\d+)/)?.[1]);
+  if (!Number.isFinite(current)) return url;
+
+  // Guard 2: clamp to the asset's own width, which Sanity encodes in the
+  // filename. An unreadable width falls back to the fit=max guarantee alone.
+  const stored = Number(pathname.match(/-(\d+)x\d+\.\w+$/)?.[1]);
+  const intrinsic = Number.isFinite(stored) && stored > 0 ? stored : SOCIAL_IMAGE_PX;
+
+  const target = Math.min(SOCIAL_IMAGE_PX, intrinsic);
+  if (target <= current) return url;
+  return url.replace(/([?&]w=)\d+/, `$1${target}`);
+}
+
 export function largeSocialImage(url: string | null | undefined): string | null {
   if (!url) return null;
-  if (!/imgsirv\.geiger\.com/i.test(url)) return url;
-  return url.replace(/\b(thumbnail|w|h)=\d+/gi, `$1=${SOCIAL_IMAGE_PX}`);
+  if (/imgsirv\.geiger\.com/i.test(url)) {
+    return url.replace(/\b(thumbnail|w|h)=\d+/gi, `$1=${SOCIAL_IMAGE_PX}`);
+  }
+  return largeSanityImage(url);
 }
 
 export interface SocialMetaInput {

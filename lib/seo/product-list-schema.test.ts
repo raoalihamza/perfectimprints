@@ -235,7 +235,11 @@ describe('productListItem', () => {
     );
   });
 
-  it('leaves a non-Geiger (Sanity) image URL untouched apart from decoding', () => {
+  // IMG-110. Patrick's own products normalise their card image at w=400, and
+  // this serializer used to emit that verbatim, so Google was told about a
+  // 400px rendering of a 1500px upload. The structured data now names the
+  // ~1200px variant, exactly as the Geiger branch already did.
+  it('raises a Sanity image to the ~1200px structured-data variant', () => {
     const item = productListItem(
       fullProduct({
         imageUrl:
@@ -244,7 +248,22 @@ describe('productListItem', () => {
       1,
     )!.item as Record<string, unknown>;
     expect(item.image).toBe(
-      'https://cdn.sanity.io/images/ii96lcy9/production/abc-1500x1501.jpg?w=400&fit=max',
+      'https://cdn.sanity.io/images/ii96lcy9/production/abc-1500x1501.jpg?w=1200&fit=max',
+    );
+  });
+
+  // 22 of the 153 published product pages have a first image narrower than
+  // 1200. Asking for 1200 there would name pixels that do not exist.
+  it('never asks for more pixels than a small Sanity asset actually has', () => {
+    const item = productListItem(
+      fullProduct({
+        imageUrl:
+          'https://cdn.sanity.io/images/ii96lcy9/production/abc-768x768.webp?w=400&fit=max',
+      }),
+      1,
+    )!.item as Record<string, unknown>;
+    expect(item.image).toBe(
+      'https://cdn.sanity.io/images/ii96lcy9/production/abc-768x768.webp?w=768&fit=max',
     );
   });
 
