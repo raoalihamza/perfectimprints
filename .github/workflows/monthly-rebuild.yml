@@ -127,10 +127,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
@@ -144,7 +144,7 @@ jobs:
       # interrupted. The key is unique per run; restore-keys lets a re-run pick
       # up the latest partial checkpoint.
       - name: Restore Phase B checkpoint
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: scripts/scrapers/geiger/.checkpoint
           key: phase-b-${{ github.run_id }}
@@ -173,7 +173,7 @@ jobs:
         run: python -m scripts.scrapers.geiger.run --phase b --global-only
 
       - name: Upload A+B output
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: geiger-ab
           retention-days: 3
@@ -190,10 +190,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
@@ -214,7 +214,7 @@ jobs:
         run: python -m scripts.scrapers.geiger.run --phase e
 
       - name: Upload Phase E output
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: geiger-e
           retention-days: 3
@@ -235,10 +235,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 350
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
@@ -252,7 +252,7 @@ jobs:
       # otherwise fall back to the committed copies from checkout.
       - name: Download A+B output
         if: needs.scrape-ab.result == 'success'
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: geiger-ab
           path: data/geiger
@@ -261,7 +261,7 @@ jobs:
       # (e.g. a job approached the 6h limit). The 100-URL checkpoint means a
       # re-run continues instead of restarting the ~21,715-URL crawl.
       - name: Restore Phase C checkpoint
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: scripts/scrapers/geiger/.checkpoint
           key: phase-c-${{ github.run_id }}
@@ -272,7 +272,7 @@ jobs:
         run: python -m scripts.scrapers.geiger.run --phase c --workers ${{ env.PHASE_C_WORKERS }} --resume
 
       - name: Upload Phase C output
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: geiger-c
           retention-days: 3
@@ -301,10 +301,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 350
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
@@ -318,13 +318,13 @@ jobs:
       # filtering); use the fresh copy when Phase B ran, else the committed one.
       - name: Download A+B output
         if: needs.scrape-ab.result == 'success'
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: geiger-ab
           path: data/geiger
 
       - name: Download Phase C output
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: geiger-c
           path: data/geiger
@@ -336,7 +336,7 @@ jobs:
         run: python -m scripts.scrapers.geiger.run --phase c --retry-search --workers ${{ env.PHASE_C_WORKERS }}
 
       - name: Upload recovered Phase C output
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: geiger-c-recovered
           retention-days: 3
@@ -360,22 +360,22 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
       # SCRAPE-920: no `version` here on purpose - pnpm/action-setup reads the
       # exact pin from package.json `packageManager` (pnpm@9.12.0), and the
       # action now ERRORS if both are set (this killed run #4's assemble job).
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
@@ -393,14 +393,14 @@ jobs:
       # file in place.
       - name: Download A+B output
         if: needs.scrape-ab.result == 'success'
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: geiger-ab
           path: data/geiger
 
       - name: Download Phase C output
         if: needs.scrape-c.result == 'success'
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: geiger-c
           path: data/geiger
@@ -409,14 +409,14 @@ jobs:
       # merged in) overwrites the main-pass file downloaded above.
       - name: Download recovered Phase C output
         if: needs.scrape-c-recover.result == 'success'
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: geiger-c-recovered
           path: data/geiger
 
       - name: Download Phase E output
         if: needs.scrape-e.result == 'success'
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: geiger-e
           path: .
@@ -485,7 +485,7 @@ jobs:
         id: pr
         if: steps.summary.outputs.changed == 'true'
         continue-on-error: true
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           commit-message: 'chore(data): monthly catalog rebuild'
           title: 'chore(data): monthly catalog rebuild'

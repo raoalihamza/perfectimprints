@@ -73,14 +73,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       # SCRAPE-920: no `version` here on purpose - pnpm/action-setup reads the
       # exact pin from package.json `packageManager` (pnpm@9.12.0), and the
       # action now ERRORS if both are set (it killed monthly rebuild run #4).
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 24
           cache: pnpm
