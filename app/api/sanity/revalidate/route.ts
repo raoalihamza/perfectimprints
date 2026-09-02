@@ -24,6 +24,7 @@ import {
   LANDING_TAG,
   MEGA_MENU_TAG,
   PAGES_TAG,
+  PORTFOLIO_TAG,
   PRODUCT_PAGES_TAG,
   QUOTES_TAG,
   RELATED_BLOGS_TAG,
@@ -36,6 +37,8 @@ import {
   formTag,
   landingTag,
   pageTag,
+  portfolioCategoryTag,
+  portfolioItemTag,
   productPageTag,
   quoteTag,
 } from '@/lib/sanity/cache-tags';
@@ -141,15 +144,22 @@ async function findEmbeddingContentDocs(
 ): Promise<{ _type: string; slug: string }[]> {
   try {
     let docs: { _type?: string; slug?: string | null }[] | null = null;
+    // PORT-100: `productPage` joined the embedder list because the Portfolio
+    // Gallery block (PORT-120) will sit on product pages too, and a
+    // portfolioItem / portfolioCategory publish must reach them. For the
+    // existing productPage / customProduct callers this adds product pages
+    // whose Related Products reference the edited doc, which their own
+    // PRODUCT_PAGES_TAG bust already covers, so it is redundant there and
+    // harmless (one extra tag bust + path revalidation per embedder).
     if (id) {
       docs = await cachedClient.fetch<{ _type?: string; slug?: string | null }[]>(
-        `*[_type in ["blogPost", "page", "landingPage", "video", "catalogPage"] && references($id)]{ _type, "slug": slug.current }`,
+        `*[_type in ["blogPost", "page", "landingPage", "video", "catalogPage", "productPage"] && references($id)]{ _type, "slug": slug.current }`,
         { id },
         { cache: 'no-store' },
       );
     } else if (slug) {
       docs = await cachedClient.fetch<{ _type?: string; slug?: string | null }[]>(
-        `*[_type in ["blogPost", "page", "landingPage", "video", "catalogPage"] && (
+        `*[_type in ["blogPost", "page", "landingPage", "video", "catalogPage", "productPage"] && (
             $slug in body[].products[]->slug.current ||
             $slug in sections[].products[]->slug.current ||
             $slug in relatedProducts[]->slug.current ||
@@ -210,6 +220,13 @@ function bustEmbeddingContentDocs(docs: { _type: string; slug: string }[]): stri
         bustTag(catalogPageTag(d.slug));
         paths.add(`/shop-by-theme/${d.slug}`);
         paths.add(`/shop-by-theme/${d.slug}/catalog`);
+        break;
+      // A productPage embedding a Portfolio Gallery (PORT-120) or a Related
+      // Products reference reads it inside its own productPage:<slug>-tagged
+      // fetch; bust that tag + its route (PORT-100).
+      case 'productPage':
+        bustTag(productPageTag(d.slug));
+        paths.add(`/products/${d.slug}`);
         break;
     }
   }
@@ -628,6 +645,36 @@ export async function POST(request: Request) {
       });
     }
     return NextResponse.json({ revalidated: false, reason: 'quote missing slug', type });
+  }
+
+  // Portfolio Gallery (PORT-100): `portfolioItem` + `portfolioCategory`.
+  // Every portfolio read carries PORTFOLIO_TAG (collection-level, the
+  // BLOG_LIST_TAG reasoning: an item's category is an unresolved reference in
+  // the payload, so the webhook cannot name the lists a publish changed, and
+  // busting the one collection tag reaches all of them), plus the per-slug tag
+  // for the doc itself. Paths: /portfolio is the PORT-110 page (static,
+  // `revalidate = false`, so this revalidatePath is what refreshes it), and
+  // the embedders are the blog posts / pages /
+  // landing pages / videos / product pages whose Portfolio Gallery block
+  // (PORT-120) references this item or category, found with the SAME
+  // findEmbeddingContentDocs lookup the product strips use. That lookup needs
+  // `_id` in the webhook Projection (recommended since P2-CP-004 batch 3); the
+  // slug-deref fallback covers product strips only, so without `_id` an
+  // embedded gallery stays stale until its host page is next busted.
+  // ⚠️ `portfolioItem` and `portfolioCategory` must be in the Sanity webhook
+  // Filter `_type` list on BOTH environments (new types, added to neither
+  // webhook automatically) or this never fires. See docs/sanity-webhook-setup.md.
+  if (type === 'portfolioItem' || type === 'portfolioCategory') {
+    revalidateTag(PORTFOLIO_TAG, 'max');
+    const slug = payload.slug?.current;
+    if (slug) bustTag(type === 'portfolioItem' ? portfolioItemTag(slug) : portfolioCategoryTag(slug));
+    // /sitemap.xml too (PORT-110): the sitemap lists /portfolio, with one image
+    // per item, ONLY while the page has items, so the first publish must add
+    // the entry and the last unpublish must remove it without a deploy.
+    const paths = ['/portfolio', '/sitemap.xml'];
+    for (const p of paths) revalidatePath(p);
+    paths.push(...bustEmbeddingContentDocs(await findEmbeddingContentDocs(payload._id, undefined)));
+    return NextResponse.json({ revalidated: true, paths, type });
   }
 
   // Generic section-based `page` documents power the Services routes

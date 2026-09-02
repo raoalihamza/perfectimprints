@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { type PortableTextComponents } from '@portabletext/react';
-import { urlForImage } from '@/lib/sanity/client';
+import { urlForRenderImage } from '@/lib/sanity/client';
 import {
   inlineImageAssetWidth,
   inlineImageSizingClasses,
@@ -26,7 +26,7 @@ export const pagePortableComponents: PortableTextComponents = {
       try {
         // Asset width matched to the editor-chosen size (full/unset = 1200,
         // exactly as before) so a quarter-width image doesn't fetch 1200px.
-        src = urlForImage(v).width(inlineImageAssetWidth(v)).fit('max').auto('format').url();
+        src = urlForRenderImage(v).width(inlineImageAssetWidth(v)).fit('max').url();
       } catch {
         return null;
       }

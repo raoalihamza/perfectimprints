@@ -1,5 +1,5 @@
 import type { PortableTextBlock } from '@portabletext/react';
-import { cachedClient, urlForImage } from '@/lib/sanity/client';
+import { cachedClient, urlForRenderImage } from '@/lib/sanity/client';
 import { HOME_TAG, SETTINGS_TAG } from '@/lib/sanity/cache-tags';
 import type { SanityImage } from '@/lib/sanity/types';
 
@@ -236,7 +236,7 @@ const FALLBACK_FEATURED_BLOCKS: HomeFeaturedBlock[] = [
 function resolveImage(image: (SanityImage & { alt?: string }) | undefined, width: number, height?: number): { url: string | null; alt: string } {
   if (!image?.asset?._ref) return { url: null, alt: image?.alt ?? '' };
   try {
-    let builder = urlForImage(image).width(width).fit('crop');
+    let builder = urlForRenderImage(image).width(width).fit('crop');
     if (height) builder = builder.height(height);
     return { url: builder.url(), alt: image.alt ?? '' };
   } catch {

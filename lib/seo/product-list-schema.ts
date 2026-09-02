@@ -85,6 +85,7 @@
 
 import { affiliateUrl } from '../affiliate-url';
 import type { GeigerProduct } from '../product-types';
+import { withoutAutoFormat } from '../sanity/image-format';
 import { decodeHtmlEntities } from '../text-utils';
 import { schemaImage } from './image-credit';
 import { largeSocialImage } from './open-graph';
@@ -215,7 +216,10 @@ function offerFor(p: GeigerProduct): Record<string, unknown> | null {
  */
 function schemaImageUrl(imageUrl: string | null | undefined): string | null {
   if (!imageUrl) return null;
-  return largeSocialImage(decodeHtmlEntities(imageUrl));
+  // IMG-120: a Sanity card image now carries `auto=format` for the <img>; the
+  // structured-data copy must not (lib/sanity/image-format.ts explains why).
+  // Geiger URLs never carry it and pass through byte-identical.
+  return largeSocialImage(withoutAutoFormat(decodeHtmlEntities(imageUrl)));
 }
 
 /**

@@ -1,4 +1,4 @@
-import { urlForImage } from '@/lib/sanity/client';
+import { urlForRenderImage } from '@/lib/sanity/client';
 import type { ManualStripCardData } from '@/lib/products/strip-cards';
 
 /**
@@ -13,7 +13,7 @@ import type { ManualStripCardData } from '@/lib/products/strip-cards';
 export function ManualStripCard({ card }: { card: ManualStripCardData }) {
   const { title, image, href, isExternal } = card;
   const imageSrc = image?.asset
-    ? urlForImage(image).width(550).height(550).fit('crop').url()
+    ? urlForRenderImage(image).width(550).height(550).fit('crop').url()
     : null;
   const cardInner = (
     <>

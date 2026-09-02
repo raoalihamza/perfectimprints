@@ -11,6 +11,7 @@
 import { useState } from 'react';
 import { useDocumentOperation, type DocumentActionComponent } from 'sanity';
 import { AiProgressContent } from '../components/AiProgressDialog';
+import { useGenerateAuthFetch } from '../components/useGenerateAuthFetch';
 
 interface CustomSchemaDoc {
   schemaType?: string;
@@ -22,6 +23,8 @@ interface CustomSchemaDoc {
 export const generateSchemaWithAi: DocumentActionComponent = (props) => {
   const { id, type, draft, published, onComplete } = props;
   const { patch } = useDocumentOperation(id, type);
+  // FIX-850: carries the Studio session nonce the generate routes now require.
+  const authFetch = useGenerateAuthFetch();
   const [isGenerating, setIsGenerating] = useState(false);
   const [hideProgress, setHideProgress] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -41,7 +44,7 @@ export const generateSchemaWithAi: DocumentActionComponent = (props) => {
       setHideProgress(false);
       setError(null);
       try {
-        const res = await fetch('/api/sanity/generate-schema', {
+        const res = await authFetch('/api/sanity/generate-schema', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

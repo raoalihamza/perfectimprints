@@ -10,7 +10,7 @@ import { SocialShareBar } from '@/components/blog/SocialShareBar';
 import { OrderTodayCTA } from '@/components/blog/OrderTodayCTA';
 import { RelatedBlogsForPost } from '@/components/blog/RelatedBlogsForPost';
 import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
-import { buildImageUrl } from '@/lib/sanity/client';
+import { buildImageUrl, buildRenderImageUrl } from '@/lib/sanity/client';
 import {
   getBlogPostBySlug,
   getBlogPostSlugs,
@@ -109,7 +109,7 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   const canonical = `${SITE_URL}/blog/${post.slug.current}`;
-  const heroImage = buildImageUrl(post.headerImage, (b) => b.width(1400));
+  const heroImage = buildRenderImageUrl(post.headerImage, (b) => b.width(1400));
   const firstCategory = post.categories?.[0];
   const orderTopic = deriveOrderTopic(post);
 

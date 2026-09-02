@@ -241,6 +241,8 @@ function colorSwatch(value: string): string {
     brown: '#78350f',
     clear: 'transparent',
     'multi-colored': 'linear-gradient(45deg, #f87171, #facc15, #22c55e, #60a5fa, #a855f7)',
+    // The portfolio colour vocabulary's spelling (lib/portfolio/colors.ts, PORT-110).
+    'multi-color': 'linear-gradient(45deg, #f87171, #facc15, #22c55e, #60a5fa, #a855f7)',
     multi: 'linear-gradient(45deg, #f87171, #facc15, #22c55e, #60a5fa, #a855f7)',
     rainbow: 'linear-gradient(45deg, #f87171, #facc15, #22c55e, #60a5fa, #a855f7)',
     camo: '#4a5e3a',

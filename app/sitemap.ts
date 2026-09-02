@@ -8,6 +8,8 @@ import { getVideoSlugs } from '@/lib/sanity/queries/videos';
 import { getAllPageSlugs } from '@/lib/sanity/queries/pages';
 import { getAllLandingPageSlugs } from '@/lib/sanity/queries/landing-pages';
 import { getAllCatalogPageSlugs } from '@/lib/sanity/queries/catalog-pages';
+import { getAllPortfolioItems } from '@/lib/sanity/queries/portfolio';
+import { portfolioSitemapImages } from '@/lib/portfolio/tile-data';
 import {
   getProductPageSitemapEntries,
   type ProductPageSitemapEntry,
@@ -157,6 +159,32 @@ async function readCatalogLandingUrls(): Promise<string[]> {
   }
 }
 
+// The Portfolio Gallery page (PORT-110). Listed ONLY while it holds at least
+// one published item: with none it renders an empty state, carries noindex,
+// and belongs out of the sitemap. Indexability follows the data, not a switch,
+// and the webhook revalidates /sitemap.xml on every portfolio publish so the
+// entry appears (or disappears) without a deploy. One image entry per item at
+// the same 1200px `fit=max` variant the product pages use, through the plain
+// builder (no `auto=format`, the IMG-120 rule for sitemap images).
+async function readPortfolioEntry(): Promise<{ images: string[] } | null> {
+  try {
+    const items = await getAllPortfolioItems();
+    if (items.length === 0) return null;
+    // Presence follows the SAME test the page uses for its noindex decision:
+    // an item counts only if its image asset resolves to a URL. An item saved
+    // with alt text but no upload would otherwise list the page while the
+    // page itself still says noindex.
+    const images = portfolioSitemapImages(items);
+    if (images.length === 0) return null;
+    // Google allows at most 1,000 <image:image> entries per <url>; items
+    // arrive in site order (featured first), so the first 1,000 are the right
+    // ones to keep.
+    return { images: images.slice(0, 1000) };
+  } catch {
+    return null;
+  }
+}
+
 function readBrandSlugs(): string[] {
   const file = path.join(process.cwd(), 'data', 'geiger', 'brands.json');
   if (!fs.existsSync(file)) return [];
@@ -205,7 +233,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [];
 
   // Per-section tallies for the build log so coverage is verifiable at a glance.
-  const counts = { static: 0, category: 0, categoryImages: 0, blogPosts: 0, blogCats: 0, videos: 0, brands: 0, pages: 0, landingPages: 0, productPages: 0, catalogPages: 0 };
+  const counts = { static: 0, category: 0, categoryImages: 0, blogPosts: 0, blogCats: 0, videos: 0, brands: 0, pages: 0, landingPages: 0, productPages: 0, catalogPages: 0, portfolio: 0, portfolioImages: 0 };
 
   for (const p of STATIC_PATHS) {
     entries.push({ url: `${SITE_URL}${p}`, lastModified: now, changeFrequency: 'weekly' });
@@ -296,6 +324,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
   counts.catalogPages = catalogLandingUrls.length;
 
+  // The Portfolio Gallery (PORT-110): one entry, only while it has items, with
+  // every item's image attached. Absent entirely when the page is empty (it is
+  // noindex in that state).
+  const portfolio = await readPortfolioEntry();
+  if (portfolio) {
+    entries.push({
+      url: `${SITE_URL}/portfolio`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+      ...(portfolio.images.length > 0 ? { images: portfolio.images.map(xmlEscape) } : {}),
+    });
+    counts.portfolio = 1;
+    counts.portfolioImages = portfolio.images.length;
+  }
+
   // Per-brand pages. Paginated /brands/<slug>/page/N variants are intentionally
   // excluded, matching the noindex convention used for category pagination.
   const brandSlugs = readBrandSlugs();
@@ -346,7 +390,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     `[sitemap] ${entries.length} URLs — static:${counts.static} category:${counts.category} ` +
       `(with images:${counts.categoryImages}) blogPosts:${counts.blogPosts} blogCats:${counts.blogCats} ` +
       `videos:${counts.videos} brands:${counts.brands} pages:${counts.pages} landingPages:${counts.landingPages} ` +
-      `productPages:${counts.productPages} catalogPages:${counts.catalogPages}`,
+      `productPages:${counts.productPages} catalogPages:${counts.catalogPages} ` +
+      `portfolio:${counts.portfolio} (with images:${counts.portfolioImages})`,
   );
 
   return entries;

@@ -27,6 +27,8 @@
 
 import { siteWideHiddenSkus } from '@/lib/products/site-wide-hidden';
 import { NextResponse } from 'next/server';
+import { verifyStudioNonce } from '@/lib/sanity/studio-nonce-auth';
+import { GENERATE_AUTH_DOC_ID, GENERATE_NONCE_HEADER } from '@/lib/sanity/generate-auth';
 import { brandVoiceSystemBlock, BUYER_PERSONA } from '@/lib/ai/brand-voice';
 import { generateJson, DeepSeekError } from '@/lib/ai/deepseek';
 import { matchRelatedProducts, resolveCategoryForKeywords } from '@/lib/ai/related-products';
@@ -172,6 +174,15 @@ function isStructurallyValid(gen: Partial<GeneratedPage>): gen is GeneratedPage 
 }
 
 export async function POST(request: Request) {
+  // FIX-850: first-party Studio session only (the Site Refresh / Bulk Upload
+  // nonce scheme). Rejects before any body parsing or DeepSeek call.
+  const auth = await verifyStudioNonce(request, {
+    authDocId: GENERATE_AUTH_DOC_ID,
+    headerName: GENERATE_NONCE_HEADER,
+  });
+  if (!auth.ok) {
+    return NextResponse.json({ error: auth.error ?? 'Unauthorized.' }, { status: auth.status });
+  }
   let body: GenBody;
   try {
     body = (await request.json()) as GenBody;

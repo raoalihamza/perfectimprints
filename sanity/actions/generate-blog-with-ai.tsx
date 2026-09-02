@@ -15,6 +15,7 @@
 import { useState } from 'react';
 import { useDocumentOperation, type DocumentActionComponent } from 'sanity';
 import { AiProgressContent } from '../components/AiProgressDialog';
+import { useGenerateAuthFetch } from '../components/useGenerateAuthFetch';
 
 interface SuggestedLink {
   label: string;
@@ -50,6 +51,8 @@ function slugify(input: string): string {
 export const generateBlogWithAi: DocumentActionComponent = (props) => {
   const { id, type, draft, published, onComplete } = props;
   const { patch } = useDocumentOperation(id, type);
+  // FIX-850: carries the Studio session nonce the generate routes now require.
+  const authFetch = useGenerateAuthFetch();
   const [isGenerating, setIsGenerating] = useState(false);
   const [hideProgress, setHideProgress] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -78,7 +81,7 @@ export const generateBlogWithAi: DocumentActionComponent = (props) => {
       setHideProgress(false);
       setError(null);
       try {
-        const res = await fetch('/api/sanity/generate-blog', {
+        const res = await authFetch('/api/sanity/generate-blog', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

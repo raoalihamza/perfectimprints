@@ -4,6 +4,12 @@ interface ClientPaginationProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
+  /**
+   * Accessible name of the <nav>. Defaults to the deals wording so every
+   * existing caller (deals, new products, rush, catalog) is byte-identical;
+   * the portfolio page (PORT-110) passes its own.
+   */
+  ariaLabel?: string;
 }
 
 function getPageNumbers(currentPage: number, totalPages: number): (number | 'ellipsis')[] {
@@ -35,6 +41,7 @@ export function ClientPagination({
   currentPage,
   totalPages,
   onPageChange,
+  ariaLabel = 'Deals pagination',
 }: ClientPaginationProps) {
   if (totalPages <= 1) return null;
 
@@ -46,7 +53,7 @@ export function ClientPagination({
 
   return (
     <nav
-      aria-label="Deals pagination"
+      aria-label={ariaLabel}
       className="mt-8 flex flex-col items-center gap-3 border-t border-border pt-6"
     >
       <div className="flex w-full items-center justify-between gap-3 sm:hidden">

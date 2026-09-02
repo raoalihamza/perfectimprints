@@ -14,7 +14,7 @@ import {
 import { ProductSelectionProvider } from '@/components/products/ProductSelectionContext';
 import { ProductPurchasePanel } from '@/components/products/ProductPurchasePanel';
 import { pagePortableComponents } from '@/components/page-sections/portable-text';
-import { buildImageUrl } from '@/lib/sanity/client';
+import { buildImageUrl, buildRenderImageUrl } from '@/lib/sanity/client';
 import { VideoCard } from '@/components/videos/VideoCard';
 import { BlogCard } from '@/components/blog/BlogCard';
 import {
@@ -126,9 +126,9 @@ function buildGalleryVariants(doc: ProductPageDoc): GalleryVariant[] {
   ): GalleryVariant['images'] => {
     const out: GalleryVariant['images'] = [];
     for (const img of images ?? []) {
-      const url = buildImageUrl(img, (b) => b.width(900).fit('max'));
+      const url = buildRenderImageUrl(img, (b) => b.width(900).fit('max'));
       if (!url) continue;
-      const zoomUrl = buildImageUrl(img, (b) => b.width(1600).fit('max')) || url;
+      const zoomUrl = buildRenderImageUrl(img, (b) => b.width(1600).fit('max')) || url;
       out.push({
         url,
         zoomUrl,
@@ -225,7 +225,7 @@ async function resolveRelatedProducts(doc: ProductPageDoc): Promise<GeigerProduc
       if (!rawUrl) continue;
       const isInternal = rawUrl.startsWith('/');
       const imageUrl = entry.image
-        ? buildImageUrl(entry.image, (b) => b.width(400).fit('max'))
+        ? buildRenderImageUrl(entry.image, (b) => b.width(400).fit('max'))
         : null;
       push({
         sku: `custom-manual-${entry._key ?? entry.title ?? String(picked.length)}`,

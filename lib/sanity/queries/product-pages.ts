@@ -1,7 +1,7 @@
 import 'server-only';
 
 import type { PortableTextBlock } from '@portabletext/react';
-import { cachedClient, buildImageUrl, urlForImage } from '@/lib/sanity/client';
+import { cachedClient, buildImageUrl, buildRenderImageUrl, urlForRenderImage } from '@/lib/sanity/client';
 import { PRODUCT_PAGES_TAG, productPageTag } from '@/lib/sanity/cache-tags';
 import type { SanityImage, SeoFields } from '@/lib/sanity/types';
 import type { GeigerProduct } from '@/lib/product-types';
@@ -286,7 +286,7 @@ export function productPageColors(doc: ProductPageCard): string[] {
  */
 export function productPageToGeigerProduct(doc: ProductPageCard): GeigerProduct {
   const image = productPageFirstImage(doc);
-  const imageUrl = image ? buildImageUrl(image, (b) => b.width(400).fit('max')) : null;
+  const imageUrl = image ? buildRenderImageUrl(image, (b) => b.width(400).fit('max')) : null;
   const { low, high } = productPagePriceRange(doc);
 
   const badges: GeigerProduct['badges'] = [];
@@ -467,7 +467,7 @@ export async function getProductPageSearchEntries(): Promise<ProductPageSearchEn
         });
         if (image) {
           try {
-            entry.image = urlForImage(image).width(80).height(80).fit('max').url();
+            entry.image = urlForRenderImage(image).width(80).height(80).fit('max').url();
           } catch {
             /* leave image unset */
           }

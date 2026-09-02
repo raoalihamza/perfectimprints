@@ -1,4 +1,4 @@
-import { urlForImage } from '@/lib/sanity/client';
+import { urlForRenderImage } from '@/lib/sanity/client';
 import type { PageImage } from '@/lib/sanity/queries/pages';
 
 interface SectionImageProps {
@@ -28,7 +28,7 @@ export function SectionImage({
   let src: string | null = null;
   if (image?.asset?._ref) {
     try {
-      src = urlForImage(image).width(width).fit('max').auto('format').url();
+      src = urlForRenderImage(image).width(width).fit('max').url();
     } catch {
       src = null;
     }

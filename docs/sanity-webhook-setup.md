@@ -41,6 +41,7 @@ ISR fallback.
 | `catalogPage` | `/shop-by-theme/<slug>` (public landing) + `/shop-by-theme/<slug>/catalog` (gated grid) + `/sitemap.xml` (+ busts the `catalog-pages` cache tag + `catalog-page:<slug>`) — needs `slug` in the projection (already present). Edits to a referenced `productPage`/`customProduct` in `addedProducts` reach the embedding catalog pages via the same `references($id)` strip lookup; the related blogs/videos strips ride the `related-blogs`/`videos` tags. **NEW type (P2-CAT-001) — must be ADDED to the Filter (see below).** |
 
 | `quote` | the future customer page `/quote/<token>` (+ busts the `quotes` cache tag + `quote:<token>` - the token IS the slug, so no Projection change). The route does not exist yet; the case is forward-wired for the Quick Quote milestone. Never in the sitemap. **NEW type (Q-110) - must be ADDED to the Filter (see below).** `quoteResponse` is DELIBERATELY NOT in the Filter: responses are written only by a future server route, which revalidates the affected tag directly - a webhook delivery would be redundant. |
+| `portfolioItem`, `portfolioCategory` | `/portfolio` (the PORT-110 gallery page) + `/sitemap.xml` (the sitemap lists `/portfolio`, with one image per item, ONLY while the page has items, so the first publish must add the entry and the last unpublish must remove it without a deploy) + every blog post / page / landing page / video / product page whose Portfolio Gallery block (PORT-120) references the edited item or category, found with the same `references($id)` lookup the product strips use (needs `_id` in the Projection, already recommended). Busts the `portfolio` collection tag (every portfolio read carries it) + `portfolio-item:<slug>` or `portfolio-category:<slug>`. **NEW types (PORT-100) - must be ADDED to the Filter on BOTH environments (see below).** Projection unchanged. |
 
 "Live search delta" = the `/api/search-index` ISR route that carries the
 Sanity-managed slice of site search (blogs, videos, custom categories, custom
@@ -88,7 +89,7 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
 | **URL** | `https://dev.perfectimprints.com/api/sanity/revalidate` |
 | **Dataset** | `production` |
 | **Trigger on** | ✅ Create  ✅ Update  ✅ Delete |
-| **Filter** | `!(_id in path("drafts.**")) && _type in ["megaMenu","globalSettings","homePage","page","blogPost","blogCategory","video","customProduct","customCategory","curatedCategory","categoryOverride","productPlacement","faq","customSchema","brand","landingPage", "productPage","form", "catalogPage", "quote"]` |
+| **Filter** | `!(_id in path("drafts.**")) && _type in ["megaMenu","globalSettings","homePage","page","blogPost","blogCategory","video","customProduct","customCategory","curatedCategory","categoryOverride","productPlacement","faq","customSchema","brand","landingPage","productPage","form","catalogPage","quote","portfolioItem","portfolioCategory"]` |
 | **Projection** | `{_id, _type, slug, categorySlug, pageUrl, "addToCategories": array::unique([...coalesce(before().addToCategories, []), ...coalesce(after().addToCategories, [])]), "removeFromCategories": array::unique([...coalesce(before().removeFromCategories, []), ...coalesce(after().removeFromCategories, [])])}` |
 | **HTTP method** | `POST` |
 | **HTTP headers** | none (Sanity adds the signature header automatically) |
@@ -224,6 +225,28 @@ Sanity → **API → Webhooks → Create webhook**. The Free plan includes 2 web
 > description will NOT refresh `/blog/cat/<slug>`. Note that publishing a blog
 > POST already refreshes those pages via the `blog-list` tag, so this step
 > covers category edits specifically, not the main freshness fix.
+
+> **Manual step for an EXISTING webhook (PORT-100, Portfolio Gallery):**
+> `portfolioItem` and `portfolioCategory` are NEW document types - both
+> existing webhooks were created before them, so their Filters omit them.
+> Edit **each** webhook in Sanity (API → Webhooks → the webhook → Edit) and
+> paste the updated Filter above whole; the only change vs. the previous
+> filter is the trailing `,"portfolioItem","portfolioCategory"`. Do this on
+> **staging AND production in the same sitting**, since the PORT-100 +
+> PORT-110 batch deploys to both. Projection is unchanged: the handler needs
+> `_type` + `slug` for the tags, both already projected, and `_id` (already
+> recommended since P2-CP-004 batch 3) for the lookup that refreshes pages
+> embedding a gallery. Until you do this, publishing or editing a portfolio
+> item or category will NOT refresh the /portfolio page, its sitemap entry, or
+> any page carrying a gallery block; they stay silently stale until the next
+> deploy.
+>
+> While you are in that dialog, compare the LIVE Filter against the list
+> above type by type. PORT-100 could not read the live webhooks (the repo's
+> API token has no `webhooks/read` grant), so the only way to know a
+> previously-forgotten type (`faq`, `brand`, `blogCategory`, `landingPage`,
+> `productPage`, `form`, `catalogPage`, `quote`) actually made it in is to
+> look. Pasting the full list above whole fixes any gap in the same edit.
 
 ### Why the projection
 

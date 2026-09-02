@@ -66,3 +66,36 @@ export function buildImageUrl(
     return null;
   }
 }
+
+// ---------------------------------------------------------------------------
+// IMG-120: rendered Sanity images ask the CDN for a modern format.
+//
+// The Sanity image CDN does not content-negotiate by itself: without
+// `auto=format` a JPEG upload is served as JPEG to every browser, WebP-capable
+// or not (PORT-000 measured the same URL with and without an `Accept:
+// image/webp` header and got byte-identical JPEG both times). `auto=format`
+// lets the CDN answer with WebP/AVIF where the browser accepts it, which on
+// /new-products cut the 58 unique card images from 982,647 to 737,761 bytes.
+//
+// Use these two for anything that ends up in an `<img>` (or a CSS background).
+// Do NOT use them for og:image / twitter:image, JSON-LD image URLs, or sitemap
+// image entries: social scrapers and image indexers handle format negotiation
+// inconsistently, and those surfaces must resolve to the same bytes for every
+// fetcher. Those call sites keep the plain `buildImageUrl` / `urlForImage`
+// above, and the structured-data boundary strips the parameter defensively
+// (lib/sanity/image-format.ts `withoutAutoFormat`) for the one URL that feeds
+// both a card and a schema: `GeigerProduct.imageUrl` from the card normalisers.
+// ---------------------------------------------------------------------------
+
+/** `urlForImage` with `auto=format` applied. For rendered images only. */
+export function urlForRenderImage(source: unknown) {
+  return urlForImage(source).auto('format');
+}
+
+/** `buildImageUrl` with `auto=format` applied. For rendered images only. */
+export function buildRenderImageUrl(
+  source: unknown,
+  apply: (b: ReturnType<typeof urlForImage>) => ReturnType<typeof urlForImage> = (b) => b,
+): string | null {
+  return buildImageUrl(source, (b) => apply(b).auto('format'));
+}

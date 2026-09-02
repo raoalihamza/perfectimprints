@@ -22,6 +22,13 @@ import page from './documents/page';
 import landingPage from './documents/landing-page';
 import catalogPage from './documents/catalog-page';
 import customSchema from './documents/custom-schema';
+// Portfolio Gallery (PORT-100): two document types + the reusable gallery
+// block. The block is registered as a named object type (the blogProduct
+// precedent) but is DELIBERATELY not in pageSectionSchemas and on no
+// document's fields yet; all placement is PORT-120.
+import portfolioCategory from './documents/portfolio-category';
+import portfolioItem from './documents/portfolio-item';
+import portfolioGallery from './objects/portfolio-gallery';
 // Quick Quote (Q-110). NOTE: the numbering counter (`quoteCounter`) is
 // DELIBERATELY not registered - it must never appear in the Studio desk
 // (the siteRefreshAuth invisible-type precedent; see lib/quotes/numbering.ts).
@@ -58,9 +65,12 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   landingPage,
   catalogPage,
   customSchema,
+  portfolioCategory,
+  portfolioItem,
   quote,
   quoteResponse,
   ...quoteLineItemTypes,
+  portfolioGallery,
   seo,
   link,
   richAnswer,

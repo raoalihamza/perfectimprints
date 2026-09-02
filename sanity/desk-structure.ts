@@ -11,6 +11,14 @@ const SINGLETON_TYPES = new Set(['homePage', 'globalSettings', 'megaMenu']);
  */
 const QUOTE_TYPES = new Set(['quote', 'quoteResponse']);
 
+/**
+ * Portfolio Gallery (PORT-100): the items and their categories sit together
+ * under one "Portfolio" item, for the same reason the quotes do. Patrick adds
+ * a job and files it under a category in one sitting; two entries filed under
+ * P in the long type list would separate the two halves of that task.
+ */
+const PORTFOLIO_TYPES = new Set(['portfolioItem', 'portfolioCategory']);
+
 export const deskStructure: StructureResolver = (S) =>
   S.list()
     .title('Content')
@@ -85,8 +93,41 @@ export const deskStructure: StructureResolver = (S) =>
             ]),
         ),
       S.divider(),
+      S.listItem()
+        .title('Portfolio')
+        .id('portfolio')
+        .child(
+          S.list()
+            .title('Portfolio')
+            .items([
+              S.listItem()
+                .title('Portfolio items')
+                .id('portfolioItems')
+                .child(
+                  S.documentTypeList('portfolioItem')
+                    .title('Portfolio items (gallery order)')
+                    .defaultOrdering([
+                      { field: 'featured', direction: 'desc' },
+                      { field: 'displayOrder', direction: 'asc' },
+                      { field: '_createdAt', direction: 'desc' },
+                    ]),
+                ),
+              S.listItem()
+                .title('Portfolio categories')
+                .id('portfolioCategories')
+                .child(
+                  S.documentTypeList('portfolioCategory')
+                    .title('Portfolio categories (filter order)')
+                    .defaultOrdering([
+                      { field: 'displayOrder', direction: 'asc' },
+                      { field: 'title', direction: 'asc' },
+                    ]),
+                ),
+            ]),
+        ),
+      S.divider(),
       ...S.documentTypeListItems().filter((listItem) => {
         const id = listItem.getId() ?? '';
-        return !SINGLETON_TYPES.has(id) && !QUOTE_TYPES.has(id);
+        return !SINGLETON_TYPES.has(id) && !QUOTE_TYPES.has(id) && !PORTFOLIO_TYPES.has(id);
       }),
     ]);

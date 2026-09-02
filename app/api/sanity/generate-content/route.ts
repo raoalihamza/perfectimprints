@@ -10,6 +10,8 @@
 // the customCategory's introHtml / bodySections / faqs for Patrick to review.
 
 import { NextResponse } from 'next/server';
+import { verifyStudioNonce } from '@/lib/sanity/studio-nonce-auth';
+import { GENERATE_AUTH_DOC_ID, GENERATE_NONCE_HEADER } from '@/lib/sanity/generate-auth';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -100,6 +102,15 @@ function isValid(c: Partial<GeneratedContent>): c is GeneratedContent {
 }
 
 export async function POST(request: Request) {
+  // FIX-850: first-party Studio session only (the Site Refresh / Bulk Upload
+  // nonce scheme). Rejects before any body parsing or DeepSeek call.
+  const auth = await verifyStudioNonce(request, {
+    authDocId: GENERATE_AUTH_DOC_ID,
+    headerName: GENERATE_NONCE_HEADER,
+  });
+  if (!auth.ok) {
+    return NextResponse.json({ error: auth.error ?? 'Unauthorized.' }, { status: auth.status });
+  }
   const apiKey = process.env.DEEPSEEK_API_KEY;
   if (!apiKey) {
     return NextResponse.json({ error: 'DEEPSEEK_API_KEY not configured.' }, { status: 500 });

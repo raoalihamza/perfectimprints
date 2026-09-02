@@ -1,5 +1,5 @@
 import { cache } from 'react';
-import { cachedClient, urlForImage } from '@/lib/sanity/client';
+import { cachedClient, urlForRenderImage } from '@/lib/sanity/client';
 import { SETTINGS_TAG } from '@/lib/sanity/cache-tags';
 import type { SanityImage } from '@/lib/sanity/types';
 import { socialLabel } from '@/components/icons/social-icons';
@@ -240,7 +240,7 @@ const EMPTY: SiteSettings = {
 function resolveIconUrl(image: SanityImage | undefined): string | null {
   if (!image?.asset?._ref) return null;
   try {
-    return urlForImage(image).width(48).height(48).fit('max').url();
+    return urlForRenderImage(image).width(48).height(48).fit('max').url();
   } catch {
     return null;
   }

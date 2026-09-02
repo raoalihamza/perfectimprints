@@ -4,7 +4,7 @@ import { QuoteActions } from '@/components/quote/QuoteActions';
 import { QuoteLineDescription } from '@/components/quote/QuoteLineDescription';
 import { QuotePrintStyles } from '@/components/quote/QuotePrintStyles';
 import { latestCustomerAction } from '@/lib/quotes/quote-response';
-import { buildImageUrl } from '@/lib/sanity/client';
+import { buildRenderImageUrl } from '@/lib/sanity/client';
 import { computeQuoteTotals, formatUsd } from '@/lib/quotes/quote-totals';
 import {
   cleanText,
@@ -80,11 +80,11 @@ function lineImage(line: QuoteLineItem, title: string): LineImage | null {
     if (snapshot) return { src: snapshot, alt: title };
   }
   if (line._type === 'quoteOwnProductLine') {
-    const referenced = buildImageUrl(line.product?.image, (b) => b.width(240).fit('max'));
+    const referenced = buildRenderImageUrl(line.product?.image, (b) => b.width(240).fit('max'));
     if (referenced) return { src: referenced, alt: cleanText(line.product?.image?.alt) ?? title };
   }
   if (line._type === 'quoteCustomLine') {
-    const own = buildImageUrl(line.image, (b) => b.width(240).fit('max'));
+    const own = buildRenderImageUrl(line.image, (b) => b.width(240).fit('max'));
     if (own) return { src: own, alt: cleanText(line.image?.alt) ?? title };
   }
   return null;

@@ -1,6 +1,6 @@
 import 'server-only';
 
-import { cachedClient, urlForImage } from '@/lib/sanity/client';
+import { cachedClient, urlForRenderImage } from '@/lib/sanity/client';
 import { CUSTOM_PRODUCTS_TAG } from '@/lib/sanity/cache-tags';
 
 // Q-175: every read below moved off the CDN `client` onto the non-CDN
@@ -179,7 +179,7 @@ export async function getCustomProductSearchEntries(): Promise<CustomProductSear
         if (d.brand) entry.brand = d.brand.trim();
         if (d.image?.asset?._ref) {
           try {
-            entry.image = urlForImage(d.image).width(80).height(80).fit('max').url();
+            entry.image = urlForRenderImage(d.image).width(80).height(80).fit('max').url();
           } catch {
             /* leave image unset */
           }
@@ -211,7 +211,7 @@ export function customProductToGeigerProduct(doc: CustomProductDoc): GeigerProdu
   let imageUrl: string | null = null;
   if (doc.image?.asset?._ref) {
     try {
-      imageUrl = urlForImage(doc.image).width(400).fit('max').url();
+      imageUrl = urlForRenderImage(doc.image).width(400).fit('max').url();
     } catch {
       imageUrl = null;
     }

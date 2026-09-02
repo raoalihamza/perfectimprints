@@ -35,6 +35,7 @@ const RESERVED_SLUGS = [
   'products',
   'shop-by-theme',
   'quote',
+  'portfolio',
   'faq',
   'search',
   'services',

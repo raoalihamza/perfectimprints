@@ -30,17 +30,24 @@ export interface DealsFacetSection {
 export type DealsFilterState = Record<string, string[]>;
 
 /**
- * OR within a section, AND across sections — standard ecommerce semantics.
- * Pure function: no I/O, no globals.
+ * OR within a section, AND across sections (standard ecommerce semantics),
+ * over ANY item type (PORT-110). `keyOf` names an item the way the facet
+ * values' `skus[]` name it: a product by its SKU, a portfolio item by its
+ * document id. The deals / catalog callers use `applyDealsFilters` below,
+ * which is this function bound to `p.sku`; the /portfolio page binds it to
+ * `tile.id`. One rule, two bindings, so the two sidebars cannot disagree.
+ * Pure function: no I/O, no globals. Returns the input array itself when no
+ * filter is active.
  */
-export function applyDealsFilters(
-  products: GeigerProduct[],
-  facets: DealsFacetSection[],
+export function applyFacetFilters<T>(
+  items: T[],
+  facets: readonly DealsFacetSection[],
   state: DealsFilterState,
-): GeigerProduct[] {
+  keyOf: (item: T) => string,
+): T[] {
   let activeCount = 0;
   for (const k of Object.keys(state)) activeCount += state[k]?.length || 0;
-  if (activeCount === 0) return products;
+  if (activeCount === 0) return items;
 
   const sectionByField = new Map<string, DealsFacetSection>();
   for (const f of facets) sectionByField.set(f.field, f);
@@ -66,7 +73,20 @@ export function applyDealsFilters(
     if (allowed.size === 0) return [];
   }
 
-  if (allowed === null) return products;
+  if (allowed === null) return items;
   const allowedSet = allowed;
-  return products.filter((p) => allowedSet.has(p.sku));
+  return items.filter((item) => allowedSet.has(keyOf(item)));
+}
+
+/**
+ * OR within a section, AND across sections for a product list, keyed by SKU.
+ * Unchanged behaviour for every existing caller (deals, catalog, search):
+ * this is `applyFacetFilters` bound to `p.sku`.
+ */
+export function applyDealsFilters(
+  products: GeigerProduct[],
+  facets: DealsFacetSection[],
+  state: DealsFilterState,
+): GeigerProduct[] {
+  return applyFacetFilters(products, facets, state, (p) => p.sku);
 }

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { buildImageUrl } from '@/lib/sanity/client';
+import { buildRenderImageUrl } from '@/lib/sanity/client';
 import type { BlogPostSummary } from '@/lib/sanity/queries/blogs';
 
 interface BlogCardProps {
@@ -21,7 +21,7 @@ function deriveExcerpt(post: BlogPostSummary, max = 150): string {
 
 export function BlogCard({ post, size = 'md' }: BlogCardProps) {
   const href = `/blog/${post.slug.current}`;
-  const imageUrl = buildImageUrl(post.headerImage, (b) =>
+  const imageUrl = buildRenderImageUrl(post.headerImage, (b) =>
     b.width(800).height(450).fit('crop'),
   );
   const excerpt = deriveExcerpt(post);

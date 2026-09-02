@@ -47,6 +47,10 @@ export const RESERVED_SLUGS: readonly string[] = [
   // route. Reserved BEFORE the route exists so no page/landingPage can ever
   // collide with it.
   'quote',
+  // Portfolio Gallery - the /portfolio page (app/portfolio, PORT-110).
+  // Reserved in PORT-100 before the route existed so no page/landingPage
+  // could take it first.
+  'portfolio',
   'faq',
   'search',
   'services',

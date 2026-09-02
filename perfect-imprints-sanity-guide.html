@@ -350,6 +350,7 @@
         <li><a href="#forms">Forms (build your own quote forms)</a></li>
         <li><a href="#catalog-pages">Catalog Pages (Shop-by-Theme lead pages)</a></li>
         <li><a href="#quotes">Quotes (build a customer quotation)</a></li>
+        <li><a href="#portfolio">Portfolio Gallery (show off your work)</a></li>
         <li><a href="#connect">How everything connects</a></li>
         <li><a href="#tasks">Common tasks (quick reference)</a></li>
         <li><a href="#warnings">Important warnings</a></li>
@@ -929,6 +930,16 @@
       <span class="label">Always review AI text</span>
       <p>The AI is a helpful first draft, not a final answer. Read it before publishing, fix anything that is generic or
         inaccurate, and make sure the products and claims match what you actually offer.</p>
+    </div>
+    <div class="callout">
+      <span class="label">If a Generate button says "reload the Studio and sign in"</span>
+      <p>Since 2 September 2026 every Generate button only works for someone <strong>signed in to this Studio</strong>
+        (the same check the <a href="#site-refresh">Site Refresh</a> and <a href="#bulk-upload">Bulk Upload</a> screens
+        already make), so nobody outside can run up the AI bill by calling the website directly. You will not normally
+        notice it. If a Generate button ever replies "Unauthorized, reload the Studio and sign in" or "Session expired",
+        reload the page, make sure you are signed in, and click Generate again. Nothing was lost: the button had not
+        started writing. This applies to all of them: Custom Category, Blog Post, Video, Page, Landing Page, Product
+        Page, Catalog Page and Custom Schema.</p>
     </div>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
@@ -2653,13 +2664,123 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="connect">27. How everything connects</h2>
+    <h2 id="portfolio">27. Portfolio Gallery (show off your work)</h2>
+    <p>The Portfolio Gallery is a showcase of jobs you have actually produced: printed shirts, embroidered caps,
+      branded drinkware and so on. It has two document types, both under <span class="path">Content <span
+        class="arrow">›</span> Portfolio</span>: <strong>Portfolio Category</strong> (the filter buttons) and
+      <strong>Portfolio Item</strong> (one photo of one job). You fill both in yourself; nothing is created for you.</p>
+    <div class="callout">
+      <span class="label">What is live and what is coming</span>
+      <p>The gallery page is live at <code>/portfolio</code>. It fills itself from your published items, offers
+        filters by category and by colour, and every filtered view has its own address you can copy and send to a
+        customer (see <a href="#portfolio-page">the gallery page</a> below). A gallery block you can drop onto blog
+        posts, product pages, video pages and landing pages is the next piece of work; anything you enter now is
+        ready for it. Category pages (<code>/cat/…</code>) deliberately do not get a gallery.</p>
+    </div>
+
+    <h3 id="portfolio-category">Creating a category</h3>
+    <p>Open <span class="path">Content <span class="arrow">›</span> Portfolio <span class="arrow">›</span> Portfolio
+        categories</span> and click the <strong>+</strong>. The seven you agreed are <strong>T-shirts, Caps and Hats,
+      Drinkware, Bags, Outerwear, Signs and Banners, Other</strong>, but the list is yours: rename, add or remove
+      categories whenever you like.</p>
+    <ul>
+      <li><strong>Title</strong> - the filter button label.</li>
+      <li><strong>Slug</strong> - click Generate. This is the word that appears in a shared filtered link.</li>
+      <li><strong>Display order</strong> - lower numbers come first in the row of filter buttons. Leave it blank
+        and the category sorts after the numbered ones, alphabetically.</li>
+      <li><strong>Hidden</strong> - takes the category out of the filters without deleting it. The items filed under
+        it keep their category, so you can bring it back later by turning this off.</li>
+    </ul>
+    <p>Publish the category before you start adding items to it, so it can be picked.</p>
+
+    <h3 id="portfolio-item">Adding an item</h3>
+    <p>Open <span class="path">Content <span class="arrow">›</span> Portfolio <span class="arrow">›</span> Portfolio
+        items</span> and click the <strong>+</strong>. One item is one photo of one job.</p>
+    <ul>
+      <li><strong>Title</strong> (required) - what the job was, e.g. "Embroidered caps for a fire department".</li>
+      <li><strong>Slug</strong> (optional) - not used anywhere yet. It is there in case a job ever gets its own
+        page; leave it blank or click Generate, either is fine.</li>
+      <li><strong>Image</strong> (required) - the photo, with <strong>Alt text</strong> (required): one short
+        sentence describing the picture, for screen readers and Google. Drag the hotspot circle to the part of the
+        photo that must stay in view when it is cropped square.</li>
+      <li><strong>Category</strong> (required) - pick one of your published categories.</li>
+      <li><strong>Colours</strong> - tick every colour that appears in the work; a single job often has several.
+        These are the same twenty colours your product category filters already use (black, blue, brown, camo,
+        clear, gold, gray, green, iridescent, multi-color, neon, orange, pink, purple, rainbow, red, safety, silver,
+        white, yellow), so the gallery's colour filter and the product filters speak the same language. You cannot
+        type a colour of your own, on purpose: "navy", "Navy Blue" and "dark blue" would become three filters
+        within a month.</li>
+      <li><strong>Description</strong> (optional) - a line or two: what was made, how it was decorated, who it was
+        for in general terms.</li>
+      <li><strong>Client name</strong> (optional) - <strong>only where the customer has agreed to be named on
+          your website.</strong> Leave it blank otherwise. The item looks complete without it.</li>
+      <li><strong>Featured</strong> - pins the item to the top of the gallery (and to the top of any
+        "From a category" gallery block).</li>
+      <li><strong>Display order</strong> - lower numbers come first, after any featured items. Blank sorts after
+        the numbered ones, newest first.</li>
+      <li><strong>Hidden</strong> - takes the item off the site without deleting it.</li>
+    </ul>
+    <p>Publish, and the item is live within a few seconds wherever the gallery appears. The list in Studio is
+      already in gallery order (featured, then display order, then newest), so what you see there is the order
+      visitors will see.</p>
+
+    <div class="callout warn">
+      <span class="label">Naming customers</span>
+      <p>Nobody has asked your customers whether they mind being named. Until you have, leave <strong>Client
+          name</strong> empty. A photo of the work with a title like "Embroidered caps for a fire department"
+        shows what you can do without naming who it was for.</p>
+    </div>
+
+    <h3 id="portfolio-page">The gallery page and shareable links</h3>
+    <p>The page at <code>/portfolio</code> needs nothing from you beyond publishing items. It shows every published
+      item that is not hidden, in gallery order (featured first, then display order, then newest), as a grid of
+      square photos cropped around the hotspot you set. Clicking a photo opens it larger, with its title, category
+      and description, and the on-screen arrows (or the arrow keys) step through the photos that match the current
+      filters. Escape closes it.</p>
+    <p>The filters on the left are built from your data, not from a list you maintain. The <strong>Category</strong>
+      group lists your published categories in their display order, and the <strong>Color</strong> group lists the
+      colours you have ticked on items. A category or colour that no published item uses does not appear, so there is
+      never an empty filter button. Ticking several values in one group shows items matching any of them; ticking
+      values in both groups shows only items matching both. The count above the grid always says how many photos are
+      showing, and <strong>Clear filters</strong> takes you back to everything.</p>
+    <div class="callout">
+      <span class="label">Sending a customer exactly the view you want them to see</span>
+      <p>Filter the page (say, to Caps and Hats in black), then click <strong>Copy link to these filters</strong> next
+        to the count, or simply copy the address bar. The address reads like
+        <code>perfectimprints.com/portfolio?category=caps-and-hats&amp;color=black</code>, in plain words rather than
+        codes, and opens to that same filtered view for whoever you send it to. If you later rename a category's slug,
+        an old link with the previous word simply opens the unfiltered gallery; it never shows an error.</p>
+    </div>
+    <div class="callout warn">
+      <span class="label">Until you publish something, Google is told to ignore the page</span>
+      <p>While there are no published items the page shows a short "photos are on their way" notice, is marked
+        <em>noindex</em> so search engines leave it alone, and is left out of the sitemap. The moment you publish your
+        first item all three change by themselves: the grid appears, the noindex is removed, and the page joins the
+        sitemap with one image entry per item. Nobody has to remember to switch anything on. So if you look at the
+        page before you have uploaded anything and find it hidden from Google, that is the design, not a fault.</p>
+    </div>
+
+    <h3 id="portfolio-block">The gallery block (coming with the placements)</h3>
+    <p>When the block arrives on blog posts, product pages, video pages and landing pages, each one will offer
+      two ways to fill it: <strong>Hand picked</strong> (choose the items and drag them into order) or
+      <strong>From a category</strong> (pick a category and the block fills itself: featured first, then display
+      order, then newest), plus <strong>How many to show</strong> (default 8) and the usual <strong>Hidden</strong>
+      switch. The same rules decide the order everywhere, so an item you feature is featured on every page at
+      once.</p>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="connect">28. How everything connects</h2>
     <p>A quick mental map of what drives what:</p>
     <ul>
       <li><strong>Global Settings</strong> drives the header and footer of <em>every</em> page (contact details, social
         icons, footer link columns, copyright), plus the "Not finding the exact …?" CTA bar under category products.</li>
       <li><strong>Home Page</strong> drives only the homepage.</li>
       <li><strong>Mega Menu</strong> drives the top navigation bar across the site.</li>
+      <li><strong>Portfolio items</strong> and <strong>Portfolio categories</strong> drive the portfolio gallery
+        (the <code>/portfolio</code> page, and the gallery blocks after that). Category pages never
+        show them.</li>
       <li><strong>Category pages</strong> (<code>/cat/...</code>) run automatically, and are shaped by the three tools:
         <strong>Custom Category</strong> (take over the whole page), <strong>Category Override</strong> (tweak its
         products), and <strong>Product Placement</strong> (push one product across many pages). <strong>Push to
@@ -2700,7 +2821,7 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="tasks">28. Common tasks (quick reference)</h2>
+    <h2 id="tasks">29. Common tasks (quick reference)</h2>
     <table>
       <tr>
         <th>I want to…</th>
@@ -2715,6 +2836,20 @@
         <td>Add or update many products at once from a spreadsheet</td>
         <td>Bulk Upload tab &rsaquo; download the template, fill it, Preview, Apply (see <a
             href="#bulk-upload">section 23</a>)</td>
+      </tr>
+      <tr>
+        <td>Show off a job I produced (a photo of finished work)</td>
+        <td>Portfolio &rsaquo; Portfolio items &rsaquo; create, add the photo with alt text, pick a category, tick
+          the colours, Publish (see <a href="#portfolio">section 27</a>)</td>
+      </tr>
+      <tr>
+        <td>Rename, reorder or add a portfolio filter button</td>
+        <td>Portfolio &rsaquo; Portfolio categories (see <a href="#portfolio-category">section 27</a>)</td>
+      </tr>
+      <tr>
+        <td>Send a customer a link to just one kind of work (say, black caps)</td>
+        <td>Open <code>/portfolio</code> on the site, tick the filters, click <strong>Copy link to these filters</strong>
+          (see <a href="#portfolio-page">section 27</a>)</td>
       </tr>
       <tr>
         <td>Change my phone, email, address, or hours</td>
@@ -2874,7 +3009,7 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="warnings">29. Important warnings (keep these in mind)</h2>
+    <h2 id="warnings">30. Important warnings (keep these in mind)</h2>
 
     <div class="callout danger">
       <span class="label">1. Always review products before publishing a pushed category</span>

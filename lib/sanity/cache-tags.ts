@@ -306,3 +306,30 @@ export function customSchemaTag(path: string): string {
   const s = sanitizeTagValue(path);
   return s ? `customSchema:${s}` : '';
 }
+
+/**
+ * Portfolio Gallery (PORT-100): `portfolioItem` + `portfolioCategory` docs,
+ * read by the future /portfolio page (PORT-110) and by the gallery block on
+ * blog / product / video / landing pages (PORT-120). `PORTFOLIO_TAG` is the
+ * collection-level tag every portfolio read carries and the webhook busts on
+ * ANY portfolioItem or portfolioCategory publish/delete: a category rename
+ * changes every card that shows the category, a hidden toggle changes every
+ * list, and the webhook payload cannot tell which lists an item publish
+ * touched (its category is an unresolved reference), so one collection tag is
+ * the correct and cheap answer, exactly like BLOG_LIST_TAG. The two per-slug
+ * tags follow the PAGES_TAG / pageTag pattern: `portfolioCategoryTag(slug)`
+ * additionally rides the category-scoped read (busted on that category's
+ * publish), and `portfolioItemTag(slug)` is reserved for a per-item page if
+ * one is ever built (an item's slug is optional and drives no route today).
+ * All reads go through the non-CDN `cachedClient` with these tags and
+ * `revalidate:false`, never `no-store`, so every embedding route stays static.
+ */
+export const PORTFOLIO_TAG = 'portfolio';
+export function portfolioItemTag(slug: string): string {
+  const s = sanitizeTagValue(slug);
+  return s ? `portfolio-item:${s}` : '';
+}
+export function portfolioCategoryTag(slug: string): string {
+  const s = sanitizeTagValue(slug);
+  return s ? `portfolio-category:${s}` : '';
+}

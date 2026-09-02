@@ -252,6 +252,23 @@ describe('productListItem', () => {
     );
   });
 
+  // IMG-120. The card normalisers now append `auto=format` so the <img> can
+  // receive WebP/AVIF; the structured-data copy must not carry it (Google
+  // verifies these URLs by fetching them and expects the same bytes every
+  // time). The serializer strips it before upsizing.
+  it('strips the render-only auto=format from a Sanity image before naming it in the schema', () => {
+    const item = productListItem(
+      fullProduct({
+        imageUrl:
+          'https://cdn.sanity.io/images/ii96lcy9/production/abc-1500x1501.jpg?w=400&fit=max&auto=format',
+      }),
+      1,
+    )!.item as Record<string, unknown>;
+    expect(item.image).toBe(
+      'https://cdn.sanity.io/images/ii96lcy9/production/abc-1500x1501.jpg?w=1200&fit=max',
+    );
+  });
+
   // 22 of the 153 published product pages have a first image narrower than
   // 1200. Asking for 1200 there would name pixels that do not exist.
   it('never asks for more pixels than a small Sanity asset actually has', () => {

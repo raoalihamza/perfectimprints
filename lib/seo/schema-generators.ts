@@ -6,6 +6,7 @@
 // Sanity dependency — it's also imported by client components (e.g.
 // CustomCategoryView), which must not bundle @sanity/client.
 import type { SiteSettings } from '@/lib/sanity/queries/global-settings';
+import { withoutAutoFormat } from '@/lib/sanity/image-format';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.perfectimprints.com').replace(
   /\/$/,
@@ -117,7 +118,10 @@ export function collectionPageSchema(input: {
     url: input.url,
   };
   if (input.description) schema.description = input.description;
-  if (input.image) schema.image = input.image;
+  // IMG-120: when the representative image is one of Patrick's own products
+  // (a Sanity card URL that now carries `auto=format` for the <img>), the
+  // structured-data copy must not carry it. Geiger URLs pass through unchanged.
+  if (input.image) schema.image = withoutAutoFormat(input.image);
   return schema;
 }
 

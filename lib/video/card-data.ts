@@ -1,4 +1,4 @@
-import { buildImageUrl } from '@/lib/sanity/client';
+import { buildRenderImageUrl } from '@/lib/sanity/client';
 import { parseVideoEmbed, videoThumbnailUrl, type VideoAspect } from '@/lib/video/embed';
 import { portableTextToPlain } from '@/lib/portable-text/to-plain';
 import { videoCategoriesOf, type VideoCategoryRef, type VideoSummary } from '@/lib/sanity/queries/videos';
@@ -28,7 +28,7 @@ export function toVideoCardData(video: VideoSummary): VideoCardData {
   const { aspect } = parseVideoEmbed(video.embedUrl);
 
   const thumbnailUrl =
-    buildImageUrl(video.thumbnail, (b) => b.width(800).height(450).fit('crop')) ??
+    buildRenderImageUrl(video.thumbnail, (b) => b.width(800).height(450).fit('crop')) ??
     videoThumbnailUrl(video.embedUrl);
 
   return {

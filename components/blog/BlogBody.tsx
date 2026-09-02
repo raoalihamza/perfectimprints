@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { PortableText, type PortableTextComponents } from '@portabletext/react';
 import type { PortableTextBlock } from '@portabletext/react';
-import { urlForImage } from '@/lib/sanity/client';
+import { urlForRenderImage } from '@/lib/sanity/client';
 import {
   inlineImageAssetWidth,
   inlineImageSizingClasses,
@@ -58,7 +58,7 @@ function buildComponents(stripCtx: StripResolveContext): PortableTextComponents 
       if (!v?.asset) return null;
       // Asset width matched to the editor-chosen size (full/unset = 1200,
       // exactly as before) so a quarter-width image doesn't fetch 1200px.
-      const src = urlForImage(v).width(inlineImageAssetWidth(v)).fit('max').url();
+      const src = urlForRenderImage(v).width(inlineImageAssetWidth(v)).fit('max').url();
       // size/align (optional Studio fields) cap + align the FIGURE so the
       // caption follows the image; unset/full returns '' → today's full width.
       const sizing = inlineImageSizingClasses(v);

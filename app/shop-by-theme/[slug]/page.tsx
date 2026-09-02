@@ -20,7 +20,7 @@ import { getHiddenProductContext } from '@/lib/products/site-wide-hidden';
 import { productItemListSchema } from '@/lib/seo/product-list-schema';
 import { getFormBySlug, toFormRenderDef } from '@/lib/sanity/queries/forms';
 import { CATALOG_FORM_SLUG } from '@/lib/leads/catalog-lead';
-import { buildImageUrl } from '@/lib/sanity/client';
+import { buildImageUrl, buildRenderImageUrl } from '@/lib/sanity/client';
 import { collectionPageSchema } from '@/lib/seo/schema-generators';
 import { largeSocialImage, socialMeta } from '@/lib/seo/open-graph';
 import { portableTextToPlain } from '@/lib/portable-text/to-plain';
@@ -111,7 +111,7 @@ export default async function CatalogLandingPage({ params }: Props) {
   const canonical = `${SITE_URL}/shop-by-theme/${doc.slug}`;
   const heading = doc.heroHeading?.trim() || doc.title;
   const heroImageUrl = doc.heroImage
-    ? buildImageUrl(doc.heroImage, (b) => b.width(1600).fit('max'))
+    ? buildRenderImageUrl(doc.heroImage, (b) => b.width(1600).fit('max'))
     : null;
   const hasBody = Array.isArray(doc.body) && doc.body.length > 0;
   // A small static peek at the catalog's products (scraped set only: cheap,
