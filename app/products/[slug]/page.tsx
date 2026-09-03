@@ -7,6 +7,7 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { CTABanner } from '@/components/category/CTABanner';
 import { ProductGrid } from '@/components/category/ProductGrid';
 import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
+import { PortfolioGallerySection } from '@/components/portfolio/PortfolioGallerySection';
 import {
   ProductPageGallery,
   type GalleryVariant,
@@ -622,6 +623,15 @@ export default async function ProductDetailPage({ params }: Props) {
             <PortableText value={doc.description ?? []} components={pagePortableComponents} />
           </div>
         )}
+
+        {/* Portfolio gallery (PORT-120): a FIXED position on this page type,
+            below the product details and above the related strips. Renders
+            nothing when the field is empty or resolves to no items. */}
+        <PortfolioGallerySection
+          gallery={doc.portfolioGallery}
+          host="product"
+          className="mt-12 border-t border-border pt-8"
+        />
 
         {/* Related products — productPage cards link internally, the rest affiliate. */}
         {related.length > 0 && (

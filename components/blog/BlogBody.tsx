@@ -9,6 +9,9 @@ import {
 import type { SanityImage } from '@/lib/sanity/types';
 import type { GeigerProduct } from '@/lib/product-types';
 import { StripCardGrid } from '@/components/products/StripCardGrid';
+import { PortfolioGalleryBlock } from '@/components/portfolio/PortfolioGalleryBlock';
+import type { PortfolioTile } from '@/lib/portfolio/tile-data';
+import type { PortfolioGalleryBlockValue } from '@/lib/portfolio/gallery';
 import {
   resolveStripCards,
   type BlogProductsBlock,
@@ -31,6 +34,14 @@ interface BlogBodyProps {
    * the editor built keeps its length and still shows the product they meant.
    */
   replacementBySku?: ReadonlyMap<string, GeigerProduct>;
+  /**
+   * PORT-120: the tiles of every `portfolioGallery` block in the body, keyed
+   * by the block's `_key`, resolved up front by the blog page through the ONE
+   * gallery resolver (`collectPortfolioGalleryTiles`), because this renderer
+   * is synchronous and cannot read Sanity itself. A block with no entry, or
+   * an empty one, renders nothing.
+   */
+  portfolioGalleries?: ReadonlyMap<string, readonly PortfolioTile[]>;
 }
 
 interface EmbedValue {
@@ -50,9 +61,21 @@ interface ListBlock {
   style?: string;
 }
 
-function buildComponents(stripCtx: StripResolveContext): PortableTextComponents {
+function buildComponents(
+  stripCtx: StripResolveContext,
+  portfolioGalleries: ReadonlyMap<string, readonly PortfolioTile[]>,
+): PortableTextComponents {
   return {
   types: {
+    // PORT-120: the shared Portfolio Gallery renderer, fed the tiles the page
+    // resolved for this block. Empty renders null (no heading, no spacing).
+    portfolioGallery: ({ value }) => {
+      const v = value as PortfolioGalleryBlockValue;
+      if (!v?._key || v.hidden === true) return null;
+      const tiles = portfolioGalleries.get(v._key) ?? [];
+      if (tiles.length === 0) return null;
+      return <PortfolioGalleryBlock heading={v.heading} tiles={tiles} className="my-8" />;
+    },
     image: ({ value }) => {
       const v = value as SanityImage & { alt?: string; size?: string; align?: string };
       if (!v?.asset) return null;
@@ -199,6 +222,7 @@ function buildComponents(stripCtx: StripResolveContext): PortableTextComponents 
 }
 
 const EMPTY_SKU_MAP: Map<string, GeigerProduct> = new Map();
+const EMPTY_GALLERY_MAP: ReadonlyMap<string, readonly PortfolioTile[]> = new Map();
 
 /**
  * Pre-process portable text so consecutive list items at the same level + type
@@ -235,13 +259,22 @@ function normalizeBody(body: PortableTextBlock[]): PortableTextBlock[] {
   return out;
 }
 
-export function BlogBody({ body, skuProducts, hiddenSkus, replacementBySku }: BlogBodyProps) {
+export function BlogBody({
+  body,
+  skuProducts,
+  hiddenSkus,
+  replacementBySku,
+  portfolioGalleries,
+}: BlogBodyProps) {
   const normalized = normalizeBody(body);
-  const components = buildComponents({
-    skuProducts: skuProducts ?? EMPTY_SKU_MAP,
-    hiddenSkus,
-    replacementBySku,
-  });
+  const components = buildComponents(
+    {
+      skuProducts: skuProducts ?? EMPTY_SKU_MAP,
+      hiddenSkus,
+      replacementBySku,
+    },
+    portfolioGalleries ?? EMPTY_GALLERY_MAP,
+  );
   return (
     <div className="blog-body">
       <PortableText value={normalized} components={components} />

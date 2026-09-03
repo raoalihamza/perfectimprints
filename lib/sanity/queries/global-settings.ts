@@ -1,9 +1,11 @@
 import { cache } from 'react';
+import type { PortableTextBlock } from '@portabletext/react';
 import { cachedClient, urlForRenderImage } from '@/lib/sanity/client';
 import { SETTINGS_TAG } from '@/lib/sanity/cache-tags';
 import type { SanityImage } from '@/lib/sanity/types';
 import { socialLabel } from '@/components/icons/social-icons';
 import { normalizeHref } from '@/lib/sanity/normalize-href';
+import { resolvePortfolioIntro } from '@/lib/portfolio/intro';
 
 // ---------------------------------------------------------------------------
 // Site settings — social links + contact info, Sanity-driven.
@@ -155,6 +157,16 @@ export interface SiteSettings {
    * list; it starts empty and Patrick fills it.
    */
   hiddenEverywhereSkus: string[];
+  /**
+   * The /portfolio page introduction (PORT-115), `globalSettings.portfolioPage.intro`:
+   * Patrick's own words about the kind of work he takes on, as the shared
+   * richAnswer Portable Text. Null when the field is empty or holds no text,
+   * and null means the page renders nothing for it. It lives on THIS document
+   * so it rides the SETTINGS_TAG read every page already performs (the layout
+   * Footer) and the webhook branch that already busts it; a new document type
+   * would have needed the webhook Filter edited by hand in both environments.
+   */
+  portfolioIntro: PortableTextBlock[] | null;
 }
 
 /**
@@ -205,6 +217,7 @@ interface RawSettings {
   videoCtaBar?: RawCategoryCtaBar;
   siteSearch?: { hiddenSkus?: string[] };
   hiddenProducts?: { skus?: string[] };
+  portfolioPage?: { intro?: unknown };
   hoursOfOperation?: string;
   // legacy flat fields — fallback only
   phoneNumber?: string;
@@ -219,6 +232,7 @@ const QUERY = `*[_type == "globalSettings"][0]{
   videoCtaBar{ enabled, heading, body, buttonLabel },
   siteSearch{ hiddenSkus },
   hiddenProducts{ skus },
+  portfolioPage{ intro },
   hoursOfOperation,
   phoneNumber,
   contactEmail
@@ -235,6 +249,7 @@ const EMPTY: SiteSettings = {
   videoCtaBar: DEFAULT_VIDEO_CTA_BAR,
   searchHiddenSkus: [],
   hiddenEverywhereSkus: [],
+  portfolioIntro: null,
 };
 
 function resolveIconUrl(image: SanityImage | undefined): string | null {
@@ -341,6 +356,7 @@ function resolve(raw: RawSettings | null): SiteSettings {
     videoCtaBar: resolveCtaBar(raw.videoCtaBar, VIDEO_CTA_BAR_DEFAULTS),
     searchHiddenSkus,
     hiddenEverywhereSkus,
+    portfolioIntro: resolvePortfolioIntro(raw.portfolioPage?.intro),
   };
 }
 

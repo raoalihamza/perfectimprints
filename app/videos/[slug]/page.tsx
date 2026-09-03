@@ -22,6 +22,7 @@ import { portableTextToPlain } from '@/lib/portable-text/to-plain';
 import { RichAnswer } from '@/components/portable-text/RichAnswer';
 import { VideoRelatedProducts } from '@/components/videos/VideoRelatedProducts';
 import { CategoryCtaBar } from '@/components/category/CategoryCtaBar';
+import { PortfolioGallerySection } from '@/components/portfolio/PortfolioGallerySection';
 import { resolveProductsBySku } from '@/lib/categories';
 import { buildSkuSet } from '@/lib/products/hidden-skus';
 import { isStripRefEntry } from '@/lib/sanity/strip-product-entries';
@@ -195,6 +196,15 @@ export default async function VideoDetailPage({ params }: Props) {
               replacementBySku={hiddenContext.replacementBySku}
             />
           )}
+
+          {/* Portfolio gallery (PORT-120): a FIXED position on this page type,
+              under the related-products strip and above the lead bar. Renders
+              nothing when the field is empty or resolves to no items. */}
+          <PortfolioGallerySection
+            gallery={video.portfolioGallery}
+            host="video"
+            className="mt-10"
+          />
 
           {/* P2-CTA-001 video variant: "Need help choosing…?" lead bar — below
               the featured-products strip (and deliberately rendered even when

@@ -8,6 +8,7 @@ import {
   type StripProductEntry,
 } from '@/lib/sanity/strip-product-entries';
 import type { SanityImage } from '@/lib/sanity/types';
+import type { PortfolioGalleryBlockValue } from '@/lib/portfolio/gallery';
 
 // ---------------------------------------------------------------------------
 // Local/topic `landingPage` documents (P2-AI-005 part 1). Rendered at /<slug>
@@ -48,6 +49,11 @@ export interface LandingPageDoc {
   optionsIdeas?: PortableTextBlock[];
   whyUs?: PortableTextBlock[];
   relatedProducts?: (LandingProductEntry | null)[];
+  /**
+   * PORT-120: the Portfolio Gallery block AS STORED (references). Resolved by
+   * `PortfolioGallerySection` through the tagged portfolio reads.
+   */
+  portfolioGallery?: PortfolioGalleryBlockValue | null;
   faqs?: LandingFaq[];
   /** Quote-form heading (part 2). Blank → "Request a Quote in {City}, {State}". */
   leadFormHeading?: string;
@@ -74,6 +80,7 @@ const LANDING_PROJECTION = `{
   optionsIdeas,
   whyUs,
   relatedProducts[]${STRIP_PRODUCT_ENTRIES_PROJECTION},
+  portfolioGallery,
   faqs,
   leadFormHeading,
   leadRecipient,

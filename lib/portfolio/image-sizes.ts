@@ -109,6 +109,58 @@ export const TILE_SIZES =
   '(max-width: 767px) 50vw, (max-width: 1023px) 33vw, (max-width: 1279px) calc((100vw - 388px) / 3), 300px';
 
 /**
+ * The widest content column each PORT-120 host lays the gallery block in, in
+ * CSS px, measured from the host's own layout classes with the compiled
+ * Tailwind values (the container is `max-w-screen-2xl` = 1536 with 32px of
+ * padding a side from `lg`):
+ *   - `section`: the page-builder SectionShell (`max-w-5xl`), used by
+ *     ordinary pages, /services pages and the landing-page template;
+ *   - `blog`: the article column of /blog/<slug>, which is the container
+ *     minus the 48px share rail, the 280px sidebar and two 40px gaps;
+ *   - `product`: /products/<slug>, whose content runs the full container;
+ *   - `video`: the `max-w-4xl` column of /videos/<slug>.
+ */
+export const PORTFOLIO_EMBED_COLUMN_WIDTHS = {
+  section: 1024,
+  blog: 1064,
+  product: 1472,
+  video: 896,
+} as const;
+
+export type PortfolioEmbedHost = keyof typeof PORTFOLIO_EMBED_COLUMN_WIDTHS;
+
+/** The gaps PortfolioGrid puts between tiles from `sm` (gap-4 = 16px). */
+const TILE_GAP = 16;
+
+/**
+ * The `sizes` attribute for a gallery EMBEDDED in a content column
+ * (PORT-120). The srcset candidates do not change (TILE_WIDTHS already spans
+ * 1x to 3x of any tile the grid lays out); what changes is how wide the
+ * browser is told the tile will be, because inside a column the tile is a
+ * fraction of the COLUMN, not of the viewport. Under 768px and under 1024px
+ * every host column is the full viewport minus padding, so the 2- and
+ * 3-column clauses are the ones the /portfolio page uses; from 1024px the
+ * column is capped at the host's width, so the 3- and 4-column clauses are
+ * the smaller of the viewport share and the column's own share (`min()`,
+ * which every browser that reads `sizes` at all has supported since 2020; an
+ * older one ignores the attribute and falls back to 100vw, the old
+ * behaviour, so nothing is worse for it). The blog column is narrower than
+ * its share between 1024 and 1279px because the page grid also holds the
+ * sidebar there; the 3-column clause over-states it by one srcset step at
+ * 2x on that one range, a bounded over-fetch that never changes layout and
+ * never upscales.
+ */
+export function embeddedTileSizes(host: PortfolioEmbedHost): string {
+  const column = PORTFOLIO_EMBED_COLUMN_WIDTHS[host];
+  const threeUp = Math.floor((column - 2 * TILE_GAP) / 3);
+  const fourUp = Math.floor((column - 3 * TILE_GAP) / 4);
+  return (
+    `(max-width: 767px) 50vw, (max-width: 1023px) 33vw, ` +
+    `(max-width: 1279px) min(33vw, ${threeUp}px), min(25vw, ${fourUp}px)`
+  );
+}
+
+/**
  * Fallback `sizes` for the lightbox image when the aspect is unknown. The
  * per-tile value comes from `lightboxSizesFor`, which is what the page uses.
  */

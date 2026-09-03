@@ -6,10 +6,12 @@ import { Schema } from '@/components/seo/Schema';
 import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { PortfolioBrowser } from '@/components/portfolio/PortfolioBrowser';
 import { PortfolioEmptyState } from '@/components/portfolio/PortfolioEmptyState';
+import { RichAnswer } from '@/components/portable-text/RichAnswer';
 import {
   getAllPortfolioCategoriesOrThrow,
   getAllPortfolioItemsOrThrow,
 } from '@/lib/sanity/queries/portfolio';
+import { getSiteSettings } from '@/lib/sanity/queries/global-settings';
 import { buildPortfolioFacetSections } from '@/lib/portfolio/page-filters';
 import {
   portfolioRepresentativeImage,
@@ -32,7 +34,11 @@ import { largeSocialImage, socialMeta } from '@/lib/seo/open-graph';
  *      applied in memory. Every filtered URL serves this same static HTML.
  *   2. Every Sanity read is the non-CDN `cachedClient` carrying PORTFOLIO_TAG
  *      with `revalidate: false` (lib/sanity/queries/portfolio.ts), never
- *      `no-store`; the webhook busts the tag on any portfolio publish.
+ *      `no-store`; the webhook busts the tag on any portfolio publish. The
+ *      page introduction (PORT-115) is the ONE other read, and it is the
+ *      same React-cached, SETTINGS_TAG-tagged `getSiteSettings()` the layout
+ *      Footer already performs in this render, so it adds no fetch and no
+ *      untagged read; the webhook's globalSettings branch busts that tag.
  *   3. No client component under this route calls `useSearchParams()`, which
  *      during prerender forces a CSR bailout that swaps the whole page body
  *      for the loading skeleton while the build still reports it static.
@@ -126,9 +132,17 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function PortfolioPage() {
-  const { items, tiles, categories } = await loadPortfolio();
+  const [{ items, tiles, categories }, settings] = await Promise.all([
+    loadPortfolio(),
+    getSiteSettings(),
+  ]);
   const sections = buildPortfolioFacetSections(items, categories);
   const image = largeSocialImage(portfolioRepresentativeImage(items));
+  // Patrick's introduction (Global Settings > Portfolio Page), shown in place
+  // of the standard one-line opening below. Never in the empty state, which
+  // has its own copy (PORT-110), and never when the field is blank: a blank
+  // intro keeps the standard line, so the page always opens with a sentence.
+  const intro = tiles.length > 0 ? settings.portfolioIntro : null;
 
   return (
     <>
@@ -152,11 +166,15 @@ export default async function PortfolioPage() {
         <h1 className="text-3xl font-bold leading-tight text-brand-ink md:text-4xl lg:text-5xl">
           Portfolio
         </h1>
-        <p className="mt-3 max-w-3xl text-lg leading-relaxed text-text-primary">
-          Real jobs we have produced for real customers: printed apparel, embroidered caps, branded
-          drinkware, bags, signs and more. Filter by category or color, and click any photo to see
-          it larger.
-        </p>
+        {intro ? (
+          <RichAnswer value={intro} className="mt-3 max-w-3xl text-lg leading-relaxed text-text-primary" />
+        ) : (
+          <p className="mt-3 max-w-3xl text-lg leading-relaxed text-text-primary">
+            Real jobs we have produced for real customers: printed apparel, embroidered caps, branded
+            drinkware, bags, signs and more. Filter by category or color, and click any photo to see
+            it larger.
+          </p>
+        )}
       </Container>
 
       <Container as="section" className="pb-12">

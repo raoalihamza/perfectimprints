@@ -13,7 +13,10 @@ import {
   dedupePortfolioItems,
   effectiveGalleryLimit,
   filterPortfolioItems,
+  isSanityReferenceStub,
   isVisiblePortfolioItem,
+  portfolioGalleryCategoryRefId,
+  portfolioGalleryItemRefIds,
   portfolioItemColors,
   resolvePortfolioGalleryItems,
   sortPortfolioCategories,
@@ -190,5 +193,51 @@ describe('projections', () => {
     expect(PORTFOLIO_GALLERY_PROJECTION).toContain('"items": items[]->');
     expect(PORTFOLIO_GALLERY_PROJECTION).toContain('"category": category->');
     expect(PORTFOLIO_GALLERY_PROJECTION).toContain('hidden');
+  });
+});
+
+describe('the stored block shape (PORT-120): references in, ids out', () => {
+  const ref = (id: string, key = id) => ({ _ref: id, _key: key, _type: 'reference' });
+
+  it('recognises a reference stub and nothing else', () => {
+    expect(isSanityReferenceStub(ref('item-1'))).toBe(true);
+    expect(isSanityReferenceStub({ _ref: '' })).toBe(false);
+    expect(isSanityReferenceStub(item('item-1'))).toBe(false);
+    expect(isSanityReferenceStub(null)).toBe(false);
+    expect(isSanityReferenceStub('item-1')).toBe(false);
+  });
+
+  it('lists the referenced item ids in the editor order, once each, skipping nulls and cards', () => {
+    expect(
+      portfolioGalleryItemRefIds({
+        items: [ref('b'), null, ref('a'), ref('b', 'again'), item('c')],
+      }),
+    ).toEqual(['b', 'a']);
+    expect(portfolioGalleryItemRefIds({ items: null })).toEqual([]);
+    expect(portfolioGalleryItemRefIds(undefined)).toEqual([]);
+  });
+
+  it('gives the category reference id, or null when unset or already projected', () => {
+    expect(portfolioGalleryCategoryRefId({ mode: 'category', category: ref('cat-caps') })).toBe('cat-caps');
+    expect(portfolioGalleryCategoryRefId({ mode: 'category', category: caps })).toBeNull();
+    expect(portfolioGalleryCategoryRefId({ mode: 'category', category: null })).toBeNull();
+    expect(portfolioGalleryCategoryRefId(null)).toBeNull();
+  });
+
+  it('a stub that was never resolved is not a visible item, so an unresolved reference renders nothing', () => {
+    // The server binding replaces stubs with cards or null; if one ever
+    // reached the pure resolver unresolved it must fall out, not crash.
+    const stub = ref('item-1') as unknown as PortfolioItemCard;
+    expect(resolvePortfolioGalleryItems({ items: [stub, item('ok')] }).map((i) => i._id)).toEqual(['ok']);
+  });
+
+  it('a deleted or hidden category, or one whose items are all hidden, resolves to nothing', () => {
+    expect(resolvePortfolioGalleryItems({ mode: 'category', category: null }, [item('a')])).toEqual([]);
+    expect(
+      resolvePortfolioGalleryItems({ mode: 'category', category: { ...caps, hidden: true } }, [item('a')]),
+    ).toEqual([]);
+    expect(
+      resolvePortfolioGalleryItems({ mode: 'category', category: caps }, [item('a', { hidden: true })]),
+    ).toEqual([]);
   });
 });

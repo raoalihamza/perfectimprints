@@ -23,12 +23,12 @@ import landingPage from './documents/landing-page';
 import catalogPage from './documents/catalog-page';
 import customSchema from './documents/custom-schema';
 // Portfolio Gallery (PORT-100): two document types + the reusable gallery
-// block. The block is registered as a named object type (the blogProduct
-// precedent) but is DELIBERATELY not in pageSectionSchemas and on no
-// document's fields yet; all placement is PORT-120.
+// block. The block is a named object type (the blogProduct precedent); as of
+// PORT-120 it is registered THROUGH `pageSectionSchemas` (sanity/schemas/
+// objects/page-sections.ts), which also puts it in every page-builder insert
+// menu, and it is placed on blogPost.body, productPage, video and landingPage.
 import portfolioCategory from './documents/portfolio-category';
 import portfolioItem from './documents/portfolio-item';
-import portfolioGallery from './objects/portfolio-gallery';
 // Quick Quote (Q-110). NOTE: the numbering counter (`quoteCounter`) is
 // DELIBERATELY not registered - it must never appear in the Studio desk
 // (the siteRefreshAuth invisible-type precedent; see lib/quotes/numbering.ts).
@@ -70,7 +70,6 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   quote,
   quoteResponse,
   ...quoteLineItemTypes,
-  portfolioGallery,
   seo,
   link,
   richAnswer,

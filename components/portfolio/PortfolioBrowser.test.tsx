@@ -101,6 +101,61 @@ describe('PortfolioGrid static markup', () => {
     const html = renderToStaticMarkup(<PortfolioGrid tiles={six} onOpen={() => {}} eagerCount={0} />);
     expect(html).not.toContain('loading="eager"');
   });
+
+  // PORT-115: title, category and a clamped description under every photo,
+  // with the SAME caption height reserved whether or not the text is there.
+  describe('tile text (PORT-115)', () => {
+    const described = tile('d1', {
+      title: 'Embroidered caps for a fire department, twelve pieces, front and side logo',
+      description: 'Navy structured caps with a two-colour crest on the front and a station number on the side.',
+    });
+    const bare = tile('b1', { description: null });
+    const uncategorised = tile('u1', { category: null, description: null });
+    const html = renderToStaticMarkup(
+      <PortfolioGrid tiles={[described, bare, uncategorised]} onOpen={() => {}} />,
+    );
+    const captions = html.match(/<span class="flex flex-1 flex-col p-3">.*?<\/span><\/button>/g) ?? [];
+
+    it('renders one caption per tile, in tile order', () => {
+      expect(captions).toHaveLength(3);
+      expect(captions[0]).toContain('Embroidered caps for a fire department');
+      expect(captions[1]).toContain('Job b1');
+      expect(captions[2]).toContain('Job u1');
+    });
+
+    it('shows the description clamped to two lines, with the full text in the DOM', () => {
+      expect(captions[0]).toMatch(/<span class="[^"]*line-clamp-2[^"]*min-h-\[2\.25rem\][^"]*">Navy structured caps[^<]*station number on the side\.<\/span>/);
+    });
+
+    it('reserves the description slot on a tile that has no description', () => {
+      for (const caption of captions) {
+        expect(caption).toMatch(/<span class="[^"]*min-h-\[2\.25rem\][^"]*">/);
+      }
+      expect(captions[1]).toMatch(/<span class="[^"]*min-h-\[2\.25rem\][^"]*"><\/span>/);
+      expect(captions[2]).toMatch(/<span class="[^"]*min-h-\[2\.25rem\][^"]*"><\/span>/);
+    });
+
+    it('clamps the title to two lines with a two-line minimum, on every tile', () => {
+      for (const caption of captions) {
+        expect(caption).toMatch(/<span class="line-clamp-2 min-h-10 [^"]*">Job [a-z0-9]+|<span class="line-clamp-2 min-h-10 [^"]*">Embroidered/);
+      }
+    });
+
+    it('keeps the category on one line and renders an empty line when there is none', () => {
+      expect(captions[0]).toMatch(/<span class="[^"]*truncate[^"]*">Caps and Hats<\/span>/);
+      expect(captions[2]).toMatch(/<span class="[^"]*truncate[^"]*"><\/span>/);
+      expect(captions[2]).not.toContain('Caps and Hats');
+    });
+
+    it('the category is text, not a link', () => {
+      expect(html).not.toContain('<a ');
+    });
+
+    it('lets the button fill its cell so a row stays level', () => {
+      expect(html.match(/<li class="flex">/g)).toHaveLength(3);
+      expect(html.match(/<button [^>]*class="group flex w-full flex-col /g)).toHaveLength(3);
+    });
+  });
 });
 
 describe('PortfolioBrowser static markup (the server prerender)', () => {
@@ -153,6 +208,10 @@ describe('PortfolioLightbox markup', () => {
     expect(html).toContain('Job b');
     expect(html).toContain('Caps and Hats');
     expect(html).toContain('Twelve caps, front embroidery.');
+    // PORT-115: the FULL description, never the tile's clamp, with the
+    // editor's line breaks kept.
+    expect(html).toMatch(/<p class="[^"]*whitespace-pre-line[^"]*">Twelve caps, front embroidery\.<\/p>/);
+    expect(html).not.toContain('line-clamp');
     expect(html).toContain('Made for Any Town FD');
     expect(html).toContain('aria-label="Previous photo"');
     expect(html).toContain('aria-label="Next photo"');

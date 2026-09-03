@@ -74,6 +74,13 @@ export default defineType({
         'Drives the "Related Products" carousel plus the "Related Videos" and "Related Blogs" strips at the bottom of the page: automatic matches from the category/keywords, plus anything you add manually (manual picks come first).',
       options: { collapsible: true, collapsed: true },
     },
+    {
+      name: 'portfolio',
+      title: 'Portfolio gallery',
+      description:
+        'Photos of work you have produced (Portfolio items), shown in a fixed spot: below the product details and above Related Products. Hand pick the items or fill it from a category. Leave it empty for no gallery.',
+      options: { collapsible: true, collapsed: true },
+    },
     { name: 'visibility', title: 'Visibility & SEO', options: { collapsible: true, collapsed: true } },
     // AI generation inputs (P2-CP follow-up). Studio-only: consumed ONLY by the
     // "Generate Product Details with AI" action + /api/sanity/generate-product —
@@ -595,6 +602,17 @@ export default defineType({
       of: [{ type: 'reference', to: [{ type: 'blogPost' }] }],
       description:
         'Pinned first in the "Related Blogs" strip below Related Products. Leave empty to let matching blog posts fill in automatically from the related keywords.',
+    }),
+
+    // ---- Portfolio gallery (PORT-120) ----
+    // The shared `portfolioGallery` block in a FIXED position (below the
+    // product details, above Related Products); Patrick does not move it on
+    // this page type, the blog body is the free-placement surface.
+    defineField({
+      name: 'portfolioGallery',
+      title: 'Portfolio gallery',
+      type: 'portfolioGallery',
+      fieldset: 'portfolio',
     }),
 
     // ---- Visibility & SEO ----

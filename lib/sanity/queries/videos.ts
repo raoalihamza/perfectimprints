@@ -6,6 +6,7 @@ import {
   type StripProductEntry,
 } from '@/lib/sanity/strip-product-entries';
 import type { SanityImage, SanitySlug, SeoFields } from '@/lib/sanity/types';
+import type { PortfolioGalleryBlockValue } from '@/lib/portfolio/gallery';
 import {
   effectiveVideoCategories,
   rankRelatedVideos,
@@ -48,6 +49,12 @@ export interface VideoSummary {
   categories?: (VideoCategoryRef | null)[] | null;
   legacyCategory?: VideoCategoryRef | null;
   seo?: SeoFields;
+  /**
+   * PORT-120: the Portfolio Gallery block AS STORED (references), projected
+   * by the single-video read only (the index does not render it). Resolved
+   * by `PortfolioGallerySection` through the tagged portfolio reads.
+   */
+  portfolioGallery?: PortfolioGalleryBlockValue | null;
 }
 
 /** Effective category list for a video (new list wins, else legacy single). */
@@ -102,9 +109,12 @@ export async function getVideoSlugs(): Promise<string[]> {
 }
 
 export async function getVideoBySlug(slug: string): Promise<VideoSummary | null> {
+  // `portfolioGallery` (PORT-120) is projected here and NOT in
+  // SUMMARY_PROJECTION: only the detail page renders it, so the index and
+  // the related-video lists do not carry every video's block.
   return (
     (await cachedClient.fetch<VideoSummary | null>(
-      `*[${PUBLISHED} && slug.current == $slug][0]{ ${SUMMARY_PROJECTION} }`,
+      `*[${PUBLISHED} && slug.current == $slug][0]{ ${SUMMARY_PROJECTION}, portfolioGallery }`,
       { slug },
       VIDEO_FETCH_OPTS,
     )) ?? null

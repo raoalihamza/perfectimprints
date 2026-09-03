@@ -19,6 +19,8 @@ import {
   parseSanityImageRef,
   pickSrcWidth,
   widthsWithin,
+  embeddedTileSizes,
+  PORTFOLIO_EMBED_COLUMN_WIDTHS,
 } from './image-sizes';
 
 describe('parseSanityImageRef', () => {
@@ -146,5 +148,36 @@ describe('lightboxSizesFor', () => {
   it('falls back to the full viewport for an unusable box', () => {
     expect(lightboxSizesFor({ width: 0, height: 100 })).toBe(LIGHTBOX_SIZES);
     expect(lightboxSizesFor({ width: 100, height: Number.NaN })).toBe(LIGHTBOX_SIZES);
+  });
+});
+
+describe('embeddedTileSizes (PORT-120)', () => {
+  it('keeps the viewport clauses under 1024px and caps the wider ones by the host column', () => {
+    // section column 1024: (1024 - 32) / 3 = 330, (1024 - 48) / 4 = 244
+    expect(embeddedTileSizes('section')).toBe(
+      '(max-width: 767px) 50vw, (max-width: 1023px) 33vw, (max-width: 1279px) min(33vw, 330px), min(25vw, 244px)',
+    );
+    // video column 896: 288 / 212
+    expect(embeddedTileSizes('video')).toContain('min(33vw, 288px), min(25vw, 212px)');
+    // product column 1472: 480 / 356
+    expect(embeddedTileSizes('product')).toContain('min(33vw, 480px), min(25vw, 356px)');
+    // blog column 1064: 344 / 254
+    expect(embeddedTileSizes('blog')).toContain('min(33vw, 344px), min(25vw, 254px)');
+  });
+
+  it('never names a tile wider than the page grid tile, so TILE_WIDTHS still covers every host', () => {
+    for (const host of Object.keys(PORTFOLIO_EMBED_COLUMN_WIDTHS) as (keyof typeof PORTFOLIO_EMBED_COLUMN_WIDTHS)[]) {
+      const px = [...embeddedTileSizes(host).matchAll(/min\(\d+vw, (\d+)px\)/g)].map((m) => Number(m[1]));
+      expect(px.length).toBe(2);
+      // 2x of the widest embedded tile (480 on the product page) is 960, the largest candidate.
+      for (const w of px) expect(w * 2).toBeLessThanOrEqual(Math.max(...TILE_WIDTHS));
+    }
+  });
+
+  it('differs from the page sizes only in the two wide clauses', () => {
+    const page = TILE_SIZES.split(', ');
+    const embedded = embeddedTileSizes('section').split(', ');
+    expect(embedded.slice(0, 2)).toEqual(page.slice(0, 2));
+    expect(embedded.slice(2)).not.toEqual(page.slice(2));
   });
 });

@@ -366,6 +366,30 @@ export default defineType({
         },
       ],
     }),
+    // PORT-115. The /portfolio page's own copy lives HERE, on the singleton the
+    // webhook Filter already carries in both environments, rather than on a
+    // new document type that would need the Filter edited by hand in staging
+    // and production (a step PORT-000 found silently missed eight times on
+    // this project). Same reasoning as the three aggregator page objects
+    // above. Rich text (the shared richAnswer: paragraphs, bold, italic,
+    // links; no images or blocks) so a phrase can be bolded or linked.
+    defineField({
+      name: 'portfolioPage',
+      title: 'Portfolio Page',
+      type: 'object',
+      description:
+        'Copy for the Portfolio Gallery page at /portfolio. The photos come from your Portfolio Items; this is only the introduction shown above them.',
+      options: { collapsible: true, collapsed: true },
+      fields: [
+        {
+          name: 'intro',
+          title: 'Introduction (shown above the filters and photos)',
+          type: 'richAnswer',
+          description:
+            'A short paragraph or two, in your own words, about the kind of work you take on. You can bold a phrase or add a link. Leave it empty and the page keeps its standard one-line opening. It never shows while the gallery has no published items.',
+        },
+      ],
+    }),
     // HIDE-100. Sits directly above "Site Search" on purpose: the two controls
     // look alike in Studio and the difference has to be readable at a glance.
     // This one is the broad one (everywhere), that one is the narrow exception

@@ -8,22 +8,30 @@ import {
 } from '@/lib/sanity/cache-tags';
 import {
   PORTFOLIO_CATEGORY_PROJECTION,
+  PORTFOLIO_GALLERY_TYPE,
   PORTFOLIO_ITEM_PROJECTION,
+  isSanityReferenceStub,
   isVisiblePortfolioCategory,
   isVisiblePortfolioItem,
+  portfolioGalleryCategoryRefId,
+  portfolioGalleryItemRefIds,
   resolvePortfolioGalleryItems,
   sortPortfolioCategories,
   sortPortfolioItems,
   type PortfolioCategoryRef,
+  type PortfolioGalleryBlockValue,
+  type PortfolioGalleryInput,
   type PortfolioGalleryValue,
   type PortfolioItemCard,
 } from '@/lib/portfolio/gallery';
+import { embeddedTileSizes, type PortfolioEmbedHost } from '@/lib/portfolio/image-sizes';
+import { toPortfolioTiles, type PortfolioTile } from '@/lib/portfolio/tile-data';
 
 // ---------------------------------------------------------------------------
 // Portfolio Gallery reads (PORT-100). The data layer behind the /portfolio
-// page (PORT-110) and the gallery block on blog / product / video / landing
-// pages (PORT-120). Nothing renders from here yet; the page ticket should
-// have no data work left.
+// page (PORT-110) and the gallery block on blog posts, product pages, video
+// pages, landing pages and ordinary pages (PORT-120; the block's binding is
+// `resolvePortfolioGallery` at the bottom).
 //
 // Freshness, the standing rule: EVERY read here is a non-CDN `cachedClient`
 // fetch carrying a cache tag with `revalidate: false`, never `no-store`, so a
@@ -38,7 +46,13 @@ import {
 // Every tag value passes through sanitizeTagValue() inside the builders.
 // ---------------------------------------------------------------------------
 
-export type { PortfolioCategoryRef, PortfolioGalleryValue, PortfolioItemCard };
+export type {
+  PortfolioCategoryRef,
+  PortfolioGalleryBlockValue,
+  PortfolioGalleryInput,
+  PortfolioGalleryValue,
+  PortfolioItemCard,
+};
 
 const PUBLISHED_ITEM = '_type == "portfolioItem" && !(_id in path("drafts.**"))';
 const PUBLISHED_CATEGORY = '_type == "portfolioCategory" && !(_id in path("drafts.**"))';
@@ -73,6 +87,28 @@ export async function getAllPortfolioCategories(): Promise<PortfolioCategoryRef[
     return await getAllPortfolioCategoriesOrThrow();
   } catch {
     return [];
+  }
+}
+
+/**
+ * One published category by document id, hidden or not. Feeds a
+ * category-mode gallery block, which stores the category as a REFERENCE
+ * (PORT-120): the id is what the host document holds, so this is the read
+ * that turns it into the category's slug and title. Tagged PORTFOLIO_TAG
+ * only: the slug is not known until the read returns, and the collection
+ * tag is what the webhook busts on any category publish anyway.
+ */
+export async function getPortfolioCategoryById(id: string): Promise<PortfolioCategoryRef | null> {
+  if (!id) return null;
+  try {
+    const doc = await cachedClient.fetch<PortfolioCategoryRef | null>(
+      `*[${PUBLISHED_CATEGORY} && _id == $id][0]${PORTFOLIO_CATEGORY_PROJECTION}`,
+      { id },
+      opts(),
+    );
+    return doc?.slug ? doc : null;
+  } catch {
+    return null;
   }
 }
 
@@ -173,21 +209,93 @@ export async function getPortfolioItemBySlug(slug: string): Promise<PortfolioIte
 }
 
 /**
- * The server binding of the ONE gallery resolver: takes a projected
- * `portfolioGallery` value (spread PORTFOLIO_GALLERY_PROJECTION in the
- * embedder's read so `items[]` and `category` arrive dereferenced), fetches
- * the category's items when the mode needs them, and returns the ordered
- * cards to render. Every future surface calls this and nothing else; an empty
- * result means "render nothing" (the StripCardGrid contract).
+ * The server binding of the ONE gallery resolver. Takes a `portfolioGallery`
+ * value in EITHER shape: as stored on the host document (`items[]` and
+ * `category` are references, which is what every PORT-120 embedder passes,
+ * straight off a bare `{...}` spread of the host's own read) or already
+ * dereferenced (PORTFOLIO_GALLERY_PROJECTION). References are resolved HERE,
+ * through the tagged portfolio reads above, which is the whole point:
+ * the host page's cached render then carries PORTFOLIO_TAG, so a portfolio
+ * publish of ANY kind (an item edited or hidden, a category renamed, an item
+ * added to a category the block fills from) invalidates the host page
+ * without the webhook having to know which host embeds what. The
+ * `findEmbeddingContentDocs` lookup in the webhook is the belt on top.
+ *
+ *   - Hand picked: the referenced ids, in the editor's order, read with
+ *     `getPortfolioItemsByIds` (published only; a deleted, unpublished or
+ *     hidden item is simply absent) and then handed to the pure resolver for
+ *     the dedupe + limit rules.
+ *   - From a category: the referenced category by id (a deleted or hidden
+ *     one resolves to nothing, never to every item on the site), then that
+ *     category's visible items, then the pure resolver's order + limit.
+ *
+ * An empty result means "render nothing" (the StripCardGrid contract). This
+ * function never throws: every read it makes degrades to null / [].
  */
 export async function resolvePortfolioGallery(
-  gallery: PortfolioGalleryValue | null | undefined,
+  gallery: PortfolioGalleryInput | null | undefined,
 ): Promise<PortfolioItemCard[]> {
   if (!gallery || gallery.hidden === true) return [];
+
   if (gallery.mode === 'category') {
-    if (!isVisiblePortfolioCategory(gallery.category)) return [];
-    const categoryItems = await getPortfolioItemsByCategory(gallery.category.slug);
-    return resolvePortfolioGalleryItems(gallery, categoryItems);
+    const refId = portfolioGalleryCategoryRefId(gallery);
+    const category = refId
+      ? await getPortfolioCategoryById(refId)
+      : isSanityReferenceStub(gallery.category)
+        ? null
+        : (gallery.category as PortfolioCategoryRef | null | undefined);
+    if (!isVisiblePortfolioCategory(category)) return [];
+    const categoryItems = await getPortfolioItemsByCategory(category.slug);
+    return resolvePortfolioGalleryItems({ ...gallery, category, items: [] }, categoryItems);
   }
-  return resolvePortfolioGalleryItems(gallery);
+
+  // Hand picked: references become cards through the tagged read; entries
+  // that already are cards (a dereferenced value) pass through as they are.
+  const refIds = portfolioGalleryItemRefIds(gallery);
+  const fetched = refIds.length > 0 ? await getPortfolioItemsByIds(refIds) : [];
+  const byId = new Map(fetched.map((item) => [item._id, item]));
+  const items: (PortfolioItemCard | null)[] = (gallery.items ?? []).map((entry) => {
+    if (isSanityReferenceStub(entry)) return byId.get(entry._ref) ?? null;
+    return entry ?? null;
+  });
+  return resolvePortfolioGalleryItems({ ...gallery, items, category: null });
+}
+
+/**
+ * The ONE call every PORT-120 surface makes: a stored gallery block to the
+ * plain tiles the shared client renderer (components/portfolio/
+ * PortfolioGalleryBlock.tsx) draws, sized for the host's content column.
+ * `[]` means render nothing; the renderer honours that, so a block whose
+ * category was deleted, whose items are all hidden, or whose images were
+ * never uploaded leaves no heading and no box behind.
+ */
+export async function resolvePortfolioGalleryTiles(
+  gallery: PortfolioGalleryInput | null | undefined,
+  host: PortfolioEmbedHost,
+): Promise<PortfolioTile[]> {
+  const items = await resolvePortfolioGallery(gallery);
+  return toPortfolioTiles(items, { sizes: embeddedTileSizes(host) });
+}
+
+/**
+ * Blog posts place the block ANYWHERE in the body (PORT-120), but the body
+ * renders through a synchronous PortableText component, so the blog page
+ * resolves every gallery block up front, exactly as it resolves the SKUs of
+ * its `blogProducts` strips, and hands BlogBody a map keyed by block `_key`.
+ * Blocks are resolved in parallel; a block with no `_key` cannot be matched
+ * back and is skipped (Studio always writes one).
+ */
+export async function collectPortfolioGalleryTiles(
+  body: readonly unknown[] | null | undefined,
+  host: PortfolioEmbedHost,
+): Promise<Map<string, PortfolioTile[]>> {
+  const blocks: PortfolioGalleryBlockValue[] = [];
+  for (const block of body ?? []) {
+    const value = block as PortfolioGalleryBlockValue | null;
+    if (value && value._type === PORTFOLIO_GALLERY_TYPE && value._key) blocks.push(value);
+  }
+  const resolved = await Promise.all(blocks.map((b) => resolvePortfolioGalleryTiles(b, host)));
+  const out = new Map<string, PortfolioTile[]>();
+  blocks.forEach((block, i) => out.set(block._key as string, resolved[i]));
+  return out;
 }

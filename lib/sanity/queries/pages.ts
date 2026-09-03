@@ -8,6 +8,7 @@ import {
   type StripProductEntry,
 } from '@/lib/sanity/strip-product-entries';
 import type { SanityImage } from '@/lib/sanity/types';
+import type { PortfolioGalleryBlockValue } from '@/lib/portfolio/gallery';
 
 // ---------------------------------------------------------------------------
 // Generic section-based `page` document (M5-506b). One type powers Services
@@ -162,6 +163,17 @@ export interface ProductStripSection extends BaseSection {
   products?: (ProductStripEntry | null)[];
 }
 
+/**
+ * A Portfolio Gallery page section (PORT-120): the shared `portfolioGallery`
+ * block AS STORED (its `items[]` and `category` are references). The bare
+ * `sections[]{...}` spread below returns exactly that, so the block needs NO
+ * conditional re-projection: the section renderer hands it to
+ * `PortfolioGallerySection`, which resolves the references through the
+ * tagged portfolio reads (so PORTFOLIO_TAG rides this route's render too).
+ */
+export type PortfolioGalleryPageSection = BaseSection &
+  Omit<PortfolioGalleryBlockValue, '_key' | '_type' | 'hidden'> & { _type: 'portfolioGallery' };
+
 export type PageSection =
   | HeroBannerSection
   | RichTextSection
@@ -174,7 +186,8 @@ export type PageSection =
   | EventListSection
   | VideoEmbedSection
   | FaqAccordionSection
-  | ProductStripSection;
+  | ProductStripSection
+  | PortfolioGalleryPageSection;
 
 export interface PageDoc {
   _id: string;
@@ -196,6 +209,10 @@ export interface PageDoc {
 // `{_ref}` stubs — the conditional re-projects only that array, dereferencing
 // refs in place (see STRIP_PRODUCT_ENTRIES_PROJECTION). The deref rides this
 // same PAGES_TAG/page:<slug>-tagged read, so the routes stay static.
+// `portfolioGallery` (PORT-120) ALSO stores references but deliberately gets
+// no conditional: its `{_ref}` stubs are what its renderer wants, because it
+// resolves them through the PORTFOLIO_TAG-tagged portfolio reads so a
+// portfolio publish refreshes the page without this read knowing about it.
 const PAGE_PROJECTION = `{
   _id,
   title,

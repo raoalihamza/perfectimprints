@@ -11,6 +11,7 @@ import { EventList } from './EventList';
 import { VideoEmbedSection } from './VideoEmbedSection';
 import { FaqAccordion } from './FaqAccordion';
 import { ProductStrip } from './ProductStrip';
+import { PortfolioGallerySection } from '@/components/portfolio/PortfolioGallerySection';
 
 /**
  * Maps each section `_type` to its renderer. Hidden sections are skipped here,
@@ -44,6 +45,11 @@ function renderSection(section: PageSection) {
       return <FaqAccordion section={section} />;
     case 'productStrip':
       return <ProductStrip section={section} />;
+    // PORT-120: the shared Portfolio Gallery block as a page section. The
+    // block's own `hidden` is the section `hidden` this renderer already
+    // honours; the component resolves and renders, or renders nothing.
+    case 'portfolioGallery':
+      return <PortfolioGallerySection gallery={section} host="section" layout="section" />;
     default:
       return null;
   }

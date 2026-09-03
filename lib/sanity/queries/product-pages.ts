@@ -6,6 +6,7 @@ import { PRODUCT_PAGES_TAG, productPageTag } from '@/lib/sanity/cache-tags';
 import type { SanityImage, SeoFields } from '@/lib/sanity/types';
 import type { GeigerProduct } from '@/lib/product-types';
 import { portableTextToPlain } from '@/lib/portable-text/to-plain';
+import type { PortfolioGalleryBlockValue } from '@/lib/portfolio/gallery';
 import type { CustomProductDoc } from './custom-products';
 // Pure pricing rules (Q-130) - defined once in a client-safe module so the
 // Studio quote builder shares them; re-exported below under their old names.
@@ -145,6 +146,12 @@ export interface ProductPageDoc extends ProductPageCard {
   relatedVideoSlugs?: string[];
   /** Slugs of the manual `relatedBlogs` references (deref'd in the projection). */
   relatedBlogSlugs?: string[];
+  /**
+   * PORT-120: the Portfolio Gallery block AS STORED (references). Resolved by
+   * `PortfolioGallerySection` through the tagged portfolio reads, so it is
+   * deliberately NOT dereferenced here.
+   */
+  portfolioGallery?: PortfolioGalleryBlockValue | null;
   seo?: SeoFields;
 }
 
@@ -215,6 +222,7 @@ const FULL_PROJECTION = `{
   relatedKeywords,
   "relatedVideoSlugs": relatedVideos[]->slug.current,
   "relatedBlogSlugs": relatedBlogs[]->slug.current,
+  portfolioGallery,
   relatedProducts[]{
     _type == 'blogProduct' => { _type, _key, sku, title, image, url },
     defined(_ref) => @->{

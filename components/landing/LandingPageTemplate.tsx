@@ -6,8 +6,13 @@ import { SectionShell } from '@/components/page-sections/SectionShell';
 import { pagePortableComponents } from '@/components/page-sections/portable-text';
 import { ProductStrip } from '@/components/page-sections/ProductStrip';
 import { FaqAccordion } from '@/components/page-sections/FaqAccordion';
+import { PortfolioGallerySection } from '@/components/portfolio/PortfolioGallerySection';
 import { landingServiceSchema } from '@/lib/seo/schema-generators';
-import type { FaqAccordionSection, ProductStripSection } from '@/lib/sanity/queries/pages';
+import type {
+  FaqAccordionSection,
+  PortfolioGalleryPageSection,
+  ProductStripSection,
+} from '@/lib/sanity/queries/pages';
 import type { LandingPageDoc } from '@/lib/sanity/queries/landing-pages';
 import { jsonLdHtml } from '@/lib/seo/json-ld';
 
@@ -74,6 +79,19 @@ export function LandingPageTemplate({ page }: { page: LandingPageDoc }) {
         }
       : null;
 
+  // PORT-120: reuse the page-builder Portfolio Gallery section the same way,
+  // by handing it a synthetic section built from this doc's field. Fixed
+  // position (after Options & Ideas + the strip, before Why Us); the field
+  // stays as stored (references), the section resolves them.
+  const gallerySection: PortfolioGalleryPageSection | null = page.portfolioGallery
+    ? {
+        ...page.portfolioGallery,
+        _type: 'portfolioGallery',
+        _key: 'landing-portfolio',
+        hidden: page.portfolioGallery.hidden ?? undefined,
+      }
+    : null;
+
   // Reuse the page-builder FaqAccordion (it also emits the FAQPage JSON-LD).
   const faqSection: FaqAccordionSection | null =
     (page.faqs?.length ?? 0) > 0
@@ -121,6 +139,11 @@ export function LandingPageTemplate({ page }: { page: LandingPageDoc }) {
         </SectionShell>
       )}
       {stripSection && <ProductStrip section={stripSection} />}
+
+      {/* 3b. Portfolio gallery (PORT-120): fixed here, below the main content. */}
+      {gallerySection && (
+        <PortfolioGallerySection gallery={gallerySection} host="section" layout="section" />
+      )}
 
       {/* 4. Why Perfect Imprints — the trust section. */}
       {hasBody(page.whyUs) && (

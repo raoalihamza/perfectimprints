@@ -1,9 +1,9 @@
 /**
  * The ONE resolver behind every Portfolio Gallery (PORT-100).
  *
- * A `portfolioGallery` block will be placeable on blog posts, product pages,
- * video pages and landing pages (PORT-120), and the /portfolio page (PORT-110)
- * lists the same items with filters. Every one of those surfaces asks THIS
+ * A `portfolioGallery` block is placeable on blog posts, product pages, video
+ * pages, landing pages and ordinary pages (PORT-120), and the /portfolio page
+ * (PORT-110) lists the same items with filters. Every one of those surfaces asks THIS
  * module which items to show, in which order, and how many. It is the
  * `resolveStripCards` pattern from lib/products/strip-cards.ts applied to
  * portfolio items: one decision written once, so four placements cannot drift,
@@ -31,6 +31,9 @@
  */
 
 import { normalizePortfolioColors, type PortfolioColor } from './colors';
+
+/** The block type name as stored in Sanity and matched by every renderer. */
+export const PORTFOLIO_GALLERY_TYPE = 'portfolioGallery';
 
 export const DEFAULT_GALLERY_LIMIT = 8;
 export const MAX_GALLERY_LIMIT = 48;
@@ -84,6 +87,76 @@ export interface PortfolioGalleryValue {
   hidden?: boolean | null;
 }
 
+/** A stored Sanity reference, the shape a bare `{...}` spread returns for `items[]` and `category`. */
+export interface SanityReferenceStub {
+  _ref: string;
+  _key?: string;
+  _type?: string;
+  _weak?: boolean;
+}
+
+/**
+ * The `portfolioGallery` block AS STORED on its host document (PORT-120):
+ * `items[]` and `category` are references, not cards. This is what every
+ * embedder hands the server binding, because the embedders project the block
+ * with a bare spread (`body[]{...}`, `sections[]{...}`, or the field name),
+ * never PORTFOLIO_GALLERY_PROJECTION. The binding resolves the references
+ * through the tagged portfolio reads (lib/sanity/queries/portfolio.ts), so
+ * EVERY host page's cached render carries PORTFOLIO_TAG and any portfolio
+ * publish refreshes it, including a category rename that a hand-picked
+ * gallery's host does not reference. Dereferencing inside the host's own read
+ * would have left that case stale.
+ */
+export interface PortfolioGalleryBlockValue {
+  _key?: string;
+  _type?: string;
+  heading?: string | null;
+  mode?: PortfolioGalleryMode | string | null;
+  items?: (SanityReferenceStub | PortfolioItemCard | null)[] | null;
+  category?: SanityReferenceStub | PortfolioCategoryRef | null;
+  limit?: number | null;
+  hidden?: boolean | null;
+}
+
+/** Either shape the server binding accepts: stored references or already-projected cards. */
+export type PortfolioGalleryInput = PortfolioGalleryValue | PortfolioGalleryBlockValue;
+
+/** True for a reference stub (has a `_ref` and is not a projected card or category). */
+export function isSanityReferenceStub(value: unknown): value is SanityReferenceStub {
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    typeof (value as { _ref?: unknown })._ref === 'string' &&
+    (value as { _ref: string })._ref.length > 0
+  );
+}
+
+/**
+ * The ids a stored gallery's `items[]` reference, in the editor's order,
+ * each once. Entries that are already cards (a projected value) are not ids
+ * and are skipped; the binding uses them as they are.
+ */
+export function portfolioGalleryItemRefIds(
+  gallery: PortfolioGalleryInput | null | undefined,
+): string[] {
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const entry of gallery?.items ?? []) {
+    if (!isSanityReferenceStub(entry) || seen.has(entry._ref)) continue;
+    seen.add(entry._ref);
+    out.push(entry._ref);
+  }
+  return out;
+}
+
+/** The id a stored gallery's `category` references, or null when unset or already projected. */
+export function portfolioGalleryCategoryRefId(
+  gallery: PortfolioGalleryInput | null | undefined,
+): string | null {
+  const category = gallery?.category;
+  return isSanityReferenceStub(category) ? category._ref : null;
+}
+
 // ---------------------------------------------------------------------------
 // GROQ fragments (pure strings, so any query module can spread them)
 // ---------------------------------------------------------------------------
@@ -99,9 +172,12 @@ export const PORTFOLIO_ITEM_PROJECTION =
   'colors, description, clientName, featured, displayOrder, hidden }';
 
 /**
- * Projection for a `portfolioGallery` block embedded in another document
- * (PORT-120 will spread this inside blog / product / video / landing reads).
- * Includes its own braces.
+ * Projection for a `portfolioGallery` block with its references dereferenced
+ * in place. Includes its own braces. NOT what the PORT-120 embedders use:
+ * they hand the STORED block (references) to the server binding so the
+ * portfolio reads, and their tag, ride the host page's render (see
+ * PortfolioGalleryBlockValue). Kept for a reader that wants cards in one
+ * query; the binding accepts that shape too.
  */
 export const PORTFOLIO_GALLERY_PROJECTION =
   '{ _key, heading, mode, ' +

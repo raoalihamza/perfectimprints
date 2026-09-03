@@ -616,6 +616,14 @@
       Geiger whenever you press the matching button in <a href="#site-refresh">Site Refresh</a>. These controls let you
       nudge what shows without anyone touching the feed.</p>
 
+    <h4 id="portfolio-page-settings">Portfolio Page</h4>
+    <p>One field, <strong>Introduction</strong>: the paragraph or two in your own words that opens the gallery page at
+      <code>/portfolio</code>, above the filters and the photos. Tell people the kind of work you take on. You can bold
+      a phrase or add a link; it is plain paragraphs otherwise, with no images (the photos are the gallery itself).
+      Leave it empty and the page keeps its standard one-line opening. It never shows while the gallery has no
+      published items. Publish, and the page picks it up within seconds. The photos, their titles and their
+      descriptions are not here: they live on each <a href="#portfolio-item">Portfolio Item</a>.</p>
+
     <h4 id="hidden-products">Hidden Products (whole site)</h4>
     <p>One control: <strong>Hide these products everywhere</strong>. Search the catalog by name, SKU, or brand, click a
       product, and it disappears from the <em>entire</em> site. Publish, and it is gone within seconds. Remove it from
@@ -2670,12 +2678,13 @@
         class="arrow">›</span> Portfolio</span>: <strong>Portfolio Category</strong> (the filter buttons) and
       <strong>Portfolio Item</strong> (one photo of one job). You fill both in yourself; nothing is created for you.</p>
     <div class="callout">
-      <span class="label">What is live and what is coming</span>
+      <span class="label">Two places your photos appear</span>
       <p>The gallery page is live at <code>/portfolio</code>. It fills itself from your published items, offers
         filters by category and by colour, and every filtered view has its own address you can copy and send to a
-        customer (see <a href="#portfolio-page">the gallery page</a> below). A gallery block you can drop onto blog
-        posts, product pages, video pages and landing pages is the next piece of work; anything you enter now is
-        ready for it. Category pages (<code>/cat/…</code>) deliberately do not get a gallery.</p>
+        customer (see <a href="#portfolio-page">the gallery page</a> below). A <strong>Portfolio Gallery block</strong>
+        also puts a chosen set of photos on blog posts, product pages, video pages, landing pages and your ordinary
+        pages (see <a href="#portfolio-block">the gallery block</a> below). Category pages (<code>/cat/…</code>)
+        deliberately do not get a gallery.</p>
     </div>
 
     <h3 id="portfolio-category">Creating a category</h3>
@@ -2697,21 +2706,28 @@
     <p>Open <span class="path">Content <span class="arrow">›</span> Portfolio <span class="arrow">›</span> Portfolio
         items</span> and click the <strong>+</strong>. One item is one photo of one job.</p>
     <ul>
-      <li><strong>Title</strong> (required) - what the job was, e.g. "Embroidered caps for a fire department".</li>
+      <li><strong>Title</strong> (required) - what the job was, e.g. "Embroidered caps for a fire department". It
+        shows under the photo on the gallery page, so the tile reads as a real job rather than just a picture, and
+        again as the heading when a visitor opens the photo. Keep it to a line or two: on the tile a very long title
+        is cut after two lines (the full title always shows in the opened view).</li>
       <li><strong>Slug</strong> (optional) - not used anywhere yet. It is there in case a job ever gets its own
         page; leave it blank or click Generate, either is fine.</li>
       <li><strong>Image</strong> (required) - the photo, with <strong>Alt text</strong> (required): one short
         sentence describing the picture, for screen readers and Google. Drag the hotspot circle to the part of the
         photo that must stay in view when it is cropped square.</li>
-      <li><strong>Category</strong> (required) - pick one of your published categories.</li>
+      <li><strong>Category</strong> (required) - pick one of your published categories. Its name appears under the
+        title on the tile and in the opened view, and it is what the Category filter uses.</li>
       <li><strong>Colours</strong> - tick every colour that appears in the work; a single job often has several.
         These are the same twenty colours your product category filters already use (black, blue, brown, camo,
         clear, gold, gray, green, iridescent, multi-color, neon, orange, pink, purple, rainbow, red, safety, silver,
         white, yellow), so the gallery's colour filter and the product filters speak the same language. You cannot
         type a colour of your own, on purpose: "navy", "Navy Blue" and "dark blue" would become three filters
         within a month.</li>
-      <li><strong>Description</strong> (optional) - a line or two: what was made, how it was decorated, who it was
-        for in general terms.</li>
+      <li><strong>Description</strong> (optional) - what was made, how it was decorated, who it was for in general
+        terms; as brief or as full as you like, up to about 400 characters. The first two lines show on the tile under
+        the category, and the whole text shows when a visitor clicks the photo. Leave it empty and the tile simply
+        shows the title and category; every tile keeps the same shape either way, so a mix of items with and without
+        descriptions still lines up neatly.</li>
       <li><strong>Client name</strong> (optional) - <strong>only where the customer has agreed to be named on
           your website.</strong> Leave it blank otherwise. The item looks complete without it.</li>
       <li><strong>Featured</strong> - pins the item to the top of the gallery (and to the top of any
@@ -2734,9 +2750,15 @@
     <h3 id="portfolio-page">The gallery page and shareable links</h3>
     <p>The page at <code>/portfolio</code> needs nothing from you beyond publishing items. It shows every published
       item that is not hidden, in gallery order (featured first, then display order, then newest), as a grid of
-      square photos cropped around the hotspot you set. Clicking a photo opens it larger, with its title, category
-      and description, and the on-screen arrows (or the arrow keys) step through the photos that match the current
-      filters. Escape closes it.</p>
+      square photos cropped around the hotspot you set. Under each photo sit its title, its category and the first two
+      lines of its description (when it has one). Clicking a photo opens it larger, with its title, category and the
+      full description alongside, and the on-screen arrows (or the arrow keys) step through the photos that match the
+      current filters. Escape closes it.</p>
+    <p>Above the filters there is room for an introduction in your own words about the kind of work you take on. It
+      is not on the items: write it once in <span class="path">Content <span class="arrow">›</span> Global Settings
+        <span class="arrow">›</span> Portfolio Page <span class="arrow">›</span> Introduction</span> (see <a
+        href="#portfolio-page-settings">Global Settings</a>). Leave it empty and the page keeps its standard one-line
+      opening; it never shows while there are no published items.</p>
     <p>The filters on the left are built from your data, not from a list you maintain. The <strong>Category</strong>
       group lists your published categories in their display order, and the <strong>Color</strong> group lists the
       colours you have ticked on items. A category or colour that no published item uses does not appear, so there is
@@ -2760,13 +2782,50 @@
         page before you have uploaded anything and find it hidden from Google, that is the design, not a fault.</p>
     </div>
 
-    <h3 id="portfolio-block">The gallery block (coming with the placements)</h3>
-    <p>When the block arrives on blog posts, product pages, video pages and landing pages, each one will offer
-      two ways to fill it: <strong>Hand picked</strong> (choose the items and drag them into order) or
-      <strong>From a category</strong> (pick a category and the block fills itself: featured first, then display
-      order, then newest), plus <strong>How many to show</strong> (default 8) and the usual <strong>Hidden</strong>
-      switch. The same rules decide the order everywhere, so an item you feature is featured on every page at
-      once.</p>
+    <h3 id="portfolio-block">The gallery block: your photos on other pages</h3>
+    <p>Besides the page at <code>/portfolio</code>, a <strong>Portfolio Gallery</strong> block puts a set of your
+      photos on five kinds of page. Wherever it appears it is the same block with the same three questions, so you
+      learn it once:</p>
+    <ul>
+      <li><strong>Which items.</strong> <em>Hand picked</em>: choose the items yourself and drag them into the order
+        you want; that order is kept exactly. <em>From a category</em>: pick one category and the block fills itself
+        from it, featured items first, then display order, then newest, so a new item you publish into that category
+        appears in every block that draws from it without you touching those pages.</li>
+      <li><strong>How many to show.</strong> The most items the block shows (default 8, up to 48). In a hand-picked
+        block it trims the end of your list; in a category block it takes the first that many in gallery order, so a
+        featured item is never the one that gets cut.</li>
+      <li><strong>Heading</strong> (optional, shown above the photos) and the usual <strong>Hidden</strong> switch to
+        take the block off the live page without deleting it.</li>
+    </ul>
+    <p>Where it goes depends on the page type:</p>
+    <ul>
+      <li><strong>Blog posts</strong>: you choose the spot. In the body editor, open the insert (+) menu between any
+        two paragraphs and pick <strong>Portfolio Gallery</strong>, exactly as you would a product strip. It renders
+        right there in the article, and you can drag it to another place like any other block.</li>
+      <li><strong>Product pages</strong>: a collapsed <strong>Portfolio gallery</strong> group near the bottom of
+        the form. On the page it has a fixed spot: below the Product Details text and above Related Products.</li>
+      <li><strong>Videos</strong>: a <strong>Portfolio gallery</strong> field just under Related Products. Fixed spot:
+        below the related products strip and above the "Need help choosing?" bar.</li>
+      <li><strong>Landing pages</strong>: a <strong>Portfolio gallery</strong> field just under Related products.
+        Fixed spot: after the Options &amp; Ideas section and its product strip, before "Why Perfect Imprints".</li>
+      <li><strong>Ordinary pages</strong> (the page builder behind About, the Services pages and any custom page):
+        <strong>Portfolio Gallery</strong> is one of the sections in the insert menu, so you place it and drag it like
+        any other section.</li>
+    </ul>
+    <p>On the page, the block shows its heading (if you gave one), the same square tiles as the gallery page with the
+      title, category and the first lines of the description under each, and a small "See more of our work" link to
+      <code>/portfolio</code>. Clicking a photo opens it larger in place, with arrows to step through that block's
+      photos, and closes back to where the reader was. Hidden items are skipped, and a block that has nothing to show
+      (its items all hidden, its category empty) simply does not appear: no heading, no empty box. Publishing, editing
+      or hiding a portfolio item, or renaming a category, updates every page that shows it within seconds; you never
+      republish the host page for that.</p>
+    <div class="callout">
+      <span class="label">If a product, video or landing page refuses to publish because of the gallery</span>
+      <p>Once you start filling the Portfolio gallery field it expects an answer to "Which items": a hand-picked block
+        needs at least one item and a category block needs a category, and the page will not publish until it has
+        one. If you started a block and changed your mind, use the field's own menu (the three dots beside the field
+        title) to clear the whole field rather than leaving it half filled.</p>
+    </div>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
@@ -2775,12 +2834,13 @@
     <p>A quick mental map of what drives what:</p>
     <ul>
       <li><strong>Global Settings</strong> drives the header and footer of <em>every</em> page (contact details, social
-        icons, footer link columns, copyright), plus the "Not finding the exact …?" CTA bar under category products.</li>
+        icons, footer link columns, copyright), plus the "Not finding the exact …?" CTA bar under category products and
+        the introduction at the top of the portfolio page.</li>
       <li><strong>Home Page</strong> drives only the homepage.</li>
       <li><strong>Mega Menu</strong> drives the top navigation bar across the site.</li>
-      <li><strong>Portfolio items</strong> and <strong>Portfolio categories</strong> drive the portfolio gallery
-        (the <code>/portfolio</code> page, and the gallery blocks after that). Category pages never
-        show them.</li>
+      <li><strong>Portfolio items</strong> and <strong>Portfolio categories</strong> drive the portfolio gallery:
+        the <code>/portfolio</code> page and every Portfolio Gallery block on blog posts, product pages, video pages,
+        landing pages and ordinary pages. Category pages never show them.</li>
       <li><strong>Category pages</strong> (<code>/cat/...</code>) run automatically, and are shaped by the three tools:
         <strong>Custom Category</strong> (take over the whole page), <strong>Category Override</strong> (tweak its
         products), and <strong>Product Placement</strong> (push one product across many pages). <strong>Push to
@@ -2845,6 +2905,18 @@
       <tr>
         <td>Rename, reorder or add a portfolio filter button</td>
         <td>Portfolio &rsaquo; Portfolio categories (see <a href="#portfolio-category">section 27</a>)</td>
+      </tr>
+      <tr>
+        <td>Write or change the introduction at the top of the portfolio page</td>
+        <td>Global Settings &rsaquo; Portfolio Page &rsaquo; Introduction (see <a
+            href="#portfolio-page-settings">section 3</a>)</td>
+      </tr>
+      <tr>
+        <td>Put a set of my portfolio photos on a blog post (where I choose), or on a product page, video, landing
+          page or ordinary page (fixed spot)</td>
+        <td>Blog body or page body &rsaquo; insert menu &rsaquo; Portfolio Gallery; product page &rsaquo; Portfolio
+          gallery group; video or landing page &rsaquo; Portfolio gallery field (see <a
+            href="#portfolio-block">section 27</a>)</td>
       </tr>
       <tr>
         <td>Send a customer a link to just one kind of work (say, black caps)</td>

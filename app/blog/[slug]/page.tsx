@@ -23,6 +23,7 @@ import { socialMeta } from '@/lib/seo/open-graph';
 import { buildBlogPostingSchema } from '@/lib/seo/content-schema';
 import { productItemListSchema } from '@/lib/seo/product-list-schema';
 import { collectBlogStripProducts } from '@/lib/sanity/queries/strip-entries';
+import { collectPortfolioGalleryTiles } from '@/lib/sanity/queries/portfolio';
 import { Schema } from '@/components/seo/Schema';
 import type { GeigerProduct } from '@/lib/product-types';
 import { jsonLdHtml } from '@/lib/seo/json-ld';
@@ -142,6 +143,14 @@ export default async function BlogPostPage({ params }: Props) {
   });
   const stripItemList = stripProducts.length > 0 ? productItemListSchema(stripProducts) : null;
 
+  // PORT-120: every Portfolio Gallery block in the body, resolved here through
+  // the ONE gallery resolver (BlogBody's PortableText renderer is synchronous,
+  // the same reason the SKUs above are resolved up front). Tagged
+  // PORTFOLIO_TAG reads with revalidate: false, so this route stays statically
+  // generated and a portfolio publish refreshes the post. A post with no
+  // gallery block makes no read at all.
+  const portfolioGalleries = await collectPortfolioGalleryTiles(post.body, 'blog');
+
   const relatedBlogs = await getRelatedBlogsForPost(post, 8);
 
   const blogPostingSchema = buildBlogPostingSchema({
@@ -218,6 +227,7 @@ export default async function BlogPostPage({ params }: Props) {
               skuProducts={skuProducts}
               hiddenSkus={hiddenSkus}
               replacementBySku={hiddenContext.replacementBySku}
+              portfolioGalleries={portfolioGalleries}
             />
 
             {/* ctaTopic is a VERBATIM CTA-heading override (no "Order Custom …

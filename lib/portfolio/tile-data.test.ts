@@ -11,10 +11,12 @@
 import { describe, expect, it } from 'vitest';
 
 import type { PortfolioItemCard } from './gallery';
+import { TILE_SIZES, embeddedTileSizes, lightboxSizesFor } from './image-sizes';
 import {
   portfolioRepresentativeImage,
   portfolioSitemapImages,
   toPortfolioTile,
+  toPortfolioTiles,
 } from './tile-data';
 
 function item(ref: string | null, extra: Partial<NonNullable<PortfolioItemCard['image']>> = {}, fields: Partial<PortfolioItemCard> = {}): PortfolioItemCard {
@@ -142,5 +144,35 @@ describe('the SEO images use the plain builder', () => {
       expect(p.get('auto')).toBeNull();
     }
     expect(portfolioSitemapImages([])).toEqual([]);
+  });
+});
+
+describe('toPortfolioTiles (PORT-120, the embedded block)', () => {
+  it('maps every item that has a usable image and skips the rest, so nothing broken renders', () => {
+    const tiles = toPortfolioTiles([
+      item('image-abc123-1500x1500-jpg', {}, { _id: 'a' }),
+      item(null, {}, { _id: 'no-asset' }),
+      item('image-abc123-1200x800-jpg', {}, { _id: 'b' }),
+      { _id: 'no-image', title: 'Never uploaded', image: null },
+    ]);
+    expect(tiles.map((t) => t.id)).toEqual(['a', 'b']);
+  });
+
+  it('an empty list, or a list nothing survives, is an empty array (never a throw, never a null tile)', () => {
+    expect(toPortfolioTiles([])).toEqual([]);
+    expect(toPortfolioTiles([item(null), { _id: 'x', title: 'x', image: undefined }])).toEqual([]);
+  });
+
+  it('uses the host sizes for the grid tile and leaves the lightbox sizes alone', () => {
+    const sizes = embeddedTileSizes('blog');
+    const [tile] = toPortfolioTiles([item('image-abc123-1500x1500-jpg')], { sizes });
+    expect(tile.image.sizes).toBe(sizes);
+    expect(tile.image.sizes).not.toBe(TILE_SIZES);
+    expect(tile.large.sizes).toBe(lightboxSizesFor({ width: 1500, height: 1500 }));
+    // The candidates and the clamp do not change with the host.
+    expect(widthsOf(tile.image.srcSet)).toEqual([320, 480, 640, 800, 960]);
+    const page = toPortfolioTile(item('image-abc123-1500x1500-jpg'))!;
+    expect(page.image.srcSet).toBe(tile.image.srcSet);
+    expect(page.image.sizes).toBe(TILE_SIZES);
   });
 });

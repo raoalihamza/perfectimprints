@@ -73,6 +73,17 @@ export default defineType({
       of: productStripEntryMembers,
       description: `Shown as a product strip under the description on the video page. ${productStripEntryDescription} The AI pre-fills SKU entries; add or remove any.`,
     }),
+    // Portfolio gallery (PORT-120): the shared block in a FIXED position on
+    // the video page, under the related-products strip and above the
+    // "Need help choosing?" bar. Patrick does not move it here; the blog body
+    // is the free-placement surface.
+    defineField({
+      name: 'portfolioGallery',
+      title: 'Portfolio gallery',
+      type: 'portfolioGallery',
+      description:
+        'Photos of work you have produced (Portfolio items), shown below the related products on the video page. Hand pick the items or fill it from a category. Leave it empty for no gallery.',
+    }),
     // Q-180 improvement 1: a video can belong to MORE THAN ONE category. This
     // list supersedes the single legacy `category` reference below. Read paths
     // honor both (new list wins when non-empty - see lib/video/video-categories.ts),

@@ -1,5 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { productStripEntryDescription, productStripEntryMembers } from './blog-products';
+import portfolioGallery from './portfolio-gallery';
 import { inlineImageAlignField, inlineImageSizeField } from './inline-image-fields';
 
 /**
@@ -470,7 +471,13 @@ export const faqAccordion = defineType({
   preview: { select: { heading: 'heading', hidden: 'hidden' }, ...previewWithHidden('FAQ accordion') },
 });
 
-/** All section object types, registered in the schema index. */
+/**
+ * All section object types, registered in the schema index. The Portfolio
+ * Gallery block (PORT-120) joins the list here so it appears in every
+ * page-builder insert menu; it is the SAME named type the blog body, product
+ * page, video page and landing page use, registered once through this spread
+ * (the schema index no longer lists it separately).
+ */
 export const pageSectionSchemas = [
   heroBanner,
   richText,
@@ -484,6 +491,7 @@ export const pageSectionSchemas = [
   videoEmbed,
   faqAccordion,
   productStrip,
+  portfolioGallery,
 ];
 
 /** The `of` list for a `page.sections[]` array. */

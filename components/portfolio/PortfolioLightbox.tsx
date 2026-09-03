@@ -45,7 +45,18 @@ const arrowClass =
  * `aria-disabled` rather than `disabled` so the control a keyboard user is
  * standing on never vanishes from the tab order when the end is reached.
  * The dialog scrolls (the body does not) so a long description is always
- * reachable on a short viewport.
+ * reachable on a short viewport. PORT-115 removed `min-h-0` from the row that
+ * holds the photo and caption: with it, that row was pinned to the space
+ * left under the header and a caption taller than that overflowed BOTH ways
+ * out of its centred position, so the top of the photo was clipped above the
+ * dialog's scroll range on a short viewport (measured with the compiled site
+ * CSS: the top 23px of the photo sat above scroll position zero at 640x400
+ * with a 400-character description; 80px below the header afterwards, with
+ * the caption's last line reachable by scrolling). Without it the row grows
+ * to its content, the dialog scrolls, and centring only applies when there
+ * is room.
+ * The caption shows the FULL description (the tile clamps it to two lines)
+ * with the line breaks the editor typed preserved.
  */
 export function PortfolioLightbox({
   tiles,
@@ -169,7 +180,7 @@ export function PortfolioLightbox({
         </button>
       </div>
 
-      <div className="relative flex min-h-0 flex-1 items-center justify-center gap-2 py-4 sm:gap-4">
+      <div className="relative flex flex-1 items-center justify-center gap-2 py-4 sm:gap-4">
         <button
           type="button"
           onClick={goPrev}
@@ -204,7 +215,9 @@ export function PortfolioLightbox({
               </p>
             ) : null}
             {tile.description ? (
-              <p className="mt-2 text-sm leading-relaxed text-white/85">{tile.description}</p>
+              <p className="mt-2 whitespace-pre-line break-words text-sm leading-relaxed text-white/85">
+                {tile.description}
+              </p>
             ) : null}
             {tile.clientName ? (
               <p className="mt-1 text-sm text-white/70">Made for {tile.clientName}</p>

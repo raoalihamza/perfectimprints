@@ -145,12 +145,18 @@ async function findEmbeddingContentDocs(
   try {
     let docs: { _type?: string; slug?: string | null }[] | null = null;
     // PORT-100: `productPage` joined the embedder list because the Portfolio
-    // Gallery block (PORT-120) will sit on product pages too, and a
+    // Gallery block (PORT-120) sits on product pages too, and a
     // portfolioItem / portfolioCategory publish must reach them. For the
     // existing productPage / customProduct callers this adds product pages
     // whose Related Products reference the edited doc, which their own
     // PRODUCT_PAGES_TAG bust already covers, so it is redundant there and
     // harmless (one extra tag bust + path revalidation per embedder).
+    // PORT-120: all five gallery hosts (blogPost body, page sections,
+    // productPage, video, landingPage) store the block's items / category as
+    // references, and `references($id)` matches a reference at any depth, so
+    // this one query finds every host of a portfolio doc. It is the BELT: the
+    // hosts resolve those references through PORTFOLIO_TAG-tagged reads, so
+    // the tag bust in the portfolio branch already invalidates their renders.
     if (id) {
       docs = await cachedClient.fetch<{ _type?: string; slug?: string | null }[]>(
         `*[_type in ["blogPost", "page", "landingPage", "video", "catalogPage", "productPage"] && references($id)]{ _type, "slug": slug.current }`,
@@ -196,7 +202,12 @@ function bustEmbeddingContentDocs(docs: { _type: string; slug: string }[]): stri
   const paths = new Set<string>();
   for (const d of docs) {
     switch (d._type) {
+      // The blog detail read has been tagged per slug since the 2026-08-05
+      // freshness fix; bust that tag alongside the path (PORT-120), the same
+      // pairing the blogPost branch itself performs, so an embedded gallery
+      // never rebuilds from the tag-cached copy.
       case 'blogPost':
+        bustTag(blogPostTag(d.slug));
         paths.add(`/blog/${d.slug}`);
         break;
       case 'video':
@@ -329,6 +340,14 @@ export async function POST(request: Request) {
       // not cover it: the tag busts the settings FETCH, not the cached response
       // of a route that happens to call it.
       revalidatePath(SEARCH_INDEX_ROUTE);
+      // PORT-115: /portfolio also renders its introduction from this document,
+      // read through the SAME React-cached, SETTINGS_TAG-tagged getSiteSettings()
+      // the layout Footer performs on every page. The tag bust above is what
+      // refreshes it (the route is `force-static` + `revalidate = false`, and a
+      // tag bust invalidates every prerendered route whose fetches carried the
+      // tag), and the layout-wide path revalidation below is the belt. No
+      // portfolio path is named here on purpose: naming one would suggest the
+      // page needed something the tag did not already give it.
     }
     if (type === 'megaMenu') revalidateTag(MEGA_MENU_TAG, 'max');
     revalidatePath('/', 'layout');
@@ -658,9 +677,13 @@ export async function POST(request: Request) {
   // landing pages / videos / product pages whose Portfolio Gallery block
   // (PORT-120) references this item or category, found with the SAME
   // findEmbeddingContentDocs lookup the product strips use. That lookup needs
-  // `_id` in the webhook Projection (recommended since P2-CP-004 batch 3); the
-  // slug-deref fallback covers product strips only, so without `_id` an
-  // embedded gallery stays stale until its host page is next busted.
+  // `_id` in the webhook Projection (recommended since P2-CP-004 batch 3).
+  // As of PORT-120 the lookup is the BELT, not the mechanism: every host
+  // resolves the block's references through PORTFOLIO_TAG-tagged reads
+  // (resolvePortfolioGallery), so the revalidateTag(PORTFOLIO_TAG) above
+  // already invalidates every host page's cached render, hand-picked or
+  // category-filled, whether or not the host references the edited doc (a
+  // category RENAME reaches a hand-picked gallery's host only this way).
   // ⚠️ `portfolioItem` and `portfolioCategory` must be in the Sanity webhook
   // Filter `_type` list on BOTH environments (new types, added to neither
   // webhook automatically) or this never fires. See docs/sanity-webhook-setup.md.

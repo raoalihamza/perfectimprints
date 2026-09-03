@@ -62,7 +62,11 @@ const TILE_SRC_WIDTH = 640;
 /** Preferred `src` width for the lightbox. */
 const LIGHTBOX_SRC_WIDTH = 1200;
 
-function squareTile(image: NonNullable<PortfolioItemCard['image']>, side: number): PortfolioTileImage {
+function squareTile(
+  image: NonNullable<PortfolioItemCard['image']>,
+  side: number,
+  sizes: string,
+): PortfolioTileImage {
   const widths = widthsWithin(TILE_WIDTHS, side);
   const entries = widths.map((width) => ({
     width,
@@ -70,7 +74,17 @@ function squareTile(image: NonNullable<PortfolioItemCard['image']>, side: number
   }));
   const srcWidth = pickSrcWidth(widths, TILE_SRC_WIDTH);
   const src = entries.find((e) => e.width === srcWidth)?.url ?? entries[0].url;
-  return { src, srcSet: buildSrcSet(entries), sizes: TILE_SIZES, width: srcWidth, height: srcWidth };
+  return { src, srcSet: buildSrcSet(entries), sizes, width: srcWidth, height: srcWidth };
+}
+
+/**
+ * Options for the tile mapper. `sizes` is the grid tile's `sizes` attribute:
+ * the /portfolio page's own layout by default, or `embeddedTileSizes(host)`
+ * (lib/portfolio/image-sizes.ts) for a gallery block inside a content column
+ * (PORT-120). Nothing else about a tile differs between the page and a block.
+ */
+export interface PortfolioTileOptions {
+  sizes?: string;
 }
 
 function largeImage(
@@ -95,11 +109,15 @@ function largeImage(
 }
 
 /** One projected item to one tile, or null when it carries no usable image. */
-export function toPortfolioTile(item: PortfolioItemCard): PortfolioTile | null {
+export function toPortfolioTile(
+  item: PortfolioItemCard,
+  options: PortfolioTileOptions = {},
+): PortfolioTile | null {
   const image = item.image;
   const intrinsic = parseSanityImageRef(image?.asset?._ref);
   if (!image || !intrinsic) return null;
   const box = croppedImageBox(intrinsic, image.crop);
+  const sizes = options.sizes ?? TILE_SIZES;
   try {
     return {
       id: item._id,
@@ -112,7 +130,7 @@ export function toPortfolioTile(item: PortfolioItemCard): PortfolioTile | null {
           ? { slug: item.category.slug, title: item.category.title }
           : null,
       colors: portfolioItemColors(item),
-      image: squareTile(image, Math.min(box.width, box.height)),
+      image: squareTile(image, Math.min(box.width, box.height), sizes),
       large: largeImage(image, box),
     };
   } catch {
@@ -120,6 +138,24 @@ export function toPortfolioTile(item: PortfolioItemCard): PortfolioTile | null {
     // regex, a builder change): skip the item rather than fail the render.
     return null;
   }
+}
+
+/**
+ * Every item that can render, as tiles, in the order given. An item with no
+ * usable image is skipped (never a broken tile), so an empty list, a list of
+ * items whose images were never uploaded, or a list a resolver already
+ * emptied all come back as `[]`, which every renderer turns into nothing.
+ */
+export function toPortfolioTiles(
+  items: readonly PortfolioItemCard[],
+  options: PortfolioTileOptions = {},
+): PortfolioTile[] {
+  const out: PortfolioTile[] = [];
+  for (const item of items) {
+    const tile = toPortfolioTile(item, options);
+    if (tile) out.push(tile);
+  }
+  return out;
 }
 
 /**

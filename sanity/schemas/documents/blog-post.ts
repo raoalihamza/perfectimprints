@@ -116,6 +116,11 @@ export default defineType({
           },
         },
         { type: 'blogProducts' },
+        // Portfolio Gallery block (PORT-120): the ONE surface where Patrick
+        // chooses the position, anywhere in the article, exactly like a
+        // product strip. Same named type the page builder, product page,
+        // video page and landing page use.
+        { type: 'portfolioGallery' },
       ],
     }),
     defineField({

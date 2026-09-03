@@ -197,6 +197,17 @@ export default defineType({
       of: productStripEntryMembers,
       description: `Shown as a live product strip inside the Options & Ideas section. ${productStripEntryDescription} The AI pre-fills SKU entries; add or remove any.`,
     }),
+    // Portfolio gallery (PORT-120): the shared block in a FIXED position in
+    // the template, after Options & Ideas + the product strip and before
+    // "Why Perfect Imprints". Patrick does not move it here; the blog body
+    // is the free-placement surface. The AI never touches it.
+    defineField({
+      name: 'portfolioGallery',
+      title: 'Portfolio gallery',
+      type: 'portfolioGallery',
+      description:
+        'Photos of work you have produced (Portfolio items), shown after the Options & Ideas section and before "Why Perfect Imprints". Hand pick the items or fill it from a category. Leave it empty for no gallery.',
+    }),
     defineField({
       name: 'faqs',
       title: 'FAQs',
