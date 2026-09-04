@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity';
+import { portfolioGalleryCategoryProblem, portfolioGalleryItemsProblem } from './portfolio-gallery-rules';
 
 /**
  * The reusable Portfolio Gallery block (PORT-100).
@@ -10,13 +11,20 @@ import { defineField, defineType } from 'sanity';
  * four of anything. Its items are decided by ONE resolver
  * (lib/portfolio/gallery.ts) on every surface.
  *
- * DELIBERATELY NOT in `pageSectionSchemas` and NOT on any document's fields in
- * this ticket. All placement is PORT-120.
+ * Placed on all five surfaces by PORT-120: a field on productPage, video and
+ * landingPage, a member of the blog body, and a page-builder section.
  *
  * Two modes, with conditional visibility so Patrick only sees the fields that
  * apply: "Hand picked" shows an ordered list of items; "From a category" shows
  * a category picker and fills automatically (featured first, then display
  * order, then newest).
+ *
+ * NO FIELD HERE MAY CARRY AN `initialValue` (FIX-861). Because the block is
+ * also a document FIELD, Sanity writes any initial value into every new
+ * product page, video and landing page on creation, and the block's own rules
+ * then block Publish on a gallery nobody opened. An untouched block must stay
+ * absent. The publish rules, and what counts as "started", live in
+ * ./portfolio-gallery-rules.ts.
  */
 export const PORTFOLIO_GALLERY_MODES = [
   { title: 'Hand picked', value: 'manual' },
@@ -39,8 +47,7 @@ export default defineType({
       title: 'Which items',
       type: 'string',
       options: { list: [...PORTFOLIO_GALLERY_MODES], layout: 'radio', direction: 'horizontal' },
-      initialValue: 'manual',
-      validation: (Rule) => Rule.required(),
+      description: 'Leave this unanswered for no gallery. Unanswered means hand picked once you add items.',
     }),
     defineField({
       name: 'items',
@@ -50,15 +57,7 @@ export default defineType({
       description:
         'Pick the portfolio items to show. They appear in this order; drag to reorder. Hidden items are skipped automatically.',
       hidden: ({ parent }) => parent?.mode === 'category',
-      validation: (Rule) =>
-        Rule.unique().custom((items, ctx) => {
-          const mode = (ctx.parent as { mode?: string } | undefined)?.mode ?? 'manual';
-          if (mode !== 'manual') return true;
-          if (!Array.isArray(items) || items.length === 0) {
-            return 'Pick at least one item, or switch to "From a category".';
-          }
-          return true;
-        }),
+      validation: (Rule) => Rule.unique().custom((_items, ctx) => portfolioGalleryItemsProblem(ctx.parent)),
     }),
     defineField({
       name: 'category',
@@ -68,19 +67,13 @@ export default defineType({
       description:
         'The gallery fills itself from this category: featured items first, then display order, then newest.',
       hidden: ({ parent }) => parent?.mode !== 'category',
-      validation: (Rule) =>
-        Rule.custom((value, ctx) => {
-          const mode = (ctx.parent as { mode?: string } | undefined)?.mode;
-          if (mode === 'category' && !value) return 'Pick a category, or switch to "Hand picked".';
-          return true;
-        }),
+      validation: (Rule) => Rule.custom((_value, ctx) => portfolioGalleryCategoryProblem(ctx.parent)),
     }),
     defineField({
       name: 'limit',
       title: 'How many to show',
       type: 'number',
-      initialValue: 8,
-      description: 'Maximum number of items in this gallery. Default 8.',
+      description: 'Maximum number of items in this gallery. Leave blank for 8.',
       validation: (Rule) => Rule.integer().min(1).max(48),
     }),
     defineField({
@@ -88,7 +81,6 @@ export default defineType({
       title: 'Hidden',
       type: 'boolean',
       description: 'Hide this gallery on the live site without deleting it.',
-      initialValue: false,
     }),
   ],
   preview: {

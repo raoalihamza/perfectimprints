@@ -541,3 +541,44 @@ describe('PORT-120: freshness and the boundaries', () => {
     }
   });
 });
+
+describe('FIX-861: an untouched gallery block is invisible to validation, on every surface', () => {
+  const SCHEMA = 'sanity/schemas/objects/portfolio-gallery.ts';
+  const RULES = 'sanity/schemas/objects/portfolio-gallery-rules.ts';
+  const RULES_TEST = 'sanity/schemas/objects/portfolio-gallery-rules.test.ts';
+
+  it('no field of the block carries an initial value or a required rule', () => {
+    // The block is a document FIELD on three types as well as an array member.
+    // Sanity resolves an initialValue into every object field on document
+    // creation, so any default here is written into every new product page and
+    // video, and the block's own rules then block Publish on a gallery nobody
+    // opened. That is the PORT-120 defect. An untouched block must stay absent.
+    const src = code(SCHEMA);
+    expect(src).not.toContain('initialValue');
+    expect(src).not.toContain('required()');
+  });
+
+  it('both conditional rules delegate to the pure rules module, which imports nothing', () => {
+    const src = code(SCHEMA);
+    expect(src).toContain("from './portfolio-gallery-rules';");
+    expect(src).toContain('portfolioGalleryItemsProblem(ctx.parent)');
+    expect(src).toContain('portfolioGalleryCategoryProblem(ctx.parent)');
+    expect(code(RULES)).not.toMatch(/^\s*import\b/m);
+    expect(code(RULES)).not.toMatch(/\brequire\(/);
+  });
+
+  it('the rule is defined once: no other schema file re-implements a gallery check', () => {
+    // The five surfaces reference ONE object type (asserted above), so a
+    // field host and a page section cannot validate differently; this pins
+    // that no host grew its own copy of the rule.
+    for (const f of filesUnder('sanity/schemas').filter((f) => !f.includes('portfolio-gallery'))) {
+      expect(code(f), f).not.toMatch(/portfolioGallery(Items|Category)Problem|galleryIsStarted/);
+    }
+  });
+
+  it('no em dash in the files this fix touched', () => {
+    for (const file of [SCHEMA, RULES, RULES_TEST]) {
+      expect(read(file).includes(EM_DASH), file).toBe(false);
+    }
+  });
+});

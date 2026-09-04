@@ -2791,7 +2791,7 @@
         you want; that order is kept exactly. <em>From a category</em>: pick one category and the block fills itself
         from it, featured items first, then display order, then newest, so a new item you publish into that category
         appears in every block that draws from it without you touching those pages.</li>
-      <li><strong>How many to show.</strong> The most items the block shows (default 8, up to 48). In a hand-picked
+      <li><strong>How many to show.</strong> The most items the block shows (leave it blank for 8, up to 48). In a hand-picked
         block it trims the end of your list; in a category block it takes the first that many in gallery order, so a
         featured item is never the one that gets cut.</li>
       <li><strong>Heading</strong> (optional, shown above the photos) and the usual <strong>Hidden</strong> switch to
@@ -2820,11 +2820,15 @@
       or hiding a portfolio item, or renaming a category, updates every page that shows it within seconds; you never
       republish the host page for that.</p>
     <div class="callout">
-      <span class="label">If a product, video or landing page refuses to publish because of the gallery</span>
-      <p>Once you start filling the Portfolio gallery field it expects an answer to "Which items": a hand-picked block
-        needs at least one item and a category block needs a category, and the page will not publish until it has
-        one. If you started a block and changed your mind, use the field's own menu (the three dots beside the field
-        title) to clear the whole field rather than leaving it half filled.</p>
+      <span class="label">A gallery you never opened cannot stop a page publishing</span>
+      <p>On product pages, videos and landing pages the Portfolio gallery field is simply there, and leaving it alone
+        is fine: an untouched gallery is ignored completely, so it never blocks Publish. The check only wakes up once
+        you start one. A block with a heading but no photos, or set to <em>From a category</em> with no category
+        chosen, stops the page publishing until you finish it, and the message under the field says what to do. To
+        drop a gallery you started, empty what you filled in: delete the heading, remove the items, or switch the
+        choice back to <em>Hand picked</em> with nothing picked. There is no separate "clear the field" control, and
+        you do not need one. In a blog post or an ordinary page the block is a section, so there you can also just
+        delete it.</p>
     </div>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
