@@ -11,6 +11,7 @@ import { generatePageWithAi } from './actions/generate-page-with-ai';
 import { generateLandingWithAi } from './actions/generate-landing-with-ai';
 import { generateProductWithAi } from './actions/generate-product-with-ai';
 import { generateCatalogWithAi } from './actions/generate-catalog-with-ai';
+import { generatePortfolioWithAi } from './actions/generate-portfolio-with-ai';
 import { pushCategoryTool } from './tools/push-category-tool';
 import { siteRefreshTool } from './tools/site-refresh-tool';
 import { bulkImportTool } from './tools/bulk-import-tool';
@@ -56,6 +57,7 @@ export default defineConfig({
       if (context.schemaType === 'landingPage') return [...prev, generateLandingWithAi];
       if (context.schemaType === 'productPage') return [...prev, generateProductWithAi];
       if (context.schemaType === 'catalogPage') return [...prev, generateCatalogWithAi];
+      if (context.schemaType === 'portfolioItem') return [...prev, generatePortfolioWithAi];
       return prev;
     },
   },

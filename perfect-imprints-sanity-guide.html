@@ -2776,6 +2776,50 @@
         shows what you can do without naming who it was for.</p>
     </div>
 
+    <h3 id="portfolio-ai">Let the AI fill in the details</h3>
+    <p>Writing a title, alt text, description, colours, decoration method and industry for every photo by hand
+      does not scale, so the item has a button that does the first draft for you. It looks at the photo (using
+      Google's Gemini, on your own Google account) and fills in whatever is still empty. <strong>You read it and
+        edit it before you publish. Nothing is published by the button, ever.</strong></p>
+    <ol>
+      <li><strong>Upload the photo first.</strong> The button stays grey with the note "Upload the photo first"
+        until the image is there.</li>
+      <li>Click the arrow next to <strong>Publish</strong> and choose <strong>Generate Photo Details with AI</strong>.
+        A small window with a spinner opens; it usually takes a few seconds.</li>
+      <li>A window then tells you exactly what happened: which fields it <strong>filled in</strong>, which it
+        <strong>kept as you had them</strong>, which it <strong>left empty</strong> because it could not tell from the
+        photo (often Industry), and anything it suggested that is not on the site's lists and was therefore
+        ignored.</li>
+      <li><strong>Read what it wrote.</strong> It is asked for the things a buyer wants to know: the exact item
+        ("snapback trucker cap", not "hat"), where the decoration sits (front panel, left chest, sleeve, full
+        back), how it was applied, the colour of the thread or ink against the item, and whether the photo shows
+        front and back or more than one colour. Check the title reads as the job, the alt text describes the
+        picture, the colours are the ones in the work itself, and the decoration method and industry are right.
+        Edit anything you would say differently.</li>
+      <li>Publish, as usual.</li>
+    </ol>
+    <p>Things worth knowing:</p>
+    <ul>
+      <li><strong>It only fills fields that are empty.</strong> Anything you have already typed or ticked is left
+        exactly as it is. If you want the AI to redo a field, clear that field and press the button again. If
+        every field is already filled it simply says so and sends nothing.</li>
+      <li><strong>It never fills in Client name.</strong> It is told, in so many words, never to name the customer
+        even when the logo in the photo is readable, and to say "a fire department" or "a local business"
+        instead. That rule is why you still read the title before publishing: check it did not slip.</li>
+      <li><strong>It never invents.</strong> No quantities, prices, dates or customer names. Where it cannot tell
+        something from the photo it leaves the field empty rather than guessing, and the window says so.</li>
+      <li><strong>It only ever uses your own lists.</strong> The colours, decoration methods and industries it
+        picks are the same ones you tick by hand; anything else it suggests is dropped and named in the window.</li>
+      <li><strong>Alt text is kept under 160 characters</strong>, the limit the form enforces, so a generated item
+        never fails to publish on that count.</li>
+      <li><strong>It cannot run up a bill.</strong> Each photo costs well under a tenth of a cent, and there is a
+        hard limit of 100 photo descriptions a day built into the site. If you ever reach it, the button says so
+        plainly and the limit resets at midnight UTC (the evening, Florida time); you can always fill the fields in
+        by hand in the meantime.</li>
+      <li>If the button says the AI photo service is <strong>not set up</strong>, tell Ali; that means the key is
+        missing on the server. Everything else about the item works exactly as before.</li>
+    </ul>
+
     <h3 id="portfolio-page">The gallery page and shareable links</h3>
     <p>The page at <code>/portfolio</code> needs nothing from you beyond publishing items. It shows every published
       item that is not hidden, in gallery order (featured first, then display order, then newest), as a grid of
@@ -2948,6 +2992,13 @@
         <td>Portfolio &rsaquo; Portfolio items &rsaquo; create, add the photo with alt text, pick a category, tick
           the colours and, if you like, the decoration method and industry, Publish (see <a
             href="#portfolio">section 27</a>)</td>
+      </tr>
+      <tr>
+        <td>Have the title, alt text, description, colours, decoration method and industry written for me from
+          the photo</td>
+        <td>Portfolio &rsaquo; Portfolio items &rsaquo; upload the photo &rsaquo; arrow next to Publish &rsaquo;
+          <strong>Generate Photo Details with AI</strong>, read it, edit it, Publish (see <a
+            href="#portfolio-ai">section 27</a>)</td>
       </tr>
       <tr>
         <td>Rename, reorder or add a portfolio filter button</td>

@@ -59,13 +59,14 @@ describe('FIX-850 shared constants', () => {
 describe('FIX-850 generate routes', () => {
   const routes = generateRouteFiles();
 
-  it('finds the eight generate routes', () => {
+  it('finds the nine generate routes (eight FIX-850 + generate-portfolio, PORT-170)', () => {
     expect(routes.map((f) => basename(dirname(f)))).toEqual([
       'generate-blog',
       'generate-catalog',
       'generate-content',
       'generate-landing',
       'generate-page',
+      'generate-portfolio',
       'generate-product',
       'generate-schema',
       'generate-video',
@@ -94,7 +95,14 @@ describe('FIX-850 generate routes', () => {
       const body = src.slice(postStart);
       const guardAt = body.indexOf('verifyStudioNonce(request');
       expect(guardAt).toBeGreaterThan(-1);
-      for (const marker of ['request.json()', 'DEEPSEEK_API_KEY', 'generateJson(', 'generateLandingContent(']) {
+      for (const marker of [
+        'request.json()',
+        'DEEPSEEK_API_KEY',
+        'GOOGLE_GEMINI_API_KEY',
+        'generateJson(',
+        'generateJsonFromImage(',
+        'generateLandingContent(',
+      ]) {
         const at = body.indexOf(marker);
         if (at !== -1) expect(at).toBeGreaterThan(guardAt);
       }
