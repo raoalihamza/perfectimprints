@@ -15,11 +15,31 @@ interface PortfolioGridProps {
 
 /**
  * The Portfolio Gallery grid (PORT-110): 2 columns on phones, 3 on tablets,
- * 4 on desktop, each tile a square hotspot crop with explicit width/height
- * (so sixty photographs loading never shift the layout) and a real `srcset`
- * built server-side in lib/portfolio/tile-data.ts. Renders nothing for an
- * empty list, the StripCardGrid contract, so the browser keeps its own
+ * 4 on desktop, each tile a fixed square box with explicit width/height on
+ * the image (so sixty photographs loading never shift the layout) and a real
+ * `srcset` built server-side in lib/portfolio/tile-data.ts. Renders nothing
+ * for an empty list, the StripCardGrid contract, so the browser keeps its own
  * "no photos match" state.
+ *
+ * THE WHOLE PICTURE, NOT A CROP (PORT-150). The image is fitted inside the
+ * square box with `object-contain` on a white background, so a photograph of
+ * any shape shows entirely: a 3:1 bottle stands in the middle of its tile
+ * with white either side instead of being cut to its middle third, a wide
+ * cap photo sits in the vertical middle with white above and below. The box
+ * is white rather than the grey `bg-bg-soft` because 36 of the 38
+ * photographs Patrick supplied are on plain white, so the fitted image and
+ * its padding read as one white card and no letterbox is visible; the two
+ * dark-background images (a wood-surface photograph and a black artwork
+ * proof) show as a dark rectangle centred on white, which is how a product
+ * photo on a white card normally looks. The box, not the image, sets the
+ * tile height (`aspect-square` = TILE_BOX_ASPECT in lib/portfolio/
+ * image-sizes.ts; change the two together), so every tile in a row is the
+ * same height whatever shape its picture is, and PORT-115's reserved caption
+ * heights below still hold. The lightbox shows the same picture large, and
+ * a Studio crop frame still applies if Patrick ever wants to force a crop.
+ * Do NOT switch this back to `object-cover`: the hotspot-by-hand step it
+ * needs does not scale (PORT-141 found nine of the first 38 images needed
+ * one), and CLAUDE.md Section 7 "Fit, not crop" records the decision.
  *
  * Every tile is a button that opens the lightbox; the `<img>` carries the
  * item's alt text so the photograph itself is described, and the visible
@@ -77,7 +97,7 @@ export function PortfolioGrid({
               onClick={(e) => onOpen(index, e.currentTarget)}
               className="group flex w-full flex-col overflow-hidden rounded border border-border bg-white text-left transition hover:border-brand-ink hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:ring-offset-2"
             >
-              <span className="block aspect-square w-full overflow-hidden bg-bg-soft">
+              <span className="block aspect-square w-full overflow-hidden bg-white">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={tile.image.src}
@@ -89,7 +109,7 @@ export function PortfolioGrid({
                   loading={eager ? 'eager' : 'lazy'}
                   fetchPriority={eager ? 'high' : 'auto'}
                   decoding="async"
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
                 />
               </span>
               <span className="flex flex-1 flex-col p-3">

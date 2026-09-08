@@ -258,10 +258,14 @@ export function CategoryPicker(props: ArrayOfPrimitivesInputProps) {
 // ---------------------------------------------------------------------------
 // Single-select: one category slug (string field).
 // ---------------------------------------------------------------------------
-export function CategorySlugInput(props: StringInputProps) {
+export function CategorySlugInput(props: StringInputProps & { allowCreate?: boolean }) {
   const { onChange } = props;
   const current = typeof props.value === 'string' ? props.value : '';
   const opts = useCategoryOptions();
+  // PORT-160: a caller may switch off the "Create new category page" offer
+  // (see `ExistingCategorySlugInput` below). Default unchanged: every existing
+  // field still offers to create.
+  const allowCreate = props.allowCreate !== false;
 
   const select = useCallback(
     (slug: string) => {
@@ -301,13 +305,23 @@ export function CategorySlugInput(props: StringInputProps) {
           ))}
           <MoreMatchesHint opts={opts} />
           <NoResults opts={opts} />
-          <CreateNew opts={opts} onCreate={onCreate} />
+          {allowCreate && <CreateNew opts={opts} onCreate={onCreate} />}
         </div>
       )}
 
       {opts.error && <div style={{ color: '#e11f1e', fontSize: 12 }}>{opts.error}</div>}
     </div>
   );
+}
+
+// ---------------------------------------------------------------------------
+// Single-select over EXISTING category pages only (PORT-160): the same picker
+// with the "Create new category page" offer removed. Used by the portfolio
+// category's shop link, which points at a page that already sells the work;
+// picking a target there must never create a customCategory as a side effect.
+// ---------------------------------------------------------------------------
+export function ExistingCategorySlugInput(props: StringInputProps) {
+  return <CategorySlugInput {...props} allowCreate={false} />;
 }
 
 // ---------------------------------------------------------------------------

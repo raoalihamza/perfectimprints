@@ -25,6 +25,7 @@ import {
   type PortfolioItemCard,
 } from '@/lib/portfolio/gallery';
 import { embeddedTileSizes, type PortfolioEmbedHost } from '@/lib/portfolio/image-sizes';
+import { portfolioShopLink, type PortfolioShopLink } from '@/lib/portfolio/shop-link';
 import { toPortfolioTiles, type PortfolioTile } from '@/lib/portfolio/tile-data';
 
 // ---------------------------------------------------------------------------
@@ -235,7 +236,19 @@ export async function getPortfolioItemBySlug(slug: string): Promise<PortfolioIte
 export async function resolvePortfolioGallery(
   gallery: PortfolioGalleryInput | null | undefined,
 ): Promise<PortfolioItemCard[]> {
-  if (!gallery || gallery.hidden === true) return [];
+  return (await resolvePortfolioGalleryParts(gallery)).items;
+}
+
+/**
+ * The resolver's two outputs: the ordered items, and in category mode the
+ * category itself (published, visible), which is what carries the shop link
+ * (PORT-160). Hand-picked mode has no single category, so `category` is null
+ * there and no shop link is shown for such a block.
+ */
+async function resolvePortfolioGalleryParts(
+  gallery: PortfolioGalleryInput | null | undefined,
+): Promise<{ items: PortfolioItemCard[]; category: PortfolioCategoryRef | null }> {
+  if (!gallery || gallery.hidden === true) return { items: [], category: null };
 
   if (gallery.mode === 'category') {
     const refId = portfolioGalleryCategoryRefId(gallery);
@@ -244,9 +257,12 @@ export async function resolvePortfolioGallery(
       : isSanityReferenceStub(gallery.category)
         ? null
         : (gallery.category as PortfolioCategoryRef | null | undefined);
-    if (!isVisiblePortfolioCategory(category)) return [];
+    if (!isVisiblePortfolioCategory(category)) return { items: [], category: null };
     const categoryItems = await getPortfolioItemsByCategory(category.slug);
-    return resolvePortfolioGalleryItems({ ...gallery, category, items: [] }, categoryItems);
+    return {
+      items: resolvePortfolioGalleryItems({ ...gallery, category, items: [] }, categoryItems),
+      category,
+    };
   }
 
   // Hand picked: references become cards through the tagged read; entries
@@ -258,23 +274,35 @@ export async function resolvePortfolioGallery(
     if (isSanityReferenceStub(entry)) return byId.get(entry._ref) ?? null;
     return entry ?? null;
   });
-  return resolvePortfolioGalleryItems({ ...gallery, items, category: null });
+  return { items: resolvePortfolioGalleryItems({ ...gallery, items, category: null }), category: null };
+}
+
+/**
+ * What a rendered gallery block needs (PORT-160): its tiles, and the shop
+ * link of its category when it is a category-mode block whose category has
+ * a valid shop slug, else null. `tiles: []` means render nothing.
+ */
+export interface PortfolioGalleryView {
+  tiles: PortfolioTile[];
+  shopLink: PortfolioShopLink | null;
 }
 
 /**
  * The ONE call every PORT-120 surface makes: a stored gallery block to the
  * plain tiles the shared client renderer (components/portfolio/
- * PortfolioGalleryBlock.tsx) draws, sized for the host's content column.
- * `[]` means render nothing; the renderer honours that, so a block whose
- * category was deleted, whose items are all hidden, or whose images were
- * never uploaded leaves no heading and no box behind.
+ * PortfolioGalleryBlock.tsx) draws, sized for the host's content column,
+ * plus the category's shop link for a category-mode block (PORT-160).
+ * `tiles: []` means render nothing; the renderer honours that, so a block
+ * whose category was deleted, whose items are all hidden, or whose images
+ * were never uploaded leaves no heading and no box behind.
  */
 export async function resolvePortfolioGalleryTiles(
   gallery: PortfolioGalleryInput | null | undefined,
   host: PortfolioEmbedHost,
-): Promise<PortfolioTile[]> {
-  const items = await resolvePortfolioGallery(gallery);
-  return toPortfolioTiles(items, { sizes: embeddedTileSizes(host) });
+): Promise<PortfolioGalleryView> {
+  const { items, category } = await resolvePortfolioGalleryParts(gallery);
+  const tiles = toPortfolioTiles(items, { sizes: embeddedTileSizes(host) });
+  return { tiles, shopLink: tiles.length > 0 ? portfolioShopLink(category) : null };
 }
 
 /**
@@ -288,14 +316,14 @@ export async function resolvePortfolioGalleryTiles(
 export async function collectPortfolioGalleryTiles(
   body: readonly unknown[] | null | undefined,
   host: PortfolioEmbedHost,
-): Promise<Map<string, PortfolioTile[]>> {
+): Promise<Map<string, PortfolioGalleryView>> {
   const blocks: PortfolioGalleryBlockValue[] = [];
   for (const block of body ?? []) {
     const value = block as PortfolioGalleryBlockValue | null;
     if (value && value._type === PORTFOLIO_GALLERY_TYPE && value._key) blocks.push(value);
   }
   const resolved = await Promise.all(blocks.map((b) => resolvePortfolioGalleryTiles(b, host)));
-  const out = new Map<string, PortfolioTile[]>();
+  const out = new Map<string, PortfolioGalleryView>();
   blocks.forEach((block, i) => out.set(block._key as string, resolved[i]));
   return out;
 }

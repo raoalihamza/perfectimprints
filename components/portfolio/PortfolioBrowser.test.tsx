@@ -21,7 +21,7 @@ import { PortfolioGrid } from './PortfolioGrid';
 import { PortfolioLightbox } from './PortfolioLightbox';
 
 function tile(id: string, extra: Partial<PortfolioTile> = {}): PortfolioTile {
-  const img = (w: number) => `https://cdn.sanity.io/images/p/production/${id}-1500x1500.jpg?w=${w}&h=${w}&fit=crop&auto=format`;
+  const img = (w: number) => `https://cdn.sanity.io/images/p/production/${id}-1500x1500.jpg?w=${w}&fit=max&auto=format`;
   const big = (w: number) => `https://cdn.sanity.io/images/p/production/${id}-1500x1500.jpg?w=${w}&fit=max&auto=format`;
   return {
     id,
@@ -31,6 +31,8 @@ function tile(id: string, extra: Partial<PortfolioTile> = {}): PortfolioTile {
     clientName: null,
     category: { slug: 'caps-and-hats', title: 'Caps and Hats' },
     colors: ['black'],
+    decorationMethods: ['embroidered'],
+    industry: 'fire-and-ems',
     image: {
       src: img(640),
       srcSet: `${img(320)} 320w, ${img(640)} 640w`,
@@ -59,6 +61,22 @@ const sections: DealsFacetSection[] = [
     ],
   },
   {
+    field: 'decorationMethods',
+    label: 'Decoration method',
+    type: 'list',
+    values: [
+      { id: 'embroidered', value: 'embroidered', label: 'Embroidered', count: 6, type: 'value', low: null, high: null, skus: ['a', 'b', 'c', 'd', 'e', 'f'] },
+    ],
+  },
+  {
+    field: 'industry',
+    label: 'Industry',
+    type: 'list',
+    values: [
+      { id: 'fire-and-ems', value: 'fire-and-ems', label: 'Fire and EMS', count: 6, type: 'value', low: null, high: null, skus: ['a', 'b', 'c', 'd', 'e', 'f'] },
+    ],
+  },
+  {
     field: 'colors',
     label: 'Color',
     type: 'list',
@@ -67,6 +85,15 @@ const sections: DealsFacetSection[] = [
     ],
   },
 ];
+
+const shopLinks = {
+  'caps-and-hats': {
+    categorySlug: 'caps-and-hats',
+    title: 'Caps and Hats',
+    href: '/cat/caps',
+    label: 'Shop all custom caps and hats',
+  },
+};
 
 const six = ['a', 'b', 'c', 'd', 'e', 'f'].map((id) => tile(id));
 
@@ -166,10 +193,14 @@ describe('PortfolioBrowser static markup (the server prerender)', () => {
     expect(html).toContain('6 photos');
   });
 
-  it('carries the filter sidebar with both groups and their swatch', () => {
+  it('carries the filter sidebar with all four groups and the colour swatch', () => {
     expect(html).toContain('Caps and Hats');
     expect(html).toContain('Category');
     expect(html).toContain('Color');
+    expect(html).toContain('Decoration method');
+    expect(html).toContain('Industry');
+    expect(html).toContain('aria-label="Decoration method: Embroidered"');
+    expect(html).toContain('aria-label="Industry: Fire and EMS"');
     expect(html).toContain('aria-label="Color: Black"');
     // The swatch itself: DealsFilterSidebar renders it only for a `colors` field,
     // so this is what would break if PORTFOLIO_COLOR_FIELD were ever renamed.
@@ -180,11 +211,32 @@ describe('PortfolioBrowser static markup (the server prerender)', () => {
 
   it('does not contain the lightbox or its full-size image until a tile is clicked', () => {
     expect(html).not.toContain('role="dialog"');
-    expect(html).not.toContain('fit=max');
+    // PORT-150: tiles are fit=max too, so the lightbox is told apart by its
+    // own candidate widths (800 / 1200), which no tile srcset carries.
+    expect(html).not.toContain('w=800&');
+    expect(html).not.toContain('w=1200&');
+    expect(html).not.toContain('1200w');
   });
 
   it('shows no pagination control when everything fits on one page', () => {
     expect(html).not.toContain('Portfolio pagination');
+  });
+
+  // PORT-160: the unfiltered first render (the static HTML) links into every
+  // category's shop, so Google has a path from the portfolio to /cat.
+  it('carries the shop link for every category on screen, as an internal /cat link', () => {
+    const withLinks = renderToStaticMarkup(<PortfolioBrowser tiles={six} sections={sections} shopLinks={shopLinks} />);
+    expect(withLinks).toContain('href="/cat/caps"');
+    // One category in view reads as the full sentence.
+    expect(withLinks).toContain('Shop all custom caps and hats');
+    expect(withLinks).not.toContain('target="_blank"');
+    expect(withLinks).not.toContain('rel="sponsored"');
+  });
+
+  it('renders no shop link at all when no category has one', () => {
+    expect(html).not.toContain('/cat/');
+    expect(html).not.toContain('Shop all custom');
+    expect(html).not.toContain('Shop this kind of work');
   });
 
   it('shows a labelled pagination control past one page', () => {

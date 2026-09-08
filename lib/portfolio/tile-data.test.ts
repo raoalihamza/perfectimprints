@@ -4,14 +4,15 @@
  * Asserts three things that matter on the deployed page:
  *   - every rendered URL asks the CDN for a modern format (`auto=format`,
  *     IMG-120) and no SEO URL does (og:image, sitemap);
- *   - no URL ever names more pixels than the asset has, in either fit mode
- *     (the clamp is load-bearing for `fit=crop`, see image-sizes.test.ts);
+ *   - no URL ever names more pixels than the asset has, and every URL is
+ *     `fit=max` at natural aspect (PORT-150: the tile fits the whole image;
+ *     `fit=crop` and `fit=fill` both upscale, see image-sizes.test.ts);
  *   - a missing or unreadable asset yields no tile rather than a crash.
  */
 import { describe, expect, it } from 'vitest';
 
 import type { PortfolioItemCard } from './gallery';
-import { TILE_SIZES, embeddedTileSizes, lightboxSizesFor } from './image-sizes';
+import { TILE_SIZES, embeddedTileSizes, lightboxSizesFor, scaleSizes } from './image-sizes';
 import {
   portfolioRepresentativeImage,
   portfolioSitemapImages,
@@ -48,6 +49,21 @@ describe('toPortfolioTile', () => {
     expect(tile.clientName).toBeNull();
     expect(tile.category).toEqual({ slug: 'caps-and-hats', title: 'Caps and Hats' });
     expect(tile.colors).toEqual(['blue', 'white']);
+    // PORT-160: absent on the item, empty on the tile (never undefined).
+    expect(tile.decorationMethods).toEqual([]);
+    expect(tile.industry).toBeNull();
+  });
+
+  it('normalises the decoration methods and the industry to their vocabularies (PORT-160)', () => {
+    const tile = toPortfolioTile(
+      item('image-abc123-1500x1500-jpg', {}, {
+        decorationMethods: ['screen-printed', 'sublimated', 'embroidered'],
+        industry: 'fire-and-ems',
+      }),
+    )!;
+    expect(tile.decorationMethods).toEqual(['embroidered', 'screen-printed']);
+    expect(tile.industry).toBe('fire-and-ems');
+    expect(toPortfolioTile(item('image-abc123-1500x1500-jpg', {}, { industry: 'Military' }))!.industry).toBeNull();
   });
 
   it('falls back to the title for alt and drops a blank description', () => {
@@ -56,33 +72,67 @@ describe('toPortfolioTile', () => {
     expect(tile.description).toBeNull();
   });
 
-  it('builds a square hotspot crop with every width clamped to the shorter side', () => {
+  it('builds the tile at natural aspect with fit=max, never a height, every width clamped to the asset width (PORT-150)', () => {
     const tile = toPortfolioTile(item('image-abc123-1661x947-jpg'))!;
-    expect(widthsOf(tile.image.srcSet)).toEqual([320, 480, 640, 800]);
+    expect(widthsOf(tile.image.srcSet)).toEqual([320, 480, 640, 800, 960]);
     for (const url of urlsOf(tile.image.srcSet)) {
       const p = params(url);
-      expect(p.get('fit')).toBe('crop');
+      expect(p.get('fit')).toBe('max');
+      expect(p.get('h')).toBeNull();
       expect(p.get('auto')).toBe('format');
-      expect(p.get('w')).toBe(p.get('h'));
-      expect(Number(p.get('w'))).toBeLessThanOrEqual(947);
-      // The builder emits the crop rectangle the hotspot / centre implies.
-      expect(p.get('rect')).toMatch(/^\d+,\d+,\d+,\d+$/);
+      expect(Number(p.get('w'))).toBeLessThanOrEqual(1661);
+      // No crop stored, so no rect: the whole picture is requested.
+      expect(p.get('rect')).toBeNull();
     }
+    // width/height describe the natural aspect of the src candidate (CLS).
     expect(tile.image.width).toBe(640);
-    expect(tile.image.height).toBe(640);
+    expect(tile.image.height).toBe(365);
     expect(params(tile.image.src).get('w')).toBe('640');
-    expect(tile.image.sizes).toContain('50vw');
+    // A wide image spans the full tile width, so sizes is the plain grid value.
+    expect(tile.image.sizes).toBe(TILE_SIZES);
   });
 
-  it('respects a stored crop when clamping', () => {
+  it('a tall image keeps its natural aspect and scales its sizes to the width it will actually occupy', () => {
+    // The 3.1:1 bottle photograph from the PORT-140 set.
+    const tile = toPortfolioTile(item('image-abc123-726x2252-png'))!;
+    expect(widthsOf(tile.image.srcSet)).toEqual([320, 480, 640]);
+    for (const url of urlsOf(tile.image.srcSet)) {
+      expect(params(url).get('fit')).toBe('max');
+      expect(params(url).get('h')).toBeNull();
+    }
+    expect(tile.image).toMatchObject({ width: 640, height: 1985 });
+    expect(tile.image.sizes).toBe(scaleSizes(TILE_SIZES, 0.322));
+    expect(tile.image.sizes).toContain('calc(50vw * 0.322)');
+    // The lightbox is untouched by the tile rule.
+    expect(tile.large.sizes).toBe(lightboxSizesFor({ width: 726, height: 2252 }));
+    expect(widthsOf(tile.large.srcSet)).toEqual([726]);
+  });
+
+  it('a stored crop frame still applies, to the tile and the lightbox alike, and the clamp follows the cropped width', () => {
     const tile = toPortfolioTile(
       item('image-abc123-1661x947-jpg', { crop: { top: 0.1, bottom: 0.1, left: 0.1, right: 0.1 } }),
     )!;
-    // 947 * 0.8 = 757 tall after the crop: 800 no longer fits.
-    expect(widthsOf(tile.image.srcSet)).toEqual([320, 480, 640]);
+    // 1661 * 0.8 = 1328 wide after the crop: 960 still fits the tile, 1600 no longer fits the lightbox.
+    expect(widthsOf(tile.image.srcSet)).toEqual([320, 480, 640, 800, 960]);
     expect(widthsOf(tile.large.srcSet)).toEqual([800, 1200]);
+    for (const url of [...urlsOf(tile.image.srcSet), ...urlsOf(tile.large.srcSet)]) {
+      // The builder emits the crop rectangle for a fit=max request too: the
+      // Studio crop handles are a real edit of the picture everywhere.
+      expect(params(url).get('rect')).toMatch(/^\d+,\d+,\d+,\d+$/);
+      expect(params(url).get('fit')).toBe('max');
+    }
+    expect(tile.image).toMatchObject({ width: 640, height: 365 });
     expect(tile.large.width).toBe(1200);
     expect(tile.large.height).toBe(684);
+  });
+
+  it('a hotspot alone changes nothing: with no height requested the builder has no crop to centre', () => {
+    const plain = toPortfolioTile(item('image-abc123-1661x947-jpg'))!;
+    const spotted = toPortfolioTile(
+      item('image-abc123-1661x947-jpg', { hotspot: { x: 0.2, y: 0.8, width: 0.3, height: 0.3 } }),
+    )!;
+    expect(spotted.image.srcSet).toBe(plain.image.srcSet);
+    expect(spotted.large.srcSet).toBe(plain.large.srcSet);
   });
 
   it('builds the lightbox at natural aspect with fit=max, never above the asset width', () => {
@@ -107,9 +157,24 @@ describe('toPortfolioTile', () => {
   it('serves a tiny asset at its own true size in both modes', () => {
     const tile = toPortfolioTile(item('image-abc123-390x750-png'))!;
     expect(widthsOf(tile.image.srcSet)).toEqual([320]);
-    expect(tile.image).toMatchObject({ width: 320, height: 320 });
+    expect(tile.image).toMatchObject({ width: 320, height: 615 });
+    expect(tile.image.sizes).toBe(scaleSizes(TILE_SIZES, 0.52));
     expect(widthsOf(tile.large.srcSet)).toEqual([390]);
     expect(tile.large).toMatchObject({ width: 390, height: 750 });
+  });
+
+  it('never names more pixels than the asset has, in either image, for any shape', () => {
+    for (const [w, h] of [[726, 2252], [1098, 688], [1200, 1200], [300, 300], [2212, 2176], [558, 1654]]) {
+      const tile = toPortfolioTile(item(`image-abc123-${w}x${h}-png`))!;
+      for (const url of [...urlsOf(tile.image.srcSet), ...urlsOf(tile.large.srcSet)]) {
+        const p = params(url);
+        expect(Number(p.get('w'))).toBeLessThanOrEqual(w);
+        expect(p.get('h')).toBeNull();
+        expect(p.get('fit')).toBe('max');
+      }
+      expect(tile.image.width).toBeLessThanOrEqual(w);
+      expect(tile.image.height).toBeLessThanOrEqual(h);
+    }
   });
 
   it('yields no tile for a missing or unreadable asset, and never throws', () => {
@@ -174,5 +239,12 @@ describe('toPortfolioTiles (PORT-120, the embedded block)', () => {
     const page = toPortfolioTile(item('image-abc123-1500x1500-jpg'))!;
     expect(page.image.srcSet).toBe(tile.image.srcSet);
     expect(page.image.sizes).toBe(TILE_SIZES);
+  });
+
+  it('scales the host sizes for a tall image exactly as the page does (one arithmetic, PORT-150)', () => {
+    const sizes = embeddedTileSizes('video');
+    const [tile] = toPortfolioTiles([item('image-abc123-726x2252-png')], { sizes });
+    expect(tile.image.sizes).toBe(scaleSizes(sizes, 0.322));
+    expect(tile.image.sizes).toContain('calc(min(33vw, 288px) * 0.322)');
   });
 });

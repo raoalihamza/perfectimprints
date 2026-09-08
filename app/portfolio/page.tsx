@@ -13,6 +13,7 @@ import {
 } from '@/lib/sanity/queries/portfolio';
 import { getSiteSettings } from '@/lib/sanity/queries/global-settings';
 import { buildPortfolioFacetSections } from '@/lib/portfolio/page-filters';
+import { buildPortfolioShopLinks } from '@/lib/portfolio/shop-link';
 import {
   portfolioRepresentativeImage,
   toPortfolioTile,
@@ -77,7 +78,7 @@ const PORTFOLIO_TITLE = 'Portfolio of Custom Promotional Products | Perfect Impr
 // Under 155 characters (CLAUDE.md Section 9), since it is also the og / twitter
 // description and the CollectionPage description.
 const PORTFOLIO_DESCRIPTION =
-  'See custom promotional products we have produced: printed shirts, embroidered caps, branded drinkware, bags and signs. Filter by category and color.';
+  'See custom promotional products we have produced: printed shirts, embroidered caps, branded drinkware, bags and signs. Filter by category, decoration or industry.';
 
 interface PortfolioPageData {
   /** The items that became tiles, in site order (the facet source). */
@@ -137,6 +138,9 @@ export default async function PortfolioPage() {
     getSiteSettings(),
   ]);
   const sections = buildPortfolioFacetSections(items, categories);
+  // PORT-160: each category's "Shop all custom ..." link, from the categories
+  // already read above (no extra fetch), handed to the browser as a plain prop.
+  const shopLinks = buildPortfolioShopLinks(categories);
   const image = largeSocialImage(portfolioRepresentativeImage(items));
   // Patrick's introduction (Global Settings > Portfolio Page), shown in place
   // of the standard one-line opening below. Never in the empty state, which
@@ -171,8 +175,8 @@ export default async function PortfolioPage() {
         ) : (
           <p className="mt-3 max-w-3xl text-lg leading-relaxed text-text-primary">
             Real jobs we have produced for real customers: printed apparel, embroidered caps, branded
-            drinkware, bags, signs and more. Filter by category or color, and click any photo to see
-            it larger.
+            drinkware, bags, signs and more. Filter by category, decoration method, industry or color,
+            and click any photo to see it larger.
           </p>
         )}
       </Container>
@@ -181,7 +185,7 @@ export default async function PortfolioPage() {
         {tiles.length === 0 ? (
           <PortfolioEmptyState />
         ) : (
-          <PortfolioBrowser tiles={tiles} sections={sections} />
+          <PortfolioBrowser tiles={tiles} sections={sections} shopLinks={shopLinks} />
         )}
       </Container>
     </>

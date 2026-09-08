@@ -31,6 +31,11 @@
  */
 
 import { normalizePortfolioColors, type PortfolioColor } from './colors';
+import {
+  normalizePortfolioDecorationMethods,
+  type PortfolioDecorationMethod,
+} from './decoration-methods';
+import { normalizePortfolioIndustry, type PortfolioIndustry } from './industries';
 
 /** The block type name as stored in Sanity and matched by every renderer. */
 export const PORTFOLIO_GALLERY_TYPE = 'portfolioGallery';
@@ -47,6 +52,12 @@ export interface PortfolioCategoryRef {
   slug: string;
   displayOrder?: number | null;
   hidden?: boolean | null;
+  /**
+   * The `/cat` slug this category's work is sold under (PORT-160), e.g.
+   * `caps`. Optional; turned into a link by lib/portfolio/shop-link.ts, which
+   * re-checks its shape, so an invalid stored value produces no link.
+   */
+  shopCategorySlug?: string | null;
 }
 
 /** A projected Sanity image with its alt text (the shape the card renders). */
@@ -67,6 +78,10 @@ export interface PortfolioItemCard {
   image?: PortfolioImage | null;
   category?: PortfolioCategoryRef | null;
   colors?: string[] | null;
+  /** PORT-160: how the work was decorated; the lib/portfolio/decoration-methods vocabulary. */
+  decorationMethods?: string[] | null;
+  /** PORT-160: the customer type the job was for; the lib/portfolio/industries vocabulary. */
+  industry?: string | null;
   description?: string | null;
   clientName?: string | null;
   featured?: boolean | null;
@@ -163,13 +178,13 @@ export function portfolioGalleryCategoryRefId(
 
 /** Projection for one portfolioCategory reference. Includes its own braces. */
 export const PORTFOLIO_CATEGORY_PROJECTION =
-  '{ _id, title, "slug": slug.current, displayOrder, hidden }';
+  '{ _id, title, "slug": slug.current, displayOrder, hidden, shopCategorySlug }';
 
 /** Projection for one portfolioItem document. Includes its own braces. */
 export const PORTFOLIO_ITEM_PROJECTION =
   '{ _id, _createdAt, title, "slug": slug.current, image, ' +
   `"category": category->${PORTFOLIO_CATEGORY_PROJECTION}, ` +
-  'colors, description, clientName, featured, displayOrder, hidden }';
+  'colors, decorationMethods, industry, description, clientName, featured, displayOrder, hidden }';
 
 /**
  * Projection for a `portfolioGallery` block with its references dereferenced
@@ -266,20 +281,47 @@ export function portfolioItemColors(item: Pick<PortfolioItemCard, 'colors'>): Po
   return normalizePortfolioColors(item.colors);
 }
 
+/** The decoration methods an item carries, validated against the vocabulary (PORT-160). */
+export function portfolioItemDecorationMethods(
+  item: Pick<PortfolioItemCard, 'decorationMethods'>,
+): PortfolioDecorationMethod[] {
+  return normalizePortfolioDecorationMethods(item.decorationMethods);
+}
+
+/** The industry an item names, validated against the vocabulary, or null (PORT-160). */
+export function portfolioItemIndustry(
+  item: Pick<PortfolioItemCard, 'industry'>,
+): PortfolioIndustry | null {
+  return normalizePortfolioIndustry(item.industry);
+}
+
 /**
- * Filter a visible, sorted item list by category slug and/or colour (the
- * /portfolio page's shareable filtered view). An unset filter matches all; a
- * colour filter matches items carrying that colour. Order is preserved.
+ * Filter a visible, sorted item list by category slug, colour, decoration
+ * method and/or industry (the /portfolio page's shareable filtered view). An
+ * unset filter matches all; a colour or decoration filter matches items
+ * carrying that value; an industry filter matches items naming it. Order is
+ * preserved.
  */
 export function filterPortfolioItems<T extends PortfolioItemCard>(
   items: readonly T[],
-  filter: { category?: string | null; color?: string | null },
+  filter: {
+    category?: string | null;
+    color?: string | null;
+    decoration?: string | null;
+    industry?: string | null;
+  },
 ): T[] {
   const category = filter.category?.trim() || null;
   const color = filter.color?.trim() || null;
+  const decoration = filter.decoration?.trim() || null;
+  const industry = filter.industry?.trim() || null;
   return items.filter((item) => {
     if (category && item.category?.slug !== category) return false;
     if (color && !(portfolioItemColors(item) as string[]).includes(color)) return false;
+    if (decoration && !(portfolioItemDecorationMethods(item) as string[]).includes(decoration)) {
+      return false;
+    }
+    if (industry && portfolioItemIndustry(item) !== industry) return false;
     return true;
   });
 }

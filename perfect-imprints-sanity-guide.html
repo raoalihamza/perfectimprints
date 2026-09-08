@@ -2680,7 +2680,8 @@
     <div class="callout">
       <span class="label">Two places your photos appear</span>
       <p>The gallery page is live at <code>/portfolio</code>. It fills itself from your published items, offers
-        filters by category and by colour, and every filtered view has its own address you can copy and send to a
+        filters by category, decoration method, industry and colour, links visitors on to the products they can buy,
+        and every filtered view has its own address you can copy and send to a
         customer (see <a href="#portfolio-page">the gallery page</a> below). A <strong>Portfolio Gallery block</strong>
         also puts a chosen set of photos on blog posts, product pages, video pages, landing pages and your ordinary
         pages (see <a href="#portfolio-block">the gallery block</a> below). Category pages (<code>/cat/…</code>)
@@ -2697,10 +2698,23 @@
       <li><strong>Slug</strong> - click Generate. This is the word that appears in a shared filtered link.</li>
       <li><strong>Display order</strong> - lower numbers come first in the row of filter buttons. Leave it blank
         and the category sorts after the numbered ones, alphabetically.</li>
+      <li><strong>Shop link</strong> (optional) - the category page on your site where a visitor can <em>buy</em>
+        this kind of work. Search by name or slug and pick it, the same picker you use elsewhere; for Caps and Hats
+        you would pick <em>caps</em>. Once it is set, the gallery shows a <strong>"Shop all custom caps and
+          hats"</strong> link under the photos whenever this category is in view, and every item in the category
+        gets that link without you touching the items. You set it once per category, not once per photo. Leave it
+        blank and no link is shown for that category.</li>
       <li><strong>Hidden</strong> - takes the category out of the filters without deleting it. The items filed under
         it keep their category, so you can bring it back later by turning this off.</li>
     </ul>
     <p>Publish the category before you start adding items to it, so it can be picked.</p>
+    <div class="callout">
+      <span class="label">Check the shop link once</span>
+      <p>The picker only offers pages that exist, and the site refuses to publish a link that is not shaped like a
+        category address, so a typo cannot get through. What nobody checks for you is whether that page is still
+        there months later. After you set or change a shop link, open <code>/portfolio</code>, filter to the
+        category, and click the link once. If a category page is ever removed from the site, pick a new one here.</p>
+    </div>
 
     <h3 id="portfolio-item">Adding an item</h3>
     <p>Open <span class="path">Content <span class="arrow">›</span> Portfolio <span class="arrow">›</span> Portfolio
@@ -2713,8 +2727,12 @@
       <li><strong>Slug</strong> (optional) - not used anywhere yet. It is there in case a job ever gets its own
         page; leave it blank or click Generate, either is fine.</li>
       <li><strong>Image</strong> (required) - the photo, with <strong>Alt text</strong> (required): one short
-        sentence describing the picture, for screen readers and Google. Drag the hotspot circle to the part of the
-        photo that must stay in view when it is cropped square.</li>
+        sentence describing the picture, for screen readers and Google. <strong>Upload a photo of any shape.</strong>
+        Tall, wide or square, it is shown whole on the gallery tile, with white space around it where its shape needs
+        it (most product photos are on white, so that space is invisible), and larger when a visitor clicks it. Nothing
+        is cropped and there is nothing to set. If you ever <em>want</em> to cut a picture down, open the image's crop
+        tool (the crop icon on the uploaded image) and drag the corner handles: that frame applies wherever the photo
+        appears. The circle in the same tool, the hotspot, no longer affects the tile and can be ignored.</li>
       <li><strong>Category</strong> (required) - pick one of your published categories. Its name appears under the
         title on the tile and in the opened view, and it is what the Category filter uses.</li>
       <li><strong>Colours</strong> - tick every colour that appears in the work; a single job often has several.
@@ -2723,6 +2741,17 @@
         white, yellow), so the gallery's colour filter and the product filters speak the same language. You cannot
         type a colour of your own, on purpose: "navy", "Navy Blue" and "dark blue" would become three filters
         within a month.</li>
+      <li><strong>Decoration method</strong> (optional) - tick how the work was decorated: Embroidered, Screen
+        printed, Full color printed, Laser engraved, Etched, Die cut. A job can carry more than one (an embroidered
+        cap with a printed sleeve). This is how your customers already talk about the work, and it powers the
+        <strong>Decoration method</strong> filter on the gallery. Leave it blank and the item still shows everywhere;
+        it simply does not appear under that filter.</li>
+      <li><strong>Industry</strong> (optional) - the kind of customer the job was for, one per item: Schools and
+        colleges, Churches, Fire and EMS, Restaurants and hospitality, Sports and fitness, Healthcare, Charity and
+        events, Business and corporate, Trades and services. The first question a buyer asks is "what have you made
+        for someone like me", and the <strong>Industry</strong> filter answers it: a school sees the work you did
+        for other schools. Leave it blank and the item still shows everywhere; it simply does not appear under that
+        filter.</li>
       <li><strong>Description</strong> (optional) - what was made, how it was decorated, who it was for in general
         terms; as brief or as full as you like, up to about 400 characters. The first two lines show on the tile under
         the category, and the whole text shows when a visitor clicks the photo. Leave it empty and the tile simply
@@ -2750,8 +2779,9 @@
     <h3 id="portfolio-page">The gallery page and shareable links</h3>
     <p>The page at <code>/portfolio</code> needs nothing from you beyond publishing items. It shows every published
       item that is not hidden, in gallery order (featured first, then display order, then newest), as a grid of
-      square photos cropped around the hotspot you set. Under each photo sit its title, its category and the first two
-      lines of its description (when it has one). Clicking a photo opens it larger, with its title, category and the
+      square tiles, each showing the whole photo at its own shape: a tall bottle stands in the middle of its tile, a
+      wide cap photo sits across it, and every tile stays the same size so the rows line up. Under each photo sit its
+      title, its category and the first two lines of its description (when it has one). Clicking a photo opens it larger, with its title, category and the
       full description alongside, and the on-screen arrows (or the arrow keys) step through the photos that match the
       current filters. Escape closes it.</p>
     <p>Above the filters there is room for an introduction in your own words about the kind of work you take on. It
@@ -2760,17 +2790,27 @@
         href="#portfolio-page-settings">Global Settings</a>). Leave it empty and the page keeps its standard one-line
       opening; it never shows while there are no published items.</p>
     <p>The filters on the left are built from your data, not from a list you maintain. The <strong>Category</strong>
-      group lists your published categories in their display order, and the <strong>Color</strong> group lists the
-      colours you have ticked on items. A category or colour that no published item uses does not appear, so there is
-      never an empty filter button. Ticking several values in one group shows items matching any of them; ticking
-      values in both groups shows only items matching both. The count above the grid always says how many photos are
-      showing, and <strong>Clear filters</strong> takes you back to everything.</p>
+      group lists your published categories in their display order; <strong>Decoration method</strong> and
+      <strong>Industry</strong> list the values you have set on items; and the <strong>Color</strong> group lists the
+      colours you have ticked. A value that no published item uses does not appear, so there is never an empty filter
+      button. Ticking several values in one group shows items matching any of them; ticking values in different
+      groups shows only items matching all of them, so "Caps and Hats" plus "Embroidered" plus "Fire and EMS" is
+      exactly the embroidered caps you made for fire departments. On a phone the filters open as a panel from the
+      Filters button, with Category and Decoration method at the top and a short scroll to Industry and Color. The
+      count above the grid always says how many photos are showing, and <strong>Clear filters</strong> takes you
+      back to everything.</p>
+    <p>Under the photos sit the shop links: with the gallery unfiltered, one short link per category that has a
+      <strong>Shop link</strong> set ("Shop this kind of work: Custom T-Shirts / Custom Caps and Hats / ..."); once
+      a visitor has narrowed to a category, the full sentence for that category, "Shop all custom caps and hats",
+      pointing at the category page you picked. That is how a visitor who liked the caps gets to the caps you sell,
+      and how Google finds its way from the portfolio into your product pages.</p>
     <div class="callout">
       <span class="label">Sending a customer exactly the view you want them to see</span>
       <p>Filter the page (say, to Caps and Hats in black), then click <strong>Copy link to these filters</strong> next
         to the count, or simply copy the address bar. The address reads like
-        <code>perfectimprints.com/portfolio?category=caps-and-hats&amp;color=black</code>, in plain words rather than
-        codes, and opens to that same filtered view for whoever you send it to. If you later rename a category's slug,
+        <code>perfectimprints.com/portfolio?category=caps-and-hats&amp;decoration=embroidered&amp;industry=fire-and-ems&amp;color=black</code>,
+        in plain words rather than codes, carrying all four filters, and opens to that same filtered view for whoever
+        you send it to. If you later rename a category's slug,
         an old link with the previous word simply opens the unfiltered gallery; it never shows an error.</p>
     </div>
     <div class="callout warn">
@@ -2814,7 +2854,9 @@
     </ul>
     <p>On the page, the block shows its heading (if you gave one), the same square tiles as the gallery page with the
       title, category and the first lines of the description under each, and a small "See more of our work" link to
-      <code>/portfolio</code>. Clicking a photo opens it larger in place, with arrows to step through that block's
+      <code>/portfolio</code>. A <em>From a category</em> block whose category has a <strong>Shop link</strong> also
+      shows that category's "Shop all custom ..." link above it, so a reader who likes the caps in a blog post can go
+      straight to the caps you sell; a hand-picked block has no single category, so it shows no shop link. Clicking a photo opens it larger in place, with arrows to step through that block's
       photos, and closes back to where the reader was. Hidden items are skipped, and a block that has nothing to show
       (its items all hidden, its category empty) simply does not appear: no heading, no empty box. Publishing, editing
       or hiding a portfolio item, or renaming a category, updates every page that shows it within seconds; you never
@@ -2904,11 +2946,17 @@
       <tr>
         <td>Show off a job I produced (a photo of finished work)</td>
         <td>Portfolio &rsaquo; Portfolio items &rsaquo; create, add the photo with alt text, pick a category, tick
-          the colours, Publish (see <a href="#portfolio">section 27</a>)</td>
+          the colours and, if you like, the decoration method and industry, Publish (see <a
+            href="#portfolio">section 27</a>)</td>
       </tr>
       <tr>
         <td>Rename, reorder or add a portfolio filter button</td>
         <td>Portfolio &rsaquo; Portfolio categories (see <a href="#portfolio-category">section 27</a>)</td>
+      </tr>
+      <tr>
+        <td>Send gallery visitors on to the products they can buy ("Shop all custom caps and hats")</td>
+        <td>Portfolio &rsaquo; Portfolio categories &rsaquo; open the category &rsaquo; Shop link &rsaquo; pick the
+          category page, Publish (see <a href="#portfolio-category">section 27</a>)</td>
       </tr>
       <tr>
         <td>Write or change the introduction at the top of the portfolio page</td>

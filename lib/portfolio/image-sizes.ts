@@ -1,21 +1,31 @@
 /**
- * Image sizing rules for the Portfolio Gallery tiles and lightbox (PORT-110).
+ * Image sizing rules for the Portfolio Gallery tiles and lightbox (PORT-110;
+ * fit instead of crop since PORT-150).
  *
- * WHY THIS EXISTS. The grid tile is a square crop (the hotspot Patrick drags
- * in Studio decides what stays in view), and `fit=max` is the ONE Sanity
- * request mode measured NOT to upscale; the default mode upscales (IMG-110
- * found a plain `w=1200` fabricating a 1200x1200 from a 768px asset) and so
- * does `fit=crop`. Measured against the live CDN on 2026-09-02: a 1200x1200
- * asset asked for `w=1600&h=1600&fit=crop` came back as a fabricated
- * 1600x1600, and a 1661x947 asset asked for `w=1000&h=1000&fit=crop` came
- * back 1000x1000 although it is only 947 tall. `fit=max` never upscales (the
- * same 1200 asset asked for `w=1600&fit=max` came back 1200, and the wide one
- * asked for `w=2000&fit=max` came back at its true 1661x947), which is the
- * IMG-110 guard. So for a square tile the clamp to the asset's own pixels is
- * LOAD-BEARING, not a belt: every candidate width is compared against the
- * shorter side of the (cropped) asset and anything larger is dropped.
+ * WHY THIS EXISTS. Every rendered portfolio image, tile and lightbox alike,
+ * is requested from Sanity with `fit=max` at its natural aspect, and the tile
+ * shows the WHOLE picture inside a fixed square box with CSS
+ * `object-fit: contain`, the box's own white background filling whatever the
+ * picture does not (PORT-150). `fit=max` is the ONE Sanity request mode
+ * measured never to upscale, which is why it is the only mode used here:
+ * IMG-110 found a plain `w=1200` fabricating a 1200x1200 from a 768px asset;
+ * PORT-110 measured `fit=crop` doing the same on 2026-09-02 (a 1200x1200
+ * asset asked for `w=1600&h=1600&fit=crop` came back 1600x1600, a 1661x947
+ * asset asked for `w=1000&h=1000&fit=crop` came back 1000x1000); and
+ * PORT-150 measured `fit=fill`, the CDN's own letterbox mode, doing it too
+ * on 2026-09-08 (the 1661x947 asset asked for `w=2000&h=2000&fit=fill&bg=ffffff`
+ * came back 2000x2000 at 3.91 MB against 2.38 MB for its true size under
+ * `fit=max`; a 1500x1500 asset asked for `w=1600&h=2000&fit=fill` came back
+ * 1600x2000). `fit=max` on the same assets returned 1661x947 and 1500x1500.
+ * So the padding is done by the tile in CSS, never by the CDN, and no
+ * request for a portfolio image ever names a height.
  *
- * The intrinsic size comes from the asset id itself, which Sanity writes as
+ * The width clamp (`widthsWithin`) stays. With `fit=max` the CDN would not
+ * upscale an oversized request, but a srcset advertising 960 for a 726px-wide
+ * asset lies to the browser about what the candidates hold (two candidates
+ * that resolve to the same bytes), so every candidate is compared against
+ * the (cropped) asset WIDTH and anything larger is dropped. The intrinsic
+ * size comes from the asset id itself, which Sanity writes as
  * `image-<sha1>-<width>x<height>-<ext>`; the image URL builder parses the
  * very same id to make a URL at all, so an id this module cannot read is one
  * no URL could be built for either.
@@ -80,11 +90,94 @@ export function croppedImageBox(box: ImageBox, crop?: ImageCropFractions | null)
 }
 
 /**
- * Square tile widths. The grid is 2 columns under 768px, 3 to 1279px and 4
- * above (see PortfolioGrid), so a tile is roughly 160 to 400 CSS px wide.
- * 320 and 480 serve 1x and 2x phones and the 1x desktop tile, 640 and 800
- * serve 2x tablets and desktops, 960 serves a 3x phone or a 2x wide tablet.
- * Nothing above 960: no tile is ever laid out wider than 480 CSS px.
+ * The tile box's aspect ratio, width over height. 1 is a square, and it is
+ * the CSS class `aspect-square` on the grid tile (PortfolioGrid); change the
+ * two together. PORT-150 measured the 38-image PORT-140 set against a square
+ * box and a 4:5 box (the fraction of the box a whole fitted image fills is
+ * min(image aspect, box aspect) / max(image aspect, box aspect)): square
+ * averages 87.4% with a median of 95.3%, 4:5 averages 78.8% with a median of
+ * 80.0%, because 15 of the 38 are exactly square and 12 more are within 10%
+ * of it; 4:5 only helps the three bottle photographs (32/34/39% to 40/42/49%)
+ * and costs every square image a fifth of its tile. The square stays.
+ */
+export const TILE_BOX_ASPECT = 1;
+
+/**
+ * The fraction of the tile's WIDTH a whole image occupies once fitted inside
+ * the box (`object-fit: contain`): an image at least as wide as the box's
+ * aspect spans the full width (1) and leaves space above and below; a taller
+ * one spans the full height and its width is image aspect / box aspect. The
+ * 726x2252 bottle photograph is 0.322 of a square tile wide. Three decimals;
+ * an unusable box counts as 1 (the safe over-statement).
+ */
+export function fittedWidthFraction(box: ImageBox, boxAspect: number = TILE_BOX_ASPECT): number {
+  if (!(box.width > 0) || !(box.height > 0) || !(boxAspect > 0)) return 1;
+  const fraction = box.width / box.height / boxAspect;
+  if (!Number.isFinite(fraction) || fraction >= 1) return 1;
+  return Math.max(0.001, Math.round(fraction * 1000) / 1000);
+}
+
+/** Split on the commas that separate `sizes` clauses, not the ones inside min() or calc(). */
+function splitSizesClauses(sizes: string): string[] {
+  const parts: string[] = [];
+  let depth = 0;
+  let start = 0;
+  for (let i = 0; i < sizes.length; i++) {
+    const c = sizes[i];
+    if (c === '(') depth++;
+    else if (c === ')') depth--;
+    else if (c === ',' && depth === 0) {
+      parts.push(sizes.slice(start, i).trim());
+      start = i + 1;
+    }
+  }
+  parts.push(sizes.slice(start).trim());
+  return parts.filter(Boolean);
+}
+
+/**
+ * A `sizes` attribute whose every length is multiplied by `fraction`, for a
+ * tile whose fitted image is narrower than the box (PORT-150). `sizes` tells
+ * the browser the DISPLAYED width; a tall image displayed 96px wide in a
+ * 300px tile would otherwise fetch the candidate for 300px, and with the
+ * tile candidates now at natural aspect that is 640x1985 pixels for a
+ * 96x300 rendering. Each clause keeps its media condition and wraps its
+ * length as `calc(<length> * <fraction>)` (nesting an existing calc() or
+ * min() inside calc() is valid CSS). A fraction of 1 or more returns the
+ * attribute unchanged, so a square or wide image pays nothing.
+ */
+export function scaleSizes(sizes: string, fraction: number): string {
+  if (!(fraction > 0) || fraction >= 1 || !Number.isFinite(fraction)) return sizes;
+  const factor = Math.round(fraction * 1000) / 1000;
+  return splitSizesClauses(sizes)
+    .map((clause) => {
+      let media = '';
+      let length = clause;
+      if (clause.startsWith('(')) {
+        let depth = 0;
+        for (let i = 0; i < clause.length; i++) {
+          if (clause[i] === '(') depth++;
+          else if (clause[i] === ')' && --depth === 0) {
+            media = clause.slice(0, i + 1);
+            length = clause.slice(i + 1).trim();
+            break;
+          }
+        }
+      }
+      return `${media ? media + ' ' : ''}calc(${length} * ${factor})`;
+    })
+    .join(', ');
+}
+
+/**
+ * Tile widths, as device pixels of the tile BOX's width. The grid is 2
+ * columns under 768px, 3 to 1279px and 4 above (see PortfolioGrid), so a
+ * tile is roughly 160 to 400 CSS px wide. 320 and 480 serve 1x and 2x phones
+ * and the 1x desktop tile, 640 and 800 serve 2x tablets and desktops, 960
+ * serves a 3x phone or a 2x wide tablet. Nothing above 960: no tile is ever
+ * laid out wider than 480 CSS px. A fitted image narrower than the box has
+ * its `sizes` scaled down (`scaleSizes`), so these candidates still cover it
+ * from the small end.
  */
 export const TILE_WIDTHS: readonly number[] = [320, 480, 640, 800, 960];
 

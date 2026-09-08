@@ -10,7 +10,7 @@ import type { SanityImage } from '@/lib/sanity/types';
 import type { GeigerProduct } from '@/lib/product-types';
 import { StripCardGrid } from '@/components/products/StripCardGrid';
 import { PortfolioGalleryBlock } from '@/components/portfolio/PortfolioGalleryBlock';
-import type { PortfolioTile } from '@/lib/portfolio/tile-data';
+import type { PortfolioGalleryView } from '@/lib/sanity/queries/portfolio';
 import type { PortfolioGalleryBlockValue } from '@/lib/portfolio/gallery';
 import {
   resolveStripCards,
@@ -41,7 +41,7 @@ interface BlogBodyProps {
    * is synchronous and cannot read Sanity itself. A block with no entry, or
    * an empty one, renders nothing.
    */
-  portfolioGalleries?: ReadonlyMap<string, readonly PortfolioTile[]>;
+  portfolioGalleries?: ReadonlyMap<string, PortfolioGalleryView>;
 }
 
 interface EmbedValue {
@@ -63,7 +63,7 @@ interface ListBlock {
 
 function buildComponents(
   stripCtx: StripResolveContext,
-  portfolioGalleries: ReadonlyMap<string, readonly PortfolioTile[]>,
+  portfolioGalleries: ReadonlyMap<string, PortfolioGalleryView>,
 ): PortableTextComponents {
   return {
   types: {
@@ -72,9 +72,11 @@ function buildComponents(
     portfolioGallery: ({ value }) => {
       const v = value as PortfolioGalleryBlockValue;
       if (!v?._key || v.hidden === true) return null;
-      const tiles = portfolioGalleries.get(v._key) ?? [];
-      if (tiles.length === 0) return null;
-      return <PortfolioGalleryBlock heading={v.heading} tiles={tiles} className="my-8" />;
+      const view = portfolioGalleries.get(v._key);
+      if (!view || view.tiles.length === 0) return null;
+      return (
+        <PortfolioGalleryBlock heading={v.heading} tiles={view.tiles} shopLink={view.shopLink} className="my-8" />
+      );
     },
     image: ({ value }) => {
       const v = value as SanityImage & { alt?: string; size?: string; align?: string };
@@ -222,7 +224,7 @@ function buildComponents(
 }
 
 const EMPTY_SKU_MAP: Map<string, GeigerProduct> = new Map();
-const EMPTY_GALLERY_MAP: ReadonlyMap<string, readonly PortfolioTile[]> = new Map();
+const EMPTY_GALLERY_MAP: ReadonlyMap<string, PortfolioGalleryView> = new Map();
 
 /**
  * Pre-process portable text so consecutive list items at the same level + type

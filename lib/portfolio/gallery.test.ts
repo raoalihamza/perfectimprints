@@ -18,6 +18,8 @@ import {
   portfolioGalleryCategoryRefId,
   portfolioGalleryItemRefIds,
   portfolioItemColors,
+  portfolioItemDecorationMethods,
+  portfolioItemIndustry,
   resolvePortfolioGalleryItems,
   sortPortfolioCategories,
   sortPortfolioItems,
@@ -185,11 +187,35 @@ describe('filters for the /portfolio page', () => {
     expect(portfolioItemColors(list[2])).toEqual([]);
     expect(filterPortfolioItems(list, { color: 'navy' })).toEqual([]);
   });
+
+  // PORT-160
+  it('filters by decoration method and by industry, ANDed with the rest', () => {
+    const tagged = [
+      item('a', { decorationMethods: ['embroidered'], industry: 'churches' }),
+      item('b', { category: tees, decorationMethods: ['screen-printed', 'embroidered'], industry: 'fire-and-ems' }),
+      item('c', { decorationMethods: ['sublimated'], industry: 'military' }),
+      item('d'),
+    ];
+    const ids = (f: Parameters<typeof filterPortfolioItems>[1]) => filterPortfolioItems(tagged, f).map((i) => i._id);
+    expect(ids({ decoration: 'embroidered' })).toEqual(['a', 'b']);
+    expect(ids({ industry: 'fire-and-ems' })).toEqual(['b']);
+    expect(ids({ decoration: 'embroidered', industry: 'churches' })).toEqual(['a']);
+    expect(ids({ category: 't-shirts', decoration: 'embroidered' })).toEqual(['b']);
+    expect(ids({ decoration: 'sublimated' })).toEqual([]);
+    expect(ids({ industry: 'military' })).toEqual([]);
+    expect(portfolioItemDecorationMethods(tagged[2])).toEqual([]);
+    expect(portfolioItemIndustry(tagged[2])).toBeNull();
+    expect(portfolioItemDecorationMethods(tagged[3])).toEqual([]);
+    expect(portfolioItemIndustry(tagged[3])).toBeNull();
+  });
 });
 
 describe('projections', () => {
   it('dereference the category and the items so the resolver gets cards, not references', () => {
     expect(PORTFOLIO_ITEM_PROJECTION).toContain('"category": category->');
+    // PORT-160: the two new item fields and the category's shop slug ride the same reads.
+    expect(PORTFOLIO_ITEM_PROJECTION).toContain('decorationMethods, industry,');
+    expect(PORTFOLIO_ITEM_PROJECTION).toContain('shopCategorySlug');
     expect(PORTFOLIO_GALLERY_PROJECTION).toContain('"items": items[]->');
     expect(PORTFOLIO_GALLERY_PROJECTION).toContain('"category": category->');
     expect(PORTFOLIO_GALLERY_PROJECTION).toContain('hidden');

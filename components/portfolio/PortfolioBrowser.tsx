@@ -13,16 +13,25 @@ import {
   countActivePortfolioFilters,
   portfolioFilterStateFromSearch,
   portfolioSearchFromFilterState,
+  shopLinkCategorySlugs,
 } from '@/lib/portfolio/page-filters';
+import type { PortfolioShopLink } from '@/lib/portfolio/shop-link';
 import type { PortfolioTile } from '@/lib/portfolio/tile-data';
 import { PORTFOLIO_EAGER_TILES, PortfolioGrid } from './PortfolioGrid';
 import { PortfolioLightbox } from './PortfolioLightbox';
+import { PortfolioShopLinks } from './PortfolioShopLinks';
 
 interface PortfolioBrowserProps {
   /** Every visible item, in site order, already mapped to plain tiles by the server page. */
   tiles: PortfolioTile[];
-  /** The two filter groups, built by the server page from the same items. */
+  /** The filter groups (category, decoration method, industry, colour), built by the server page from the same items. */
   sections: DealsFacetSection[];
+  /**
+   * PORT-160: each category's "Shop all custom ..." link, keyed by the
+   * category's slug, built by the server page from the categories it read.
+   * Categories with no shop slug are simply absent. Defaults to none.
+   */
+  shopLinks?: Readonly<Record<string, PortfolioShopLink>>;
 }
 
 interface LightboxState {
@@ -59,8 +68,19 @@ interface LightboxState {
  * same rule the deals and catalog pages use. Filtering hides and shows, it
  * never fetches. The page number is deliberately NOT in the URL: the link
  * shares the filters, and the button says so.
+ *
+ * SHOP LINKS (PORT-160). Under the grid sit the "Shop all custom ..." links
+ * for the categories in view: the ticked ones, or with no category ticked
+ * the categories of the photos on screen. So the unfiltered first render,
+ * which IS the static HTML, carries a link into every category's shop (the
+ * path Google follows from the portfolio into the commercial pages), and a
+ * customer sent a caps link lands on one link to the caps shop. The links
+ * are plain props (`shopLinks`, built server-side); this reads no URL and
+ * no Sanity to show them.
  */
-export function PortfolioBrowser({ tiles, sections }: PortfolioBrowserProps) {
+const NO_SHOP_LINKS: Readonly<Record<string, PortfolioShopLink>> = {};
+
+export function PortfolioBrowser({ tiles, sections, shopLinks = NO_SHOP_LINKS }: PortfolioBrowserProps) {
   const [filterState, setFilterState] = useState<DealsFilterState>({});
   const [page, setPage] = useState(1);
   const [lightbox, setLightbox] = useState<LightboxState | null>(null);
@@ -172,6 +192,18 @@ export function PortfolioBrowser({ tiles, sections }: PortfolioBrowserProps) {
     previousPageRef.current = page;
   }, [page]);
 
+  // The shop link(s) under the grid (PORT-160): the ticked categories, or
+  // with none ticked the categories of the photos on screen, so the
+  // unfiltered static HTML links into every category's shop. The rule is the
+  // pure `shopLinkCategorySlugs`; this only looks the slugs up.
+  const shopLinkList = useMemo(
+    () =>
+      shopLinkCategorySlugs(filterState, sections, filtered)
+        .map((slug) => shopLinks[slug])
+        .filter((link): link is PortfolioShopLink => Boolean(link)),
+    [filterState, sections, filtered, shopLinks],
+  );
+
   const showingEnd = Math.min(start + PORTFOLIO_PAGE_SIZE, filtered.length);
   const noun = (n: number) => (n === 1 ? 'photo' : 'photos');
   const countLabel =
@@ -250,6 +282,7 @@ export function PortfolioBrowser({ tiles, sections }: PortfolioBrowserProps) {
               onPageChange={setPage}
               ariaLabel="Portfolio pagination"
             />
+            <PortfolioShopLinks links={shopLinkList} className="mt-8 text-base" />
           </>
         )}
       </div>

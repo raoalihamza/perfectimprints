@@ -12,12 +12,15 @@ import type { PortfolioCategoryRef, PortfolioItemCard } from './gallery';
 import {
   PORTFOLIO_CATEGORY_FIELD,
   PORTFOLIO_COLOR_FIELD,
+  PORTFOLIO_DECORATION_FIELD,
+  PORTFOLIO_INDUSTRY_FIELD,
   PORTFOLIO_PAGE_SIZE,
   PORTFOLIO_URL_PARAM,
   buildPortfolioFacetSections,
   countActivePortfolioFilters,
   portfolioFilterStateFromSearch,
   portfolioSearchFromFilterState,
+  shopLinkCategorySlugs,
 } from './page-filters';
 
 const caps: PortfolioCategoryRef = { _id: 'c-caps', title: 'Caps and Hats', slug: 'caps-and-hats', displayOrder: 2 };
@@ -25,15 +28,20 @@ const shirts: PortfolioCategoryRef = { _id: 'c-shirts', title: 'T-shirts', slug:
 const bags: PortfolioCategoryRef = { _id: 'c-bags', title: 'Bags', slug: 'bags', displayOrder: 3 };
 const hiddenCat: PortfolioCategoryRef = { _id: 'c-hidden', title: 'Hidden', slug: 'hidden', hidden: true };
 
-function item(id: string, category: PortfolioCategoryRef | null, colors: string[] = []): PortfolioItemCard {
-  return { _id: id, title: `Item ${id}`, category, colors };
+function item(
+  id: string,
+  category: PortfolioCategoryRef | null,
+  colors: string[] = [],
+  extra: Partial<PortfolioItemCard> = {},
+): PortfolioItemCard {
+  return { _id: id, title: `Item ${id}`, category, colors, ...extra };
 }
 
 const items: PortfolioItemCard[] = [
-  item('a', caps, ['blue', 'white']),
-  item('b', caps, ['black']),
-  item('c', shirts, ['red', 'navy']),
-  item('d', hiddenCat, ['black']),
+  item('a', caps, ['blue', 'white'], { decorationMethods: ['embroidered'], industry: 'fire-and-ems' }),
+  item('b', caps, ['black'], { decorationMethods: ['embroidered', 'screen-printed'], industry: 'churches' }),
+  item('c', shirts, ['red', 'navy'], { decorationMethods: ['screen-printed', 'sublimated'], industry: 'fire-and-ems' }),
+  item('d', hiddenCat, ['black'], { industry: 'Military' }),
   item('e', null, []),
 ];
 
@@ -60,11 +68,46 @@ describe('buildPortfolioFacetSections', () => {
     expect(color.values.find((v) => v.id === 'black')!.skus).toEqual(['b', 'd']);
   });
 
-  it('omits a group with nothing to offer, and both groups for no items', () => {
+  it('omits a group with nothing to offer, and every group for no items', () => {
     const noColours = buildPortfolioFacetSections([item('x', caps)], [caps]);
     expect(noColours.map((s) => s.field)).toEqual([PORTFOLIO_CATEGORY_FIELD]);
     expect(buildPortfolioFacetSections([], [caps, shirts])).toEqual([]);
     expect(buildPortfolioFacetSections([item('y', null, ['neon'])], [])).toHaveLength(1);
+  });
+
+  // PORT-160: the two further groups, built the same way from the same items.
+  it('orders the groups category, decoration method, industry, colour', () => {
+    expect(sections.map((s) => s.field)).toEqual([
+      PORTFOLIO_CATEGORY_FIELD,
+      PORTFOLIO_DECORATION_FIELD,
+      PORTFOLIO_INDUSTRY_FIELD,
+      PORTFOLIO_COLOR_FIELD,
+    ]);
+    expect(sections.map((s) => s.label)).toEqual(['Category', 'Decoration method', 'Industry', 'Color']);
+  });
+
+  it('offers only decoration methods a visible item carries, in vocabulary order, labelled as words', () => {
+    const decoration = sections.find((s) => s.field === PORTFOLIO_DECORATION_FIELD)!;
+    expect(decoration.values.map((v) => v.id)).toEqual(['embroidered', 'screen-printed']);
+    expect(decoration.values.map((v) => v.label)).toEqual(['Embroidered', 'Screen printed']);
+    // 'sublimated' is not in the vocabulary and must never become a button.
+    expect(decoration.values.some((v) => v.id === 'sublimated')).toBe(false);
+    expect(decoration.values.find((v) => v.id === 'screen-printed')!.skus).toEqual(['b', 'c']);
+    expect(decoration.values.find((v) => v.id === 'embroidered')!.count).toBe(2);
+  });
+
+  it('offers only industries a visible item names, in vocabulary order, one per item', () => {
+    const industry = sections.find((s) => s.field === PORTFOLIO_INDUSTRY_FIELD)!;
+    expect(industry.values.map((v) => v.id)).toEqual(['churches', 'fire-and-ems']);
+    expect(industry.values.map((v) => v.label)).toEqual(['Churches', 'Fire and EMS']);
+    // 'Military' (wrong case, not in the vocabulary) never becomes a button.
+    expect(industry.values.some((v) => v.id.toLowerCase() === 'military')).toBe(false);
+    expect(industry.values.find((v) => v.id === 'fire-and-ems')!.skus).toEqual(['a', 'c']);
+  });
+
+  it('an item with neither field still counts in the other groups and the two new groups can be absent', () => {
+    const only = buildPortfolioFacetSections([item('p', caps, ['red'])], [caps]);
+    expect(only.map((s) => s.field)).toEqual([PORTFOLIO_CATEGORY_FIELD, PORTFOLIO_COLOR_FIELD]);
   });
 
   it('labels multi-word colours the way the Studio does', () => {
@@ -125,6 +168,42 @@ describe('the URL round trip', () => {
   it('names the parameters the way a person would type them', () => {
     expect(PORTFOLIO_URL_PARAM[PORTFOLIO_CATEGORY_FIELD]).toBe('category');
     expect(PORTFOLIO_URL_PARAM[PORTFOLIO_COLOR_FIELD]).toBe('color');
+    expect(PORTFOLIO_URL_PARAM[PORTFOLIO_DECORATION_FIELD]).toBe('decoration');
+    expect(PORTFOLIO_URL_PARAM[PORTFOLIO_INDUSTRY_FIELD]).toBe('industry');
+  });
+
+  // PORT-160: all four groups travel, in sidebar order, and read back.
+  it('carries all four groups in one link, in sidebar order, and reads them back', () => {
+    const state = {
+      [PORTFOLIO_COLOR_FIELD]: ['black'],
+      [PORTFOLIO_INDUSTRY_FIELD]: ['fire-and-ems'],
+      [PORTFOLIO_CATEGORY_FIELD]: ['caps-and-hats'],
+      [PORTFOLIO_DECORATION_FIELD]: ['screen-printed', 'embroidered'],
+    };
+    const qs = portfolioSearchFromFilterState(state, sections);
+    expect(qs).toBe(
+      'category=caps-and-hats&decoration=embroidered,screen-printed&industry=fire-and-ems&color=black',
+    );
+    expect(portfolioFilterStateFromSearch(`?${qs}`, sections)).toEqual({
+      [PORTFOLIO_CATEGORY_FIELD]: ['caps-and-hats'],
+      [PORTFOLIO_DECORATION_FIELD]: ['embroidered', 'screen-printed'],
+      [PORTFOLIO_INDUSTRY_FIELD]: ['fire-and-ems'],
+      [PORTFOLIO_COLOR_FIELD]: ['black'],
+    });
+  });
+
+  it('a PORT-110 two-group link still reads back identically under the new group order', () => {
+    expect(portfolioFilterStateFromSearch('?color=black&category=caps-and-hats', sections)).toEqual({
+      [PORTFOLIO_CATEGORY_FIELD]: ['caps-and-hats'],
+      [PORTFOLIO_COLOR_FIELD]: ['black'],
+    });
+  });
+
+  it('drops an unknown decoration or industry from a pasted link without complaint', () => {
+    expect(portfolioFilterStateFromSearch('?decoration=sublimated&industry=military', sections)).toEqual({});
+    expect(portfolioFilterStateFromSearch('?decoration=Embroidered,sublimated', sections)).toEqual({
+      [PORTFOLIO_DECORATION_FIELD]: ['embroidered'],
+    });
   });
 
   it('counts active values across groups', () => {
@@ -157,6 +236,57 @@ describe('applyFacetFilters over tiles: OR within a group, AND across groups', (
 
   it('ignores a selection for a group the sections do not carry', () => {
     expect(filter({ bogus: ['x'] })).toEqual(['a', 'b', 'c', 'd', 'e']);
+  });
+
+  // PORT-160: the same rule over the two new groups, no parallel path.
+  it('ORs within decoration and within industry', () => {
+    expect(filter({ [PORTFOLIO_DECORATION_FIELD]: ['embroidered', 'screen-printed'] })).toEqual(['a', 'b', 'c']);
+    expect(filter({ [PORTFOLIO_INDUSTRY_FIELD]: ['churches', 'fire-and-ems'] })).toEqual(['a', 'b', 'c']);
+  });
+
+  it('ANDs across all four groups', () => {
+    expect(
+      filter({
+        [PORTFOLIO_CATEGORY_FIELD]: ['caps-and-hats'],
+        [PORTFOLIO_DECORATION_FIELD]: ['screen-printed'],
+        [PORTFOLIO_INDUSTRY_FIELD]: ['churches'],
+        [PORTFOLIO_COLOR_FIELD]: ['black'],
+      }),
+    ).toEqual(['b']);
+    expect(filter({ [PORTFOLIO_DECORATION_FIELD]: ['embroidered'], [PORTFOLIO_INDUSTRY_FIELD]: ['fire-and-ems'] })).toEqual(['a']);
+    expect(filter({ [PORTFOLIO_CATEGORY_FIELD]: ['t-shirts'], [PORTFOLIO_DECORATION_FIELD]: ['embroidered'] })).toEqual([]);
+  });
+
+  it('an item with neither new field is kept by category or colour alone and dropped by any decoration or industry filter', () => {
+    expect(filter({ [PORTFOLIO_COLOR_FIELD]: ['black'] })).toContain('d');
+    expect(filter({ [PORTFOLIO_DECORATION_FIELD]: ['embroidered'] })).not.toContain('d');
+    expect(filter({ [PORTFOLIO_INDUSTRY_FIELD]: ['churches'] })).not.toContain('e');
+  });
+});
+
+describe('shopLinkCategorySlugs (PORT-160): which shop links sit under the grid', () => {
+  const tiles = items.map((i) => ({ category: i.category?.slug ? { slug: i.category.slug } : null }));
+
+  it('the ticked categories, in sidebar order, whatever order they were clicked', () => {
+    expect(shopLinkCategorySlugs({ [PORTFOLIO_CATEGORY_FIELD]: ['caps-and-hats', 't-shirts'] }, sections, tiles)).toEqual([
+      't-shirts',
+      'caps-and-hats',
+    ]);
+    expect(shopLinkCategorySlugs({ [PORTFOLIO_CATEGORY_FIELD]: ['caps-and-hats'] }, sections, [])).toEqual([
+      'caps-and-hats',
+    ]);
+  });
+
+  it('with no category ticked, the categories of the shown tiles (every offered one on the unfiltered page)', () => {
+    expect(shopLinkCategorySlugs({}, sections, tiles)).toEqual(['t-shirts', 'caps-and-hats']);
+    expect(shopLinkCategorySlugs({ [PORTFOLIO_COLOR_FIELD]: ['red'] }, sections, [tiles[2]])).toEqual(['t-shirts']);
+    // A hidden category is not offered, so it is never a shop link even if a shown tile carries it.
+    expect(shopLinkCategorySlugs({}, sections, [tiles[3]])).toEqual([]);
+  });
+
+  it('is empty with no tiles shown, and with no category group at all', () => {
+    expect(shopLinkCategorySlugs({}, sections, [])).toEqual([]);
+    expect(shopLinkCategorySlugs({ [PORTFOLIO_CATEGORY_FIELD]: ['caps-and-hats'] }, [], tiles)).toEqual([]);
   });
 });
 

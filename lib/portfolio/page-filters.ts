@@ -1,20 +1,23 @@
 /**
- * The /portfolio page's filter model (PORT-110).
+ * The /portfolio page's filter model (PORT-110, four groups since PORT-160).
  *
- * Two filter groups, category and colour, rendered by the SAME sidebar the
- * deals, catalog and search pages use (components/deals/DealsFilterSidebar)
- * and applied by the SAME OR-within / AND-across rule (`applyFacetFilters` in
- * lib/deals-filter.ts). This module only decides what those two groups
- * CONTAIN and how the selection travels in the URL, because the URL is the
- * shareable artefact: Patrick filters to, say, embroidered caps, copies the
- * address and sends it to a customer, who opens exactly that view.
+ * Four filter groups, category, decoration method, industry and colour,
+ * rendered by the SAME sidebar the deals, catalog and search pages use
+ * (components/deals/DealsFilterSidebar) and applied by the SAME OR-within /
+ * AND-across rule (`applyFacetFilters` in lib/deals-filter.ts). This module
+ * only decides what those groups CONTAIN and how the selection travels in
+ * the URL, because the URL is the shareable artefact: Patrick filters to,
+ * say, embroidered caps for fire departments, copies the address and sends
+ * it to a customer, who opens exactly that view.
  *
  * Rules:
  *   - a group offers ONLY values that at least one visible item actually
  *     uses (an empty filter button is a dead end); categories keep Patrick's
- *     displayOrder, colours keep the vocabulary order of lib/portfolio/colors;
- *   - the URL carries readable values, never ids: `?category=caps-and-hats`
- *     and `?color=black,red` (a category's slug, a colour's vocabulary value),
+ *     displayOrder, the other three keep their vocabulary order
+ *     (lib/portfolio/colors, decoration-methods, industries);
+ *   - the URL carries readable values, never ids: `?category=caps-and-hats`,
+ *     `?decoration=embroidered,screen-printed`, `?industry=fire-and-ems` and
+ *     `?color=black,red` (a category's slug, otherwise the vocabulary value),
  *     comma-joined inside one parameter, repeated parameters accepted too;
  *   - reading is forgiving (case, whitespace, unknown values dropped) and
  *     writing is canonical (groups in sidebar order, values in group order),
@@ -22,19 +25,31 @@
  *   - an unknown or renamed value in a pasted link simply does not filter,
  *     so an old link never shows an error or an empty page for a bad reason.
  *
+ * GROUP ORDER (PORT-160): category, decoration method, industry, colour. The
+ * three "what, how, for whom" groups come first because they are the ones a
+ * buyer decides by; colour is the visual refinement and, with up to twenty
+ * values, the longest list, so it sits last where its "More Options" fold
+ * pushes nothing below it. A link written under the PORT-110 two-group order
+ * (`?category=...&color=...`) still reads back identically, because reading
+ * is order-independent; only the canonical order it is rewritten to changed.
+ *
  * Pure on purpose: no fs, no Sanity, no React, no server-only import, so the
  * client browser and the server page share it and it is tested directly.
  */
 
 import type { DealsFacetSection, DealsFacetValue, DealsFilterState } from '../deals-filter';
 import { PORTFOLIO_COLORS, portfolioColorLabel } from './colors';
+import { PORTFOLIO_DECORATION_METHODS, portfolioDecorationMethodLabel } from './decoration-methods';
 import {
   isVisiblePortfolioCategory,
   portfolioItemColors,
+  portfolioItemDecorationMethods,
+  portfolioItemIndustry,
   sortPortfolioCategories,
   type PortfolioCategoryRef,
   type PortfolioItemCard,
 } from './gallery';
+import { PORTFOLIO_INDUSTRIES, portfolioIndustryLabel } from './industries';
 
 /** Sidebar field name for the category group. */
 export const PORTFOLIO_CATEGORY_FIELD = 'category';
@@ -47,9 +62,17 @@ export const PORTFOLIO_CATEGORY_FIELD = 'category';
  */
 export const PORTFOLIO_COLOR_FIELD = 'colors';
 
+/** Sidebar field name for the decoration-method group (PORT-160). */
+export const PORTFOLIO_DECORATION_FIELD = 'decorationMethods';
+
+/** Sidebar field name for the industry group (PORT-160). */
+export const PORTFOLIO_INDUSTRY_FIELD = 'industry';
+
 /** Sidebar field -> the readable query parameter it travels in. */
 export const PORTFOLIO_URL_PARAM: Readonly<Record<string, string>> = {
   [PORTFOLIO_CATEGORY_FIELD]: 'category',
+  [PORTFOLIO_DECORATION_FIELD]: 'decoration',
+  [PORTFOLIO_INDUSTRY_FIELD]: 'industry',
   [PORTFOLIO_COLOR_FIELD]: 'color',
 };
 
@@ -63,7 +86,10 @@ export const PORTFOLIO_URL_PARAM: Readonly<Record<string, string>> = {
 export const PORTFOLIO_PAGE_SIZE = 48;
 
 /** The item fields the facet builder reads. Satisfied by a projected portfolioItem. */
-export type PortfolioFacetSource = Pick<PortfolioItemCard, '_id' | 'category' | 'colors'>;
+export type PortfolioFacetSource = Pick<
+  PortfolioItemCard,
+  '_id' | 'category' | 'colors' | 'decorationMethods' | 'industry'
+>;
 
 function facetValue(id: string, label: string, ids: readonly string[]): DealsFacetValue {
   return {
@@ -78,12 +104,36 @@ function facetValue(id: string, label: string, ids: readonly string[]): DealsFac
   };
 }
 
+function add(map: Map<string, string[]>, key: string, id: string): void {
+  const list = map.get(key) ?? [];
+  list.push(id);
+  map.set(key, list);
+}
+
 /**
- * Build the two sidebar groups from the items the page actually renders and
- * the published categories. A group with no usable value is omitted, so a
- * portfolio whose items carry no colour tags shows a category group alone,
- * and the sidebar shows nothing for an empty portfolio (the page does not
- * mount it then anyway).
+ * A vocabulary group: the vocabulary's values in ITS order, only those a
+ * visible item carries. Returns null when no item carries any, so the group
+ * is omitted (the sidebar shows no empty group).
+ */
+function vocabularySection(
+  field: string,
+  label: string,
+  vocabulary: readonly string[],
+  labelOf: (value: string) => string,
+  byValue: ReadonlyMap<string, string[]>,
+): DealsFacetSection | null {
+  const values = vocabulary
+    .filter((v) => byValue.has(v))
+    .map((v) => facetValue(v, labelOf(v), byValue.get(v) ?? []));
+  return values.length > 0 ? { field, label, type: 'list', values } : null;
+}
+
+/**
+ * Build the sidebar groups from the items the page actually renders and the
+ * published categories, in sidebar order. A group with no usable value is
+ * omitted, so a portfolio whose items carry no industry tags shows no
+ * industry group, and the sidebar shows nothing for an empty portfolio (the
+ * page does not mount it then anyway).
  */
 export function buildPortfolioFacetSections(
   items: readonly PortfolioFacetSource[],
@@ -91,18 +141,15 @@ export function buildPortfolioFacetSections(
 ): DealsFacetSection[] {
   const byCategory = new Map<string, string[]>();
   const byColor = new Map<string, string[]>();
+  const byDecoration = new Map<string, string[]>();
+  const byIndustry = new Map<string, string[]>();
   for (const item of items) {
     const slug = item.category?.slug;
-    if (slug) {
-      const list = byCategory.get(slug) ?? [];
-      list.push(item._id);
-      byCategory.set(slug, list);
-    }
-    for (const color of portfolioItemColors(item)) {
-      const list = byColor.get(color) ?? [];
-      list.push(item._id);
-      byColor.set(color, list);
-    }
+    if (slug) add(byCategory, slug, item._id);
+    for (const color of portfolioItemColors(item)) add(byColor, color, item._id);
+    for (const method of portfolioItemDecorationMethods(item)) add(byDecoration, method, item._id);
+    const industry = portfolioItemIndustry(item);
+    if (industry) add(byIndustry, industry, item._id);
   }
 
   const sections: DealsFacetSection[] = [];
@@ -122,18 +169,33 @@ export function buildPortfolioFacetSections(
     });
   }
 
-  // Colours in vocabulary order, only those a visible item carries.
-  const colorValues = PORTFOLIO_COLORS.filter((c) => byColor.has(c)).map((c) =>
-    facetValue(c, portfolioColorLabel(c), byColor.get(c) ?? []),
+  // The three vocabulary groups, each in its vocabulary order.
+  const decoration = vocabularySection(
+    PORTFOLIO_DECORATION_FIELD,
+    'Decoration method',
+    PORTFOLIO_DECORATION_METHODS,
+    portfolioDecorationMethodLabel,
+    byDecoration,
   );
-  if (colorValues.length > 0) {
-    sections.push({
-      field: PORTFOLIO_COLOR_FIELD,
-      label: 'Color',
-      type: 'list',
-      values: colorValues,
-    });
-  }
+  if (decoration) sections.push(decoration);
+
+  const industry = vocabularySection(
+    PORTFOLIO_INDUSTRY_FIELD,
+    'Industry',
+    PORTFOLIO_INDUSTRIES,
+    portfolioIndustryLabel,
+    byIndustry,
+  );
+  if (industry) sections.push(industry);
+
+  const color = vocabularySection(
+    PORTFOLIO_COLOR_FIELD,
+    'Color',
+    PORTFOLIO_COLORS,
+    portfolioColorLabel,
+    byColor,
+  );
+  if (color) sections.push(color);
 
   return sections;
 }
@@ -141,6 +203,28 @@ export function buildPortfolioFacetSections(
 /** Number of selected values across every group. */
 export function countActivePortfolioFilters(state: DealsFilterState): number {
   return Object.values(state).reduce((n, values) => n + (values?.length ?? 0), 0);
+}
+
+/**
+ * The categories whose "Shop all custom ..." links belong under the grid
+ * (PORT-160), as category slugs in sidebar order. With one or more categories
+ * ticked, those categories; with none ticked, every category that at least
+ * one of the SHOWN tiles belongs to, so an industry- or colour-only view
+ * still points at the shops for the work on screen, and the unfiltered page
+ * (the static HTML Google reads) carries a link into every category's shop.
+ */
+export function shopLinkCategorySlugs(
+  state: DealsFilterState,
+  sections: readonly DealsFacetSection[],
+  shownTiles: readonly { category: { slug: string } | null }[],
+): string[] {
+  const section = sections.find((s) => s.field === PORTFOLIO_CATEGORY_FIELD);
+  if (!section) return [];
+  const ticked = new Set(state[PORTFOLIO_CATEGORY_FIELD] ?? []);
+  if (ticked.size > 0) return section.values.map((v) => v.id).filter((id) => ticked.has(id));
+  const shown = new Set<string>();
+  for (const tile of shownTiles) if (tile.category?.slug) shown.add(tile.category.slug);
+  return section.values.map((v) => v.id).filter((id) => shown.has(id));
 }
 
 /**

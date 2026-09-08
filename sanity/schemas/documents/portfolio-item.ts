@@ -4,6 +4,12 @@ import { defineField, defineType } from 'sanity';
 // so the Studio bundle takes it the same way sanity/schemas/documents/quote.ts
 // takes lib/quotes/quote-totals (a plain relative import). One list, two users.
 import { PORTFOLIO_COLOR_OPTIONS, isPortfolioColor } from '../../../lib/portfolio/colors';
+// PORT-160: the two further vocabularies, each living in ONE file the same way.
+import {
+  PORTFOLIO_DECORATION_METHOD_OPTIONS,
+  isPortfolioDecorationMethod,
+} from '../../../lib/portfolio/decoration-methods';
+import { PORTFOLIO_INDUSTRY_OPTIONS, isPortfolioIndustry } from '../../../lib/portfolio/industries';
 
 /**
  * Portfolio Gallery item (PORT-100): one job Patrick actually produced for a
@@ -87,6 +93,40 @@ export default defineType({
           const bad = (values ?? []).filter((v) => !isPortfolioColor(v));
           if (bad.length === 0) return true;
           return `Only the listed colours are allowed. Not recognised: ${bad.map(String).join(', ')}.`;
+        }),
+    }),
+    defineField({
+      name: 'decorationMethods',
+      title: 'Decoration method (optional)',
+      type: 'array',
+      of: [{ type: 'string' }],
+      description:
+        'Tick how the work was decorated: embroidered, screen printed, laser engraved and so on. A job can carry more than one. Powers the Decoration method filter on the gallery; leave it blank and the item simply does not appear under that filter.',
+      options: {
+        list: [...PORTFOLIO_DECORATION_METHOD_OPTIONS],
+        layout: 'grid',
+      },
+      validation: (Rule) =>
+        Rule.unique().custom((values?: unknown[]) => {
+          const bad = (values ?? []).filter((v) => !isPortfolioDecorationMethod(v));
+          if (bad.length === 0) return true;
+          return `Only the listed decoration methods are allowed. Not recognised: ${bad.map(String).join(', ')}.`;
+        }),
+    }),
+    defineField({
+      name: 'industry',
+      title: 'Industry (optional)',
+      type: 'string',
+      description:
+        'The kind of customer the job was for: a school, a church, a fire department, a restaurant. One per item. Powers the Industry filter on the gallery, which is how a buyer finds work done for someone like them; leave it blank and the item simply does not appear under that filter.',
+      options: {
+        list: [...PORTFOLIO_INDUSTRY_OPTIONS],
+        layout: 'dropdown',
+      },
+      validation: (Rule) =>
+        Rule.custom((value?: unknown) => {
+          if (value === undefined || value === null || value === '') return true;
+          return isPortfolioIndustry(value) ? true : `Only the listed industries are allowed. Not recognised: ${String(value)}.`;
         }),
     }),
     defineField({

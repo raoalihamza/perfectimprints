@@ -2,15 +2,23 @@
 
 import { useCallback, useState } from 'react';
 import Link from 'next/link';
+import type { PortfolioShopLink } from '@/lib/portfolio/shop-link';
 import type { PortfolioTile } from '@/lib/portfolio/tile-data';
 import { PortfolioGrid } from './PortfolioGrid';
 import { PortfolioLightbox } from './PortfolioLightbox';
+import { PortfolioShopLinks } from './PortfolioShopLinks';
 
 interface PortfolioGalleryBlockProps {
   /** The block's optional heading; rendered only when it has text. */
   heading?: string | null;
   /** The tiles the ONE resolver decided, already mapped server-side. */
   tiles: readonly PortfolioTile[];
+  /**
+   * PORT-160: the category's "Shop all custom ..." link for a category-mode
+   * block whose category has a shop slug; null (the default) for a
+   * hand-picked block, which has no single category to shop.
+   */
+  shopLink?: PortfolioShopLink | null;
   /** Outer spacing the host supplies (the block itself has none, so each host owns its rhythm). */
   className?: string;
 }
@@ -46,7 +54,9 @@ interface LightboxState {
  * PortfolioBrowser contract), so the host's prerender contains every tile,
  * and the viewer mounts only after a click, so its JS runs and its full-size
  * image is fetched only then. A single "See more of our work" link under the
- * grid is the route to the full page and its filters.
+ * grid is the route to the full page and its filters, and a category-mode
+ * block adds its category's "Shop all custom ..." link above it (PORT-160),
+ * server-resolved and so in the host's static HTML.
  *
  * Every tile loads lazily (`eagerCount={0}`): a block sits below the host's
  * main content, so nothing in it is above the fold at load.
@@ -54,7 +64,12 @@ interface LightboxState {
  * STATIC-RENDER CONTRACT: no `useSearchParams`, no `next/navigation`, no URL
  * read during render; every value is a prop (CLAUDE.md Section 13).
  */
-export function PortfolioGalleryBlock({ heading, tiles, className }: PortfolioGalleryBlockProps) {
+export function PortfolioGalleryBlock({
+  heading,
+  tiles,
+  shopLink = null,
+  className,
+}: PortfolioGalleryBlockProps) {
   const [lightbox, setLightbox] = useState<LightboxState | null>(null);
 
   const openTile = useCallback(
@@ -76,7 +91,8 @@ export function PortfolioGalleryBlock({ heading, tiles, className }: PortfolioGa
       <div className={title ? 'mt-5' : undefined}>
         <PortfolioGrid tiles={tiles} onOpen={openTile} eagerCount={0} />
       </div>
-      <p className="mt-4 text-sm">
+      <PortfolioShopLinks links={shopLink ? [shopLink] : []} className="mt-4 text-sm" />
+      <p className={shopLink ? 'mt-1.5 text-sm' : 'mt-4 text-sm'}>
         <Link href="/portfolio" className="font-medium text-brand-red hover:underline">
           See more of our work
         </Link>

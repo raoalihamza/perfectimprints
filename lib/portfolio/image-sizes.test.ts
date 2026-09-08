@@ -1,10 +1,12 @@
 /**
- * PORT-110: the tile / lightbox sizing rules. The one that matters most is
- * the clamp: measured against the live Sanity CDN on 2026-09-02, `fit=crop`
- * UPSCALES (a 1200px asset asked for 1600 square came back 1600x1600; a
- * 947px-tall asset asked for 1000 square came back 1000x1000) while `fit=max`
- * never does. So a square tile must never name a width larger than the
- * shorter cropped side of the asset. These tests pin that arithmetic.
+ * PORT-110: the tile / lightbox sizing rules; PORT-150: the tile fits the
+ * whole image instead of cropping it. Measured against the live Sanity CDN,
+ * `fit=crop` (2026-09-02) and `fit=fill` (2026-09-08) both UPSCALE, while
+ * `fit=max` never does, so every portfolio request is `fit=max` at natural
+ * aspect and no candidate may name a width larger than the cropped asset
+ * width. These tests pin that arithmetic, plus the PORT-150 additions: the
+ * square box constant, the fitted-width fraction and the `sizes` scaling
+ * that keeps a tall image from fetching a full-tile candidate.
  */
 import { describe, expect, it } from 'vitest';
 
@@ -21,6 +23,9 @@ import {
   widthsWithin,
   embeddedTileSizes,
   PORTFOLIO_EMBED_COLUMN_WIDTHS,
+  TILE_BOX_ASPECT,
+  fittedWidthFraction,
+  scaleSizes,
 } from './image-sizes';
 
 describe('parseSanityImageRef', () => {
@@ -135,6 +140,61 @@ describe('the constants', () => {
       '(max-width: 767px) 50vw, (max-width: 1023px) 33vw, (max-width: 1279px) calc((100vw - 388px) / 3), 300px',
     );
     expect(LIGHTBOX_SIZES).toBe('100vw');
+  });
+});
+
+describe('PORT-150: the tile box and the fitted image', () => {
+  it('the box is square, and the constant says so', () => {
+    expect(TILE_BOX_ASPECT).toBe(1);
+  });
+
+  it('a square or wide image spans the full tile width', () => {
+    expect(fittedWidthFraction({ width: 1200, height: 1200 })).toBe(1);
+    expect(fittedWidthFraction({ width: 1098, height: 688 })).toBe(1);
+    expect(fittedWidthFraction({ width: 1661, height: 947 })).toBe(1);
+  });
+
+  it('a tall image spans only its aspect share of the width, to three decimals', () => {
+    // The three PORT-140 bottle photographs.
+    expect(fittedWidthFraction({ width: 726, height: 2252 })).toBe(0.322);
+    expect(fittedWidthFraction({ width: 558, height: 1654 })).toBe(0.337);
+    expect(fittedWidthFraction({ width: 850, height: 2154 })).toBe(0.395);
+    expect(fittedWidthFraction({ width: 390, height: 750 })).toBe(0.52);
+  });
+
+  it('honours a different box aspect and treats an unusable box as full width', () => {
+    expect(fittedWidthFraction({ width: 726, height: 2252 }, 0.8)).toBe(0.403);
+    expect(fittedWidthFraction({ width: 1200, height: 1200 }, 0.8)).toBe(1);
+    expect(fittedWidthFraction({ width: 0, height: 100 })).toBe(1);
+    expect(fittedWidthFraction({ width: 100, height: Number.NaN })).toBe(1);
+    expect(fittedWidthFraction({ width: 1, height: 100000 })).toBe(0.001);
+  });
+
+  it('scaleSizes leaves a full-width image alone', () => {
+    expect(scaleSizes(TILE_SIZES, 1)).toBe(TILE_SIZES);
+    expect(scaleSizes(TILE_SIZES, 1.4)).toBe(TILE_SIZES);
+    expect(scaleSizes(TILE_SIZES, 0)).toBe(TILE_SIZES);
+    expect(scaleSizes(TILE_SIZES, Number.NaN)).toBe(TILE_SIZES);
+  });
+
+  it('scaleSizes multiplies every clause length and keeps its media condition, including min() and calc() clauses', () => {
+    expect(scaleSizes(TILE_SIZES, 0.322)).toBe(
+      '(max-width: 767px) calc(50vw * 0.322), (max-width: 1023px) calc(33vw * 0.322), ' +
+        '(max-width: 1279px) calc(calc((100vw - 388px) / 3) * 0.322), calc(300px * 0.322)',
+    );
+    expect(scaleSizes(embeddedTileSizes('section'), 0.5)).toBe(
+      '(max-width: 767px) calc(50vw * 0.5), (max-width: 1023px) calc(33vw * 0.5), ' +
+        '(max-width: 1279px) calc(min(33vw, 330px) * 0.5), calc(min(25vw, 244px) * 0.5)',
+    );
+    expect(scaleSizes('100vw', 0.25)).toBe('calc(100vw * 0.25)');
+  });
+
+  it('scaleSizes never changes the number of clauses or their order', () => {
+    for (const sizes of [TILE_SIZES, embeddedTileSizes('blog'), embeddedTileSizes('product'), LIGHTBOX_SIZES]) {
+      const before = sizes.split(/, (?=\(|calc|min|\d)/).length;
+      const after = scaleSizes(sizes, 0.4).split(/, (?=\(|calc|min|\d)/).length;
+      expect(after).toBe(before);
+    }
   });
 });
 

@@ -34,6 +34,7 @@
     "seed-shop-by-theme-menu": "tsx scripts/seed/seed-shop-by-theme-menu.ts",
     "fetch-catalog-images": "tsx scripts/catalogs/fetch-catalog-images.ts",
     "seed-landing-pages": "tsx scripts/seed/seed-landing-pages.ts",
+    "import-portfolio": "tsx scripts/seed/import-portfolio-items.ts",
     "seed-static-pages": "tsx scripts/seed/seed-static-pages.ts",
     "seed-faqs": "tsx scripts/seed/seed-faqs.ts",
     "seed-home-banners": "tsx scripts/seed/seed-home-banners.ts",

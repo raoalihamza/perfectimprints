@@ -45,8 +45,10 @@ export async function PortfolioGallerySection({
   className,
 }: PortfolioGallerySectionProps) {
   if (!gallery || gallery.hidden === true) return null;
-  const tiles = await resolvePortfolioGalleryTiles(gallery, host);
+  const { tiles, shopLink } = await resolvePortfolioGalleryTiles(gallery, host);
   if (tiles.length === 0) return null;
-  const block = <PortfolioGalleryBlock heading={gallery.heading} tiles={tiles} className={className} />;
+  const block = (
+    <PortfolioGalleryBlock heading={gallery.heading} tiles={tiles} shopLink={shopLink} className={className} />
+  );
   return layout === 'section' ? <SectionShell>{block}</SectionShell> : block;
 }

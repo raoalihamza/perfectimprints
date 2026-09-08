@@ -262,8 +262,13 @@ describe('the SEO image surfaces', () => {
 
   it('the tile mapper separates rendered URLs from SEO URLs', () => {
     const src = code('lib/portfolio/tile-data.ts');
-    expect(src).toContain("urlForRenderImage(image).width(width).height(width).fit('crop')");
-    expect(src).toContain("urlForRenderImage(image).width(width).fit('max')");
+    // PORT-150: tile and lightbox share ONE natural-aspect fit=max request
+    // shape; no portfolio URL crops or names a height (fit=crop and fit=fill
+    // both upscale, see lib/portfolio/image-sizes.ts).
+    expect(src.match(/urlForRenderImage\(image\)\.width\(width\)\.fit\('max'\)/g)).toHaveLength(1);
+    expect(src).not.toContain("fit('crop')");
+    expect(src).not.toContain("fit('fill')");
+    expect(src).not.toContain('.height(');
     expect(src).toContain("buildImageUrl(item.image, (b) => b.width(400).fit('max'))");
     expect(src).toContain("buildImageUrl(item.image, (b) => b.width(1200).fit('max'))");
     expect(src).not.toContain('buildRenderImageUrl');
@@ -401,7 +406,7 @@ describe('PORT-120: one resolver and one renderer serve every host', () => {
     const body = code('components/blog/BlogBody.tsx');
     expect(body).toContain('portfolioGallery: ({ value }) => {');
     expect(body).toContain('portfolioGalleries.get(v._key)');
-    expect(body).toContain('<PortfolioGalleryBlock heading={v.heading} tiles={tiles}');
+    expect(body).toContain('<PortfolioGalleryBlock heading={v.heading} tiles={view.tiles} shopLink={view.shopLink}');
     expect(code(HOST_ROUTES.blog)).toContain("collectPortfolioGalleryTiles(post.body, 'blog')");
     expect(code(HOST_ROUTES.blog)).toContain('portfolioGalleries={portfolioGalleries}');
   });
@@ -501,7 +506,7 @@ describe('PORT-120: every host keeps its rendering mode and its client boundary'
     const src = code(SECTION);
     expect(src).toContain("from '@/lib/sanity/queries/portfolio'");
     expect(src).toContain('if (tiles.length === 0) return null;');
-    expect(src).toContain('<PortfolioGalleryBlock heading={gallery.heading} tiles={tiles}');
+    expect(src).toContain('<PortfolioGalleryBlock heading={gallery.heading} tiles={tiles} shopLink={shopLink}');
   });
 });
 
@@ -537,6 +542,119 @@ describe('PORT-120: freshness and the boundaries', () => {
 
   it('no em dash in the files this ticket created', () => {
     for (const file of [BLOCK, SECTION, 'components/portfolio/PortfolioGalleryBlock.test.tsx']) {
+      expect(read(file).includes(EM_DASH), file).toBe(false);
+    }
+  });
+});
+
+// ---------------------------------------------------------------------------
+// PORT-160: the shop link on the category, and the two further vocabularies.
+// ---------------------------------------------------------------------------
+
+describe('PORT-160: each vocabulary lives in exactly one file, imported by schema and site alike', () => {
+  const DECORATION = 'lib/portfolio/decoration-methods.ts';
+  const INDUSTRIES = 'lib/portfolio/industries.ts';
+  const SHOP_LINK = 'lib/portfolio/shop-link.ts';
+  const ITEM_SCHEMA = 'sanity/schemas/documents/portfolio-item.ts';
+  const CATEGORY_SCHEMA = 'sanity/schemas/documents/portfolio-category.ts';
+
+  it('the vocabulary modules and the shop-link rule are pure: no fs, Sanity, React or server-only import', () => {
+    for (const f of [DECORATION, INDUSTRIES, SHOP_LINK, 'lib/portfolio/vocabulary.ts']) {
+      const src = code(f);
+      const imports = [...src.matchAll(/^import [^;]*from '([^']+)';/gm)].map((m) => m[1]);
+      for (const spec of imports) expect(spec, `${f} imports ${spec}`).toMatch(/^\.\/vocabulary$/);
+      expect(src, f).not.toMatch(/server-only|node:|@sanity|next\/|react/);
+    }
+  });
+
+  it('no other source file spells out a decoration method or industry value', () => {
+    // The values exist in the two modules (and their tests); everywhere else
+    // gets them by import, so a rename happens in one place.
+    const probes = ['screen-printed', 'full-color-printed', 'fire-and-ems', 'restaurants-and-hospitality'];
+    const allowed = new Set([DECORATION, INDUSTRIES]);
+    for (const f of allSource()) {
+      if (allowed.has(f)) continue;
+      for (const probe of probes) expect(code(f), `${f} spells out ${probe}`).not.toContain(`'${probe}'`);
+    }
+  });
+
+  it('the item schema takes its options and membership checks from the modules', () => {
+    const src = code(ITEM_SCHEMA);
+    expect(src).toContain("from '../../../lib/portfolio/decoration-methods';");
+    expect(src).toContain("from '../../../lib/portfolio/industries';");
+    expect(src).toContain('list: [...PORTFOLIO_DECORATION_METHOD_OPTIONS],');
+    expect(src).toContain('list: [...PORTFOLIO_INDUSTRY_OPTIONS],');
+    expect(src).toContain('isPortfolioDecorationMethod(v)');
+    expect(src).toContain('isPortfolioIndustry(value)');
+    // Both optional: no required() on either, and no initialValue (the FIX-861 lesson).
+    const decoration = src.slice(src.indexOf("name: 'decorationMethods'"), src.indexOf("name: 'description'"));
+    expect(decoration).not.toContain('required()');
+    expect(decoration).not.toContain('initialValue');
+  });
+
+  it('the filter model, the tile mapper and the import plan import the modules rather than restating them', () => {
+    expect(code('lib/portfolio/page-filters.ts')).toContain("from './decoration-methods';");
+    expect(code('lib/portfolio/page-filters.ts')).toContain("from './industries';");
+    expect(code('lib/portfolio/gallery.ts')).toContain("from './decoration-methods';");
+    expect(code('lib/portfolio/gallery.ts')).toContain("from './industries';");
+    expect(code('lib/portfolio/import-plan.ts')).toContain("from './decoration-methods';");
+    expect(code('lib/portfolio/import-plan.ts')).toContain("from './industries';");
+  });
+
+  it('the shop link is a field on the CATEGORY, picked from existing pages, shape-checked by the shared rule', () => {
+    const src = code(CATEGORY_SCHEMA);
+    expect(src).toContain("name: 'shopCategorySlug',");
+    expect(src).toContain('components: { input: ExistingCategorySlugInput },');
+    expect(src).toContain('shopCategorySlugProblem(value)');
+    // Optional: the field's own definition carries no required() and no initialValue.
+    const field = src.slice(src.indexOf("name: 'shopCategorySlug'"), src.indexOf("name: 'hidden'"));
+    expect(field).not.toContain('required()');
+    expect(field).not.toContain('initialValue');
+    expect(code(ITEM_SCHEMA)).not.toContain('shopCategorySlug');
+    // The existing-pages picker is the plain picker with creation switched off.
+    const picker = code('sanity/components/CategoryPicker.tsx');
+    expect(picker).toContain('export function ExistingCategorySlugInput(props: StringInputProps)');
+    expect(picker).toContain('<CategorySlugInput {...props} allowCreate={false} />');
+    expect(picker).toContain('{allowCreate && <CreateNew opts={opts} onCreate={onCreate} />}');
+  });
+
+  it('the link is rendered by the page browser and the gallery block, through one component, as an internal link', () => {
+    expect(filesContaining('<PortfolioShopLinks')).toEqual([
+      'components/portfolio/PortfolioBrowser.tsx',
+      'components/portfolio/PortfolioGalleryBlock.tsx',
+    ]);
+    const links = code('components/portfolio/PortfolioShopLinks.tsx');
+    expect(links).toContain("import Link from 'next/link';");
+    expect(links).not.toContain('target=');
+    expect(links).not.toContain('rel=');
+    expect(links).not.toContain('<a ');
+    // The href is built once, from the validated slug, never in a component.
+    const portfolioFiles = [ROUTE, QUERIES, ...filesUnder('components/portfolio'), ...filesUnder('lib/portfolio')].filter(
+      (f) => !f.includes('.test.'),
+    );
+    expect(filesContaining('/cat/', portfolioFiles)).toEqual([SHOP_LINK]);
+    expect(code(QUERIES)).toContain('portfolioShopLink(category)');
+    expect(code(ROUTE)).toContain('buildPortfolioShopLinks(categories)');
+  });
+
+  it('the route still reads no catalogue data for the link: existence is not checked at render', () => {
+    const src = code(ROUTE);
+    expect(src).not.toMatch(/lib\/categories|category-urls|category-list|getAllGeneratedCategorySlugs/);
+    expect(code(SHOP_LINK)).not.toMatch(/lib\/categories|category-urls|readFileSync/);
+  });
+
+  it('no em dash in the files this ticket created', () => {
+    for (const file of [
+      DECORATION,
+      INDUSTRIES,
+      SHOP_LINK,
+      'lib/portfolio/vocabulary.ts',
+      'lib/portfolio/vocabularies.test.ts',
+      'lib/portfolio/shop-link.test.ts',
+      'components/portfolio/PortfolioShopLinks.tsx',
+      CATEGORY_SCHEMA,
+      ITEM_SCHEMA,
+    ]) {
       expect(read(file).includes(EM_DASH), file).toBe(false);
     }
   });
