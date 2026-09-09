@@ -616,6 +616,29 @@
       Geiger whenever you press the matching button in <a href="#site-refresh">Site Refresh</a>. These controls let you
       nudge what shows without anyone touching the feed.</p>
 
+    <h4 id="shipping-settings">Shipping (what Google is told)</h4>
+    <p>One collapsed group, blank when it was built, that fills in the shipping details Google asks for on your own
+      <a href="#product-pages">Product Pages</a> (<code>/products/...</code>). <strong>Leaving every field blank is
+        fine.</strong> It only means Google keeps noting "shipping details missing" on those pages, which it does today;
+      nothing is invented on your behalf. Fill a field in only with a figure you actually charge and can keep to, and
+      it applies to every product page at once. Publish, and the pages pick it up within seconds; nothing needs
+      redeploying.</p>
+    <ul>
+      <li><strong>Flat shipping rate per order (USD)</strong>: one figure for a whole order, e.g. 15. Enter
+        <strong>0</strong> to tell Google shipping is free. Blank sends no rate.</li>
+      <li><strong>Ships to</strong>: the two-letter country code the rate applies to, <code>US</code> for the United
+        States. Blank sends no destination.</li>
+      <li><strong>Handling time, from / to (business days)</strong>: how long between an order and the parcel leaving,
+        quickest and slowest. Both must be filled for Google to be told either.</li>
+      <li><strong>Transit time, from / to (business days)</strong>: how long the carrier takes once it has left, quickest
+        and slowest. Same rule: both or neither.</li>
+    </ul>
+    <p class="small">Each part is sent on its own, so a rate without a delivery time is fine and so is the reverse. What
+      is <em>not</em> here on purpose: a shipping weight. Google only needs one if you charge by weight, and the carton
+      weight on a product (30 lb for a carton of 500) would be the wrong figure for a minimum order of 50, so it is
+      never sent as such. A flat, free or price-based shipping service set up in Merchant Center itself makes that
+      warning go away with nothing to fill in here.</p>
+
     <h4 id="portfolio-page-settings">Portfolio Page</h4>
     <p>One field, <strong>Introduction</strong>: the paragraph or two in your own words that opens the gallery page at
       <code>/portfolio</code>, above the filters and the photos. Tell people the kind of work you take on. You can bold
@@ -1940,6 +1963,14 @@
         <strong>Limited availability</strong>, <strong>Back-ordered</strong>, <strong>Out of stock</strong> or
         <strong>Discontinued</strong>, that also appears on the live page as an "Availability:" line next to the
         production time, so the page and Google always say the same thing. The default says nothing on the page.</li>
+      <li><strong>Age group and Gender (Details section, apparel only):</strong> two dropdowns Google asks for on
+        clothing, caps, hats, socks and anything else it files under apparel. <strong>Age group</strong> is Adult for
+        nearly everything, Kids for youth sizes and children's items (Google's Kids band is 5 to 13), and the
+        Toddler / Infant / Newborn options exist for completeness. <strong>Gender</strong> is Male for a "Men's"
+        product, Female for a "Women's" product and Unisex for everything else. Both are optional and both send
+        nothing while blank: <strong>leave them empty on ornaments, bags, pens, drinkware and every other non-apparel
+        product</strong>, where Google does not want them. Neither shows on the live page; they only go to
+        Google.</li>
       <li><strong>Logistics / carton (optional):</strong> units per carton, carton weight (lbs), carton width /
         height / depth (inches), and the FOB ships-from zip (plus optional city/state). Whatever you fill in shows as
         compact lines near the product details - e.g. "500 units per carton", "16 × 14 × 10 in / 27 lbs per carton",
@@ -1973,10 +2004,20 @@
         fields you already use:</p>
       <ul>
         <li><strong>Price:</strong> the cost of a <em>full minimum order including setup</em>, not the each-price. If
-          the minimum is 100 at $2.00 with a $50 setup, Google is told <strong>$250 for 100 units</strong> - the
-          quantity always travels with the figure, so nobody can read it as the price of one. It is exactly the
-          <em>Estimated total</em> the page itself shows when it first loads, so the page and Google never disagree. A
-          product with no pricing tiers sends no price at all rather than a guess.</li>
+          the minimum is 100 at $2.00 with a $50 setup, Google is told <strong>$250</strong>, which follows Google's
+          own rule for a product that must be bought in a minimum quantity. It is exactly the <em>Estimated total</em>
+          the page itself shows when it first loads, so the page and Google never disagree. A product with no pricing
+          tiers sends no price at all rather than a guess.
+          <div class="callout warn">
+            <span class="label">If Merchant Center ever shows a huge price again, this is what happened before</span>
+            <p>Until September 2026 the figure was sent together with the quantity it buys, meant to stop Google reading
+              $250 as the price of one. Google instead read that quantity as a multiplier and showed the pen page's
+              $432.50 as $21,625, and almost every product with a minimum above one at 12 to 500 times its real
+              price. The quantity is no longer sent with the figure and must not be added back; the price itself was
+              always right. After the fix Google needs to recrawl each page, so the old figures can linger in
+              Merchant Center for a while.</p>
+          </div>
+        </li>
         <li><strong>Product identifier:</strong> the <strong>Item / SKU number</strong> from the Basics section. It was
           always on the document and simply was not being sent. There is no barcode / GTIN on promotional blanks, so
           Google may still note that one is missing - that is expected, and we will not invent one.</li>
@@ -1985,11 +2026,14 @@
           The 14-day window and restocking fee on that page apply to blank goods, so they are deliberately <em>not</em>
           sent from a product page.</li>
         <li><strong>Availability:</strong> the dropdown described above.</li>
+        <li><strong>Age group and Gender:</strong> the two apparel dropdowns described above, sent only when you have
+          set them.</li>
       </ul>
-      <p>The <strong>shipping</strong> figures Google would also like (a delivery cost and a delivery time) are not
-        sent, because the business quotes shipping rather than publishing a rate. Only what we do know - the carton
-        weight and dimensions and the ships-from location, from the Logistics section - is sent. If you ever want to
-        publish a flat shipping rate, that is a business decision and we can add it then.</p>
+      <p>The <strong>shipping</strong> figures Google would also like (a delivery cost, a destination and a delivery
+        time) are sent only if you fill them in under <a href="#shipping-settings">Global Settings › Shipping (what
+          Google is told)</a>; they apply to every product page at once. Until then only what we do know - the carton
+        weight and dimensions and the ships-from location, from the Logistics section - is sent, and Google keeps
+        noting that shipping details are missing, which is expected. Nothing is invented on your behalf.</p>
     </div>
 
     <h3>Generate Product Details with AI (the writing helper)</h3>

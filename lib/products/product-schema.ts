@@ -1,5 +1,6 @@
 /**
- * Product structured-data rules for /products/<slug> (FIX-830 task 1).
+ * Product structured-data rules for /products/<slug> (FIX-830 task 1, revised
+ * by MERCH-100).
  *
  * PURE + CLIENT-SAFE (no fs, no Sanity, no `server-only`) so the offer figure
  * can be unit-tested and, if a surface ever needs it, computed on either side.
@@ -11,11 +12,25 @@
  *
  * THE PRICE, AND WHY IT IS TRUE. Patrick's instruction: show the price of a
  * full minimum order, including setup - "if 100 quantity is the minimum at
- * $2.00 each plus a $50 setup, it would show $250." A bare `price: 250` would
- * be read by Google as the price of ONE unit, which is false, so the figure is
- * always emitted with the quantity it applies to, twice over: `eligibleQuantity`
- * on the Offer and a `UnitPriceSpecification` with a `referenceQuantity`. Both
- * are schema.org's own way of saying "this amount buys this many".
+ * $2.00 each plus a $50 setup, it would show $250." That follows Google's own
+ * rule for a minimum purchase quantity: submit the price for the smallest
+ * order a buyer can place. A unit price alone would break that rule, and a
+ * range or an AggregateOffer is not accepted for merchant listings, which
+ * require an Offer.
+ *
+ * THE QUANTITY IS NOT STATED ON THE OFFER, AND MUST NOT COME BACK (MERCH-100,
+ * 2026-09-09). FIX-830 said the quantity twice, as `eligibleQuantity` and as a
+ * `UnitPriceSpecification` with `referenceQuantity`, so that "$250" could not
+ * be read as the price of one unit. Google reads `referenceQuantity` as the
+ * measure the product is sold in (its unit-pricing measure), and MULTIPLIES:
+ * the pen page's $432.50 for 50 pens became $432.50 x 50 = $21,625 in
+ * Merchant Center, and 145 of the 154 live products, every one with a minimum
+ * above 1, were shown at 12 to 500 times their real figure, from $200 to
+ * $732,500. The guard created a larger fault than the one it prevented. The
+ * offer now carries `price` and `priceCurrency` and nothing that describes a
+ * quantity; the quantity the price buys is stated in the page's visible copy
+ * ("Estimated total for 50") and nowhere in the markup. A test fails if either
+ * field returns.
  *
  * The number itself is not re-derived here. It comes from `estimateForQuantity`
  * and `effectiveSetupCharge` in lib/products/quote-estimate.ts - the same two
@@ -36,9 +51,6 @@ import {
   type DecorationOption,
   type QuoteTier,
 } from './quote-estimate';
-
-/** UN/CEFACT code for "one / each" - the unit `eligibleQuantity` counts in. */
-const UNIT_EACH = 'C62';
 
 /**
  * The availability values Patrick can choose in Studio, mirrored inline in
@@ -86,6 +98,165 @@ export function availabilityLabel(value?: string | null): string | null {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Audience: age group + gender (MERCH-100, part 3).
+//
+// Google's Merchant Center reads the `age_group` and `gender` attributes from
+// Product.audience (a PeopleAudience) as `suggestedMinAge` / `suggestedMaxAge`
+// and `suggestedGender`. The allowed values and the numeric ages come from
+// Google's own tables, read 2026-09-09:
+//   age_group  https://support.google.com/merchants/answer/6324463
+//              newborn 0-3 months, infant 3-12 months, toddler 1-5 years,
+//              kids 5-13 years, adult 13+.
+//   gender     https://support.google.com/merchants/answer/6324479
+//              male, female, unisex.
+//   mapping    https://support.google.com/merchants/answer/6386198
+//              newborn min 0 max 0.25; infant 0.25 to 1; toddler 1 to 5;
+//              kids 5 to 13; adult min 13, max not specified.
+//
+// Both are OPTIONAL on the document and emitted ONLY when set to a known
+// value. There is no default and no guess: an unset field emits nothing, an
+// unrecognised value (a hand edit through the API, say) emits nothing.
+// ---------------------------------------------------------------------------
+
+/** Mirrored inline in sanity/schemas/documents/product-page.ts (Studio bundler rule). */
+export const PRODUCT_AGE_GROUP_VALUES = ['newborn', 'infant', 'toddler', 'kids', 'adult'] as const;
+export type ProductAgeGroup = (typeof PRODUCT_AGE_GROUP_VALUES)[number];
+
+/** Mirrored inline in sanity/schemas/documents/product-page.ts (Studio bundler rule). */
+export const PRODUCT_GENDER_VALUES = ['male', 'female', 'unisex'] as const;
+export type ProductGender = (typeof PRODUCT_GENDER_VALUES)[number];
+
+/** Google's numeric age boundaries, in years, for each age_group value. */
+const AGE_GROUP_YEARS: Record<ProductAgeGroup, { min: number; max?: number }> = {
+  newborn: { min: 0, max: 0.25 },
+  infant: { min: 0.25, max: 1 },
+  toddler: { min: 1, max: 5 },
+  kids: { min: 5, max: 13 },
+  adult: { min: 13 },
+};
+
+export function isProductAgeGroup(value: unknown): value is ProductAgeGroup {
+  return typeof value === 'string' && (PRODUCT_AGE_GROUP_VALUES as readonly string[]).includes(value);
+}
+
+export function isProductGender(value: unknown): value is ProductGender {
+  return typeof value === 'string' && (PRODUCT_GENDER_VALUES as readonly string[]).includes(value);
+}
+
+export interface ProductAudienceInput {
+  ageGroup?: string | null;
+  gender?: string | null;
+}
+
+/**
+ * The Product `audience` block, or null when neither field holds a known
+ * value. Ages are emitted as bare numbers of years, which is how Google's
+ * mapping table states them; `suggestedMaxAge` is omitted for adults because
+ * Google specifies no upper bound.
+ */
+export function buildProductAudience(input: ProductAudienceInput): Record<string, unknown> | null {
+  const ageGroup = (input.ageGroup ?? '').trim();
+  const gender = (input.gender ?? '').trim();
+  const hasAge = isProductAgeGroup(ageGroup);
+  const hasGender = isProductGender(gender);
+  if (!hasAge && !hasGender) return null;
+
+  const audience: Record<string, unknown> = { '@type': 'PeopleAudience' };
+  if (hasGender) audience.suggestedGender = gender;
+  if (hasAge) {
+    const years = AGE_GROUP_YEARS[ageGroup];
+    audience.suggestedMinAge = years.min;
+    if (years.max !== undefined) audience.suggestedMaxAge = years.max;
+  }
+  return audience;
+}
+
+// ---------------------------------------------------------------------------
+// Shipping policy: rate, destination, delivery time (MERCH-100, part 2).
+//
+// Google's merchant-listing shipping wants three things the carton facts do
+// not give it: `shippingRate` (a MonetaryAmount), `shippingDestination` (a
+// DefinedRegion) and `deliveryTime` (handling + transit ranges in days). The
+// business quotes shipping rather than publishing a rate, so as of MERCH-100
+// none of these has a value; the fields exist on `globalSettings` so that the
+// day Patrick decides on a flat or free rate, filling them in is the whole
+// job and nothing needs deploying. Every field is emitted ONLY when it holds
+// a real value. Blank emits nothing, exactly as before.
+//
+// A rate of 0 is a real value (free shipping) and IS emitted; blank is not.
+// ---------------------------------------------------------------------------
+
+export interface ShippingPolicy {
+  /** Flat shipping charge in USD for one order. 0 means free shipping. */
+  rate: number | null;
+  /** ISO 3166-1 alpha-2 country the rate applies to, e.g. "US". */
+  destinationCountry: string | null;
+  /** Business days between order and dispatch. */
+  handlingDaysMin: number | null;
+  handlingDaysMax: number | null;
+  /** Business days in transit. */
+  transitDaysMin: number | null;
+  transitDaysMax: number | null;
+}
+
+const finiteNonNegative = (v: unknown): v is number =>
+  typeof v === 'number' && Number.isFinite(v) && v >= 0;
+
+/** A min/max pair is emitted only when BOTH are set and ordered. */
+function dayRange(min: number | null, max: number | null): Record<string, unknown> | null {
+  if (!finiteNonNegative(min) || !finiteNonNegative(max) || min > max) return null;
+  return { '@type': 'QuantitativeValue', minValue: min, maxValue: max, unitCode: 'DAY' };
+}
+
+/**
+ * The parts of OfferShippingDetails that come from the site-wide policy, or
+ * null when the policy has nothing real in it.
+ */
+export function shippingPolicyDetails(policy: ShippingPolicy | null | undefined): Record<string, unknown> | null {
+  if (!policy) return null;
+  const out: Record<string, unknown> = {};
+
+  if (finiteNonNegative(policy.rate)) {
+    out.shippingRate = { '@type': 'MonetaryAmount', value: policy.rate, currency: 'USD' };
+  }
+
+  const country = (policy.destinationCountry ?? '').trim().toUpperCase();
+  if (/^[A-Z]{2}$/.test(country)) {
+    out.shippingDestination = { '@type': 'DefinedRegion', addressCountry: country };
+  }
+
+  const handlingTime = dayRange(policy.handlingDaysMin, policy.handlingDaysMax);
+  const transitTime = dayRange(policy.transitDaysMin, policy.transitDaysMax);
+  if (handlingTime || transitTime) {
+    out.deliveryTime = {
+      '@type': 'ShippingDeliveryTime',
+      ...(handlingTime ? { handlingTime } : {}),
+      ...(transitTime ? { transitTime } : {}),
+    };
+  }
+
+  return Object.keys(out).length > 0 ? out : null;
+}
+
+/**
+ * ONE OfferShippingDetails block from the two honest sources: the product's
+ * own carton facts (weight, dimensions, ships-from origin, built by the page)
+ * and the site-wide policy. Either may be absent; both absent means no block.
+ */
+export function mergeShippingDetails(
+  carton: Record<string, unknown> | null | undefined,
+  policy: ShippingPolicy | null | undefined,
+): Record<string, unknown> | null {
+  const fromPolicy = shippingPolicyDetails(policy);
+  if (!carton && !fromPolicy) return null;
+  return {
+    '@type': 'OfferShippingDetails',
+    ...(carton ?? {}),
+    ...(fromPolicy ?? {}),
+  };
+}
+
 /**
  * Perfect Imprints' return policy as structured data (FIX-830 task 1).
  *
@@ -122,8 +293,10 @@ export interface MinimumOrderOfferInput {
   url: string;
   availability?: string | null;
   siteUrl: string;
-  /** OfferShippingDetails block, when the logistics fields are filled. */
+  /** The carton part of OfferShippingDetails, when the logistics fields are filled. */
   shippingDetails?: Record<string, unknown> | null;
+  /** The site-wide shipping policy from globalSettings, when any of it is filled. */
+  shippingPolicy?: ShippingPolicy | null;
 }
 
 export interface MinimumOrderOffer {
@@ -150,11 +323,7 @@ export function buildMinimumOrderOffer(input: MinimumOrderOfferInput): MinimumOr
 
   const total = Math.round(estimate.total * 100) / 100;
   const quantity = estimate.quantity;
-  const eligibleQuantity = {
-    '@type': 'QuantitativeValue',
-    value: quantity,
-    unitCode: UNIT_EACH,
-  };
+  const shippingDetails = mergeShippingDetails(input.shippingDetails, input.shippingPolicy);
 
   return {
     quantity,
@@ -163,24 +332,15 @@ export function buildMinimumOrderOffer(input: MinimumOrderOfferInput): MinimumOr
       '@type': 'Offer',
       url: input.url,
       priceCurrency: 'USD',
+      // The total for one full minimum order. NO quantity annotation beside
+      // it: see the header comment (MERCH-100) before adding one back.
       price: total,
-      // Said twice on purpose: `eligibleQuantity` is what most consumers read,
-      // `priceSpecification.referenceQuantity` is the stricter schema.org form.
-      // Either one alone leaves "$250" open to being read as a unit price.
-      eligibleQuantity,
-      priceSpecification: {
-        '@type': 'UnitPriceSpecification',
-        priceCurrency: 'USD',
-        price: total,
-        referenceQuantity: eligibleQuantity,
-        valueAddedTaxIncluded: false,
-      },
       availability: availabilitySchemaUrl(input.availability),
       // Promotional products are new goods; nothing on this site is used or
       // refurbished, so this is a fact rather than a default.
       itemCondition: 'https://schema.org/NewCondition',
       hasMerchantReturnPolicy: decoratedGoodsReturnPolicy(input.siteUrl),
-      ...(input.shippingDetails ? { shippingDetails: input.shippingDetails } : {}),
+      ...(shippingDetails ? { shippingDetails } : {}),
     },
   };
 }

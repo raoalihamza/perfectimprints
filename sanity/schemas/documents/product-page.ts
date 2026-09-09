@@ -278,6 +278,47 @@ export default defineType({
       description:
         'What Google is told about this product being orderable. We do not track stock levels, so this is your call, not a number pulled from anywhere. Leave it on "Available to order" unless you know otherwise. Anything other than the default is also shown on the page, so the page and Google always say the same thing.',
     }),
+    // MERCH-100 part 3. Google's Merchant Center asks for an age group and a
+    // gender on every apparel product (its "Apparel & Accessories" category:
+    // shirts, caps, hats, socks and the like). Both are OPTIONAL, both are
+    // constrained to Google's own values (mirrored inline from
+    // lib/products/product-schema.ts, the Studio bundler rule), and both are
+    // emitted ONLY when set. There is no default: an unset field tells Google
+    // nothing rather than guessing.
+    defineField({
+      name: 'ageGroup',
+      title: 'Age group (apparel only, optional)',
+      type: 'string',
+      fieldset: 'details',
+      options: {
+        list: [
+          { title: 'Adult (13 and over, most products)', value: 'adult' },
+          { title: 'Kids (5 to 13 years, youth sizes)', value: 'kids' },
+          { title: 'Toddler (1 to 5 years)', value: 'toddler' },
+          { title: 'Infant (3 to 12 months)', value: 'infant' },
+          { title: 'Newborn (0 to 3 months)', value: 'newborn' },
+        ],
+        layout: 'dropdown',
+      },
+      description:
+        'Who the item is sized for. Google requires this on clothing, hats, socks and other apparel; it does not apply to ornaments, bags, pens or drinkware, so leave those blank. Blank sends nothing.',
+    }),
+    defineField({
+      name: 'gender',
+      title: 'Gender (apparel only, optional)',
+      type: 'string',
+      fieldset: 'details',
+      options: {
+        list: [
+          { title: 'Unisex (most products)', value: 'unisex' },
+          { title: 'Male', value: 'male' },
+          { title: 'Female', value: 'female' },
+        ],
+        layout: 'dropdown',
+      },
+      description:
+        'Who the item is cut for. "Men\'s" products are Male, "Women\'s" products are Female, everything else is Unisex. Same rule as Age group: apparel only, and blank sends nothing.',
+    }),
 
     // ---- Logistics / carton (all optional; only set values render/emit) ----
     defineField({

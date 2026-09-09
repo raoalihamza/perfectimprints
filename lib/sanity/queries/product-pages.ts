@@ -2,7 +2,7 @@ import 'server-only';
 
 import type { PortableTextBlock } from '@portabletext/react';
 import { cachedClient, buildImageUrl, buildRenderImageUrl, urlForRenderImage } from '@/lib/sanity/client';
-import { PRODUCT_PAGES_TAG, productPageTag } from '@/lib/sanity/cache-tags';
+import { PRODUCT_PAGES_TAG, PRODUCT_SITEMAP_TAG, productPageTag } from '@/lib/sanity/cache-tags';
 import type { SanityImage, SeoFields } from '@/lib/sanity/types';
 import type { GeigerProduct } from '@/lib/product-types';
 import { portableTextToPlain } from '@/lib/portable-text/to-plain';
@@ -128,6 +128,14 @@ export interface ProductPageDoc extends ProductPageCard {
    * a stated position, never a measured one.
    */
   availability?: string;
+  /**
+   * Editor-set audience for the Product JSON-LD (MERCH-100 part 3): one of
+   * PRODUCT_AGE_GROUP_VALUES / PRODUCT_GENDER_VALUES in
+   * lib/products/product-schema.ts, both optional, both emitted only when set.
+   * Apparel only; the 76 non-apparel products leave them blank.
+   */
+  ageGroup?: string;
+  gender?: string;
   /** One-time flat setup/decoration charge added to the on-page ESTIMATE. */
   setupCharge?: number;
   // Logistics / carton (all optional — only set values render/emit).
@@ -209,6 +217,8 @@ const FULL_PROJECTION = `{
   sizes,
   productionTime,
   availability,
+  ageGroup,
+  gender,
   setupCharge,
   unitsPerCarton,
   cartonWeight,
@@ -597,6 +607,17 @@ export interface ProductPageSitemapEntry {
 /**
  * Slug + representative image for the sitemap (mirrors the /cat image entries).
  * Image selection = `productPageFirstImage()`, consistent with the card/gallery.
+ *
+ * Tagged with PRODUCT_SITEMAP_TAG as well as PRODUCT_PAGES_TAG (MERCH-100
+ * part 4). The webhook's productPage branch expires the sitemap tag with
+ * `{ expire: 0 }` (a hard miss) instead of the stale-while-revalidate `'max'`
+ * profile it uses for every other tag: with `'max'`, the regeneration that
+ * `revalidatePath('/sitemap.xml')` triggers is SERVED THIS LIST STALE while it
+ * refreshes in the background, and the regenerated sitemap, which never
+ * self-refreshes, then carries the pre-publish list until the next unrelated
+ * event regenerates it. Two product pages published 2026-09-08 13:45 and
+ * 13:52 UTC were still absent from a sitemap regenerated at 16:31 UTC the
+ * same day. See lib/sanity/cache-tags.ts.
  */
 export async function getProductPageSitemapEntries(): Promise<ProductPageSitemapEntry[]> {
   try {
@@ -614,7 +635,7 @@ export async function getProductPageSitemapEntries(): Promise<ProductPageSitemap
           defaultImages
         }`,
         {},
-        { next: { tags: [PRODUCT_PAGES_TAG], revalidate: false } },
+        { next: { tags: [PRODUCT_PAGES_TAG, PRODUCT_SITEMAP_TAG], revalidate: false } },
       )) ?? [];
     return docs
       .filter((d): d is { slug: string; colorVariants?: ProductPageColorVariant[]; defaultImages?: ProductPageImage[] } =>

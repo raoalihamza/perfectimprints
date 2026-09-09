@@ -26,6 +26,7 @@ import {
   PAGES_TAG,
   PORTFOLIO_TAG,
   PRODUCT_PAGES_TAG,
+  PRODUCT_SITEMAP_TAG,
   QUOTES_TAG,
   RELATED_BLOGS_TAG,
   SETTINGS_TAG,
@@ -528,6 +529,13 @@ export async function POST(request: Request) {
   // see docs/sanity-webhook-setup.md.
   if (type === 'productPage') {
     revalidateTag(PRODUCT_PAGES_TAG, 'max');
+    // MERCH-100 part 4: the sitemap's product list is expired HARD, not
+    // stale-while-revalidate, because the sitemap regenerates exactly once
+    // per revalidatePath and never on its own; served the stale list during
+    // that one regeneration, it kept a newly published page out of the file
+    // until the next unrelated regeneration (measured 2026-09-08). Only the
+    // sitemap read carries this tag; see lib/sanity/cache-tags.ts.
+    revalidateTag(PRODUCT_SITEMAP_TAG, { expire: 0 });
     const slug = payload.slug?.current;
     const paths = [SEARCH_INDEX_ROUTE, '/new-products', '/sitemap.xml'];
     if (slug) {

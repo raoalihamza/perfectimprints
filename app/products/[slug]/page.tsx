@@ -44,7 +44,12 @@ import { portableTextToPlain } from '@/lib/portable-text/to-plain';
 import { socialMeta } from '@/lib/seo/open-graph';
 import type { GeigerProduct } from '@/lib/product-types';
 import { jsonLdHtml } from '@/lib/seo/json-ld';
-import { availabilityLabel, buildMinimumOrderOffer } from '@/lib/products/product-schema';
+import {
+  availabilityLabel,
+  buildMinimumOrderOffer,
+  buildProductAudience,
+} from '@/lib/products/product-schema';
+import { getSiteSettings } from '@/lib/sanity/queries/global-settings';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -358,11 +363,14 @@ function buildLogisticsLines(doc: ProductPageDoc): string[] {
 }
 
 /**
- * GMC-readiness shipping block (P2-CP follow-up): the carton weight/dims are
- * PACKAGE facts, so they belong on OfferShippingDetails (Google's shipping
- * structured data), NOT as Product-level weight/width/height/depth (those
- * describe one unit — emitting a 27 lb carton as the product weight would be
- * wrong). Only set fields are emitted; nothing is fabricated.
+ * The CARTON part of the shipping block (P2-CP follow-up): the carton
+ * weight/dims are PACKAGE facts, so they belong on OfferShippingDetails
+ * (Google's shipping structured data), NOT as Product-level
+ * weight/width/height/depth (those describe one unit; emitting a 27 lb carton
+ * as the product weight would be wrong). Only set fields are emitted; nothing
+ * is fabricated. The `@type` and the site-wide rate / destination / delivery
+ * time (MERCH-100) are added by `mergeShippingDetails` inside
+ * `buildMinimumOrderOffer`, so this returns the fields alone.
  */
 function buildShippingDetails(doc: ProductPageDoc): Record<string, unknown> | null {
   const qty = (v: number | undefined, unitCode: string) =>
@@ -384,7 +392,6 @@ function buildShippingDetails(doc: ProductPageDoc): Record<string, unknown> | nu
     : null;
   if (!weight && !width && !height && !depth && !origin) return null;
   return {
-    '@type': 'OfferShippingDetails',
     ...(weight ? { weight } : {}),
     ...(width ? { width } : {}),
     ...(height ? { height } : {}),
@@ -439,9 +446,15 @@ export default async function ProductDetailPage({ params }: Props) {
   const tiers = productPageValidTiers(doc);
   const { low, high } = productPagePriceRange(doc);
   const minQty = productPageMinQty(doc);
-  const [related, relatedContent] = await Promise.all([
+  // The site-wide shipping policy (MERCH-100 part 2) rides the SAME
+  // React-cache()d, SETTINGS_TAG-tagged read the layout Footer performs in
+  // this render, so it costs no extra Sanity fetch and adds no untagged read:
+  // the route stays statically prerendered, and a Global Settings publish
+  // refreshes it through the existing globalSettings webhook branch.
+  const [related, relatedContent, settings] = await Promise.all([
     resolveRelatedProducts(doc),
     resolveRelatedContent(doc),
+    getSiteSettings(),
   ]);
   const plainDescription = portableTextToPlain(doc.description);
 
@@ -463,10 +476,17 @@ export default async function ProductDetailPage({ params }: Props) {
   //
   // FIX-830 task 1, answering Google's Merchant Listings report:
   //  - price: the total for one minimum order INCLUDING setup (Patrick's
-  //    decision), always carrying the quantity it buys - see
-  //    lib/products/product-schema.ts. It replaces the per-unit lowPrice /
-  //    highPrice AggregateOffer, which reported $4.99 as "the price" of a
-  //    product whose smallest real order is 288 of them.
+  //    decision) - see lib/products/product-schema.ts. It replaces the
+  //    per-unit lowPrice / highPrice AggregateOffer, which reported $4.99 as
+  //    "the price" of a product whose smallest real order is 288 of them.
+  //    MERCH-100: the offer carries NO quantity annotation beside the price;
+  //    the `eligibleQuantity` + `referenceQuantity` FIX-830 added were read by
+  //    Google as a multiplier ($432.50 x 50 = $21,625). Do not add them back.
+  //  - audience (MERCH-100 part 3): age group + gender, only when Patrick has
+  //    set them on the document; apparel only.
+  //  - shippingDetails: the carton facts (below) plus the site-wide rate /
+  //    destination / delivery time from Global Settings (MERCH-100 part 2),
+  //    each only when it holds a value.
   //  - identifier: the real item number Patrick already enters in Studio. It
   //    was on the document and simply never emitted. gtin/mpn stay absent -
   //    promotional blanks carry no GTIN and we will not invent one.
@@ -482,7 +502,9 @@ export default async function ProductDetailPage({ params }: Props) {
     availability: doc.availability,
     siteUrl: SITE_URL,
     shippingDetails,
+    shippingPolicy: settings.shippingPolicy,
   });
+  const audience = buildProductAudience({ ageGroup: doc.ageGroup, gender: doc.gender });
   const productSchema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -492,6 +514,7 @@ export default async function ProductDetailPage({ params }: Props) {
     ...(plainDescription ? { description: plainDescription } : {}),
     ...(doc.brand ? { brand: { '@type': 'Brand', name: doc.brand } } : {}),
     ...(doc.sku?.trim() ? { sku: doc.sku.trim() } : {}),
+    ...(audience ? { audience } : {}),
     ...(minimumOrder ? { offers: minimumOrder.offer } : {}),
   };
 

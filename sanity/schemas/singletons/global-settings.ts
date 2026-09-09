@@ -366,6 +366,73 @@ export default defineType({
         },
       ],
     }),
+    // MERCH-100 part 2. What Google is told about SHIPPING on every one of
+    // Patrick's own product pages (/products/<slug>). Built before the
+    // business has decided on a rate, so that the day it does, filling these
+    // in is the whole job and nothing needs deploying. Every field is emitted
+    // only when it holds a value; blank means Google is told nothing, exactly
+    // as before. Lives on this singleton (already in the webhook Filter in
+    // both environments, the PORT-115 reasoning) so no manual Sanity step is
+    // needed and a publish refreshes the product pages through SETTINGS_TAG.
+    defineField({
+      name: 'shippingPolicy',
+      title: 'Shipping (what Google is told)',
+      type: 'object',
+      description:
+        'Optional. Fills in the shipping cost and delivery time Google asks for on your own product pages (/products/...). Leave everything blank and nothing is sent, which is fine: it only means Google keeps noting that shipping details are missing. Fill it in only with figures you actually charge and can keep to. Each field is sent on its own, so you can give a rate without a delivery time, or the other way round. Applies to every product page at once.',
+      options: { collapsible: true, collapsed: true },
+      fields: [
+        {
+          name: 'flatRate',
+          type: 'number',
+          title: 'Flat shipping rate per order (USD)',
+          description:
+            'One figure for a whole order, in US dollars, e.g. 15. Enter 0 to tell Google shipping is free. Leave blank to send no rate at all.',
+          validation: (Rule) => Rule.min(0),
+        },
+        {
+          name: 'destinationCountry',
+          type: 'string',
+          title: 'Ships to (two-letter country code)',
+          description: 'The country the rate applies to, as a two-letter code: US for the United States. Leave blank to send nothing.',
+          validation: (Rule) =>
+            Rule.custom((value?: string) => {
+              if (!value) return true;
+              return /^[A-Za-z]{2}$/.test(value.trim())
+                ? true
+                : 'Use a two-letter country code, e.g. US.';
+            }),
+        },
+        {
+          name: 'handlingDaysMin',
+          type: 'number',
+          title: 'Handling time, from (business days)',
+          description: 'Days between the order and the parcel leaving, at the quickest. Both handling fields must be filled for either to be sent.',
+          validation: (Rule) => Rule.min(0).integer(),
+        },
+        {
+          name: 'handlingDaysMax',
+          type: 'number',
+          title: 'Handling time, to (business days)',
+          description: 'The same, at the slowest. Must be the same as or more than "from".',
+          validation: (Rule) => Rule.min(0).integer(),
+        },
+        {
+          name: 'transitDaysMin',
+          type: 'number',
+          title: 'Transit time, from (business days)',
+          description: 'Days the carrier takes once the parcel has left, at the quickest. Both transit fields must be filled for either to be sent.',
+          validation: (Rule) => Rule.min(0).integer(),
+        },
+        {
+          name: 'transitDaysMax',
+          type: 'number',
+          title: 'Transit time, to (business days)',
+          description: 'The same, at the slowest. Must be the same as or more than "from".',
+          validation: (Rule) => Rule.min(0).integer(),
+        },
+      ],
+    }),
     // PORT-115. The /portfolio page's own copy lives HERE, on the singleton the
     // webhook Filter already carries in both environments, rather than on a
     // new document type that would need the Filter edited by hand in staging

@@ -6,6 +6,7 @@ import type { SanityImage } from '@/lib/sanity/types';
 import { socialLabel } from '@/components/icons/social-icons';
 import { normalizeHref } from '@/lib/sanity/normalize-href';
 import { resolvePortfolioIntro } from '@/lib/portfolio/intro';
+import type { ShippingPolicy } from '@/lib/products/product-schema';
 
 // ---------------------------------------------------------------------------
 // Site settings — social links + contact info, Sanity-driven.
@@ -167,6 +168,17 @@ export interface SiteSettings {
    * would have needed the webhook Filter edited by hand in both environments.
    */
   portfolioIntro: PortableTextBlock[] | null;
+  /**
+   * The site-wide shipping policy Google is told about on every /products/
+   * page (MERCH-100 part 2), `globalSettings.shippingPolicy`: a flat rate, the
+   * destination country and handling / transit day ranges. Null when NOTHING
+   * is filled in, which is the state at launch: the business quotes shipping
+   * rather than publishing a rate, and every field is emitted only when it
+   * holds a real value (see `shippingPolicyDetails`). It lives on this
+   * document so a change rides the SETTINGS_TAG read every page already
+   * performs and the webhook branch that already busts it.
+   */
+  shippingPolicy: ShippingPolicy | null;
 }
 
 /**
@@ -218,6 +230,14 @@ interface RawSettings {
   siteSearch?: { hiddenSkus?: string[] };
   hiddenProducts?: { skus?: string[] };
   portfolioPage?: { intro?: unknown };
+  shippingPolicy?: {
+    flatRate?: number;
+    destinationCountry?: string;
+    handlingDaysMin?: number;
+    handlingDaysMax?: number;
+    transitDaysMin?: number;
+    transitDaysMax?: number;
+  };
   hoursOfOperation?: string;
   // legacy flat fields — fallback only
   phoneNumber?: string;
@@ -233,6 +253,7 @@ const QUERY = `*[_type == "globalSettings"][0]{
   siteSearch{ hiddenSkus },
   hiddenProducts{ skus },
   portfolioPage{ intro },
+  shippingPolicy{ flatRate, destinationCountry, handlingDaysMin, handlingDaysMax, transitDaysMin, transitDaysMax },
   hoursOfOperation,
   phoneNumber,
   contactEmail
@@ -250,7 +271,30 @@ const EMPTY: SiteSettings = {
   searchHiddenSkus: [],
   hiddenEverywhereSkus: [],
   portfolioIntro: null,
+  shippingPolicy: null,
 };
+
+/**
+ * Shipping policy (MERCH-100): keep a number only when it is a real finite,
+ * non-negative number, keep the country only when non-blank, and resolve to
+ * null when every field is blank so a consumer can tell "nothing set" from
+ * "set to zero" (a zero rate is free shipping, a real value).
+ */
+export function resolveShippingPolicy(raw: RawSettings['shippingPolicy'] | null | undefined): ShippingPolicy | null {
+  if (!raw) return null;
+  const num = (v: unknown): number | null =>
+    typeof v === 'number' && Number.isFinite(v) && v >= 0 ? v : null;
+  const policy: ShippingPolicy = {
+    rate: num(raw.flatRate),
+    destinationCountry: clean(raw.destinationCountry),
+    handlingDaysMin: num(raw.handlingDaysMin),
+    handlingDaysMax: num(raw.handlingDaysMax),
+    transitDaysMin: num(raw.transitDaysMin),
+    transitDaysMax: num(raw.transitDaysMax),
+  };
+  const anySet = Object.values(policy).some((v) => v !== null);
+  return anySet ? policy : null;
+}
 
 function resolveIconUrl(image: SanityImage | undefined): string | null {
   if (!image?.asset?._ref) return null;
@@ -357,6 +401,7 @@ function resolve(raw: RawSettings | null): SiteSettings {
     searchHiddenSkus,
     hiddenEverywhereSkus,
     portfolioIntro: resolvePortfolioIntro(raw.portfolioPage?.intro),
+    shippingPolicy: resolveShippingPolicy(raw.shippingPolicy),
   };
 }
 

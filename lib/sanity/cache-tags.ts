@@ -18,6 +18,32 @@
 export const CATEGORY_CONTROL_TAG = 'category-control-sets';
 
 /**
+ * The sitemap's product-page list, and nothing else (MERCH-100 part 4).
+ *
+ * Every other tag on this site is busted with `revalidateTag(tag, 'max')`,
+ * which Next 16 documents as stale-while-revalidate: "The next request for
+ * that data kicks off a revalidation and is served stale content while it
+ * runs." For a route that regenerates once and then never refreshes on its
+ * own (`app/sitemap.ts` has no `revalidate`), that means the regeneration
+ * `revalidatePath('/sitemap.xml')` triggers reads the product list from the
+ * data cache as it was BEFORE the publish, stores that as the new sitemap,
+ * and the fresh list only reaches the file when some later, unrelated event
+ * regenerates it again. Measured on production: two product pages published
+ * 2026-09-08 13:45 and 13:52 UTC were absent from a sitemap regenerated at
+ * 16:31 UTC the same day, while the search-delta route the same webhook
+ * branch revalidated did carry them.
+ *
+ * So the sitemap's product read carries this tag as well as PRODUCT_PAGES_TAG,
+ * and the webhook's productPage branch expires THIS tag with `{ expire: 0 }`
+ * (the form Next's own docs give for a webhook: "Stale content is never
+ * served, so the next request is a blocking revalidate / cache miss"). Only
+ * the sitemap carries it, so nothing else on the site changes cache
+ * behaviour; in particular PRODUCT_PAGES_TAG, which every /cat page reads
+ * through the HIDE-110 replacement index, keeps its `'max'` profile.
+ */
+export const PRODUCT_SITEMAP_TAG = 'product-sitemap';
+
+/**
  * Related-blogs shown on root category pages (RelatedBlogsSection). A global tag
  * busted on any `blogPost` publish so the section stays fresh while the read
  * remains cached (not `no-store`, so it doesn't force the route dynamic).
