@@ -41,10 +41,18 @@ import { isProductAgeGroup, isProductGender } from '../../lib/products/product-s
 const PROJECT_ROOT = resolve(__dirname, '../..');
 const DEFAULT_FILE = resolve(PROJECT_ROOT, 'data/seed/product-audience-merch-100.json');
 
+/**
+ * Either field may be omitted: a record sets only what the business can say.
+ * The one-size santa hats are for every age (Patrick, 2026-09-09: "men,
+ * women, boys, girls, adult, kids"), Google's age_group has no "all ages"
+ * value, and stating `adult` would tell Google 13-and-over only, so those
+ * records carry `gender: unisex` and NO age group. At least one field is
+ * required, or the record has nothing to do.
+ */
 interface AudienceRecord {
   slug: string;
-  ageGroup: string;
-  gender: string;
+  ageGroup?: string;
+  gender?: string;
 }
 
 interface ProductState {
@@ -100,9 +108,18 @@ function validate(records: unknown): AudienceRecord[] {
     if (typeof rec?.slug !== 'string' || !rec.slug.trim()) problems.push(`${where}: missing slug`);
     else if (seen.has(rec.slug)) problems.push(`${where}: listed twice`);
     else seen.add(rec.slug);
-    if (!isProductAgeGroup(rec?.ageGroup)) problems.push(`${where}: ageGroup "${rec?.ageGroup}" is not one of Google's values`);
-    if (!isProductGender(rec?.gender)) problems.push(`${where}: gender "${rec?.gender}" is not one of Google's values`);
-    if (problems.length === 0) out.push({ slug: rec.slug as string, ageGroup: rec.ageGroup as string, gender: rec.gender as string });
+    const hasAge = rec?.ageGroup !== undefined && rec?.ageGroup !== null;
+    const hasGender = rec?.gender !== undefined && rec?.gender !== null;
+    if (hasAge && !isProductAgeGroup(rec?.ageGroup)) problems.push(`${where}: ageGroup "${rec?.ageGroup}" is not one of Google's values`);
+    if (hasGender && !isProductGender(rec?.gender)) problems.push(`${where}: gender "${rec?.gender}" is not one of Google's values`);
+    if (!hasAge && !hasGender) problems.push(`${where}: neither ageGroup nor gender is set`);
+    if (problems.length === 0) {
+      out.push({
+        slug: rec.slug as string,
+        ...(hasAge ? { ageGroup: rec.ageGroup as string } : {}),
+        ...(hasGender ? { gender: rec.gender as string } : {}),
+      });
+    }
   });
   if (problems.length > 0) {
     throw new Error(`Refusing the whole list:\n  ${problems.join('\n  ')}`);
@@ -159,10 +176,14 @@ async function main(): Promise<void> {
       Boolean(entry.published?.[field]?.trim()) || Boolean(entry.draft?.[field]?.trim());
     const set: Record<string, string> = {};
     const kept: string[] = [];
-    if (filled('ageGroup')) kept.push(`ageGroup=${entry.published.ageGroup ?? entry.draft?.ageGroup}`);
-    else set.ageGroup = r.ageGroup;
-    if (filled('gender')) kept.push(`gender=${entry.published.gender ?? entry.draft?.gender}`);
-    else set.gender = r.gender;
+    if (r.ageGroup !== undefined) {
+      if (filled('ageGroup')) kept.push(`ageGroup=${entry.published.ageGroup ?? entry.draft?.ageGroup}`);
+      else set.ageGroup = r.ageGroup;
+    }
+    if (r.gender !== undefined) {
+      if (filled('gender')) kept.push(`gender=${entry.published.gender ?? entry.draft?.gender}`);
+      else set.gender = r.gender;
+    }
     const ids = [entry.published._id, ...(entry.draft ? [entry.draft._id] : [])];
     plan.push({ slug: r.slug, ids, set, kept });
   }
