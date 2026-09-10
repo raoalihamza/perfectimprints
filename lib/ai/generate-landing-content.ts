@@ -356,11 +356,13 @@ export async function generateLandingContent(input: LandingGenInput): Promise<La
   );
   const whyUsBody = buildPageBody({ paragraphs: placedWhyUs });
 
-  // 5) Related products for the strip — relevance-floored, never padded.
-  //    Skipped entirely below the 2-product floor. `includeCustom: false`
-  //    because the strip stores SKU-ONLY blogProduct entries resolved against
-  //    products.json at render time — a synthetic `custom-<id>` SKU can never
-  //    resolve there, so it would count toward the floor yet render nothing.
+  // 5) Related products for the strip: relevance-floored, never padded.
+  //    Skipped entirely below the 2-product floor. `includeCustom: false` is
+  //    KEPT: it was added because the strip stored SKU-only entries and a
+  //    synthetic `custom-<id>` SKU could never render. FIX-871 removed that
+  //    obstacle (the landing action and the seed script now store such a
+  //    result as a reference), but whether landing pages should suggest
+  //    Patrick's own products is his call, not a side effect of a bug fix.
   const products = await matchRelatedProducts({
     hiddenSkus: await siteWideHiddenSkus(),
     categorySlug: resolvedCategory ?? undefined,

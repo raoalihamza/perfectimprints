@@ -37,6 +37,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { createClient, type SanityClient } from '@sanity/client';
+import { stripEntriesForSuggestions } from '../../lib/products/strip-entry-write';
 
 // -- Modes / flags -----------------------------------------------------------
 
@@ -662,7 +663,10 @@ async function verifyStripStorage(client: SanityClient, sku: string): Promise<vo
         _type: 'productStrip',
         _key: 'zzq170strip',
         heading: `${TEST_LABEL_PREFIX} strip`,
-        products: [{ _type: 'blogProduct', _key: 'zzq170entry', sku }],
+        // FIX-872: the fixture entry is written through the ONE strip-entry
+        // helper, like every other writer; the stored object is byte-identical
+        // to the former literal for a Geiger SKU.
+        products: stripEntriesForSuggestions([{ sku }], () => 'zzq170entry'),
       },
     ],
   });

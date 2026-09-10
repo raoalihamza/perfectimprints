@@ -31,6 +31,7 @@
  */
 
 import { existsSync, readFileSync } from 'node:fs';
+import { stripEntriesForSuggestions } from '../../lib/products/strip-entry-write';
 import { resolve } from 'node:path';
 import { createClient, type SanityClient } from '@sanity/client';
 
@@ -168,11 +169,9 @@ async function main(): Promise<void> {
         optionsIdeas: gen.optionsIdeas,
         whyUs: gen.whyUs,
         faqs: gen.faqs.map((f) => ({ _key: key('qa'), question: f.question, answer: f.answer })),
-        relatedProducts: gen.relatedProducts.map((p) => ({
-          _key: key('rp'),
-          _type: 'blogProduct',
-          sku: p.sku,
-        })),
+        // FIX-871: the same shared helper the Studio action uses, so a
+        // synthetic custom-<id> result is stored as a reference, never a bare SKU.
+        relatedProducts: stripEntriesForSuggestions(gen.relatedProducts, () => key('rp')),
         leadFormHeading: gen.leadFormHeading,
         seo: {
           _type: 'seo',

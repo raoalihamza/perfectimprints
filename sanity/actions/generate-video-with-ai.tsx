@@ -16,6 +16,7 @@ import { useState } from 'react';
 import { useDocumentOperation, type DocumentActionComponent } from 'sanity';
 import { AiProgressContent } from '../components/AiProgressDialog';
 import { useGenerateAuthFetch } from '../components/useGenerateAuthFetch';
+import { stripEntriesForSuggestions } from '../../lib/products/strip-entry-write';
 
 interface SuggestedLink {
   label: string;
@@ -105,13 +106,16 @@ export const generateVideoWithAi: DocumentActionComponent = (props) => {
           href: l.href,
           reason: l.reason,
         }));
-        // SKU-only entries, exactly like the AI blog strips — the live product
-        // (name, price, image, affiliate URL) resolves from the catalog at
-        // render time, so nothing goes stale in the doc.
-        const relatedProducts = (data.relatedProducts ?? [])
-          .map((p) => (typeof p?.sku === 'string' ? p.sku.trim() : ''))
-          .filter(Boolean)
-          .map((sku) => ({ _key: nextItemKey('rp'), _type: 'blogProduct', sku }));
+        // Geiger products as SKU entries (the live product resolves from the
+        // catalog at render time, so nothing goes stale in the doc); Patrick's
+        // own Product Pages / Custom Products, which the matcher returns with
+        // a synthetic `custom-<id>` SKU, as the SAME reference entries a
+        // hand-picked product uses, so they render (FIX-871). One shared
+        // helper decides, in the matcher's order: his products first.
+        const relatedProducts = stripEntriesForSuggestions(
+          data.relatedProducts ?? [],
+          () => nextItemKey('rp'),
+        );
 
         patch.execute([
           // Deep-set the seo fields without clobbering an existing ogImage.

@@ -55,13 +55,17 @@ export interface MatchRelatedProductsOptions {
   /**
    * Also surface Sanity `productPage` docs (P2-CP-001), returned with
    * `detailUrl` set so their cards link to /products/<slug>. OPT-IN (default
-   * false): the AI generation routes persist strips as SKU-only blogProduct
-   * entries resolved against products.json at render time, where a
-   * productPage's synthetic `custom-<id>` SKU would silently resolve to
-   * nothing. Only consumers that render the returned GeigerProduct objects
-   * directly (the /products/<slug> related carousel) should enable this.
-   * Reads are cache-tagged (PRODUCT_PAGES_TAG), so enabling it inside a
-   * static render path is safe.
+   * false). Until FIX-871 (2026-09-09) the AI generate routes persisted every
+   * result as a SKU-only blogProduct entry, where a synthetic `custom-<id>`
+   * SKU resolved to nothing at render; they now store such a result as the
+   * `relatedProductRef` reference the strips render
+   * (lib/products/strip-entry-write.ts), so enabling this for a generated
+   * strip is safe. It stays opt-in because the category branch already
+   * surfaces the product pages Patrick placed in the matched category (via
+   * getEffectiveCategoryProducts, HIDE-100), and widening every generated
+   * strip to ALL product pages is a separate decision. Today only the
+   * /products/<slug> related carousel enables it. Reads are cache-tagged
+   * (PRODUCT_PAGES_TAG), so enabling it inside a static render path is safe.
    */
   includeProductPages?: boolean;
   /**
@@ -76,9 +80,11 @@ export interface MatchRelatedProductsOptions {
    * Normalized Geiger SKU to the product-page card that REPLACES it (HIDE-110).
    * Passed through to the category source so a replaced Geiger product leaves
    * the strip carrying Patrick's own card rather than a gap. Only render-path
-   * callers pass it; the AI generate routes deliberately do not, because a
-   * generated strip is PERSISTED as SKU entries and a synthetic `custom-<id>`
-   * id would not resolve when that strip is later rendered.
+   * callers pass it. The AI generate routes do not; that was because a
+   * generated strip was persisted as SKU entries and a synthetic `custom-<id>`
+   * id could not resolve at render, which FIX-871 removed (such a result is
+   * now stored as a reference). Whether a generated strip should carry
+   * HIDE-110 substitutions is a separate decision, not made here.
    */
   replacementBySku?: ReadonlyMap<string, GeigerProduct>;
 }

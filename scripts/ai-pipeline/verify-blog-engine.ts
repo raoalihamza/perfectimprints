@@ -30,10 +30,23 @@
  *     landing submissions, client input structurally unable to set a
  *     recipient) and the customer-confirmation email builder
  *
- * The Sanity-backed pieces (blog/page link suggestions, custom-product merge)
- * are guarded in the engine itself — offline they degrade gracefully, and they
- * are exercised end-to-end through the running /api/sanity/generate-blog,
- * /api/sanity/generate-video, and /api/sanity/generate-page routes.
+ * WHAT THIS HARNESS CANNOT SEE, AND HOW IT SAYS SO (FIX-872). The matcher's
+ * Sanity-backed sources (the curated category read behind
+ * getEffectiveCategoryProducts, the custom-product read, the product-page
+ * read) sit behind `await import(...)` in try/catch blocks that fall back to
+ * the BAKED category list and to Geiger-only. Under tsx those imports throw
+ * ("Cannot find module 'server-only'": the marker package is bundled inside
+ * Next and is not resolvable from a plain Node process), so every
+ * `matchRelatedProducts` call in this file used to be answered by the
+ * fallback while the run printed green. FIX-870 measured the gap: 8 Geiger
+ * pens here where the deployed matcher returns 4 of Patrick's Product Pages
+ * first. That false green is exactly how the FIX-870 bug stayed invisible.
+ * So the harness now PROBES the same imports before the first check and,
+ * when they fail, prints why and exits non-zero. Pass `--allow-baked-fallback`
+ * to run the pure checks anyway; the matcher-backed results are then counted
+ * and the summary states that they came from the fallback, not from the
+ * production path. The Sanity-backed link suggestions are exercised only
+ * through the running /api/sanity/generate-* routes.
  *
  * Prints an X/Y summary; exits non-zero on any failure.
  */
@@ -71,6 +84,10 @@ import {
 import { buildRichAnswerBody } from '../../lib/portable-text/build-rich-answer-body';
 import { buildPageBody, buildPageSectionsBody } from '../../lib/portable-text/build-page-body';
 import type { GeigerProduct } from '../../lib/product-types';
+import {
+  stripEntriesForSuggestions,
+  type StripWriteEntry,
+} from '../../lib/products/strip-entry-write';
 
 const ROOT = path.resolve(__dirname, '../..');
 const PRODUCTS_FILE = path.join(ROOT, 'data', 'geiger', 'products.json');
@@ -96,8 +113,115 @@ function loadCatalogSkus(): Set<string> {
   return new Set(parsed.products.map((p) => p.sku));
 }
 
+// ---------------------------------------------------------------------------
+// FIX-872: refuse the false green.
+// ---------------------------------------------------------------------------
+
+const ALLOW_BAKED_FALLBACK = process.argv.includes('--allow-baked-fallback');
+
+/** True once the probe has shown the matcher's Sanity-backed sources are usable here. */
+let matcherSourcesUsable = false;
+/** Matcher calls that were answered by the baked fallback in this run. */
+let matcherFallbackCalls = 0;
+
+/**
+ * Runs the SAME imports `matchRelatedProducts` runs inside its try/catch
+ * blocks, plus one read, so a failure the matcher would swallow is reported
+ * here instead. Loading alone is necessary but not sufficient: with the
+ * modules loaded, the category read still degrades to the baked list when
+ * the Sanity project is not configured or unreachable (getCategoryControlSets
+ * swallows that too), so the probe also requires the project to be
+ * configured and one read to succeed.
+ */
+async function probeMatcherSources(): Promise<string[]> {
+  const reasons: string[] = [];
+  const firstLine = (err: unknown) =>
+    err instanceof Error ? err.message.split('\n')[0] : String(err);
+  const loads: [string, () => Promise<unknown>][] = [
+    [
+      'curated category read (lib/sanity/queries/effective-category-products)',
+      () => import('../../lib/sanity/queries/effective-category-products'),
+    ],
+    [
+      'custom product read (lib/sanity/queries/custom-products)',
+      () => import('../../lib/sanity/queries/custom-products'),
+    ],
+  ];
+  for (const [label, load] of loads) {
+    try {
+      await load();
+    } catch (err) {
+      reasons.push(`${label}: ${firstLine(err)}`);
+    }
+  }
+  if (reasons.length > 0) return reasons;
+  if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
+    reasons.push(
+      'NEXT_PUBLIC_SANITY_PROJECT_ID is not set: the Sanity client would target the "placeholder" project and every read would fail and degrade to the baked list',
+    );
+    return reasons;
+  }
+  try {
+    const { cachedClient } = await import('../../lib/sanity/client');
+    await cachedClient.fetch('count(*[_type == "customCategory"])');
+  } catch (err) {
+    reasons.push(`Sanity read: ${firstLine(err)}`);
+  }
+  return reasons;
+}
+
+/** Every matcher call in this file goes through here so fallback-path answers are counted. */
+async function matchViaHarness(
+  opts: Parameters<typeof matchRelatedProducts>[0],
+): Promise<GeigerProduct[]> {
+  if (!matcherSourcesUsable) matcherFallbackCalls += 1;
+  return matchRelatedProducts(opts);
+}
+
+/**
+ * A stored strip entry is well formed when it is one of the two shapes the
+ * render side reads (lib/products/strip-entry-write.ts): a Geiger SKU entry
+ * whose SKU is in the catalog, or a reference to one of Patrick's own
+ * products. Under the baked fallback only the first shape can occur.
+ */
+function isStoredStripEntry(entry: StripWriteEntry, catalogSkus: Set<string>): boolean {
+  if (!entry._key) return false;
+  if (entry._type === 'blogProduct') return catalogSkus.has(entry.sku);
+  return entry._type === 'relatedProductRef' && entry._ref.length > 0;
+}
+
+function keyCounter(prefix: string): () => string {
+  let i = 0;
+  return () => `${prefix}-${(i += 1)}`;
+}
+
 async function main() {
   const catalogSkus = loadCatalogSkus();
+
+  const probeFailures = await probeMatcherSources();
+  matcherSourcesUsable = probeFailures.length === 0;
+  if (!matcherSourcesUsable) {
+    console.error('\n[matcher] The production matcher path CANNOT be exercised in this process:');
+    for (const reason of probeFailures) console.error(`  - ${reason}`);
+    console.error(
+      '  matchRelatedProducts would silently fall back to the baked category list (Geiger-only,\n' +
+        '  no Product Pages, no category curation), so every matcher-backed check would pass against\n' +
+        '  the wrong code path. That is the FIX-870 false green, and this harness will not print it.',
+    );
+    if (!ALLOW_BAKED_FALLBACK) {
+      console.error(
+        '  Refusing to run. Pass --allow-baked-fallback to run the pure checks anyway; the summary\n' +
+          '  will then state how many matcher calls were answered by the fallback.',
+      );
+      process.exit(1);
+    }
+    console.error(
+      '  --allow-baked-fallback given: continuing. Matcher-backed results below come from the\n' +
+        '  BAKED FALLBACK and prove nothing about Product Pages or category curation.',
+    );
+  } else {
+    console.log('\n[matcher] Sanity-backed matcher sources loaded and readable: the production path is exercised.');
+  }
 
   // -------------------------------------------------------------------------
   console.log('\n[1] matchRelatedProducts — category-first (water-bottles)');
@@ -106,8 +230,8 @@ async function main() {
     keywords: ['water bottles', 'stainless steel'],
     limit: 8,
   };
-  const run1a = await matchRelatedProducts(opts1);
-  const run1b = await matchRelatedProducts(opts1);
+  const run1a = await matchViaHarness(opts1);
+  const run1b = await matchViaHarness(opts1);
 
   check('returns > 0 products', run1a.length > 0);
   check(`respects limit (${run1a.length} <= 8)`, run1a.length <= 8);
@@ -127,7 +251,7 @@ async function main() {
 
   // -------------------------------------------------------------------------
   console.log('\n[2] matchRelatedProducts — keyword-only (tote bags, no category)');
-  const run2 = await matchRelatedProducts({ keywords: ['tote bags'], limit: 6 });
+  const run2 = await matchViaHarness({ keywords: ['tote bags'], limit: 6 });
   check('returns > 0 products', run2.length > 0);
   check(`respects limit (${run2.length} <= 6)`, run2.length <= 6);
   check(
@@ -256,13 +380,13 @@ async function main() {
 
   // -------------------------------------------------------------------------
   console.log('\n[5] relevance floor (P2-AI-002b) — never pad with irrelevant products');
-  const nonsense = await matchRelatedProducts({
+  const nonsense = await matchViaHarness({
     keywords: ['xylophone submarines'],
     limit: 4,
     minScore: 1,
   });
   check('nonsense query returns ZERO products (no bestseller padding)', nonsense.length === 0);
-  const offTopic = await matchRelatedProducts({
+  const offTopic = await matchViaHarness({
     categorySlug: 'water-bottles',
     keywords: ['power banks'],
     limit: 4,
@@ -291,13 +415,13 @@ async function main() {
 
   // -------------------------------------------------------------------------
   console.log('\n[7] cross-strip dedup via exclude set');
-  const stripA = await matchRelatedProducts({
+  const stripA = await matchViaHarness({
     categorySlug: 'water-bottles',
     keywords: ['water bottles'],
     limit: 4,
     minScore: 1,
   });
-  const stripB = await matchRelatedProducts({
+  const stripB = await matchViaHarness({
     categorySlug: 'water-bottles',
     keywords: ['water bottles'],
     limit: 4,
@@ -586,7 +710,7 @@ async function main() {
   // Video-style related-products strip: keyword/productType-driven matching
   // (the video's Sanity category is a blogCategory, so matching never uses it).
   const videoStripCategory = resolveCategoryForKeywords('stainless steel water bottles');
-  const videoStrip = await matchRelatedProducts({
+  const videoStrip = await matchViaHarness({
     categorySlug: videoStripCategory ?? undefined,
     keywords: ['stainless steel water bottles'],
     limit: 8,
@@ -723,7 +847,7 @@ async function main() {
 
   // Synthetic productStrip section — the exact shape the generate-page route
   // assembles and the page schema stores (products[] of blogProduct entries).
-  const stripProducts = await matchRelatedProducts({
+  const stripProducts = await matchViaHarness({
     categorySlug: resolveCategoryForKeywords('water bottles') ?? undefined,
     keywords: ['water bottles'],
     limit: 8,
@@ -732,25 +856,22 @@ async function main() {
     _type: 'productStrip',
     _key: 'strip-test-1',
     heading: 'Featured Custom Water Bottles',
-    products: stripProducts.map((p, i) => ({
-      _type: 'blogProduct',
-      _key: `sku-test-${i}`,
-      sku: p.sku,
-    })),
+    // FIX-872: through the ONE write helper, exactly as the route does. The
+    // hand-written literal that used to sit here was the FIX-870 shape and is
+    // now refused by lib/products/strip-entry-write-guard.test.ts.
+    products: stripEntriesForSuggestions(stripProducts, keyCounter('sku-test')),
     hidden: false,
   };
   check(
-    'productStrip section: _type/_key + products[] of blogProduct entries with _key + real catalog sku',
+    'productStrip section: _type/_key + products[] in the two stored shapes (Geiger SKU entry with a real catalog sku, or a reference to one of Patrick\'s own products), unique keys',
     stripSection._type === 'productStrip' &&
       stripSection.products.length >= 2 &&
-      stripSection.products.every(
-        (p) => p._type === 'blogProduct' && !!p._key && catalogSkus.has(p.sku),
-      ) &&
+      stripSection.products.every((p) => isStoredStripEntry(p, catalogSkus)) &&
       new Set(stripSection.products.map((p) => p._key)).size === stripSection.products.length,
     JSON.stringify(stripSection.products.slice(0, 3)),
   );
   // Below the 2-product relevance floor the route omits the strip entirely.
-  const pageNonsenseStrip = await matchRelatedProducts({
+  const pageNonsenseStrip = await matchViaHarness({
     keywords: ['xylophone submarines'],
     limit: 8,
   });
@@ -910,7 +1031,7 @@ async function main() {
   // Landing-style product strip: keyword-driven, sku-backed, relevance-floored
   // — and omitted below the 2-product floor (the route's STRIP_MIN_PRODUCTS).
   const landingCategory = resolveCategoryForKeywords('custom beach towels');
-  const landingStrip = await matchRelatedProducts({
+  const landingStrip = await matchViaHarness({
     categorySlug: landingCategory ?? undefined,
     keywords: ['custom beach towels', 'beach towels'],
     limit: 8,
@@ -924,7 +1045,7 @@ async function main() {
       landingStrip.every((p) => /towel|beach/i.test(`${p.name} ${p.brand ?? ''}`)),
     landingStrip.map((p) => p.name).join(' | '),
   );
-  const landingNonsense = await matchRelatedProducts({
+  const landingNonsense = await matchViaHarness({
     keywords: ['xylophone submarines'],
     limit: 8,
   });
@@ -1026,20 +1147,16 @@ async function main() {
   const landingFaqs = [
     { question: 'What is the minimum order?', answer: 'Most custom beach towels start at 25 pieces.' },
   ].map((f, i) => ({ _key: `qa-test-${i}`, ...f }));
-  const landingStripEntries = landingStrip.map((p, i) => ({
-    _type: 'blogProduct',
-    _key: `rp-test-${i}`,
-    sku: p.sku,
-  }));
+  // FIX-872: through the ONE write helper, as the landing action and the seed
+  // script do (the former hand-written literal was the FIX-870 shape).
+  const landingStripEntries = stripEntriesForSuggestions(landingStrip, keyCounter('rp-test'));
   check(
-    'landing field shapes: faqs are keyed plain-text q/a; relatedProducts are keyed blogProduct entries with real catalog SKUs',
+    'landing field shapes: faqs are keyed plain-text q/a; relatedProducts are keyed entries in the two stored shapes with real catalog SKUs',
     landingFaqs.every(
       (f) => typeof f.question === 'string' && typeof f.answer === 'string' && !!f._key,
     ) &&
       landingStripEntries.length >= 2 &&
-      landingStripEntries.every(
-        (p) => p._type === 'blogProduct' && !!p._key && catalogSkus.has(p.sku),
-      ) &&
+      landingStripEntries.every((p) => isStoredStripEntry(p, catalogSkus)) &&
       new Set(landingStripEntries.map((p) => p._key)).size === landingStripEntries.length,
   );
 
@@ -1129,6 +1246,14 @@ async function main() {
   // -------------------------------------------------------------------------
   const total = passed + failed;
   console.log(`\n${passed}/${total} checks passed${failed ? ` — ${failed} FAILED` : ''}`);
+  if (matcherFallbackCalls > 0) {
+    console.error(
+      `[matcher] ${matcherFallbackCalls} matchRelatedProducts calls in this run were answered by the BAKED FALLBACK,\n` +
+        '  not by the production matcher path (Sanity-backed category curation, custom products, Product Pages).\n' +
+        '  The checks built on them prove nothing about the FIX-870 class. Run with the Sanity sources\n' +
+        '  usable (see the header comment) for a result that means something there.',
+    );
+  }
   if (failed > 0) process.exit(1);
 }
 

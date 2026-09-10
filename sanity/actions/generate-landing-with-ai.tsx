@@ -19,6 +19,7 @@ import { useState } from 'react';
 import { useDocumentOperation, type DocumentActionComponent } from 'sanity';
 import { AiProgressContent } from '../components/AiProgressDialog';
 import { useGenerateAuthFetch } from '../components/useGenerateAuthFetch';
+import { stripEntriesForSuggestions } from '../../lib/products/strip-entry-write';
 
 interface SuggestedLink {
   label: string;
@@ -119,13 +120,17 @@ export const generateLandingWithAi: DocumentActionComponent = (props) => {
           href: l.href,
           reason: l.reason,
         }));
-        // SKU-only entries, exactly like the AI blog/video strips — the live
-        // product (name, price, image, affiliate URL) resolves from the catalog
-        // at render time, so nothing goes stale in the doc.
-        const relatedProducts = (data.relatedProducts ?? [])
-          .map((p) => (typeof p?.sku === 'string' ? p.sku.trim() : ''))
-          .filter(Boolean)
-          .map((sku) => ({ _key: nextItemKey('rp'), _type: 'blogProduct', sku }));
+        // Geiger products as SKU entries (the live product resolves from the
+        // catalog at render time, so nothing goes stale in the doc); a
+        // synthetic `custom-<id>` result (one of Patrick's own products) as
+        // the SAME reference entry a hand-picked product uses (FIX-871). The
+        // landing generator passes includeCustom:false today, so this route
+        // returns none; the action still stores whatever the matcher returns
+        // in the shape the render side reads, through the one shared helper.
+        const relatedProducts = stripEntriesForSuggestions(
+          data.relatedProducts ?? [],
+          () => nextItemKey('rp'),
+        );
         const faqs = (data.faqs ?? [])
           .filter((f) => f?.question && f?.answer)
           .map((f) => ({ _key: nextItemKey('qa'), question: f.question, answer: f.answer }));

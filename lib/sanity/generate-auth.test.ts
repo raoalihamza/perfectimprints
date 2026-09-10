@@ -33,7 +33,7 @@ function generateRouteFiles(): string[] {
 
 function generateActionFiles(): string[] {
   return readdirSync(ACTIONS_DIR)
-    .filter((name) => name.startsWith('generate-') && name.endsWith('.tsx'))
+    .filter((name) => name.startsWith('generate-') && name.endsWith('.tsx') && !name.endsWith('.test.tsx'))
     .map((name) => join(ACTIONS_DIR, name))
     .sort();
 }

@@ -7,7 +7,11 @@
  *   - `block` with styles normal/h2/h3
  *   - bullet/number `listItem` blocks with `level: 1` (what
  *     BlogBody.normalizeBody expects)
- *   - `blogProducts` objects `{ heading?, products: [{ _type:'blogProduct', sku }] }`
+ *   - `blogProducts` objects `{ heading?, products }` whose entries come from
+ *     lib/products/strip-entry-write.ts (FIX-871): a Geiger SKU is stored as
+ *     `{ _type:'blogProduct', sku }`; one of Patrick's own Product Pages /
+ *     Custom Products (the matcher's synthetic `custom-<id>` SKU) as the
+ *     `{ _type:'relatedProductRef', _ref }` reference the strip renderer reads
  *   - optional `strong` decorator and `link` annotation (markDefs
  *     `{ _type:'link', href, openInNewTab }`) — supported so auto-inserted
  *     internal links can be turned on later, NOT emitted by the default
@@ -21,6 +25,8 @@
  * API routes, build scripts, and the offline verifier alike. Key generation
  * mirrors html-to-blocks.ts.
  */
+
+import { stripEntriesForSuggestions, type StripWriteEntry } from '../products/strip-entry-write';
 
 export interface BlogBodyLink {
   href: string;
@@ -87,7 +93,7 @@ export interface BlogProductsBlock {
   _type: 'blogProducts';
   _key: string;
   heading?: string;
-  products: { _type: 'blogProduct'; _key: string; sku: string }[];
+  products: StripWriteEntry[];
 }
 
 export type BlogBodyBlock = BlogTextBlock | BlogProductsBlock;
@@ -146,10 +152,13 @@ function textBlock(
 }
 
 function productsBlock(strip: BlogProductStripInput): BlogProductsBlock | null {
-  const products = strip.skus
-    .map((s) => s.trim())
-    .filter(Boolean)
-    .map((sku) => ({ _type: 'blogProduct' as const, _key: nextKey('p'), sku }));
+  // FIX-871: a Geiger SKU stays a SKU entry; a synthetic `custom-<id>` SKU (one
+  // of Patrick's own products) becomes the reference the strip renderer
+  // resolves. Blank and unusable entries are dropped; order is preserved.
+  const products = stripEntriesForSuggestions(
+    strip.skus.map((sku) => ({ sku })),
+    () => nextKey('p'),
+  );
   if (products.length === 0) return null;
   const block: BlogProductsBlock = {
     _type: 'blogProducts',

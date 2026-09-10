@@ -35,6 +35,7 @@ import { matchRelatedProducts, resolveCategoryForKeywords } from '@/lib/ai/relat
 import { suggestInternalLinks } from '@/lib/ai/internal-links';
 import { placeInternalLinks } from '@/lib/ai/place-internal-links';
 import { buildPageBody } from '@/lib/portable-text/build-page-body';
+import { stripEntriesForSuggestions } from '@/lib/products/strip-entry-write';
 import type { BlogBodyInput } from '@/lib/portable-text/build-blog-body';
 
 export const runtime = 'nodejs';
@@ -323,11 +324,10 @@ export async function POST(request: Request) {
         heading: productType
           ? `Featured Custom ${titleCase(productType)}`
           : 'Featured Custom Promotional Products',
-        products: products.map((p) => ({
-          _type: 'blogProduct',
-          _key: nextKey('sku'),
-          sku: p.sku,
-        })),
+        // FIX-871: Geiger SKUs as SKU entries; Patrick's own products (the
+        // matcher's synthetic `custom-<id>` SKUs) as the references the strip
+        // renderer resolves. Order preserved: his products come first.
+        products: stripEntriesForSuggestions(products, () => nextKey('sku')),
         hidden: false,
       });
     }
