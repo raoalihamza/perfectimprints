@@ -16,6 +16,7 @@
 import { isPortfolioColor, PORTFOLIO_COLORS } from './colors';
 import { isPortfolioDecorationMethod, PORTFOLIO_DECORATION_METHODS } from './decoration-methods';
 import { isPortfolioIndustry, PORTFOLIO_INDUSTRIES } from './industries';
+import { plainTextToBlocks } from '../portable-text/html-to-blocks';
 import { slugify } from '../utils';
 
 /** One object in portfolio-metadata-final.json, as PORT-140 wrote it. */
@@ -228,6 +229,14 @@ export function buildCategoryDoc(title: string, displayOrder: number): Record<st
  * is omitted rather than stored as "". `decorationMethods` and `industry`
  * (PORT-160) are written only when the record carries a value, so a record
  * without them yields exactly the document PORT-141 wrote.
+ *
+ * PORT-210: the metadata file still holds the description as a plain string
+ * (validated and length-checked as one), and it is CONVERTED ON WRITE into
+ * the `richAnswer` blocks the schema now stores, one paragraph per blank
+ * line, no links invented. Converting here rather than writing the string
+ * means an imported item never shows Studio's "Invalid property value" box
+ * and never needs the migration script; the import has not run yet, so no
+ * document was written the old way.
  */
 export function buildItemDoc(
   record: PortfolioImportRecord,
@@ -250,7 +259,7 @@ export function buildItemDoc(
     displayOrder: record.displayOrder,
     hidden: record.hidden === true,
   };
-  if (record.description.trim()) doc.description = record.description;
+  if (record.description.trim()) doc.description = plainTextToBlocks(record.description);
   if (Array.isArray(record.decorationMethods) && record.decorationMethods.length > 0) {
     doc.decorationMethods = [...record.decorationMethods];
   }

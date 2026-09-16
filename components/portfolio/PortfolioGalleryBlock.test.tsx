@@ -25,6 +25,7 @@ function tile(id: string, extra: Partial<PortfolioTile> = {}): PortfolioTile {
     title: `Job ${id}`,
     alt: `Photo of job ${id}`,
     description: null,
+    descriptionRich: null,
     clientName: null,
     category: { slug: 'caps-and-hats', title: 'Caps and Hats' },
     colors: ['black'],

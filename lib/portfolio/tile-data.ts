@@ -1,3 +1,5 @@
+import type { PortableTextBlock } from '@portabletext/react';
+import { portableTextToPlain } from '@/lib/portable-text/to-plain';
 import { buildImageUrl, urlForRenderImage } from '@/lib/sanity/client';
 import {
   portfolioItemColors,
@@ -64,7 +66,23 @@ export interface PortfolioTile {
   id: string;
   title: string;
   alt: string;
+  /**
+   * The description as PLAIN TEXT, for the grid tile (PORT-210). The tile is
+   * a <button>, and a link inside a button is invalid HTML whose click would
+   * open the viewer and navigate at once, so the tile never renders a link:
+   * PortfolioGrid, its two-line clamp and the PORT-115 reserved heights are
+   * untouched by the rich field. Null when the item has no text.
+   */
   description: string | null;
+  /**
+   * The description as stored, for the lightbox (PORT-210), ONLY when the
+   * rich value carries something plain text cannot: a link, bold or italic,
+   * or more than one paragraph. A migrated description that is one plain
+   * paragraph (all 50 at the time of the change) is null here and the viewer
+   * renders `description`, so those tiles cost the page nothing extra; only
+   * a tile whose viewer really needs the blocks carries them in the payload.
+   */
+  descriptionRich: PortableTextBlock[] | null;
   clientName: string | null;
   category: { slug: string; title: string } | null;
   colors: string[];
@@ -118,6 +136,51 @@ function naturalImage(
   return { src, srcSet: buildSrcSet(entries), sizes, width: srcWidth, height };
 }
 
+/**
+ * The tile's plain-text description from either stored shape (PORT-210).
+ * NEVER `item.description?.trim()`: on a migrated document the value is an
+ * array, `.trim` is not a function, the throw lands in `toPortfolioTile`'s
+ * try, and the tile is silently dropped, which empties the gallery of every
+ * migrated item while the page still renders. `portableTextToPlain` takes a
+ * string or an array and trims both. Anything else (an object, a number) is
+ * no description.
+ */
+export function portfolioTileDescription(value: unknown): string | null {
+  return portableTextToPlain(value) || null;
+}
+
+/** True for a Portable Text span carrying a decorator (bold, italic) or an annotation (a link). */
+function spanHasMark(child: unknown): boolean {
+  if (!child || typeof child !== 'object') return false;
+  const marks = (child as { marks?: unknown }).marks;
+  return Array.isArray(marks) && marks.length > 0;
+}
+
+/**
+ * The stored blocks, when the lightbox needs them: a legacy string, an empty
+ * array, a value with no text, or one plain paragraph with no marks all give
+ * null, because the plain string renders those identically and costs less in
+ * the page payload. Two or more text blocks, or any bold / italic / link,
+ * keep the blocks so the viewer can show them.
+ */
+export function portfolioTileRichDescription(value: unknown): PortableTextBlock[] | null {
+  if (!Array.isArray(value) || value.length === 0) return null;
+  if (!portableTextToPlain(value)) return null;
+  const textBlocks = value.filter(
+    (block) =>
+      block &&
+      typeof block === 'object' &&
+      (block as { _type?: unknown })._type === 'block' &&
+      portableTextToPlain([block]),
+  );
+  const hasMark = textBlocks.some((block) => {
+    const children = (block as { children?: unknown[] }).children;
+    return Array.isArray(children) && children.some(spanHasMark);
+  });
+  if (textBlocks.length < 2 && !hasMark) return null;
+  return value as PortableTextBlock[];
+}
+
 /** One projected item to one tile, or null when it carries no usable image. */
 export function toPortfolioTile(
   item: PortfolioItemCard,
@@ -133,7 +196,8 @@ export function toPortfolioTile(
       id: item._id,
       title: item.title,
       alt: image.alt?.trim() || item.title,
-      description: item.description?.trim() || null,
+      description: portfolioTileDescription(item.description),
+      descriptionRich: portfolioTileRichDescription(item.description),
       clientName: item.clientName?.trim() || null,
       category:
         item.category?.slug && item.category.title

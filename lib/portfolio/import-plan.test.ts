@@ -247,10 +247,32 @@ describe('buildItemDoc', () => {
       featured: false,
       displayOrder: 10,
       hidden: false,
-      description: 'Two-tone trucker caps with the monogram embroidered on the front.',
+      // PORT-210: the plain string in the metadata file is written as
+      // richAnswer blocks, one paragraph, no links, keys generated.
+      description: [
+        expect.objectContaining({
+          _type: 'block',
+          style: 'normal',
+          children: [
+            expect.objectContaining({
+              _type: 'span',
+              text: 'Two-tone trucker caps with the monogram embroidered on the front.',
+              marks: [],
+            }),
+          ],
+        }),
+      ],
     });
     expect(doc).not.toHaveProperty('clientName');
     expect(doc).not.toHaveProperty('slug');
+  });
+
+  it('writes the description as rich-text blocks, one paragraph per blank line, never as a string (PORT-210)', () => {
+    const doc = buildItemDoc(record({ description: 'First paragraph.\n\nSecond paragraph.' }), 'a', 'c', 'i');
+    const blocks = doc.description as { _type: string; children: { text: string }[] }[];
+    expect(Array.isArray(blocks)).toBe(true);
+    expect(blocks.map((b) => b.children.map((c) => c.text).join(''))).toEqual(['First paragraph.', 'Second paragraph.']);
+    expect(typeof doc.description).not.toBe('string');
   });
 
   it('omits an empty description instead of storing an empty string', () => {

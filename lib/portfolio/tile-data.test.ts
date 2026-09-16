@@ -16,6 +16,8 @@ import { TILE_SIZES, embeddedTileSizes, lightboxSizesFor, scaleSizes } from './i
 import {
   portfolioRepresentativeImage,
   portfolioSitemapImages,
+  portfolioTileDescription,
+  portfolioTileRichDescription,
   toPortfolioTile,
   toPortfolioTiles,
 } from './tile-data';
@@ -246,5 +248,70 @@ describe('toPortfolioTiles (PORT-120, the embedded block)', () => {
     const [tile] = toPortfolioTiles([item('image-abc123-726x2252-png')], { sizes });
     expect(tile.image.sizes).toBe(scaleSizes(sizes, 0.322));
     expect(tile.image.sizes).toContain('calc(min(33vw, 288px) * 0.322)');
+  });
+});
+
+// PORT-210: the description is rich text (richAnswer). The tile keeps plain
+// text (it is a button), the lightbox gets the blocks only when they carry a
+// link, a decorator or a second paragraph, and a NOT-YET-MIGRATED plain string
+// still maps. `item.description?.trim()` was the trap: on an array it threw
+// inside the mapper's try and the tile vanished.
+describe('toPortfolioTile description (PORT-210)', () => {
+  const REF = 'image-abc123-1500x1500-jpg';
+  const block = (key: string, children: unknown[], markDefs: unknown[] = []) => ({
+    _type: 'block',
+    _key: key,
+    style: 'normal',
+    markDefs,
+    children,
+  });
+  const span = (key: string, text: string, marks: string[] = []) => ({ _type: 'span', _key: key, text, marks });
+
+  it('still maps a legacy plain string, trimmed, with no rich value', () => {
+    const tile = toPortfolioTile(item(REF, {}, { description: '  Twelve caps, front embroidery.  ' }))!;
+    expect(tile.description).toBe('Twelve caps, front embroidery.');
+    expect(tile.descriptionRich).toBeNull();
+  });
+
+  it('maps a one-paragraph rich value with no marks to plain text only (no payload growth)', () => {
+    const value = [block('b1', [span('s1', '  Twelve caps, front embroidery.  ')])];
+    const tile = toPortfolioTile(item(REF, {}, { description: value as never }))!;
+    expect(tile.description).toBe('Twelve caps, front embroidery.');
+    expect(tile.descriptionRich).toBeNull();
+  });
+
+  it('keeps the blocks for the lightbox when a span carries a link, and gives the tile the plain text', () => {
+    const value = [
+      block('b1', [span('s1', 'Twelve '), span('s2', 'caps', ['l1']), span('s3', ', front embroidery.')], [
+        { _type: 'link', _key: 'l1', href: '/products/embroidered-caps' },
+      ]),
+    ];
+    const tile = toPortfolioTile(item(REF, {}, { description: value as never }))!;
+    expect(tile.description).toBe('Twelve caps, front embroidery.');
+    expect(tile.descriptionRich).toEqual(value);
+    expect(JSON.stringify(tile.description)).not.toContain('href');
+  });
+
+  it('keeps the blocks when there are two paragraphs, and when a span is bold', () => {
+    const two = [block('b1', [span('s1', 'One.')]), block('b2', [span('s2', 'Two.')])];
+    expect(toPortfolioTile(item(REF, {}, { description: two as never }))!.descriptionRich).toEqual(two);
+    const bold = [block('b1', [span('s1', 'Bold', ['strong']), span('s2', ' word.')])];
+    expect(toPortfolioTile(item(REF, {}, { description: bold as never }))!.descriptionRich).toEqual(bold);
+    expect(toPortfolioTile(item(REF, {}, { description: two as never }))!.description).toBe('One. Two.');
+  });
+
+  it('treats an empty array, a text-less block and a non-text value as no description, and never drops the tile', () => {
+    for (const value of [[], [block('b1', [span('s1', '   ')])], { text: 'x' }, 42, null, undefined]) {
+      const tile = toPortfolioTile(item(REF, {}, { description: value as never }));
+      expect(tile, JSON.stringify(value)).not.toBeNull();
+      expect(tile!.description).toBeNull();
+      expect(tile!.descriptionRich).toBeNull();
+    }
+  });
+
+  it('exports the two rules for the migration and the tests to share', () => {
+    expect(portfolioTileDescription('  hi ')).toBe('hi');
+    expect(portfolioTileDescription([block('b', [span('s', 'hi')])])).toBe('hi');
+    expect(portfolioTileRichDescription('hi')).toBeNull();
   });
 });

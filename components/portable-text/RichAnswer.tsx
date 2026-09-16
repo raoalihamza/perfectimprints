@@ -7,10 +7,10 @@ import {
 import { affiliateUrl } from '@/lib/affiliate-url';
 
 /**
- * Shared renderer for the short rich-text fields introduced in Task B — FAQ
+ * Shared renderer for the short rich-text fields introduced in Task B, FAQ
  * answers (library + category-page) and video descriptions. Supports normal
  * paragraphs, bold/italic, and the standard link annotation only (no images,
- * headings, or product blocks — these are short answers).
+ * headings, or product blocks, these are short answers).
  *
  * Link behavior mirrors the blog / page-section renderers: internal app paths
  * use `next/link`; external + `#hash` / `mailto:` / `tel:` links render as a
@@ -26,45 +26,63 @@ function isGeigerUrl(url: string): boolean {
 }
 
 const LINK_CLASS = 'text-brand-red underline hover:no-underline';
+/**
+ * PORT-210: the link colour for a dark surface. Brand red (#E11F1E) on the
+ * portfolio lightbox's near-black backdrop is 3.4:1, under the 4.5:1 small
+ * text needs; Tailwind's red-300 (#FCA5A5) is 11:1 there and still reads as
+ * the brand red lightened. Selected by the `tone` prop; the default tone and
+ * its output are byte-identical to before.
+ */
+const LINK_CLASS_ON_DARK = 'text-red-300 underline hover:text-red-200 hover:no-underline';
 
-export const richAnswerComponents: PortableTextComponents = {
-  block: {
-    normal: ({ children }) => <p className="leading-relaxed [&:not(:first-child)]:mt-3">{children}</p>,
-  },
-  marks: {
-    strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
-    em: ({ children }) => <em className="italic">{children}</em>,
-    link: ({ value, children }) => {
-      const raw = (value?.href as string) || '#';
-      const href = isGeigerUrl(raw) ? affiliateUrl(raw) : raw;
-      // Internal app path → client-side nav.
-      if (href.startsWith('/')) {
-        return (
-          <Link href={href} className={LINK_CLASS}>
-            {children}
-          </Link>
-        );
-      }
-      // Everything else (http(s), #hash, mailto:, tel:) renders as a plain <a>.
-      // Only true http(s) links open in a new tab.
-      const isHttp = /^https?:\/\//i.test(href);
-      const rel = isHttp
-        ? isGeigerUrl(raw)
-          ? 'noopener noreferrer sponsored'
-          : 'noopener noreferrer'
-        : undefined;
-      return (
-        <a href={href} target={isHttp ? '_blank' : undefined} rel={rel} className={LINK_CLASS}>
-          {children}
-        </a>
-      );
+export type RichAnswerTone = 'default' | 'onDark';
+
+function buildComponents(linkClass: string): PortableTextComponents {
+  return {
+    block: {
+      normal: ({ children }) => <p className="leading-relaxed [&:not(:first-child)]:mt-3">{children}</p>,
     },
-  },
-};
+    marks: {
+      strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
+      em: ({ children }) => <em className="italic">{children}</em>,
+      link: ({ value, children }) => {
+        const raw = (value?.href as string) || '#';
+        const href = isGeigerUrl(raw) ? affiliateUrl(raw) : raw;
+        // Internal app path → client-side nav.
+        if (href.startsWith('/')) {
+          return (
+            <Link href={href} className={linkClass}>
+              {children}
+            </Link>
+          );
+        }
+        // Everything else (http(s), #hash, mailto:, tel:) renders as a plain <a>.
+        // Only true http(s) links open in a new tab.
+        const isHttp = /^https?:\/\//i.test(href);
+        const rel = isHttp
+          ? isGeigerUrl(raw)
+            ? 'noopener noreferrer sponsored'
+            : 'noopener noreferrer'
+          : undefined;
+        return (
+          <a href={href} target={isHttp ? '_blank' : undefined} rel={rel} className={linkClass}>
+            {children}
+          </a>
+        );
+      },
+    },
+  };
+}
+
+export const richAnswerComponents: PortableTextComponents = buildComponents(LINK_CLASS);
+/** The same renderer with the on-dark link colour (the portfolio lightbox). */
+export const richAnswerComponentsOnDark: PortableTextComponents = buildComponents(LINK_CLASS_ON_DARK);
 
 interface RichAnswerProps {
   value?: PortableTextBlock[] | string | null;
   className?: string;
+  /** `onDark` lightens the link colour for a dark background; default unchanged. */
+  tone?: RichAnswerTone;
 }
 
 /**
@@ -72,13 +90,14 @@ interface RichAnswerProps {
  * Tolerates a legacy plain string (renders it as a paragraph) so a doc that
  * somehow slipped past the migration never crashes the render.
  */
-export function RichAnswer({ value, className }: RichAnswerProps) {
+export function RichAnswer({ value, className, tone = 'default' }: RichAnswerProps) {
   if (!value || (Array.isArray(value) && value.length === 0)) return null;
 
   if (typeof value === 'string') {
     return <p className={className ? `whitespace-pre-line leading-relaxed ${className}` : 'whitespace-pre-line leading-relaxed'}>{value}</p>;
   }
 
-  const content = <PortableText value={value} components={richAnswerComponents} />;
+  const components = tone === 'onDark' ? richAnswerComponentsOnDark : richAnswerComponents;
+  const content = <PortableText value={value} components={components} />;
   return className ? <div className={className}>{content}</div> : content;
 }

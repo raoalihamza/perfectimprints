@@ -10,6 +10,12 @@ import {
   isPortfolioDecorationMethod,
 } from '../../../lib/portfolio/decoration-methods';
 import { PORTFOLIO_INDUSTRY_OPTIONS, isPortfolioIndustry } from '../../../lib/portfolio/industries';
+// PORT-210: the description is rich text; its length rule counts the plain
+// text, through the same extractor the rich-answer type keeps for previews.
+import { richAnswerToPlain } from '../objects/rich-answer';
+
+/** The description's length limit, in characters of PLAIN text (PORT-210). */
+export const PORTFOLIO_DESCRIPTION_MAX = 400;
 
 /**
  * Portfolio Gallery item (PORT-100): one job Patrick actually produced for a
@@ -132,10 +138,21 @@ export default defineType({
     defineField({
       name: 'description',
       title: 'Description (optional)',
-      type: 'text',
-      rows: 3,
-      description: 'A line or two about the job: what was made, how it was decorated, what it was for.',
-      validation: (Rule) => Rule.max(400),
+      // PORT-210: rich text (the shared richAnswer type: paragraphs, bold,
+      // italic and links), so a word can be linked to the product shown. The
+      // link shows when a visitor opens the photo; the grid tile keeps plain
+      // text because a tile is a button. `Rule.max(400)` on an array type
+      // would count blocks, not characters, so the limit is a custom rule
+      // over the plain text and still means what it meant.
+      type: 'richAnswer',
+      description:
+        'A line or two about the job: what was made, how it was decorated, what it was for. Select a word and use the link button to link it to the product shown (a /products/ page or a category page). Links appear when a visitor opens the photo; the small tile shows the text only.',
+      validation: (Rule) =>
+        Rule.custom((value?: unknown) => {
+          const length = richAnswerToPlain(value).length;
+          if (length <= PORTFOLIO_DESCRIPTION_MAX) return true;
+          return `Keep the description under ${PORTFOLIO_DESCRIPTION_MAX} characters (it is ${length}). The tile shows two lines; the rest shows when the photo is opened.`;
+        }),
     }),
     defineField({
       name: 'clientName',

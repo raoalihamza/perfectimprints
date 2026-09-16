@@ -58,3 +58,29 @@ describe('RichAnswer', () => {
     expect(html).not.toContain('&lt;a');
   });
 });
+
+// PORT-210: the portfolio lightbox renders on a near-black backdrop, where
+// brand red is 3.4:1; the `onDark` tone swaps ONLY the link colour class.
+// The default tone's output is byte-identical to before.
+describe('RichAnswer tone', () => {
+  const value: PortableTextBlock[] = [
+    {
+      _type: 'block',
+      _key: 'b1',
+      style: 'normal',
+      markDefs: [{ _type: 'link', _key: 'l1', href: '/products/x' }],
+      children: [span('See the '), span('product', ['l1'])],
+    },
+  ];
+
+  it('uses the lighter red for links on a dark surface and the brand red by default', () => {
+    const dark = renderToStaticMarkup(<RichAnswer value={value} tone="onDark" />);
+    expect(dark).toContain('href="/products/x"');
+    expect(dark).toContain('text-red-300');
+    expect(dark).not.toContain('text-brand-red');
+    const light = renderToStaticMarkup(<RichAnswer value={value} />);
+    expect(light).toContain('text-brand-red');
+    expect(light).not.toContain('text-red-300');
+    expect(renderToStaticMarkup(<RichAnswer value={value} tone="default" />)).toBe(light);
+  });
+});

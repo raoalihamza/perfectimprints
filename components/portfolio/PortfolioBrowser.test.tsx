@@ -28,6 +28,7 @@ function tile(id: string, extra: Partial<PortfolioTile> = {}): PortfolioTile {
     title: `Job ${id}`,
     alt: `Photo of job ${id}`,
     description: null,
+    descriptionRich: null,
     clientName: null,
     category: { slug: 'caps-and-hats', title: 'Caps and Hats' },
     colors: ['black'],
@@ -299,5 +300,63 @@ describe('PortfolioLightbox markup', () => {
         <PortfolioLightbox tiles={[tile('a')]} index={5} onClose={() => {}} onNavigate={() => {}} returnFocusTo={null} />,
       ),
     ).toBe('');
+  });
+});
+
+// PORT-210: links in the description. The tile is a <button>, so it renders
+// the PLAIN text only; the lightbox renders the rich value through the shared
+// RichAnswer with the on-dark link colour, and a legacy plain string still
+// renders in both places exactly as before.
+describe('PortfolioBrowser description rendering (PORT-210)', () => {
+  const rich = [
+    {
+      _type: 'block',
+      _key: 'b1',
+      style: 'normal',
+      markDefs: [{ _type: 'link', _key: 'l1', href: '/products/embroidered-caps' }],
+      children: [
+        { _type: 'span', _key: 's1', text: 'Twelve ', marks: [] },
+        { _type: 'span', _key: 's2', text: 'embroidered caps', marks: ['l1'] },
+        { _type: 'span', _key: 's3', text: ' for a fire department.', marks: [] },
+      ],
+    },
+  ];
+  const linked = tile('linked', {
+    description: 'Twelve embroidered caps for a fire department.',
+    descriptionRich: rich as never,
+  });
+
+  it('renders the tile with the plain text and NO anchor inside the button', () => {
+    const html = renderToStaticMarkup(<PortfolioGrid tiles={[linked]} onOpen={() => {}} />);
+    expect(html).toContain('Twelve embroidered caps for a fire department.');
+    expect(html).not.toContain('<a ');
+    expect(html).not.toContain('/products/embroidered-caps');
+    // The PORT-115 clamp and reserved heights, untouched.
+    expect(html).toContain('line-clamp-2 min-h-[2.25rem] text-xs leading-[1.125rem] text-text-primary');
+  });
+
+  it('renders a working link in the lightbox caption, in the on-dark colour, inside the figcaption the click rule keeps open', () => {
+    const html = renderToStaticMarkup(
+      <PortfolioLightbox tiles={[linked]} index={0} onClose={() => {}} onNavigate={() => {}} returnFocusTo={null} />,
+    );
+    const caption = html.slice(html.indexOf('<figcaption'), html.indexOf('</figcaption>'));
+    expect(caption).toContain('href="/products/embroidered-caps"');
+    expect(caption).toContain('text-red-300');
+    expect(caption).not.toContain('text-brand-red');
+    expect(caption).toContain('>embroidered caps</a>');
+    expect(caption).toContain('leading-relaxed');
+    expect(caption).not.toContain('whitespace-pre-line');
+    expect(html).not.toContain('line-clamp');
+  });
+
+  it('still renders a legacy plain-string description on the tile and in the lightbox', () => {
+    const legacy = tile('legacy', { description: 'Line one.\nLine two.', descriptionRich: null });
+    const grid = renderToStaticMarkup(<PortfolioGrid tiles={[legacy]} onOpen={() => {}} />);
+    expect(grid).toContain('Line one.');
+    const box = renderToStaticMarkup(
+      <PortfolioLightbox tiles={[legacy]} index={0} onClose={() => {}} onNavigate={() => {}} returnFocusTo={null} />,
+    );
+    expect(box).toMatch(/<p class="[^"]*whitespace-pre-line[^"]*">Line one\.\nLine two\.<\/p>/);
+    expect(box).not.toContain('<a ');
   });
 });

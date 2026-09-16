@@ -23,6 +23,12 @@ import { useState } from 'react';
 import { useDocumentOperation, type DocumentActionComponent } from 'sanity';
 import { AiProgressContent } from '../components/AiProgressDialog';
 import { useGenerateAuthFetch } from '../components/useGenerateAuthFetch';
+// PORT-210: the description field is rich text (richAnswer). The route keeps
+// returning a plain string (the model has nothing to link to), and this
+// action converts it into one paragraph block, the same conversion the
+// category action applies to AI FAQ answers (2026-07-12 fix). Patrick adds
+// the links himself in Studio.
+import { plainTextToBlocks } from '../../lib/portable-text/html-to-blocks';
 
 interface GeneratedPortfolioResponse {
   title: string;
@@ -38,7 +44,8 @@ interface GeneratedPortfolioResponse {
 interface PortfolioItemDoc {
   title?: string;
   image?: { asset?: { _ref?: string }; alt?: string };
-  description?: string;
+  /** richAnswer blocks since PORT-210; a plain string on a document not yet migrated. */
+  description?: unknown;
   colors?: string[];
   decorationMethods?: string[];
   industry?: string;
@@ -55,10 +62,21 @@ const FIELD_LABELS = {
 } as const;
 type FieldKey = keyof typeof FIELD_LABELS;
 
+/** True for a Portable Text block whose spans hold no text (an opened, untyped rich field). */
+function isEmptyBlock(entry: unknown): boolean {
+  if (!entry || typeof entry !== 'object') return false;
+  const block = entry as { _type?: unknown; children?: unknown };
+  if (block._type !== 'block') return false;
+  const children = Array.isArray(block.children) ? block.children : [];
+  return children.every((c) => typeof (c as { text?: unknown })?.text !== 'string' || !(c as { text: string }).text.trim());
+}
+
 function isBlank(value: unknown): boolean {
   if (value === undefined || value === null) return true;
   if (typeof value === 'string') return value.trim().length === 0;
-  if (Array.isArray(value)) return value.length === 0;
+  // An empty array, or (PORT-210) a rich-text array Patrick opened and left
+  // without typing, is blank; a colours array with one value is not.
+  if (Array.isArray(value)) return value.length === 0 || value.every(isEmptyBlock);
   return false;
 }
 
@@ -150,7 +168,9 @@ export const generatePortfolioWithAi: DocumentActionComponent = (props) => {
         };
         consider('title', 'title', data.title.trim());
         consider('alt', 'image.alt', data.alt.trim());
-        consider('description', 'description', (data.description ?? '').trim());
+        // PORT-210: stored as richAnswer blocks; an empty string gives [] and
+        // counts as blank, so the AI leaving it empty is reported, not written.
+        consider('description', 'description', plainTextToBlocks((data.description ?? '').trim()));
         consider('colors', 'colors', Array.isArray(data.colors) ? data.colors : []);
         consider(
           'decorationMethods',

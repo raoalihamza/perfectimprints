@@ -700,3 +700,54 @@ describe('FIX-861: an untouched gallery block is invisible to validation, on eve
     }
   });
 });
+
+// PORT-210: links in the portfolio description. The field is rich text, the
+// tile stays plain text, the lightbox renders the rich value, and the trap
+// that empties the gallery (a string method on the array) is kept out.
+describe('the portfolio description is rich text, rendered as links only in the lightbox (PORT-210)', () => {
+  it('declares the field as richAnswer with the 400-character rule over the plain text, in the same field order', () => {
+    const src = code('sanity/schemas/documents/portfolio-item.ts');
+    const field = src.slice(src.indexOf("name: 'description'"), src.indexOf("name: 'clientName'"));
+    expect(field).toContain("type: 'richAnswer'");
+    expect(field).not.toContain('Rule.max(');
+    expect(field).toContain('richAnswerToPlain(value).length');
+    expect(src).toContain('export const PORTFOLIO_DESCRIPTION_MAX = 400;');
+    // The PORT-160 slice above reads decorationMethods up to description; keep the order.
+    expect(src.indexOf("name: 'decorationMethods'")).toBeLessThan(src.indexOf("name: 'description'"));
+  });
+
+  it('never calls a string method on the description in the tile mapper (the array would throw and drop the tile)', () => {
+    const src = code('lib/portfolio/tile-data.ts');
+    expect(src).not.toMatch(/description\??\.\s*(trim|slice|length|replace|split)/);
+    expect(src).toContain('description: portfolioTileDescription(item.description)');
+    expect(src).toContain('descriptionRich: portfolioTileRichDescription(item.description)');
+    expect(src).toContain("from '@/lib/portable-text/to-plain'");
+    expect(code('lib/portfolio/gallery.ts')).toContain('description?: string | PortableTextBlock[] | null;');
+  });
+
+  it('renders the rich value only in the lightbox, through the shared RichAnswer with the on-dark tone; the tile is byte-for-byte plain', () => {
+    const lightbox = code('components/portfolio/PortfolioLightbox.tsx');
+    expect(lightbox).toContain("import { RichAnswer } from '@/components/portable-text/RichAnswer';");
+    expect(lightbox).toContain('value={tile.descriptionRich ?? tile.description}');
+    expect(lightbox).toContain('tone="onDark"');
+    expect(lightbox).not.toContain('whitespace-pre-line');
+    const grid = code('components/portfolio/PortfolioGrid.tsx');
+    expect(grid).not.toContain('RichAnswer');
+    expect(grid).not.toContain('descriptionRich');
+    expect(grid).toContain("{tile.description ?? ''}");
+    expect(grid).toContain('line-clamp-2 min-h-[2.25rem] text-xs leading-[1.125rem] text-text-primary');
+  });
+
+  it('the AI action and the import write richAnswer blocks; the route still returns a plain string', () => {
+    const action = code('sanity/actions/generate-portfolio-with-ai.tsx');
+    expect(action).toContain("import { plainTextToBlocks } from '../../lib/portable-text/html-to-blocks';");
+    expect(action).toContain("consider('description', 'description', plainTextToBlocks(");
+    const plan = code('lib/portfolio/import-plan.ts');
+    expect(plan).toContain('doc.description = plainTextToBlocks(record.description)');
+    const route = code('app/api/sanity/generate-portfolio/route.ts');
+    expect(route).not.toContain('plainTextToBlocks');
+    const migration = code('scripts/migrations/migrate-richtext-answers.ts');
+    expect(migration).toContain('planDescriptionMigration(items)');
+    expect(migration).toContain("!process.argv.includes('--commit')");
+  });
+});

@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useId, useRef } from 'react';
+import { RichAnswer } from '@/components/portable-text/RichAnswer';
 import type { PortfolioTile } from '@/lib/portfolio/tile-data';
 
 interface PortfolioLightboxProps {
@@ -55,8 +56,11 @@ const arrowClass =
  * the caption's last line reachable by scrolling). Without it the row grows
  * to its content, the dialog scrolls, and centring only applies when there
  * is room.
- * The caption shows the FULL description (the tile clamps it to two lines)
- * with the line breaks the editor typed preserved.
+ * The caption shows the FULL description (the tile clamps it to two lines):
+ * since PORT-210 it is rich text rendered by the shared RichAnswer, so a
+ * link Patrick put on a word (to the product shown) is live HERE and only
+ * here, in the on-dark link colour; paragraphs get the renderer's spacing,
+ * and a not-yet-migrated plain string keeps its typed line breaks.
  */
 export function PortfolioLightbox({
   tiles,
@@ -215,9 +219,20 @@ export function PortfolioLightbox({
               </p>
             ) : null}
             {tile.description ? (
-              <p className="mt-2 whitespace-pre-line break-words text-sm leading-relaxed text-white/85">
-                {tile.description}
-              </p>
+              // PORT-210: the description is rich text (links, bold, italic,
+              // paragraphs) and this viewer is the ONE place its links show;
+              // the tile is a button and keeps plain text. `descriptionRich`
+              // is present only when the blocks carry something plain text
+              // cannot; otherwise the plain string renders through the same
+              // component's string branch (one paragraph, line breaks kept).
+              // A click on a link lands inside <figcaption>, which KEEP_OPEN
+              // already names, so the viewer stays open while the link
+              // navigates; `a[href]` was already in the Tab trap's list.
+              <RichAnswer
+                value={tile.descriptionRich ?? tile.description}
+                tone="onDark"
+                className="mt-2 break-words text-sm text-white/85"
+              />
             ) : null}
             {tile.clientName ? (
               <p className="mt-1 text-sm text-white/70">Made for {tile.clientName}</p>

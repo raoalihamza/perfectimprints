@@ -5,23 +5,34 @@
  * `customCategory.faqs[].a`, and `video.description`. Existing docs hold plain
  * strings, which would render/validate wrong under the new array type. This
  * converts each existing plain string into Portable Text blocks (split on blank
- * lines into paragraphs; NO auto-linking — Patrick adds links by hand later).
+ * lines into paragraphs; NO auto-linking; Patrick adds links by hand later).
  *
- *   tsx scripts/migrations/migrate-richtext-answers.ts             # convert (live)
- *   tsx scripts/migrations/migrate-richtext-answers.ts --dry-run   # print, no writes
+ * PORT-210 (2026-09-16) added a fourth field, `portfolioItem.description`,
+ * with the same rule, planned by the pure lib/portfolio/description-migration.ts
+ * (an empty string is unset rather than stored as an empty array). The three
+ * original fields are long since converted and report "converted 0" now.
+ *
+ *   pnpm migrate-richtext-answers              # DRY RUN: print the plan, write nothing
+ *   pnpm migrate-richtext-answers -- --commit  # apply
+ *
+ * DRY RUN BY DEFAULT since PORT-210 (it used to write unless --dry-run was
+ * passed; the newer scripts all default to the safe side and this one now
+ * matches them). `--dry-run` is still accepted and wins over `--commit`.
  *
  * Idempotent: any value already in Portable Text (array) form is skipped. Runs
  * over BOTH published docs and drafts so Studio editing stays consistent.
  *
- * Requires SANITY_API_TOKEN with write scope (unless --dry-run).
+ * Requires SANITY_API_TOKEN with write scope (unless dry run).
  */
 
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { createClient, type SanityClient } from '@sanity/client';
 import { plainTextToBlocks } from '../../lib/portable-text/html-to-blocks';
+import { planDescriptionMigration } from '../../lib/portfolio/description-migration';
 
-const DRY_RUN = process.argv.includes('--dry-run');
+// Dry run unless --commit is passed; --dry-run always wins (PORT-210).
+const DRY_RUN = process.argv.includes('--dry-run') || !process.argv.includes('--commit');
 const PROJECT_ROOT = resolve(__dirname, '../..');
 
 function loadDotEnvLocal(): void {
@@ -79,7 +90,7 @@ interface CustomCategoryRow {
 }
 
 async function main(): Promise<void> {
-  console.log(`Rich-text answer/description migration — Mode: ${DRY_RUN ? 'DRY RUN (no writes)' : 'LIVE WRITE'}\n`);
+  console.log(`Rich-text answer/description migration, Mode: ${DRY_RUN ? 'DRY RUN (no writes)' : 'LIVE WRITE'}\n`);
   const client = buildClient();
 
   let faqConverted = 0;
@@ -140,12 +151,34 @@ async function main(): Promise<void> {
     }
   }
 
+  // 4. portfolioItem.description (PORT-210) -------------------------------
+  // Published docs AND drafts (no perspective on the client), so the draft
+  // Patrick may have open converts with its published copy and the two never
+  // disagree. An empty string is unset, never stored as an empty array.
+  const items = await client.fetch<{ _id: string; title?: string; description?: unknown }[]>(
+    `*[_type == "portfolioItem"]{ _id, title, description }`,
+  );
+  const plan = planDescriptionMigration(items);
+  for (const action of plan.actions) {
+    if (action.kind === 'convert') {
+      console.log(`  portfolio ${action._id}  ${action.title.slice(0, 50)} → ${action.blocks.length} block(s)`);
+      if (!DRY_RUN) await client.patch(action._id).set({ description: action.blocks }).commit();
+    } else if (action.kind === 'unset') {
+      console.log(`  portfolio ${action._id}  ${action.title.slice(0, 50)} → empty string removed`);
+      if (!DRY_RUN) await client.patch(action._id).unset(['description']).commit();
+    }
+  }
+
   console.log('\nDone.');
   console.log(`  faq.answer:            converted ${faqConverted}, skipped ${faqSkipped} (already rich/empty)`);
   console.log(`  video.description:     converted ${videoConverted}, skipped ${videoSkipped} (already rich/empty)`);
   console.log(
     `  customCategory.faqs:   converted ${ccItemsConverted} item(s) across ${ccDocsConverted} doc(s), skipped ${ccDocsSkipped} doc(s)`,
   );
+  console.log(
+    `  portfolioItem.description: ${items.length} document(s) read (published + drafts); would convert ${plan.convert}, remove ${plan.unset} empty string(s); already converted ${plan.alreadyRich}; no description ${plan.noDescription}`,
+  );
+  if (DRY_RUN) console.log('\nDRY RUN: nothing was written. Re-run with --commit to apply.');
 }
 
 main().catch((e) => {

@@ -30,6 +30,7 @@
  *     to DEFAULT_GALLERY_LIMIT, and it is clamped to MAX_GALLERY_LIMIT.
  */
 
+import type { PortableTextBlock } from '@portabletext/react';
 import { normalizePortfolioColors, type PortfolioColor } from './colors';
 import {
   normalizePortfolioDecorationMethods,
@@ -82,7 +83,14 @@ export interface PortfolioItemCard {
   decorationMethods?: string[] | null;
   /** PORT-160: the customer type the job was for; the lib/portfolio/industries vocabulary. */
   industry?: string | null;
-  description?: string | null;
+  /**
+   * PORT-210: a `richAnswer` Portable Text array (paragraphs, bold, italic,
+   * links) on a migrated document, or the plain string the field held before
+   * the type change on one that has not been migrated yet. EVERY reader must
+   * accept both shapes; the tile mapper reduces either to plain text through
+   * `portableTextToPlain` and never calls a string method on it.
+   */
+  description?: string | PortableTextBlock[] | null;
   clientName?: string | null;
   featured?: boolean | null;
   displayOrder?: number | null;
