@@ -366,29 +366,57 @@ export default defineType({
         },
       ],
     }),
-    // MERCH-100 part 2. What Google is told about SHIPPING on every one of
-    // Patrick's own product pages (/products/<slug>). Built before the
-    // business has decided on a rate, so that the day it does, filling these
-    // in is the whole job and nothing needs deploying. Every field is emitted
-    // only when it holds a value; blank means Google is told nothing, exactly
-    // as before. Lives on this singleton (already in the webhook Filter in
-    // both environments, the PORT-115 reasoning) so no manual Sanity step is
-    // needed and a publish refreshes the product pages through SETTINGS_TAG.
+    // MERCH-100 part 2, made real by MERCH-220. What Google is told about
+    // SHIPPING on every one of Patrick's own product pages (/products/<slug>).
+    // Patrick's answer (2026-09-13): shipping is 15% of the purchase price and
+    // production time is 10 days. The PERCENTAGE lives here and is applied to
+    // each page's own minimum-order price in integer cents; the 10 DAYS is
+    // the Merchant Center account setting and the fallback handling range
+    // below, because each product page prints its OWN production time and
+    // that is what its markup says (MERCH-210: a site-wide 10 would
+    // contradict 144 of 158 pages). Every field is emitted only when it holds
+    // a value; blank means Google is told nothing. Lives on this singleton
+    // (already in the webhook Filter in both environments, the PORT-115
+    // reasoning) so no manual Sanity step is needed and a publish refreshes
+    // the product pages through SETTINGS_TAG with no deploy.
     defineField({
       name: 'shippingPolicy',
       title: 'Shipping (what Google is told)',
       type: 'object',
       description:
-        'Optional. Fills in the shipping cost and delivery time Google asks for on your own product pages (/products/...). Leave everything blank and nothing is sent, which is fine: it only means Google keeps noting that shipping details are missing. Fill it in only with figures you actually charge and can keep to. Each field is sent on its own, so you can give a rate without a delivery time, or the other way round. Applies to every product page at once.',
+        'Optional. Fills in the shipping cost and delivery time Google asks for on your own product pages (/products/...). Whatever you enter here must match the shipping policy in your Merchant Center account, which is the one Google treats as authoritative. Leave everything blank and nothing is sent. Each field is sent on its own. The shipping cost is either a percentage of the order or a flat rate; if both are filled, the percentage wins. Handling time comes from each product\'s own "Production time in days" field and the handling fields below are only used for a product that has none. Applies to every product page at once.',
       options: { collapsible: true, collapsed: true },
       fields: [
+        {
+          name: 'orderPercentage',
+          type: 'number',
+          title: 'Shipping as a percentage of the order total (%)',
+          description:
+            'A percentage of each product page\'s minimum-order price, e.g. 15 for 15%: a $432.50 minimum order is then told $64.88 shipping. Enter the number of percent, not a fraction (15, never 0.15). Enter 0 for free shipping. Leave blank to use the flat rate below instead. When this is filled in, the flat rate is ignored.',
+          // Two rules, not one chain: .warning() would soften the min/max too.
+          validation: (Rule) => [
+            Rule.min(0).max(100),
+            Rule.custom((value: number | undefined, context) => {
+              const parent = context.parent as { flatRate?: number } | undefined;
+              if (typeof value !== 'number' || typeof parent?.flatRate !== 'number') return true;
+              return 'Both the percentage and the flat rate are filled in. The percentage is what Google is told; the flat rate is ignored. Clear one of them so the setting reads the way it works.';
+            }).warning(),
+          ],
+        },
         {
           name: 'flatRate',
           type: 'number',
           title: 'Flat shipping rate per order (USD)',
           description:
-            'One figure for a whole order, in US dollars, e.g. 15. Enter 0 to tell Google shipping is free. Leave blank to send no rate at all.',
-          validation: (Rule) => Rule.min(0),
+            'One figure for a whole order, in US dollars, e.g. 15. Enter 0 to tell Google shipping is free. Leave blank to send no rate at all. Ignored whenever the percentage above is filled in.',
+          validation: (Rule) => [
+            Rule.min(0),
+            Rule.custom((value: number | undefined, context) => {
+              const parent = context.parent as { orderPercentage?: number } | undefined;
+              if (typeof value !== 'number' || typeof parent?.orderPercentage !== 'number') return true;
+              return 'The percentage above is filled in, so this flat rate is ignored and the percentage is what Google is told.';
+            }).warning(),
+          ],
         },
         {
           name: 'destinationCountry',
@@ -407,7 +435,8 @@ export default defineType({
           name: 'handlingDaysMin',
           type: 'number',
           title: 'Handling time, from (business days)',
-          description: 'Days between the order and the parcel leaving, at the quickest. Both handling fields must be filled for either to be sent.',
+          description:
+            'Days between the order and the parcel leaving, at the quickest. FALLBACK ONLY: a product page that has its own "Production time in days" sends that figure instead. Both handling fields must be filled for either to be sent.',
           validation: (Rule) => Rule.min(0).integer(),
         },
         {

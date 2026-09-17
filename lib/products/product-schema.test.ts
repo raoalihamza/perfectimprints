@@ -8,10 +8,15 @@ import {
   buildMinimumOrderOffer,
   buildProductAudience,
   decoratedGoodsReturnPolicy,
+  handlingTimeFor,
+  isOrderPercentage,
   mergeShippingDetails,
   PRODUCT_AGE_GROUP_VALUES,
   PRODUCT_GENDER_VALUES,
   shippingPolicyDetails,
+  shippingRateCents,
+  shippingRateFor,
+  usdToCents,
   type ShippingPolicy,
 } from './product-schema';
 import type { DecorationOption } from './quote-estimate';
@@ -26,6 +31,7 @@ const base = {
 };
 
 const emptyPolicy: ShippingPolicy = {
+  orderPercentage: null,
   rate: null,
   destinationCountry: null,
   handlingDaysMin: null,
@@ -210,6 +216,7 @@ describe('shipping policy (MERCH-100 part 2)', () => {
 
   it('emits the rate, destination and delivery time when all are filled', () => {
     const d = shippingPolicyDetails({
+      orderPercentage: null,
       rate: 12.5,
       destinationCountry: 'us',
       handlingDaysMin: 1,
@@ -400,5 +407,275 @@ describe('no rendered source re-adds a quantity annotation to a product offer', 
 
   it('confines eligibleQuantity to the listing serializer', () => {
     expect(offenders('eligibleQuantity')).toEqual(['lib/seo/product-list-schema.ts']);
+  });
+});
+
+
+// ---------------------------------------------------------------------------
+// MERCH-220: the percentage rate, computed per product in integer cents, and
+// the handling time taken from each product's own production time.
+//
+// MERCH-100's fault sat live for weeks because nothing checked the figure
+// Google was handed against the figure the page showed. These tests are the
+// first of three guards (unit, live script, Merchant Center spot check).
+// ---------------------------------------------------------------------------
+
+describe('shipping rate as a percentage of the order (MERCH-220)', () => {
+  const pct15: ShippingPolicy = { ...emptyPolicy, orderPercentage: 15 };
+
+  it('computes in integer cents and rounds half up: $199.50 at 15% is $29.93, not the float method\'s $29.92', () => {
+    // 19950 * 1500 = 29,925,000 hundredths-of-a-cent; the true figure is
+    // 2992.5 cents, a tie. Half up gives 2993.
+    expect(shippingRateCents(19950, 15)).toBe(2993);
+    // The float method disagrees on this real product (MERCH-210 measured it).
+    expect(Math.round(199.5 * 0.15 * 100)).toBe(2992);
+    // The pen page Patrick reported in MERCH-100 is a tie too: $432.50.
+    expect(shippingRateCents(43250, 15)).toBe(6488);
+    // A non-tie for contrast: $143.28 (the cheapest live product) -> 2149.2 -> 2149.
+    expect(shippingRateCents(14328, 15)).toBe(2149);
+    // The dearest live product: $1944.96 -> 29174.4 -> 29174.
+    expect(shippingRateCents(194496, 15)).toBe(29174);
+  });
+
+  it('handles a fractional percentage without leaving integer arithmetic', () => {
+    expect(shippingRateCents(10000, 12.5)).toBe(1250);
+    expect(shippingRateCents(19950, 12.5)).toBe(2494); // 2493.75 -> 2494
+  });
+
+  it('treats 0% as free shipping (a real zero) and 100% as the price itself', () => {
+    expect(shippingRateCents(43250, 0)).toBe(0);
+    expect(shippingRateCents(43250, 100)).toBe(43250);
+  });
+
+  it('never exceeds the price, for every price and every percentage in range', () => {
+    const prices = [0, 1, 99, 100, 14328, 19950, 43250, 194496, 99999999];
+    for (const price of prices) {
+      for (let pct = 0; pct <= 100; pct += 0.25) {
+        const rate = shippingRateCents(price, pct);
+        expect(rate, `${price} at ${pct}%`).not.toBeNull();
+        expect(rate!, `${price} at ${pct}%`).toBeLessThanOrEqual(price);
+      }
+    }
+  });
+
+  it('refuses a unit slip: a percentage above 100 (a 1500 where 15 was meant) yields NO rate, never a clamped one', () => {
+    // The guard is the ceiling, not a clamp: a wrong figure must not be
+    // published as a plausible one.
+    expect(shippingRateCents(43250, 1500)).toBeNull();
+    expect(shippingRateCents(43250, 100.01)).toBeNull();
+    expect(shippingRateCents(43250, -15)).toBeNull();
+    expect(shippingRateCents(43250, Number.NaN)).toBeNull();
+    expect(isOrderPercentage(1500)).toBe(false);
+    expect(isOrderPercentage(15)).toBe(true);
+    // And through the policy: a 0.15 typed where 15 was meant is NOT caught
+    // here (0.15% is a legal share), which is why the live verification
+    // script flags a percentage between 0 and 1 and the Studio field says
+    // "15, never 0.15".
+    expect(shippingRateFor({ orderPercentage: 0.15, rate: null }, 432.5)).toEqual({
+      '@type': 'MonetaryAmount',
+      value: 0.65,
+      currency: 'USD',
+    });
+  });
+
+  it('refuses a price that is not an integer number of cents', () => {
+    expect(shippingRateCents(199.5, 15)).toBeNull();
+    expect(shippingRateCents(-1, 15)).toBeNull();
+    expect(shippingRateCents('19950', 15)).toBeNull();
+    expect(usdToCents(199.5)).toBe(19950);
+    expect(usdToCents(432.5)).toBe(43250);
+    expect(usdToCents(0.1 + 0.2)).toBe(30);
+    expect(usdToCents(-1)).toBeNull();
+    expect(usdToCents(null)).toBeNull();
+  });
+
+  it('precedence: a set percentage wins and the flat rate is ignored', () => {
+    expect(shippingRateFor({ orderPercentage: 15, rate: 9 }, 432.5)).toEqual({
+      '@type': 'MonetaryAmount',
+      value: 64.88,
+      currency: 'USD',
+    });
+  });
+
+  it('precedence: only a flat rate set is byte-identical to MERCH-100', () => {
+    expect(shippingRateFor({ orderPercentage: null, rate: 9 }, 432.5)).toEqual({
+      '@type': 'MonetaryAmount',
+      value: 9,
+      currency: 'USD',
+    });
+    expect(shippingRateFor({ orderPercentage: null, rate: 0 }, 432.5)?.value).toBe(0);
+  });
+
+  it('precedence: neither set emits nothing, and a percentage with no order total emits nothing rather than falling back', () => {
+    expect(shippingRateFor({ orderPercentage: null, rate: null }, 432.5)).toBeNull();
+    expect(shippingRateFor({ orderPercentage: 15, rate: 9 }, null)).toBeNull();
+    expect(shippingRateFor({ orderPercentage: 15, rate: 9 })).toBeNull();
+    expect(shippingPolicyDetails(pct15)).toBeNull();
+  });
+
+  it('an unset percentage emits no shippingRate at all through the offer', () => {
+    const offer = buildMinimumOrderOffer({
+      ...base,
+      tiers: [{ minQty: 1, price: 199.5 }],
+      shippingPolicy: { ...emptyPolicy, destinationCountry: 'US' },
+    })!.offer as Record<string, any>;
+    expect(offer.shippingDetails).not.toHaveProperty('shippingRate');
+    expect(offer.shippingDetails.shippingDestination.addressCountry).toBe('US');
+  });
+
+  it('through the offer: the rate is the percentage of the very price beside it, in the MonetaryAmount shape', () => {
+    // 50 pens at $7.75 plus a $45 setup: $432.50, the pen page's own total.
+    const built = buildMinimumOrderOffer({
+      ...base,
+      minOrderQty: 50,
+      tiers: [{ minQty: 50, price: 7.75 }],
+      flatSetupCharge: 45,
+      shippingPolicy: { ...pct15, destinationCountry: 'US' },
+      productionTimeDays: 7,
+    })!;
+    const offer = built.offer as Record<string, any>;
+    expect(offer.price).toBe(432.5);
+    expect(offer.priceCurrency).toBe('USD');
+    expect(offer.shippingDetails.shippingRate).toEqual({ '@type': 'MonetaryAmount', value: 64.88, currency: 'USD' });
+    expect(offer.shippingDetails.shippingRate.value).toBeLessThanOrEqual(offer.price);
+    // The $199.50 case end to end.
+    const kolder = buildMinimumOrderOffer({
+      ...base,
+      minOrderQty: 1,
+      tiers: [{ minQty: 1, price: 199.5 }],
+      shippingPolicy: pct15,
+    })!.offer as Record<string, any>;
+    expect(kolder.shippingDetails.shippingRate.value).toBe(29.93);
+  });
+
+  it('changes nothing else in the offer: price, currency, availability, condition, return policy, and no quantity annotation', () => {
+    const args = { ...base, minOrderQty: 50, tiers: [{ minQty: 50, price: 8.65 }] };
+    const before = buildMinimumOrderOffer(args)!.offer as Record<string, any>;
+    const after = buildMinimumOrderOffer({
+      ...args,
+      shippingPolicy: { ...pct15, destinationCountry: 'US', transitDaysMin: 3, transitDaysMax: 7 },
+      productionTimeDays: 7,
+    })!.offer as Record<string, any>;
+    const { shippingDetails: _a, ...moneyBefore } = before;
+    const { shippingDetails: _b, ...moneyAfter } = after;
+    expect(moneyAfter).toEqual(moneyBefore);
+    const keys = deepKeys(after);
+    for (const forbidden of ['eligibleQuantity', 'referenceQuantity', 'priceSpecification', 'UnitPriceSpecification']) {
+      expect(keys.has(forbidden), forbidden).toBe(false);
+    }
+  });
+});
+
+describe('handling and transit time (MERCH-220)', () => {
+  const fallback: ShippingPolicy = { ...emptyPolicy, handlingDaysMin: 10, handlingDaysMax: 10 };
+
+  it("handling comes from the product's own production time, as an exact range", () => {
+    expect(handlingTimeFor(fallback, 7)).toEqual({ '@type': 'QuantitativeValue', minValue: 7, maxValue: 7, unitCode: 'DAY' });
+    expect(handlingTimeFor(fallback, 40)?.maxValue).toBe(40);
+  });
+
+  it("falls back to the settings range only when the product has no production time (that is where Patrick's 10 days lives)", () => {
+    const ten = { '@type': 'QuantitativeValue', minValue: 10, maxValue: 10, unitCode: 'DAY' };
+    expect(handlingTimeFor(fallback, null)).toEqual(ten);
+    expect(handlingTimeFor(fallback, undefined)).toEqual(ten);
+    expect(handlingTimeFor(fallback, 0)).toEqual(ten);
+    expect(handlingTimeFor(fallback, -3)).toEqual(ten);
+    expect(handlingTimeFor(fallback, Number.NaN)).toEqual(ten);
+  });
+
+  it('emits no handling time when the product has none and the settings range is blank or half-filled', () => {
+    expect(handlingTimeFor(emptyPolicy, null)).toBeNull();
+    expect(handlingTimeFor({ ...emptyPolicy, handlingDaysMin: 10 }, null)).toBeNull();
+    expect(handlingTimeFor(null, null)).toBeNull();
+  });
+
+  it('omits transitTime entirely when unset, leaving a deliveryTime with handling alone', () => {
+    const d = shippingPolicyDetails({ ...emptyPolicy, destinationCountry: 'US' }, { productionTimeDays: 7 }) as Record<
+      string,
+      any
+    >;
+    expect(d.deliveryTime).toEqual({
+      '@type': 'ShippingDeliveryTime',
+      handlingTime: { '@type': 'QuantitativeValue', minValue: 7, maxValue: 7, unitCode: 'DAY' },
+    });
+    expect(d.deliveryTime).not.toHaveProperty('transitTime');
+    // Transit only ever comes from settings.
+    const withTransit = shippingPolicyDetails(
+      { ...emptyPolicy, transitDaysMin: 3, transitDaysMax: 7 },
+      { productionTimeDays: 7 },
+    ) as Record<string, any>;
+    expect(withTransit.deliveryTime.transitTime).toEqual({ '@type': 'QuantitativeValue', minValue: 3, maxValue: 7, unitCode: 'DAY' });
+  });
+
+  it("emits the product's production time as handling even when Global Settings is entirely blank: it is a fact the page prints", () => {
+    const d = shippingPolicyDetails(null, { orderTotal: 432.5, productionTimeDays: 7 }) as Record<string, any>;
+    expect(Object.keys(d)).toEqual(['deliveryTime']);
+    expect(d.deliveryTime.handlingTime.maxValue).toBe(7);
+    expect(d).not.toHaveProperty('shippingRate');
+    // And still nothing at all with no policy and no context, or with no policy and no figure.
+    expect(shippingPolicyDetails(null)).toBeNull();
+    expect(shippingPolicyDetails(null, { orderTotal: 432.5, productionTimeDays: null })).toBeNull();
+    const offer = buildMinimumOrderOffer({ ...base, tiers: [{ minQty: 1, price: 1 }], productionTimeDays: 14 })!
+      .offer as Record<string, any>;
+    expect(offer.shippingDetails).toEqual({
+      '@type': 'OfferShippingDetails',
+      deliveryTime: {
+        '@type': 'ShippingDeliveryTime',
+        handlingTime: { '@type': 'QuantitativeValue', minValue: 14, maxValue: 14, unitCode: 'DAY' },
+      },
+    });
+  });
+
+  it('emits no deliveryTime at all when there is neither a handling nor a transit figure', () => {
+    const d = shippingPolicyDetails({ ...emptyPolicy, destinationCountry: 'US' }, { productionTimeDays: null });
+    expect(d).not.toHaveProperty('deliveryTime');
+  });
+
+  it('keeps everything the carton block emits today beside the computed parts', () => {
+    const carton = {
+      weight: { '@type': 'QuantitativeValue', value: 30, unitCode: 'LBR' },
+      width: { '@type': 'QuantitativeValue', value: 13, unitCode: 'INH' },
+      height: { '@type': 'QuantitativeValue', value: 14, unitCode: 'INH' },
+      depth: { '@type': 'QuantitativeValue', value: 8, unitCode: 'INH' },
+      shippingOrigin: { '@type': 'DefinedRegion', addressCountry: 'US', addressRegion: 'FL', postalCode: '33760' },
+    };
+    const merged = mergeShippingDetails(
+      carton,
+      { ...emptyPolicy, orderPercentage: 15, destinationCountry: 'US' },
+      { orderTotal: 432.5, productionTimeDays: 7 },
+    ) as Record<string, any>;
+    for (const [k, v] of Object.entries(carton)) expect(merged[k]).toEqual(v);
+    expect(merged.shippingRate.value).toBe(64.88);
+    expect(merged.deliveryTime.handlingTime.maxValue).toBe(7);
+    // No context at all: byte-identical to MERCH-100's merge.
+    expect(mergeShippingDetails(carton, { ...emptyPolicy, rate: 15, destinationCountry: 'US' })).toEqual(
+      mergeShippingDetails(carton, { ...emptyPolicy, rate: 15, destinationCountry: 'US' }, undefined),
+    );
+  });
+});
+
+describe('the product route feeds the builder its own production time (MERCH-220)', () => {
+  const route = readFileSync(resolve(__dirname, '../../app/products/[slug]/page.tsx'), 'utf8');
+
+  it('passes doc.productionTime as productionTimeDays and nothing site-wide', () => {
+    expect(route).toContain('productionTimeDays: doc.productionTime,');
+    expect(route).not.toMatch(/productionTimeDays:\s*\d/);
+  });
+
+  it('still renders the same figure on the page, so markup and page cannot disagree', () => {
+    expect(route).toContain('{doc.productionTime} {doc.productionTime === 1 ? \'day\' : \'days\'}');
+  });
+});
+
+describe('no em dash in the MERCH-220 sources', () => {
+  it.each([
+    // global-settings.ts and the route carry em dashes from 2026-06 comments;
+    // the MERCH-220 additions to them were checked by hand on the diff.
+    'lib/products/product-schema.ts',
+    'lib/products/product-schema.test.ts',
+    'lib/sanity/queries/global-settings.test.ts',
+    'scripts/merch/verify-merch-220.ts',
+  ])('%s', (rel) => {
+    expect(readFileSync(resolve(__dirname, '../../', rel), 'utf8')).not.toContain(String.fromCharCode(0x2014));
   });
 });

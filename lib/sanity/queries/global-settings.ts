@@ -170,13 +170,15 @@ export interface SiteSettings {
   portfolioIntro: PortableTextBlock[] | null;
   /**
    * The site-wide shipping policy Google is told about on every /products/
-   * page (MERCH-100 part 2), `globalSettings.shippingPolicy`: a flat rate, the
-   * destination country and handling / transit day ranges. Null when NOTHING
-   * is filled in, which is the state at launch: the business quotes shipping
-   * rather than publishing a rate, and every field is emitted only when it
-   * holds a real value (see `shippingPolicyDetails`). It lives on this
-   * document so a change rides the SETTINGS_TAG read every page already
-   * performs and the webhook branch that already busts it.
+   * page (MERCH-100 part 2), `globalSettings.shippingPolicy`: a percentage of
+   * the order (MERCH-220, wins when set), a flat rate, the destination
+   * country and handling / transit day ranges. Null when NOTHING is filled
+   * in; every field is emitted only when it holds a real value (see
+   * `shippingPolicyDetails`). The handling range is the FALLBACK for a
+   * product with no production time of its own; a product's own figure wins.
+   * It lives on this document so a change rides the SETTINGS_TAG read every
+   * page already performs and the webhook branch that already busts it, which
+   * is what lets Patrick change 15 to 12 with no deploy.
    */
   shippingPolicy: ShippingPolicy | null;
 }
@@ -231,6 +233,7 @@ interface RawSettings {
   hiddenProducts?: { skus?: string[] };
   portfolioPage?: { intro?: unknown };
   shippingPolicy?: {
+    orderPercentage?: number;
     flatRate?: number;
     destinationCountry?: string;
     handlingDaysMin?: number;
@@ -253,7 +256,7 @@ const QUERY = `*[_type == "globalSettings"][0]{
   siteSearch{ hiddenSkus },
   hiddenProducts{ skus },
   portfolioPage{ intro },
-  shippingPolicy{ flatRate, destinationCountry, handlingDaysMin, handlingDaysMax, transitDaysMin, transitDaysMax },
+  shippingPolicy{ orderPercentage, flatRate, destinationCountry, handlingDaysMin, handlingDaysMax, transitDaysMin, transitDaysMax },
   hoursOfOperation,
   phoneNumber,
   contactEmail
@@ -275,16 +278,23 @@ const EMPTY: SiteSettings = {
 };
 
 /**
- * Shipping policy (MERCH-100): keep a number only when it is a real finite,
- * non-negative number, keep the country only when non-blank, and resolve to
- * null when every field is blank so a consumer can tell "nothing set" from
- * "set to zero" (a zero rate is free shipping, a real value).
+ * Shipping policy (MERCH-100, extended by MERCH-220): keep a number only when
+ * it is a real finite, non-negative number, keep the country only when
+ * non-blank, and resolve to null when every field is blank so a consumer can
+ * tell "nothing set" from "set to zero" (a zero rate is free shipping, a real
+ * value). `orderPercentage` is kept only inside 0..100: the unit is PERCENT
+ * (15 means 15%), and a value above 100 cannot be a share of an order, so it
+ * is treated as unset rather than passed on. When it is set it wins over
+ * `flatRate` downstream (see `shippingRateFor`); the precedence is decided
+ * there, in one place, not here.
  */
 export function resolveShippingPolicy(raw: RawSettings['shippingPolicy'] | null | undefined): ShippingPolicy | null {
   if (!raw) return null;
   const num = (v: unknown): number | null =>
     typeof v === 'number' && Number.isFinite(v) && v >= 0 ? v : null;
+  const pct = num(raw.orderPercentage);
   const policy: ShippingPolicy = {
+    orderPercentage: pct !== null && pct <= 100 ? pct : null,
     rate: num(raw.flatRate),
     destinationCountry: clean(raw.destinationCountry),
     handlingDaysMin: num(raw.handlingDaysMin),

@@ -23,6 +23,7 @@
     "warmup": "tsx scripts/warmup/warmup-facets.ts",
     "warmup:list": "tsx scripts/warmup/build-warmup-list.ts",
     "verify:blog-engine": "tsx scripts/ai-pipeline/verify-blog-engine.ts",
+    "verify:merch-220": "tsx scripts/merch/verify-merch-220.ts",
     "audit:cta": "tsx scripts/audit-cta-pages.ts",
     "audit:category-rule": "tsx scripts/audit-category-rule.ts",
     "reconcile:missing-urls": "tsx scripts/reconcile-missing-urls.ts",

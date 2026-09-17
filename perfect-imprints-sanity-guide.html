@@ -617,27 +617,40 @@
       nudge what shows without anyone touching the feed.</p>
 
     <h4 id="shipping-settings">Shipping (what Google is told)</h4>
-    <p>One collapsed group, blank when it was built, that fills in the shipping details Google asks for on your own
-      <a href="#product-pages">Product Pages</a> (<code>/products/...</code>). <strong>Leaving every field blank is
-        fine.</strong> It only means Google keeps noting "shipping details missing" on those pages, which it does today;
-      nothing is invented on your behalf. Fill a field in only with a figure you actually charge and can keep to, and
-      it applies to every product page at once. Publish, and the pages pick it up within seconds; nothing needs
-      redeploying.</p>
+    <p>One collapsed group that fills in the shipping details Google asks for on your own
+      <a href="#product-pages">Product Pages</a> (<code>/products/...</code>). It applies to every product page at
+      once. Publish, and the pages pick it up within seconds; nothing needs redeploying. <strong>One rule above all
+        the others: whatever you enter here must match the shipping policy in your Merchant Center account.</strong>
+      Google treats the account policy as the authoritative one; what the pages say is there to agree with it and to
+      clear the "shipping details missing" notes in Search Console. If the two disagree, Google believes the
+      account.</p>
     <ul>
+      <li><strong>Shipping as a percentage of the order total (%)</strong>: the number of percent, e.g.
+        <strong>15</strong> for 15%. Type <code>15</code>, never <code>0.15</code>. Each product page then tells
+        Google a shipping cost that is that share of <em>that page's own minimum-order price</em>, the figure shown
+        as the estimated total: a page whose minimum order comes to $432.50 is told $64.88 shipping, a page at $199.50
+        is told $29.93, worked out to the cent. Enter <strong>0</strong> for free shipping. Blank means the flat rate
+        below is used instead. <strong>When this is filled in, the flat rate is ignored</strong>, and Studio shows a
+        warning on both fields if you fill in both.</li>
       <li><strong>Flat shipping rate per order (USD)</strong>: one figure for a whole order, e.g. 15. Enter
-        <strong>0</strong> to tell Google shipping is free. Blank sends no rate.</li>
+        <strong>0</strong> to tell Google shipping is free. Blank sends no rate. Ignored whenever the percentage is
+        filled in.</li>
       <li><strong>Ships to</strong>: the two-letter country code the rate applies to, <code>US</code> for the United
         States. Blank sends no destination.</li>
-      <li><strong>Handling time, from / to (business days)</strong>: how long between an order and the parcel leaving,
-        quickest and slowest. Both must be filled for Google to be told either.</li>
+      <li><strong>Handling time, from / to (business days)</strong>: a fallback only. The handling time Google is told
+        for a product is that product's own <strong>Production time in days</strong> field (the figure printed on its
+        page, "Production time: 7 days"), because production is the time before the parcel leaves. These two fields
+        are used only for a product that has no production time of its own. Both must be filled for Google to be
+        told either.</li>
       <li><strong>Transit time, from / to (business days)</strong>: how long the carrier takes once it has left, quickest
-        and slowest. Same rule: both or neither.</li>
+        and slowest. Both or neither. Blank sends no transit time at all, which Google accepts; nothing is guessed.</li>
     </ul>
-    <p class="small">Each part is sent on its own, so a rate without a delivery time is fine and so is the reverse. What
+    <p class="small">Each part is sent on its own, so a rate without a transit time is fine and so is the reverse. What
       is <em>not</em> here on purpose: a shipping weight. Google only needs one if you charge by weight, and the carton
       weight on a product (30 lb for a carton of 500) would be the wrong figure for a minimum order of 50, so it is
-      never sent as such. A flat, free or price-based shipping service set up in Merchant Center itself makes that
-      warning go away with nothing to fill in here.</p>
+      never sent as such. The percentage-based service in Merchant Center itself is what makes that warning go away.
+      Changing the percentage here, say from 15 to 12, takes effect on every product page within seconds of
+      publishing; remember to change it in Merchant Center at the same time.</p>
 
     <h4 id="portfolio-page-settings">Portfolio Page</h4>
     <p>One field, <strong>Introduction</strong>: the paragraph or two in your own words that opens the gallery page at
@@ -2038,10 +2051,13 @@
           set them.</li>
       </ul>
       <p>The <strong>shipping</strong> figures Google would also like (a delivery cost, a destination and a delivery
-        time) are sent only if you fill them in under <a href="#shipping-settings">Global Settings › Shipping (what
-          Google is told)</a>; they apply to every product page at once. Until then only what we do know - the carton
-        weight and dimensions and the ships-from location, from the Logistics section - is sent, and Google keeps
-        noting that shipping details are missing, which is expected. Nothing is invented on your behalf.</p>
+        time) come from <a href="#shipping-settings">Global Settings › Shipping (what Google is told)</a> and from
+        this page's own <strong>Production time in days</strong>: the cost is the percentage set there of this page's
+        minimum-order price, worked out to the cent; the handling time is this product's production time (the settings
+        handling fields are used only when the product has none); the transit time and destination are the settings
+        values, sent only when filled in. The carton weight and dimensions and the ships-from location, from the
+        Logistics section, are sent as before. Nothing is invented on your behalf, and what is entered in Global
+        Settings must match the shipping policy in your Merchant Center account.</p>
     </div>
 
     <h3>Generate Product Details with AI (the writing helper)</h3>

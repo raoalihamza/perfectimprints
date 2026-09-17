@@ -173,26 +173,68 @@ export function buildProductAudience(input: ProductAudienceInput): Record<string
 }
 
 // ---------------------------------------------------------------------------
-// Shipping policy: rate, destination, delivery time (MERCH-100, part 2).
+// Shipping policy: rate, destination, delivery time (MERCH-100 part 2, made
+// real by MERCH-220).
 //
 // Google's merchant-listing shipping wants three things the carton facts do
 // not give it: `shippingRate` (a MonetaryAmount), `shippingDestination` (a
-// DefinedRegion) and `deliveryTime` (handling + transit ranges in days). The
-// business quotes shipping rather than publishing a rate, so as of MERCH-100
-// none of these has a value; the fields exist on `globalSettings` so that the
-// day Patrick decides on a flat or free rate, filling them in is the whole
-// job and nothing needs deploying. Every field is emitted ONLY when it holds
-// a real value. Blank emits nothing, exactly as before.
+// DefinedRegion) and `deliveryTime` (handling + transit ranges in days).
+// MERCH-100 built the fields blank because the business quoted shipping.
+// Patrick then answered (2026-09-13): "For GMC, shipping can be figured at
+// 15% of the purchase price and production time can be 10 days." MERCH-220
+// acts on that with two decisions, taken in MERCH-200 / MERCH-210 and NOT to
+// be re-derived here:
+//
+//  1. THE RATE IS COMPUTED PER PRODUCT, AT THE OFFER LEVEL, IN INTEGER CENTS.
+//     Google's precedence puts the Merchant Center ACCOUNT setting above all
+//     markup, so the account carries the percentage and wins; the markup's
+//     job is to say the same thing on each page and to clear the three Search
+//     Console warnings. `shippingRate` at Offer level takes a money amount
+//     only (schema.org's `ShippingRateSettings.orderPercentage` is documented
+//     by Google at Organization level alone), so the amount is
+//     `orderPercentage` of the very `price` beside it, the minimum order
+//     total. Integer cents because floating point is wrong on a real product:
+//     $199.50 x 15% is 2992.5 cents, which `Math.round(199.5 * 0.15 * 100)`
+//     gives as 2992 and the half-up rule gives as 2993; 24 of the 158 live
+//     prices land on exactly such a tie. When `orderPercentage` is set the
+//     flat rate is ignored; when only `flatRate` is set nothing changed from
+//     MERCH-100; when neither is set no rate is emitted.
+//
+//  2. HANDLING TIME IS EACH PRODUCT'S OWN `productionTime`, NOT A SITE-WIDE
+//     10. Production is handling (the delay before the parcel leaves), and
+//     every page prints its own figure ("Production time: 7 days" on the pen
+//     page). MERCH-210 measured 2 days on 22 pages, 7 on 17, 10 on 12, 14 on
+//     53, 15 on 13, 40 on 7 and so on: a site-wide 10 would contradict the
+//     visible page on 144 of 158 products, the same class of fault as the
+//     carton weight MERCH-100 refused to emit. Patrick's 10 days lives where
+//     it is site-wide by nature: the Merchant Center account setting, and
+//     the settings `handlingDaysMin/Max` fallback for the products that have
+//     no production time of their own. Transit is the carrier's time, is
+//     unknown, comes only from settings, and is omitted entirely when unset.
+//
+// THE GUARD: a computed rate can never exceed the price. A shipping charge
+// above the order total is impossible here, and it is the one thing that
+// catches a `15` where `0.15` was meant, or any future unit slip, before it
+// reaches Google. The rate is dropped, never clamped, so a wrong figure is
+// never published as a plausible one.
 //
 // A rate of 0 is a real value (free shipping) and IS emitted; blank is not.
+// A shipping WEIGHT is still not emitted (MERCH-100's reasoning stands).
 // ---------------------------------------------------------------------------
 
 export interface ShippingPolicy {
-  /** Flat shipping charge in USD for one order. 0 means free shipping. */
+  /**
+   * Shipping as a percentage of the order total, 0 to 100, e.g. 15 for 15%.
+   * When set it WINS over `rate`. The unit is PERCENT: 15 means 15%, and a
+   * `0.15` here would mean 0.15% (the resolver and the live verification
+   * script both treat the value as percent; see `shippingRateCents`).
+   */
+  orderPercentage: number | null;
+  /** Flat shipping charge in USD for one order. 0 means free shipping. Ignored when `orderPercentage` is set. */
   rate: number | null;
   /** ISO 3166-1 alpha-2 country the rate applies to, e.g. "US". */
   destinationCountry: string | null;
-  /** Business days between order and dispatch. */
+  /** Business days between order and dispatch: the FALLBACK when a product has no production time. */
   handlingDaysMin: number | null;
   handlingDaysMax: number | null;
   /** Business days in transit. */
@@ -200,8 +242,54 @@ export interface ShippingPolicy {
   transitDaysMax: number | null;
 }
 
+/**
+ * What the policy needs from the PRODUCT to compute its part of the block.
+ * Both optional: `shippingPolicyDetails(policy)` with no context still
+ * emits everything that needs no product (the MERCH-100 behaviour).
+ */
+export interface ShippingPolicyContext {
+  /** The offer price in USD, i.e. the minimum order total already rounded to cents. */
+  orderTotal?: number | null;
+  /** The product's own production time in days (its `productionTime` field). */
+  productionTimeDays?: number | null;
+}
+
 const finiteNonNegative = (v: unknown): v is number =>
   typeof v === 'number' && Number.isFinite(v) && v >= 0;
+
+/** A usable percentage: finite, 0 to 100 inclusive. Anything else is "not set". */
+export function isOrderPercentage(v: unknown): v is number {
+  return finiteNonNegative(v) && v <= 100;
+}
+
+/** USD to integer cents, half up, or null for anything that is not a finite non-negative amount. */
+export function usdToCents(usd: unknown): number | null {
+  if (!finiteNonNegative(usd)) return null;
+  return Math.round(usd * 100);
+}
+
+/**
+ * The shipping charge for one order, in integer cents, as `percentage` of
+ * `priceCents`, rounded HALF UP to the cent. Never floating point: the
+ * percentage is taken to hundredths (15 -> 1500, 12.5 -> 1250), the product
+ * `priceCents * pctHundredths` is an exact integer, and the division by
+ * 10,000 is a floor after adding half. So $199.50 at 15% is
+ * 19950 * 1500 = 29,925,000; (29,925,000 + 5,000) / 10,000 floors to 2993,
+ * which is $29.93 (the float method gives $29.92).
+ *
+ * Returns null for a percentage outside 0..100 or a price that is not a
+ * non-negative integer number of cents, and null when the result would EXCEED
+ * the price: a charge larger than the order is impossible and is what a unit
+ * slip looks like.
+ */
+export function shippingRateCents(priceCents: unknown, percentage: unknown): number | null {
+  if (!isOrderPercentage(percentage)) return null;
+  if (typeof priceCents !== 'number' || !Number.isInteger(priceCents) || priceCents < 0) return null;
+  const pctHundredths = Math.round(percentage * 100);
+  const rate = Math.floor((priceCents * pctHundredths + 5000) / 10000);
+  if (rate > priceCents) return null;
+  return rate;
+}
 
 /** A min/max pair is emitted only when BOTH are set and ordered. */
 function dayRange(min: number | null, max: number | null): Record<string, unknown> | null {
@@ -210,24 +298,67 @@ function dayRange(min: number | null, max: number | null): Record<string, unknow
 }
 
 /**
- * The parts of OfferShippingDetails that come from the site-wide policy, or
- * null when the policy has nothing real in it.
+ * The handling time Google is told: the product's own production time when
+ * it has one (a positive number of days, emitted as an exact `{N, N}` range,
+ * the figure the page prints), else the settings range, else nothing.
  */
-export function shippingPolicyDetails(policy: ShippingPolicy | null | undefined): Record<string, unknown> | null {
+export function handlingTimeFor(
+  policy: Pick<ShippingPolicy, 'handlingDaysMin' | 'handlingDaysMax'> | null | undefined,
+  productionTimeDays?: number | null,
+): Record<string, unknown> | null {
+  if (typeof productionTimeDays === 'number' && Number.isFinite(productionTimeDays) && productionTimeDays > 0) {
+    return dayRange(productionTimeDays, productionTimeDays);
+  }
   if (!policy) return null;
+  return dayRange(policy.handlingDaysMin, policy.handlingDaysMax);
+}
+
+/**
+ * The `shippingRate` MonetaryAmount for this policy and order, or null.
+ * Precedence: a set `orderPercentage` wins and needs the order total (no
+ * total means no rate, never a guess); otherwise the flat rate as before.
+ */
+export function shippingRateFor(
+  policy: Pick<ShippingPolicy, 'orderPercentage' | 'rate'> | null | undefined,
+  orderTotal?: number | null,
+): Record<string, unknown> | null {
+  if (!policy) return null;
+  if (isOrderPercentage(policy.orderPercentage)) {
+    const cents = shippingRateCents(usdToCents(orderTotal), policy.orderPercentage);
+    if (cents === null) return null;
+    return { '@type': 'MonetaryAmount', value: cents / 100, currency: 'USD' };
+  }
+  if (finiteNonNegative(policy.rate)) {
+    return { '@type': 'MonetaryAmount', value: policy.rate, currency: 'USD' };
+  }
+  return null;
+}
+
+/**
+ * The parts of OfferShippingDetails that come from the site-wide policy
+ * (plus, with a context, the product's own price and production time), or
+ * null when there is nothing real to say.
+ */
+export function shippingPolicyDetails(
+  policy: ShippingPolicy | null | undefined,
+  context?: ShippingPolicyContext | null,
+): Record<string, unknown> | null {
+  // No policy and no product context: nothing to say (the MERCH-100 shape).
+  // No policy but a product context: the product's own production time is
+  // still a fact the page prints, so it is still emitted as handling time.
+  if (!policy && !context) return null;
   const out: Record<string, unknown> = {};
 
-  if (finiteNonNegative(policy.rate)) {
-    out.shippingRate = { '@type': 'MonetaryAmount', value: policy.rate, currency: 'USD' };
-  }
+  const shippingRate = shippingRateFor(policy, context?.orderTotal);
+  if (shippingRate) out.shippingRate = shippingRate;
 
-  const country = (policy.destinationCountry ?? '').trim().toUpperCase();
+  const country = (policy?.destinationCountry ?? '').trim().toUpperCase();
   if (/^[A-Z]{2}$/.test(country)) {
     out.shippingDestination = { '@type': 'DefinedRegion', addressCountry: country };
   }
 
-  const handlingTime = dayRange(policy.handlingDaysMin, policy.handlingDaysMax);
-  const transitTime = dayRange(policy.transitDaysMin, policy.transitDaysMax);
+  const handlingTime = handlingTimeFor(policy, context?.productionTimeDays);
+  const transitTime = dayRange(policy?.transitDaysMin ?? null, policy?.transitDaysMax ?? null);
   if (handlingTime || transitTime) {
     out.deliveryTime = {
       '@type': 'ShippingDeliveryTime',
@@ -242,13 +373,16 @@ export function shippingPolicyDetails(policy: ShippingPolicy | null | undefined)
 /**
  * ONE OfferShippingDetails block from the two honest sources: the product's
  * own carton facts (weight, dimensions, ships-from origin, built by the page)
- * and the site-wide policy. Either may be absent; both absent means no block.
+ * and the site-wide policy applied to this product. Either may be absent;
+ * both absent means no block. The carton keys are spread FIRST and untouched,
+ * so everything MERCH-100 emitted is kept byte for byte.
  */
 export function mergeShippingDetails(
   carton: Record<string, unknown> | null | undefined,
   policy: ShippingPolicy | null | undefined,
+  context?: ShippingPolicyContext | null,
 ): Record<string, unknown> | null {
-  const fromPolicy = shippingPolicyDetails(policy);
+  const fromPolicy = shippingPolicyDetails(policy, context);
   if (!carton && !fromPolicy) return null;
   return {
     '@type': 'OfferShippingDetails',
@@ -297,6 +431,12 @@ export interface MinimumOrderOfferInput {
   shippingDetails?: Record<string, unknown> | null;
   /** The site-wide shipping policy from globalSettings, when any of it is filled. */
   shippingPolicy?: ShippingPolicy | null;
+  /**
+   * The product's own `productionTime` in days (MERCH-220): the handling time
+   * Google is told, because production IS handling and the page prints this
+   * exact figure. Unset falls back to the settings handling range.
+   */
+  productionTimeDays?: number | null;
 }
 
 export interface MinimumOrderOffer {
@@ -323,7 +463,15 @@ export function buildMinimumOrderOffer(input: MinimumOrderOfferInput): MinimumOr
 
   const total = Math.round(estimate.total * 100) / 100;
   const quantity = estimate.quantity;
-  const shippingDetails = mergeShippingDetails(input.shippingDetails, input.shippingPolicy);
+  // MERCH-220: the policy's rate is a percentage of THIS total, the figure
+  // beside it in the offer, and its handling time is THIS product's own
+  // production time. Both are computed here, where the rounded total is
+  // already in scope, so the rate and the price it is a share of can never
+  // be two different numbers.
+  const shippingDetails = mergeShippingDetails(input.shippingDetails, input.shippingPolicy, {
+    orderTotal: total,
+    productionTimeDays: input.productionTimeDays,
+  });
 
   return {
     quantity,

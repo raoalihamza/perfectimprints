@@ -486,7 +486,11 @@ export default async function ProductDetailPage({ params }: Props) {
   //    set them on the document; apparel only.
   //  - shippingDetails: the carton facts (below) plus the site-wide rate /
   //    destination / delivery time from Global Settings (MERCH-100 part 2),
-  //    each only when it holds a value.
+  //    each only when it holds a value. MERCH-220: the rate is the settings
+  //    percentage of THIS offer's price, computed in integer cents inside
+  //    buildMinimumOrderOffer, and the handling time is THIS product's own
+  //    productionTime (the figure the page prints below), falling back to the
+  //    settings range only when the product has none. Never a site-wide 10.
   //  - identifier: the real item number Patrick already enters in Studio. It
   //    was on the document and simply never emitted. gtin/mpn stay absent -
   //    promotional blanks carry no GTIN and we will not invent one.
@@ -503,6 +507,7 @@ export default async function ProductDetailPage({ params }: Props) {
     siteUrl: SITE_URL,
     shippingDetails,
     shippingPolicy: settings.shippingPolicy,
+    productionTimeDays: doc.productionTime,
   });
   const audience = buildProductAudience({ ageGroup: doc.ageGroup, gender: doc.gender });
   const productSchema: Record<string, unknown> = {
