@@ -2340,10 +2340,14 @@
     <ul>
       <li><strong>Title / Slug</strong> - the catalog's name and its web address segment (e.g. <code>usa-made</code>
         → <code>/shop-by-theme/usa-made</code>).</li>
-      <li><strong>Catalog key</strong> - which scraped catalog supplies the products, filters, and the Browse link.
-        Use the exact key from the list in the field's help text (e.g. <code>usa-made</code>, <code>ideas</code>,
-        <code>green-guide</code>). Retail Collective and Trend Talk have no scraped products - for those two, the
-        products you add yourself are the whole grid.</li>
+      <li><strong>Catalog key</strong> - which Geiger catalog this page is for. <strong>This one field is what
+          fills the gated page with products</strong>: type the key exactly as listed in the field's help text, dash
+        included (<code>ideas</code>, <code>green-guide</code>, <code>womens-collection</code>,
+        <code>holiday-guide</code>, <code>usa-made</code>, <code>retail-collective</code>, <code>trend-talk</code>).
+        It is <strong>not</strong> the Geiger web address - Geiger's page is <code>/c/holidayguide</code>, but the
+        key is <code>holiday-guide</code>. If you type something that is not on the list, the field shows a yellow
+        warning naming the nearest key (you can still publish, so read the warning). Retail Collective and Trend
+        Talk have no scraped products - for those two, the products you add yourself are the whole grid.</li>
       <li><strong>Browse Catalog URL (override)</strong> - normally leave blank; the button uses the catalog's own
         digital-viewer link automatically. Fill it only to point the button somewhere else.</li>
       <li><strong>Landing page content</strong> - hero heading/subheading/image, the long-form body (headings,
@@ -2358,6 +2362,22 @@
         automatically from the <strong>Related keywords</strong>, and if nothing matches the strips simply don't
         appear.</li>
     </ul>
+
+    <div class="callout warn">
+      <span class="label">Products load by themselves - you do not add them one by one</span>
+      <p>The gated catalog page fills with that catalog's products <strong>automatically from the Catalog key</strong>
+        (Ideas, Green Guide, Women's Collection, Holiday Guide and USA Made each come with their full product set).
+        There is nothing to import. <strong>Added SKUs</strong> and <strong>Added Products</strong> are only for
+        extras on top of that set, and <strong>Hidden SKUs</strong> for taking items out of it.</p>
+      <p>If your gated page says <em>"Products are on their way"</em> with no products under it, the Catalog key does
+        not match: open the document and check the key against the list. A missing dash is the usual cause
+        (<code>holidayguide</code> instead of <code>holiday-guide</code>), and the field warns you in yellow when it
+        does not recognise the key. Fix the key, publish, and the products appear within seconds.</p>
+      <p>When Geiger publishes a <strong>new edition</strong> of a catalog, the products on your pages only change
+        after <strong>Refresh Catalogs</strong> is run from the <a href="#site-refresh">Site Refresh</a> panel. That
+        button pulls every catalog's products at once, updates the site and redeploys it; your own added and hidden
+        items are kept.</p>
+    </div>
 
     <div class="callout">
       <span class="label">How the "Get the Catalog" buttons work</span>

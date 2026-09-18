@@ -1,6 +1,7 @@
 import { defineField, defineType } from 'sanity';
 import { ProductSkuPicker } from '../../components/ProductPicker';
 import { portableBody } from '../objects/page-sections';
+import { CURRENT_CATALOG_KEYS, catalogKeyWarning } from './catalog-key';
 
 /**
  * Geiger themed-catalog lead page (P2-CAT-001 — Milestone 3, prompt 2 of 4).
@@ -28,20 +29,13 @@ import { portableBody } from '../objects/page-sections';
  */
 
 // The catalog keys shipping in data/geiger/catalogs.json today (the Phase I
-// scraper's STABLE slugs). Listed in the catalogKey field's description as a
-// hint — deliberately NOT a strict dropdown, so a future catalog added to the
-// scraper needs no schema change. (`shop-by-theme` itself is reserved in
-// lib/reserved-slugs.ts + the page/landingPage schema mirrors so no other doc
-// type can collide with this route.)
-const CURRENT_CATALOG_KEYS = [
-  'ideas',
-  'green-guide',
-  'womens-collection',
-  'holiday-guide',
-  'usa-made',
-  'retail-collective',
-  'trend-talk',
-];
+// scraper's STABLE slugs) live in ./catalog-key.ts, the ONE place the list is
+// spelled: the catalogKey field's help text quotes it and the FIX-881 warning
+// rule checks against it. Deliberately NOT a strict dropdown and NOT an error,
+// so a future catalog added to the scraper needs no schema change to publish.
+// (`shop-by-theme` itself is reserved in lib/reserved-slugs.ts + the
+// page/landingPage schema mirrors so no other doc type can collide with this
+// route.)
 
 export default defineType({
   name: 'catalogPage',
@@ -114,16 +108,24 @@ export default defineType({
       title: 'Catalog key (which scraped catalog this is)',
       type: 'string',
       fieldset: 'basics',
-      description: `Which entry in the yearly catalog scrape (data/geiger/catalogs.json) supplies the synced products, filters, and the default Browse Catalog link. Current keys: ${CURRENT_CATALOG_KEYS.join(
+      description: `Which entry in the yearly catalog scrape (data/geiger/catalogs.json) supplies the synced products, filters, and the default Browse Catalog link. Type it exactly as listed, dash included. It is NOT the Geiger web address: Geiger's /c/holidayguide is our holiday-guide. Current keys: ${CURRENT_CATALOG_KEYS.join(
         ', ',
-      )}. Retail Collective and Trend Talk have no scraped products — their key still resolves the Browse link.`,
-      validation: (Rule) =>
+      )}. Retail Collective and Trend Talk have no scraped products: their key still resolves the Browse link.`,
+      // Two rules, not one chain (the global-settings precedent): the shape
+      // rule stays an ERROR, and the FIX-881 unknown-key check is a WARNING so
+      // a brand-new scraper key publishes before the list is updated. The
+      // warning names the near match (holidayguide becomes holiday-guide),
+      // because an unknown key fails silently everywhere downstream: see
+      // ./catalog-key.ts.
+      validation: (Rule) => [
         Rule.required().custom((value?: string) => {
           const v = value?.trim();
           if (!v) return 'Required.';
           if (!/^[a-z0-9-]+$/.test(v)) return 'Lowercase letters, numbers, and dashes only.';
           return true;
         }),
+        Rule.custom((value?: string) => catalogKeyWarning(value) ?? true).warning(),
+      ],
     }),
     defineField({
       name: 'browseCatalogUrl',
