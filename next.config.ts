@@ -1,4 +1,8 @@
 import type { NextConfig } from 'next';
+// Relative import on purpose: next.config.ts is loaded through Next's own
+// TypeScript require hook, which resolves relative .ts modules but not the
+// `@/` alias. The module is pure and dependency-free (FIX-890).
+import { nonProductionRobotsHeader } from './lib/seo/indexing-policy';
 
 const securityHeaders = [
   { key: 'X-Frame-Options', value: 'DENY' },
@@ -32,11 +36,21 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['sanity', '@sanity/client', '@sanity/image-url'],
   },
   async headers() {
+    // FIX-890: on the staging host (dev.perfectimprints.com, decided by the
+    // host of NEXT_PUBLIC_SITE_URL at build time, failing towards indexing)
+    // every response carries `X-Robots-Tag: noindex, nofollow`, so a crawler
+    // that never parses the HTML, and any route that renders none, still gets
+    // the instruction. On production this is null and the header list below
+    // is byte-identical to before. It sits BEFORE the /quote block so the
+    // quote route's stricter `noarchive` value still wins for its own path
+    // (Next lets the last matching rule with the same key override).
+    const stagingNoindex = nonProductionRobotsHeader(process.env.NEXT_PUBLIC_SITE_URL);
     return [
       {
         source: '/(.*)',
         headers: securityHeaders,
       },
+      ...(stagingNoindex ? [{ source: '/(.*)', headers: [stagingNoindex] }] : []),
       {
         // Private customer quotes (Q-140). The page already emits
         // `robots: index/follow false` in its metadata; this is the same

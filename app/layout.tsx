@@ -8,6 +8,7 @@ import { websiteSchema } from '@/lib/seo/schema-generators';
 import { TWITTER_HANDLE } from '@/lib/seo/open-graph';
 import './globals.css';
 import { jsonLdHtml } from '@/lib/seo/json-ld';
+import { siteRobotsMetadata } from '@/lib/seo/indexing-policy';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -41,16 +42,16 @@ export const metadata: Metadata = {
     site: TWITTER_HANDLE,
     creator: TWITTER_HANDLE,
   },
-  robots: {
-    // Let Google show LARGE image previews (SERP thumbnails / Discover) —
-    // M-SEO5. Absence of index/follow keys means indexability is unchanged
-    // (no robots restriction is emitted). Shallow-merge caveat: a page that
-    // sets its own `robots` (category /page/N noindex, /search noindex)
-    // replaces this whole key for that page — those are noindex anyway.
-    googleBot: {
-      'max-image-preview': 'large',
-    },
-  },
+  // Production: the M-SEO5 large-image-preview hint and nothing else, so no
+  // robots restriction is emitted (byte-identical to before FIX-890).
+  // Staging (dev.perfectimprints.com, decided by the host of
+  // NEXT_PUBLIC_SITE_URL in lib/seo/indexing-policy.ts): `noindex, nofollow`
+  // on every route, to get the duplicate out of Google. Shallow-merge caveat:
+  // a page that sets its own `robots` (category /page/N, /search, /quote,
+  // the gated catalog) replaces this whole key for that page; every one of
+  // those is a noindex page already, and next.config.ts adds the same
+  // instruction as an X-Robots-Tag header on staging regardless.
+  robots: siteRobotsMetadata(process.env.NEXT_PUBLIC_SITE_URL),
   icons: {
     // favicon.ico is a multi-size ICO (16/32/48 — Google recommends >48px and
     // reads it from the homepage) served at a URL that must stay stable across

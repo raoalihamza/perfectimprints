@@ -16,6 +16,7 @@ import {
 } from '@/lib/sanity/queries/product-pages';
 import { getAllGeneratedCategorySlugs, resolveProductsBySku } from '@/lib/categories';
 import { largeSocialImage } from '@/lib/seo/open-graph';
+import { isIndexableSiteUrl } from '@/lib/seo/indexing-policy';
 import { RESERVED_SLUG_SET } from '@/lib/reserved-slugs';
 import { SIMPLE_NAV } from '@/lib/nav-data';
 
@@ -229,6 +230,14 @@ function buildCategoryImageMap(hidden: ReadonlySet<string>): Map<string, string>
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  // FIX-890: staging (dev.perfectimprints.com) serves an EMPTY urlset. Next
+  // renders an empty array as a valid `<urlset></urlset>`; a metadata route
+  // cannot cleanly 404, and staging's robots.txt no longer advertises the
+  // file anyway. Production is unaffected: the decision is the host of
+  // NEXT_PUBLIC_SITE_URL (lib/seo/indexing-policy.ts) and fails towards
+  // listing everything. Runs before any read so staging costs no Sanity call.
+  if (!isIndexableSiteUrl(process.env.NEXT_PUBLIC_SITE_URL)) return [];
+
   const now = new Date();
   const entries: MetadataRoute.Sitemap = [];
 
