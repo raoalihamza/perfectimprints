@@ -359,3 +359,16 @@ export function portfolioCategoryTag(slug: string): string {
   const s = sanitizeTagValue(slug);
   return s ? `portfolio-category:${s}` : '';
 }
+
+/**
+ * The cached blog opportunity pool (AUTO-110): the Search Console pull, the
+ * topic grouping and the cannibalization guard, kept for 24 hours because
+ * Search Console data itself only changes daily. Busted by the Blog Topics
+ * panel's "Refresh from Search Console" button (a hard `{ expire: 0 }`, not
+ * the stale-while-revalidate `'max'`, because the person pressing Refresh is
+ * waiting to see new data), never by the webhook: no Sanity publish changes
+ * what Search Console reports. The negative keyword list is deliberately NOT
+ * part of the cached value; it rides SETTINGS_TAG and is applied on every
+ * request, so a block takes effect without a refresh.
+ */
+export const BLOG_TOPICS_TAG = 'blog-topics';

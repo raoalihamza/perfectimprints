@@ -35,7 +35,7 @@
 
 import { getAllGeneratedRootSlugs, getAllProducts, getProductsForCategorySlug } from '../categories';
 import type { GeigerProduct } from '../product-types';
-import { GENERIC_PROMO_WORDS } from './brand-voice';
+import { NON_SIGNIFICANT_MATCH_WORDS } from './brand-voice';
 import { buildSkuSet, isHiddenSku } from '../products/hidden-skus';
 
 export interface MatchRelatedProductsOptions {
@@ -93,28 +93,9 @@ export interface MatchRelatedProductsOptions {
  * Words with no matching signal: generic promo modifiers (see brand-voice.ts)
  * plus common filler that survives the length-3 token filter.
  */
-const NON_SIGNIFICANT = new Set<string>([
-  ...GENERIC_PROMO_WORDS,
-  'the',
-  'and',
-  'for',
-  'with',
-  'your',
-  'our',
-  'from',
-  'that',
-  'this',
-  'are',
-  'can',
-  'will',
-  'how',
-  'why',
-  'what',
-  'best',
-  'top',
-  'ideas',
-  'idea',
-]);
+// The list itself lives in brand-voice.ts (AUTO-110) so the blog topic guard
+// and the AUTO-100 script read the same words; the set here is the same set.
+const NON_SIGNIFICANT: ReadonlySet<string> = NON_SIGNIFICANT_MATCH_WORDS;
 
 /** Lowercase alphanumeric tokens, length ≥ 3. */
 function tokenize(text: string): string[] {

@@ -15,6 +15,7 @@ import { generatePortfolioWithAi } from './actions/generate-portfolio-with-ai';
 import { pushCategoryTool } from './tools/push-category-tool';
 import { siteRefreshTool } from './tools/site-refresh-tool';
 import { bulkImportTool } from './tools/bulk-import-tool';
+import { blogTopicsTool } from './tools/blog-topics-tool';
 import { projectId, dataset, apiVersion } from './env';
 
 export default defineConfig({
@@ -36,7 +37,10 @@ export default defineConfig({
   //    GitHub Actions workflows (weekly scrapes + monthly full rebuild).
   //  • "Bulk Upload" (P2-CP-003) — import/update Product Pages from a CSV/Excel
   //    spreadsheet (dry-run preview → drafts).
-  tools: (prev) => [...prev, pushCategoryTool, siteRefreshTool, bulkImportTool],
+  //  • "Blog Topics" (AUTO-110) — the blog opportunity pool from Search
+  //    Console with the cannibalization guard, the negative keyword screen and
+  //    a generate-draft button per topic. Nothing in it runs on its own.
+  tools: (prev) => [...prev, pushCategoryTool, siteRefreshTool, bulkImportTool, blogTopicsTool],
   schema: {
     types: schemaTypes,
   },

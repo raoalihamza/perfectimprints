@@ -351,6 +351,7 @@
         <li><a href="#catalog-pages">Catalog Pages (Shop-by-Theme lead pages)</a></li>
         <li><a href="#quotes">Quotes (build a customer quotation)</a></li>
         <li><a href="#portfolio">Portfolio Gallery (show off your work)</a></li>
+        <li><a href="#blog-topics">Blog Topics (what the blog engine would write about)</a></li>
         <li><a href="#connect">How everything connects</a></li>
         <li><a href="#tasks">Common tasks (quick reference)</a></li>
         <li><a href="#warnings">Important warnings</a></li>
@@ -3020,7 +3021,78 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="connect">28. How everything connects</h2>
+    <h2 id="blog-topics">28. Blog Topics (what the blog engine would write about)</h2>
+    <p>This is a tab at the very top of the Studio, next to <span class="path">Bulk Upload</span>. It is the first
+      half of the blog automation: the <strong>intelligence</strong>, not the automation. It shows you the actual
+      list of search terms the blog engine would write about, lets you judge it, lets you block anything you do not
+      want, and lets you write a draft from any term with one press. <strong>Nothing on this tab runs by itself.</strong>
+      Automatic posting is the second stage and does not exist yet.</p>
+
+    <h3>Where the list comes from</h3>
+    <p>Every term comes from <strong>your own Google Search Console</strong>: searches where your site already showed
+      up on Google in the last 90 days, at position 8 to 40 (page one's bottom to page four), at least 10 times.
+      Those are the searches you are close on, where a good post can move you up. Similar searches are grouped into
+      one topic ("custom mini footballs", "mini football custom" and so on show as one row with "+N similar
+      searches"; hover to see them).</p>
+
+    <div class="callout info">
+      <span class="label">The numbers are impressions, not "search volume"</span>
+      <p><strong>Impressions</strong> is how many times Google showed your site for that search in the last 90 days,
+        and <strong>Clicks</strong> is how many of those were clicked. They are real figures from your own site, which
+        is arguably better than a generic search volume estimate. The paid keyword research that adds search volume
+        figures is a separate, later step; when it arrives, the panel will say so.</p>
+    </div>
+
+    <h3>What each row tells you</h3>
+    <ul>
+      <li><strong>Search term</strong> - the search as people typed it (the most common wording in the group).</li>
+      <li><strong>Impressions, Clicks, Avg. position</strong> - from Search Console, as above.</li>
+      <li><strong>Page ranking now</strong> - the page of your site Google currently shows for that search. A
+        category page or a product page means a supporting blog post is the natural next step.</li>
+      <li><strong>Check</strong> - <strong>Usable</strong> means you have no post on it yet. <strong>Excluded</strong>
+        means you already do, and the row says why: either the term shares two or more meaningful words with a post
+        you published (the post is named), or the page Google already ranks for it <em>is</em> one of your blog posts.
+        Writing a second post on the same thing would compete with your own first one, so the panel keeps those out.
+        <strong>Blocked</strong> means you ticked it (see below).</li>
+    </ul>
+    <p>Use the buttons at the top to show only <strong>Usable</strong> (the default, the list worth reading),
+      <strong>Excluded</strong>, <strong>Blocked</strong> or <strong>All</strong>; type in the search box to find a
+      term, a post or a page; change the sort; and page through 50 at a time. The line above the table always says
+      how many topics are in view and how many were excluded by which reason.</p>
+
+    <h3>Blocking a topic (your negative keywords)</h3>
+    <p>Tick <strong>Block</strong> on any row and that topic disappears from the usable list and stays gone. It is
+      saved in <span class="path">Global Settings <span class="arrow">›</span> Blog Automation <span class="arrow">›</span>
+      Blocked topics</span>, where you can also type a term by hand. A single word such as <em>paramedics</em> blocks
+      every search that mentions paramedics; a whole search blocks just that topic. Untick the box (or remove the line
+      in Global Settings) and it comes back. Blocking is permanent until you undo it; no refresh, no rebuild, no
+      developer involved.</p>
+
+    <h3>Writing a draft from a term</h3>
+    <p>Press <strong>Generate draft</strong> on a row. It creates a new blog post <strong>draft</strong> titled from
+      the term and writes it with the same AI as the <a href="#blog">Generate Blog with AI</a> button: the full text,
+      product rows, meta title and description, and internal links. Choose <strong>Draft style</strong> above the
+      table first (a "10 ideas" list post with products under each idea, or a single-topic post with one product
+      row). It takes a minute or two; the button says "Writing" while it works. When it is done, press
+      <strong>Open draft</strong>, read it, edit anything, and press <strong>Publish</strong> yourself when it is
+      right. <strong>The tab never publishes anything.</strong> If the AI fails, the empty draft is removed and the
+      row tells you; just press the button again.</p>
+    <p>You can generate a draft for an excluded topic too; the tab asks first and names the post it overlaps with,
+      so you can decide.</p>
+
+    <div class="callout warn">
+      <span class="label">Refreshing and waiting</span>
+      <p>The list is read from Search Console once a day and kept, so the tab normally opens instantly. The first
+        open of the day, or pressing <strong>Refresh from Search Console</strong>, reads about 30,000 searches and
+        takes a minute or two. Google itself only updates the figures daily (and they run two to three days behind),
+        so refreshing more often than that shows nothing new. If the tab shows an error, it also says what to do: try
+        again, sign in again, or tell Ali what the message says.</p>
+    </div>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="connect">29. How everything connects</h2>
     <p>A quick mental map of what drives what:</p>
     <ul>
       <li><strong>Global Settings</strong> drives the header and footer of <em>every</em> page (contact details, social
@@ -3071,7 +3143,7 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="tasks">29. Common tasks (quick reference)</h2>
+    <h2 id="tasks">30. Common tasks (quick reference)</h2>
     <table>
       <tr>
         <th>I want to…</th>
@@ -3284,7 +3356,7 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="warnings">30. Important warnings (keep these in mind)</h2>
+    <h2 id="warnings">31. Important warnings (keep these in mind)</h2>
 
     <div class="callout danger">
       <span class="label">1. Always review products before publishing a pushed category</span>

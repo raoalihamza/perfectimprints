@@ -160,24 +160,46 @@ const SANITY_LINK_SOURCES: Record<'blog' | 'page' | 'video' | 'landing', SanityL
   landing: { kind: 'landing', docType: 'landingPage', tag: LANDING_TAG, hrefPrefix: '/' },
 };
 
+/** One published title+slug document of a Sanity-backed link source. */
+export interface LinkSourceDoc {
+  _id?: string;
+  title?: string;
+  slug?: string;
+}
+
+/**
+ * The tagged read behind every Sanity-backed suggestion: the published
+ * title+slug documents of one kind. Exported (AUTO-110) so a caller that scores
+ * THOUSANDS of queries against the same kind, the blog topic guard, can load the
+ * list once and pass it to `suggestLinksForKind` instead of paying one cached
+ * fetch per query. Degrades to [] offline, exactly as the private path did.
+ */
+export async function loadLinkDocsForKind(
+  kind: 'blog' | 'page' | 'video' | 'landing',
+): Promise<LinkSourceDoc[]> {
+  const source = SANITY_LINK_SOURCES[kind];
+  try {
+    return (
+      (await cachedClient.fetch<LinkSourceDoc[]>(
+        `*[_type == "${source.docType}" && !(_id in path("drafts.**")) && defined(title) && defined(slug.current)]{ _id, title, "slug": slug.current }`,
+        {},
+        { next: { tags: [source.tag], revalidate: false } },
+      )) ?? []
+    );
+  } catch {
+    return [];
+  }
+}
+
 async function suggestSanityDocLinks(
   source: SanityLinkSource,
   keywords: string[],
   limit: number,
   excludeSlug?: string,
+  preloadedDocs?: LinkSourceDoc[],
 ): Promise<Scored[]> {
   const tokens = keywordTokenSet(keywords);
-  let docs: { _id?: string; title?: string; slug?: string }[] = [];
-  try {
-    docs =
-      (await cachedClient.fetch<{ _id?: string; title?: string; slug?: string }[]>(
-        `*[_type == "${source.docType}" && !(_id in path("drafts.**")) && defined(title) && defined(slug.current)]{ _id, title, "slug": slug.current }`,
-        {},
-        { next: { tags: [source.tag], revalidate: false } },
-      )) ?? [];
-  } catch {
-    return [];
-  }
+  const docs = preloadedDocs ?? (await loadLinkDocsForKind(source.kind as 'blog' | 'page' | 'video' | 'landing'));
   const scored: Scored[] = [];
   for (const d of docs) {
     if (!d.title || !d.slug || d.slug === excludeSlug) continue;
@@ -208,8 +230,20 @@ export async function suggestLinksForKind(
   keywords: string[],
   limit: number,
   excludeSlug?: string,
+  /**
+   * The kind's documents as returned by `loadLinkDocsForKind`, for a caller
+   * scoring many queries against one list (AUTO-110). Omitted, the read is
+   * performed here as before; the scoring is identical either way.
+   */
+  preloadedDocs?: LinkSourceDoc[],
 ): Promise<InternalLinkSuggestion[]> {
-  const scored = await suggestSanityDocLinks(SANITY_LINK_SOURCES[kind], keywords, limit, excludeSlug);
+  const scored = await suggestSanityDocLinks(
+    SANITY_LINK_SOURCES[kind],
+    keywords,
+    limit,
+    excludeSlug,
+    preloadedDocs,
+  );
   return scored.map(({ score: _score, ...suggestion }) => suggestion);
 }
 

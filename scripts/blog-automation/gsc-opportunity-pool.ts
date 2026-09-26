@@ -55,7 +55,25 @@
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
-import { sign as cryptoSign } from 'node:crypto';
+import {
+  DOMAIN_PROPERTY,
+  GscError,
+  RETENTION_DAYS,
+  ROW_LIMIT,
+  URL_PREFIX_PROPERTY,
+  createGscClient,
+  daysAgo,
+  decodeServiceAccount,
+  getAccessToken,
+  mentionsKeyMaterial,
+  type GscClient,
+  type SaRequest,
+  type SaRequestLog,
+  type SaRow,
+  type ServiceAccount,
+} from '../../lib/blog-automation/gsc-client';
+import { significantTokens, singularToken, topicKey } from '../../lib/blog-automation/topic-pool';
+import { NEAR_GENERIC_WORDS } from '../../lib/ai/brand-voice';
 
 // -- Flags -------------------------------------------------------------------
 
@@ -85,8 +103,6 @@ function loadDotEnvLocal(): void {
 }
 loadDotEnvLocal();
 
-const URL_PREFIX_PROPERTY = 'https://www.perfectimprints.com/';
-const DOMAIN_PROPERTY = 'sc-domain:perfectimprints.com';
 const KNOWN_PROPERTIES = [URL_PREFIX_PROPERTY, DOMAIN_PROPERTY] as const;
 
 const DAYS = Number(flagValue('--days') ?? 90);
@@ -102,9 +118,6 @@ const REPORT_PATH = resolve(
   PROJECT_ROOT,
   flagValue('--report') ?? 'docs/blog-automation/AUTO-100-opportunity-pool.md',
 );
-/** Google reports Search Analytics for the last 16 months. */
-const RETENTION_DAYS = 16 * 31;
-const ROW_LIMIT = 25_000;
 
 // -- Output ------------------------------------------------------------------
 
@@ -121,133 +134,37 @@ const pct = (n: number, d: number): string => (d === 0 ? '0.0%' : `${((100 * n) 
 const fmt = (n: number): string => n.toLocaleString('en-US');
 
 // -- Service account + token (the key is never printed) ----------------------
+//
+// AUTO-110 moved the connection into lib/blog-automation/gsc-client.ts so the
+// Blog Topics route and this script share ONE client. The behaviour is the
+// AUTO-100 behaviour: a GscError's hint is what fail() used to print.
 
-interface ServiceAccount {
-  client_email: string;
-  private_key: string;
-  token_uri?: string;
-}
-
-function decodeServiceAccount(): ServiceAccount {
-  const raw = process.env.GSC_SERVICE_ACCOUNT_JSON_B64;
-  if (!raw || !raw.trim()) {
-    fail(
-      'GSC_SERVICE_ACCOUNT_JSON_B64 is not set. Ali: add it to .env.local (and Vercel) as the base64 of the ' +
-        'service account JSON key downloaded from Google Cloud > IAM > Service Accounts > ' +
-        'search-console-reader@steadfast-tesla-478917-b2 > Keys. Server-side only, no NEXT_PUBLIC_ prefix.',
-    );
-  }
-  let parsed: Partial<ServiceAccount> & { type?: string };
+function decodeServiceAccountOrFail(): ServiceAccount {
   try {
-    parsed = JSON.parse(Buffer.from(raw.trim(), 'base64').toString('utf8'));
-  } catch {
-    fail(
-      'GSC_SERVICE_ACCOUNT_JSON_B64 does not decode to JSON. Ali: re-encode the whole key file with ' +
-        '[Convert]::ToBase64String([IO.File]::ReadAllBytes("key.json")) and paste the single-line result.',
-    );
+    return decodeServiceAccount(process.env.GSC_SERVICE_ACCOUNT_JSON_B64);
+  } catch (e) {
+    if (e instanceof GscError) fail(`${e.message} ${e.hint}`);
+    throw e;
   }
-  if (parsed.type !== 'service_account' || !parsed.client_email || !parsed.private_key) {
-    fail(
-      'GSC_SERVICE_ACCOUNT_JSON_B64 decodes, but not to a service account key (expected type ' +
-        '"service_account" with client_email and private_key). Ali: check the right file was encoded.',
-    );
-  }
-  return {
-    client_email: parsed.client_email,
-    private_key: parsed.private_key,
-    token_uri: parsed.token_uri,
-  };
-}
-
-const b64url = (buf: Buffer | string): string =>
-  Buffer.from(buf).toString('base64').replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-
-async function getAccessToken(sa: ServiceAccount): Promise<string> {
-  const tokenUri = sa.token_uri ?? 'https://oauth2.googleapis.com/token';
-  const now = Math.floor(Date.now() / 1000);
-  const header = b64url(JSON.stringify({ alg: 'RS256', typ: 'JWT' }));
-  const claims = b64url(
-    JSON.stringify({
-      iss: sa.client_email,
-      scope: 'https://www.googleapis.com/auth/webmasters.readonly',
-      aud: tokenUri,
-      iat: now,
-      exp: now + 3600,
-    }),
-  );
-  const signature = cryptoSign('RSA-SHA256', Buffer.from(`${header}.${claims}`), sa.private_key);
-  const assertion = `${header}.${claims}.${b64url(signature)}`;
-  const res = await fetch(tokenUri, {
-    method: 'POST',
-    headers: { 'content-type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({ grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer', assertion }),
-  });
-  const body = (await res.json().catch(() => ({}))) as {
-    access_token?: string;
-    error?: string;
-    error_description?: string;
-  };
-  if (!res.ok || !body.access_token) {
-    // Only Google's error code + description are printed; never the assertion.
-    fail(
-      `Token exchange failed: HTTP ${res.status} ${body.error ?? ''} ${body.error_description ?? ''}`.trim() +
-        '. Ali: the key decodes but Google rejects it; if the key was deleted or the service account disabled ' +
-        'in Google Cloud, create a new key and re-encode it.',
-    );
-  }
-  return body.access_token;
 }
 
 // -- Search Console API ------------------------------------------------------
 
-interface SiteEntry {
-  siteUrl: string;
-  permissionLevel: string;
-}
-interface SaRow {
-  keys: string[];
-  clicks: number;
-  impressions: number;
-  ctr: number;
-  position: number;
-}
-interface SaRequest {
-  startDate: string;
-  endDate: string;
-  dimensions: string[];
-  rowLimit: number;
-  startRow?: number;
-  dataState?: 'final' | 'all';
-  type?: string;
-}
-
 let token = '';
-const apiCalls: { property: string; body: SaRequest; rows: number }[] = [];
+let gsc: GscClient | null = null;
+const apiCalls: SaRequestLog[] = [];
 
-async function listSites(): Promise<SiteEntry[]> {
-  const res = await fetch('https://www.googleapis.com/webmasters/v3/sites', {
-    headers: { authorization: `Bearer ${token}` },
-  });
-  if (!res.ok) fail(`sites.list failed: HTTP ${res.status} ${(await res.text()).slice(0, 300)}`);
-  const body = (await res.json()) as { siteEntry?: SiteEntry[] };
-  return body.siteEntry ?? [];
+function client(): GscClient {
+  if (!gsc) fail('Search Console client used before the token was obtained.');
+  return gsc;
+}
+
+async function listSites() {
+  return client().listSites();
 }
 
 async function searchAnalytics(property: string, body: SaRequest): Promise<SaRow[]> {
-  const url = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(property)}/searchAnalytics/query`;
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json' },
-    body: JSON.stringify(body),
-  });
-  if (!res.ok) {
-    const text = (await res.text()).slice(0, 400);
-    throw new Error(`searchAnalytics.query ${property} HTTP ${res.status}: ${text}`);
-  }
-  const parsed = (await res.json()) as { rows?: SaRow[] };
-  const rows = parsed.rows ?? [];
-  apiCalls.push({ property, body, rows: rows.length });
-  return rows;
+  return client().searchAnalytics(property, body);
 }
 
 /** Every row for the dimensions, paginated until an EMPTY page. */
@@ -255,60 +172,21 @@ async function searchAnalyticsAll(
   property: string,
   base: Omit<SaRequest, 'rowLimit' | 'startRow'>,
 ): Promise<{ rows: SaRow[]; pages: number; lastPageRows: number }> {
-  const rows: SaRow[] = [];
-  let startRow = 0;
-  let pages = 0;
-  let lastPageRows = -1;
-  for (;;) {
-    const page = await searchAnalytics(property, { ...base, rowLimit: ROW_LIMIT, startRow });
-    pages += 1;
-    lastPageRows = page.length;
-    rows.push(...page);
-    if (page.length === 0) break;
-    startRow += page.length;
-    if (pages > 40) break; // 1,000,000 rows; a runaway guard, never expected
-  }
-  return { rows, pages, lastPageRows };
-}
-
-const isoDate = (d: Date): string => d.toISOString().slice(0, 10);
-function daysAgo(n: number): string {
-  const d = new Date();
-  d.setUTCDate(d.getUTCDate() - n);
-  return isoDate(d);
+  return client().searchAnalyticsAll(property, base);
 }
 
 // -- Tokens (query normalisation for grouping + detector pre-processing) -----
+//
+// AUTO-110: the tokenizer, the plural fold and the grouping key now live in
+// lib/blog-automation/topic-pool.ts, which reads the ONE shared
+// non-significant list from lib/ai/brand-voice.ts; this script kept a hand
+// copy of that list until then. The detector input here stays what AUTO-100
+// measured (generic promo words and filler removed, near-generic words NOT
+// removed), so the report's numbers remain comparable with the guard's,
+// which additionally strips the near-generic words.
 
-/**
- * Mirror of the private NON_SIGNIFICANT set in lib/ai/related-products.ts
- * (GENERIC_PROMO_WORDS + its filler list). Kept in step by hand; it is applied
- * to the QUERY before it reaches the detector, so a shared "custom" or "for"
- * cannot count as a match, which is exactly what the matcher does on its side.
- */
-const FILLER = new Set<string>([
-  'the', 'and', 'for', 'with', 'your', 'our', 'from', 'that', 'this', 'are', 'can', 'will',
-  'how', 'why', 'what', 'best', 'top', 'ideas', 'idea',
-]);
-let NON_SIGNIFICANT: Set<string> = new Set();
-
-function tokenize(text: string): string[] {
-  return text.toLowerCase().split(/[^a-z0-9]+/).filter((t) => t.length >= 3);
-}
-function significant(text: string): string[] {
-  return tokenize(text).filter((t) => !NON_SIGNIFICANT.has(t));
-}
-/** Crude plural fold so "bottles" and "bottle" group together. */
-function singular(t: string): string {
-  if (t.length > 4 && t.endsWith('ies')) return `${t.slice(0, -3)}y`;
-  if (t.length > 4 && t.endsWith('es') && /(s|x|z|ch|sh)es$/.test(t)) return t.slice(0, -2);
-  if (t.length > 3 && t.endsWith('s') && !t.endsWith('ss')) return t.slice(0, -1);
-  return t;
-}
-function topicKey(query: string): string {
-  const set = new Set(significant(query).map(singular));
-  return [...set].sort().join(' ');
-}
+const significant = significantTokens;
+const singular = singularToken;
 
 // -- Main --------------------------------------------------------------------
 
@@ -342,9 +220,10 @@ async function main(): Promise<void> {
   // ---- Part 1: prove the connection ----------------------------------------
   out('## Part 1: the connection');
   out();
-  const sa = decodeServiceAccount();
+  const sa = decodeServiceAccountOrFail();
   out(`Key variable: GSC_SERVICE_ACCOUNT_JSON_B64 (decoded, service account ${sa.client_email}).`);
   token = await getAccessToken(sa);
+  gsc = createGscClient(token, { onRequest: (entry) => apiCalls.push(entry) });
   out('Token: obtained with scope https://www.googleapis.com/auth/webmasters.readonly.');
   out();
   const sites = await listSites();
@@ -678,7 +557,7 @@ async function main(): Promise<void> {
     // Sensitivity: tokens that are near-generic on THIS site ("products",
     // "items", "gift") can carry a score-2 match on their own. Count the
     // score>=threshold matches that still clear it without them.
-    const nearGeneric = new Set(['product', 'products', 'item', 'items', 'gift', 'gifts', 'business', 'businesses', 'company', 'companies']);
+    const nearGeneric = new Set<string>(NEAR_GENERIC_WORDS);
     const strict = scored.filter((x) => x.matched.filter((t) => !nearGeneric.has(t)).length >= THRESHOLD).length;
     out(`Sensitivity: ignoring the near-generic tokens ${[...nearGeneric].join(', ')}, ${fmt(strict)} queries (${pct(strict, scored.length)}) still reach threshold ${THRESHOLD}; the difference is matches that lean on one of those words.`);
     const rankedByBlogSet = new Set(scored.filter((x) => sectionOf(topPage.get(x.row.keys[0])?.keys[1]) === '/blog/').map((x) => x.row.keys[0]));
@@ -788,11 +667,7 @@ function writeReport(): void {
   console.log(`\nReport written to ${REPORT_PATH}`);
 }
 
-(async () => {
-  const { GENERIC_PROMO_WORDS } = await import('../../lib/ai/brand-voice');
-  NON_SIGNIFICANT = new Set<string>([...GENERIC_PROMO_WORDS, ...FILLER]);
-  await main();
-})().catch((e) => {
-  const msg = e instanceof Error ? e.message : String(e);
-  fail(msg.includes('private_key') || msg.includes('BEGIN') ? 'an error mentioning key material was suppressed' : msg);
+main().catch((e) => {
+  const msg = e instanceof GscError ? `${e.message} ${e.hint}` : e instanceof Error ? e.message : String(e);
+  fail(mentionsKeyMaterial(msg) ? 'an error mentioning key material was suppressed' : msg);
 });

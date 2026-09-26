@@ -541,6 +541,68 @@ export default defineType({
         },
       ],
     }),
+    // AUTO-110. The blog automation controls live HERE, on the singleton the
+    // webhook Filter already carries in both environments, for the PORT-115
+    // reason: a new document type would need the Filter edited by hand in
+    // staging and production. Today the object holds only the negative
+    // keywords; Stage 2's toggles (on/off, posts per day) become sibling
+    // fields of this same object later, no migration. The Blog Topics panel
+    // writes entries here when Patrick ticks "Block" (into the published
+    // document AND the draft, if one is open, the Q-155 mark-as-sent rule, so
+    // a later publish from an open draft cannot silently un-block a topic);
+    // the panel's read of the list is live, and the route's read rides
+    // SETTINGS_TAG, which the globalSettings webhook branch busts on every
+    // change to this document.
+    defineField({
+      name: 'blogAutomation',
+      title: 'Blog Automation',
+      type: 'object',
+      description:
+        'Controls for the Blog Topics tab (top of the Studio). Blocked topics never appear in that list again until you remove them here or untick them there.',
+      options: { collapsible: true, collapsed: true },
+      fields: [
+        {
+          name: 'negativeKeywords',
+          title: 'Blocked topics (negative keywords)',
+          type: 'array',
+          description:
+            'A topic is blocked when every meaningful word of the term appears in the search. So "paramedics" blocks every search that mentions paramedics, and a whole search such as "fun facts about paramedics" blocks only that topic. The Blog Topics tab adds a line here each time you tick Block; you can also type a term by hand.',
+          of: [
+            {
+              type: 'object',
+              name: 'negativeKeyword',
+              fields: [
+                {
+                  name: 'term',
+                  title: 'Term',
+                  type: 'string',
+                  validation: (Rule) => Rule.required(),
+                },
+                {
+                  name: 'addedAt',
+                  title: 'Blocked on',
+                  type: 'datetime',
+                  description: 'Filled in automatically by the Blog Topics tab. Optional for a term you type here.',
+                },
+                {
+                  name: 'note',
+                  title: 'Note (optional)',
+                  type: 'string',
+                  description: 'A word to yourself about why, e.g. "not our customers".',
+                },
+              ],
+              preview: {
+                select: { title: 'term', subtitle: 'note', addedAt: 'addedAt' },
+                prepare: ({ title, subtitle, addedAt }) => ({
+                  title: title || '(no term)',
+                  subtitle: subtitle || (addedAt ? `Blocked ${String(addedAt).slice(0, 10)}` : undefined),
+                }),
+              },
+            },
+          ],
+        },
+      ],
+    }),
   ],
   preview: {
     prepare: () => ({ title: 'Global Settings' }),

@@ -45,6 +45,77 @@ export const GENERIC_PROMO_WORDS = [
   'wholesale',
 ] as const;
 
+/**
+ * Filler words that survive the length-3 token filter and carry no matching
+ * signal ("the", "for", "ideas"). Until AUTO-110 this list was a private
+ * constant inside lib/ai/related-products.ts and the AUTO-100 script kept a
+ * hand copy of it in step; it is exported from here so the related-products
+ * matcher, the blog topic guard (lib/blog-automation/topic-pool.ts) and the
+ * AUTO-100 script all read ONE list.
+ */
+export const MATCH_FILLER_WORDS = [
+  'the',
+  'and',
+  'for',
+  'with',
+  'your',
+  'our',
+  'from',
+  'that',
+  'this',
+  'are',
+  'can',
+  'will',
+  'how',
+  'why',
+  'what',
+  'best',
+  'top',
+  'ideas',
+  'idea',
+] as const;
+
+/**
+ * Every word with no matching signal: the generic promo modifiers plus the
+ * filler. This is THE shared non-significant list; the related-products
+ * matcher strips it from both sides of every comparison, and the blog topic
+ * guard strips it from a search query before the query reaches the
+ * internal-links detector.
+ */
+export const NON_SIGNIFICANT_MATCH_WORDS: ReadonlySet<string> = new Set<string>([
+  ...GENERIC_PROMO_WORDS,
+  ...MATCH_FILLER_WORDS,
+]);
+
+/**
+ * Near-generic on THIS site, measured by AUTO-100 (2026-09-24): "products",
+ * "items", "gift", "business" and "company" carried 315 of the 1,672
+ * two-token cannibalization matches on their own, because a large share of
+ * Patrick's 658 blog TITLES contain one of them. So the blog topic guard
+ * (AUTO-110) treats them as non-significant too, on top of the shared list
+ * above. Singular and plural forms are both listed because the detector folds
+ * plurals on the TITLE side only; the query side must be stripped of both.
+ *
+ * Deliberately NOT folded into NON_SIGNIFICANT_MATCH_WORDS, which the
+ * related-products matcher and its category resolver use: "gift" is a real
+ * product word in the catalog, and with it stripped, "executive gifts" resolves
+ * to the executive-pens category (a one-token tie broken by slug length) and
+ * "gift sets" to desk-sets. The words are near-generic among blog titles, not
+ * among product names, so they are applied where that is true.
+ */
+export const NEAR_GENERIC_WORDS = [
+  'product',
+  'products',
+  'item',
+  'items',
+  'gift',
+  'gifts',
+  'business',
+  'businesses',
+  'company',
+  'companies',
+] as const;
+
 /** Banned filler phrases (matches the category route's system prompt). */
 export const BANNED_PHRASES = [
   '"in today\'s world"',

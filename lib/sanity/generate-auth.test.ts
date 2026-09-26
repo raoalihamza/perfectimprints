@@ -110,6 +110,59 @@ describe('FIX-850 generate routes', () => {
   }
 });
 
+describe('AUTO-110 blog-topics route carries the identical guard', () => {
+  const file = join(ROUTES_DIR, 'blog-topics', 'route.ts');
+  const src = read(file);
+
+  it('verifies the Studio nonce with the shared helper and constants, returning the helper status', () => {
+    expect(src).toContain("from '@/lib/sanity/studio-nonce-auth'");
+    expect(src).toContain("from '@/lib/sanity/generate-auth'");
+    expect(src).toMatch(
+      /verifyStudioNonce\(request, \{\s*authDocId: GENERATE_AUTH_DOC_ID,\s*headerName: GENERATE_NONCE_HEADER,\s*\}\)/,
+    );
+    expect(src).toContain('{ status: auth.status }');
+  });
+
+  it('the guard runs before the body is read and before any call to Google or the cache', () => {
+    const postStart = src.indexOf('export async function POST(request: Request) {');
+    expect(postStart).toBeGreaterThan(-1);
+    const body = src.slice(postStart);
+    const guardAt = body.indexOf('verifyStudioNonce(request');
+    expect(guardAt).toBeGreaterThan(-1);
+    for (const marker of ['request.json()', 'getCachedTopicPoolSnapshot(', 'revalidateTag(', 'getSiteSettings(']) {
+      const at = body.indexOf(marker);
+      expect(at, marker).toBeGreaterThan(guardAt);
+    }
+  });
+
+  it('sets an explicit maxDuration and is nodejs + force-dynamic', () => {
+    expect(src).toMatch(/export const maxDuration = \d+;/);
+    expect(src).toContain("export const runtime = 'nodejs';");
+    expect(src).toContain("export const dynamic = 'force-dynamic';");
+  });
+
+  it('never reads the key itself; only the client module does', () => {
+    expect(src).not.toContain('process.env.GSC_SERVICE_ACCOUNT_JSON_B64');
+    const readers = readdirSync(join(ROOT, 'lib', 'blog-automation'))
+      .filter((n) => n.endsWith('.ts') && !n.endsWith('.test.ts'))
+      .filter((n) => read(join(ROOT, 'lib', 'blog-automation', n)).includes('process.env.GSC_SERVICE_ACCOUNT_JSON_B64'));
+    expect(readers).toEqual(['build-topic-pool.ts']);
+  });
+
+  it('the Studio panel calls the route through useGenerateAuthFetch, never a bare fetch', () => {
+    const tool = read(join(ROOT, 'sanity', 'tools', 'blog-topics-tool.tsx'));
+    expect(tool).toContain("from '../components/useGenerateAuthFetch'");
+    expect(tool).toContain('const authFetch = useGenerateAuthFetch();');
+    expect(tool).not.toMatch(/[^a-zA-Z]fetch\('\/api\/sanity\//);
+    // It generates through the existing blog route, not a new one.
+    expect(tool).toContain("'/api/sanity/generate-blog'");
+    // It never imports the server-side builder or the cache into the Studio bundle.
+    expect(tool).not.toContain('build-topic-pool');
+    expect(tool).not.toContain('cached-topic-pool');
+    expect(tool).not.toContain('gsc-client');
+  });
+});
+
 describe('FIX-850 Studio actions', () => {
   const actions = generateActionFiles();
 

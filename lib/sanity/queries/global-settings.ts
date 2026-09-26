@@ -181,6 +181,29 @@ export interface SiteSettings {
    * is what lets Patrick change 15 to 12 with no deploy.
    */
   shippingPolicy: ShippingPolicy | null;
+  /**
+   * Blog automation controls (AUTO-110), `globalSettings.blogAutomation`.
+   * Today only the negative keywords: the topics Patrick has blocked in the
+   * Blog Topics panel (or typed here by hand). Stage 2's toggles (on/off,
+   * posts per day) are added as sibling fields of this object later, with no
+   * migration, because the object exists from this ticket on. Lives on this
+   * singleton for the PORT-115 reason: already in the webhook Filter in both
+   * environments, so a block rides SETTINGS_TAG and needs no manual step.
+   */
+  blogAutomation: BlogAutomationSettings;
+}
+
+export interface NegativeKeyword {
+  /** The blocked term as written (trimmed); matching is case-insensitive. */
+  term: string;
+  /** When it was blocked (ISO), null for a term typed by hand without one. */
+  addedAt: string | null;
+  note: string | null;
+}
+
+export interface BlogAutomationSettings {
+  /** Trimmed, blanks dropped, de-duplicated case-insensitively, first wins. */
+  negativeKeywords: NegativeKeyword[];
 }
 
 /**
@@ -242,6 +265,9 @@ interface RawSettings {
     transitDaysMax?: number;
   };
   hoursOfOperation?: string;
+  blogAutomation?: {
+    negativeKeywords?: Array<{ term?: string; addedAt?: string; note?: string }>;
+  };
   // legacy flat fields — fallback only
   phoneNumber?: string;
   contactEmail?: string;
@@ -257,6 +283,7 @@ const QUERY = `*[_type == "globalSettings"][0]{
   hiddenProducts{ skus },
   portfolioPage{ intro },
   shippingPolicy{ orderPercentage, flatRate, destinationCountry, handlingDaysMin, handlingDaysMax, transitDaysMin, transitDaysMax },
+  blogAutomation{ negativeKeywords[]{ term, addedAt, note } },
   hoursOfOperation,
   phoneNumber,
   contactEmail
@@ -275,7 +302,28 @@ const EMPTY: SiteSettings = {
   hiddenEverywhereSkus: [],
   portfolioIntro: null,
   shippingPolicy: null,
+  blogAutomation: { negativeKeywords: [] },
 };
+
+/**
+ * Blog automation (AUTO-110): keep every negative keyword that has a real
+ * term, trimmed, and drop case-insensitive duplicates (the first entry wins,
+ * so its date and note are the ones shown). A missing object resolves to an
+ * empty list, the state of the singleton before this ticket.
+ */
+export function resolveBlogAutomation(raw: RawSettings['blogAutomation'] | null | undefined): BlogAutomationSettings {
+  const seen = new Set<string>();
+  const negativeKeywords: NegativeKeyword[] = [];
+  for (const entry of raw?.negativeKeywords ?? []) {
+    const term = clean(entry?.term);
+    if (!term) continue;
+    const key = term.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    negativeKeywords.push({ term, addedAt: clean(entry.addedAt), note: clean(entry.note) });
+  }
+  return { negativeKeywords };
+}
 
 /**
  * Shipping policy (MERCH-100, extended by MERCH-220): keep a number only when
@@ -412,6 +460,7 @@ function resolve(raw: RawSettings | null): SiteSettings {
     hiddenEverywhereSkus,
     portfolioIntro: resolvePortfolioIntro(raw.portfolioPage?.intro),
     shippingPolicy: resolveShippingPolicy(raw.shippingPolicy),
+    blogAutomation: resolveBlogAutomation(raw.blogAutomation),
   };
 }
 

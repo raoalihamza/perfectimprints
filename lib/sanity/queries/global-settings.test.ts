@@ -7,7 +7,7 @@
  */
 import { describe, expect, it } from 'vitest';
 
-import { resolveShippingPolicy } from './global-settings';
+import { resolveBlogAutomation, resolveShippingPolicy } from './global-settings';
 
 describe('resolveShippingPolicy (MERCH-220)', () => {
   it('resolves to null when nothing is set, exactly as MERCH-100 did', () => {
@@ -47,5 +47,40 @@ describe('resolveShippingPolicy (MERCH-220)', () => {
     const policy = resolveShippingPolicy({ handlingDaysMin: 10, handlingDaysMax: 10, transitDaysMin: 3, transitDaysMax: 7 });
     expect(policy).toMatchObject({ handlingDaysMin: 10, handlingDaysMax: 10, transitDaysMin: 3, transitDaysMax: 7 });
     expect(policy?.orderPercentage).toBeNull();
+  });
+});
+
+describe('resolveBlogAutomation (AUTO-110)', () => {
+  it('resolves a missing object to an empty list, the state of the singleton before the ticket', () => {
+    expect(resolveBlogAutomation(undefined)).toEqual({ negativeKeywords: [] });
+    expect(resolveBlogAutomation(null)).toEqual({ negativeKeywords: [] });
+    expect(resolveBlogAutomation({})).toEqual({ negativeKeywords: [] });
+    expect(resolveBlogAutomation({ negativeKeywords: [] })).toEqual({ negativeKeywords: [] });
+  });
+
+  it('keeps what the panel wrote, trimmed, with its date and note', () => {
+    expect(
+      resolveBlogAutomation({
+        negativeKeywords: [{ term: '  fun facts about paramedics ', addedAt: '2026-09-24T10:00:00.000Z', note: ' not our buyers ' }],
+      }),
+    ).toEqual({
+      negativeKeywords: [{ term: 'fun facts about paramedics', addedAt: '2026-09-24T10:00:00.000Z', note: 'not our buyers' }],
+    });
+  });
+
+  it('drops blank terms and case-insensitive duplicates, first entry winning', () => {
+    const resolved = resolveBlogAutomation({
+      negativeKeywords: [
+        { term: '' },
+        { term: '   ' },
+        { term: 'Paramedics', note: 'first' },
+        { term: 'paramedics', note: 'second' },
+        {},
+        { term: 'nurses' },
+      ],
+    });
+    expect(resolved.negativeKeywords.map((k) => k.term)).toEqual(['Paramedics', 'nurses']);
+    expect(resolved.negativeKeywords[0].note).toBe('first');
+    expect(resolved.negativeKeywords[1]).toEqual({ term: 'nurses', addedAt: null, note: null });
   });
 });
