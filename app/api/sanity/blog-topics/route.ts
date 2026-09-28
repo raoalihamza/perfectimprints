@@ -85,8 +85,9 @@ export async function POST(request: Request) {
 
   try {
     const [snapshot, settings] = await Promise.all([getCachedTopicPoolSnapshot(), getSiteSettings()]);
-    const terms = settings.blogAutomation.negativeKeywords.map((k) => k.term);
-    const topics = applyNegativeKeywords(snapshot.topics, terms);
+    // AUTO-116: each entry carries its scope (topic or word), so the objects
+    // are passed, not just the terms.
+    const topics = applyNegativeKeywords(snapshot.topics, settings.blogAutomation.negativeKeywords);
     return NextResponse.json({
       ok: true,
       generatedAt: snapshot.generatedAt,

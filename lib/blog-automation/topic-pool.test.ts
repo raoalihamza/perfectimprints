@@ -19,6 +19,14 @@ import {
   compactTopic,
   expandTopic,
   blockingTerm,
+  blockScopeOf,
+  blockedSentence,
+  normalizeBlockTerm,
+  rulesBlockingTopic,
+  sameBlockRule,
+  topicBlockKey,
+  topicBlockRule,
+  topicsBlockedByWord,
   countTopics,
   decideGuard,
   detectorInput,
@@ -273,6 +281,102 @@ describe('negative keywords', () => {
       excludedByRankingPage: 1,
       excludedByBoth: 1,
     });
+  });
+});
+
+describe('AUTO-116: a tick blocks one topic, a word block blocks every topic containing the word', () => {
+  // A pool shaped like the real one: one "custom pens" topic and many others
+  // that merely mention pens (today's real pool has 81 such topics).
+  const queries: PoolQuery[] = [
+    // "custom printed pens" and "pens with logo" share the key "pen" with
+    // "custom pens" ("printed" and "logo" are generic words), so they are
+    // variants of the SAME topic row and a tick on it covers them too.
+    'custom pens',
+    'custom printed pens',
+    'pens with logo',
+    'gel pens',
+    'metal pens',
+    'stylus pens',
+    'nurse pens',
+    'imprinted sunglasses',
+    'imprinted single tone matte sunglasses',
+    'imprinted sunglasses with mirror lenses',
+    'custom printed sunglasses',
+    'fun facts about paramedics',
+  ].map((query, i) => ({ query, clicks: 0, impressions: 100 - i, position: 15, page: '/cat/x' }));
+  const topics: Topic[] = groupIntoTopics(queries).map((c) => applyGuard(c, null));
+  const blocked = (rules: Parameters<typeof applyNegativeKeywords>[1]) =>
+    applyNegativeKeywords(topics, rules).filter((t) => t.state === 'blocked');
+  const find = (q: string) => topics.find((t) => t.query === q)!;
+
+  it('ticking a topic blocks exactly that one topic, for every topic in the pool', () => {
+    for (const t of topics) {
+      const hit = blocked([topicBlockRule(t)]);
+      expect(hit.map((x) => x.key)).toEqual([t.key]);
+      expect(hit[0].blockedScope).toBe('topic');
+    }
+    // The case AUTO-115 named: the same words as a WORD block take every pen topic.
+    expect(blocked([topicBlockRule(find('custom pens'))])).toHaveLength(1);
+    expect(blocked(['custom pens']).length).toBeGreaterThan(1);
+  });
+
+  it('what the tick writes is the topic query, trimmed, scoped to the topic', () => {
+    expect(topicBlockRule({ query: '  custom   pens ' })).toEqual({ term: 'custom pens', scope: 'topic' });
+    expect(topicBlockKey('custom pens')).toBe(find('custom pens').key);
+  });
+
+  it("Patrick's stored entry (no scope) still blocks exactly the 3 topics it blocked before, as a word block", () => {
+    const stored = { term: 'imprinted sunglasses', scope: blockScopeOf(undefined) };
+    expect(stored.scope).toBe('word');
+    const now = blocked([stored]).map((t) => t.query).sort();
+    const before = blocked(['imprinted sunglasses']).map((t) => t.query).sort();
+    expect(now).toEqual(before);
+    expect(now).toEqual(['imprinted single tone matte sunglasses', 'imprinted sunglasses', 'imprinted sunglasses with mirror lenses']);
+    expect(blocked([stored]).every((t) => t.blockedScope === 'word')).toBe(true);
+  });
+
+  it('the preview lists exactly what the word block will block', () => {
+    const preview = topicsBlockedByWord(topics, 'pens').map((t) => t.key).sort();
+    const applied = blocked([{ term: 'pens', scope: 'word' }]).map((t) => t.key).sort();
+    expect(preview).toEqual(applied);
+    expect(preview.length).toBe(5);
+    expect(topicsBlockedByWord(topics, '   ')).toEqual([]);
+  });
+
+  it('stray whitespace and case never stop a term being matched or removed', () => {
+    expect(normalizeBlockTerm('  imprinted   sunglasses \n')).toBe('imprinted sunglasses');
+    expect(normalizeBlockTerm(undefined)).toBe('');
+    expect(sameBlockRule({ term: ' Imprinted Sunglasses ', scope: 'word' }, { term: 'imprinted sunglasses', scope: 'word' })).toBe(true);
+    expect(sameBlockRule({ term: 'custom pens', scope: 'topic' }, { term: 'custom pens', scope: 'word' })).toBe(false);
+    // A stored topic block with stray spaces still blocks (and is found by) its topic.
+    const padded = { term: '  custom pens  ', scope: 'topic' as const };
+    expect(blocked([padded]).map((t) => t.query)).toEqual(['custom pens']);
+    expect(rulesBlockingTopic(find('custom pens'), [padded])).toEqual([padded]);
+  });
+
+  it('unblocking finds every rule covering a topic, of both kinds', () => {
+    const rules = [
+      { term: 'custom pens', scope: 'topic' as const },
+      { term: 'pens', scope: 'word' as const },
+      { term: 'sunglasses', scope: 'word' as const },
+    ];
+    expect(rulesBlockingTopic(find('custom pens'), rules)).toEqual(rules.slice(0, 2));
+    expect(rulesBlockingTopic(find('gel pens'), rules)).toEqual([rules[1]]);
+    const afterRemovingTopicOnly = applyNegativeKeywords(topics, rules.slice(1)).find((t) => t.query === 'custom pens')!;
+    expect(afterRemovingTopicOnly.state).toBe('blocked');
+    expect(afterRemovingTopicOnly.blockedScope).toBe('word');
+    const cleared = applyNegativeKeywords(topics, []).find((t) => t.query === 'custom pens')!;
+    expect(cleared.state).toBe('usable');
+    expect(cleared.blockedScope).toBeNull();
+  });
+
+  it('says which kind of block it is', () => {
+    expect(blockedSentence('custom pens', 'topic')).toBe('Blocked by you (this topic only).');
+    expect(blockedSentence('pens', 'word')).toContain('every topic containing it');
+    expect(blockingTerm('custom pens', [{ term: 'custom pens', scope: 'topic' }])).toBe('custom pens');
+    expect(blockingTerm('gel pens', [{ term: 'custom pens', scope: 'topic' }])).toBeNull();
+    // A search grouped into the same row is covered by the tick, as the row shows it.
+    expect(blockingTerm('custom printed pens', [{ term: 'custom pens', scope: 'topic' }])).toBe('custom pens');
   });
 });
 

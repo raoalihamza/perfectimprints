@@ -64,7 +64,7 @@ describe('resolveBlogAutomation (AUTO-110)', () => {
         negativeKeywords: [{ term: '  fun facts about paramedics ', addedAt: '2026-09-24T10:00:00.000Z', note: ' not our buyers ' }],
       }),
     ).toEqual({
-      negativeKeywords: [{ term: 'fun facts about paramedics', addedAt: '2026-09-24T10:00:00.000Z', note: 'not our buyers' }],
+      negativeKeywords: [{ term: 'fun facts about paramedics', scope: 'word', addedAt: '2026-09-24T10:00:00.000Z', note: 'not our buyers' }],
     });
   });
 
@@ -81,6 +81,36 @@ describe('resolveBlogAutomation (AUTO-110)', () => {
     });
     expect(resolved.negativeKeywords.map((k) => k.term)).toEqual(['Paramedics', 'nurses']);
     expect(resolved.negativeKeywords[0].note).toBe('first');
-    expect(resolved.negativeKeywords[1]).toEqual({ term: 'nurses', addedAt: null, note: null });
+    expect(resolved.negativeKeywords[1]).toEqual({ term: 'nurses', scope: 'word', addedAt: null, note: null });
+  });
+
+  it('AUTO-116: reads the scope, and an entry with none (every entry before AUTO-116) is a word block', () => {
+    const resolved = resolveBlogAutomation({
+      negativeKeywords: [
+        // Patrick's real stored entry, byte for byte (no scope field).
+        { term: 'imprinted sunglasses', addedAt: '2026-09-26T01:35:30.171Z' },
+        { term: 'custom pens', scope: 'topic' },
+        { term: 'nurses', scope: 'something else' },
+      ],
+    });
+    expect(resolved.negativeKeywords.map((k) => [k.term, k.scope])).toEqual([
+      ['imprinted sunglasses', 'word'],
+      ['custom pens', 'topic'],
+      ['nurses', 'word'],
+    ]);
+  });
+
+  it('AUTO-116: de-duplicates within a scope, keeps a topic block and a word block for the same words, collapses inner spaces', () => {
+    const resolved = resolveBlogAutomation({
+      negativeKeywords: [
+        { term: ' custom   pens ', scope: 'topic' },
+        { term: 'Custom Pens', scope: 'topic' },
+        { term: 'custom pens' },
+      ],
+    });
+    expect(resolved.negativeKeywords.map((k) => [k.term, k.scope])).toEqual([
+      ['custom pens', 'topic'],
+      ['custom pens', 'word'],
+    ]);
   });
 });

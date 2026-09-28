@@ -13,16 +13,20 @@
  *   - Each topic shows whether the cannibalization guard passed it or
  *     excluded it, and why (the existing post it overlaps with, or the post
  *     of his that already ranks for it).
- *   - "Block" writes the term to Global Settings > Blog Automation (the
- *     negative keyword screen) through the cookie-authed Studio client, in
- *     Patrick's browser: into the published document AND the draft if one is
- *     open, the Q-155 rule, so a later publish from an open draft cannot
- *     silently un-block it. Unticking removes it again.
- *   - "Generate draft" creates a blogPost DRAFT titled from the term, calls
- *     the existing /api/sanity/generate-blog route exactly as the "Generate
- *     Blog with AI" document action does, and patches the result into that
- *     draft. It never publishes; a failed generation deletes the empty draft
- *     so nothing half-made is left behind.
+ *   - The "Block" tick box blocks THAT ONE TOPIC (AUTO-116; it used to write a
+ *     word block, so ticking "custom pens" hid 77 topics). "Block a word"
+ *     blocks every topic containing a word, and shows the full list before it
+ *     writes. Both write to Global Settings > Blog Automation (the negative
+ *     keyword screen) through the cookie-authed Studio client, in Patrick's
+ *     browser: into the published document AND the draft if one is open, the
+ *     Q-155 rule, so a later publish from an open draft cannot silently
+ *     un-block it. Terms are normalised on write and compare, and removed by
+ *     `_key`, so a term saved with a stray space can always be unblocked.
+ *   - "Generate draft" calls the existing /api/sanity/generate-blog route
+ *     with the same body the document action sends and, only once the post
+ *     has come back, creates the blogPost DRAFT with everything in it
+ *     (AUTO-116: nothing is created before, so a closed tab leaves nothing).
+ *     It never publishes and sets no publish date (that is stamped on Publish).
  *
  * Auth: the same nonce handshake the nine generate routes use
  * (useGenerateAuthFetch), so one Studio session serves this tab and every
@@ -37,10 +41,18 @@ import { useGenerateAuthFetch } from '../components/useGenerateAuthFetch';
 import {
   applyNegativeKeywords,
   blockedSentence,
+  blockScopeOf,
   countTopics,
+  normalizeBlockTerm,
+  rulesBlockingTopic,
+  sameBlockRule,
+  topicBlockRule,
+  topicsBlockedByWord,
+  type BlockRule,
   type Topic,
   type TopicCounts,
 } from '../../lib/blog-automation/topic-pool';
+import { slugifyTitle } from '../actions/blog-generate-plan';
 
 // Theme CSS variables so the panel is readable in light AND dark Studio themes.
 const FG = 'var(--card-fg-color, #1a1a1a)';
@@ -127,11 +139,21 @@ type StateFilter = 'all' | 'usable' | 'excluded' | 'blocked';
 type SortKey = 'impressions' | 'clicks' | 'position' | 'query';
 type Template = 'list' | 'single';
 
-interface NegativeKeywordEntry {
+interface NegativeKeywordEntry extends BlockRule {
   _key: string;
-  term: string;
   addedAt?: string;
   note?: string;
+}
+
+/** A stored entry as the panel uses it: term normalised, scope read ('word' when missing). */
+function toEntry(raw: { _key?: string; term?: unknown; scope?: unknown; addedAt?: string; note?: string }): NegativeKeywordEntry {
+  return {
+    _key: raw._key ?? '',
+    term: normalizeBlockTerm(raw.term),
+    scope: blockScopeOf(raw.scope),
+    addedAt: raw.addedAt,
+    note: raw.note,
+  };
 }
 
 interface PoolResponse {
@@ -170,16 +192,6 @@ function newKey(prefix: string): string {
 function newDocumentId(): string {
   const uuid = globalThis.crypto?.randomUUID?.();
   return uuid ?? `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}-${Math.random().toString(36).slice(2)}`;
-}
-
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .trim()
-    .replace(/&/g, 'and')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 96);
 }
 
 const SMALL_WORDS = new Set(['a', 'an', 'and', 'as', 'at', 'but', 'by', 'for', 'in', 'of', 'on', 'or', 'the', 'to', 'vs', 'with']);
@@ -235,11 +247,13 @@ function BlogTopicsComponent() {
   //    within seconds through the webhook) ───────────────────────────────────
   const readBlocked = useCallback(async () => {
     try {
-      const entries = await client.fetch<NegativeKeywordEntry[] | null>(
-        `*[_id == $id][0].blogAutomation.negativeKeywords[]{ _key, term, addedAt, note }`,
+      const entries = await client.fetch<Parameters<typeof toEntry>[0][] | null>(
+        `*[_id == $id][0].blogAutomation.negativeKeywords[]{ _key, term, scope, addedAt, note }`,
         { id: SETTINGS_ID },
       );
-      if (mounted.current) setLiveBlocked((entries ?? []).filter((e) => e && typeof e.term === 'string' && e.term.trim()));
+      // Normalised here (AUTO-116): a term saved with a stray space used to be
+      // shown and compared untrimmed, so it could never be unblocked.
+      if (mounted.current) setLiveBlocked((entries ?? []).filter(Boolean).map(toEntry).filter((e) => e.term));
     } catch {
       /* keep the last list; the route's own copy still applies */
     }
@@ -298,8 +312,7 @@ function BlogTopicsComponent() {
   }, [loadPool]);
 
   // ── Derived list: live blocks on top of the guard, then filter / search / sort
-  const liveTerms = useMemo(() => liveBlocked.map((e) => e.term), [liveBlocked]);
-  const topics = useMemo(() => applyNegativeKeywords(baseTopics, liveTerms), [baseTopics, liveTerms]);
+  const topics = useMemo(() => applyNegativeKeywords(baseTopics, liveBlocked), [baseTopics, liveBlocked]);
   const counts = useMemo(() => countTopics(topics), [topics]);
 
   const visible = useMemo(() => {
@@ -340,75 +353,190 @@ function BlogTopicsComponent() {
   }, [filter, search, sort]);
 
   // ── Block / unblock: Global Settings > Blog Automation ─────────────────────
-  const settingsIds = useCallback(async (): Promise<string[]> => {
-    const ids = await client.fetch<string[]>(`*[_id in [$id, $draft]]._id`, { id: SETTINGS_ID, draft: SETTINGS_DRAFT_ID });
-    return ids.length > 0 ? ids : [SETTINGS_ID];
-  }, [client]);
+  /**
+   * Write one block (AUTO-116). The term is normalised on write, and a block
+   * that is already stored (same scope, same words ignoring case and spaces,
+   * the resolver's de-duplication rule) is not written twice. Into the
+   * published document AND the draft if one is open, the Q-155 rule.
+   */
+  const writeBlock = useCallback(
+    async (rule: BlockRule) => {
+      const term = normalizeBlockTerm(rule.term);
+      if (!term) return;
+      const docs = await client.fetch<{ _id: string; entries: Parameters<typeof toEntry>[0][] | null }[]>(
+        `*[_id in [$id, $draft]]{ _id, "entries": blogAutomation.negativeKeywords[]{ _key, term, scope } }`,
+        { id: SETTINGS_ID, draft: SETTINGS_DRAFT_ID },
+      );
+      const ids = docs.length > 0 ? docs.map((d) => d._id) : [SETTINGS_ID];
+      let tx = client.transaction();
+      let any = false;
+      for (const id of ids) {
+        const existing = (docs.find((d) => d._id === id)?.entries ?? []).filter(Boolean).map(toEntry);
+        if (existing.some((e) => sameBlockRule(e, { term, scope: rule.scope }))) continue;
+        const entry = { _key: newKey('nk'), _type: 'negativeKeyword', term, scope: rule.scope, addedAt: new Date().toISOString() };
+        any = true;
+        tx = tx
+          .patch(id, (p) => p.setIfMissing({ blogAutomation: {} }))
+          .patch(id, (p) => p.setIfMissing({ 'blogAutomation.negativeKeywords': [] }))
+          .patch(id, (p) => p.insert('after', 'blogAutomation.negativeKeywords[-1]', [entry]));
+      }
+      if (any) await tx.commit();
+    },
+    [client],
+  );
 
+  /**
+   * Remove blocks (AUTO-116): every stored entry, in the published document
+   * and the draft, that means the same block as one of `rules`, compared
+   * ignoring case and stray spaces and removed by `_key`. So a term saved by
+   * hand as " imprinted sunglasses " is found and removed.
+   */
+  const removeBlocks = useCallback(
+    async (rules: readonly BlockRule[]) => {
+      if (rules.length === 0) return;
+      const docs = await client.fetch<{ _id: string; entries: Parameters<typeof toEntry>[0][] | null }[]>(
+        `*[_id in [$id, $draft]]{ _id, "entries": blogAutomation.negativeKeywords[]{ _key, term, scope } }`,
+        { id: SETTINGS_ID, draft: SETTINGS_DRAFT_ID },
+      );
+      let tx = client.transaction();
+      let any = false;
+      for (const doc of docs) {
+        const keys = (doc.entries ?? [])
+          .filter(Boolean)
+          .map(toEntry)
+          .filter((e) => e._key && rules.some((r) => sameBlockRule(e, r)))
+          .map((e) => e._key);
+        if (keys.length === 0) continue;
+        any = true;
+        tx = tx.patch(doc._id, (p) => p.unset(keys.map((k) => `blogAutomation.negativeKeywords[_key=="${k}"]`)));
+      }
+      if (any) await tx.commit();
+    },
+    [client],
+  );
+
+  const clearBusy = useCallback((key: string) => {
+    setBusy((b) => {
+      const next = { ...b };
+      delete next[key];
+      return next;
+    });
+  }, []);
+
+  /** The tick box: blocks THIS topic only (AUTO-116; it used to write a word block). */
   const blockTopic = useCallback(
     async (topic: Topic) => {
       setBusy((b) => ({ ...b, [topic.key]: 'blocking' }));
       setRowErrors((r) => ({ ...r, [topic.key]: '' }));
       try {
-        const entry = { _key: newKey('nk'), _type: 'negativeKeyword', term: topic.query, addedAt: new Date().toISOString() };
-        const ids = await settingsIds();
-        let tx = client.transaction();
-        for (const id of ids) {
-          tx = tx
-            .patch(id, (p) => p.setIfMissing({ blogAutomation: {} }))
-            .patch(id, (p) => p.setIfMissing({ 'blogAutomation.negativeKeywords': [] }))
-            .patch(id, (p) => p.insert('after', 'blogAutomation.negativeKeywords[-1]', [entry]));
-        }
-        await tx.commit();
+        await writeBlock(topicBlockRule(topic));
         await readBlocked();
       } catch (e) {
         setRowErrors((r) => ({ ...r, [topic.key]: `Could not save the block: ${e instanceof Error ? e.message : 'unknown error'}. Try again.` }));
       } finally {
-        setBusy((b) => {
-          const next = { ...b };
-          delete next[topic.key];
-          return next;
-        });
+        clearBusy(topic.key);
       }
     },
-    [client, readBlocked, settingsIds],
+    [clearBusy, readBlocked, writeBlock],
   );
 
+  /**
+   * Unticking. A topic block for this topic is simply removed. A WORD block
+   * that also covers the topic is removed only after Patrick confirms, with
+   * the other topics it would bring back named, because removing it unblocks
+   * all of them.
+   */
   const unblockTopic = useCallback(
     async (topic: Topic) => {
-      const term = (topic.blockedBy ?? '').toLowerCase();
-      if (!term) return;
+      const matching = rulesBlockingTopic(topic, liveBlocked);
+      const topicRules = matching.filter((r) => r.scope === 'topic');
+      const wordRules = matching.filter((r) => r.scope === 'word');
+      const toRemove: BlockRule[] = [...topicRules];
+      if (wordRules.length > 0) {
+        const lines = wordRules.map((r) => {
+          const others = topicsBlockedByWord(baseTopics, r.term).filter((t) => t.key !== topic.key);
+          const shown = others.slice(0, 15).map((t) => `  ${t.query}`);
+          const more = others.length > 15 ? [`  and ${others.length - 15} more`] : [];
+          return [
+            `"${r.term}" blocks every topic containing those words. Removing it also brings back ${others.length} other topic${others.length === 1 ? '' : 's'}:`,
+            ...shown,
+            ...more,
+          ].join('\n');
+        });
+        const ok = window.confirm(
+          `This topic is blocked by a word block, not just by itself.\n\n${lines.join('\n\n')}\n\nRemove the word block? (You can block it again at any time.)`,
+        );
+        if (ok) toRemove.push(...wordRules);
+      }
+      if (toRemove.length === 0) return;
       setBusy((b) => ({ ...b, [topic.key]: 'blocking' }));
       setRowErrors((r) => ({ ...r, [topic.key]: '' }));
       try {
-        const docs = await client.fetch<{ _id: string; entries: NegativeKeywordEntry[] | null }[]>(
-          `*[_id in [$id, $draft]]{ _id, "entries": blogAutomation.negativeKeywords[]{ _key, term } }`,
-          { id: SETTINGS_ID, draft: SETTINGS_DRAFT_ID },
-        );
-        let tx = client.transaction();
-        let any = false;
-        for (const doc of docs) {
-          const keys = (doc.entries ?? []).filter((e) => (e.term ?? '').trim().toLowerCase() === term).map((e) => e._key);
-          if (keys.length === 0) continue;
-          any = true;
-          tx = tx.patch(doc._id, (p) => p.unset(keys.map((k) => `blogAutomation.negativeKeywords[_key=="${k}"]`)));
-        }
-        if (any) await tx.commit();
+        await removeBlocks(toRemove);
         await readBlocked();
       } catch (e) {
         setRowErrors((r) => ({ ...r, [topic.key]: `Could not remove the block: ${e instanceof Error ? e.message : 'unknown error'}. Try again.` }));
       } finally {
-        setBusy((b) => {
-          const next = { ...b };
-          delete next[topic.key];
-          return next;
-        });
+        clearBusy(topic.key);
       }
     },
-    [client, readBlocked],
+    [baseTopics, clearBusy, liveBlocked, readBlocked, removeBlocks],
   );
 
-  // ── Generate a draft from a topic (the document action's flow, from here) ──
+  // ── "Block a word": preview first, write only after Patrick has seen the list
+  const [wordInput, setWordInput] = useState('');
+  const [wordPreview, setWordPreview] = useState<{ term: string; topics: Topic[] } | null>(null);
+  const [wordBusy, setWordBusy] = useState(false);
+  const [wordError, setWordError] = useState('');
+
+  const previewWord = useCallback(() => {
+    const term = normalizeBlockTerm(wordInput);
+    setWordError('');
+    setWordPreview(term ? { term, topics: topicsBlockedByWord(baseTopics, term) } : null);
+  }, [baseTopics, wordInput]);
+
+  const confirmWordBlock = useCallback(async () => {
+    if (!wordPreview) return;
+    setWordBusy(true);
+    setWordError('');
+    try {
+      await writeBlock({ term: wordPreview.term, scope: 'word' });
+      await readBlocked();
+      setWordPreview(null);
+      setWordInput('');
+    } catch (e) {
+      setWordError(`Could not save the word block: ${e instanceof Error ? e.message : 'unknown error'}. Try again.`);
+    } finally {
+      setWordBusy(false);
+    }
+  }, [readBlocked, wordPreview, writeBlock]);
+
+  const removeWordBlock = useCallback(
+    async (entry: NegativeKeywordEntry) => {
+      setWordBusy(true);
+      setWordError('');
+      try {
+        await removeBlocks([entry]);
+        await readBlocked();
+      } catch (e) {
+        setWordError(`Could not remove the word block: ${e instanceof Error ? e.message : 'unknown error'}. Try again.`);
+      } finally {
+        setWordBusy(false);
+      }
+    },
+    [readBlocked, removeBlocks],
+  );
+
+  const wordBlocks = useMemo(() => liveBlocked.filter((e) => e.scope === 'word'), [liveBlocked]);
+
+  // ── Generate a draft from a topic ──────────────────────────────────────────
+  // AUTO-116: the AI writes FIRST and the draft is created only once the post
+  // exists, in one call, with everything in it. Before, an empty draft was
+  // created up front and deleted on failure, so a tab closed during the one
+  // to two minute wait left an empty titled draft behind. Now a closed tab,
+  // a crash or a failure leaves nothing, and because the draft does not exist
+  // until it is complete there is nothing to type into while the AI writes.
+  // No publish date is set: it is stamped when Publish is pressed.
   const generateDraft = useCallback(
     async (topic: Topic) => {
       if (topic.state === 'excluded') {
@@ -420,24 +548,16 @@ function BlogTopicsComponent() {
       const documentId = newDocumentId();
       const draftId = `drafts.${documentId}`;
       const title = titleCase(topic.query);
-      let created = false;
       try {
-        await client.create({
-          _id: draftId,
-          _type: 'blogPost',
-          title,
-          aiTemplate: template,
-          aiTopicKeywords: [topic.query],
-          aiWordCount: DEFAULT_WORD_COUNT,
-        });
-        created = true;
         const res = await authFetch(GENERATE_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ title, template, keywords: [topic.query], wordCount: DEFAULT_WORD_COUNT }),
         });
         const data = (await res.json().catch(() => ({}))) as Partial<GeneratedBlogResponse>;
-        if (!res.ok || !Array.isArray(data.body) || data.body.length === 0 || !data.title) {
+        const aiTitle = typeof data.title === 'string' ? data.title.trim() : '';
+        const slug = slugifyTitle(aiTitle);
+        if (!res.ok || !Array.isArray(data.body) || data.body.length === 0 || !aiTitle || !slug) {
           throw new Error(data.error || `The AI did not return a post (${res.status}). Try again.`);
         }
         const suggestedLinks = (data.suggestedLinks ?? []).map((l) => ({
@@ -447,25 +567,23 @@ function BlogTopicsComponent() {
           href: l.href,
           reason: l.reason,
         }));
-        await client
-          .patch(draftId)
-          .set({
-            title: data.title,
-            slug: { _type: 'slug', current: slugify(data.title) },
-            publishDate: new Date().toISOString(),
-            metaTitle: data.metaTitle,
-            metaDescription: data.metaDescription,
-            excerpt: data.excerpt,
-            body: data.body,
-            aiSuggestedLinks: suggestedLinks,
-          })
-          .commit();
-        if (mounted.current) setGenerated((g) => ({ ...g, [topic.key]: { id: documentId, title: data.title as string } }));
+        await client.create({
+          _id: draftId,
+          _type: 'blogPost',
+          // Title and slug from the same AI title, so they match.
+          title: aiTitle,
+          slug: { _type: 'slug', current: slug },
+          metaTitle: data.metaTitle,
+          metaDescription: data.metaDescription,
+          excerpt: data.excerpt,
+          body: data.body,
+          aiSuggestedLinks: suggestedLinks,
+          aiTemplate: template,
+          aiTopicKeywords: [topic.query],
+          aiWordCount: DEFAULT_WORD_COUNT,
+        });
+        if (mounted.current) setGenerated((g) => ({ ...g, [topic.key]: { id: documentId, title: aiTitle } }));
       } catch (e) {
-        if (created) {
-          // Nothing half-made is left behind; the term is still in this list.
-          await client.delete(draftId).catch(() => undefined);
-        }
         if (mounted.current) {
           setRowErrors((r) => ({
             ...r,
@@ -473,16 +591,10 @@ function BlogTopicsComponent() {
           }));
         }
       } finally {
-        if (mounted.current) {
-          setBusy((b) => {
-            const next = { ...b };
-            delete next[topic.key];
-            return next;
-          });
-        }
+        if (mounted.current) clearBusy(topic.key);
       }
     },
-    [authFetch, client, template],
+    [authFetch, clearBusy, client, template],
   );
 
   const openDraft = useCallback(
@@ -516,8 +628,9 @@ function BlogTopicsComponent() {
           {pool?.band.high ?? 40}, at least {pool?.floor ?? 10} impressions in the last {pool?.window.days ?? 90} days),
           grouped into topics, from <strong>your own Search Console</strong>. The numbers are{' '}
           <strong>impressions and clicks</strong> Google reported for your site, not search volume. Each topic says
-          whether it passed the overlap check or was excluded, and why. Tick <strong>Block</strong> to keep a topic
-          off this list for good (it is saved under Global Settings, Blog Automation), and press{' '}
+          whether it passed the overlap check or was excluded, and why. Tick <strong>Block</strong> to keep that one
+          topic off this list; use <strong>Block a word</strong> below to keep every topic containing a word off it,
+          after seeing which ones. Both are saved under Global Settings, Blog Automation, and both can be undone. Press{' '}
           <strong>Generate draft</strong> to write a post from any term. Drafts are never published by this tab; you
           review and publish them yourself. Nothing here runs on its own.
         </p>
@@ -568,6 +681,24 @@ function BlogTopicsComponent() {
 
       {pool && (
         <>
+          <WordBlockPanel
+            input={wordInput}
+            onInput={(v) => {
+              setWordInput(v);
+              // A preview only ever describes the exact words it was made for.
+              if (wordPreview && normalizeBlockTerm(v) !== wordPreview.term) setWordPreview(null);
+            }}
+            onPreview={previewWord}
+            preview={wordPreview}
+            onCancel={() => setWordPreview(null)}
+            onConfirm={() => void confirmWordBlock()}
+            busy={wordBusy}
+            error={wordError}
+            blocks={wordBlocks}
+            countFor={(term) => topicsBlockedByWord(baseTopics, term).length}
+            onRemove={(e) => void removeWordBlock(e)}
+          />
+
           <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
             {filterBtn('usable', 'Usable', counts.usable)}
             {filterBtn('excluded', 'Excluded', counts.excluded)}
@@ -644,7 +775,11 @@ function BlogTopicsComponent() {
                           disabled={rowBusy !== undefined}
                           onChange={() => void (isBlocked ? unblockTopic(t) : blockTopic(t))}
                           aria-label={isBlocked ? `Unblock ${t.query}` : `Block ${t.query}`}
-                          title={isBlocked ? 'Untick to allow this topic again' : 'Tick to keep this topic off the list'}
+                          title={
+                            isBlocked
+                              ? 'Untick to allow this topic again'
+                              : 'Tick to keep this one topic off the list (other topics are not affected)'
+                          }
                         />
                       </td>
                       <td style={td}>
@@ -674,7 +809,7 @@ function BlogTopicsComponent() {
                       </td>
                       <td style={{ ...td, maxWidth: 360 }}>
                         <div style={{ color: label.color, fontWeight: 600 }}>{label.text}</div>
-                        {isBlocked && t.blockedBy && <div style={{ fontSize: 12, color: MUTED }}>{blockedSentence(t.blockedBy)}</div>}
+                        {isBlocked && t.blockedBy && <div style={{ fontSize: 12, color: MUTED }}>{blockedSentence(t.blockedBy, t.blockedScope ?? 'word')}</div>}
                         {!isBlocked && t.reason && <div style={{ fontSize: 12, color: MUTED }}>{t.reason}</div>}
                         {!isBlocked && !t.reason && t.matchedPost && t.sharedTokens.length > 0 && (
                           <div style={{ fontSize: 12, color: MUTED }}>
@@ -736,10 +871,118 @@ function BlogTopicsComponent() {
             How a topic is judged: it is <strong>excluded</strong> when it shares {pool.threshold} or more meaningful
             words with a post you already published, or when the page Google already ranks for it is one of your blog
             posts. A <strong>usable</strong> topic has no such post yet. You can still generate a draft for an excluded
-            topic if you disagree; the tab will ask first. Blocking is yours alone: a blocked topic stays hidden until
-            you untick it here or remove it under Global Settings, Blog Automation.
+            topic if you disagree; the tab will ask first. Blocking is yours alone and always reversible: a topic you
+            ticked comes back when you untick it, and a word block comes back when you press Remove beside it above.
+            Both can also be removed under Global Settings, Blog Automation.
           </p>
         </>
+      )}
+    </div>
+  );
+}
+
+/**
+ * "Block a word" (AUTO-116). Deliberately separate from the tick box and
+ * deliberately two-step: Preview lists EVERY topic the word would block, by
+ * name, and only "Block these N topics" writes anything. A count alone would
+ * say how much disappears without saying what.
+ */
+function WordBlockPanel(props: {
+  input: string;
+  onInput: (v: string) => void;
+  onPreview: () => void;
+  preview: { term: string; topics: Topic[] } | null;
+  onCancel: () => void;
+  onConfirm: () => void;
+  busy: boolean;
+  error: string;
+  blocks: NegativeKeywordEntry[];
+  countFor: (term: string) => number;
+  onRemove: (entry: NegativeKeywordEntry) => void;
+}) {
+  const { input: value, onInput, onPreview, preview, onCancel, onConfirm, busy, error, blocks, countFor, onRemove } = props;
+  const canPreview = normalizeBlockTerm(value).length > 0 && !busy;
+  return (
+    <div style={{ border: `1px solid ${BORDER}`, borderRadius: 6, padding: 12, display: 'flex', flexDirection: 'column', gap: 8 }}>
+      <div style={{ fontWeight: 600, fontSize: 14 }}>Block a word</div>
+      <div style={{ fontSize: 13, color: MUTED }}>
+        Keeps every topic containing a word (or all the words of a phrase) off the list, today and in future. Press
+        Preview first: you see exactly which topics it would block before anything is saved.
+      </div>
+      <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+        <input
+          type="text"
+          value={value}
+          onChange={(e) => onInput(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && canPreview) onPreview();
+          }}
+          placeholder='A word or phrase, e.g. "paramedics"'
+          style={{ ...input, minWidth: 260 }}
+          aria-label="Word or phrase to block"
+          disabled={busy}
+        />
+        <button type="button" onClick={onPreview} disabled={!canPreview} style={canPreview ? secondaryBtn : { ...secondaryBtn, opacity: 0.5, cursor: 'default' }}>
+          Preview
+        </button>
+      </div>
+
+      {preview && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+          <div style={{ fontSize: 13 }}>
+            <strong>"{preview.term}"</strong> would block{' '}
+            <strong>
+              {fmt(preview.topics.length)} topic{preview.topics.length === 1 ? '' : 's'}
+            </strong>{' '}
+            in today&apos;s list{preview.topics.length > 0 ? ':' : '.'}
+            {preview.topics.length === 0 && ' It would still block any future search containing these words.'}
+          </div>
+          {preview.topics.length > 0 && (
+            <ul style={{ margin: 0, paddingLeft: 20, maxHeight: 220, overflowY: 'auto', fontSize: 13 }}>
+              {preview.topics.map((t) => (
+                <li key={t.key}>
+                  {t.query}
+                  <span style={{ color: MUTED }}>
+                    {' '}
+                    ({fmt(t.impressions)} impressions{t.state === 'blocked' ? ', already blocked' : t.state === 'excluded' ? ', excluded' : ''})
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
+          <div style={{ display: 'flex', gap: 8 }}>
+            <button type="button" onClick={onConfirm} disabled={busy} style={busy ? disabledBtn : { ...primaryBtn, background: RED }}>
+              {busy ? 'Saving…' : `Block ${preview.topics.length === 1 ? 'this topic' : `these ${fmt(preview.topics.length)} topics`}`}
+            </button>
+            <button type="button" onClick={onCancel} disabled={busy} style={secondaryBtn}>
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
+
+      {error && <div style={{ fontSize: 12, color: RED }}>{error}</div>}
+
+      {blocks.length > 0 && (
+        <div style={{ fontSize: 13, display: 'flex', flexDirection: 'column', gap: 4 }}>
+          <div style={{ color: MUTED }}>Your word blocks:</div>
+          {blocks.map((b) => {
+            const n = countFor(b.term);
+            return (
+              <div key={b._key || b.term} style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+                <span>
+                  <strong>"{b.term}"</strong>{' '}
+                  <span style={{ color: MUTED }}>
+                    blocks {fmt(n)} topic{n === 1 ? '' : 's'} today
+                  </span>
+                </span>
+                <button type="button" onClick={() => onRemove(b)} disabled={busy} style={secondaryBtn}>
+                  Remove
+                </button>
+              </div>
+            );
+          })}
+        </div>
       )}
     </div>
   );

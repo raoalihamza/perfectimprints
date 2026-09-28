@@ -24,6 +24,8 @@
  *     lives. Ali tunes it here after watching the panel for a few weeks.
  *   - Negative keywords (Patrick's blocked topics, globalSettings.blogAutomation)
  *     are applied LAST and on every request, never inside the cached pool.
+ *     Each carries a scope (AUTO-116): 'topic' blocks one topic, 'word'
+ *     blocks every topic containing the words.
  *
  * Every excluded topic carries its reason and the rule that fired.
  */
@@ -302,6 +304,8 @@ export interface Topic extends TopicCandidate {
   matchedPost: { title: string; href: string } | null;
   /** The negative keyword that blocked it, when state is 'blocked'. */
   blockedBy: string | null;
+  /** Whether that block is for this topic only or for a word (AUTO-116); null when not blocked. */
+  blockedScope: BlockScope | null;
 }
 
 export function applyGuard(
@@ -310,7 +314,7 @@ export function applyGuard(
   threshold: number = CANNIBALIZATION_THRESHOLD,
 ): Topic {
   const decision = decideGuard(candidate, hit, threshold);
-  return { ...candidate, ...decision, blockedBy: null };
+  return { ...candidate, ...decision, blockedBy: null, blockedScope: null };
 }
 
 /**
@@ -350,6 +354,71 @@ export function expandTopic(compact: CompactTopic, threshold: number = CANNIBALI
 
 // -- Negative keywords ----------------------------------------------------------
 
+/**
+ * AUTO-116: a stored block has a SCOPE, because Patrick has two genuine
+ * intentions and AUTO-115 found the panel serving only the wider one.
+ *
+ *   - 'topic': "keep THIS topic off the list". What the tick box writes. It
+ *     matches the one topic whose grouping key (`topicKey`, the same key
+ *     `groupIntoTopics` gives a query) equals the term's, so ticking "custom
+ *     pens" blocks that one row, not every topic that mentions pens.
+ *   - 'word': "keep every topic containing these words off the list". What the
+ *     separate "Block a word" control writes, after showing the list. It is
+ *     the AUTO-110 rule (`negativeKeywordBlocks`), unchanged.
+ *
+ * An entry stored with NO scope (every entry written before AUTO-116, and any
+ * term typed by hand in Global Settings) is a 'word' block. That is what it
+ * has always meant, what the field's help text has always said, and what
+ * Patrick's "imprinted sunglasses" has been doing since 2026-09-26, so no
+ * stored entry changes meaning on deploy.
+ */
+export type BlockScope = 'topic' | 'word';
+
+export interface BlockRule {
+  term: string;
+  scope: BlockScope;
+}
+
+/**
+ * The ONE normalisation of a stored term, applied on write AND on compare:
+ * trimmed, inner whitespace collapsed to one space. Case is kept as written
+ * (it is shown back to Patrick); every comparison lower-cases, the way
+ * `resolveBlogAutomation` de-duplicates. A term saved with a stray space can
+ * therefore always be matched and removed (AUTO-115's trim bug).
+ */
+export function normalizeBlockTerm(term: unknown): string {
+  return typeof term === 'string' ? term.trim().replace(/\s+/g, ' ') : '';
+}
+
+/** A stored scope value as a scope. Anything but 'topic', including a missing value, is 'word'. */
+export function blockScopeOf(raw: unknown): BlockScope {
+  return raw === 'topic' ? 'topic' : 'word';
+}
+
+function toRule(rule: BlockRule | string): BlockRule {
+  return typeof rule === 'string'
+    ? { term: normalizeBlockTerm(rule), scope: 'word' }
+    : { term: normalizeBlockTerm(rule.term), scope: blockScopeOf(rule.scope) };
+}
+
+/** What a tick writes for a topic: its own search, scoped to that topic. */
+export function topicBlockRule(topic: Pick<TopicCandidate, 'query'>): BlockRule {
+  return { term: normalizeBlockTerm(topic.query), scope: 'topic' };
+}
+
+/** The grouping key a topic-scoped term matches, computed exactly as `groupIntoTopics` keys a query. */
+export function topicBlockKey(term: string): string {
+  const t = normalizeBlockTerm(term);
+  return topicKey(t) || t.toLowerCase();
+}
+
+/** Two stored entries mean the same block: same scope, same term ignoring case and stray spaces. */
+export function sameBlockRule(a: BlockRule | string, b: BlockRule | string): boolean {
+  const x = toRule(a);
+  const y = toRule(b);
+  return x.scope === y.scope && x.term.toLowerCase() === y.term.toLowerCase();
+}
+
 /** Plain tokens of 2+ characters, plural folded; nothing stripped. */
 function blockTokens(text: string): string[] {
   return text
@@ -360,12 +429,13 @@ function blockTokens(text: string): string[] {
 }
 
 /**
- * A negative keyword blocks a query when every SIGNIFICANT token of the term
- * (plural folded) appears in the query. So the term "paramedics" blocks "fun
- * facts about paramedics" and "paramedic gifts", and a term written as a whole
- * query ("fun facts about paramedics", what the panel's tick box writes)
- * blocks its whole topic group, because every member of a group shares the
- * same significant tokens. A term made only of generic words ("custom
+ * The WORD rule (AUTO-110, unchanged): a term blocks a query when every
+ * SIGNIFICANT token of the term (plural folded) appears in the query. So the
+ * term "paramedics" blocks "fun facts about paramedics" and "paramedic gifts".
+ * A whole search used as a word block ("fun facts about paramedics") blocks
+ * its own topic AND every longer search containing all its words, which is
+ * why the tick box no longer writes word blocks (AUTO-116: ticking "custom
+ * pens" used to block 77 topics). A term made only of generic words ("custom
  * products") falls back to its plain tokens, so it blocks queries carrying
  * all of those words rather than everything.
  */
@@ -378,27 +448,52 @@ export function negativeKeywordBlocks(query: string, term: string): boolean {
   return true;
 }
 
-/** The first negative keyword that blocks the query, or null. */
-export function blockingTerm(query: string, terms: readonly string[]): string | null {
-  for (const term of terms) if (negativeKeywordBlocks(query, term)) return term;
+/** Does this stored block (a plain string is a word block) block this topic? */
+export function blockRuleMatches(topic: Pick<TopicCandidate, 'key' | 'query'>, rule: BlockRule | string): boolean {
+  const r = toRule(rule);
+  if (!r.term) return false;
+  if (r.scope === 'topic') return topic.key === topicBlockKey(r.term);
+  return negativeKeywordBlocks(topic.query, r.term);
+}
+
+/** Every stored block that blocks this topic, in stored order (unblocking must remove them all). */
+export function rulesBlockingTopic<R extends BlockRule>(topic: Pick<TopicCandidate, 'key' | 'query'>, rules: readonly R[]): R[] {
+  return rules.filter((r) => blockRuleMatches(topic, r));
+}
+
+/** The first block that blocks the query's topic, or null. A plain string is a word block. */
+export function blockingTerm(query: string, terms: readonly (BlockRule | string)[]): string | null {
+  const topic = { key: topicKey(query) || query.toLowerCase().trim(), query };
+  for (const term of terms) if (blockRuleMatches(topic, term)) return toRule(term).term;
   return null;
 }
 
-/** Apply Patrick's blocked list on top of the guard; blocked wins over everything. */
-export function applyNegativeKeywords(topics: readonly Topic[], terms: readonly string[]): Topic[] {
+/** What a word block would block today: the preview the panel shows BEFORE anything is written. */
+export function topicsBlockedByWord<T extends Pick<TopicCandidate, 'key' | 'query'>>(topics: readonly T[], term: string): T[] {
+  const rule: BlockRule = { term: normalizeBlockTerm(term), scope: 'word' };
+  return rule.term ? topics.filter((t) => blockRuleMatches(t, rule)) : [];
+}
+
+/** Apply Patrick's blocks on top of the guard; blocked wins over everything. A plain string is a word block. */
+export function applyNegativeKeywords(topics: readonly Topic[], rules: readonly (BlockRule | string)[]): Topic[] {
+  const normalized = rules.map(toRule).filter((r) => r.term);
   return topics.map((t) => {
-    const term = terms.length > 0 ? blockingTerm(t.query, terms) : null;
+    const hit = normalized.find((r) => blockRuleMatches(t, r)) ?? null;
     // The guard's own verdict is kept underneath (rule + reason), so unblocking
     // restores exactly what the guard said, not a blanket "usable".
     const guardState: TopicState = t.rule ? 'excluded' : 'usable';
-    if (term === null) return t.state === 'blocked' ? { ...t, state: guardState, blockedBy: null } : t;
-    return { ...t, state: 'blocked', blockedBy: term };
+    if (hit === null) {
+      return t.state === 'blocked' ? { ...t, state: guardState, blockedBy: null, blockedScope: null } : t;
+    }
+    return { ...t, state: 'blocked', blockedBy: hit.term, blockedScope: hit.scope };
   });
 }
 
 /** The panel's sentence for a blocked topic; the guard's reason stays in `reason`. */
-export function blockedSentence(term: string): string {
-  return `Blocked by your negative keyword "${term}".`;
+export function blockedSentence(term: string, scope: BlockScope = 'word'): string {
+  return scope === 'topic'
+    ? 'Blocked by you (this topic only).'
+    : `Blocked by your word block "${term}", which blocks every topic containing it.`;
 }
 
 // -- Counts ---------------------------------------------------------------------

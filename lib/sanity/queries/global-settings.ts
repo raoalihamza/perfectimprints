@@ -7,6 +7,7 @@ import { socialLabel } from '@/components/icons/social-icons';
 import { normalizeHref } from '@/lib/sanity/normalize-href';
 import { resolvePortfolioIntro } from '@/lib/portfolio/intro';
 import type { ShippingPolicy } from '@/lib/products/product-schema';
+import { blockScopeOf, normalizeBlockTerm, type BlockScope } from '@/lib/blog-automation/topic-pool';
 
 // ---------------------------------------------------------------------------
 // Site settings — social links + contact info, Sanity-driven.
@@ -194,15 +195,22 @@ export interface SiteSettings {
 }
 
 export interface NegativeKeyword {
-  /** The blocked term as written (trimmed); matching is case-insensitive. */
+  /** The blocked term as written (trimmed, inner spaces collapsed); matching is case-insensitive. */
   term: string;
+  /**
+   * AUTO-116: 'topic' blocks the one topic this search belongs to (what the
+   * Blog Topics tick box writes); 'word' blocks every topic containing the
+   * words. A stored entry with no scope (everything written before AUTO-116,
+   * and any term typed by hand) is 'word', its meaning since AUTO-110.
+   */
+  scope: BlockScope;
   /** When it was blocked (ISO), null for a term typed by hand without one. */
   addedAt: string | null;
   note: string | null;
 }
 
 export interface BlogAutomationSettings {
-  /** Trimmed, blanks dropped, de-duplicated case-insensitively, first wins. */
+  /** Trimmed, blanks dropped, de-duplicated case-insensitively per scope, first wins. */
   negativeKeywords: NegativeKeyword[];
 }
 
@@ -266,7 +274,7 @@ interface RawSettings {
   };
   hoursOfOperation?: string;
   blogAutomation?: {
-    negativeKeywords?: Array<{ term?: string; addedAt?: string; note?: string }>;
+    negativeKeywords?: Array<{ term?: string; scope?: string; addedAt?: string; note?: string }>;
   };
   // legacy flat fields — fallback only
   phoneNumber?: string;
@@ -283,7 +291,7 @@ const QUERY = `*[_type == "globalSettings"][0]{
   hiddenProducts{ skus },
   portfolioPage{ intro },
   shippingPolicy{ orderPercentage, flatRate, destinationCountry, handlingDaysMin, handlingDaysMax, transitDaysMin, transitDaysMax },
-  blogAutomation{ negativeKeywords[]{ term, addedAt, note } },
+  blogAutomation{ negativeKeywords[]{ term, scope, addedAt, note } },
   hoursOfOperation,
   phoneNumber,
   contactEmail
@@ -307,20 +315,24 @@ const EMPTY: SiteSettings = {
 
 /**
  * Blog automation (AUTO-110): keep every negative keyword that has a real
- * term, trimmed, and drop case-insensitive duplicates (the first entry wins,
- * so its date and note are the ones shown). A missing object resolves to an
- * empty list, the state of the singleton before this ticket.
+ * term, normalised by the pool module's `normalizeBlockTerm` (the same rule
+ * the panel writes and compares with, AUTO-116), and drop case-insensitive
+ * duplicates WITHIN a scope (the first entry wins, so its date and note are
+ * the ones shown; a topic block and a word block for the same words are two
+ * different blocks and both kept). A missing scope reads as 'word'. A missing
+ * object resolves to an empty list, the state of the singleton before AUTO-110.
  */
 export function resolveBlogAutomation(raw: RawSettings['blogAutomation'] | null | undefined): BlogAutomationSettings {
   const seen = new Set<string>();
   const negativeKeywords: NegativeKeyword[] = [];
   for (const entry of raw?.negativeKeywords ?? []) {
-    const term = clean(entry?.term);
+    const term = normalizeBlockTerm(entry?.term);
     if (!term) continue;
-    const key = term.toLowerCase();
+    const scope = blockScopeOf(entry?.scope);
+    const key = `${scope}:${term.toLowerCase()}`;
     if (seen.has(key)) continue;
     seen.add(key);
-    negativeKeywords.push({ term, addedAt: clean(entry.addedAt), note: clean(entry.note) });
+    negativeKeywords.push({ term, scope, addedAt: clean(entry.addedAt), note: clean(entry.note) });
   }
   return { negativeKeywords };
 }

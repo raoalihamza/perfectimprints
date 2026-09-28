@@ -566,7 +566,7 @@ export default defineType({
           title: 'Blocked topics (negative keywords)',
           type: 'array',
           description:
-            'A topic is blocked when every meaningful word of the term appears in the search. So "paramedics" blocks every search that mentions paramedics, and a whole search such as "fun facts about paramedics" blocks only that topic. The Blog Topics tab adds a line here each time you tick Block; you can also type a term by hand.',
+            'Each line blocks either ONE topic or EVERY topic containing some words, as its "Blocks" setting says. Ticking Block in the Blog Topics tab adds a "this topic only" line; "Block a word" in that tab adds an "every topic containing these words" line, after showing you the list. A line with no setting, or one you type here, blocks every topic containing its meaningful words: "paramedics" blocks every search that mentions paramedics. Delete a line to unblock.',
           of: [
             {
               type: 'object',
@@ -577,6 +577,26 @@ export default defineType({
                   title: 'Term',
                   type: 'string',
                   validation: (Rule) => Rule.required(),
+                },
+                // AUTO-116. Values mirrored from BlockScope in
+                // lib/blog-automation/topic-pool.ts. Blank reads as 'word',
+                // which is what every entry written before AUTO-116 meant, so
+                // no stored line changes meaning. No initialValue on purpose:
+                // a new hand-typed line stays blank and so means 'word', its
+                // documented meaning, without anything being stored.
+                {
+                  name: 'scope',
+                  title: 'Blocks',
+                  type: 'string',
+                  options: {
+                    list: [
+                      { title: 'Every topic containing these words', value: 'word' },
+                      { title: 'This topic only', value: 'topic' },
+                    ],
+                    layout: 'radio',
+                  },
+                  description:
+                    'Left blank, the line blocks every topic containing the words, the same as the first option.',
                 },
                 {
                   name: 'addedAt',
@@ -592,11 +612,15 @@ export default defineType({
                 },
               ],
               preview: {
-                select: { title: 'term', subtitle: 'note', addedAt: 'addedAt' },
-                prepare: ({ title, subtitle, addedAt }) => ({
-                  title: title || '(no term)',
-                  subtitle: subtitle || (addedAt ? `Blocked ${String(addedAt).slice(0, 10)}` : undefined),
-                }),
+                select: { title: 'term', subtitle: 'note', addedAt: 'addedAt', scope: 'scope' },
+                prepare: ({ title, subtitle, addedAt, scope }) => {
+                  const kind = scope === 'topic' ? 'This topic only' : 'Every topic containing these words';
+                  const detail = subtitle || (addedAt ? `blocked ${String(addedAt).slice(0, 10)}` : '');
+                  return {
+                    title: title || '(no term)',
+                    subtitle: detail ? `${kind}, ${detail}` : kind,
+                  };
+                },
               },
             },
           ],

@@ -133,7 +133,17 @@ export default defineType({
       name: 'publishDate',
       title: 'Publish Date',
       type: 'datetime',
-      validation: (Rule) => Rule.required(),
+      // AUTO-116: no longer set at generation (a draft reviewed a week later
+      // went live backdated). Left empty, it is stamped with the moment
+      // Publish is pressed, by the wrapped Publish action in
+      // sanity/actions/stamp-publish-date.tsx. So it is a warning here, not
+      // an error: an error would disable Publish before the stamp could run.
+      description:
+        'Leave empty and it is filled in with the moment you press Publish. Set it yourself only to show a different date.',
+      validation: (Rule) =>
+        Rule.custom((value) =>
+          value ? true : 'Empty: this will be set to the moment you press Publish.',
+        ).warning(),
     }),
     defineField({
       name: 'updatedDate',

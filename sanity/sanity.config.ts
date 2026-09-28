@@ -5,7 +5,8 @@ import { schemaTypes } from './schemas';
 import { deskStructure } from './desk-structure';
 import { generateWithAi } from './actions/generate-with-ai';
 import { generateSchemaWithAi } from './actions/generate-schema-with-ai';
-import { generateBlogWithAi } from './actions/generate-blog-with-ai';
+import { generateBlogWithAi, regenerateBlogWithAi } from './actions/generate-blog-with-ai';
+import { withPublishDateStamp } from './actions/stamp-publish-date';
 import { generateVideoWithAi } from './actions/generate-video-with-ai';
 import { generatePageWithAi } from './actions/generate-page-with-ai';
 import { generateLandingWithAi } from './actions/generate-landing-with-ai';
@@ -52,10 +53,20 @@ export default defineConfig({
     // Landing Page with AI" on landingPage (P2-AI-005), "Generate Product
     // Details with AI" on productPage (P2-CP follow-up), "Generate Catalog
     // Page with AI" on catalogPage (P2-CAT-004).
+    // blogPost (AUTO-116): two buttons, "Generate Blog with AI" (fills empty
+    // fields only) and "Regenerate Blog with AI" (replaces, after confirming),
+    // and Publish wrapped so an empty publish date is stamped with the moment
+    // of publishing instead of the moment of generation.
     actions: (prev, context) => {
       if (context.schemaType === 'customCategory') return [...prev, generateWithAi];
       if (context.schemaType === 'customSchema') return [...prev, generateSchemaWithAi];
-      if (context.schemaType === 'blogPost') return [...prev, generateBlogWithAi];
+      if (context.schemaType === 'blogPost') {
+        return [
+          ...prev.map((a) => (a.action === 'publish' ? withPublishDateStamp(a) : a)),
+          generateBlogWithAi,
+          regenerateBlogWithAi,
+        ];
+      }
       if (context.schemaType === 'video') return [...prev, generateVideoWithAi];
       if (context.schemaType === 'page') return [...prev, generatePageWithAi];
       if (context.schemaType === 'landingPage') return [...prev, generateLandingWithAi];

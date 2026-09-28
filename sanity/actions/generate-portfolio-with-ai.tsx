@@ -23,6 +23,7 @@ import { useState } from 'react';
 import { useDocumentOperation, type DocumentActionComponent } from 'sanity';
 import { AiProgressContent } from '../components/AiProgressDialog';
 import { useGenerateAuthFetch } from '../components/useGenerateAuthFetch';
+import { isBlank } from '../components/blank-fields';
 // PORT-210: the description field is rich text (richAnswer). The route keeps
 // returning a plain string (the model has nothing to link to), and this
 // action converts it into one paragraph block, the same conversion the
@@ -62,23 +63,8 @@ const FIELD_LABELS = {
 } as const;
 type FieldKey = keyof typeof FIELD_LABELS;
 
-/** True for a Portable Text block whose spans hold no text (an opened, untyped rich field). */
-function isEmptyBlock(entry: unknown): boolean {
-  if (!entry || typeof entry !== 'object') return false;
-  const block = entry as { _type?: unknown; children?: unknown };
-  if (block._type !== 'block') return false;
-  const children = Array.isArray(block.children) ? block.children : [];
-  return children.every((c) => typeof (c as { text?: unknown })?.text !== 'string' || !(c as { text: string }).text.trim());
-}
-
-function isBlank(value: unknown): boolean {
-  if (value === undefined || value === null) return true;
-  if (typeof value === 'string') return value.trim().length === 0;
-  // An empty array, or (PORT-210) a rich-text array Patrick opened and left
-  // without typing, is blank; a colours array with one value is not.
-  if (Array.isArray(value)) return value.length === 0 || value.every(isEmptyBlock);
-  return false;
-}
+// isBlank (and the isEmptyBlock rule it uses) moved verbatim to
+// ../components/blank-fields so the blog actions share it (AUTO-116).
 
 /** Which of the six fields are currently empty on the document. */
 function emptyFields(doc: PortfolioItemDoc | null): FieldKey[] {

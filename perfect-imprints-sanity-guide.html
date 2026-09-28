@@ -1361,7 +1361,9 @@
       <li><strong>Body</strong>, the article itself (rich text). Besides text you can insert images, a row of product
         cards, and a <strong>Video Embed</strong> block.</li>
       <li><strong>Author</strong>, <strong>Publish Date</strong>, and an optional <strong>Updated Date</strong> (both
-        dates show under the heading on the post).</li>
+        dates show under the heading on the post). You can leave <strong>Publish Date</strong> empty: it is filled in
+        with the moment you press <strong>Publish</strong>, so a draft you review a week later still goes live with the
+        right date. Set it yourself only if you want a different date shown.</li>
       <li><strong>Categories</strong>. This is a <strong>list</strong>, so a post can sit in more than one blog
         category. The <em>first</em> one in the list is what the automatic "Order Custom … Today" heading uses, so put
         the most relevant one first.</li>
@@ -1432,7 +1434,9 @@
       <li>Click <strong>Generate Blog with AI</strong> (among the document actions, near Publish). A window with a
         spinner opens while it writes - a full post can take a minute or two - and closes by itself when the draft
         fills in (closing it early is fine; generation keeps running). If it comes back with an error saying the
-        result was thin, just click it again.</li>
+        result was thin, just click it again. <strong>This button only fills in fields that are empty</strong>: the
+        meta title, meta description, excerpt, body, and the slug if there is none. Anything you have already written
+        is kept, and it never changes your title. A window at the end lists what it filled in and what it kept.</li>
       <li><strong>Review everything:</strong> edit the body text; swap or remove products in the product rows (each row
         is a Products Block you can edit: add by SKU using the search-and-pick box, add one of your own Product Pages /
         Custom Products, or delete entries); check the internal links the AI
@@ -1444,6 +1448,18 @@
         wrong for this post.)</li>
       <li>When it reads right, <strong>Publish</strong>.</li>
     </ol>
+    <h4>The two AI buttons on a blog post</h4>
+    <ul>
+      <li><strong>Generate Blog with AI</strong> fills in the empty fields and leaves everything else alone. Press it
+        as often as you like; if every field already has something in it, it says so and does nothing.</li>
+      <li><strong>Regenerate Blog with AI</strong> is for when you do not like what the AI wrote and want a fresh
+        version. It <strong>replaces</strong> what is there, so it asks first and lists every field it will replace.
+        Press <strong>Keep my post as it is</strong> to back out; nothing changes. On a post that is already
+        published it never changes the title or the web address (changing the address would break the live link);
+        on a new draft it changes the title and the web address together, so they always match.</li>
+      <li>With either button, anything you change on the post while the AI is writing is kept. The fields are
+        compared one at a time, so if you edit the body during the wait, the whole body is kept as you left it.</li>
+    </ul>
     <p class="small">About the product rows: each section's row is matched to <em>that section's</em> topic (a
       power-bank idea shows power banks, a tote-bag idea shows tote bags), and no product repeats anywhere in the post.
       If nothing sufficiently relevant is found for a section, that section simply has no product row - that is
@@ -3061,22 +3077,39 @@
       how many topics are in view and how many were excluded by which reason.</p>
 
     <h3>Blocking a topic (your negative keywords)</h3>
-    <p>Tick <strong>Block</strong> on any row and that topic disappears from the usable list and stays gone. It is
-      saved in <span class="path">Global Settings <span class="arrow">›</span> Blog Automation <span class="arrow">›</span>
-      Blocked topics</span>, where you can also type a term by hand. A single word such as <em>paramedics</em> blocks
-      every search that mentions paramedics; a whole search blocks just that topic. Untick the box (or remove the line
-      in Global Settings) and it comes back. Blocking is permanent until you undo it; no refresh, no rebuild, no
-      developer involved.</p>
+    <p>There are two ways to block, and both can be undone at any time.</p>
+    <ul>
+      <li><strong>The Block tick box blocks that one topic.</strong> Tick it on a row and that topic moves to Blocked;
+        no other topic is affected. Untick it and it comes back.</li>
+      <li><strong>Block a word blocks every topic containing that word.</strong> Type a word or phrase in the
+        <strong>Block a word</strong> box (for example <em>paramedics</em>) and press <strong>Preview</strong>. You see
+        the full list of topics it would block before anything is saved; press <strong>Block these topics</strong> to
+        save it, or <strong>Cancel</strong>. It also keeps out future searches containing the word. Your word blocks
+        are listed under the box with a <strong>Remove</strong> button each.</li>
+    </ul>
+    <p>Both are saved in <span class="path">Global Settings <span class="arrow">›</span> Blog Automation <span
+      class="arrow">›</span> Blocked topics</span>, where each line says whether it blocks one topic or every topic
+      containing the words, and where you can also delete a line to unblock. A line you type there yourself blocks
+      every topic containing its words. If you untick a row that a word block is hiding, the tab tells you which other
+      topics removing that word block would bring back, and asks first.</p>
+    <p class="small">Your block of <em>imprinted sunglasses</em> from before this change is a word block: it hides 3
+      topics (imprinted sunglasses, imprinted single tone matte sunglasses, imprinted sunglasses with mirror lenses),
+      exactly as it did. If you only meant the one topic, press <strong>Remove</strong> beside it and tick that row
+      instead.</p>
 
     <h3>Writing a draft from a term</h3>
-    <p>Press <strong>Generate draft</strong> on a row. It creates a new blog post <strong>draft</strong> titled from
-      the term and writes it with the same AI as the <a href="#blog">Generate Blog with AI</a> button: the full text,
+    <p>Press <strong>Generate draft</strong> on a row. It writes a new blog post with the same AI as the <a
+      href="#blog">Generate Blog with AI</a> button and saves it as a <strong>draft</strong> once it is finished: the full text,
       product rows, meta title and description, and internal links. Choose <strong>Draft style</strong> above the
       table first (a "10 ideas" list post with products under each idea, or a single-topic post with one product
       row). It takes a minute or two; the button says "Writing" while it works. When it is done, press
       <strong>Open draft</strong>, read it, edit anything, and press <strong>Publish</strong> yourself when it is
-      right. <strong>The tab never publishes anything.</strong> If the AI fails, the empty draft is removed and the
-      row tells you; just press the button again.</p>
+      right. <strong>The tab never publishes anything.</strong> The draft is only saved once the post is complete, so
+      if the AI fails, or you close the tab while it is writing, no draft is left behind; just press the button
+      again. The publish date is set when you press Publish.</p>
+    <p class="small">Drafts made before this change already have a publish date filled in from the day they were
+      written. Before publishing one of those, clear its <strong>Publish Date</strong> so it goes live with that
+      day's date.</p>
     <p>You can generate a draft for an excluded topic too; the tab asks first and names the post it overlaps with,
       so you can decide.</p>
 
