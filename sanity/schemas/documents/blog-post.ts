@@ -299,6 +299,35 @@ export default defineType({
         },
       ],
     }),
+    // AUTO-117: the search topic this post was generated from, written by the
+    // Blog Topics tab in the SAME create that makes the draft. The topic guard
+    // reads it (drafts included, on every request) and keeps that topic off
+    // the usable list while this post exists, published or not. Read only so
+    // it cannot be broken by accident; hidden when empty so posts written by
+    // hand show nothing. A field on an existing type: no webhook Filter or
+    // Projection change, and no render path reads it.
+    defineField({
+      name: 'sourceTopic',
+      title: 'Generated from search topic',
+      type: 'object',
+      fieldset: 'ai',
+      readOnly: true,
+      hidden: ({ value }) => !value,
+      description:
+        'Filled in automatically when this post was generated from the Blog Topics tab. While this post exists, as a draft or published, that topic stays off the usable list there. Deleting the post brings the topic back.',
+      fields: [
+        { name: 'query', title: 'Search term', type: 'string' },
+        {
+          name: 'variants',
+          title: 'Searches grouped with it',
+          type: 'array',
+          of: [{ type: 'string' }],
+          options: { layout: 'tags' },
+        },
+        { name: 'key', title: 'Topic key', type: 'string' },
+        { name: 'recordedAt', title: 'Recorded', type: 'datetime' },
+      ],
+    }),
   ],
   preview: {
     select: { title: 'title', subtitle: 'slug.current', media: 'headerImage' },

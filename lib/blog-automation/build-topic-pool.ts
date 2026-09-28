@@ -14,7 +14,7 @@
  *   2. Every query row for the URL-prefix property over the window, paginated
  *      to an empty page. Band + floor gives the pool.
  *   3. Query x page rows for the same window; the top page per pool query.
- *   4. Group into topics.
+ *   4. Group into topics, merging topics that differ only by spacing (AUTO-119).
  *   5. Rule one: the EXISTING detector, `suggestLinksForKind('blog', ...)`,
  *      with the published blog list loaded ONCE and passed in, so 2,400 topics
  *      cost one Sanity read, not 2,400. The query reaches the detector with the
@@ -42,6 +42,7 @@ import {
   POOL_POSITION_LOW,
   POOL_WINDOW_DAYS,
   applyGuard,
+  detectorInput,
   groupIntoTopics,
   isPoolQuery,
   sharedTokensFromReason,
@@ -50,6 +51,7 @@ import {
   type DetectorHit,
   type PoolQuery,
   type Topic,
+  type TopicCandidate,
 } from './topic-pool';
 
 export interface TopicPoolSnapshot {
@@ -141,17 +143,7 @@ export async function buildTopicPoolSnapshot(opts: BuildTopicPoolOptions = {}): 
 
   // 5 + 6. The guard. One read of the published blog list for the whole pool.
   const blogDocs = await loadLinkDocsForKind('blog');
-  const topics: Topic[] = [];
-  for (const candidate of candidates) {
-    let hit: DetectorHit | null = null;
-    if (candidate.detectorInput) {
-      const [best] = await suggestLinksForKind('blog', [candidate.detectorInput], 1, undefined, blogDocs);
-      if (best) {
-        hit = { sharedTokens: sharedTokensFromReason(best.reason), postTitle: best.label, postHref: best.href };
-      }
-    }
-    topics.push(applyGuard(candidate, hit, threshold));
-  }
+  const topics = await guardCandidates(candidates, blogDocs, threshold);
 
   return {
     generatedAt: new Date().toISOString(),
@@ -171,6 +163,44 @@ export async function buildTopicPoolSnapshot(opts: BuildTopicPoolOptions = {}): 
     topics,
     buildMs: Date.now() - started,
   };
+}
+
+type BlogLinkDocs = Awaited<ReturnType<typeof loadLinkDocsForKind>>;
+
+/** Rule one's detector for one search, against the preloaded blog list. */
+async function detectorHit(input: string, blogDocs: BlogLinkDocs): Promise<DetectorHit | null> {
+  if (!input) return null;
+  const [best] = await suggestLinksForKind('blog', [input], 1, undefined, blogDocs);
+  return best ? { sharedTokens: sharedTokensFromReason(best.reason), postTitle: best.label, postHref: best.href } : null;
+}
+
+/**
+ * Steps 5 and 6 for a list of candidates: the detector for each topic's main
+ * search AND for each merged spelling's own search (AUTO-119, stored on the
+ * spelling so the cached snapshot can recompute the verdict), then
+ * `applyGuard`. Exported so the measuring script can guard the pre-AUTO-119
+ * grouping of the same pull and report the difference like for like.
+ */
+export async function guardCandidates(
+  candidates: TopicCandidate[],
+  blogDocs: BlogLinkDocs,
+  threshold: number = CANNIBALIZATION_THRESHOLD,
+): Promise<Topic[]> {
+  const topics: Topic[] = [];
+  for (const candidate of candidates) {
+    const hit = await detectorHit(candidate.detectorInput, blogDocs);
+    const spacingGroups = [];
+    for (const g of candidate.spacingGroups ?? []) {
+      const gh = await detectorHit(detectorInput(g.query), blogDocs);
+      spacingGroups.push({
+        ...g,
+        sharedTokens: gh?.sharedTokens ?? [],
+        matchedPost: gh ? { title: gh.postTitle, href: gh.postHref } : null,
+      });
+    }
+    topics.push(applyGuard({ ...candidate, spacingGroups }, hit, threshold));
+  }
+  return topics;
 }
 
 /**

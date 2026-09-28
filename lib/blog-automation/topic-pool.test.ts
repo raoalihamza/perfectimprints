@@ -280,6 +280,8 @@ describe('negative keywords', () => {
       excludedBySharedTokens: 1,
       excludedByRankingPage: 1,
       excludedByBoth: 1,
+      // AUTO-117: nothing here has a draft, so none is excluded for that.
+      excludedAlreadyWritten: 0,
     });
   });
 });

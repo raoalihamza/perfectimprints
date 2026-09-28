@@ -27,6 +27,20 @@
  *     has come back, creates the blogPost DRAFT with everything in it
  *     (AUTO-116: nothing is created before, so a closed tab leaves nothing).
  *     It never publishes and sets no publish date (that is stamped on Publish).
+ *   - AUTO-119: topics that differ only by spacing ("custom match books",
+ *     "custom matchbooks") arrive as ONE row, the other spelling named under
+ *     the term. And each row shows its "closest wording": the other topics
+ *     and the published post worded most like it, scored 0 to 100. That
+ *     column is ADVISORY. It is fetched separately, after the list, and
+ *     nothing reads it but the renderer: no topic is hidden, excluded,
+ *     merged or reordered because of a score, and if the figures cannot be
+ *     had the tab says so in one line and works exactly as before.
+ *   - AUTO-117: that create also stores the topic on the draft
+ *     (`sourceTopic`), and the guard reads it back, drafts included, on every
+ *     pool call. So a topic leaves the usable list the moment its draft
+ *     exists, not when it is published, and not when Google ranks it. Just
+ *     before calling the AI, the tab re-reads the drafts live, so a draft made
+ *     in another tab (or by Stage 2) since the list loaded is caught too.
  *
  * Auth: the same nonce handshake the nine generate routes use
  * (useGenerateAuthFetch), so one Studio session serves this tab and every
@@ -39,7 +53,13 @@ import { useClient, useCurrentUser, type Tool } from 'sanity';
 import { useRouter } from 'sanity/router';
 import { useGenerateAuthFetch } from '../components/useGenerateAuthFetch';
 import {
+  WRITTEN_TOPICS_QUERY,
   applyNegativeKeywords,
+  applyWrittenTopics,
+  buildSourceTopicRecord,
+  findWrittenTopic,
+  writtenSentence,
+  writtenTopicSources,
   blockedSentence,
   blockScopeOf,
   countTopics,
@@ -51,7 +71,15 @@ import {
   type BlockRule,
   type Topic,
   type TopicCounts,
+  type WrittenTopicDoc,
+  type WrittenTopicSource,
 } from '../../lib/blog-automation/topic-pool';
+import {
+  expandSimilarity,
+  type CompactTopicSimilarity,
+  type TopicSimilarity,
+  type TopicSimilarityResult,
+} from '../../lib/blog-automation/topic-similarity';
 import { slugifyTitle } from '../actions/blog-generate-plan';
 
 // Theme CSS variables so the panel is readable in light AND dark Studio themes.
@@ -169,9 +197,17 @@ interface PoolResponse {
   publishedPosts: number;
   gsc: { allQueries: number; poolQueries: number };
   buildMs: number;
+  writtenDocuments: number;
   counts: TopicCounts;
   topics: Topic[];
 }
+
+/** The advisory figures (AUTO-119): loading, shown, or unavailable with a reason. Never affects state. */
+type SimilarityState =
+  | { status: 'idle' }
+  | { status: 'loading' }
+  | { status: 'ready'; data: TopicSimilarityResult }
+  | { status: 'unavailable'; message: string };
 
 interface GeneratedBlogResponse {
   title: string;
@@ -224,6 +260,7 @@ function BlogTopicsComponent() {
   const [liveBlocked, setLiveBlocked] = useState<NegativeKeywordEntry[]>([]);
   const [loading, setLoading] = useState<'pool' | 'refresh' | null>(null);
   const [error, setError] = useState<{ message: string; hint?: string } | null>(null);
+  const [similarity, setSimilarity] = useState<SimilarityState>({ status: 'idle' });
 
   const [filter, setFilter] = useState<StateFilter>('usable');
   const [search, setSearch] = useState('');
@@ -234,6 +271,10 @@ function BlogTopicsComponent() {
   const [busy, setBusy] = useState<Record<string, 'blocking' | 'generating'>>({});
   const [rowErrors, setRowErrors] = useState<Record<string, string>>({});
   const [generated, setGenerated] = useState<Record<string, { id: string; title: string }>>({});
+  // AUTO-117: drafts this tab has created or found since the list loaded, so a
+  // row leaves the usable list at once without waiting for the next pool call.
+  const [localWritten, setLocalWritten] = useState<WrittenTopicSource[]>([]);
+  const [createdDrafts, setCreatedDrafts] = useState<{ id: string; title: string; query: string }[]>([]);
   const mounted = useRef(true);
   useEffect(() => {
     mounted.current = true;
@@ -285,8 +326,11 @@ function BlogTopicsComponent() {
         }
         if (!mounted.current) return;
         setPool(data as PoolResponse);
-        // Strip the server's block verdicts; the live list below is applied instead.
+        // Strip the server's block verdicts; the live list below is applied
+        // instead. The already-written verdict (AUTO-117) stays: the server
+        // read the drafts live on this very call.
         setBaseTopics(applyNegativeKeywords(data.topics, []));
+        setLocalWritten([]);
         setPage(1);
         await readBlocked();
       } catch (e) {
@@ -311,8 +355,49 @@ function BlogTopicsComponent() {
     void loadPool(false);
   }, [loadPool]);
 
+  // ── The advisory closest-wording figures (AUTO-119). Asked for AFTER the
+  //    list has loaded, never awaited by it, and never used for anything but
+  //    the "Closest wording" column: a failure here changes nothing else.
+  const generatedAt = pool?.generatedAt ?? null;
+  useEffect(() => {
+    if (!generatedAt) return;
+    let live = true;
+    setSimilarity({ status: 'loading' });
+    void (async () => {
+      try {
+        const res = await authFetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'similar' }),
+        });
+        const data = (await res.json().catch(() => ({}))) as Partial<CompactTopicSimilarity> & { ok?: boolean; error?: string };
+        if (!live || !mounted.current) return;
+        // Figures for another snapshot (a Refresh in between) are not shown against this list.
+        if (!res.ok || !data.ok || !Array.isArray(data.rows) || data.generatedAt !== generatedAt) {
+          setSimilarity({ status: 'unavailable', message: data.error || 'The closest-wording figures are not available right now.' });
+          return;
+        }
+        setSimilarity({ status: 'ready', data: expandSimilarity(data as CompactTopicSimilarity) });
+      } catch {
+        if (live && mounted.current) setSimilarity({ status: 'unavailable', message: 'The closest-wording figures are not available right now.' });
+      }
+    })();
+    return () => {
+      live = false;
+    };
+  }, [authFetch, generatedAt]);
+
+  /** Clicking a closest topic only finds it in the list; it changes nothing. */
+  const showTopic = useCallback((query: string) => {
+    setFilter('all');
+    setSearch(query);
+  }, []);
+
   // ── Derived list: live blocks on top of the guard, then filter / search / sort
-  const topics = useMemo(() => applyNegativeKeywords(baseTopics, liveBlocked), [baseTopics, liveBlocked]);
+  const topics = useMemo(
+    () => applyNegativeKeywords(applyWrittenTopics(baseTopics, localWritten), liveBlocked),
+    [baseTopics, localWritten, liveBlocked],
+  );
   const counts = useMemo(() => countTopics(topics), [topics]);
 
   const visible = useMemo(() => {
@@ -537,17 +622,47 @@ function BlogTopicsComponent() {
   // a crash or a failure leaves nothing, and because the draft does not exist
   // until it is complete there is nothing to type into while the AI writes.
   // No publish date is set: it is stamped when Publish is pressed.
+  // AUTO-117: the draft records its topic (`sourceTopic`) in the same create,
+  // and just before the AI is called the drafts are re-read live, so a draft
+  // made since the list loaded (another tab, another person, Stage 2) is
+  // caught before a second one is written. That check failing stops the
+  // generation: a guard that could not look is not a guard.
   const generateDraft = useCallback(
     async (topic: Topic) => {
-      if (topic.state === 'excluded') {
-        const why = topic.reason ? `\n\n${topic.reason}` : '';
-        if (!window.confirm(`This topic was excluded because it overlaps with a post you already have.${why}\n\nGenerate a draft anyway?`)) return;
-      }
       setBusy((b) => ({ ...b, [topic.key]: 'generating' }));
       setRowErrors((r) => ({ ...r, [topic.key]: '' }));
+      let liveWritten: WrittenTopicSource[];
+      try {
+        liveWritten = writtenTopicSources((await client.fetch<WrittenTopicDoc[] | null>(WRITTEN_TOPICS_QUERY)) ?? []);
+      } catch (e) {
+        if (mounted.current) {
+          setRowErrors((r) => ({
+            ...r,
+            [topic.key]: `Could not check whether this topic already has a draft (${e instanceof Error ? e.message : 'unknown error'}). Nothing was generated. Try again.`,
+          }));
+          clearBusy(topic.key);
+        }
+        return;
+      }
+      const already = findWrittenTopic(topic, liveWritten) ?? topic.writtenAs;
+      if (already) {
+        // Found live but not in the loaded list: show it on the row too.
+        if (mounted.current && !topic.writtenAs) setLocalWritten((w) => [...w, ...liveWritten]);
+        if (!window.confirm(`${writtenSentence(already)}\n\nGenerate another draft from this topic anyway?`)) {
+          clearBusy(topic.key);
+          return;
+        }
+      } else if (topic.state === 'excluded') {
+        const why = topic.reason ? `\n\n${topic.reason}` : '';
+        if (!window.confirm(`This topic was excluded because it overlaps with a post you already have.${why}\n\nGenerate a draft anyway?`)) {
+          clearBusy(topic.key);
+          return;
+        }
+      }
       const documentId = newDocumentId();
       const draftId = `drafts.${documentId}`;
       const title = titleCase(topic.query);
+      const record = buildSourceTopicRecord(topic, new Date().toISOString());
       try {
         const res = await authFetch(GENERATE_URL, {
           method: 'POST',
@@ -581,8 +696,18 @@ function BlogTopicsComponent() {
           aiTemplate: template,
           aiTopicKeywords: [topic.query],
           aiWordCount: DEFAULT_WORD_COUNT,
+          // AUTO-117: the topic this draft came from. Read only in Studio; the
+          // guard reads it back on every pool call, drafts included.
+          sourceTopic: record,
         });
-        if (mounted.current) setGenerated((g) => ({ ...g, [topic.key]: { id: documentId, title: aiTitle } }));
+        if (mounted.current) {
+          setGenerated((g) => ({ ...g, [topic.key]: { id: documentId, title: aiTitle } }));
+          setLocalWritten((w) => [
+            ...w,
+            { documentId, title: aiTitle, status: 'draft', via: 'recorded', queries: record.variants },
+          ]);
+          setCreatedDrafts((d) => [...d, { id: documentId, title: aiTitle, query: topic.query }]);
+        }
       } catch (e) {
         if (mounted.current) {
           setRowErrors((r) => ({
@@ -654,8 +779,9 @@ function BlogTopicsComponent() {
           <span style={{ fontSize: 13, color: MUTED }}>
             Last read {new Date(pool.generatedAt).toLocaleString()} for {pool.window.start} to {pool.window.end}.{' '}
             {fmt(pool.gsc.allQueries)} searches seen, {fmt(pool.gsc.poolQueries)} in range, {fmt(counts.topics)} topics,
-            checked against {fmt(pool.publishedPosts)} published posts. The list is kept for a day; Google itself
-            only updates it daily.
+            checked against {fmt(pool.publishedPosts)} published posts and, just now, {fmt(pool.writtenDocuments ?? 0)}{' '}
+            drafts and posts written from a topic. The search figures are kept for a day; Google itself only updates
+            them daily. Your drafts are checked every time this tab loads.
           </span>
         )}
       </div>
@@ -676,6 +802,26 @@ function BlogTopicsComponent() {
               Try again
             </button>
           </div>
+        </div>
+      )}
+
+      {createdDrafts.length > 0 && (
+        <div style={{ border: `1px solid ${GREEN}`, borderRadius: 6, padding: 12, fontSize: 13, display: 'flex', flexDirection: 'column', gap: 6 }}>
+          <div style={{ fontWeight: 600 }}>Drafts created from this tab</div>
+          <div style={{ color: MUTED }}>
+            Each topic has moved to Excluded, because it now has a draft. It stays there while the draft exists, even
+            before you publish it. Delete the draft and the topic comes back.
+          </div>
+          {createdDrafts.map((d) => (
+            <div key={d.id} style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+              <button type="button" onClick={() => openDraft(d.id)} style={secondaryBtn}>
+                Open draft
+              </button>
+              <span>
+                <strong>{d.title}</strong> <span style={{ color: MUTED }}>from "{d.query}"</span>
+              </span>
+            </div>
+          ))}
         </div>
       )}
 
@@ -730,13 +876,16 @@ function BlogTopicsComponent() {
             </label>
           </div>
 
+          <SimilarityNotice state={similarity} />
+
           <div style={{ fontSize: 13, color: MUTED }}>
             Showing {visible.length === 0 ? 0 : (currentPage - 1) * PAGE_SIZE + 1} to{' '}
             {Math.min(currentPage * PAGE_SIZE, visible.length)} of {fmt(visible.length)}
             {filter !== 'all' ? ` ${filter}` : ''} topic{visible.length === 1 ? '' : 's'}
             {search.trim() ? ` matching "${search.trim()}"` : ''}. Excluded so far: {fmt(counts.excludedBySharedTokens)}{' '}
             for sharing keywords with an existing post, {fmt(counts.excludedByRankingPage)} because your post already
-            ranks, {fmt(counts.excludedByBoth)} for both.
+            ranks, {fmt(counts.excludedByBoth)} for both, {fmt(counts.excludedAlreadyWritten)} because you already have a
+            draft or post from them.
           </div>
 
           <div style={{ overflowX: 'auto', border: `1px solid ${BORDER}`, borderRadius: 6 }}>
@@ -750,13 +899,16 @@ function BlogTopicsComponent() {
                   <th style={{ ...th, textAlign: 'right' }}>Avg. position</th>
                   <th style={th}>Page ranking now</th>
                   <th style={th}>Check</th>
+                  <th style={th} title="Advisory only: how alike the wording is, 0 to 100. Nothing is hidden or changed because of it.">
+                    Closest wording (your call)
+                  </th>
                   <th style={th}></th>
                 </tr>
               </thead>
               <tbody>
                 {rows.length === 0 && (
                   <tr>
-                    <td style={td} colSpan={8}>
+                    <td style={td} colSpan={9}>
                       <em style={{ color: MUTED }}>No topics match.</em>
                     </td>
                   </tr>
@@ -789,6 +941,11 @@ function BlogTopicsComponent() {
                             + {t.variants.length - 1} similar search{t.variants.length - 1 === 1 ? '' : 'es'}
                           </div>
                         )}
+                        {t.spacingGroups && t.spacingGroups.length > 0 && (
+                          <div style={{ fontSize: 12, color: MUTED }}>
+                            Also spelled: {t.spacingGroups.map((g) => `"${g.query}"`).join(', ')} (the same words spaced differently, so one topic)
+                          </div>
+                        )}
                       </td>
                       <td style={{ ...td, textAlign: 'right' }}>{fmt(t.impressions)}</td>
                       <td style={{ ...td, textAlign: 'right' }}>{fmt(t.clicks)}</td>
@@ -811,12 +968,27 @@ function BlogTopicsComponent() {
                         <div style={{ color: label.color, fontWeight: 600 }}>{label.text}</div>
                         {isBlocked && t.blockedBy && <div style={{ fontSize: 12, color: MUTED }}>{blockedSentence(t.blockedBy, t.blockedScope ?? 'word')}</div>}
                         {!isBlocked && t.reason && <div style={{ fontSize: 12, color: MUTED }}>{t.reason}</div>}
+                        {t.writtenAs && (
+                          <button
+                            type="button"
+                            onClick={() => openDraft(t.writtenAs!.documentId)}
+                            style={{ ...secondaryBtn, marginTop: 4, padding: '2px 8px', fontSize: 12 }}
+                          >
+                            {t.writtenAs.status === 'draft' ? 'Open the draft' : 'Open the post'}
+                          </button>
+                        )}
                         {!isBlocked && !t.reason && t.matchedPost && t.sharedTokens.length > 0 && (
                           <div style={{ fontSize: 12, color: MUTED }}>
                             Closest existing post shares only "{t.sharedTokens.join(', ')}": {t.matchedPost.title}
                           </div>
                         )}
                         {rowErrors[t.key] && <div style={{ fontSize: 12, color: RED }}>{rowErrors[t.key]}</div>}
+                      </td>
+                      <td style={{ ...td, maxWidth: 280 }}>
+                        <ClosestWording
+                          figures={similarity.status === 'ready' ? similarity.data.byKey[t.key] : undefined}
+                          onShowTopic={showTopic}
+                        />
                       </td>
                       <td style={{ ...td, whiteSpace: 'nowrap' }}>
                         {done ? (
@@ -868,14 +1040,78 @@ function BlogTopicsComponent() {
           )}
 
           <p style={{ fontSize: 12, color: MUTED, marginTop: 4 }}>
-            How a topic is judged: it is <strong>excluded</strong> when it shares {pool.threshold} or more meaningful
-            words with a post you already published, or when the page Google already ranks for it is one of your blog
-            posts. A <strong>usable</strong> topic has no such post yet. You can still generate a draft for an excluded
+            How a topic is judged: it is <strong>excluded</strong> when you already have a draft or post generated from
+            it (or written for it as a topic keyword), even one you have not published; when it shares{' '}
+            {pool.threshold} or more meaningful words with a post you already published; or when the page Google
+            already ranks for it is one of your blog posts. A <strong>usable</strong> topic has none of these yet. You can still generate a draft for an excluded
             topic if you disagree; the tab will ask first. Blocking is yours alone and always reversible: a topic you
             ticked comes back when you untick it, and a word block comes back when you press Remove beside it above.
             Both can also be removed under Global Settings, Blog Automation.
           </p>
         </>
+      )}
+    </div>
+  );
+}
+
+/**
+ * One line above the table explaining the closest-wording column, or saying
+ * it is unavailable. The wording is fixed on purpose: a score is how alike
+ * two phrases are worded, never a verdict, and a measured example of two
+ * different posts scoring 90 (AUTO-119 report, 2026-09-28) is quoted so it
+ * cannot be read as one.
+ */
+function SimilarityNotice({ state }: { state: SimilarityState }) {
+  if (state.status === 'idle') return null;
+  return (
+    <div style={{ fontSize: 12, color: MUTED, border: `1px dashed ${BORDER}`, borderRadius: 6, padding: 8 }}>
+      <strong style={{ color: FG }}>Closest wording</strong> shows, for each topic, the other topics and the published
+      post whose wording is most like it, scored 0 to 100. A high score means the words are alike, not that the posts
+      would be the same: &quot;custom engraved sunglasses&quot; and &quot;custom printed sunglasses&quot; score 90 and
+      are two different posts, because engraving and printing are different jobs. It is information for you. Nothing is hidden, excluded, merged or reordered because
+      of these numbers; you decide, and you can generate any topic whatever it shows.{' '}
+      {state.status === 'loading' && <em>Working out the figures; the first time each day this takes a few seconds.</em>}
+      {state.status === 'unavailable' && (
+        <em>
+          {state.message} Everything else in this tab works as normal; they are tried again the next time the tab
+          opens.
+        </em>
+      )}
+    </div>
+  );
+}
+
+/** The advisory cell (AUTO-119): neutral colour, no label such as "duplicate", nothing in it changes anything. */
+function ClosestWording({ figures, onShowTopic }: { figures: TopicSimilarity | undefined; onShowTopic: (query: string) => void }) {
+  if (!figures) return null;
+  return (
+    <div style={{ fontSize: 12, color: MUTED, display: 'flex', flexDirection: 'column', gap: 2 }}>
+      {figures.topics.map((n) => (
+        <span key={n.key}>
+          <button
+            type="button"
+            onClick={() => onShowTopic(n.query)}
+            title="Find this topic in the list"
+            style={{ background: 'none', border: 'none', padding: 0, color: BLUE, cursor: 'pointer', font: 'inherit', textAlign: 'left' }}
+          >
+            {n.query}
+          </button>{' '}
+          <span aria-label={`wording similarity ${n.score} out of 100`}>{n.score}</span>
+        </span>
+      ))}
+      {figures.post && (
+        <span>
+          Post:{' '}
+          <a
+            href={`https://www.perfectimprints.com${figures.post.href}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: BLUE }}
+          >
+            {figures.post.title}
+          </a>{' '}
+          <span aria-label={`wording similarity ${figures.post.score} out of 100`}>{figures.post.score}</span>
+        </span>
       )}
     </div>
   );

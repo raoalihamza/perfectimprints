@@ -129,7 +129,7 @@ describe('AUTO-110 blog-topics route carries the identical guard', () => {
     const body = src.slice(postStart);
     const guardAt = body.indexOf('verifyStudioNonce(request');
     expect(guardAt).toBeGreaterThan(-1);
-    for (const marker of ['request.json()', 'getCachedTopicPoolSnapshot(', 'revalidateTag(', 'getSiteSettings(']) {
+    for (const marker of ['request.json()', 'getCachedTopicPoolSnapshot(', 'revalidateTag(', 'getSiteSettings(', 'readWrittenTopicSources(']) {
       const at = body.indexOf(marker);
       expect(at, marker).toBeGreaterThan(guardAt);
     }

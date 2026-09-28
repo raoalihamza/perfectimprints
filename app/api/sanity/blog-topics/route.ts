@@ -8,6 +8,17 @@
 // POST { action: 'refresh' } → { ok: true } after expiring the cached pool, so
 //                               the panel's NEXT `pool` call rebuilds it from
 //                               a fresh Search Console pull (one pull, not two).
+// POST { action: 'similar' } → { ok, generatedAt, model, ..., rows } the
+//                               advisory "closest wording" figures (AUTO-119),
+//                               compact (the panel expands them), or
+//                               503 { ok: false, unavailable: true, error }.
+//
+// Closest wording (AUTO-119) is a SEPARATE action on purpose. The `pool`
+// action never calls the embedding service and never reads its figures, so no
+// similarity score can change a topic's state, and the list opens whether the
+// embedding service is up or down. The panel asks for the figures after the
+// list has loaded and shows them beside each topic; if they are unavailable
+// it says so in one line and everything else works as before.
 //
 // Auth (FIX-850): the same first-party Studio nonce guard as the nine
 // generate-* routes, with the same handshake document and header, applied
@@ -20,6 +31,13 @@
 // SETTINGS_TAG-tagged getSiteSettings(), so a block written by the panel and
 // busted by the globalSettings webhook branch takes effect without a refresh.
 //
+// Already written (AUTO-117): the drafts and posts that record the topic they
+// were generated from are read LIVE on every request too (drafts included,
+// uncached, lib/blog-automation/written-topics.ts), never from the cached
+// snapshot, so a draft made a minute ago excludes its topic on the next call.
+// If that read fails the route answers an error, not a list: a list shown
+// without it would pass topics that already have a draft.
+//
 // GSC_SERVICE_ACCOUNT_JSON_B64 stays server-side; no response, log line or
 // error built here can contain it (see lib/blog-automation/gsc-client.ts).
 // nodejs + force-dynamic: it has no render path and cannot affect any page's
@@ -31,9 +49,10 @@ import { verifyStudioNonce } from '@/lib/sanity/studio-nonce-auth';
 import { GENERATE_AUTH_DOC_ID, GENERATE_NONCE_HEADER } from '@/lib/sanity/generate-auth';
 import { BLOG_TOPICS_TAG } from '@/lib/sanity/cache-tags';
 import { getSiteSettings } from '@/lib/sanity/queries/global-settings';
-import { getCachedTopicPoolSnapshot } from '@/lib/blog-automation/cached-topic-pool';
+import { getCachedTopicPoolSnapshot, getCachedTopicSimilarity } from '@/lib/blog-automation/cached-topic-pool';
 import { describePoolError } from '@/lib/blog-automation/build-topic-pool';
-import { applyNegativeKeywords, countTopics } from '@/lib/blog-automation/topic-pool';
+import { applyNegativeKeywords, applyWrittenTopics, countTopics } from '@/lib/blog-automation/topic-pool';
+import { readWrittenTopicSources, WrittenTopicsReadError } from '@/lib/blog-automation/written-topics';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -46,8 +65,14 @@ export const dynamic = 'force-dynamic';
  * 60: enough that a slow Google day still answers, not so wide that a hung
  * request bills for five minutes. A warm request is a cache read and answers
  * in well under a second.
+ *
+ * Raised to 180 s by AUTO-119 for the `similar` action alone: the project's
+ * embedding quota is 3,000 texts a minute and one build is about 3,100 texts,
+ * so the batches go one at a time, measured at about 85 s (2026-09-28), with
+ * a 150 s deadline of their own (SIMILARITY_DEADLINE_MS). `pool` and `refresh`
+ * are unchanged and never run the embedding.
  */
-export const maxDuration = 120;
+export const maxDuration = 180;
 
 interface RequestBody {
   action?: string;
@@ -70,9 +95,10 @@ export async function POST(request: Request) {
   } catch {
     return NextResponse.json({ error: 'Invalid JSON body.' }, { status: 400 });
   }
-  const action = body.action === 'refresh' ? 'refresh' : body.action === 'pool' ? 'pool' : null;
+  const action =
+    body.action === 'refresh' ? 'refresh' : body.action === 'pool' ? 'pool' : body.action === 'similar' ? 'similar' : null;
   if (!action) {
-    return NextResponse.json({ error: 'action must be "pool" or "refresh".' }, { status: 400 });
+    return NextResponse.json({ error: 'action must be "pool", "refresh" or "similar".' }, { status: 400 });
   }
 
   if (action === 'refresh') {
@@ -83,11 +109,41 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   }
 
+  if (action === 'similar') {
+    // Advisory only (AUTO-119). Any failure here, including the pool snapshot
+    // itself, answers "unavailable" and nothing else: the panel keeps working.
+    try {
+      const snapshot = await getCachedTopicPoolSnapshot();
+      const figures = await getCachedTopicSimilarity(snapshot);
+      return NextResponse.json({ ok: true, ...figures });
+    } catch (err) {
+      const raw = err instanceof Error ? err.message : String(err);
+      console.error('[blog-topics] closest wording unavailable:', raw);
+      return NextResponse.json(
+        {
+          ok: false,
+          unavailable: true,
+          error: 'The closest-wording figures are not available right now.',
+          hint: 'Everything else in this tab works as normal. They are tried again the next time the tab opens.',
+        },
+        { status: 503 },
+      );
+    }
+  }
+
   try {
-    const [snapshot, settings] = await Promise.all([getCachedTopicPoolSnapshot(), getSiteSettings()]);
-    // AUTO-116: each entry carries its scope (topic or word), so the objects
-    // are passed, not just the terms.
-    const topics = applyNegativeKeywords(snapshot.topics, settings.blogAutomation.negativeKeywords);
+    const [snapshot, settings, written] = await Promise.all([
+      getCachedTopicPoolSnapshot(),
+      getSiteSettings(),
+      readWrittenTopicSources(),
+    ]);
+    // Order: the guard (cached), then already written (AUTO-117, live), then
+    // Patrick's blocks (AUTO-116: each entry carries its scope, so the objects
+    // are passed, not just the terms). A block wins over everything.
+    const topics = applyNegativeKeywords(
+      applyWrittenTopics(snapshot.topics, written),
+      settings.blogAutomation.negativeKeywords,
+    );
     return NextResponse.json({
       ok: true,
       generatedAt: snapshot.generatedAt,
@@ -101,9 +157,15 @@ export async function POST(request: Request) {
       buildMs: snapshot.buildMs,
       counts: countTopics(topics),
       negativeKeywords: settings.blogAutomation.negativeKeywords,
+      /** Drafts and posts that record a topic, checked live on this request. */
+      writtenDocuments: written.length,
       topics,
     });
   } catch (err) {
+    if (err instanceof WrittenTopicsReadError) {
+      console.error('[blog-topics]', err.message);
+      return NextResponse.json({ error: err.message, hint: err.hint }, { status: 502 });
+    }
     const described = describePoolError(err);
     console.error('[blog-topics]', described.message);
     return NextResponse.json({ error: described.message, hint: described.hint }, { status: described.status });
