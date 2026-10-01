@@ -30,6 +30,21 @@ import { computeNeighbourRows, embeddingCostUsd, type CompactTopicSimilarity } f
  */
 export const SIMILARITY_DEADLINE_MS = 150_000;
 
+/**
+ * The most topics one build embeds (AUTO-121). The project quota is 3,000
+ * texts a minute and the batches go one at a time, so the whole pool after
+ * the wider window (4,415 topics + 659 post titles, 51 calls) would run past
+ * the deadline. Measured 2026-10-01 from Ali's machine: 3,200 topics + 659
+ * posts = 3,860 texts, 39 calls, 121,844 ms including scoring, 28 s inside
+ * the 150 s deadline; the cap is 3,000 for a wider margin (37 calls, see the
+ * AUTO-121 report for its own measurement). The cap takes the snapshot's own
+ * order: every topic seen in the last 90 days first (today's whole list, 2,361
+ * on that day), then the ones the 16 months added, by 16-month impressions.
+ * Topics past it have no figures, and the panel says so on the row rather
+ * than showing nothing.
+ */
+export const SIMILARITY_MAX_TOPICS = 3_000;
+
 export interface SimilarityInput {
   generatedAt: string;
   topics: readonly { key: string; query: string }[];

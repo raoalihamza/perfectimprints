@@ -34,6 +34,29 @@
  *     string equality of `spacingKey`. No similarity score decides anything
  *     here; the advisory "closest wording" figures live in
  *     topic-similarity.ts and never touch a topic's state.
+ *   - The wider window (AUTO-121): the account holds 16 months, and a search
+ *     in the band over those 16 months with at least POOL_LONG_IMPRESSIONS_FLOOR
+ *     impressions joins the pool even when the last 90 days did not qualify it.
+ *     Every topic carries BOTH sets of figures (the last 90 days, which can be
+ *     empty, and the 16 months), when it was last seen, and which window put
+ *     it in the list. The 90-day pool and its figures are exactly what they
+ *     were; the wider window only ADDS rows. "Added by the 16 months" is not
+ *     "old": a search seen last week with 4 impressions, or one at position 6
+ *     now, is added this way when its 16-month average is in the band; the
+ *     row's own figures and its last-seen value say which.
+ *   - The top-7 check (AUTO-121, rule 'already-ranking'): a topic whose OWN
+ *     impressions-weighted average position over the last 90 days is under 8,
+ *     with at least the 90-day floor of impressions, is not an opportunity:
+ *     its 16-month average put it in the band, but it is already won now.
+ *     That is the pool's own band test applied to the topic's 90-day figures,
+ *     so it needs nothing stored and cannot be tipped by one small wording.
+ *     Any search with the topic's words in the top 7 (its own or a different
+ *     wording) is ALSO named on the row, as information that decides nothing
+ *     (measured 2026-10-01: the winning wording is usually the small one,
+ *     "rubber duck" at 2.1 with 49 impressions against "custom rubber ducks"
+ *     with 1,503 at 23, and "for imprint" at 2.4 with 20 against "custom
+ *     imprint" with 432 at 19, so a rule on the wording would hide real
+ *     topics; the weighted average keeps both usable).
  *
  * Every excluded topic carries its reason and the rule that fired.
  */
@@ -46,6 +69,30 @@ import { NEAR_GENERIC_WORDS, NON_SIGNIFICANT_MATCH_WORDS } from '../ai/brand-voi
 export const POOL_WINDOW_DAYS = 90;
 /** Impressions in the window a query needs to enter the pool (AUTO-100: 10). */
 export const POOL_IMPRESSIONS_FLOOR = 10;
+/**
+ * The wider window (AUTO-121): 16 months of 30 days, inside Google's 16-month
+ * retention with a margin, and a FIXED length so the scaled floor below keeps
+ * meaning the same rate. Data on the property goes back exactly 496 days
+ * (measured 2026-10-01: the first day with data was 2025-05-23).
+ */
+export const POOL_LONG_WINDOW_DAYS = 480;
+/**
+ * The floor for the wider window: the 90-day floor at the same RATE, 10 per 90
+ * days is 53.3 per 480 days, rounded up to the nearest five. A search with 10
+ * impressions in 16 months is not the "one showing a week" AUTO-100 chose 10
+ * to mean. Measured 2026-10-01 (band 8 to 40, keys not in the 90-day pool):
+ * floor 10 gives 6,887 added topics, 30 gives 3,313, 55 gives 2,062, 100
+ * gives 1,252 (AUTO-120's 1,261). The full table is in the AUTO-121 report.
+ */
+export const POOL_LONG_IMPRESSIONS_FLOOR = 55;
+/**
+ * The windows a topic's "last seen" is measured in, days back from today. The
+ * smallest window in which any of the topic's searches had an impression is
+ * its `seenDays`; a topic seen in none of them was seen only in the rest of
+ * the 16 months and carries POOL_LONG_WINDOW_DAYS.
+ */
+export const SEEN_WINDOWS_DAYS = [30, 90, 180, 365] as const;
+export type SeenDays = (typeof SEEN_WINDOWS_DAYS)[number] | typeof POOL_LONG_WINDOW_DAYS;
 /** The striking-distance band, average position inclusive (AUTO-100: 8 to 40). */
 export const POOL_POSITION_LOW = 8;
 export const POOL_POSITION_HIGH = 40;
@@ -183,14 +230,39 @@ export function sectionOfPath(path: string | null): string {
 
 // -- The pool -------------------------------------------------------------------
 
+/** Clicks, impressions and average position over one window. */
+export interface WindowFigures {
+  impressions: number;
+  clicks: number;
+  position: number;
+}
+
+/** Which window put a query (or a topic) in the pool (AUTO-121). */
+export type PoolWindow = 'recent' | 'older';
+
 export interface PoolQuery {
   query: string;
+  /**
+   * The LAST 90 DAYS: exactly what these three fields have always been.
+   * A query the wider window added may have no 90-day row at all; then
+   * clicks and impressions are 0 and position is null.
+   */
   clicks: number;
   impressions: number;
-  /** Average position in the window. */
-  position: number;
+  /** Average position over the last 90 days, or null when Google reported nothing in them. */
+  position: number | null;
   /** The path of the page that ranks for this query (top page by clicks, then impressions), or null. */
   page: string | null;
+  /**
+   * The 16-month figures (AUTO-121). Optional on input: a query built without
+   * them is taken to have the same figures over 16 months as over 90 days,
+   * so every pre-AUTO-121 caller and fixture means what it meant.
+   */
+  long?: WindowFigures;
+  /** The smallest window (days back) in which this query had an impression. Default 90. */
+  seenDays?: SeenDays;
+  /** Which pool the query qualified through. Default 'recent'. */
+  window?: PoolWindow;
 }
 
 export interface PoolOptions {
@@ -208,6 +280,45 @@ export function isPoolQuery(
   const low = opts.positionLow ?? POOL_POSITION_LOW;
   const high = opts.positionHigh ?? POOL_POSITION_HIGH;
   return row.position >= low && row.position <= high && row.impressions >= floor;
+}
+
+/** The 90-day figures of a query, or the empty figures for one Google reported nothing for in 90 days. */
+export function recentFiguresOf(q: Pick<PoolQuery, 'impressions' | 'clicks' | 'position'>): { impressions: number; clicks: number; position: number | null } {
+  return { impressions: q.impressions, clicks: q.clicks, position: q.position };
+}
+
+/** The 16-month figures of a query: its own when given, else its 90-day figures (the pre-AUTO-121 meaning). */
+export function longFiguresOf(q: PoolQuery): WindowFigures {
+  if (q.long) return q.long;
+  return { impressions: q.impressions, clicks: q.clicks, position: q.position ?? 0 };
+}
+
+/**
+ * The smallest window in which a search had an impression, from the sets of
+ * queries Google reported anything for in each window (AUTO-121). A search in
+ * none of them was seen only earlier in the 16 months.
+ */
+export function seenDaysOf(query: string, seenIn: ReadonlyMap<number, ReadonlySet<string>>): SeenDays {
+  for (const days of SEEN_WINDOWS_DAYS) {
+    if (seenIn.get(days)?.has(query)) return days;
+  }
+  return POOL_LONG_WINDOW_DAYS;
+}
+
+/** The panel's words for a `seenDays` value. */
+export function seenDaysLabel(seenDays: SeenDays): string {
+  switch (seenDays) {
+    case 30:
+      return 'in the last 30 days';
+    case 90:
+      return '1 to 3 months ago';
+    case 180:
+      return '3 to 6 months ago';
+    case 365:
+      return '6 to 12 months ago';
+    default:
+      return 'over a year ago';
+  }
 }
 
 /**
@@ -250,6 +361,20 @@ export interface SpacingGroup {
   matchedPost: { title: string; href: string } | null;
 }
 
+/**
+ * A search with this topic's words that ranks in the top 7 over the last 90
+ * days (AUTO-121). `own` is true when it is one of the topic's own searches
+ * (the same wording), which is the case that excludes; false when it is a
+ * different wording with the same words, which is only shown.
+ */
+export interface TopSevenNow {
+  query: string;
+  position: number;
+  impressions: number;
+  page: string | null;
+  own: boolean;
+}
+
 export interface TopicCandidate {
   /** The grouping key (or the raw query when the key is empty). */
   key: string;
@@ -257,15 +382,23 @@ export interface TopicCandidate {
   query: string;
   /** Every member query, most impressions first. */
   variants: string[];
-  /** Summed over the group. */
+  /** Summed over the group, over the LAST 90 DAYS (0 when none of the searches was seen in them). */
   clicks: number;
   impressions: number;
-  /** Impressions-weighted average position over the group. */
-  position: number;
+  /** Impressions-weighted average position over the group in the last 90 days; null when nothing was seen in them. */
+  position: number | null;
   /** The representative query's ranking page. */
   page: string | null;
   /** What rule one sends to the detector. */
   detectorInput: string;
+  /** The same three figures over the 16 months (AUTO-121). Optional on a hand-built candidate; always set on a Topic. */
+  long?: WindowFigures;
+  /** When any of the topic's searches was last seen (AUTO-121). Default 90. */
+  seenDays?: SeenDays;
+  /** 'recent' when any search qualified through the 90-day pool, else 'older' (AUTO-121). Default 'recent'. */
+  window?: PoolWindow;
+  /** The top-7 search with these words in the last 90 days, if any (AUTO-121). Default null. */
+  topSevenNow?: TopSevenNow | null;
   /**
    * The other spellings merged into this topic (AUTO-119), most impressions
    * first; empty for almost every topic. `key`, `query` and `page` above are
@@ -303,7 +436,14 @@ export function queryTopicKey(query: string): string {
   return topicKey(q) || q.toLowerCase();
 }
 
-const byImpressions = (a: PoolQuery, b: PoolQuery): number => b.impressions - a.impressions || a.query.localeCompare(b.query);
+/** Most 90-day impressions first, then most 16-month impressions, then A to Z; the representative rule. */
+const byImpressions = (a: PoolQuery, b: PoolQuery): number =>
+  b.impressions - a.impressions || longFiguresOf(b).impressions - longFiguresOf(a).impressions || a.query.localeCompare(b.query);
+
+/** Topics in the panel's default order: 90-day impressions, then 16-month impressions, then A to Z. */
+export function compareTopics(a: Pick<TopicCandidate, 'impressions' | 'long' | 'query'>, b: Pick<TopicCandidate, 'impressions' | 'long' | 'query'>): number {
+  return b.impressions - a.impressions || (b.long?.impressions ?? 0) - (a.long?.impressions ?? 0) || a.query.localeCompare(b.query);
+}
 
 /**
  * Group pool queries into topics, most impressions first.
@@ -372,16 +512,36 @@ export function groupIntoTopics(queries: PoolQuery[], opts: GroupOptions = {}): 
     const rep = main[0];
     const impressions = members.reduce((n, m) => n + m.impressions, 0);
     const clicks = members.reduce((n, m) => n + m.clicks, 0);
-    const weighted = members.reduce((n, m) => n + m.position * m.impressions, 0);
+    // The 90-day position is averaged over the members Google reported in the
+    // last 90 days; with none it is null (AUTO-121), never a made-up number.
+    const seen = members.filter((m) => m.position !== null && m.impressions > 0);
+    const seenImpressions = seen.reduce((n, m) => n + m.impressions, 0);
+    const weighted = seen.reduce((n, m) => n + (m.position as number) * m.impressions, 0);
+    const position =
+      seenImpressions > 0 ? Math.round((weighted / seenImpressions) * 10) / 10 : (rep.position ?? null);
+    const longs = members.map(longFiguresOf);
+    const longImpressions = longs.reduce((n, l) => n + l.impressions, 0);
+    const longWeighted = longs.reduce((n, l) => n + l.position * l.impressions, 0);
+    const long: WindowFigures = {
+      impressions: longImpressions,
+      clicks: longs.reduce((n, l) => n + l.clicks, 0),
+      position: longImpressions > 0 ? Math.round((longWeighted / longImpressions) * 10) / 10 : longFiguresOf(rep).position,
+    };
+    const seenDays = members.reduce<SeenDays>((best, m) => Math.min(best, m.seenDays ?? 90) as SeenDays, POOL_LONG_WINDOW_DAYS);
+    const window: PoolWindow = members.some((m) => (m.window ?? 'recent') === 'recent') ? 'recent' : 'older';
     topics.push({
       key: queryTopicKey(rep.query),
       query: rep.query,
       variants: members.map((m) => m.query),
       clicks,
       impressions,
-      position: impressions > 0 ? Math.round((weighted / impressions) * 10) / 10 : rep.position,
+      position,
       page: rep.page,
       detectorInput: detectorInput(rep.query),
+      long,
+      seenDays,
+      window,
+      topSevenNow: null,
       spacingGroups: ordered.slice(1).map((g) => ({
         key: queryTopicKey(g[0].query),
         query: g[0].query,
@@ -391,8 +551,101 @@ export function groupIntoTopics(queries: PoolQuery[], opts: GroupOptions = {}): 
       })),
     });
   }
-  topics.sort((a, b) => b.impressions - a.impressions || a.query.localeCompare(b.query));
+  topics.sort(compareTopics);
   return topics;
+}
+
+// -- The top-7 check (AUTO-121) ----------------------------------------------------
+
+/** A 90-day search row as the top-7 index reads it. */
+export interface TopSevenRow {
+  query: string;
+  position: number;
+  impressions: number;
+  page: string | null;
+}
+
+/**
+ * The searches that rank in the top 7 over the last 90 days with at least the
+ * 90-day floor of impressions (a position seen once is not a rank), indexed by
+ * topic key and by spacing key so a topic finds every search with its words.
+ */
+export function buildTopSevenIndex(
+  rows: readonly TopSevenRow[],
+  opts: { floor?: number; positionLow?: number } = {},
+): Map<string, TopSevenRow[]> {
+  const floor = opts.floor ?? POOL_IMPRESSIONS_FLOOR;
+  const low = opts.positionLow ?? POOL_POSITION_LOW;
+  const index = new Map<string, TopSevenRow[]>();
+  const add = (k: string, r: TopSevenRow) => {
+    const list = index.get(k) ?? [];
+    list.push(r);
+    index.set(k, list);
+  };
+  for (const r of rows) {
+    if (!(r.position < low) || r.impressions < floor) continue;
+    add(`k:${queryTopicKey(r.query)}`, r);
+    add(`s:${spacingKey(r.query)}`, r);
+  }
+  return index;
+}
+
+/**
+ * The top-7 search for a topic, if any: one of its OWN searches first, else
+ * the best-placed different wording with the same words. Shown on the row,
+ * never decided on (the exclusion is `isAlreadyRanking`, over the topic's
+ * own figures). Lowest position wins, then most impressions. "Own" means the
+ * exact search (case aside), one of the searches grouped into the topic: the
+ * spacing key is NOT used for it, because it also folds the generic words and
+ * would call "rubber duck" an own search of "custom rubber ducks".
+ */
+export function findTopSevenNow(
+  topic: Pick<TopicCandidate, 'key' | 'variants'> & { spacingGroups?: readonly Pick<SpacingGroup, 'key'>[] },
+  index: ReadonlyMap<string, readonly TopSevenRow[]>,
+): TopSevenNow | null {
+  const own = new Set(topic.variants.map((v) => v.toLowerCase()));
+  const found = new Map<string, TopSevenRow>();
+  for (const k of topicKeys(topic)) for (const r of index.get(`k:${k}`) ?? []) found.set(r.query, r);
+  for (const v of topic.variants) for (const r of index.get(`s:${spacingKey(v)}`) ?? []) found.set(r.query, r);
+  let best: TopSevenNow | null = null;
+  for (const r of found.values()) {
+    const candidate: TopSevenNow = { query: r.query, position: Math.round(r.position * 10) / 10, impressions: r.impressions, page: r.page, own: own.has(r.query.toLowerCase()) };
+    if (
+      !best ||
+      (candidate.own && !best.own) ||
+      (candidate.own === best.own && (candidate.position < best.position || (candidate.position === best.position && candidate.impressions > best.impressions)))
+    ) {
+      best = candidate;
+    }
+  }
+  return best;
+}
+
+/**
+ * The AUTO-121 rule: the topic's own impressions-weighted average position
+ * over the last 90 days is under the band (the top 7), with at least the
+ * 90-day floor of impressions. The same test `isPoolQuery` applies to a
+ * search, applied to the topic, from fields the compact shape already stores.
+ */
+export function isAlreadyRanking(
+  topic: Pick<TopicCandidate, 'impressions' | 'position'>,
+  opts: { floor?: number; positionLow?: number } = {},
+): boolean {
+  const floor = opts.floor ?? POOL_IMPRESSIONS_FLOOR;
+  const low = opts.positionLow ?? POOL_POSITION_LOW;
+  return topic.position !== null && topic.position < low && topic.impressions >= floor;
+}
+
+/** The panel's sentence for a topic already won. */
+export function alreadyRankingSentence(topic: Pick<TopicCandidate, 'impressions' | 'position' | 'topSevenNow'>): string {
+  const top = topic.topSevenNow ?? null;
+  const best = top ? `, best for "${top.query}" at ${top.position.toFixed(1)}${top.page ? ` with ${top.page}` : ''}` : '';
+  return `You already rank in the top 7 for this topic (average position ${(topic.position ?? 0).toFixed(1)} over ${topic.impressions.toLocaleString('en-US')} impressions in the last 90 days${best}), so it is not an opportunity.`;
+}
+
+/** The panel's note for a search with the topic's words in the top 7 (information only). */
+export function alsoRankingSentence(top: TopSevenNow): string {
+  return `You also rank in the top 7 for ${top.own ? 'the search' : 'the different wording'} "${top.query}" (position ${top.position.toFixed(1)}, ${top.impressions.toLocaleString('en-US')} impressions in the last 90 days${top.page ? `, ${top.page}` : ''}).`;
 }
 
 // -- The guard ------------------------------------------------------------------
@@ -404,7 +657,7 @@ export type TopicState = 'usable' | 'excluded' | 'blocked';
  * decided on every request from the documents themselves: a draft or post
  * whose recorded source topic, or topic keyword, is this topic.
  */
-export type ExclusionRule = 'shared-tokens' | 'ranking-page' | 'both' | 'already-written';
+export type ExclusionRule = 'shared-tokens' | 'ranking-page' | 'both' | 'already-written' | 'already-ranking';
 
 /** What the detector found for a topic: the best-matching published post. */
 export interface DetectorHit {
@@ -454,6 +707,10 @@ export function decideGuard(
 
 export interface Topic extends TopicCandidate {
   spacingGroups: SpacingGroup[];
+  long: WindowFigures;
+  seenDays: SeenDays;
+  window: PoolWindow;
+  topSevenNow: TopSevenNow | null;
   state: TopicState;
   rule: ExclusionRule | null;
   reason: string | null;
@@ -500,7 +757,30 @@ export function applyGuard(
       }
     }
   }
-  return { ...candidate, spacingGroups: groups, ...decision, blockedBy: null, blockedScope: null, writtenAs: null };
+  // AUTO-121: a topic already in the top 7 on average over the last 90 days
+  // is not an opportunity. It is its own rule when the guard passed; when the
+  // guard had already excluded the topic its sentence is appended, so nothing
+  // is lost. The top-7 search named on the row never changes the state.
+  const top = candidate.topSevenNow ?? null;
+  if (isAlreadyRanking(candidate)) {
+    const sentence = alreadyRankingSentence({ ...candidate, topSevenNow: top });
+    decision =
+      decision.state === 'usable'
+        ? { ...decision, state: 'excluded', rule: 'already-ranking', reason: sentence }
+        : { ...decision, reason: `${decision.reason} ${sentence}` };
+  }
+  return {
+    ...candidate,
+    spacingGroups: groups,
+    long: candidate.long ?? { impressions: candidate.impressions, clicks: candidate.clicks, position: candidate.position ?? 0 },
+    seenDays: candidate.seenDays ?? 90,
+    window: candidate.window ?? 'recent',
+    topSevenNow: top,
+    ...decision,
+    blockedBy: null,
+    blockedScope: null,
+    writtenAs: null,
+  };
 }
 
 /**
@@ -511,11 +791,16 @@ export function applyGuard(
  * the cached snapshot stays about a third smaller (measured in the AUTO-110
  * report against the data cache's 2 MB ceiling).
  */
-export interface CompactTopic extends Omit<TopicCandidate, 'detectorInput' | 'spacingGroups'> {
+export interface CompactTopic extends Omit<TopicCandidate, 'detectorInput' | 'spacingGroups' | 'long' | 'seenDays' | 'window' | 'topSevenNow'> {
   sharedTokens: string[];
   matchedPost: { title: string; href: string } | null;
   /** Only present when the topic merged other spellings (AUTO-119), so the cached entry stays small. */
   spacingGroups?: SpacingGroup[];
+  /** AUTO-121: the 16-month figures, when seen, which window, and the top-7 search (the last two only when not the default). */
+  long: WindowFigures;
+  seenDays: SeenDays;
+  window?: PoolWindow;
+  topSevenNow?: TopSevenNow;
 }
 
 export function compactTopic(topic: Topic): CompactTopic {
@@ -529,6 +814,10 @@ export function compactTopic(topic: Topic): CompactTopic {
     page: topic.page,
     sharedTokens: topic.sharedTokens,
     matchedPost: topic.matchedPost,
+    long: topic.long,
+    seenDays: topic.seenDays,
+    ...(topic.window !== 'recent' ? { window: topic.window } : {}),
+    ...(topic.topSevenNow ? { topSevenNow: topic.topSevenNow } : {}),
     ...(topic.spacingGroups.length > 0 ? { spacingGroups: topic.spacingGroups } : {}),
   };
 }
@@ -539,10 +828,130 @@ export function expandTopic(compact: CompactTopic, threshold: number = CANNIBALI
     ? { sharedTokens: compact.sharedTokens, postTitle: compact.matchedPost.title, postHref: compact.matchedPost.href }
     : null;
   return applyGuard(
-    { ...compact, detectorInput: detectorInput(compact.query), spacingGroups: compact.spacingGroups ?? [] },
+    {
+      ...compact,
+      detectorInput: detectorInput(compact.query),
+      spacingGroups: compact.spacingGroups ?? [],
+      window: compact.window ?? 'recent',
+      topSevenNow: compact.topSevenNow ?? null,
+    },
     hit,
     threshold,
   );
+}
+
+// -- The packed snapshot (AUTO-121) ------------------------------------------------
+
+/**
+ * The shape the data cache stores. The compact topics carry the same post
+ * (title + href) and the same page path hundreds of times over, and a key
+ * that is always `queryTopicKey(query)` by construction; packing writes each
+ * post and page once and drops the key. Measured 2026-10-01 on the live pool
+ * (4,415 topics, 2,361 from the 90 days and 2,054 added by the 16 months):
+ * compact 2,124,973 bytes (2.03 MB, OVER the 2 MB the data cache refuses,
+ * silently), packed 940,545 bytes (0.90 MB); the 90-day pool alone packs to
+ * 0.54 MB. The round trip is exact; `unpackTopics` returns the compact topics
+ * byte for byte.
+ */
+export interface PackedTopics {
+  posts: { title: string; href: string }[];
+  pages: string[];
+  rows: PackedTopic[];
+}
+
+export interface PackedTopic {
+  q: string;
+  /** Every member search, the representative first, exactly as the topic lists them. */
+  v: string[];
+  /** [impressions, clicks, position or null] over the last 90 days. */
+  r: [number, number, number | null];
+  /** [impressions, clicks, position] over the 16 months. */
+  l: [number, number, number];
+  /** Index into `pages`, or -1. */
+  pg: number;
+  s: SeenDays;
+  /** 1 when the wider window added the topic. */
+  o?: 1;
+  st: string[];
+  /** Index into `posts`, or -1. */
+  mp: number;
+  /** [query, position, impressions, page index, own] */
+  t7?: [string, number, number, number, 0 | 1];
+  /** Spacing groups: [query, page index, sharedTokens, post index] */
+  sg?: [string, number, string[], number][];
+}
+
+function interner<T>(items: T[], keyOf: (t: T) => string): (item: T | null | undefined) => number {
+  const index = new Map<string, number>();
+  return (item) => {
+    if (item === null || item === undefined) return -1;
+    const k = keyOf(item);
+    let i = index.get(k);
+    if (i === undefined) {
+      i = items.length;
+      items.push(item);
+      index.set(k, i);
+    }
+    return i;
+  };
+}
+
+export function packTopics(topics: readonly CompactTopic[]): PackedTopics {
+  const posts: { title: string; href: string }[] = [];
+  const pages: string[] = [];
+  const post = interner(posts, (p) => `${p.href}\n${p.title}`);
+  const page = interner(pages, (p) => p);
+  const rows = topics.map((t): PackedTopic => {
+    const row: PackedTopic = {
+      q: t.query,
+      v: t.variants,
+      r: [t.impressions, t.clicks, t.position],
+      l: [t.long.impressions, t.long.clicks, t.long.position],
+      pg: page(t.page),
+      s: t.seenDays,
+      st: t.sharedTokens,
+      mp: post(t.matchedPost),
+    };
+    if (t.window === 'older') row.o = 1;
+    if (t.topSevenNow) row.t7 = [t.topSevenNow.query, t.topSevenNow.position, t.topSevenNow.impressions, page(t.topSevenNow.page), t.topSevenNow.own ? 1 : 0];
+    if (t.spacingGroups && t.spacingGroups.length > 0) {
+      row.sg = t.spacingGroups.map((g) => [g.query, page(g.page), g.sharedTokens, post(g.matchedPost)]);
+    }
+    return row;
+  });
+  return { posts, pages, rows };
+}
+
+export function unpackTopics(packed: PackedTopics): CompactTopic[] {
+  const page = (i: number): string | null => (i >= 0 ? packed.pages[i] ?? null : null);
+  const post = (i: number): { title: string; href: string } | null => (i >= 0 ? packed.posts[i] ?? null : null);
+  return packed.rows.map((row): CompactTopic => {
+    const compact: CompactTopic = {
+      key: queryTopicKey(row.q),
+      query: row.q,
+      variants: row.v,
+      clicks: row.r[1],
+      impressions: row.r[0],
+      position: row.r[2],
+      page: page(row.pg),
+      sharedTokens: row.st,
+      matchedPost: post(row.mp),
+      long: { impressions: row.l[0], clicks: row.l[1], position: row.l[2] },
+      seenDays: row.s,
+    };
+    if (row.o) compact.window = 'older';
+    if (row.t7) compact.topSevenNow = { query: row.t7[0], position: row.t7[1], impressions: row.t7[2], page: page(row.t7[3]), own: row.t7[4] === 1 };
+    if (row.sg) {
+      compact.spacingGroups = row.sg.map(([query, pg, sharedTokens, mp]) => ({
+        key: queryTopicKey(query),
+        query,
+        page: page(pg),
+        sharedTokens,
+        matchedPost: post(mp),
+      }));
+    }
+    return compact;
+  });
 }
 
 // -- Topics already written (AUTO-117) -------------------------------------------
@@ -985,6 +1394,11 @@ export interface TopicCounts {
   excludedByBoth: number;
   /** Excluded because a draft or post already covers the topic (AUTO-117), whatever the guard said. */
   excludedAlreadyWritten: number;
+  /** Excluded because the topic already ranks in the top 7 on average over the last 90 days (AUTO-121), the guard having passed it. */
+  excludedAlreadyRanking: number;
+  /** Topics seen in the last 90 days (the 90-day pool) and topics only the wider window added (AUTO-121). */
+  recent: number;
+  older: number;
 }
 
 export function countTopics(topics: readonly Topic[]): TopicCounts {
@@ -997,6 +1411,9 @@ export function countTopics(topics: readonly Topic[]): TopicCounts {
     excludedByRankingPage: 0,
     excludedByBoth: 0,
     excludedAlreadyWritten: 0,
+    excludedAlreadyRanking: 0,
+    recent: 0,
+    older: 0,
   };
   for (const t of topics) {
     if (t.state === 'usable') counts.usable += 1;
@@ -1006,6 +1423,9 @@ export function countTopics(topics: readonly Topic[]): TopicCounts {
     else if (t.rule === 'ranking-page') counts.excludedByRankingPage += 1;
     else if (t.rule === 'both') counts.excludedByBoth += 1;
     else if (t.rule === 'already-written') counts.excludedAlreadyWritten += 1;
+    else if (t.rule === 'already-ranking') counts.excludedAlreadyRanking += 1;
+    if (t.window === 'older') counts.older += 1;
+    else counts.recent += 1;
   }
   return counts;
 }

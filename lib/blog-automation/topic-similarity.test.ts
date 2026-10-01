@@ -149,7 +149,10 @@ describe('no topic state changes because of a similarity score', () => {
     const src = code('sanity/tools/blog-topics-tool.tsx');
     const uses = [...src.matchAll(/similarity\.data/g)];
     expect(uses).toHaveLength(1);
-    expect(src).toMatch(/figures=\{similarity\.status === 'ready' \? similarity\.data\.byKey\[t\.key\] : undefined\}/);
+    expect(src).toMatch(/const figures = similarity\.status === 'ready' \? similarity\.data\.byKey\[t\.key\] : undefined;/);
+    // And that value reaches exactly one component, the cell (AUTO-121 also tells it when the topic is past the cap).
+    expect([...src.matchAll(/\{figures\}/g)]).toHaveLength(1);
+    expect(src).toMatch(/<ClosestWording figures=\{figures\} notCovered=\{similarity\.status === 'ready' && figures === undefined\}/);
     // The derived list the states come from never mentions it.
     const derived = src.slice(src.indexOf('const topics = useMemo('), src.indexOf('const counts = useMemo('));
     expect(derived).not.toMatch(/similar/i);

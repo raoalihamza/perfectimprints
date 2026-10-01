@@ -13,7 +13,7 @@ import { act, type ComponentType } from 'react';
 import { createRoot, type Root } from 'react-dom/client';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { WRITTEN_TOPICS_QUERY, applyGuard, countTopics, groupIntoTopics } from '../../lib/blog-automation/topic-pool';
+import { WRITTEN_TOPICS_QUERY, applyGuard, buildTopSevenIndex, countTopics, findTopSevenNow, groupIntoTopics, type PoolQuery } from '../../lib/blog-automation/topic-pool';
 
 const m = vi.hoisted(() => ({
   log: [] as string[],
@@ -270,18 +270,18 @@ describe('Blog Topics tab: closest wording is advisory (AUTO-119)', () => {
     await render();
     const r = row(SUNGLASSES);
     const cells = r.querySelectorAll('td');
-    const closest = cells[7].textContent ?? '';
+    const closest = cells[9].textContent ?? '';
     expect(closest).toContain('engraved sunglasses 99');
     expect(closest).toContain('Custom Sunglasses With Logo 81');
     // The check column says what it said without the figures.
-    expect(cells[6].textContent).toContain('Usable');
+    expect(cells[8].textContent).toContain('Usable');
     expect(counts()).toEqual(['Usable (2)', 'Excluded (0)', 'Blocked (0)', 'All (2)']);
     expect(button('Generate draft', r).disabled).toBe(false);
     expect(container.textContent).toContain('A high score means the words are alike, not that the posts');
     expect(container.textContent).not.toMatch(/duplicate/i);
 
     // Clicking a closest topic only finds it in the list: no write, no block, no AI.
-    await click(button('engraved sunglasses', cells[7]));
+    await click(button('engraved sunglasses', cells[9]));
     const search = container.querySelector('input[type="search"]') as HTMLInputElement;
     expect(search.value).toBe('engraved sunglasses');
     expect(client.create).not.toHaveBeenCalled();
@@ -291,7 +291,108 @@ describe('Blog Topics tab: closest wording is advisory (AUTO-119)', () => {
   it('figures for another snapshot are not shown against this list', async () => {
     answerSimilar(() => json(similarResponse('2026-09-27T09:00:00.000Z')));
     await render();
-    expect(row(SUNGLASSES).querySelectorAll('td')[7].textContent).toBe('');
+    expect(row(SUNGLASSES).querySelectorAll('td')[9].textContent).toBe('');
     expect(counts()).toEqual(['Usable (2)', 'Excluded (0)', 'Blocked (0)', 'All (2)']);
+  });
+});
+
+describe('Blog Topics tab: the wider window (AUTO-121)', () => {
+  /** A pool with one 90-day topic and two the 16 months added, one of them already in the top 7 now. */
+  function widePoolResponse() {
+    const queries: PoolQuery[] = [
+      { query: SUNGLASSES, clicks: 3, impressions: 333, position: 14.2, page: '/cat/sunglasses', long: { impressions: 1200, clicks: 10, position: 16.1 }, seenDays: 30, window: 'recent' },
+      { query: 'custom church fans', clicks: 0, impressions: 0, position: null, page: '/cat/paper-hand-fans', long: { impressions: 1212, clicks: 12, position: 33.9 }, seenDays: 180, window: 'older' },
+      { query: 'value calendars', clicks: 20, impressions: 233, position: 6.0, page: '/cat/calendars', long: { impressions: 969, clicks: 40, position: 14.5 }, seenDays: 30, window: 'older' },
+    ];
+    const index = buildTopSevenIndex([
+      { query: 'value calendars', position: 6.0, impressions: 233, page: '/cat/calendars' },
+      { query: 'rubber duck', position: 2.1, impressions: 49, page: '/blog/10-facts-rubber-ducks' },
+    ]);
+    const candidates = groupIntoTopics(queries);
+    for (const c of candidates) c.topSevenNow = findTopSevenNow(c, index);
+    const topics = candidates.map((c) => applyGuard(c, null));
+    return {
+      ...poolResponse(),
+      longWindow: { start: '2025-06-09', end: '2026-09-28', days: 480, floor: 55 },
+      gsc: { allQueries: 3, poolQueries: 1, longQueries: 3, addedQueries: 2 },
+      cacheBytes: 940545,
+      omittedOlderTopics: 0,
+      cacheWarning: null,
+      counts: countTopics(topics),
+      topics,
+    };
+  }
+
+  function answerPool(respond: () => ReturnType<typeof json>) {
+    const base = m.authFetch.getMockImplementation()!;
+    m.authFetch.mockImplementation(async (url: string, init: { body: string }) => {
+      if (url === '/api/sanity/blog-topics' && JSON.parse(init.body).action === 'pool') return respond();
+      return base(url, init);
+    });
+  }
+
+  const seenSelect = () => container.querySelector('select[aria-label="Which searches to show"]') as HTMLSelectElement;
+
+  async function chooseSeen(value: string) {
+    await act(async () => {
+      const el = seenSelect();
+      const setter = Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, 'value')!.set!;
+      setter.call(el, value);
+      el.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+    await flush();
+  }
+
+  it('opens on the 90-day list exactly as before, and the added topics sit behind the Seen filter', async () => {
+    answerPool(() => json(widePoolResponse()));
+    await render();
+    expect(seenSelect().value).toBe('recent');
+    expect(row(SUNGLASSES)).toBeTruthy();
+    expect(() => row('custom church fans')).toThrow();
+    expect(container.textContent).toContain('1 seen in the last 90 days, 2 added by the 16 months');
+    // The 16-month figures and Last seen sit on the 90-day row too.
+    const cells = row(SUNGLASSES).querySelectorAll('td');
+    expect(cells[2].textContent).toBe('333');
+    expect(cells[5].textContent).toContain('1,200 impr.');
+    expect(cells[5].textContent).toContain('pos. 16.1');
+    expect(cells[6].textContent).toBe('in the last 30 days');
+
+    await chooseSeen('older');
+    expect(() => row(SUNGLASSES)).toThrow();
+    const fans = row('custom church fans');
+    const fansCells = fans.querySelectorAll('td');
+    expect(fansCells[2].textContent).toBe('none in the last 90 days');
+    expect(fansCells[3].textContent).toContain('1,212 impr.');
+    expect(fansCells[4].textContent).toBe('3 to 6 months ago');
+    expect(fansCells[6].textContent).toContain('Usable');
+    expect(button('Generate draft', fans).disabled).toBe(false);
+    // No colour and no word that judges the age: the fact only.
+    expect(container.textContent).not.toMatch(/stale|dead/i);
+
+    await chooseSeen('all');
+    expect(row(SUNGLASSES)).toBeTruthy();
+    expect(row('custom church fans')).toBeTruthy();
+  });
+
+  it('a topic whose own search already ranks in the top 7 is excluded and says so; the count is on the line', async () => {
+    answerPool(() => json(widePoolResponse()));
+    await render();
+    await chooseSeen('all');
+    // Excluded rows are hidden by the default state filter; show them.
+    await click(button(/^Excluded \(/));
+    const calendars = row('value calendars');
+    const check = calendars.querySelectorAll('td')[8].textContent ?? '';
+    expect(check).toContain('Excluded');
+    expect(check).toContain('You already rank in the top 7 for this topic (average position 6.0 over 233 impressions in the last 90 days, best for "value calendars" at 6.0 with /cat/calendars)');
+    expect(container.textContent).toContain('1 because you already rank in the top 7 for them');
+    expect(button(/^Usable \(/).textContent).toBe('Usable (2)');
+  });
+
+  it('shows the cache warning and the trimmed count when the route reports them', async () => {
+    answerPool(() => json({ ...widePoolResponse(), cacheWarning: 'The saved list is not being kept between opens (the entry is 2.10 MB).', omittedOlderTopics: 12, cacheBytes: 1600000 }));
+    await render();
+    expect(container.textContent).toContain('The saved list is not being kept between opens');
+    expect(container.textContent).toContain('12 of the older topics');
+    expect(container.textContent).toContain('Every topic seen in the last 90 days is here');
   });
 });

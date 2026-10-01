@@ -282,6 +282,10 @@ describe('negative keywords', () => {
       excludedByBoth: 1,
       // AUTO-117: nothing here has a draft, so none is excluded for that.
       excludedAlreadyWritten: 0,
+      // AUTO-121: nothing here ranks in the top 7, and every hand-built topic is a 90-day one.
+      excludedAlreadyRanking: 0,
+      recent: 5,
+      older: 0,
     });
   });
 });
@@ -429,7 +433,9 @@ describe('the cached shape (compact) round-trips to the same verdict', () => {
   it('drops the verdict and the detector input, keeps the figures and what the detector found', () => {
     const t = build('drink tokens', '/cat/drink-tokens', ['drink', 'tokens']);
     const c = compactTopic(t);
-    expect(Object.keys(c).sort()).toEqual(['clicks', 'impressions', 'key', 'matchedPost', 'page', 'position', 'query', 'sharedTokens', 'variants']);
+    // AUTO-121 added the 16-month figures and when the topic was last seen; the
+    // window and the top-7 search are stored only when they are not the default.
+    expect(Object.keys(c).sort()).toEqual(['clicks', 'impressions', 'key', 'long', 'matchedPost', 'page', 'position', 'query', 'seenDays', 'sharedTokens', 'variants']);
     expect(c.matchedPost).toEqual({ title: 'Free Drink Tokens', href: '/blog/free-drink-tokens' });
   });
 

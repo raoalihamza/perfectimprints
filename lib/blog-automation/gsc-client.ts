@@ -156,6 +156,12 @@ export interface SaRow {
   position: number;
 }
 
+export interface SaDimensionFilter {
+  dimension: 'query' | 'page' | 'country' | 'device';
+  operator: 'equals' | 'contains' | 'notContains' | 'includingRegex' | 'excludingRegex';
+  expression: string;
+}
+
 export interface SaRequest {
   startDate: string;
   endDate: string;
@@ -164,7 +170,20 @@ export interface SaRequest {
   startRow?: number;
   dataState?: 'final' | 'all';
   type?: string;
+  dimensionFilterGroups?: { groupType: 'and'; filters: SaDimensionFilter[] }[];
 }
+
+/**
+ * How many exact searches one regex-filtered request may name (AUTO-121).
+ * Measured 2026-10-01 against the live property: an alternation of 100
+ * searches (about 2,400 characters) and of 150 (3,700) answer in 3.3 to
+ * 3.7 s with rows identical to the unfiltered pull's; 200 (5,100 characters)
+ * and above answer HTTP 500 "backendError". 100 keeps a wide margin under
+ * that, and a batch that still fails is split in half and retried.
+ */
+export const QUERY_REGEX_BATCH = 100;
+/** Regex-filtered requests in flight at once; independent requests, well inside Google's per-site rate. */
+export const QUERY_REGEX_CONCURRENCY = 4;
 
 export interface SaRequestLog {
   property: string;
@@ -180,6 +199,24 @@ export interface GscClient {
     property: string,
     base: Omit<SaRequest, 'rowLimit' | 'startRow'>,
   ): Promise<{ rows: SaRow[]; pages: number; lastPageRows: number }>;
+  /**
+   * Every row for the dimensions, restricted to an exact LIST of searches
+   * (AUTO-121): the list goes to Google as an anchored regex alternation, in
+   * batches of QUERY_REGEX_BATCH, QUERY_REGEX_CONCURRENCY at a time. Built
+   * because the unfiltered 16-month query x page pull is 318,000 rows over 14
+   * pages and 178 s (measured 2026-10-01), while the pool needs the pages of
+   * about 2,000 searches, which this fetches in about 24 requests.
+   */
+  searchAnalyticsForQueries(
+    property: string,
+    base: Omit<SaRequest, 'rowLimit' | 'startRow' | 'dimensionFilterGroups'>,
+    queries: readonly string[],
+  ): Promise<{ rows: SaRow[]; requests: number }>;
+}
+
+/** A search as a regex atom that matches exactly that search (RE2 syntax, what Google runs). */
+export function escapeRegex(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 function permissionHint(property: string): string {
@@ -258,7 +295,60 @@ export function createGscClient(
     return { rows, pages, lastPageRows };
   }
 
-  return { listSites, searchAnalytics, searchAnalyticsAll };
+  async function searchAnalyticsForQueries(
+    property: string,
+    base: Omit<SaRequest, 'rowLimit' | 'startRow' | 'dimensionFilterGroups'>,
+    queries: readonly string[],
+  ): Promise<{ rows: SaRow[]; requests: number }> {
+    const unique = [...new Set(queries.filter((q) => q.trim()))];
+    const batches: string[][] = [];
+    for (let i = 0; i < unique.length; i += QUERY_REGEX_BATCH) batches.push(unique.slice(i, i + QUERY_REGEX_BATCH));
+    const rows: SaRow[] = [];
+    let requests = 0;
+
+    async function fetchBatch(batch: string[]): Promise<void> {
+      const expression = `^(${batch.map(escapeRegex).join('|')})$`;
+      const body: SaRequest = {
+        ...base,
+        rowLimit: ROW_LIMIT,
+        dimensionFilterGroups: [{ groupType: 'and', filters: [{ dimension: 'query', operator: 'includingRegex', expression }] }],
+      };
+      requests += 1;
+      try {
+        const page = await searchAnalytics(property, body);
+        rows.push(...page);
+        // A batch of 100 searches never fills a 25,000-row page (a search
+        // ranks on a handful of pages); if one ever did, the rest would be
+        // lost, so it is fetched again in halves rather than trusted.
+        if (page.length >= ROW_LIMIT && batch.length > 1) {
+          rows.splice(rows.length - page.length, page.length);
+          throw new GscError('regex batch overflowed a page', 'split', 500);
+        }
+      } catch (err) {
+        // Google answers HTTP 500 to an expression it finds too long; halve and retry.
+        if (err instanceof GscError && err.status === 500 && batch.length > 1) {
+          const mid = Math.ceil(batch.length / 2);
+          await fetchBatch(batch.slice(0, mid));
+          await fetchBatch(batch.slice(mid));
+          return;
+        }
+        throw err;
+      }
+    }
+
+    let next = 0;
+    const workers = Array.from({ length: Math.min(QUERY_REGEX_CONCURRENCY, batches.length) }, async () => {
+      while (next < batches.length) {
+        const batch = batches[next];
+        next += 1;
+        await fetchBatch(batch);
+      }
+    });
+    await Promise.all(workers);
+    return { rows, requests };
+  }
+
+  return { listSites, searchAnalytics, searchAnalyticsAll, searchAnalyticsForQueries };
 }
 
 export const isoDate = (d: Date): string => d.toISOString().slice(0, 10);

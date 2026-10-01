@@ -49,6 +49,8 @@ export interface TopicSimilarityResult {
   costUsd: number;
   /** Wall-clock of the embedding + scoring, when it was computed (a cache hit reports the original). */
   buildMs: number;
+  /** How many topics the figures cover (AUTO-121: at most SIMILARITY_MAX_TOPICS of the pool). */
+  topicsCovered: number;
   byKey: Record<string, TopicSimilarity>;
 }
 
@@ -57,7 +59,7 @@ export interface TopicSimilarityResult {
  * topic list and into the post list, so the entry is about 150 KB rather than
  * the 12 MB the raw vectors would be (AUTO-118). Only results are stored.
  */
-export interface CompactTopicSimilarity extends Omit<TopicSimilarityResult, 'byKey'> {
+export interface CompactTopicSimilarity extends Omit<TopicSimilarityResult, 'byKey' | 'topicsCovered'> {
   topicKeys: string[];
   topicQueries: string[];
   posts: { title: string; href: string }[];
@@ -164,8 +166,8 @@ export function expandSimilarity(compact: CompactTopicSimilarity): TopicSimilari
       post: post ? { title: post.title, href: post.href, score: displayScore(row[row.length - 1]) } : null,
     };
   });
-  const { topicKeys: _k, topicQueries: _q, posts: _p, rows: _r, ...rest } = compact;
-  return { ...rest, byKey };
+  const { topicKeys, topicQueries: _q, posts: _p, rows: _r, ...rest } = compact;
+  return { ...rest, topicsCovered: topicKeys.length, byKey };
 }
 
 /** What a list of embedded texts costs, in USD, at the given price per million tokens. */

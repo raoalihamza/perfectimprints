@@ -31,6 +31,14 @@
 // SETTINGS_TAG-tagged getSiteSettings(), so a block written by the panel and
 // busted by the globalSettings webhook branch takes effect without a refresh.
 //
+// The wider window (AUTO-121): the pool now also holds the searches in the
+// band over the last 16 months, and every topic carries both windows' figures
+// and when it was last seen. The cached entry is kept under the data cache's
+// 2 MB ceiling by construction (packSnapshot), and this route watches for the
+// one failure that used to be silent: if two pool calls on one instance come
+// back freshly built inside the cache lifetime with no Refresh between them,
+// the cache is not storing, and the response says so (`cacheWarning`).
+//
 // Already written (AUTO-117): the drafts and posts that record the topic they
 // were generated from are read LIVE on every request too (drafts included,
 // uncached, lib/blog-automation/written-topics.ts), never from the cached
@@ -53,6 +61,7 @@ import { getCachedTopicPoolSnapshot, getCachedTopicSimilarity } from '@/lib/blog
 import { describePoolError } from '@/lib/blog-automation/build-topic-pool';
 import { applyNegativeKeywords, applyWrittenTopics, countTopics } from '@/lib/blog-automation/topic-pool';
 import { readWrittenTopicSources, WrittenTopicsReadError } from '@/lib/blog-automation/written-topics';
+import { cacheWarningFor, noteRefreshRequested } from '@/lib/blog-automation/cache-watch';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -71,6 +80,10 @@ export const dynamic = 'force-dynamic';
  * so the batches go one at a time, measured at about 85 s (2026-09-28), with
  * a 150 s deadline of their own (SIMILARITY_DEADLINE_MS). `pool` and `refresh`
  * are unchanged and never run the embedding.
+ *
+ * AUTO-121: a cold `pool` build now pulls five query windows in parallel plus
+ * the regex-filtered ranking pages, measured 57.6 to 93.2 s across three runs
+ * (2026-10-01), and the capped embedding 110 to 114 s; both inside 180.
  */
 export const maxDuration = 180;
 
@@ -106,6 +119,7 @@ export async function POST(request: Request) {
     // the site: the person pressing Refresh is waiting to see new data, and
     // 'max' would serve the old pool once more while rebuilding behind it.
     revalidateTag(BLOG_TOPICS_TAG, { expire: 0 });
+    noteRefreshRequested();
     return NextResponse.json({ ok: true });
   }
 
@@ -144,17 +158,27 @@ export async function POST(request: Request) {
       applyWrittenTopics(snapshot.topics, written),
       settings.blogAutomation.negativeKeywords,
     );
+    const cacheWarning = cacheWarningFor(snapshot);
+    if (cacheWarning) console.error('[blog-topics]', cacheWarning);
+    if (snapshot.omittedOlderTopics > 0) {
+      console.error(`[blog-topics] ${snapshot.omittedOlderTopics} older topics were left out of the cached list to keep it under the data cache ceiling (${snapshot.cacheBytes} bytes stored).`);
+    }
     return NextResponse.json({
       ok: true,
       generatedAt: snapshot.generatedAt,
       property: snapshot.property,
       window: snapshot.window,
+      longWindow: snapshot.longWindow,
       floor: snapshot.floor,
       band: snapshot.band,
       threshold: snapshot.threshold,
       publishedPosts: snapshot.publishedPosts,
       gsc: snapshot.gsc,
       buildMs: snapshot.buildMs,
+      /** AUTO-121: the stored entry's size, what was trimmed to fit, and whether the cache is being kept. */
+      cacheBytes: snapshot.cacheBytes,
+      omittedOlderTopics: snapshot.omittedOlderTopics,
+      cacheWarning,
       counts: countTopics(topics),
       negativeKeywords: settings.blogAutomation.negativeKeywords,
       /** Drafts and posts that record a topic, checked live on this request. */

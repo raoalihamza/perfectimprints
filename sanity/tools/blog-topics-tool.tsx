@@ -41,6 +41,17 @@
  *     exists, not when it is published, and not when Google ranks it. Just
  *     before calling the AI, the tab re-reads the drafts live, so a draft made
  *     in another tab (or by Stage 2) since the list loaded is caught too.
+ *   - AUTO-121: the list also holds the searches in the band over the last
+ *     16 MONTHS (the account holds that much) that the last 90 days did not
+ *     qualify. Every row shows its 90-day figures (the ones it always showed;
+ *     "none" when Google reported nothing in 90 days), its 16-month figures,
+ *     and when it was LAST SEEN, and a "Seen" filter separates the two: the
+ *     default view is exactly the 90-day list as before. "Last seen" is a
+ *     fact from Search Console, shown in words, with no colour and no label
+ *     such as "stale"; a topic last seen a year ago is Patrick's to judge.
+ *     One more rule, "already ranking": a topic that already sits in the top
+ *     7 on average over the last 90 days is excluded and says so; a search
+ *     with its words in the top 7 is mentioned on the row as information.
  *
  * Auth: the same nonce handshake the nine generate routes use
  * (useGenerateAuthFetch), so one Studio session serves this tab and every
@@ -60,9 +71,12 @@ import {
   findWrittenTopic,
   writtenSentence,
   writtenTopicSources,
+  alsoRankingSentence,
   blockedSentence,
   blockScopeOf,
+  compareTopics,
   countTopics,
+  seenDaysLabel,
   normalizeBlockTerm,
   rulesBlockingTopic,
   sameBlockRule,
@@ -164,7 +178,9 @@ const PAGE_SIZE = 50;
 const DEFAULT_WORD_COUNT = 1500;
 
 type StateFilter = 'all' | 'usable' | 'excluded' | 'blocked';
-type SortKey = 'impressions' | 'clicks' | 'position' | 'query';
+/** AUTO-121: the default is the 90-day list, exactly what the tab showed before. */
+type SeenFilter = 'recent' | 'older' | 'all';
+type SortKey = 'impressions' | 'longImpressions' | 'clicks' | 'position' | 'longPosition' | 'query';
 type Template = 'list' | 'single';
 
 interface NegativeKeywordEntry extends BlockRule {
@@ -191,12 +207,18 @@ interface PoolResponse {
   generatedAt: string;
   property: string;
   window: { start: string; end: string; days: number };
+  /** AUTO-121: the wider window and its floor. */
+  longWindow?: { start: string; end: string; days: number; floor: number };
   floor: number;
   band: { low: number; high: number };
   threshold: number;
   publishedPosts: number;
-  gsc: { allQueries: number; poolQueries: number };
+  gsc: { allQueries: number; poolQueries: number; longQueries?: number; addedQueries?: number };
   buildMs: number;
+  /** AUTO-121: the stored entry's size, older topics trimmed to fit, and a sentence when the cache is not keeping it. */
+  cacheBytes?: number;
+  omittedOlderTopics?: number;
+  cacheWarning?: string | null;
   writtenDocuments: number;
   counts: TopicCounts;
   topics: Topic[];
@@ -263,6 +285,7 @@ function BlogTopicsComponent() {
   const [similarity, setSimilarity] = useState<SimilarityState>({ status: 'idle' });
 
   const [filter, setFilter] = useState<StateFilter>('usable');
+  const [seenFilter, setSeenFilter] = useState<SeenFilter>('recent');
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState<SortKey>('impressions');
   const [page, setPage] = useState(1);
@@ -403,6 +426,7 @@ function BlogTopicsComponent() {
   const visible = useMemo(() => {
     const q = search.trim().toLowerCase();
     let list = topics.filter((t) => (filter === 'all' ? true : t.state === filter));
+    if (seenFilter !== 'all') list = list.filter((t) => (seenFilter === 'recent' ? t.window !== 'older' : t.window === 'older'));
     if (q) {
       list = list.filter(
         (t) =>
@@ -413,21 +437,29 @@ function BlogTopicsComponent() {
       );
     }
     const sorted = [...list];
+    // A topic with no 90-day position sorts after every topic that has one.
+    const pos = (t: Topic) => t.position ?? Number.POSITIVE_INFINITY;
     switch (sort) {
+      case 'longImpressions':
+        sorted.sort((a, b) => b.long.impressions - a.long.impressions || compareTopics(a, b));
+        break;
       case 'clicks':
-        sorted.sort((a, b) => b.clicks - a.clicks || b.impressions - a.impressions);
+        sorted.sort((a, b) => b.clicks - a.clicks || compareTopics(a, b));
         break;
       case 'position':
-        sorted.sort((a, b) => a.position - b.position || b.impressions - a.impressions);
+        sorted.sort((a, b) => pos(a) - pos(b) || compareTopics(a, b));
+        break;
+      case 'longPosition':
+        sorted.sort((a, b) => a.long.position - b.long.position || compareTopics(a, b));
         break;
       case 'query':
         sorted.sort((a, b) => a.query.localeCompare(b.query));
         break;
       default:
-        sorted.sort((a, b) => b.impressions - a.impressions || a.query.localeCompare(b.query));
+        sorted.sort(compareTopics);
     }
     return sorted;
-  }, [topics, filter, search, sort]);
+  }, [topics, filter, seenFilter, search, sort]);
 
   const pageCount = Math.max(1, Math.ceil(visible.length / PAGE_SIZE));
   const currentPage = Math.min(page, pageCount);
@@ -435,7 +467,7 @@ function BlogTopicsComponent() {
 
   useEffect(() => {
     setPage(1);
-  }, [filter, search, sort]);
+  }, [filter, seenFilter, search, sort]);
 
   // ── Block / unblock: Global Settings > Blog Automation ─────────────────────
   /**
@@ -750,9 +782,12 @@ function BlogTopicsComponent() {
         <h1 style={{ fontSize: 22, margin: 0, color: FG }}>Blog Topics</h1>
         <p style={{ color: MUTED, fontSize: 14 }}>
           The search terms your site already shows up for on Google (position {pool?.band.low ?? 8} to{' '}
-          {pool?.band.high ?? 40}, at least {pool?.floor ?? 10} impressions in the last {pool?.window.days ?? 90} days),
-          grouped into topics, from <strong>your own Search Console</strong>. The numbers are{' '}
-          <strong>impressions and clicks</strong> Google reported for your site, not search volume. Each topic says
+          {pool?.band.high ?? 40}, at least {pool?.floor ?? 10} impressions in the last {pool?.window.days ?? 90} days,
+          or at least {pool?.longWindow?.floor ?? 55} impressions over the last 16 months), grouped into topics, from{' '}
+          <strong>your own Search Console</strong>. The numbers are <strong>impressions and clicks</strong> Google
+          reported for your site, not search volume; each row shows them for the last 90 days and for the last 16
+          months, and says when the search was last seen. Use <strong>Seen</strong> to switch between the searches seen
+          in the last 90 days (the list as before) and the older ones the 16 months add. Each topic says
           whether it passed the overlap check or was excluded, and why. Tick <strong>Block</strong> to keep that one
           topic off this list; use <strong>Block a word</strong> below to keep every topic containing a word off it,
           after seeing which ones. Both are saved under Global Settings, Blog Automation, and both can be undone. Press{' '}
@@ -777,14 +812,27 @@ function BlogTopicsComponent() {
         </button>
         {pool && (
           <span style={{ fontSize: 13, color: MUTED }}>
-            Last read {new Date(pool.generatedAt).toLocaleString()} for {pool.window.start} to {pool.window.end}.{' '}
-            {fmt(pool.gsc.allQueries)} searches seen, {fmt(pool.gsc.poolQueries)} in range, {fmt(counts.topics)} topics,
-            checked against {fmt(pool.publishedPosts)} published posts and, just now, {fmt(pool.writtenDocuments ?? 0)}{' '}
-            drafts and posts written from a topic. The search figures are kept for a day; Google itself only updates
-            them daily. Your drafts are checked every time this tab loads.
+            Last read {new Date(pool.generatedAt).toLocaleString()} for {pool.window.start} to {pool.window.end}
+            {pool.longWindow ? ` and the 16 months from ${pool.longWindow.start}` : ''}.{' '}
+            {fmt(pool.gsc.allQueries)} searches seen in 90 days
+            {pool.gsc.longQueries !== undefined ? ` (${fmt(pool.gsc.longQueries)} over 16 months)` : ''},{' '}
+            {fmt(pool.gsc.poolQueries)} in range, {fmt(counts.topics)} topics ({fmt(counts.recent)} seen in the last 90
+            days, {fmt(counts.older)} added by the 16 months), checked against {fmt(pool.publishedPosts)} published posts
+            and, just now, {fmt(pool.writtenDocuments ?? 0)} drafts and posts written from a topic. The search figures
+            are kept for a day; Google itself only updates them daily. Your drafts are checked every time this tab
+            loads.
           </span>
         )}
       </div>
+
+      {pool?.cacheWarning && <div style={{ fontSize: 13, color: AMBER }}>{pool.cacheWarning}</div>}
+      {pool && (pool.omittedOlderTopics ?? 0) > 0 && (
+        <div style={{ fontSize: 13, color: AMBER }}>
+          {fmt(pool.omittedOlderTopics ?? 0)} of the older topics (the ones with the fewest impressions over 16 months)
+          are not in this list, because the saved list has a size limit. Every topic seen in the last 90 days is here.
+          Ali: the packed entry is {((pool.cacheBytes ?? 0) / 1024 / 1024).toFixed(2)} MB against the cache budget.
+        </div>
+      )}
 
       {loading === 'pool' && !pool && (
         <div style={{ fontSize: 13, color: MUTED }}>
@@ -859,11 +907,27 @@ function BlogTopicsComponent() {
               aria-label="Find a topic"
             />
             <label style={{ fontSize: 13, color: MUTED, display: 'flex', gap: 6, alignItems: 'center' }}>
+              Seen
+              <select
+                value={seenFilter}
+                onChange={(e) => setSeenFilter(e.target.value as SeenFilter)}
+                style={select}
+                aria-label="Which searches to show"
+                title="The 16 months add searches the last 90 days did not qualify (too few impressions in 90 days, or outside position 8 to 40 in them). Each row says when it was last seen."
+              >
+                <option value="recent" style={option}>In the 90-day list ({fmt(counts.recent)})</option>
+                <option value="older" style={option}>Added by the 16 months ({fmt(counts.older)})</option>
+                <option value="all" style={option}>All ({fmt(counts.topics)})</option>
+              </select>
+            </label>
+            <label style={{ fontSize: 13, color: MUTED, display: 'flex', gap: 6, alignItems: 'center' }}>
               Sort by
               <select value={sort} onChange={(e) => setSort(e.target.value as SortKey)} style={select}>
-                <option value="impressions" style={option}>Impressions (most first)</option>
-                <option value="clicks" style={option}>Clicks (most first)</option>
-                <option value="position" style={option}>Position (closest to page 1 first)</option>
+                <option value="impressions" style={option}>Impressions, 90 days (most first)</option>
+                <option value="longImpressions" style={option}>Impressions, 16 months (most first)</option>
+                <option value="clicks" style={option}>Clicks, 90 days (most first)</option>
+                <option value="position" style={option}>Position, 90 days (closest to page 1 first)</option>
+                <option value="longPosition" style={option}>Position, 16 months (closest to page 1 first)</option>
                 <option value="query" style={option}>Term (A to Z)</option>
               </select>
             </label>
@@ -876,16 +940,18 @@ function BlogTopicsComponent() {
             </label>
           </div>
 
-          <SimilarityNotice state={similarity} />
+          <SimilarityNotice state={similarity} topics={counts.topics} />
 
           <div style={{ fontSize: 13, color: MUTED }}>
             Showing {visible.length === 0 ? 0 : (currentPage - 1) * PAGE_SIZE + 1} to{' '}
             {Math.min(currentPage * PAGE_SIZE, visible.length)} of {fmt(visible.length)}
             {filter !== 'all' ? ` ${filter}` : ''} topic{visible.length === 1 ? '' : 's'}
-            {search.trim() ? ` matching "${search.trim()}"` : ''}. Excluded so far: {fmt(counts.excludedBySharedTokens)}{' '}
-            for sharing keywords with an existing post, {fmt(counts.excludedByRankingPage)} because your post already
-            ranks, {fmt(counts.excludedByBoth)} for both, {fmt(counts.excludedAlreadyWritten)} because you already have a
-            draft or post from them.
+            {search.trim() ? ` matching "${search.trim()}"` : ''}
+            {seenFilter === 'recent' ? ' in the 90-day list' : seenFilter === 'older' ? ' added by the 16 months' : ''}.
+            Excluded so far: {fmt(counts.excludedBySharedTokens)} for sharing keywords with an existing post,{' '}
+            {fmt(counts.excludedByRankingPage)} because your post already ranks, {fmt(counts.excludedByBoth)} for both,{' '}
+            {fmt(counts.excludedAlreadyWritten)} because you already have a draft or post from them,{' '}
+            {fmt(counts.excludedAlreadyRanking)} because you already rank in the top 7 for them.
           </div>
 
           <div style={{ overflowX: 'auto', border: `1px solid ${BORDER}`, borderRadius: 6 }}>
@@ -894,9 +960,15 @@ function BlogTopicsComponent() {
                 <tr>
                   <th style={th}>Block</th>
                   <th style={th}>Search term</th>
-                  <th style={{ ...th, textAlign: 'right' }}>Impressions</th>
-                  <th style={{ ...th, textAlign: 'right' }}>Clicks</th>
-                  <th style={{ ...th, textAlign: 'right' }}>Avg. position</th>
+                  <th style={{ ...th, textAlign: 'right' }}>Impressions (90 days)</th>
+                  <th style={{ ...th, textAlign: 'right' }}>Clicks (90 days)</th>
+                  <th style={{ ...th, textAlign: 'right' }}>Avg. position (90 days)</th>
+                  <th style={{ ...th, textAlign: 'right' }} title="The same three figures over the last 16 months: impressions, clicks, average position.">
+                    Over 16 months
+                  </th>
+                  <th style={th} title="The most recent stretch in which Google showed your site for any of the topic's searches.">
+                    Last seen
+                  </th>
                   <th style={th}>Page ranking now</th>
                   <th style={th}>Check</th>
                   <th style={th} title="Advisory only: how alike the wording is, 0 to 100. Nothing is hidden or changed because of it.">
@@ -908,7 +980,7 @@ function BlogTopicsComponent() {
               <tbody>
                 {rows.length === 0 && (
                   <tr>
-                    <td style={td} colSpan={9}>
+                    <td style={td} colSpan={11}>
                       <em style={{ color: MUTED }}>No topics match.</em>
                     </td>
                   </tr>
@@ -918,6 +990,8 @@ function BlogTopicsComponent() {
                   const rowBusy = busy[t.key];
                   const done = generated[t.key];
                   const isBlocked = t.state === 'blocked';
+                  // The advisory figures for this row (AUTO-119); read here and nowhere else.
+                  const figures = similarity.status === 'ready' ? similarity.data.byKey[t.key] : undefined;
                   return (
                     <tr key={t.key} style={isBlocked ? { opacity: 0.6 } : undefined}>
                       <td style={{ ...td, textAlign: 'center' }}>
@@ -947,9 +1021,24 @@ function BlogTopicsComponent() {
                           </div>
                         )}
                       </td>
-                      <td style={{ ...td, textAlign: 'right' }}>{fmt(t.impressions)}</td>
-                      <td style={{ ...td, textAlign: 'right' }}>{fmt(t.clicks)}</td>
-                      <td style={{ ...td, textAlign: 'right' }}>{t.position.toFixed(1)}</td>
+                      {t.position === null ? (
+                        <td style={{ ...td, textAlign: 'right', color: MUTED }} colSpan={3}>
+                          <em>none in the last 90 days</em>
+                        </td>
+                      ) : (
+                        <>
+                          <td style={{ ...td, textAlign: 'right' }}>{fmt(t.impressions)}</td>
+                          <td style={{ ...td, textAlign: 'right' }}>{fmt(t.clicks)}</td>
+                          <td style={{ ...td, textAlign: 'right' }}>{t.position.toFixed(1)}</td>
+                        </>
+                      )}
+                      <td style={{ ...td, textAlign: 'right', whiteSpace: 'nowrap' }}>
+                        <div>{fmt(t.long.impressions)} impr.</div>
+                        <div style={{ fontSize: 12, color: MUTED }}>
+                          {fmt(t.long.clicks)} clicks, pos. {t.long.position.toFixed(1)}
+                        </div>
+                      </td>
+                      <td style={{ ...td, whiteSpace: 'nowrap' }}>{seenDaysLabel(t.seenDays)}</td>
                       <td style={td}>
                         {t.page ? (
                           <a
@@ -982,13 +1071,13 @@ function BlogTopicsComponent() {
                             Closest existing post shares only "{t.sharedTokens.join(', ')}": {t.matchedPost.title}
                           </div>
                         )}
+                        {!isBlocked && t.topSevenNow && t.rule !== 'already-ranking' && (
+                          <div style={{ fontSize: 12, color: MUTED }}>{alsoRankingSentence(t.topSevenNow)}</div>
+                        )}
                         {rowErrors[t.key] && <div style={{ fontSize: 12, color: RED }}>{rowErrors[t.key]}</div>}
                       </td>
                       <td style={{ ...td, maxWidth: 280 }}>
-                        <ClosestWording
-                          figures={similarity.status === 'ready' ? similarity.data.byKey[t.key] : undefined}
-                          onShowTopic={showTopic}
-                        />
+                        <ClosestWording figures={figures} notCovered={similarity.status === 'ready' && figures === undefined} onShowTopic={showTopic} />
                       </td>
                       <td style={{ ...td, whiteSpace: 'nowrap' }}>
                         {done ? (
@@ -1042,8 +1131,11 @@ function BlogTopicsComponent() {
           <p style={{ fontSize: 12, color: MUTED, marginTop: 4 }}>
             How a topic is judged: it is <strong>excluded</strong> when you already have a draft or post generated from
             it (or written for it as a topic keyword), even one you have not published; when it shares{' '}
-            {pool.threshold} or more meaningful words with a post you already published; or when the page Google
-            already ranks for it is one of your blog posts. A <strong>usable</strong> topic has none of these yet. You can still generate a draft for an excluded
+            {pool.threshold} or more meaningful words with a post you already published; when the page Google
+            already ranks for it is one of your blog posts; or when the topic itself already sits in your top 7 on
+            average over the last 90 days (a search you already win is not an opportunity). A search with the same
+            words that ranks in your top 7 is mentioned on the row for information. A <strong>usable</strong> topic
+            has none of these yet. You can still generate a draft for an excluded
             topic if you disagree; the tab will ask first. Blocking is yours alone and always reversible: a topic you
             ticked comes back when you untick it, and a word block comes back when you press Remove beside it above.
             Both can also be removed under Global Settings, Blog Automation.
@@ -1061,8 +1153,9 @@ function BlogTopicsComponent() {
  * different posts scoring 90 (AUTO-119 report, 2026-09-28) is quoted so it
  * cannot be read as one.
  */
-function SimilarityNotice({ state }: { state: SimilarityState }) {
+function SimilarityNotice({ state, topics }: { state: SimilarityState; topics: number }) {
   if (state.status === 'idle') return null;
+  const covered = state.status === 'ready' ? state.data.topicsCovered : null;
   return (
     <div style={{ fontSize: 12, color: MUTED, border: `1px dashed ${BORDER}`, borderRadius: 6, padding: 8 }}>
       <strong style={{ color: FG }}>Closest wording</strong> shows, for each topic, the other topics and the published
@@ -1070,7 +1163,13 @@ function SimilarityNotice({ state }: { state: SimilarityState }) {
       would be the same: &quot;custom engraved sunglasses&quot; and &quot;custom printed sunglasses&quot; score 90 and
       are two different posts, because engraving and printing are different jobs. It is information for you. Nothing is hidden, excluded, merged or reordered because
       of these numbers; you decide, and you can generate any topic whatever it shows.{' '}
-      {state.status === 'loading' && <em>Working out the figures; the first time each day this takes a few seconds.</em>}
+      {state.status === 'loading' && <em>Working out the figures; the first time each day this takes a minute or two.</em>}
+      {covered !== null && covered < topics && (
+        <em>
+          Worked out for {covered.toLocaleString('en-US')} of the {topics.toLocaleString('en-US')} topics: every topic
+          seen in the last 90 days, then the older ones with the most impressions; the rest say so in the column.
+        </em>
+      )}
       {state.status === 'unavailable' && (
         <em>
           {state.message} Everything else in this tab works as normal; they are tried again the next time the tab
@@ -1082,8 +1181,19 @@ function SimilarityNotice({ state }: { state: SimilarityState }) {
 }
 
 /** The advisory cell (AUTO-119): neutral colour, no label such as "duplicate", nothing in it changes anything. */
-function ClosestWording({ figures, onShowTopic }: { figures: TopicSimilarity | undefined; onShowTopic: (query: string) => void }) {
-  if (!figures) return null;
+function ClosestWording({
+  figures,
+  notCovered,
+  onShowTopic,
+}: {
+  figures: TopicSimilarity | undefined;
+  /** AUTO-121: the figures exist but this topic is past the cap; say so rather than show nothing. */
+  notCovered?: boolean;
+  onShowTopic: (query: string) => void;
+}) {
+  if (!figures) {
+    return notCovered ? <em style={{ fontSize: 12, color: MUTED }}>not worked out for this topic (past the limit)</em> : null;
+  }
   return (
     <div style={{ fontSize: 12, color: MUTED, display: 'flex', flexDirection: 'column', gap: 2 }}>
       {figures.topics.map((n) => (

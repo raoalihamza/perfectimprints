@@ -74,7 +74,7 @@ function row(t: Topic): string {
     (t.matchedPost && t.sharedTokens.length > 0
       ? `Closest existing post shares only "${t.sharedTokens.join(', ')}": ${t.matchedPost.title}`
       : '');
-  return `| ${t.query}${t.variants.length > 1 ? ` (+${t.variants.length - 1} similar)` : ''} | ${fmt(t.impressions)} | ${fmt(t.clicks)} | ${t.position.toFixed(1)} | ${t.page ?? 'none'} | ${state} | ${reason.replace(/\|/g, '/')} |`;
+  return `| ${t.query}${t.variants.length > 1 ? ` (+${t.variants.length - 1} similar)` : ''} | ${fmt(t.impressions)} | ${fmt(t.clicks)} | ${t.position === null ? "none" : t.position.toFixed(1)} | ${t.page ?? 'none'} | ${state} | ${reason.replace(/\|/g, '/')} |`;
 }
 
 async function main(): Promise<void> {

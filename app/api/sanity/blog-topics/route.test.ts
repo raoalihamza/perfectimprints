@@ -18,6 +18,8 @@ const state = vi.hoisted(() => ({
   fetchCalls: [] as { query: string; options: unknown }[],
   similarityCalls: 0,
   similarityFails: false,
+  // AUTO-121: when true the "cache" rebuilds on every call, the failure the route must report.
+  rebuildEveryCall: false,
 }));
 
 vi.mock('@/lib/sanity/studio-nonce-auth', () => ({
@@ -47,25 +49,28 @@ vi.mock('@/lib/blog-automation/cached-topic-pool', async () => {
       { query: 'engraved sunglasses', clicks: 0, impressions: 40, position: 22, page: '/cat/sunglasses' },
     ]);
     return {
-      generatedAt: '2026-09-28T09:00:00.000Z',
+      generatedAt: state.rebuildEveryCall ? new Date().toISOString() : '2026-09-28T09:00:00.000Z',
       property: pool.GSC_PROPERTY,
       window: { start: '2026-07-01', end: '2026-09-28', days: 90 },
+      longWindow: { start: '2025-06-09', end: '2026-09-28', days: 480, floor: 55 },
       floor: 10,
       band: { low: 8, high: 40 },
       threshold: pool.CANNIBALIZATION_THRESHOLD,
       publishedPosts: 659,
-      gsc: { allQueries: 2, poolQueries: 2, queryPages: 1, queryPagePages: 1, queryPageRows: 2 },
+      gsc: { allQueries: 2, poolQueries: 2, queryPages: 1, queryPagePages: 1, queryPageRows: 2, longQueries: 2, longPoolQueries: 0, longQueryPages: 1, addedQueries: 0, pageRequests: 0, pageRequestRows: 0, requests: 7 },
       // The detector found the one-token overlap AUTO-115 reported: never enough.
       topics: candidates.map((c) =>
         pool.applyGuard(c, { sharedTokens: ['sunglasses'], postTitle: 'Old Sunglasses Post', postHref: '/blog/old' }),
       ),
       buildMs: 1,
+      cacheBytes: 1234,
+      omittedOlderTopics: 0,
     };
   };
   return {
     // A day-long memo: built once, then served, exactly what unstable_cache does.
     getCachedTopicPoolSnapshot: vi.fn(async () => {
-      if (!state.cached) state.cached = build();
+      if (!state.cached || state.rebuildEveryCall) state.cached = build();
       return state.cached;
     }),
     // AUTO-119: the advisory figures. Either the embedding service is down, or
@@ -93,6 +98,8 @@ vi.mock('@/lib/blog-automation/cached-topic-pool', async () => {
 
 // eslint-disable-next-line import/first
 import { revalidateTag } from 'next/cache';
+// eslint-disable-next-line import/first
+import { resetCacheWatchForTests } from '@/lib/blog-automation/cache-watch';
 
 const env = { SANITY_API_TOKEN: process.env.SANITY_API_TOKEN, NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID };
 beforeAll(() => {
@@ -113,6 +120,8 @@ beforeEach(() => {
   state.fetchCalls = [];
   state.similarityCalls = 0;
   state.similarityFails = false;
+  state.rebuildEveryCall = false;
+  resetCacheWatchForTests();
   vi.mocked(revalidateTag).mockClear();
 });
 
@@ -228,5 +237,52 @@ describe('POST /api/sanity/blog-topics, closest wording (AUTO-119)', () => {
   it('an unknown action is still refused', async () => {
     const res = await call('merge');
     expect(res.status).toBe(400);
+  });
+});
+
+describe('POST /api/sanity/blog-topics, the wider window and the cache watch (AUTO-121)', () => {
+  it('the pool answer carries the wider window, the entry size and no warning while the cache is kept', async () => {
+    const first = await pool();
+    expect(first.status).toBe(200);
+    expect(first.body.longWindow).toEqual({ start: '2025-06-09', end: '2026-09-28', days: 480, floor: 55 });
+    expect(first.body.cacheBytes).toBe(1234);
+    expect(first.body.omittedOlderTopics).toBe(0);
+    expect(first.body.cacheWarning).toBeNull();
+    expect((first.body.counts as Record<string, number>).recent).toBe(2);
+    expect((first.body.counts as Record<string, number>).older).toBe(0);
+    for (const t of first.body.topics as Record<string, unknown>[]) {
+      expect(t.long).toEqual({ impressions: t.impressions, clicks: t.clicks, position: t.position });
+      expect(t.seenDays).toBe(90);
+      expect(t.window).toBe('recent');
+      expect(t.topSevenNow).toBeNull();
+    }
+    // The same cached snapshot again: still no warning.
+    const second = await pool();
+    expect(second.body.cacheWarning).toBeNull();
+    expect(state.builds).toBe(1);
+  });
+
+  it('a list rebuilt on every call with no Refresh between is reported, not silent', async () => {
+    state.rebuildEveryCall = true;
+    const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const first = await pool();
+    expect(first.body.cacheWarning).toBeNull();
+    const second = await pool();
+    expect(state.builds).toBe(2);
+    expect(String(second.body.cacheWarning)).toContain('not being kept between opens');
+    expect(String(second.body.cacheWarning)).toContain('Ali');
+    expect(spy.mock.calls.some((c) => String(c[1]).includes('not being kept'))).toBe(true);
+    // The list itself is still correct and complete.
+    expect(second.body.topics).toHaveLength(2);
+    spy.mockRestore();
+  });
+
+  it('a rebuild that Refresh asked for is not a warning', async () => {
+    state.rebuildEveryCall = true;
+    await pool();
+    const refreshed = await call('refresh');
+    expect(refreshed.status).toBe(200);
+    const after = await pool();
+    expect(after.body.cacheWarning).toBeNull();
   });
 });

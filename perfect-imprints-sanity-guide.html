@@ -3050,6 +3050,15 @@
       Those are the searches you are close on, where a good post can move you up. Similar searches are grouped into
       one topic ("custom mini footballs", "mini football custom" and so on show as one row with "+N similar
       searches"; hover to see them).</p>
+    <p><strong>The 16 months, too.</strong> Search Console keeps 16 months of history, and the tab now reads all of
+      it. A search that sat at position 8 to 40 on average over those 16 months, with at least 55 impressions in
+      them (the same rate as 10 in 90 days), is in the list even when the last 90 days did not qualify it: it had
+      too few impressions lately, or it ranks outside 8 to 40 right now. On the day this was built that added about
+      2,050 topics to the 2,360 the 90 days give. The <strong>Seen</strong> box above the table keeps the two apart:
+      <em>In the 90-day list</em> (the default, exactly the list you had before), <em>Added by the 16 months</em>,
+      or <em>All</em>. "Added by the 16 months" does not mean old: a search seen last week that only had four
+      impressions in the last 90 days is added this way, and so is one that ranks at position 5 today (which the
+      tab then excludes, see below). Each row says when it was last seen, so you can tell.</p>
 
     <div class="callout info">
       <span class="label">The numbers are impressions, not "search volume"</span>
@@ -3062,7 +3071,15 @@
     <h3>What each row tells you</h3>
     <ul>
       <li><strong>Search term</strong> - the search as people typed it (the most common wording in the group).</li>
-      <li><strong>Impressions, Clicks, Avg. position</strong> - from Search Console, as above.</li>
+      <li><strong>Impressions, Clicks, Avg. position (90 days)</strong> - from Search Console, as above, for the
+        last 90 days. A topic the 16 months added may show <em>none in the last 90 days</em> here.</li>
+      <li><strong>Over 16 months</strong> - the same three figures for the whole 16 months, on every row, so any two
+        rows can be compared over the same stretch of time.</li>
+      <li><strong>Last seen</strong> - the most recent stretch in which Google showed your site for any of the
+        topic's searches: in the last 30 days, 1 to 3 months ago, 3 to 6 months ago, 6 to 12 months ago, or over a
+        year ago. It is a fact from Search Console, nothing more: a topic last seen ten months ago may be a season
+        coming round again (Christmas stockings, Valentine's items) or may have gone quiet for good. That is your
+        call; the tab does not colour it or hide it.</li>
       <li><strong>Page ranking now</strong> - the page of your site Google currently shows for that search. A
         category page or a product page means a supporting blog post is the natural next step.</li>
       <li><strong>Check</strong> - <strong>Usable</strong> means you have no post on it yet. <strong>Excluded</strong>
@@ -3073,10 +3090,23 @@
         Writing a second post on the same thing would compete with your own first one, so the panel keeps those out.
         <strong>Blocked</strong> means you ticked it (see below).</li>
     </ul>
+    <div class="callout info">
+      <span class="label">"You already rank in the top 7": a search you already win is not an opportunity</span>
+      <p>One more reason a row can be Excluded. When a topic's own average position over the last 90 days is
+        already under 8 (with at least 10 impressions), you are on page one for it now, and a new post would not
+        move you up; the row says so and names the search and the page that rank. This mostly catches topics the 16
+        months added: their 16-month average sits at 8 to 40, but they have climbed since. It reads the topic as a
+        whole, weighted by impressions, so one small wording cannot tip it: your site ranks at 2 for "rubber duck"
+        (49 impressions, a facts post), but "custom rubber ducks" (1,500 impressions at position 23) stays Usable,
+        with a note on the row: "You also rank in the top 7 for the different wording ...". That note is information
+        only.</p>
+    </div>
     <p>Use the buttons at the top to show only <strong>Usable</strong> (the default, the list worth reading),
-      <strong>Excluded</strong>, <strong>Blocked</strong> or <strong>All</strong>; type in the search box to find a
-      term, a post or a page; change the sort; and page through 50 at a time. The line above the table always says
-      how many topics are in view and how many were excluded by which reason.</p>
+      <strong>Excluded</strong>, <strong>Blocked</strong> or <strong>All</strong>; the <strong>Seen</strong> box to
+      switch between the 90-day list, the topics the 16 months added, or all; type in the search box to find a term,
+      a post or a page; change the sort (impressions or position over 90 days or over 16 months, clicks, A to Z);
+      and page through 50 at a time. The line above the table always says how many topics are in view and how many
+      were excluded by which reason.</p>
 
     <h3>Blocking a topic (your negative keywords)</h3>
     <p>There are two ways to block, and both can be undone at any time.</p>
@@ -3150,8 +3180,10 @@
         <strong>Nothing is hidden, excluded, merged or moved because of these numbers.</strong> A topic with a 99 next
         to it is still Usable and still has its Generate draft button. It is information to help you decide; the
         decision is yours.</p>
-      <p class="small">The figures take a minute or so to work out the first time each day and appear after the list.
-        If they cannot be worked out, a line above the table says so and everything else on the tab works as
+      <p class="small">The figures take a minute or two to work out the first time each day and appear after the
+        list. They are worked out for every topic in the 90-day list and for the topics the 16 months added with the
+        most impressions, up to 3,000 topics in all; a row past that says "not worked out for this topic". If they
+        cannot be worked out at all, a line above the table says so and everything else on the tab works as
         normal.</p>
     </div>
     <p><strong>A worked example: sunglasses.</strong> Today there are 26 sunglasses topics, and most of them are the
@@ -3185,10 +3217,12 @@
     <div class="callout warn">
       <span class="label">Refreshing and waiting</span>
       <p>The list is read from Search Console once a day and kept, so the tab normally opens instantly. The first
-        open of the day, or pressing <strong>Refresh from Search Console</strong>, reads about 30,000 searches and
-        takes a minute or two. Google itself only updates the figures daily (and they run two to three days behind),
-        so refreshing more often than that shows nothing new. If the tab shows an error, it also says what to do: try
-        again, sign in again, or tell Ali what the message says.</p>
+        open of the day, or pressing <strong>Refresh from Search Console</strong>, reads about 125,000 searches over
+        the 16 months and takes one to two minutes. Google itself only updates the figures daily (and they run two
+        to three days behind), so refreshing more often than that shows nothing new. If the tab shows an error, it
+        also says what to do: try again, sign in again, or tell Ali what the message says. If a line in amber says
+        the saved list is not being kept between opens, or that some of the added topics were left out because the
+        saved list has a size limit, the list you see is still correct; tell Ali.</p>
     </div>
 
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
