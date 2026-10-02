@@ -48,8 +48,9 @@
 //
 // Search volume (AUTO-123): the `pool` answer also carries the committed
 // search-volume file (data/blog-automation/search-volumes.json, written by
-// Ali's occasional script run through Patrick's Ubersuggest plan; nothing on
-// the server calls any keyword API). It is read from disk per request, never
+// Ali's occasional script run through Patrick's DataForSEO account, from
+// Ali's machine; nothing on the server calls any keyword API and no
+// keyword-API credential is set in Vercel). It is read from disk per request, never
 // cached in the snapshot, and no state, rule, count or order reads it: it is
 // a column, as the closest-wording figures are. Missing file: null, and the
 // panel works exactly as before.

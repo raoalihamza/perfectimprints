@@ -399,7 +399,7 @@ describe('Blog Topics tab: the wider window (AUTO-121)', () => {
 
 describe('Blog Topics tab: search volume is a column, never a rule (AUTO-123)', () => {
   const volumeFile = {
-    source: 'Google Ads Keyword Planner, via Ubersuggest keyword_overview (United States, English)',
+    source: 'Google Ads Keyword Planner, via DataForSEO keywords_data/google_ads/search_volume (United States, English)',
     locationId: 2840,
     language: 'en',
     terms: {

@@ -55,7 +55,7 @@
  *   - AUTO-123: a "Searches a month (Google Ads)" column, the search volume
  *     Patrick was promised, read from the committed file
  *     data/blog-automation/search-volumes.json that Ali refreshes a few times
- *     a year through Patrick's Ubersuggest plan (nothing on the server calls
+ *     a year through Patrick's DataForSEO account (nothing on the server calls
  *     any keyword API). Labelled so it cannot be read as impressions. A row
  *     says "not looked up" (nobody fetched it yet), "no figure from Google
  *     Ads" (fetched, Google had none) or the number, 0 included (a real
@@ -1297,7 +1297,7 @@ function VolumeNotice({ file, covered, topics }: { file: SearchVolumeFile | null
   return (
     <div style={{ fontSize: 12, color: MUTED, border: `1px dashed ${BORDER}`, borderRadius: 6, padding: 8 }}>
       <strong style={{ color: FG }}>Searches a month (Google Ads)</strong> is how many people search for the term each
-      month, from Google Ads Keyword Planner (United States), looked up through your Ubersuggest plan.{' '}
+      month, from Google Ads Keyword Planner (United States), looked up through your DataForSEO account.{' '}
       It is a different number from impressions: impressions count how often <em>your site</em> appeared for the
       search; searches a month count how many people are looking at all. A term with many searches and few
       impressions is one your site is barely showing for yet. A <strong>0</strong> is a real answer from Google (no

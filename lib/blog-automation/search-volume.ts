@@ -7,12 +7,15 @@
  * What the figure is, and why it is a column and not a rule:
  *
  *   - It is Google Ads Keyword Planner's average monthly searches for the
- *     exact term in the United States, read through Patrick's Ubersuggest
- *     plan (which resells Keyword Planner's figures; AUTO-122 established that
- *     DataForSEO, the other candidate, resells the same source and that the
- *     account there is not usable). Google rounds every volume to about 60
- *     fixed steps (10, 20, 30, 50, 70, 90, 110, ... 9,900, 12,100 ...), so a
- *     figure from either source lands on the same ladder.
+ *     exact term in the United States, read through Patrick's DataForSEO
+ *     account since AUTO-124 (2026-10-03). The first 60 figures (AUTO-123)
+ *     came through his Ubersuggest plan, which resells the same Keyword
+ *     Planner data; measured term for term, 40 of the 60 were identical, 18
+ *     were one or two steps apart on Google's ladder (Ubersuggest serves
+ *     older snapshots for some terms), and its two 0s are "no figure" here.
+ *     Google rounds every volume to about 60 fixed steps (10, 20, 30, 50,
+ *     70, 90, 110, ... 9,900, 12,100 ...), so a figure from either source
+ *     lands on the same ladder.
  *   - It is NOT the same thing as impressions. Impressions say how often
  *     Patrick's site appeared for the search; volume says how many people are
  *     looking. AUTO-122 measured a Spearman correlation of only 0.505 between
@@ -29,19 +32,21 @@
  *
  * Where the figures live: a COMMITTED JSON file, `data/blog-automation/
  * search-volumes.json`, the way `products.json` lives in the repo. Nothing
- * on the server calls Ubersuggest; the file is written by Ali's occasional
- * script run (scripts/blog-automation/search-volumes.ts) and read at request
- * time by the blog-topics route. Volume barely moves (a refresh two or three
+ * on the server calls any keyword API and no keyword-API credential is on the
+ * site; the file is written by Ali's occasional script run
+ * (scripts/blog-automation/search-volumes.ts, one command since AUTO-124) and
+ * read at request time by the blog-topics route. Volume barely moves (a refresh two or three
  * times a year is plenty, against Search Console's daily data), and if the
  * file is never refreshed nothing breaks: the figures go stale, the panel
  * says how old they are, and the list works exactly as before.
  *
  * Three states a row can show, and the words for each (the "never fabricate"
- * rule): a NUMBER, 0 included (0 is a real answer: Keyword Planner reports no
- * demand for the exact wording; AUTO-122 found a term with 3,134 impressions
- * and a volume of 0, so 0 does not mean dead); "no figure from Google Ads"
- * (the term WAS looked up and Google returned no volume at all, stored as
- * null); and "not looked up" (the term is not in the file, or a lookup failed
+ * rule): a NUMBER, 0 included (a 0 the source states is shown as 0);
+ * "no figure from Google Ads" (the term WAS looked up and Google returned no
+ * volume at all, stored as null; this is what DataForSEO reports for a term
+ * Keyword Planner has nothing for, where Ubersuggest printed 0: the term with
+ * 3,134 impressions that AUTO-123 stored as 0 is such a term, so neither
+ * reading means dead); and "not looked up" (the term is not in the file, or a lookup failed
  * and was recorded under `failed`). A blank cell is never shown: the panel
  * prints the words.
  */
@@ -51,11 +56,11 @@ import { queryTopicKey, topicKeys, topicQueries, type SpacingGroup, type TopicCa
 /** Where the committed file lives, relative to the repo root. One place. */
 export const SEARCH_VOLUME_FILE = 'data/blog-automation/search-volumes.json';
 
-/** Google Ads location the figures are for (the United States), and the language. */
+/** Google Ads location the figures are for (the United States; verified from DataForSEO's own locations list, AUTO-124), and the language. */
 export const SEARCH_VOLUME_LOCATION_ID = 2840;
 export const SEARCH_VOLUME_LANGUAGE = 'en';
 /** The one source string the file carries, so a reader can tell where a figure came from. */
-export const SEARCH_VOLUME_SOURCE = 'Google Ads Keyword Planner, via Ubersuggest keyword_overview (United States, English)';
+export const SEARCH_VOLUME_SOURCE = 'Google Ads Keyword Planner, via DataForSEO keywords_data/google_ads/search_volume (United States, English)';
 
 /** One looked-up term as stored: volume (null when Google returned none), the day it was looked up, the month Google's series runs to. */
 export interface StoredVolume {
