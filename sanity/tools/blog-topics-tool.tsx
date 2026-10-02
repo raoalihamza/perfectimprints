@@ -52,6 +52,19 @@
  *     One more rule, "already ranking": a topic that already sits in the top
  *     7 on average over the last 90 days is excluded and says so; a search
  *     with its words in the top 7 is mentioned on the row as information.
+ *   - AUTO-123: a "Searches a month (Google Ads)" column, the search volume
+ *     Patrick was promised, read from the committed file
+ *     data/blog-automation/search-volumes.json that Ali refreshes a few times
+ *     a year through Patrick's Ubersuggest plan (nothing on the server calls
+ *     any keyword API). Labelled so it cannot be read as impressions. A row
+ *     says "not looked up" (nobody fetched it yet), "no figure from Google
+ *     Ads" (fetched, Google had none) or the number, 0 included (a real
+ *     answer: no demand for that exact wording). The notice above the table
+ *     says how many topics have a figure and how old the figures are. It is
+ *     ADVISORY like the closest-wording column: it changes no state, no
+ *     count and no default order; "Searches a month" is an offered sort,
+ *     never the default, and with the file missing the tab is exactly what
+ *     it was.
  *
  * Auth: the same nonce handshake the nine generate routes use
  * (useGenerateAuthFetch), so one Studio session serves this tab and every
@@ -94,6 +107,17 @@ import {
   type TopicSimilarity,
   type TopicSimilarityResult,
 } from '../../lib/blog-automation/topic-similarity';
+import {
+  buildVolumeIndex,
+  dayWords,
+  lookupVolume,
+  monthWords,
+  summarizeSearchVolumeFile,
+  volumeCellWords,
+  type SearchVolumeFile,
+  type VolumeIndex,
+  type VolumeLookup,
+} from '../../lib/blog-automation/search-volume';
 import { slugifyTitle } from '../actions/blog-generate-plan';
 
 // Theme CSS variables so the panel is readable in light AND dark Studio themes.
@@ -180,7 +204,8 @@ const DEFAULT_WORD_COUNT = 1500;
 type StateFilter = 'all' | 'usable' | 'excluded' | 'blocked';
 /** AUTO-121: the default is the 90-day list, exactly what the tab showed before. */
 type SeenFilter = 'recent' | 'older' | 'all';
-type SortKey = 'impressions' | 'longImpressions' | 'clicks' | 'position' | 'longPosition' | 'query';
+/** 'volume' (AUTO-123) is offered, never the default, and always tie-broken by `compareTopics`. */
+type SortKey = 'impressions' | 'longImpressions' | 'clicks' | 'position' | 'longPosition' | 'volume' | 'query';
 type Template = 'list' | 'single';
 
 interface NegativeKeywordEntry extends BlockRule {
@@ -222,6 +247,8 @@ interface PoolResponse {
   writtenDocuments: number;
   counts: TopicCounts;
   topics: Topic[];
+  /** AUTO-123: the committed search-volume file, or null when it is missing. Read by the volume column and the volume sort, nothing else. */
+  searchVolumes?: SearchVolumeFile | null;
 }
 
 /** The advisory figures (AUTO-119): loading, shown, or unavailable with a reason. Never affects state. */
@@ -423,6 +450,13 @@ function BlogTopicsComponent() {
   );
   const counts = useMemo(() => countTopics(topics), [topics]);
 
+  // AUTO-123: the search-volume figures, indexed once per response. Built
+  // AFTER the states and counts above and read only by the volume cell, the
+  // volume sort and the notice: a missing file gives an empty index and
+  // changes nothing else.
+  const volumeIndex = useMemo(() => buildVolumeIndex(pool?.searchVolumes), [pool]);
+  const volumeCovered = useMemo(() => topics.filter((t) => lookupVolume(t, volumeIndex) !== null).length, [topics, volumeIndex]);
+
   const visible = useMemo(() => {
     const q = search.trim().toLowerCase();
     let list = topics.filter((t) => (filter === 'all' ? true : t.state === filter));
@@ -452,6 +486,15 @@ function BlogTopicsComponent() {
       case 'longPosition':
         sorted.sort((a, b) => a.long.position - b.long.position || compareTopics(a, b));
         break;
+      case 'volume': {
+        // AUTO-123: a chosen sort, never the default. A topic with no figure
+        // (not looked up, or no figure from Google) sorts after every topic
+        // with one, and ties fall back to the default order, so volume is
+        // never the only order applied.
+        const vol = (t: Topic) => lookupVolume(t, volumeIndex)?.volume ?? -1;
+        sorted.sort((a, b) => vol(b) - vol(a) || compareTopics(a, b));
+        break;
+      }
       case 'query':
         sorted.sort((a, b) => a.query.localeCompare(b.query));
         break;
@@ -459,7 +502,7 @@ function BlogTopicsComponent() {
         sorted.sort(compareTopics);
     }
     return sorted;
-  }, [topics, filter, seenFilter, search, sort]);
+  }, [topics, filter, seenFilter, search, sort, volumeIndex]);
 
   const pageCount = Math.max(1, Math.ceil(visible.length / PAGE_SIZE));
   const currentPage = Math.min(page, pageCount);
@@ -785,8 +828,10 @@ function BlogTopicsComponent() {
           {pool?.band.high ?? 40}, at least {pool?.floor ?? 10} impressions in the last {pool?.window.days ?? 90} days,
           or at least {pool?.longWindow?.floor ?? 55} impressions over the last 16 months), grouped into topics, from{' '}
           <strong>your own Search Console</strong>. The numbers are <strong>impressions and clicks</strong> Google
-          reported for your site, not search volume; each row shows them for the last 90 days and for the last 16
-          months, and says when the search was last seen. Use <strong>Seen</strong> to switch between the searches seen
+          reported for your site; each row shows them for the last 90 days and for the last 16
+          months, and says when the search was last seen. <strong>Searches a month (Google Ads)</strong> is a
+          different number: how many people search for the term each month, from Google Ads, looked up a few times a
+          year rather than daily (the line above the table says how old the figures are). Use <strong>Seen</strong> to switch between the searches seen
           in the last 90 days (the list as before) and the older ones the 16 months add. Each topic says
           whether it passed the overlap check or was excluded, and why. Tick <strong>Block</strong> to keep that one
           topic off this list; use <strong>Block a word</strong> below to keep every topic containing a word off it,
@@ -928,6 +973,7 @@ function BlogTopicsComponent() {
                 <option value="clicks" style={option}>Clicks, 90 days (most first)</option>
                 <option value="position" style={option}>Position, 90 days (closest to page 1 first)</option>
                 <option value="longPosition" style={option}>Position, 16 months (closest to page 1 first)</option>
+                <option value="volume" style={option}>Searches a month, Google Ads (most first)</option>
                 <option value="query" style={option}>Term (A to Z)</option>
               </select>
             </label>
@@ -941,6 +987,7 @@ function BlogTopicsComponent() {
           </div>
 
           <SimilarityNotice state={similarity} topics={counts.topics} />
+          <VolumeNotice file={pool.searchVolumes ?? null} covered={volumeCovered} topics={counts.topics} />
 
           <div style={{ fontSize: 13, color: MUTED }}>
             Showing {visible.length === 0 ? 0 : (currentPage - 1) * PAGE_SIZE + 1} to{' '}
@@ -963,6 +1010,12 @@ function BlogTopicsComponent() {
                   <th style={{ ...th, textAlign: 'right' }}>Impressions (90 days)</th>
                   <th style={{ ...th, textAlign: 'right' }}>Clicks (90 days)</th>
                   <th style={{ ...th, textAlign: 'right' }}>Avg. position (90 days)</th>
+                  <th
+                    style={{ ...th, textAlign: 'right' }}
+                    title="Google Ads Keyword Planner's average monthly searches for the exact term in the United States, looked up by hand a few times a year, not daily. Different from impressions: impressions count how often your site appeared; this counts how many people search. 'not looked up' means nobody has fetched it yet; 0 means Google reports no demand for that exact wording."
+                  >
+                    Searches a month (Google Ads)
+                  </th>
                   <th style={{ ...th, textAlign: 'right' }} title="The same three figures over the last 16 months: impressions, clicks, average position.">
                     Over 16 months
                   </th>
@@ -980,7 +1033,7 @@ function BlogTopicsComponent() {
               <tbody>
                 {rows.length === 0 && (
                   <tr>
-                    <td style={td} colSpan={11}>
+                    <td style={td} colSpan={12}>
                       <em style={{ color: MUTED }}>No topics match.</em>
                     </td>
                   </tr>
@@ -1032,6 +1085,9 @@ function BlogTopicsComponent() {
                           <td style={{ ...td, textAlign: 'right' }}>{t.position.toFixed(1)}</td>
                         </>
                       )}
+                      <td style={{ ...td, textAlign: 'right', whiteSpace: 'nowrap' }}>
+                        <VolumeCell lookup={lookupVolume(t, volumeIndex)} query={t.query} />
+                      </td>
                       <td style={{ ...td, textAlign: 'right', whiteSpace: 'nowrap' }}>
                         <div>{fmt(t.long.impressions)} impr.</div>
                         <div style={{ fontSize: 12, color: MUTED }}>
@@ -1222,6 +1278,71 @@ function ClosestWording({
           </a>{' '}
           <span aria-label={`wording similarity ${figures.post.score} out of 100`}>{figures.post.score}</span>
         </span>
+      )}
+    </div>
+  );
+}
+
+/**
+ * One line above the table about the search-volume figures (AUTO-123): where
+ * they come from, how many topics have one, and HOW OLD they are, because
+ * they are refreshed by hand a few times a year, not daily, and Patrick must
+ * be able to see that without asking. With no file at all it says the
+ * figures have not been looked up yet, and the column reads "not looked up"
+ * on every row; nothing else on the tab changes.
+ */
+function VolumeNotice({ file, covered, topics }: { file: SearchVolumeFile | null; covered: number; topics: number }) {
+  const summary = summarizeSearchVolumeFile(file);
+  const any = summary.withFigure + summary.withoutFigure > 0;
+  return (
+    <div style={{ fontSize: 12, color: MUTED, border: `1px dashed ${BORDER}`, borderRadius: 6, padding: 8 }}>
+      <strong style={{ color: FG }}>Searches a month (Google Ads)</strong> is how many people search for the term each
+      month, from Google Ads Keyword Planner (United States), looked up through your Ubersuggest plan.{' '}
+      It is a different number from impressions: impressions count how often <em>your site</em> appeared for the
+      search; searches a month count how many people are looking at all. A term with many searches and few
+      impressions is one your site is barely showing for yet. A <strong>0</strong> is a real answer from Google (no
+      demand for that exact wording), while <strong>not looked up</strong> means nobody has fetched that term yet.
+      These figures do not change daily: Ali refreshes them a few times a year.{' '}
+      {!any ? (
+        <em>No search volumes have been looked up yet, so every row says &quot;not looked up&quot;. Everything else works as usual.</em>
+      ) : (
+        <em>
+          Figures for {covered.toLocaleString('en-US')} of the {topics.toLocaleString('en-US')} topics in this list
+          {summary.withoutFigure > 0 ? ` (${summary.withoutFigure.toLocaleString('en-US')} looked-up terms had no figure from Google)` : ''}
+          . Looked up{' '}
+          {summary.oldestLookup === summary.newestLookup
+            ? `on ${dayWords(summary.newestLookup)}`
+            : `between ${dayWords(summary.oldestLookup)} and ${dayWords(summary.newestLookup)}`}
+          {summary.dataThrough
+            ? summary.dataFrom && summary.dataFrom !== summary.dataThrough
+              ? `; Google's own figures run to between ${monthWords(summary.dataFrom)} and ${monthWords(summary.dataThrough)}, depending on the term (hover a figure for its own month)`
+              : `; Google's own figures run to ${monthWords(summary.dataThrough)}`
+            : ''}
+          .
+        </em>
+      )}
+    </div>
+  );
+}
+
+/**
+ * The volume cell (AUTO-123). Three honest states, in words where there is no
+ * figure: "not looked up", "no figure from Google Ads", or the number, 0
+ * included. When the figure was looked up for another wording of the same
+ * topic (a merged spelling, a member search, or the same words in another
+ * order) that wording is named under it, so the figure is never silently
+ * attributed to words it was not fetched for. The tooltip carries the lookup
+ * day and the month Google's series runs to.
+ */
+function VolumeCell({ lookup, query }: { lookup: VolumeLookup | null; query: string }) {
+  const words = volumeCellWords(lookup);
+  if (lookup === null) return <em style={{ color: MUTED }}>{words}</em>;
+  const title = `Looked up ${dayWords(lookup.fetchedAt)}${lookup.dataThrough ? `; Google's figures run to ${monthWords(lookup.dataThrough)}` : ''}`;
+  return (
+    <div title={title}>
+      {lookup.volume === null ? <em style={{ color: MUTED }}>{words}</em> : <span>{words}</span>}
+      {!lookup.exact && lookup.term !== query.trim().toLowerCase() && (
+        <div style={{ fontSize: 12, color: MUTED, whiteSpace: 'normal' }}>for &quot;{lookup.term}&quot;</div>
       )}
     </div>
   );

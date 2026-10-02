@@ -270,18 +270,18 @@ describe('Blog Topics tab: closest wording is advisory (AUTO-119)', () => {
     await render();
     const r = row(SUNGLASSES);
     const cells = r.querySelectorAll('td');
-    const closest = cells[9].textContent ?? '';
+    const closest = cells[10].textContent ?? '';
     expect(closest).toContain('engraved sunglasses 99');
     expect(closest).toContain('Custom Sunglasses With Logo 81');
     // The check column says what it said without the figures.
-    expect(cells[8].textContent).toContain('Usable');
+    expect(cells[9].textContent).toContain('Usable');
     expect(counts()).toEqual(['Usable (2)', 'Excluded (0)', 'Blocked (0)', 'All (2)']);
     expect(button('Generate draft', r).disabled).toBe(false);
     expect(container.textContent).toContain('A high score means the words are alike, not that the posts');
     expect(container.textContent).not.toMatch(/duplicate/i);
 
     // Clicking a closest topic only finds it in the list: no write, no block, no AI.
-    await click(button('engraved sunglasses', cells[9]));
+    await click(button('engraved sunglasses', cells[10]));
     const search = container.querySelector('input[type="search"]') as HTMLInputElement;
     expect(search.value).toBe('engraved sunglasses');
     expect(client.create).not.toHaveBeenCalled();
@@ -291,7 +291,7 @@ describe('Blog Topics tab: closest wording is advisory (AUTO-119)', () => {
   it('figures for another snapshot are not shown against this list', async () => {
     answerSimilar(() => json(similarResponse('2026-09-27T09:00:00.000Z')));
     await render();
-    expect(row(SUNGLASSES).querySelectorAll('td')[9].textContent).toBe('');
+    expect(row(SUNGLASSES).querySelectorAll('td')[10].textContent).toBe('');
     expect(counts()).toEqual(['Usable (2)', 'Excluded (0)', 'Blocked (0)', 'All (2)']);
   });
 });
@@ -353,18 +353,18 @@ describe('Blog Topics tab: the wider window (AUTO-121)', () => {
     // The 16-month figures and Last seen sit on the 90-day row too.
     const cells = row(SUNGLASSES).querySelectorAll('td');
     expect(cells[2].textContent).toBe('333');
-    expect(cells[5].textContent).toContain('1,200 impr.');
-    expect(cells[5].textContent).toContain('pos. 16.1');
-    expect(cells[6].textContent).toBe('in the last 30 days');
+    expect(cells[6].textContent).toContain('1,200 impr.');
+    expect(cells[6].textContent).toContain('pos. 16.1');
+    expect(cells[7].textContent).toBe('in the last 30 days');
 
     await chooseSeen('older');
     expect(() => row(SUNGLASSES)).toThrow();
     const fans = row('custom church fans');
     const fansCells = fans.querySelectorAll('td');
     expect(fansCells[2].textContent).toBe('none in the last 90 days');
-    expect(fansCells[3].textContent).toContain('1,212 impr.');
-    expect(fansCells[4].textContent).toBe('3 to 6 months ago');
-    expect(fansCells[6].textContent).toContain('Usable');
+    expect(fansCells[4].textContent).toContain('1,212 impr.');
+    expect(fansCells[5].textContent).toBe('3 to 6 months ago');
+    expect(fansCells[7].textContent).toContain('Usable');
     expect(button('Generate draft', fans).disabled).toBe(false);
     // No colour and no word that judges the age: the fact only.
     expect(container.textContent).not.toMatch(/stale|dead/i);
@@ -381,7 +381,7 @@ describe('Blog Topics tab: the wider window (AUTO-121)', () => {
     // Excluded rows are hidden by the default state filter; show them.
     await click(button(/^Excluded \(/));
     const calendars = row('value calendars');
-    const check = calendars.querySelectorAll('td')[8].textContent ?? '';
+    const check = calendars.querySelectorAll('td')[9].textContent ?? '';
     expect(check).toContain('Excluded');
     expect(check).toContain('You already rank in the top 7 for this topic (average position 6.0 over 233 impressions in the last 90 days, best for "value calendars" at 6.0 with /cat/calendars)');
     expect(container.textContent).toContain('1 because you already rank in the top 7 for them');
@@ -394,5 +394,74 @@ describe('Blog Topics tab: the wider window (AUTO-121)', () => {
     expect(container.textContent).toContain('The saved list is not being kept between opens');
     expect(container.textContent).toContain('12 of the older topics');
     expect(container.textContent).toContain('Every topic seen in the last 90 days is here');
+  });
+});
+
+describe('Blog Topics tab: search volume is a column, never a rule (AUTO-123)', () => {
+  const volumeFile = {
+    source: 'Google Ads Keyword Planner, via Ubersuggest keyword_overview (United States, English)',
+    locationId: 2840,
+    language: 'en',
+    terms: {
+      [SUNGLASSES]: { v: 9900, f: '2026-10-02', m: '2026-05' },
+      'engraved sunglasses': { v: 0, f: '2026-09-01', m: '2026-04' },
+    },
+    failed: {},
+  };
+
+  function withVolumes(searchVolumes: unknown) {
+    m.authFetch.mockImplementation(async (url: string, init: { body: string }) => {
+      const body = JSON.parse(init.body) as { action?: string };
+      if (url === '/api/sanity/blog-topics' && body.action === 'pool') return json({ ...poolResponse(), searchVolumes });
+      if (url === '/api/sanity/blog-topics' && body.action === 'similar') return json({ ok: false, unavailable: true }, 503);
+      return json({ error: 'unexpected' }, 500);
+    });
+  }
+
+  function cellText(query: string): string {
+    const r = row(query);
+    const headers = [...container.querySelectorAll('thead th')].map((h) => h.textContent?.trim());
+    const at = headers.indexOf('Searches a month (Google Ads)');
+    expect(at).toBeGreaterThan(-1);
+    return r.querySelectorAll('td')[at].textContent?.trim() ?? '';
+  }
+
+  it('with the file missing, the column reads "not looked up" on every row, the notice says so, and the counts are what they were', async () => {
+    withVolumes(null);
+    await render();
+    expect(button('Usable (2)')).toBeTruthy();
+    expect(button('Excluded (0)')).toBeTruthy();
+    expect(cellText(SUNGLASSES)).toBe('not looked up');
+    expect(cellText('engraved sunglasses')).toBe('not looked up');
+    expect(container.textContent).toContain('No search volumes have been looked up yet');
+    expect(container.textContent).not.toMatch(/\b0\b searches/);
+  });
+
+  it('with the file present, the figure shows (0 as 0, a number as a number), the age is visible, and no state or count moves', async () => {
+    withVolumes(volumeFile);
+    await render();
+    expect(button('Usable (2)')).toBeTruthy();
+    expect(button('Excluded (0)')).toBeTruthy();
+    expect(cellText(SUNGLASSES)).toBe('9,900');
+    expect(cellText('engraved sunglasses')).toBe('0');
+    expect(container.textContent).toContain('Figures for 2 of the 2 topics');
+    expect(container.textContent).toContain('between 1 September 2026 and 2 October 2026');
+    expect(container.textContent).toContain("Google's own figures run to between April 2026 and May 2026");
+    // The default order is by impressions: the 9,900 row is first because it has the most impressions, not because of the volume.
+    const order = [...container.querySelectorAll('tbody tr')].map((tr) => tr.querySelector('td div')?.textContent);
+    expect(order).toEqual([SUNGLASSES, 'engraved sunglasses']);
+    // The sort box offers volume and does not start on it.
+    const sortSelect = [...container.querySelectorAll('select')].find((s) => [...s.options].some((o) => o.value === 'volume')) as HTMLSelectElement;
+    expect(sortSelect.value).toBe('impressions');
+  });
+
+  it('a figure looked up for another wording of the topic is shown and named; a partial file leaves the rest "not looked up"', async () => {
+    withVolumes({ ...volumeFile, terms: { 'sunglasses custom': { v: 320, f: '2026-10-02', m: '2026-05' } } });
+    await render();
+    expect(cellText(SUNGLASSES)).toContain('320');
+    expect(cellText(SUNGLASSES)).toContain('for "sunglasses custom"');
+    expect(cellText('engraved sunglasses')).toBe('not looked up');
+    expect(container.textContent).toContain('Figures for 1 of the 2 topics');
+    expect(button('Usable (2)')).toBeTruthy();
   });
 });

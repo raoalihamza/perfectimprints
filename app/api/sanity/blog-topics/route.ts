@@ -46,6 +46,14 @@
 // If that read fails the route answers an error, not a list: a list shown
 // without it would pass topics that already have a draft.
 //
+// Search volume (AUTO-123): the `pool` answer also carries the committed
+// search-volume file (data/blog-automation/search-volumes.json, written by
+// Ali's occasional script run through Patrick's Ubersuggest plan; nothing on
+// the server calls any keyword API). It is read from disk per request, never
+// cached in the snapshot, and no state, rule, count or order reads it: it is
+// a column, as the closest-wording figures are. Missing file: null, and the
+// panel works exactly as before.
+//
 // GSC_SERVICE_ACCOUNT_JSON_B64 stays server-side; no response, log line or
 // error built here can contain it (see lib/blog-automation/gsc-client.ts).
 // nodejs + force-dynamic: it has no render path and cannot affect any page's
@@ -62,6 +70,7 @@ import { describePoolError } from '@/lib/blog-automation/build-topic-pool';
 import { applyNegativeKeywords, applyWrittenTopics, countTopics } from '@/lib/blog-automation/topic-pool';
 import { readWrittenTopicSources, WrittenTopicsReadError } from '@/lib/blog-automation/written-topics';
 import { cacheWarningFor, noteRefreshRequested } from '@/lib/blog-automation/cache-watch';
+import { readSearchVolumeFile } from '@/lib/blog-automation/search-volume-file';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -183,6 +192,15 @@ export async function POST(request: Request) {
       negativeKeywords: settings.blogAutomation.negativeKeywords,
       /** Drafts and posts that record a topic, checked live on this request. */
       writtenDocuments: written.length,
+      /**
+       * AUTO-123: the committed search-volume file, read from disk on this
+       * request and NOT part of the cached snapshot (it comes from a file in
+       * the deployment, never from an API; a deploy is what changes it). Null
+       * when the file is missing or unreadable; the panel then shows "not
+       * looked up" on every row and nothing else changes. Nothing reads it
+       * before this line, so no state above depends on it.
+       */
+      searchVolumes: readSearchVolumeFile(),
       topics,
     });
   } catch (err) {

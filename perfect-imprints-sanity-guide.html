@@ -3061,11 +3061,27 @@
       tab then excludes, see below). Each row says when it was last seen, so you can tell.</p>
 
     <div class="callout info">
-      <span class="label">The numbers are impressions, not "search volume"</span>
-      <p><strong>Impressions</strong> is how many times Google showed your site for that search in the last 90 days,
-        and <strong>Clicks</strong> is how many of those were clicked. They are real figures from your own site, which
-        is arguably better than a generic search volume estimate. The paid keyword research that adds search volume
-        figures is a separate, later step; when it arrives, the panel will say so.</p>
+      <span class="label">Two different numbers: impressions, and searches a month</span>
+      <p><strong>Impressions</strong> is how many times Google showed <em>your site</em> for that search in the last 90
+        days, and <strong>Clicks</strong> is how many of those were clicked. They are real figures from your own
+        site. <strong>Searches a month (Google Ads)</strong> is a different thing: how many people in the United
+        States search for that exact term in a typical month, according to Google Ads Keyword Planner (read through
+        your Ubersuggest plan). Both are useful, and they often disagree. A term with many searches and few
+        impressions is one your site is barely showing up for yet, so a post there has room to grow: on the day this
+        was built <em>koozie</em> had 304 impressions and 49,500 searches a month, and <em>engraved pens</em> 271
+        against 3,600. The other way round, <em>promotional footballs</em> had 1,683 impressions and only 90
+        searches a month, so you already show for most of the people who look.</p>
+      <p><strong>What the cell says.</strong> A number is Google's figure, rounded to Google's own steps (10, 20, 30,
+        50, 70, 90, 110 ... 9,900, 12,100). A <strong>0</strong> is a real answer too: Google reports no demand for
+        that exact wording, even when your site had hundreds of impressions for it (people may be typing it in ways
+        Google does not count). <strong>"not looked up"</strong> means nobody has fetched that term yet; it says
+        nothing about demand. <strong>"no figure from Google Ads"</strong> means it was looked up and Google had no
+        figure at all. A blank is never shown.</p>
+      <p><strong>How fresh they are.</strong> Unlike the impressions, which are read from Search Console every day,
+        the search volumes are looked up by hand, a few hundred terms at a time, and refreshed only a few times a
+        year, because they barely move. The dashed line above the table always says how many topics have a figure,
+        when they were looked up, and which months Google's own figures run to; hover a figure to see its own dates.
+        Ali does the refresh; you never need to.</p>
     </div>
 
     <h3>What each row tells you</h3>
@@ -3073,6 +3089,10 @@
       <li><strong>Search term</strong> - the search as people typed it (the most common wording in the group).</li>
       <li><strong>Impressions, Clicks, Avg. position (90 days)</strong> - from Search Console, as above, for the
         last 90 days. A topic the 16 months added may show <em>none in the last 90 days</em> here.</li>
+      <li><strong>Searches a month (Google Ads)</strong> - how many people search for the term each month, from
+        Google Ads, looked up by hand a few times a year (see the box above). A number, a 0, "not looked up" or "no
+        figure from Google Ads". When the figure was fetched for another wording of the same topic (a different
+        spacing, or the same words in another order) the row says so under it: <em>for "custom match books"</em>.</li>
       <li><strong>Over 16 months</strong> - the same three figures for the whole 16 months, on every row, so any two
         rows can be compared over the same stretch of time.</li>
       <li><strong>Last seen</strong> - the most recent stretch in which Google showed your site for any of the
@@ -3104,8 +3124,9 @@
     <p>Use the buttons at the top to show only <strong>Usable</strong> (the default, the list worth reading),
       <strong>Excluded</strong>, <strong>Blocked</strong> or <strong>All</strong>; the <strong>Seen</strong> box to
       switch between the 90-day list, the topics the 16 months added, or all; type in the search box to find a term,
-      a post or a page; change the sort (impressions or position over 90 days or over 16 months, clicks, A to Z);
-      and page through 50 at a time. The line above the table always says how many topics are in view and how many
+      a post or a page; change the sort (impressions or position over 90 days or over 16 months, clicks, searches a
+      month from Google Ads, A to Z; the list always opens sorted by impressions, and sorting by searches a month
+      puts the terms with no figure yet at the end); and page through 50 at a time. The line above the table always says how many topics are in view and how many
       were excluded by which reason.</p>
 
     <h3>Blocking a topic (your negative keywords)</h3>

@@ -20,6 +20,12 @@ const state = vi.hoisted(() => ({
   similarityFails: false,
   // AUTO-121: when true the "cache" rebuilds on every call, the failure the route must report.
   rebuildEveryCall: false,
+  // AUTO-123: what the committed search-volume file reads as (null = missing).
+  volumeFile: null as unknown,
+}));
+
+vi.mock('@/lib/blog-automation/search-volume-file', () => ({
+  readSearchVolumeFile: vi.fn(() => state.volumeFile),
 }));
 
 vi.mock('@/lib/sanity/studio-nonce-auth', () => ({
@@ -121,6 +127,7 @@ beforeEach(() => {
   state.similarityCalls = 0;
   state.similarityFails = false;
   state.rebuildEveryCall = false;
+  state.volumeFile = null;
   resetCacheWatchForTests();
   vi.mocked(revalidateTag).mockClear();
 });
@@ -284,5 +291,45 @@ describe('POST /api/sanity/blog-topics, the wider window and the cache watch (AU
     expect(refreshed.status).toBe(200);
     const after = await pool();
     expect(after.body.cacheWarning).toBeNull();
+  });
+});
+
+describe('POST /api/sanity/blog-topics, search volume (AUTO-123)', () => {
+  const volumeFile = {
+    source: 'test',
+    locationId: 2840,
+    language: 'en',
+    terms: {
+      'custom printed sunglasses': { v: 9900, f: '2026-10-02', m: '2026-05' },
+      'engraved sunglasses': { v: 0, f: '2026-10-02', m: '2026-05' },
+    },
+    failed: {},
+  };
+
+  it('the pool is identical with the file missing and with the file present; the file rides the answer and nothing reads it', async () => {
+    const without = await pool();
+    expect(without.status).toBe(200);
+    expect(without.body.searchVolumes).toBeNull();
+
+    state.volumeFile = volumeFile;
+    const withFile = await pool();
+    expect(withFile.status).toBe(200);
+    expect(withFile.body.searchVolumes).toEqual(volumeFile);
+
+    expect(withFile.body.topics).toEqual(without.body.topics);
+    expect(withFile.body.counts).toEqual(without.body.counts);
+    // No topic carries a volume field: the join happens in the panel, from the file.
+    for (const t of withFile.body.topics) expect(t).not.toHaveProperty('volume');
+    // Same cached snapshot both times: the file is outside the cache.
+    expect(state.builds).toBe(1);
+  });
+
+  it('the file is read per request, so a refreshed file shows on the next call with no cache expiry', async () => {
+    state.volumeFile = volumeFile;
+    expect((await pool()).body.searchVolumes).toEqual(volumeFile);
+    state.volumeFile = { ...volumeFile, terms: {} };
+    expect((await pool()).body.searchVolumes).toEqual({ ...volumeFile, terms: {} });
+    expect(state.builds).toBe(1);
+    expect(revalidateTag).not.toHaveBeenCalled();
   });
 });
