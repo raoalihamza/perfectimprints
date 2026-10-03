@@ -24,7 +24,11 @@ import { verifyStudioNonce } from '@/lib/sanity/studio-nonce-auth';
 import { GENERATE_AUTH_DOC_ID, GENERATE_NONCE_HEADER } from '@/lib/sanity/generate-auth';
 import { brandVoiceSystemBlock, BUYER_PERSONA } from '@/lib/ai/brand-voice';
 import { generateJson, DeepSeekError } from '@/lib/ai/deepseek';
-import { matchRelatedProducts, resolveCategoryForKeywords } from '@/lib/ai/related-products';
+import {
+  catalogTopUpFloor,
+  matchRelatedProducts,
+  resolveCategoryForKeywords,
+} from '@/lib/ai/related-products';
 import { suggestInternalLinks } from '@/lib/ai/internal-links';
 import { placeInternalLinks } from '@/lib/ai/place-internal-links';
 import {
@@ -53,6 +57,18 @@ const LIST_STRIP_LIMIT = 4;
 const SINGLE_STRIP_LIMIT = 7;
 /** Relevance floor: shared significant tokens required for strip eligibility. */
 const STRIP_MIN_SCORE = 1;
+/**
+ * The catalog top-up's own floor (FIX-900, 2026-10-04): a product from the
+ * FULL catalog must share this many significant tokens with the idea's
+ * phrase, lowered to the phrase's own token count by `catalogTopUpFloor`
+ * (so "koozies" still matches on its one word). The category branch keeps
+ * STRIP_MIN_SCORE. At 1 everywhere, "sunscreen sticks" put two hockey sticks
+ * and a lint stick under a sunscreen idea, "rabbit-style corkscrews" put
+ * infant bodysuits under a wine-opener idea (AUTO-200 4.3); one incidental
+ * word across 8,000 product names is not relevance. Below MIN_STRIP_PRODUCTS
+ * a strip is skipped, never padded: an empty row beats a wrong one.
+ */
+const STRIP_CATALOG_MIN_SCORE = 2;
 /** Internal links placed per post. */
 const MAX_INTERNAL_LINKS = 5;
 
@@ -276,12 +292,14 @@ export async function POST(request: Request) {
         const productType = (s.productType ?? '').trim();
         const stripKeywords = productType ? [productType] : [s.heading];
         const ideaCategory = productType ? resolveCategoryForKeywords(productType) : null;
+        const catalogMinScore = catalogTopUpFloor(stripKeywords, STRIP_CATALOG_MIN_SCORE);
         let products = await matchRelatedProducts({
           hiddenSkus: await siteWideHiddenSkus(),
           categorySlug: ideaCategory ?? undefined,
           keywords: stripKeywords,
           limit: LIST_STRIP_LIMIT,
           minScore: STRIP_MIN_SCORE,
+          catalogMinScore,
           exclude: usedSkus,
         });
         // The shared primary category is a SOFT FALLBACK only (P2-AI-002b) —
@@ -294,6 +312,7 @@ export async function POST(request: Request) {
             keywords: stripKeywords,
             limit: LIST_STRIP_LIMIT,
             minScore: STRIP_MIN_SCORE,
+            catalogMinScore,
             exclude: new Set([...usedSkus, ...products.map((p) => p.sku)]),
           });
           products = [...products, ...fallback].slice(0, LIST_STRIP_LIMIT);
@@ -325,12 +344,14 @@ export async function POST(request: Request) {
         });
       }
       const stripKeywords = (gen.productKeywords ?? []).filter(Boolean);
+      const singleKeywords = stripKeywords.length > 0 ? stripKeywords : promptKeywords;
       const products = await matchRelatedProducts({
         hiddenSkus: await siteWideHiddenSkus(),
         categorySlug, // primary category stays the primary source for single-focus posts
-        keywords: stripKeywords.length > 0 ? stripKeywords : promptKeywords,
+        keywords: singleKeywords,
         limit: SINGLE_STRIP_LIMIT,
         minScore: STRIP_MIN_SCORE,
+        catalogMinScore: catalogTopUpFloor(singleKeywords, STRIP_CATALOG_MIN_SCORE),
       });
       if (products.length >= MIN_STRIP_PRODUCTS) {
         bodySections.push({

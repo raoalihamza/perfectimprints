@@ -14,6 +14,12 @@
  *     (productPlacement.addToCategories / removeFromCategories).
  *   - `CategorySlugInput`  — single-select, backs a `string`
  *     (categoryOverride.categorySlug) so a typo can't silently target nothing.
+ *   - `RootCategoryPicker` (FIX-900): the multi-select restricted to the ROOT
+ *     categories (single-segment slugs from the build-time list, no facets, no
+ *     create-new), for `blogPost.relatedCategorySlugs`, whose "Related Blogs"
+ *     row renders on root category pages only and matches the bare root slug.
+ *     Patrick typed `/cat/ornaments/theme/christmas` into that field eleven
+ *     times; a picker that offers only what can match is what stops it.
  *
  * Studio-only: no @sanity/ui dependency (kept resolvable for app typecheck) —
  * plain React + the `sanity` form API (`set` / `unset` / `useClient`).
@@ -78,7 +84,8 @@ const resultBtn = (highlighted: boolean): React.CSSProperties => ({
 // ---------------------------------------------------------------------------
 // Shared data + search + create logic (used by both inputs).
 // ---------------------------------------------------------------------------
-function useCategoryOptions() {
+function useCategoryOptions(options: { rootsOnly?: boolean } = {}) {
+  const rootsOnly = options.rootsOnly === true;
   const client = useClient({ apiVersion: '2024-10-01' });
 
   const [all, setAll] = useState<CategoryEntry[]>([]);
@@ -111,13 +118,21 @@ function useCategoryOptions() {
       // staticRes === null means the build-time list couldn't be fetched (e.g. a
       // standalone Studio not serving it) — surface that, don't look like "no match".
       setLoadError(staticRes === null);
-      setAll([...merged.values()]);
+      const entries = [...merged.values()];
+      // FIX-900: roots only = single-segment slugs FROM THE BUILD-TIME LIST.
+      // Live customCategory slugs are excluded even when single-segment: a
+      // Sanity-owned page renders CustomCategoryView, which has no Related
+      // Blogs row, so picking one there would do nothing (reported in FIX-900).
+      const staticSlugs = new Set((staticRes?.categories ?? []).map((c) => c.slug));
+      setAll(
+        rootsOnly ? entries.filter((c) => !c.slug.includes('/') && staticSlugs.has(c.slug)) : entries,
+      );
       setLoading(false);
     })();
     return () => {
       cancelled = true;
     };
-  }, [client]);
+  }, [client, rootsOnly]);
 
   // Debounce the query.
   useEffect(() => {
@@ -176,6 +191,7 @@ function useCategoryOptions() {
   return {
     loading,
     loadError,
+    rootsOnly,
     query,
     setQuery,
     debounced,
@@ -192,13 +208,19 @@ function useCategoryOptions() {
 // ---------------------------------------------------------------------------
 // Multi-select: array of category slugs.
 // ---------------------------------------------------------------------------
-export function CategoryPicker(props: ArrayOfPrimitivesInputProps) {
+export function CategoryPicker(
+  props: ArrayOfPrimitivesInputProps & { rootsOnly?: boolean; allowCreate?: boolean },
+) {
   const { onChange } = props;
+  const rootsOnly = props.rootsOnly === true;
+  // Creating a customCategory from a roots-only field makes no sense (the new
+  // page would have no Related Blogs row), so the offer is off there too.
+  const allowCreate = props.allowCreate !== false && !rootsOnly;
   const value = useMemo(
     () => (Array.isArray(props.value) ? (props.value as string[]) : []),
     [props.value],
   );
-  const opts = useCategoryOptions();
+  const opts = useCategoryOptions({ rootsOnly });
   const selected = useMemo(() => new Set(value), [value]);
 
   const commit = useCallback(
@@ -229,7 +251,10 @@ export function CategoryPicker(props: ArrayOfPrimitivesInputProps) {
         </div>
       )}
 
-      <SearchInput opts={opts} />
+      <SearchInput
+        opts={opts}
+        placeholder={rootsOnly ? 'Search root categories by title or slug…' : undefined}
+      />
 
       {opts.debounced && (
         <div style={{ ...box, maxHeight: 260, overflowY: 'auto', padding: 0 }}>
@@ -246,13 +271,24 @@ export function CategoryPicker(props: ArrayOfPrimitivesInputProps) {
           ))}
           <MoreMatchesHint opts={opts} />
           <NoResults opts={opts} />
-          <CreateNew opts={opts} onCreate={onCreate} />
+          {allowCreate && <CreateNew opts={opts} onCreate={onCreate} />}
         </div>
       )}
 
       {opts.error && <div style={{ color: '#e11f1e', fontSize: 12 }}>{opts.error}</div>}
     </div>
   );
+}
+
+/**
+ * FIX-900: the multi-select over ROOT categories only, for
+ * `blogPost.relatedCategorySlugs`. Offers the 465 single-segment slugs from
+ * the build-time list (no facets such as `bags/theme/halloween`, which the
+ * Related Blogs row can never match, and no create-new) and writes the bare
+ * slug, so the value stored is exactly what `getRelatedBlogs` compares.
+ */
+export function RootCategoryPicker(props: ArrayOfPrimitivesInputProps) {
+  return <CategoryPicker {...props} rootsOnly allowCreate={false} />;
 }
 
 // ---------------------------------------------------------------------------
@@ -468,7 +504,8 @@ function NoResults({ opts }: { opts: Opts }) {
   }
   return (
     <div style={{ padding: '8px 10px', fontSize: 13, color: '#6b7280' }}>
-      No existing category matches “{opts.query.trim()}”.
+      No existing {opts.rootsOnly ? 'root ' : ''}category matches “{opts.query.trim()}”.
+      {opts.rootsOnly ? ' Only the main category pages (one word after /cat/) can carry a Related Blogs row.' : ''}
     </div>
   );
 }

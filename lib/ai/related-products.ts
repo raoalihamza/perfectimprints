@@ -53,6 +53,25 @@ export interface MatchRelatedProductsOptions {
   /** SKUs to never return (already used elsewhere in the same post). */
   exclude?: Set<string>;
   /**
+   * A HIGHER floor for the catalog top-up only (FIX-900, 2026-10-04). The
+   * category branch, the custom products and the product pages keep
+   * `minScore`; the full-catalog scan at the end must clear this instead.
+   * Defaults to `minScore`, so every caller that does not pass it is
+   * byte-identical to before. Never lower than `minScore`.
+   *
+   * Why the two sources need two floors: a category's products share the
+   * phrase's main word by construction ("Koozie Can Cooler" against
+   * "koozies"), so one shared token there is real evidence. The whole
+   * catalog does not: at one shared token, "sunscreen sticks" pulled two
+   * hockey sticks and a lint stick, "rabbit-style corkscrews" pulled infant
+   * Rabbit Skins bodysuits, and "wine opener keychains" pulled jar openers
+   * (AUTO-200 4.3, measured on the five topic-generated drafts). Those are
+   * exactly the one-incidental-word matches a second shared token excludes.
+   * Use `catalogTopUpFloor()` to compute it from the phrase, so a one-word
+   * phrase is not asked for a second word it does not have.
+   */
+  catalogMinScore?: number;
+  /**
    * Also surface Sanity `productPage` docs (P2-CP-001), returned with
    * `detailUrl` set so their cards link to /products/<slug>. OPT-IN (default
    * false). Until FIX-871 (2026-09-09) the AI generate routes persisted every
@@ -114,6 +133,19 @@ function keywordTokenSet(keywords: string[]): Set<string> {
   const set = new Set<string>();
   for (const kw of keywords) for (const t of significantTokens(kw)) set.add(t);
   return set;
+}
+
+/**
+ * The catalog top-up floor for a phrase (FIX-900): `cap` shared significant
+ * tokens, lowered to the number of significant tokens the phrase actually
+ * has, and never below 1. So "sunscreen sticks" (two tokens) needs both,
+ * "koozies" (one token) still needs its one, and a phrase made only of
+ * generic promo words ("custom items", zero tokens) still needs one, which
+ * nothing can share, so it matches nothing rather than everything. Pure, so
+ * the route can state the dial and this can be tested without disk.
+ */
+export function catalogTopUpFloor(keywords: string[], cap: number): number {
+  return Math.max(1, Math.min(Math.max(1, Math.floor(cap)), keywordTokenSet(keywords).size));
 }
 
 /**
@@ -284,8 +316,12 @@ export async function matchRelatedProducts(
   // 3) Top up from the full catalog (also the no-category path). ONLY products
   //    clearing the relevance floor — never pad a short strip with
   //    sub-threshold catalog bestsellers; fewer (or zero) beats wrong ones.
+  //    The catalog has its OWN floor (FIX-900), never below the general one:
+  //    here one shared token is one incidental word in 8,000 product names,
+  //    not evidence (see the `catalogMinScore` docstring).
+  const catalogFloor = Math.max(minScore, opts.catalogMinScore ?? minScore);
   if (picked.length < limit) {
-    for (const p of rankEligible(getAllProducts(), tokens, minScore)) {
+    for (const p of rankEligible(getAllProducts(), tokens, catalogFloor)) {
       if (picked.length >= limit) break;
       push(p);
     }

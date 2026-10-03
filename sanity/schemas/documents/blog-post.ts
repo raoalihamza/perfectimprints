@@ -1,6 +1,9 @@
 import { defineField, defineType } from 'sanity';
-import { CategorySlugInput } from '../../components/CategoryPicker';
+import { CategorySlugInput, RootCategoryPicker } from '../../components/CategoryPicker';
 import { inlineImageAlignField, inlineImageSizeField } from '../objects/inline-image-fields';
+// Pure and dependency-free, so the Studio bundle takes it (the quote.ts /
+// catalog-key.ts precedent); the repair script and the tests import the same rule.
+import { relatedCategorySlugProblem } from '../../../lib/blog/related-category-slugs';
 
 export default defineType({
   name: 'blogPost',
@@ -160,10 +163,19 @@ export default defineType({
       name: 'relatedCategorySlugs',
       title: 'Related Category Slugs',
       description:
-        'PI root category slugs this blog should surface under in the "Related Blogs About …" section on category pages. Best-effort populated during migration; edit freely.',
+        'The ROOT category pages this post appears on, in their "Related Blogs About …" row. Search and pick; each entry is stored as the bare root slug, the part of the address after /cat/ and nothing else: ornaments, never /cat/ornaments and never ornaments/theme/christmas. The row lives on the root category page only and matches the bare slug, so a path or a facet would never show the post anywhere (FIX-900). Best-effort populated during migration; edit freely.',
       type: 'array',
-      of: [{ type: 'string' }],
-      options: { layout: 'tags' },
+      of: [
+        {
+          type: 'string',
+          // An ERROR, not a warning: a bare root slug never contains a slash, a
+          // query string, a scheme or a space, so there is no legitimate value
+          // this can refuse. The message names the slug to type instead.
+          validation: (Rule) =>
+            Rule.custom((value?: string) => relatedCategorySlugProblem(value) ?? true),
+        },
+      ],
+      components: { input: RootCategoryPicker },
     }),
     defineField({
       name: 'relatedBlogs',
