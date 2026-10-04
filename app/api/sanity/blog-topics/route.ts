@@ -12,6 +12,23 @@
 //                               advisory "closest wording" figures (AUTO-119),
 //                               compact (the panel expands them), or
 //                               503 { ok: false, unavailable: true, error }.
+// POST { action: 'generate', topic: { key, query, variants, spacingGroups? },
+//        template, wordCount?, allowDuplicate? }
+//                            → { ok, documentId, draftId, title, slug,
+//                                variants, placedLinks[], suggestedLinks,
+//                                words } after writing ONE blog DRAFT, or
+//                               409 { error, hint, match } when the topic
+//                               already has a draft or a post (AUTO-201).
+//
+// Generate (AUTO-201, the first Stage 2 ticket): the whole job from topic to
+// saved draft runs on the server, in lib/blog-automation/create-blog-draft.ts
+// `createBlogDraftFromTopic`, the ONE function the tab's button and the Stage
+// 2 scheduler share. The tab sends the topic it displayed and gets back the
+// draft's id; it writes nothing itself. The function reads the drafts live
+// before the AI is called and again before the create unless
+// `allowDuplicate` is set, which the tab sets only after Patrick confirmed
+// "generate anyway". This is the ONLY action here that writes to Sanity, and
+// it writes exactly one document, last.
 //
 // Closest wording (AUTO-119) is a SEPARATE action on purpose. The `pool`
 // action never calls the embedding service and never reads its figures, so no
@@ -72,6 +89,16 @@ import { applyNegativeKeywords, applyWrittenTopics, countTopics } from '@/lib/bl
 import { readWrittenTopicSources, WrittenTopicsReadError } from '@/lib/blog-automation/written-topics';
 import { cacheWarningFor, noteRefreshRequested } from '@/lib/blog-automation/cache-watch';
 import { readSearchVolumeFile } from '@/lib/blog-automation/search-volume-file';
+import { queryTopicKey, SOURCE_TOPIC_MAX_VARIANTS } from '@/lib/blog-automation/topic-pool';
+import { DeepSeekError } from '@/lib/ai/deepseek';
+import { BlogGenerationError } from '@/lib/blog-automation/generate-blog-post';
+import {
+  createBlogDraftFromTopic,
+  DraftClientError,
+  DraftWriteError,
+  TopicAlreadyWrittenError,
+} from '@/lib/blog-automation/create-blog-draft';
+import type { SourceTopicInput } from '@/lib/blog-automation/draft-document';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -94,11 +121,50 @@ export const dynamic = 'force-dynamic';
  * AUTO-121: a cold `pool` build now pulls five query windows in parallel plus
  * the regex-filtered ranking pages, measured 57.6 to 93.2 s across three runs
  * (2026-10-01), and the capped embedding 110 to 114 s; both inside 180.
+ *
+ * Raised to 240 s by AUTO-201 for the `generate` action alone: the DeepSeek
+ * call ends itself at BLOG_AI_TIMEOUT_MS (150 s, lib/blog-automation/
+ * generate-blog-post.ts), the two live drafts reads are about a second each,
+ * the strips and links a few seconds, the create under a second; 240 leaves
+ * room to answer with the timeout message rather than be killed. Still
+ * inside the 300 s ceiling of every Vercel plan. `pool`, `refresh` and
+ * `similar` are unchanged and never run the AI.
  */
-export const maxDuration = 180;
+export const maxDuration = 240;
 
 interface RequestBody {
   action?: string;
+  topic?: { key?: unknown; query?: unknown; variants?: unknown; spacingGroups?: unknown };
+  template?: unknown;
+  wordCount?: unknown;
+  allowDuplicate?: unknown;
+}
+
+const MAX_QUERY_CHARS = 200;
+
+/**
+ * The topic as the tab displayed it, checked field by field: the search is
+ * required, the key is recomputed when missing (the one grouping rule,
+ * `queryTopicKey`), the variants and merged spellings are kept only as
+ * strings and capped. Null when there is no usable search.
+ */
+function readTopic(raw: RequestBody['topic']): SourceTopicInput | null {
+  const query = typeof raw?.query === 'string' ? raw.query.trim().replace(/\s+/g, ' ') : '';
+  if (!query || query.length > MAX_QUERY_CHARS) return null;
+  const strings = (value: unknown): string[] =>
+    Array.isArray(value)
+      ? value.filter((v): v is string => typeof v === 'string' && v.trim().length > 0 && v.length <= MAX_QUERY_CHARS).map((v) => v.trim())
+      : [];
+  const variants = strings(raw?.variants).slice(0, SOURCE_TOPIC_MAX_VARIANTS);
+  const spacingGroups = Array.isArray(raw?.spacingGroups)
+    ? raw.spacingGroups
+        .filter((g): g is { query: string; key?: unknown } => !!g && typeof g === 'object' && typeof (g as { query?: unknown }).query === 'string')
+        .map((g) => ({ query: g.query.trim(), key: typeof g.key === 'string' && g.key.trim() ? g.key.trim() : queryTopicKey(g.query) }))
+        .filter((g) => g.query.length > 0 && g.query.length <= MAX_QUERY_CHARS)
+        .slice(0, SOURCE_TOPIC_MAX_VARIANTS)
+    : [];
+  const key = typeof raw?.key === 'string' && raw.key.trim() ? raw.key.trim() : queryTopicKey(query);
+  return { key, query, variants: variants.length > 0 ? variants : [query], spacingGroups };
 }
 
 export async function POST(request: Request) {
@@ -119,9 +185,78 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Invalid JSON body.' }, { status: 400 });
   }
   const action =
-    body.action === 'refresh' ? 'refresh' : body.action === 'pool' ? 'pool' : body.action === 'similar' ? 'similar' : null;
+    body.action === 'refresh'
+      ? 'refresh'
+      : body.action === 'pool'
+        ? 'pool'
+        : body.action === 'similar'
+          ? 'similar'
+          : body.action === 'generate'
+            ? 'generate'
+            : null;
   if (!action) {
-    return NextResponse.json({ error: 'action must be "pool", "refresh" or "similar".' }, { status: 400 });
+    return NextResponse.json({ error: 'action must be "pool", "refresh", "similar" or "generate".' }, { status: 400 });
+  }
+
+  if (action === 'generate') {
+    // AUTO-201: topic to saved draft, in the one shared function. The tab
+    // has already asked Patrick about an excluded or already-written topic;
+    // `allowDuplicate` carries his answer and nothing else skips the check.
+    const topic = readTopic(body.topic);
+    if (!topic) {
+      return NextResponse.json({ error: 'A topic with a search term is required.' }, { status: 400 });
+    }
+    const template = body.template === 'single' ? 'single' : 'list';
+    const wordCount = typeof body.wordCount === 'number' && Number.isFinite(body.wordCount) ? body.wordCount : undefined;
+    try {
+      const created = await createBlogDraftFromTopic({
+        topic,
+        template,
+        wordCount,
+        allowDuplicate: body.allowDuplicate === true,
+      });
+      return NextResponse.json({
+        ok: true,
+        documentId: created.documentId,
+        draftId: created.draftId,
+        title: created.title,
+        slug: created.slug,
+        variants: created.variants,
+        placedLinks: created.placedLinks,
+        suggestedLinks: created.suggestedLinks,
+        words: created.words,
+      });
+    } catch (err) {
+      if (err instanceof TopicAlreadyWrittenError) {
+        return NextResponse.json(
+          {
+            error: err.message,
+            hint: err.aiSpent
+              ? 'Open that draft instead. To write a second post on the same topic anyway, press Generate draft again and confirm.'
+              : 'Open that draft instead, or press Generate draft again and confirm to write another.',
+            match: err.match,
+            aiSpent: err.aiSpent,
+          },
+          { status: err.status },
+        );
+      }
+      if (err instanceof WrittenTopicsReadError) {
+        console.error('[blog-topics] generate:', err.message);
+        return NextResponse.json({ error: `${err.message} Nothing was generated.`, hint: err.hint }, { status: 502 });
+      }
+      if (
+        err instanceof DraftClientError ||
+        err instanceof DraftWriteError ||
+        err instanceof BlogGenerationError ||
+        err instanceof DeepSeekError
+      ) {
+        console.error('[blog-topics] generate:', err.message);
+        return NextResponse.json({ error: err.message }, { status: err.status });
+      }
+      const raw = err instanceof Error ? err.message : String(err);
+      console.error('[blog-topics] generate:', raw);
+      return NextResponse.json({ error: `The draft could not be generated: ${raw}. Nothing was created.` }, { status: 502 });
+    }
   }
 
   if (action === 'refresh') {

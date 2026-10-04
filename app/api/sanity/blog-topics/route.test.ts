@@ -22,6 +22,11 @@ const state = vi.hoisted(() => ({
   rebuildEveryCall: false,
   // AUTO-123: what the committed search-volume file reads as (null = missing).
   volumeFile: null as unknown,
+  // AUTO-201: the server write client and the generator.
+  created: [] as Record<string, unknown>[],
+  createFails: false,
+  aiCalls: 0,
+  aiFails: false,
 }));
 
 vi.mock('@/lib/blog-automation/search-volume-file', () => ({
@@ -30,6 +35,35 @@ vi.mock('@/lib/blog-automation/search-volume-file', () => ({
 
 vi.mock('@/lib/sanity/studio-nonce-auth', () => ({
   verifyStudioNonce: vi.fn(async () => ({ ok: true })),
+  // AUTO-201: the write client the draft creator uses. A created draft joins
+  // the in-memory dataset, so the next pool call reads it back live.
+  serverSanityClient: vi.fn(() => ({
+    create: vi.fn(async (doc: Record<string, unknown>) => {
+      if (state.createFails) throw new Error('Insufficient permissions');
+      state.created.push(doc);
+      state.dataset.push(doc);
+      return doc;
+    }),
+  })),
+}));
+vi.mock('@/lib/blog-automation/generate-blog-post', () => ({
+  BlogGenerationError: class BlogGenerationError extends Error {
+    status = 502;
+  },
+  generateBlogPost: vi.fn(async (input: { title: string }) => {
+    state.aiCalls += 1;
+    if (state.aiFails) throw Object.assign(new Error('The AI returned a thin post. Click Generate again to retry.'), { name: 'BlogGenerationError' });
+    return {
+      title: `${input.title} for Summer Events`,
+      metaTitle: 'M',
+      metaDescription: 'D',
+      excerpt: 'E',
+      body: [{ _type: 'block', _key: 'b', style: 'normal', markDefs: [], children: [{ _type: 'span', _key: 's', text: 'x', marks: [] }] }],
+      suggestedLinks: [{ label: 'Custom Sunglasses', href: '/cat/sunglasses', reason: 'Category page matching the keywords: sunglasses (placed in the body)' }],
+      placedLinks: [{ href: '/cat/sunglasses', anchor: 'custom sunglasses', label: 'Custom Sunglasses', kind: 'category' }],
+      words: 1500,
+    };
+  }),
 }));
 vi.mock('@/lib/sanity/queries/global-settings', () => ({
   getSiteSettings: vi.fn(async () => ({ blogAutomation: { negativeKeywords: [] } })),
@@ -128,20 +162,28 @@ beforeEach(() => {
   state.similarityFails = false;
   state.rebuildEveryCall = false;
   state.volumeFile = null;
+  state.created = [];
+  state.createFails = false;
+  state.aiCalls = 0;
+  state.aiFails = false;
   resetCacheWatchForTests();
   vi.mocked(revalidateTag).mockClear();
 });
 
-async function call(action: string) {
+async function post(body: Record<string, unknown>) {
   const { POST } = await import('./route');
   const res = await POST(
     new Request('http://localhost/api/sanity/blog-topics', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ action }),
+      body: JSON.stringify(body),
     }),
   );
   return { status: res.status, body: (await res.json()) as Record<string, unknown> };
+}
+
+async function call(action: string) {
+  return post({ action });
 }
 
 async function pool() {
@@ -205,6 +247,87 @@ describe('POST /api/sanity/blog-topics (AUTO-117)', () => {
     expect(res.body.topics).toBeUndefined();
     expect(String(res.body.error)).toContain('Could not read your blog drafts');
     expect(res.body.hint).toBeTruthy();
+  });
+});
+
+describe('POST /api/sanity/blog-topics, generate (AUTO-201)', () => {
+  const topic = { key: 'sunglass', query: 'custom printed sunglasses', variants: ['custom printed sunglasses'] };
+
+  it('writes ONE draft on the server with the record in it, and the next pool call excludes the topic', async () => {
+    expect(stateOf((await pool()).body.topics, 'custom printed sunglasses')).toBe('usable');
+
+    const res = await post({ action: 'generate', topic, template: 'list', wordCount: 1500, allowDuplicate: false });
+    expect(res.status).toBe(200);
+    expect(res.body.ok).toBe(true);
+    expect(typeof res.body.documentId).toBe('string');
+    expect(res.body.draftId).toBe(`drafts.${res.body.documentId}`);
+    expect(res.body.title).toBe('Custom Printed Sunglasses for Summer Events');
+    expect(res.body.slug).toBe('custom-printed-sunglasses-for-summer-events');
+    expect(res.body.placedLinks).toEqual([{ href: '/cat/sunglasses', anchor: 'custom sunglasses', label: 'Custom Sunglasses', kind: 'category' }]);
+    expect(state.aiCalls).toBe(1);
+    expect(state.created).toHaveLength(1);
+    const doc = state.created[0];
+    expect(doc._type).toBe('blogPost');
+    expect(doc.sourceTopic).toMatchObject({ query: 'custom printed sunglasses', variants: ['custom printed sunglasses'], key: 'sunglass' });
+    expect(doc.aiTopicKeywords).toEqual(['custom printed sunglasses']);
+    expect(doc).not.toHaveProperty('publishDate');
+
+    const after = await pool();
+    expect(stateOf(after.body.topics, 'custom printed sunglasses')).toBe('excluded');
+    expect(after.body.writtenDocuments).toBe(1);
+  });
+
+  it('refuses a topic that already has a draft BEFORE the AI is called, and names it', async () => {
+    state.dataset.push({ _id: 'drafts.other', title: 'Sunglasses From Another Tab', sourceTopic: { query: 'custom printed sunglasses' } });
+    const res = await post({ action: 'generate', topic, template: 'list' });
+    expect(res.status).toBe(409);
+    expect(String(res.body.error)).toContain('You already generated a draft from this topic: "Sunglasses From Another Tab".');
+    expect(String(res.body.error)).toContain('Nothing was created.');
+    expect(res.body.hint).toBeTruthy();
+    expect(state.aiCalls).toBe(0);
+    expect(state.created).toHaveLength(0);
+  });
+
+  it('allowDuplicate (Patrick confirmed) writes it anyway', async () => {
+    state.dataset.push({ _id: 'drafts.other', title: 'Existing', sourceTopic: { query: 'custom printed sunglasses' } });
+    const res = await post({ action: 'generate', topic, template: 'single', allowDuplicate: true });
+    expect(res.status).toBe(200);
+    expect(state.aiCalls).toBe(1);
+    expect(state.created).toHaveLength(1);
+    expect(state.created[0].aiTemplate).toBe('single');
+  });
+
+  it('the AI failing answers an error and creates nothing', async () => {
+    state.aiFails = true;
+    const res = await post({ action: 'generate', topic, template: 'list' });
+    expect(res.status).toBe(502);
+    expect(state.created).toHaveLength(0);
+  });
+
+  it('the write failing after the AI answered says so, and nothing exists', async () => {
+    state.createFails = true;
+    const res = await post({ action: 'generate', topic, template: 'list' });
+    expect(res.status).toBe(502);
+    expect(String(res.body.error)).toContain('The post was written but the draft could not be saved');
+    expect(String(res.body.error)).toContain('Nothing was created.');
+    expect(state.aiCalls).toBe(1);
+    expect(state.created).toHaveLength(0);
+  });
+
+  it('a request with no usable topic is refused before anything runs', async () => {
+    const res = await post({ action: 'generate', topic: { query: '   ' }, template: 'list' });
+    expect(res.status).toBe(400);
+    expect(state.aiCalls).toBe(0);
+    expect(state.created).toHaveLength(0);
+  });
+
+  it('when the drafts cannot be read, nothing is generated', async () => {
+    state.fetchFails = true;
+    const res = await post({ action: 'generate', topic, template: 'list' });
+    expect(res.status).toBe(502);
+    expect(String(res.body.error)).toContain('Nothing was generated.');
+    expect(state.aiCalls).toBe(0);
+    expect(state.created).toHaveLength(0);
   });
 });
 

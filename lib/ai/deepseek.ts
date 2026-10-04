@@ -34,6 +34,16 @@ export interface GenerateJsonOptions {
   user: string;
   maxTokens?: number;
   temperature?: number;
+  /**
+   * AUTO-201: how long to wait for DeepSeek before giving up, in
+   * milliseconds. Unset means no deadline, exactly as before (the eight
+   * other generate routes pass nothing and are byte-identical). The blog
+   * generator sets it, because a server-side generation that a scheduler
+   * waits on must end: a hung request would otherwise run until the
+   * function's own ceiling and bill for every second of it. A timed-out call
+   * throws `DeepSeekError` with status 504.
+   */
+  timeoutMs?: number;
 }
 
 /**
@@ -66,8 +76,15 @@ export async function generateJson<T>(opts: GenerateJsonOptions): Promise<T> {
           { role: 'user', content: opts.user },
         ],
       }),
+      ...(opts.timeoutMs ? { signal: AbortSignal.timeout(opts.timeoutMs) } : {}),
     });
   } catch (err) {
+    if (opts.timeoutMs && err instanceof Error && (err.name === 'TimeoutError' || err.name === 'AbortError')) {
+      throw new DeepSeekError(
+        `DeepSeek did not answer within ${Math.round(opts.timeoutMs / 1000)} seconds. Try again.`,
+        504,
+      );
+    }
     throw new DeepSeekError(
       `DeepSeek request failed: ${err instanceof Error ? err.message : 'network error'}.`,
     );

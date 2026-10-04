@@ -108,8 +108,9 @@ describe('matchRelatedProducts catalogMinScore (real products.json, catalog bran
   });
 });
 
-describe('the blog route states the dial once and passes it everywhere', () => {
-  const route = read('app/api/sanity/generate-blog/route.ts');
+describe('the blog generator states the dial once and passes it everywhere', () => {
+  // AUTO-201 moved the route's body into lib/blog-automation/generate-blog-post.ts.
+  const route = read('lib/blog-automation/generate-blog-post.ts');
 
   it('spells STRIP_CATALOG_MIN_SCORE = 2 exactly once and imports the floor helper', () => {
     expect(route.match(/const STRIP_CATALOG_MIN_SCORE = \d+;/g)).toEqual(['const STRIP_CATALOG_MIN_SCORE = 2;']);
@@ -134,6 +135,7 @@ describe('the blog route states the dial once and passes it everywhere', () => {
   it('no other source file spells the dial', () => {
     const others = [
       'lib/ai/related-products.ts',
+      'app/api/sanity/generate-blog/route.ts',
       'app/api/sanity/generate-page/route.ts',
       'app/api/sanity/generate-video/route.ts',
       'app/api/sanity/generate-landing/route.ts',

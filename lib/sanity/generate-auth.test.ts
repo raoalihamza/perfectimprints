@@ -154,8 +154,12 @@ describe('AUTO-110 blog-topics route carries the identical guard', () => {
     expect(tool).toContain("from '../components/useGenerateAuthFetch'");
     expect(tool).toContain('const authFetch = useGenerateAuthFetch();');
     expect(tool).not.toMatch(/[^a-zA-Z]fetch\('\/api\/sanity\//);
-    // It generates through the existing blog route, not a new one.
-    expect(tool).toContain("'/api/sanity/generate-blog'");
+    // AUTO-201: it generates through this route's `generate` action (the one
+    // server-side function), never the generate-blog route and never a
+    // browser-side create; lib/blog-automation/generation-path.test.ts holds
+    // the full rule.
+    expect(tool).toContain("action: 'generate'");
+    expect(tool).not.toContain("'/api/sanity/generate-blog'");
     // It never imports the server-side builder or the cache into the Studio bundle.
     expect(tool).not.toContain('build-topic-pool');
     expect(tool).not.toContain('cached-topic-pool');

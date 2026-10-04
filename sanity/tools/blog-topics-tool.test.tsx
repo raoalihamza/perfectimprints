@@ -22,6 +22,10 @@ const m = vi.hoisted(() => ({
   checkFails: false,
   authFetch: vi.fn(),
   navigateIntent: vi.fn(),
+  /** AUTO-201: every `generate` request body the tab sent to the route. */
+  generateBodies: [] as Record<string, unknown>[],
+  /** AUTO-201: what the route answers a `generate` with (null = the happy answer). */
+  generateAnswer: null as null | { status: number; body: Record<string, unknown> },
 }));
 
 vi.mock('sanity', () => ({
@@ -128,18 +132,25 @@ beforeEach(() => {
   m.created = [];
   m.checkFails = false;
   m.authFetch.mockReset();
+  m.generateBodies = [];
+  m.generateAnswer = null;
   m.authFetch.mockImplementation(async (url: string, init: { body: string }) => {
     const body = JSON.parse(init.body) as { action?: string };
     if (url === '/api/sanity/blog-topics' && body.action === 'pool') return json(poolResponse());
-    if (url === '/api/sanity/generate-blog') {
-      m.log.push('ai');
+    if (url === '/api/sanity/blog-topics' && body.action === 'generate') {
+      // AUTO-201: the server does the whole job and answers with the draft it wrote.
+      m.log.push('generate');
+      m.generateBodies.push(body);
+      if (m.generateAnswer) return json(m.generateAnswer.body, m.generateAnswer.status);
       return json({
+        ok: true,
+        documentId: 'd1',
+        draftId: 'drafts.d1',
         title: 'Custom Printed Sunglasses for Summer Events',
-        metaTitle: 'M',
-        metaDescription: 'D',
-        excerpt: 'E',
-        body: [{ _type: 'block', _key: 'b', style: 'normal', markDefs: [], children: [{ _type: 'span', _key: 's', text: 'x', marks: [] }] }],
-        suggestedLinks: [],
+        slug: 'custom-printed-sunglasses-for-summer-events',
+        variants: [SUNGLASSES, 'sunglasses custom'],
+        placedLinks: [{ href: '/cat/sunglasses', anchor: 'custom sunglasses', label: 'Custom Sunglasses', kind: 'category' }],
+        words: 1500,
       });
     }
     return json({ error: 'unexpected' }, 500);
@@ -156,32 +167,33 @@ afterEach(async () => {
   vi.restoreAllMocks();
 });
 
-describe('Blog Topics tab: Generate draft (AUTO-117)', () => {
-  it('records the topic on the draft in the same create, after a live check, and the row leaves Usable at once', async () => {
+describe('Blog Topics tab: Generate draft (AUTO-117, server-side since AUTO-201)', () => {
+  it('asks the server to write the draft after a live check, creates nothing itself, and the row leaves Usable at once', async () => {
     await render();
     expect(button(/^Usable \(/).textContent).toBe('Usable (2)');
 
     await click(button('Generate draft', row(SUNGLASSES)));
 
-    // Order: live check of the drafts, then the AI, then ONE create.
-    expect(m.log).toEqual(['check-drafts', 'ai', 'create']);
-    expect(m.created).toHaveLength(1);
-    const doc = m.created[0];
-    expect(String(doc._id)).toMatch(/^drafts\./);
-    expect(doc._type).toBe('blogPost');
-    expect(doc.sourceTopic).toEqual({
-      query: SUNGLASSES,
-      variants: [SUNGLASSES, 'sunglasses custom'],
-      key: 'sunglass',
-      recordedAt: expect.stringMatching(/^\d{4}-\d{2}-\d{2}T/),
+    // Order: live check of the drafts, then ONE request to the server, which
+    // writes the draft. The tab's Studio client never creates anything.
+    expect(m.log).toEqual(['check-drafts', 'generate']);
+    expect(client.create).not.toHaveBeenCalled();
+    expect(m.created).toHaveLength(0);
+    expect(m.generateBodies).toHaveLength(1);
+    expect(m.generateBodies[0]).toMatchObject({
+      action: 'generate',
+      topic: { key: 'sunglass', query: SUNGLASSES, variants: [SUNGLASSES, 'sunglasses custom'] },
+      template: 'list',
+      wordCount: 1500,
+      allowDuplicate: false,
     });
-    // No publish date: AUTO-116 stamps it on Publish.
-    expect(doc).not.toHaveProperty('publishDate');
 
     // Excluded immediately, no reload, no Search Console refresh.
     expect(button(/^Usable \(/).textContent).toBe('Usable (1)');
     expect(button(/^Excluded \(/).textContent).toBe('Excluded (1)');
     expect(container.textContent).toContain('Drafts created from this tab');
+    // The links the server placed are shown before the draft is opened.
+    expect(container.textContent).toContain('1 internal link placed in the text, opening in the same tab: "custom sunglasses" to /cat/sunglasses.');
     expect(m.authFetch.mock.calls.filter(([, init]) => JSON.parse(init.body).action === 'refresh')).toHaveLength(0);
   });
 
@@ -198,18 +210,43 @@ describe('Blog Topics tab: Generate draft (AUTO-117)', () => {
       'You already generated a draft from this topic: "Sunglasses From Another Tab".',
     );
     expect(m.log).toEqual(['check-drafts']);
-    expect(m.created).toHaveLength(0);
+    expect(m.generateBodies).toHaveLength(0);
+    expect(client.create).not.toHaveBeenCalled();
     // The row now shows what the check found.
     expect(button(/^Usable \(/).textContent).toBe('Usable (1)');
   });
 
-  it('when the live check fails, nothing is sent to the AI and nothing is created', async () => {
+  it('confirming "generate anyway" sends allowDuplicate, the only thing that skips the server check', async () => {
+    await render();
+    m.drafts.push({ _id: 'drafts.other', title: 'Sunglasses From Another Tab', sourceTopic: { query: SUNGLASSES } });
+    vi.mocked(window.confirm).mockReturnValue(true);
+    await click(button('Generate draft', row(SUNGLASSES)));
+    expect(m.log).toEqual(['check-drafts', 'generate']);
+    expect(m.generateBodies[0]).toMatchObject({ allowDuplicate: true });
+  });
+
+  it('when the live check fails, nothing is sent and nothing is created', async () => {
     await render();
     m.checkFails = true;
     await click(button('Generate draft', row(SUNGLASSES)));
     expect(m.log).toEqual(['check-drafts']);
-    expect(m.created).toHaveLength(0);
+    expect(m.generateBodies).toHaveLength(0);
+    expect(client.create).not.toHaveBeenCalled();
     expect(container.textContent).toContain('Could not check whether this topic already has a draft');
+  });
+
+  it('a server refusal (409) is shown on the row with its hint, and no draft is listed', async () => {
+    await render();
+    m.generateAnswer = {
+      status: 409,
+      body: { error: 'You already generated a draft from this topic: "Made Elsewhere". It counts even though it is not published yet. Nothing was created.', hint: 'Open that draft instead.' },
+    };
+    await click(button('Generate draft', row(SUNGLASSES)));
+    expect(m.log).toEqual(['check-drafts', 'generate']);
+    expect(container.textContent).toContain('"Made Elsewhere"');
+    expect(container.textContent).toContain('Open that draft instead.');
+    expect(container.textContent).not.toContain('Drafts created from this tab');
+    expect(button(/^Usable \(/).textContent).toBe('Usable (2)');
   });
 });
 

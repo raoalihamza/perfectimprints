@@ -95,16 +95,14 @@ export interface BlogPatchPlan {
   kept: KeptField[];
 }
 
-/** The slug maker both buttons and the Blog Topics tab use (unchanged from AUTO-110). */
-export function slugifyTitle(input: string): string {
-  return input
-    .toLowerCase()
-    .trim()
-    .replace(/&/g, 'and')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 96);
-}
+/**
+ * The slug maker both buttons use (unchanged from AUTO-110). AUTO-201 moved
+ * the function itself to lib/blog/slugify-title.ts, where the server-side
+ * draft creator reads it too; it is re-exported here so every caller is
+ * unchanged. (A pure module: safe in the Studio bundle.)
+ */
+import { slugifyTitle } from '../../lib/blog/slugify-title';
+export { slugifyTitle };
 
 function str(value: unknown): string {
   return typeof value === 'string' ? value.trim() : '';

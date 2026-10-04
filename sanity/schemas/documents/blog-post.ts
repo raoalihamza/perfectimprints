@@ -295,7 +295,7 @@ export default defineType({
       type: 'array',
       fieldset: 'ai',
       description:
-        'Internal links the AI found for this topic. Add the ones you like into the body text yourself (select text → link). Not shown on the live page.',
+        'Every internal link the AI found for this topic. The ones marked "placed in the body" are already in the text (up to about six, opening in the same tab); add any of the others yourself (select text, then the link button). This list is not shown on the live page.',
       of: [
         {
           type: 'object',

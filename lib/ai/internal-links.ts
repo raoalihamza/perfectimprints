@@ -42,6 +42,14 @@ export interface InternalLinkSuggestion {
    * references instead of re-querying by slug.
    */
   docId?: string;
+  /**
+   * AUTO-201: the keyword tokens this target shares with the topic, exactly
+   * the list the `reason` sentence names (which is capped at three words for
+   * reading). The placer's `topic` anchor policy reads this to decide which
+   * words an anchor must contain; nothing else reads it. Additive: every
+   * existing consumer of a suggestion is unchanged.
+   */
+  matchedTokens?: string[];
 }
 
 export interface SuggestInternalLinksOptions {
@@ -127,6 +135,7 @@ export function suggestCategoryLinks(
       href: `/cat/${slug}`,
       kind: 'category',
       reason: reasonFor('category', matched.length ? matched : [slug]),
+      matchedTokens: matched.length ? matched : slug.split('-'),
       score: boosted,
     });
   }
@@ -211,6 +220,7 @@ async function suggestSanityDocLinks(
       kind: source.kind,
       reason: reasonFor(source.kind, matched),
       ...(d._id ? { docId: d._id } : {}),
+      matchedTokens: matched,
       score,
     });
   }

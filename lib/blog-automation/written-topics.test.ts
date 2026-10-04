@@ -312,17 +312,28 @@ describe('structural guards', () => {
     expect(src).toContain('err instanceof WrittenTopicsReadError');
   });
 
-  it('the panel records the topic in the same create that makes the draft, and checks live first', () => {
+  it('the record is written in the same create that makes the draft (on the server since AUTO-201), and the panel checks live first', () => {
+    // AUTO-201: the create moved to lib/blog-automation/create-blog-draft.ts;
+    // the document it writes comes from draft-document.ts, which builds the
+    // record. The panel keeps the live check so Patrick is ASKED before a
+    // duplicate is sent, and the server checks again itself.
+    const doc = read('lib', 'blog-automation', 'draft-document.ts');
+    expect(doc).toContain('sourceTopic: buildSourceTopicRecord(args.topic, args.recordedAt),');
+    const creator = read('lib', 'blog-automation', 'create-blog-draft.ts');
+    expect(creator).toContain('await readWrittenTopicSources()');
+    expect(creator.indexOf('await readWrittenTopicSources()')).toBeLessThan(creator.indexOf('await generateBlogPost('));
+    expect(creator.indexOf('await client.create(document)')).toBeGreaterThan(creator.lastIndexOf('await readWrittenTopicSources()'));
     const src = read('sanity', 'tools', 'blog-topics-tool.tsx');
-    expect(src).toContain('sourceTopic: record,');
-    expect(src).toContain('buildSourceTopicRecord(topic,');
     expect(src).toContain('client.fetch<WrittenTopicDoc[] | null>(WRITTEN_TOPICS_QUERY)');
     const check = src.indexOf('WRITTEN_TOPICS_QUERY)');
-    const ai = src.indexOf('await authFetch(GENERATE_URL');
+    const ai = src.indexOf("action: 'generate'");
     expect(check).toBeGreaterThan(-1);
     expect(ai).toBeGreaterThan(check);
+    // The panel writes no draft and no record itself.
+    expect(src).not.toContain('sourceTopic: record');
+    expect(src).not.toContain('buildSourceTopicRecord');
     // The server read (it builds a token client) never enters the Studio bundle.
-    expect(src).not.toContain('written-topics');
+    expect(src.match(/from '[^']+'/g)!.filter((i) => i.includes('written-topics'))).toEqual([]);
   });
 
   it('the field is on blogPost, read only, with no initial value', () => {

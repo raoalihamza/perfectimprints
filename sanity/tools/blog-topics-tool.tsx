@@ -22,11 +22,16 @@
  *     Q-155 rule, so a later publish from an open draft cannot silently
  *     un-block it. Terms are normalised on write and compare, and removed by
  *     `_key`, so a term saved with a stray space can always be unblocked.
- *   - "Generate draft" calls the existing /api/sanity/generate-blog route
- *     with the same body the document action sends and, only once the post
- *     has come back, creates the blogPost DRAFT with everything in it
- *     (AUTO-116: nothing is created before, so a closed tab leaves nothing).
- *     It never publishes and sets no publish date (that is stamped on Publish).
+ *   - "Generate draft" asks the blog-topics route's `generate` action to
+ *     write the post AND save the draft, on the server, in the one function
+ *     the Stage 2 scheduler will share (AUTO-201,
+ *     lib/blog-automation/create-blog-draft.ts). The tab writes nothing
+ *     itself: it sends the topic it displayed and gets the draft's id back,
+ *     with the internal links that were placed. The draft is one create,
+ *     made last, so a failure leaves nothing; a tab closed during the wait
+ *     no longer stops the server, so the draft still appears (complete) on
+ *     the next pool call. It never publishes and sets no publish date (that
+ *     is stamped on Publish).
  *   - AUTO-119: topics that differ only by spacing ("custom match books",
  *     "custom matchbooks") arrive as ONE row, the other spelling named under
  *     the term. And each row shows its "closest wording": the other topics
@@ -80,7 +85,6 @@ import {
   WRITTEN_TOPICS_QUERY,
   applyNegativeKeywords,
   applyWrittenTopics,
-  buildSourceTopicRecord,
   findWrittenTopic,
   writtenSentence,
   writtenTopicSources,
@@ -118,7 +122,6 @@ import {
   type VolumeIndex,
   type VolumeLookup,
 } from '../../lib/blog-automation/search-volume';
-import { slugifyTitle } from '../actions/blog-generate-plan';
 
 // Theme CSS variables so the panel is readable in light AND dark Studio themes.
 const FG = 'var(--card-fg-color, #1a1a1a)';
@@ -195,7 +198,6 @@ const select: React.CSSProperties = { ...input, cursor: 'pointer' };
 const option: React.CSSProperties = { background: CARD_BG, color: FG };
 
 const API_URL = '/api/sanity/blog-topics';
-const GENERATE_URL = '/api/sanity/generate-blog';
 const SETTINGS_ID = 'globalSettings';
 const SETTINGS_DRAFT_ID = 'drafts.globalSettings';
 const PAGE_SIZE = 50;
@@ -258,36 +260,30 @@ type SimilarityState =
   | { status: 'ready'; data: TopicSimilarityResult }
   | { status: 'unavailable'; message: string };
 
-interface GeneratedBlogResponse {
+/** One link as the server placed it (AUTO-201): the words the reader sees, and where they go. */
+interface PlacedLinkInfo {
+  anchor: string;
+  href: string;
+  kind: string;
+}
+
+/** The `generate` action's answer: the draft the server wrote, or why it did not. */
+interface GenerateDraftResponse {
+  ok?: boolean;
+  documentId: string;
   title: string;
-  metaTitle: string;
-  metaDescription: string;
-  excerpt: string;
-  body: unknown[];
-  suggestedLinks: { label: string; href: string; reason: string }[];
+  slug: string;
+  variants: string[];
+  placedLinks: PlacedLinkInfo[];
+  words?: number;
   error?: string;
+  hint?: string;
 }
 
 function newKey(prefix: string): string {
   const uuid = globalThis.crypto?.randomUUID?.();
   const tail = uuid ? uuid.replace(/-/g, '').slice(0, 12) : `${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}`;
   return `${prefix}-${tail}`;
-}
-
-function newDocumentId(): string {
-  const uuid = globalThis.crypto?.randomUUID?.();
-  return uuid ?? `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}-${Math.random().toString(36).slice(2)}`;
-}
-
-const SMALL_WORDS = new Set(['a', 'an', 'and', 'as', 'at', 'but', 'by', 'for', 'in', 'of', 'on', 'or', 'the', 'to', 'vs', 'with']);
-
-/** "custom mini footballs" becomes "Custom Mini Footballs"; the AI refines it further. */
-function titleCase(query: string): string {
-  return query
-    .trim()
-    .split(/\s+/)
-    .map((w, i) => (i > 0 && SMALL_WORDS.has(w) ? w : w.charAt(0).toUpperCase() + w.slice(1)))
-    .join(' ');
 }
 
 const fmt = (n: number): string => n.toLocaleString('en-US');
@@ -324,7 +320,7 @@ function BlogTopicsComponent() {
   // AUTO-117: drafts this tab has created or found since the list loaded, so a
   // row leaves the usable list at once without waiting for the next pool call.
   const [localWritten, setLocalWritten] = useState<WrittenTopicSource[]>([]);
-  const [createdDrafts, setCreatedDrafts] = useState<{ id: string; title: string; query: string }[]>([]);
+  const [createdDrafts, setCreatedDrafts] = useState<{ id: string; title: string; query: string; placedLinks: PlacedLinkInfo[] }[]>([]);
   const mounted = useRef(true);
   useEffect(() => {
     mounted.current = true;
@@ -690,18 +686,17 @@ function BlogTopicsComponent() {
   const wordBlocks = useMemo(() => liveBlocked.filter((e) => e.scope === 'word'), [liveBlocked]);
 
   // ── Generate a draft from a topic ──────────────────────────────────────────
-  // AUTO-116: the AI writes FIRST and the draft is created only once the post
-  // exists, in one call, with everything in it. Before, an empty draft was
-  // created up front and deleted on failure, so a tab closed during the one
-  // to two minute wait left an empty titled draft behind. Now a closed tab,
-  // a crash or a failure leaves nothing, and because the draft does not exist
-  // until it is complete there is nothing to type into while the AI writes.
-  // No publish date is set: it is stamped when Publish is pressed.
-  // AUTO-117: the draft records its topic (`sourceTopic`) in the same create,
-  // and just before the AI is called the drafts are re-read live, so a draft
-  // made since the list loaded (another tab, another person, Stage 2) is
-  // caught before a second one is written. That check failing stops the
-  // generation: a guard that could not look is not a guard.
+  // AUTO-201: the server does the whole job (lib/blog-automation/
+  // create-blog-draft.ts, through the route's `generate` action): AI first,
+  // then ONE create with everything in it, the AUTO-116 order, and the AUTO-117
+  // record written in that same create. What stays in the browser is what
+  // needs a person: the live check below is kept so Patrick is ASKED about a
+  // draft made since the list loaded (another tab, another person, Stage 2)
+  // or about an excluded topic, and only his "yes" sends `allowDuplicate`.
+  // Without it the server checks again itself, before the AI and before the
+  // create, and refuses with a 409 that names the draft. No publish date is
+  // set: it is stamped when Publish is pressed. A closed tab no longer stops
+  // the server, so the draft still appears, complete, on the next pool call.
   const generateDraft = useCallback(
     async (topic: Topic) => {
       setBusy((b) => ({ ...b, [topic.key]: 'generating' }));
@@ -720,6 +715,9 @@ function BlogTopicsComponent() {
         return;
       }
       const already = findWrittenTopic(topic, liveWritten) ?? topic.writtenAs;
+      // Patrick's "yes" to a duplicate or an excluded topic is the only thing
+      // that skips the server's own checks.
+      let allowDuplicate = false;
       if (already) {
         // Found live but not in the loaded list: show it on the row too.
         if (mounted.current && !topic.writtenAs) setLocalWritten((w) => [...w, ...liveWritten]);
@@ -727,6 +725,7 @@ function BlogTopicsComponent() {
           clearBusy(topic.key);
           return;
         }
+        allowDuplicate = true;
       } else if (topic.state === 'excluded') {
         const why = topic.reason ? `\n\n${topic.reason}` : '';
         if (!window.confirm(`This topic was excluded because it overlaps with a post you already have.${why}\n\nGenerate a draft anyway?`)) {
@@ -734,60 +733,38 @@ function BlogTopicsComponent() {
           return;
         }
       }
-      const documentId = newDocumentId();
-      const draftId = `drafts.${documentId}`;
-      const title = titleCase(topic.query);
-      const record = buildSourceTopicRecord(topic, new Date().toISOString());
       try {
-        const res = await authFetch(GENERATE_URL, {
+        const res = await authFetch(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ title, template, keywords: [topic.query], wordCount: DEFAULT_WORD_COUNT }),
+          body: JSON.stringify({
+            action: 'generate',
+            topic: { key: topic.key, query: topic.query, variants: topic.variants, spacingGroups: topic.spacingGroups },
+            template,
+            wordCount: DEFAULT_WORD_COUNT,
+            allowDuplicate,
+          }),
         });
-        const data = (await res.json().catch(() => ({}))) as Partial<GeneratedBlogResponse>;
+        const data = (await res.json().catch(() => ({}))) as Partial<GenerateDraftResponse>;
+        const documentId = typeof data.documentId === 'string' ? data.documentId : '';
         const aiTitle = typeof data.title === 'string' ? data.title.trim() : '';
-        const slug = slugifyTitle(aiTitle);
-        if (!res.ok || !Array.isArray(data.body) || data.body.length === 0 || !aiTitle || !slug) {
-          throw new Error(data.error || `The AI did not return a post (${res.status}). Try again.`);
+        if (!res.ok || !documentId || !aiTitle) {
+          const hint = data.hint ? ` ${data.hint}` : '';
+          throw new Error(`${data.error || `The draft could not be generated (${res.status}). Try again.`}${hint}`);
         }
-        const suggestedLinks = (data.suggestedLinks ?? []).map((l) => ({
-          _key: newKey('ail'),
-          _type: 'aiSuggestedLink',
-          label: l.label,
-          href: l.href,
-          reason: l.reason,
-        }));
-        await client.create({
-          _id: draftId,
-          _type: 'blogPost',
-          // Title and slug from the same AI title, so they match.
-          title: aiTitle,
-          slug: { _type: 'slug', current: slug },
-          metaTitle: data.metaTitle,
-          metaDescription: data.metaDescription,
-          excerpt: data.excerpt,
-          body: data.body,
-          aiSuggestedLinks: suggestedLinks,
-          aiTemplate: template,
-          aiTopicKeywords: [topic.query],
-          aiWordCount: DEFAULT_WORD_COUNT,
-          // AUTO-117: the topic this draft came from. Read only in Studio; the
-          // guard reads it back on every pool call, drafts included.
-          sourceTopic: record,
-        });
+        const placedLinks = Array.isArray(data.placedLinks) ? data.placedLinks : [];
+        const variants = Array.isArray(data.variants) && data.variants.length > 0 ? data.variants : [topic.query];
         if (mounted.current) {
           setGenerated((g) => ({ ...g, [topic.key]: { id: documentId, title: aiTitle } }));
-          setLocalWritten((w) => [
-            ...w,
-            { documentId, title: aiTitle, status: 'draft', via: 'recorded', queries: record.variants },
-          ]);
-          setCreatedDrafts((d) => [...d, { id: documentId, title: aiTitle, query: topic.query }]);
+          setLocalWritten((w) => [...w, { documentId, title: aiTitle, status: 'draft', via: 'recorded', queries: variants }]);
+          setCreatedDrafts((d) => [...d, { id: documentId, title: aiTitle, query: topic.query, placedLinks }]);
         }
       } catch (e) {
         if (mounted.current) {
+          const message = e instanceof Error ? e.message : 'Generation failed.';
           setRowErrors((r) => ({
             ...r,
-            [topic.key]: `${e instanceof Error ? e.message : 'Generation failed.'} No draft was created.`,
+            [topic.key]: /Nothing was created|No draft was created/.test(message) ? message : `${message} No draft was created.`,
           }));
         }
       } finally {
@@ -906,13 +883,23 @@ function BlogTopicsComponent() {
             before you publish it. Delete the draft and the topic comes back.
           </div>
           {createdDrafts.map((d) => (
-            <div key={d.id} style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
-              <button type="button" onClick={() => openDraft(d.id)} style={secondaryBtn}>
-                Open draft
-              </button>
-              <span>
-                <strong>{d.title}</strong> <span style={{ color: MUTED }}>from "{d.query}"</span>
-              </span>
+            <div key={d.id} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+              <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+                <button type="button" onClick={() => openDraft(d.id)} style={secondaryBtn}>
+                  Open draft
+                </button>
+                <span>
+                  <strong>{d.title}</strong> <span style={{ color: MUTED }}>from "{d.query}"</span>
+                </span>
+              </div>
+              {/* AUTO-201: the links already in the text, so he can see them before he opens the draft. */}
+              <div style={{ fontSize: 12, color: MUTED, paddingLeft: 4 }}>
+                {d.placedLinks.length === 0
+                  ? 'No internal links were placed: nothing it found fitted the text cleanly. The Suggested Internal Links list on the draft shows what it found.'
+                  : `${d.placedLinks.length} internal link${d.placedLinks.length === 1 ? '' : 's'} placed in the text, opening in the same tab: ${d.placedLinks
+                      .map((l) => `"${l.anchor}" to ${l.href}`)
+                      .join('; ')}.`}
+              </div>
             </div>
           ))}
         </div>
