@@ -8,6 +8,12 @@ import { normalizeHref } from '@/lib/sanity/normalize-href';
 import { resolvePortfolioIntro } from '@/lib/portfolio/intro';
 import type { ShippingPolicy } from '@/lib/products/product-schema';
 import { blockScopeOf, normalizeBlockTerm, type BlockScope } from '@/lib/blog-automation/topic-pool';
+import {
+  DEFAULT_HEADER_IMAGE_SOURCE,
+  headerImageSourceOf,
+  type HeaderImageLibraryEntry,
+  type HeaderImageSource,
+} from '@/lib/blog-automation/header-image';
 
 // ---------------------------------------------------------------------------
 // Site settings — social links + contact info, Sanity-driven.
@@ -212,6 +218,18 @@ export interface NegativeKeyword {
 export interface BlogAutomationSettings {
   /** Trimmed, blanks dropped, de-duplicated case-insensitively per scope, first wins. */
   negativeKeywords: NegativeKeyword[];
+  /**
+   * AUTO-202: where a generated post's header image comes from (the chain
+   * starts here and falls back ai -> library -> product -> none); blank in
+   * Studio reads as 'ai', Patrick's choice.
+   */
+  headerImageSource: HeaderImageSource;
+  /** AUTO-202: entries with an uploaded asset only; `rootSlug` null means "any post". Empty until Patrick uploads any. */
+  headerImageLibrary: HeaderImageLibraryEntry[];
+  /** AUTO-202: the author reference for generated posts, or null (then the code default applies). */
+  defaultAuthorId: string | null;
+  /** AUTO-202: the blog categories every generated post is filed under; empty means none (never a guess). */
+  defaultCategoryIds: string[];
 }
 
 /**
@@ -275,6 +293,10 @@ interface RawSettings {
   hoursOfOperation?: string;
   blogAutomation?: {
     negativeKeywords?: Array<{ term?: string; scope?: string; addedAt?: string; note?: string }>;
+    headerImageSource?: string;
+    headerImageLibrary?: Array<{ rootSlug?: string; alt?: string; image?: { asset?: { _ref?: string } } }>;
+    defaultAuthorId?: string | null;
+    defaultCategoryIds?: Array<string | null>;
   };
   // legacy flat fields — fallback only
   phoneNumber?: string;
@@ -291,7 +313,13 @@ const QUERY = `*[_type == "globalSettings"][0]{
   hiddenProducts{ skus },
   portfolioPage{ intro },
   shippingPolicy{ orderPercentage, flatRate, destinationCountry, handlingDaysMin, handlingDaysMax, transitDaysMin, transitDaysMax },
-  blogAutomation{ negativeKeywords[]{ term, scope, addedAt, note } },
+  blogAutomation{
+    negativeKeywords[]{ term, scope, addedAt, note },
+    headerImageSource,
+    headerImageLibrary[]{ rootSlug, alt, image{ asset{ _ref } } },
+    "defaultAuthorId": defaultAuthor._ref,
+    "defaultCategoryIds": defaultCategories[]._ref
+  },
   hoursOfOperation,
   phoneNumber,
   contactEmail
@@ -310,7 +338,13 @@ const EMPTY: SiteSettings = {
   hiddenEverywhereSkus: [],
   portfolioIntro: null,
   shippingPolicy: null,
-  blogAutomation: { negativeKeywords: [] },
+  blogAutomation: {
+    negativeKeywords: [],
+    headerImageSource: DEFAULT_HEADER_IMAGE_SOURCE,
+    headerImageLibrary: [],
+    defaultAuthorId: null,
+    defaultCategoryIds: [],
+  },
 };
 
 /**
@@ -334,7 +368,28 @@ export function resolveBlogAutomation(raw: RawSettings['blogAutomation'] | null 
     seen.add(key);
     negativeKeywords.push({ term, scope, addedAt: clean(entry.addedAt), note: clean(entry.note) });
   }
-  return { negativeKeywords };
+  // AUTO-202: the header image source (blank reads as AI generated), the
+  // library (entries with an uploaded asset only; a blank root slug is "any
+  // post"), the default author and the default categories (references read
+  // as ids; blanks dropped).
+  const headerImageLibrary: HeaderImageLibraryEntry[] = [];
+  for (const entry of raw?.headerImageLibrary ?? []) {
+    const assetRef = entry?.image?.asset?._ref?.trim();
+    if (!assetRef) continue;
+    headerImageLibrary.push({ rootSlug: clean(entry?.rootSlug), assetRef, alt: clean(entry?.alt) });
+  }
+  const defaultCategoryIds: string[] = [];
+  for (const id of raw?.defaultCategoryIds ?? []) {
+    const v = typeof id === 'string' ? id.trim() : '';
+    if (v && !defaultCategoryIds.includes(v)) defaultCategoryIds.push(v);
+  }
+  return {
+    negativeKeywords,
+    headerImageSource: headerImageSourceOf(raw?.headerImageSource) ?? DEFAULT_HEADER_IMAGE_SOURCE,
+    headerImageLibrary,
+    defaultAuthorId: clean(raw?.defaultAuthorId),
+    defaultCategoryIds,
+  };
 }
 
 /**

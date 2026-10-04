@@ -50,12 +50,21 @@ describe('resolveShippingPolicy (MERCH-220)', () => {
   });
 });
 
+/** The resolved object for a singleton that says nothing (AUTO-110 + the AUTO-202 defaults). */
+const EMPTY_AUTOMATION = {
+  negativeKeywords: [],
+  headerImageSource: 'ai',
+  headerImageLibrary: [],
+  defaultAuthorId: null,
+  defaultCategoryIds: [],
+};
+
 describe('resolveBlogAutomation (AUTO-110)', () => {
   it('resolves a missing object to an empty list, the state of the singleton before the ticket', () => {
-    expect(resolveBlogAutomation(undefined)).toEqual({ negativeKeywords: [] });
-    expect(resolveBlogAutomation(null)).toEqual({ negativeKeywords: [] });
-    expect(resolveBlogAutomation({})).toEqual({ negativeKeywords: [] });
-    expect(resolveBlogAutomation({ negativeKeywords: [] })).toEqual({ negativeKeywords: [] });
+    expect(resolveBlogAutomation(undefined)).toEqual(EMPTY_AUTOMATION);
+    expect(resolveBlogAutomation(null)).toEqual(EMPTY_AUTOMATION);
+    expect(resolveBlogAutomation({})).toEqual(EMPTY_AUTOMATION);
+    expect(resolveBlogAutomation({ negativeKeywords: [] })).toEqual(EMPTY_AUTOMATION);
   });
 
   it('keeps what the panel wrote, trimmed, with its date and note', () => {
@@ -64,7 +73,53 @@ describe('resolveBlogAutomation (AUTO-110)', () => {
         negativeKeywords: [{ term: '  fun facts about paramedics ', addedAt: '2026-09-24T10:00:00.000Z', note: ' not our buyers ' }],
       }),
     ).toEqual({
+      ...EMPTY_AUTOMATION,
       negativeKeywords: [{ term: 'fun facts about paramedics', scope: 'word', addedAt: '2026-09-24T10:00:00.000Z', note: 'not our buyers' }],
+    });
+  });
+
+  describe('AUTO-202: the header image source, the library, the default author and categories', () => {
+    it('reads the source, and blank or unknown reads as AI generated', () => {
+      expect(resolveBlogAutomation({ headerImageSource: 'library' }).headerImageSource).toBe('library');
+      expect(resolveBlogAutomation({ headerImageSource: 'product' }).headerImageSource).toBe('product');
+      expect(resolveBlogAutomation({ headerImageSource: '' }).headerImageSource).toBe('ai');
+      expect(resolveBlogAutomation({ headerImageSource: 'something' }).headerImageSource).toBe('ai');
+    });
+
+    it('keeps library entries with an uploaded asset only; a blank root slug is the any-post picture', () => {
+      expect(
+        resolveBlogAutomation({
+          headerImageLibrary: [
+            { rootSlug: 'caps', alt: ' Caps ', image: { asset: { _ref: 'image-a-1600x900-jpg' } } },
+            { rootSlug: '', image: { asset: { _ref: 'image-b-1600x900-jpg' } } },
+            { rootSlug: 'pens', image: {} },
+            { rootSlug: 'pens' },
+          ],
+        }).headerImageLibrary,
+      ).toEqual([
+        { rootSlug: 'caps', assetRef: 'image-a-1600x900-jpg', alt: 'Caps' },
+        { rootSlug: null, assetRef: 'image-b-1600x900-jpg', alt: null },
+      ]);
+    });
+
+    it('the settings query projects the four fields, the two references as ids', async () => {
+      const { readFileSync } = await import('node:fs');
+      const { join } = await import('node:path');
+      const src = readFileSync(join(__dirname, 'global-settings.ts'), 'utf8');
+      expect(src).toContain('headerImageSource,');
+      expect(src).toContain('headerImageLibrary[]{ rootSlug, alt, image{ asset{ _ref } } },');
+      expect(src).toContain('"defaultAuthorId": defaultAuthor._ref,');
+      expect(src).toContain('"defaultCategoryIds": defaultCategories[]._ref');
+    });
+
+    it('reads the default author and categories as ids, blanks and repeats dropped', () => {
+      const r = resolveBlogAutomation({
+        defaultAuthorId: ' author-sarah-garcia ',
+        defaultCategoryIds: ['blog-category-promotional-product-ideas', '', null, 'blog-category-promotional-product-ideas', 'blog-category-christmas'],
+      });
+      expect(r.defaultAuthorId).toBe('author-sarah-garcia');
+      expect(r.defaultCategoryIds).toEqual(['blog-category-promotional-product-ideas', 'blog-category-christmas']);
+      expect(resolveBlogAutomation({ defaultAuthorId: '' }).defaultAuthorId).toBeNull();
     });
   });
 

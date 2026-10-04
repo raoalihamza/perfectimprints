@@ -59,8 +59,10 @@ describe('FIX-850 shared constants', () => {
 describe('FIX-850 generate routes', () => {
   const routes = generateRouteFiles();
 
-  it('finds the nine generate routes (eight FIX-850 + generate-portfolio, PORT-170)', () => {
+  it('finds the ten generate routes (eight FIX-850 + generate-portfolio, PORT-170 + generate-blog-image, AUTO-202)', () => {
+    // Sorted by full path: the hyphen of "-image" sorts before the path separator.
     expect(routes.map((f) => basename(dirname(f)))).toEqual([
+      'generate-blog-image',
       'generate-blog',
       'generate-catalog',
       'generate-content',
@@ -181,7 +183,7 @@ describe('FIX-850 Studio actions', () => {
       const src = read(file);
       expect(src).toContain("from '../components/useGenerateAuthFetch'");
       expect(src).toContain('const authFetch = useGenerateAuthFetch();');
-      expect(src).toMatch(/authFetch\('\/api\/sanity\/generate-[a-z]+'/);
+      expect(src).toMatch(/authFetch\('\/api\/sanity\/generate-[a-z-]+'/);
       expect(src).not.toMatch(/[^a-zA-Z]fetch\('\/api\/sanity\/generate-/);
     });
   }

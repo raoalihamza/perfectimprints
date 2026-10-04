@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { buildRenderImageUrl } from '@/lib/sanity/client';
+import { externalHeaderImageUrl } from '@/lib/blog/header-image';
 import type { BlogPostSummary } from '@/lib/sanity/queries/blogs';
 
 interface RelatedBlogsForPostProps {
@@ -23,9 +24,9 @@ export function RelatedBlogsForPost({ posts, topic }: RelatedBlogsForPostProps) 
       <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {posts.map((post) => {
           const href = `/blog/${post.slug.current}`;
-          const imageUrl = buildRenderImageUrl(post.headerImage, (b) =>
-            b.width(600).height(338).fit('crop'),
-          );
+          const imageUrl =
+            buildRenderImageUrl(post.headerImage, (b) => b.width(600).height(338).fit('crop')) ??
+            externalHeaderImageUrl(post, 600);
           return (
             <article
               key={post._id}

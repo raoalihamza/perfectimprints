@@ -58,6 +58,36 @@ vi.mock('../sanity/studio-nonce-auth', () => ({
   serverSanityClient: vi.fn(() => client),
 }));
 
+// AUTO-202: the four fields beside the body. The real resolver is covered in
+// resolve-draft-fields.test.ts; here it answers a fixed result (or throws,
+// per test) so what the creator does with the answer is what is tested.
+const fieldsState = vi.hoisted(() => ({
+  throws: null as null | Error,
+  result: null as null | Record<string, unknown>,
+  inputs: [] as unknown[],
+}));
+const GENERATED_IMAGE = { _type: 'image', asset: { _type: 'reference', _ref: 'image-generated-1376x768-jpg' }, alt: 'alt' };
+function fixedFields() {
+  return (
+    fieldsState.result ?? {
+      authorId: 'author-patrick-black',
+      categoryIds: ['blog-category-promotional-product-ideas'],
+      relatedCategorySlugs: ['sunglasses'],
+      headerImage: { kind: 'asset', source: 'ai', image: GENERATED_IMAGE, notes: [] },
+      notes: [],
+    }
+  );
+}
+vi.mock('./resolve-draft-fields', () => ({
+  defaultDraftFieldsDeps: vi.fn(async () => ({})),
+  resolveDraftFields: vi.fn(async (input: unknown) => {
+    m.log.push('fields');
+    fieldsState.inputs.push(input);
+    if (fieldsState.throws) throw fieldsState.throws;
+    return fixedFields();
+  }),
+}));
+
 const client = {
   create: vi.fn(async (doc: BlogDraftDocument) => {
     m.log.push('create');
@@ -98,6 +128,9 @@ beforeEach(() => {
   m.aiFails = null;
   m.createFails = null;
   m.created = [];
+  fieldsState.throws = null;
+  fieldsState.result = null;
+  fieldsState.inputs = [];
   client.create.mockClear();
 });
 afterEach(() => vi.clearAllMocks());
@@ -105,9 +138,13 @@ afterEach(() => vi.clearAllMocks());
 describe('createBlogDraftFromTopic: the happy path', () => {
   it('reads the drafts, calls the AI, reads again, then makes ONE create with everything in it', async () => {
     const created = await createBlogDraftFromTopic({ topic, template: 'list', now: fixedNow, client });
-    expect(m.log).toEqual(['read-drafts', 'ai', 'read-drafts', 'create']);
+    // AUTO-202: the fields (image included) are resolved after the AI; the
+    // second drafts read sits JUST before the create.
+    expect(m.log).toEqual(['read-drafts', 'ai', 'fields', 'read-drafts', 'create']);
     expect(m.created).toHaveLength(1);
     const doc = m.created[0];
+    const keys = [(doc.aiSuggestedLinks as { _key: string }[])[0]._key, (doc.categories as { _key: string }[])[0]._key];
+    let k = 0;
     expect(doc).toEqual(
       buildBlogDraftDocument({
         documentId: created.documentId,
@@ -123,9 +160,20 @@ describe('createBlogDraftFromTopic: the happy path', () => {
         wordCount: 1500,
         topic,
         recordedAt: '2026-10-05T10:00:00.000Z',
-        keyFor: () => (doc.aiSuggestedLinks as { _key: string }[])[0]._key,
+        keyFor: () => keys[k++],
+        fields: fixedFields(),
       }),
     );
+    // The four fields, on the document and in the answer.
+    expect(doc.author).toEqual({ _type: 'reference', _ref: 'author-patrick-black' });
+    expect(doc.categories).toEqual([{ _type: 'reference', _ref: 'blog-category-promotional-product-ideas', _key: keys[1] }]);
+    expect(doc.relatedCategorySlugs).toEqual(['sunglasses']);
+    expect(doc.headerImage).toEqual(GENERATED_IMAGE);
+    expect(doc).not.toHaveProperty('externalHeaderImage');
+    expect(created.fields).toEqual({ authorId: 'author-patrick-black', categoryIds: ['blog-category-promotional-product-ideas'], relatedCategorySlugs: ['sunglasses'], notes: [] });
+    expect(created.headerImage).toMatchObject({ kind: 'asset', source: 'ai' });
+    // The resolver was handed the topic (page included), the AI title, its slug and the body.
+    expect(fieldsState.inputs[0]).toMatchObject({ topic, title: 'Custom Printed Sunglasses: 9 Ideas for Trade Shows', slug: 'custom-printed-sunglasses-9-ideas-for-trade-shows' });
     expect(doc._id).toBe(`drafts.${created.documentId}`);
     expect(doc._type).toBe('blogPost');
     expect(doc.slug).toEqual({ _type: 'slug', current: 'custom-printed-sunglasses-9-ideas-for-trade-shows' });
@@ -165,21 +213,69 @@ describe('createBlogDraftFromTopic: nothing half made', () => {
     }
   });
 
-  it('a draft made while the AI was writing stops the create; the message says the call was spent', async () => {
+  it('a draft made while the AI was writing stops the create; the message says the call was spent; the picture already uploaded is removed', async () => {
     m.writtenAfterAi = [{ documentId: 'other', title: 'Made During The Wait', status: 'draft', via: 'recorded', queries: [SUNGLASSES] }];
-    const err = await thrown(() => createBlogDraftFromTopic({ topic, template: 'list', client }));
+    const deleted: string[] = [];
+    const deletingClient = { ...client, delete: vi.fn(async (id: string) => void deleted.push(id)) };
+    const err = await thrown(() => createBlogDraftFromTopic({ topic, template: 'list', client: deletingClient }));
     expect(err).toBeInstanceOf(TopicAlreadyWrittenError);
     expect((err as TopicAlreadyWrittenError).aiSpent).toBe(true);
     expect((err as Error).message).toContain('appeared while this one was being written');
-    expect(m.log).toEqual(['read-drafts', 'ai', 'read-drafts']);
+    expect(m.log).toEqual(['read-drafts', 'ai', 'fields', 'read-drafts']);
     expect(m.created).toHaveLength(0);
+    expect(deleted).toEqual(['image-generated-1376x768-jpg']);
+    // Without a delete on the client, the refusal still stands and nothing throws.
+    expect(await thrown(() => createBlogDraftFromTopic({ topic, template: 'list', client }))).toBeInstanceOf(TopicAlreadyWrittenError);
   });
 
   it('allowDuplicate skips both checks: the AI runs and the draft is created beside the existing one', async () => {
     m.written = [{ documentId: 'abc', title: 'Existing', status: 'draft', via: 'recorded', queries: [SUNGLASSES] }];
     await createBlogDraftFromTopic({ topic, template: 'list', client, allowDuplicate: true });
-    expect(m.log).toEqual(['ai', 'create']);
+    expect(m.log).toEqual(['ai', 'fields', 'create']);
     expect(m.created).toHaveLength(1);
+  });
+
+  it('AUTO-202: the second drafts read is the last thing before the create', async () => {
+    await createBlogDraftFromTopic({ topic, template: 'list', client });
+    expect(m.log.slice(-2)).toEqual(['read-drafts', 'create']);
+  });
+
+  it('AUTO-202: a draft with no picture, no author and no categories is still created, with the keys absent rather than null', async () => {
+    fieldsState.result = {
+      authorId: null,
+      categoryIds: [],
+      relatedCategorySlugs: [],
+      headerImage: { kind: 'none', notes: ['the image model failed: 503', 'the header image library is empty', 'the post has no product photo to fall back on'] },
+      notes: ['no author: the author document "author-patrick-black" does not exist'],
+    };
+    const created = await createBlogDraftFromTopic({ topic, template: 'list', client });
+    expect(m.created).toHaveLength(1);
+    const doc = m.created[0];
+    for (const key of ['author', 'categories', 'relatedCategorySlugs', 'headerImage', 'externalHeaderImage']) expect(doc, key).not.toHaveProperty(key);
+    expect(created.headerImage.kind).toBe('none');
+    expect(created.fields.notes).toEqual(['no author: the author document "author-patrick-black" does not exist']);
+  });
+
+  it('AUTO-202: the product-photo fallback is written as the hot link', async () => {
+    fieldsState.result = {
+      authorId: null,
+      categoryIds: [],
+      relatedCategorySlugs: [],
+      headerImage: { kind: 'url', source: 'product', url: 'https://imgsirv.geiger.com/master/101003/web/101003_1.jpg?w=275', alt: 'Bottle', notes: [] },
+      notes: [],
+    };
+    await createBlogDraftFromTopic({ topic, template: 'list', client });
+    expect(m.created[0].externalHeaderImage).toEqual({ url: 'https://imgsirv.geiger.com/master/101003/web/101003_1.jpg?w=275', alt: 'Bottle' });
+    expect(m.created[0]).not.toHaveProperty('headerImage');
+  });
+
+  it('AUTO-202: even the field resolver throwing never stops the draft', async () => {
+    fieldsState.throws = new Error('settings exploded');
+    const created = await createBlogDraftFromTopic({ topic, template: 'list', client });
+    expect(m.log).toEqual(['read-drafts', 'ai', 'fields', 'read-drafts', 'create']);
+    expect(m.created).toHaveLength(1);
+    expect(created.headerImage).toEqual({ kind: 'none', notes: ['the fields beside the body could not be resolved: settings exploded'] });
+    expect(created.fields.authorId).toBeNull();
   });
 
   it('a failed drafts read stops the generation: nothing sent to the AI, nothing created', async () => {

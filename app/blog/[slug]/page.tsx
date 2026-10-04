@@ -11,6 +11,8 @@ import { OrderTodayCTA } from '@/components/blog/OrderTodayCTA';
 import { RelatedBlogsForPost } from '@/components/blog/RelatedBlogsForPost';
 import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { buildImageUrl, buildRenderImageUrl } from '@/lib/sanity/client';
+import { externalHeaderImageUrl } from '@/lib/blog/header-image';
+import { collectBlogProductSkus } from '@/lib/blog/collect-strip-skus';
 import {
   getBlogPostBySlug,
   getBlogPostSlugs,
@@ -50,7 +52,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getBlogPostBySlug(slug);
   if (!post) return {};
   const canonical = `${SITE_URL}/blog/${post.slug.current}`;
-  const heroImage = buildImageUrl(post.headerImage, (b) => b.width(1200)) ?? undefined;
+  // The uploaded or generated asset, else the hot-linked product photo the
+  // blog engine's last image fallback writes (AUTO-202), else the branded card.
+  const heroImage = buildImageUrl(post.headerImage, (b) => b.width(1200)) ?? externalHeaderImageUrl(post, 1200) ?? undefined;
   return {
     title: post.metaTitle || `${post.title} | Perfect Imprints`,
     description: post.metaDescription || post.excerpt,
@@ -80,26 +84,8 @@ function deriveOrderTopic(post: { title: string; categories?: { title: string }[
   return post.title.split(/[:|—–-]/)[0].trim();
 }
 
-function collectBlogProductSkus(body: PortableTextBlock[] | undefined): string[] {
-  if (!body) return [];
-  const skus: string[] = [];
-  const seen = new Set<string>();
-  for (const block of body) {
-    // Entries can also be dereferenced productPage/customProduct refs (which
-    // carry no `sku` here) or null (dangling ref) — both are skipped; only
-    // blogProduct SKU entries feed the catalog lookup.
-    const b = block as { _type?: string; products?: ({ sku?: string } | null)[] };
-    if (b._type !== 'blogProducts') continue;
-    for (const entry of b.products ?? []) {
-      const sku = entry?.sku?.trim();
-      if (sku && !seen.has(sku)) {
-        seen.add(sku);
-        skus.push(sku);
-      }
-    }
-  }
-  return skus;
-}
+// collectBlogProductSkus moved verbatim to lib/blog/collect-strip-skus.ts
+// (AUTO-202) so the header image code reads the strips exactly as this page does.
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
@@ -110,7 +96,15 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   const canonical = `${SITE_URL}/blog/${post.slug.current}`;
-  const heroImage = buildRenderImageUrl(post.headerImage, (b) => b.width(1400));
+  const heroImage = buildRenderImageUrl(post.headerImage, (b) => b.width(1400)) ?? externalHeaderImageUrl(post, 1400);
+  // The BlogPosting `image` carries the uploaded or generated asset only
+  // (byte-identical to before for every existing post). A hot-linked Geiger
+  // product photo is shown on the page and in the social card but is NOT
+  // written into the JSON-LD: SNIP-172 credits Geiger-served images through
+  // the one product serializer and nowhere else, and a blog post is not one
+  // of its surfaces, so the honest choice is to omit it rather than emit it
+  // uncredited (the field is recommended, not required).
+  const schemaImage = post.headerImage?.asset ? heroImage : null;
   const firstCategory = post.categories?.[0];
   const orderTopic = deriveOrderTopic(post);
 
@@ -156,7 +150,7 @@ export default async function BlogPostPage({ params }: Props) {
   const blogPostingSchema = buildBlogPostingSchema({
     title: post.title,
     canonical,
-    heroImage,
+    heroImage: schemaImage,
     publishDate: post.publishDate,
     updatedDate: post.updatedDate,
     authorName: post.author?.name,

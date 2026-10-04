@@ -31,12 +31,23 @@
  *
  * Suggested links describe the links placed in the generated body, so they
  * are written only when the body is.
+ *
+ * THE HEADER IMAGE (AUTO-202) follows the same two rules and is decided here
+ * too, as `plan.image`: FILL makes a picture only when the post has NO header
+ * image of either shape (an uploaded or generated asset, or the hot-linked
+ * product photo), so an image Patrick uploaded is never replaced by Generate
+ * Blog with AI; REGENERATE replaces it, and its confirmation names "Header
+ * image" among the fields it will replace. The picture comes from a second
+ * request (the generate-blog-image route) after the body is patched, so the
+ * plan carries the INTENTION and the action re-checks the document when the
+ * picture arrives: an image changed during the wait is Patrick's and is kept.
  */
 import { isBlank } from '../components/blank-fields';
+import { hasHeaderImage, headerImageSignature, type BlogImageDoc } from './blog-image-request';
 
 export const BLOG_CONTENT_FIELDS = ['metaTitle', 'metaDescription', 'excerpt', 'body'] as const;
 export type BlogContentField = (typeof BLOG_CONTENT_FIELDS)[number];
-export type BlogField = 'title' | 'slug' | BlogContentField;
+export type BlogField = 'title' | 'slug' | BlogContentField | 'headerImage';
 
 export const BLOG_FIELD_LABELS: Record<BlogField, string> = {
   title: 'Title',
@@ -45,10 +56,11 @@ export const BLOG_FIELD_LABELS: Record<BlogField, string> = {
   metaDescription: 'Meta description',
   excerpt: 'Excerpt',
   body: 'Body (every paragraph, heading, image, product row and link in it)',
+  headerImage: 'Header image',
 };
 
 /** The fields of a blogPost these buttons read. */
-export interface BlogDocFields {
+export interface BlogDocFields extends BlogImageDoc {
   title?: unknown;
   slug?: { current?: unknown } | null;
   metaTitle?: unknown;
@@ -56,6 +68,11 @@ export interface BlogDocFields {
   excerpt?: unknown;
   body?: unknown;
 }
+
+/** What the button will do about the header image (AUTO-202). */
+export type ImagePlan = 'fill' | 'replace' | 'keep';
+
+export { hasHeaderImage, headerImageSignature };
 
 /** What /api/sanity/generate-blog returns (the fields used here). */
 export interface GeneratedBlog {
@@ -93,6 +110,8 @@ export interface BlogPatchPlan {
   /** Fields that were empty and were filled. */
   filled: BlogField[];
   kept: KeptField[];
+  /** AUTO-202: the header image intention; 'keep' is also recorded in `kept` with its reason. */
+  image: ImagePlan;
 }
 
 /**
@@ -123,9 +142,14 @@ export function sameValue(a: unknown, b: unknown): boolean {
   return JSON.stringify(a ?? null) === JSON.stringify(b ?? null);
 }
 
-/** The content fields (not title, not slug) that are empty. FILL calls the AI only when this is non-empty. */
+/** The content fields (not title, not slug) that are empty. FILL calls the writing AI only when this is non-empty. */
 export function emptyContentFields(doc: BlogDocFields | null | undefined): BlogContentField[] {
   return BLOG_CONTENT_FIELDS.filter((f) => isBlank(doc?.[f]));
+}
+
+/** True when FILL has a picture to make: the post has no header image of either shape (AUTO-202). */
+export function needsHeaderImage(doc: BlogDocFields | null | undefined): boolean {
+  return !hasHeaderImage(doc);
 }
 
 export type TitleSlugPlan = { mode: 'replace' } | { mode: 'keep'; why: 'live' | 'hand-set-slug' };
@@ -155,6 +179,8 @@ export function previewRegenerate(doc: BlogDocFields | null | undefined, isPubli
     out.keep.push({ field: 'title', why: ts.why }, { field: 'slug', why: ts.why });
   }
   for (const f of BLOG_CONTENT_FIELDS) (isBlank(doc?.[f]) ? out.fill : out.replace).push(f);
+  // AUTO-202: the confirmation names the header image among what it replaces.
+  (hasHeaderImage(doc) ? out.replace : out.fill).push('headerImage');
   return out;
 }
 
@@ -168,7 +194,7 @@ export function planFill(
   now: BlogDocFields | null | undefined,
   generated: GeneratedBlog | null,
 ): BlogPatchPlan {
-  const plan: BlogPatchPlan = { set: {}, replaced: [], filled: [], kept: [] };
+  const plan: BlogPatchPlan = { set: {}, replaced: [], filled: [], kept: [], image: 'keep' };
   if (!isBlank(now?.title)) plan.kept.push({ field: 'title', why: 'title-is-input' });
 
   for (const f of BLOG_CONTENT_FIELDS) {
@@ -195,6 +221,14 @@ export function planFill(
   } else {
     plan.kept.push({ field: 'slug', why: isBlank(slugOf(atClick)) ? 'edited-during-generation' : 'not-empty' });
   }
+
+  // AUTO-202: a picture only where there is none. An image Patrick uploaded
+  // (or one made earlier) is never replaced by this button.
+  if (hasHeaderImage(now)) {
+    plan.kept.push({ field: 'headerImage', why: hasHeaderImage(atClick) ? 'not-empty' : 'edited-during-generation' });
+  } else {
+    plan.image = 'fill';
+  }
   return plan;
 }
 
@@ -205,7 +239,7 @@ export function planRegenerate(
   generated: GeneratedBlog,
   published: { atClick: boolean; now: boolean },
 ): BlogPatchPlan {
-  const plan: BlogPatchPlan = { set: {}, replaced: [], filled: [], kept: [] };
+  const plan: BlogPatchPlan = { set: {}, replaced: [], filled: [], kept: [], image: 'keep' };
 
   for (const f of BLOG_CONTENT_FIELDS) {
     if (!sameValue(atClick?.[f], now?.[f])) {
@@ -218,6 +252,14 @@ export function planRegenerate(
     }
     plan.set[f] = typeof generated[f] === 'string' ? (generated[f] as string).trim() : generated[f];
     (isBlank(now?.[f]) ? plan.filled : plan.replaced).push(f);
+  }
+
+  // AUTO-202: the header image is replaced (or filled) unless it changed
+  // during the wait, in which case Patrick's is kept.
+  if (headerImageSignature(atClick) !== headerImageSignature(now)) {
+    plan.kept.push({ field: 'headerImage', why: 'edited-during-generation' });
+  } else {
+    plan.image = hasHeaderImage(now) ? 'replace' : 'fill';
   }
 
   // Title and slug: together or not at all.

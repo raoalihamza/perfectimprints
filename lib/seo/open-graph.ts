@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { geigerImageVariant } from '@/lib/blog/header-image';
 
 /**
  * Shared Open Graph + Twitter card builder (M-SEO3 Part 3).
@@ -109,7 +110,9 @@ function largeSanityImage(url: string): string {
 export function largeSocialImage(url: string | null | undefined): string | null {
   if (!url) return null;
   if (/imgsirv\.geiger\.com/i.test(url)) {
-    return url.replace(/\b(thumbnail|w|h)=\d+/gi, `$1=${SOCIAL_IMAGE_PX}`);
+    // The one Geiger size rewrite, shared with the blog header hot link
+    // (lib/blog/header-image.ts, AUTO-202); same regex as before.
+    return geigerImageVariant(url, SOCIAL_IMAGE_PX);
   }
   return largeSanityImage(url);
 }

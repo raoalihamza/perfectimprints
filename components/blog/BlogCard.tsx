@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { buildRenderImageUrl } from '@/lib/sanity/client';
+import { externalHeaderImageUrl } from '@/lib/blog/header-image';
 import type { BlogPostSummary } from '@/lib/sanity/queries/blogs';
 
 interface BlogCardProps {
@@ -21,9 +22,11 @@ function deriveExcerpt(post: BlogPostSummary, max = 150): string {
 
 export function BlogCard({ post, size = 'md' }: BlogCardProps) {
   const href = `/blog/${post.slug.current}`;
-  const imageUrl = buildRenderImageUrl(post.headerImage, (b) =>
-    b.width(800).height(450).fit('crop'),
-  );
+  // The uploaded or generated asset first; else the hot-linked product photo
+  // the blog engine's last fallback writes (AUTO-202); else the placeholder.
+  const imageUrl =
+    buildRenderImageUrl(post.headerImage, (b) => b.width(800).height(450).fit('crop')) ??
+    externalHeaderImageUrl(post, 800);
   const excerpt = deriveExcerpt(post);
 
   return (

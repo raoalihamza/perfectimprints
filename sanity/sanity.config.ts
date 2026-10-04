@@ -6,6 +6,7 @@ import { deskStructure } from './desk-structure';
 import { generateWithAi } from './actions/generate-with-ai';
 import { generateSchemaWithAi } from './actions/generate-schema-with-ai';
 import { generateBlogWithAi, regenerateBlogWithAi } from './actions/generate-blog-with-ai';
+import { generateBlogImageWithAi } from './actions/generate-blog-image-with-ai';
 import { withPublishDateStamp } from './actions/stamp-publish-date';
 import { generateVideoWithAi } from './actions/generate-video-with-ai';
 import { generatePageWithAi } from './actions/generate-page-with-ai';
@@ -65,6 +66,8 @@ export default defineConfig({
           ...prev.map((a) => (a.action === 'publish' ? withPublishDateStamp(a) : a)),
           generateBlogWithAi,
           regenerateBlogWithAi,
+          // AUTO-202: "Generate header image" / "Generate another header image".
+          generateBlogImageWithAi,
         ];
       }
       if (context.schemaType === 'video') return [...prev, generateVideoWithAi];

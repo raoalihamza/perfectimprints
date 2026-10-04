@@ -20,6 +20,12 @@ export interface BlogPostSummary {
   title: string;
   slug: SanitySlug;
   headerImage?: SanityImage;
+  /**
+   * AUTO-202: the hot-linked header (the post's first product photo on
+   * Geiger's image server), written only by the blog engine's last image
+   * fallback. Readers prefer `headerImage` (lib/blog/header-image.ts).
+   */
+  externalHeaderImage?: { url?: string | null; alt?: string | null } | null;
   excerpt?: string;
   publishDate: string;
   author?: BlogAuthor;
@@ -51,6 +57,7 @@ const SUMMARY_PROJECTION = `
   title,
   slug,
   headerImage,
+  externalHeaderImage{ url, alt },
   excerpt,
   publishDate,
   metaDescription,

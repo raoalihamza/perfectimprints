@@ -734,6 +734,37 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
+    <h4>Blog Automation (what a generated blog post gets)</h4>
+    <p>Open <span class="path">Global Settings <span class="arrow">›</span> Blog Automation</span>. Besides the
+      <strong>Blocked topics</strong> list (see <a href="#blog-topics">Blog Topics</a>), four settings decide what every
+      post the blog engine writes for you carries beside its text:</p>
+    <ul>
+      <li><strong>Header image for generated posts.</strong> Where each generated post gets its picture. Left blank it is
+        <strong>AI generated</strong>: a picture made from the post and the real product photos in its product rows, so
+        every post gets its own. The other two choices are <strong>a picture from the header image library</strong>
+        below, and <strong>the post's first product photo</strong> (shown straight from Geiger's image server, as a link
+        rather than an upload). Whatever you choose, if that source has nothing for a post the next one is tried, in
+        the order AI, library, first product photo, and finally no image, which is what posts had before. A post can
+        override this in its own AI generation section.</li>
+      <li><strong>Header image library.</strong> Pictures of your own that a generated post may use: upload one and pick
+        the main category page it suits (caps, pens, and so on), or leave the category blank for a picture any post may
+        use. Only used when the source above is the library, or when the AI picture could not be made. You do not have
+        to upload any; the list can stay empty and nothing depends on it.</li>
+      <li><strong>Author for generated posts.</strong> The author written on every generated post. Left blank it is
+        <strong>Patrick Black</strong>, the author on most of your posts and on every AI post you have published so far
+        that had one.</li>
+      <li><strong>Blog categories for generated posts.</strong> The blog categories every generated post is filed under.
+        Left blank, a generated post has <strong>no category</strong> until you pick one on the post. The engine never
+        guesses a category: we tested a rule that reads the words of the title, and it matched your own choices less
+        than half the time, so it would have filed posts in the wrong places at two a day. If you want every generated
+        post filed somewhere, put <strong>Promotional Product Ideas</strong> here (it is where most of your own posts
+        sit) and change it on any post that deserves a more specific one.</li>
+    </ul>
+    <p class="small">The related category page (the "Related Blogs About …" row on a category page) is not a setting:
+      the engine works it out from where the topic already ranks in Google. A topic that ranks with one of your category
+      pages gets that page; a topic that ranks with a video or a product page gets none, and you can pick one on the
+      post yourself.</p>
+
     <h2 id="mega">4. Mega Menu (the top navigation)</h2>
     <p>This singleton is your main website menu, the bar across the top (Shop by, All Categories, New Products, Rush
       Products, Deals, Brands, Services, Videos, Blog). Open <span class="path">Content <span class="arrow">›</span>
@@ -1357,7 +1388,13 @@
     <ul>
       <li><strong>Title</strong> and <strong>Slug</strong> (its address under <code>/blog/</code>).</li>
       <li><strong>Header Image</strong> (with alt text) and <strong>Excerpt</strong>, the short summary used on the blog
-        listing cards.</li>
+        listing cards. You can upload the header image yourself, or let the AI make one: <strong>Generate Blog with
+        AI</strong> makes a picture when the field is empty, and the <strong>Generate header image</strong> button
+        (among the document actions, near Publish) makes a new one at any time, replacing the current one after asking.
+        A picture you upload yourself is never replaced by Generate Blog with AI. Each AI picture costs about seven
+        cents and there is a limit of 20 a day. When a generated post's picture is its first product photo instead, a
+        <strong>Header image link</strong> field appears under this one holding the photo's address; upload a Header
+        Image and it takes over.</li>
       <li><strong>Body</strong>, the article itself (rich text). Besides text you can insert images, a row of product
         cards, and a <strong>Video Embed</strong> block.</li>
       <li><strong>Author</strong>, <strong>Publish Date</strong>, and an optional <strong>Updated Date</strong> (both
@@ -1450,24 +1487,46 @@
         <strong>placed into the text automatically</strong> (up to about six, on words that name what they link to,
         opening in the same tab; they show as normal links - edit or remove any you do not
         want, and the <strong>Suggested Internal Links</strong> list records everything it found and says which were
-        placed); <strong>add a header image</strong> (the AI does not pick images or videos - you drop those in
-        wherever you want); and set the <strong>Author</strong>. (The optional <strong>CTA Heading</strong> field is
-        never filled by the AI - set it yourself only if the automatic "Order Custom [category] Today" wording reads
-        wrong for this post.)</li>
+        placed); <strong>look at the header image</strong> (the button makes one from the title and the product
+        photos in the post when the field is empty; keep it, press <strong>Generate header image</strong> for another,
+        or upload your own; videos you still drop in yourself); and set the <strong>Author</strong>. (The optional
+        <strong>CTA Heading</strong> field is never filled by the AI - set it yourself only if the automatic "Order
+        Custom [category] Today" wording reads wrong for this post.)</li>
       <li>When it reads right, <strong>Publish</strong>.</li>
     </ol>
-    <h4>The two AI buttons on a blog post</h4>
+    <h4>The three AI buttons on a blog post</h4>
     <ul>
-      <li><strong>Generate Blog with AI</strong> fills in the empty fields and leaves everything else alone. Press it
-        as often as you like; if every field already has something in it, it says so and does nothing.</li>
+      <li><strong>Generate Blog with AI</strong> fills in the empty fields and leaves everything else alone, the header
+        image included: with no header image on the post it makes one (a second step after the text, 15 to 30
+        seconds), and with one already there, uploaded or generated, it leaves it exactly as it is. Press it as often
+        as you like; if every field already has something in it, it says so and does nothing. If only the picture is
+        missing it makes just the picture.</li>
       <li><strong>Regenerate Blog with AI</strong> is for when you do not like what the AI wrote and want a fresh
-        version. It <strong>replaces</strong> what is there, so it asks first and lists every field it will replace.
-        Press <strong>Keep my post as it is</strong> to back out; nothing changes. On a post that is already
-        published it never changes the title or the web address (changing the address would break the live link);
-        on a new draft it changes the title and the web address together, so they always match.</li>
-      <li>With either button, anything you change on the post while the AI is writing is kept. The fields are
-        compared one at a time, so if you edit the body during the wait, the whole body is kept as you left it.</li>
+        version. It <strong>replaces</strong> what is there, so it asks first and lists every field it will replace,
+        the header image among them. Press <strong>Keep my post as it is</strong> to back out; nothing changes. On a
+        post that is already published it never changes the title or the web address (changing the address would
+        break the live link); on a new draft it changes the title and the web address together, so they always
+        match.</li>
+      <li><strong>Generate header image</strong> (it reads <strong>Generate another header image</strong> when the post
+        already has one) makes a new picture and nothing else. With a picture already on the post it asks first,
+        because the current one comes off the post (it stays in the media library). Each press costs about seven cents
+        and counts against the day's limit of 20; when the limit is reached the button says so, with the time it
+        resets, and you can still upload your own.</li>
+      <li>With any of the three, anything you change on the post while the AI is working is kept. The fields are
+        compared one at a time, so if you edit the body during the wait, the whole body is kept as you left it, and
+        if you upload a header image during the wait, yours stays.</li>
     </ul>
+    <div class="callout info">
+      <span class="label">What the AI picture is, and what to look for</span>
+      <p>The picture is made from the post's own product rows: the real photos of the products in them are sent to the
+        image model as references, and it is told to show items like them, blank and unbranded, in a business setting
+        (an office desk, a trade show table, an event tent), with <strong>no text anywhere and no logos on anything</strong>,
+        background objects included. Every picture is then read back by a second model that looks for text and logos,
+        and one that shows either is thrown away and remade once before the next source is tried. Still look at it
+        before you publish: check that the products shown are the kind the post sells and that nothing in it reads as
+        a brand. Do not like it? Press <strong>Generate another header image</strong>, or upload your own. The alt text
+        is filled in and says the picture is illustrative; edit it if you like.</p>
+    </div>
     <p class="small">About the product rows: each section's row is matched to <em>that section's</em> topic (a
       power-bank idea shows power banks, a tote-bag idea shows tote bags), and no product repeats anywhere in the post.
       If nothing sufficiently relevant is found for a section, that section simply has no product row - that is
@@ -3194,9 +3253,21 @@
       The <strong>Suggested Internal Links</strong> list on the draft still records everything the AI found, placed
       or not, so you can add more by hand (select the words, press the link button) exactly as before. Edit or
       remove any link you do not want; it is ordinary text.</p>
+    <p><strong>A draft now arrives finished, not half made.</strong> Besides the text, the product rows, the meta and
+      the links, every draft written from this tab carries its own <strong>header image</strong> (made from the post
+      and the real product photos in its rows, unless you changed the source in <a href="#global">Global Settings ›
+      Blog Automation</a>), the <strong>Author</strong> (Patrick Black unless you set another there), the
+      <strong>Related Category Slug</strong> when the topic already ranks with one of your category pages (so the post
+      shows in that page's "Related Blogs About …" row), and the <strong>Categories</strong> you chose as the default
+      there, or none if you chose none. The green box under the buttons says what each draft got: the picture and
+      where it came from, and which of the other three were filled. If the picture could not be made (the day's limit
+      of 20 reached, or the image model down), the draft is still saved and the box says so; open it and press
+      <strong>Generate header image</strong>, or upload one. Nothing about the image is ever a reason for a draft not
+      to be saved.</p>
     <p class="small">Drafts made before this change already have a publish date filled in from the day they were
       written. Before publishing one of those, clear its <strong>Publish Date</strong> so it goes live with that
-      day's date.</p>
+      day's date. Those older drafts also have no header image, author or categories; press <strong>Generate Blog
+      with AI</strong> on one to get its picture, and set the other two by hand.</p>
     <p>You can generate a draft for an excluded topic too; the tab asks first and names the post it overlaps with,
       so you can decide.</p>
 

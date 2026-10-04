@@ -41,6 +41,26 @@ export default defineType({
       type: 'image',
       options: { hotspot: true },
       fields: [{ name: 'alt', type: 'string', title: 'Alt text' }],
+      description:
+        'Upload your own, or let the AI make one (Generate Blog with AI fills this when it is empty; Generate header image makes another). An image you upload is never replaced by Generate Blog with AI.',
+    }),
+    // AUTO-202: the LAST fallback of the header image chain, the post's first
+    // product photo shown from Geiger's image server. A link, not an upload:
+    // Section 18 forbids copying Geiger images onto this site, Section 8 says
+    // hot-linking them is permitted. Readers prefer `headerImage` when it has
+    // an asset. Hidden while empty: nothing but the engine writes it.
+    defineField({
+      name: 'externalHeaderImage',
+      title: 'Header image link (first product photo)',
+      type: 'object',
+      options: { collapsible: true, collapsed: false },
+      hidden: ({ value }) => !(value as { url?: string } | undefined)?.url,
+      description:
+        "Filled in automatically when the header image is the post's first product photo, shown from Geiger's image server. Upload a Header Image above and it takes over; clear the address here to drop the link.",
+      fields: [
+        { name: 'url', title: 'Image address', type: 'url', validation: (Rule) => Rule.uri({ scheme: ['https'] }) },
+        { name: 'alt', title: 'Alt text', type: 'string' },
+      ],
     }),
     defineField({
       name: 'excerpt',
@@ -288,6 +308,26 @@ export default defineType({
       validation: (Rule) => Rule.min(1300).max(1900),
       description:
         'Roughly how long the post should be (default 1500, roughly 1300 to 1900). The AI targets this but will not hit it exactly; expect within about 15 percent.',
+    }),
+    // AUTO-202: the per-post override of Global Settings > Blog Automation >
+    // "Header image for generated posts". Values mirror HEADER_IMAGE_SOURCES
+    // in lib/blog-automation/header-image.ts. No initialValue: blank means
+    // "use the site default", so Patrick never has to set it.
+    defineField({
+      name: 'headerImageSource',
+      title: 'Header image source (this post)',
+      type: 'string',
+      fieldset: 'ai',
+      options: {
+        list: [
+          { title: 'AI generated from the post and its product photos', value: 'ai' },
+          { title: 'A picture from the header image library', value: 'library' },
+          { title: "The post's first product photo, shown from Geiger's image server", value: 'product' },
+        ],
+        layout: 'radio',
+      },
+      description:
+        'Where the AI buttons get this post\'s header image. Left blank, the site setting in Global Settings > Blog Automation applies (AI generated unless you changed it). When the chosen source has nothing for this post the next one is tried, then the next, then no image. An image you upload yourself is never replaced by Generate Blog with AI, whatever this says.',
     }),
     defineField({
       name: 'aiSuggestedLinks',

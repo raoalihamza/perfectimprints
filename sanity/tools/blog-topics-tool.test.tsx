@@ -182,7 +182,8 @@ describe('Blog Topics tab: Generate draft (AUTO-117, server-side since AUTO-201)
     expect(m.generateBodies).toHaveLength(1);
     expect(m.generateBodies[0]).toMatchObject({
       action: 'generate',
-      topic: { key: 'sunglass', query: SUNGLASSES, variants: [SUNGLASSES, 'sunglasses custom'] },
+      // AUTO-202: the ranking page travels too, for the related category slug.
+      topic: { key: 'sunglass', query: SUNGLASSES, variants: [SUNGLASSES, 'sunglasses custom'], page: '/cat/sunglasses' },
       template: 'list',
       wordCount: 1500,
       allowDuplicate: false,

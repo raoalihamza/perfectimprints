@@ -99,6 +99,7 @@ import {
   TopicAlreadyWrittenError,
 } from '@/lib/blog-automation/create-blog-draft';
 import type { SourceTopicInput } from '@/lib/blog-automation/draft-document';
+import { headerImageSummary } from '@/lib/blog-automation/header-image';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -134,13 +135,21 @@ export const maxDuration = 240;
 
 interface RequestBody {
   action?: string;
-  topic?: { key?: unknown; query?: unknown; variants?: unknown; spacingGroups?: unknown };
+  topic?: { key?: unknown; query?: unknown; variants?: unknown; spacingGroups?: unknown; page?: unknown };
   template?: unknown;
   wordCount?: unknown;
   allowDuplicate?: unknown;
 }
 
 const MAX_QUERY_CHARS = 200;
+/** A ranking page is a URL or a path (AUTO-202); longer than this is not one. */
+const MAX_PAGE_CHARS = 500;
+
+/** The ranking page as the tab displayed it: a string of sane length, else null (the field resolver reads the root out of it, or nothing). */
+function readPage(raw: unknown): string | null {
+  const page = typeof raw === 'string' ? raw.trim() : '';
+  return page && page.length <= MAX_PAGE_CHARS ? page : null;
+}
 
 /**
  * The topic as the tab displayed it, checked field by field: the search is
@@ -158,13 +167,17 @@ function readTopic(raw: RequestBody['topic']): SourceTopicInput | null {
   const variants = strings(raw?.variants).slice(0, SOURCE_TOPIC_MAX_VARIANTS);
   const spacingGroups = Array.isArray(raw?.spacingGroups)
     ? raw.spacingGroups
-        .filter((g): g is { query: string; key?: unknown } => !!g && typeof g === 'object' && typeof (g as { query?: unknown }).query === 'string')
-        .map((g) => ({ query: g.query.trim(), key: typeof g.key === 'string' && g.key.trim() ? g.key.trim() : queryTopicKey(g.query) }))
+        .filter((g): g is { query: string; key?: unknown; page?: unknown } => !!g && typeof g === 'object' && typeof (g as { query?: unknown }).query === 'string')
+        .map((g) => ({
+          query: g.query.trim(),
+          key: typeof g.key === 'string' && g.key.trim() ? g.key.trim() : queryTopicKey(g.query),
+          page: readPage(g.page),
+        }))
         .filter((g) => g.query.length > 0 && g.query.length <= MAX_QUERY_CHARS)
         .slice(0, SOURCE_TOPIC_MAX_VARIANTS)
     : [];
   const key = typeof raw?.key === 'string' && raw.key.trim() ? raw.key.trim() : queryTopicKey(query);
-  return { key, query, variants: variants.length > 0 ? variants : [query], spacingGroups };
+  return { key, query, variants: variants.length > 0 ? variants : [query], spacingGroups, page: readPage(raw?.page) };
 }
 
 export async function POST(request: Request) {
@@ -225,6 +238,18 @@ export async function POST(request: Request) {
         placedLinks: created.placedLinks,
         suggestedLinks: created.suggestedLinks,
         words: created.words,
+        // AUTO-202: what was filled beside the body, so the tab can say so.
+        headerImage: {
+          kind: created.headerImage.kind,
+          source: created.headerImage.kind === 'none' ? null : created.headerImage.source,
+          summary: headerImageSummary(created.headerImage),
+        },
+        fields: {
+          author: Boolean(created.fields.authorId),
+          categories: created.fields.categoryIds.length,
+          relatedCategorySlugs: created.fields.relatedCategorySlugs,
+          notes: created.fields.notes,
+        },
       });
     } catch (err) {
       if (err instanceof TopicAlreadyWrittenError) {

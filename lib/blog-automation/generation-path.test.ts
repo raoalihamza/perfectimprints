@@ -160,6 +160,93 @@ describe('deadlines', () => {
   });
 });
 
+describe('the fields beside the body (AUTO-202)', () => {
+  const creator = read(CREATOR);
+  const FIELDS = 'lib/blog-automation/resolve-draft-fields.ts';
+  const IMAGE_CHAIN = 'lib/blog-automation/resolve-header-image.ts';
+  const IMAGE_ROUTE = 'app/api/sanity/generate-blog-image/route.ts';
+
+  it('the creator resolves the four fields after the AI, and the second drafts read is the LAST step before the one create', () => {
+    const createAt = creator.indexOf('await client.create(document);');
+    const aiAt = creator.indexOf('await generateBlogPost(');
+    const fieldsAt = creator.indexOf('await resolveDraftFields(');
+    const secondRead = creator.lastIndexOf('await readWrittenTopicSources()');
+    expect(fieldsAt).toBeGreaterThan(aiAt);
+    expect(secondRead).toBeGreaterThan(fieldsAt);
+    expect(secondRead).toBeLessThan(createAt);
+    expect(creator).toContain('fields,');
+    // A picture uploaded for a draft the duplicate check refuses is removed again.
+    expect(creator).toContain('await discardGeneratedPicture(client, fields.headerImage);');
+    // Still ONE create.
+    expect(creator.split('.create(').length).toBe(2);
+  });
+
+  it('the field resolver and the image chain are each called from exactly the stated places', () => {
+    const fieldCallers = allSources.filter((f) => f !== FIELDS && /\bresolveDraftFields\(/.test(read(f)));
+    expect(fieldCallers).toEqual([CREATOR]);
+    const chainCallers = allSources.filter((f) => f !== IMAGE_CHAIN && /\bresolveHeaderImage\(/.test(read(f)));
+    expect(chainCallers.sort()).toEqual([IMAGE_ROUTE, FIELDS].sort());
+  });
+
+  it('the image chain never throws: every effect is caught, and every effect after the reservation runs under the deadline', () => {
+    const chain = read(IMAGE_CHAIN);
+    for (const effect of ['deps.reserve(', 'deps.fetchReference(', 'deps.generate({', 'deps.check({', 'deps.upload(']) {
+      const at = chain.indexOf(effect);
+      expect(at, effect).toBeGreaterThan(-1);
+      expect(chain.lastIndexOf('try {', at), `${effect} inside a try`).toBeGreaterThan(chain.lastIndexOf('} catch', at));
+    }
+    for (const effect of ['deps.fetchReference(', 'deps.generate({', 'deps.check({', 'deps.upload(']) {
+      expect(chain, `${effect} under withDeadline`).toMatch(new RegExp(`withDeadline\\(\\s*${effect.replace(/[.(]/g, '\\$&')}`));
+    }
+    // The only throws are the two inside the no-client deps' own stubs, which the chain catches.
+    const body = chain.slice(chain.indexOf('export async function resolveHeaderImage('));
+    expect(body).not.toContain('throw new');
+    // The key is checked before any slot is spent.
+    expect(chain.indexOf('deps.keyConfigured()')).toBeLessThan(chain.indexOf('await deps.reserve('));
+  });
+
+  it('the image budget fits the blog-topics route beside the AI deadline', () => {
+    const chain = read(IMAGE_CHAIN);
+    const numberConst = (src: string, name: string): number => {
+      const m = src.match(new RegExp(`export const ${name} = ([0-9_]+);`));
+      if (!m) throw new Error(`${name} not found`);
+      return Number(m[1].replace(/_/g, ''));
+    };
+    const budget = numberConst(chain, 'HEADER_IMAGE_BUDGET_MS');
+    const timeout = numberConst(chain, 'HEADER_IMAGE_GENERATE_TIMEOUT_MS');
+    const aiDeadline = constant(read(GENERATOR), 'BLOG_AI_TIMEOUT_MS');
+    const topics = Number(read(TOPICS_ROUTE).match(/export const maxDuration = (\d+);/)?.[1]);
+    const image = Number(read(IMAGE_ROUTE).match(/export const maxDuration = (\d+);/)?.[1]);
+    expect(timeout).toBeLessThan(budget);
+    // 150 s AI + 70 s image + a few seconds of reads and the create, inside 240.
+    expect(aiDeadline + budget + 10_000).toBeLessThan(topics * 1000);
+    expect(image * 1000).toBeGreaterThan(budget);
+    expect(image).toBeLessThanOrEqual(300);
+  });
+
+  it('the tab sends the ranking page with the topic, and the route reads it', () => {
+    expect(read(TOOL)).toContain('page: topic.page');
+    const route = read(TOPICS_ROUTE);
+    expect(route).toContain('page: readPage(raw?.page)');
+    expect(route).toContain('headerImageSummary(created.headerImage)');
+  });
+
+  it('the cap is reserved before anything is generated, and both counters are unregistered types', () => {
+    const chain = read(IMAGE_CHAIN);
+    const reserveAt = chain.indexOf('await deps.reserve(');
+    const fetchAt = chain.indexOf('deps.fetchReference(');
+    const generateAt = chain.indexOf('deps.generate({');
+    expect(reserveAt).toBeGreaterThan(-1);
+    expect(generateAt).toBeGreaterThan(-1);
+    // The cap first; the reference photos and the generation only after a slot is held.
+    expect(reserveAt).toBeLessThan(fetchAt);
+    expect(reserveAt).toBeLessThan(generateAt);
+    const index = read('sanity/schemas/index.ts');
+    expect(index).not.toContain('blogImageAiUsage');
+    expect(index).not.toContain('portfolioAiUsage');
+  });
+});
+
 describe('the links', () => {
   it('about six per post, with twice that many candidates, placed under the topic policy in the same tab', () => {
     const gen = read(GENERATOR);

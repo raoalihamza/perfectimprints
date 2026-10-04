@@ -14,15 +14,31 @@
  *   - sourceTopic: AUTO-117's record, read back by the guard on every pool
  *     call, drafts included, so the topic leaves the usable list at once
  *   - NO publishDate: AUTO-116 stamps it when Publish is pressed
- *   - NO categories, author or header image: not generated yet (AUTO-200 4)
+ *   - since AUTO-202, the fields beside the body, each ONLY when it was
+ *     determined (lib/blog-automation/resolve-draft-fields.ts): author (the
+ *     setting or the default author), categories (the setting, never a
+ *     guess), relatedCategorySlugs (the topic's ranking page, FIX-900 clean),
+ *     and the header image as an uploaded asset (`headerImage`) or, for the
+ *     first-product-photo fallback, a hot link (`externalHeaderImage`)
  */
 import { buildSourceTopicRecord, type SourceTopicRecord, type SpacingGroup, type TopicCandidate } from './topic-pool';
 import { slugifyTitle } from '../blog/slugify-title';
+import type { HeaderImageOutcome, SanityImageValue } from './header-image';
 
 /** The part of a topic the record needs: what the panel sends and what a scheduler reads off the snapshot. */
 export type SourceTopicInput = Pick<TopicCandidate, 'key' | 'query' | 'variants'> & {
-  spacingGroups?: readonly Pick<SpacingGroup, 'key' | 'query'>[];
+  /** The representative search's ranking page (AUTO-202: the related category slugs are read from it). */
+  page?: string | null;
+  spacingGroups?: readonly (Pick<SpacingGroup, 'key' | 'query'> & { page?: string | null })[];
 };
+
+/** What the field resolver determined for the draft; everything optional, written only when present. */
+export interface DraftDocumentFields {
+  authorId?: string | null;
+  categoryIds?: readonly string[];
+  relatedCategorySlugs?: readonly string[];
+  headerImage?: HeaderImageOutcome | null;
+}
 
 export type BlogDraftTemplate = 'list' | 'single';
 
@@ -50,6 +66,12 @@ export interface BlogDraftDocument {
   aiTopicKeywords: string[];
   aiWordCount: number;
   sourceTopic: SourceTopicRecord;
+  /** AUTO-202, each present only when determined. */
+  author?: { _type: 'reference'; _ref: string };
+  categories?: { _type: 'reference'; _ref: string; _key: string }[];
+  relatedCategorySlugs?: string[];
+  headerImage?: SanityImageValue;
+  externalHeaderImage?: { url: string; alt: string };
 }
 
 const SMALL_WORDS = new Set(['a', 'an', 'and', 'as', 'at', 'but', 'by', 'for', 'in', 'of', 'on', 'or', 'the', 'to', 'vs', 'with']);
@@ -88,6 +110,8 @@ export interface BuildBlogDraftArgs {
   recordedAt: string;
   /** Array item keys (tests pass a deterministic one). */
   keyFor?: (prefix: string) => string;
+  /** AUTO-202: the fields beside the body, as the resolver determined them. */
+  fields?: DraftDocumentFields | null;
 }
 
 /**
@@ -105,7 +129,7 @@ export function buildBlogDraftDocument(args: BuildBlogDraftArgs): BlogDraftDocum
   if (!title || !slug) {
     throw new Error('The AI did not return a usable title, so no draft was created. Try again.');
   }
-  return {
+  const doc: BlogDraftDocument = {
     _id: `drafts.${args.documentId}`,
     _type: 'blogPost',
     title,
@@ -126,4 +150,17 @@ export function buildBlogDraftDocument(args: BuildBlogDraftArgs): BlogDraftDocum
     aiWordCount: args.wordCount,
     sourceTopic: buildSourceTopicRecord(args.topic, args.recordedAt),
   };
+  // AUTO-202: the fields beside the body, each only when determined, so a
+  // draft with no picture or no author has no key for it rather than a null
+  // (the Studio shows an empty field either way; a GROQ `defined()` sees the
+  // difference).
+  const f = args.fields;
+  if (f?.authorId) doc.author = { _type: 'reference', _ref: f.authorId };
+  const categoryIds = (f?.categoryIds ?? []).filter((id) => typeof id === 'string' && id.trim());
+  if (categoryIds.length > 0) doc.categories = categoryIds.map((id) => ({ _type: 'reference', _ref: id, _key: keyFor('cat') }));
+  const related = (f?.relatedCategorySlugs ?? []).filter((s) => typeof s === 'string' && s.trim());
+  if (related.length > 0) doc.relatedCategorySlugs = [...related];
+  if (f?.headerImage?.kind === 'asset') doc.headerImage = f.headerImage.image;
+  else if (f?.headerImage?.kind === 'url') doc.externalHeaderImage = { url: f.headerImage.url, alt: f.headerImage.alt };
+  return doc;
 }

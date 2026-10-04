@@ -1,5 +1,9 @@
 import { defineField, defineType } from 'sanity';
 import { ProductSkuPicker } from '../../components/ProductPicker';
+import { ExistingCategorySlugInput } from '../../components/CategoryPicker';
+// Pure and dependency-free (the quote.ts / catalog-key.ts precedent): the
+// header image library's root slug is held to FIX-900's root-slug shape.
+import { relatedCategorySlugProblem } from '../../../lib/blog/related-category-slugs';
 
 export default defineType({
   name: 'globalSettings',
@@ -624,6 +628,83 @@ export default defineType({
               },
             },
           ],
+        },
+        // AUTO-202: what a GENERATED blog post gets beside its body. Values of
+        // the source list mirror HEADER_IMAGE_SOURCES in
+        // lib/blog-automation/header-image.ts. No initialValue on any of these
+        // (the FIX-861 lesson, and an initialValue never retro-fills an
+        // existing singleton anyway): blank reads as the documented default.
+        {
+          name: 'headerImageSource',
+          title: 'Header image for generated posts',
+          type: 'string',
+          options: {
+            list: [
+              { title: 'AI generated from the post and its product photos (the default)', value: 'ai' },
+              { title: 'A picture from the header image library below', value: 'library' },
+              { title: "The post's first product photo, shown from Geiger's image server", value: 'product' },
+            ],
+            layout: 'radio',
+          },
+          description:
+            'Where every post the blog engine writes gets its header image. Left blank it is AI generated. When the chosen source has nothing for a post the next one is tried, in this order: AI, the library, the first product photo, then no image. A post can override this in its own AI generation section. An image you upload yourself on a post is never replaced.',
+        },
+        {
+          name: 'headerImageLibrary',
+          title: 'Header image library',
+          type: 'array',
+          description:
+            'Pictures a generated post may use as its header: one per main category page (e.g. caps), or, with the category left blank, a picture any post may use. Used when the source above is the library, or when the AI picture could not be made. Leave it empty if you do not want to upload any; nothing depends on it.',
+          of: [
+            {
+              type: 'object',
+              name: 'headerImageLibraryEntry',
+              fields: [
+                {
+                  name: 'image',
+                  title: 'Picture',
+                  type: 'image',
+                  options: { hotspot: true },
+                  validation: (Rule) => Rule.required(),
+                },
+                {
+                  name: 'rootSlug',
+                  title: 'For main category (optional)',
+                  type: 'string',
+                  components: { input: ExistingCategorySlugInput },
+                  description:
+                    'Search and pick the main category page this picture suits; it is stored as the slug after /cat/, e.g. caps. Leave blank for a picture any post may use.',
+                  validation: (Rule) => Rule.custom((value?: string) => relatedCategorySlugProblem(value) ?? true),
+                },
+                {
+                  name: 'alt',
+                  title: 'Alt text',
+                  type: 'string',
+                  description: 'What the picture shows, for screen readers and search engines.',
+                },
+              ],
+              preview: {
+                select: { title: 'rootSlug', subtitle: 'alt', media: 'image' },
+                prepare: ({ title, subtitle, media }) => ({ title: title || 'Any post', subtitle, media }),
+              },
+            },
+          ],
+        },
+        {
+          name: 'defaultAuthor',
+          title: 'Author for generated posts',
+          type: 'reference',
+          to: [{ type: 'author' }],
+          description:
+            'The author written on every post the blog engine generates. Left blank it is Patrick Black, the author on most of your posts and on every AI post you have published with one.',
+        },
+        {
+          name: 'defaultCategories',
+          title: 'Blog categories for generated posts',
+          type: 'array',
+          of: [{ type: 'reference', to: [{ type: 'blogCategory' }] }],
+          description:
+            'The blog categories every generated post is filed under. Left blank, a generated post has NO category until you pick one on the post: the engine never guesses a category, because a word rule reproduced your own choices less than half the time. If you want every generated post filed somewhere, put Promotional Product Ideas here.',
         },
       ],
     }),

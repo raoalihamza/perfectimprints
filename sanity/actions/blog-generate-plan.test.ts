@@ -25,6 +25,8 @@ const block = (text: string, key = 'b1') => ({
   children: [{ _type: 'span', _key: `${key}s`, text, marks: [] }],
 });
 const imageBlock = { _type: 'image', _key: 'img1', asset: { _ref: 'image-abc-800x600-jpg' } };
+/** A header image Patrick uploaded (AUTO-202). */
+const uploaded = { asset: { _ref: 'image-mine-1600x900-jpg' } };
 const openedButUntyped = [block('')];
 
 const generated = {
@@ -154,18 +156,67 @@ describe('REGENERATE ("Regenerate Blog with AI")', () => {
     expect('title' in titleEdited.set || 'slug' in titleEdited.set).toBe(false);
   });
 
-  it('the confirmation names every field it will replace, and what it keeps', () => {
+  it('the confirmation names every field it will replace, the header image among them, and what it keeps', () => {
     expect(previewRegenerate(draft, false)).toEqual({
       replace: ['title', 'slug', 'metaTitle', 'metaDescription', 'excerpt', 'body'],
-      fill: [],
+      fill: ['headerImage'],
       keep: [],
     });
+    expect(previewRegenerate({ ...draft, headerImage: uploaded }, false).replace).toContain('headerImage');
     expect(previewRegenerate(draft, true).keep.map((k) => k.field)).toEqual(['title', 'slug']);
     expect(previewRegenerate(emptyDoc, false)).toEqual({
       replace: ['title'],
-      fill: ['slug', 'metaTitle', 'metaDescription', 'excerpt', 'body'],
+      fill: ['slug', 'metaTitle', 'metaDescription', 'excerpt', 'body', 'headerImage'],
       keep: [],
     });
+  });
+});
+
+describe('the header image (AUTO-202)', () => {
+  const hotLink = { externalHeaderImage: { url: 'https://imgsirv.geiger.com/master/101003/web/101003_1.jpg?w=275' } };
+  const draft: BlogDocFields = { title: 'Water bottles', slug: { current: 'water-bottles' }, ...mine };
+
+  it('FILL never replaces an image Patrick uploaded, nor a generated one, nor the product-photo link', () => {
+    for (const image of [{ headerImage: uploaded }, hotLink]) {
+      const doc: BlogDocFields = { ...emptyDoc, ...image };
+      const plan = planFill(doc, doc, generated);
+      expect(plan.image).toBe('keep');
+      expect(plan.kept).toContainEqual({ field: 'headerImage', why: 'not-empty' });
+      expect('headerImage' in plan.set).toBe(false);
+      expect('externalHeaderImage' in plan.set).toBe(false);
+    }
+  });
+
+  it('FILL makes a picture only when the post has no header image of either shape', () => {
+    const plan = planFill(emptyDoc, emptyDoc, generated);
+    expect(plan.image).toBe('fill');
+    expect(plan.kept.find((k) => k.field === 'headerImage')).toBeUndefined();
+    // Also when the writing AI was not called (every text field already written).
+    expect(planFill({ ...emptyDoc, ...mine }, { ...emptyDoc, ...mine }, null).image).toBe('fill');
+  });
+
+  it('an image uploaded during the wait is kept by FILL', () => {
+    const plan = planFill(emptyDoc, { ...emptyDoc, headerImage: uploaded }, generated);
+    expect(plan.image).toBe('keep');
+    expect(plan.kept).toContainEqual({ field: 'headerImage', why: 'edited-during-generation' });
+  });
+
+  it('REGENERATE replaces an existing image, fills a missing one, and keeps one that changed during the wait', () => {
+    const withImage = { ...draft, headerImage: uploaded };
+    expect(planRegenerate(withImage, withImage, generated, { atClick: false, now: false }).image).toBe('replace');
+    expect(planRegenerate(draft, draft, generated, { atClick: false, now: false }).image).toBe('fill');
+    const swapped = planRegenerate(withImage, { ...draft, headerImage: { asset: { _ref: 'image-newer' } } }, generated, { atClick: false, now: false });
+    expect(swapped.image).toBe('keep');
+    expect(swapped.kept).toContainEqual({ field: 'headerImage', why: 'edited-during-generation' });
+    // A hot link swapped for an upload during the wait counts as a change too.
+    expect(planRegenerate({ ...draft, ...hotLink }, withImage, generated, { atClick: false, now: false }).image).toBe('keep');
+  });
+
+  it('neither plan ever puts the image into the patch itself: it comes from the second request', () => {
+    for (const plan of [planFill(emptyDoc, emptyDoc, generated), planRegenerate(draft, draft, generated, { atClick: false, now: false })]) {
+      expect('headerImage' in plan.set).toBe(false);
+      expect('externalHeaderImage' in plan.set).toBe(false);
+    }
   });
 });
 

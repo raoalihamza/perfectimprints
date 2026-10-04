@@ -267,6 +267,14 @@ interface PlacedLinkInfo {
   kind: string;
 }
 
+/** AUTO-202: the fields the server filled beside the body. */
+interface DraftFieldsInfo {
+  author: boolean;
+  categories: number;
+  relatedCategorySlugs: string[];
+  notes: string[];
+}
+
 /** The `generate` action's answer: the draft the server wrote, or why it did not. */
 interface GenerateDraftResponse {
   ok?: boolean;
@@ -276,8 +284,25 @@ interface GenerateDraftResponse {
   variants: string[];
   placedLinks: PlacedLinkInfo[];
   words?: number;
+  /** AUTO-202: one sentence on the header image. */
+  headerImage?: { kind: string; source: string | null; summary: string };
+  fields?: DraftFieldsInfo;
   error?: string;
   hint?: string;
+}
+
+/** One line for the created-drafts box: what the draft carries beside its body (AUTO-202). */
+function draftFieldsSentence(fields: DraftFieldsInfo | undefined): string {
+  if (!fields) return '';
+  const parts: string[] = [];
+  parts.push(fields.author ? 'author set' : 'no author');
+  parts.push(fields.categories > 0 ? `${fields.categories} blog categor${fields.categories === 1 ? 'y' : 'ies'}` : 'no blog category (set one on the draft, or a default in Global Settings)');
+  parts.push(
+    fields.relatedCategorySlugs.length > 0
+      ? `related category page${fields.relatedCategorySlugs.length === 1 ? '' : 's'}: ${fields.relatedCategorySlugs.join(', ')}`
+      : 'no related category page (the topic does not rank with one)',
+  );
+  return `Also filled in: ${parts.join('; ')}.`;
 }
 
 function newKey(prefix: string): string {
@@ -320,7 +345,9 @@ function BlogTopicsComponent() {
   // AUTO-117: drafts this tab has created or found since the list loaded, so a
   // row leaves the usable list at once without waiting for the next pool call.
   const [localWritten, setLocalWritten] = useState<WrittenTopicSource[]>([]);
-  const [createdDrafts, setCreatedDrafts] = useState<{ id: string; title: string; query: string; placedLinks: PlacedLinkInfo[] }[]>([]);
+  const [createdDrafts, setCreatedDrafts] = useState<
+    { id: string; title: string; query: string; placedLinks: PlacedLinkInfo[]; headerImage?: string; fields?: DraftFieldsInfo }[]
+  >([]);
   const mounted = useRef(true);
   useEffect(() => {
     mounted.current = true;
@@ -739,7 +766,9 @@ function BlogTopicsComponent() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             action: 'generate',
-            topic: { key: topic.key, query: topic.query, variants: topic.variants, spacingGroups: topic.spacingGroups },
+            // AUTO-202: the ranking page travels too; the server reads the
+            // related category slug out of it (a /cat/ page gives its root).
+            topic: { key: topic.key, query: topic.query, variants: topic.variants, spacingGroups: topic.spacingGroups, page: topic.page },
             template,
             wordCount: DEFAULT_WORD_COUNT,
             allowDuplicate,
@@ -757,7 +786,10 @@ function BlogTopicsComponent() {
         if (mounted.current) {
           setGenerated((g) => ({ ...g, [topic.key]: { id: documentId, title: aiTitle } }));
           setLocalWritten((w) => [...w, { documentId, title: aiTitle, status: 'draft', via: 'recorded', queries: variants }]);
-          setCreatedDrafts((d) => [...d, { id: documentId, title: aiTitle, query: topic.query, placedLinks }]);
+          setCreatedDrafts((d) => [
+            ...d,
+            { id: documentId, title: aiTitle, query: topic.query, placedLinks, headerImage: data.headerImage?.summary, fields: data.fields },
+          ]);
         }
       } catch (e) {
         if (mounted.current) {
@@ -900,6 +932,13 @@ function BlogTopicsComponent() {
                       .map((l) => `"${l.anchor}" to ${l.href}`)
                       .join('; ')}.`}
               </div>
+              {/* AUTO-202: the header image and the fields beside the body, so he knows what is left before he opens it. */}
+              {(d.headerImage || d.fields) && (
+                <div style={{ fontSize: 12, color: MUTED, paddingLeft: 4 }}>
+                  {d.headerImage ? `${d.headerImage} ` : ''}
+                  {draftFieldsSentence(d.fields)}
+                </div>
+              )}
             </div>
           ))}
         </div>

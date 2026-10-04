@@ -262,7 +262,9 @@ describe('PORT-170 structural guards', () => {
     for (const rel of ['lib/portfolio/ai-details.ts', 'lib/portfolio/ai-usage.ts']) {
       const src = code(rel);
       const imports = [...src.matchAll(/^import [^;]*from '([^']+)';/gm)].map((m) => m[1]);
-      for (const spec of imports) expect(spec, `${rel} imports ${spec}`).toMatch(/^\.\/(colors|decoration-methods|industries)$/);
+      // AUTO-202 moved the counter mechanism itself to lib/ai/daily-usage-cap.ts
+      // (pure, no imports); ai-usage.ts keeps its number and wording and imports that.
+      for (const spec of imports) expect(spec, `${rel} imports ${spec}`).toMatch(/^\.\/(colors|decoration-methods|industries)$|^\.\.\/ai\/daily-usage-cap$/);
       expect(src, rel).not.toMatch(/server-only|node:|@sanity|next\/|from 'react'/);
     }
   });

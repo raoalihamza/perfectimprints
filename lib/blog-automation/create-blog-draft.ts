@@ -38,7 +38,9 @@
  * tsx; the only I/O is the generator's (DeepSeek, disk, Sanity reads) and
  * the one create.
  */
+import type { SanityClient } from '@sanity/client';
 import { serverSanityClient } from '../sanity/studio-nonce-auth';
+import { slugifyTitle } from '../blog/slugify-title';
 import { generateBlogPost, type GeneratedBlogPost } from './generate-blog-post';
 import { findWrittenTopic, writtenSentence, type WrittenTopicMatch } from './topic-pool';
 import { readWrittenTopicSources } from './written-topics';
@@ -50,6 +52,8 @@ import {
   type BlogDraftTemplate,
   type SourceTopicInput,
 } from './draft-document';
+import { defaultDraftFieldsDeps, resolveDraftFields, type DraftFieldsDeps, type ResolvedDraftFields } from './resolve-draft-fields';
+import type { HeaderImageOutcome } from './header-image';
 
 export const DEFAULT_DRAFT_WORD_COUNT = 1500;
 
@@ -89,9 +93,14 @@ export class DraftClientError extends Error {
   }
 }
 
-/** The one thing the function needs from a Sanity client: a create. `serverSanityClient()` satisfies it. */
+/**
+ * What the function needs from a Sanity client: a create, and (optionally) a
+ * delete, used only to remove a picture already uploaded for a draft that a
+ * duplicate check then refused. `serverSanityClient()` satisfies both.
+ */
 export interface DraftWriter {
   create(doc: BlogDraftDocument): Promise<unknown>;
+  delete?(id: string): Promise<unknown>;
 }
 
 export interface CreateBlogDraftOptions {
@@ -105,6 +114,8 @@ export interface CreateBlogDraftOptions {
   client?: DraftWriter | null;
   /** The clock (tests pass a fixed one). */
   now?: () => Date;
+  /** AUTO-202: the reads and effects behind the four fields (tests pass fakes); default the real ones over the write client. */
+  fieldsDeps?: DraftFieldsDeps;
 }
 
 export interface CreatedBlogDraft {
@@ -120,6 +131,25 @@ export interface CreatedBlogDraft {
   words: number;
   /** The document exactly as written. */
   document: BlogDraftDocument;
+  /** AUTO-202: what was filled beside the body, and what could not be and why. */
+  fields: Pick<ResolvedDraftFields, 'authorId' | 'categoryIds' | 'relatedCategorySlugs' | 'notes'>;
+  headerImage: HeaderImageOutcome;
+}
+
+/** Remove a picture the chain uploaded for a draft that is not going to be created. Never throws. */
+async function discardGeneratedPicture(client: DraftWriter, outcome: HeaderImageOutcome): Promise<void> {
+  if (outcome.kind !== 'asset' || outcome.source !== 'ai' || typeof client.delete !== 'function') return;
+  try {
+    await client.delete(outcome.image.asset._ref);
+  } catch (err) {
+    console.error(`[create-blog-draft] could not remove the unused picture ${outcome.image.asset._ref}: ${err instanceof Error ? err.message : String(err)}`);
+  }
+}
+
+/** True when the writer is a full Sanity client (fetch + assets), not a test fake with only the create. */
+function isFullClient(client: DraftWriter): client is DraftWriter & SanityClient {
+  const c = client as Partial<SanityClient>;
+  return typeof c.fetch === 'function' && typeof c.assets?.upload === 'function';
 }
 
 /**
@@ -148,10 +178,45 @@ export async function createBlogDraftFromTopic(opts: CreateBlogDraftOptions): Pr
     wordCount,
   });
 
-  // 3) A draft made during the wait stops this one before anything is written.
+  // 3) The fields beside the body (AUTO-202): author, categories, related
+  //    category slugs and the header image. The resolver never throws; a
+  //    field it cannot determine is left empty and named in `notes`, so a
+  //    failed picture or a missing author never stops the draft. The image
+  //    is generated here, before the one write below, so the draft is
+  //    complete the moment it exists.
+  let fields: ResolvedDraftFields;
+  try {
+    const fieldsDeps = opts.fieldsDeps ?? (await defaultDraftFieldsDeps(isFullClient(client) ? client : null));
+    fields = await resolveDraftFields(
+      {
+        topic: opts.topic,
+        title: generated.title,
+        slug: slugifyTitle(generated.title.trim()) || 'blog-header',
+        body: generated.body,
+      },
+      fieldsDeps,
+    );
+  } catch (err) {
+    // The resolver never throws by contract; this is the belt, so that even a
+    // failure to load its dependencies leaves the post with empty fields
+    // rather than no draft.
+    const why = `the fields beside the body could not be resolved: ${err instanceof Error ? err.message : String(err)}`;
+    console.error(`[create-blog-draft] ${why}`);
+    fields = { authorId: null, categoryIds: [], relatedCategorySlugs: [], headerImage: { kind: 'none', notes: [why] }, notes: [why] };
+  }
+
+  // 3b) A draft made during the wait stops this one before anything is
+  //     written. JUST before the create, after the image (the review of
+  //     AUTO-202's first cut: with the check before the image, the window in
+  //     which two runs could both create was the whole image chain). A
+  //     picture already uploaded for a draft that will not exist is removed
+  //     again, best effort.
   if (!opts.allowDuplicate) {
     const after = findWrittenTopic(opts.topic, await readWrittenTopicSources());
-    if (after) throw new TopicAlreadyWrittenError(after, true);
+    if (after) {
+      await discardGeneratedPicture(client, fields.headerImage);
+      throw new TopicAlreadyWrittenError(after, true);
+    }
   }
 
   // 4) ONE create, last, with everything in it.
@@ -163,6 +228,7 @@ export async function createBlogDraftFromTopic(opts: CreateBlogDraftOptions): Pr
     wordCount,
     topic: opts.topic,
     recordedAt: now().toISOString(),
+    fields,
   });
   try {
     await client.create(document);
@@ -180,5 +246,12 @@ export async function createBlogDraftFromTopic(opts: CreateBlogDraftOptions): Pr
     suggestedLinks: generated.suggestedLinks,
     words: generated.words,
     document,
+    fields: {
+      authorId: fields.authorId,
+      categoryIds: fields.categoryIds,
+      relatedCategorySlugs: fields.relatedCategorySlugs,
+      notes: fields.notes,
+    },
+    headerImage: fields.headerImage,
   };
 }
