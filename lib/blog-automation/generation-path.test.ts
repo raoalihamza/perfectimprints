@@ -190,12 +190,12 @@ describe('the fields beside the body (AUTO-202)', () => {
 
   it('the image chain never throws: every effect is caught, and every effect after the reservation runs under the deadline', () => {
     const chain = read(IMAGE_CHAIN);
-    for (const effect of ['deps.reserve(', 'deps.fetchReference(', 'deps.generate({', 'deps.check({', 'deps.upload(']) {
+    for (const effect of ['deps.reserve(', 'deps.fetchReference(', 'deps.plan({', 'deps.generate({', 'deps.check({', 'deps.upload(']) {
       const at = chain.indexOf(effect);
       expect(at, effect).toBeGreaterThan(-1);
       expect(chain.lastIndexOf('try {', at), `${effect} inside a try`).toBeGreaterThan(chain.lastIndexOf('} catch', at));
     }
-    for (const effect of ['deps.fetchReference(', 'deps.generate({', 'deps.check({', 'deps.upload(']) {
+    for (const effect of ['deps.fetchReference(', 'deps.plan({', 'deps.generate({', 'deps.check({', 'deps.upload(']) {
       expect(chain, `${effect} under withDeadline`).toMatch(new RegExp(`withDeadline\\(\\s*${effect.replace(/[.(]/g, '\\$&')}`));
     }
     // The only throws are the two inside the no-client deps' own stubs, which the chain catches.
@@ -238,9 +238,11 @@ describe('the fields beside the body (AUTO-202)', () => {
     const generateAt = chain.indexOf('deps.generate({');
     expect(reserveAt).toBeGreaterThan(-1);
     expect(generateAt).toBeGreaterThan(-1);
-    // The cap first; the reference photos and the generation only after a slot is held.
+    // The cap first; the reference photos, the scene plan and the generation only after a slot is held.
+    const planAt = chain.indexOf('deps.plan({');
     expect(reserveAt).toBeLessThan(fetchAt);
-    expect(reserveAt).toBeLessThan(generateAt);
+    expect(reserveAt).toBeLessThan(planAt);
+    expect(planAt).toBeLessThan(generateAt);
     const index = read('sanity/schemas/index.ts');
     expect(index).not.toContain('blogImageAiUsage');
     expect(index).not.toContain('portfolioAiUsage');

@@ -37,11 +37,14 @@ vi.mock('./generate-blog-post', () => {
     BlogGenerationError: class BlogGenerationError extends Error {
       status = 502;
     },
-    generateBlogPost: vi.fn(async (input: { title: string; keywords: string[] }) => {
+    generateBlogPost: vi.fn(async (input: { title: string; keywords: string[]; template: string }) => {
       m.log.push('ai');
       if (m.aiFails) throw m.aiFails;
       return {
         title: `${input.title}: 9 Ideas for Trade Shows`,
+        // AUTO-203: the generator reports the template it built with; 'auto' resolves to one of the two.
+        titleShape: input.template === 'single' ? 'guide' : 'list',
+        template: input.template === 'single' ? 'single' : 'list',
         metaTitle: 'Meta',
         metaDescription: 'Desc',
         excerpt: 'Excerpt',
@@ -312,6 +315,8 @@ describe('createBlogDraftFromTopic: nothing half made', () => {
     const gen = await import('./generate-blog-post');
     vi.mocked(gen.generateBlogPost).mockImplementationOnce(async () => ({
       title: '!!!',
+      titleShape: 'list',
+      template: 'list',
       metaTitle: '',
       metaDescription: '',
       excerpt: '',

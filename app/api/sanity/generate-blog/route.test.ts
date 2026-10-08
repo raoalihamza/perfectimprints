@@ -40,6 +40,8 @@ const fixtures = vi.hoisted(() => {
 
 vi.mock('@/lib/sanity/studio-nonce-auth', () => ({
   verifyStudioNonce: vi.fn(async () => ({ ok: true })),
+  // AUTO-203: the generator reads the current drafts for the duplicate-title check; no client here means none.
+  serverSanityClient: vi.fn(() => null),
 }));
 vi.mock('@/lib/products/site-wide-hidden', () => ({
   siteWideHiddenSkus: vi.fn(async () => []),
@@ -52,6 +54,8 @@ vi.mock('@/lib/ai/deepseek', () => ({
 }));
 vi.mock('@/lib/ai/internal-links', () => ({
   suggestInternalLinks: vi.fn(async () => []),
+  // AUTO-203: the published posts, for the duplicate-title check.
+  loadLinkDocsForKind: vi.fn(async () => []),
 }));
 vi.mock('@/lib/ai/related-products', async (importOriginal) => {
   const real = await importOriginal<typeof import('@/lib/ai/related-products')>();

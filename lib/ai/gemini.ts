@@ -105,6 +105,16 @@ export interface GenerateJsonFromImageOptions {
   temperature?: number;
 }
 
+/** A text-only JSON call on the same model (AUTO-203: the header image scene planner). */
+export interface GenerateJsonFromTextOptions {
+  system: string;
+  user: string;
+  maxOutputTokens?: number;
+  temperature?: number;
+  /** Default GEMINI_TIMEOUT_MS. */
+  timeoutMs?: number;
+}
+
 export interface GeminiJsonResult<T> {
   data: T;
   usage: GeminiUsage;
@@ -144,19 +154,29 @@ function num(value: unknown): number {
   return typeof value === 'number' && Number.isFinite(value) ? value : 0;
 }
 
+interface GeminiJsonCall {
+  system: string;
+  user: string;
+  /** The image part, sent before the text when present. */
+  image?: GeminiImageInput;
+  maxOutputTokens?: number;
+  temperature?: number;
+  timeoutMs?: number;
+}
+
 /**
- * One image-plus-instructions call returning parsed JSON. Throws `GeminiError`
- * when the key is missing, the HTTP call fails or times out, the answer is
- * blocked or empty, or the content is not valid JSON. The caller validates the
- * SHAPE of `T` itself (this only guarantees parseable JSON).
+ * The one JSON call on GEMINI_MODEL, with or without an image part. Throws
+ * `GeminiError` when the key is missing, the HTTP call fails or times out,
+ * the answer is blocked or empty, or the content is not valid JSON. The
+ * caller validates the SHAPE of `T` itself (this only guarantees parseable
+ * JSON). The key travels in the header only and is never in a message.
  */
-export async function generateJsonFromImage<T>(
-  opts: GenerateJsonFromImageOptions,
-): Promise<GeminiJsonResult<T>> {
+async function generateJsonCall<T>(opts: GeminiJsonCall): Promise<GeminiJsonResult<T>> {
   const apiKey = process.env.GOOGLE_GEMINI_API_KEY;
   if (!apiKey) {
     throw new GeminiError('GOOGLE_GEMINI_API_KEY is not configured on the server.', 500);
   }
+  const timeoutMs = opts.timeoutMs ?? GEMINI_TIMEOUT_MS;
 
   const startedAt = Date.now();
   let res: Response;
@@ -167,14 +187,14 @@ export async function generateJsonFromImage<T>(
         'Content-Type': 'application/json',
         'x-goog-api-key': apiKey,
       },
-      signal: AbortSignal.timeout(GEMINI_TIMEOUT_MS),
+      signal: AbortSignal.timeout(timeoutMs),
       body: JSON.stringify({
         systemInstruction: { parts: [{ text: opts.system }] },
         contents: [
           {
             role: 'user',
             parts: [
-              { inlineData: { mimeType: opts.image.mimeType, data: opts.image.base64 } },
+              ...(opts.image ? [{ inlineData: { mimeType: opts.image.mimeType, data: opts.image.base64 } }] : []),
               { text: opts.user },
             ],
           },
@@ -187,10 +207,10 @@ export async function generateJsonFromImage<T>(
       }),
     });
   } catch (err) {
-    const timedOut = err instanceof Error && err.name === 'TimeoutError';
+    const timedOut = err instanceof Error && (err.name === 'TimeoutError' || err.name === 'AbortError');
     throw new GeminiError(
       timedOut
-        ? `Gemini did not answer within ${Math.round(GEMINI_TIMEOUT_MS / 1000)} seconds.`
+        ? `Gemini did not answer within ${Math.round(timeoutMs / 1000)} seconds.`
         : `Gemini request failed: ${err instanceof Error ? err.message : 'network error'}.`,
     );
   }
@@ -212,7 +232,7 @@ export async function generateJsonFromImage<T>(
 
   const data = (await res.json().catch(() => null)) as GeminiResponse | null;
   if (data?.promptFeedback?.blockReason) {
-    throw new GeminiError(`Gemini declined this image (${data.promptFeedback.blockReason}).`);
+    throw new GeminiError(`Gemini declined this ${opts.image ? 'image' : 'request'} (${data.promptFeedback.blockReason}).`);
   }
   const text = (data?.candidates?.[0]?.content?.parts ?? [])
     .map((p) => p.text ?? '')
@@ -245,6 +265,31 @@ export async function generateJsonFromImage<T>(
       totalTokens: num(meta?.totalTokenCount),
     },
   };
+}
+
+/**
+ * One image-plus-instructions call returning parsed JSON (PORT-170). See
+ * `generateJsonCall` for what it throws.
+ */
+export async function generateJsonFromImage<T>(
+  opts: GenerateJsonFromImageOptions,
+): Promise<GeminiJsonResult<T>> {
+  return generateJsonCall<T>(opts);
+}
+
+/**
+ * One text-only call returning parsed JSON on the same cheap model (AUTO-203:
+ * the scene planner that runs before a header image is drawn). The request
+ * is `generateJsonFromImage`'s without the image part; same errors, same
+ * key handling. No search tool is attached: Google Search grounding is
+ * "Not available" on the standard tier of every Gemini 3.x model (pricing
+ * page, read 2026-10-08), and a probe with `tools: [{google_search: {}}]`
+ * answered 200 with no groundingMetadata on both 3.5 Flash-Lite and 3.5
+ * Flash, so attaching it would buy nothing and claim something it does not
+ * do.
+ */
+export async function generateJsonFromText<T>(opts: GenerateJsonFromTextOptions): Promise<GeminiJsonResult<T>> {
+  return generateJsonCall<T>(opts);
 }
 
 // -- Image generation (AUTO-202) --------------------------------------------------

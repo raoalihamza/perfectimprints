@@ -7,17 +7,22 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
-  buildHeaderImagePrompt,
-  buildImageCheckPrompt,
   DEFAULT_HEADER_IMAGE_SOURCE,
-  effectiveHeaderImageSource,
-  firstProductImage,
-  geigerReferenceUrl,
   HEADER_IMAGE_ASPECT_RATIO,
   HEADER_IMAGE_MAX_REFERENCES,
   HEADER_IMAGE_REFERENCE_WIDTH,
   HEADER_IMAGE_SIZE,
   HEADER_IMAGE_SOURCES,
+  type HeaderImageLibraryEntry,
+  type ImageCheck,
+  type ReferenceProduct,
+  type ScenePlan,
+  buildHeaderImagePrompt,
+  buildImageCheckPrompt,
+  buildScenePlanPrompt,
+  effectiveHeaderImageSource,
+  firstProductImage,
+  geigerReferenceUrl,
   headerImageAlt,
   headerImageFilename,
   headerImageSourceOf,
@@ -25,12 +30,12 @@ import {
   imageCheckProblem,
   imageValueFor,
   parseImageCheck,
+  parseScenePlan,
   pickLibraryImage,
   pickReferenceProducts,
   productMatchesTopic,
+  scrubProductText,
   topicProductWords,
-  type HeaderImageLibraryEntry,
-  type ReferenceProduct,
 } from './header-image';
 
 const ROOT = join(__dirname, '..', '..');
@@ -167,12 +172,59 @@ describe('the prompt', () => {
     expect(prompt).toContain('(16:9)');
   });
 
-  it('states the three hard rules: no text, no logos including background devices, no products beyond the references', () => {
+  it('states the hard rules: no text when nothing was planned, no logos or brand names including background devices, no products beyond the references', () => {
     expect(prompt).toMatch(/No text anywhere/);
-    expect(prompt).toMatch(/No logos, brand marks, trademarks/);
+    expect(prompt).toMatch(/No logos, brand marks, trademarks, brand names, company names, phone numbers, web addresses or slogans/);
     expect(prompt).toContain('laptops, phones, tablets, cups, bottles, bags, shoes or clothing');
     expect(prompt).toContain('Show only products of the kinds in the reference photos');
     expect(prompt).toContain('Do not add other promotional products');
+    // With no plan the setting is AUTO-202's generic one.
+    expect(prompt).toContain('blank and unbranded, arranged in a clean, realistic setting');
+  });
+
+  describe('with a scene plan (AUTO-203)', () => {
+    const scene: ScenePlan = {
+      surface: 'the door of a stainless steel refrigerator',
+      setting: 'a small office break room',
+      people: 'none',
+      around: ['a coffee mug', 'a notepad'],
+      productText: 'a calendar grid with the twelve months and their dates',
+      avoid: 'stuck to a wooden desk or lying flat on a table',
+    };
+    const planned = buildHeaderImagePrompt({
+      title: 'Promotional Calendar Magnets: A Buyer\'s Guide',
+      topic: 'promotional calendar magnets',
+      productNames: ['Business Card Magnet Calendar'],
+      scene,
+    });
+
+    it('puts the product where the plan says, names what is around it, and forbids the impossible placement', () => {
+      expect(planned).toContain('in use, where such a product really lives: the door of a stainless steel refrigerator, in a small office break room.');
+      expect(planned).toContain('Around it: a coffee mug, a notepad.');
+      expect(planned).toContain('Physically wrong, and not to be shown: stuck to a wooden desk or lying flat on a table.');
+      expect(planned).not.toContain('arranged in a clean, realistic setting');
+    });
+
+    it("allows ONLY the product's own text, as generic placeholders, and still forbids every brand element", () => {
+      expect(planned).toContain('The ONLY text allowed in the image is what belongs on this product by its nature: a calendar grid with the twelve months and their dates.');
+      expect(planned).toContain('never a brand name, a company name, a phone number, a web address, a slogan or a claim');
+      expect(planned).not.toMatch(/^- No text anywhere/m);
+      expect(planned).toMatch(/No logos, brand marks, trademarks, brand names, company names, phone numbers, web addresses or slogans/);
+    });
+
+    it('a plan whose product carries no text keeps the blanket no-text rule', () => {
+      const p = buildHeaderImagePrompt({ title: 'T', topic: 'custom koozies', productNames: [], scene: { ...scene, productText: '' } });
+      expect(p).toMatch(/^- No text anywhere/m);
+      expect(p).toContain('where such a product really lives');
+    });
+
+    it('the retry names the problem and keeps the text rule the picture was drawn under', () => {
+      const p = buildHeaderImagePrompt({ title: 'T', topic: 't', productNames: [], scene, previousProblem: 'a brand, company name or contact detail in text ("Acme Plumbing 555-0100")' });
+      expect(p).toContain('rejected because it contained a brand, company name or contact detail in text ("Acme Plumbing 555-0100")');
+      expect(p).toContain("no writing except the product's own generic text");
+      const q = buildHeaderImagePrompt({ title: 'T', topic: 't', productNames: [], previousProblem: 'readable text' });
+      expect(q).toContain('no writing at all');
+    });
   });
 
   it('with no reference photo it describes the item the title names, and still forbids inventing', () => {
@@ -206,28 +258,114 @@ describe('alt text and filename', () => {
   });
 });
 
+const NONE: ImageCheck = {
+  readableText: false,
+  textSeen: '',
+  logo: false,
+  logoSeen: '',
+  brandText: false,
+  brandTextSeen: '',
+  textOffProduct: false,
+  textOffProductSeen: '',
+  impossible: false,
+  impossibleSeen: '',
+};
+
+describe('the scene planner (AUTO-203)', () => {
+  it('asks for a physically possible scene, names the products, and states the text rule', () => {
+    const { system, user } = buildScenePlanPrompt({ title: 'Promotional Calendar Magnets: A Buyer\'s Guide', topic: 'promotional calendar magnets', productNames: ['Business Card Magnet Calendar', 'House Shape Calendar Magnet'] });
+    expect(system).toContain('a magnet is on a refrigerator or a filing cabinet, a koozie is around a can');
+    expect(system).toContain('ONE JSON object');
+    expect(user).toContain('The actual products shown in the post: Business Card Magnet Calendar; House Shape Calendar Magnet.');
+    expect(user).toContain('physically possible for THIS product');
+    expect(user).toContain('No brand name, logo, wordmark, company name, phone number, web address or slogan anywhere');
+    expect(user).toContain('productText is ONLY what belongs on the product by its nature');
+    expect(user).toContain('"avoid"');
+    expect(buildScenePlanPrompt({ title: 'T', topic: 'custom pens', productNames: [] }).user).toContain('No product list is available');
+  });
+
+  it('reads the plan defensively, capping lengths and dropping brand words from what is around the product', () => {
+    const plan = parseScenePlan({
+      surface: '  the door of a   stainless steel refrigerator ',
+      setting: 'a break room',
+      people: '',
+      around: ['a coffee mug', 'a laptop with the company logo', 'a notepad', 'a plant', 'a fifth thing'],
+      productText: 'a 12-month calendar grid',
+      avoid: 'lying flat on a desk',
+    });
+    expect(plan).toEqual({
+      surface: 'the door of a stainless steel refrigerator',
+      setting: 'a break room',
+      people: 'none',
+      around: ['a coffee mug', 'a notepad', 'a plant', 'a fifth thing'],
+      productText: 'a 12-month calendar grid',
+      avoid: 'lying flat on a desk',
+    });
+    expect(parseScenePlan({ around: 'a mug, a pen' })).toBeNull();
+    expect(parseScenePlan('nonsense')).toBeNull();
+    expect(parseScenePlan({ surface: 'a counter', around: 'a mug, a pen' })?.around).toEqual(['a mug', 'a pen']);
+  });
+
+  it("scrubs a brand, a company name, a phone number or a web address out of the planner's product text (the 2026-10-08 probe volunteered all three)", () => {
+    expect(scrubProductText('a Year-at-a-Glance calendar grid showing the 12 months of the year, alongside a small business logo and contact phone number at the bottom')).toBe(
+      'a Year-at-a-Glance calendar grid showing the 12 months of the year',
+    );
+    expect(scrubProductText('a clear 12-month calendar grid for the upcoming year with bold headers and a sample small business logo at the top')).toBe('a clear 12-month calendar grid for the upcoming year with bold headers');
+    expect(scrubProductText('the company name and phone number, plus a calendar')).toBe('');
+    expect(scrubProductText('none')).toBe('');
+    expect(scrubProductText('No text')).toBe('');
+    expect(scrubProductText('inch and centimetre markings along the edge')).toBe('inch and centimetre markings along the edge');
+    expect(scrubProductText('a website URL printed under the grid')).toBe('');
+    expect(scrubProductText('ruled lines, a date line at the top of each page')).toBe('ruled lines, a date line at the top of each page');
+  });
+});
+
 describe('the check', () => {
-  it('asks about text and logos including background objects, JSON only', () => {
+  it('asks about text, logos including background objects, brand or contact text, text off the product and an impossible placement, JSON only', () => {
     const { system, user } = buildImageCheckPrompt();
     expect(system).toContain('ONE JSON object');
     expect(user).toContain('READABLE text');
     expect(user).toContain('LOGO, brand mark, trademark');
     expect(user).toContain('laptops, phones, cups');
-    expect(user).toContain('"readableText"');
+    expect(user).toContain('BRAND NAME, a company or business name, a phone number, a web address');
+    expect(user).toContain('(No text was requested anywhere.)');
+    expect(user).toContain('could not physically be');
+    for (const key of ['"readableText"', '"logo"', '"brandText"', '"textOffProduct"', '"impossible"']) expect(user).toContain(key);
+    const allowed = buildImageCheckPrompt('a calendar grid').user;
+    expect(allowed).toContain('The product itself may carry: a calendar grid.');
+    expect(allowed).not.toContain('(No text was requested anywhere.)');
   });
 
   it('reads the answer defensively', () => {
-    expect(parseImageCheck({ readableText: true, textSeen: 'SALE', logo: 'false', logoSeen: '' })).toEqual({ readableText: true, textSeen: 'SALE', logo: false, logoSeen: '' });
-    expect(parseImageCheck({ readableText: 'yes', logo: 'true', logoSeen: 'Apple' })).toEqual({ readableText: true, textSeen: '', logo: true, logoSeen: 'Apple' });
-    expect(parseImageCheck('nonsense')).toEqual({ readableText: false, textSeen: '', logo: false, logoSeen: '' });
-    expect(parseImageCheck(null)).toEqual({ readableText: false, textSeen: '', logo: false, logoSeen: '' });
+    expect(parseImageCheck({ readableText: true, textSeen: 'SALE', logo: 'false', logoSeen: '' })).toEqual({ ...NONE, readableText: true, textSeen: 'SALE' });
+    expect(parseImageCheck({ readableText: 'yes', logo: 'true', logoSeen: 'Apple', brandText: 'true', brandTextSeen: 'Acme', impossible: true, impossibleSeen: 'magnet on wood' })).toEqual({
+      ...NONE,
+      readableText: true,
+      logo: true,
+      logoSeen: 'Apple',
+      brandText: true,
+      brandTextSeen: 'Acme',
+      impossible: true,
+      impossibleSeen: 'magnet on wood',
+    });
+    expect(parseImageCheck('nonsense')).toEqual(NONE);
+    expect(parseImageCheck(null)).toEqual(NONE);
   });
 
-  it('a clean picture passes; text or a logo is named', () => {
-    expect(imageCheckProblem({ readableText: false, textSeen: '', logo: false, logoSeen: '' })).toBeNull();
-    expect(imageCheckProblem({ readableText: true, textSeen: 'SALE', logo: false, logoSeen: '' })).toBe('readable text ("SALE")');
-    expect(imageCheckProblem({ readableText: false, textSeen: '', logo: true, logoSeen: 'Apple' })).toBe('a logo or brand mark (Apple)');
-    expect(imageCheckProblem({ readableText: true, textSeen: '', logo: true, logoSeen: '' })).toBe('readable text and a logo or brand mark');
+  it('a clean picture passes; text or a logo is named under the blanket rule', () => {
+    expect(imageCheckProblem(NONE)).toBeNull();
+    expect(imageCheckProblem({ ...NONE, readableText: true, textSeen: 'SALE' })).toBe('readable text ("SALE")');
+    expect(imageCheckProblem({ ...NONE, logo: true, logoSeen: 'Apple' })).toBe('a logo or brand mark (Apple)');
+    expect(imageCheckProblem({ ...NONE, readableText: true, logo: true })).toBe('a logo or brand mark and readable text');
+  });
+
+  it("when the product's own text was allowed, readable text alone passes but a brand, contact detail, text off the product or an impossible placement does not", () => {
+    expect(imageCheckProblem({ ...NONE, readableText: true, textSeen: 'JANUARY 1 2 3' }, true)).toBeNull();
+    expect(imageCheckProblem({ ...NONE, readableText: true, brandText: true, brandTextSeen: 'Acme Plumbing 555-0100' }, true)).toBe('a brand, company name or contact detail in text ("Acme Plumbing 555-0100")');
+    expect(imageCheckProblem({ ...NONE, readableText: true, textOffProduct: true, textOffProductSeen: 'a wall sign reading OPEN' }, true)).toBe('text away from the product (a wall sign reading OPEN)');
+    expect(imageCheckProblem({ ...NONE, impossible: true, impossibleSeen: 'the magnet is on a wooden desk' }, true)).toBe('the product somewhere it could not be (the magnet is on a wooden desk)');
+    // Under the blanket rule the same impossible placement is refused too.
+    expect(imageCheckProblem({ ...NONE, impossible: true })).toBe('the product somewhere it could not be');
   });
 });
 

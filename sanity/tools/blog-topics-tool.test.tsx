@@ -184,7 +184,8 @@ describe('Blog Topics tab: Generate draft (AUTO-117, server-side since AUTO-201)
       action: 'generate',
       // AUTO-202: the ranking page travels too, for the related category slug.
       topic: { key: 'sunglass', query: SUNGLASSES, variants: [SUNGLASSES, 'sunglasses custom'], page: '/cat/sunglasses' },
-      template: 'list',
+      // AUTO-203: the default Draft style lets the topic choose the shape.
+      template: 'auto',
       wordCount: 1500,
       allowDuplicate: false,
     });

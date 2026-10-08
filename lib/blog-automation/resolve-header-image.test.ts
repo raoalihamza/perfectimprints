@@ -23,14 +23,40 @@ const products: ReferenceProduct[] = [
   { sku: '2', name: 'Zip Tote', imageUrl: geiger(2) },
 ];
 const library: HeaderImageLibraryEntry[] = [{ rootSlug: 'tote-bags', assetRef: 'image-lib-1600x900-jpg', alt: 'Library totes' }];
-const clean: ImageCheck = { readableText: false, textSeen: '', logo: false, logoSeen: '' };
-const branded: ImageCheck = { readableText: false, textSeen: '', logo: true, logoSeen: 'Apple' };
+const clean: ImageCheck = {
+  readableText: false,
+  textSeen: '',
+  logo: false,
+  logoSeen: '',
+  brandText: false,
+  brandTextSeen: '',
+  textOffProduct: false,
+  textOffProductSeen: '',
+  impossible: false,
+  impossibleSeen: '',
+};
+const branded: ImageCheck = { ...clean, logo: true, logoSeen: 'Apple' };
+/** A picture whose only text is the calendar the plan allowed. */
+const productText: ImageCheck = { ...clean, readableText: true, textSeen: 'JANUARY 1 2 3' };
+/** The deliberate brand test: a company name and a phone number on the product. */
+const brandedText: ImageCheck = { ...clean, readableText: true, textSeen: 'ACME PLUMBING 555-0100', brandText: true, brandTextSeen: 'ACME PLUMBING 555-0100' };
+const onWood: ImageCheck = { ...clean, impossible: true, impossibleSeen: 'the magnets are stuck to a wooden desk' };
+const plannedScene = {
+  surface: 'the door of a stainless steel refrigerator',
+  setting: 'an office break room',
+  people: 'none',
+  around: ['a coffee mug'],
+  productText: 'a calendar grid with months and dates',
+  avoid: 'stuck to wood or lying flat',
+};
 
 interface FakeOptions {
   keyMissing?: boolean;
   capRefused?: boolean;
   reserveThrows?: boolean;
   generateFails?: Error;
+  /** Thrown by the FIRST generate call only. */
+  generateFailsOnce?: Error;
   checks?: (ImageCheck | null)[];
   checkHangs?: boolean;
   uploadFails?: Error;
@@ -38,6 +64,8 @@ interface FakeOptions {
   referenceThrows?: boolean;
   /** Milliseconds the clock advances per generate call. */
   generateMs?: number;
+  /** AUTO-203: the planner's answer; 'fails' throws, null is "unavailable", undefined is the planned magnet scene. */
+  plan?: 'fails' | 'hangs' | null | { productText?: string };
 }
 
 function fakeDeps(opts: FakeOptions = {}) {
@@ -47,8 +75,17 @@ function fakeDeps(opts: FakeOptions = {}) {
   let now = 1_000_000;
   let checks = 0;
   let reserved = 0;
+  const checkArgs: (string | null)[] = [];
   const deps: HeaderImageDeps = {
     keyConfigured: () => !opts.keyMissing,
+    plan: async () => {
+      log.push('plan');
+      if (opts.plan === 'fails') throw new Error('planner down');
+      if (opts.plan === 'hangs') return new Promise(() => {});
+      if (opts.plan === null) return null;
+      const scene = { ...plannedScene, ...(opts.plan ?? {}) };
+      return { scene, usage: { model: 'gemini-3.5-flash-lite', promptTokens: 190, outputTokens: 154, elapsedMs: 2069 } };
+    },
     reserve: async () => {
       if (opts.reserveThrows) throw new Error('counter down');
       reserved += 1;
@@ -67,10 +104,12 @@ function fakeDeps(opts: FakeOptions = {}) {
       prompts.push(prompt);
       now += opts.generateMs ?? 10_000;
       if (opts.generateFails) throw opts.generateFails;
+      if (opts.generateFailsOnce && log.filter((l) => l.startsWith('generate:')).length === 1) throw opts.generateFailsOnce;
       return { bytes: Buffer.from('jpegbytes'), mimeType: 'image/jpeg', base64: 'anBlZ2J5dGVz', usage: { imageTokens: 1120, promptTokens: 1900, elapsedMs: 9700, model: 'gemini-3.1-flash-image' } };
     },
-    check: async () => {
+    check: async (_image, allowedProductText) => {
       log.push('check');
+      checkArgs.push(allowedProductText);
       if (opts.checkHangs) return new Promise(() => {});
       // An entry of null in `checks` means "the check was unavailable".
       const answer = opts.checks && checks < opts.checks.length ? opts.checks[checks] : clean;
@@ -85,7 +124,7 @@ function fakeDeps(opts: FakeOptions = {}) {
     },
     now: () => now,
   };
-  return { deps, log, prompts, uploads };
+  return { deps, log, prompts, uploads, checkArgs };
 }
 
 const base: ResolveHeaderImageInput = {
@@ -102,7 +141,7 @@ describe('the AI step', () => {
   it('reserves the cap BEFORE anything else, fetches the reference photos, checks the picture, uploads it, and returns the asset', async () => {
     const f = fakeDeps();
     const out = await resolveHeaderImage(base, f.deps);
-    expect(f.log).toEqual(['reserve', 'fetch:tote', 'fetch:zip', 'generate:2', 'check', 'upload']);
+    expect(f.log).toEqual(['reserve', 'fetch:tote', 'fetch:zip', 'plan', 'generate:2', 'check', 'upload']);
     expect(out).toMatchObject({ kind: 'asset', source: 'ai', notes: [] });
     if (out.kind !== 'asset') throw new Error('expected an asset');
     expect(out.image).toEqual({
@@ -126,7 +165,7 @@ describe('the AI step', () => {
   it('a picture with a logo is retried once with the problem named, the references fetched once, and the retry costs a second slot', async () => {
     const f = fakeDeps({ checks: [branded, clean] });
     const out = await resolveHeaderImage(base, f.deps);
-    expect(f.log).toEqual(['reserve', 'fetch:tote', 'fetch:zip', 'generate:2', 'check', 'reserve', 'generate:2', 'check', 'upload']);
+    expect(f.log).toEqual(['reserve', 'fetch:tote', 'fetch:zip', 'plan', 'generate:2', 'check', 'reserve', 'generate:2', 'check', 'upload']);
     expect(f.prompts[1]).toContain('rejected because it contained a logo or brand mark (Apple)');
     expect(out.kind).toBe('asset');
     expect(out.notes).toEqual(['the first picture showed a logo or brand mark (Apple) and was replaced']);
@@ -135,7 +174,8 @@ describe('the AI step', () => {
   });
 
   it('two flagged pictures fall to the library, with both reasons', async () => {
-    const f = fakeDeps({ checks: [branded, { ...clean, readableText: true, textSeen: 'SALE' }] });
+    // A plan whose product carries no text keeps the blanket rule, so "SALE" is refused.
+    const f = fakeDeps({ plan: { productText: '' }, checks: [branded, { ...clean, readableText: true, textSeen: 'SALE' }] });
     const out = await resolveHeaderImage(base, f.deps);
     expect(out).toMatchObject({ kind: 'asset', source: 'library' });
     expect(out.notes).toEqual(['both generated pictures were refused (the first showed a logo or brand mark (Apple), the second readable text ("SALE")), so neither was used']);
@@ -277,6 +317,87 @@ describe('the pieces', () => {
     expect(deps.keyConfigured()).toBe(false);
     expect((await deps.reserve(new Date())).ok).toBe(false);
     expect(await deps.fetchReference('https://imgsirv.geiger.com/a.jpg')).toBeNull();
-    expect(await deps.check({ mimeType: 'image/jpeg', base64: '' })).toBeNull();
+    expect(await deps.check({ mimeType: 'image/jpeg', base64: '' }, null)).toBeNull();
+    expect(await deps.plan({ title: 't', topic: 't', productNames: [] })).toBeNull();
+  });
+});
+
+describe('the scene planner in the chain (AUTO-203)', () => {
+  it('plans once after the cap and the photos, builds the prompt from the plan, tells the check what text was allowed, and records the plan on the outcome', async () => {
+    const f = fakeDeps({ checks: [productText] });
+    const out = await resolveHeaderImage(base, f.deps);
+    expect(out.kind).toBe('asset');
+    expect(f.log).toEqual(['reserve', 'fetch:tote', 'fetch:zip', 'plan', 'generate:2', 'check', 'upload']);
+    expect(f.prompts[0]).toContain('where such a product really lives: the door of a stainless steel refrigerator, in an office break room.');
+    expect(f.prompts[0]).toContain('The ONLY text allowed in the image is what belongs on this product by its nature: a calendar grid with months and dates.');
+    expect(f.prompts[0]).toContain('Physically wrong, and not to be shown: stuck to wood or lying flat.');
+    expect(f.checkArgs).toEqual(['a calendar grid with months and dates']);
+    // Readable text that is the product's own passes.
+    expect(out.kind === 'asset' && out.usage?.scene).toEqual(plannedScene);
+    expect(out.kind === 'asset' && out.usage?.planner).toEqual({ model: 'gemini-3.5-flash-lite', promptTokens: 190, outputTokens: 154, elapsedMs: 2069 });
+    expect(out.notes).toEqual([]);
+  });
+
+  it('a planner that fails or is unavailable is a note, and the picture is drawn under the blanket no-text rule', async () => {
+    for (const plan of ['fails', null] as const) {
+      const f = fakeDeps({ plan });
+      const out = await resolveHeaderImage(base, f.deps);
+      expect(out.kind).toBe('asset');
+      expect(f.prompts[0]).toMatch(/^- No text anywhere/m);
+      expect(f.prompts[0]).toContain('arranged in a clean, realistic setting');
+      expect(f.checkArgs).toEqual([null]);
+      expect(out.notes).toEqual(['the scene planner was unavailable, so the picture was composed without a planned setting and with no text allowed']);
+    }
+  });
+
+  it('a planner that hangs is cut off by the budget and treated as unavailable', async () => {
+    const f = fakeDeps({ plan: 'hangs' });
+    const out = await resolveHeaderImage(base, f.deps);
+    expect(out.kind).toBe('asset');
+    expect(out.notes[0]).toContain('the scene planner was unavailable');
+  }, 20_000);
+
+  it('a brand name on the product is caught by the check and the retry names it; the plan is not made twice', async () => {
+    const f = fakeDeps({ checks: [brandedText, productText] });
+    const out = await resolveHeaderImage(base, f.deps);
+    expect(out.kind).toBe('asset');
+    expect(f.log.filter((l) => l === 'plan')).toHaveLength(1);
+    expect(f.log.filter((l) => l === 'generate:2')).toHaveLength(2);
+    expect(f.prompts[1]).toContain('rejected because it contained a brand, company name or contact detail in text ("ACME PLUMBING 555-0100")');
+    expect(out.notes).toEqual(['the first picture showed a brand, company name or contact detail in text ("ACME PLUMBING 555-0100") and was replaced']);
+  });
+
+  it('an answer with no picture in it is tried once more, costing a second slot; a second empty answer falls through with both said', async () => {
+    const noImage = new Error('The image model returned no image (NO_IMAGE).');
+    const f = fakeDeps({ generateFailsOnce: noImage });
+    const out = await resolveHeaderImage(base, f.deps);
+    expect(out.kind).toBe('asset');
+    expect(f.log).toEqual(['reserve', 'fetch:tote', 'fetch:zip', 'plan', 'generate:2', 'reserve', 'generate:2', 'check', 'upload']);
+    expect(out.notes).toEqual(['the image model returned no picture on its first try and was asked again']);
+    const g = fakeDeps({ generateFails: noImage });
+    const twice = await resolveHeaderImage(base, g.deps);
+    expect(twice).toMatchObject({ kind: 'asset', source: 'library' });
+    expect(twice.notes[0]).toBe('the image model returned no image twice: the image model failed: The image model returned no image (NO_IMAGE).');
+    expect(g.log.filter((l) => l === 'reserve')).toHaveLength(2);
+    // Any other failure is not retried.
+    const h = fakeDeps({ generateFails: new Error('Image request failed (500).') });
+    await resolveHeaderImage(base, h.deps);
+    expect(h.log.filter((l) => l === 'reserve')).toHaveLength(1);
+  });
+
+  it('a product somewhere it could not be (the magnet on wood) is refused and retried with the problem named', async () => {
+    const f = fakeDeps({ checks: [onWood, clean] });
+    const out = await resolveHeaderImage(base, f.deps);
+    expect(out.kind).toBe('asset');
+    expect(f.prompts[1]).toContain('rejected because it contained the product somewhere it could not be (the magnets are stuck to a wooden desk)');
+    expect(f.prompts[1]).toContain('the product only where it could really be');
+  });
+
+  it('under a plan whose product carries no text, readable text is still refused', async () => {
+    const f = fakeDeps({ plan: { productText: '' }, checks: [productText, clean] });
+    const out = await resolveHeaderImage(base, f.deps);
+    expect(out.kind).toBe('asset');
+    expect(f.checkArgs).toEqual([null, null]);
+    expect(f.prompts[1]).toContain('rejected because it contained readable text ("JANUARY 1 2 3")');
   });
 });

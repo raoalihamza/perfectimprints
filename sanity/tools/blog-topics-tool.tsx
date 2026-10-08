@@ -208,7 +208,8 @@ type StateFilter = 'all' | 'usable' | 'excluded' | 'blocked';
 type SeenFilter = 'recent' | 'older' | 'all';
 /** 'volume' (AUTO-123) is offered, never the default, and always tie-broken by `compareTopics`. */
 type SortKey = 'impressions' | 'longImpressions' | 'clicks' | 'position' | 'longPosition' | 'volume' | 'query';
-type Template = 'list' | 'single';
+/** AUTO-203: 'auto' lets the topic choose the shape (list, guide, question, how-to, comparison); the two others force the body template. */
+type Template = 'auto' | 'list' | 'single';
 
 interface NegativeKeywordEntry extends BlockRule {
   _key: string;
@@ -337,7 +338,7 @@ function BlogTopicsComponent() {
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState<SortKey>('impressions');
   const [page, setPage] = useState(1);
-  const [template, setTemplate] = useState<Template>('list');
+  const [template, setTemplate] = useState<Template>('auto');
 
   const [busy, setBusy] = useState<Record<string, 'blocking' | 'generating'>>({});
   const [rowErrors, setRowErrors] = useState<Record<string, string>>({});
@@ -1006,8 +1007,9 @@ function BlogTopicsComponent() {
             <label style={{ fontSize: 13, color: MUTED, display: 'flex', gap: 6, alignItems: 'center' }}>
               Draft style
               <select value={template} onChange={(e) => setTemplate(e.target.value as Template)} style={select}>
-                <option value="list" style={option}>List post ("10 ideas…") with products under each idea</option>
-                <option value="single" style={option}>Single-topic post with one product row</option>
+                <option value="auto" style={option}>Chosen from the topic (a list, a guide, a question answered, a how-to or a comparison)</option>
+                <option value="list" style={option}>List post ("7 ideas", "10 ways") with products under each idea</option>
+                <option value="single" style={option}>Single-topic post (guide, question, how-to or comparison) with one product row</option>
               </select>
             </label>
           </div>

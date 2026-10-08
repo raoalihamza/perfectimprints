@@ -268,14 +268,21 @@ export default defineType({
       title: 'Template',
       type: 'string',
       fieldset: 'ai',
-      initialValue: 'list',
+      // AUTO-203: 'auto' lets the topic choose the shape (a list with a
+      // topic-derived number, a buyer's guide, a question answered, a how-to
+      // or a comparison); 'list' and 'single' force the body template. A
+      // generated draft stores the template it was built with, never 'auto'.
+      initialValue: 'auto',
+      description:
+        'How the AI shapes the post. "Chosen from the topic" picks a list, a guide, a question, a how-to or a comparison from the words of the topic, so titles vary; the other two force the body structure.',
       options: {
         list: [
+          { title: 'Chosen from the topic (list, guide, question, how-to or comparison)', value: 'auto' },
           {
-            title: 'List-style: "10 Ideas …" with a product strip under each idea',
+            title: 'List-style: "7 Ideas …" with a product strip under each idea (the number follows the topic)',
             value: 'list',
           },
-          { title: 'Single-category focus with one product strip', value: 'single' },
+          { title: 'Single-topic focus (guide, question, how-to or comparison) with one product strip', value: 'single' },
         ],
         layout: 'radio',
       },

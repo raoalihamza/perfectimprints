@@ -92,6 +92,7 @@ import { readSearchVolumeFile } from '@/lib/blog-automation/search-volume-file';
 import { queryTopicKey, SOURCE_TOPIC_MAX_VARIANTS } from '@/lib/blog-automation/topic-pool';
 import { DeepSeekError } from '@/lib/ai/deepseek';
 import { BlogGenerationError } from '@/lib/blog-automation/generate-blog-post';
+import { templateChoiceOf } from '@/lib/blog-automation/blog-shape';
 import {
   createBlogDraftFromTopic,
   DraftClientError,
@@ -219,7 +220,8 @@ export async function POST(request: Request) {
     if (!topic) {
       return NextResponse.json({ error: 'A topic with a search term is required.' }, { status: 400 });
     }
-    const template = body.template === 'single' ? 'single' : 'list';
+    // AUTO-203: 'auto' (the tab's default) lets the topic choose the shape; 'list' / 'single' force the body template.
+    const template = templateChoiceOf(body.template);
     const wordCount = typeof body.wordCount === 'number' && Number.isFinite(body.wordCount) ? body.wordCount : undefined;
     try {
       const created = await createBlogDraftFromTopic({

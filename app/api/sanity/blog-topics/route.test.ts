@@ -26,6 +26,8 @@ const state = vi.hoisted(() => ({
   created: [] as Record<string, unknown>[],
   createFails: false,
   aiCalls: 0,
+  // AUTO-203: the template each generation was asked for ('auto' / 'list' / 'single').
+  templates: [] as string[],
   aiFails: false,
   // AUTO-202: what the field resolver was handed.
   fieldInputs: [] as { topic?: { page?: string | null } }[],
@@ -69,11 +71,15 @@ vi.mock('@/lib/blog-automation/generate-blog-post', () => ({
   BlogGenerationError: class BlogGenerationError extends Error {
     status = 502;
   },
-  generateBlogPost: vi.fn(async (input: { title: string }) => {
+  generateBlogPost: vi.fn(async (input: { title: string; template: string }) => {
     state.aiCalls += 1;
+    state.templates.push(input.template);
     if (state.aiFails) throw Object.assign(new Error('The AI returned a thin post. Click Generate again to retry.'), { name: 'BlogGenerationError' });
     return {
       title: `${input.title} for Summer Events`,
+      // AUTO-203: the generator reports the template it built with; 'auto' resolves to one of the two.
+      titleShape: input.template === 'single' ? 'guide' : 'list',
+      template: input.template === 'single' ? 'single' : 'list',
       metaTitle: 'M',
       metaDescription: 'D',
       excerpt: 'E',
@@ -184,6 +190,7 @@ beforeEach(() => {
   state.created = [];
   state.createFails = false;
   state.aiCalls = 0;
+  state.templates = [];
   state.aiFails = false;
   state.fieldInputs = [];
   resetCacheWatchForTests();

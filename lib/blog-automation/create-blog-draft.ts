@@ -49,9 +49,9 @@ import {
   newDraftDocumentId,
   topicDraftTitle,
   type BlogDraftDocument,
-  type BlogDraftTemplate,
   type SourceTopicInput,
 } from './draft-document';
+import type { TemplateChoice } from './blog-shape';
 import { defaultDraftFieldsDeps, resolveDraftFields, type DraftFieldsDeps, type ResolvedDraftFields } from './resolve-draft-fields';
 import type { HeaderImageOutcome } from './header-image';
 
@@ -105,7 +105,8 @@ export interface DraftWriter {
 
 export interface CreateBlogDraftOptions {
   topic: SourceTopicInput;
-  template: BlogDraftTemplate;
+  /** 'auto' (the panel's default since AUTO-203) lets the topic choose the shape; 'list' / 'single' force the body template. */
+  template: TemplateChoice;
   /** Default 1500, the panel's value. */
   wordCount?: number;
   /** Skip both live checks: the caller has already asked Patrick. Default false. */
@@ -224,7 +225,9 @@ export async function createBlogDraftFromTopic(opts: CreateBlogDraftOptions): Pr
   const document = buildBlogDraftDocument({
     documentId,
     generated,
-    template: opts.template,
+    // The template the post was actually built with (AUTO-203: 'auto' is a
+    // request, never a stored value), so Regenerate on the draft keeps its shape.
+    template: generated.template,
     wordCount,
     topic: opts.topic,
     recordedAt: now().toISOString(),

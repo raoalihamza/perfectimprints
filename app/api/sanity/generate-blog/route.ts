@@ -24,6 +24,7 @@ import { verifyStudioNonce } from '@/lib/sanity/studio-nonce-auth';
 import { GENERATE_AUTH_DOC_ID, GENERATE_NONCE_HEADER } from '@/lib/sanity/generate-auth';
 import { DeepSeekError } from '@/lib/ai/deepseek';
 import { BlogGenerationError, generateBlogPost } from '@/lib/blog-automation/generate-blog-post';
+import { templateChoiceOf } from '@/lib/blog-automation/blog-shape';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -72,7 +73,8 @@ export async function POST(request: Request) {
   try {
     const post = await generateBlogPost({
       title,
-      template: body.template === 'single' ? 'single' : 'list',
+      // AUTO-203: the document's Template field; 'list' / 'single' force the body, anything else lets the topic choose.
+      template: templateChoiceOf(body.template),
       keywords: Array.isArray(body.keywords) ? body.keywords.map((k) => `${k}`) : [],
       categorySlug: body.categorySlug,
       currentSlug: body.currentSlug,

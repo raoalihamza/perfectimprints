@@ -17,21 +17,32 @@
  *      topic word, up to four, fetched IN PARALLEL from Geiger's image server
  *      at HEADER_IMAGE_REFERENCE_WIDTH inside the budget (a failed fetch is
  *      skipped; with none the prompt describes the item);
- *   4. the generation, with a timeout inside the chain's own budget;
- *   5. the check: the vision model reads the picture back for text and
- *      logos, inside the budget; a hit is ONE retry with the problem named
- *      (a second slot reserved, the cap counts attempts) if the budget
- *      allows, else a fall;
- *   6. the upload, inside the budget: the bytes become a Sanity image asset
+ *   4. the scene plan (AUTO-203): one cheap text call on the vision model
+ *      that says where this product lives (its surface, its setting, what is
+ *      around it, what text belongs on it, what would be physically wrong),
+ *      inside the budget, ONCE per picture (the retry reuses it); a planner
+ *      that fails is a note and the prompt falls back to AUTO-202's, with
+ *      its blanket no-text rule;
+ *   5. the generation, with a timeout inside the chain's own budget; an
+ *      answer with NO picture in it (the model's NO_IMAGE finish, seen once
+ *      in four on the AUTO-203 proof run, on a tote bag scene) is retried
+ *      ONCE like a failed check, a second slot reserved, if the budget
+ *      allows; any other failure is a note and a fall;
+ *   6. the check: the vision model reads the picture back for logos, brand
+ *      or company names and contact details, text off the product (or any
+ *      text, when none was allowed), and an impossible placement, inside the
+ *      budget; a hit is ONE retry with the problem named (a second slot
+ *      reserved, the cap counts attempts) if the budget allows, else a fall;
+ *   7. the upload, inside the budget: the bytes become a Sanity image asset
  *      and the outcome carries the value to write onto the post.
  *
  * THE BUDGET IS A DEADLINE, NOT A HOPE. HEADER_IMAGE_BUDGET_MS = 70 s for
  * the whole chain, and EVERY effect after the reservation runs under
- * `withDeadline(remaining())`: a reference fetch, the generation, the check
- * and the upload each give up when the budget is gone, so the chain cannot
+ * `withDeadline(remaining())`: a reference fetch, the plan, the generation,
+ * the check and the upload each give up when the budget is gone, so the chain cannot
  * run past 70 s however slow Google or the CDN is (a step cut off by the
  * deadline is a note and a fall, exactly like a failure). The measured
- * chain is 11 to 21 s. The blog-topics route's 240 s must hold the DeepSeek
+ * chain is 11 to 21 s (AUTO-202), plus about 2 s for the planner (AUTO-203). The blog-topics route's 240 s must hold the DeepSeek
  * deadline of 150 s (BLOG_AI_TIMEOUT_MS), two live drafts reads, this chain
  * and the create: 150 + 3 + 70 + 1 is 224, inside 240 with room to answer.
  * Do not widen this budget without re-doing that sum.
@@ -42,11 +53,13 @@ import {
   GeminiError,
   generateImage,
   generateJsonFromImage,
+  generateJsonFromText,
   type GeminiImageInput,
 } from '../ai/gemini';
 import {
   buildHeaderImagePrompt,
   buildImageCheckPrompt,
+  buildScenePlanPrompt,
   firstProductImage,
   geigerReferenceUrl,
   headerImageAlt,
@@ -56,6 +69,7 @@ import {
   imageCheckProblem,
   imageValueFor,
   parseImageCheck,
+  parseScenePlan,
   pickLibraryImage,
   pickReferenceProducts,
   type HeaderImageLibraryEntry,
@@ -64,6 +78,7 @@ import {
   type HeaderImageUsage,
   type ImageCheck,
   type ReferenceProduct,
+  type ScenePlan,
 } from './header-image';
 import { reserveBlogImageCall, type BlogImageReservation } from './header-image-usage';
 
@@ -75,9 +90,17 @@ export const HEADER_IMAGE_GENERATE_TIMEOUT_MS = 45_000;
 export const HEADER_IMAGE_RETRY_MIN_REMAINING_MS = 25_000;
 /** The check's own ceiling (the measured read is about 2.5 s). */
 const CHECK_TIMEOUT_MS = 15_000;
+/** The scene planner's own ceiling (the measured call is about 2 s). */
+const PLAN_TIMEOUT_MS = 15_000;
 /** Each reference photo fetch; the four run in parallel. */
 const REFERENCE_FETCH_TIMEOUT_MS = 8_000;
 const REFERENCE_MAX_BYTES = 3 * 1024 * 1024;
+
+/** The planner's answer with what it cost. */
+export interface PlannedScene {
+  scene: ScenePlan;
+  usage: { model: string; promptTokens: number; outputTokens: number; elapsedMs: number };
+}
 
 export interface GeneratedPicture {
   bytes: Buffer;
@@ -94,9 +117,11 @@ export interface HeaderImageDeps {
   reserve: (now: Date) => Promise<BlogImageReservation>;
   /** The bytes of one product photo, or null when it could not be fetched. */
   fetchReference: (url: string) => Promise<GeminiImageInput | null>;
+  /** AUTO-203: plan the scene for this product; null when the planner itself was unavailable (the prompt then falls back to AUTO-202's). */
+  plan: (args: { title: string; topic: string; productNames: readonly string[] }) => Promise<PlannedScene | null>;
   generate: (args: { prompt: string; references: GeminiImageInput[]; timeoutMs: number }) => Promise<GeneratedPicture>;
-  /** Read a generated picture back; null when the check itself was unavailable (the picture is then accepted with a note). */
-  check: (image: GeminiImageInput) => Promise<ImageCheck | null>;
+  /** Read a generated picture back; null when the check itself was unavailable (the picture is then accepted with a note). `allowedProductText` is what the prompt let the product carry, or null. */
+  check: (image: GeminiImageInput, allowedProductText: string | null) => Promise<ImageCheck | null>;
   /** Store the bytes as a Sanity image asset; returns the asset document id. */
   upload: (bytes: Buffer, filename: string, contentType: string) => Promise<string>;
   now: () => number;
@@ -140,10 +165,23 @@ export function defaultHeaderImageDeps(client: SanityClient): HeaderImageDeps {
         usage: { imageTokens: out.usage.imageTokens, promptTokens: out.usage.promptTokens, elapsedMs: out.elapsedMs, model: out.model },
       };
     },
-    check: async (image) => {
-      const { system, user } = buildImageCheckPrompt();
+    plan: async (args) => {
+      const { system, user } = buildScenePlanPrompt(args);
       try {
-        const result = await generateJsonFromImage<unknown>({ system, user, image, maxOutputTokens: 256, temperature: 0 });
+        const result = await generateJsonFromText<unknown>({ system, user, maxOutputTokens: 512, temperature: 0.3, timeoutMs: PLAN_TIMEOUT_MS });
+        const scene = parseScenePlan(result.data);
+        return scene
+          ? { scene, usage: { model: result.model, promptTokens: result.usage.promptTokens, outputTokens: result.usage.outputTokens + result.usage.thoughtTokens, elapsedMs: result.elapsedMs } }
+          : null;
+      } catch (err) {
+        if (err instanceof GeminiError) return null;
+        throw err;
+      }
+    },
+    check: async (image, allowedProductText) => {
+      const { system, user } = buildImageCheckPrompt(allowedProductText);
+      try {
+        const result = await generateJsonFromImage<unknown>({ system, user, image, maxOutputTokens: 384, temperature: 0 });
         return parseImageCheck(result.data);
       } catch (err) {
         if (err instanceof GeminiError) return null;
@@ -164,6 +202,7 @@ export function noClientHeaderImageDeps(): HeaderImageDeps {
     keyConfigured: () => false,
     reserve: async () => ({ ok: false, reason: 'unavailable', used: 0, cap: 0, day: '', message: 'the server has no Sanity write access' }),
     fetchReference: async () => null,
+    plan: async () => null,
     generate: async () => {
       throw new Error('the server has no Sanity write access');
     },
@@ -280,6 +319,9 @@ async function aiStep(
   let usage: HeaderImageUsage | undefined;
   let references: GeminiImageInput[] | null = null;
   let names: string[] = [];
+  let planned: PlannedScene | null | undefined;
+  /** Set when the first attempt came back with no picture and a second was made. */
+  let noImageOnce: string | null = null;
 
   while (attempts < 2) {
     if (attempts > 0 && remaining() < HEADER_IMAGE_RETRY_MIN_REMAINING_MS) {
@@ -327,12 +369,27 @@ async function aiStep(
       }
     }
 
+    // The scene, once (AUTO-203): where this product lives. A failed or
+    // unavailable planner is a note, and the prompt is AUTO-202's.
+    if (planned === undefined) {
+      try {
+        planned = await withDeadline(deps.plan({ title: input.title, topic: input.topic, productNames: names }), Math.min(PLAN_TIMEOUT_MS, remaining()), 'the scene planner');
+      } catch (err) {
+        planned = null;
+        log(`[header-image] planner failed: ${errorText(err)}`);
+      }
+      if (!planned) notes.push('the scene planner was unavailable, so the picture was composed without a planned setting and with no text allowed');
+      else log(`[header-image] plan surface="${planned.scene.surface}" setting="${planned.scene.setting}" productText="${planned.scene.productText}" avoid="${planned.scene.avoid}" tokens=${planned.usage.promptTokens}+${planned.usage.outputTokens} ms=${planned.usage.elapsedMs}`);
+    }
+    const scene = planned?.scene ?? null;
+    const allowedProductText = scene?.productText ? scene.productText : null;
+
     const timeoutMs = Math.max(5_000, Math.min(HEADER_IMAGE_GENERATE_TIMEOUT_MS, remaining() - 5_000));
     let picture: GeneratedPicture;
     try {
       picture = await withDeadline(
         deps.generate({
-          prompt: buildHeaderImagePrompt({ title: input.title, topic: input.topic, productNames: names, previousProblem }),
+          prompt: buildHeaderImagePrompt({ title: input.title, topic: input.topic, productNames: names, scene, previousProblem }),
           references,
           timeoutMs,
         }),
@@ -340,8 +397,14 @@ async function aiStep(
         'the image model',
       );
     } catch (err) {
-      notes.push(`${previousProblem ? `the first picture showed ${previousProblem}, and then ` : ''}the image model failed: ${errorText(err)}`);
-      log(`[header-image] generate failed (attempt ${attempts}): ${errorText(err)}`);
+      const why = errorText(err);
+      log(`[header-image] generate failed (attempt ${attempts}): ${why}`);
+      // The model answered without a picture (AUTO-203): one more try, as for a refused picture.
+      if (attempts < 2 && !previousProblem && /returned no image/i.test(why) && remaining() >= HEADER_IMAGE_RETRY_MIN_REMAINING_MS) {
+        noImageOnce = why;
+        continue;
+      }
+      notes.push(`${previousProblem ? `the first picture showed ${previousProblem}, and then ` : noImageOnce ? 'the image model returned no image twice: ' : ''}the image model failed: ${why}`);
       return null;
     }
     usage = {
@@ -352,6 +415,8 @@ async function aiStep(
       attempts,
       capUsed: reservation.used,
       cap: reservation.cap,
+      planner: planned ? planned.usage : null,
+      scene,
     };
     log(
       `[header-image] ${GEMINI_IMAGE_MODEL} attempt=${attempts} references=${references.length} imageTokens=${picture.usage.imageTokens} promptTokens=${picture.usage.promptTokens} ms=${picture.usage.elapsedMs} cap=${reservation.used}/${reservation.cap}`,
@@ -359,12 +424,12 @@ async function aiStep(
 
     let check: ImageCheck | null = null;
     try {
-      check = await withDeadline(deps.check({ mimeType: picture.mimeType, base64: picture.base64 }), Math.min(CHECK_TIMEOUT_MS, remaining()), 'the text-and-logo check');
+      check = await withDeadline(deps.check({ mimeType: picture.mimeType, base64: picture.base64 }, allowedProductText), Math.min(CHECK_TIMEOUT_MS, remaining()), 'the text-and-logo check');
     } catch (err) {
       check = null;
       log(`[header-image] check unavailable: ${errorText(err)}`);
     }
-    const problem = check ? imageCheckProblem(check) : null;
+    const problem = check ? imageCheckProblem(check, allowedProductText !== null) : null;
     if (check === null) notes.push('the text-and-logo check was unavailable, so the picture was accepted unchecked; look at it before publishing');
     if (problem) {
       log(`[header-image] check refused attempt ${attempts}: ${problem}`);
@@ -379,6 +444,7 @@ async function aiStep(
     try {
       const assetId = await withDeadline(deps.upload(picture.bytes, headerImageFilename(input.slug, attempts), picture.mimeType), remaining(), 'saving the picture');
       if (attempts > 1 && previousProblem) notes.push(`the first picture showed ${previousProblem} and was replaced`);
+      if (attempts > 1 && noImageOnce) notes.push('the image model returned no picture on its first try and was asked again');
       return { kind: 'asset', source: 'ai', image: imageValueFor(assetId, headerImageAlt(input.topic)), notes, usage };
     } catch (err) {
       notes.push(`the generated picture could not be saved: ${errorText(err)}`);
