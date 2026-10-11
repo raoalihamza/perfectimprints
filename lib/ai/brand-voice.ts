@@ -88,6 +88,36 @@ export const NON_SIGNIFICANT_MATCH_WORDS: ReadonlySet<string> = new Set<string>(
 ]);
 
 /**
+ * Filler words that are ALSO product words in this catalogue (FIX-911).
+ * "can" is in MATCH_FILLER_WORDS as the modal verb, and 111 product names
+ * carry it as a noun ("KOOZIE Can Cooler", "12-Can Cooler Bag"). With it
+ * stripped, "can coolers" was scored as "coolers" on both sides: the phrase
+ * could only ever reach the hard-cooler category, and a can cooler ranked no
+ * higher than a 54-quart Coleman (FIX-910).
+ *
+ * One word, measured, not a clean-out of the list: of the other eighteen,
+ * only "top" names things (65 names: "Scrub Top", "Flip Top Cap"), and it is
+ * left filtered because no measured input needs it and "top" in a topic
+ * ("top promotional products") is the adjective. "the" (248 names), "with"
+ * (533) and "and" (119) are function words inside product names too.
+ */
+export const FILLER_WORDS_THAT_NAME_PRODUCTS = ['can'] as const;
+
+/**
+ * The non-significant words for PRODUCT matching only (the related-products
+ * matcher and the category resolver, through lib/ai/match-tokens.ts): the
+ * shared list minus the filler words that name products. The blog topic
+ * guard, the link placer and the header-image rule keep the shared list
+ * above, so a search containing "can" groups, blocks and links exactly as it
+ * did.
+ */
+export const PRODUCT_MATCH_NON_SIGNIFICANT_WORDS: ReadonlySet<string> = new Set<string>(
+  [...NON_SIGNIFICANT_MATCH_WORDS].filter(
+    (w) => !(FILLER_WORDS_THAT_NAME_PRODUCTS as readonly string[]).includes(w),
+  ),
+);
+
+/**
  * Near-generic on THIS site, measured by AUTO-100 (2026-09-24): "products",
  * "items", "gift", "business" and "company" carried 315 of the 1,672
  * two-token cannibalization matches on their own, because a large share of

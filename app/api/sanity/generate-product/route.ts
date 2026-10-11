@@ -214,7 +214,7 @@ export async function POST(request: Request) {
     const productType = `${gen.productType ?? ''}`.trim();
     const matchingPhrase =
       productType || (keywords.length > 0 ? keywords.join(' ') : title);
-    const relatedCategorySlug = resolveCategoryForKeywords(matchingPhrase);
+    const relatedCategorySlug = await resolveCategoryForKeywords(matchingPhrase);
 
     // Internal links from real targets only. suggestInternalLinks has no
     // productPage source, so a self-link is impossible; currentSlug is kept as

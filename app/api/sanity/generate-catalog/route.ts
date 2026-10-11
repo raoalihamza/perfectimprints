@@ -231,8 +231,8 @@ export async function POST(request: Request) {
     //    self-link can't occur — the filter is kept for parity/safety.
     const productType = (gen.productType ?? '').trim();
     const resolvedCategory = productType
-      ? resolveCategoryForKeywords(productType)
-      : resolveCategoryForKeywords(promptKeywords.join(' '));
+      ? await resolveCategoryForKeywords(productType)
+      : await resolveCategoryForKeywords(promptKeywords.join(' '));
     const suggestions = (
       await suggestInternalLinks({
         keywords: promptKeywords,

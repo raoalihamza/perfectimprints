@@ -196,8 +196,8 @@ export async function POST(request: Request) {
     const productType = (gen.productType ?? '').trim();
     const stripKeywords = [...keywords, ...(productType ? [productType] : [])];
     const resolvedCategory = productType
-      ? resolveCategoryForKeywords(productType)
-      : resolveCategoryForKeywords(promptKeywords.join(' '));
+      ? await resolveCategoryForKeywords(productType)
+      : await resolveCategoryForKeywords(promptKeywords.join(' '));
     const products = await matchRelatedProducts({
       hiddenSkus: await siteWideHiddenSkus(),
       categorySlug: resolvedCategory ?? undefined,

@@ -146,6 +146,12 @@ async function probeMatcherSources(): Promise<string[]> {
       'custom product read (lib/sanity/queries/custom-products)',
       () => import('../../lib/sanity/queries/custom-products'),
     ],
+    [
+      // FIX-911: the category RESOLVER reads Patrick's curation through this
+      // one; without it it resolves from the baked lists alone, silently.
+      'category curation read (lib/sanity/queries/category-evidence)',
+      () => import('../../lib/sanity/queries/category-evidence'),
+    ],
   ];
   for (const [label, load] of loads) {
     try {
@@ -400,8 +406,8 @@ async function main() {
 
   // -------------------------------------------------------------------------
   console.log('\n[6] generic-word stripping in category resolution');
-  const withGeneric = resolveCategoryForKeywords('custom power banks');
-  const withoutGeneric = resolveCategoryForKeywords('power banks');
+  const withGeneric = await resolveCategoryForKeywords('custom power banks');
+  const withoutGeneric = await resolveCategoryForKeywords('power banks');
   check(
     `"custom power banks" and "power banks" resolve identically (${withoutGeneric})`,
     withGeneric !== null && withGeneric === withoutGeneric,
@@ -709,7 +715,7 @@ async function main() {
 
   // Video-style related-products strip: keyword/productType-driven matching
   // (the video's Sanity category is a blogCategory, so matching never uses it).
-  const videoStripCategory = resolveCategoryForKeywords('stainless steel water bottles');
+  const videoStripCategory = await resolveCategoryForKeywords('stainless steel water bottles');
   const videoStrip = await matchViaHarness({
     categorySlug: videoStripCategory ?? undefined,
     keywords: ['stainless steel water bottles'],
@@ -848,7 +854,7 @@ async function main() {
   // Synthetic productStrip section — the exact shape the generate-page route
   // assembles and the page schema stores (products[] of blogProduct entries).
   const stripProducts = await matchViaHarness({
-    categorySlug: resolveCategoryForKeywords('water bottles') ?? undefined,
+    categorySlug: (await resolveCategoryForKeywords('water bottles')) ?? undefined,
     keywords: ['water bottles'],
     limit: 8,
   });
@@ -1030,7 +1036,7 @@ async function main() {
 
   // Landing-style product strip: keyword-driven, sku-backed, relevance-floored
   // — and omitted below the 2-product floor (the route's STRIP_MIN_PRODUCTS).
-  const landingCategory = resolveCategoryForKeywords('custom beach towels');
+  const landingCategory = await resolveCategoryForKeywords('custom beach towels');
   const landingStrip = await matchViaHarness({
     categorySlug: landingCategory ?? undefined,
     keywords: ['custom beach towels', 'beach towels'],

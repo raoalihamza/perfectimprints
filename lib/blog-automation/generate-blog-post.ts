@@ -34,7 +34,13 @@
 import { siteWideHiddenSkus } from '../products/site-wide-hidden';
 import { brandVoiceSystemBlock, BUYER_PERSONA } from '../ai/brand-voice';
 import { generateJson } from '../ai/deepseek';
-import { catalogTopUpFloor, matchRelatedProducts, resolveCategoryForKeywords } from '../ai/related-products';
+import {
+  catalogTopUpFloor,
+  matchRelatedProducts,
+  productNounOf,
+  resolveCategoryForKeywords,
+} from '../ai/related-products';
+import type { GeigerProduct } from '../product-types';
 import { suggestInternalLinks, type InternalLinkSuggestion } from '../ai/internal-links';
 import { placeInternalLinks, topicWordsOf, type PlacedLink } from '../ai/place-internal-links';
 import {
@@ -373,6 +379,65 @@ async function readExistingPosts(currentSlug?: string): Promise<ExistingPost[]> 
 }
 
 /**
+ * One list idea's product strip: the products to show under the idea, or an
+ * empty list when fewer than MIN_STRIP_PRODUCTS are relevant (a skipped strip,
+ * never a padded one). Exported so the FIX-911 measuring harness replays
+ * stored posts through this exact code instead of a copy of it; the caller
+ * adds what it uses to `usedSkus`.
+ *
+ * Each idea matches its OWN product type: the model's concrete productType
+ * ("power banks", "collapsible can coolers") is resolved to its root category
+ * (lib/ai/category-resolver: slug, then product names, FIX-911) and the strip
+ * is drawn from there; with no category it is drawn from the catalogue, at
+ * the FIX-900 floor. Whatever is scanned rather than drawn from a category
+ * must carry the idea's product noun (`scanMustCarry`, FIX-911).
+ */
+export async function matchIdeaStrip(input: {
+  /** The model's productType; empty when it gave none. */
+  productType: string;
+  heading: string;
+  /** The post's primary category (Patrick's pick), the soft fallback. */
+  categorySlug?: string;
+  usedSkus: ReadonlySet<string>;
+}): Promise<GeigerProduct[]> {
+  const { categorySlug, usedSkus } = input;
+  const productType = input.productType.trim();
+  const stripKeywords = productType ? [productType] : [input.heading];
+  const ideaCategory = productType ? await resolveCategoryForKeywords(productType) : null;
+  const catalogMinScore = catalogTopUpFloor(stripKeywords, STRIP_CATALOG_MIN_SCORE);
+  const scanMustCarry = productType ? productNounOf(productType) : null;
+  let products = await matchRelatedProducts({
+    hiddenSkus: await siteWideHiddenSkus(),
+    categorySlug: ideaCategory ?? undefined,
+    keywords: stripKeywords,
+    limit: LIST_STRIP_LIMIT,
+    minScore: STRIP_MIN_SCORE,
+    catalogMinScore,
+    scanMustCarry,
+    exclude: new Set(usedSkus),
+  });
+  // The shared primary category is a SOFT FALLBACK only (P2-AI-002b):
+  // consulted when the idea's own match comes up thin, never the default
+  // source for every idea (that is what made every strip identical).
+  if (products.length < MIN_STRIP_PRODUCTS && categorySlug && categorySlug !== ideaCategory) {
+    const fallback = await matchRelatedProducts({
+      hiddenSkus: await siteWideHiddenSkus(),
+      categorySlug,
+      keywords: stripKeywords,
+      limit: LIST_STRIP_LIMIT,
+      minScore: STRIP_MIN_SCORE,
+      catalogMinScore,
+      scanMustCarry,
+      exclude: new Set([...usedSkus, ...products.map((p) => p.sku)]),
+    });
+    products = [...products, ...fallback].slice(0, LIST_STRIP_LIMIT);
+  }
+  // Below the floor a strip is SKIPPED (the idea's text still stands);
+  // never padded with irrelevant catalog bestsellers.
+  return products.length >= MIN_STRIP_PRODUCTS ? products : [];
+}
+
+/**
  * Generate one post. Throws `DeepSeekError` (the call failed or timed out)
  * or `BlogGenerationError` (the answer cannot be used). Never writes.
  */
@@ -462,40 +527,12 @@ export async function generateBlogPost(input: GenerateBlogPostInput): Promise<Ge
   const bodySections: BlogBodySectionInput[] = [];
   if (template === 'list') {
     for (const s of sections) {
-      // Each idea matches its OWN product type: resolve the model's concrete
-      // productType ("power banks") to its best root category and pull from
-      // there; no category resolved → catalog keyword scoring on the phrase.
-      const productType = (s.productType ?? '').trim();
-      const stripKeywords = productType ? [productType] : [s.heading];
-      const ideaCategory = productType ? resolveCategoryForKeywords(productType) : null;
-      const catalogMinScore = catalogTopUpFloor(stripKeywords, STRIP_CATALOG_MIN_SCORE);
-      let products = await matchRelatedProducts({
-        hiddenSkus: await siteWideHiddenSkus(),
-        categorySlug: ideaCategory ?? undefined,
-        keywords: stripKeywords,
-        limit: LIST_STRIP_LIMIT,
-        minScore: STRIP_MIN_SCORE,
-        catalogMinScore,
-        exclude: usedSkus,
+      const strip = await matchIdeaStrip({
+        productType: s.productType ?? '',
+        heading: s.heading,
+        categorySlug,
+        usedSkus,
       });
-      // The shared primary category is a SOFT FALLBACK only (P2-AI-002b):
-      // consulted when the idea's own match comes up thin, never the default
-      // source for every idea (that is what made every strip identical).
-      if (products.length < MIN_STRIP_PRODUCTS && categorySlug && categorySlug !== ideaCategory) {
-        const fallback = await matchRelatedProducts({
-          hiddenSkus: await siteWideHiddenSkus(),
-          categorySlug,
-          keywords: stripKeywords,
-          limit: LIST_STRIP_LIMIT,
-          minScore: STRIP_MIN_SCORE,
-          catalogMinScore,
-          exclude: new Set([...usedSkus, ...products.map((p) => p.sku)]),
-        });
-        products = [...products, ...fallback].slice(0, LIST_STRIP_LIMIT);
-      }
-      // Below the floor a strip is SKIPPED (the idea's text still stands);
-      // never padded with irrelevant catalog bestsellers.
-      const strip = products.length >= MIN_STRIP_PRODUCTS ? products : [];
       for (const p of strip) usedSkus.add(p.sku);
       bodySections.push({
         heading: s.heading,
@@ -549,7 +586,7 @@ export async function generateBlogPost(input: GenerateBlogPostInput): Promise<Ge
   //    /cat/lunch-bags-boxes-totes before /cat/tote-bags, an alphabetical
   //    tie). This slug is for the LINK finder only: the strips keep
   //    `categorySlug` exactly as before.
-  const linkCategorySlug = categorySlug ?? resolveCategoryForKeywords(promptKeywords.join(' ')) ?? undefined;
+  const linkCategorySlug = categorySlug ?? (await resolveCategoryForKeywords(promptKeywords.join(' '))) ?? undefined;
   const found = dropSelf(
     await suggestInternalLinks({
       keywords: promptKeywords,

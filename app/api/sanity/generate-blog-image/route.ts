@@ -133,7 +133,7 @@ export async function POST(request: Request) {
       .map((p) => ({ sku: p.sku, name: p.name, imageUrl: p.imageUrl ?? null }));
     const topic = keywords[0] ?? title;
     const libraryRoots = [...rootSlugs];
-    const resolved = resolveCategoryForKeywords(keywords.length > 0 ? keywords.join(' ') : title);
+    const resolved = await resolveCategoryForKeywords(keywords.length > 0 ? keywords.join(' ') : title);
     if (resolved && !libraryRoots.includes(resolved)) libraryRoots.push(resolved);
 
     const outcome = await resolveHeaderImage(

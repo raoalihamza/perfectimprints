@@ -275,7 +275,8 @@ describe('the links', () => {
 
   it("the post's own category is boosted for the finder only, and a target matched on generic words alone is dropped", () => {
     const gen = read(GENERATOR);
-    expect(gen).toContain('const linkCategorySlug = categorySlug ?? resolveCategoryForKeywords(promptKeywords.join(\' \')) ?? undefined;');
+    // FIX-911: the resolver is async (it reads Patrick's curation); the rule is unchanged.
+    expect(gen).toContain('const linkCategorySlug = categorySlug ?? (await resolveCategoryForKeywords(promptKeywords.join(\' \'))) ?? undefined;');
     expect(gen).toContain('categorySlug: linkCategorySlug,');
     expect(gen).toContain('const suggestions = found.filter((s) => topicWordsOf(s).length > 0);');
     // The strips still receive the caller's category and nothing else.

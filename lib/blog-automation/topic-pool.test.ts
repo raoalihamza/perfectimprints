@@ -411,9 +411,17 @@ describe('structural guards', () => {
   });
 
   it('the matcher reads the shared list rather than keeping its own copy', () => {
-    const src = readFileSync(join(ROOT, 'lib', 'ai', 'related-products.ts'), 'utf8');
-    expect(src).toContain('NON_SIGNIFICANT_MATCH_WORDS');
-    expect(src).not.toMatch(/'ideas',\s*\n\s*'idea',/);
+    // FIX-911: the matcher and the category resolver read it through
+    // lib/ai/match-tokens.ts, as the product-matching set that brand-voice.ts
+    // DERIVES from the shared list (the shared list minus "can"). Neither
+    // file spells a word list of its own.
+    const matcher = readFileSync(join(ROOT, 'lib', 'ai', 'related-products.ts'), 'utf8');
+    const tokens = readFileSync(join(ROOT, 'lib', 'ai', 'match-tokens.ts'), 'utf8');
+    const voice = readFileSync(join(ROOT, 'lib', 'ai', 'brand-voice.ts'), 'utf8');
+    expect(matcher).toContain("from './match-tokens';");
+    expect(tokens).toContain("import { PRODUCT_MATCH_NON_SIGNIFICANT_WORDS } from './brand-voice';");
+    expect(voice).toContain('[...NON_SIGNIFICANT_MATCH_WORDS].filter(');
+    for (const src of [matcher, tokens]) expect(src).not.toMatch(/'ideas',\s*\r?\n\s*'idea',/);
   });
 
   it('this module is pure: no fetch, no Sanity, no fs, no next', () => {

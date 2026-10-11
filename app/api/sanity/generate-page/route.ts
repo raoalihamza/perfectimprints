@@ -240,8 +240,8 @@ export async function POST(request: Request) {
     // 2) Internal links from real targets only; never suggest the page itself.
     const productType = (gen.productType ?? '').trim();
     const resolvedCategory = productType
-      ? resolveCategoryForKeywords(productType)
-      : resolveCategoryForKeywords(promptKeywords.join(' '));
+      ? await resolveCategoryForKeywords(productType)
+      : await resolveCategoryForKeywords(promptKeywords.join(' '));
     const suggestions = (
       await suggestInternalLinks({
         keywords: promptKeywords,

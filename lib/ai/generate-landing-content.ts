@@ -298,8 +298,8 @@ export async function generateLandingContent(input: LandingGenInput): Promise<La
   const productType = `${gen.productType ?? ''}`.trim();
   const matchKeywords = [...keywords, product, ...(productType ? [productType] : [])];
   const resolvedCategory =
-    resolveCategoryForKeywords(productType || product) ??
-    resolveCategoryForKeywords(matchKeywords.join(' '));
+    (await resolveCategoryForKeywords(productType || product)) ??
+    (await resolveCategoryForKeywords(matchKeywords.join(' ')));
 
   // 2) Internal links from real targets only — including videos and OTHER
   //    landing pages; never suggest this page itself (page + landing hrefs are

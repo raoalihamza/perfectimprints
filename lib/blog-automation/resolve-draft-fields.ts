@@ -97,7 +97,7 @@ export async function defaultDraftFieldsDeps(client: SanityClient | null): Promi
     },
     categoryForTopic: async (phrase) => {
       try {
-        return matcher ? matcher.resolveCategoryForKeywords(phrase) : null;
+        return matcher ? await matcher.resolveCategoryForKeywords(phrase) : null;
       } catch {
         return null;
       }

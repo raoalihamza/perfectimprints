@@ -25,6 +25,21 @@
  *     banks") to its best root category so each list-post idea pulls from its
  *     OWN product type instead of one shared category.
  *
+ * FIX-911 (from FIX-910's measurement: 51 of 107 generated strips drifted):
+ *   - The resolver reads PRODUCT NAMES as well as slugs. Its rules live in
+ *     lib/ai/category-resolver.ts; the names it reads, Patrick's curation
+ *     included, are loaded by lib/ai/category-evidence.ts.
+ *   - "can" counts as a word here (lib/ai/match-tokens.ts): it is a product
+ *     noun in 111 names, and stripping it scored "can coolers" as "coolers".
+ *   - `scanMustCarry`: a product scanned from a whole collection (custom
+ *     products, product pages, the catalogue) must carry the idea's product
+ *     noun. Two shared modifiers are not the product.
+ *   Two roads were measured and are closed. Product names as a GATE (a root
+ *   must hold products naming the whole phrase): 28 of 56 right strips lost.
+ *   A higher `minScore` inside the category branch: 72 strips to 37. In a
+ *   category one shared word is evidence; in the catalogue it is not, and
+ *   that is the whole difference between the two floors.
+ *
  * SERVER-ONLY: reads products.json / data/categories from disk via
  * lib/categories. Never import from Studio bundle code — the fully assembled
  * result travels to the Studio action through the generate API route.
@@ -33,9 +48,11 @@
  * module under tsx exactly as Next consumes it.
  */
 
-import { getAllGeneratedRootSlugs, getAllProducts, getProductsForCategorySlug } from '../categories';
+import { getAllProducts, getProductsForCategorySlug } from '../categories';
 import type { GeigerProduct } from '../product-types';
-import { NON_SIGNIFICANT_MATCH_WORDS } from './brand-voice';
+import { loadCategoryIndex } from './category-evidence';
+import { resolveCategoryFromIndex } from './category-resolver';
+import { carriesToken, productPhraseTokens, significantTokens } from './match-tokens';
 import { buildSkuSet, isHiddenSku } from '../products/hidden-skus';
 
 export interface MatchRelatedProductsOptions {
@@ -71,6 +88,22 @@ export interface MatchRelatedProductsOptions {
    * phrase is not asked for a second word it does not have.
    */
   catalogMinScore?: number;
+  /**
+   * A word every product from a WHOLE-COLLECTION scan must carry in its name
+   * (FIX-911): the custom products, the product pages and the full catalogue.
+   * The category branch is never filtered by it.
+   *
+   * The blog generator passes the idea's product noun (`productNounOf`):
+   * "glow in the dark footballs" may only be topped up with products named
+   * football. FIX-900's floor asks a scanned product for two shared words,
+   * and "glow" + "dark" are two: glow-in-the-dark tattoos, a glow koozie and
+   * a badge reel cleared it under a football idea (FIX-910). Two modifiers
+   * are still not the product. Measured on FIX-910's 107 strips with the new
+   * resolver in place: off-topic scan products 19 -> 6, drifted strips 16 ->
+   * 11, right strips 65 -> 67, none lost. Unset (every other caller), the
+   * scans behave exactly as before.
+   */
+  scanMustCarry?: string | null;
   /**
    * Also surface Sanity `productPage` docs (P2-CP-001), returned with
    * `detailUrl` set so their cards link to /products/<slug>. OPT-IN (default
@@ -108,26 +141,9 @@ export interface MatchRelatedProductsOptions {
   replacementBySku?: ReadonlyMap<string, GeigerProduct>;
 }
 
-/**
- * Words with no matching signal: generic promo modifiers (see brand-voice.ts)
- * plus common filler that survives the length-3 token filter.
- */
-// The list itself lives in brand-voice.ts (AUTO-110) so the blog topic guard
-// and the AUTO-100 script read the same words; the set here is the same set.
-const NON_SIGNIFICANT: ReadonlySet<string> = NON_SIGNIFICANT_MATCH_WORDS;
-
-/** Lowercase alphanumeric tokens, length ≥ 3. */
-function tokenize(text: string): string[] {
-  return text
-    .toLowerCase()
-    .split(/[^a-z0-9]+/)
-    .filter((t) => t.length >= 3);
-}
-
-/** Tokens that actually carry relevance signal (generic promo words stripped). */
-function significantTokens(text: string): string[] {
-  return tokenize(text).filter((t) => !NON_SIGNIFICANT.has(t));
-}
+// The token rules (the split, the non-significant words, the plural fold)
+// live in lib/ai/match-tokens.ts since FIX-911, shared with the category
+// resolver so the two cannot disagree about what a word is.
 
 function keywordTokenSet(keywords: string[]): Set<string> {
   const set = new Set<string>();
@@ -157,16 +173,25 @@ export function catalogTopUpFloor(keywords: string[], cap: number): number {
 function scoreProduct(product: GeigerProduct, tokens: Set<string>): number {
   const productTokens = new Set(significantTokens(`${product.name} ${product.brand ?? ''}`));
   let score = 0;
-  for (const t of tokens) {
-    if (productTokens.has(t)) {
-      score += 1;
-      continue;
-    }
-    // singular/plural cross-match
-    if (t.endsWith('s') && productTokens.has(t.slice(0, -1))) score += 1;
-    else if (productTokens.has(`${t}s`)) score += 1;
-  }
+  for (const t of tokens) if (carriesToken(productTokens, t)) score += 1;
   return score;
+}
+
+/** Whether a product's name (or brand) carries a word, plural folded. */
+function productCarries(product: GeigerProduct, word: string): boolean {
+  return carriesToken(new Set(significantTokens(`${product.name} ${product.brand ?? ''}`)), word);
+}
+
+/**
+ * The product noun of a phrase (FIX-911): its last product word, after a
+ * trailing "with ..." / "for ..." is cut ("glow in the dark footballs" ->
+ * "footballs", "wine openers with flashlights" -> "openers"). Null when the
+ * phrase has no product word. The blog generator passes it as
+ * `scanMustCarry`.
+ */
+export function productNounOf(phrase: string): string | null {
+  const tokens = productPhraseTokens(phrase);
+  return tokens.length > 0 ? tokens[tokens.length - 1] : null;
 }
 
 /**
@@ -190,39 +215,22 @@ function rankEligible(
 }
 
 /**
- * Resolve a concrete product phrase (e.g. "power banks", "stainless steel
- * water bottles") to the best-matching generated ROOT category slug, or null
- * when nothing overlaps. Generic promo words are stripped first, so
- * "custom power banks" and "power banks" resolve identically
- * (→ power-banks-chargers). Deterministic: score desc → shorter slug → asc.
+ * Resolve a concrete product phrase ("power banks", "collapsible can
+ * coolers") to the root category it belongs to, or null when the catalogue
+ * gives no honest answer. Generic promo words are stripped first, so "custom
+ * power banks" and "power banks" resolve identically.
+ *
+ * The rules are lib/ai/category-resolver.ts (FIX-911): a slug that carries
+ * the whole phrase, else the longest tail of the phrase that product NAMES
+ * evidence, else a root the phrase names outright, verified by its own
+ * product names. Until FIX-911 this read slugs only, and it was synchronous;
+ * it is async because the evidence includes Patrick's curation of each root
+ * (one Sanity read, memoised; the baked lists alone when Sanity is away).
+ *
  */
-export function resolveCategoryForKeywords(phrase: string): string | null {
-  const tokens = keywordTokenSet([phrase]);
-  if (tokens.size === 0) return null;
-  let best: { slug: string; score: number } | null = null;
-  for (const slug of getAllGeneratedRootSlugs()) {
-    const slugTokens = new Set(significantTokens(slug.split('-').join(' ')));
-    let score = 0;
-    for (const t of tokens) {
-      if (
-        slugTokens.has(t) ||
-        (t.endsWith('s') && slugTokens.has(t.slice(0, -1))) ||
-        slugTokens.has(`${t}s`)
-      ) {
-        score += 1;
-      }
-    }
-    if (score <= 0) continue;
-    if (
-      !best ||
-      score > best.score ||
-      (score === best.score &&
-        (slug.length < best.slug.length || (slug.length === best.slug.length && slug < best.slug)))
-    ) {
-      best = { slug, score };
-    }
-  }
-  return best?.slug ?? null;
+export async function resolveCategoryForKeywords(phrase: string): Promise<string | null> {
+  if (productPhraseTokens(phrase).length === 0) return null;
+  return resolveCategoryFromIndex(phrase, await loadCategoryIndex());
 }
 
 export async function matchRelatedProducts(
@@ -282,6 +290,11 @@ export async function matchRelatedProducts(
     for (const p of rankEligible(categoryProducts, tokens, minScore)) push(p);
   }
 
+  // The three sources below scan a whole collection, not a category, so they
+  // answer to `scanMustCarry` when the caller names the product noun.
+  const mustCarry = (opts.scanMustCarry ?? '').trim().toLowerCase() || null;
+  const scannable = (p: GeigerProduct) => !mustCarry || productCarries(p, mustCarry);
+
   // 2) Custom (non-Geiger) products, scored the same way. Loaded lazily and
   //    guarded: the Sanity read lives behind `server-only` and needs network,
   //    so a failure (offline verifier, Sanity down) degrades to Geiger-only
@@ -292,7 +305,7 @@ export async function matchRelatedProducts(
         '../sanity/queries/custom-products'
       );
       const custom = (await getAllCustomProducts()).map(customProductToGeigerProduct);
-      for (const p of rankEligible(custom, tokens, minScore)) push(p);
+      for (const p of rankEligible(custom.filter(scannable), tokens, minScore)) push(p);
     } catch {
       // Geiger-only fallback — suggestions stay useful without custom products.
     }
@@ -307,7 +320,7 @@ export async function matchRelatedProducts(
         '../sanity/queries/product-pages'
       );
       const pages = (await getAllProductPageCards()).map(productPageToGeigerProduct);
-      for (const p of rankEligible(pages, tokens, minScore)) push(p);
+      for (const p of rankEligible(pages.filter(scannable), tokens, minScore)) push(p);
     } catch {
       // Geiger-only fallback.
     }
@@ -321,7 +334,7 @@ export async function matchRelatedProducts(
   //    not evidence (see the `catalogMinScore` docstring).
   const catalogFloor = Math.max(minScore, opts.catalogMinScore ?? minScore);
   if (picked.length < limit) {
-    for (const p of rankEligible(getAllProducts(), tokens, catalogFloor)) {
+    for (const p of rankEligible(getAllProducts().filter(scannable), tokens, catalogFloor)) {
       if (picked.length >= limit) break;
       push(p);
     }
