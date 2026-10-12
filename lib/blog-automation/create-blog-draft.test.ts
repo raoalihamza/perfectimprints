@@ -317,6 +317,7 @@ describe('createBlogDraftFromTopic: nothing half made', () => {
       title: '!!!',
       titleShape: 'list',
       template: 'list',
+      depth: { category: null, supply: 0, categorySize: 0, depth: 0, variants: [] },
       metaTitle: '',
       metaDescription: '',
       excerpt: '',

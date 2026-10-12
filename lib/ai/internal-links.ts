@@ -25,6 +25,7 @@
  */
 
 import { cachedClient } from '../sanity/client';
+import { memoizedRead } from './read-memo';
 import { LANDING_TAG, PAGES_TAG, RELATED_BLOGS_TAG, VIDEOS_TAG } from '../sanity/cache-tags';
 import { getAllGeneratedRootSlugs, getCategoryContent } from '../categories';
 
@@ -187,17 +188,21 @@ export async function loadLinkDocsForKind(
   kind: 'blog' | 'page' | 'video' | 'landing',
 ): Promise<LinkSourceDoc[]> {
   const source = SANITY_LINK_SOURCES[kind];
-  try {
-    return (
-      (await cachedClient.fetch<LinkSourceDoc[]>(
-        `*[_type == "${source.docType}" && !(_id in path("drafts.**")) && defined(title) && defined(slug.current)]{ _id, title, "slug": slug.current }`,
-        {},
-        { next: { tags: [source.tag], revalidate: false } },
-      )) ?? []
-    );
-  } catch {
-    return [];
-  }
+  // AUTO-205: one read per kind per generation (the duplicate-title check and
+  // the link finder both read the published posts); a plain call outside a scope.
+  return memoizedRead(`link-docs:${kind}`, async () => {
+    try {
+      return (
+        (await cachedClient.fetch<LinkSourceDoc[]>(
+          `*[_type == "${source.docType}" && !(_id in path("drafts.**")) && defined(title) && defined(slug.current)]{ _id, title, "slug": slug.current }`,
+          {},
+          { next: { tags: [source.tag], revalidate: false } },
+        )) ?? []
+      );
+    } catch {
+      return [];
+    }
+  });
 }
 
 async function suggestSanityDocLinks(

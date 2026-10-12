@@ -65,6 +65,10 @@ import {
   buildHeaderImagePrompt,
   buildImageCheckPrompt,
   buildScenePlanPrompt,
+  buildTileCheckPrompt,
+  parseTileCheck,
+  tilePassProblem,
+  TILE_REGIONS,
   firstProductImage,
   geigerReferenceUrl,
   headerImageAlt,
@@ -87,6 +91,7 @@ import {
   type ImageCheckContext,
   type ReferenceProduct,
   type ScenePlan,
+  type TileCheck,
 } from './header-image';
 import { reserveBlogImageCall, type BlogImageReservation } from './header-image-usage';
 
@@ -132,6 +137,13 @@ export interface HeaderImageDeps {
   generate: (args: { prompt: string; references: GeminiImageInput[]; timeoutMs: number }) => Promise<GeneratedPicture>;
   /** ONE read of a generated picture; null when the check itself was unavailable. The chain calls it IMAGE_CHECK_READS times per picture. `context` says what the picture is about, so the check knows which objects are the product. */
   check: (image: GeminiImageInput, context: ImageCheckContext) => Promise<ImageCheck | null>;
+  /**
+   * AUTO-205: one close look at one region of a picture that passed the
+   * reads (the tile pass); null when unavailable. The chain calls it once per
+   * TILE_REGIONS entry, in parallel. Optional so a test's fake deps need not
+   * provide it; the real deps always do.
+   */
+  checkRegion?: (image: GeminiImageInput, region: string) => Promise<TileCheck | null>;
   /** Store the bytes as a Sanity image asset; returns the asset document id. */
   upload: (bytes: Buffer, filename: string, contentType: string) => Promise<string>;
   now: () => number;
@@ -210,6 +222,17 @@ export function defaultHeaderImageDeps(client: SanityClient): HeaderImageDeps {
         // one whose answer is longest, so "could not parse" must never mean
         // "accepted unchecked". Only a call that never answered is unavailable.
         if (err instanceof GeminiError) return checkAnsweredWithoutVerdict(err.message) ? UNREADABLE_IMAGE_CHECK : null;
+        throw err;
+      }
+    },
+    checkRegion: async (image, region) => {
+      const { system, user } = buildTileCheckPrompt(region);
+      try {
+        const result = await generateJsonFromImage<unknown>({ system, user, image, maxOutputTokens: 256, temperature: 0 });
+        return parseTileCheck(region, result.data);
+      } catch (err) {
+        // A region read that failed is left out; the two full reads already passed, and the tile pass is the belt.
+        if (err instanceof GeminiError) return null;
         throw err;
       }
     },
@@ -460,8 +483,26 @@ async function aiStep(
         }
       }),
     );
-    const problem = worstImageCheckProblem(reads);
+    let problem = worstImageCheckProblem(reads);
     if (reads.every((r) => r === null)) notes.push('the text-and-logo check was unavailable, so the picture was accepted unchecked; look at it before publishing');
+    // The tile pass (AUTO-205): six close looks, one per region, in parallel,
+    // only on a picture the full reads passed; any logo seen refuses it like
+    // a failed read. A region whose call failed is left out.
+    if (!problem && deps.checkRegion) {
+      const tileDeadline = Math.min(CHECK_TIMEOUT_MS, remaining());
+      const tiles = await Promise.all(
+        TILE_REGIONS.map(async (region): Promise<TileCheck | null> => {
+          try {
+            return await withDeadline(deps.checkRegion!(pictureInput, region), tileDeadline, `the close look at the ${region}`);
+          } catch (err) {
+            log(`[header-image] tile pass unavailable (${region}): ${errorText(err)}`);
+            return null;
+          }
+        }),
+      );
+      problem = tilePassProblem(tiles);
+      if (problem) log(`[header-image] tile pass refused attempt ${attempts}: ${problem}`);
+    }
     if (problem) {
       log(`[header-image] check refused attempt ${attempts}: ${problem}`);
       if (attempts >= 2) {

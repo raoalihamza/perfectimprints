@@ -94,6 +94,37 @@ export function getCategoryContent(slug: string): GeneratedCategoryContent | nul
   return JSON.parse(raw) as GeneratedCategoryContent;
 }
 
+/**
+ * The MATERIAL variants a root category is sold in, from its baked facet pages
+ * (AUTO-205): one entry per `/cat/<root>/material/<value>` page whose own
+ * grid holds at least `minProducts` SKUs and fewer than the root's whole grid.
+ * The second condition drops the degenerate facets the Phase C search
+ * fallback produced (a value whose page shows every product of the root is
+ * not a variant of it). Material only: the type / shape / style facets of
+ * many roots are such whole-root pages (koozies "type: can 76, box 76, pint
+ * 76" for a root of 76), measured 2026-10-12. Largest first. A root with no
+ * such pages returns [].
+ */
+export function getMaterialVariantsForRoot(rootSlug: string, minProducts = 2): { value: string; count: number }[] {
+  const root = rootSlug.trim();
+  if (!root || !fs.existsSync(CATEGORIES_DIR)) return [];
+  const rootContent = getCategoryContent(root);
+  const total = rootContent?.productSkus?.length ?? 0;
+  const prefix = `${root}__material__`;
+  const out: { value: string; count: number }[] = [];
+  for (const file of fs.readdirSync(CATEGORIES_DIR)) {
+    if (!file.startsWith(prefix) || !file.endsWith('.json')) continue;
+    const value = file.slice(prefix.length, -'.json'.length);
+    if (!value || value.includes('__')) continue;
+    const content = getCategoryContent(file.slice(0, -'.json'.length));
+    const count = content?.productSkus?.length ?? 0;
+    if (count < minProducts) continue;
+    if (total > 0 && count >= total) continue;
+    out.push({ value, count });
+  }
+  return out.sort((a, b) => b.count - a.count || (a.value < b.value ? -1 : 1));
+}
+
 export function getAllGeneratedRootSlugs(): string[] {
   if (!fs.existsSync(CATEGORIES_DIR)) return [];
   const files = fs.readdirSync(CATEGORIES_DIR).filter((f) => f.endsWith('.json'));

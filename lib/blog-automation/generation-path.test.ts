@@ -207,7 +207,7 @@ describe('the fields beside the body (AUTO-202)', () => {
     // AUTO-204: every picture is read IMAGE_CHECK_READS times, in parallel under ONE deadline, and the worst answer
     // decides; an unavailable read is caught per read, so one failed read cannot throw the chain.
     expect(chain).toContain('Array.from({ length: IMAGE_CHECK_READS }, async (): Promise<ImageCheck | null> => {');
-    expect(chain).toContain('const problem = worstImageCheckProblem(reads);');
+    expect(chain).toContain('let problem = worstImageCheckProblem(reads);');
     expect(chain).toContain("if (reads.every((r) => r === null)) notes.push('the text-and-logo check was unavailable");
     expect(chain.match(/deps\.check\(/g)).toHaveLength(1);
   });

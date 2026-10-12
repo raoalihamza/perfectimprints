@@ -93,7 +93,7 @@ export async function defaultDraftFieldsDeps(client: SanityClient | null): Promi
       const hiddenSet = new Set(hiddenList.map(normalizeSku));
       return resolveProductsBySku(skus)
         .filter((p) => !hiddenSet.has(normalizeSku(p.sku)))
-        .map((p) => ({ sku: p.sku, name: p.name, imageUrl: p.imageUrl ?? null }));
+        .map((p) => ({ sku: p.sku, name: p.name, imageUrl: p.imageUrl ?? null, brand: p.brand ?? null }));
     },
     categoryForTopic: async (phrase) => {
       try {

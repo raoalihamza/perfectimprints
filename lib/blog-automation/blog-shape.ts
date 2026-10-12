@@ -95,9 +95,36 @@ export function templateForShape(shape: TitleShape): BodyTemplate {
   return shape === 'list' ? 'list' : 'single';
 }
 
-/** The smallest and largest number a list title may carry. Patrick's own published lists run from 3 to 25; 6 to 12 keeps a 1,300 to 1,900-word post's ideas substantial. */
-export const LIST_IDEAS_MIN = 6;
+/**
+ * The smallest and largest number a list title may carry. Patrick's own
+ * published lists run from 3 to 25. The floor is 5 since AUTO-205 (it was 6):
+ * the catalogue decides how many ideas a list can carry (`sustainableListIdeas`),
+ * and the AUTO-205 measurement over the 1,014 list-shaped usable topics found
+ * the floor is what decides whether a thin topic stays a list or becomes a
+ * guide; 5 keeps the most lists while every idea still has products under it.
+ */
+export const LIST_IDEAS_MIN = 5;
 export const LIST_IDEAS_MAX = 12;
+
+/**
+ * How many products one list idea is budgeted (AUTO-205). An idea strip shows
+ * up to four products and is skipped under two; three per idea is the
+ * diagnostic's measure, and it is what turns a topic's product depth into the
+ * number of ideas its list can carry. Spelled once.
+ */
+export const PRODUCTS_PER_IDEA = 3;
+
+/**
+ * What the catalogue allows for a topic (AUTO-205), measured by the server
+ * before the shape is chosen (lib/blog-automation/topic-depth.ts). Nothing
+ * here reads the catalogue; the rules are pure over these two numbers.
+ */
+export interface ShapeAvailability {
+  /** Products the topic can draw on: the larger of the matcher's supply and the resolved category's size. Undefined means unmeasured (every list count available). */
+  depth?: number;
+  /** The variant values (materials) the topic's category is sold in; a comparison needs two. Empty or undefined means no comparison can be grounded. */
+  variants?: readonly string[];
+}
 
 /** Google shows about 60 characters of a title; above this the generator asks for another. Patrick's own titles run longer, so this is a ceiling, not his style. */
 export const TITLE_MAX_CHARS = 75;
@@ -132,34 +159,105 @@ const LIST = /\bideas?\b|\bways\b|\buses\b|\bgiveaways?\b|\btips\b|\bexamples?\b
 const GUIDE = /\bguide\b|\bbuy(?:ing|er|ers)?\b|\bchoos(?:e|ing)\b|\bselect(?:ing)?\b|\bbest\b|\btypes?\b|\bkinds?\b|\bwholesale\b|\bbulk\b|\bcheap(?:est)?\b|\baffordable\b|\bpric(?:e|es|ing)\b|\bcost\b|\bminimum\b|\bsizes?\b|\bmaterials?\b|\bquality\b|\bdurable\b|\bwhat to know\b|\bexplained\b/;
 
 /**
+ * The shape the topic's OWN WORDS ask for, or null for a plain product topic
+ * ("custom koozies") that asks for nothing in particular. A how-to wins over a
+ * question word inside it, a question over a list word, a comparison over
+ * both list and guide words. Exported for the measuring scripts, which need
+ * to tell a keyword-triggered guide from one the rotation picked.
+ */
+export function triggeredShape(topic: string): TitleShape | null {
+  const t = topic.toLowerCase().replace(/\s+/g, ' ').trim();
+  if (HOWTO.test(t)) return 'howto';
+  if (QUESTION_START.test(t) || t.endsWith('?')) return 'question';
+  if (COMPARISON.test(t)) return 'comparison';
+  if (LIST.test(t)) return 'list';
+  if (GUIDE.test(t)) return 'guide';
+  return null;
+}
+
+/** How many list ideas a product depth can carry: PRODUCTS_PER_IDEA products each. */
+export function ideasDepthCanCarry(depth: number): number {
+  return Math.max(0, Math.floor(depth / PRODUCTS_PER_IDEA));
+}
+
+/** True when a measured depth can carry a list of at least LIST_IDEAS_MIN ideas; an unmeasured depth can. */
+export function listIsAvailable(availability?: ShapeAvailability): boolean {
+  return availability?.depth === undefined || ideasDepthCanCarry(availability.depth) >= LIST_IDEAS_MIN;
+}
+
+/** A comparison needs two real variants to compare; a comparison the topic's own words ask for ("x vs y") needs none. */
+export function comparisonIsAvailable(availability?: ShapeAvailability): boolean {
+  return (availability?.variants?.length ?? 0) >= 2;
+}
+
+/**
+ * The shapes a PLAIN product topic may take (AUTO-205 Part 3), in a fixed
+ * order so the rotation below is stable: a list when the catalogue can carry
+ * one, a guide always, a question always (a question post answers a question
+ * and needs no products), a comparison when the category is sold in two or
+ * more real materials. Before AUTO-205 this was list or guide only, which the
+ * diagnostic measured turning into 82% guides once thin lists were refused
+ * (its brief said 86%).
+ */
+export function availableShapes(availability?: ShapeAvailability): TitleShape[] {
+  const shapes: TitleShape[] = [];
+  if (listIsAvailable(availability)) shapes.push('list');
+  shapes.push('guide', 'question');
+  if (comparisonIsAvailable(availability)) shapes.push('comparison');
+  return shapes;
+}
+
+/**
+ * How many slots a list takes in the rotation when the catalogue can carry
+ * one. A list is the shape Patrick's blog is built on and the one the strips
+ * were built for, so where products exist it stays the most common shape
+ * without being the only one. Measured over the 2,121 usable topics on
+ * 2026-10-12 (whole pool / topics with two or more products behind them):
+ * weight 1 gives guide 42% question 35% list 13% comparison 10% (list 20%
+ * with products); weight 2 gives list 19% (28%); weight 3 gives guide 38.5%
+ * question 31% list 24% comparison 7% on the whole pool and LIST 35% guide
+ * 30% question 26% comparison 9% where products exist. Three.
+ */
+export const LIST_ROTATION_WEIGHT = 3;
+
+/** The rotation a plain topic is hashed into: `availableShapes` with the list repeated LIST_ROTATION_WEIGHT times when it is available. */
+export function shapeRotation(availability?: ShapeAvailability): TitleShape[] {
+  const out: TitleShape[] = [];
+  for (const shape of availableShapes(availability)) {
+    if (shape === 'list') for (let i = 0; i < LIST_ROTATION_WEIGHT; i += 1) out.push('list');
+    else out.push(shape);
+  }
+  return out;
+}
+
+/**
  * The title shape for a topic. `choice` is what the caller asked for: 'list'
  * forces a list; 'single' forces a non-list shape (the topic's own, or a
- * guide when the topic reads as a list); 'auto' follows the topic entirely.
+ * guide when the topic reads as a list); 'auto' follows the topic, and for a
+ * plain product topic rotates through `availableShapes` by a stable hash of
+ * the topic's own words, so the same topic always gets the same answer and
+ * the blog index alternates. A topic whose words ask for a list but whose
+ * catalogue cannot carry one (`availability.depth`) becomes a guide: only a
+ * genuine lack of products changes a shape, never a dice roll.
  */
-export function chooseTitleShape(topic: string, choice: TemplateChoice = 'auto'): TitleShape {
+export function chooseTitleShape(topic: string, choice: TemplateChoice = 'auto', availability?: ShapeAvailability): TitleShape {
   if (choice === 'list') return 'list';
   const t = topic.toLowerCase().replace(/\s+/g, ' ').trim();
-  let shape: TitleShape | null = null;
-  if (HOWTO.test(t)) shape = 'howto';
-  else if (QUESTION_START.test(t) || t.endsWith('?')) shape = 'question';
-  else if (COMPARISON.test(t)) shape = 'comparison';
-  else if (LIST.test(t)) shape = 'list';
-  else if (GUIDE.test(t)) shape = 'guide';
+  let shape: TitleShape | null = triggeredShape(t);
+  if (shape === 'list' && !listIsAvailable(availability)) shape = 'guide';
   if (shape === null) {
-    // A plain product topic suits a list and a guide equally; the topic's own
-    // words decide, stably, so the index alternates and the same topic always
-    // gets the same answer.
-    shape = stableHash(`shape:${topicSeed(t)}`) % 2 === 0 ? 'list' : 'guide';
+    const options = shapeRotation(availability);
+    shape = options[stableHash(`shape:${topicSeed(t)}`) % options.length];
   }
   if (choice === 'single' && shape === 'list') return 'guide';
   return shape;
 }
 
 /**
- * How many ideas a list post for this topic gets: the word budget's count
+ * How many ideas a list post for this topic WANTS: the word budget's count
  * for the target, moved by a stable offset of -2 to +3 from the topic's
  * words, inside LIST_IDEAS_MIN..LIST_IDEAS_MAX. At the panel's 1,500 words
- * the base is 9 and the result 7 to 12.
+ * the base is 9 and the result 7 to 12 (6 to 12 with the lower floor).
  */
 export function ideaCountFor(target: number, topic: string): number {
   const base = listIdeaCount(target);
@@ -167,8 +265,47 @@ export function ideaCountFor(target: number, topic: string): number {
   return Math.min(LIST_IDEAS_MAX, Math.max(LIST_IDEAS_MIN, base + offset));
 }
 
-/** The "title" line of the generator's JSON contract, per shape. */
-export function titleInstruction(shape: TitleShape, ideaCount: number): string {
+/**
+ * How many ideas the list for this topic GETS (AUTO-205): what it wants,
+ * capped by what the catalogue can carry at PRODUCTS_PER_IDEA products an
+ * idea, or null when the depth cannot sustain even LIST_IDEAS_MIN (the topic
+ * is then not written as a list at all). An unmeasured depth caps nothing. A
+ * list of five is still a list; depth sets the COUNT, not the shape.
+ */
+export function sustainableListIdeas(target: number, topic: string, depth?: number): number | null {
+  const wanted = ideaCountFor(target, topic);
+  if (depth === undefined) return wanted;
+  const carry = ideasDepthCanCarry(depth);
+  if (carry < LIST_IDEAS_MIN) return null;
+  return Math.min(wanted, carry);
+}
+
+/** A caller's own idea count (the `ideaCount` parameter of generateBlogPost), held inside the range; null for anything that is not a whole number. */
+export function clampIdeaCount(value: unknown): number | null {
+  const n = typeof value === 'number' && Number.isFinite(value) ? Math.round(value) : NaN;
+  if (Number.isNaN(n)) return null;
+  return Math.min(LIST_IDEAS_MAX, Math.max(LIST_IDEAS_MIN, n));
+}
+
+/** "stainless-steel" as "stainless steel", for a prompt. */
+export function variantLabel(value: string): string {
+  return value.trim().toLowerCase().replace(/[-_]+/g, ' ');
+}
+
+/** The variants a comparison may be built on, as a prompt clause; empty when none were measured. */
+function variantsClause(variants?: readonly string[]): string {
+  const labels = (variants ?? []).map(variantLabel).filter(Boolean);
+  return labels.length >= 2 ? ` The kinds this product is actually sold in, from the catalogue: ${labels.join(', ')}. Compare TWO of them (the two a buyer most often weighs), named in the title.` : '';
+}
+
+/**
+ * The "title" line of the generator's JSON contract, per shape. A question
+ * title is asked to be the question a BUYER asks, in one of several forms, so
+ * a run of question posts does not all open "Which ... Work Best" (AUTO-205);
+ * a comparison names the two variants it compares, from the measured list
+ * when there is one.
+ */
+export function titleInstruction(shape: TitleShape, ideaCount: number, variants?: readonly string[]): string {
   const len = `at most ${TITLE_TARGET_CHARS} characters`;
   switch (shape) {
     case 'list':
@@ -176,25 +313,29 @@ export function titleInstruction(shape: TitleShape, ideaCount: number): string {
     case 'guide':
       return `a buyer's guide title, NOT a numbered list and NOT starting with a number, carrying the plural topic keyword, in the style of "Choosing Custom Koozies: What to Know Before You Order" or "Custom Koozies for Company Events: A Buyer's Guide"; ${len}`;
     case 'question':
-      return `the question the post answers, written as a question that ENDS WITH ?, carrying the topic keyword, in the style of "Which Custom Koozies Work Best for Outdoor Events?"; ${len}`;
+      return `the one question a buyer of this product actually asks, written as a question that ENDS WITH ? and carries the topic keyword; choose the question that matters most for this product, not a template, for example "Which Custom Koozies Work Best for Outdoor Events?", "How Many Custom Koozies Should a Company Picnic Order?", "Are Custom Koozies Still Worth It for Trade Shows?", "What Makes Custom Koozies a Good Employee Gift?", "Do Custom Koozies Need a Full-Color Imprint?"; ${len}`;
     case 'howto':
       return `a title that STARTS WITH "How to", carrying the plural topic keyword, in the style of "How to Order Custom Koozies for a Company Picnic"; ${len}`;
     case 'comparison':
-      return `a comparison title naming both sides, NOT starting with a number, in the style of "Neoprene vs Foam Koozies: Which Is Right for Your Event?"; at most ${TITLE_TARGET_CHARS + 5} characters`;
+      return `a comparison title naming both sides, NOT starting with a number, in the style of "Neoprene vs Foam Koozies: Which Is Right for Your Event?"${variantsClause(variants)}; at most ${TITLE_TARGET_CHARS + 5} characters`;
   }
 }
 
-/** How the single template's sections are to be written, per non-list shape. */
-export function shapeSectionGuidance(shape: TitleShape, sectionCount: number): string {
+/**
+ * How the single template's sections are to be written, per non-list shape;
+ * a comparison is told which variants the catalogue offers (AUTO-205), so the
+ * two sides are real kinds the site sells rather than invented ones.
+ */
+export function shapeSectionGuidance(shape: TitleShape, sectionCount: number, variants?: readonly string[]): string {
   switch (shape) {
     case 'guide':
       return `This is a BUYER'S GUIDE. The ${sectionCount} sections are the buyer's considerations in a sensible order (what the product is for and who orders it, what to look for, materials and quality, decoration options, quantities and lead times, mistakes to avoid), each with a descriptive heading. Not a numbered list of ideas.`;
     case 'question':
-      return `This post ANSWERS THE QUESTION in the title. The FIRST section answers it directly in its first sentence, then explains; the remaining ${sectionCount - 1} sections give the detail a buyer needs to act on the answer. Headings are descriptive, not numbered.`;
+      return `This post ANSWERS THE QUESTION in the title. The FIRST section answers it directly in its first sentence, then explains; the remaining ${sectionCount - 1} sections give the detail a buyer needs to act on the answer (who it applies to, what changes the answer, how to order accordingly). Headings are descriptive, not numbered. The answer is a buyer's answer, grounded in how the product is ordered and used, never a sales pitch.`;
     case 'howto':
       return `This is a HOW-TO. The ${sectionCount} sections are the steps in the order a buyer takes them, each heading starting "Step N:" with N from 1 to ${sectionCount}, each explaining what to do and what to decide at that step. Use listItems where a step has a checklist.`;
     case 'comparison':
-      return `This is a COMPARISON. The first section names the options being compared; the middle sections compare them point by point (use, durability, decoration, quantity, lead time); the LAST section says which to choose for which buyer. Headings are descriptive, not numbered.`;
+      return `This is a COMPARISON of two kinds of the same product.${variantsClause(variants)} The first section names the two options being compared and who tends to order each; the middle sections compare them point by point (use, durability, decoration, quantity, lead time); the LAST section says which to choose for which buyer. Headings are descriptive, not numbered.`;
     case 'list':
       return '';
   }

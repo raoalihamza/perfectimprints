@@ -57,18 +57,22 @@ describe('the shape follows the topic', () => {
     expect(chooseTitleShape('what are the best trade show giveaway ideas')).toBe('question');
   });
 
-  it('a plain product topic is a list or a guide, decided by the topic itself, stably, never a how-to or a question', () => {
+  it('a plain product topic is a list, a guide or a question (a comparison with two real materials), decided by the topic itself, stably, never a how-to', () => {
     const shapes = new Set<string>();
     for (const topic of PATRICKS_SIX) {
       const shape = chooseTitleShape(topic);
-      expect(['list', 'guide'], topic).toContain(shape);
+      expect(['list', 'guide', 'question'], topic).toContain(shape);
       expect(chooseTitleShape(topic)).toBe(shape);
       shapes.add(shape);
     }
     // The six that all came out "9 ..." no longer all come out one shape.
-    expect(shapes.size).toBe(2);
+    expect(shapes.size).toBeGreaterThanOrEqual(2);
     // Word order does not change the answer.
     expect(chooseTitleShape('koozies custom')).toBe(chooseTitleShape('custom koozies'));
+    // With no variants a comparison is never picked for a plain topic; with two it can be.
+    const all = ['custom koozies', 'custom pens', 'custom tote bags', 'custom sunglasses', 'custom water bottles', 'custom ornaments', 'custom mugs', 'custom lanyards', 'custom caps', 'custom magnets', 'custom notebooks', 'custom umbrellas'];
+    expect(all.map((t) => chooseTitleShape(t, 'auto', { variants: [] }))).not.toContain('comparison');
+    expect(new Set(all.map((t) => chooseTitleShape(t, 'auto', { variants: ['foam', 'neoprene'] }))).size).toBeGreaterThanOrEqual(3);
   });
 
   it("the caller's choice: 'list' forces a list; 'single' forces a non-list shape, the topic's own or a guide; 'auto' follows the topic", () => {
@@ -203,11 +207,11 @@ describe('against the real published titles', () => {
     expect(gen).toContain('repairListTitleNumber(finalTitle, sections.length)');
     expect(gen).toContain("if (shape === 'question') finalTitle = repairQuestionTitle(finalTitle);");
     expect(gen).toContain('titleProblem(finalTitle, shape,');
-    // The shape is chosen once, from the topic, and the body template follows it.
-    expect(gen).toContain('const shape = chooseTitleShape(topic, templateChoiceOf(input.template));');
+    // The shape is chosen once, from the topic and the measured depth (AUTO-205), and the body template follows it.
+    expect(gen).toContain('const shape = chooseTitleShape(topic, choice, availability);');
     expect(gen).toContain('const template = templateForShape(shape);');
-    // The number in the title IS the section count.
-    expect(gen).toContain("const ideaCount = template === 'list' ? ideaCountFor(target, topic) : undefined;");
+    // The number in the title IS the section count: the caller's, else what the catalogue can carry, else the floor.
+    expect(gen).toContain('clampIdeaCount(input.ideaCount) ?? sustainableListIdeas(target, topic, depth.depth) ?? LIST_IDEAS_MIN');
     expect(gen).toContain('const sectionCount = ideaCount ?? singleSectionCount(target);');
     // The old fixed "numbered list style" instruction is gone.
     expect(gen).not.toContain('numbered list style');

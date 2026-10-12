@@ -54,6 +54,7 @@ import { loadCategoryIndex } from './category-evidence';
 import { resolveCategoryFromIndex } from './category-resolver';
 import { carriesToken, productPhraseTokens, significantTokens } from './match-tokens';
 import { buildSkuSet, isHiddenSku } from '../products/hidden-skus';
+import { memoizedRead } from './read-memo';
 
 export interface MatchRelatedProductsOptions {
   /** URL-style category slug (path after /cat/), e.g. 'water-bottles'. */
@@ -204,9 +205,27 @@ export function productNounOf(phrase: string): string | null {
   return tokens.length > 0 ? tokens[tokens.length - 1] : null;
 }
 
+/** Patrick's own card (a productPage or customProduct normalised to the catalogue shape) carries a synthetic id; a Geiger product never does. */
+function isOwnProduct(p: GeigerProduct): boolean {
+  return p.sku.startsWith('custom-');
+}
+
 /**
  * Stable, deterministic ranking of the products clearing `minScore`:
- * score desc → shorter name → sku asc.
+ * score desc, then Patrick's own product before a Geiger one (AUTO-205), then
+ * shorter name, then sku asc.
+ *
+ * THE TIE-BREAK (AUTO-205 Part 6). AUTO-204 found that inside a category his
+ * pages ranked by score like any other member and sat second to fourth
+ * because his names are long ("Custom Shape Acrylic Holiday Ornaments - up
+ * to 6 sq. inches"). The AUTO-205 diagnostic measured the one-line change on
+ * FIX-911's 107 strips: no verdict changed, 12 strips changed, his placements
+ * went from 5 to 23. It ships alone. Two other roads were measured there and
+ * do NOT ship: matching a post's most specific idea first ("ordering") moved
+ * strips without fixing one, and a two-pass matcher (his pages at a higher
+ * floor first, then everything) created new faults by taking a page away
+ * from the idea it fitted best. The numbers are in CLAUDE.md Section 23
+ * (AUTO-205); do not try either again without re-reading them.
  */
 function rankEligible(
   products: GeigerProduct[],
@@ -218,6 +237,9 @@ function rankEligible(
     .filter((e) => e.score >= minScore)
     .sort((a, b) => {
       if (b.score !== a.score) return b.score - a.score;
+      const ownA = isOwnProduct(a.p) ? 0 : 1;
+      const ownB = isOwnProduct(b.p) ? 0 : 1;
+      if (ownA !== ownB) return ownA - ownB;
       if (a.p.name.length !== b.p.name.length) return a.p.name.length - b.p.name.length;
       return a.p.sku < b.p.sku ? -1 : a.p.sku > b.p.sku ? 1 : 0;
     })
@@ -314,7 +336,8 @@ export async function matchRelatedProducts(
       const { getAllCustomProducts, customProductToGeigerProduct } = await import(
         '../sanity/queries/custom-products'
       );
-      const custom = (await getAllCustomProducts()).map(customProductToGeigerProduct);
+      // AUTO-205: read once per generation (lib/ai/read-memo.ts), not once per idea.
+      const custom = (await memoizedRead('all-custom-products', () => getAllCustomProducts())).map(customProductToGeigerProduct);
       for (const p of rankEligible(custom.filter(scannable), tokens, minScore)) push(p);
     } catch {
       // Geiger-only fallback — suggestions stay useful without custom products.
@@ -338,7 +361,7 @@ export async function matchRelatedProducts(
       const { getAllProductPageCards, productPageToGeigerProduct } = await import(
         '../sanity/queries/product-pages'
       );
-      const pages = (await getAllProductPageCards()).map(productPageToGeigerProduct);
+      const pages = (await memoizedRead('all-product-page-cards', () => getAllProductPageCards())).map(productPageToGeigerProduct);
       for (const p of rankEligible(pages.filter(scannable), tokens, catalogFloor)) push(p);
     } catch {
       // Geiger-only fallback.

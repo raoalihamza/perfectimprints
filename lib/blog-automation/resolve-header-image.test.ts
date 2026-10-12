@@ -22,7 +22,7 @@ import {
   type HeaderImageDeps,
   type ResolveHeaderImageInput,
 } from './resolve-header-image';
-import { IMAGE_CHECK_READS, UNREADABLE_IMAGE_CHECK, type HeaderImageLibraryEntry, type ImageCheck, type ImageCheckContext, type ReferenceProduct } from './header-image';
+import { IMAGE_CHECK_READS, TILE_REGIONS, UNREADABLE_IMAGE_CHECK, type HeaderImageLibraryEntry, type ImageCheck, type ImageCheckContext, type ReferenceProduct } from './header-image';
 
 const geiger = (n: number) => `https://imgsirv.geiger.com/master/10${n}/web/10${n}_1.jpg?format=webp&thumbnail=275&w=275&h=275`;
 const products: ReferenceProduct[] = [
@@ -39,6 +39,7 @@ const clean: ImageCheck = {
   brandTextSeen: '',
   impossible: false,
   impossibleSeen: '',
+  devices: [],
 };
 const branded: ImageCheck = { ...clean, logo: true, logoSeen: 'Apple' };
 /** A picture whose only text is the product's own markings: a calendar grid. */
@@ -525,5 +526,79 @@ describe('the reads of one picture (AUTO-204)', () => {
     expect(out.kind).toBe('none');
     expect(f.uploads).toEqual([]);
     expect(out.notes[0]).toContain('both generated pictures were refused, so neither was used: the first showed a brand, company name or contact detail in text');
+  });
+});
+
+describe('AUTO-205: the device rule and the tile pass in the chain', () => {
+  const laptop: ImageCheck = { ...clean, devices: [{ what: 'laptop', where: 'on the desk' }] };
+
+  it('a device seen by a read refuses the picture and the retry names it; the second picture without one is kept', async () => {
+    const f = fakeDeps({ checks: [laptop, clean] });
+    const out = await resolveHeaderImage(base, f.deps);
+    expect(out.kind).toBe('asset');
+    expect(f.log.filter((l) => l.startsWith('generate:'))).toHaveLength(2);
+    expect(f.prompts[1]).toContain('a laptop in the scene (on the desk)');
+    expect(f.prompts[1]).toContain('no laptop, monitor, tablet or phone anywhere');
+    expect(out.notes).toContain('the first picture showed a laptop in the scene (on the desk) and was replaced');
+  });
+
+  it('two pictures with a device fall to the library, both reasons said', async () => {
+    const f = fakeDeps({ checks: [laptop, laptop] });
+    const out = await resolveHeaderImage(base, f.deps);
+    expect(out.kind).toBe('asset');
+    expect((out as { source: string }).source).toBe('library');
+    expect(out.notes.join(' ')).toContain('both generated pictures were refused');
+  });
+
+  it('the tile pass runs only on a picture the reads passed, once per region in parallel, and a logo in any region refuses with the retry naming it', async () => {
+    const f = fakeDeps({ checks: [clean, clean] });
+    const regions: string[][] = [];
+    let picture = 0;
+    const deps: HeaderImageDeps = {
+      ...f.deps,
+      generate: async (args) => {
+        picture += 1;
+        regions.push([]);
+        return f.deps.generate(args);
+      },
+      checkRegion: async (_image, region) => {
+        regions[picture - 1].push(region);
+        return picture === 1 && region === 'bottom-middle' ? { region, logo: true, seen: 'a small brand tag on the can cooler' } : { region, logo: false, seen: '' };
+      },
+    };
+    const out = await resolveHeaderImage(base, deps);
+    expect(out.kind).toBe('asset');
+    expect(regions).toHaveLength(2);
+    expect(regions[0].sort()).toEqual([...TILE_REGIONS].sort());
+    expect(f.prompts[1]).toContain('a small logo or brand tag the close look found (a small brand tag on the can cooler, bottom-middle)');
+    expect(out.notes[0]).toContain('and was replaced');
+  });
+
+  it('the tile pass is skipped when a read already refused (no close look at a picture that is gone), and when the deps have no region check', async () => {
+    let regionCalls = 0;
+    const f = fakeDeps({ checks: [laptop, clean] });
+    const deps: HeaderImageDeps = { ...f.deps, checkRegion: async (_i, region) => { regionCalls += 1; return { region, logo: false, seen: '' }; } };
+    await resolveHeaderImage(base, deps);
+    // Only the second picture, the one the reads passed, got the six close looks.
+    expect(regionCalls).toBe(TILE_REGIONS.length);
+    const g = fakeDeps({ checks: [clean] });
+    expect(g.deps.checkRegion).toBeUndefined();
+    const out = await resolveHeaderImage(base, g.deps);
+    expect(out.kind).toBe('asset');
+  });
+
+  it('a region read that fails is left out, never a refusal on its own', async () => {
+    const f = fakeDeps({ checks: [clean] });
+    const deps: HeaderImageDeps = { ...f.deps, checkRegion: async (_i, region) => (region === 'top-left' ? null : { region, logo: false, seen: '' }) };
+    const out = await resolveHeaderImage(base, deps);
+    expect(out.kind).toBe('asset');
+    expect(out.notes).toEqual([]);
+  });
+
+  it('the real deps provide the region check, on the same model and key handling as the check', () => {
+    const src = readFileSync(join(__dirname, 'resolve-header-image.ts'), 'utf8');
+    expect(src).toContain('checkRegion: async (image, region) => {');
+    expect(src).toContain('buildTileCheckPrompt(region)');
+    expect(src).toContain('maxOutputTokens: 256, temperature: 0');
   });
 });

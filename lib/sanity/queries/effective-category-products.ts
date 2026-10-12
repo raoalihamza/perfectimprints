@@ -8,6 +8,7 @@ import {
   getPlacementSkusForCategory,
 } from '@/lib/sanity/queries/product-placements';
 import { getCategoryOverride, mergeCategoryProducts } from '@/lib/sanity/queries/category-overrides';
+import { memoizedRead } from '@/lib/ai/read-memo';
 
 /**
  * What a category ACTUALLY shows, for readers that are not the category page.
@@ -64,10 +65,14 @@ export async function getEffectiveCategoryProducts(
   // Baked content is keyed by the file slug (slashes become double underscores).
   const content = getCategoryContent(slug.split('/').join('__'));
 
-  const { owned, edited } = await getCategoryControlSets();
+  // AUTO-205: inside one generation (`withReadMemo`, lib/ai/read-memo.ts)
+  // these reads are made once per key however many ideas resolve to the same
+  // root; outside a scope `memoizedRead` is a plain call, so a render path is
+  // untouched.
+  const { owned, edited } = await memoizedRead('category-control-sets', () => getCategoryControlSets());
   // `!content` mirrors the page's fallback for a customCategory published moments
   // ago that the cached owned set has not picked up yet.
-  const custom = owned.has(slug) || !content ? await getCustomCategoryBySlug(slug) : null;
+  const custom = owned.has(slug) || !content ? await memoizedRead(`custom-category:${slug}`, () => getCustomCategoryBySlug(slug)) : null;
 
   if (!custom && !content) return [];
 
@@ -75,9 +80,9 @@ export async function getEffectiveCategoryProducts(
   const [override, placement, placedPages] =
     isEdited || custom
       ? await Promise.all([
-          getCategoryOverride(slug),
-          getPlacementSkusForCategory(slug),
-          getPlacedProductPagesForCategory(slug),
+          memoizedRead(`category-override:${slug}`, () => getCategoryOverride(slug)),
+          memoizedRead(`category-placements:${slug}`, () => getPlacementSkusForCategory(slug)),
+          memoizedRead(`category-placed-pages:${slug}`, () => getPlacedProductPagesForCategory(slug)),
         ])
       : [null, { addSkus: [], removeSkus: [] }, { products: [], overlayDocs: [] }];
 

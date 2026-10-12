@@ -27,6 +27,12 @@ import {
   FORBIDDEN_TEXT_WORDS,
   IMAGE_CHECK_READS,
   UNREADABLE_IMAGE_CHECK,
+  REFERENCE_TAG_RULE,
+  TILE_REGIONS,
+  buildTileCheckPrompt,
+  isBrandNameProduct,
+  parseTileCheck,
+  tilePassProblem,
   buildHeaderImagePrompt,
   buildImageCheckPrompt,
   buildScenePlanPrompt,
@@ -191,7 +197,8 @@ describe('the prompt', () => {
     // AUTO-204: a product that carries markings by nature still gets them, even with no plan.
     expect(prompt).toContain('If this kind of product carries functional markings by its nature (a measuring scale, numerals, units, a dial face), draw only those, plain and generic');
     expect(prompt).toContain('no word, name or message printed or engraved on the product as decoration');
-    expect(prompt).toContain('No laptops, phones, tablets or monitors in the scene unless the product is used with one');
+    // AUTO-205: the rule is absolute now; a picture with a device in it is refused by the check.
+    expect(prompt).toContain('No laptops, computers, monitors, tablets or phones anywhere in the scene, not even partly visible or in the background, and not even when the product is used with one');
     expect(prompt).toMatch(/No logos, brand marks, trademarks, brand names, company names, phone numbers, web addresses or slogans/);
     expect(prompt).toContain('laptops, phones, tablets, cups, bottles, bags, shoes or clothing');
     expect(prompt).toContain('Show only products of the kinds in the reference photos');
@@ -287,6 +294,7 @@ const NONE: ImageCheck = {
   brandTextSeen: '',
   impossible: false,
   impossibleSeen: '',
+  devices: [],
 };
 const item = (text: string, where: string, onProduct: boolean, kind: ImageTextItem['kind']): ImageTextItem => ({ text, where, onProduct, kind });
 const withTexts = (...texts: ImageTextItem[]): ImageCheck => ({ ...NONE, texts });
@@ -461,6 +469,7 @@ describe('the check', () => {
     expect(parseImageCheck({ texts: [{ text: ' SALE ', where: 'a sign', onProduct: 'false', kind: 'DISPLAY' }], logo: 'true', logoSeen: 'Apple', brandText: 'yes', brandTextSeen: 'Acme', impossible: true, impossibleSeen: 'magnet on wood' })).toEqual({
       texts: [item('SALE', 'a sign', false, 'display')],
       listed: true,
+      devices: [],
       logo: true,
       logoSeen: 'Apple',
       brandText: true,
@@ -636,5 +645,71 @@ describe('structure', () => {
     };
     for (const d of dirs) walk(d);
     expect(hits).toEqual(['lib/ai/gemini.ts']);
+  });
+});
+
+describe('AUTO-205: the three brand defences in the rules', () => {
+  const refs: ReferenceProduct[] = [
+    { sku: 'k1', name: 'Collapsible KOOZIE Can Cooler', imageUrl: 'https://imgsirv.geiger.com/master/1/web/1_1.jpg?w=275', brand: 'KOOZIE' },
+    { sku: 'g1', name: 'Foam Koozie Can Cooler', imageUrl: 'https://imgsirv.geiger.com/master/2/web/2_1.jpg?w=275', brand: null },
+    { sku: 'k2', name: 'Zip-Up Bottle KOOZIE Cooler', imageUrl: 'https://imgsirv.geiger.com/master/3/web/3_1.jpg?w=275', brand: 'Koozie' },
+    { sku: 'g2', name: 'Neoprene Koozie Can Cooler', imageUrl: 'https://imgsirv.geiger.com/master/4/web/4_1.jpg?w=275' },
+  ];
+
+  it('defence 1a: with references the prompt says the tags, labels, logos and lettering on them are not part of the design; without references it does not', () => {
+    const withRefs = buildHeaderImagePrompt({ title: 'T', topic: 'custom koozies', productNames: ['Collapsible KOOZIE Can Cooler'] });
+    expect(withRefs).toContain(REFERENCE_TAG_RULE);
+    expect(REFERENCE_TAG_RULE).toContain('copy no symbol from the references');
+    const without = buildHeaderImagePrompt({ title: 'T', topic: 'custom koozies', productNames: [] });
+    expect(without).not.toContain(REFERENCE_TAG_RULE);
+  });
+
+  it('defence 1b: unbranded products are preferred as references, in strip order; brand-name products fill the rest', () => {
+    expect(pickReferenceProducts(refs, 4, 'custom koozies').map((p) => p.sku)).toEqual(['g1', 'g2', 'k1', 'k2']);
+    expect(pickReferenceProducts(refs, 2, 'custom koozies').map((p) => p.sku)).toEqual(['g1', 'g2']);
+    // Every product brand-name (the koozies case): the references are still sent, and the tag rule does the work.
+    expect(pickReferenceProducts(refs.filter((p) => isBrandNameProduct(p)), 4, 'custom koozies').map((p) => p.sku)).toEqual(['k1', 'k2']);
+    expect(isBrandNameProduct({ brand: ' ' })).toBe(false);
+    expect(isBrandNameProduct({})).toBe(false);
+  });
+
+  it('defence 2: the prompt forbids every device absolutely, the check lists them, and any one refuses the picture', () => {
+    const prompt = buildHeaderImagePrompt({ title: 'T', topic: 'custom laptop sleeves', productNames: [] });
+    expect(prompt).toContain('not even when the product is used with one');
+    const { user } = buildImageCheckPrompt({ topic: 'custom mouse pads' });
+    expect(user).toContain('5. List every LAPTOP, computer, MONITOR, TABLET or PHONE visible anywhere');
+    const seen = parseImageCheck({ texts: [], devices: [{ what: 'Laptop', where: 'on the desk' }, { what: 'keyboard', where: 'desk' }, { what: 'smartwatch', where: 'wrist' }] });
+    expect(seen.devices).toEqual([{ what: 'laptop', where: 'on the desk' }]);
+    expect(imageCheckProblem(seen)).toBe('a laptop in the scene (on the desk)');
+    expect(parseImageCheck({ texts: [], devices: 'none' }).devices).toEqual([]);
+    expect(imageCheckProblem(parseImageCheck({ texts: [], devices: [] }))).toBeNull();
+  });
+
+  it('defence 3: the tile pass asks about one region of the same picture, six regions, and any logo seen refuses', () => {
+    expect(TILE_REGIONS).toEqual(['top-left', 'top-middle', 'top-right', 'bottom-left', 'bottom-middle', 'bottom-right']);
+    const { user } = buildTileCheckPrompt('bottom-right');
+    expect(user).toContain('look ONLY at the bottom-right cell');
+    expect(user).toContain('a sewn-on or printed tag');
+    expect(parseTileCheck('top-left', { logo: 'true', seen: 'Apple logo on the laptop lid' })).toEqual({ region: 'top-left', logo: true, seen: 'Apple logo on the laptop lid' });
+    expect(tilePassProblem([null, parseTileCheck('top-left', { logo: false, seen: '' })])).toBeNull();
+    expect(tilePassProblem([parseTileCheck('bottom-middle', { logo: true, seen: 'a small brand tag on the can cooler' }), null])).toBe('a small logo or brand tag the close look found (a small brand tag on the can cooler, bottom-middle)');
+  });
+
+  it("AUTO-204's allowances are intact under the new check: a product's own markings pass with no device and no logo, in the same words as before", () => {
+    const cups = parseImageCheck({ texts: [{ text: '1 CUP 3/4 1/2 1/4', where: 'the measuring cups', onProduct: true, kind: 'marking' }, { text: 'recipe text', where: 'an open cookbook', onProduct: false, kind: 'page' }], devices: [], logo: false, brandText: false, impossible: false });
+    expect(imageCheckProblem(cups)).toBeNull();
+    // The forbidden list did not move: the same three sentences, the same three routes to a refusal.
+    const { user } = buildImageCheckPrompt();
+    expect(user).toContain('2. Is there any LOGO, brand mark, trademark or recognisable brand design anywhere');
+    expect(user).toContain('3. Does any text read as a BRAND NAME, a company or business name, a phone number, a web address, an email address, a slogan or a marketing claim, real or invented?');
+    expect(imageCheckProblem({ ...NONE, texts: [item('ACME PLUMBING 555-0100', 'the magnet', true, 'marking')] })).toContain('a brand, company name or contact detail in text');
+    expect(imageCheckProblem({ ...NONE, brandText: true, brandTextSeen: 'ACME PLUMBING' })).toContain('"ACME PLUMBING"');
+    expect(imageCheckProblem({ ...NONE, logo: true, logoSeen: 'Koozie tag' })).toBe('a logo or brand mark (Koozie tag)');
+  });
+
+  it('a jumbled-sequence rule does NOT exist: measured, the model refused correct scales and passed the jumbled one', () => {
+    const src = readFileSync(join(ROOT, 'lib/blog-automation/header-image.ts'), 'utf8');
+    expect(src).not.toContain('inOrder');
+    expect(src).not.toContain('out of order (');
   });
 });

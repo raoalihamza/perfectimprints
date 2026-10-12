@@ -130,7 +130,7 @@ export async function POST(request: Request) {
     const hiddenSet = new Set((await siteWideHiddenSkus()).map(normalizeSku));
     const products = resolveProductsBySku(skus)
       .filter((p) => !hiddenSet.has(normalizeSku(p.sku)))
-      .map((p) => ({ sku: p.sku, name: p.name, imageUrl: p.imageUrl ?? null }));
+      .map((p) => ({ sku: p.sku, name: p.name, imageUrl: p.imageUrl ?? null, brand: p.brand ?? null }));
     const topic = keywords[0] ?? title;
     const libraryRoots = [...rootSlugs];
     const resolved = await resolveCategoryForKeywords(keywords.length > 0 ? keywords.join(' ') : title);

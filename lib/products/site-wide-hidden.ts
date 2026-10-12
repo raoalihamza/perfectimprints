@@ -3,6 +3,7 @@ import type { GeigerProduct } from '@/lib/product-types';
 import type { CategoryOverrideAddedProduct } from '@/lib/sanity/queries/category-overrides';
 import { getSiteSettings } from '@/lib/sanity/queries/global-settings';
 import { getProductReplacements } from '@/lib/sanity/queries/product-replacements';
+import { memoizedRead } from '@/lib/ai/read-memo';
 
 /**
  * THE single answer to "which Geiger products must not appear, and what goes in
@@ -64,24 +65,32 @@ const EMPTY: HiddenProductContext = {
   replacementOverlayDocs: [],
 };
 
-export const getHiddenProductContext = cache(async (): Promise<HiddenProductContext> => {
-  try {
-    const [settings, replacements] = await Promise.all([
-      getSiteSettings(),
-      getProductReplacements(),
-    ]);
-    return {
-      hiddenSkus: [...settings.hiddenEverywhereSkus, ...replacements.claimedSkus],
-      replacementBySku: replacements.bySku,
-      replacementOverlayDocs: replacements.overlayDocs,
-    };
-  } catch {
-    // Hiding nothing is the safe failure: the site renders exactly as it did
-    // before either feature existed, rather than blanking slots because a read
-    // failed.
-    return EMPTY;
-  }
-});
+export const getHiddenProductContext = cache(
+  // AUTO-205: inside one generation (lib/ai/read-memo.ts) the two reads happen
+  // once, however many strips ask. React's `cache()` already does that inside
+  // a request; under a plain Node process (a script, a scheduler) it does
+  // nothing, which is where the memo scope takes over. Outside a scope this is
+  // the plain read it always was.
+  (): Promise<HiddenProductContext> =>
+    memoizedRead('hidden-product-context', async () => {
+      try {
+        const [settings, replacements] = await Promise.all([
+          getSiteSettings(),
+          getProductReplacements(),
+        ]);
+        return {
+          hiddenSkus: [...settings.hiddenEverywhereSkus, ...replacements.claimedSkus],
+          replacementBySku: replacements.bySku,
+          replacementOverlayDocs: replacements.overlayDocs,
+        };
+      } catch {
+        // Hiding nothing is the safe failure: the site renders exactly as it did
+        // before either feature existed, rather than blanking slots because a read
+        // failed.
+        return EMPTY;
+      }
+    }),
+);
 
 /**
  * Hidden SKUs only, for callers with no use for the replacement cards.

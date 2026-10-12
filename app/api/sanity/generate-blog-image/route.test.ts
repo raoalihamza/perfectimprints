@@ -114,7 +114,8 @@ describe('POST /api/sanity/generate-blog-image', () => {
     expect(input.source).toBe('ai');
     expect(input.title).toBe('Custom Tote Bags');
     expect(input.topic).toBe('custom tote bags');
-    expect(input.products).toEqual([{ sku: '501003', name: 'Canvas Tote', imageUrl: expect.stringContaining('imgsirv.geiger.com/master/501003/') }]);
+    // AUTO-205: the brand travels with the reference product (a brand-name product's photo carries the maker's tag).
+    expect(input.products).toEqual([{ sku: '501003', name: 'Canvas Tote', imageUrl: expect.stringContaining('imgsirv.geiger.com/master/501003/'), brand: null }]);
     expect(input.rootSlugs).toEqual(['tote-bags']);
     expect(input.deps).toEqual({ real: true });
   });

@@ -189,6 +189,14 @@ export interface ReferenceProduct {
   sku: string;
   name: string;
   imageUrl: string | null;
+  /**
+   * The catalogue's brand name, when the product is a brand-name good
+   * (AUTO-205: 1,268 of 8,200 records carry one; 49 of the 50 products named
+   * "koozie" are KOOZIE brand). A brand-name product's photo shows the
+   * maker's tag, which is how the live koozies post came to carry four
+   * invented emblems and side tags lettered like the Koozie tag.
+   */
+  brand?: string | null;
 }
 
 /** Reference photos sent to the image model per picture. Flash accepts up to 10 object references; four is plenty to pin the product type and keeps the request small. */
@@ -257,16 +265,26 @@ export function productMatchesTopic(name: string, topicWords: readonly string[])
  */
 export function pickReferenceProducts(products: readonly ReferenceProduct[], max = HEADER_IMAGE_MAX_REFERENCES, topic = ''): ReferenceProduct[] {
   const words = topicProductWords(topic);
-  const out: ReferenceProduct[] = [];
+  const eligible: ReferenceProduct[] = [];
   const seen = new Set<string>();
   for (const p of products) {
-    if (out.length >= max) break;
     if (!p || seen.has(p.sku) || !isGeigerImageUrl(p.imageUrl)) continue;
     if (!productMatchesTopic(p.name ?? '', words)) continue;
     seen.add(p.sku);
-    out.push(p);
+    eligible.push(p);
   }
-  return out;
+  // AUTO-205 (brand defence 1b): an unbranded product's photo is preferred as
+  // a reference, in strip order; brand-name products fill the remaining
+  // slots, so a post whose every product is brand-name (koozies) still gets
+  // its references, with the prompt's tag rule doing the work.
+  const unbranded = eligible.filter((p) => !isBrandNameProduct(p));
+  const branded = eligible.filter((p) => isBrandNameProduct(p));
+  return [...unbranded, ...branded].slice(0, max);
+}
+
+/** True when the catalogue records a brand name for the product. */
+export function isBrandNameProduct(p: Pick<ReferenceProduct, 'brand'>): boolean {
+  return typeof p.brand === 'string' && p.brand.trim().length > 0;
 }
 
 /** The URL a reference photo is fetched from: the Geiger photo at HEADER_IMAGE_REFERENCE_WIDTH, or null for any other host (nothing else is ever fetched). */
@@ -438,6 +456,18 @@ export interface HeaderImagePromptInput {
   previousProblem?: string | null;
 }
 
+/**
+ * The reference photos are catalogue photos of brand-name goods as often as
+ * not, and the model copies what it is shown (AUTO-205 Part 4, brand defence
+ * 1): the live koozies post's header carries four invented emblems and small
+ * side tags lettered like the KOOZIE tag, because its four reference photos
+ * were Koozie-brand products. So the prompt says, every time references are
+ * sent, that tags, labels, logos and lettering on the references are not part
+ * of the design.
+ */
+export const REFERENCE_TAG_RULE =
+  'The reference photos are catalogue photographs and may show a maker\'s tag, a sewn-on or printed label, a logo, an emblem or lettering on the product: none of that is part of the design. Render every item completely blank: no tag, no label, no logo, no emblem, no lettering, no stitched or printed mark of any kind, and copy no symbol from the references.';
+
 /** What may not be written anywhere but in the product's own markings (AUTO-204): display text, on the product or off it. */
 const NO_OTHER_WRITING =
   'No other writing anywhere: no labels, signs, name plates, price tags, titles on books or magazines, screens with writing, writing in the background, and no word, name or message printed or engraved on the product as decoration. A book or paper in the scene shows only pages too small to read.';
@@ -449,8 +479,16 @@ const NO_OTHER_WRITING =
  * NO_BRAND_RULE, which names laptops, did not stop any of them. So the scene
  * has no device unless the plan calls for one.
  */
+/**
+ * AUTO-205 Part 4, brand defence 2: the rule is now absolute. AUTO-204's
+ * wording allowed a device "the product is used with", and the AUTO-205
+ * diagnostic found a brand mark on a laptop, a monitor or a phone in two of
+ * six fresh pictures, every one of them passed by the check; a picture that
+ * shows a device is refused by the check (`imageCheckProblem`) whatever the
+ * product, so the prompt asks for none.
+ */
 const NO_DEVICES_RULE =
-  'No laptops, phones, tablets or monitors in the scene unless the product is used with one or the setting described above names one. A device that does appear has a completely plain lid and back: no apple, no window, no letters, no mark of any kind.';
+  'No laptops, computers, monitors, tablets or phones anywhere in the scene, not even partly visible or in the background, and not even when the product is used with one: show the product on its own or with non-electronic items. A picture with any such device in it will be rejected.';
 
 /** The no-brand rule, stated once. */
 const NO_BRAND_RULE =
@@ -473,7 +511,7 @@ export function buildHeaderImagePrompt(input: HeaderImagePromptInput): string {
     : `Show ${what}, blank and unbranded, arranged in a clean, realistic setting a marketing or HR manager would recognise, for example an office desk, a trade show table, an event tent, a company picnic or a reception counter.`;
   if (refs.length > 0) {
     lines.push(
-      `The attached ${refs.length === 1 ? 'photo is' : `${refs.length} photos are`} the actual products the post recommends (${refs.join('; ')}). Use ${refs.length === 1 ? 'it' : 'them'} as the reference for what the items look like: their shape, materials, proportions and colours. ${placement}`,
+      `The attached ${refs.length === 1 ? 'photo is' : `${refs.length} photos are`} the actual products the post recommends (${refs.join('; ')}). Use ${refs.length === 1 ? 'it' : 'them'} as the reference for what the items look like: their shape, materials, proportions and colours. ${REFERENCE_TAG_RULE} ${placement}`,
     );
   } else {
     lines.push(placement);
@@ -502,7 +540,7 @@ export function buildHeaderImagePrompt(input: HeaderImagePromptInput): string {
   lines.push('- Natural daylight, soft shadows, shallow depth of field, an editorial photography look. Not an illustration, not a collage, no borders, no frames, no watermark.');
   if (input.previousProblem?.trim()) {
     lines.push(
-      `The previous attempt was rejected because it contained ${input.previousProblem.trim()}. Compose the scene again with none of that: no brand marks, no company names, no contact details, no writing except the product's own functional markings, and the product only where it could really be.`,
+      `The previous attempt was rejected because it contained ${input.previousProblem.trim()}. Compose the scene again with none of that: no brand marks, no tags or labels, no company names, no contact details, no laptop, monitor, tablet or phone anywhere, no writing except the product's own functional markings, and the product only where it could really be.`,
     );
   }
   return lines.join('\n');
@@ -543,11 +581,19 @@ export interface ImageTextItem {
   kind: ImageTextKind;
 }
 
+/** A laptop, monitor, tablet or phone the check saw (AUTO-205 Part 4, brand defence 2). */
+export interface ImageDeviceItem {
+  what: string;
+  where: string;
+}
+
 export interface ImageCheck {
   /** Every readable piece of text, each with its object and its kind. */
   texts: ImageTextItem[];
   /** False when the answer carried no usable list of texts. Such an answer REFUSES the picture: an unread picture is never passed. */
   listed: boolean;
+  /** Every laptop, monitor, tablet or phone in the picture, however small or partial (AUTO-205); any one refuses it. */
+  devices: ImageDeviceItem[];
   logo: boolean;
   logoSeen: string;
   /** A brand name, company name, phone number, web address, slogan or claim, in any text (AUTO-203's question, word for word). */
@@ -614,7 +660,8 @@ export function buildImageCheckPrompt(context: ImageCheckContext = {}): { system
       '2. Is there any LOGO, brand mark, trademark or recognisable brand design anywhere, including on laptops, phones, cups, bottles, bags, shoes or clothing in the background? A blank imprint area or an abstract shape with no brand meaning is not a logo.',
       '3. Does any text read as a BRAND NAME, a company or business name, a phone number, a web address, an email address, a slogan or a marketing claim, real or invented? Generic placeholder content (month names, dates, numbers on a ruler, lines on a page) is not a brand.',
       '4. Is the main product somewhere it could not physically be, or used in a way it could not be used (a magnet stuck to wood or glass, a can cooler standing beside the can instead of around it, a wall clock lying on a table as if it were a plate)?',
-      'Return exactly: {"texts": [{"text": "...", "where": "...", "onProduct": true or false, "kind": "brand" or "marking" or "page" or "display"}], "logo": true or false, "logoSeen": "which logo or brand and on what, or an empty string", "brandText": true or false, "brandTextSeen": "the brand, company, phone, address or slogan text, or an empty string", "impossible": true or false, "impossibleSeen": "what is physically wrong, or an empty string"}. Use an empty list for "texts" when there is no readable text.',
+      '5. List every LAPTOP, computer, MONITOR, TABLET or PHONE visible anywhere in the image, including partly visible ones and ones in the blurred background, each as "what" (laptop, monitor, tablet or phone) and "where". A keyboard, a mouse, a watch or earbuds are not listed. An empty list when there is none.',
+      'Return exactly: {"texts": [{"text": "...", "where": "...", "onProduct": true or false, "kind": "brand" or "marking" or "page" or "display"}], "logo": true or false, "logoSeen": "which logo or brand and on what, or an empty string", "brandText": true or false, "brandTextSeen": "the brand, company, phone, address or slogan text, or an empty string", "impossible": true or false, "impossibleSeen": "what is physically wrong, or an empty string", "devices": [{"what": "laptop or monitor or tablet or phone", "where": "..."}]}. Use an empty list for "texts" when there is no readable text and an empty list for "devices" when there is no such device.',
     ].join('\n'),
   };
 }
@@ -673,9 +720,22 @@ export function parseImageCheck(raw: unknown): ImageCheck {
       });
     }
   }
+  const devices: ImageDeviceItem[] = [];
+  if (Array.isArray(r.devices)) {
+    for (const entry of r.devices.slice(0, 20)) {
+      if (!entry || typeof entry !== 'object') continue;
+      const e = entry as Record<string, unknown>;
+      const what = text(e.what).toLowerCase();
+      if (!what) continue;
+      // Only the four the rule names count; a keyboard or a watch the model listed anyway does not.
+      if (!/laptop|computer|monitor|screen|tablet|ipad|phone/.test(what)) continue;
+      devices.push({ what, where: text(e.where) });
+    }
+  }
   return {
     texts,
     listed,
+    devices,
     logo: bool(r.logo),
     logoSeen: text(r.logoSeen),
     brandText: bool(r.brandText),
@@ -689,6 +749,7 @@ export function parseImageCheck(raw: unknown): ImageCheck {
 export const UNREADABLE_IMAGE_CHECK: ImageCheck = {
   texts: [],
   listed: false,
+  devices: [],
   logo: false,
   logoSeen: '',
   brandText: false,
@@ -728,6 +789,15 @@ export function imageCheckProblem(check: ImageCheck): string | null {
   const offProduct = display.filter((t) => !t.onProduct);
   if (onProduct.length > 0) problems.push(`words printed on the product that are not its own markings (${quoted(onProduct)})`);
   if (offProduct.length > 0) problems.push(`words on a sign, a label, a cover or a screen (${quoted(offProduct)})`);
+  // AUTO-205 Part 4, brand defence 2: any laptop, monitor, tablet or phone.
+  // (A rule refusing a marking whose sequence is out of order was built and
+  // MEASURED here and does not ship: the vision model refused correct scales
+  // and passed the jumbled one. See CLAUDE.md Section 23, AUTO-205 Part 5.)
+  if (check.devices.length > 0) {
+    const named = [...new Set(check.devices.map((d) => d.what))].slice(0, 3).join(', ');
+    const where = check.devices[0]?.where ? ` (${check.devices[0].where})` : '';
+    problems.push(`a ${named} in the scene${where}`);
+  }
   if (check.impossible) problems.push(`the product somewhere it could not be${check.impossibleSeen ? ` (${check.impossibleSeen})` : ''}`);
   if (!check.listed && problems.length === 0) problems.push('text the check could not account for');
   return problems.length > 0 ? problems.join(' and ') : null;
@@ -746,6 +816,52 @@ export function worstImageCheckProblem(checks: readonly (ImageCheck | null)[]): 
     if (problem) return problem;
   }
   return null;
+}
+
+// -- The tile pass (AUTO-205 Part 4, brand defence 3) -----------------------------
+
+/**
+ * The six regions of a picture the tile pass reads, one call each, on the
+ * SAME full-size bytes: the model is told to look only at one cell of a
+ * 3 x 2 grid. The AUTO-205 diagnostic measured enlarged crops catching 5 of 6
+ * faint marks the whole-picture reads missed; measured here (2026-10-12) on
+ * the same marked pictures, the region question with NO cropping caught the
+ * same 5 of 6 (the koozie tags, the USB bezel, three Apple lids) with 0 false
+ * refusals on 7 clean pictures, so no image library is needed. The sixth
+ * (the monitor mark on the phone stands picture) is caught by the device
+ * rule. About 1,290 prompt tokens and 16 output tokens a call, six calls in
+ * parallel, about 3.5 s and a quarter of a US cent per picture.
+ */
+export const TILE_REGIONS: readonly string[] = ['top-left', 'top-middle', 'top-right', 'bottom-left', 'bottom-middle', 'bottom-right'];
+
+export function buildTileCheckPrompt(region: string): { system: string; user: string } {
+  return {
+    system:
+      'You inspect images before they are published on a business website. You answer with ONE JSON object and nothing else. Be literal: report what is visibly there, do not guess at intent.',
+    user: `Divide this photograph into a grid of 3 columns and 2 rows and look ONLY at the ${region} cell, as closely as you can, as if it were enlarged. Is there any LOGO, brand mark, trademark symbol, emblem or brand tag visible in that cell, however small or faint, on any object (laptop lid, phone, monitor, cup, bottle, bag, clothing, packaging, a sewn-on or printed tag)? An apple shape, a swoosh, a monogram, a crest and a wordmark all count. A plain blank surface, a reflection or a shadow is not a logo. Return exactly: {"logo": true or false, "seen": "what and on what, or an empty string"}`,
+  };
+}
+
+export interface TileCheck {
+  region: string;
+  logo: boolean;
+  seen: string;
+}
+
+export function parseTileCheck(region: string, raw: unknown): TileCheck {
+  const r = raw && typeof raw === 'object' ? (raw as Record<string, unknown>) : {};
+  return { region, logo: bool(r.logo), seen: text(r.seen) };
+}
+
+/** Why the tile pass refuses a picture, or null: any region that saw a logo. Unavailable regions (null) are left out. */
+export function tilePassProblem(tiles: readonly (TileCheck | null)[]): string | null {
+  const hits = tiles.filter((t): t is TileCheck => t !== null && t.logo);
+  if (hits.length === 0) return null;
+  const seen = hits
+    .slice(0, 2)
+    .map((t) => (t.seen ? `${t.seen}, ${t.region}` : t.region))
+    .join('; ');
+  return `a small logo or brand tag the close look found (${seen})`;
 }
 
 // -- The outcome -----------------------------------------------------------------
