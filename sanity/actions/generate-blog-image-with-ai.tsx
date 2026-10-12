@@ -32,14 +32,18 @@ import { useRef, useState } from 'react';
 import { useDocumentOperation, type DocumentActionComponent } from 'sanity';
 import { AiProgressContent } from '../components/AiProgressDialog';
 import { useGenerateAuthFetch } from '../components/useGenerateAuthFetch';
-import { capOf, headerImageSignature, imageRequestBody, patchForOutcome, type BlogImageDoc, type ImageResponse } from './blog-image-request';
+import { capOf, headerImageSignature, imageRequestBody, imageWhy, patchForOutcome, type BlogImageDoc, type ImageResponse } from './blog-image-request';
 import { setBlogActionRunning, useBlogActionRunning } from './blog-running';
 
 type BlogDoc = BlogImageDoc;
 
 interface Outcome {
+  /** The whole line, what and why: printed once, and nothing repeats it (AUTO-204). */
   summary: string;
-  notes: string[];
+  /** The reasons alone, for the two cases that word the first half themselves. */
+  why: string;
+  /** Where the picture came from: the AI, or a stand-in (a library picture, a product photo). */
+  source: 'ai' | 'library' | 'product' | null;
   /** Patrick's own image was kept: 'changed' (it changed during the wait) or 'no-ai' (the AI made nothing and a fallback must not replace an upload). */
   kept: 'changed' | 'no-ai' | null;
   cap?: { used: number; cap: number };
@@ -84,12 +88,13 @@ export const generateBlogImageWithAi: DocumentActionComponent = (props) => {
       if (!res.ok || !data.outcome) {
         throw new Error(data.error || 'The header image could not be made. Nothing on the post was changed.');
       }
-      const notes = data.outcome.notes ?? [];
+      const why = imageWhy(data);
       const summary = data.summary ?? '';
+      const source = data.outcome.source ?? null;
       const cap = capOf(data.outcome);
       const toPatch = patchForOutcome(data.outcome);
       if (!toPatch) {
-        setError(`No picture could be made.${notes.length > 0 ? ` ${notes.join('. ')}.` : ''} Nothing on the post was changed. You can upload a header image yourself.`);
+        setError(`No picture could be made.${why ? ` ${why}` : ''} Nothing on the post was changed. You can upload a header image yourself.`);
         return;
       }
       // This button was pressed for an AI picture. When the AI made none and
@@ -98,16 +103,16 @@ export const generateBlogImageWithAi: DocumentActionComponent = (props) => {
       // already on the post (the review of the proof run: an upload swapped
       // for a Geiger thumbnail because the model was down).
       if (signatureAtClick !== '' && data.outcome.source !== 'ai') {
-        setOutcome({ summary, notes, kept: 'no-ai', cap });
+        setOutcome({ summary, why, source, kept: 'no-ai', cap });
         return;
       }
       // The typing window: an image changed during the wait is Patrick's.
       if (headerImageSignature(latest.current) !== signatureAtClick) {
-        setOutcome({ summary, notes, kept: 'changed', cap });
+        setOutcome({ summary, why, source, kept: 'changed', cap });
         return;
       }
       patch.execute([{ set: toPatch.set }, { unset: toPatch.unset }]);
-      setOutcome({ summary, notes, kept: null, cap });
+      setOutcome({ summary, why, source, kept: null, cap });
     } catch (e) {
       setError(e instanceof Error ? e.message : 'The header image could not be made. Nothing on the post was changed.');
     } finally {
@@ -163,7 +168,7 @@ export const generateBlogImageWithAi: DocumentActionComponent = (props) => {
             header: 'Making the header image…',
             onClose: () => setHideProgress(true),
             content: (
-              <AiProgressContent message="Reading the product photos in the post, drawing the picture, then checking it for text and logos. This usually takes 15 to 30 seconds." />
+              <AiProgressContent message="Reading the product photos in the post, drawing the picture, then checking it for logos, brand names and stray words. This usually takes 15 to 30 seconds." />
             ),
           }
         : error
@@ -176,7 +181,7 @@ export const generateBlogImageWithAi: DocumentActionComponent = (props) => {
           : outcome
             ? {
                 type: 'dialog' as const,
-                header: outcome.kept ? 'Your image was kept' : 'Header image updated',
+                header: outcome.kept ? 'Your image was kept' : outcome.source === 'ai' ? 'Header image updated' : 'A stand-in picture was used',
                 onClose: () => {
                   setOutcome(null);
                   onComplete();
@@ -189,23 +194,30 @@ export const generateBlogImageWithAi: DocumentActionComponent = (props) => {
                         was not put on the post.
                       </p>
                     ) : outcome.kept === 'no-ai' ? (
-                      <p>
-                        The AI could not make a new picture this time, so your current header image was kept; a stand-in from
-                        the library or a product photo is only used on a post that has no image.
-                      </p>
+                      <>
+                        <p>
+                          The AI could not make a new picture this time, so your current header image was kept. A stand-in (a
+                          library picture or a product photo) is only ever put on a post that has no image.
+                        </p>
+                        {outcome.why && <p>{outcome.why}</p>}
+                      </>
                     ) : (
+                      // What the image is and why, once. The reasons are part of this line and are not repeated below it.
                       <p>{outcome.summary}</p>
                     )}
-                    {outcome.notes.length > 0 && (
+                    {outcome.kept === null && outcome.source === 'ai' && (
                       <p>
-                        <strong>Note:</strong> {outcome.notes.join('. ')}.
+                        <strong>Look at it before you publish.</strong> Every generated picture is checked for logos, brand
+                        names and stray words before it is used, but the check is a machine: read the picture with your own
+                        eyes. Do not like it? Press the button again, or upload your own.
                       </p>
                     )}
-                    <p>
-                      <strong>Look at it before you publish.</strong> The AI is told to show only the products in the post, with no
-                      text and no logos, and every picture is checked for text and logos before it is used; still read it with
-                      your own eyes. Do not like it? Press the button again, or upload your own.
-                    </p>
+                    {outcome.kept === null && outcome.source !== 'ai' && (
+                      <p>
+                        <strong>This is a stand-in, not a picture made for this post.</strong> Press the button again to try
+                        for an AI picture, or upload your own.
+                      </p>
+                    )}
                     {outcome.cap && (
                       <p style={{ color: '#6b7280', fontSize: 12 }}>
                         {outcome.cap.used} of {outcome.cap.cap} generated header images used today.

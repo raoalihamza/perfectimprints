@@ -391,6 +391,13 @@ async function readExistingPosts(currentSlug?: string): Promise<ExistingPost[]> 
  * is drawn from there; with no category it is drawn from the catalogue, at
  * the FIX-900 floor. Whatever is scanned rather than drawn from a category
  * must carry the idea's product noun (`scanMustCarry`, FIX-911).
+ *
+ * Patrick's own published Product Pages are scanned too (AUTO-204,
+ * `includeProductPages`), at the catalogue floor and under the noun rule, so
+ * "mini foam footballs" is offered his own football pages ahead of any
+ * Geiger product from the catalogue. FIX-911 measured it on the 107 stored
+ * strips (no verdict changes, one product added) and left the decision to
+ * Ali, who said yes.
  */
 export async function matchIdeaStrip(input: {
   /** The model's productType; empty when it gave none. */
@@ -414,6 +421,7 @@ export async function matchIdeaStrip(input: {
     minScore: STRIP_MIN_SCORE,
     catalogMinScore,
     scanMustCarry,
+    includeProductPages: true,
     exclude: new Set(usedSkus),
   });
   // The shared primary category is a SOFT FALLBACK only (P2-AI-002b):
@@ -428,6 +436,7 @@ export async function matchIdeaStrip(input: {
       minScore: STRIP_MIN_SCORE,
       catalogMinScore,
       scanMustCarry,
+      includeProductPages: true,
       exclude: new Set([...usedSkus, ...products.map((p) => p.sku)]),
     });
     products = [...products, ...fallback].slice(0, LIST_STRIP_LIMIT);

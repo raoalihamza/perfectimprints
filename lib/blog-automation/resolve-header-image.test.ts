@@ -4,9 +4,16 @@
  * check, the upload and the clock. Every failure falls to the next source;
  * nothing throws; the cap is reserved before anything else is spent; the
  * budget is a deadline.
+ *
+ * AUTO-204: every picture is read IMAGE_CHECK_READS times and the worst
+ * answer wins; the product's own markings pass whether or not the plan
+ * predicted them; a brand name still refuses.
  */
 import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import {
+  checkAnsweredWithoutVerdict,
   HEADER_IMAGE_BUDGET_MS,
   HEADER_IMAGE_RETRY_MIN_REMAINING_MS,
   noClientHeaderImageDeps,
@@ -15,7 +22,7 @@ import {
   type HeaderImageDeps,
   type ResolveHeaderImageInput,
 } from './resolve-header-image';
-import type { HeaderImageLibraryEntry, ImageCheck, ReferenceProduct } from './header-image';
+import { IMAGE_CHECK_READS, UNREADABLE_IMAGE_CHECK, type HeaderImageLibraryEntry, type ImageCheck, type ImageCheckContext, type ReferenceProduct } from './header-image';
 
 const geiger = (n: number) => `https://imgsirv.geiger.com/master/10${n}/web/10${n}_1.jpg?format=webp&thumbnail=275&w=275&h=275`;
 const products: ReferenceProduct[] = [
@@ -24,23 +31,38 @@ const products: ReferenceProduct[] = [
 ];
 const library: HeaderImageLibraryEntry[] = [{ rootSlug: 'tote-bags', assetRef: 'image-lib-1600x900-jpg', alt: 'Library totes' }];
 const clean: ImageCheck = {
-  readableText: false,
-  textSeen: '',
+  texts: [],
+  listed: true,
   logo: false,
   logoSeen: '',
   brandText: false,
   brandTextSeen: '',
-  textOffProduct: false,
-  textOffProductSeen: '',
   impossible: false,
   impossibleSeen: '',
 };
 const branded: ImageCheck = { ...clean, logo: true, logoSeen: 'Apple' };
-/** A picture whose only text is the calendar the plan allowed. */
-const productText: ImageCheck = { ...clean, readableText: true, textSeen: 'JANUARY 1 2 3' };
+/** A picture whose only text is the product's own markings: a calendar grid. */
+const productText: ImageCheck = { ...clean, texts: [{ text: 'JANUARY 1 2 3', where: 'the calendar magnet', onProduct: true, kind: 'marking' }] };
+/** Ali's measuring cups: scale numbers on the product and small recipe text on a cookbook beside it. */
+const measuringCups: ImageCheck = {
+  ...clean,
+  texts: [
+    { text: '1 CUP 3/4 1/2 1/4', where: 'the measuring cups', onProduct: true, kind: 'marking' },
+    { text: 'lines of recipe text', where: 'an open cookbook', onProduct: false, kind: 'page' },
+  ],
+};
+/** A word on a sign: display text, refused. */
+const saleSign: ImageCheck = { ...clean, texts: [{ text: 'SALE', where: 'a sign', onProduct: false, kind: 'display' }] };
 /** The deliberate brand test: a company name and a phone number on the product. */
-const brandedText: ImageCheck = { ...clean, readableText: true, textSeen: 'ACME PLUMBING 555-0100', brandText: true, brandTextSeen: 'ACME PLUMBING 555-0100' };
+const brandedText: ImageCheck = {
+  ...clean,
+  texts: [{ text: 'ACME PLUMBING 555-0100', where: 'the magnet', onProduct: true, kind: 'brand' }],
+  brandText: true,
+  brandTextSeen: 'ACME PLUMBING 555-0100',
+};
 const onWood: ImageCheck = { ...clean, impossible: true, impossibleSeen: 'the magnets are stuck to a wooden desk' };
+/** The reads one picture gets, as log entries. */
+const READS = Array.from({ length: IMAGE_CHECK_READS }, () => 'check');
 const plannedScene = {
   surface: 'the door of a stainless steel refrigerator',
   setting: 'an office break room',
@@ -57,7 +79,13 @@ interface FakeOptions {
   generateFails?: Error;
   /** Thrown by the FIRST generate call only. */
   generateFailsOnce?: Error;
-  checks?: (ImageCheck | null)[];
+  /**
+   * The check's answer PER PICTURE, in the order the pictures are generated.
+   * One answer is given to every read of that picture; an array gives each
+   * read its own (so two reads can disagree); null means "the check was
+   * unavailable". A picture past the end of the list reads clean.
+   */
+  checks?: (ImageCheck | null | (ImageCheck | null)[])[];
   checkHangs?: boolean;
   uploadFails?: Error;
   referenceFails?: boolean;
@@ -73,9 +101,10 @@ function fakeDeps(opts: FakeOptions = {}) {
   const prompts: string[] = [];
   const uploads: { filename: string; contentType: string }[] = [];
   let now = 1_000_000;
-  let checks = 0;
+  let pictures = 0;
+  let readsOfPicture = 0;
   let reserved = 0;
-  const checkArgs: (string | null)[] = [];
+  const contexts: ImageCheckContext[] = [];
   const deps: HeaderImageDeps = {
     keyConfigured: () => !opts.keyMissing,
     plan: async () => {
@@ -105,16 +134,18 @@ function fakeDeps(opts: FakeOptions = {}) {
       now += opts.generateMs ?? 10_000;
       if (opts.generateFails) throw opts.generateFails;
       if (opts.generateFailsOnce && log.filter((l) => l.startsWith('generate:')).length === 1) throw opts.generateFailsOnce;
+      pictures += 1;
+      readsOfPicture = 0;
       return { bytes: Buffer.from('jpegbytes'), mimeType: 'image/jpeg', base64: 'anBlZ2J5dGVz', usage: { imageTokens: 1120, promptTokens: 1900, elapsedMs: 9700, model: 'gemini-3.1-flash-image' } };
     },
-    check: async (_image, allowedProductText) => {
+    check: async (_image, context) => {
       log.push('check');
-      checkArgs.push(allowedProductText);
+      contexts.push(context);
       if (opts.checkHangs) return new Promise(() => {});
-      // An entry of null in `checks` means "the check was unavailable".
-      const answer = opts.checks && checks < opts.checks.length ? opts.checks[checks] : clean;
-      checks += 1;
-      return answer;
+      const read = readsOfPicture;
+      readsOfPicture += 1;
+      const forPicture = opts.checks && pictures - 1 < opts.checks.length ? opts.checks[pictures - 1] : clean;
+      return Array.isArray(forPicture) ? (read < forPicture.length ? forPicture[read] : clean) : forPicture;
     },
     upload: async (_bytes, filename, contentType) => {
       log.push('upload');
@@ -124,7 +155,7 @@ function fakeDeps(opts: FakeOptions = {}) {
     },
     now: () => now,
   };
-  return { deps, log, prompts, uploads, checkArgs };
+  return { deps, log, prompts, uploads, contexts };
 }
 
 const base: ResolveHeaderImageInput = {
@@ -141,7 +172,7 @@ describe('the AI step', () => {
   it('reserves the cap BEFORE anything else, fetches the reference photos, checks the picture, uploads it, and returns the asset', async () => {
     const f = fakeDeps();
     const out = await resolveHeaderImage(base, f.deps);
-    expect(f.log).toEqual(['reserve', 'fetch:tote', 'fetch:zip', 'plan', 'generate:2', 'check', 'upload']);
+    expect(f.log).toEqual(['reserve', 'fetch:tote', 'fetch:zip', 'plan', 'generate:2', ...READS, 'upload']);
     expect(out).toMatchObject({ kind: 'asset', source: 'ai', notes: [] });
     if (out.kind !== 'asset') throw new Error('expected an asset');
     expect(out.image).toEqual({
@@ -165,7 +196,7 @@ describe('the AI step', () => {
   it('a picture with a logo is retried once with the problem named, the references fetched once, and the retry costs a second slot', async () => {
     const f = fakeDeps({ checks: [branded, clean] });
     const out = await resolveHeaderImage(base, f.deps);
-    expect(f.log).toEqual(['reserve', 'fetch:tote', 'fetch:zip', 'plan', 'generate:2', 'check', 'reserve', 'generate:2', 'check', 'upload']);
+    expect(f.log).toEqual(['reserve', 'fetch:tote', 'fetch:zip', 'plan', 'generate:2', ...READS, 'reserve', 'generate:2', ...READS, 'upload']);
     expect(f.prompts[1]).toContain('rejected because it contained a logo or brand mark (Apple)');
     expect(out.kind).toBe('asset');
     expect(out.notes).toEqual(['the first picture showed a logo or brand mark (Apple) and was replaced']);
@@ -174,11 +205,14 @@ describe('the AI step', () => {
   });
 
   it('two flagged pictures fall to the library, with both reasons', async () => {
-    // A plan whose product carries no text keeps the blanket rule, so "SALE" is refused.
-    const f = fakeDeps({ plan: { productText: '' }, checks: [branded, { ...clean, readableText: true, textSeen: 'SALE' }] });
+    // A word on a sign is display text, refused whatever the plan said.
+    const f = fakeDeps({ plan: { productText: '' }, checks: [branded, saleSign] });
     const out = await resolveHeaderImage(base, f.deps);
     expect(out).toMatchObject({ kind: 'asset', source: 'library' });
-    expect(out.notes).toEqual(['both generated pictures were refused (the first showed a logo or brand mark (Apple), the second readable text ("SALE")), so neither was used']);
+    // One sentence, the two reasons side by side, no bracket inside a bracket (AUTO-204).
+    expect(out.notes).toEqual([
+      'both generated pictures were refused, so neither was used: the first showed a logo or brand mark (Apple); the second showed words on a sign, a label, a cover or a screen ("SALE" on a sign)',
+    ]);
     expect(f.uploads).toEqual([]);
   });
 
@@ -317,36 +351,48 @@ describe('the pieces', () => {
     expect(deps.keyConfigured()).toBe(false);
     expect((await deps.reserve(new Date())).ok).toBe(false);
     expect(await deps.fetchReference('https://imgsirv.geiger.com/a.jpg')).toBeNull();
-    expect(await deps.check({ mimeType: 'image/jpeg', base64: '' }, null)).toBeNull();
+    expect(await deps.check({ mimeType: 'image/jpeg', base64: '' }, {})).toBeNull();
     expect(await deps.plan({ title: 't', topic: 't', productNames: [] })).toBeNull();
   });
 });
 
 describe('the scene planner in the chain (AUTO-203)', () => {
-  it('plans once after the cap and the photos, builds the prompt from the plan, tells the check what text was allowed, and records the plan on the outcome', async () => {
+  it('plans once after the cap and the photos, builds the prompt from the plan, tells the check what the picture is about, and records the plan on the outcome', async () => {
     const f = fakeDeps({ checks: [productText] });
     const out = await resolveHeaderImage(base, f.deps);
     expect(out.kind).toBe('asset');
-    expect(f.log).toEqual(['reserve', 'fetch:tote', 'fetch:zip', 'plan', 'generate:2', 'check', 'upload']);
+    expect(f.log).toEqual(['reserve', 'fetch:tote', 'fetch:zip', 'plan', 'generate:2', ...READS, 'upload']);
     expect(f.prompts[0]).toContain('where such a product really lives: the door of a stainless steel refrigerator, in an office break room.');
-    expect(f.prompts[0]).toContain('The ONLY text allowed in the image is what belongs on this product by its nature: a calendar grid with months and dates.');
+    expect(f.prompts[0]).toContain("The ONLY text allowed in the image is this product's own functional markings, the kind in the reference photos: a calendar grid with months and dates.");
     expect(f.prompts[0]).toContain('Physically wrong, and not to be shown: stuck to wood or lying flat.');
-    expect(f.checkArgs).toEqual(['a calendar grid with months and dates']);
+    // The topic, the reference products and the plan's text as a guide, the same for every read.
+    const context = { topic: 'custom tote bags', productNames: ['Canvas Tote', 'Zip Tote'], productText: 'a calendar grid with months and dates' };
+    expect(f.contexts).toEqual(READS.map(() => context));
     // Readable text that is the product's own passes.
     expect(out.kind === 'asset' && out.usage?.scene).toEqual(plannedScene);
     expect(out.kind === 'asset' && out.usage?.planner).toEqual({ model: 'gemini-3.5-flash-lite', promptTokens: 190, outputTokens: 154, elapsedMs: 2069 });
     expect(out.notes).toEqual([]);
   });
 
-  it('a planner that fails or is unavailable is a note, and the picture is drawn under the blanket no-text rule', async () => {
+  it('a planner that fails or is unavailable is a note, the picture is drawn with no words asked for, and the check is told no plan text', async () => {
     for (const plan of ['fails', null] as const) {
       const f = fakeDeps({ plan });
       const out = await resolveHeaderImage(base, f.deps);
       expect(out.kind).toBe('asset');
-      expect(f.prompts[0]).toMatch(/^- No text anywhere/m);
+      expect(f.prompts[0]).toMatch(/^- No words anywhere/m);
       expect(f.prompts[0]).toContain('arranged in a clean, realistic setting');
-      expect(f.checkArgs).toEqual([null]);
-      expect(out.notes).toEqual(['the scene planner was unavailable, so the picture was composed without a planned setting and with no text allowed']);
+      expect(f.contexts.map((c) => c.productText)).toEqual(READS.map(() => null));
+      expect(out.notes).toEqual(['the scene planner was unavailable, so the picture was composed without a planned setting']);
+    }
+  });
+
+  it("with NO plan at all, the product's own markings still pass (AUTO-204): the verdict no longer depends on what the planner predicted", async () => {
+    for (const plan of ['fails', null, { productText: '' }] as const) {
+      const f = fakeDeps({ plan, checks: [measuringCups] });
+      const out = await resolveHeaderImage(base, f.deps);
+      expect(out).toMatchObject({ kind: 'asset', source: 'ai' });
+      expect(f.log.filter((l) => l.startsWith('generate'))).toHaveLength(1);
+      expect(f.uploads).toHaveLength(1);
     }
   });
 
@@ -372,7 +418,7 @@ describe('the scene planner in the chain (AUTO-203)', () => {
     const f = fakeDeps({ generateFailsOnce: noImage });
     const out = await resolveHeaderImage(base, f.deps);
     expect(out.kind).toBe('asset');
-    expect(f.log).toEqual(['reserve', 'fetch:tote', 'fetch:zip', 'plan', 'generate:2', 'reserve', 'generate:2', 'check', 'upload']);
+    expect(f.log).toEqual(['reserve', 'fetch:tote', 'fetch:zip', 'plan', 'generate:2', 'reserve', 'generate:2', ...READS, 'upload']);
     expect(out.notes).toEqual(['the image model returned no picture on its first try and was asked again']);
     const g = fakeDeps({ generateFails: noImage });
     const twice = await resolveHeaderImage(base, g.deps);
@@ -393,11 +439,91 @@ describe('the scene planner in the chain (AUTO-203)', () => {
     expect(f.prompts[1]).toContain('the product only where it could really be');
   });
 
-  it('under a plan whose product carries no text, readable text is still refused', async () => {
-    const f = fakeDeps({ plan: { productText: '' }, checks: [productText, clean] });
+  it('a word printed on the product as decoration is still refused, plan or no plan, and the retry names it', async () => {
+    const imprint: ImageCheck = { ...clean, texts: [{ text: 'TEAM', where: 'the tote', onProduct: true, kind: 'display' }] };
+    for (const plan of [{ productText: '' }, undefined] as const) {
+      const f = fakeDeps({ plan, checks: [imprint, clean] });
+      const out = await resolveHeaderImage(base, f.deps);
+      expect(out.kind).toBe('asset');
+      expect(f.prompts[1]).toContain('rejected because it contained words printed on the product that are not its own markings ("TEAM" on the tote)');
+      expect(f.prompts[1]).toContain("no writing except the product's own functional markings");
+    }
+  });
+});
+
+describe('the reads of one picture (AUTO-204)', () => {
+  it("Ali's measuring cups: scale numbers on the product and recipe text on a cookbook pass on the first picture, with nothing refused and nothing noted", async () => {
+    const f = fakeDeps({ checks: [measuringCups] });
+    const cups: ReferenceProduct[] = [
+      { sku: '506415 91A', name: "Cook's Choice One-Cup Measuring Cup", imageUrl: geiger(1) },
+      { sku: '510810', name: "Cook's Choice Two-Cup Measuring Cup", imageUrl: geiger(2) },
+    ];
+    const out = await resolveHeaderImage({ ...base, topic: 'promotional measuring cups', products: cups, library: [] }, f.deps);
+    expect(out).toMatchObject({ kind: 'asset', source: 'ai', notes: [] });
+    // The check was told which objects are the product, so numbers on any of them are on the product.
+    expect(f.contexts[0]).toMatchObject({ topic: 'promotional measuring cups', productNames: ["Cook's Choice One-Cup Measuring Cup", "Cook's Choice Two-Cup Measuring Cup"] });
+    expect(f.log.filter((l) => l === 'reserve')).toHaveLength(1);
+    if (out.kind === 'asset') expect(out.usage?.attempts).toBe(1);
+  });
+
+  it('every picture is read IMAGE_CHECK_READS times, with the same context, and a problem seen by ANY read refuses it', async () => {
+    expect(IMAGE_CHECK_READS).toBeGreaterThanOrEqual(2);
+    // The wall clock run: the first read saw nothing, the second saw the Apple logo.
+    const f = fakeDeps({ checks: [[clean, branded], clean] });
+    const out = await resolveHeaderImage(base, f.deps);
+    expect(f.log.filter((l) => l === 'check')).toHaveLength(2 * IMAGE_CHECK_READS);
+    expect(f.log.filter((l) => l.startsWith('generate'))).toHaveLength(2);
+    expect(f.prompts[1]).toContain('rejected because it contained a logo or brand mark (Apple)');
+    expect(out.notes).toEqual(['the first picture showed a logo or brand mark (Apple) and was replaced']);
+    // The other order refuses just the same.
+    const g = fakeDeps({ checks: [[branded, clean], clean] });
+    await resolveHeaderImage(base, g.deps);
+    expect(g.log.filter((l) => l.startsWith('generate'))).toHaveLength(2);
+  });
+
+  it('one read unavailable and the other passing is a checked picture: accepted, with no "unchecked" note', async () => {
+    const f = fakeDeps({ checks: [[null, clean]] });
+    const out = await resolveHeaderImage(base, f.deps);
+    expect(out).toMatchObject({ kind: 'asset', source: 'ai', notes: [] });
+    // One read unavailable and the other refusing still refuses.
+    const g = fakeDeps({ checks: [[null, branded], clean] });
+    await resolveHeaderImage(base, g.deps);
+    expect(g.log.filter((l) => l.startsWith('generate'))).toHaveLength(2);
+  });
+
+  it('an answer that could not be read REFUSES the picture: it is never passed unread', async () => {
+    const f = fakeDeps({ checks: [UNREADABLE_IMAGE_CHECK, clean] });
     const out = await resolveHeaderImage(base, f.deps);
     expect(out.kind).toBe('asset');
-    expect(f.checkArgs).toEqual([null, null]);
-    expect(f.prompts[1]).toContain('rejected because it contained readable text ("JANUARY 1 2 3")');
+    expect(f.log.filter((l) => l.startsWith('generate'))).toHaveLength(2);
+    expect(f.prompts[1]).toContain('rejected because it contained text the check could not account for');
+    expect(out.notes).toEqual(['the first picture showed text the check could not account for and was replaced']);
+  });
+
+  it('a read that ANSWERED without a verdict refuses; only a call that never answered is "unavailable"', () => {
+    const gemini = readFileSync(join(__dirname, '..', 'ai', 'gemini.ts'), 'utf8');
+    // The wrapper's own four wordings for "it answered, with nothing usable", each still spelled there.
+    for (const message of ['Gemini returned something that is not JSON.', 'Gemini returned malformed JSON.', 'Empty response from Gemini.', 'Gemini declined this image (SAFETY).']) {
+      expect(checkAnsweredWithoutVerdict(message), message).toBe(true);
+    }
+    for (const spelled of ["'Gemini returned something that is not JSON.'", "'Gemini returned malformed JSON.'", "'Empty response from Gemini.'", '`Gemini declined this ${']) {
+      expect(gemini, spelled).toContain(spelled);
+    }
+    // Never answered: the picture is not judged by this read, and the chain says so only if no read answered.
+    for (const message of ['Gemini request failed (503).', 'Gemini did not answer within 40 seconds.', 'Gemini request failed: network error.', 'GOOGLE_GEMINI_API_KEY is not configured on the server.']) {
+      expect(checkAnsweredWithoutVerdict(message), message).toBe(false);
+    }
+    // And the real deps use it: an unreadable answer becomes the refusing check, never null.
+    const chain = readFileSync(join(__dirname, 'resolve-header-image.ts'), 'utf8');
+    expect(chain).toContain('return checkAnsweredWithoutVerdict(err.message) ? UNREADABLE_IMAGE_CHECK : null;');
+  });
+
+  it('a brand name is refused even when every read lists it as a marking and only the phone number gives it away', async () => {
+    const hidden: ImageCheck = { ...clean, texts: [{ text: 'ACME PLUMBING 555-0100 JANUARY', where: 'the magnet', onProduct: true, kind: 'marking' }] };
+    const f = fakeDeps({ checks: [hidden, hidden] });
+    const out = await resolveHeaderImage({ ...base, library: [], products: [] }, f.deps);
+    expect(out.kind).toBe('none');
+    expect(f.uploads).toEqual([]);
+    expect(out.notes[0]).toContain('both generated pictures were refused, so neither was used: the first showed a brand, company name or contact detail in text');
   });
 });

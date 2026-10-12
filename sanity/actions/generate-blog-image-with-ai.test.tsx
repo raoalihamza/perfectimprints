@@ -11,6 +11,11 @@
  *   - An image uploaded during the wait is kept.
  *   - The cap's refusal is shown in its own words.
  *   - It shares the running lock with the writing buttons.
+ *
+ * AUTO-204: the notice says each thing ONCE. Before it, the refusal
+ * explanation was printed inside the summary's brackets and again, word for
+ * word, under a "Note:" heading. The mocks below are built with the server's
+ * own summary functions, so the dialog is tested against the real wording.
  */
 import { act } from 'react';
 import { createRoot, type Root } from 'react-dom/client';
@@ -34,6 +39,26 @@ vi.mock('../components/useGenerateAuthFetch', () => ({
 import { generateBlogImageWithAi } from './generate-blog-image-with-ai';
 // eslint-disable-next-line import/first
 import { setBlogActionRunning } from './blog-running';
+// eslint-disable-next-line import/first
+import { headerImageSummary, headerImageWhat, headerImageWhy, type HeaderImageOutcome } from '../../lib/blog-automation/header-image';
+
+/** The route's answer for an outcome, worded by the server's own functions. */
+function routeAnswer(outcome: HeaderImageOutcome) {
+  return { ok: true, source: 'ai', outcome, summary: headerImageSummary(outcome), what: headerImageWhat(outcome), why: headerImageWhy(outcome) };
+}
+/** Ali's case: both generated pictures refused, the library empty, the first product photo used instead. */
+const REFUSED_TWICE: HeaderImageOutcome = {
+  kind: 'url',
+  source: 'product',
+  url: 'https://imgsirv.geiger.com/master/106415/web/106415_91A_1.jpg?format=webp&thumbnail=275&w=275&h=275',
+  alt: "Cook's Choice One-Cup Measuring Cup",
+  notes: [
+    'both generated pictures were refused, so neither was used: the first showed words on a sign, a label, a cover or a screen ("The Joy of Baking" on a cookbook cover); the second showed a logo or brand mark (Apple logo on laptop)',
+    'the header image library is empty',
+  ],
+};
+const count = (html: string, needle: string) => html.split(needle).length - 1;
+const htmlOf = (dialog: unknown) => renderToStaticMarkup((dialog as { content: React.ReactElement }).content);
 
 (globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -203,5 +228,103 @@ describe('Generate header image', () => {
     setBlogActionRunning('post-1', false);
     await render(propsFor({ ...base, title: '' }));
     expect(action!.disabled).toBe(true);
+  });
+});
+
+describe('the notice says each thing once (AUTO-204)', () => {
+  it("Ali's case: both pictures refused and a product photo used; the explanation is printed ONCE, with no Note heading, and the dialog says it is a stand-in", async () => {
+    mocks.authFetch.mockResolvedValue({ ok: true, json: async () => routeAnswer(REFUSED_TWICE) });
+    await render(propsFor(base));
+    await act(async () => {
+      action!.onHandle!();
+    });
+    const dialog = action!.dialog as { header?: string };
+    expect(dialog.header).toBe('A stand-in picture was used');
+    const html = htmlOf(dialog);
+    expect(count(html, 'Both generated pictures were refused')).toBe(1);
+    expect(count(html, 'The Joy of Baking')).toBe(1);
+    expect(count(html, 'Apple logo on laptop')).toBe(1);
+    expect(count(html, 'The header image library is empty')).toBe(1);
+    expect(html).not.toContain('Note:');
+    expect(html).toContain('This is a stand-in, not a picture made for this post.');
+    // The advice about an AI picture is not shown for a picture the AI did not make.
+    expect(html).not.toContain('Look at it before you publish');
+    // And it was put on the post, as the hot link.
+    expect(allSets()).toEqual([{ externalHeaderImage: { url: REFUSED_TWICE.kind === 'url' ? REFUSED_TWICE.url : '', alt: "Cook's Choice One-Cup Measuring Cup" } }]);
+  });
+
+  it('an AI picture that replaced a refused first attempt: the reason is said once, with the advice to look at it', async () => {
+    const outcome: HeaderImageOutcome = {
+      kind: 'asset',
+      source: 'ai',
+      image: { _type: 'image', asset: { _type: 'reference', _ref: 'image-generated-1376x768-jpg' }, alt: 'alt' },
+      notes: ['the first picture showed a logo or brand mark (Apple logo on laptop) and was replaced'],
+      usage: { model: 'm', imageTokens: 2240, promptTokens: 1, elapsedMs: 1, attempts: 2, capUsed: 4, cap: 20 },
+    };
+    mocks.authFetch.mockResolvedValue({ ok: true, json: async () => routeAnswer(outcome) });
+    await render(propsFor(base));
+    await act(async () => {
+      action!.onHandle!();
+    });
+    const dialog = action!.dialog as { header?: string };
+    expect(dialog.header).toBe('Header image updated');
+    const html = htmlOf(dialog);
+    expect(count(html, 'The first picture showed a logo or brand mark (Apple logo on laptop) and was replaced.')).toBe(1);
+    expect(count(html, 'Look at it before you publish')).toBe(1);
+    expect(html).toContain('logos, brand names and stray words');
+    expect(html).not.toContain('Note:');
+    expect(html).not.toContain('stand-in');
+    expect(html).toContain('4 of 20 generated header images used today.');
+  });
+
+  it('an image kept because the AI made nothing: the reason is said once, after the sentence that says it was kept', async () => {
+    mocks.authFetch.mockResolvedValue({ ok: true, json: async () => routeAnswer(REFUSED_TWICE) });
+    await render(propsFor({ ...base, ...UPLOADED }));
+    await act(async () => {
+      action!.onHandle!();
+    });
+    await act(async () => {
+      (action!.dialog as { onConfirm: () => void }).onConfirm();
+    });
+    expect(mocks.execute).not.toHaveBeenCalled();
+    const dialog = action!.dialog as { header?: string };
+    expect(dialog.header).toBe('Your image was kept');
+    const html = htmlOf(dialog);
+    expect(count(html, 'your current header image was kept')).toBe(1);
+    expect(count(html, 'Both generated pictures were refused')).toBe(1);
+    // The stand-in the chain offered is not described as if it were on the post.
+    expect(html).not.toContain("the post&#x27;s first product photo");
+    expect(html).not.toContain('Note:');
+  });
+
+  it('no picture at all: the reasons are said once in the error, each as a sentence', async () => {
+    const outcome: HeaderImageOutcome = { kind: 'none', notes: ['the image model failed: Image request failed (503).', 'the header image library is empty', 'the post has no product photo to fall back on'] };
+    mocks.authFetch.mockResolvedValue({ ok: true, json: async () => routeAnswer(outcome) });
+    await render(propsFor(base));
+    await act(async () => {
+      action!.onHandle!();
+    });
+    const dialog = action!.dialog as { header?: string };
+    expect(dialog.header).toBe('No header image was made');
+    const html = htmlOf(dialog);
+    expect(html).toContain(
+      'No picture could be made. The image model failed: Image request failed (503). The header image library is empty. The post has no product photo to fall back on. Nothing on the post was changed.',
+    );
+    expect(count(html, 'The header image library is empty')).toBe(1);
+  });
+
+  it('an answer from a server that sends no "why" still says the reasons once, from the notes', async () => {
+    const { why: _why, what: _what, ...older } = routeAnswer(REFUSED_TWICE);
+    void _why;
+    void _what;
+    mocks.authFetch.mockResolvedValue({ ok: true, json: async () => older });
+    await render(propsFor({ ...base, ...UPLOADED }));
+    await act(async () => {
+      action!.onHandle!();
+    });
+    await act(async () => {
+      (action!.dialog as { onConfirm: () => void }).onConfirm();
+    });
+    expect(count(htmlOf(action!.dialog), 'Both generated pictures were refused')).toBe(1);
   });
 });

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { buildImageUrl } from '@/lib/sanity/client';
 import { getRelatedBlogs } from '@/lib/sanity/queries/related-blogs';
+import { externalHeaderImageUrl } from '@/lib/blog/header-image';
 
 interface RelatedBlogsSectionProps {
   categorySlug: string;
@@ -25,9 +26,12 @@ export async function RelatedBlogsSection({ categorySlug, categoryTitle }: Relat
       <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {blogs.map((blog) => {
           const href = `/blog/${blog.slug.current}`;
-          const imageUrl = buildImageUrl(blog.headerImage, (b) =>
-            b.width(600).height(338).fit('crop'),
-          );
+          // The uploaded or generated asset first; else the hot-linked product
+          // photo a generated post falls back to (AUTO-204, the BlogCard rule);
+          // else the placeholder.
+          const imageUrl =
+            buildImageUrl(blog.headerImage, (b) => b.width(600).height(338).fit('crop')) ??
+            externalHeaderImageUrl(blog, 600);
           return (
             <article
               key={blog._id}

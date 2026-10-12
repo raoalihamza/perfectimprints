@@ -11,7 +11,7 @@
 //
 // POST { title, keywords?: string[], skus?: string[], rootSlugs?: string[],
 //        slug?: string, source: 'ai' | 'default', postSource?: string }
-//   → { ok: true, outcome, summary }
+//   → { ok: true, outcome, summary, what, why }
 //
 //   source 'ai'      the "Generate header image" button: the chain starts at
 //                    the AI regardless of any setting (Patrick pressed it);
@@ -50,7 +50,7 @@ import { resolveCategoryForKeywords } from '@/lib/ai/related-products';
 import { siteWideHiddenSkus } from '@/lib/products/site-wide-hidden';
 import { normalizeSku } from '@/lib/products/hidden-skus';
 import { isCleanRelatedCategorySlug } from '@/lib/blog/related-category-slugs';
-import { effectiveHeaderImageSource, headerImageSummary, type HeaderImageSource } from '@/lib/blog-automation/header-image';
+import { effectiveHeaderImageSource, headerImageSummary, headerImageWhat, headerImageWhy, type HeaderImageSource } from '@/lib/blog-automation/header-image';
 import { defaultHeaderImageDeps, noClientHeaderImageDeps, resolveHeaderImage } from '@/lib/blog-automation/resolve-header-image';
 
 export const runtime = 'nodejs';
@@ -150,7 +150,9 @@ export async function POST(request: Request) {
       },
       sanity ? defaultHeaderImageDeps(sanity) : noClientHeaderImageDeps(),
     );
-    return NextResponse.json({ ok: true, source, outcome, summary: headerImageSummary(outcome) });
+    // `summary` is the whole line; `what` and `why` are its two halves, so a
+    // dialog that words the first half itself can print the reasons once.
+    return NextResponse.json({ ok: true, source, outcome, summary: headerImageSummary(outcome), what: headerImageWhat(outcome), why: headerImageWhy(outcome) });
   } catch (err) {
     const message = err instanceof Error ? err.message : 'The header image could not be made.';
     console.error(`[generate-blog-image] failed: ${message}`);

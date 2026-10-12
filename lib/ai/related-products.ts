@@ -70,9 +70,10 @@ export interface MatchRelatedProductsOptions {
   /** SKUs to never return (already used elsewhere in the same post). */
   exclude?: Set<string>;
   /**
-   * A HIGHER floor for the catalog top-up only (FIX-900, 2026-10-04). The
-   * category branch, the custom products and the product pages keep
-   * `minScore`; the full-catalog scan at the end must clear this instead.
+   * A HIGHER floor for the catalog top-up (FIX-900, 2026-10-04) and, since
+   * AUTO-204, for the product-page scan when a caller asks for one
+   * (`includeProductPages`). The category branch and the custom products
+   * keep `minScore`; the two whole-collection scans must clear this instead.
    * Defaults to `minScore`, so every caller that does not pass it is
    * byte-identical to before. Never lower than `minScore`.
    *
@@ -114,10 +115,19 @@ export interface MatchRelatedProductsOptions {
    * (lib/products/strip-entry-write.ts), so enabling this for a generated
    * strip is safe. It stays opt-in because the category branch already
    * surfaces the product pages Patrick placed in the matched category (via
-   * getEffectiveCategoryProducts, HIDE-100), and widening every generated
-   * strip to ALL product pages is a separate decision. Today only the
-   * /products/<slug> related carousel enables it. Reads are cache-tagged
-   * (PRODUCT_PAGES_TAG), so enabling it inside a static render path is safe.
+   * getEffectiveCategoryProducts, HIDE-100). Two callers enable it: the
+   * /products/<slug> related carousel, and since AUTO-204 the blog's list
+   * idea strips (`matchIdeaStrip`), which pass `catalogMinScore` and
+   * `scanMustCarry` so a page must share the phrase's words and carry its
+   * product noun. Published pages only (the read is the published
+   * perspective). Reads are cache-tagged (PRODUCT_PAGES_TAG), so enabling it
+   * inside a static render path is safe.
+   *
+   * ORDER, which this does not change: category, custom products, product
+   * pages, catalogue. So a product page comes BEFORE any Geiger product from
+   * the catalogue top-up, and AFTER the Geiger products of the idea's own
+   * category; inside the category branch his pages rank by score like any
+   * other member.
    */
   includeProductPages?: boolean;
   /**
@@ -311,16 +321,25 @@ export async function matchRelatedProducts(
     }
   }
 
+  // The floor for the two scans that read a whole uncurated collection: the
+  // product pages (2b) and the catalogue (3). Never below the general one;
+  // equal to it for every caller that passes no `catalogMinScore`.
+  const catalogFloor = Math.max(minScore, opts.catalogMinScore ?? minScore);
+
   // 2b) Sanity productPage docs (opt-in — see the option docstring), scored the
   //     same way and carrying detailUrl so their cards link internally. Guarded
   //     like the custom-products read: a failure degrades to Geiger-only.
+  //     At the CATALOGUE floor (AUTO-204): all of Patrick's product pages is a
+  //     whole collection, not a category, and at one shared word it put santa
+  //     hats under every hat idea and glow sticks under "sunscreen sticks"
+  //     (FIX-911: 19 drifted strips of 107, against 11).
   if (opts.includeProductPages === true) {
     try {
       const { getAllProductPageCards, productPageToGeigerProduct } = await import(
         '../sanity/queries/product-pages'
       );
       const pages = (await getAllProductPageCards()).map(productPageToGeigerProduct);
-      for (const p of rankEligible(pages.filter(scannable), tokens, minScore)) push(p);
+      for (const p of rankEligible(pages.filter(scannable), tokens, catalogFloor)) push(p);
     } catch {
       // Geiger-only fallback.
     }
@@ -332,7 +351,6 @@ export async function matchRelatedProducts(
   //    The catalog has its OWN floor (FIX-900), never below the general one:
   //    here one shared token is one incidental word in 8,000 product names,
   //    not evidence (see the `catalogMinScore` docstring).
-  const catalogFloor = Math.max(minScore, opts.catalogMinScore ?? minScore);
   if (picked.length < limit) {
     for (const p of rankEligible(getAllProducts().filter(scannable), tokens, catalogFloor)) {
       if (picked.length >= limit) break;

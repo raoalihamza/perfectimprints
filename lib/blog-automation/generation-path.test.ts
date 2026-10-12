@@ -190,12 +190,13 @@ describe('the fields beside the body (AUTO-202)', () => {
 
   it('the image chain never throws: every effect is caught, and every effect after the reservation runs under the deadline', () => {
     const chain = read(IMAGE_CHAIN);
-    for (const effect of ['deps.reserve(', 'deps.fetchReference(', 'deps.plan({', 'deps.generate({', 'deps.check({', 'deps.upload(']) {
+    // AUTO-204: the check takes the picture and a context object, so its call no longer opens with a brace.
+    for (const effect of ['deps.reserve(', 'deps.fetchReference(', 'deps.plan({', 'deps.generate({', 'deps.check(', 'deps.upload(']) {
       const at = chain.indexOf(effect);
       expect(at, effect).toBeGreaterThan(-1);
       expect(chain.lastIndexOf('try {', at), `${effect} inside a try`).toBeGreaterThan(chain.lastIndexOf('} catch', at));
     }
-    for (const effect of ['deps.fetchReference(', 'deps.plan({', 'deps.generate({', 'deps.check({', 'deps.upload(']) {
+    for (const effect of ['deps.fetchReference(', 'deps.plan({', 'deps.generate({', 'deps.check(', 'deps.upload(']) {
       expect(chain, `${effect} under withDeadline`).toMatch(new RegExp(`withDeadline\\(\\s*${effect.replace(/[.(]/g, '\\$&')}`));
     }
     // The only throws are the two inside the no-client deps' own stubs, which the chain catches.
@@ -203,6 +204,12 @@ describe('the fields beside the body (AUTO-202)', () => {
     expect(body).not.toContain('throw new');
     // The key is checked before any slot is spent.
     expect(chain.indexOf('deps.keyConfigured()')).toBeLessThan(chain.indexOf('await deps.reserve('));
+    // AUTO-204: every picture is read IMAGE_CHECK_READS times, in parallel under ONE deadline, and the worst answer
+    // decides; an unavailable read is caught per read, so one failed read cannot throw the chain.
+    expect(chain).toContain('Array.from({ length: IMAGE_CHECK_READS }, async (): Promise<ImageCheck | null> => {');
+    expect(chain).toContain('const problem = worstImageCheckProblem(reads);');
+    expect(chain).toContain("if (reads.every((r) => r === null)) notes.push('the text-and-logo check was unavailable");
+    expect(chain.match(/deps\.check\(/g)).toHaveLength(1);
   });
 
   it('the image budget fits the blog-topics route beside the AI deadline', () => {

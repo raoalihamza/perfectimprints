@@ -1394,7 +1394,8 @@
         A picture you upload yourself is never replaced by Generate Blog with AI. Each AI picture costs about seven
         cents and there is a limit of 20 a day. When a generated post's picture is its first product photo instead, a
         <strong>Header image link</strong> field appears under this one holding the photo's address; upload a Header
-        Image and it takes over.</li>
+        Image and it takes over. That product photo shows wherever the post's picture shows: on the post, on the blog
+        cards, and on the post's card in the "Related Blogs About ..." row of a category page.</li>
       <li><strong>Body</strong>, the article itself (rich text). Besides text you can insert images, a row of product
         cards, and a <strong>Video Embed</strong> block.</li>
       <li><strong>Author</strong>, <strong>Publish Date</strong>, and an optional <strong>Updated Date</strong> (both
@@ -1511,7 +1512,12 @@
         already has one) makes a new picture and nothing else. With a picture already on the post it asks first,
         because the current one comes off the post (it stays in the media library). Each press costs about seven cents
         and counts against the day's limit of 20; when the limit is reached the button says so, with the time it
-        resets, and you can still upload your own.</li>
+        resets, and you can still upload your own. The box that opens when it finishes says what happened
+        <strong>once</strong>: <strong>Header image updated</strong> when the AI's picture is on the post;
+        <strong>A stand-in picture was used</strong> when the AI's pictures were refused and a plain product photo
+        (or a library picture) went on an empty post instead, with the reason for each refusal in one sentence;
+        <strong>Your image was kept</strong> when the post already had an image and the AI made nothing better. A
+        stand-in never replaces an image that is already on the post.</li>
       <li>With any of the three, anything you change on the post while the AI is working is kept. The fields are
         compared one at a time, so if you edit the body during the wait, the whole body is kept as you left it, and
         if you upload a header image during the wait, yours stays.</li>
@@ -1519,13 +1525,23 @@
     <div class="callout info">
       <span class="label">What the AI picture is, and what to look for</span>
       <p>The picture is made from the post's own product rows: the real photos of the products in them are sent to the
-        image model as references, and it is told to show items like them, blank and unbranded, in a business setting
-        (an office desk, a trade show table, an event tent), with <strong>no text anywhere and no logos on anything</strong>,
-        background objects included. Every picture is then read back by a second model that looks for text and logos,
-        and one that shows either is thrown away and remade once before the next source is tried. Still look at it
-        before you publish: check that the products shown are the kind the post sells and that nothing in it reads as
-        a brand. Do not like it? Press <strong>Generate another header image</strong>, or upload your own. The alt text
-        is filled in and says the picture is illustrative; edit it if you like.</p>
+        image model as references, and it is told to show items like them, blank and unbranded, where such a product
+        is really used (a magnet on a refrigerator, measuring cups on a kitchen counter, a wall clock on a wall).</p>
+      <p><strong>What a picture may carry, and what it may not.</strong> A product's <strong>own markings are
+        allowed</strong>, because a measuring cup with no scale is not a picture of a measuring cup: the lines and
+        numbers on a measuring cup, a ruler or a tape measure, the numerals on a clock face, the months and dates of a
+        calendar, the day letters on a pill box. So is the small print on the page of an open book or a notepad that
+        happens to be in the scene. <strong>Never allowed, anywhere in the picture:</strong> a logo or a maker's mark
+        (including on a laptop, a phone or a cup in the background), a brand name, a company name, a phone number, a
+        web address, a slogan or a price; and any other words meant to be read, such as a sign, a label, a book
+        title, a name plate, or a word or name printed or engraved on the product itself.</p>
+      <p>Every picture is read back twice by a second model before it is used. If either reading finds one of the
+        things on the never-allowed list, the picture is thrown away and made once more with the problem named; if
+        the second is refused too, the post gets its first product photo as a stand-in and the box tells you why.
+        Still look at every picture before you publish: check that the products shown are the kind the post sells and
+        that nothing in it reads as a brand. The check is a machine and can miss a faint mark. Do not like it? Press
+        <strong>Generate another header image</strong>, or upload your own. The alt text is filled in and says the
+        picture is illustrative; edit it if you like.</p>
     </div>
     <p class="small">About the product rows: each section's row is matched to <em>that section's</em> topic (a
       power-bank idea shows power banks, a tote-bag idea shows tote bags), and no product repeats anywhere in the post.
@@ -1545,8 +1561,15 @@
       read each row against its heading and delete the ones that do not fit; the Products Block is yours to edit.
       Posts generated before this change keep the rows they were saved with.</p>
     <p class="small">When the AI matches one of <strong>your own Product Pages or Custom Products</strong>, it goes into
-      the row as the same reference entry you would pick by hand (it shows the product's title, not a SKU), listed
-      ahead of the Geiger products, and it shows on the published post like any other card.</p>
+      the row as the same reference entry you would pick by hand (it shows the product's title, not a SKU), and it
+      shows on the published post like any other card. In a numbered-list post every idea is now also checked against
+      <strong>all of your published Product Pages</strong>, not only the ones you placed on a category page: a page
+      is offered when its title shares the idea's words and names the same product (a "mini foam footballs" idea is
+      offered your own mini football pages; a "trucker hats" idea is not offered your santa hats). Where it stands in
+      the row: when the idea has no category page of its own, your pages come <strong>first</strong>, ahead of the
+      Geiger catalogue; when the idea is drawn from one of your category pages, that page's products fill the row in
+      order of how closely they match, yours among them, so a Geiger product that matches as well and has a shorter
+      name can sit ahead of yours. Drag yours to the front if you want it first.</p>
     <div class="callout warn">
       <span class="label">Always review AI text</span>
       <p>The AI writes a first draft, not a final post. Read it before publishing, fix anything generic or inaccurate,

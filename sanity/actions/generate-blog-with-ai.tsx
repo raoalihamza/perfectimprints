@@ -68,7 +68,7 @@ import {
   type ImagePlan,
   type RegeneratePreview,
 } from './blog-generate-plan';
-import { capOf, imageRequestBody, patchForOutcome, type ImageResponse } from './blog-image-request';
+import { capOf, imageDetail, imageRequestBody, imageWhy, patchForOutcome, type ImageResponse } from './blog-image-request';
 
 interface SuggestedLink {
   label: string;
@@ -102,6 +102,7 @@ function nextLinkKey(): string {
 /** What happened to the header image (AUTO-202). */
 interface ImageResult {
   status: 'filled' | 'replaced' | 'kept' | 'failed' | 'none';
+  /** What the image is and why, WITHOUT a "Header image:" label: every line that prints it already carries the label (AUTO-204). */
   summary: string;
   cap?: { used: number; cap: number };
 }
@@ -154,13 +155,13 @@ function useBlogGenerateAction(props: DocumentActionProps, mode: Mode): Document
       }
       const toPatch = patchForOutcome(data.outcome);
       const cap = capOf(data.outcome);
-      if (!toPatch) return { status: 'none', summary: data.summary || 'No header image could be made.', cap };
+      if (!toPatch) return { status: 'none', summary: imageWhy(data), cap };
       const now = latest.current.doc;
       // The typing window: FILL writes only if still empty; REGENERATE only if unchanged since the click.
       const changed = intent === 'fill' ? hasHeaderImage(now) : headerImageSignature(now) !== signatureAtClick;
       if (changed) return { status: 'kept', summary: 'The header image changed while the AI was working, so yours was kept.', cap };
       patch.execute([{ set: toPatch.set }, { unset: toPatch.unset }]);
-      return { status: intent === 'fill' ? 'filled' : 'replaced', summary: data.summary || 'Header image set.', cap };
+      return { status: intent === 'fill' ? 'filled' : 'replaced', summary: imageDetail(data), cap };
     } catch (e) {
       return { status: 'failed', summary: e instanceof Error ? e.message : 'The header image could not be made; the rest of the post is unaffected.' };
     }

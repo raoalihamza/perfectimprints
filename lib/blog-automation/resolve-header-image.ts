@@ -28,11 +28,16 @@
  *      in four on the AUTO-203 proof run, on a tote bag scene) is retried
  *      ONCE like a failed check, a second slot reserved, if the budget
  *      allows; any other failure is a note and a fall;
- *   6. the check: the vision model reads the picture back for logos, brand
- *      or company names and contact details, text off the product (or any
- *      text, when none was allowed), and an impossible placement, inside the
- *      budget; a hit is ONE retry with the problem named (a second slot
- *      reserved, the cap counts attempts) if the budget allows, else a fall;
+ *   6. the check: the vision model reads the picture back IMAGE_CHECK_READS
+ *      times in parallel (AUTO-204: the one read the chain used to make
+ *      missed an Apple logo that five reads of nine saw) and lists every
+ *      readable piece of text with its object
+ *      and its kind; a logo, a brand or company name or a contact detail,
+ *      display text on anything, or an impossible placement seen by ANY read
+ *      refuses the picture, while the product's own markings and small page
+ *      text pass (the rule is `imageCheckProblem` in header-image.ts); a
+ *      refusal is ONE retry with the problem named (a second slot reserved,
+ *      the cap counts attempts) if the budget allows, else a fall;
  *   7. the upload, inside the budget: the bytes become a Sanity image asset
  *      and the outcome carries the value to write onto the post.
  *
@@ -66,17 +71,20 @@ import {
   headerImageFilename,
   HEADER_IMAGE_ASPECT_RATIO,
   HEADER_IMAGE_SIZE,
-  imageCheckProblem,
+  IMAGE_CHECK_READS,
   imageValueFor,
   parseImageCheck,
   parseScenePlan,
   pickLibraryImage,
   pickReferenceProducts,
+  UNREADABLE_IMAGE_CHECK,
+  worstImageCheckProblem,
   type HeaderImageLibraryEntry,
   type HeaderImageOutcome,
   type HeaderImageSource,
   type HeaderImageUsage,
   type ImageCheck,
+  type ImageCheckContext,
   type ReferenceProduct,
   type ScenePlan,
 } from './header-image';
@@ -88,8 +96,10 @@ export const HEADER_IMAGE_BUDGET_MS = 70_000;
 export const HEADER_IMAGE_GENERATE_TIMEOUT_MS = 45_000;
 /** A retry after a failed check is attempted only with at least this much budget left. */
 export const HEADER_IMAGE_RETRY_MIN_REMAINING_MS = 25_000;
-/** The check's own ceiling (the measured read is about 2.5 s). */
+/** The check's own ceiling (the measured read is about 2.5 s; the reads run in parallel). */
 const CHECK_TIMEOUT_MS = 15_000;
+/** Room for the whole listed answer (AUTO-204): eight entries are about 350 tokens; a cut-off answer cannot be parsed and refuses the picture. */
+const CHECK_MAX_OUTPUT_TOKENS = 1024;
 /** The scene planner's own ceiling (the measured call is about 2 s). */
 const PLAN_TIMEOUT_MS = 15_000;
 /** Each reference photo fetch; the four run in parallel. */
@@ -120,8 +130,8 @@ export interface HeaderImageDeps {
   /** AUTO-203: plan the scene for this product; null when the planner itself was unavailable (the prompt then falls back to AUTO-202's). */
   plan: (args: { title: string; topic: string; productNames: readonly string[] }) => Promise<PlannedScene | null>;
   generate: (args: { prompt: string; references: GeminiImageInput[]; timeoutMs: number }) => Promise<GeneratedPicture>;
-  /** Read a generated picture back; null when the check itself was unavailable (the picture is then accepted with a note). `allowedProductText` is what the prompt let the product carry, or null. */
-  check: (image: GeminiImageInput, allowedProductText: string | null) => Promise<ImageCheck | null>;
+  /** ONE read of a generated picture; null when the check itself was unavailable. The chain calls it IMAGE_CHECK_READS times per picture. `context` says what the picture is about, so the check knows which objects are the product. */
+  check: (image: GeminiImageInput, context: ImageCheckContext) => Promise<ImageCheck | null>;
   /** Store the bytes as a Sanity image asset; returns the asset document id. */
   upload: (bytes: Buffer, filename: string, contentType: string) => Promise<string>;
   now: () => number;
@@ -142,6 +152,17 @@ export interface ResolveHeaderImageInput {
   /** True when there is no write client at all (the AI step is then skipped with a note). */
   clientMissing?: boolean;
   log?: (line: string) => void;
+}
+
+/**
+ * True when the check call ANSWERED but gave no verdict (AUTO-204): the reply
+ * was not JSON, was cut off, was empty, or the model declined to look at the
+ * picture. Such a read refuses the picture. A call that never answered (a
+ * network failure, an HTTP error, a timeout, a missing key) is "unavailable"
+ * instead. The four wordings are lib/ai/gemini.ts's own; a test pins them.
+ */
+export function checkAnsweredWithoutVerdict(message: string): boolean {
+  return /not JSON|malformed JSON|Empty response|declined this/i.test(message);
 }
 
 /** The real effects, over the server write client. */
@@ -178,13 +199,17 @@ export function defaultHeaderImageDeps(client: SanityClient): HeaderImageDeps {
         throw err;
       }
     },
-    check: async (image, allowedProductText) => {
-      const { system, user } = buildImageCheckPrompt(allowedProductText);
+    check: async (image, context) => {
+      const { system, user } = buildImageCheckPrompt(context);
       try {
-        const result = await generateJsonFromImage<unknown>({ system, user, image, maxOutputTokens: 384, temperature: 0 });
+        const result = await generateJsonFromImage<unknown>({ system, user, image, maxOutputTokens: CHECK_MAX_OUTPUT_TOKENS, temperature: 0 });
         return parseImageCheck(result.data);
       } catch (err) {
-        if (err instanceof GeminiError) return null;
+        // An answer that arrived without a verdict is a REFUSAL, not an
+        // unavailable check (AUTO-204): the picture with the most text is the
+        // one whose answer is longest, so "could not parse" must never mean
+        // "accepted unchecked". Only a call that never answered is unavailable.
+        if (err instanceof GeminiError) return checkAnsweredWithoutVerdict(err.message) ? UNREADABLE_IMAGE_CHECK : null;
         throw err;
       }
     },
@@ -378,11 +403,11 @@ async function aiStep(
         planned = null;
         log(`[header-image] planner failed: ${errorText(err)}`);
       }
-      if (!planned) notes.push('the scene planner was unavailable, so the picture was composed without a planned setting and with no text allowed');
+      if (!planned) notes.push('the scene planner was unavailable, so the picture was composed without a planned setting');
       else log(`[header-image] plan surface="${planned.scene.surface}" setting="${planned.scene.setting}" productText="${planned.scene.productText}" avoid="${planned.scene.avoid}" tokens=${planned.usage.promptTokens}+${planned.usage.outputTokens} ms=${planned.usage.elapsedMs}`);
     }
     const scene = planned?.scene ?? null;
-    const allowedProductText = scene?.productText ? scene.productText : null;
+    const checkContext: ImageCheckContext = { topic: input.topic, productNames: names, productText: scene?.productText ? scene.productText : null };
 
     const timeoutMs = Math.max(5_000, Math.min(HEADER_IMAGE_GENERATE_TIMEOUT_MS, remaining() - 5_000));
     let picture: GeneratedPicture;
@@ -422,19 +447,25 @@ async function aiStep(
       `[header-image] ${GEMINI_IMAGE_MODEL} attempt=${attempts} references=${references.length} imageTokens=${picture.usage.imageTokens} promptTokens=${picture.usage.promptTokens} ms=${picture.usage.elapsedMs} cap=${reservation.used}/${reservation.cap}`,
     );
 
-    let check: ImageCheck | null = null;
-    try {
-      check = await withDeadline(deps.check({ mimeType: picture.mimeType, base64: picture.base64 }, allowedProductText), Math.min(CHECK_TIMEOUT_MS, remaining()), 'the text-and-logo check');
-    } catch (err) {
-      check = null;
-      log(`[header-image] check unavailable: ${errorText(err)}`);
-    }
-    const problem = check ? imageCheckProblem(check, allowedProductText !== null) : null;
-    if (check === null) notes.push('the text-and-logo check was unavailable, so the picture was accepted unchecked; look at it before publishing');
+    // The reads, in parallel, the worst answer winning (AUTO-204).
+    const pictureInput: GeminiImageInput = { mimeType: picture.mimeType, base64: picture.base64 };
+    const checkDeadline = Math.min(CHECK_TIMEOUT_MS, remaining());
+    const reads = await Promise.all(
+      Array.from({ length: IMAGE_CHECK_READS }, async (): Promise<ImageCheck | null> => {
+        try {
+          return await withDeadline(deps.check(pictureInput, checkContext), checkDeadline, 'the text-and-logo check');
+        } catch (err) {
+          log(`[header-image] check unavailable: ${errorText(err)}`);
+          return null;
+        }
+      }),
+    );
+    const problem = worstImageCheckProblem(reads);
+    if (reads.every((r) => r === null)) notes.push('the text-and-logo check was unavailable, so the picture was accepted unchecked; look at it before publishing');
     if (problem) {
       log(`[header-image] check refused attempt ${attempts}: ${problem}`);
       if (attempts >= 2) {
-        notes.push(`both generated pictures were refused (the first showed ${previousProblem}, the second ${problem}), so neither was used`);
+        notes.push(`both generated pictures were refused, so neither was used: the first showed ${previousProblem}; the second showed ${problem}`);
         return null;
       }
       previousProblem = problem;
