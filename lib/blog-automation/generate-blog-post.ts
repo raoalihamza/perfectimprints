@@ -71,6 +71,7 @@ import {
   titleInstruction,
   titleProblem,
   TITLE_SHAPE_LABELS,
+  triggeredShape,
   type BodyTemplate,
   type ExistingPost,
   type ShapeAvailability,
@@ -480,6 +481,44 @@ export async function matchIdeaStrip(input: {
   return products.length >= MIN_STRIP_PRODUCTS ? products : [];
 }
 
+/** Products taken from each keyword on the first pass of a keyword row. */
+const KEYWORD_ROW_PER_KEYWORD = 2;
+
+/**
+ * The product row of a single-topic post whose topic has NO category
+ * (FIX-920): each of the model's product keywords is matched ON ITS OWN, the
+ * way a list idea is (`matchIdeaStrip`: its own category, the catalogue floor,
+ * the product noun), and the row takes two from each keyword in the order the
+ * model gave them, then the rest, up to `limit`. Exported for the measuring
+ * harness.
+ *
+ * Why. With no category the row used to be ONE match over all the keywords
+ * pooled, and the highest score went to whatever product happened to carry
+ * words of several of them. The first question post the scheduler would
+ * write, "imprinted promotional products", asked for water bottles, tote
+ * bags, notebooks and tumblers and was given a row of seven products, five of
+ * them wine bottle tote bags ("6-Bottle Cooler Tote Bag" carries bottle, tote
+ * and bag). 775 of the 2,121 usable topics resolve to no category. A post
+ * WITH a category keeps the pooled match inside that category, where it was
+ * measured and is right.
+ */
+export async function matchKeywordRow(keywords: readonly string[], limit: number = SINGLE_STRIP_LIMIT): Promise<GeigerProduct[]> {
+  const used = new Set<string>();
+  const perKeyword: GeigerProduct[][] = [];
+  for (const keyword of keywords) {
+    const strip = await matchIdeaStrip({ productType: keyword, heading: keyword, usedSkus: used });
+    for (const p of strip) used.add(p.sku);
+    perKeyword.push(strip);
+  }
+  const row: GeigerProduct[] = [];
+  for (const [from, to] of [[0, KEYWORD_ROW_PER_KEYWORD], [KEYWORD_ROW_PER_KEYWORD, LIST_STRIP_LIMIT]]) {
+    for (const strip of perKeyword) {
+      for (const p of strip.slice(from, to)) if (row.length < limit) row.push(p);
+    }
+  }
+  return row;
+}
+
 /**
  * Generate one post. Throws `DeepSeekError` (the call failed or timed out)
  * or `BlogGenerationError` (the answer cannot be used). Never writes.
@@ -511,7 +550,7 @@ async function generateBlogPostInScope(input: GenerateBlogPostInput): Promise<Ge
   //    shape (to a guide), never a dice roll.
   const topic = promptKeywords.join(' ');
   const depth = input.depth ?? (await measureTopicDepth(topic, { minScore: STRIP_MIN_SCORE, catalogMinScore: STRIP_CATALOG_MIN_SCORE }));
-  const availability: ShapeAvailability = { depth: depth.depth, variants: depth.variants };
+  const availability: ShapeAvailability = { depth: depth.depth, variants: depth.variants, category: depth.category };
 
   // 0b) The shape, from the topic (AUTO-203) and what the catalogue allows
   //    (AUTO-205). The topic is the keywords the post is written for (the
@@ -530,7 +569,11 @@ async function generateBlogPostInScope(input: GenerateBlogPostInput): Promise<Ge
   const sectionCount = ideaCount ?? singleSectionCount(target);
   const budget = buildWordBudget(target, sectionCount);
   const existing = input.existingPosts ?? (await readExistingPosts(currentSlug));
-  const plan: ShapePlan = { shape, template, ideaCount, avoidTitles: avoidTitlesFor(topic, existing), variants: depth.variants };
+  // A comparison the topic itself asks for ("neoprene vs foam koozies") compares
+  // the two things the topic names; the catalogue's materials are offered only
+  // to a comparison the rotation picked (FIX-920; that is switched off today).
+  const variants = shape === 'comparison' && triggeredShape(topic) === 'comparison' ? [] : depth.variants;
+  const plan: ShapePlan = { shape, template, ideaCount, avoidTitles: avoidTitlesFor(topic, existing), variants };
 
   // 1) Generate the structured post against concrete word budgets.
   const gen = await generateJson<Partial<GeneratedBlog>>({
@@ -627,18 +670,24 @@ async function generateBlogPostInScope(input: GenerateBlogPostInput): Promise<Ge
     }
     const stripKeywords = (gen.productKeywords ?? []).filter(Boolean);
     const singleKeywords = stripKeywords.length > 0 ? stripKeywords : promptKeywords;
-    const products = await matchRelatedProducts({
-      hiddenSkus: await siteWideHiddenSkus(),
-      // The primary category stays the primary source for single-focus posts;
-      // with none given (the topic path), the category the depth measurement
-      // resolved for the topic (AUTO-205: a sunglasses guide drew no product
-      // row from the catalogue floor while 51 sunglasses sat in its category).
-      categorySlug: categorySlug ?? depth.category ?? undefined,
-      keywords: singleKeywords,
-      limit: SINGLE_STRIP_LIMIT,
-      minScore: STRIP_MIN_SCORE,
-      catalogMinScore: catalogTopUpFloor(singleKeywords, STRIP_CATALOG_MIN_SCORE),
-    });
+    // The primary category stays the primary source for single-focus posts;
+    // with none given (the topic path), the category the depth measurement
+    // resolved for the topic (AUTO-205: a sunglasses guide drew no product
+    // row from the catalogue floor while 51 sunglasses sat in its category).
+    // With NO category at all the keywords are matched one by one (FIX-920,
+    // `matchKeywordRow`): pooled, they returned wine totes for a post that
+    // asked for water bottles, tote bags and notebooks.
+    const stripCategory = categorySlug ?? depth.category ?? undefined;
+    const products = stripCategory
+      ? await matchRelatedProducts({
+          hiddenSkus: await siteWideHiddenSkus(),
+          categorySlug: stripCategory,
+          keywords: singleKeywords,
+          limit: SINGLE_STRIP_LIMIT,
+          minScore: STRIP_MIN_SCORE,
+          catalogMinScore: catalogTopUpFloor(singleKeywords, STRIP_CATALOG_MIN_SCORE),
+        })
+      : await matchKeywordRow(singleKeywords);
     if (products.length >= MIN_STRIP_PRODUCTS) {
       bodySections.push({
         products: {

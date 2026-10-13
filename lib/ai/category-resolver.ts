@@ -32,6 +32,10 @@
  *      1,000-product department holding 57 "12-Can Cooler Bag"s (6%) behind
  *      the koozies root (33 of 76 names, 43%). Measured 2026-10-10; the
  *      hard-cooler root is second (26 of 78, "12-Can Convertible Cooler").
+ *      Roots within EVIDENCE_TIE_POINTS of the leading share are one shelf
+ *      under two names, and the slug that carries more of the phrase decides
+ *      between them (FIX-920: "sports bottles" is water-bottles, not
+ *      bottled-water).
  *   4. NAMED OUTRIGHT. A root whose whole slug is in the phrase ("photo
  *      frame ornaments" names both photo-frames and ornaments). The one
  *      furthest right wins, because the last word is the product; and a root
@@ -68,6 +72,28 @@ export interface CategoryEvidence {
 export const MIN_EVIDENCE_PRODUCTS = 2;
 /** ...and they must be at least this share of the root's products. */
 export const MIN_EVIDENCE_SHARE = 0.1;
+/**
+ * Rule 3 only (FIX-920): two roots whose shares differ by no more than this
+ * (one percentage point) are the same evidence, and the root whose SLUG
+ * carries more of the phrase wins between them.
+ *
+ * Many roots show one shelf under two names, because two PI slugs map to one
+ * Geiger category: bottled-water and water-bottles (142 and 143 products),
+ * markers and highlighters (34 each), pullovers and sweatshirts (85 each),
+ * on-ear and earbuds (36 each). Ranked by share alone, "sports bottles" went
+ * to bottled-water on 17 of 142 against 17 of 143, eight hundredths of a
+ * point, and an exact tie fell to the shorter slug: "highlighter pens" to
+ * markers, "hooded sweatshirts" to pullovers, "wireless earbuds" to on-ear.
+ *
+ * Measured 2026-10-13 over the 107 FIX-911 strip phrases and the 2,121 pool
+ * topics: in 24 rule-3 answers a lower-ranked root's slug carried more of the
+ * phrase. Twelve of them had a gap of at most 0.1 point (the four pairs
+ * above); the next smallest gap was 6.9 points, and "can coolers" (koozies
+ * 43.4% against the hard coolers' 33.3%, where the slug that shares a word is
+ * the WRONG root) is at 10.1. One point sits in the empty stretch between,
+ * changes those twelve topics and none of the 107 strips.
+ */
+export const EVIDENCE_TIE_POINTS = 0.01;
 
 interface IndexedCategory {
   slug: string;
@@ -166,17 +192,26 @@ export function categoryCandidates(phrase: string, index: CategoryIndex): Catego
   //    names is the incidental-word match this whole module exists to avoid.
   for (let k = T.length; k >= Math.min(2, T.length); k -= 1) {
     const tail = T.slice(-k);
-    const byNames = index.categories
-      .map((c) => ({ c, products: carrying(c, tail) }))
+    const ranked = index.categories
+      .map((c) => ({ c, products: carrying(c, tail), share: 0 }))
       .filter((e) => isEvidence(e.products, e.c.names.length))
-      .sort(
-        (a, b) =>
-          b.products / b.c.names.length - a.products / a.c.names.length ||
-          b.products - a.products ||
-          slugOrder(a.c, b.c),
-      );
+      .map((e) => ({ ...e, share: e.products / e.c.names.length }))
+      .sort((a, b) => b.share - a.share || b.products - a.products || slugOrder(a.c, b.c));
+    // The same shelf under two names (FIX-920): roots whose share is within
+    // EVIDENCE_TIE_POINTS of the leader's hold the same evidence, and among
+    // them the root whose slug carries more of the phrase goes first. Only
+    // the leading group is reordered, so a real gap (koozies 43% against the
+    // hard coolers' 33%) is decided by the share exactly as before.
+    const tied = ranked.filter((e) => ranked[0].share - e.share <= EVIDENCE_TIE_POINTS);
+    const byNames = [
+      ...tied
+        .map((e, order) => ({ e, order, affinity: shared(e.c).length }))
+        .sort((a, b) => b.affinity - a.affinity || a.order - b.order)
+        .map((x) => x.e),
+      ...ranked.slice(tied.length),
+    ];
     for (const e of byNames) {
-      add({ slug: e.c.slug, rule: 'tail-names', words: tail, products: e.products, share: e.products / e.c.names.length });
+      add({ slug: e.c.slug, rule: 'tail-names', words: tail, products: e.products, share: e.share });
     }
   }
 
@@ -214,4 +249,42 @@ export function categoryCandidates(phrase: string, index: CategoryIndex): Catego
 
 export function resolveCategoryFromIndex(phrase: string, index: CategoryIndex): string | null {
   return categoryCandidates(phrase, index)[0]?.slug ?? null;
+}
+
+export interface NamedProduct {
+  sku: string;
+  name: string;
+  brand?: string | null;
+}
+
+/**
+ * The products of a root that are NAMED for it (FIX-920): the name or brand
+ * carries a word of the root's own slug, plural folded. Pure. Only the
+ * comparison's materials are counted over these, never the depth.
+ *
+ * Why. 73 of the 406 roots that show a product grid show no product named for
+ * any word of their slug (measured 2026-10-13): `rulers`, `erasers`, `jotters`
+ * and `postcards` are one list of 198 office products with no ruler in it, so
+ * "the materials rulers are sold in" was the wood and plastic of letter
+ * openers and file folders. A comparison states what a product is made of, so
+ * its two sides must come from products that are that product.
+ *
+ * NOT the depth, deliberately: a root whose products are named differently
+ * from its slug is often the right shelf (`matches` is 13 matchbooks,
+ * `noise-makers` is clappers and cowbells), which is why AUTO-205 took the
+ * category's whole size as the depth, and FIX-911 measured the same rule as a
+ * gate on strips destroying right ones. Here a false no costs one comparison
+ * post its shape, and the topic is written as a guide, a question or a list.
+ */
+export function productsNamedForRoot<T extends NamedProduct>(rootSlug: string, products: readonly T[]): T[] {
+  const words = significantTokens(rootSlug.split(/[-_/]+/).join(' '));
+  if (words.length === 0) return [];
+  // "scarves" is carried by "Scarf" and "knives" by "Knife": the matcher's
+  // plural fold is a trailing "s" only (deliberately, lib/ai/match-tokens.ts),
+  // and here the slug is always the plural and the product name the singular.
+  const forms = words.flatMap((w) => (w.endsWith('ves') ? [w, `${w.slice(0, -3)}f`, `${w.slice(0, -3)}fe`] : [w]));
+  return products.filter((p) => {
+    const name = new Set(significantTokens(`${p.name} ${p.brand ?? ''}`));
+    return forms.some((w) => carriesToken(name, w));
+  });
 }

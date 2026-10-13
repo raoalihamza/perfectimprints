@@ -104,12 +104,31 @@ export function getCategoryContent(slug: string): GeneratedCategoryContent | nul
  * many roots are such whole-root pages (koozies "type: can 76, box 76, pint
  * 76" for a root of 76), measured 2026-10-12. Largest first. A root with no
  * such pages returns [].
+ *
+ * GROUNDED IN THE ROOT'S OWN PRODUCTS (FIX-920). A facet page's products are
+ * counted only when the root itself shows them: `shownSkus` is the root's
+ * effective list (Patrick's curation applied; the caller reads it), and with
+ * none passed the root's baked list. Until FIX-920 the facet page's whole
+ * grid was counted, and a facet page is not a subset of its root: it is its
+ * own Searchspring pull, and where the root was curated or the mapping is
+ * broad it holds other things entirely. Measured 2026-10-13 over the 200
+ * roots that offered two or more materials: 214 of their 881 material values
+ * had NO product in the root's own list and 61 had one. The toothpicks root
+ * shows four toothpick dispensers and cases, and was offered "stainless
+ * steel" (28 flasks and wine tumblers) and "plastic" (12 shot cups and beer
+ * steins) as the materials toothpicks are sold in. 63 of the 200 roots lose
+ * the comparison under this rule; they never had one.
  */
-export function getMaterialVariantsForRoot(rootSlug: string, minProducts = 2): { value: string; count: number }[] {
+export function getMaterialVariantsForRoot(
+  rootSlug: string,
+  minProducts = 2,
+  shownSkus?: Iterable<string>,
+): { value: string; count: number }[] {
   const root = rootSlug.trim();
   if (!root || !fs.existsSync(CATEGORIES_DIR)) return [];
-  const rootContent = getCategoryContent(root);
-  const total = rootContent?.productSkus?.length ?? 0;
+  const shown = new Set<string>(shownSkus ?? getCategoryContent(root)?.productSkus ?? []);
+  const total = shown.size;
+  if (total === 0) return [];
   const prefix = `${root}__material__`;
   const out: { value: string; count: number }[] = [];
   for (const file of fs.readdirSync(CATEGORIES_DIR)) {
@@ -117,9 +136,10 @@ export function getMaterialVariantsForRoot(rootSlug: string, minProducts = 2): {
     const value = file.slice(prefix.length, -'.json'.length);
     if (!value || value.includes('__')) continue;
     const content = getCategoryContent(file.slice(0, -'.json'.length));
-    const count = content?.productSkus?.length ?? 0;
+    let count = 0;
+    for (const sku of new Set(content?.productSkus ?? [])) if (shown.has(sku)) count += 1;
     if (count < minProducts) continue;
-    if (total > 0 && count >= total) continue;
+    if (count >= total) continue;
     out.push({ value, count });
   }
   return out.sort((a, b) => b.count - a.count || (a.value < b.value ? -1 : 1));

@@ -12,6 +12,7 @@ import {
   availableShapes,
   chooseTitleShape,
   clampIdeaCount,
+  comparisonCanBeGrounded,
   comparisonIsAvailable,
   ideaCountFor,
   ideasDepthCanCarry,
@@ -55,13 +56,15 @@ describe('depth sets the count', () => {
     expect(sustainableListIdeas(1500, topic, 0)).toBeNull();
   });
 
-  it('a list is available at 15 products and not at 14; a comparison needs two variants', () => {
+  it('a list is available at 15 products and not at 14; a comparison needs two variants, and the rotation does not pick one (FIX-920)', () => {
     expect(listIsAvailable(undefined)).toBe(true);
     expect(listIsAvailable({ depth: 15 })).toBe(true);
     expect(listIsAvailable({ depth: 14 })).toBe(false);
-    expect(comparisonIsAvailable(undefined)).toBe(false);
-    expect(comparisonIsAvailable({ variants: ['foam'] })).toBe(false);
-    expect(comparisonIsAvailable({ variants: ['foam', 'neoprene'] })).toBe(true);
+    expect(comparisonCanBeGrounded(undefined)).toBe(false);
+    expect(comparisonCanBeGrounded({ variants: ['foam'] })).toBe(false);
+    expect(comparisonCanBeGrounded({ variants: ['foam', 'neoprene'] })).toBe(true);
+    // Switched off in the rotation since FIX-920 (COMPARISON_IN_ROTATION).
+    expect(comparisonIsAvailable({ variants: ['foam', 'neoprene'] })).toBe(false);
   });
 
   it("a caller's idea count is held inside the range; anything that is not a number is null", () => {
@@ -85,26 +88,27 @@ describe('the shapes a plain topic may take', () => {
     expect(triggeredShape('custom koozies')).toBeNull();
   });
 
-  it('available shapes: list when the depth carries one, guide and question always, comparison with two materials', () => {
+  it('available shapes: list when the depth carries one, guide and question always; no comparison by rotation since FIX-920', () => {
     expect(availableShapes(undefined)).toEqual(['list', 'guide', 'question']);
     expect(availableShapes({ depth: 200, variants: [] })).toEqual(['list', 'guide', 'question']);
-    expect(availableShapes({ depth: 200, variants: ['foam', 'neoprene'] })).toEqual(['list', 'guide', 'question', 'comparison']);
-    expect(availableShapes({ depth: 3, variants: ['foam', 'neoprene'] })).toEqual(['guide', 'question', 'comparison']);
+    expect(availableShapes({ depth: 200, variants: ['foam', 'neoprene'] })).toEqual(['list', 'guide', 'question']);
+    expect(availableShapes({ depth: 3, variants: ['foam', 'neoprene'] })).toEqual(['guide', 'question']);
     expect(availableShapes({ depth: 0, variants: [] })).toEqual(['guide', 'question']);
   });
 
   it('the rotation repeats the list LIST_ROTATION_WEIGHT times when it is available, and never otherwise', () => {
     expect(LIST_ROTATION_WEIGHT).toBe(3);
-    expect(shapeRotation({ depth: 200, variants: ['a', 'b'] })).toEqual(['list', 'list', 'list', 'guide', 'question', 'comparison']);
+    expect(shapeRotation({ depth: 200, variants: ['a', 'b'] })).toEqual(['list', 'list', 'list', 'guide', 'question']);
     expect(shapeRotation({ depth: 0, variants: [] })).toEqual(['guide', 'question']);
   });
 
-  it('a plain topic with products rotates through all four shapes, stably, with the list the most common', () => {
+  it('a plain topic with products rotates through list, guide and question, stably, with the list the most common', () => {
     const av = { depth: 200, variants: ['foam', 'neoprene'] };
     const shapes = PLAIN.map((t) => chooseTitleShape(t, 'auto', av));
     const seen = new Set(shapes);
     expect(seen.has('list')).toBe(true);
-    expect(seen.has('guide') || seen.has('question') || seen.has('comparison')).toBe(true);
+    expect(seen.has('guide') || seen.has('question')).toBe(true);
+    expect(seen.has('comparison')).toBe(false);
     expect(seen.has('howto')).toBe(false);
     for (const t of PLAIN) expect(chooseTitleShape(t, 'auto', av)).toBe(chooseTitleShape(t, 'auto', av));
     expect(chooseTitleShape('koozies custom', 'auto', av)).toBe(chooseTitleShape('custom koozies', 'auto', av));
@@ -149,7 +153,8 @@ describe('the generator', () => {
     expect(gen.indexOf('await measureTopicDepth(')).toBeLessThan(gen.indexOf('chooseTitleShape(topic, choice, availability)'));
     expect(depth).toContain('export const DEPTH_SUPPLY_LIMIT = 200;');
     expect(depth).toContain('depth: Math.max(products.length, categorySize)');
-    expect(depth).toContain('getMaterialVariantsForRoot(category)');
+    // FIX-920: the materials are counted over the root's own products that are named for it.
+    expect(depth).toContain('getMaterialVariantsForRoot(category, 2, productsNamedForRoot(category, shown).map((p) => p.sku))');
     expect(depth).toContain('includeProductPages: true');
     // Never throws: a failed measurement is a thin topic, not a failed post.
     expect(depth).toContain('return none;');

@@ -19,8 +19,11 @@
  *
  *   1. THE SHAPE FOLLOWS THE TOPIC. `chooseTitleShape` reads the words of the
  *      search the post is written for: a question ("what size are koozies")
- *      gets a question title; "how to ..." gets a how-to; "x vs y" or "x or
- *      y" gets a comparison; "ideas", "ways", "giveaways", "tips" get a list;
+ *      gets a question title; "how to ..." gets a how-to; "x vs y", or "x or
+ *      y" as a choice between two named things, gets a comparison (not any
+ *      "or", FIX-920: the only two topics it caught in the pool were "cones
+ *      with custom logo or print" and "bottle cozies 2025 or 2026");
+ *      "ideas", "ways", "giveaways", "tips" get a list;
  *      "guide", "buying", "choose", "best", "bulk", "wholesale", "types",
  *      "sizes", "cheap" get a buyer's guide. A PLAIN PRODUCT topic ("custom
  *      koozies") suits a list AND a guide, and only there does a stable hash
@@ -124,6 +127,8 @@ export interface ShapeAvailability {
   depth?: number;
   /** The variant values (materials) the topic's category is sold in; a comparison needs two. Empty or undefined means no comparison can be grounded. */
   variants?: readonly string[];
+  /** The root category the topic resolved to (FIX-920): the rotation offers a comparison only when the topic names that product and nothing narrower (`topicIsTheProduct`). */
+  category?: string | null;
 }
 
 /** Google shows about 60 characters of a title; above this the generator asks for another. Patrick's own titles run longer, so this is a ceiling, not his style. */
@@ -154,7 +159,16 @@ export function topicSeed(topic: string): string {
 
 const QUESTION_START = /^(what|why|which|when|where|who|whom|whose|can|could|should|would|does|do|did|is|are|was|were|will|how (?:much|many|long|big|often|do|does|can|should|is|are))\b/;
 const HOWTO = /^how to\b|\bhow (?:do|can|should) (?:i|you|we)\b/;
-const COMPARISON = /\bvs\.?\b|\bversus\b|\bcompared?\b|\bcomparison\b|\bdifference\b|\bdifferences\b|\b(?:better|best) (?:than|choice between)\b|\bor\b/;
+const COMPARISON = /\bvs\.?\b|\bversus\b|\bcompared?\b|\bcomparison\b|\bdifference\b|\bdifferences\b|\b(?:better|best) (?:than|choice between)\b/;
+// "x or y" asks for a comparison only as a CHOICE BETWEEN TWO NAMED THINGS at
+// the head of the topic ("screen print or embroidery for polos"). Until
+// FIX-920 any "or" did, and the only two topics it caught in the pool were
+// "cones with custom logo or print" (an "or" inside the "with ..." tail) and
+// "best custom bottle cozies 2025 or 2026" (two years). A comparison the
+// topic's own words ask for is written with no grounding check at all, so the
+// trigger has to be right.
+const CHOICE = /\b[a-z][a-z-]*\s+or\s+[a-z][a-z-]*\b/;
+const TAIL = /\s+(?:with|for)\s+.*$/;
 const LIST = /\bideas?\b|\bways\b|\buses\b|\bgiveaways?\b|\btips\b|\bexamples?\b|\btrends?\b|\bthemes?\b|\bsuggestions?\b|\binspiration\b|\bcreative\b/;
 const GUIDE = /\bguide\b|\bbuy(?:ing|er|ers)?\b|\bchoos(?:e|ing)\b|\bselect(?:ing)?\b|\bbest\b|\btypes?\b|\bkinds?\b|\bwholesale\b|\bbulk\b|\bcheap(?:est)?\b|\baffordable\b|\bpric(?:e|es|ing)\b|\bcost\b|\bminimum\b|\bsizes?\b|\bmaterials?\b|\bquality\b|\bdurable\b|\bwhat to know\b|\bexplained\b/;
 
@@ -169,7 +183,7 @@ export function triggeredShape(topic: string): TitleShape | null {
   const t = topic.toLowerCase().replace(/\s+/g, ' ').trim();
   if (HOWTO.test(t)) return 'howto';
   if (QUESTION_START.test(t) || t.endsWith('?')) return 'question';
-  if (COMPARISON.test(t)) return 'comparison';
+  if (COMPARISON.test(t) || CHOICE.test(t.replace(TAIL, ''))) return 'comparison';
   if (LIST.test(t)) return 'list';
   if (GUIDE.test(t)) return 'guide';
   return null;
@@ -185,9 +199,87 @@ export function listIsAvailable(availability?: ShapeAvailability): boolean {
   return availability?.depth === undefined || ideasDepthCanCarry(availability.depth) >= LIST_IDEAS_MIN;
 }
 
-/** A comparison needs two real variants to compare; a comparison the topic's own words ask for ("x vs y") needs none. */
-export function comparisonIsAvailable(availability?: ShapeAvailability): boolean {
-  return (availability?.variants?.length ?? 0) >= 2;
+/** A category slug or a variant value as words, for comparing with a topic's: "usb-flash-drives" gives ["usb", "flash", "drive"]. */
+function wordsOfSlug(value: string): string[] {
+  return topicProductWords(value.replace(/[-_/]+/g, ' '));
+}
+
+/**
+ * True when the topic is about THE PRODUCT and nothing narrower (FIX-920):
+ * it carries a word of the category it resolved to, and every one of its
+ * product words is either the category's or one of the category's materials.
+ * "promotional scarves" against `scarves` is; "custom plastic pens" against
+ * `pens` is (plastic is a material pens are sold in, so the comparison can
+ * be plastic against another); "custom yeti coolers", "promotional pens
+ * plymouth logo printing", "custom fleece pullovers" and "custom silicone
+ * coasters" are not: each names a brand, a place or a kind that a comparison
+ * of two catalogue materials would talk past.
+ *
+ * Why it exists. AUTO-205 hashed every plain topic whose category offered two
+ * materials into the comparison slot. Measured over the pool on 2026-10-13:
+ * 139 topics took the shape, 55 of them on materials that were not products
+ * of the category at all (fixed in `getMaterialVariantsForRoot` and
+ * `productsNamedForRoot`), and of the 84 left only 14 were about the product
+ * in general; the other 70 carried a brand (yeti, rtic, cotopaxi, callaway,
+ * nike, ogio), a place (plymouth, baywood, jacksonville, "near me"), a shape
+ * or style (bone shaped, stemless, sling, retro) or a material the category
+ * does not list. Such a topic is a guide, a question or a list about that
+ * narrower thing; a comparison is written about the product.
+ */
+export function topicIsTheProduct(topic: string, category: string | null | undefined, variants: readonly string[] = []): boolean {
+  if (!category) return false;
+  const words = topicProductWords(topic);
+  if (words.length === 0) return false;
+  const product = new Set(wordsOfSlug(category));
+  const materials = new Set(variants.flatMap(wordsOfSlug));
+  return words.some((w) => product.has(w)) && words.every((w) => product.has(w) || materials.has(w));
+}
+
+/**
+ * Whether a comparison COULD be grounded for a topic (FIX-920): two real
+ * variants to compare and, when the topic is given, a topic that is about
+ * the product itself (`topicIsTheProduct`). Without a topic only the variants
+ * are checked. This is the precondition, not the switch: see
+ * COMPARISON_IN_ROTATION.
+ */
+export function comparisonCanBeGrounded(availability?: ShapeAvailability, topic?: string): boolean {
+  const variants = availability?.variants ?? [];
+  if (variants.length < 2) return false;
+  return topic === undefined || topicIsTheProduct(topic, availability?.category, variants);
+}
+
+/**
+ * OFF since FIX-920 (2026-10-13): the rotation does not pick a comparison.
+ * A comparison the topic's own words ask for ("neoprene vs foam koozies") is
+ * still written; there the searcher named the two sides.
+ *
+ * Why. AUTO-205 shipped the shape without generating one. FIX-920 tightened
+ * its grounding (139 topics down to the 14 where two materials are products
+ * of the category and the topic is the product), then generated the first of
+ * the 14 in the queue, "promotional scarves", whose category holds three knit
+ * scarves and three polyester ones. The post, "Knit vs Polyester Promotional
+ * Scarves: Which Fits Your Giveaway?", is fluent and built as asked, and its
+ * polyester half describes a thin, smooth, full-colour printed scarf that
+ * "will not keep a crew member warm", above a product row of Fleece Scarves
+ * and Fleece Mitten Scarves: the catalogue's three polyester scarves are
+ * fleece. The model was given two WORDS the catalogue files products under
+ * and imagined what they meant. A material value does not say what kind of
+ * product it is, and the values mix fibres with constructions and repeat
+ * themselves (knit against polyester, mesh against polyester, steel against
+ * stainless steel), so on the best-grounded topic in the pool the comparison
+ * was half invented.
+ *
+ * Before this is turned on again: each side must reach the prompt as the
+ * NAMES of its own products, not as a word; the post's product row must show
+ * both sides (the keyword matcher showed one); and the two sides must be the
+ * same kind of thing. Then generate several and read them. The cost of
+ * leaving it off is 14 topics of 2,121.
+ */
+export const COMPARISON_IN_ROTATION = false;
+
+/** A comparison the ROTATION may pick: the switch above, and the grounding. A comparison the topic's own words ask for ("x vs y") needs neither. */
+export function comparisonIsAvailable(availability?: ShapeAvailability, topic?: string): boolean {
+  return COMPARISON_IN_ROTATION && comparisonCanBeGrounded(availability, topic);
 }
 
 /**
@@ -197,13 +289,16 @@ export function comparisonIsAvailable(availability?: ShapeAvailability): boolean
  * and needs no products), a comparison when the category is sold in two or
  * more real materials. Before AUTO-205 this was list or guide only, which the
  * diagnostic measured turning into 82% guides once thin lists were refused
- * (its brief said 86%).
+ * (its brief said 86%). Since FIX-920 the comparison is switched off in the
+ * rotation (COMPARISON_IN_ROTATION), so a plain topic is a list, a guide or a
+ * question; `topic` is passed so the grounding rule can read it when the
+ * switch is turned on again.
  */
-export function availableShapes(availability?: ShapeAvailability): TitleShape[] {
+export function availableShapes(availability?: ShapeAvailability, topic?: string): TitleShape[] {
   const shapes: TitleShape[] = [];
   if (listIsAvailable(availability)) shapes.push('list');
   shapes.push('guide', 'question');
-  if (comparisonIsAvailable(availability)) shapes.push('comparison');
+  if (comparisonIsAvailable(availability, topic)) shapes.push('comparison');
   return shapes;
 }
 
@@ -216,14 +311,17 @@ export function availableShapes(availability?: ShapeAvailability): TitleShape[] 
  * weight 1 gives guide 42% question 35% list 13% comparison 10% (list 20%
  * with products); weight 2 gives list 19% (28%); weight 3 gives guide 38.5%
  * question 31% list 24% comparison 7% on the whole pool and LIST 35% guide
- * 30% question 26% comparison 9% where products exist. Three.
+ * 30% question 26% comparison 9% where products exist. Three. (FIX-920 then
+ * took the comparison away from the topics it could not honestly be written
+ * for, and then switched it off in the rotation; the weight did not move, and
+ * the figures after it are in CLAUDE.md.)
  */
 export const LIST_ROTATION_WEIGHT = 3;
 
 /** The rotation a plain topic is hashed into: `availableShapes` with the list repeated LIST_ROTATION_WEIGHT times when it is available. */
-export function shapeRotation(availability?: ShapeAvailability): TitleShape[] {
+export function shapeRotation(availability?: ShapeAvailability, topic?: string): TitleShape[] {
   const out: TitleShape[] = [];
-  for (const shape of availableShapes(availability)) {
+  for (const shape of availableShapes(availability, topic)) {
     if (shape === 'list') for (let i = 0; i < LIST_ROTATION_WEIGHT; i += 1) out.push('list');
     else out.push(shape);
   }
@@ -246,7 +344,7 @@ export function chooseTitleShape(topic: string, choice: TemplateChoice = 'auto',
   let shape: TitleShape | null = triggeredShape(t);
   if (shape === 'list' && !listIsAvailable(availability)) shape = 'guide';
   if (shape === null) {
-    const options = shapeRotation(availability);
+    const options = shapeRotation(availability, t);
     shape = options[stableHash(`shape:${topicSeed(t)}`) % options.length];
   }
   if (choice === 'single' && shape === 'list') return 'guide';

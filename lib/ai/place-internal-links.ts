@@ -36,8 +36,10 @@
  *     words ("business", "events", "gifts") never count as topic words, a
  *     candidate phrase is trimmed of leading and trailing function words,
  *     numbers and punctuation, a one-word anchor is allowed only when that
- *     word is also in the target's own address (it is what the page is
- *     about), a word is matched in singular or plural, and a match is
+ *     word is the WHOLE subject of the target's own address ("[koozies]" for
+ *     /cat/koozies; FIX-920 tightened this from "is in the address" after a
+ *     bare "[water]" was linked to /cat/bottled-water), a word is matched in
+ *     singular or plural, and a match is
  *     refused when the word just before or just after it is a topic word
  *     (so "[custom pepper]" is never cut out of "custom pepper spray"). A
  *     target with no topic word, or no clean anchor, is skipped: fewer links,
@@ -273,14 +275,31 @@ const ROUTE_WORDS = new Set(['blog', 'videos', 'cat', 'products', 'services', 's
 
 /**
  * The words of the target's own address that say what the page is about:
- * route prefixes, generic promo and filler words dropped. A one-word anchor
- * is allowed only when EVERY one of these is a topic word, so the page is
- * about exactly the topic and nothing wider. Measured on the AUTO-201 proof
- * run: it keeps "[tote]" for /cat/tote-bags and "[cushions]" for
- * /cat/seat-cushions, and refuses "[bag]" for /cat/lunch-bags-boxes-totes,
- * "[seats]" for /cat/seat-covers, "[water]" for a debossed-bottles video and
- * "[employees]" for a pepper spray post, which the address-contains-the-word
- * rule alone had let through.
+ * route prefixes, generic promo and filler words dropped.
+ *
+ * ONE_WORD_ANCHOR (FIX-920). A one-word anchor is allowed only when the
+ * address is about exactly ONE word and that word is a topic word:
+ * "[koozies]" for /cat/koozies, "[caps]" for /cat/caps, "[apron]" for
+ * /cat/aprons. One word out of a longer address is never an anchor.
+ *
+ * AUTO-201's rule was looser (every word of the address a topic word), which
+ * kept "[tote]" for /cat/tote-bags and "[cushions]" for /cat/seat-cushions.
+ * It had a hole: when the post's own category shares no word with the topic,
+ * the finder hands over the category's SLUG words as its matched words
+ * (lib/ai/internal-links.ts), so "every address word is a topic word" is
+ * true by construction. AUTO-205's sports bottles post resolved to the
+ * bottled-water root and linked the bare word "[water]" to /cat/bottled-water
+ * from a sentence about job-site water stations. Measured 2026-10-13 by
+ * replaying the placer over the text and stored targets of all 30 AI posts
+ * and drafts: 56 links, 12 of them one word; six name their page exactly
+ * (pencil, apparel, bags, caps, koozies, apron) and six are one word of a
+ * longer address ("[noise]" for /cat/noise-makers, "[recognition]" for
+ * /cat/awards-recognition, "[sprays]" and "[Christmas]" for blog posts about
+ * pepper spray and ornament ideas). This rule keeps the first six and drops
+ * the second six; a multi-word phrase is still tried first for every target,
+ * so "[tote bags]" and "[seat cushions]" are placed exactly as before.
+ * Forbidding one-word anchors outright was measured too: it loses the six
+ * good ones and gains nothing.
  */
 function hrefTopicWords(href: string): Set<string> {
   const path = href.replace(/^https?:\/\/[^/]+/, '').split(/[?#]/)[0];
@@ -340,10 +359,12 @@ export function topicAnchorCandidates(target: InternalLinkSuggestion): { phrase:
   // Longest trimmed phrase first; equal lengths keep label order (stable sort).
   phrases.sort((a, b) => b.split(' ').length - a.split(' ').length);
   const out = phrases.map((phrase) => ({ phrase, single: false }));
-  // One-word anchors: a topic word that is in the target's own address, and
-  // only when the address is about nothing but topic words.
+  // One-word anchors: only when the target's address is about exactly ONE
+  // word and that word is a topic word, so the anchor is the page's whole
+  // subject ("[koozies]" for /cat/koozies), never one word out of several
+  // (FIX-920, see ONE_WORD_ANCHOR below).
   const addressWords = hrefTopicWords(target.href);
-  const aboutTheTopic = addressWords.size > 0 && [...addressWords].every((w) => topicStems.has(w));
+  const aboutTheTopic = addressWords.size === 1 && [...addressWords].every((w) => topicStems.has(w));
   const singles: string[] = [];
   if (aboutTheTopic) {
     for (const w of words) {

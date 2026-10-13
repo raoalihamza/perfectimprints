@@ -28,6 +28,7 @@ import { assembleCategoryEvidence } from './category-evidence';
 import {
   buildCategoryIndex,
   categoryCandidates,
+  EVIDENCE_TIE_POINTS,
   MIN_EVIDENCE_PRODUCTS,
   MIN_EVIDENCE_SHARE,
   resolveCategoryFromIndex,
@@ -233,6 +234,56 @@ describe('rules 2 and 3: a slug or product names carry the tail of the phrase', 
     // either constant needs that measurement redone, not a guess.
     expect(MIN_EVIDENCE_PRODUCTS).toBe(2);
     expect(MIN_EVIDENCE_SHARE).toBe(0.1);
+  });
+});
+
+describe('rule 3, one shelf under two names (FIX-920)', () => {
+  // Two PI slugs often map to one Geiger category, so two roots show the same
+  // products. The real pairs, in miniature: bottled-water / water-bottles (142
+  // and 143 products), markers / highlighters (34 each), and the pair that
+  // must NOT flip, koozies / coolers (43% against 33%).
+  const SHELVES: CategoryEvidence[] = [
+    { slug: 'bottled-water', names: [...many(17, (i) => `${i * 2} oz Mood Sports Bottle`), ...many(125, (i) => `Tritan Tumbler ${i}`)] },
+    { slug: 'water-bottles', names: [...many(17, (i) => `${i * 2} oz Mood Sports Bottle`), ...many(126, (i) => `Tritan Tumbler ${i}`)] },
+    { slug: 'markers', names: [...many(8, (i) => `Gel Highlighter Pen ${i}`), ...many(26, (i) => `Dry Erase Marker ${i}`)] },
+    { slug: 'highlighters', names: [...many(8, (i) => `Gel Highlighter Pen ${i}`), ...many(26, (i) => `Dry Erase Marker ${i}`)] },
+    { slug: 'koozies', names: [...many(33, (i) => `KOOZIE Can Cooler ${i}`), ...many(43, (i) => `Bottle Bag ${i}`)] },
+    { slug: 'coolers', names: [...many(26, (i) => `${i * 6}-Can Convertible Cooler`), ...many(52, (i) => `Hard Top Chest ${i}`)] },
+    // 50.0%, 49.5% and 48.8%: the third is within a point of the second and not of the leader.
+    { slug: 'alpha', names: [...many(100, (i) => `Glow Yo Disc ${i}`), ...many(100, (i) => `Filler ${i}`)] },
+    { slug: 'beta', names: [...many(99, (i) => `Glow Yo Disc ${i}`), ...many(101, (i) => `Filler ${i}`)] },
+    { slug: 'glow-toys', names: [...many(122, (i) => `Glow Yo Disc ${i}`), ...many(128, (i) => `Filler ${i}`)] },
+  ];
+  const SHELF_INDEX = buildCategoryIndex(SHELVES);
+  const order = (phrase: string) => categoryCandidates(phrase, SHELF_INDEX).filter((c) => c.rule === 'tail-names').map((c) => c.slug);
+
+  it('"sports bottles" is water-bottles, not bottled-water, although its share is a hair smaller', () => {
+    const [first, second] = categoryCandidates('imprinted sports bottles', SHELF_INDEX);
+    expect(second.share!).toBeGreaterThan(first.share!);
+    expect(second.share! - first.share!).toBeLessThan(EVIDENCE_TIE_POINTS);
+    expect(first).toMatchObject({ slug: 'water-bottles', rule: 'tail-names', products: 17 });
+    expect(second.slug).toBe('bottled-water');
+    expect(resolveCategoryFromIndex('promotional sports bottles', SHELF_INDEX)).toBe('water-bottles');
+  });
+
+  it('an exact tie goes to the slug that carries the phrase, not to the shorter slug', () => {
+    expect(order('printed highlighter pens')).toEqual(['highlighters', 'markers']);
+    expect(resolveCategoryFromIndex('printed highlighter pens', SHELF_INDEX)).toBe('highlighters');
+  });
+
+  it('a real gap is still decided by the share: "can coolers" stays with koozies, whose slug shares no word', () => {
+    // The hard-cooler root's slug carries "coolers" and is the WRONG root; ten points apart is not a tie.
+    expect(order('collapsible can coolers')).toEqual(['koozies', 'coolers']);
+    expect(resolveCategoryFromIndex('foam can coolers', SHELF_INDEX)).toBe('koozies');
+  });
+
+  it('only the LEADING group is reordered: a root within a point of the second, but not of the leader, keeps its place', () => {
+    expect(order('glow yo disc')).toEqual(['alpha', 'beta', 'glow-toys']);
+  });
+
+  it('the tie is one percentage point, spelled once', () => {
+    expect(EVIDENCE_TIE_POINTS).toBe(0.01);
+    expect(read('lib/ai/category-resolver.ts').match(/export const EVIDENCE_TIE_POINTS = [\d.]+;/g)).toEqual(['export const EVIDENCE_TIE_POINTS = 0.01;']);
   });
 });
 

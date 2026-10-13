@@ -19,7 +19,11 @@
  *
  * THE VARIANTS. The material facet pages of the resolved root, for a
  * comparison post (AUTO-205 Part 3): two real materials the product is sold
- * in are the two sides a comparison can honestly take.
+ * in are the two sides a comparison can honestly take. Since FIX-920 a
+ * material counts only for the products the root ITSELF shows that are named
+ * for it (`productsNamedForRoot`; two or more of them, and not all of them);
+ * the facet page's own grid is a separate pull and was holding flasks under
+ * "the materials toothpicks are sold in".
  *
  * COST. One matcher call and one category read per generation, both through
  * reads the strips make anyway, inside the same read memo (lib/ai/read-memo.ts),
@@ -33,6 +37,7 @@
 import { siteWideHiddenSkus } from '../products/site-wide-hidden';
 import { catalogTopUpFloor, matchRelatedProducts, productNounOf, resolveCategoryForKeywords } from '../ai/related-products';
 import { getMaterialVariantsForRoot, getProductsForCategorySlug } from '../categories';
+import { productsNamedForRoot, type NamedProduct } from '../ai/category-resolver';
 
 /** How many products the supply count looks for. A list of LIST_IDEAS_MAX ideas at PRODUCTS_PER_IDEA needs 36; 200 is the diagnostic's limit and leaves the number meaningful for the report. */
 export const DEPTH_SUPPLY_LIMIT = 200;
@@ -77,13 +82,20 @@ export async function measureTopicDepth(topic: string, opts: MeasureTopicDepthOp
     let categorySize = 0;
     let variants: string[] = [];
     if (category) {
+      // What the root itself shows (Patrick's curation applied), read once:
+      // its size is the depth floor, and the products in it that are named
+      // for the root are what a material variant must be made of (FIX-920: a
+      // facet page's own grid is not a subset of its root, and 214 of 881
+      // offered materials had no product in theirs).
+      let shown: NamedProduct[];
       try {
         const { getEffectiveCategoryProducts } = await import('../sanity/queries/effective-category-products');
-        categorySize = (await getEffectiveCategoryProducts(category, hiddenSkus)).length;
+        shown = await getEffectiveCategoryProducts(category, hiddenSkus);
       } catch {
-        categorySize = getProductsForCategorySlug(category).length;
+        shown = getProductsForCategorySlug(category);
       }
-      variants = getMaterialVariantsForRoot(category).map((v) => v.value);
+      categorySize = shown.length;
+      variants = getMaterialVariantsForRoot(category, 2, productsNamedForRoot(category, shown).map((p) => p.sku)).map((v) => v.value);
     }
     return { category, supply: products.length, categorySize, depth: Math.max(products.length, categorySize), variants };
   } catch {

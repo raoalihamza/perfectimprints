@@ -64,18 +64,47 @@ describe('topicAnchorCandidates: trimmed phrases, longest first, one-word anchor
     expect(topicAnchorCandidates(target({ href: '/videos/hats', label: 'Custom Hats for Business', matchedTokens: ['custom', 'business'] }))).toEqual([]);
   });
 
-  it('a one-word anchor needs an address about nothing but the topic (the AUTO-201 proof run cases)', () => {
+  it('a one-word anchor needs an address about exactly that ONE word (FIX-920; AUTO-201 allowed any word of an all-topic address)', () => {
     const singles = (t: InternalLinkSuggestion) => topicAnchorCandidates(t).filter((c) => c.single).map((c) => c.phrase.toLowerCase());
-    // Allowed: the page is about exactly the topic words.
-    expect(singles(target({ href: '/cat/tote-bags', label: 'Custom Tote Bags for Branding & Everyday Use', kind: 'category', matchedTokens: ['tote', 'bags'] }))).toEqual(['tote', 'bags']);
-    expect(singles(target({ href: '/cat/seat-cushions', label: 'Custom Seat Cushions for Comfort & Branding', kind: 'category', matchedTokens: ['seat', 'cushions'] }))).toEqual(['seat', 'cushions']);
-    // Refused: the page is about something wider, so one word would mislead.
+    // Allowed: the word is the page's whole subject.
+    expect(singles(target({ href: '/cat/koozies', label: 'Custom Koozies for Events', kind: 'category', matchedTokens: ['koozies'] }))).toEqual(['koozies']);
+    expect(singles(target({ href: '/cat/aprons', label: 'Custom Aprons for Restaurants & Events', kind: 'category', matchedTokens: ['apron'] }))).toEqual(['aprons', 'apron']);
+    expect(singles(target({ href: '/blog/custom-koozies', label: 'Custom Koozies', matchedTokens: ['custom', 'koozies'] }))).toEqual(['koozies']);
+    // Refused since FIX-920: one word out of a two-word address. The phrase is still a candidate, and is tried first.
+    const tote = target({ href: '/cat/tote-bags', label: 'Custom Tote Bags for Branding & Everyday Use', kind: 'category', matchedTokens: ['tote', 'bags'] });
+    const cushions = target({ href: '/cat/seat-cushions', label: 'Custom Seat Cushions for Comfort & Branding', kind: 'category', matchedTokens: ['seat', 'cushions'] });
+    expect(singles(tote)).toEqual([]);
+    expect(singles(cushions)).toEqual([]);
+    expect(topicAnchorCandidates(tote).map((c) => c.phrase)).toContain('Tote Bags');
+    expect(topicAnchorCandidates(cushions).map((c) => c.phrase)).toContain('Seat Cushions');
+    expect(singles(target({ href: '/cat/noise-makers', label: 'Custom Noise Makers for Game Day', kind: 'category', matchedTokens: ['noise', 'makers'] }))).toEqual([]);
+    expect(singles(target({ href: '/cat/awards-recognition', label: 'Custom Awards & Recognition Gifts', kind: 'category', matchedTokens: ['awards', 'recognition'] }))).toEqual([]);
+    // Refused before and after: the page is about something wider, so one word would mislead.
     expect(singles(target({ href: '/cat/lunch-bags-boxes-totes', label: 'Custom Lunch Bags, Boxes & Totes for Everyday Use', kind: 'category', matchedTokens: ['tote', 'bags'] }))).toEqual([]);
     expect(singles(target({ href: '/cat/seat-covers', label: 'Custom Seat Covers for Events & Branding', kind: 'category', matchedTokens: ['seat'] }))).toEqual([]);
     expect(singles(target({ href: '/videos/custom-debossed-water-bottles-for-business-branding', label: 'Custom Debossed Water Bottles for Business Branding', kind: 'video', matchedTokens: ['custom', 'water', 'bottles'] }))).toEqual([]);
     expect(singles(target({ href: '/blog/custom-pepper-spray-delivery-drivers-mobile-employees', label: 'Custom Pepper Spray for Delivery Drivers and Mobile Employees', matchedTokens: ['custom', 'for', 'employees'] }))).toEqual([]);
     // The phrase candidates of those targets are unaffected.
     expect(topicAnchorCandidates(target({ href: '/cat/lunch-bags-boxes-totes', label: 'Custom Lunch Bags, Boxes & Totes for Everyday Use', kind: 'category', matchedTokens: ['tote', 'bags'] })).map((c) => c.phrase)).toContain('Lunch Bags');
+  });
+
+  it('the bare word "water" is never an anchor for /cat/bottled-water (FIX-920, the AUTO-205 sports bottles post)', () => {
+    // The post's own category shared no word with the topic "imprinted sports
+    // bottles", so the finder handed over the SLUG words as its matched words:
+    // "every address word is a topic word" was true by construction.
+    const bottled = target({ href: '/cat/bottled-water', label: 'Custom Bottled Water for Events & Branding', kind: 'category', reason: 'Category page matching the keywords: bottled-water', matchedTokens: ['bottled', 'water'] });
+    expect(topicAnchorCandidates(bottled).filter((c) => c.single)).toEqual([]);
+    const jobSite = { intro: ['For job sites, choose durable squeeze bottles that are easy to fill from coolers and water stations.'], sections: [] };
+    expect(placeInternalLinks(jobSite, [bottled], 6, { anchorPolicy: 'topic', topicWords: ['imprinted sports bottles'] }).placed).toEqual([]);
+    // The words that name the page are still linked when the text says them.
+    const names = { intro: ['Crews that used to hand out bottled water now hand out a bottle that lasts the season.'], sections: [] };
+    expect(placeInternalLinks(names, [bottled], 6, { anchorPolicy: 'topic', topicWords: ['imprinted sports bottles'] }).placed.map((p) => p.anchor)).toEqual(['bottled water']);
+  });
+
+  it('a one-word address still takes its word: "[koozies]" for /cat/koozies from a can coolers post', () => {
+    const koozies = target({ href: '/cat/koozies', label: 'Custom Koozies for Events', kind: 'category', reason: 'Category page matching the keywords: koozies', matchedTokens: ['koozies'] });
+    const body = { intro: ['Can coolers, which most buyers still call koozies, are the cheapest branded item on the table.'], sections: [] };
+    expect(placeInternalLinks(body, [koozies], 6, { anchorPolicy: 'topic', topicWords: ['custom can coolers'] }).placed.map((p) => p.anchor)).toEqual(['koozies']);
   });
 });
 
