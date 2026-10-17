@@ -68,7 +68,8 @@ import {
   type ImagePlan,
   type RegeneratePreview,
 } from './blog-generate-plan';
-import { capOf, imageDetail, imageRequestBody, imageWhy, patchForOutcome, type ImageResponse } from './blog-image-request';
+import { capOf, generatedAssetRefOf, headerAssetRefOf, imageDetail, imageRequestBody, imageWhy, patchForOutcome, type ImageResponse } from './blog-image-request';
+import { useHeaderAssetDiscard } from '../components/useHeaderAssetDiscard';
 
 interface SuggestedLink {
   label: string;
@@ -120,6 +121,8 @@ function useBlogGenerateAction(props: DocumentActionProps, mode: Mode): Document
   const { patch } = useDocumentOperation(id, type);
   // FIX-850: carries the Studio session nonce the generate routes now require.
   const authFetch = useGenerateAuthFetch();
+  // AUTO-207: a generated picture Regenerate replaces, or makes and does not use, is removed.
+  const discard = useHeaderAssetDiscard();
   const isRunning = useRunning(id);
   const [isGenerating, setIsGenerating] = useState(false);
   const [stage, setStage] = useState<'post' | 'image'>('post');
@@ -159,8 +162,15 @@ function useBlogGenerateAction(props: DocumentActionProps, mode: Mode): Document
       const now = latest.current.doc;
       // The typing window: FILL writes only if still empty; REGENERATE only if unchanged since the click.
       const changed = intent === 'fill' ? hasHeaderImage(now) : headerImageSignature(now) !== signatureAtClick;
-      if (changed) return { status: 'kept', summary: 'The header image changed while the AI was working, so yours was kept.', cap };
+      if (changed) {
+        const unusedRef = generatedAssetRefOf(data.outcome);
+        if (unusedRef) discard.unused(unusedRef);
+        return { status: 'kept', summary: 'The header image changed while the AI was working, so yours was kept.', cap };
+      }
       patch.execute([{ set: toPatch.set }, { unset: toPatch.unset }]);
+      // AUTO-207: the picture Regenerate replaced goes, if it was a generated one and nothing else uses it.
+      const replacedRef = intent === 'replace' ? headerAssetRefOf(atClick) : null;
+      if (replacedRef && replacedRef !== generatedAssetRefOf(data.outcome)) discard.afterReplace(replacedRef);
       return { status: intent === 'fill' ? 'filled' : 'replaced', summary: imageDetail(data), cap };
     } catch (e) {
       return { status: 'failed', summary: e instanceof Error ? e.message : 'The header image could not be made; the rest of the post is unaffected.' };

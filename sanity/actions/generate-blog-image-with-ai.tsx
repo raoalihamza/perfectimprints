@@ -16,8 +16,11 @@
  *
  * THE TYPING WINDOW. If the header image changed while the picture was being
  * made (Patrick uploaded one during the wait), his is kept and the dialog
- * says so; the generated picture is left in the media library unused. The
- * AUTO-116 rule.
+ * says so. The AUTO-116 rule. AUTO-207: the generated picture that was not
+ * used is removed, and so is a generated picture this button REPLACES once
+ * nothing (no draft, no published post) still points at it, through the one
+ * guarded rule in lib/blog-automation/discard-header-image.ts; an image
+ * Patrick uploaded is never removed.
  *
  * The chain behind the route can also answer with a library picture or the
  * first product photo (when the AI picture fails and a fallback exists); the
@@ -32,8 +35,19 @@ import { useRef, useState } from 'react';
 import { useDocumentOperation, type DocumentActionComponent } from 'sanity';
 import { AiProgressContent } from '../components/AiProgressDialog';
 import { useGenerateAuthFetch } from '../components/useGenerateAuthFetch';
-import { capOf, headerImageSignature, imageRequestBody, imageWhy, patchForOutcome, type BlogImageDoc, type ImageResponse } from './blog-image-request';
+import {
+  capOf,
+  generatedAssetRefOf,
+  headerAssetRefOf,
+  headerImageSignature,
+  imageRequestBody,
+  imageWhy,
+  patchForOutcome,
+  type BlogImageDoc,
+  type ImageResponse,
+} from './blog-image-request';
 import { setBlogActionRunning, useBlogActionRunning } from './blog-running';
+import { useHeaderAssetDiscard } from '../components/useHeaderAssetDiscard';
 
 type BlogDoc = BlogImageDoc;
 
@@ -54,6 +68,8 @@ export const generateBlogImageWithAi: DocumentActionComponent = (props) => {
   const { patch } = useDocumentOperation(id, type);
   // FIX-850: carries the Studio session nonce the generate routes require.
   const authFetch = useGenerateAuthFetch();
+  // AUTO-207: a generated picture this button takes off the post, or makes and does not use, is removed.
+  const discard = useHeaderAssetDiscard();
   // Shared with Generate / Regenerate Blog with AI: one AI button at a time per document.
   const isRunning = useBlogActionRunning(id);
   const [isGenerating, setIsGenerating] = useState(false);
@@ -108,10 +124,16 @@ export const generateBlogImageWithAi: DocumentActionComponent = (props) => {
       }
       // The typing window: an image changed during the wait is Patrick's.
       if (headerImageSignature(latest.current) !== signatureAtClick) {
+        // AUTO-207: the picture made for nothing is removed, not left in the media library.
+        const unusedRef = generatedAssetRefOf(data.outcome);
+        if (unusedRef) discard.unused(unusedRef);
         setOutcome({ summary, why, source, kept: 'changed', cap });
         return;
       }
       patch.execute([{ set: toPatch.set }, { unset: toPatch.unset }]);
+      // AUTO-207: the picture this replaced goes, if it was a generated one and nothing else uses it.
+      const replacedRef = headerAssetRefOf(atClick);
+      if (replacedRef && replacedRef !== generatedAssetRefOf(data.outcome)) discard.afterReplace(replacedRef);
       setOutcome({ summary, why, source, kept: null, cap });
     } catch (e) {
       setError(e instanceof Error ? e.message : 'The header image could not be made. Nothing on the post was changed.');

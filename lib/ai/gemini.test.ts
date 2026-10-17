@@ -3,7 +3,7 @@
  * Gemini wrapper (no network: the key is deliberately absent here).
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { GEMINI_MODEL, GeminiError, extractJsonObject, generateJsonFromImage, generateJsonFromText } from './gemini';
+import { GEMINI_MODEL, GeminiError, extractJsonObject, generateJsonFromImage, generateJsonFromImages, generateJsonFromText } from './gemini';
 
 describe('extractJsonObject', () => {
   it('takes a bare object as is', () => {
@@ -91,6 +91,21 @@ describe('generateJsonFromText (AUTO-203, the scene planner)', () => {
     expect(body.contents[0].parts).toEqual([{ text: 'magnets' }]);
     expect(body.generationConfig).toEqual({ responseMimeType: 'application/json', temperature: 0.3, maxOutputTokens: 512 });
     expect(body.tools).toBeUndefined();
+  });
+
+  it('AUTO-207: a response schema rides in generationConfig, and several images go first, in order, before the text', async () => {
+    const schema = { type: 'OBJECT', properties: { surface: { type: 'STRING' } }, required: ['surface'] };
+    await generateJsonFromText({ system: 'plan', user: 'magnets', responseSchema: schema });
+    expect(JSON.parse((fetchMock.mock.calls[0] as [string, RequestInit])[1].body as string).generationConfig.responseSchema).toEqual(schema);
+    await generateJsonFromImages({ system: 'plan', user: 'kits', images: [{ mimeType: 'image/jpeg', base64: 'QQ==' }, { mimeType: 'image/webp', base64: 'Qg==' }], responseSchema: schema });
+    const body = JSON.parse((fetchMock.mock.calls[1] as [string, RequestInit])[1].body as string);
+    expect(body.contents[0].parts).toEqual([
+      { inlineData: { mimeType: 'image/jpeg', data: 'QQ==' } },
+      { inlineData: { mimeType: 'image/webp', data: 'Qg==' } },
+      { text: 'kits' },
+    ]);
+    expect(body.generationConfig.responseSchema).toEqual(schema);
+    expect((fetchMock.mock.calls[1] as [string])[0]).toBe(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`);
   });
 
   it('a non-JSON answer and an HTTP failure are GeminiErrors that never carry the key', async () => {

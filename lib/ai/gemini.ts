@@ -113,6 +113,24 @@ export interface GenerateJsonFromTextOptions {
   temperature?: number;
   /** Default GEMINI_TIMEOUT_MS. */
   timeoutMs?: number;
+  /**
+   * AUTO-207: a response schema (Google's OpenAPI subset, `generationConfig.responseSchema`).
+   * With one, the model's decoding is CONSTRAINED to valid JSON of that shape;
+   * without one, JSON mode alone is a request the model can break. The scene
+   * planner broke it 3 times in 64 calls (AUTO-206: a missing key name,
+   * `"people": "...", [ ... ]`, and unquoted keys, `setting: "..."`), which
+   * silently dropped the plan. Measured with the schema: see CLAUDE.md AUTO-207.
+   */
+  responseSchema?: Record<string, unknown>;
+}
+
+/**
+ * AUTO-207: a JSON call with SEVERAL images (the scene planner reads the
+ * reference photos, so the plan describes the product the photos show and
+ * not what its catalogue name says). Same model, key handling and errors.
+ */
+export interface GenerateJsonFromImagesOptions extends GenerateJsonFromTextOptions {
+  images: GeminiImageInput[];
 }
 
 export interface GeminiJsonResult<T> {
@@ -159,9 +177,12 @@ interface GeminiJsonCall {
   user: string;
   /** The image part, sent before the text when present. */
   image?: GeminiImageInput;
+  /** Several image parts, in order, sent before the text (AUTO-207). */
+  images?: GeminiImageInput[];
   maxOutputTokens?: number;
   temperature?: number;
   timeoutMs?: number;
+  responseSchema?: Record<string, unknown>;
 }
 
 /**
@@ -194,7 +215,7 @@ async function generateJsonCall<T>(opts: GeminiJsonCall): Promise<GeminiJsonResu
           {
             role: 'user',
             parts: [
-              ...(opts.image ? [{ inlineData: { mimeType: opts.image.mimeType, data: opts.image.base64 } }] : []),
+              ...[...(opts.image ? [opts.image] : []), ...(opts.images ?? [])].map((img) => ({ inlineData: { mimeType: img.mimeType, data: img.base64 } })),
               { text: opts.user },
             ],
           },
@@ -203,6 +224,7 @@ async function generateJsonCall<T>(opts: GeminiJsonCall): Promise<GeminiJsonResu
           responseMimeType: 'application/json',
           temperature: opts.temperature ?? 0.3,
           maxOutputTokens: opts.maxOutputTokens ?? 1024,
+          ...(opts.responseSchema ? { responseSchema: opts.responseSchema } : {}),
         },
       }),
     });
@@ -292,6 +314,16 @@ export async function generateJsonFromText<T>(opts: GenerateJsonFromTextOptions)
   return generateJsonCall<T>(opts);
 }
 
+/**
+ * One call with several images and the instructions, returning parsed JSON
+ * (AUTO-207: the scene planner reads the reference photos). The images go
+ * first, in order, then the text; same model, errors and key handling as
+ * `generateJsonFromImage`.
+ */
+export async function generateJsonFromImages<T>(opts: GenerateJsonFromImagesOptions): Promise<GeminiJsonResult<T>> {
+  return generateJsonCall<T>(opts);
+}
+
 // -- Image generation (AUTO-202) --------------------------------------------------
 
 /**
@@ -306,14 +338,15 @@ export async function generateJsonFromText<T>(opts: GenerateJsonFromTextOptions)
  *     tokens, USD 60 per million image output tokens, quoted as "$0.067 per
  *     1K image"; released 2026-05-28, "No shutdown date announced". A real
  *     1K 16:9 call answered in 9.7 s with a 1376 x 768 JPEG and
- *     1,120 image tokens, which is the quoted 6.7 cents. This is the one.
+ *     1,120 image tokens, which is the quoted 6.7 cents. It was the one
+ *     until AUTO-207 and is now GEMINI_IMAGE_FALLBACK_MODEL.
  *   - gemini-3.1-flash-lite-image: "$0.0336 per 1K resolution image", 1K
  *     only, listed as stable on the models page and ABSENT from the
- *     deprecations page; half the price, not measured here, the candidate
- *     if the cost ever matters (at two posts a day it is USD 25 a year
- *     against 49).
- *   - gemini-3-pro-image: "$0.134 per 1K/2K image", twice the price for 4K
- *     and complex layouts a blog header does not need.
+ *     deprecations page; half the price, not measured here.
+ *   - gemini-3-pro-image: "$0.134 per 1K/2K image". AUTO-202 judged it more
+ *     than a blog header needs; AUTO-206 measured otherwise (articulated
+ *     tools and printed scales, see GEMINI_IMAGE_FALLBACK_MODEL's comment)
+ *     and AUTO-207 soaked it before switching. It is GEMINI_IMAGE_MODEL.
  *   - gemini-2.5-flash-image: "deprecated and will be shut down on October
  *     2, 2026", already gone when this was written. Never pick a model with
  *     a listed shutdown date.
@@ -328,19 +361,70 @@ export async function generateJsonFromText<T>(opts: GenerateJsonFromTextOptions)
  * Interactions API; generateContent still serves these models.) Every image
  * carries Google's invisible SynthID watermark.
  */
-export const GEMINI_IMAGE_MODEL = 'gemini-3.1-flash-image';
-/** Google's quoted price for one 1K image on GEMINI_IMAGE_MODEL (paid tier, 2026-10-01), for the cost line in logs and reports. */
-export const GEMINI_IMAGE_USD_PER_1K_IMAGE = 0.067;
-/** USD per million image output tokens on GEMINI_IMAGE_MODEL (paid tier, 2026-10-01). */
-export const GEMINI_IMAGE_USD_PER_MILLION_IMAGE_TOKENS = 60;
+export const GEMINI_IMAGE_MODEL = 'gemini-3-pro-image';
 
-/** An image call that has not answered in this long is not going to (the measured call is about 10 s). */
+/**
+ * AUTO-207: the model that draws when GEMINI_IMAGE_MODEL fails (an HTTP
+ * error, a 503, a timeout, an answer with no picture): the AUTO-202 model,
+ * twice as fast and half the price, which drew 47 of 47 pictures without a
+ * failure in AUTO-206. A failure on the primary never stops a draft: the
+ * chain asks this model once, then falls to the library and the product
+ * photo (lib/blog-automation/resolve-header-image.ts).
+ *
+ * WHY THE PRIMARY MOVED TO PRO (AUTO-206, then AUTO-207's soak; the figures
+ * are in CLAUDE.md AUTO-207). PORT-171 found a dearer model WORSE at reading
+ * a photograph; drawing came out the other way. On the same cases Pro drew 5
+ * believable pictures of 6 against flash's 2 of 7, and it drew correct scales
+ * on all three measuring pictures, which no prompt had fixed on flash (AUTO-205
+ * measured the jumbled cups and concluded it could not be fixed at an
+ * acceptable cost). Pricing page dated 2026-10-15: gemini-3-pro-image USD 2
+ * per million input tokens, USD 12 per million text and thinking tokens, USD
+ * 120 per million image tokens, "$0.134 per 1K/2K image"; deprecations page
+ * dated 2026-10-12: released 2026-05-28, "No shutdown date announced" (its
+ * -preview sibling shut down 2026-06-25; never pick a preview).
+ */
+export const GEMINI_IMAGE_FALLBACK_MODEL = 'gemini-3.1-flash-image';
+
+/** What a model costs, paid tier, for the cost line in logs and reports (pricing page dated 2026-10-15). */
+export interface GeminiImagePrice {
+  /** Google's quoted price for one 1K image. */
+  usdPer1kImage: number;
+  usdPerMillionInputTokens: number;
+  /** Text and thinking output. */
+  usdPerMillionTextOutputTokens: number;
+  usdPerMillionImageTokens: number;
+}
+
+export const GEMINI_IMAGE_PRICES: Readonly<Record<string, GeminiImagePrice>> = {
+  [GEMINI_IMAGE_MODEL]: { usdPer1kImage: 0.134, usdPerMillionInputTokens: 2, usdPerMillionTextOutputTokens: 12, usdPerMillionImageTokens: 120 },
+  [GEMINI_IMAGE_FALLBACK_MODEL]: { usdPer1kImage: 0.067, usdPerMillionInputTokens: 0.5, usdPerMillionTextOutputTokens: 3, usdPerMillionImageTokens: 60 },
+};
+
+/** Google's quoted price for one 1K image on GEMINI_IMAGE_MODEL, for the cost line in logs and reports. */
+export const GEMINI_IMAGE_USD_PER_1K_IMAGE = GEMINI_IMAGE_PRICES[GEMINI_IMAGE_MODEL].usdPer1kImage;
+/** USD per million image output tokens on GEMINI_IMAGE_MODEL. */
+export const GEMINI_IMAGE_USD_PER_MILLION_IMAGE_TOKENS = GEMINI_IMAGE_PRICES[GEMINI_IMAGE_MODEL].usdPerMillionImageTokens;
+
+/** What one image call cost, from the tokens Google reported; null for a model with no price on record. */
+export function imageCallUsd(model: string, usage: { promptTokens: number; imageTokens: number; outputTokens: number; thoughtTokens: number }): number | null {
+  const price = GEMINI_IMAGE_PRICES[model];
+  if (!price) return null;
+  const textOut = Math.max(0, usage.outputTokens - usage.imageTokens) + usage.thoughtTokens;
+  return (
+    (usage.promptTokens * price.usdPerMillionInputTokens + usage.imageTokens * price.usdPerMillionImageTokens + textOut * price.usdPerMillionTextOutputTokens) /
+    1_000_000
+  );
+}
+
+/** An image call that has not answered in this long is not going to (the measured call is about 10 s on flash, 21 s on Pro). */
 const GEMINI_IMAGE_TIMEOUT_MS = 60_000;
 
 export type GeminiImageSize = '512px' | '1K' | '2K' | '4K';
 
 export interface GenerateImageOptions {
   prompt: string;
+  /** Which image model draws; default GEMINI_IMAGE_MODEL (AUTO-207: the chain passes GEMINI_IMAGE_FALLBACK_MODEL on its fallback attempt). */
+  model?: string;
   /** Reference photographs, sent before the prompt. */
   references?: GeminiImageInput[];
   /** e.g. '16:9'. */
@@ -386,10 +470,11 @@ export async function generateImage(opts: GenerateImageOptions): Promise<Generat
     throw new GeminiError('GOOGLE_GEMINI_API_KEY is not configured on the server.', 500);
   }
   const timeoutMs = opts.timeoutMs ?? GEMINI_IMAGE_TIMEOUT_MS;
+  const model = opts.model ?? GEMINI_IMAGE_MODEL;
   const startedAt = Date.now();
   let res: Response;
   try {
-    res = await fetch(`${GEMINI_ENDPOINT}/${GEMINI_IMAGE_MODEL}:generateContent`, {
+    res = await fetch(`${GEMINI_ENDPOINT}/${model}:generateContent`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
       signal: AbortSignal.timeout(timeoutMs),
@@ -452,7 +537,7 @@ export async function generateImage(opts: GenerateImageOptions): Promise<Generat
     bytes: Buffer.from(base64, 'base64'),
     base64,
     mimeType,
-    model: GEMINI_IMAGE_MODEL,
+    model,
     elapsedMs: Date.now() - startedAt,
     finishReason: candidate?.finishReason ?? null,
     usage: {

@@ -26,6 +26,8 @@ const mocks = vi.hoisted(() => ({
   execute: vi.fn(),
   onComplete: vi.fn(),
   authFetch: vi.fn(),
+  afterReplace: vi.fn(),
+  unused: vi.fn(),
 }));
 
 vi.mock('sanity', () => ({
@@ -33,6 +35,10 @@ vi.mock('sanity', () => ({
 }));
 vi.mock('../components/useGenerateAuthFetch', () => ({
   useGenerateAuthFetch: () => mocks.authFetch,
+}));
+// AUTO-207: the Studio half of "a replaced generated picture goes"; the rule itself is tested in discard-header-image.test.ts.
+vi.mock('../components/useHeaderAssetDiscard', () => ({
+  useHeaderAssetDiscard: () => ({ afterReplace: mocks.afterReplace, unused: mocks.unused }),
 }));
 
 // eslint-disable-next-line import/first
@@ -110,6 +116,8 @@ beforeEach(() => {
   mocks.execute.mockReset();
   mocks.onComplete.mockReset();
   mocks.authFetch.mockReset();
+  mocks.afterReplace.mockReset();
+  mocks.unused.mockReset();
   mocks.authFetch.mockResolvedValue({ ok: true, json: async () => aiResponse });
   setBlogActionRunning('post-1', false);
   container = document.createElement('div');
@@ -164,6 +172,19 @@ describe('Generate header image', () => {
     });
     expect(mocks.authFetch).toHaveBeenCalledTimes(1);
     expect(allSets()).toEqual([{ headerImage: generatedImage }]);
+    // AUTO-207: the picture it replaced is handed to the guarded rule (which keeps an upload like this one); nothing was unused.
+    expect(mocks.afterReplace.mock.calls).toEqual([['image-uploaded-2000x1125-jpg']]);
+    expect(mocks.unused).not.toHaveBeenCalled();
+  });
+
+  it('AUTO-207: with no image before, nothing is handed to the removal rule', async () => {
+    await render(propsFor(base));
+    await act(async () => {
+      action!.onHandle!();
+    });
+    expect(allSets()).toEqual([{ headerImage: generatedImage }]);
+    expect(mocks.afterReplace).not.toHaveBeenCalled();
+    expect(mocks.unused).not.toHaveBeenCalled();
   });
 
   it('a fallback picture never replaces an image already on the post; it may fill an empty one', async () => {
@@ -202,6 +223,9 @@ describe('Generate header image', () => {
     });
     expect(mocks.execute).not.toHaveBeenCalled();
     expect((action!.dialog as { header?: string }).header).toBe('Your image was kept');
+    // AUTO-207: the picture made for nothing is removed rather than left in the media library.
+    expect(mocks.unused.mock.calls).toEqual([['image-generated-1376x768-jpg']]);
+    expect(mocks.afterReplace).not.toHaveBeenCalled();
   });
 
   it("the cap's refusal is shown in its own words and nothing is changed", async () => {

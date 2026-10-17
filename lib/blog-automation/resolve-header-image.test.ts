@@ -14,15 +14,31 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   checkAnsweredWithoutVerdict,
+  defaultHeaderImageDeps,
   HEADER_IMAGE_BUDGET_MS,
+  HEADER_IMAGE_FALLBACK_MIN_REMAINING_MS,
   HEADER_IMAGE_RETRY_MIN_REMAINING_MS,
   noClientHeaderImageDeps,
+  PlannerAnswerError,
+  PLANNER_ATTEMPTS,
   resolveHeaderImage,
+  shortFailure,
   withDeadline,
   type HeaderImageDeps,
   type ResolveHeaderImageInput,
 } from './resolve-header-image';
-import { IMAGE_CHECK_READS, TILE_REGIONS, UNREADABLE_IMAGE_CHECK, type HeaderImageLibraryEntry, type ImageCheck, type ImageCheckContext, type ReferenceProduct } from './header-image';
+import {
+  DEFAULT_ARRANGEMENT,
+  IMAGE_CHECK_READS,
+  TILE_REGIONS,
+  UNREADABLE_IMAGE_CHECK,
+  type HeaderImageLibraryEntry,
+  type ImageCheck,
+  type ImageCheckContext,
+  type ReferenceProduct,
+} from './header-image';
+import { GEMINI_IMAGE_FALLBACK_MODEL, GEMINI_IMAGE_MODEL } from '../ai/gemini';
+import { BLOG_HEADER_ASSET_SOURCE } from './discard-header-image';
 
 const geiger = (n: number) => `https://imgsirv.geiger.com/master/10${n}/web/10${n}_1.jpg?format=webp&thumbnail=275&w=275&h=275`;
 const products: ReferenceProduct[] = [
@@ -70,6 +86,8 @@ const plannedScene = {
   people: 'none',
   around: ['a coffee mug'],
   productText: 'a calendar grid with months and dates',
+  arrangement: 'One calendar magnet flat against the door',
+  photos: [1, 2],
   avoid: 'stuck to wood or lying flat',
 };
 
@@ -93,8 +111,15 @@ interface FakeOptions {
   referenceThrows?: boolean;
   /** Milliseconds the clock advances per generate call. */
   generateMs?: number;
-  /** AUTO-203: the planner's answer; 'fails' throws, null is "unavailable", undefined is the planned magnet scene. */
-  plan?: 'fails' | 'hangs' | null | { productText?: string };
+  /** AUTO-207: milliseconds the FIRST generate call takes (later ones take `generateMs`). */
+  firstGenerateMs?: number;
+  /**
+   * AUTO-203: the planner's answer; 'fails' throws (no answer), null is
+   * "unavailable", undefined is the planned magnet scene. AUTO-207:
+   * 'malformed' answers unusably every time, 'malformedOnce' only the first
+   * time, 'hangsOnce' hangs the first time and then answers.
+   */
+  plan?: 'fails' | 'hangs' | 'hangsOnce' | 'malformed' | 'malformedOnce' | null | { productText?: string; arrangement?: string };
 }
 
 function fakeDeps(opts: FakeOptions = {}) {
@@ -106,14 +131,22 @@ function fakeDeps(opts: FakeOptions = {}) {
   let readsOfPicture = 0;
   let reserved = 0;
   const contexts: ImageCheckContext[] = [];
+  const models: string[] = [];
+  const planInputs: { names: number; photos: number }[] = [];
+  const errors: string[] = [];
+  let plans = 0;
   const deps: HeaderImageDeps = {
     keyConfigured: () => !opts.keyMissing,
-    plan: async () => {
+    plan: async ({ productNames, references }) => {
       log.push('plan');
+      plans += 1;
+      planInputs.push({ names: productNames.length, photos: references.length });
       if (opts.plan === 'fails') throw new Error('planner down');
-      if (opts.plan === 'hangs') return new Promise(() => {});
+      if (opts.plan === 'hangs' || (opts.plan === 'hangsOnce' && plans === 1)) return new Promise(() => {});
+      if (opts.plan === 'malformed' || (opts.plan === 'malformedOnce' && plans === 1)) throw new PlannerAnswerError('Gemini returned malformed JSON.');
       if (opts.plan === null) return null;
-      const scene = { ...plannedScene, ...(opts.plan ?? {}) };
+      const overrides = typeof opts.plan === 'object' && opts.plan ? opts.plan : {};
+      const scene = { ...plannedScene, ...overrides };
       return { scene, usage: { model: 'gemini-3.5-flash-lite', promptTokens: 190, outputTokens: 154, elapsedMs: 2069 } };
     },
     reserve: async () => {
@@ -129,10 +162,11 @@ function fakeDeps(opts: FakeOptions = {}) {
       if (opts.referenceFails) return null;
       return { mimeType: 'image/webp', base64: 'QUJD' };
     },
-    generate: async ({ prompt, references }) => {
+    generate: async ({ prompt, references, model }) => {
       log.push(`generate:${references.length}`);
       prompts.push(prompt);
-      now += opts.generateMs ?? 10_000;
+      models.push(model);
+      now += models.length === 1 && opts.firstGenerateMs !== undefined ? opts.firstGenerateMs : opts.generateMs ?? 10_000;
       if (opts.generateFails) throw opts.generateFails;
       if (opts.generateFailsOnce && log.filter((l) => l.startsWith('generate:')).length === 1) throw opts.generateFailsOnce;
       pictures += 1;
@@ -156,9 +190,11 @@ function fakeDeps(opts: FakeOptions = {}) {
     },
     now: () => now,
   };
-  return { deps, log, prompts, uploads, contexts };
+  return { deps, log, prompts, uploads, contexts, models, planInputs, errors };
 }
 
+/** Planner failures are said loudly; the tests capture the error lines instead of printing them. */
+const loud: string[] = [];
 const base: ResolveHeaderImageInput = {
   source: 'ai',
   title: '9 Smart Ways Businesses Use Custom Tote Bags',
@@ -167,6 +203,7 @@ const base: ResolveHeaderImageInput = {
   rootSlugs: ['tote-bags'],
   library,
   slug: 'custom-tote-bags-ideas',
+  logError: (line) => loud.push(line),
 };
 
 describe('the AI step', () => {
@@ -232,13 +269,20 @@ describe('the AI step', () => {
     expect(out.notes[0]).toContain('the daily-limit counter could not be reached (counter down)');
   });
 
-  it('a failed generation, an empty library and no product photo end in nothing, with every reason', async () => {
+  it('a failed generation on both models, an empty library and no product photo end in nothing, with every reason', async () => {
     const f = fakeDeps({ generateFails: new Error('Image request failed (503).') });
     const out = await resolveHeaderImage({ ...base, library: [], products: [{ sku: 'x', name: 'No photo', imageUrl: null }] }, f.deps);
     expect(out).toEqual({
       kind: 'none',
-      notes: ['the image model failed: Image request failed (503).', 'the header image library is empty', 'the post has no product photo to fall back on'],
+      notes: [
+        'the image model failed (Image request failed (503).), and then the backup image model failed: Image request failed (503).',
+        'the header image library is empty',
+        'the post has no product photo to fall back on',
+      ],
     });
+    // AUTO-207: the main model first, then the backup, each with its own slot.
+    expect(f.models).toEqual([GEMINI_IMAGE_MODEL, GEMINI_IMAGE_FALLBACK_MODEL]);
+    expect(f.log.filter((l) => l === 'reserve')).toHaveLength(2);
   });
 
   it('a failed upload falls to the library', async () => {
@@ -296,11 +340,85 @@ describe('the AI step', () => {
   });
 
   it('the retry is skipped when the budget is nearly spent, and the first problem is still named', async () => {
-    const f = fakeDeps({ checks: [branded], generateMs: HEADER_IMAGE_BUDGET_MS - HEADER_IMAGE_RETRY_MIN_REMAINING_MS + 1 });
+    const f = fakeDeps({ checks: [branded], generateMs: HEADER_IMAGE_BUDGET_MS - HEADER_IMAGE_FALLBACK_MIN_REMAINING_MS + 1 });
     const out = await resolveHeaderImage({ ...base, library: [] }, f.deps);
     expect(f.log.filter((l) => l.startsWith('generate'))).toHaveLength(1);
     expect(out).toMatchObject({ kind: 'url', source: 'product' });
     expect(out.notes).toEqual(['the first picture showed a logo or brand mark (Apple), and there was no time left in the image budget for a second attempt', 'the header image library is empty']);
+  });
+
+  it('AUTO-207: a refused picture is drawn again by the main model when there is time for it, and by the backup when there is only time for that', async () => {
+    const plenty = fakeDeps({ checks: [branded, clean] });
+    expect((await resolveHeaderImage(base, plenty.deps)).kind).toBe('asset');
+    expect(plenty.models).toEqual([GEMINI_IMAGE_MODEL, GEMINI_IMAGE_MODEL]);
+    // Remaining after the first picture lands between the backup's minimum and the main model's.
+    const tight = fakeDeps({ checks: [branded, clean], firstGenerateMs: HEADER_IMAGE_BUDGET_MS - HEADER_IMAGE_RETRY_MIN_REMAINING_MS + 1, generateMs: 1_000 });
+    const out = await resolveHeaderImage(base, tight.deps);
+    expect(out.kind).toBe('asset');
+    expect(tight.models).toEqual([GEMINI_IMAGE_MODEL, GEMINI_IMAGE_FALLBACK_MODEL]);
+    expect(out.notes).toEqual(['the first picture showed a logo or brand mark (Apple) and was replaced']);
+  });
+
+  it("AUTO-207: a model failure reaches the notes as its first sentence only, never Google's raw error body (the live forced 404)", async () => {
+    const raw = 'Image request failed (404). Check that the Generative Language API is enabled and billing is set up on the Google project the key belongs to. {\n  "error": {\n    "code": 404,';
+    expect(shortFailure(raw)).toBe('Image request failed (404).');
+    expect(shortFailure('x'.repeat(200))).toHaveLength(120);
+    const f = fakeDeps({ generateFailsOnce: new Error(raw) });
+    const out = await resolveHeaderImage(base, f.deps);
+    expect(out.notes).toEqual(['the image model failed (Image request failed (404).), so the backup model drew this picture']);
+  });
+
+  it('AUTO-207: a failure of the main model is handed to the backup model once, which draws the picture; the draft never waits on it', async () => {
+    const f = fakeDeps({ generateFailsOnce: new Error('Image request failed (503). The model is overloaded.') });
+    const out = await resolveHeaderImage(base, f.deps);
+    expect(out).toMatchObject({ kind: 'asset', source: 'ai' });
+    expect(f.models).toEqual([GEMINI_IMAGE_MODEL, GEMINI_IMAGE_FALLBACK_MODEL]);
+    expect(f.log).toEqual(['reserve', 'fetch:tote', 'fetch:zip', 'plan', 'generate:2', 'reserve', 'generate:2', ...READS, 'upload']);
+    // The plan is made once and reused by the backup.
+    expect(f.log.filter((l) => l === 'plan')).toHaveLength(1);
+    expect(out.notes).toEqual(['the image model failed (Image request failed (503).), so the backup model drew this picture']);
+    // No time for the backup: the failure is said and the chain moves on.
+    const g = fakeDeps({ generateFailsOnce: new Error('timeout'), generateMs: HEADER_IMAGE_BUDGET_MS - HEADER_IMAGE_FALLBACK_MIN_REMAINING_MS + 1 });
+    const fell = await resolveHeaderImage({ ...base, library: [] }, g.deps);
+    expect(fell).toMatchObject({ kind: 'url', source: 'product' });
+    expect(fell.notes[0]).toBe('the image model failed (timeout), and there was no time left in the image budget for the backup model');
+  });
+
+  it("AUTO-207: the backup's picture refused by the check is said as such, and the chain moves on", async () => {
+    const f = fakeDeps({ generateFailsOnce: new Error('Image request failed (500).'), checks: [branded] });
+    const out = await resolveHeaderImage(base, f.deps);
+    expect(out).toMatchObject({ kind: 'asset', source: 'library' });
+    expect(out.notes[0]).toBe("the image model failed (Image request failed (500).), and the backup model's picture showed a logo or brand mark (Apple), so it was not used");
+  });
+});
+
+describe('AUTO-207: device-mounted products are not drawn', () => {
+  it('a post in a device-mounted category skips the AI entirely (no slot, no fetch, no call) and takes the library picture', async () => {
+    const f = fakeDeps();
+    const webcamLibrary: HeaderImageLibraryEntry[] = [{ rootSlug: 'webcam-covers', assetRef: 'image-own-1600x900-jpg', alt: "Patrick's webcam covers" }];
+    const out = await resolveHeaderImage({ ...base, topic: 'custom webcam covers', rootSlugs: ['webcam-covers'], library: webcamLibrary }, f.deps);
+    expect(f.log).toEqual([]);
+    expect(out).toMatchObject({ kind: 'asset', source: 'library' });
+    expect(out.notes[0]).toContain('products in the "webcam-covers" category only make sense on a phone or a laptop');
+  });
+
+  it('with no library picture yet it falls to the product photo, and says what would end the stand-in', async () => {
+    const f = fakeDeps();
+    const covers: ReferenceProduct[] = [{ sku: 'w1', name: 'Security Webcam Cover', imageUrl: geiger(77) }];
+    const out = await resolveHeaderImage({ ...base, topic: 'custom webcam covers', products: covers, rootSlugs: ['webcam-covers'], library: [] }, f.deps);
+    expect(f.log).toEqual([]);
+    expect(out).toMatchObject({ kind: 'url', source: 'product', alt: 'Security Webcam Cover' });
+    expect(out.notes).toEqual([
+      'products in the "webcam-covers" category only make sense on a phone or a laptop, which a header picture may not show, so the AI does not draw one; a picture for this category in the header image library (Global Settings) is used instead when there is one',
+      'the header image library is empty',
+    ]);
+  });
+
+  it('a device-adjacent category (phone stands, power banks, laptop sleeves) is still drawn', async () => {
+    for (const root of ['phone-tablet-stands', 'power-banks-chargers', 'laptop-cases']) {
+      const f = fakeDeps();
+      expect(await resolveHeaderImage({ ...base, rootSlugs: [root] }, f.deps)).toMatchObject({ kind: 'asset', source: 'ai' });
+    }
   });
 });
 
@@ -353,7 +471,25 @@ describe('the pieces', () => {
     expect((await deps.reserve(new Date())).ok).toBe(false);
     expect(await deps.fetchReference('https://imgsirv.geiger.com/a.jpg')).toBeNull();
     expect(await deps.check({ mimeType: 'image/jpeg', base64: '' }, {})).toBeNull();
-    expect(await deps.plan({ title: 't', topic: 't', productNames: [] })).toBeNull();
+    expect(await deps.plan({ title: 't', topic: 't', productNames: [], references: [] })).toBeNull();
+  });
+
+  it('AUTO-207: every picture the real deps upload carries the marker that lets a replaced one be removed later', async () => {
+    const calls: { kind: string; opts: Record<string, unknown> }[] = [];
+    const client = { assets: { upload: async (kind: string, _bytes: Buffer, opts: Record<string, unknown>) => (calls.push({ kind, opts }), { _id: 'image-abc-1376x768-jpg' }) } };
+    const deps = defaultHeaderImageDeps(client as never);
+    expect(await deps.upload(Buffer.from('x'), 'custom-tools-header.jpg', 'image/jpeg')).toBe('image-abc-1376x768-jpg');
+    expect(calls).toEqual([
+      { kind: 'image', opts: { filename: 'custom-tools-header.jpg', contentType: 'image/jpeg', source: { name: BLOG_HEADER_ASSET_SOURCE, id: 'custom-tools-header.jpg' } } },
+    ]);
+  });
+
+  it('AUTO-207: the real planner reads the photos through a response schema, and an unreadable answer is a PlannerAnswerError, not "unavailable"', () => {
+    const src = readFileSync(join(__dirname, 'resolve-header-image.ts'), 'utf8');
+    expect(src).toContain('responseSchema: PLANNER_RESPONSE_SCHEMA');
+    expect(src).toContain('generateJsonFromImages<unknown>({ ...common, images: references })');
+    expect(src).toContain('if (checkAnsweredWithoutVerdict(err.message)) throw new PlannerAnswerError(err.message);');
+    expect(src).toContain("throw new PlannerAnswerError('the plan named no surface and no setting')");
   });
 });
 
@@ -375,16 +511,87 @@ describe('the scene planner in the chain (AUTO-203)', () => {
     expect(out.notes).toEqual([]);
   });
 
-  it('a planner that fails or is unavailable is a note, the picture is drawn with no words asked for, and the check is told no plan text', async () => {
+  it('a planner that fails or is unavailable is asked ONCE more, then said LOUDLY; the picture is drawn from the standard composition, and the check is told no plan text', async () => {
     for (const plan of ['fails', null] as const) {
+      loud.length = 0;
       const f = fakeDeps({ plan });
       const out = await resolveHeaderImage(base, f.deps);
       expect(out.kind).toBe('asset');
+      expect(f.log.filter((l) => l === 'plan')).toHaveLength(PLANNER_ATTEMPTS);
       expect(f.prompts[0]).toMatch(/^- No words anywhere/m);
       expect(f.prompts[0]).toContain('arranged in a clean, realistic setting');
       expect(f.contexts.map((c) => c.productText)).toEqual(READS.map(() => null));
-      expect(out.notes).toEqual(['the scene planner was unavailable, so the picture was composed without a planned setting']);
+      expect(out.notes).toEqual([
+        `the scene planner was unavailable (2 tries: ${plan === 'fails' ? 'planner down' : 'no answer'}), so the picture was drawn from the standard composition (one to three items in a plain setting, no signs or screens); look at it before publishing`,
+      ]);
+      expect(loud).toHaveLength(2);
+      expect(loud[0]).toContain('SCENE PLANNER UNAVAILABLE (try 1 of 2) for "custom tote bags"');
     }
+  });
+
+  it('AUTO-207: a malformed plan is LOUD, never silent: retried once and used when the retry is good; twice malformed is said in the note and the error log', async () => {
+    loud.length = 0;
+    const once = fakeDeps({ plan: 'malformedOnce' });
+    const good = await resolveHeaderImage(base, once.deps);
+    expect(once.log.filter((l) => l === 'plan')).toHaveLength(2);
+    expect(good.notes).toEqual([]);
+    expect(good.kind === 'asset' && good.usage?.scene?.arrangement).toBe('One calendar magnet flat against the door');
+    expect(loud).toEqual(['[header-image] SCENE PLANNER ANSWERED WITH NO USABLE PLAN (try 1 of 2) for "custom tote bags": Gemini returned malformed JSON.']);
+    loud.length = 0;
+    const twice = fakeDeps({ plan: 'malformed' });
+    const out = await resolveHeaderImage(base, twice.deps);
+    expect(out.kind).toBe('asset');
+    expect(out.notes).toEqual([
+      'the scene planner answered with a plan that could not be read (2 tries: Gemini returned malformed JSON.), so the picture was drawn from the standard composition (one to three items in a plain setting, no signs or screens); look at it before publishing',
+    ]);
+    expect(loud).toHaveLength(2);
+    // Never carried on as though a plan existed: no planned surface, no plan text, no scene recorded.
+    expect(twice.prompts[0]).not.toContain('where such a product really lives');
+    expect(out.kind === 'asset' && out.usage?.scene).toBeNull();
+  });
+
+  it('AUTO-207: without a plan the picture is asked for under the same count rule and the same no-signs rule, and the check reads it exactly as it reads a planned one', async () => {
+    const planless = fakeDeps({ plan: 'malformed' });
+    await resolveHeaderImage(base, planless.deps);
+    // The planned picture of the same product: photo 1, no product text.
+    const plannedNoText = fakeDeps({ plan: { productText: '', photos: [1] } as never });
+    await resolveHeaderImage(base, plannedNoText.deps);
+    // The count and state rule: the plan's arrangement, or the default.
+    expect(planless.prompts[0]).toContain(`- Show exactly this and no more: ${DEFAULT_ARRANGEMENT}`);
+    expect(plannedNoText.prompts[0]).toContain('- Show exactly this and no more: One calendar magnet flat against the door.');
+    // No signage invited; the trade show suggestion that drew AUTO-206's TRADE banner is gone.
+    expect(planless.prompts[0]).toContain('No signs, banners, booths, posters or screens anywhere in the scene.');
+    expect(planless.prompts[0]).not.toMatch(/trade show/i);
+    for (const p of [planless.prompts[0], plannedNoText.prompts[0]]) expect(p).toContain('No other writing anywhere');
+    // The check's input is IDENTICAL with no plan and with a plan whose product carries no text.
+    expect(planless.contexts).toEqual(plannedNoText.contexts);
+  });
+
+  it('AUTO-207: the planner is given the reference photos it plans from', async () => {
+    const f = fakeDeps();
+    await resolveHeaderImage(base, f.deps);
+    expect(f.planInputs).toEqual([{ names: 2, photos: 2 }]);
+  });
+
+  it('AUTO-207, the overshoot: the image model is sent ONLY the photo(s) the plan names; the planner still saw them all', async () => {
+    const f = fakeDeps({ plan: { arrangement: 'One zip tote, standing', photos: [2] } as never });
+    await resolveHeaderImage(base, f.deps);
+    expect(f.planInputs).toEqual([{ names: 2, photos: 2 }]);
+    expect(f.log).toContain('generate:1');
+    expect(f.prompts[0]).toContain('The attached photo is the actual products the post recommends (Zip Tote)');
+    expect(f.contexts[0].productNames).toEqual(['Zip Tote']);
+    // A plan that names no photo that exists sends every photo, as before.
+    const g = fakeDeps({ plan: { photos: [9] } as never });
+    await resolveHeaderImage(base, g.deps);
+    expect(g.log).toContain('generate:2');
+  });
+
+  it('AUTO-207: with no plan the first photo alone is sent, under the default count rule', async () => {
+    const f = fakeDeps({ plan: 'malformed' });
+    await resolveHeaderImage(base, f.deps);
+    expect(f.log).toContain('generate:1');
+    expect(f.prompts[0]).toContain('(Canvas Tote)');
+    expect(f.prompts[0]).toContain(DEFAULT_ARRANGEMENT);
   });
 
   it("with NO plan at all, the product's own markings still pass (AUTO-204): the verdict no longer depends on what the planner predicted", async () => {
@@ -397,12 +604,15 @@ describe('the scene planner in the chain (AUTO-203)', () => {
     }
   });
 
-  it('a planner that hangs is cut off by the budget and treated as unavailable', async () => {
-    const f = fakeDeps({ plan: 'hangs' });
+  it('a planner that hangs is cut off by its deadline, and the retry plans the picture', async () => {
+    loud.length = 0;
+    const f = fakeDeps({ plan: 'hangsOnce' });
     const out = await resolveHeaderImage(base, f.deps);
     expect(out.kind).toBe('asset');
-    expect(out.notes[0]).toContain('the scene planner was unavailable');
-  }, 20_000);
+    expect(out.notes).toEqual([]);
+    expect(loud[0]).toContain('SCENE PLANNER UNAVAILABLE (try 1 of 2)');
+    expect(loud[0]).toContain('gave up after 15 s');
+  }, 25_000);
 
   it('a brand name on the product is caught by the check and the retry names it; the plan is not made twice', async () => {
     const f = fakeDeps({ checks: [brandedText, productText] });
@@ -414,22 +624,26 @@ describe('the scene planner in the chain (AUTO-203)', () => {
     expect(out.notes).toEqual(['the first picture showed a brand, company name or contact detail in text ("ACME PLUMBING 555-0100") and was replaced']);
   });
 
-  it('an answer with no picture in it is tried once more, costing a second slot; a second empty answer falls through with both said', async () => {
+  it('an answer with no picture in it is handed to the backup model, costing a second slot; a second empty answer falls through with both said', async () => {
     const noImage = new Error('The image model returned no image (NO_IMAGE).');
     const f = fakeDeps({ generateFailsOnce: noImage });
     const out = await resolveHeaderImage(base, f.deps);
     expect(out.kind).toBe('asset');
     expect(f.log).toEqual(['reserve', 'fetch:tote', 'fetch:zip', 'plan', 'generate:2', 'reserve', 'generate:2', ...READS, 'upload']);
-    expect(out.notes).toEqual(['the image model returned no picture on its first try and was asked again']);
+    expect(f.models).toEqual([GEMINI_IMAGE_MODEL, GEMINI_IMAGE_FALLBACK_MODEL]);
+    expect(out.notes).toEqual(['the image model failed (The image model returned no image (NO_IMAGE).), so the backup model drew this picture']);
     const g = fakeDeps({ generateFails: noImage });
     const twice = await resolveHeaderImage(base, g.deps);
     expect(twice).toMatchObject({ kind: 'asset', source: 'library' });
-    expect(twice.notes[0]).toBe('the image model returned no image twice: the image model failed: The image model returned no image (NO_IMAGE).');
+    expect(twice.notes[0]).toBe(
+      'the image model failed (The image model returned no image (NO_IMAGE).), and then the backup image model failed: The image model returned no image (NO_IMAGE).',
+    );
     expect(g.log.filter((l) => l === 'reserve')).toHaveLength(2);
-    // Any other failure is not retried.
+    // AUTO-207: any other failure of the main model is handed to the backup too (it used to end the AI step).
     const h = fakeDeps({ generateFails: new Error('Image request failed (500).') });
     await resolveHeaderImage(base, h.deps);
-    expect(h.log.filter((l) => l === 'reserve')).toHaveLength(1);
+    expect(h.log.filter((l) => l === 'reserve')).toHaveLength(2);
+    expect(h.models).toEqual([GEMINI_IMAGE_MODEL, GEMINI_IMAGE_FALLBACK_MODEL]);
   });
 
   it('a product somewhere it could not be (the magnet on wood) is refused and retried with the problem named', async () => {

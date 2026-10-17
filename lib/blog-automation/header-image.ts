@@ -110,6 +110,17 @@
  * pictures whose only text is their own markings, with or without a plan;
  * the wall clock refused 7 reads of 7; the deliberate "ACME PLUMBING
  * 555-0100" pictures refused 5 of 5.
+ *
+ * FEW THINGS, SHOWN SIMPLY (AUTO-207; the numbers are in CLAUDE.md). The
+ * planner sees the reference photos, so it describes the product they show
+ * and not its catalogue name (ARRANGEMENT_FROM_PHOTOS_RULE); it writes how
+ * many to show and in what state (ARRANGEMENT_RULE, AUTO-206's wording) and
+ * which photo that is (`photos`); the image model is sent only that photo
+ * (`photosForPicture`), because four different photos made it draw one of
+ * each whatever the words said. A product's standard designation (FIRST AID,
+ * SPF 30) is its own text (STANDARD_DESIGNATIONS). Device-mounted roots are
+ * never drawn (DEVICE_MOUNTED_ROOTS). Nothing here judges whether a product
+ * looks real: AUTO-206 measured every model on the key at that and none can.
  */
 
 import { geigerImageVariant } from '../blog/header-image';
@@ -173,6 +184,23 @@ export function pickLibraryImage(
     if (hit) return hit;
   }
   return library.find((e) => e.rootSlug === null && e.assetRef) ?? null;
+}
+
+/**
+ * DEVICE-MOUNTED ROOTS (AUTO-207). Products that only make sense ON a phone,
+ * a tablet or a laptop: a header picture may not show one (the device rule,
+ * AUTO-205), and the product drawn on its own is not recognisable. For these
+ * the AI is not asked at all (no money is spent on a picture the device rule
+ * will destroy); the chain goes to the library, then the product photo. The
+ * honest picture is Patrick's own, through the header image library: one
+ * library picture per root below ends the stand-in for good. The list is the
+ * measured one; see CLAUDE.md AUTO-207 for how each root was decided.
+ */
+export const DEVICE_MOUNTED_ROOTS: readonly string[] = ['webcam-covers', 'phone-wallets'];
+
+/** The first of the post's roots that is device-mounted, or null. */
+export function deviceMountedRoot(rootSlugs: readonly string[]): string | null {
+  return rootSlugs.find((s) => DEVICE_MOUNTED_ROOTS.includes(s)) ?? null;
 }
 
 export function imageValueFor(assetRef: string, alt: string | null | undefined): SanityImageValue {
@@ -320,6 +348,20 @@ export interface ScenePlan {
   around: string[];
   /** Text that genuinely belongs ON this product, as generic placeholders; empty when the product carries none. */
   productText: string;
+  /**
+   * AUTO-207: HOW MANY of the product and IN WHAT STATE, described as the
+   * reference photos show it ("one closed red roll-top first aid bag"), never
+   * from the catalogue name. Empty when the planner gave none; the image
+   * prompt then carries DEFAULT_ARRANGEMENT, so the count rule never lapses.
+   */
+  arrangement: string;
+  /**
+   * AUTO-207: which of the attached photos (1-based, in the order attached)
+   * the arrangement shows, at most three. The image model is sent THOSE
+   * photos only (`photosForPicture`); empty means the planner named none and
+   * every photo is sent, as before.
+   */
+  photos: number[];
   /** What would be physically wrong for this product ("lying flat on a desk", "stuck to wood"). */
   avoid: string;
 }
@@ -397,22 +439,136 @@ export function scrubProductText(text: string): string {
   return raw.slice(0, keptEnd).trim();
 }
 
+/**
+ * THE COUNT AND STATE RULE (AUTO-206, measured; AUTO-207, shipped). The
+ * object count followed the REFERENCE count (one photo gave three clones,
+ * eight gave nine or ten objects) and every multi-tool came out in its
+ * supplier's everything-open pose, so the "custom tools" specimen read as a
+ * catalogue spread: four real products, all fanned, on one bench. Nothing in
+ * the planner or the prompt said how many to draw or in what state. With this
+ * line the hard cases went from 7 not believable of 18 to 1 of 11 on the same
+ * model, and the tools from 0 believable of 5 to 3 believable and 2 marginal.
+ * Worded as AUTO-206 measured it; do not add a per-category part count (part
+ * count was not the cause: keychains and first-aid kits have as many parts
+ * and drew fine).
+ */
+export const ARRANGEMENT_RULE =
+  '- arrangement: say HOW MANY of the product to show and in what state. Few and simple: ONE to THREE items, never more than three, large in the frame. A product with folding, sliding or moving parts (a multi-tool, a pocket knife, a tape measure, a carabiner tool) is shown in its simplest real state: closed or folded, with at most ONE item open, and that one with at most two implements out. A kit or a set is shown as ONE closed case, or one open case with its contents lying in it. Never a fan, a pile or a row of many.';
+
+/**
+ * THE NAMING TRAP (AUTO-206 found it, AUTO-207 closes it). For "Gold First
+ * Aid Kit" the planner wrote "ONE closed gold metal first aid kit mounted on
+ * the wall" and the picture showed a gold tin; the product is a RED ROLL-TOP
+ * DRY BAG with its contents laid out, "Gold" being the tier. A text-only
+ * planner cannot know that, so the planner now SEES the reference photos
+ * (`photos` > 0) and is told the name can mislead. The example in the prompt
+ * is deliberately NOT the first-aid case, so the proof on that case is not
+ * the prompt reciting its own answer.
+ */
+export const ARRANGEMENT_FROM_PHOTOS_RULE =
+  '- The arrangement, and every word you write about the product, describes it AS THE ATTACHED PHOTOS SHOW IT: its kind, shape, material and colour come from the photos and never from the product names. Catalogue names carry tier, model and collection words that are not materials or colours (a "Platinum Tumbler" may be plain blue plastic; a "Titan Pen" is not made of titanium). The photos may show a sample imprint, a logo, a brand tag or packaging text: that is the catalogue sample, not the product, and none of it is described or copied.';
+
+/**
+ * THE DEVICE RULE, TOLD TO THE PLANNER (AUTO-207). AUTO-205 made the image
+ * prompt and the check refuse every laptop, monitor, tablet and phone, but the
+ * planner still read AUTO-204's "unless this product is used with one", so it
+ * planned webcam covers on "the upper plastic bezel of an open laptop
+ * screen"; the image rule then removed the laptop and the model drew covers on
+ * an empty frame. The two rules fought; now they say the same thing.
+ */
+export const PLANNER_DEVICE_RULE =
+  '- No laptops, computers, monitors, tablets or phones anywhere in the scene, not even partly visible and not even when the product is used with one: a picture with any such device in it is rejected. A product that attaches to a phone, a tablet or a laptop is planned on its own, unattached, on a surface or in a hand.';
+
+/**
+ * AUTO-207: the scene planner's answer, as a response schema (Google's
+ * OpenAPI subset). With it the model's decoding is constrained to this shape,
+ * which removes the malformed answers AUTO-206 saw (3 in 64: a dropped key
+ * name and unquoted keys). Every field is required, so a missing key cannot
+ * pass either.
+ */
+export const PLANNER_RESPONSE_SCHEMA: Record<string, unknown> = {
+  type: 'OBJECT',
+  properties: {
+    surface: { type: 'STRING' },
+    setting: { type: 'STRING' },
+    people: { type: 'STRING' },
+    around: { type: 'ARRAY', items: { type: 'STRING' } },
+    productText: { type: 'STRING' },
+    arrangement: { type: 'STRING' },
+    photos: { type: 'ARRAY', items: { type: 'INTEGER' } },
+    avoid: { type: 'STRING' },
+  },
+  required: ['surface', 'setting', 'people', 'around', 'productText', 'arrangement', 'photos', 'avoid'],
+  propertyOrdering: ['surface', 'setting', 'people', 'around', 'productText', 'arrangement', 'photos', 'avoid'],
+};
+
+/**
+ * THE OVERSHOOT (AUTO-207). With the count rule in the prompt and four
+ * DIFFERENT reference photos, the main model drew one of each photo when the
+ * plan asked for one item: 5 of 20 soak pictures (two tool cases, keychains,
+ * measuring cups, phone stands; "One translucent plastic measuring cup filled
+ * with flour" came out as eight cups and spoon sets). The reference count
+ * beats the words. Sent ONLY the photo the plan describes, the same five came
+ * out as one item each, 5 of 5, every one believable and none cloned (the
+ * measuring cup with a correct 1/4, 1/2, 3/4, 1 cup scale). So the planner
+ * still SEES all four photos (it chooses from them and reads the product's
+ * real shape and colour from them) and names the ones its arrangement shows;
+ * the image model is sent those. AUTO-206's "one reference gave clones" was
+ * measured with no count in the prompt; with the count stated it did not
+ * recur. Returns 0-based indexes; every photo when the plan names none that
+ * exist.
+ */
+export const MAX_PHOTOS_PER_PICTURE = 3;
+
+export function photosForPicture(photos: readonly number[] | null | undefined, available: number): number[] {
+  const picked: number[] = [];
+  for (const p of photos ?? []) {
+    const i = Math.trunc(p) - 1;
+    if (Number.isFinite(i) && i >= 0 && i < available && !picked.includes(i)) picked.push(i);
+    if (picked.length >= MAX_PHOTOS_PER_PICTURE) break;
+  }
+  return picked.length > 0 ? picked : Array.from({ length: available }, (_, i) => i);
+}
+
+export interface ScenePlanPromptInput {
+  title: string;
+  topic: string;
+  productNames: readonly string[];
+  /** AUTO-207: how many reference photos are attached to the planner call, in the order of `productNames`; 0 for a text-only call. */
+  photos?: number;
+}
+
 /** The planner's instructions: a JSON scene for this product, physically correct, with the text rule stated. */
-export function buildScenePlanPrompt(input: { title: string; topic: string; productNames: readonly string[] }): { system: string; user: string } {
+export function buildScenePlanPrompt(input: ScenePlanPromptInput): { system: string; user: string } {
   const refs = input.productNames.map((n) => n.trim()).filter(Boolean);
+  const photos = Math.max(0, Math.min(input.photos ?? 0, refs.length));
+  const productLine =
+    photos > 0
+      ? `The ${photos === 1 ? 'attached photo shows' : `${photos} attached photos show`} the actual products shown in the post, in this order: ${refs.slice(0, photos).join('; ')}.`
+      : refs.length > 0
+        ? `The actual products shown in the post: ${refs.join('; ')}.`
+        : 'No product list is available; use the kind of item the title names.';
   return {
     system:
       'You plan the one photograph that heads a business blog post about promotional products. You know how real products are used and photographed: a magnet is on a refrigerator or a filing cabinet, a koozie is around a can, a lanyard is around a neck, a tote is carried or on a counter, a pen is on paper. You answer with ONE JSON object and nothing else.',
     user: [
       `Blog post title: "${input.title.trim()}"`,
       `Topic: ${input.topic.trim()}`,
-      refs.length > 0 ? `The actual products shown in the post: ${refs.join('; ')}.` : 'No product list is available; use the kind of item the title names.',
+      productLine,
       'Describe a realistic scene where this product is seen IN USE the way its buyer sees it, in a business or everyday setting. Rules:',
       '- The placement must be physically possible for THIS product (a magnet holds only on steel; a koozie goes around a can, not beside it; a shirt is worn or folded).',
       '- No brand name, logo, wordmark, company name, phone number, web address or slogan anywhere, on the product or in the background; the product is a blank sample of its kind.',
-      '- productText is the functional markings this kind of product carries by its nature, as generic placeholders: a measuring scale with its numbers and units, the numerals of a clock face, a calendar grid with months and dates, the day letters of a pill box, the lines of a notebook. Write "none" when the product carries none.',
-      '- The things around the product must not need writing to be recognised: prefer tools, bowls, plants, fabric, food. No signs, screens, name plates, awards, labelled packaging or book and magazine covers; a book or paper, if any, is open to pages too small to read. No laptops, phones or tablets unless this product is used with one.',
-      'Return exactly: {"surface": "what the product sits on or is attached to", "setting": "the room or place", "people": "none, or who and where, out of focus", "around": ["2 to 4 things around it"], "productText": "generic text that belongs on the product, or none", "avoid": "what would be physically wrong for this product"}',
+      '- productText is the functional markings this kind of product carries by its nature, as generic placeholders: a measuring scale with its numbers and units, the numerals of a clock face, a calendar grid with months and dates, the day letters of a pill box, the lines of a notebook, or the standard designation a product carries by regulation or convention (FIRST AID with a cross, SPF and a number). Write "none" when the product carries none.',
+      '- The things around the product must not need writing to be recognised: prefer tools, bowls, plants, fabric, food. No signs, banners, booths, screens, name plates, awards, labelled packaging or book and magazine covers; a book or paper, if any, is open to pages too small to read.',
+      PLANNER_DEVICE_RULE,
+      ARRANGEMENT_RULE,
+      ...(photos > 0
+        ? [
+            ARRANGEMENT_FROM_PHOTOS_RULE,
+            `- photos: the numbers (1 to ${photos}, in the order attached) of the photos whose product the arrangement shows; usually ONE number, never more than ${MAX_PHOTOS_PER_PICTURE}. Only those photos are given to the artist.`,
+          ]
+        : []),
+      `Return exactly: {"surface": "what the product sits on or is attached to", "setting": "the room or place", "people": "none, or who and where, out of focus", "around": ["2 to 4 things around it"], "productText": "generic text that belongs on the product, or none", "arrangement": "how many of the product and in what state, one sentence", "photos": [${photos > 0 ? 'the photo numbers the arrangement shows' : ''}], "avoid": "what would be physically wrong for this product"}`,
     ].join('\n'),
   };
 }
@@ -434,8 +590,48 @@ export function parseScenePlan(raw: unknown): ScenePlan | null {
     people: cleanLine(r.people) || 'none',
     around,
     productText: scrubProductText(cleanLine(r.productText, 300)),
+    arrangement: scrubArrangement(cleanLine(r.arrangement, 300)),
+    photos: (Array.isArray(r.photos) ? r.photos : [])
+      .map((p) => (typeof p === 'number' ? p : typeof p === 'string' ? Number.parseInt(p, 10) : Number.NaN))
+      .filter((p) => Number.isInteger(p) && p >= 1 && p <= 20)
+      .filter((p, i, all) => all.indexOf(p) === i)
+      .slice(0, MAX_PHOTOS_PER_PICTURE),
     avoid: cleanLine(r.avoid),
   };
+}
+
+/**
+ * The planner's arrangement with every clause (split on commas and
+ * semicolons) that names a brand, a logo, an imprint or a contact detail
+ * dropped ("one closed multi-tool, logo side up" keeps "one closed
+ * multi-tool"). Unlike `scrubProductText`, a dropped clause does not take the
+ * rest with it: the count and the state are what matter here. Empty when
+ * nothing is left, and the image prompt then carries DEFAULT_ARRANGEMENT.
+ *
+ * Its OWN word list, narrower than FORBIDDEN_TEXT_WORDS on purpose: an
+ * arrangement names the product, and the product may be a phone wallet, a
+ * phone stand, a contact lens case or an address book. With the shared list
+ * the measured plans for phone wallets and phone stands came out empty or cut
+ * to "folded position." (AUTO-207, caught on the planner measurement), because
+ * the bare word "phone" is on that list for "phone number".
+ */
+export const ARRANGEMENT_FORBIDDEN_WORDS: readonly string[] = [
+  'logo', 'brand', 'branded', 'branding', 'wordmark', 'trademark', 'monogram', 'imprint', 'imprinted', 'company name', 'business name',
+  'slogan', 'tagline', 'phone number', 'telephone number', 'web address', 'website', 'url', 'email', 'e-mail',
+];
+
+function arrangementClauseForbidden(clause: string): boolean {
+  return ARRANGEMENT_FORBIDDEN_WORDS.some((w) => new RegExp(`\\b${w.replace(/[-/]/g, '\\$&')}(?:s|es)?\\b`, 'i').test(clause));
+}
+
+export function scrubArrangement(text: string): string {
+  const raw = cleanLine(text, 300);
+  if (!raw) return '';
+  const kept = raw
+    .split(/\s*[,;]\s*/)
+    .map((c) => c.trim())
+    .filter((c) => c && !arrangementClauseForbidden(c));
+  return kept.join(', ').trim();
 }
 
 // -- The prompt ------------------------------------------------------------------
@@ -494,6 +690,21 @@ const NO_DEVICES_RULE =
 const NO_BRAND_RULE =
   'No logos, brand marks, trademarks, brand names, company names, phone numbers, web addresses or slogans on anything, including on background objects such as laptops, phones, tablets, cups, bottles, bags, shoes or clothing. Where a logo or a company name would be printed, leave the area blank or use a plain abstract shape with no brand meaning.';
 
+/**
+ * The arrangement used when the planner gave none (it failed, or answered
+ * with nothing usable), so the count and state rule never lapses (AUTO-207:
+ * the check must be no weaker, and the picture no busier, without a plan).
+ */
+export const DEFAULT_ARRANGEMENT =
+  'One to three of the product, large in the frame; anything that folds, slides or opens is shown closed, with at most one item open; a kit or a set is shown as one closed case.';
+
+/** The image prompt's half of the count and state rule (AUTO-206's wording), carrying the arrangement. */
+export function arrangementLine(arrangement: string, withReferences: boolean): string {
+  const a = arrangement.trim() || DEFAULT_ARRANGEMENT;
+  const sentence = /[.!?]$/.test(a) ? a : `${a}.`;
+  return `- Show exactly this and no more: ${sentence} Each item is one complete, real, manufacturable object, drawn the way ${withReferences ? 'the reference photos show it' : 'such a product really is'}: every part attached where it really attaches, no part coming out of mid air, no extra blades, handles, rings or buttons, nothing fused or duplicated. Fewer, larger, simpler objects are better than many. If this kind of product carries a printed scale or dial, show it readable on ONE item only, with a few large graduations in correct ascending order; turn any other item so its scale is not visible.`;
+}
+
 /** The prompt sent to the image model with the reference photographs. */
 export function buildHeaderImagePrompt(input: HeaderImagePromptInput): string {
   const title = input.title.trim();
@@ -506,17 +717,22 @@ export function buildHeaderImagePrompt(input: HeaderImagePromptInput): string {
     `The post is about ${topic} for organizations that order promotional products in bulk: marketing directors, HR directors, safety managers and business owners.`,
   );
   const what = refs.length > 0 ? 'items like these' : 'the kind of item the title names';
+  // AUTO-207: with no plan, the setting no longer suggests "a trade show
+  // table, an event tent" (AUTO-206's planless tote picture put two banners
+  // reading TRADE behind the bags); it asks for a plain place and props that
+  // carry no writing, as the planner is told to.
   const placement = scene
     ? `Show ${what} in use, where such a product really lives: ${scene.surface}${scene.setting ? `, in ${scene.setting}` : ''}.${scene.around.length > 0 ? ` Around it: ${scene.around.join(', ')}.` : ''} People: ${scene.people || 'none'}.`
-    : `Show ${what}, blank and unbranded, arranged in a clean, realistic setting a marketing or HR manager would recognise, for example an office desk, a trade show table, an event tent, a company picnic or a reception counter.`;
+    : `Show ${what}, blank and unbranded, arranged in a clean, realistic setting where such a product is really used (a desk, a counter, a shelf or a workbench), with a few ordinary objects that carry no writing (a plant, a mug, fabric, tools). No signs, banners, booths, posters or screens anywhere in the scene.`;
   if (refs.length > 0) {
     lines.push(
-      `The attached ${refs.length === 1 ? 'photo is' : `${refs.length} photos are`} the actual products the post recommends (${refs.join('; ')}). Use ${refs.length === 1 ? 'it' : 'them'} as the reference for what the items look like: their shape, materials, proportions and colours. ${REFERENCE_TAG_RULE} ${placement}`,
+      `The attached ${refs.length === 1 ? 'photo is' : `${refs.length} photos are`} the actual products the post recommends (${refs.join('; ')}). Use ${refs.length === 1 ? 'it' : 'them'} as the reference for what the items look like: their shape, materials, proportions and colours, as the photos show them (the names are catalogue names, and a tier or model word in a name is not a material or a colour). The number of photos is not the number of items to draw. ${REFERENCE_TAG_RULE} ${placement}`,
     );
   } else {
     lines.push(placement);
   }
   lines.push('Rules, every one of them strict:');
+  lines.push(arrangementLine(scene?.arrangement ?? '', refs.length > 0));
   if (scene && scene.productText) {
     lines.push(
       `- The ONLY text allowed in the image is this product's own functional markings, the kind in the reference photos: ${scene.productText}. Render them as readable generic placeholder content (real-looking numbers, units, months, dates or lines), never a brand name, a company name, a phone number, a web address, a slogan or a claim. ${NO_OTHER_WRITING}`,
@@ -650,9 +866,9 @@ export function buildImageCheckPrompt(context: ImageCheckContext = {}): { system
     user: [
       'Look at this image carefully, including the background, and answer:',
       about,
-      `1. List every piece of READABLE text in the image: letters, numbers, words. One entry per distinct piece; put a run of similar markings (all the numbers of one scale, all the numerals of one dial) in ONE entry; at most ${IMAGE_CHECK_MAX_TEXTS} entries, the most prominent first. Decorative patterns, blank labels and scribbles too blurred to be letters are not text and are not listed. For each entry give "text" (what it says, as closely as you can read it), "where" (the object it is on), "onProduct" (true when that object is the product, false for anything else) and "kind", exactly one of:`,
+      `1. List every piece of READABLE text in the image: letters, numbers, words, including text that is small, out of focus or in the background (on a banner, a sign, a booth, a wall, a poster or packaging) whenever its letters can still be made out. One entry per distinct piece; put a run of similar markings (all the numbers of one scale, all the numerals of one dial) in ONE entry; at most ${IMAGE_CHECK_MAX_TEXTS} entries, the most prominent first. Decorative patterns, blank labels and scribbles too blurred to be letters are not text and are not listed. For each entry give "text" (what it says, as closely as you can read it), "where" (the object it is on), "onProduct" (true when that object is the product, false for anything else) and "kind", exactly one of:`,
       '   "brand": it reads as a brand, company, business, product or person name, a phone number, a web or email address, a slogan, a marketing claim, a price or an offer, real or invented.',
-      '   "marking": functional markings an object carries by its nature: a measuring scale with its numbers and units, the numerals of a clock or dial, a display readout, key or button labels, the months, weekdays and dates of a calendar, day-of-the-week labels, a size or capacity label.',
+      '   "marking": functional markings an object carries by its nature: a measuring scale with its numbers and units, the numerals of a clock or dial, a display readout, key or button labels, the months, weekdays and dates of a calendar, day-of-the-week labels, a size or capacity label, the standard designation a product carries by regulation or convention (FIRST AID with a cross on a first aid kit, SPF and a number on sunscreen), and the plain name of what a kit\'s contents are (GAUZE PAD, BANDAGES, ANTISEPTIC WIPES).',
       '   "page": small running text or handwriting on the page of an open book, notebook, document or newspaper, too small to be a title or a heading.',
       '   "display": any other words: a title, heading, cover, label, packaging, sign, banner, poster, screen, name plate, badge, tag, print on clothing, or a word, name or message printed or engraved on an object as decoration.',
       '   A name, a message or a phone number beside a scale or a calendar is its own entry, never part of the marking.',
@@ -692,6 +908,80 @@ export function looksLikeContactDetail(value: string): boolean {
   if (/\bwww\.|https?:\/\/|\b[a-z0-9-]+\.(com|net|org|biz|info|io|co|us)\b/.test(t)) return true;
   if (/[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,}/.test(t)) return true;
   return false;
+}
+
+/**
+ * STANDARD DESIGNATIONS (AUTO-207). A first-aid kit says FIRST AID by
+ * convention, sunscreen says SPF 30, a gauze wrapper says GAUZE PAD 3IN X 3IN:
+ * the product's own text, which AUTO-204's rule allows, yet AUTO-206 saw the
+ * check refuse 4 of 4 first-aid pictures for exactly those words ("First
+ * Aid", "First Aid Cream", "GAUZE PAD", "3IN X 3IN"), filed as `display`, so
+ * the whole class fell to the product photo on every post. The check prompt
+ * now names the designation as a marking, and THIS closed list is the belt in
+ * code: a `display` entry made ENTIRELY of these phrases (and of numbers that
+ * carry a unit) is a marking, whatever kind the model chose.
+ *
+ * Whole PHRASES, not loose words, on purpose: "SAFETY FIRST" is a slogan and
+ * must stay refused, so "safety" is not on the list; "FIRST AID ONLY" is a
+ * real brand and stays refused because "only" is not. A `brand` entry, a
+ * contact detail found in code, and a "yes" to the brand question still
+ * refuse exactly as before: this widens what `display` may hold and touches
+ * nothing in the forbidden list. The classes are the catalogue's measured
+ * ones (first-aid kits 30 products, sunscreen and lip balm 23, hand sanitizer
+ * 20, hot and cold packs 17, emergency kits 8), plus the four regulatory
+ * sign words.
+ */
+export const STANDARD_DESIGNATIONS: readonly string[] = [
+  'first aid', 'first aid kit', 'first aid cream', 'gauze', 'gauze pad', 'gauze pads', 'bandage', 'bandages',
+  'adhesive bandage', 'adhesive bandages', 'antiseptic', 'antiseptic wipe', 'antiseptic wipes', 'antibiotic', 'alcohol prep pad', 'alcohol prep pads',
+  'alcohol wipe', 'alcohol wipes', 'antibiotic ointment', 'burn gel', 'sterile', 'instant cold pack', 'cold pack',
+  'hot cold pack', 'hot cold', 'sunscreen', 'spf', 'broad spectrum', 'lip balm', 'hand sanitizer', 'sanitizer',
+  'emergency', 'emergency kit', 'exit', 'fire extinguisher', 'caution', 'warning', 'aed',
+];
+
+const DESIGNATION_UNITS = new Set(['in', 'inch', 'inches', 'x', 'oz', 'fl', 'ml', 'mm', 'cm', 'ft', 'lb', 'lbs', 'g', 'kg', 'l', 'ct', 'pc', 'pcs', 'mah', '%', 'cup', 'cups', 'tbsp', 'tsp', 'qt', 'pt', 'gal']);
+const BARE_NUMBER = /^\d+(?:[.,/]\d+)?$/;
+const NUMBER_WITH_UNIT = /^\d+(?:[.,/]\d+)?(?:in|oz|ml|mm|cm|ft|lb|lbs|g|kg|ct|mah|%)$/;
+const DESIGNATION_WORDS = STANDARD_DESIGNATIONS.map((p) => p.split(' '));
+
+/**
+ * True when a piece of text is a standard designation, a size or capacity
+ * label, or both ("FIRST AID", "GAUZE PAD 3IN X 3IN", "SPF 30", "32 OZ").
+ * Bare numbers with no unit are NOT (a phone number fragment such as
+ * "555 0100" must stay refused), and anything else in the text is not either.
+ */
+export function isStandardDesignation(value: string): boolean {
+  const tokens = value
+    .toLowerCase()
+    .replace(/[&/+\-:,()]/g, ' ')
+    .replace(/(\d)\s*%/g, '$1%')
+    .split(/\s+/)
+    .map((t) => t.replace(/^[^a-z0-9%]+|[^a-z0-9%]+$/g, ''))
+    .filter(Boolean);
+  if (tokens.length === 0) return false;
+  const words: string[] = [];
+  let numbers = 0;
+  let units = 0;
+  for (const t of tokens) {
+    if (NUMBER_WITH_UNIT.test(t)) {
+      numbers += 1;
+      units += 1;
+    } else if (BARE_NUMBER.test(t)) numbers += 1;
+    else if (DESIGNATION_UNITS.has(t)) units += 1;
+    else words.push(t);
+  }
+  if (words.length === 0) return numbers > 0 && units > 0;
+  // Every remaining word must belong to a listed phrase, longest phrase first.
+  let i = 0;
+  while (i < words.length) {
+    let matched = 0;
+    for (const phrase of DESIGNATION_WORDS) {
+      if (phrase.length > matched && phrase.every((w, k) => words[i + k] === w)) matched = phrase.length;
+    }
+    if (matched === 0) return false;
+    i += matched;
+  }
+  return true;
 }
 
 /**
@@ -784,7 +1074,8 @@ export function imageCheckProblem(check: ImageCheck): string | null {
     const seen = check.brandTextSeen ? `"${check.brandTextSeen}"` : quoted(brandItems);
     problems.push(`a brand, company name or contact detail in text${seen ? ` (${seen})` : ''}`);
   }
-  const display = check.texts.filter((t) => t.kind === 'display' && !brandItems.includes(t));
+  // AUTO-207: a standard designation or size label filed as display is a marking (see STANDARD_DESIGNATIONS).
+  const display = check.texts.filter((t) => t.kind === 'display' && !brandItems.includes(t) && !isStandardDesignation(t.text));
   const onProduct = display.filter((t) => t.onProduct);
   const offProduct = display.filter((t) => !t.onProduct);
   if (onProduct.length > 0) problems.push(`words printed on the product that are not its own markings (${quoted(onProduct)})`);

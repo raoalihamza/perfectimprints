@@ -79,6 +79,17 @@ export function headerImageSignature(doc: BlogImageDoc | null | undefined): stri
   return '';
 }
 
+/** The uploaded header image's asset id, or null (a hot link or no image). AUTO-207: what a replace takes off the post. */
+export function headerAssetRefOf(doc: BlogImageDoc | null | undefined): string | null {
+  const ref = doc?.headerImage?.asset?._ref;
+  return typeof ref === 'string' && ref ? ref : null;
+}
+
+/** The asset id of a GENERATED picture in an answer, or null (a library picture, a product photo, nothing). */
+export function generatedAssetRefOf(outcome: ImageOutcome | undefined): string | null {
+  return outcome?.kind === 'asset' && outcome.source === 'ai' && typeof outcome.image?.asset?._ref === 'string' ? outcome.image.asset._ref : null;
+}
+
 /** True when the post has a header image of either shape. */
 export function hasHeaderImage(doc: BlogImageDoc | null | undefined): boolean {
   return headerImageSignature(doc) !== '';

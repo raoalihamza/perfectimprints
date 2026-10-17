@@ -54,6 +54,7 @@ import {
 import type { TemplateChoice } from './blog-shape';
 import { defaultDraftFieldsDeps, resolveDraftFields, type DraftFieldsDeps, type ResolvedDraftFields } from './resolve-draft-fields';
 import type { HeaderImageOutcome } from './header-image';
+import { discardGeneratedHeaderImage, type AssetDiscardClient } from './discard-header-image';
 
 export const DEFAULT_DRAFT_WORD_COUNT = 1500;
 
@@ -95,12 +96,16 @@ export class DraftClientError extends Error {
 
 /**
  * What the function needs from a Sanity client: a create, and (optionally) a
- * delete, used only to remove a picture already uploaded for a draft that a
- * duplicate check then refused. `serverSanityClient()` satisfies both.
+ * fetch and a delete, used only to remove a picture already uploaded for a
+ * draft that is then NOT created (a duplicate check refused it, or the create
+ * failed: AUTO-207), through the guarded rule in discard-header-image.ts.
+ * `serverSanityClient()` satisfies all three, in the raw perspective the rule
+ * needs.
  */
 export interface DraftWriter {
   create(doc: BlogDraftDocument): Promise<unknown>;
   delete?(id: string): Promise<unknown>;
+  fetch?(query: string, params: Record<string, unknown>): Promise<unknown>;
 }
 
 export interface CreateBlogDraftOptions {
@@ -137,13 +142,17 @@ export interface CreatedBlogDraft {
   headerImage: HeaderImageOutcome;
 }
 
-/** Remove a picture the chain uploaded for a draft that is not going to be created. Never throws. */
+/**
+ * Remove a picture the chain uploaded for a draft that is not going to be
+ * created (AUTO-207: through the guarded rule, so only a generated picture
+ * that nothing references is ever deleted). Never throws.
+ */
 async function discardGeneratedPicture(client: DraftWriter, outcome: HeaderImageOutcome): Promise<void> {
-  if (outcome.kind !== 'asset' || outcome.source !== 'ai' || typeof client.delete !== 'function') return;
-  try {
-    await client.delete(outcome.image.asset._ref);
-  } catch (err) {
-    console.error(`[create-blog-draft] could not remove the unused picture ${outcome.image.asset._ref}: ${err instanceof Error ? err.message : String(err)}`);
+  if (outcome.kind !== 'asset' || outcome.source !== 'ai') return;
+  if (typeof client.delete !== 'function' || typeof client.fetch !== 'function') return;
+  const result = await discardGeneratedHeaderImage(client as unknown as AssetDiscardClient, outcome.image.asset._ref);
+  if (result.deleted !== true) {
+    console.error(`[create-blog-draft] the unused picture ${outcome.image.asset._ref} was kept (${result.reason}${result.detail ? `: ${result.detail}` : ''})`);
   }
 }
 
@@ -236,6 +245,8 @@ export async function createBlogDraftFromTopic(opts: CreateBlogDraftOptions): Pr
   try {
     await client.create(document);
   } catch (err) {
+    // AUTO-207: the picture uploaded for this draft is now nobody's.
+    await discardGeneratedPicture(client, fields.headerImage);
     throw new DraftWriteError(err);
   }
 

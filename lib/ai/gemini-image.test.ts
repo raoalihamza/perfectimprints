@@ -6,7 +6,16 @@
  * read back with its billed image tokens.
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { GEMINI_IMAGE_MODEL, GEMINI_IMAGE_USD_PER_1K_IMAGE, GEMINI_MODEL, GeminiError, generateImage } from './gemini';
+import {
+  GEMINI_IMAGE_FALLBACK_MODEL,
+  GEMINI_IMAGE_MODEL,
+  GEMINI_IMAGE_PRICES,
+  GEMINI_IMAGE_USD_PER_1K_IMAGE,
+  GEMINI_MODEL,
+  GeminiError,
+  generateImage,
+  imageCallUsd,
+} from './gemini';
 
 const KEY = 'test-key-never-logged';
 const png = Buffer.from('fakeimagebytes').toString('base64');
@@ -114,13 +123,48 @@ describe('generateImage', () => {
   });
 });
 
-describe('the image model constant', () => {
-  it('is the current stable image model with no announced shutdown date, distinct from the vision model', () => {
-    expect(GEMINI_IMAGE_MODEL).toBe('gemini-3.1-flash-image');
-    expect(GEMINI_IMAGE_MODEL).not.toBe(GEMINI_MODEL);
-    // gemini-2.5-flash-image shut down on 2026-10-02; previews carry their own dates.
-    expect(GEMINI_IMAGE_MODEL).not.toMatch(/^gemini-2\./);
-    expect(GEMINI_IMAGE_MODEL).not.toContain('preview');
-    expect(GEMINI_IMAGE_USD_PER_1K_IMAGE).toBe(0.067);
+describe('the image model constants (AUTO-207)', () => {
+  it('the main model is Pro and the backup is the AUTO-202 model; both stable, neither a preview, both distinct from the vision model', () => {
+    expect(GEMINI_IMAGE_MODEL).toBe('gemini-3-pro-image');
+    expect(GEMINI_IMAGE_FALLBACK_MODEL).toBe('gemini-3.1-flash-image');
+    for (const m of [GEMINI_IMAGE_MODEL, GEMINI_IMAGE_FALLBACK_MODEL]) {
+      expect(m).not.toBe(GEMINI_MODEL);
+      // gemini-2.5-flash-image shut down on 2026-10-02; gemini-3-pro-image-preview on 2026-06-25.
+      expect(m).not.toMatch(/^gemini-2\./);
+      expect(m).not.toContain('preview');
+    }
+    expect(GEMINI_IMAGE_USD_PER_1K_IMAGE).toBe(0.134);
+    expect(GEMINI_IMAGE_PRICES[GEMINI_IMAGE_FALLBACK_MODEL].usdPer1kImage).toBe(0.067);
+  });
+
+  it('prices a call from the tokens Google reports (image, input and thinking)', () => {
+    // AUTO-206's measured Pro call: 1,720 prompt tokens, 1,120 image tokens, about 340 thinking tokens.
+    const usd = imageCallUsd(GEMINI_IMAGE_MODEL, { promptTokens: 1720, imageTokens: 1120, outputTokens: 1120, thoughtTokens: 340 });
+    expect(usd).toBeCloseTo(0.1344 + 0.00344 + 0.00408, 5);
+    expect(imageCallUsd('no-such-model', { promptTokens: 1, imageTokens: 1, outputTokens: 1, thoughtTokens: 0 })).toBeNull();
+  });
+});
+
+describe('generateImage on a chosen model (AUTO-207)', () => {
+  const saved = process.env.GOOGLE_GEMINI_API_KEY;
+  let fetchMock: ReturnType<typeof vi.fn>;
+  beforeEach(() => {
+    process.env.GOOGLE_GEMINI_API_KEY = KEY;
+    fetchMock = vi.fn(async () => okResponse());
+    vi.stubGlobal('fetch', fetchMock);
+  });
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    if (saved === undefined) delete process.env.GOOGLE_GEMINI_API_KEY;
+    else process.env.GOOGLE_GEMINI_API_KEY = saved;
+  });
+
+  it('draws on the main model by default and on the model named when one is, and says which drew it', async () => {
+    const main = await generateImage({ prompt: 'x' });
+    expect((fetchMock.mock.calls[0] as [string])[0]).toBe(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_IMAGE_MODEL}:generateContent`);
+    expect(main.model).toBe(GEMINI_IMAGE_MODEL);
+    const backup = await generateImage({ prompt: 'x', model: GEMINI_IMAGE_FALLBACK_MODEL });
+    expect((fetchMock.mock.calls[1] as [string])[0]).toBe(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_IMAGE_FALLBACK_MODEL}:generateContent`);
+    expect(backup.model).toBe(GEMINI_IMAGE_FALLBACK_MODEL);
   });
 });

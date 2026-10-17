@@ -109,6 +109,11 @@ import { serverSanityClient } from '../sanity/studio-nonce-auth';
 // eslint-disable-next-line import/first
 import { queryTopicKey } from './topic-pool';
 
+/** What the guarded removal rule reads about a generated picture (AUTO-207). */
+function generatedAssetFacts(id: string, references: number) {
+  return { asset: { _id: id, originalFilename: 'custom-printed-sunglasses-header.jpg', mimeType: 'image/jpeg', width: 1376, height: 768, source: { name: 'perfect-imprints-blog-header', id: 'x' } }, references };
+}
+
 const SUNGLASSES = 'custom printed sunglasses';
 const topic = { key: queryTopicKey(SUNGLASSES), query: SUNGLASSES, variants: [SUNGLASSES, 'sunglasses custom'] };
 const fixedNow = () => new Date('2026-10-05T10:00:00.000Z');
@@ -219,7 +224,8 @@ describe('createBlogDraftFromTopic: nothing half made', () => {
   it('a draft made while the AI was writing stops the create; the message says the call was spent; the picture already uploaded is removed', async () => {
     m.writtenAfterAi = [{ documentId: 'other', title: 'Made During The Wait', status: 'draft', via: 'recorded', queries: [SUNGLASSES] }];
     const deleted: string[] = [];
-    const deletingClient = { ...client, delete: vi.fn(async (id: string) => void deleted.push(id)) };
+    // AUTO-207: the removal goes through the guarded rule, so the client also reads the asset and its references.
+    const deletingClient = { ...client, fetch: vi.fn(async (_q: string, p: Record<string, unknown>) => generatedAssetFacts(String(p.id), 0)), delete: vi.fn(async (id: string) => void deleted.push(id)) };
     const err = await thrown(() => createBlogDraftFromTopic({ topic, template: 'list', client: deletingClient }));
     expect(err).toBeInstanceOf(TopicAlreadyWrittenError);
     expect((err as TopicAlreadyWrittenError).aiSpent).toBe(true);
@@ -304,6 +310,28 @@ describe('createBlogDraftFromTopic: nothing half made', () => {
     expect(m.created).toHaveLength(0);
     // Create was the LAST step: there was nothing after it to half-finish.
     expect(m.log[m.log.length - 1]).toBe('create');
+  });
+
+  it('AUTO-207: a failed create removes the picture uploaded for it, through the guarded rule; a picture something references is kept', async () => {
+    m.createFails = new Error('Insufficient permissions');
+    const deleted: string[] = [];
+    const withClient = (references: number) => ({
+      ...client,
+      fetch: vi.fn(async (_q: string, p: Record<string, unknown>) => generatedAssetFacts(String(p.id), references)),
+      delete: vi.fn(async (id: string) => void deleted.push(id)),
+    });
+    expect(await thrown(() => createBlogDraftFromTopic({ topic, template: 'list', client: withClient(0) }))).toBeInstanceOf(DraftWriteError);
+    expect(deleted).toEqual(['image-generated-1376x768-jpg']);
+    deleted.length = 0;
+    const errorLog = vi.spyOn(console, 'error').mockImplementation(() => {});
+    expect(await thrown(() => createBlogDraftFromTopic({ topic, template: 'list', client: withClient(1) }))).toBeInstanceOf(DraftWriteError);
+    expect(deleted).toEqual([]);
+    expect(errorLog.mock.calls.flat().join(' ')).toContain('was kept (referenced)');
+    errorLog.mockRestore();
+    // A product photo (a hot link) or a library picture is never uploaded for the draft, so nothing is removed.
+    fieldsState.result = { ...fixedFields(), headerImage: { kind: 'url', source: 'product', url: 'https://imgsirv.geiger.com/x.jpg', alt: 'x', notes: [] } };
+    await thrown(() => createBlogDraftFromTopic({ topic, template: 'list', client: withClient(0) }));
+    expect(deleted).toEqual([]);
   });
 
   it('with no write client in the environment it refuses before anything runs', async () => {

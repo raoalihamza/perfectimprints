@@ -749,7 +749,12 @@
       <li><strong>Header image library.</strong> Pictures of your own that a generated post may use: upload one and pick
         the main category page it suits (caps, pens, and so on), or leave the category blank for a picture any post may
         use. Only used when the source above is the library, or when the AI picture could not be made. You do not have
-        to upload any; the list can stay empty and nothing depends on it.</li>
+        to upload any; the list can stay empty and nothing depends on it.
+        <strong>Two categories are the exception and are worth a picture each:</strong> <strong>webcam-covers</strong>
+        and <strong>phone-wallets</strong>. Those products only make sense on a laptop or a phone, and a header picture
+        may never show a laptop or a phone (that is where a maker's logo gets painted), so the AI does not draw them at
+        all. Until you add a library picture for each, a post about them uses its first product photo as a stand-in. One
+        photograph of your own per category ends that for good.</li>
       <li><strong>Author for generated posts.</strong> The author written on every generated post. Left blank it is
         <strong>Patrick Black</strong>, the author on most of your posts and on every AI post you have published so far
         that had one.</li>
@@ -1510,9 +1515,12 @@
         match.</li>
       <li><strong>Generate header image</strong> (it reads <strong>Generate another header image</strong> when the post
         already has one) makes a new picture and nothing else. With a picture already on the post it asks first,
-        because the current one comes off the post (it stays in the media library). Each press costs about seven cents
-        and counts against the day's limit of 20; when the limit is reached the button says so, with the time it
-        resets, and you can still upload your own. The box that opens when it finishes says what happened
+        because the current one comes off the post. If the one it replaces was made by the AI, it is also deleted from
+        the media library once no draft or published post uses it any more (so pressing it ten times does not leave
+        nine unused pictures behind); a picture <strong>you</strong> uploaded is never deleted, and while the published
+        post still shows the old picture it is kept until you publish. Each press costs about fifteen cents and counts
+        against the day's limit of 20; when the limit is reached the button says so, with the time it resets, and you
+        can still upload your own. The box that opens when it finishes says what happened
         <strong>once</strong>: <strong>Header image updated</strong> when the AI's picture is on the post;
         <strong>A stand-in picture was used</strong> when the AI's pictures were refused and a plain product photo
         (or a library picture) went on an empty post instead, with the reason for each refusal in one sentence;
@@ -1527,11 +1535,22 @@
       <p>The picture is made from the post's own product rows: the real photos of the products in them are sent to the
         image model as references, and it is told to show items like them, blank and unbranded, where such a product
         is really used (a magnet on a refrigerator, measuring cups on a kitchen counter, a wall clock on a wall).</p>
+      <p><strong>Few things, shown simply.</strong> Since October 2026 a picture shows one to three of the product,
+        large, and anything that folds or opens (a multi-tool, a pocket knife, a tape measure) is shown closed, with at
+        most one open; a kit is one case. Before that, the model drew one of every product photo it was shown, all of
+        them fanned open, and the result looked like a catalogue page rather than a photograph. The plan for the
+        picture is now made by looking at the product photos themselves, not their names, so a product called
+        "Gold First Aid Kit" that is really a red fabric bag is drawn as a red fabric bag, not a gold tin. The pictures
+        are drawn by Google's better image model, which draws scales and dials correctly (the earlier one jumbled the
+        numbers on measuring cups); if it is busy or fails, the faster model draws the picture instead, and the post
+        is never held up by it.</p>
       <p><strong>What a picture may carry, and what it may not.</strong> A product's <strong>own markings are
         allowed</strong>, because a measuring cup with no scale is not a picture of a measuring cup: the lines and
         numbers on a measuring cup, a ruler or a tape measure, the numerals on a clock face, the months and dates of a
-        calendar, the day letters on a pill box. So is the small print on the page of an open book or a notepad that
-        happens to be in the scene. <strong>Never allowed, anywhere in the picture:</strong> a logo or a maker's mark
+        calendar, the day letters on a pill box, and the standard words a product carries by convention, such as
+        <strong>FIRST AID</strong> on a first aid kit or <strong>SPF 30</strong> on sunscreen (first aid kit pictures
+        used to be refused every time for exactly those words). So is the small print on the page of an open book or a
+        notepad that happens to be in the scene. <strong>Never allowed, anywhere in the picture:</strong> a logo or a maker's mark
         (including on a laptop, a phone or a cup in the background), a brand name, a company name, a phone number, a
         web address, a slogan or a price; and any other words meant to be read, such as a sign, a label, a book
         title, a name plate, or a word or name printed or engraved on the product itself.</p>
@@ -1539,7 +1558,10 @@
         things on the never-allowed list, the picture is thrown away and made once more with the problem named; if
         the second is refused too, the post gets its first product photo as a stand-in and the box tells you why.
         Still look at every picture before you publish: check that the products shown are the kind the post sells and
-        that nothing in it reads as a brand. The check is a machine and can miss a faint mark. Do not like it? Press
+        that nothing in it reads as a brand. The check is a machine and can miss a faint mark. It also cannot tell you
+        whether a product <strong>looks real</strong>: we tested every model we have on that question, and they refused
+        good pictures as often as bad ones and called Geiger's own product photographs fake. So nothing checks that for
+        you, and your eye is the last check; that is what the button below is for. Do not like it? Press
         <strong>Generate another header image</strong>, or upload your own. The alt text is filled in and says the
         picture is illustrative; edit it if you like.</p>
     </div>

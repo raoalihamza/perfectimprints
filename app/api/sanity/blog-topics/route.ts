@@ -131,8 +131,13 @@ export const dynamic = 'force-dynamic';
  * room to answer with the timeout message rather than be killed. Still
  * inside the 300 s ceiling of every Vercel plan. `pool`, `refresh` and
  * `similar` are unchanged and never run the AI.
+ *
+ * Raised to 270 s by AUTO-207: the header image chain's budget went from 70
+ * to 90 s (HEADER_IMAGE_BUDGET_MS, the Pro image model; the arithmetic is on
+ * that constant). 150 s DeepSeek + about 3 s of drafts reads + 90 s image +
+ * about 3 s of field reads and the create is 246 s; 270 leaves room to answer.
  */
-export const maxDuration = 240;
+export const maxDuration = 270;
 
 interface RequestBody {
   action?: string;

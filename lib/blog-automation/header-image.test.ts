@@ -13,7 +13,19 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
+  ARRANGEMENT_FROM_PHOTOS_RULE,
+  ARRANGEMENT_RULE,
+  DEFAULT_ARRANGEMENT,
   DEFAULT_HEADER_IMAGE_SOURCE,
+  DEVICE_MOUNTED_ROOTS,
+  PLANNER_DEVICE_RULE,
+  PLANNER_RESPONSE_SCHEMA,
+  STANDARD_DESIGNATIONS,
+  arrangementLine,
+  deviceMountedRoot,
+  isStandardDesignation,
+  scrubArrangement,
+  ARRANGEMENT_FORBIDDEN_WORDS,
   HEADER_IMAGE_ASPECT_RATIO,
   HEADER_IMAGE_MAX_REFERENCES,
   HEADER_IMAGE_REFERENCE_WIDTH,
@@ -214,6 +226,8 @@ describe('the prompt', () => {
       people: 'none',
       around: ['a coffee mug', 'a notepad'],
       productText: 'a calendar grid with the twelve months and their dates',
+      arrangement: 'One calendar magnet, flat against the door',
+      photos: [1],
       avoid: 'stuck to a wooden desk or lying flat on a table',
     };
     const planned = buildHeaderImagePrompt({
@@ -357,9 +371,11 @@ describe('the scene planner (AUTO-203)', () => {
     expect(user).toContain('No brand name, logo, wordmark, company name, phone number, web address or slogan anywhere');
     expect(user).toContain('productText is the functional markings this kind of product carries by its nature');
     expect(user).toContain('a measuring scale with its numbers and units, the numerals of a clock face');
-    // AUTO-204: the props must not be things that carry writing, and no device unless the product needs one.
-    expect(user).toContain('No signs, screens, name plates, awards, labelled packaging or book and magazine covers');
-    expect(user).toContain('No laptops, phones or tablets unless this product is used with one.');
+    // AUTO-204: the props must not be things that carry writing. AUTO-207: and the planner is told the
+    // device rule the image prompt and the check enforce, with no "unless" (the webcam covers lesson).
+    expect(user).toContain('No signs, banners, booths, screens, name plates, awards, labelled packaging or book and magazine covers');
+    expect(user).toContain('No laptops, computers, monitors, tablets or phones anywhere in the scene, not even partly visible and not even when the product is used with one');
+    expect(user).not.toContain('unless this product is used with one');
     expect(user).toContain('"avoid"');
     expect(buildScenePlanPrompt({ title: 'T', topic: 'custom pens', productNames: [] }).user).toContain('No product list is available');
   });
@@ -371,6 +387,7 @@ describe('the scene planner (AUTO-203)', () => {
       people: '',
       around: ['a coffee mug', 'a laptop with the company logo', 'a notepad', 'a plant', 'a fifth thing'],
       productText: 'a 12-month calendar grid',
+      arrangement: 'One calendar magnet held flat on the door, its logo area facing out',
       avoid: 'lying flat on a desk',
     });
     expect(plan).toEqual({
@@ -379,8 +396,12 @@ describe('the scene planner (AUTO-203)', () => {
       people: 'none',
       around: ['a coffee mug', 'a notepad', 'a plant', 'a fifth thing'],
       productText: 'a 12-month calendar grid',
+      // AUTO-207: the arrangement is read too, and a clause naming a logo is dropped from it.
+      arrangement: 'One calendar magnet held flat on the door',
+      photos: [],
       avoid: 'lying flat on a desk',
     });
+    expect(parseScenePlan({ surface: 'a counter' })?.arrangement).toBe('');
     expect(parseScenePlan({ around: 'a mug, a pen' })).toBeNull();
     expect(parseScenePlan('nonsense')).toBeNull();
     expect(parseScenePlan({ surface: 'a counter', around: 'a mug, a pen' })?.around).toEqual(['a mug', 'a pen']);
@@ -711,5 +732,135 @@ describe('AUTO-205: the three brand defences in the rules', () => {
     const src = readFileSync(join(ROOT, 'lib/blog-automation/header-image.ts'), 'utf8');
     expect(src).not.toContain('inOrder');
     expect(src).not.toContain('out of order (');
+  });
+});
+
+describe('AUTO-207: the count and state rule, the naming trap, the device rule in the planner', () => {
+  it("the planner carries AUTO-206's count and state rule word for word, and its schema requires every field", () => {
+    const { user } = buildScenePlanPrompt({ title: '8 Custom Tools', topic: 'custom tools', productNames: ['Hammer Multi-Tool'], photos: 1 });
+    expect(user).toContain(ARRANGEMENT_RULE);
+    expect(ARRANGEMENT_RULE).toContain('ONE to THREE items, never more than three, large in the frame');
+    expect(ARRANGEMENT_RULE).toContain('closed or folded, with at most ONE item open, and that one with at most two implements out');
+    expect(ARRANGEMENT_RULE).toContain('A kit or a set is shown as ONE closed case, or one open case with its contents lying in it');
+    expect(user).toContain('"arrangement": "how many of the product and in what state, one sentence"');
+    expect(PLANNER_RESPONSE_SCHEMA.required).toEqual(['surface', 'setting', 'people', 'around', 'productText', 'arrangement', 'photos', 'avoid']);
+  });
+
+  it('with the photos attached the planner is told they are the truth and the names can mislead; without photos it is not', () => {
+    const withPhotos = buildScenePlanPrompt({ title: 'T', topic: 'custom first aid kits', productNames: ['Gold First Aid Kit', 'Escape First Aid Kit'], photos: 2 }).user;
+    expect(withPhotos).toContain('The 2 attached photos show the actual products shown in the post, in this order: Gold First Aid Kit; Escape First Aid Kit.');
+    expect(withPhotos).toContain(ARRANGEMENT_FROM_PHOTOS_RULE);
+    expect(ARRANGEMENT_FROM_PHOTOS_RULE).toContain('never from the product names');
+    expect(ARRANGEMENT_FROM_PHOTOS_RULE).toContain('none of it is described or copied');
+    // The example in the prompt is NOT the case the fix is proven on, so the proof is not the prompt reciting its answer.
+    expect(ARRANGEMENT_FROM_PHOTOS_RULE).not.toMatch(/first aid|gold/i);
+    const textOnly = buildScenePlanPrompt({ title: 'T', topic: 'custom first aid kits', productNames: ['Gold First Aid Kit'] }).user;
+    expect(textOnly).toContain('The actual products shown in the post: Gold First Aid Kit.');
+    expect(textOnly).not.toContain(ARRANGEMENT_FROM_PHOTOS_RULE);
+    expect(PLANNER_DEVICE_RULE).toContain('planned on its own, unattached');
+  });
+
+  it("the image prompt carries the plan's arrangement, or the default one when there is no plan, so the count rule never lapses", () => {
+    const scene: ScenePlan = { surface: 'a workbench', setting: 'a workshop', people: 'none', around: ['gloves'], productText: '', arrangement: 'One closed multi-tool lying flat', photos: [1], avoid: 'fanned open' };
+    const planned = buildHeaderImagePrompt({ title: 'T', topic: 'custom tools', productNames: ['Hammer Multi-Tool'], scene });
+    expect(planned).toContain('- Show exactly this and no more: One closed multi-tool lying flat. Each item is one complete, real, manufacturable object, drawn the way the reference photos show it');
+    expect(planned).toContain('If this kind of product carries a printed scale or dial, show it readable on ONE item only, with a few large graduations in correct ascending order');
+    const planless = buildHeaderImagePrompt({ title: 'T', topic: 'custom tools', productNames: ['Hammer Multi-Tool'] });
+    expect(planless).toContain(`- Show exactly this and no more: ${DEFAULT_ARRANGEMENT}`);
+    const emptyArrangement = buildHeaderImagePrompt({ title: 'T', topic: 'custom tools', productNames: [], scene: { ...scene, arrangement: '' } });
+    expect(emptyArrangement).toContain(`- Show exactly this and no more: ${DEFAULT_ARRANGEMENT} Each item is one complete, real, manufacturable object, drawn the way such a product really is`);
+    expect(arrangementLine('', true)).toBe(arrangementLine(DEFAULT_ARRANGEMENT, true));
+  });
+
+  it('four references stay, and the prompt says the photo count is not the item count, and that a name is not a material', () => {
+    expect(HEADER_IMAGE_MAX_REFERENCES).toBe(4);
+    const p = buildHeaderImagePrompt({ title: 'T', topic: 'custom first aid kits', productNames: ['Gold First Aid Kit', 'Silver First Aid Kit', 'Bronze First Aid Kit', 'Escape First Aid Kit'] });
+    expect(p).toContain('The attached 4 photos are the actual products the post recommends');
+    expect(p).toContain('The number of photos is not the number of items to draw.');
+    expect(p).toContain('a tier or model word in a name is not a material or a colour');
+  });
+
+  it('with no plan the setting no longer invites signage: no trade show table, no event tent, and signs and banners are forbidden', () => {
+    const planless = buildHeaderImagePrompt({ title: 'T', topic: 'custom tote bags', productNames: ['Tote Bag'] });
+    expect(planless).not.toMatch(/trade show|event tent|company picnic/i);
+    expect(planless).toContain('No signs, banners, booths, posters or screens anywhere in the scene.');
+    expect(planless).toContain('with a few ordinary objects that carry no writing');
+  });
+
+  it("the arrangement keeps a product named 'phone' or 'contact' (the measured phone wallet and phone stand plans came out empty under the shared list), and still drops a logo or an imprint", () => {
+    expect(scrubArrangement('One rainbow phone wallet lies flat on the table, showing its empty card slot and sensory bubbles.')).toBe(
+      'One rainbow phone wallet lies flat on the table, showing its empty card slot and sensory bubbles.',
+    );
+    expect(scrubArrangement('One wooden phone stand in its folded position.')).toBe('One wooden phone stand in its folded position.');
+    expect(scrubArrangement('One closed contact lens case')).toBe('One closed contact lens case');
+    expect(scrubArrangement('One closed multi-tool, logo side up')).toBe('One closed multi-tool');
+    expect(scrubArrangement('Two mugs, with the sample imprint facing the camera')).toBe('Two mugs');
+    expect(scrubArrangement('One mug, printed with the phone number')).toBe('One mug');
+    expect(ARRANGEMENT_FORBIDDEN_WORDS).not.toContain('phone');
+  });
+
+  it('device-mounted roots skip the AI; everything else does not', () => {
+    expect(DEVICE_MOUNTED_ROOTS).toEqual(['webcam-covers', 'phone-wallets']);
+    expect(deviceMountedRoot(['tote-bags', 'webcam-covers'])).toBe('webcam-covers');
+    expect(deviceMountedRoot(['phone-tablet-stands', 'power-banks-chargers', 'laptop-cases'])).toBeNull();
+    expect(deviceMountedRoot([])).toBeNull();
+  });
+});
+
+describe('AUTO-207: standard designations pass; the forbidden list does not move', () => {
+  it('a designation, a contents label or a size label is recognised; a slogan, a brand or a bare number is not', () => {
+    for (const ok of ['First Aid', 'FIRST AID', 'First Aid Cream', 'GAUZE PAD', 'GAUZE PAD 3IN X 3IN', '3IN X 3IN', 'Antiseptic Wipes', 'Antiseptic', 'SPF 30', 'SUNSCREEN SPF 30 BROAD SPECTRUM', 'Hand Sanitizer 70%', 'HOT/COLD PACK', '32 OZ', '1/2 CUP', 'EXIT', 'Fire Extinguisher']) {
+      expect(isStandardDesignation(ok), ok).toBe(true);
+    }
+    for (const no of ['SAFETY FIRST', 'FIRST AID ONLY', 'First Aid Quick Facts Guide', 'After Bite', '555 0100', '2026', 'ACME PLUMBING', 'TRADE SHOW', 'STAFF', 'HOT', '', 'Quick Reference Guide']) {
+      expect(isStandardDesignation(no), no).toBe(false);
+    }
+    expect(STANDARD_DESIGNATIONS).not.toContain('safety');
+  });
+
+  it("AUTO-206's four refused first-aid pictures pass on the answers the check gave (REAL)", () => {
+    const answers: ImageTextItem[][] = [
+      [item('First Aid', 'booklet cover', true, 'display'), item('First Aid', 'document on the table', true, 'display'), item('First Aid', 'sanitizer wipe packet', true, 'display')],
+      [item('First Aid Cream', 'on the small foil packet', true, 'display')],
+      [item('Antiseptic Wipes', 'the medical wipes packaging', true, 'display'), item('First Aid', 'the medical supply packet', true, 'display')],
+      [item('GAUZE PAD', 'gauze pad wrapper', false, 'display'), item('3IN X 3IN', 'gauze pad wrapper', false, 'display')],
+    ];
+    for (const texts of answers) expect(imageCheckProblem({ ...NONE, texts })).toBeNull();
+  });
+
+  it('every brand route still refuses, a designation word or not: the forbidden list did not move', () => {
+    // The model calls it a brand: refused, even though FIRST AID would pass as display.
+    expect(imageCheckProblem({ ...NONE, texts: [item('FIRST AID', 'the pouch', true, 'brand')] })).toContain('a brand, company name or contact detail in text');
+    // A phone number in code, whatever the kind.
+    expect(imageCheckProblem({ ...NONE, texts: [item('FIRST AID 555-0100', 'the pouch', true, 'marking')] })).toContain('a brand, company name or contact detail in text');
+    // The brand question answered yes.
+    expect(imageCheckProblem({ ...NONE, texts: [item('FIRST AID', 'the pouch', true, 'display')], brandText: true, brandTextSeen: 'ACME FIRST AID' })).toContain('"ACME FIRST AID"');
+    // A slogan, a brand and a title as display text stay refused.
+    for (const t of ['SAFETY FIRST', 'FIRST AID ONLY', 'TRADE SHOW']) expect(imageCheckProblem({ ...NONE, texts: [item(t, 'a banner', false, 'display')] }), t).not.toBeNull();
+    // The REAL deliberate brand test and the REAL wall clock still refuse.
+    expect(imageCheckProblem(parseImageCheck(REAL_BRAND_TEST))).toContain('ACME PLUMBING 555-0100');
+    expect(imageCheckProblem(parseImageCheck(REAL_WALL_CLOCKS))).toContain('Apple logo on laptop');
+  });
+
+  it('the check names the designation as a marking and asks for background text, and questions 2, 3 and 4 are unchanged', () => {
+    const { user } = buildImageCheckPrompt({ topic: 'custom first aid kits' });
+    expect(user).toContain('the standard designation a product carries by regulation or convention (FIRST AID with a cross on a first aid kit, SPF and a number on sunscreen)');
+    expect(user).toContain("the plain name of what a kit's contents are (GAUZE PAD, BANDAGES, ANTISEPTIC WIPES)");
+    expect(user).toContain('including text that is small, out of focus or in the background (on a banner, a sign, a booth, a wall, a poster or packaging)');
+    expect(user).toContain('2. Is there any LOGO, brand mark, trademark or recognisable brand design anywhere');
+    expect(user).toContain('3. Does any text read as a BRAND NAME, a company or business name, a phone number, a web address, an email address, a slogan or a marketing claim, real or invented?');
+  });
+});
+
+describe('AUTO-207: the closed roads stay closed', () => {
+  const src = (rel: string) => readFileSync(join(ROOT, rel), 'utf8');
+  it('no picture is judged for believability or coherence, and none is chosen from several: measured dead in AUTO-206', () => {
+    for (const f of ['lib/blog-automation/header-image.ts', 'lib/blog-automation/resolve-header-image.ts']) {
+      const code = src(f).replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/.*$/gm, '');
+      expect(code, f).not.toMatch(/believab|coheren|bestOf|best_of|pickBest/i);
+    }
+    // The reads stay two, and the close look still asks about logos only (a sign-words field was measured: 0 of 18).
+    expect(IMAGE_CHECK_READS).toBe(2);
+    expect(buildTileCheckPrompt('top-left').user).not.toMatch(/signWords|readable WORD/);
   });
 });

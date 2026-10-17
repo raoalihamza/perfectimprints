@@ -134,7 +134,8 @@ describe('POST /api/sanity/generate-blog-image', () => {
   it('hands the outcome back as data and writes nothing itself', async () => {
     const src = (await import('node:fs')).readFileSync((await import('node:path')).join(__dirname, 'route.ts'), 'utf8');
     expect(src).not.toMatch(/\.create\(|\.patch\(|\.createOrReplace\(/);
-    expect(maxDuration).toBe(90);
+    // AUTO-207: raised from 90 with the image budget (70 to 90 s, the Pro model); the sums are on HEADER_IMAGE_BUDGET_MS.
+    expect(maxDuration).toBe(120);
     const res = await post(good);
     expect(res.body.outcome).toEqual(state.chainOutcome);
   });

@@ -32,6 +32,8 @@ const mocks = vi.hoisted(() => ({
   execute: vi.fn(),
   onComplete: vi.fn(),
   authFetch: vi.fn(),
+  afterReplace: vi.fn(),
+  unused: vi.fn(),
 }));
 
 vi.mock('sanity', () => ({
@@ -39,6 +41,10 @@ vi.mock('sanity', () => ({
 }));
 vi.mock('../components/useGenerateAuthFetch', () => ({
   useGenerateAuthFetch: () => mocks.authFetch,
+}));
+// AUTO-207: the Studio half of "a replaced generated picture goes"; the rule itself is tested in discard-header-image.test.ts.
+vi.mock('../components/useHeaderAssetDiscard', () => ({
+  useHeaderAssetDiscard: () => ({ afterReplace: mocks.afterReplace, unused: mocks.unused }),
 }));
 
 // eslint-disable-next-line import/first
@@ -148,6 +154,8 @@ beforeEach(() => {
   mocks.execute.mockReset();
   mocks.onComplete.mockReset();
   mocks.authFetch.mockReset();
+  mocks.afterReplace.mockReset();
+  mocks.unused.mockReset();
   mocks.authFetch.mockImplementation(async (url: string) => routeByUrl(url));
   container = document.createElement('div');
   document.body.appendChild(container);
@@ -297,6 +305,9 @@ describe('the header image (AUTO-202)', () => {
       resolveImage({ ok: true, json: async () => imageResponse });
     });
     expect(allSets()).toEqual([]);
+    // AUTO-207: the picture made for nothing is removed; FILL replaced nothing.
+    expect(mocks.unused.mock.calls).toEqual([['image-generated-1376x768-jpg']]);
+    expect(mocks.afterReplace).not.toHaveBeenCalled();
   });
 
   it('the product-photo fallback is written as the hot link and clears the asset', async () => {
@@ -378,6 +389,8 @@ describe('Regenerate Blog with AI (replaces, after confirmation)', () => {
     expect(set.slug).toEqual({ _type: 'slug', current: 'ai-title-for-water-bottles' });
     expect('publishDate' in set).toBe(false);
     expect(allSets()[1]).toEqual({ headerImage: generatedImage });
+    // AUTO-207: the picture Regenerate replaced is handed to the guarded rule (an upload like this one is kept by it).
+    expect(mocks.afterReplace.mock.calls).toEqual([['image-uploaded-by-patrick-2000x1125-jpg']]);
   });
 
   it('on a published post, never touches the title or the slug', async () => {

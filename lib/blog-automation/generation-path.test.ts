@@ -137,7 +137,7 @@ describe('deadlines', () => {
     const blog = Number(read(BLOG_ROUTE).match(/export const maxDuration = (\d+);/)?.[1]);
     const topics = Number(read(TOPICS_ROUTE).match(/export const maxDuration = (\d+);/)?.[1]);
     expect(blog).toBe(180);
-    expect(topics).toBe(240);
+    expect(topics).toBe(270);
     expect(BLOG_AI_TIMEOUT_MS).toBe(150_000);
     expect(blog * 1000).toBeGreaterThan(BLOG_AI_TIMEOUT_MS);
     expect(topics * 1000).toBeGreaterThan(BLOG_AI_TIMEOUT_MS);
@@ -225,7 +225,7 @@ describe('the fields beside the body (AUTO-202)', () => {
     const topics = Number(read(TOPICS_ROUTE).match(/export const maxDuration = (\d+);/)?.[1]);
     const image = Number(read(IMAGE_ROUTE).match(/export const maxDuration = (\d+);/)?.[1]);
     expect(timeout).toBeLessThan(budget);
-    // 150 s AI + 70 s image + a few seconds of reads and the create, inside 240.
+    // AUTO-207: 150 s AI + 90 s image + a few seconds of reads and the create, inside 270.
     expect(aiDeadline + budget + 10_000).toBeLessThan(topics * 1000);
     expect(image * 1000).toBeGreaterThan(budget);
     expect(image).toBeLessThanOrEqual(300);

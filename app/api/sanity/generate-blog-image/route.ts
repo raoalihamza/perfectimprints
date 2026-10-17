@@ -38,8 +38,10 @@
 //      sent to Google (lib/blog-automation/header-image-usage.ts, a counter in
 //      Sanity, never process memory).
 //
-// `maxDuration` 90: the chain's own budget is 70 s (HEADER_IMAGE_BUDGET_MS),
-// the settings read and the catalog read are under a second.
+// `maxDuration` 120 (AUTO-207, was 90): the chain's own budget is 90 s
+// (HEADER_IMAGE_BUDGET_MS, raised with the Pro image model; the arithmetic is
+// on that constant), the settings read, the catalog read and the category
+// resolve are a few seconds.
 
 import { NextResponse } from 'next/server';
 import { verifyStudioNonce, serverSanityClient } from '@/lib/sanity/studio-nonce-auth';
@@ -55,7 +57,7 @@ import { defaultHeaderImageDeps, noClientHeaderImageDeps, resolveHeaderImage } f
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
-export const maxDuration = 90;
+export const maxDuration = 120;
 
 interface GenBody {
   title?: unknown;
