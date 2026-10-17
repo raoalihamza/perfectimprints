@@ -149,8 +149,10 @@ describe('the generator', () => {
   const depth = read('lib/blog-automation/topic-depth.ts');
 
   it('measures the depth through the shipped matcher before the shape is chosen, with the dials the strips use', () => {
-    expect(gen).toContain("const depth = input.depth ?? (await measureTopicDepth(topic, { minScore: STRIP_MIN_SCORE, catalogMinScore: STRIP_CATALOG_MIN_SCORE }));");
-    expect(gen.indexOf('await measureTopicDepth(')).toBeLessThan(gen.indexOf('chooseTitleShape(topic, choice, availability)'));
+    // AUTO-208: the measurement is one exported helper, so the scheduler measures with the same dials and hands the depth on.
+    expect(gen).toContain('const depth = input.depth ?? (await measureDepthForTopic(topic));');
+    expect(gen).toContain('return measureTopicDepth(topic, { minScore: STRIP_MIN_SCORE, catalogMinScore: STRIP_CATALOG_MIN_SCORE });');
+    expect(gen.indexOf('await measureDepthForTopic(')).toBeLessThan(gen.indexOf('chooseTitleShape(topic, choice, availability)'));
     expect(depth).toContain('export const DEPTH_SUPPLY_LIMIT = 200;');
     expect(depth).toContain('depth: Math.max(products.length, categorySize)');
     // FIX-920: the materials are counted over the root's own products that are named for it.

@@ -35,6 +35,9 @@ import portfolioItem from './documents/portfolio-item';
 import quote from './documents/quote';
 import quoteResponse from './documents/quote-response';
 import { quoteLineItemTypes } from './objects/quote-line-items';
+// Blog automation (AUTO-208): the scheduler's run log, read only, one
+// document per nightly slot. The two usage counters stay unregistered.
+import blogAutomationRun from './documents/blog-automation-run';
 
 import seo from './objects/seo';
 import link from './objects/link';
@@ -70,6 +73,7 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   quote,
   quoteResponse,
   ...quoteLineItemTypes,
+  blogAutomationRun,
   seo,
   link,
   richAnswer,

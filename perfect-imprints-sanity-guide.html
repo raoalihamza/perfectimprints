@@ -352,6 +352,7 @@
         <li><a href="#quotes">Quotes (build a customer quotation)</a></li>
         <li><a href="#portfolio">Portfolio Gallery (show off your work)</a></li>
         <li><a href="#blog-topics">Blog Topics (what the blog engine would write about)</a></li>
+        <li><a href="#blog-engine">Automatic blog posts (the engine writes two a night)</a></li>
         <li><a href="#connect">How everything connects</a></li>
         <li><a href="#tasks">Common tasks (quick reference)</a></li>
         <li><a href="#warnings">Important warnings</a></li>
@@ -3167,7 +3168,8 @@
       half of the blog automation: the <strong>intelligence</strong>, not the automation. It shows you the actual
       list of search terms the blog engine would write about, lets you judge it, lets you block anything you do not
       want, and lets you write a draft from any term with one press. <strong>Nothing on this tab runs by itself.</strong>
-      Automatic posting is the second stage and does not exist yet.</p>
+      The automatic posting is the next section: the engine takes topics from this very list, two a night, under two
+      switches that are yours (see <a href="#blog-engine">Automatic blog posts</a>).</p>
 
     <h3>Where the list comes from</h3>
     <p>Every term comes from <strong>your own Google Search Console</strong>: searches where your site already showed
@@ -3430,7 +3432,77 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="connect">29. How everything connects</h2>
+    <h2 id="blog-engine">29. Automatic blog posts (the engine writes two a night)</h2>
+    <p>The blog engine now writes posts <strong>on its own</strong>: two every night, taken from the Blog Topics list
+      in the order that list shows them, with the same product rows, pictures, links and checks a post gets when you
+      press Generate draft yourself. You do not start it, schedule it or watch it. You own two switches and you get
+      one email every morning.</p>
+
+    <h3>When it writes</h3>
+    <p>One post at about <strong>10 pm</strong> Florida time and one at about <strong>4 am</strong>, every night,
+      while nobody is in the Studio. If a night's attempt fails (the AI did not answer, the post came back too thin),
+      it tries that slot <strong>once more</strong> half an hour later, and then leaves it; it never writes more than
+      two posts in a day, however often it is poked. A post you write yourself from the Blog Topics tab does not count
+      against the two.</p>
+
+    <h3>Your two switches</h3>
+    <p>Both live in <span class="path">Content &gt; Global Settings &gt; Blog Automation</span>, next to the blocked
+      topics. They take effect at the <strong>next</strong> scheduled post, within hours, and never delete anything.</p>
+    <ul>
+      <li><strong>Pause the automatic blog posts.</strong> Switch it ON to stop the engine; switch it OFF to let it
+        run. Left alone it is off, so the engine runs. Pause it when you are away and would rather not come back to a
+        pile of drafts, or whenever you want to read what it has written before it writes more.</li>
+      <li><strong>What to do with each post the engine writes.</strong> <em>Save it as a draft for me to read and
+        publish myself</em> is the default: every post waits for you, exactly like a draft you made from the tab, and
+        nothing reaches the site until you press Publish. <em>Publish it straight away</em> puts each post on the site
+        within a minute of being written, before anyone has read it, with that moment as its publish date. Choose it
+        only once you trust what the engine writes; you can switch back at any time, and the posts already published
+        stay published.</li>
+    </ul>
+    <div class="callout warn">
+      <span class="label">What happens on the day this goes live</span>
+      <p>The engine starts the first night after Ali deploys it, writing drafts. You do not need to do anything for
+        that to happen, and you do not need to do anything to keep it in the draft mode: that is how it begins. If you
+        would rather it did not start yet, switch <strong>Pause the automatic blog posts</strong> ON before that
+        night.</p>
+    </div>
+
+    <h3>The morning email</h3>
+    <p>At about <strong>8 am</strong> Florida time every day, you get one email saying what the engine did overnight.
+      For each post: its title (a link straight to the draft in the Studio, or to the live page if it was published),
+      the search term it was written for, whether it is a numbered list, a buyer's guide, a question answered or a
+      how-to, how many words, how many product rows, where its picture came from, and a note if anything was unusual
+      (the title had to be shortened, the picture fell back to a product photo, a field could not be filled). If a
+      slot failed, the email says at which step and why, in a sentence. A morning with nothing written says so, and
+      says whether that is because the engine is paused or because it never ran. The bottom of every email shows both
+      switches as they are right now and roughly what the night cost.</p>
+    <p>On Mondays the email also reports the weekly tidy-up: generated header pictures that belong to no post any
+      more (a draft you deleted, a picture you replaced with Generate another). To begin with it only lists them;
+      nothing is removed unless Ali turns that on.</p>
+
+    <h3>What it chooses, and what it never does</h3>
+    <ul>
+      <li>It takes the <strong>Usable</strong> topics from the Blog Topics tab in that tab's order, so the biggest
+        opportunities go first, with two adjustments: it will not write about the same product twice within seven
+        posts (seven pens posts in a row would otherwise be the natural order), and it tries not to give two posts in a
+        row the same shape (a list after a list).</li>
+      <li>Everything you block in the Blog Topics tab, and every topic that already has a draft or a post, is skipped,
+        read fresh at every post. Block something at 9 pm and the 10 pm post will not be it.</li>
+      <li>A post never states a price and never states an order quantity ("minimum 50 units" and the like): every
+        product carries its own minimum on its card and they differ, so a figure in the text would be wrong for most
+        of them. A post that tries is thrown away and the slot is retried.</li>
+      <li>It never edits, republishes or deletes a post that exists. It never writes more than two a day.</li>
+    </ul>
+
+    <h3>Where to look if something seems off</h3>
+    <p><span class="path">Content &gt; Blog automation runs</span> lists every night's attempts, newest first, with
+      the same facts as the email plus the technical detail (which step, how long, what it cost). It is read only.
+      If the morning email stops arriving, or says the engine never ran two mornings running, tell Ali.</p>
+
+    <p class="backtop"><a href="#top">↑ Back to top</a></p>
+
+    <!-- ============================================================ -->
+    <h2 id="connect">30. How everything connects</h2>
     <p>A quick mental map of what drives what:</p>
     <ul>
       <li><strong>Global Settings</strong> drives the header and footer of <em>every</em> page (contact details, social
@@ -3482,7 +3554,7 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="tasks">30. Common tasks (quick reference)</h2>
+    <h2 id="tasks">31. Common tasks (quick reference)</h2>
     <table>
       <tr>
         <th>I want to…</th>
@@ -3696,7 +3768,7 @@
     <p class="backtop"><a href="#top">↑ Back to top</a></p>
 
     <!-- ============================================================ -->
-    <h2 id="warnings">31. Important warnings (keep these in mind)</h2>
+    <h2 id="warnings">32. Important warnings (keep these in mind)</h2>
 
     <div class="callout danger">
       <span class="label">1. Always review products before publishing a pushed category</span>

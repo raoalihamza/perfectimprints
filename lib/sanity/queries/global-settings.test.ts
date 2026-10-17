@@ -57,7 +57,30 @@ const EMPTY_AUTOMATION = {
   headerImageLibrary: [],
   defaultAuthorId: null,
   defaultCategoryIds: [],
+  // AUTO-208: blank means running, and drafts.
+  paused: false,
+  publishMode: 'draft',
 };
+
+describe('AUTO-208: the two scheduler switches', () => {
+  it('blank means the automation RUNS and every post is a DRAFT (deploying starts it at the first firing)', () => {
+    expect(resolveBlogAutomation(undefined).paused).toBe(false);
+    expect(resolveBlogAutomation({}).paused).toBe(false);
+    expect(resolveBlogAutomation({ paused: null }).paused).toBe(false);
+    expect(resolveBlogAutomation({ paused: false }).paused).toBe(false);
+    expect(resolveBlogAutomation(undefined).publishMode).toBe('draft');
+    expect(resolveBlogAutomation({ publishMode: '' }).publishMode).toBe('draft');
+    expect(resolveBlogAutomation({ publishMode: null }).publishMode).toBe('draft');
+    expect(resolveBlogAutomation({ publishMode: 'something' }).publishMode).toBe('draft');
+  });
+
+  it('only an explicit true pauses, and only an explicit "publish" publishes', () => {
+    expect(resolveBlogAutomation({ paused: true }).paused).toBe(true);
+    expect(resolveBlogAutomation({ paused: 'true' as unknown as boolean }).paused).toBe(false);
+    expect(resolveBlogAutomation({ publishMode: 'publish' }).publishMode).toBe('publish');
+    expect(resolveBlogAutomation({ publishMode: 'Publish' }).publishMode).toBe('draft');
+  });
+});
 
 describe('resolveBlogAutomation (AUTO-110)', () => {
   it('resolves a missing object to an empty list, the state of the singleton before the ticket', () => {

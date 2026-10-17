@@ -204,9 +204,13 @@ describe('against the real published titles', () => {
     expect(gen).toContain('_id in path("drafts.**")');
     expect(gen).toContain('isDuplicateTitle(finalTitle, existing)');
     expect(gen).toContain('isDuplicateSlug(slugifyTitle(finalTitle), existing)');
-    expect(gen).toContain('repairListTitleNumber(finalTitle, sections.length)');
-    expect(gen).toContain("if (shape === 'question') finalTitle = repairQuestionTitle(finalTitle);");
-    expect(gen).toContain('titleProblem(finalTitle, shape,');
+    // AUTO-208: the repairs and the judge moved whole into title-fit.ts (fitTitle), which the generator calls with the sections actually written.
+    expect(gen).toContain('await fitTitle({');
+    expect(gen).toContain("ideaCount: template === 'list' ? sections.length : undefined,");
+    const fit = read('lib/blog-automation/title-fit.ts');
+    expect(fit).toContain("if (shape === 'list' && ideaCount !== undefined) r = repairListTitleNumber(r, ideaCount);");
+    expect(fit).toContain("if (shape === 'question') r = repairQuestionTitle(r);");
+    expect(fit).toContain('titleProblem(first, input.shape, judge)');
     // The shape is chosen once, from the topic and the measured depth (AUTO-205), and the body template follows it.
     expect(gen).toContain('const shape = chooseTitleShape(topic, choice, availability);');
     expect(gen).toContain('const template = templateForShape(shape);');

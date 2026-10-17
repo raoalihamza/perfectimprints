@@ -55,6 +55,8 @@ import { loadLinkDocsForKind } from '../ai/internal-links';
 import { slugifyTitle } from '../blog/slugify-title';
 import { withReadMemo } from '../ai/read-memo';
 import { measureTopicDepth, type TopicDepth } from './topic-depth';
+import { containsQuantityClaim, QUANTITY_RULE } from './quantity-rule';
+import { fitTitle } from './title-fit';
 import {
   avoidTitlesFor,
   chooseTitleShape,
@@ -62,15 +64,14 @@ import {
   isDuplicateSlug,
   isDuplicateTitle,
   LIST_IDEAS_MIN,
-  repairListTitleNumber,
-  repairQuestionTitle,
   shapeSectionGuidance,
   sustainableListIdeas,
   templateChoiceOf,
   templateForShape,
   titleInstruction,
-  titleProblem,
+  TITLE_MAX_CHARS,
   TITLE_SHAPE_LABELS,
+  TITLE_TARGET_CHARS,
   triggeredShape,
   type BodyTemplate,
   type ExistingPost,
@@ -173,6 +174,63 @@ export interface GenerateBlogPostInput {
    * measuring scripts, pass one). Default: measured through the matcher.
    */
   depth?: TopicDepth;
+  /**
+   * AUTO-208: the call that shortens an over-long title (tests pass a fake);
+   * default one small DeepSeek call. Only made when the model's title runs
+   * past TITLE_MAX_CHARS.
+   */
+  shortenTitle?: (args: ShortenTitleArgs) => Promise<string>;
+}
+
+/** What the title-shortening call is told. */
+export interface ShortenTitleArgs {
+  title: string;
+  shape: TitleShape;
+  topic: string;
+  ideaCount?: number;
+  avoidTitles: readonly string[];
+}
+
+/** The shortening call's own ceiling: a few words back, not a post. */
+export const TITLE_SHORTEN_TIMEOUT_MS = 30_000;
+
+/**
+ * Ask DeepSeek for the same title in fewer characters (AUTO-208, Part 6):
+ * the real shortener `fitTitle` (title-fit.ts) is given. The decision (when
+ * to shorten, how to judge the result) lives in title-fit.ts, pure and
+ * tested; this is only the call.
+ */
+async function shortenTitleWithDeepSeek(args: ShortenTitleArgs): Promise<string> {
+  const { title, shape, topic, ideaCount, avoidTitles } = args;
+  const rules = [
+    `at most ${TITLE_TARGET_CHARS} characters (hard ceiling ${TITLE_MAX_CHARS})`,
+    `keep the topic's own product words (${topic})`,
+    shape === 'list' && ideaCount ? `start with the number ${ideaCount}, exactly as the original does` : null,
+    shape === 'question' ? 'remain a question ending in a question mark' : null,
+    shape === 'howto' ? 'start with "How to"' : null,
+    shape === 'guide' || shape === 'comparison' ? 'not start with a number' : null,
+    'keep the meaning; cut qualifiers and the second half of a two-part title, never the product',
+    avoidTitles.length > 0 ? `not be any of these existing titles: ${avoidTitles.map((t) => `"${t}"`).join(', ')}` : null,
+  ].filter(Boolean);
+  const out = await generateJson<{ title?: unknown }>({
+    system: 'You shorten blog post titles. Return a single JSON object {"title": "..."} and nothing else.',
+    user: `Shorten this title. It must: ${rules.join('; ')}.\n\nTitle: ${title}\n\nReturn the JSON object now.`,
+    maxTokens: 120,
+    temperature: 0.3,
+    timeoutMs: TITLE_SHORTEN_TIMEOUT_MS,
+  });
+  return typeof out?.title === 'string' ? out.title : '';
+}
+
+/**
+ * The catalogue depth behind a topic with the strips' OWN dials (AUTO-208):
+ * what `generateBlogPost` measures itself when no depth is passed, exported
+ * so the scheduler can measure it for its look-ahead and hand it on, and
+ * the post gets the shape the look-ahead saw. The dials are spelled once,
+ * above.
+ */
+export function measureDepthForTopic(topic: string): Promise<TopicDepth> {
+  return measureTopicDepth(topic, { minScore: STRIP_MIN_SCORE, catalogMinScore: STRIP_CATALOG_MIN_SCORE });
 }
 
 export interface GeneratedBlogPost {
@@ -180,6 +238,14 @@ export interface GeneratedBlogPost {
   /** AUTO-203: the shape the title was written in, and the body template it was built with. */
   titleShape: TitleShape;
   template: BodyTemplate;
+  /**
+   * AUTO-208: what was done to the title after the model wrote it. 'shortened'
+   * when the model's title ran past TITLE_MAX_CHARS and a second, cheap call
+   * cut it to fit (the run log and the digest say so); absent otherwise.
+   */
+  titleRepair?: 'shortened';
+  /** AUTO-208: DeepSeek calls this generation made (1, or 2 with a title shortening), for the run log's cost line. */
+  deepseekCalls: number;
   /** The number a list title carries (= its idea sections); undefined for the other shapes. */
   ideaCount?: number;
   /** AUTO-205: what the catalogue had behind the topic when the shape was chosen. */
@@ -258,7 +324,8 @@ HARD LIMITS (count before returning, rewrite if any fail):
 - metaDescription <= 155 chars
 - excerpt <= 300 chars (a 2-3 sentence teaser, plain text)
 - NO prices, dollar amounts, per-unit costs or budget figures anywhere in the text: every order is quoted, and a number printed in a post goes stale
-- the title makes no claim the post does not support, and carries the topic's own product words${
+- ${QUANTITY_RULE}
+- the title is at most ${TITLE_TARGET_CHARS} characters (${TITLE_MAX_CHARS} is the hard ceiling), makes no claim the post does not support, and carries the topic's own product words${
     plan.avoidTitles.length > 0
       ? `\n\nTITLES ALREADY ON THIS SITE (do not reuse or closely paraphrase any of them; the new post needs its own angle and its own title):\n${plan.avoidTitles.map((t) => `- ${t}`).join('\n')}`
       : ''
@@ -359,6 +426,7 @@ export function containsPrice(text: string): boolean {
     /\b\d[\d,]*(?:\.\d+)?\s?(?:per unit|per piece|a piece|apiece|each)\b/i.test(text)
   );
 }
+
 
 function isStructurallyValid(gen: Partial<GeneratedBlog>, template: BodyTemplate): gen is GeneratedBlog {
   if (!gen) return false;
@@ -549,7 +617,7 @@ async function generateBlogPostInScope(input: GenerateBlogPostInput): Promise<Ge
   //    carries; only a depth too thin for LIST_IDEAS_MIN ideas changes the
   //    shape (to a guide), never a dice roll.
   const topic = promptKeywords.join(' ');
-  const depth = input.depth ?? (await measureTopicDepth(topic, { minScore: STRIP_MIN_SCORE, catalogMinScore: STRIP_CATALOG_MIN_SCORE }));
+  const depth = input.depth ?? (await measureDepthForTopic(topic));
   const availability: ShapeAvailability = { depth: depth.depth, variants: depth.variants, category: depth.category };
 
   // 0b) The shape, from the topic (AUTO-203) and what the catalogue allows
@@ -608,6 +676,14 @@ async function generateBlogPostInScope(input: GenerateBlogPostInput): Promise<Ge
       'The AI wrote a price into the post, which this site never does (every order is quoted). Click Generate again to retry.',
     );
   }
+  // AUTO-208: a stated order quantity is a figure about Patrick's business
+  // that the products beside it contradict; refused like a price.
+  const quantified = textParts(gen).find(containsQuantityClaim);
+  if (quantified) {
+    throw new BlogGenerationError(
+      `The AI stated an order quantity in the post ("${quantified.slice(0, 120)}"), which this site never does (every product carries its own minimum). Click Generate again to retry.`,
+    );
+  }
 
   const sections = gen.sections.filter((s) => s && typeof s.heading === 'string' && Array.isArray(s.paragraphs));
 
@@ -615,15 +691,24 @@ async function generateBlogPostInScope(input: GenerateBlogPostInput): Promise<Ge
   //     (AUTO-203). Two things are repaired rather than refused, because the
   //     fix is deterministic: a list title's number is set to the sections
   //     actually written (the number and the body are one fact), and a
-  //     question title gets its question mark. Everything else is a 502 and
-  //     a retry, like a thin post.
-  let finalTitle = gen.title.trim();
-  if (template === 'list') finalTitle = repairListTitleNumber(finalTitle, sections.length);
-  if (shape === 'question') finalTitle = repairQuestionTitle(finalTitle);
-  const titleFault = titleProblem(finalTitle, shape, { ideaCount: template === 'list' ? sections.length : undefined, topic });
-  if (titleFault) {
-    throw new BlogGenerationError(`The AI wrote a title that does not fit the post (${titleFault}: "${finalTitle}"). Click Generate again to retry.`);
+  //     question title gets its question mark. A title that runs past the
+  //     ceiling is SHORTENED by one cheap second call (AUTO-208: a lost
+  //     generation over a title length is a lost night's post for the
+  //     scheduler). Everything else is a 502 and a retry, like a thin post.
+  const fitted = await fitTitle({
+    title: gen.title,
+    shape,
+    topic,
+    ideaCount: template === 'list' ? sections.length : undefined,
+    avoidTitles: plan.avoidTitles,
+    shorten: input.shortenTitle ?? shortenTitleWithDeepSeek,
+  });
+  const deepseekCalls = 1 + fitted.shortenCalls;
+  if (fitted.ok === false) {
+    throw new BlogGenerationError(`The AI wrote a title that does not fit the post (${fitted.fault}: "${fitted.title}"). Click Generate again to retry.`);
   }
+  const finalTitle = fitted.title;
+  const titleRepair = fitted.repair ?? undefined;
   const sameTitle = isDuplicateTitle(finalTitle, existing);
   if (sameTitle) {
     throw new BlogGenerationError(`The AI reused the title of an existing post ("${sameTitle.title}", /blog/${sameTitle.slug}). Click Generate again to retry.`);
@@ -749,6 +834,8 @@ async function generateBlogPostInScope(input: GenerateBlogPostInput): Promise<Ge
     title: finalTitle,
     titleShape: shape,
     template,
+    ...(titleRepair ? { titleRepair } : {}),
+    deepseekCalls,
     ideaCount: template === 'list' ? sections.length : undefined,
     depth,
     metaTitle: clampAtWordBoundary(gen.metaTitle, 60),

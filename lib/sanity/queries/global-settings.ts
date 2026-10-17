@@ -230,6 +230,26 @@ export interface BlogAutomationSettings {
   defaultAuthorId: string | null;
   /** AUTO-202: the blog categories every generated post is filed under; empty means none (never a guess). */
   defaultCategoryIds: string[];
+  /**
+   * AUTO-208, switch A: true STOPS the scheduler writing posts. Blank reads
+   * as false (the automation runs), so deploying the scheduler starts it at
+   * its first firing. The field is "paused" rather than "enabled" so that an
+   * unset toggle in the Studio reads the way it works: off means running.
+   */
+  paused: boolean;
+  /**
+   * AUTO-208, switch B: what the scheduler does with each post. 'draft'
+   * (blank, the default) saves it for Patrick to review and publish;
+   * 'publish' puts it live at once with the publish date stamped.
+   */
+  publishMode: BlogPublishMode;
+}
+
+export type BlogPublishMode = 'draft' | 'publish';
+
+/** The stored / posted value read back; anything but 'publish' is 'draft'. */
+export function publishModeOf(raw: unknown): BlogPublishMode {
+  return raw === 'publish' ? 'publish' : 'draft';
 }
 
 /**
@@ -297,6 +317,8 @@ interface RawSettings {
     headerImageLibrary?: Array<{ rootSlug?: string; alt?: string; image?: { asset?: { _ref?: string } } }>;
     defaultAuthorId?: string | null;
     defaultCategoryIds?: Array<string | null>;
+    paused?: boolean | null;
+    publishMode?: string | null;
   };
   // legacy flat fields — fallback only
   phoneNumber?: string;
@@ -318,7 +340,9 @@ const QUERY = `*[_type == "globalSettings"][0]{
     headerImageSource,
     headerImageLibrary[]{ rootSlug, alt, image{ asset{ _ref } } },
     "defaultAuthorId": defaultAuthor._ref,
-    "defaultCategoryIds": defaultCategories[]._ref
+    "defaultCategoryIds": defaultCategories[]._ref,
+    paused,
+    publishMode
   },
   hoursOfOperation,
   phoneNumber,
@@ -344,6 +368,8 @@ const EMPTY: SiteSettings = {
     headerImageLibrary: [],
     defaultAuthorId: null,
     defaultCategoryIds: [],
+    paused: false,
+    publishMode: 'draft',
   },
 };
 
@@ -389,6 +415,10 @@ export function resolveBlogAutomation(raw: RawSettings['blogAutomation'] | null 
     headerImageLibrary,
     defaultAuthorId: clean(raw?.defaultAuthorId),
     defaultCategoryIds,
+    // AUTO-208: the two switches. Only an explicit `true` pauses; only an
+    // explicit 'publish' publishes. Blank is the documented default for both.
+    paused: raw?.paused === true,
+    publishMode: publishModeOf(raw?.publishMode),
   };
 }
 

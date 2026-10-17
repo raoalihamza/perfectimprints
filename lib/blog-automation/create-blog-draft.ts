@@ -52,6 +52,7 @@ import {
   type SourceTopicInput,
 } from './draft-document';
 import type { TemplateChoice } from './blog-shape';
+import type { TopicDepth } from './topic-depth';
 import { defaultDraftFieldsDeps, resolveDraftFields, type DraftFieldsDeps, type ResolvedDraftFields } from './resolve-draft-fields';
 import type { HeaderImageOutcome } from './header-image';
 import { discardGeneratedHeaderImage, type AssetDiscardClient } from './discard-header-image';
@@ -122,6 +123,13 @@ export interface CreateBlogDraftOptions {
   now?: () => Date;
   /** AUTO-202: the reads and effects behind the four fields (tests pass fakes); default the real ones over the write client. */
   fieldsDeps?: DraftFieldsDeps;
+  /**
+   * AUTO-208: the catalogue depth the scheduler already measured for its
+   * look-ahead, handed on so the generator does not measure it twice and the
+   * post gets the shape the look-ahead saw. Unset (the tab), the generator
+   * measures it itself, exactly as before.
+   */
+  depth?: TopicDepth;
 }
 
 export interface CreatedBlogDraft {
@@ -130,6 +138,10 @@ export interface CreatedBlogDraft {
   draftId: string;
   title: string;
   slug: string;
+  /** AUTO-208: the shape the title was written in, whether it was shortened to fit, and the DeepSeek calls made, for the run log. */
+  titleShape: GeneratedBlogPost['titleShape'];
+  titleRepair?: GeneratedBlogPost['titleRepair'];
+  deepseekCalls: number;
   /** The searches the record names, for the panel's local already-written list. */
   variants: string[];
   placedLinks: GeneratedBlogPost['placedLinks'];
@@ -186,6 +198,7 @@ export async function createBlogDraftFromTopic(opts: CreateBlogDraftOptions): Pr
     template: opts.template,
     keywords: [opts.topic.query],
     wordCount,
+    ...(opts.depth ? { depth: opts.depth } : {}),
   });
 
   // 3) The fields beside the body (AUTO-202): author, categories, related
@@ -255,6 +268,9 @@ export async function createBlogDraftFromTopic(opts: CreateBlogDraftOptions): Pr
     draftId: document._id,
     title: document.title,
     slug: document.slug.current,
+    titleShape: generated.titleShape,
+    ...(generated.titleRepair ? { titleRepair: generated.titleRepair } : {}),
+    deepseekCalls: generated.deepseekCalls,
     variants: document.sourceTopic.variants,
     placedLinks: generated.placedLinks,
     suggestedLinks: generated.suggestedLinks,

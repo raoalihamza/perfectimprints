@@ -706,6 +706,34 @@ export default defineType({
           description:
             'The blog categories every generated post is filed under. Left blank, a generated post has NO category until you pick one on the post: the engine never guesses a category, because a word rule reproduced your own choices less than half the time. If you want every generated post filed somewhere, put Promotional Product Ideas here.',
         },
+        // AUTO-208: the two switches Patrick owns. Both are read LIVE by the
+        // scheduler (one uncached read of this published document at the start
+        // of every firing), never through the cached site settings, so a flip
+        // takes effect at the very next firing. No initialValue on either: a
+        // blank `paused` means the automation RUNS (a switch field is named
+        // for what switching it ON does, so an unset toggle reads correctly),
+        // and a blank `publishMode` means every post is saved as a draft.
+        {
+          name: 'paused',
+          title: 'Pause the automatic blog posts',
+          type: 'boolean',
+          description:
+            'The blog engine writes two posts a night on its own (one at about 10 pm and one at about 4 am Florida time) from the Blog Topics list. Switch this ON to stop it; switch it OFF to let it run again. It takes effect at the next scheduled post, within hours, and never deletes anything. Left alone, the engine runs.',
+        },
+        {
+          name: 'publishMode',
+          title: 'What to do with each post the engine writes',
+          type: 'string',
+          options: {
+            list: [
+              { title: 'Save it as a draft for me to read and publish myself (the default)', value: 'draft' },
+              { title: 'Publish it straight away, with the publish date set to that moment', value: 'publish' },
+            ],
+            layout: 'radio',
+          },
+          description:
+            'Left blank, every post is saved as a draft and nothing goes live until you press Publish. Choose "Publish it straight away" only once you trust what the engine writes: a post then appears on the site within a minute of being written, before anyone has read it. The morning email tells you what was written either way.',
+        },
       ],
     }),
   ],

@@ -19,6 +19,14 @@ const QUOTE_TYPES = new Set(['quote', 'quoteResponse']);
  */
 const PORTFOLIO_TYPES = new Set(['portfolioItem', 'portfolioCategory']);
 
+/**
+ * Blog automation (AUTO-208): the scheduler's run log sits under its own item
+ * near the top, newest first, so Patrick can see what the engine did last
+ * night without hunting for a type filed under B. Read only; the morning
+ * email carries the same facts.
+ */
+const RUN_LOG_TYPES = new Set(['blogAutomationRun']);
+
 export const deskStructure: StructureResolver = (S) =>
   S.list()
     .title('Content')
@@ -35,6 +43,15 @@ export const deskStructure: StructureResolver = (S) =>
         .title('Mega Menu')
         .id('megaMenu')
         .child(S.document().schemaType('megaMenu').documentId('megaMenu')),
+      S.divider(),
+      S.listItem()
+        .title('Blog automation runs')
+        .id('blogAutomationRuns')
+        .child(
+          S.documentTypeList('blogAutomationRun')
+            .title('Blog automation runs (newest first)')
+            .defaultOrdering([{ field: 'claimedAt', direction: 'desc' }]),
+        ),
       S.divider(),
       S.listItem()
         .title('Quotes')
@@ -128,6 +145,6 @@ export const deskStructure: StructureResolver = (S) =>
       S.divider(),
       ...S.documentTypeListItems().filter((listItem) => {
         const id = listItem.getId() ?? '';
-        return !SINGLETON_TYPES.has(id) && !QUOTE_TYPES.has(id) && !PORTFOLIO_TYPES.has(id);
+        return !SINGLETON_TYPES.has(id) && !QUOTE_TYPES.has(id) && !PORTFOLIO_TYPES.has(id) && !RUN_LOG_TYPES.has(id);
       }),
     ]);
