@@ -11,7 +11,7 @@ import { OrderTodayCTA } from '@/components/blog/OrderTodayCTA';
 import { RelatedBlogsForPost } from '@/components/blog/RelatedBlogsForPost';
 import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { buildImageUrl, buildRenderImageUrl } from '@/lib/sanity/client';
-import { externalHeaderImageUrl } from '@/lib/blog/header-image';
+import { externalHeaderImageUrl, headerImageRenderSize } from '@/lib/blog/header-image';
 import { collectBlogProductSkus } from '@/lib/blog/collect-strip-skus';
 import {
   getBlogPostBySlug,
@@ -54,7 +54,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const canonical = `${SITE_URL}/blog/${post.slug.current}`;
   // The uploaded or generated asset, else the hot-linked product photo the
   // blog engine's last image fallback writes (AUTO-202), else the branded card.
-  const heroImage = buildImageUrl(post.headerImage, (b) => b.width(1200)) ?? externalHeaderImageUrl(post, 1200) ?? undefined;
+  // AUTO-209: a generated header is a PNG (the title is drawn on it), and the
+  // social image is served without `auto=format` (IMG-120: scrapers cache what
+  // they get), so a PNG header is asked for as a JPEG here (1.1 MB to 67 KB at
+  // 1200 wide, measured); an uploaded JPEG header is requested exactly as before.
+  const pngHeader = /-png$/.test(post.headerImage?.asset?._ref ?? '');
+  const heroImage = buildImageUrl(post.headerImage, (b) => (pngHeader ? b.width(1200).format('jpg') : b.width(1200))) ?? externalHeaderImageUrl(post, 1200) ?? undefined;
   return {
     title: post.metaTitle || `${post.title} | Perfect Imprints`,
     description: post.metaDescription || post.excerpt,
@@ -97,6 +102,8 @@ export default async function BlogPostPage({ params }: Props) {
 
   const canonical = `${SITE_URL}/blog/${post.slug.current}`;
   const heroImage = buildRenderImageUrl(post.headerImage, (b) => b.width(1400)) ?? externalHeaderImageUrl(post, 1400);
+  // AUTO-209 Part 7: explicit dimensions (Section 12), from the asset id, so the page does not shift while the hero loads.
+  const heroSize = headerImageRenderSize(post, 1400);
   // The BlogPosting `image` carries the uploaded or generated asset only
   // (byte-identical to before for every existing post). A hot-linked Geiger
   // product photo is shown on the page and in the social card but is NOT
@@ -212,6 +219,8 @@ export default async function BlogPostPage({ params }: Props) {
                 <img
                   src={heroImage}
                   alt={post.title}
+                  width={heroSize?.width}
+                  height={heroSize?.height}
                   className="h-auto w-full"
                 />
               </figure>

@@ -19,7 +19,8 @@
 //      one generation function, the publish transaction.
 //
 // maxDuration 300: the generation is 150 s of DeepSeek at most (AUTO-201's
-// deadline) + the 90 s image budget (AUTO-207) + a few seconds of reads and
+// deadline) + the 100 s image budget (AUTO-207's 90 s, raised by AUTO-209 for
+// the title on the picture) + a few seconds of reads and
 // the create; choosing the topic is a cached pool read plus a handful of
 // depth measurements (about a second each), or up to 93 s when the pool
 // cache is cold (AUTO-121's measured cold build, only after a deploy or

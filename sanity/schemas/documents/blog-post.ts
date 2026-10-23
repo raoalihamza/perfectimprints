@@ -4,6 +4,9 @@ import { inlineImageAlignField, inlineImageSizeField } from '../objects/inline-i
 // Pure and dependency-free, so the Studio bundle takes it (the quote.ts /
 // catalog-key.ts precedent); the repair script and the tests import the same rule.
 import { relatedCategorySlugProblem } from '../../../lib/blog/related-category-slugs';
+// AUTO-209: pure, no imports; the title drawn on a generated header picture
+// against the post's title.
+import { titleOnImageDrift } from '../../../lib/blog/header-image';
 
 export default defineType({
   name: 'blogPost',
@@ -40,9 +43,48 @@ export default defineType({
       title: 'Header Image',
       type: 'image',
       options: { hotspot: true },
-      fields: [{ name: 'alt', type: 'string', title: 'Alt text' }],
+      fields: [
+        { name: 'alt', type: 'string', title: 'Alt text' },
+        // AUTO-209: a generated picture carries the post's title, drawn by
+        // code. These three record what was drawn so the Studio can warn when
+        // the post's title changes, and so the title can be redrawn on the
+        // same picture for free. Written by the engine only; hidden otherwise.
+        {
+          name: 'titleOnImage',
+          type: 'string',
+          title: 'Title shown on the picture',
+          readOnly: true,
+          hidden: ({ value }) => !value,
+          description:
+            "The title the AI picture carries, exactly as drawn. If you change the post's title, redraw it (the button near Publish) so the picture and the post agree.",
+        },
+        {
+          name: 'untitledImage',
+          type: 'reference',
+          to: [{ type: 'sanity.imageAsset' }],
+          title: 'The same picture without the title',
+          readOnly: true,
+          hidden: ({ value }) => !value,
+          description: 'Kept so the title can be redrawn without making a new picture.',
+        },
+        {
+          name: 'titleTreatment',
+          type: 'string',
+          title: 'Title placement',
+          readOnly: true,
+          hidden: () => true,
+        },
+      ],
       description:
-        'Upload your own, or let the AI make one (Generate Blog with AI fills this when it is empty; Generate header image makes another). An image you upload is never replaced by Generate Blog with AI.',
+        "Upload your own, or let the AI make one (Generate Blog with AI fills this when it is empty; Generate header image makes another). An image you upload is never replaced by Generate Blog with AI. An AI picture carries the post's title, drawn on it by the site.",
+      // AUTO-209: a picture that shows an old title is wrong; a warning, never
+      // an error, because the fix is one button press and must never block Publish.
+      validation: (Rule) =>
+        Rule.custom((value, context) => {
+          const drawn = (value as { titleOnImage?: unknown } | undefined)?.titleOnImage;
+          const title = (context.document as { title?: unknown } | undefined)?.title;
+          return titleOnImageDrift(drawn, title) ?? true;
+        }).warning(),
     }),
     // AUTO-202: the LAST fallback of the header image chain, the post's first
     // product photo shown from Geiger's image server. A link, not an upload:

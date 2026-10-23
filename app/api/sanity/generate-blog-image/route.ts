@@ -16,7 +16,14 @@
 //   source 'ai'      the "Generate header image" button: the chain starts at
 //                    the AI regardless of any setting (Patrick pressed it);
 //   source 'default' Generate / Regenerate Blog with AI: the chain starts at
-//                    the post's own setting, else the site setting.
+//                    the post's own setting, else the site setting;
+//   source 'retitle' AUTO-209, the "Redraw title on header image" button:
+//                    NO chain and no model call; the post's current title is
+//                    drawn on the kept untitled copy of its generated picture
+//                    (lib/blog-automation/retitle-header-image.ts), in the
+//                    stored placement. Body: { title, untitledRef, treatment,
+//                    slug, keywords }. The asset must carry the site's own
+//                    upload marker, so an uploaded image is never drawn on.
 //
 // The browser sends the post's TITLE, its topic keywords, the SKUs of its
 // product strips and its related category slugs, and nothing else matters:
@@ -54,6 +61,7 @@ import { normalizeSku } from '@/lib/products/hidden-skus';
 import { isCleanRelatedCategorySlug } from '@/lib/blog/related-category-slugs';
 import { effectiveHeaderImageSource, headerImageSummary, headerImageWhat, headerImageWhy, type HeaderImageSource } from '@/lib/blog-automation/header-image';
 import { defaultHeaderImageDeps, noClientHeaderImageDeps, resolveHeaderImage } from '@/lib/blog-automation/resolve-header-image';
+import { retitleHeaderImage } from '@/lib/blog-automation/retitle-header-image';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -67,6 +75,11 @@ interface GenBody {
   slug?: unknown;
   source?: unknown;
   postSource?: unknown;
+  /** AUTO-209, source 'retitle' only. */
+  untitledRef?: unknown;
+  treatment?: unknown;
+  /** AUTO-210, sources 'ai' and 'default': the post's current title treatment, so a regenerate takes the next look. */
+  previousTreatment?: unknown;
 }
 
 const MAX_LIST = 40;
@@ -101,8 +114,37 @@ export async function POST(request: Request) {
   if (!title) {
     return NextResponse.json({ error: 'Add a title first: the image is made from the title and the product photos.' }, { status: 400 });
   }
-  const requested: 'ai' | 'default' = body.source === 'ai' ? 'ai' : 'default';
   const keywords = strings(body.keywords, 200);
+
+  // AUTO-209: the title redrawn on the kept untitled copy; no chain, no model, no cap slot.
+  if (body.source === 'retitle') {
+    const sanity = serverSanityClient();
+    if (!sanity) {
+      return NextResponse.json({ error: 'Server is missing SANITY_API_TOKEN / Sanity project config, so the picture could not be read or saved.' }, { status: 500 });
+    }
+    const slug = typeof body.slug === 'string' ? body.slug.trim() : '';
+    try {
+      const result = await retitleHeaderImage({
+        client: sanity,
+        untitledRef: body.untitledRef,
+        title,
+        topic: keywords[0] ?? title,
+        treatment: body.treatment,
+        slug: slug || title,
+        log: (line) => console.info(`[generate-blog-image] ${line}`),
+      });
+      if (result.ok === false) return NextResponse.json({ error: `${result.reason}. Nothing on the post was changed.` }, { status: 409 });
+      const outcome = { kind: 'asset' as const, source: 'ai' as const, image: result.image, notes: [] as string[] };
+      const what = `the same picture with the current title drawn on it${result.placementKept ? ', in the same place' : ' (the new title did not fit the old placement, so a new one was chosen)'}`;
+      return NextResponse.json({ ok: true, source: 'retitle', outcome, summary: `Header image: ${what}.`, what, why: '' });
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'The title could not be redrawn.';
+      console.error(`[generate-blog-image] retitle failed: ${message}`);
+      return NextResponse.json({ error: `${message} Nothing on the post was changed.` }, { status: 502 });
+    }
+  }
+
+  const requested: 'ai' | 'default' = body.source === 'ai' ? 'ai' : 'default';
   const skus = strings(body.skus, 40);
   const rootSlugs = strings(body.rootSlugs, 120).filter((s) => isCleanRelatedCategorySlug(s));
   const slug = typeof body.slug === 'string' ? body.slug.trim() : '';
@@ -149,6 +191,7 @@ export async function POST(request: Request) {
         slug: slug || title,
         clientMissing: !sanity,
         log: (line) => console.info(`[generate-blog-image] ${line}`),
+        previousTreatment: typeof body.previousTreatment === 'string' ? body.previousTreatment : undefined,
       },
       sanity ? defaultHeaderImageDeps(sanity) : noClientHeaderImageDeps(),
     );

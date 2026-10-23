@@ -71,7 +71,8 @@ describe('collectBlogProductSkus', () => {
     const page = readFileSync(join(ROOT, 'app/blog/[slug]/page.tsx'), 'utf8');
     expect(page).toContain("import { collectBlogProductSkus } from '@/lib/blog/collect-strip-skus';");
     expect(page).not.toMatch(/function collectBlogProductSkus\(/);
-    expect(page).toContain("import { externalHeaderImageUrl } from '@/lib/blog/header-image';");
+    // AUTO-209 added the hero's size helper to the same import.
+    expect(page).toContain("import { externalHeaderImageUrl, headerImageRenderSize } from '@/lib/blog/header-image';");
   });
 
   it('every blog card reader falls back to the hot link after the asset', () => {

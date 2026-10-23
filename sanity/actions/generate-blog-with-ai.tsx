@@ -68,7 +68,18 @@ import {
   type ImagePlan,
   type RegeneratePreview,
 } from './blog-generate-plan';
-import { capOf, generatedAssetRefOf, headerAssetRefOf, imageDetail, imageRequestBody, imageWhy, patchForOutcome, type ImageResponse } from './blog-image-request';
+import {
+  capOf,
+  generatedAssetRefOf,
+  generatedUntitledRefOf,
+  headerAssetRefOf,
+  imageDetail,
+  imageRequestBody,
+  imageWhy,
+  patchForOutcome,
+  untitledAssetRefOf,
+  type ImageResponse,
+} from './blog-image-request';
 import { useHeaderAssetDiscard } from '../components/useHeaderAssetDiscard';
 
 interface SuggestedLink {
@@ -165,12 +176,18 @@ function useBlogGenerateAction(props: DocumentActionProps, mode: Mode): Document
       if (changed) {
         const unusedRef = generatedAssetRefOf(data.outcome);
         if (unusedRef) discard.unused(unusedRef);
+        // AUTO-209: and the untitled copy made beside it.
+        const unusedUntitled = generatedUntitledRefOf(data.outcome);
+        if (unusedUntitled) discard.unused(unusedUntitled);
         return { status: 'kept', summary: 'The header image changed while the AI was working, so yours was kept.', cap };
       }
       patch.execute([{ set: toPatch.set }, { unset: toPatch.unset }]);
       // AUTO-207: the picture Regenerate replaced goes, if it was a generated one and nothing else uses it.
       const replacedRef = intent === 'replace' ? headerAssetRefOf(atClick) : null;
       if (replacedRef && replacedRef !== generatedAssetRefOf(data.outcome)) discard.afterReplace(replacedRef);
+      // AUTO-209: the replaced picture's untitled copy goes with it.
+      const replacedUntitled = intent === 'replace' ? untitledAssetRefOf(atClick) : null;
+      if (replacedUntitled && replacedUntitled !== generatedUntitledRefOf(data.outcome)) discard.afterReplace(replacedUntitled);
       return { status: intent === 'fill' ? 'filled' : 'replaced', summary: imageDetail(data), cap };
     } catch (e) {
       return { status: 'failed', summary: e instanceof Error ? e.message : 'The header image could not be made; the rest of the post is unaffected.' };

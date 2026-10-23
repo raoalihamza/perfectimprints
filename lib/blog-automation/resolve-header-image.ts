@@ -97,6 +97,10 @@ import {
   geigerReferenceUrl,
   headerImageAlt,
   headerImageFilename,
+  titledHeaderImageAlt,
+  titleRoomSideFor,
+  type SanityImageValue,
+  type TitleRoomSide,
   HEADER_IMAGE_ASPECT_RATIO,
   HEADER_IMAGE_SIZE,
   IMAGE_CHECK_READS,
@@ -118,9 +122,29 @@ import {
   type TileCheck,
 } from './header-image';
 import { reserveBlogImageCall, type BlogImageReservation } from './header-image-usage';
+import { TITLE_LAYOUT_RESPONSE_SCHEMA, buildTitleLayoutPrompt, parseTitleLayoutAnswer, previousLookOf, storedTreatmentOf, undrawableCharacters, type TitleLayoutAnswer, type TitleLookName } from './title-layout';
+import type { ComposedTitle } from './compose-title';
 
 /**
- * The whole chain's deadline (AUTO-207: 70 s to 90 s, raised deliberately).
+ * The whole chain's deadline (AUTO-209: 90 s to 100 s, raised deliberately
+ * for the title; AUTO-207: 70 s to 90 s).
+ *
+ * AUTO-209 ADDS, after the accepted picture: the title layout call, run
+ * BESIDE the close look so it costs only what it takes beyond it (measured
+ * 2.1 s median and 3.7 s worst against the close look's 5.3 s worst, and
+ * capped at TITLE_LAYOUT_TIMEOUT_MS = 8 s, so at most 8 - 5.3 = 2.7 s); the
+ * drawing (0.7 s median, 1.3 s worst, plus about 2.5 s the first time a
+ * function instance loads the WebAssembly: 4 s worst); and a larger upload
+ * (the titled PNG is about 1.7 MB against about 0.3 MB of JPEG, and the
+ * untitled original goes up beside it in parallel: about 2 s more). The two
+ * AUTO-207 sums become 85.5 + 2.7 + 4 + 2 = 94.2 s and 88.5 + 2.7 + 4 + 2 =
+ * 97.2 s; 100 s holds both. The title never costs the picture: with too
+ * little time left to draw it, the picture is stored untitled with a note.
+ * The routes: generate-blog-image keeps 120 s (100 + its reads); blog-topics
+ * keeps 270 s (150 + 3 + 100 + 3 = 256); the cron writer keeps 300 s (a warm
+ * pool, 150, 100 and the reads, about 260).
+ *
+ * AUTO-207's own arithmetic, unchanged:
  * Measured per step, worst observed: reference photos 2.1 s, the planner
  * 4.4 s (96 calls), a Pro generation 26 s (28 calls: AUTO-207's 20 at 15.8 to
  * 22.2 s, AUTO-206's 8 at 17 to 26 s), the two reads 6.7 s, the close look
@@ -134,17 +158,21 @@ import { reserveBlogImageCall, type BlogImageReservation } from './header-image-
  * 90 to 120 s, blog-topics 240 to 270 s). Do not widen it again without
  * re-doing both sums.
  */
-export const HEADER_IMAGE_BUDGET_MS = 90_000;
+export const HEADER_IMAGE_BUDGET_MS = 100_000;
 /** One generation's own timeout on GEMINI_IMAGE_MODEL (worst observed 26 s). */
 export const HEADER_IMAGE_GENERATE_TIMEOUT_MS = 45_000;
 /** One generation's own timeout on GEMINI_IMAGE_FALLBACK_MODEL (worst observed 22 s, AUTO-206). */
 export const HEADER_IMAGE_FALLBACK_GENERATE_TIMEOUT_MS = 30_000;
-/** A second attempt on GEMINI_IMAGE_MODEL is made only with this much budget left: a worst Pro picture, its reads, its close look and the upload (26 + 6.7 + 5.3 + 2). */
-export const HEADER_IMAGE_RETRY_MIN_REMAINING_MS = 40_000;
-/** A second attempt on GEMINI_IMAGE_FALLBACK_MODEL is made only with this much budget left (22 + 6.7 + 5.3 + 1). */
-export const HEADER_IMAGE_FALLBACK_MIN_REMAINING_MS = 35_000;
-/** Kept back from a generation's timeout for the reads, the close look and the upload that follow it (worst observed 6.7 + 5.3 s). */
-const AFTER_GENERATION_RESERVE_MS = 12_000;
+/** A second attempt on GEMINI_IMAGE_MODEL is made only with this much budget left: a worst Pro picture, its reads, its close look and the upload (26 + 6.7 + 5.3 + 2), and the title (AUTO-209: 2.7 + 4 + 2). */
+export const HEADER_IMAGE_RETRY_MIN_REMAINING_MS = 49_000;
+/** A second attempt on GEMINI_IMAGE_FALLBACK_MODEL is made only with this much budget left (22 + 6.7 + 5.3 + 1, and the title's 8.7). */
+export const HEADER_IMAGE_FALLBACK_MIN_REMAINING_MS = 44_000;
+/** Kept back from a generation's timeout for the reads, the close look, the title and the upload that follow it (worst observed 6.7 + 5.3 s, and AUTO-209's 2.7 + 4 + 2). */
+const AFTER_GENERATION_RESERVE_MS = 21_000;
+/** The drawing's own ceiling (AUTO-209; worst observed 1.3 s warm, about 4 s with the WebAssembly loading). */
+export const TITLE_COMPOSE_TIMEOUT_MS = 8_000;
+/** Kept back for the upload when deciding whether there is time to draw the title. */
+const TITLE_UPLOAD_RESERVE_MS = 5_000;
 /** The check's own ceiling (the measured read is about 2.5 s; the reads run in parallel). */
 const CHECK_TIMEOUT_MS = 15_000;
 /** Room for the whole listed answer (AUTO-204): eight entries are about 350 tokens; a cut-off answer cannot be parsed and refuses the picture. */
@@ -199,7 +227,7 @@ export interface HeaderImageDeps {
    * plan describes what they show. Null when the planner was unavailable (no
    * answer); throws `PlannerAnswerError` when it answered with nothing usable.
    */
-  plan: (args: { title: string; topic: string; productNames: readonly string[]; references: GeminiImageInput[] }) => Promise<PlannedScene | null>;
+  plan: (args: { title: string; topic: string; productNames: readonly string[]; references: GeminiImageInput[]; titleRoom?: TitleRoomSide | null }) => Promise<PlannedScene | null>;
   /** AUTO-207: `model` is GEMINI_IMAGE_MODEL, or GEMINI_IMAGE_FALLBACK_MODEL on the fallback attempt. */
   generate: (args: { prompt: string; references: GeminiImageInput[]; timeoutMs: number; model: string }) => Promise<GeneratedPicture>;
   /** ONE read of a generated picture; null when the check itself was unavailable. The chain calls it IMAGE_CHECK_READS times per picture. `context` says what the picture is about, so the check knows which objects are the product. */
@@ -211,6 +239,21 @@ export interface HeaderImageDeps {
    * provide it; the real deps always do.
    */
   checkRegion?: (image: GeminiImageInput, region: string) => Promise<TileCheck | null>;
+  /**
+   * AUTO-209: the title layout call on the finished picture (askTitleLayout):
+   * where the product is and which side is calm; null when it failed.
+   * Optional so a test's fake deps need not provide it; the real deps always
+   * do, and without it the product is not located and the side comes from
+   * the room rule.
+   */
+  chooseTitleLayout?: (image: GeminiImageInput, title: string, intendedRoom?: TitleRoomSide | null) => Promise<{ answer: TitleLayoutAnswer; usage: { model: string; promptTokens: number; outputTokens: number; elapsedMs: number } } | null>;
+  /**
+   * AUTO-209: draw the post's exact title onto the picture (compose-title.tsx
+   * composeTitledHeader). Null when the title cannot be drawn exactly; throws
+   * when the drawing fails. Optional for the same reason; WITHOUT it the
+   * picture is stored untitled, exactly as before AUTO-209.
+   */
+  composeTitle?: (args: { picture: GeminiImageInput; title: string; answer: TitleLayoutAnswer | null; seed: string; previous: TitleLookName | null; room: TitleRoomSide | null }) => Promise<ComposedTitle | null>;
   /** Store the bytes as a Sanity image asset; returns the asset document id. */
   upload: (bytes: Buffer, filename: string, contentType: string) => Promise<string>;
   now: () => number;
@@ -233,6 +276,13 @@ export interface ResolveHeaderImageInput {
   log?: (line: string) => void;
   /** AUTO-207: where a planner failure is said LOUDLY (default console.error, which Vercel keeps as an error line). */
   logError?: (line: string) => void;
+  /**
+   * AUTO-210: the post's current `headerImage.titleTreatment` (as stored),
+   * when this is a regenerate: the title then takes the look AFTER the one
+   * the post has now, so every regenerate gives a new look. Absent or
+   * unreadable means a first picture, and the rotation starts from the seed.
+   */
+  previousTreatment?: unknown;
 }
 
 /**
@@ -268,10 +318,10 @@ export function defaultHeaderImageDeps(client: SanityClient): HeaderImageDeps {
         usage: { imageTokens: out.usage.imageTokens, promptTokens: out.usage.promptTokens, elapsedMs: out.elapsedMs, model: out.model },
       };
     },
-    plan: async ({ title, topic, productNames, references }) => {
+    plan: async ({ title, topic, productNames, references, titleRoom }) => {
       // AUTO-207: the planner SEES the reference photos (the naming trap) and
       // answers through a response schema (the malformed answers).
-      const { system, user } = buildScenePlanPrompt({ title, topic, productNames, photos: references.length });
+      const { system, user } = buildScenePlanPrompt({ title, topic, productNames, photos: references.length, titleRoom });
       let data: unknown;
       let usage: PlannedScene['usage'];
       try {
@@ -316,6 +366,10 @@ export function defaultHeaderImageDeps(client: SanityClient): HeaderImageDeps {
         throw err;
       }
     },
+    chooseTitleLayout: (image, title, intendedRoom) => askTitleLayout(image, title, TITLE_LAYOUT_TIMEOUT_MS, intendedRoom ?? null),
+    // Loaded lazily: next/og (satori and resvg's WebAssembly) enters the
+    // process only when a title is actually drawn.
+    composeTitle: async (args) => (await import('./compose-title')).composeTitledHeader(args),
     upload: async (bytes, filename, contentType) => {
       // AUTO-207: the marker that lets lib/blog-automation/discard-header-image.ts
       // tell a generated header from a picture Patrick uploaded.
@@ -342,6 +396,55 @@ export function noClientHeaderImageDeps(): HeaderImageDeps {
     },
     now: () => Date.now(),
   };
+}
+
+/** The title layout call's own ceiling (AUTO-209; measured 2.1 s median and 3.7 s worst over 94 pictures, it runs beside the close look). */
+export const TITLE_LAYOUT_TIMEOUT_MS = 8_000;
+
+/** What the title layout call cost, for the usage line. */
+export interface TitleLayoutUsage {
+  model: string;
+  promptTokens: number;
+  outputTokens: number;
+  elapsedMs: number;
+}
+
+/**
+ * The title layout call (AUTO-209): the vision model looks at the FINISHED,
+ * checked picture and chooses where the title goes, from the vocabulary in
+ * title-layout.ts, through a response schema so the answer is always one of
+ * the names. It is told the title only so it knows how long it is; it is
+ * never asked to write it. Null when the call failed or answered nothing
+ * usable: the placement is then chosen from the picture in code.
+ */
+export async function askTitleLayout(
+  image: GeminiImageInput,
+  title: string,
+  timeoutMs = TITLE_LAYOUT_TIMEOUT_MS,
+  intendedRoom: TitleRoomSide | null = null,
+): Promise<{ answer: TitleLayoutAnswer; usage: TitleLayoutUsage } | null> {
+  const { system, user } = buildTitleLayoutPrompt(title, intendedRoom);
+  try {
+    const result = await generateJsonFromImages<unknown>({
+      system,
+      user,
+      images: [image],
+      maxOutputTokens: 512,
+      // A little warmth, so two similar pictures do not always get the same corner.
+      temperature: 0.4,
+      timeoutMs,
+      responseSchema: TITLE_LAYOUT_RESPONSE_SCHEMA,
+    });
+    const answer = parseTitleLayoutAnswer(result.data);
+    if (!answer.productBox && !answer.calmSide) return null;
+    return {
+      answer,
+      usage: { model: result.model, promptTokens: result.usage.promptTokens, outputTokens: result.usage.outputTokens + result.usage.thoughtTokens, elapsedMs: result.elapsedMs },
+    };
+  } catch (err) {
+    if (err instanceof GeminiError) return null;
+    throw err;
+  }
 }
 
 /** One Geiger product photo as inline data for the model; null on any failure. Only the Geiger host is ever fetched. */
@@ -470,6 +573,11 @@ async function aiStep(
 
   let previousProblem: string | null = null;
   let attempts = 0;
+  // AUTO-209: the third of the frame kept calm for the title, only when the
+  // title will actually be put on the picture (no compose step, no request).
+  const titleRoom: TitleRoomSide | null = deps.composeTitle ? titleRoomSideFor(input.slug || input.title) : null;
+  // AUTO-210: the look the post has now, so a regenerate takes the next one.
+  const previousLook = previousLookOf(input.previousTreatment);
   let usage: HeaderImageUsage | undefined;
   let references: GeminiImageInput[] | null = null;
   let names: string[] = [];
@@ -557,7 +665,7 @@ async function aiStep(
         tries = p;
         try {
           const got = await withDeadline(
-            deps.plan({ title: input.title, topic: input.topic, productNames: names, references }),
+            deps.plan({ title: input.title, topic: input.topic, productNames: names, references, titleRoom }),
             Math.min(PLAN_TIMEOUT_MS, remaining()),
             'the scene planner',
           );
@@ -601,7 +709,7 @@ async function aiStep(
     try {
       picture = await withDeadline(
         deps.generate({
-          prompt: buildHeaderImagePrompt({ title: input.title, topic: input.topic, productNames: drawNames, scene, previousProblem }),
+          prompt: buildHeaderImagePrompt({ title: input.title, topic: input.topic, productNames: drawNames, scene, previousProblem, titleRoom }),
           references: drawRefs,
           timeoutMs,
           model,
@@ -654,6 +762,16 @@ async function aiStep(
     );
     let problem = worstImageCheckProblem(reads);
     if (reads.every((r) => r === null)) notes.push('the text-and-logo check was unavailable, so the picture was accepted unchecked; look at it before publishing');
+    // AUTO-209: the title layout call looks at the picture the full reads
+    // passed, BESIDE the close look below, so it costs only what it takes
+    // beyond it. Its answer is used only if the close look passes too.
+    const layoutCall =
+      !problem && deps.chooseTitleLayout
+        ? withDeadline(deps.chooseTitleLayout(pictureInput, input.title, titleRoom), Math.min(TITLE_LAYOUT_TIMEOUT_MS, remaining()), 'the title layout call').catch((err) => {
+            log(`[header-image] title layout call unavailable: ${errorText(err)}`);
+            return null;
+          })
+        : Promise.resolve(null);
     // The tile pass (AUTO-205): six close looks, one per region, in parallel,
     // only on a picture the full reads passed; any logo seen refuses it like
     // a failed read. A region whose call failed is left out.
@@ -672,6 +790,7 @@ async function aiStep(
       problem = tilePassProblem(tiles);
       if (problem) log(`[header-image] tile pass refused attempt ${attempts}: ${problem}`);
     }
+    const layout = await layoutCall;
     if (problem) {
       log(`[header-image] check refused attempt ${attempts}: ${problem}`);
       if (attempts >= 2) {
@@ -686,11 +805,82 @@ async function aiStep(
       continue;
     }
 
+    // AUTO-209: the post's title, drawn by code onto the CHECKED picture. The
+    // order is the point: every read and the close look above saw the picture
+    // with no title on it, because the check refuses display text and would
+    // refuse our own title; the forbidden list is enforced on what the image
+    // model drew, and only then are our title and our logo added. The image
+    // model never draws the title. The title never costs the picture: if it
+    // cannot be drawn (no time, a character the font lacks, a drawing fault),
+    // the picture is stored untitled and the note says why.
+    let titled: ComposedTitle | null = null;
+    if (deps.composeTitle) {
+      const room = remaining() - TITLE_UPLOAD_RESERVE_MS;
+      if (room < 1_000) {
+        notes.push('there was no time left in the image budget to put the title on the picture, so it is stored without the title; press Generate another header image to try again');
+      } else {
+        try {
+          titled = await withDeadline(
+            deps.composeTitle({ picture: pictureInput, title: input.title, answer: layout?.answer ?? null, seed: input.slug || input.title, previous: previousLook, room: titleRoom }),
+            Math.min(TITLE_COMPOSE_TIMEOUT_MS, room),
+            'putting the title on the picture',
+          );
+          if (!titled) {
+            const missing = undrawableCharacters(input.title);
+            notes.push(
+              missing.length > 0
+                ? `the title has a character the title font cannot draw (${missing.join(' ')}), so the picture is stored without a title rather than with a wrong one`
+                : 'the post has no title to put on the picture, so it is stored without one',
+            );
+          }
+        } catch (err) {
+          logError(`[header-image] THE TITLE COULD NOT BE DRAWN for "${input.topic}": ${errorText(err)}`);
+          notes.push(`the title could not be put on the picture (${shortFailure(errorText(err))}), so it is stored without the title`);
+          titled = null;
+        }
+      }
+    }
+
     try {
-      const assetId = await withDeadline(deps.upload(picture.bytes, headerImageFilename(input.slug, attempts), picture.mimeType), remaining(), 'saving the picture');
+      let image: SanityImageValue;
+      if (titled) {
+        const photoName = headerImageFilename(input.slug, attempts, 'photo').replace(/\.jpg$/, picture.mimeType === 'image/png' ? '.png' : '.jpg');
+        const [assetId, photoId] = await Promise.all([
+          withDeadline(deps.upload(titled.bytes, headerImageFilename(input.slug, attempts, 'titled'), titled.mimeType), remaining(), 'saving the picture'),
+          // The untitled original, so a change of title can be redrawn for free. Not needed for the post itself.
+          withDeadline(deps.upload(picture.bytes, photoName, picture.mimeType), remaining(), 'saving the untitled copy').catch((err) => {
+            log(`[header-image] untitled copy not saved: ${errorText(err)}`);
+            return null;
+          }),
+        ]);
+        image = {
+          ...imageValueFor(assetId, titledHeaderImageAlt(titled.plan.title, input.topic)),
+          titleOnImage: titled.plan.title,
+          titleTreatment: JSON.stringify(storedTreatmentOf(titled.plan, layout?.answer ?? null)),
+        };
+        if (photoId) image.untitledImage = { _type: 'reference', _ref: photoId };
+        else notes.push('the untitled copy of the picture could not be saved, so a later change of title will need a new picture');
+        if (usage) {
+          usage.title = {
+            layout: titled.plan.layout,
+            previous: titled.plan.previous,
+            contrast: titled.plan.contrast,
+            size: titled.plan.text.size,
+            lines: titled.plan.text.lines.length,
+            composeMs: titled.ms,
+            layoutCall: layout?.usage ?? null,
+          };
+        }
+        log(
+          `[header-image] title ${titled.plan.layout}${titled.plan.previous ? ` (after ${titled.plan.previous})` : ''} size=${titled.plan.text.size} lines=${titled.plan.text.lines.length} contrast=${titled.plan.contrast}${titled.plan.measured ? '' : ' (not measured)'} calm=${layout?.answer.calmSide ?? 'none'} product=${layout?.answer.productBox ? 'located' : 'none'} ms=${titled.ms}${titled.plan.reasons.length ? ` (${titled.plan.reasons.join('; ')})` : ''}`,
+        );
+      } else {
+        const assetId = await withDeadline(deps.upload(picture.bytes, headerImageFilename(input.slug, attempts), picture.mimeType), remaining(), 'saving the picture');
+        image = imageValueFor(assetId, headerImageAlt(input.topic));
+      }
       if (attempts > 1 && previousProblem) notes.push(`the first picture showed ${previousProblem} and was replaced`);
       if (attempts > 1 && modelFailure && !previousProblem) notes.push(`the image model failed (${modelFailure}), so the backup model drew this picture`);
-      return { kind: 'asset', source: 'ai', image: imageValueFor(assetId, headerImageAlt(input.topic)), notes, usage };
+      return { kind: 'asset', source: 'ai', image, notes, usage };
     } catch (err) {
       notes.push(`the generated picture could not be saved: ${errorText(err)}`);
       log(`[header-image] upload failed: ${errorText(err)}`);

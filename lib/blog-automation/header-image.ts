@@ -166,6 +166,17 @@ export interface SanityImageValue {
   _type: 'image';
   asset: { _type: 'reference'; _ref: string };
   alt?: string;
+  /**
+   * AUTO-209: the title the picture CARRIES, exactly as drawn on it, set only
+   * when the title was put on a generated picture. The Studio warns when the
+   * post's title no longer matches it, because a picture that shows an old
+   * title is wrong.
+   */
+  titleOnImage?: string;
+  /** AUTO-209: the same picture without the title, kept so the title can be redrawn for free when the post's title changes. */
+  untitledImage?: { _type: 'reference'; _ref: string };
+  /** AUTO-209: which look the title has and where the product was (title-layout.ts StoredTitleTreatment, as JSON), so a redraw keeps the same look and a regenerate takes the next one (AUTO-210). */
+  titleTreatment?: string;
 }
 
 /**
@@ -480,6 +491,50 @@ export const PLANNER_DEVICE_RULE =
   '- No laptops, computers, monitors, tablets or phones anywhere in the scene, not even partly visible and not even when the product is used with one: a picture with any such device in it is rejected. A product that attaches to a phone, a tablet or a laptop is planned on its own, unattached, on a surface or in a hand.';
 
 /**
+ * ROOM FOR THE TITLE (AUTO-209). The post's title is laid over the finished
+ * picture by code (title-layout.ts), and a picture composed edge to edge with
+ * no idea that text is coming leaves no calm place for it: over AUTO-206's
+ * and AUTO-207's 94 pictures the title went onto a band at the top or the
+ * bottom 54 times, because every corner and side covered the product. So the
+ * planner and the image model are both told to keep one third of the frame
+ * calm and empty, and WHICH third rotates by the post's own seed (left or
+ * right; AUTO-210 dropped the top, because every surviving look sits down
+ * one side or along the bottom), so posts do not all compose alike and the
+ * title does not always land in the same place. The bottom is not offered:
+ * the surface the product stands on is usually there, and the lower-third
+ * look darkens it rather than needing it empty.
+ */
+export type TitleRoomSide = 'left' | 'right';
+export const TITLE_ROOM_SIDES: readonly TitleRoomSide[] = ['left', 'right'];
+
+/** The third of the frame kept calm for this post, stable for the same seed (its slug, else its title). */
+export function titleRoomSideFor(seed: string): TitleRoomSide {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < seed.length; i += 1) {
+    h ^= seed.charCodeAt(i);
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  // The avalanche step: plain FNV-1a's low bits clump on similar slugs.
+  h ^= h >>> 16;
+  h = Math.imul(h, 0x45d9f3b) >>> 0;
+  h ^= h >>> 16;
+  // `^` gives a signed 32-bit number; `>>> 0` makes it unsigned again before the modulo.
+  return TITLE_ROOM_SIDES[(h >>> 0) % TITLE_ROOM_SIDES.length];
+}
+
+const ROOM_PHRASE: Readonly<Record<TitleRoomSide, string>> = { left: 'left third', right: 'right third' };
+
+/** The planner's half of the room rule. */
+export function plannerRoomRule(side: TitleRoomSide): string {
+  return `- Leave room for the title: the ${ROOM_PHRASE[side]} of the frame stays calm and empty (the post's title is laid over it later). Plan the product and the things around it in the rest of the frame, and keep the scene simple.`;
+}
+
+/** The image prompt's half of the room rule. */
+export function imageRoomRule(side: TitleRoomSide): string {
+  return `- Leave room for the title: a designer lays the post's title over this photograph afterwards. Keep the ${ROOM_PHRASE[side]} of the frame calm and empty: a plain wall, the sky, a soft out of focus background or a bare stretch of surface, with no objects in it. Put the product and everything that matters in the rest of the frame. Draw no title, words or letters in that area or anywhere for it: the area is left empty.`;
+}
+
+/**
  * AUTO-207: the scene planner's answer, as a response schema (Google's
  * OpenAPI subset). With it the model's decoding is constrained to this shape,
  * which removes the malformed answers AUTO-206 saw (3 in 64: a dropped key
@@ -536,6 +591,8 @@ export interface ScenePlanPromptInput {
   productNames: readonly string[];
   /** AUTO-207: how many reference photos are attached to the planner call, in the order of `productNames`; 0 for a text-only call. */
   photos?: number;
+  /** AUTO-209: the third of the frame kept calm for the title; absent, the prompt is as before. */
+  titleRoom?: TitleRoomSide | null;
 }
 
 /** The planner's instructions: a JSON scene for this product, physically correct, with the text rule stated. */
@@ -562,6 +619,7 @@ export function buildScenePlanPrompt(input: ScenePlanPromptInput): { system: str
       '- The things around the product must not need writing to be recognised: prefer tools, bowls, plants, fabric, food. No signs, banners, booths, screens, name plates, awards, labelled packaging or book and magazine covers; a book or paper, if any, is open to pages too small to read.',
       PLANNER_DEVICE_RULE,
       ARRANGEMENT_RULE,
+      ...(input.titleRoom ? [plannerRoomRule(input.titleRoom)] : []),
       ...(photos > 0
         ? [
             ARRANGEMENT_FROM_PHOTOS_RULE,
@@ -650,6 +708,8 @@ export interface HeaderImagePromptInput {
   scene?: ScenePlan | null;
   /** Set on the one retry: what the check found in the previous attempt. */
   previousProblem?: string | null;
+  /** AUTO-209: the third of the frame kept calm for the title; absent, the prompt is as before. */
+  titleRoom?: TitleRoomSide | null;
 }
 
 /**
@@ -752,6 +812,7 @@ export function buildHeaderImagePrompt(input: HeaderImagePromptInput): string {
   if (scene?.avoid) {
     lines.push(`- The placement must be physically possible for this product. Physically wrong, and not to be shown: ${scene.avoid}.`);
   }
+  if (input.titleRoom) lines.push(imageRoomRule(input.titleRoom));
   lines.push('- No close-up faces. People, if any, are in the background and out of focus.');
   lines.push('- Natural daylight, soft shadows, shallow depth of field, an editorial photography look. Not an illustration, not a collage, no borders, no frames, no watermark.');
   if (input.previousProblem?.trim()) {
@@ -773,10 +834,29 @@ export function headerImageAlt(topic: string): string {
   return `${t || 'Promotional products'} shown blank and unbranded in a business setting (illustrative image)`;
 }
 
-/** The asset filename, so a picture in Studio's media library says which post and attempt it was. */
-export function headerImageFilename(slug: string, attempt: number): string {
+/**
+ * The alt text for a generated picture that carries the title (AUTO-209):
+ * the title first, because a reader who cannot see the picture should hear
+ * what it says, then what is under it. No longer "blank and unbranded": the
+ * picture now carries the post's title and the Perfect Imprints logo.
+ */
+export function titledHeaderImageAlt(title: string, topic: string): string {
+  const t = title.replace(/\s+/g, ' ').trim();
+  const what = topic.replace(/\s+/g, ' ').trim().toLowerCase() || 'promotional products';
+  return `${t}${/[.!?]$/.test(t) ? '' : '.'} The post's title over an illustrative photo of ${what} in a business setting`;
+}
+
+/**
+ * The asset filename, so a picture in Studio's media library says which post
+ * and attempt it was. AUTO-209: the titled picture is a PNG (`.png`), and the
+ * untitled original kept beside it is `-photo`; the plain form is unchanged.
+ */
+export function headerImageFilename(slug: string, attempt: number, kind: 'plain' | 'titled' | 'photo' = 'plain'): string {
   const base = slug.trim().replace(/[^a-z0-9-]/gi, '').slice(0, 60) || 'blog-header';
-  return `${base}-header${attempt > 1 ? `-${attempt}` : ''}.jpg`;
+  const n = attempt > 1 ? `-${attempt}` : '';
+  if (kind === 'titled') return `${base}-header${n}.png`;
+  if (kind === 'photo') return `${base}-header${n}-photo.jpg`;
+  return `${base}-header${n}.jpg`;
 }
 
 // -- The check -------------------------------------------------------------------
@@ -1172,6 +1252,22 @@ export interface HeaderImageUsage {
   planner?: { model: string; promptTokens: number; outputTokens: number; elapsedMs: number } | null;
   /** AUTO-203: the plan the picture was drawn from, for the report and the Studio dialog. */
   scene?: ScenePlan | null;
+  /**
+   * AUTO-209: the title put on the picture: the placement and fill used, the
+   * contrast the text got, the size it was set at, how long the layout call
+   * and the drawing took, and the layout call's tokens (null when it failed
+   * or ran out of time, and the placement was chosen from the picture).
+   */
+  title?: {
+    layout: string;
+    /** AUTO-210: the look the post had before this picture, when it was a regenerate. */
+    previous: string | null;
+    contrast: number;
+    size: number;
+    lines: number;
+    composeMs: number;
+    layoutCall: { model: string; promptTokens: number; outputTokens: number; elapsedMs: number } | null;
+  } | null;
 }
 
 export type HeaderImageOutcome =
@@ -1181,7 +1277,11 @@ export type HeaderImageOutcome =
 
 /** What the header image is, with no label and no full stop: the part every surface words the same. */
 export function headerImageWhat(outcome: HeaderImageOutcome): string {
-  if (outcome.kind === 'asset' && outcome.source === 'ai') return "generated by the AI from the post's product photos";
+  if (outcome.kind === 'asset' && outcome.source === 'ai') {
+    return outcome.image.titleOnImage
+      ? "generated by the AI from the post's product photos, with the post's title put on it"
+      : "generated by the AI from the post's product photos";
+  }
   if (outcome.kind === 'asset') return 'a picture from the header image library';
   if (outcome.kind === 'url') return "the post's first product photo, shown from Geiger's image server";
   return 'none';

@@ -180,11 +180,13 @@ describe('the choice and the generation', () => {
 });
 
 describe('the untouched modules still say what they said', () => {
-  it('COMPARISON_IN_ROTATION stays false, the list floor 5, the title ceiling 75, the image budget 90 s, the image cap 20', () => {
+  it('COMPARISON_IN_ROTATION stays false, the list floor 5, the title ceiling 75, the image budget 100 s, the image cap 20', () => {
     expect(COMPARISON_IN_ROTATION).toBe(false);
     expect(LIST_IDEAS_MIN).toBe(5);
     expect(TITLE_MAX_CHARS).toBe(75);
-    expect(HEADER_IMAGE_BUDGET_MS).toBe(90_000);
+    // AUTO-209 raised it deliberately from 90 s (the title layout call, the drawing and the larger
+    // upload; the redone sum is on the constant). It must not move again without redoing it.
+    expect(HEADER_IMAGE_BUDGET_MS).toBe(100_000);
     expect(BLOG_IMAGE_AI_DAILY_CAP).toBe(20);
   });
 

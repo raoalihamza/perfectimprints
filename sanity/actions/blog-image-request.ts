@@ -13,7 +13,12 @@ export interface BlogImageDoc {
   title?: unknown;
   slug?: { current?: unknown } | null;
   body?: unknown;
-  headerImage?: { asset?: { _ref?: unknown } | null } | null;
+  headerImage?: {
+    asset?: { _ref?: unknown } | null;
+    untitledImage?: { _ref?: unknown } | null;
+    titleOnImage?: unknown;
+    titleTreatment?: unknown;
+  } | null;
   externalHeaderImage?: { url?: unknown } | null;
   headerImageSource?: unknown;
   aiTopicKeywords?: unknown;
@@ -25,7 +30,15 @@ export interface BlogImageDoc {
 export interface ImageOutcome {
   kind: 'asset' | 'url' | 'none';
   source?: 'ai' | 'library' | 'product';
-  image?: { _type: 'image'; asset: { _type: 'reference'; _ref: string }; alt?: string };
+  image?: {
+    _type: 'image';
+    asset: { _type: 'reference'; _ref: string };
+    alt?: string;
+    /** AUTO-209: set when the title was drawn on the picture. */
+    titleOnImage?: string;
+    untitledImage?: { _type: 'reference'; _ref: string };
+    titleTreatment?: string;
+  };
   url?: string;
   alt?: string;
   notes?: string[];
@@ -90,6 +103,24 @@ export function generatedAssetRefOf(outcome: ImageOutcome | undefined): string |
   return outcome?.kind === 'asset' && outcome.source === 'ai' && typeof outcome.image?.asset?._ref === 'string' ? outcome.image.asset._ref : null;
 }
 
+/** AUTO-209: the untitled copy kept beside a generated picture on the post, or null. Goes wherever the picture goes. */
+export function untitledAssetRefOf(doc: BlogImageDoc | null | undefined): string | null {
+  const ref = doc?.headerImage?.untitledImage?._ref;
+  return typeof ref === 'string' && ref ? ref : null;
+}
+
+/** AUTO-209: the untitled copy in a generated answer, or null. */
+export function generatedUntitledRefOf(outcome: ImageOutcome | undefined): string | null {
+  const ref = outcome?.kind === 'asset' && outcome.source === 'ai' ? outcome.image?.untitledImage?._ref : undefined;
+  return typeof ref === 'string' && ref ? ref : null;
+}
+
+/** AUTO-209: the title the post's picture carries, or null (an upload, a product photo, an older generated picture). */
+export function titleOnImageOf(doc: BlogImageDoc | null | undefined): string | null {
+  const t = doc?.headerImage?.titleOnImage;
+  return typeof t === 'string' && t.trim() ? t : null;
+}
+
 /** True when the post has a header image of either shape. */
 export function hasHeaderImage(doc: BlogImageDoc | null | undefined): boolean {
   return headerImageSignature(doc) !== '';
@@ -104,6 +135,7 @@ export function imageRequestBody(doc: BlogImageDoc | null | undefined, source: '
   const keywords = strings(doc?.aiTopicKeywords);
   const topic = doc?.sourceTopic?.query;
   const postSource = doc?.headerImageSource;
+  const treatment = doc?.headerImage?.titleTreatment;
   return {
     title: typeof doc?.title === 'string' ? doc.title : '',
     keywords: keywords.length > 0 ? keywords : typeof topic === 'string' && topic.trim() ? [topic.trim()] : [],
@@ -112,6 +144,27 @@ export function imageRequestBody(doc: BlogImageDoc | null | undefined, source: '
     slug: typeof doc?.slug?.current === 'string' ? doc.slug.current : '',
     source,
     postSource: typeof postSource === 'string' ? postSource : undefined,
+    // AUTO-210: the look the post's picture has now, so a regenerate takes the next one.
+    previousTreatment: typeof treatment === 'string' && treatment ? treatment : undefined,
+  };
+}
+
+/**
+ * AUTO-209: what "Redraw title on header image" sends: the post's current
+ * title, the untitled copy's id, the stored placement, the slug and the topic
+ * (for the alt text). No SKUs, no URL: the route reads the asset itself and
+ * refuses anything that is not a picture the site generated.
+ */
+export function retitleRequestBody(doc: BlogImageDoc | null | undefined) {
+  const keywords = strings(doc?.aiTopicKeywords);
+  const topic = doc?.sourceTopic?.query;
+  return {
+    source: 'retitle' as const,
+    title: typeof doc?.title === 'string' ? doc.title : '',
+    untitledRef: untitledAssetRefOf(doc),
+    treatment: typeof doc?.headerImage?.titleTreatment === 'string' ? doc.headerImage.titleTreatment : null,
+    slug: typeof doc?.slug?.current === 'string' ? doc.slug.current : '',
+    keywords: keywords.length > 0 ? keywords : typeof topic === 'string' && topic.trim() ? [topic.trim()] : [],
   };
 }
 

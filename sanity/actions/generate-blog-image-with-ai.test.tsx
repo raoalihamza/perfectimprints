@@ -45,6 +45,7 @@ vi.mock('../components/useHeaderAssetDiscard', () => ({
 import { generateBlogImageWithAi } from './generate-blog-image-with-ai';
 // eslint-disable-next-line import/first
 import { setBlogActionRunning } from './blog-running';
+import { imageRequestBody } from './blog-image-request';
 // eslint-disable-next-line import/first
 import { headerImageSummary, headerImageWhat, headerImageWhy, type HeaderImageOutcome } from '../../lib/blog-automation/header-image';
 
@@ -175,6 +176,22 @@ describe('Generate header image', () => {
     // AUTO-207: the picture it replaced is handed to the guarded rule (which keeps an upload like this one); nothing was unused.
     expect(mocks.afterReplace.mock.calls).toEqual([['image-uploaded-2000x1125-jpg']]);
     expect(mocks.unused).not.toHaveBeenCalled();
+  });
+
+  it('AUTO-210: a generated picture\'s title treatment travels with the request, so the regenerate takes the next look', async () => {
+    const titled = { headerImage: { _type: 'image', asset: { _type: 'reference', _ref: 'image-generated-1376x768-png' }, titleOnImage: 'Custom Tote Bags', untitledImage: { _type: 'reference', _ref: 'image-photo-1376x768-jpg' }, titleTreatment: '{"layout":"panel-left","productBox":null}' } };
+    await render(propsFor({ ...base, ...titled }));
+    await act(async () => {
+      action!.onHandle!();
+    });
+    await act(async () => {
+      (action!.dialog as { onConfirm: () => void }).onConfirm();
+    });
+    expect(mocks.authFetch).toHaveBeenCalledTimes(1);
+    const [, init] = mocks.authFetch.mock.calls[0] as [string, RequestInit];
+    expect(JSON.parse(init.body as string)).toMatchObject({ source: 'ai', previousTreatment: '{"layout":"panel-left","productBox":null}' });
+    // A post with no generated picture sends none.
+    expect(JSON.parse(JSON.stringify(imageRequestBody(base as never, 'ai')))).not.toHaveProperty('previousTreatment');
   });
 
   it('AUTO-207: with no image before, nothing is handed to the removal rule', async () => {

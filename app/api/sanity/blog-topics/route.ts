@@ -136,6 +136,8 @@ export const dynamic = 'force-dynamic';
  * to 90 s (HEADER_IMAGE_BUDGET_MS, the Pro image model; the arithmetic is on
  * that constant). 150 s DeepSeek + about 3 s of drafts reads + 90 s image +
  * about 3 s of field reads and the create is 246 s; 270 leaves room to answer.
+ * AUTO-209 raised the image budget to 100 s (the title put on the picture):
+ * 150 + 3 + 100 + 3 is 256 s, still inside 270, so this is unchanged.
  */
 export const maxDuration = 270;
 

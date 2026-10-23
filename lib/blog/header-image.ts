@@ -70,3 +70,58 @@ export function externalHeaderImageAlt(post: BlogHeaderImageFields | null | unde
   const alt = post?.externalHeaderImage?.alt?.trim();
   return alt ? alt : null;
 }
+
+// -- AUTO-209: the title on the picture, and the picture's size ------------------
+
+/**
+ * The post's title no longer matches the title drawn ON its header picture
+ * (AUTO-209). Returns the Studio warning to show, or null when they agree or
+ * the picture carries no title. Compared ignoring case, spacing and the two
+ * shapes of apostrophe and quote, because the drawn title is the stored title
+ * exactly and only an EDIT should warn.
+ */
+export function titleOnImageDrift(titleOnImage: unknown, title: unknown): string | null {
+  if (typeof titleOnImage !== 'string' || typeof title !== 'string') return null;
+  const fold = (t: string) =>
+    t
+      .replace(/[\u2018\u2019]/g, "'")
+      .replace(/[\u201C\u201D]/g, '"')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .toLowerCase();
+  const drawn = fold(titleOnImage);
+  if (!drawn || drawn === fold(title)) return null;
+  return `The header picture shows the title "${titleOnImage.trim()}", which no longer matches this post's title. Press "Redraw title on header image" (free, a few seconds) to put the current title on the same picture, or Generate another header image for a new picture.`;
+}
+
+/**
+ * The size the header `<img>` is rendered at (AUTO-209 Part 7; Section 12
+ * wants explicit dimensions so the page does not shift while it loads): the
+ * asset's own pixel size, read from its id (`image-<sha>-<w>x<h>-<ext>`, the
+ * same id the URL builder parses), scaled to `width`, with the Studio crop
+ * frame taken off first the way the URL builder applies it; a square
+ * `width x width` for the hot-linked Geiger photo (Geiger's variants are
+ * square); null when nothing can be told, and the `<img>` is then as it was.
+ */
+export function headerImageRenderSize(
+  post:
+    | (BlogHeaderImageFields & {
+        headerImage?: { crop?: { top?: number; bottom?: number; left?: number; right?: number } | null } | null;
+      })
+    | null
+    | undefined,
+  width: number,
+): { width: number; height: number } | null {
+  const ref = post?.headerImage?.asset?._ref;
+  if (typeof ref === 'string' && ref) {
+    const m = /-(\d+)x(\d+)-[a-z0-9]+$/.exec(ref);
+    if (!m) return null;
+    const crop = post?.headerImage?.crop ?? null;
+    const frac = (v: unknown) => (typeof v === 'number' && Number.isFinite(v) && v > 0 && v < 1 ? v : 0);
+    const w = Number(m[1]) * (1 - frac(crop?.left) - frac(crop?.right));
+    const h = Number(m[2]) * (1 - frac(crop?.top) - frac(crop?.bottom));
+    if (!(w > 0) || !(h > 0)) return null;
+    return { width, height: Math.round((width * h) / w) };
+  }
+  return externalHeaderImageUrl(post, width) ? { width, height: width } : null;
+}

@@ -38,7 +38,9 @@ import { useGenerateAuthFetch } from '../components/useGenerateAuthFetch';
 import {
   capOf,
   generatedAssetRefOf,
+  generatedUntitledRefOf,
   headerAssetRefOf,
+  untitledAssetRefOf,
   headerImageSignature,
   imageRequestBody,
   imageWhy,
@@ -127,6 +129,9 @@ export const generateBlogImageWithAi: DocumentActionComponent = (props) => {
         // AUTO-207: the picture made for nothing is removed, not left in the media library.
         const unusedRef = generatedAssetRefOf(data.outcome);
         if (unusedRef) discard.unused(unusedRef);
+        // AUTO-209: and the untitled copy made beside it.
+        const unusedUntitled = generatedUntitledRefOf(data.outcome);
+        if (unusedUntitled) discard.unused(unusedUntitled);
         setOutcome({ summary, why, source, kept: 'changed', cap });
         return;
       }
@@ -134,6 +139,9 @@ export const generateBlogImageWithAi: DocumentActionComponent = (props) => {
       // AUTO-207: the picture this replaced goes, if it was a generated one and nothing else uses it.
       const replacedRef = headerAssetRefOf(atClick);
       if (replacedRef && replacedRef !== generatedAssetRefOf(data.outcome)) discard.afterReplace(replacedRef);
+      // AUTO-209: the replaced picture's untitled copy goes with it (the same guarded rule: ours, and referenced by nothing).
+      const replacedUntitled = untitledAssetRefOf(atClick);
+      if (replacedUntitled && replacedUntitled !== generatedUntitledRefOf(data.outcome)) discard.afterReplace(replacedUntitled);
       setOutcome({ summary, why, source, kept: null, cap });
     } catch (e) {
       setError(e instanceof Error ? e.message : 'The header image could not be made. Nothing on the post was changed.');

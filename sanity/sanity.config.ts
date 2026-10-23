@@ -7,6 +7,7 @@ import { generateWithAi } from './actions/generate-with-ai';
 import { generateSchemaWithAi } from './actions/generate-schema-with-ai';
 import { generateBlogWithAi, regenerateBlogWithAi } from './actions/generate-blog-with-ai';
 import { generateBlogImageWithAi } from './actions/generate-blog-image-with-ai';
+import { redrawBlogTitle } from './actions/redraw-blog-title';
 import { withPublishDateStamp } from './actions/stamp-publish-date';
 import { generateVideoWithAi } from './actions/generate-video-with-ai';
 import { generatePageWithAi } from './actions/generate-page-with-ai';
@@ -68,6 +69,9 @@ export default defineConfig({
           regenerateBlogWithAi,
           // AUTO-202: "Generate header image" / "Generate another header image".
           generateBlogImageWithAi,
+          // AUTO-209: "Redraw title on header image", shown only when the
+          // post's title no longer matches the title drawn on its picture.
+          redrawBlogTitle,
         ];
       }
       if (context.schemaType === 'video') return [...prev, generateVideoWithAi];

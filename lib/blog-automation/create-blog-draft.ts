@@ -162,9 +162,13 @@ export interface CreatedBlogDraft {
 async function discardGeneratedPicture(client: DraftWriter, outcome: HeaderImageOutcome): Promise<void> {
   if (outcome.kind !== 'asset' || outcome.source !== 'ai') return;
   if (typeof client.delete !== 'function' || typeof client.fetch !== 'function') return;
-  const result = await discardGeneratedHeaderImage(client as unknown as AssetDiscardClient, outcome.image.asset._ref);
-  if (result.deleted !== true) {
-    console.error(`[create-blog-draft] the unused picture ${outcome.image.asset._ref} was kept (${result.reason}${result.detail ? `: ${result.detail}` : ''})`);
+  // AUTO-209: the titled picture and, when there is one, the untitled copy kept beside it.
+  const refs = [outcome.image.asset._ref, ...(outcome.image.untitledImage?._ref ? [outcome.image.untitledImage._ref] : [])];
+  for (const ref of refs) {
+    const result = await discardGeneratedHeaderImage(client as unknown as AssetDiscardClient, ref);
+    if (result.deleted !== true) {
+      console.error(`[create-blog-draft] the unused picture ${ref} was kept (${result.reason}${result.detail ? `: ${result.detail}` : ''})`);
+    }
   }
 }
 
