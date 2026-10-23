@@ -15,7 +15,7 @@ export interface BlogImageDoc {
   body?: unknown;
   headerImage?: {
     asset?: { _ref?: unknown } | null;
-    untitledImage?: { _ref?: unknown } | null;
+    untitledImage?: { asset?: { _ref?: unknown } | null } | null;
     titleOnImage?: unknown;
     titleTreatment?: unknown;
   } | null;
@@ -36,7 +36,7 @@ export interface ImageOutcome {
     alt?: string;
     /** AUTO-209: set when the title was drawn on the picture. */
     titleOnImage?: string;
-    untitledImage?: { _type: 'reference'; _ref: string };
+    untitledImage?: { _type: 'image'; asset: { _type: 'reference'; _ref: string } };
     titleTreatment?: string;
   };
   url?: string;
@@ -105,13 +105,13 @@ export function generatedAssetRefOf(outcome: ImageOutcome | undefined): string |
 
 /** AUTO-209: the untitled copy kept beside a generated picture on the post, or null. Goes wherever the picture goes. */
 export function untitledAssetRefOf(doc: BlogImageDoc | null | undefined): string | null {
-  const ref = doc?.headerImage?.untitledImage?._ref;
+  const ref = doc?.headerImage?.untitledImage?.asset?._ref;
   return typeof ref === 'string' && ref ? ref : null;
 }
 
 /** AUTO-209: the untitled copy in a generated answer, or null. */
 export function generatedUntitledRefOf(outcome: ImageOutcome | undefined): string | null {
-  const ref = outcome?.kind === 'asset' && outcome.source === 'ai' ? outcome.image?.untitledImage?._ref : undefined;
+  const ref = outcome?.kind === 'asset' && outcome.source === 'ai' ? outcome.image?.untitledImage?.asset?._ref : undefined;
   return typeof ref === 'string' && ref ? ref : null;
 }
 

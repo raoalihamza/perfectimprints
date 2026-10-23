@@ -179,7 +179,7 @@ describe('the order: checked untitled, titled after, stored titled (AUTO-209)', 
     expect(h.uploads.find((u) => u.bytes === 'untitled-picture-1')?.filename).toBe('custom-tote-bags-a-buyers-guide-header-photo.jpg');
     expect(out.image.asset._ref).toBe(`image-up${h.uploads.indexOf(titled!) + 1}-1376x768-png`);
     expect(out.image.titleOnImage).toBe("Custom Tote Bags: A Buyer's Guide for Bulk Orders");
-    expect(out.image.untitledImage?._ref).toMatch(/-jpg$/);
+    expect(out.image.untitledImage?.asset._ref).toMatch(/-jpg$/);
     expect(parseStoredTreatment(out.image.titleTreatment)?.layout).toBe('panel-left');
     expect(out.image.alt).toBe("Custom Tote Bags: A Buyer's Guide for Bulk Orders. The post's title over an illustrative photo of custom tote bags in a business setting");
     expect(out.usage?.title?.layout).toBe('panel-left');

@@ -163,7 +163,7 @@ async function discardGeneratedPicture(client: DraftWriter, outcome: HeaderImage
   if (outcome.kind !== 'asset' || outcome.source !== 'ai') return;
   if (typeof client.delete !== 'function' || typeof client.fetch !== 'function') return;
   // AUTO-209: the titled picture and, when there is one, the untitled copy kept beside it.
-  const refs = [outcome.image.asset._ref, ...(outcome.image.untitledImage?._ref ? [outcome.image.untitledImage._ref] : [])];
+  const refs = [outcome.image.asset._ref, ...(outcome.image.untitledImage?.asset?._ref ? [outcome.image.untitledImage.asset._ref] : [])];
   for (const ref of refs) {
     const result = await discardGeneratedHeaderImage(client as unknown as AssetDiscardClient, ref);
     if (result.deleted !== true) {

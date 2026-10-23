@@ -27,7 +27,7 @@ const ASSET_MAX_BYTES = 12 * 1024 * 1024;
 
 export interface RetitleArgs {
   client: SanityClient;
-  /** `headerImage.untitledImage._ref`: the picture without the title. */
+  /** `headerImage.untitledImage.asset._ref`: the picture without the title. */
   untitledRef: unknown;
   /** The post's current title, drawn exactly. */
   title: string;
@@ -103,7 +103,7 @@ export async function retitleHeaderImage(args: RetitleArgs): Promise<RetitleResu
   const image: SanityImageValue = {
     ...imageValueFor(asset._id, titledHeaderImageAlt(composed.plan.title, args.topic)),
     titleOnImage: composed.plan.title,
-    untitledImage: { _type: 'reference', _ref: id },
+    untitledImage: { _type: 'image', asset: { _type: 'reference', _ref: id } },
     titleTreatment: JSON.stringify(storedTreatmentOf(composed.plan, answer)),
   };
   const placementKept = stored?.forced === composed.plan.layout;

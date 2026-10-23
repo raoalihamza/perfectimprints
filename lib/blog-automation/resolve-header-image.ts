@@ -858,7 +858,7 @@ async function aiStep(
           titleOnImage: titled.plan.title,
           titleTreatment: JSON.stringify(storedTreatmentOf(titled.plan, layout?.answer ?? null)),
         };
-        if (photoId) image.untitledImage = { _type: 'reference', _ref: photoId };
+        if (photoId) image.untitledImage = { _type: 'image', asset: { _type: 'reference', _ref: photoId } };
         else notes.push('the untitled copy of the picture could not be saved, so a later change of title will need a new picture');
         if (usage) {
           usage.title = {

@@ -58,10 +58,13 @@ export default defineType({
           description:
             "The title the AI picture carries, exactly as drawn. If you change the post's title, redraw it (the button near Publish) so the picture and the post agree.",
         },
+        // An `image` field, not a reference to `sanity.imageAsset`: this Studio
+        // rejects that reference target ("Unknown type: sanity.imageAsset",
+        // seen on production 2026-10-23), and an image value is the shape
+        // Sanity always accepts for an asset. Written by the engine only.
         {
           name: 'untitledImage',
-          type: 'reference',
-          to: [{ type: 'sanity.imageAsset' }],
+          type: 'image',
           title: 'The same picture without the title',
           readOnly: true,
           hidden: ({ value }) => !value,

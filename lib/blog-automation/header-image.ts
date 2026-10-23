@@ -174,7 +174,7 @@ export interface SanityImageValue {
    */
   titleOnImage?: string;
   /** AUTO-209: the same picture without the title, kept so the title can be redrawn for free when the post's title changes. */
-  untitledImage?: { _type: 'reference'; _ref: string };
+  untitledImage?: { _type: 'image'; asset: { _type: 'reference'; _ref: string } };
   /** AUTO-209: which look the title has and where the product was (title-layout.ts StoredTitleTreatment, as JSON), so a redraw keeps the same look and a regenerate takes the next one (AUTO-210). */
   titleTreatment?: string;
 }

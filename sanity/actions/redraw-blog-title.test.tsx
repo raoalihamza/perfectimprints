@@ -54,14 +54,14 @@ function Harness(props: Props) {
 const OLD = 'image-old0000000000000000000000000000000000000-1376x768-png';
 const UNTITLED = 'image-untitled000000000000000000000000000000000-1376x768-jpg';
 const NEW = 'image-new0000000000000000000000000000000000000-1376x768-png';
-const newImage = { _type: 'image', asset: { _type: 'reference', _ref: NEW }, alt: 'New Title. The post\'s title over an illustrative photo', titleOnImage: 'New Title', untitledImage: { _type: 'reference', _ref: UNTITLED }, titleTreatment: '{"layout":"panel-left","productBox":null}' };
+const newImage = { _type: 'image', asset: { _type: 'reference', _ref: NEW }, alt: 'New Title. The post\'s title over an illustrative photo', titleOnImage: 'New Title', untitledImage: { _type: 'image', asset: { _type: 'reference', _ref: UNTITLED } }, titleTreatment: '{"layout":"panel-left","productBox":null}' };
 const routeAnswer = { ok: true, source: 'retitle', outcome: { kind: 'asset', source: 'ai', image: newImage, notes: [] }, summary: 'Header image: the same picture with the current title drawn on it, in the same place.' };
 
 const drifted = {
   title: 'New Title',
   slug: { current: 'new-title' },
   aiTopicKeywords: ['custom pens'],
-  headerImage: { _type: 'image', asset: { _type: 'reference', _ref: OLD }, titleOnImage: 'Old Title', untitledImage: { _type: 'reference', _ref: UNTITLED }, titleTreatment: '{"layout":"panel-left","productBox":null}' },
+  headerImage: { _type: 'image', asset: { _type: 'reference', _ref: OLD }, titleOnImage: 'Old Title', untitledImage: { _type: 'image', asset: { _type: 'reference', _ref: UNTITLED } }, titleTreatment: '{"layout":"panel-left","productBox":null}' },
 };
 
 let root: Root;

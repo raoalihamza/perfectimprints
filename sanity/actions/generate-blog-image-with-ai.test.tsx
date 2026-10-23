@@ -179,7 +179,7 @@ describe('Generate header image', () => {
   });
 
   it('AUTO-210: a generated picture\'s title treatment travels with the request, so the regenerate takes the next look', async () => {
-    const titled = { headerImage: { _type: 'image', asset: { _type: 'reference', _ref: 'image-generated-1376x768-png' }, titleOnImage: 'Custom Tote Bags', untitledImage: { _type: 'reference', _ref: 'image-photo-1376x768-jpg' }, titleTreatment: '{"layout":"panel-left","productBox":null}' } };
+    const titled = { headerImage: { _type: 'image', asset: { _type: 'reference', _ref: 'image-generated-1376x768-png' }, titleOnImage: 'Custom Tote Bags', untitledImage: { _type: 'image', asset: { _type: 'reference', _ref: 'image-photo-1376x768-jpg' } }, titleTreatment: '{"layout":"panel-left","productBox":null}' } };
     await render(propsFor({ ...base, ...titled }));
     await act(async () => {
       action!.onHandle!();

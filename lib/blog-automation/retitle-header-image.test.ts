@@ -74,7 +74,7 @@ describe('retitleHeaderImage (AUTO-209)', () => {
     expect(uploads[0].options).toMatchObject({ filename: 'custom-pens-header.png', contentType: 'image/png', source: { name: BLOG_HEADER_ASSET_SOURCE } });
     expect(uploads[0].bytes.subarray(1, 4).toString('latin1')).toBe('PNG');
     expect(result.image.asset._ref).toBe('image-new1-1376x768-png');
-    expect(result.image.untitledImage).toEqual({ _type: 'reference', _ref: UNTITLED });
+    expect(result.image.untitledImage).toEqual({ _type: 'image', asset: { _type: 'reference', _ref: UNTITLED } });
     expect(result.image.titleOnImage).toBe('Custom Pens for Trade Shows');
     expect(result.image.alt).toContain('Custom Pens for Trade Shows.');
     expect(parseStoredTreatment(result.image.titleTreatment)?.layout).toBe('panel-left');
