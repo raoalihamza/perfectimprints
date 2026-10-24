@@ -15,6 +15,13 @@ import {
   CURVE_HEIGHT_SHARE,
   CURVE_WIDTH_SHARE,
   GRADIENT_ALPHA,
+  HEADLINE_ABOVE_GAP,
+  HEADLINE_ACCENT,
+  HEADLINE_ALPHAS,
+  HEADLINE_MAX_PRODUCT_COVER,
+  HEADLINE_INK,
+  HEADLINE_TOP,
+  TITLE_MARGIN,
   GRADIENT_FALLBACK_COLOUR,
   GRADIENT_HOLD_MAX_SHARE,
   MAX_PRODUCT_COVER,
@@ -31,6 +38,7 @@ import {
   gradientAlphaAt,
   gradientColourOf,
   gradientContrast,
+  headlineSpans,
   hexLuminance,
   layoutFor,
   layoutLook,
@@ -45,6 +53,7 @@ import {
   planTitle,
   previousLookOf,
   productCover,
+  roomSideForLook,
   seedOf,
   storedTreatmentOf,
   titleIsDrawable,
@@ -268,27 +277,35 @@ describe('the text is white and holds its contrast', () => {
   });
 });
 
-describe('the rotation: four looks, and a regenerate always gives a new one', () => {
-  it('is four looks over seven placements, and nothing else parses', () => {
-    expect(TITLE_LOOKS).toEqual(['panel', 'gradient', 'lower-third', 'lockup', 'curve']);
-    expect(TITLE_LAYOUTS).toHaveLength(9);
+describe('the rotation: six looks, the headline first, and a regenerate always gives a new one', () => {
+  it('is six looks over ten placements, and nothing else parses', () => {
+    expect(TITLE_LOOKS).toEqual(['headline', 'panel', 'gradient', 'lower-third', 'lockup', 'curve']);
+    expect(TITLE_LAYOUTS).toHaveLength(10);
     expect(layoutLook('lower-third')).toBe('lower-third');
+    expect(layoutLook('headline')).toBe('headline');
     expect(layoutSide('gradient-right')).toBe('right');
     expect(layoutSide('lower-third')).toBe('bottom');
+    expect(layoutSide('headline')).toBe('top');
     expect(layoutFor('lockup', 'right')).toBe('lockup-right');
+    expect(layoutFor('headline', 'right')).toBe('headline');
+    expect(roomSideForLook('headline')).toBe('top');
+    for (const look of TITLE_LOOKS.filter((l) => l !== 'headline')) expect(roomSideForLook(look)).toBe('side');
     expect(parseStoredTreatment({ layout: 'band-top', colour: 'navy', productBox: null })).toBeNull();
     expect(parseStoredTreatment({ layout: 'corner-top-left' })).toBeNull();
   });
 
-  it('the cycle starts where the seed says for a first picture and right after the current look for a regenerate', () => {
-    expect(lookOrderFor(0, null)).toEqual(['panel', 'gradient', 'lower-third', 'lockup', 'curve']);
-    expect(lookOrderFor(2, null)).toEqual(['lower-third', 'lockup', 'curve', 'panel', 'gradient']);
-    expect(lookOrderFor(2, 'panel')).toEqual(['gradient', 'lower-third', 'lockup', 'curve', 'panel']);
-    expect(lookOrderFor(99, 'curve')).toEqual(['panel', 'gradient', 'lower-third', 'lockup', 'curve']);
+  it('the cycle ALWAYS starts at the headline for a first picture (AUTO-211, whatever the seed) and right after the current look for a regenerate', () => {
+    const cycle = ['headline', 'panel', 'gradient', 'lower-third', 'lockup', 'curve'];
+    expect(lookOrderFor(0, null)).toEqual(cycle);
+    expect(lookOrderFor(2, null)).toEqual(cycle);
+    expect(lookOrderFor(99, null)).toEqual(cycle);
+    expect(lookOrderFor(2, 'headline')).toEqual(['panel', 'gradient', 'lower-third', 'lockup', 'curve', 'headline']);
+    expect(lookOrderFor(2, 'panel')).toEqual(['gradient', 'lower-third', 'lockup', 'curve', 'headline', 'panel']);
+    expect(lookOrderFor(99, 'curve')).toEqual(cycle);
     for (const prev of TITLE_LOOKS) expect(lookOrderFor(7, prev)[0]).not.toBe(prev);
   });
 
-  it('six regenerates of a numbered title walk all five looks and come back; a title with no number or colon walks four', () => {
+  it('seven regenerates of a numbered title walk all six looks and come back; a title with no number or colon walks five', () => {
     const walk = (title: string, n: number) => {
       const seen: TitleLookName[] = [];
       let previous: TitleLookName | null = null;
@@ -299,23 +316,25 @@ describe('the rotation: four looks, and a regenerate always gives a new one', ()
       }
       return seen;
     };
-    const numbered = walk(NUMBERED, 6);
-    expect(new Set(numbered.slice(0, 5)).size).toBe(5);
-    expect(numbered[5]).toBe(numbered[0]);
+    const numbered = walk(NUMBERED, 7);
+    expect(numbered[0]).toBe('headline');
+    expect(new Set(numbered.slice(0, 6)).size).toBe(6);
+    expect(numbered[6]).toBe(numbered[0]);
     for (let i = 1; i < numbered.length; i += 1) expect(numbered[i]).not.toBe(numbered[i - 1]);
-    const plain = walk(LONG, 5);
+    const plain = walk(LONG, 6);
+    expect(plain[0]).toBe('headline');
     expect(plain).not.toContain('lockup');
-    expect(new Set(plain.slice(0, 4)).size).toBe(4);
+    expect(new Set(plain.slice(0, 5)).size).toBe(5);
   });
 
-  it('the same post always gets the same first look, and different posts get different ones', () => {
+  it("every post's FIRST picture gets the headline (AUTO-211), whatever its seed; the seed still decides the side the later looks take", () => {
     expect(seedOf('custom-tote-bags')).toBe(seedOf('custom-tote-bags'));
-    const a = planTitle({ title: NUMBERED, canvas, grid: flat(0.5, 0.5, 0.5), seed: 'x' })!;
-    const b = planTitle({ title: NUMBERED, canvas, grid: flat(0.5, 0.5, 0.5), seed: 'x' })!;
-    expect(a.layout).toBe(b.layout);
     const seen = new Set<string>();
     for (let i = 0; i < 40; i += 1) seen.add(planTitle({ title: NUMBERED, canvas, grid: flat(0.5, 0.5, 0.5), seed: `post-${i}` })!.look);
-    expect(seen.size).toBe(5);
+    expect([...seen]).toEqual(['headline']);
+    const sides = new Set<string>();
+    for (let i = 0; i < 40; i += 1) sides.add(planTitle({ title: NUMBERED, canvas, grid: flat(0.5, 0.5, 0.5), seed: `post-${i}`, previous: 'headline' })!.layout);
+    expect([...sides].sort()).toEqual(['panel-left', 'panel-right']);
   });
 
   it('the side follows the room the picture was asked to keep calm, unless the vision call says only the other side is calm', () => {
@@ -360,7 +379,7 @@ describe('the product is not covered', () => {
   });
 
   it('a product in the far corner, clear of everything, is simply accepted on the first look', () => {
-    const plan = planTitle({ title: NUMBERED, canvas, grid: flat(0.5, 0.5, 0.5), seed: 'x', room: 'left', previous: 'curve', answer: answerWith([100, 700, 500, 950]) })!;
+    const plan = planTitle({ title: NUMBERED, canvas, grid: flat(0.5, 0.5, 0.5), seed: 'x', room: 'left', previous: 'headline', answer: answerWith([100, 700, 500, 950]) })!;
     expect(plan.layout).toBe('panel-left');
     expect(plan.reasons.filter((r) => !r.includes('next look was tried first'))).toEqual([]);
   });
@@ -400,11 +419,124 @@ describe('the logo: no box, in the panel or in a free corner', () => {
   });
 });
 
+describe("the headline (AUTO-211): Patrick's current pattern, the title large across the top in two tones over a light haze", () => {
+  const COLON = "Custom Pens for Business: A Buyer's Guide to Promotional Pens";
+
+  it('sits across the top inside the margins, at most three lines, never below 42% of the height, over a white haze from the top', () => {
+    for (const title of [NUMBERED, LONG, COLON, 'Custom Pens']) {
+      const plan = planTitle({ title, canvas, grid: flat(0.5, 0.5, 0.5), forced: 'headline' })!;
+      expect(plan.look).toBe('headline');
+      expect(plan.side).toBe('top');
+      expect(plan.text.rect.x).toBe(TITLE_MARGIN);
+      expect(plan.text.rect.y).toBe(HEADLINE_TOP);
+      expect(plan.text.lines.length).toBeLessThanOrEqual(3);
+      expect(plan.text.rect.y + plan.text.rect.h).toBeLessThanOrEqual(0.42 * canvas.height + 1);
+      expect(plan.text.rect.x + plan.text.rect.w).toBeLessThanOrEqual(canvas.width - TITLE_MARGIN + 1);
+      expect(plan.panel).toBeNull();
+      expect(plan.curve).toBeNull();
+      expect(plan.gradient).toMatchObject({ side: 'top', colour: TITLE_WHITE });
+      expect(plan.gradient!.holdTo).toBeGreaterThan(plan.text.rect.y + plan.text.rect.h);
+      expect(plan.text.colour).toBe(HEADLINE_INK);
+      expect(plan.text.shadow).toBeTruthy();
+      expect(plan.text.size).toBeGreaterThanOrEqual(56);
+      expect(plan.logo).toMatchObject({ kind: 'mark' });
+      expect(plan.logo!.rect.y).toBeGreaterThan(canvas.height / 2);
+    }
+  });
+
+  it('is two tones: navy up to and including a colon and blue after it, else the first line navy and the rest blue, a one-line title all navy', () => {
+    expect(headlineSpans(['Custom Pens for Business:', "A Buyer's Guide"])).toEqual([
+      [{ text: 'Custom Pens for Business:', colour: HEADLINE_INK }],
+      [{ text: "A Buyer's Guide", colour: HEADLINE_ACCENT }],
+    ]);
+    expect(headlineSpans(['Custom Flying Discs: A Guide', 'for Promotional Orders'])).toEqual([
+      [
+        { text: 'Custom Flying Discs: ', colour: HEADLINE_INK },
+        { text: 'A Guide', colour: HEADLINE_ACCENT },
+      ],
+      [{ text: 'for Promotional Orders', colour: HEADLINE_ACCENT }],
+    ]);
+    expect(headlineSpans(['Are Custom Koozies', 'Still Worth Ordering in Bulk?'])).toEqual([
+      [{ text: 'Are Custom Koozies', colour: HEADLINE_INK }],
+      [{ text: 'Still Worth Ordering in Bulk?', colour: HEADLINE_ACCENT }],
+    ]);
+    expect(headlineSpans(['Custom Pens'])).toEqual([[{ text: 'Custom Pens', colour: HEADLINE_INK }]]);
+    // A colon with nothing after it on any line is not a split.
+    expect(headlineSpans(['Custom Pens:'])).toEqual([[{ text: 'Custom Pens:', colour: HEADLINE_INK }]]);
+    const plan = planTitle({ title: COLON, canvas, grid: flat(0.5, 0.5, 0.5), forced: 'headline' })!;
+    expect(plan.text.spans).toEqual(headlineSpans(plan.text.lines));
+    // The runs of each line put back together are that line exactly.
+    plan.text.spans!.forEach((runs, i) => expect(runs.map((s) => s.text).join('').trimEnd()).toBe(plan.text.lines[i]));
+  });
+
+  it('the haze is the WEAKEST alpha that carries the blue at the minimum contrast, measured over the sampled picture: light takes least, dark takes most, and both hold', () => {
+    const light = planTitle({ title: NUMBERED, canvas, grid: flat(0.95, 0.95, 0.95), forced: 'headline' })!;
+    const dark = planTitle({ title: NUMBERED, canvas, grid: flat(0, 0, 0), forced: 'headline' })!;
+    expect(light.gradient!.alpha).toBe(HEADLINE_ALPHAS[0]);
+    expect(dark.gradient!.alpha).toBe(HEADLINE_ALPHAS[HEADLINE_ALPHAS.length - 1]);
+    for (const [plan, grid] of [
+      [light, flat(0.95, 0.95, 0.95)],
+      [dark, flat(0, 0, 0)],
+    ] as const) {
+      expect(plan.measured).toBe(true);
+      expect(plan.contrast).toBeGreaterThanOrEqual(TITLE_MIN_CONTRAST);
+      // The figure is the BLUE's, the lighter of the two tones; the navy does at least as well on the same picture.
+      expect(gradientContrast(grid, plan.text.rect, canvas, plan.gradient!, hexLuminance(HEADLINE_INK))).toBeGreaterThanOrEqual(plan.contrast - 0.01);
+    }
+    expect(gradientAlphaAt({ side: 'top', colour: TITLE_WHITE, alpha: 0.8, holdTo: 300, fadeTo: 500 }, 10, 100, canvas)).toBe(0.8);
+    expect(gradientAlphaAt({ side: 'top', colour: TITLE_WHITE, alpha: 0.8, holdTo: 300, fadeTo: 500 }, 10, 400, canvas)).toBeCloseTo(0.4, 5);
+    expect(gradientAlphaAt({ side: 'top', colour: TITLE_WHITE, alpha: 0.8, holdTo: 300, fadeTo: 500 }, 10, 700, canvas)).toBe(0);
+  });
+
+  it('a product under the lettering refuses the headline and the next look is tried; a product low in the frame keeps it; one in between has the title set smaller to stay above it', () => {
+    const low = planTitle({ title: NUMBERED, canvas, grid: flat(0.5, 0.5, 0.5), seed: 'x', room: 'top', answer: answerWith([560, 100, 960, 900], 'top') })!;
+    expect(low.layout).toBe('headline');
+    expect(low.reasons).toEqual([]);
+    const high = planTitle({ title: NUMBERED, canvas, grid: flat(0.5, 0.5, 0.5), seed: 'x', room: 'top', answer: answerWith([60, 100, 420, 900]) })!;
+    expect(high.look).not.toBe('headline');
+    expect(high.reasons.join(' ')).toContain('headline: the title would cover');
+    // The product's top at 25% of the height: the full-size title (three lines) would cross it, so it is set smaller and ends above the product.
+    const full = planTitle({ title: LONG, canvas, grid: flat(0.5, 0.5, 0.5), forced: 'headline' })!;
+    const productTop = 0.26 * canvas.height;
+    expect(full.text.rect.y + full.text.rect.h).toBeGreaterThan(productTop);
+    const above = planTitle({ title: LONG, canvas, grid: flat(0.5, 0.5, 0.5), seed: 'x', room: 'top', answer: answerWith([260, 250, 780, 750], 'top') })!;
+    expect(above.layout).toBe('headline');
+    expect(above.text.size).toBeLessThan(full.text.size);
+    expect(above.text.rect.y + above.text.rect.h).toBeLessThanOrEqual(productTop - HEADLINE_ABOVE_GAP + 1);
+    expect(above.reasons.join(' ')).toContain('set smaller');
+    // The headline's own ceiling is looser than the other looks' (Patrick's headers graze the product's top; the vision box is coarse).
+    expect(HEADLINE_MAX_PRODUCT_COVER).toBeGreaterThan(MAX_PRODUCT_COVER);
+    expect(HEADLINE_MAX_PRODUCT_COVER).toBeLessThanOrEqual(0.2);
+  });
+
+  it('the mark sits in the bottom right corner, moves to the bottom left when the product reaches the right corner, and is dropped when both are taken', () => {
+    const free = planTitle({ title: NUMBERED, canvas, grid: flat(0.5, 0.5, 0.5), forced: 'headline', answer: answerWith([500, 100, 950, 600]) })!;
+    expect(free.logo).toMatchObject({ kind: 'mark' });
+    expect(free.logo!.rect.x).toBeGreaterThan(canvas.width / 2);
+    // The first live proof: the vision box took the disc WITH the basket and the plant, out to the right edge and down to 88% of the height.
+    const rightTaken = planTitle({ title: NUMBERED, canvas, grid: flat(0.5, 0.5, 0.5), forced: 'headline', answer: answerWith([220, 294, 880, 995]) })!;
+    expect(rightTaken.logo).toMatchObject({ kind: 'mark' });
+    expect(rightTaken.logo!.rect.x).toBeLessThan(canvas.width / 2);
+    const bothTaken = planTitle({ title: NUMBERED, canvas, grid: flat(0.5, 0.5, 0.5), forced: 'headline', answer: answerWith([500, 0, 1000, 1000]) })!;
+    expect(bothTaken.logo).toBeNull();
+  });
+
+  it('a redraw forces the headline on the kept copy exactly as any other layout', () => {
+    const answer = answerWith([60, 100, 420, 900]);
+    const plan = planTitle({ title: COLON, canvas, grid: flat(0.5, 0.5, 0.5), forced: 'headline', answer })!;
+    expect(plan.layout).toBe('headline');
+    expect(storedTreatmentOf(plan, answer)).toEqual({ layout: 'headline', productBox: [60, 100, 420, 900] });
+    expect(previousLookOf(JSON.stringify(storedTreatmentOf(plan, answer)))).toBe('headline');
+  });
+});
+
 describe('the vision call and the stored treatment', () => {
   it('the answer is the product box and the calm side; anything outside the vocabulary is dropped', () => {
     const parsed = parseTitleLayoutAnswer({ productBox: [100, 100, 900, 900], calmSide: 'left', reason: ' ok ' });
     expect(parsed).toEqual({ productBox: [100, 100, 900, 900], calmSide: 'left', reason: 'ok' });
-    expect(parseTitleLayoutAnswer({ productBox: [5, 5, 1, 1], calmSide: 'top' })).toEqual({ productBox: null, calmSide: null, reason: '' });
+    expect(parseTitleLayoutAnswer({ productBox: [5, 5, 1, 1], calmSide: 'middle' })).toEqual({ productBox: null, calmSide: null, reason: '' });
+    // AUTO-211: the top is in the vocabulary, for the headline's room.
+    expect(parseTitleLayoutAnswer({ productBox: null, calmSide: 'top', reason: 'sky' }).calmSide).toBe('top');
     expect(parseTitleLayoutAnswer(null)).toEqual({ productBox: null, calmSide: null, reason: '' });
   });
 

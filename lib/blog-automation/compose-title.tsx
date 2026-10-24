@@ -177,7 +177,7 @@ export function gradientCss(plan: TitlePlan): string {
   const g = plan.gradient;
   if (!g) return '';
   const extent = g.side === 'bottom' ? plan.canvas.height : plan.canvas.width;
-  const dir = { left: 'to right', right: 'to left', bottom: 'to top' }[g.side];
+  const dir = { left: 'to right', right: 'to left', bottom: 'to top', top: 'to bottom' }[g.side];
   const hold = Math.round((g.holdTo / extent) * 1000) / 10;
   const fade = Math.min(100, Math.round((g.fadeTo / extent) * 1000) / 10);
   return `linear-gradient(${dir}, ${hexToCss(g.colour, g.alpha)} 0%, ${hexToCss(g.colour, g.alpha)} ${hold}%, ${hexToCss(g.colour, 0)} ${fade}%)`;
@@ -200,24 +200,33 @@ function shapesSvg(plan: TitlePlan): string {
 function textBlock(block: TextBlock, colour: string, letterSpacing: number, key: string) {
   return (
     <div key={key} style={{ position: 'absolute', left: block.rect.x, top: block.rect.y, width: block.rect.w, display: 'flex', flexDirection: 'column', alignItems: block.align === 'right' ? 'flex-end' : 'flex-start' }}>
-      {block.lines.map((line, i) => (
-        <div
-          key={i}
-          style={{
-            display: 'flex',
-            whiteSpace: 'nowrap',
-            fontFamily: TITLE_FONT_FAMILY,
-            fontWeight: TITLE_FONT_WEIGHT,
-            fontSize: block.size,
-            lineHeight: `${block.lineHeight}px`,
-            height: block.lineHeight,
-            color: colour,
-            letterSpacing: letterSpacing * block.size,
-          }}
-        >
-          {line}
-        </div>
-      ))}
+      {block.lines.map((line, i) => {
+        const spans = block.spans?.[i];
+        const style = {
+          display: 'flex',
+          whiteSpace: 'pre' as const,
+          fontFamily: TITLE_FONT_FAMILY,
+          fontWeight: TITLE_FONT_WEIGHT,
+          fontSize: block.size,
+          lineHeight: `${block.lineHeight}px`,
+          height: block.lineHeight,
+          color: colour,
+          letterSpacing: letterSpacing * block.size,
+          ...(block.shadow ? { textShadow: block.shadow } : {}),
+        };
+        // The headline's two tones: each run its own box in a row, the space kept inside the first run (`pre`).
+        return (
+          <div key={i} style={style}>
+            {spans
+              ? spans.map((span, k) => (
+                  <div key={k} style={{ display: 'flex', whiteSpace: 'pre', color: span.colour }}>
+                    {span.text}
+                  </div>
+                ))
+              : line}
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -272,8 +281,8 @@ export interface ComposeTitledHeaderArgs {
   seed: string;
   /** AUTO-210: the look the post's picture has now, so a regenerate gets the next one. */
   previous?: TitleLookName | null;
-  /** AUTO-210: the third of the frame the picture was asked to keep calm. */
-  room?: TitleSide | null;
+  /** AUTO-210: the third of the frame the picture was asked to keep calm; AUTO-211: the top, for the headline. */
+  room?: TitleSide | 'top' | null;
   /** A redraw of the title on the kept copy: this exact layout. */
   forced?: TitleLayoutName | null;
 }

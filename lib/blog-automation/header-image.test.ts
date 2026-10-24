@@ -639,11 +639,13 @@ describe('the summary', () => {
 });
 
 describe('structure', () => {
-  it('this module imports nothing but the pure Geiger size rewrite and the shared word lists', () => {
+  it('this module imports nothing but the pure Geiger size rewrite, the shared word lists and the pure title rotation', () => {
     const imports = read('lib/blog-automation/header-image.ts').match(/^import .*$/gm) ?? [];
     expect(imports).toEqual([
       "import { geigerImageVariant } from '../blog/header-image';",
       "import { NEAR_GENERIC_WORDS, NON_SIGNIFICANT_MATCH_WORDS } from '../ai/brand-voice';",
+      // AUTO-211: the room rule follows the look rotation (the top for the headline), so it reads the pure layout module.
+      "import { lookOrderFor, roomSideForLook, seedOf, type TitleLookName } from './title-layout';",
     ]);
   });
 

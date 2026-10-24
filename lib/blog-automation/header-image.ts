@@ -125,6 +125,7 @@
 
 import { geigerImageVariant } from '../blog/header-image';
 import { NEAR_GENERIC_WORDS, NON_SIGNIFICANT_MATCH_WORDS } from '../ai/brand-voice';
+import { lookOrderFor, roomSideForLook, seedOf, type TitleLookName } from './title-layout';
 
 export type HeaderImageSource = 'ai' | 'library' | 'product';
 
@@ -504,11 +505,21 @@ export const PLANNER_DEVICE_RULE =
  * the surface the product stands on is usually there, and the lower-third
  * look darkens it rather than needing it empty.
  */
-export type TitleRoomSide = 'left' | 'right';
+export type TitleRoomSide = 'left' | 'right' | 'top';
+/** The two sides the hash rotates over; the top is not rotated into, it is asked for exactly when the next look is the headline. */
 export const TITLE_ROOM_SIDES: readonly TitleRoomSide[] = ['left', 'right'];
 
-/** The third of the frame kept calm for this post, stable for the same seed (its slug, else its title). */
-export function titleRoomSideFor(seed: string): TitleRoomSide {
+/**
+ * The third of the frame kept calm for this post. AUTO-211: when the look the
+ * picture will get is the headline (every FIRST picture, and a regenerate
+ * whose cycle has come round to it) the room is the TOP, light and calm, so
+ * the dark lettering reads; otherwise a side, stable for the same seed (the
+ * slug, else the title). `previous` is the look the post has now, so the room
+ * follows the same rotation the compose step will take (title-layout.ts
+ * lookOrderFor).
+ */
+export function titleRoomSideFor(seed: string, previous: TitleLookName | null = null): TitleRoomSide {
+  if (roomSideForLook(lookOrderFor(seedOf(seed), previous)[0]) === 'top') return 'top';
   let h = 0x811c9dc5;
   for (let i = 0; i < seed.length; i += 1) {
     h ^= seed.charCodeAt(i);
@@ -522,16 +533,19 @@ export function titleRoomSideFor(seed: string): TitleRoomSide {
   return TITLE_ROOM_SIDES[(h >>> 0) % TITLE_ROOM_SIDES.length];
 }
 
-const ROOM_PHRASE: Readonly<Record<TitleRoomSide, string>> = { left: 'left third', right: 'right third' };
+const ROOM_PHRASE: Readonly<Record<TitleRoomSide, string>> = { left: 'left third', right: 'right third', top: 'top third' };
+
+/** The headline's lettering is dark, so a top room must be light as well as empty; a side room carries white letters and may be dark. */
+const TOP_ROOM_LIGHT = ' That third must also be LIGHT: a bright, softly out of focus background, a pale wall or a clear sky, never dark or busy, because the title there is set in dark letters.';
 
 /** The planner's half of the room rule. */
 export function plannerRoomRule(side: TitleRoomSide): string {
-  return `- Leave room for the title: the ${ROOM_PHRASE[side]} of the frame stays calm and empty (the post's title is laid over it later). Plan the product and the things around it in the rest of the frame, and keep the scene simple.`;
+  return `- Leave room for the title: the ${ROOM_PHRASE[side]} of the frame stays calm and empty (the post's title is laid over it later). Plan the product and the things around it in the rest of the frame, and keep the scene simple.${side === 'top' ? TOP_ROOM_LIGHT : ''}`;
 }
 
 /** The image prompt's half of the room rule. */
 export function imageRoomRule(side: TitleRoomSide): string {
-  return `- Leave room for the title: a designer lays the post's title over this photograph afterwards. Keep the ${ROOM_PHRASE[side]} of the frame calm and empty: a plain wall, the sky, a soft out of focus background or a bare stretch of surface, with no objects in it. Put the product and everything that matters in the rest of the frame. Draw no title, words or letters in that area or anywhere for it: the area is left empty.`;
+  return `- Leave room for the title: a designer lays the post's title over this photograph afterwards. Keep the ${ROOM_PHRASE[side]} of the frame calm and empty: a plain wall, the sky, a soft out of focus background or a bare stretch of surface, with no objects in it. Put the product and everything that matters in the rest of the frame. Draw no title, words or letters in that area or anywhere for it: the area is left empty.${side === 'top' ? TOP_ROOM_LIGHT : ''}`;
 }
 
 /**

@@ -59,25 +59,35 @@
  * THE PHOTOGRAPH IS NEVER LETTERBOXED: it runs full bleed under every look,
  * and no opaque shape takes more than PANEL_WIDTH_SHARE of the frame.
  *
- * THE ROTATION. The four looks are taken in a fixed cycle starting where the
- * post's own seed says, so the blog does not come out stamped; and a
- * regenerate (Generate another header image, Regenerate Blog with AI) starts
- * from the look AFTER the one the post has now, so every regenerate gives a
- * new look (Ali's rule). A look the picture refuses (it would cover the
- * product, the lockup has nothing to set large, the measured contrast fails)
- * falls to the next in the cycle; when every look covers the product, the
- * one covering least is used and the title still goes on.
+ * THE HEADLINE (AUTO-211, the look Patrick's own recent headers follow): the
+ * title large across the TOP in two tones, navy up to a colon and blue after
+ * it (else the first line navy, the rest blue), over a soft white haze that
+ * dissolves into the photograph, the products below. The picture is asked
+ * to keep its top third light and calm for it (header-image.ts). It is the
+ * FIRST look of every new picture; the five others are what a regenerate
+ * walks through.
+ *
+ * THE ROTATION. The six looks are taken in a fixed cycle that ALWAYS starts
+ * at the headline for a first picture; a regenerate (Generate another header
+ * image, Regenerate Blog with AI) starts from the look AFTER the one the
+ * post has now, so every regenerate gives a new look (Ali's rule). A look
+ * the picture refuses (it would cover the product, the lockup has nothing to
+ * set large, the measured contrast fails) falls to the next in the cycle;
+ * when every look covers the product, the one covering least is used and
+ * the title still goes on.
  *
  * THE SIDE. The side looks mirror: the title goes on the third the picture
  * was asked to keep calm (header-image.ts titleRoomSideFor, left or right),
  * or on the other side when the vision call says only that one is calm.
  *
- * THE TEXT COLOUR is white on every look. The panel's navy carries it at
- * 12.3:1; under a gradient it is MEASURED: every sampled cell under the
- * title is composited with the gradient the way the renderer composites it,
- * and the gradient is held until past the title's far edge, so the share
- * figure (TITLE_CONTRAST_SHARE of the cells) reaches TITLE_MIN_CONTRAST on
- * any photograph; a picture that still fails moves to the next look.
+ * THE TEXT COLOUR is white on every look but the headline. The panel's navy
+ * carries it at 12.3:1; under a gradient it is MEASURED: every sampled cell
+ * under the title is composited with the gradient the way the renderer
+ * composites it, and the gradient is held until past the title's far edge,
+ * so the share figure (TITLE_CONTRAST_SHARE of the cells) reaches
+ * TITLE_MIN_CONTRAST on any photograph; a picture that still fails moves to
+ * the next look. The headline's dark letters are measured the same way under
+ * their white haze, the haze held at the weakest alpha that carries them.
  *
  * WHAT IS NEVER DONE HERE: no picture Patrick uploaded is ever given a title
  * (only the AI step calls this), and a hot-linked Geiger photo cannot be,
@@ -89,10 +99,11 @@ import { TITLE_FONT_ADVANCES, TITLE_FONT_UNITS_PER_EM } from './title-font-metri
 
 // -- The vocabulary --------------------------------------------------------------
 
-export const TITLE_LOOKS = ['panel', 'gradient', 'lower-third', 'lockup', 'curve'] as const;
+export const TITLE_LOOKS = ['headline', 'panel', 'gradient', 'lower-third', 'lockup', 'curve'] as const;
 export type TitleLookName = (typeof TITLE_LOOKS)[number];
 
 export const TITLE_LAYOUTS = [
+  'headline',
   'panel-left',
   'panel-right',
   'gradient-left',
@@ -114,20 +125,26 @@ export function isTitleLook(value: unknown): value is TitleLookName {
   return typeof value === 'string' && (TITLE_LOOKS as readonly string[]).includes(value);
 }
 
-/** The look a layout is: `panel-left` is a panel; `lower-third` is itself. */
+/** The look a layout is: `panel-left` is a panel; `lower-third` and `headline` are themselves. */
 export function layoutLook(layout: TitleLayoutName): TitleLookName {
-  if (layout === 'lower-third') return 'lower-third';
+  if (layout === 'lower-third' || layout === 'headline') return layout;
   return layout.split('-')[0] as TitleLookName;
 }
 
-/** The side a layout sits on: left or right, or bottom for the lower third. */
-export function layoutSide(layout: TitleLayoutName): TitleSide | 'bottom' {
+/** The side a layout sits on: left or right, bottom for the lower third, top for the headline. */
+export function layoutSide(layout: TitleLayoutName): TitleSide | 'bottom' | 'top' {
   if (layout === 'lower-third') return 'bottom';
+  if (layout === 'headline') return 'top';
   return layout.endsWith('-right') ? 'right' : 'left';
 }
 
 export function layoutFor(look: TitleLookName, side: TitleSide): TitleLayoutName {
-  return look === 'lower-third' ? 'lower-third' : (`${look}-${side}` as TitleLayoutName);
+  return look === 'lower-third' || look === 'headline' ? look : (`${look}-${side}` as TitleLayoutName);
+}
+
+/** Where a look wants the picture's calm third: the headline needs the top, every other look a side. */
+export function roomSideForLook(look: TitleLookName): 'top' | 'side' {
+  return look === 'headline' ? 'top' : 'side';
 }
 
 /** Brand navy (Section 10's dark blue beside the logo's red and ink): the panel's fill. */
@@ -176,6 +193,33 @@ export const CURVE_WIDTH_SHARE = 0.5;
 export const CURVE_HEIGHT_SHARE = 0.62;
 /** The logo's own curve: a circle of this share of the height, bleeding in from the far bottom corner, brand red. */
 export const BADGE_RADIUS_SHARE = 0.28;
+/**
+ * The headline (AUTO-211, the pattern Patrick's own recent headers follow): the
+ * title large across the TOP of the picture in two colours, navy for the first
+ * part and this blue for the rest, over a soft white haze that fades into the
+ * photograph, the products below it. The haze is held at the weakest of
+ * HEADLINE_ALPHAS that gives the blue TITLE_MIN_CONTRAST over the sampled
+ * picture, so a bright calm top takes almost none and a busy one takes more.
+ */
+export const HEADLINE_INK = PANEL_FILL;
+export const HEADLINE_ACCENT = '#1E5FD2';
+export const HEADLINE_ALPHAS = [0.5, 0.66, 0.82, 0.94] as const;
+/** The haze dissolves below the lettering over this share of the height. */
+export const HEADLINE_FADE_SHARE = 0.22;
+/** The lettering's distance from the top edge (base canvas px). */
+export const HEADLINE_TOP = 48;
+/**
+ * The most of the product box the headline's lettering may cover: looser than
+ * MAX_PRODUCT_COVER because Patrick's own headers graze the top of the
+ * product, and because the vision call's box is coarse (the first live proof
+ * boxed the disc WITH the basket and the plant beside it, so 15% of that box
+ * was sky and leaf tips). Before the ceiling is applied the title is first
+ * set smaller to stay ABOVE the product (HEADLINE_ABOVE_GAP clear of it).
+ */
+export const HEADLINE_MAX_PRODUCT_COVER = 0.2;
+export const HEADLINE_ABOVE_GAP = 24;
+/** A soft white glow around the letters, a belt under the measured haze; never measured, never relied on. */
+export const HEADLINE_GLOW = '0 0 16px rgba(255,255,255,0.85)';
 
 // -- Colour arithmetic ------------------------------------------------------------
 
@@ -499,6 +543,12 @@ function scaleOf(canvas: Canvas): number {
   return canvas.width / BASE_CANVAS_WIDTH;
 }
 
+/** A run of a line in one colour (the headline's two tones). */
+export interface TextSpan {
+  text: string;
+  colour: string;
+}
+
 export interface TextBlock {
   lines: string[];
   size: number;
@@ -506,6 +556,43 @@ export interface TextBlock {
   rect: Rect;
   /** Lines end on the right (the right-side curve, whose lines hug the curve on their left). Default left. */
   align?: 'left' | 'right';
+  /** Per line, the runs and their colours; absent means the whole block in the plan's one text colour. */
+  spans?: TextSpan[][];
+  /** A CSS text-shadow drawn behind the letters (the headline's glow). */
+  shadow?: string;
+}
+
+/**
+ * The headline's two tones: with a colon, everything up to and including it
+ * is navy and the rest blue ("Custom Pens for Business:" / "A Buyer's Guide");
+ * without one, the first line is navy and the lines after it blue (a
+ * one-line title is all navy). The split follows the lines as fitted, so a
+ * colon in the middle of a line splits that line into two runs.
+ */
+export function headlineSpans(lines: readonly string[]): TextSpan[][] {
+  const main = (text: string): TextSpan => ({ text, colour: HEADLINE_INK });
+  const accent = (text: string): TextSpan => ({ text, colour: HEADLINE_ACCENT });
+  let split: { line: number; word: number } | null = null;
+  outer: for (let i = 0; i < lines.length; i += 1) {
+    const words = lines[i].split(' ');
+    for (let j = 0; j < words.length; j += 1) {
+      if (words[j].endsWith(':') && (j < words.length - 1 || i < lines.length - 1)) {
+        split = { line: i, word: j };
+        break outer;
+      }
+    }
+  }
+  return lines.map((line, i) => {
+    if (split) {
+      if (i < split.line) return [main(line)];
+      if (i > split.line) return [accent(line)];
+      const words = line.split(' ');
+      const head = words.slice(0, split.word + 1).join(' ');
+      const tail = words.slice(split.word + 1).join(' ');
+      return tail ? [main(`${head} `), accent(tail)] : [main(head)];
+    }
+    return i === 0 ? [main(line)] : [accent(line)];
+  });
 }
 
 /**
@@ -553,7 +640,7 @@ export function fitShaped(title: string, o: { maxSize: number; minSize: number; 
 interface Geometry {
   layout: TitleLayoutName;
   look: TitleLookName;
-  side: TitleSide | 'bottom';
+  side: TitleSide | 'bottom' | 'top';
   text: TextBlock;
   /** The lockup's numeral, or its first (large) tier when the lockup split at a colon is drawn as `text` + `second`. */
   big: TextBlock | null;
@@ -758,6 +845,38 @@ function lockupGeometry(title: string, canvas: Canvas, side: TitleSide): Geometr
   };
 }
 
+/**
+ * The headline: the title across the top, inside the margins, at most three
+ * lines (two preferred by the fitter's own scoring), never below 42% of the
+ * height, so the products below it stay in view. The haze is held to just
+ * under the lettering and fades over HEADLINE_FADE_SHARE of the height.
+ */
+function headlineGeometry(title: string, canvas: Canvas, /** The y the lettering must end above (the product's top), when known. */ ceiling?: number): Geometry | null {
+  const s = scaleOf(canvas);
+  const margin = TITLE_MARGIN * s;
+  const maxBottom = Math.min(0.42 * canvas.height, ceiling ?? Number.POSITIVE_INFINITY);
+  const fitted = fitTitle(title, { maxWidth: canvas.width - 2 * margin, maxLines: 3, maxSize: 104 * s, minSize: 56 * s, maxHeight: maxBottom - HEADLINE_TOP * s });
+  if (!fitted) return null;
+  const y = Math.round(HEADLINE_TOP * s);
+  const text: TextBlock = { lines: fitted.lines, size: fitted.size, lineHeight: fitted.lineHeight, rect: { x: Math.round(margin), y, w: fitted.width, h: fitted.height } };
+  const held: Rect = { x: 0, y: 0, w: canvas.width, h: Math.round(y + fitted.height + 28 * s) };
+  return {
+    layout: 'headline',
+    look: 'headline',
+    side: 'top',
+    text,
+    big: null,
+    second: null,
+    panel: null,
+    curve: null,
+    held,
+    rule: null,
+    footprint: held,
+    block: text.rect,
+    measure: grow(text.rect, 10 * s, canvas),
+  };
+}
+
 function curveGeometry(title: string, canvas: Canvas, side: TitleSide): Geometry | null {
   const s = scaleOf(canvas);
   const cx = CURVE_WIDTH_SHARE * canvas.width;
@@ -792,6 +911,7 @@ function curveGeometry(title: string, canvas: Canvas, side: TitleSide): Geometry
 export function geometryFor(layout: TitleLayoutName, title: string, canvas: Canvas): Geometry | null {
   const look = layoutLook(layout);
   const side = layoutSide(layout);
+  if (look === 'headline') return headlineGeometry(title, canvas);
   if (look === 'curve') return curveGeometry(title, canvas, side as TitleSide);
   if (look === 'panel') return panelGeometry(title, canvas, side as TitleSide);
   if (look === 'gradient') return gradientGeometry(title, canvas, side as TitleSide);
@@ -844,11 +964,11 @@ export function meanLuminance(grid: PixelGrid, rect: Rect, canvas: Canvas): numb
 }
 
 export interface GradientSpec {
-  side: TitleSide | 'bottom';
+  side: TitleSide | 'bottom' | 'top';
   /** The colour, as hex. */
   colour: string;
   alpha: number;
-  /** Where the full alpha ends, px from the gradient's own edge (the left edge, the right edge or the bottom). */
+  /** Where the full alpha ends, px from the gradient's own edge (the left edge, the right edge, the bottom or the top). */
   holdTo: number;
   /** Where it reaches nothing, px from the same edge. */
   fadeTo: number;
@@ -856,18 +976,19 @@ export interface GradientSpec {
 
 /** The gradient's alpha at a canvas point, exactly as the renderer's linear-gradient gives it. */
 export function gradientAlphaAt(g: GradientSpec, x: number, y: number, canvas: Canvas): number {
-  const d = g.side === 'left' ? x : g.side === 'right' ? canvas.width - x : canvas.height - y;
+  const d = g.side === 'left' ? x : g.side === 'right' ? canvas.width - x : g.side === 'top' ? y : canvas.height - y;
   if (d <= g.holdTo) return g.alpha;
   if (d >= g.fadeTo) return 0;
   return g.alpha * (1 - (d - g.holdTo) / (g.fadeTo - g.holdTo));
 }
 
 /**
- * The contrast white text gets over `rect` under a gradient: every cell
+ * The contrast text of luminance `textLuminance` (white unless given: the
+ * headline measures its blue) gets over `rect` under a gradient: every cell
  * composited in sRGB exactly as the renderer composites it, and the value
  * TITLE_CONTRAST_SHARE of the cells reach.
  */
-export function gradientContrast(grid: PixelGrid, rect: Rect, canvas: Canvas, g: GradientSpec): number {
+export function gradientContrast(grid: PixelGrid, rect: Rect, canvas: Canvas, g: GradientSpec, textLuminance = 1): number {
   const cells = cellsUnder(grid, rect, canvas);
   if (cells.length === 0) return 0;
   const over = hexToRgb(g.colour);
@@ -877,7 +998,7 @@ export function gradientContrast(grid: PixelGrid, rect: Rect, canvas: Canvas, g:
       const y = (Math.floor(c / grid.width) + 0.5) * (canvas.height / grid.height);
       const a = gradientAlphaAt(g, x, y, canvas);
       const [r, gg, b] = [0, 1, 2].map((k) => grid.rgb[c * 3 + k] * (1 - a) + over[k] * a);
-      return contrastRatio(1, luminanceOf(r, gg, b));
+      return contrastRatio(textLuminance, luminanceOf(r, gg, b));
     })
     .sort((a, b) => a - b);
   return ratios[Math.min(ratios.length - 1, Math.floor(ratios.length * (1 - TITLE_CONTRAST_SHARE)))];
@@ -885,7 +1006,7 @@ export function gradientContrast(grid: PixelGrid, rect: Rect, canvas: Canvas, g:
 
 // -- The vision call ----------------------------------------------------------------
 
-export const CALM_SIDES = ['left', 'right', 'either', 'neither'] as const;
+export const CALM_SIDES = ['left', 'right', 'top', 'either', 'neither'] as const;
 export type CalmSide = (typeof CALM_SIDES)[number];
 
 export interface TitleLayoutAnswer {
@@ -916,16 +1037,16 @@ export const TITLE_LAYOUT_RESPONSE_SCHEMA: Record<string, unknown> = {
 export function buildTitleLayoutPrompt(
   title: string,
   /** The third of the frame the picture was asked to leave empty, as a hint the model checks by looking. */
-  intendedRoom?: TitleSide | null,
+  intendedRoom?: TitleSide | 'top' | null,
 ): { system: string; user: string } {
   return {
     system:
       "You are the graphic designer for a business blog. You lay each post's title over its header photograph so the title reads clearly and the product stays fully visible. You answer with ONE JSON object and nothing else.",
     user: [
-      `This photograph heads a blog post titled "${normalizeTitle(title)}" (${normalizeTitle(title).length} characters). The title will be laid over the photograph by code, down one side or along the bottom. Look at the photograph and answer two things.`,
+      `This photograph heads a blog post titled "${normalizeTitle(title)}" (${normalizeTitle(title).length} characters). The title will be laid over the photograph by code, along the top, down one side or along the bottom. Look at the photograph and answer two things.`,
       ...(intendedRoom ? [`The photograph was composed to leave its ${intendedRoom} third calm for the title. Check that by looking.`] : []),
-      '1. productBox: the main product in the photograph as [ymin, xmin, ymax, xmax], each 0 to 1000 of the image height or width.',
-      '2. calmSide: which third of the frame is calm enough to carry the title without covering anything that matters: "left", "right", "either" (both are calm) or "neither".',
+      '1. productBox: the main product in the photograph as [ymin, xmin, ymax, xmax], each 0 to 1000 of the image height or width. The product itself, not the props beside it.',
+      '2. calmSide: which third of the frame is calm enough to carry the title without covering anything that matters: "top", "left", "right", "either" (the left and the right are both calm) or "neither".',
       '3. reason: one short sentence.',
       'Return exactly: {"productBox": [ymin, xmin, ymax, xmax], "calmSide": "...", "reason": "..."}',
     ].join('\n'),
@@ -979,7 +1100,7 @@ export interface TitlePlan {
   title: string;
   layout: TitleLayoutName;
   look: TitleLookName;
-  side: TitleSide | 'bottom';
+  side: TitleSide | 'bottom' | 'top';
   canvas: Canvas;
   panel: { rect: Rect; fill: string } | null;
   /** The curve look: a quarter ellipse with these radii from the top corner of `side`. */
@@ -1016,14 +1137,17 @@ export function seedOf(text: string): number {
 }
 
 /**
- * The order the looks are tried in (AUTO-210): the fixed cycle panel,
- * gradient, lower-third, lockup, starting where the seed says for a first
- * picture, and starting right AFTER the post's current look for a
- * regenerate, so a regenerate always gives a new look (the old one is last).
+ * The order the looks are tried in: the fixed cycle headline, panel,
+ * gradient, lower-third, lockup, curve. A FIRST picture always starts at the
+ * headline (AUTO-211, Ali's rule: the look Patrick's own headers follow now
+ * is the one every new post gets), and a regenerate starts right AFTER the
+ * post's current look, so a regenerate always gives a new look (the old one
+ * is last). The seed no longer moves the start; it is kept so callers and
+ * the side fallback are unchanged.
  */
-export function lookOrderFor(seed: number, previous: TitleLookName | null): TitleLookName[] {
+export function lookOrderFor(_seed: number, previous: TitleLookName | null): TitleLookName[] {
   const n = TITLE_LOOKS.length;
-  const start = previous ? (TITLE_LOOKS.indexOf(previous) + 1) % n : seed % n;
+  const start = previous ? (TITLE_LOOKS.indexOf(previous) + 1) % n : 0;
   return Array.from({ length: n }, (_, i) => TITLE_LOOKS[(start + i) % n]);
 }
 
@@ -1038,8 +1162,8 @@ export interface PlanTitleInput {
   seed?: string;
   /** The look the post's picture has now, for a regenerate: the plan starts from the look after it. */
   previous?: TitleLookName | null;
-  /** The third of the frame the picture was asked to keep calm (header-image.ts titleRoomSideFor). */
-  room?: TitleSide | null;
+  /** The third of the frame the picture was asked to keep calm (header-image.ts titleRoomSideFor): a side, or the top for the headline. */
+  room?: TitleSide | 'top' | null;
   /** A redraw: this exact layout and nothing else (title-only redraw on the kept copy). */
   forced?: TitleLayoutName | null;
   /** False to draw no logo. */
@@ -1070,10 +1194,10 @@ function logoFor(geo: Geometry, canvas: Canvas, grid: PixelGrid | null | undefin
   const w = Math.round(96 * s);
   const h = Math.round(w / TITLE_MARK_ASPECT);
   const margin = Math.round(48 * s);
-  const corners: Rect[] =
-    geo.side === 'right'
-      ? [{ x: margin, y: canvas.height - 44 * s - h, w, h }]
-      : [{ x: canvas.width - margin - w, y: canvas.height - 44 * s - h, w, h }];
+  const bottomRight: Rect = { x: canvas.width - margin - w, y: canvas.height - 44 * s - h, w, h };
+  const bottomLeft: Rect = { x: margin, y: canvas.height - 44 * s - h, w, h };
+  // A side look keeps the mark away from its own side; the headline (across the top) may use either bottom corner, the right first.
+  const corners: Rect[] = geo.side === 'right' ? [bottomLeft] : geo.side === 'top' ? [bottomRight, bottomLeft] : [bottomRight];
   for (const rect of corners) {
     const clear = grow(rect, 16 * s, canvas);
     if (avoid.some((r) => intersectionArea(clear, r) > 0)) continue;
@@ -1103,8 +1227,8 @@ export function planTitle(input: PlanTitleInput): TitlePlan | null {
   const grid = input.grid ?? null;
   const previous = input.previous ?? null;
 
-  // The side: the calm third the picture was asked to keep, unless the vision call says only the other one is calm.
-  let side: TitleSide = input.room ?? (seed % 2 === 0 ? 'left' : 'right');
+  // The side (for the side looks): the calm third the picture was asked to keep, unless the vision call says only the other one is calm.
+  let side: TitleSide = input.room === 'left' || input.room === 'right' ? input.room : seed % 2 === 0 ? 'left' : 'right';
   if (answer?.calmSide === 'left' || answer?.calmSide === 'right') {
     if (answer.calmSide !== side) {
       reasons.push(`the picture's ${answer.calmSide} third is the calm one, so the title went there instead of the ${side}`);
@@ -1129,19 +1253,32 @@ export function planTitle(input: PlanTitleInput): TitlePlan | null {
     }
     for (const layout of queue) {
       if (pass === 2 && layout !== leastCover?.layout) continue;
-      const geo = geometryFor(layout, title, canvas);
+      let geo = geometryFor(layout, title, canvas);
       if (!geo) {
         reasons.push(layoutLook(layout) === 'lockup' && !lockupParts(title) ? `${layout}: the title has no list number and no colon to set large` : `${layout}: the title does not fit it`);
         continue;
       }
       // The panel hides what it covers; a gradient's lettering must not cover the product and its tint must not hide it.
-      const cover = geo.look === 'panel' || geo.look === 'curve' ? productCover(geo.footprint, product) : productCover(grow(geo.block, 16 * s, canvas), product);
+      let cover = geo.look === 'panel' || geo.look === 'curve' ? productCover(geo.footprint, product) : productCover(grow(geo.block, 16 * s, canvas), product);
+      const coverLimit = geo.look === 'headline' ? HEADLINE_MAX_PRODUCT_COVER : MAX_PRODUCT_COVER;
+      if (geo.look === 'headline' && product && cover > coverLimit) {
+        // The headline's own remedy first: the title set smaller, so it ends above the product.
+        const above = headlineGeometry(title, canvas, product.y - HEADLINE_ABOVE_GAP * s);
+        if (above) {
+          const aboveCover = productCover(grow(above.block, 16 * s, canvas), product);
+          if (aboveCover <= coverLimit) {
+            reasons.push(`headline: the title was set smaller (${above.text.size} px) to stay above the product`);
+            geo = above;
+            cover = aboveCover;
+          }
+        }
+      }
       const tinted = geo.held ? productCover(geo.held, product) : 0;
-      if (pass === 1 && (cover > MAX_PRODUCT_COVER || tinted > HELD_MAX_PRODUCT_COVER)) {
+      if (pass === 1 && (cover > coverLimit || tinted > HELD_MAX_PRODUCT_COVER)) {
         reasons.push(
-          cover > MAX_PRODUCT_COVER
+          cover > coverLimit
             ? `${layout}: ${geo.look === 'panel' || geo.look === 'curve' ? 'it' : 'the title'} would cover ${Math.round(cover * 100)}% of the product`
-            : `${layout}: its gradient would darken ${Math.round(tinted * 100)}% of the product`,
+            : `${layout}: its ${geo.look === 'headline' ? 'haze would wash out' : 'gradient would darken'} ${Math.round(tinted * 100)}% of the product`,
         );
         const worst = Math.max(cover, tinted);
         if (leastCover === null || worst < leastCover.cover) leastCover = { layout, cover: worst };
@@ -1152,6 +1289,31 @@ export function planTitle(input: PlanTitleInput): TitlePlan | null {
       let measured = true;
       if (geo.look === 'panel' || geo.look === 'curve') {
         contrast = contrastRatio(hexLuminance(PANEL_FILL), 1);
+      } else if (geo.look === 'headline') {
+        // The white haze from the top: the weakest alpha that carries the blue.
+        const held = geo.held as Rect;
+        const holdTo = held.h;
+        const fadeTo = Math.min(canvas.height, Math.round(holdTo + HEADLINE_FADE_SHARE * canvas.height));
+        const accentLum = hexLuminance(HEADLINE_ACCENT);
+        if (grid) {
+          contrast = 0;
+          for (const alpha of HEADLINE_ALPHAS) {
+            gradient = { side: 'top', colour: TITLE_WHITE, alpha, holdTo, fadeTo };
+            contrast = gradientContrast(grid, geo.measure, canvas, gradient, accentLum);
+            if (contrast >= TITLE_MIN_CONTRAST) break;
+          }
+          if (contrast < TITLE_MIN_CONTRAST && pass === 1) {
+            reasons.push(`${layout}: even under its strongest haze the title reaches only ${Math.round(contrast * 100) / 100}:1, so the next look was tried`);
+            continue;
+          }
+        } else {
+          // Not sampled: the middle alpha over black, the worst case for dark letters.
+          const alpha = HEADLINE_ALPHAS[2];
+          gradient = { side: 'top', colour: TITLE_WHITE, alpha, holdTo, fadeTo };
+          contrast = contrastRatio(accentLum, luminanceOf(alpha, alpha, alpha));
+          measured = false;
+          reasons.push(`${layout}: the picture could not be sampled, so the contrast is the haze's own figure`);
+        }
       } else {
         const held = geo.held as Rect;
         const holdTo = geo.side === 'bottom' ? held.h : held.w;
@@ -1185,7 +1347,10 @@ export function planTitle(input: PlanTitleInput): TitlePlan | null {
         badge: logo?.kind === 'badge' ? { cx: geo.side === 'left' ? canvas.width + 0.1 * badgeR : -0.1 * badgeR, cy: canvas.height + 0.1 * badgeR, r: badgeR, fill: BRAND_RED } : null,
         gradient,
         rule: geo.rule ? { rect: geo.rule, fill: BRAND_RED } : null,
-        text: { ...geo.text, colour: TITLE_WHITE, letterSpacing: TITLE_LETTER_SPACING },
+        text:
+          geo.look === 'headline'
+            ? { ...geo.text, colour: HEADLINE_INK, letterSpacing: TITLE_LETTER_SPACING, spans: headlineSpans(geo.text.lines), shadow: HEADLINE_GLOW }
+            : { ...geo.text, colour: TITLE_WHITE, letterSpacing: TITLE_LETTER_SPACING },
         big: geo.big,
         second: geo.second,
         logo,

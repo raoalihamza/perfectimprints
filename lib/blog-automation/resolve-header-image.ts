@@ -573,11 +573,12 @@ async function aiStep(
 
   let previousProblem: string | null = null;
   let attempts = 0;
-  // AUTO-209: the third of the frame kept calm for the title, only when the
-  // title will actually be put on the picture (no compose step, no request).
-  const titleRoom: TitleRoomSide | null = deps.composeTitle ? titleRoomSideFor(input.slug || input.title) : null;
   // AUTO-210: the look the post has now, so a regenerate takes the next one.
   const previousLook = previousLookOf(input.previousTreatment);
+  // AUTO-209: the third of the frame kept calm for the title, only when the
+  // title will actually be put on the picture (no compose step, no request).
+  // AUTO-211: the top when the next look is the headline, else a side.
+  const titleRoom: TitleRoomSide | null = deps.composeTitle ? titleRoomSideFor(input.slug || input.title, previousLook) : null;
   let usage: HeaderImageUsage | undefined;
   let references: GeminiImageInput[] | null = null;
   let names: string[] = [];

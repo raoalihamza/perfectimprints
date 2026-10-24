@@ -194,7 +194,7 @@ describe('the order: checked untitled, titled after, stored titled (AUTO-209)', 
     // AUTO-210: a regenerate carries the post's current look, so the drawing starts from the next one.
     const again = harness();
     const out = await resolveHeaderImage({ ...again.input, previousTreatment: '{"layout":"panel-right","productBox":null}' }, again.deps);
-    expect(again.log).toContain(`compose:answer:left:panel:${titleRoomSideFor(again.input.slug)}`);
+    expect(again.log).toContain(`compose:answer:left:panel:${titleRoomSideFor(again.input.slug, 'panel')}`);
     if (out.kind !== 'asset') throw new Error('expected an asset');
     expect(parseStoredTreatment(out.image.titleTreatment)?.layout).toBe('gradient-left');
     expect(out.usage?.title?.previous).toBe('panel');
@@ -344,9 +344,18 @@ describe('the shipped pieces (AUTO-209)', () => {
     expect(page).toContain("pngHeader ? b.width(1200).format('jpg') : b.width(1200)");
   });
 
-  it('the room side rotates over the left and right thirds (AUTO-210: no look needs the top) and is stable per post', () => {
-    const sides = new Set(Array.from({ length: 60 }, (_, i) => titleRoomSideFor(`post-${i}`)));
+  it("a FIRST picture's room is the top, light and calm, for the headline (AUTO-211); after the headline the room rotates over the left and right thirds and is stable per post", () => {
+    const firsts = new Set(Array.from({ length: 60 }, (_, i) => titleRoomSideFor(`post-${i}`)));
+    expect([...firsts]).toEqual(['top']);
+    const sides = new Set(Array.from({ length: 60 }, (_, i) => titleRoomSideFor(`post-${i}`, 'headline')));
     expect([...sides].sort()).toEqual(['left', 'right']);
-    expect(titleRoomSideFor('custom-tote-bags')).toBe(titleRoomSideFor('custom-tote-bags'));
+    expect(titleRoomSideFor('custom-tote-bags', 'headline')).toBe(titleRoomSideFor('custom-tote-bags', 'headline'));
+    // The cycle comes round: after the curve the next look is the headline again, so the room is the top again.
+    expect(titleRoomSideFor('custom-tote-bags', 'curve')).toBe('top');
+    // The top room is asked for LIGHT as well as empty, because the headline's letters are dark; a side room is not.
+    expect(imageRoomRule('top')).toContain('must also be LIGHT');
+    expect(imageRoomRule('left')).not.toContain('LIGHT');
+    expect(buildScenePlanPrompt({ title: 'T', topic: 't', productNames: [], titleRoom: 'top' }).user).toContain('the top third of the frame stays calm and empty');
+    expect(buildScenePlanPrompt({ title: 'T', topic: 't', productNames: [], titleRoom: 'top' }).user).toContain('must also be LIGHT');
   });
 });
