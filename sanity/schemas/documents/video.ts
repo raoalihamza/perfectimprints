@@ -3,6 +3,8 @@ import {
   productStripEntryDescription,
   productStripEntryMembers,
 } from '../objects/blog-products';
+import { RootCategoryPicker } from '../../components/CategoryPicker';
+import { relatedCategorySlugProblem } from '../../../lib/blog/related-category-slugs';
 
 export default defineType({
   name: 'video',
@@ -96,6 +98,29 @@ export default defineType({
       of: [{ type: 'reference', to: [{ type: 'blogCategory' }] }],
       description:
         'The categories this video belongs to. It appears under EACH of them in the /videos category filter (and only once when no filter is active). Order does not matter.',
+      validation: (Rule) => Rule.unique(),
+    }),
+    // VID-100: the main category pages this video appears on, in their
+    // "Related Videos About ..." row. The SAME field, picker and rule as
+    // blogPost.relatedCategorySlugs (FIX-900): the row renders on the root
+    // category page only and its query matches the bare root slug exactly, so
+    // only a bare root slug does anything. The picker lists the 465 generated
+    // roots and nothing else; the rule refuses a path, an address or a facet
+    // as an ERROR and names the slug to type instead.
+    defineField({
+      name: 'relatedCategorySlugs',
+      title: 'Related Category Slugs',
+      description:
+        'The main category pages this video appears on, in their "Related Videos About …" row (up to four videos per page, newest first). Search and pick; each entry is stored as the bare root slug, the part of the address after /cat/ and nothing else: pens, never /cat/pens and never pens/color/blue. A path or a facet would never show the video anywhere. Leave it empty and the video simply appears on no category page.',
+      type: 'array',
+      of: [
+        {
+          type: 'string',
+          validation: (Rule) =>
+            Rule.custom((value?: string) => relatedCategorySlugProblem(value) ?? true),
+        },
+      ],
+      components: { input: RootCategoryPicker },
       validation: (Rule) => Rule.unique(),
     }),
     defineField({

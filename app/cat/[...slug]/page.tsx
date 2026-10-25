@@ -9,6 +9,7 @@ import { CategoryCtaBar } from '@/components/category/CategoryCtaBar';
 import { EmptyStateCTA } from '@/components/category/EmptyStateCTA';
 import { CategoryShell } from '@/components/category/CategoryShell';
 import { RelatedBlogsSection } from '@/components/category/RelatedBlogsSection';
+import { RelatedVideosSection } from '@/components/category/RelatedVideosSection';
 import {
   getAllGeneratedCategorySlugs,
   getCategoryContent,
@@ -560,6 +561,17 @@ export default async function CategoryPage({ params }: Props) {
       {isRoot && (
         <Container as="section">
           <RelatedBlogsSection categorySlug={rootSlug} categoryTitle={title} />
+        </Container>
+      )}
+
+      {/* VID-100: the videos row, under the blogs row so the existing row keeps
+          its place and the order matches the catalog routes (blogs, then
+          videos). Same contract as the blogs row: one tag-cached read under
+          its own tag, renders nothing for a root with no linked videos, root
+          pages only. */}
+      {isRoot && (
+        <Container as="section">
+          <RelatedVideosSection categorySlug={rootSlug} categoryTitle={title} />
         </Container>
       )}
 

@@ -1,0 +1,645 @@
+{
+  "generatedAt": "2026-10-25T07:03:01.978Z",
+  "approved": true,
+  "proposed": [
+    {
+      "_id": "a9c591a3-384f-402a-b14d-c733d4ffdf33",
+      "slug": "custom-logo-pens-u-brands-monterey-earthly-pens-with-your-logo",
+      "title": "Custom Logo Pens: U Brands Monterey Earthly Pens With Your Logo",
+      "root": "pens",
+      "confidence": "title names the root (named) and the strip's products sit in it"
+    },
+    {
+      "_id": "fcd72d8b-5bb7-4c1e-a2a1-741eba188fc2",
+      "slug": "custom-ugly-sweater-christmas-ornaments",
+      "title": "Custom Ugly Sweater Christmas Ornaments for Bulk Holiday Gifts",
+      "root": "ornaments",
+      "confidence": "title names the root (tail-names) and the strip's products sit in it"
+    },
+    {
+      "_id": "d0432e2e-e329-4584-b046-1fc82b6fd3c1",
+      "slug": "custom-u-brands-pens-for-premium-employee-welcome-kits",
+      "title": "Custom U Brands Pens for Premium Employee Welcome Kits",
+      "root": "pens",
+      "confidence": "title names the root (named) and the strip's products sit in it"
+    },
+    {
+      "_id": "4fa6dd14-55e3-4bd3-9f8d-5a03ab428565",
+      "slug": "custom-post-it-notes-for-business-giveaways",
+      "title": "Custom Post-it Notes for Business Giveaways",
+      "root": "adhesive-notepads",
+      "confidence": "title names the root (tail-names) and the strip's products sit in it"
+    },
+    {
+      "_id": "60d68c63-3ddf-4433-b9d1-c8eb5eecda32",
+      "slug": "custom-logo-pens-for-signing-major-life-moments",
+      "title": "The Right Custom Logo Pens for Signing Major Life Moments",
+      "root": "pens",
+      "confidence": "title names the root (named) and the strip's products sit in it"
+    },
+    {
+      "_id": "1b840748-4afd-4ab5-857f-076e9d8cc3c2",
+      "slug": "custom-u-brands-monterey-catalina-felt-tip-pens",
+      "title": "Custom U Brands Monterey Catalina Felt Tip Pens",
+      "root": "pens",
+      "confidence": "title names the root (named) and the strip's products sit in it"
+    },
+    {
+      "_id": "be709ad8-51de-4de2-a3c9-1da387ffefe2",
+      "slug": "custom-printed-u-brands-pens-with-your-logo-promotional-pens",
+      "title": "Custom Printed U Brands Pens with Your Logo | Promotional Pens",
+      "root": "pens",
+      "confidence": "title names the root (named) and the strip's products sit in it"
+    },
+    {
+      "_id": "21102ef2-47e3-4222-a2f9-7f305e785d81",
+      "slug": "how-to-wear-custom-richardson-112-caps-properly",
+      "title": "How to Wear Custom Richardson 112 Caps Properly",
+      "root": "caps",
+      "confidence": "title names the root (named) and the strip's products sit in it"
+    },
+    {
+      "_id": "f608e600-7c53-437d-a0cc-852b4f8407c9",
+      "slug": "custom-reflective-trick-or-treat-bags-for-halloween-safety",
+      "title": "Custom Reflective Trick or Treat Bags for Halloween Safety",
+      "root": "bags",
+      "confidence": "title names the root (named) and the strip's products sit in it; DEPARTMENT-LEVEL root, check whether a narrower page fits"
+    },
+    {
+      "_id": "1412b21d-461b-4ce0-8f96-0c1d51fb2eda",
+      "slug": "custom-u-brands-monterey-earthly-logo-pens-with-laser-engraving",
+      "title": "Custom U Brands Monterey Earthly Logo Pens with Laser Engraving",
+      "root": "pens",
+      "confidence": "title names the root (named) and the strip's products sit in it"
+    },
+    {
+      "_id": "4cb421ad-3eee-4510-af65-5d5e05c0eac5",
+      "slug": "custom-beats-by-dr-dre-earbuds-and-headphones-for-brand-visibility",
+      "title": "Custom Beats by Dr Dre Earbuds and Headphones for Brand Visibility",
+      "root": "headphones",
+      "confidence": "title names the root (named) and the strip's products sit in it"
+    },
+    {
+      "_id": "0cc643c4-e250-4027-be7c-5261b669b58b",
+      "slug": "custom-halloween-trick-or-treat-bags-for-your-business",
+      "title": "Custom Halloween Trick-or-Treat Bags for Your Business",
+      "root": "bags",
+      "confidence": "title names the root (named) and the strip's products sit in it; DEPARTMENT-LEVEL root, check whether a narrower page fits"
+    },
+    {
+      "_id": "f0d150b6-532e-4aec-96ee-49d30282025e",
+      "slug": "branded-hawaiian-shirts-and-promotional-t-shirts-with-personality",
+      "title": "Branded Hawaiian Shirts & Promotional T-Shirts with Personality",
+      "root": "shirts",
+      "confidence": "title names the root (named) and the strip's products sit in it"
+    },
+    {
+      "_id": "9a4f695d-c26c-42d8-b804-7273d991672f",
+      "slug": "custom-branded-marine-cooler-totes-for-promotional-giveaways",
+      "title": "Custom Branded Marine Cooler Totes for Promotional Giveaways",
+      "root": "coolers",
+      "confidence": "title names the root (tail-names) and the strip's products sit in it"
+    },
+    {
+      "_id": "5701590f-ccb5-4be5-917c-35df4eec4504",
+      "slug": "custom-fuzzy-fanny-packs-with-embroidered-patch",
+      "title": "Custom Fuzzy Fanny Packs with Embroidered Patch",
+      "root": "fanny-packs",
+      "confidence": "title names the root (tail-slug) and the strip's products sit in it"
+    },
+    {
+      "_id": "18cae557-de27-4ea2-94da-90aa2362bd2c",
+      "slug": "custom-recycled-mesh-grocery-totes-for-brand-visibility",
+      "title": "Custom Recycled Mesh Grocery Totes for Brand Visibility",
+      "root": "bags",
+      "confidence": "title names the root (tail-names) and the strip's products sit in it; DEPARTMENT-LEVEL root, check whether a narrower page fits"
+    },
+    {
+      "_id": "684ac64f-7c4a-4f20-9622-8a0ff5ba20b6",
+      "slug": "custom-tote-bags-how-to-make-branded-giveaways-people-actually-want",
+      "title": "Custom Tote Bags: How to Make Branded Giveaways People Actually Want",
+      "root": "tote-bags",
+      "confidence": "title names the root (named) and the strip's products sit in it"
+    },
+    {
+      "_id": "aa666d07-c1f5-447d-8d1a-1e835364b04b",
+      "slug": "custom-recycled-pet-backpacks-with-laptop-sleeve",
+      "title": "Custom Recycled PET Backpacks with Laptop Sleeve",
+      "root": "backpacks",
+      "confidence": "title names the root (named) and the strip's products sit in it"
+    },
+    {
+      "_id": "a40391ab-ad9a-4b0d-bc73-0d01a8edf4b2",
+      "slug": "custom-multi-tool-knives-for-outdoor-promotions",
+      "title": "Custom Multi-Tool Knives for Outdoor Promotions",
+      "root": "tools",
+      "confidence": "title names the root (named) and the strip's products sit in it"
+    },
+    {
+      "_id": "f2f21343-88cf-4891-971f-838fa16d9b48",
+      "slug": "custom-heavy-duty-mouse-pads-for-professional-branding",
+      "title": "Custom Heavy Duty Mouse Pads for Professional Branding",
+      "root": "mouse-pads",
+      "confidence": "title names the root (tail-slug) and the strip's products sit in it"
+    },
+    {
+      "_id": "453a3cba-41ba-4e6e-8f86-7c6179165c52",
+      "slug": "custom-printed-candy-cases-for-trade-shows-and-giveaways",
+      "title": "Custom Printed Candy Cases for Trade Shows & Giveaways",
+      "root": "candy",
+      "confidence": "title names the root (named) and the strip's products sit in it"
+    },
+    {
+      "_id": "509ab70d-da54-44c4-8e8e-49fc89d1ecea",
+      "slug": "custom-debossed-water-bottles-for-business-branding",
+      "title": "Custom Debossed Water Bottles for Business Branding",
+      "root": "water-bottles",
+      "confidence": "title names the root (tail-slug) and the strip's products sit in it"
+    },
+    {
+      "_id": "f4e0b641-aaed-4dc8-8908-88ca163a3972",
+      "slug": "custom-coffee-mugs-16-ounce-townes-mug",
+      "title": "These Custom Coffee Mugs Put Your Brand Into Their Daily Routine",
+      "root": "coffee-mugs",
+      "confidence": "title names the root (named); the video has no product strip to cross-check"
+    },
+    {
+      "_id": "b9bfabb1-b1cf-4b99-8451-57597065b596",
+      "slug": "custom-greeting-cards-boost-brand-impact-with-handwritten-notes",
+      "title": "Custom Greeting Cards: Boost Brand Impact with Handwritten Notes",
+      "root": "stationery",
+      "confidence": "title names the root (tail-names) and the strip's products sit in it"
+    },
+    {
+      "_id": "a247bb09-5bf3-4ffd-9e4a-da4f72f806d0",
+      "slug": "custom-embossed-water-bottles-for-events-gyms-and-employee-onboarding-kits",
+      "title": "Custom Embossed Water Bottles for Events, Gyms, and Employee Onboarding Kits",
+      "root": "water-bottles",
+      "confidence": "title names the root (tail-slug) and the strip's products sit in it"
+    },
+    {
+      "_id": "537dec05-f9c2-4dda-8278-a2fb514c61f5",
+      "slug": "custom-pens-and-custom-notebooks-why-simple-promotional-items-win",
+      "title": "Custom Pens and Custom Notebooks: Why Simple Promotional Items Win",
+      "root": "pens",
+      "confidence": "title names the root (named) and the strip's products sit in it"
+    },
+    {
+      "_id": "48b9de67-ec08-40ab-8dbf-2642e8ce92e5",
+      "slug": "custom-teddy-bears-and-stuffed-animals-for-brand-loyalty",
+      "title": "Custom Teddy Bears & Stuffed Animals for Brand Loyalty",
+      "root": "stuffed-animals-plush-toys",
+      "confidence": "title names the root (tail-slug) and the strip's products sit in it"
+    },
+    {
+      "_id": "38047ac1-0546-4f6c-9728-bad6fd3b72a5",
+      "slug": "custom-silicone-wristbands-for-events-and-promotions",
+      "title": "Custom Silicone Wristbands for Events and Promotions",
+      "root": "rubber-bracelets",
+      "confidence": "title names the root (tail-names) and the strip's products sit in it"
+    },
+    {
+      "_id": "80dea82f-6786-4b99-b982-b5b47e926c6c",
+      "slug": "large-custom-coffee-mugs-for-offices-and-promotions",
+      "title": "Large Custom Coffee Mugs for Offices and Promotions",
+      "root": "coffee-mugs",
+      "confidence": "title names the root (tail-slug) and the strip's products sit in it"
+    },
+    {
+      "_id": "150040ce-c0a5-46a4-9b75-5671b4834ad0",
+      "slug": "custom-recycled-gel-pens-with-logo-for-business-giveaways",
+      "title": "Custom Recycled Pivot Gel Pens with Logo for Business Giveaways",
+      "root": "pens",
+      "confidence": "title names the root (tail-names) and the strip's products sit in it"
+    },
+    {
+      "_id": "7d39b2b6-ce29-43c3-95b0-09d5c107393a",
+      "slug": "custom-promotional-pens-that-get-used-not-tossed",
+      "title": "Custom Promotional Pens That Get Used, Not Tossed",
+      "root": "pens",
+      "confidence": "title names the root (named) and the strip's products sit in it"
+    },
+    {
+      "_id": "32fb2bb9-9e83-4fec-bcf5-017cdc3be037",
+      "slug": "custom-mono-strap-canvas-tote-bags-with-printed-straps",
+      "title": "Custom Mono Strap Canvas Tote Bags with Printed Straps",
+      "root": "tote-bags",
+      "confidence": "title names the root (tail-slug) and the strip's products sit in it"
+    },
+    {
+      "_id": "31c80ff3-fe56-47ca-a94b-4d2ca5a8aa4f",
+      "slug": "custom-tide-to-go-pens-for-promotional-giveaways",
+      "title": "Custom Tide to Go Pens for Promotional Giveaways",
+      "root": "pens",
+      "confidence": "title names the root (named) and the strip's products sit in it"
+    },
+    {
+      "_id": "f54d612f-6be6-4b11-aa42-c7bc8f755897",
+      "slug": "custom-pet-bandanas-with-recycled-plastic-bottles",
+      "title": "Custom Pet Bandanas with Recycled Plastic Bottles",
+      "root": "bandanas",
+      "confidence": "title names the root (named) and the strip's products sit in it"
+    },
+    {
+      "_id": "c5f4854d-77e3-47db-8cb8-6a4d4b1d2ef7",
+      "slug": "custom-recycled-pen-and-pencil-sets-for-corporate-gifting",
+      "title": "Custom Recycled Pen and Pencil Sets for Corporate Gifting",
+      "root": "pen-pencil-sets",
+      "confidence": "title names the root (tail-slug) and the strip's products sit in it"
+    },
+    {
+      "_id": "d77c1023-aa46-4622-bbe5-9f15c8dc5152",
+      "slug": "custom-water-bottles-brand-visibility",
+      "title": "Custom Water Bottles That Turn Daily Use Into Brand Visibility",
+      "root": "water-bottles",
+      "confidence": "title names the root (named); the video has no product strip to cross-check"
+    },
+    {
+      "_id": "156baad3-a0eb-4a5d-9c59-8e03aff96fa9",
+      "slug": "custom-guardian-angel-self-defense-key-chains-for-bulk-orders",
+      "title": "Custom Guardian Angel Self Defense Key Chains for Bulk Orders",
+      "root": "keychains",
+      "confidence": "title names the root (tail-names) and the strip's products sit in it"
+    },
+    {
+      "_id": "89272df1-4e43-4d5e-9a08-e13e280c2194",
+      "slug": "custom-thundersticks-for-sports-events-and-crowd-cheering",
+      "title": "Custom Thundersticks for Sports Events & Crowd Cheering",
+      "root": "thunder-sticks",
+      "confidence": "title names the root (tail-names) and the strip's products sit in it"
+    },
+    {
+      "_id": "6114f726-5b8d-4058-971e-c245b398062e",
+      "slug": "custom-metal-aviator-mirrored-sunglasses-for-branded-giveaways",
+      "title": "Custom Metal Aviator Mirrored Sunglasses for Branded Giveaways",
+      "root": "sunglasses",
+      "confidence": "title names the root and the strip agrees, but the root is customCategory-owned and renders no Related row",
+      "skip": true,
+      "decision": "skipped by Ali 2026-10-25: owned root, renders no row"
+    },
+    {
+      "_id": "b2789ed1-afa5-42e0-b78e-e1131d74d21f",
+      "slug": "custom-pepper-spray-legal-all-states-territories",
+      "title": "Pepper Spray is Legal in All U.S. States",
+      "root": "pepper-spray",
+      "confidence": "title names the root and the strip agrees, but the root is customCategory-owned and renders no Related row",
+      "skip": true,
+      "decision": "skipped by Ali 2026-10-25: owned root, renders no row"
+    },
+    {
+      "_id": "b39b53f3-125c-45e1-8785-8be0b432a21e",
+      "slug": "custom-socks-with-full-color-printed-designs-for-branding",
+      "title": "Custom Socks with Full-Color Printed Designs for Branding",
+      "root": "socks",
+      "confidence": "title names the root and the strip agrees, but the root is customCategory-owned and renders no Related row",
+      "skip": true,
+      "decision": "skipped by Ali 2026-10-25: owned root, renders no row"
+    },
+    {
+      "_id": "b443a06b-1716-4786-9ab3-8124e4e3837a",
+      "slug": "custom-promotional-socks-with-full-color-header-cards",
+      "title": "Custom Promotional Socks with Full-Color Header Cards",
+      "root": "socks",
+      "confidence": "title names the root and the strip agrees, but the root is customCategory-owned and renders no Related row",
+      "skip": true,
+      "decision": "skipped by Ali 2026-10-25: owned root, renders no row"
+    }
+  ],
+  "possible": [
+    {
+      "_id": "4192d948-8592-4cd2-99fe-0d3ef225c71a",
+      "slug": "promotional-products-that-show-what-your-brand-stands-for",
+      "title": "Promotional Products That Show What Your Brand Stands For",
+      "root": "phone-tablet-stands",
+      "confidence": "title alone (head); the strip's products sit elsewhere",
+      "skip": true,
+      "decision": "skipped by Ali 2026-10-25: \"Stands For\" is a verb, not a phone stand"
+    },
+    {
+      "_id": "fc00d4e9-2f21-48a6-b412-ff2b886afa4b",
+      "slug": "custom-tech-giveaways-and-promotional-phone-chargers-for-bulk-branded-utility-gifts",
+      "title": "Custom Tech Giveaways and Promotional Phone Chargers for Bulk Branded Utility Gifts",
+      "root": "power-banks-chargers",
+      "confidence": "title alone (head); the strip's products sit elsewhere",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25"
+    },
+    {
+      "_id": "8ecd526c-9894-45c9-ae21-f8825ee42b11",
+      "slug": "custom-hydro-flask-water-bottles-focused-branding-strategy",
+      "title": "Custom Hydro Flask Water Bottles: Focused Branding Strategy",
+      "root": "water-bottles",
+      "confidence": "title alone (named); the strip's products sit elsewhere",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25"
+    },
+    {
+      "_id": "b985bfe5-6c26-441a-9303-bddc9ee351e3",
+      "slug": "promotional-products-that-market-the-experience",
+      "title": "Promotional Products That Market the Experience",
+      "root": "bar-wine",
+      "confidence": "strip only: 8 of 8 products sit in bar-wine; the the title resolved to no root",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25"
+    },
+    {
+      "_id": "d14e0e7a-b970-495f-b212-bc28fc2f7b26",
+      "slug": "custom-moleskine-notebooks-for-brand-identity",
+      "title": "Custom Moleskine Notebooks for Brand Identity",
+      "root": "journals-notebooks",
+      "confidence": "title and topic keyword name the root (head) but the strip's products sit elsewhere",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25"
+    },
+    {
+      "_id": "98ebafa8-e2b4-4667-9528-ed73a458f47c",
+      "slug": "custom-stanley-tumblers-and-water-bottles-for-branded-giveaways",
+      "title": "Custom Stanley Tumblers and Water Bottles for Branded Giveaways",
+      "root": "water-bottles",
+      "confidence": "title and topic keyword name the root (tail-slug) but the strip's products sit elsewhere",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25"
+    },
+    {
+      "_id": "35efeb35-a0ab-4b31-b509-e5d04a7cac04",
+      "slug": "custom-printed-nike-shirts-for-brand-exposure",
+      "title": "Custom Printed Nike Shirts for Brand Exposure",
+      "root": "shirts",
+      "confidence": "title and topic keyword name the root (named) but the strip's products sit elsewhere",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25"
+    },
+    {
+      "_id": "a05bb1c7-0a68-4dbb-b41c-3d3fb2038712",
+      "slug": "customized-clear-crossbody-bags-for-stadiums-and-events",
+      "title": "Customized Clear Crossbody Bags for Stadiums and Events",
+      "root": "messenger-bags",
+      "confidence": "title and topic keyword name the root (tail-names) but the strip's products sit elsewhere",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25"
+    },
+    {
+      "_id": "2ede4bf5-91d9-4cca-a966-83fe4954099b",
+      "slug": "custom-mini-recycled-mesh-beach-bags-for-summer-giveaways",
+      "title": "Custom Mini Recycled Mesh Beach Bags for Beach Resorts",
+      "root": "bags",
+      "confidence": "title and topic keyword name the root (named) but the strip's products sit elsewhere; DEPARTMENT-LEVEL root, check whether a narrower page fits",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25"
+    },
+    {
+      "_id": "7a3bebf3-622f-4f6a-abd3-f40611d30f2f",
+      "slug": "custom-clear-sling-tote-bags-for-events",
+      "title": "Custom Clear Sling Tote Bags for Events",
+      "root": "tote-bags",
+      "confidence": "title and topic keyword name the root (tail-slug) but the strip's products sit elsewhere",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25"
+    },
+    {
+      "_id": "627b45bb-68d7-4b69-a8ab-6f1811169879",
+      "slug": "custom-mesh-tech-pouches-charging-cable-cloth",
+      "title": "Custom Mesh Tech Pouches with Charging Cable &  Cleaning Cloth",
+      "root": "office",
+      "confidence": "strip only: 8 of 8 products sit in office; the the title resolved to no root; DEPARTMENT-LEVEL root, check whether a narrower page fits",
+      "skip": true,
+      "decision": "skipped by Ali 2026-10-25: a mesh tech pouch is not an office item; the title does not support the department root"
+    },
+    {
+      "_id": "13035f90-b337-4d6d-b7a0-19e8c8892dc9",
+      "slug": "custom-tumblers-stanley-tumbler-trend",
+      "title": "Custom Tumblers: Lessons from the Stanley Tumbler Trend",
+      "root": "drinkware",
+      "confidence": "title and topic keyword name the root (exact) but the strip's products sit elsewhere",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25 on drinkware (was wine-tumblers)"
+    },
+    {
+      "_id": "b9c1a51a-e265-48b4-a171-26c6c8caf1d7",
+      "slug": "branded-promotional-items-that-build-brand-confidence",
+      "title": "Branded Promotional Items That Build Brand Confidence",
+      "root": "apparel",
+      "confidence": "strip only: 4 of 4 products sit in apparel; the the title resolved to no root; DEPARTMENT-LEVEL root, check whether a narrower page fits",
+      "skip": true,
+      "decision": "skipped by Ali 2026-10-25: generic title, department root, only 4 strip products: too thin together"
+    },
+    {
+      "_id": "53e6782f-4971-4841-af4c-ba37a94eaffd",
+      "slug": "match-your-promotional-products-with-your-message-the-red-bull-lesson",
+      "title": "Match Your Promotional Products With Your Message: The Red Bull Lesson",
+      "root": "resistance-bands",
+      "confidence": "the title resolved to no root; the topic keyword names the root and 63% of the strip sits in it",
+      "skip": true,
+      "decision": "skipped by Ali 2026-10-25: 63% of a strip is not enough when the title resolved to no root"
+    },
+    {
+      "_id": "bad67d45-7876-4e14-ab69-5e9158ae7f5a",
+      "slug": "custom-merch-lesson-from-glossier",
+      "title": "Custom Merch Lessons from Glossier's Promotional Bags",
+      "root": "bags",
+      "confidence": "title alone (named); the strip's products sit elsewhere; DEPARTMENT-LEVEL root, check whether a narrower page fits",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25"
+    },
+    {
+      "_id": "1762eafe-9505-46da-ae05-6a11a1e74418",
+      "slug": "custom-promotional-products-with-simple-logos",
+      "title": "Simple Branding Tip From Nike for Promotional Products",
+      "root": "apparel",
+      "confidence": "strip only: 8 of 8 products sit in apparel; the the title resolved to no root; DEPARTMENT-LEVEL root, check whether a narrower page fits",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25"
+    },
+    {
+      "_id": "4bd2e5b5-8cb6-40c2-9594-591802d503b2",
+      "slug": "feather-weight-rabs-pen-low-cost-promo-pens",
+      "title": "Feather Weight RABS Pen: A Better Low-Cost Promo Pen",
+      "root": "pens",
+      "confidence": "title alone, a weak rule (named), nothing to cross-check",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25"
+    },
+    {
+      "_id": "0def586b-d494-40ea-a9fd-cbf8a80cce40",
+      "slug": "promotional-wrench-multi-tool",
+      "title": "This Branded Wrench Multi-Tool Gift Has Dad Written All Over It",
+      "root": "tools",
+      "confidence": "title alone, a weak rule (named), nothing to cross-check",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25"
+    },
+    {
+      "_id": "24fe6645-7f53-4c1b-bf71-5371cd819c6a",
+      "slug": "reusable-thundersticks-the-loud-school-spirit-item-fans-love",
+      "title": "Reusable Thundersticks: The Loud School Spirit Item Fans Love",
+      "root": "thunder-sticks",
+      "confidence": "title alone, a weak rule (named), nothing to cross-check",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25 on thunder-sticks (was fans)"
+    },
+    {
+      "_id": "d42b5c5b-6a33-45f9-a516-d2e1b55de81f",
+      "slug": "custom-hats-and-promotional-products-roi-for-business-buyers",
+      "title": "Custom Hats and Promotional Products ROI for Business Buyers",
+      "root": "caps",
+      "confidence": "the title resolved to no root; the topic keyword names the root and 50% of the strip sits in it",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25"
+    },
+    {
+      "_id": "bb349389-f337-4cfe-a8e4-5b414e9de76b",
+      "slug": "custom-scented-promotional-products-for-brand-recall",
+      "title": "Custom Scented Promotional Products for Brand Recall",
+      "root": "lip-balm",
+      "confidence": "strip only: 8 of 8 products sit in lip-balm; the the title resolved to no root",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25"
+    },
+    {
+      "_id": "e7d18d7d-ed9d-4537-b6f1-3770fc450e85",
+      "slug": "custom-crayons-for-financial-advisors-kitchen-table-marketing",
+      "title": "Custom Crayons for Financial Advisors: Kitchen Table Marketing",
+      "root": "coloring-books",
+      "confidence": "the title resolves to crayons (exact) but the topic keyword and the strip point at coloring-books",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25"
+    },
+    {
+      "_id": "0bc9731d-0b97-4393-9c7a-4c3a76322061",
+      "slug": "custom-sun-visors-for-roofers-smart-promotional-items",
+      "title": "Custom Sun Visors for Roofers: Smart Promotional Items",
+      "root": "sun-visor-clips",
+      "confidence": "title and topic keyword name the root (exact) but the strip's products sit elsewhere",
+      "skip": true,
+      "decision": "skipped by Ali 2026-10-25: a sun visor worn by a roofer is headwear; sun-visor-clips is a car accessory"
+    },
+    {
+      "_id": "13f118b5-3125-48e3-b540-ffceb4ccabae",
+      "slug": "custom-stickers-and-decals-for-brand-awareness",
+      "title": "Custom Stickers and Decals for Brand Awareness",
+      "root": "decals",
+      "confidence": "title and topic keyword name the root (tail-names) but the strip's products sit elsewhere",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25"
+    },
+    {
+      "_id": "c723ffef-681d-47c6-8e91-13eceeaaf9a6",
+      "slug": "seasonal-promotional-items-custom-hand-sanitizer-sunscreen-and-hot-cocoa-packets",
+      "title": "Seasonal Promotional Items: Custom Hand Sanitizer, Sunscreen, & Hot Cocoa Packets",
+      "root": "sunscreen",
+      "confidence": "title and topic keyword name the root (named) but the strip's products sit elsewhere",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25"
+    },
+    {
+      "_id": "53af82ff-5029-4e80-98c2-b3856fd82885",
+      "slug": "23-oz-loudcup-tumbler-fundraiser-idea",
+      "title": "23 oz LoudCup Tumbler Fundraiser | Perfect Imprints",
+      "root": "drinkware",
+      "confidence": "title alone, a weak rule (tail-names), nothing to cross-check",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25 on drinkware (was matches)"
+    },
+    {
+      "_id": "283595f7-66a4-4464-b975-997de79db57a",
+      "slug": "koozie-britepix-jersey-can-coolers",
+      "title": "Koozie Britepix Jersey Can coolers Turn a Basic Can Cooler Into a Team Branded Promo Item",
+      "root": "koozies",
+      "confidence": "title alone, a weak rule (named), nothing to cross-check",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25 on koozies (was coolers)"
+    },
+    {
+      "_id": "732b450f-1421-4cd3-9654-fe27f8c5a576",
+      "slug": "custom-mini-backpack-bag-charms-for-promotional-giveaways",
+      "title": "Custom Mini Backpack Bag Charms for Promotional Giveaways",
+      "root": "bags",
+      "confidence": "title alone (named); the strip's products sit elsewhere; DEPARTMENT-LEVEL root, check whether a narrower page fits",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25"
+    },
+    {
+      "_id": "ebe946cd-01d4-443c-86e0-e02ad2b530e2",
+      "slug": "custom-cali-stylus-rabs-pens-premium",
+      "title": "Custom Cali Stylus RABS Pens for Premium Branding",
+      "root": "pens",
+      "confidence": "title alone (tail-names); the strip's products sit elsewhere",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25 on pens (was fidget-spinners)"
+    },
+    {
+      "_id": "86836ffc-4b65-4744-a250-383c1abecf50",
+      "slug": "custom-aluminum-cups-with-logo-for-events",
+      "title": "Custom Aluminum Cups with Logo for Events",
+      "root": "drinkware",
+      "confidence": "strip only: 8 of 12 products sit in drinkware; the the title resolved to no root; DEPARTMENT-LEVEL root, check whether a narrower page fits",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25"
+    },
+    {
+      "_id": "66ad5be1-e0f2-4c75-9657-119369da844a",
+      "slug": "custom-printed-pocket-notebooks-for-everyday-branding",
+      "title": "Custom Printed Pocket Notebooks for Everyday Branding",
+      "root": "journals-notebooks",
+      "confidence": "title and topic keyword name the root (head) but the strip's products sit elsewhere",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25"
+    },
+    {
+      "_id": "3ae1e0e7-ac5b-41e4-bb22-5038f6cfbc26",
+      "slug": "custom-dog-waste-bag-holders-for-local-marketing",
+      "title": "Custom Dog Waste Bag Holders for Local Marketing",
+      "root": "pet-accessories",
+      "confidence": "title and topic keyword name the root (named) but the strip's products sit elsewhere; DEPARTMENT-LEVEL root, check whether a narrower page fits",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25 on pet-accessories (was bags)"
+    },
+    {
+      "_id": "87ebfcff-5fb6-4ea6-b434-be792da68b1e",
+      "slug": "custom-pepper-spray-for-safety-campaigns-and-events",
+      "title": "Custom Pepper Spray for Safety Campaigns and Events",
+      "root": "pepper-spray",
+      "confidence": "title and topic keyword name the root (exact) but the strip's products sit elsewhere",
+      "skip": true,
+      "decision": "skipped by Ali 2026-10-25: pepper-spray is customCategory-owned and renders no row"
+    },
+    {
+      "_id": "ff264231-40ca-4cca-85cb-ba3a0d39ecb6",
+      "slug": "custom-promotional-pepper-spray-branded-safety-giveaways",
+      "title": "Custom Promotional Pepper Spray: Branded Safety Giveaways",
+      "root": "pepper-spray",
+      "confidence": "title alone (named); the strip's products sit elsewhere",
+      "skip": true,
+      "decision": "skipped by Ali 2026-10-25: pepper-spray is customCategory-owned and renders no row"
+    },
+    {
+      "_id": "ab206ebd-f8bd-4dff-81c9-3e24c6accd4c",
+      "slug": "custom-car-headrest-hooks-for-branded-giveaways",
+      "title": "Custom Car Headrest Hooks for Branded Giveaways",
+      "root": "car-organizers",
+      "confidence": "strip only: 8 of 8 products sit in car-organizers; the the title resolved to no root",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25"
+    },
+    {
+      "_id": "97de62f4-ef52-41fc-8b83-bae449405070",
+      "slug": "custom-nfc-challenge-coins-for-business",
+      "title": "Custom NFC Challenge Coins for Business",
+      "root": "coins",
+      "confidence": "title alone (tail-names); the strip's products sit elsewhere",
+      "approve": true,
+      "decision": "approved by Ali 2026-10-25"
+    },
+    {
+      "_id": "4195e90f-b02b-4af7-8f7a-9076fa114a43",
+      "slug": "custom-printed-pepper-spray-for-safety-campaigns",
+      "title": "Custom Printed Pepper Spray for Safety Campaigns",
+      "root": "pepper-spray",
+      "confidence": "title and topic keyword name the root (exact) but the strip's products sit elsewhere",
+      "skip": true,
+      "decision": "skipped by Ali 2026-10-25: pepper-spray is customCategory-owned and renders no row"
+    }
+  ],
+  "approvedAt": "2026-10-25",
+  "approvedBy": "Ali"
+}

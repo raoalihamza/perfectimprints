@@ -29,6 +29,7 @@ import {
   PRODUCT_SITEMAP_TAG,
   QUOTES_TAG,
   RELATED_BLOGS_TAG,
+  RELATED_VIDEOS_TAG,
   SETTINGS_TAG,
   VIDEOS_TAG,
   blogPostTag,
@@ -441,7 +442,16 @@ export async function POST(request: Request) {
     if (type === 'faq') revalidateTag(FAQS_TAG, 'max');
     // Videos are read through a non-CDN tagged fetch (see lib/sanity/queries/videos)
     // — bust the tag so /videos + /videos/<slug> + the search delta refresh deterministically.
-    if (type === 'video') revalidateTag(VIDEOS_TAG, 'max');
+    if (type === 'video') {
+      revalidateTag(VIDEOS_TAG, 'max');
+      // VID-100: the "Related Videos About ..." row on root category pages reads
+      // through RELATED_VIDEOS_TAG, its own tag, so that ONLY a video publish
+      // reaches the 465 root pages (+ their /page/N variants); VIDEOS_TAG is
+      // also busted by productPage / customProduct / portfolio edits that embed
+      // in a video, none of which changes which videos a root page lists. The
+      // same shape as RELATED_BLOGS_TAG on a blogPost publish above.
+      revalidateTag(RELATED_VIDEOS_TAG, 'max');
+    }
     // A productPage can reference a customProduct in its Related Products list
     // (dereferenced inside the PRODUCT_PAGES_TAG-cached read, P2-CP-001) — bust
     // the tag so /products/<slug> carousels pick up the edit/delete instead of

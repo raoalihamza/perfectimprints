@@ -51,6 +51,20 @@ export const PRODUCT_SITEMAP_TAG = 'product-sitemap';
 export const RELATED_BLOGS_TAG = 'related-blogs';
 
 /**
+ * Related videos shown on root category pages (RelatedVideosSection, VID-100).
+ * Its OWN tag, busted ONLY by the webhook's `video` branch, and deliberately
+ * NOT `VIDEOS_TAG`: that one is also busted when a productPage or customProduct
+ * a video strip references is edited, and when a portfolio item a video
+ * embeds is published, and none of those changes which videos a root page
+ * lists. So the only event that invalidates the root pages through this tag
+ * is a video publish, the same shape as RELATED_BLOGS_TAG on a blog publish.
+ * Blast radius is the 465 root pages plus their /page/N variants (the row
+ * renders in the `isRoot` branch); the 576 modifier and 21,137 facet pages
+ * never perform this read and are untouched.
+ */
+export const RELATED_VIDEOS_TAG = 'related-videos';
+
+/**
  * A single blog post's own content, read by `/blog/<slug>`.
  *
  * That route is `revalidate = false`, so it is generated once and NEVER
