@@ -28,7 +28,19 @@ export interface DigestSweepLine {
   sentence: string;
 }
 
+/**
+ * SEC-100: the live health of the site's read of the private Sanity dataset
+ * (lib/sanity/read-health.ts, shape kept local so this module stays pure).
+ * A failure is the FIRST thing the email says, and marks the subject.
+ */
+export interface DigestReadHealth {
+  ok: boolean;
+  message: string;
+}
+
 export interface DigestInput {
+  /** The site's Sanity read health, checked live by the route; null when the check itself could not run; absent when not checked. */
+  readHealth?: DigestReadHealth | null;
   /** UTC day the runs belong to, YYYY-MM-DD. */
   day: string;
   runs: readonly RunLogDocument[];
@@ -121,7 +133,17 @@ export function buildDigestEmail(input: DigestInput): DigestEmail {
     finished.length === 0
       ? 'Blog engine: nothing was written last night'
       : `Blog engine: ${finished.length} post${finished.length === 1 ? '' : 's'} ${published > 0 && drafts === 0 ? 'published' : published > 0 ? 'written (some published)' : 'drafted'} last night`;
-  const subject = `${headline} (${dayWords(input.day)})`;
+  // SEC-100: a site that cannot read Sanity outranks anything the blog did.
+  // undefined = not supplied (no check made); null = the check itself could not run.
+  const readProblem =
+    input.readHealth === undefined
+      ? null
+      : input.readHealth === null
+        ? 'The check of the site read of Sanity could not run this morning. Ali: open /api/health/sanity on the live site.'
+        : input.readHealth.ok
+          ? null
+          : input.readHealth.message;
+  const subject = `${readProblem ? '[Needs attention] ' : ''}${headline} (${dayWords(input.day)})`;
 
   const lines: string[] = [];
   const html: string[] = [];
@@ -129,6 +151,12 @@ export function buildDigestEmail(input: DigestInput): DigestEmail {
     lines.push(text);
     html.push(markup);
   };
+
+  if (readProblem) {
+    const sentence = `SITE DATA: ${readProblem}`;
+    add(sentence, `<p style="padding:12px 16px;background:#FFF4F4;border-left:4px solid #E11F1E;margin:0 0 16px 0;"><strong>Site data:</strong> ${esc(readProblem)}</p>`);
+    lines.push('');
+  }
 
   add(`${headline}.`, `<h2 style="margin:0 0 12px 0;color:#231F20;">${esc(headline)}.</h2>`);
   add(`${dayWords(input.day)}. The engine has ${input.slots} slots a night.`, `<p style="margin:0 0 16px 0;color:#666;">${esc(dayWords(input.day))}. The engine has ${input.slots} slots a night.</p>`);
@@ -193,7 +221,14 @@ export function buildDigestEmail(input: DigestInput): DigestEmail {
   const switchA = input.switches.paused ? 'PAUSED (nothing will be written until it is switched back on)' : 'running';
   const switchB = input.switches.publishMode === 'publish' ? 'publish straight away' : 'save as a draft for you to review';
   const cap = input.imageCap ? `${input.imageCap.used} of ${input.imageCap.cap} generated pictures used today` : 'the picture counter could not be read';
-  const footer = [`Automatic posts: ${switchA}.`, `Each post: ${switchB}.`, `Spent last night: about ${usd(spend)} (estimated).`, `${cap}.`, 'Change either switch in the Studio under Global Settings > Blog Automation.'];
+  const footer = [
+    `Automatic posts: ${switchA}.`,
+    `Each post: ${switchB}.`,
+    `Spent last night: about ${usd(spend)} (estimated).`,
+    `${cap}.`,
+    ...(input.readHealth?.ok ? [`Site data: ${input.readHealth.message}`] : []),
+    'Change either switch in the Studio under Global Settings > Blog Automation.',
+  ];
   lines.push('', ...footer);
   html.push(`<hr style="border:0;border-top:1px solid #E5E5E5;margin:18px 0;" /><p style="color:#666;font-size:13px;">${footer.map(esc).join('<br/>')}</p>`);
 

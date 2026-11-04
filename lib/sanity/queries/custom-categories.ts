@@ -3,6 +3,7 @@ import { cachedClient } from '@/lib/sanity/client';
 import { CUSTOM_CATEGORIES_TAG, categoryTag } from '@/lib/sanity/cache-tags';
 import type { SanityImage, SeoFields } from '@/lib/sanity/types';
 import type { CustomProductDoc } from './custom-products';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 export interface CustomCategorySearchEntry {
   title: string;
@@ -92,7 +93,8 @@ export async function getCustomCategoryBySlug(
       { next: { tags: [categoryTag(slug)].filter(Boolean), revalidate: false } },
     );
     return doc ?? null;
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return null;
   }
 }
@@ -119,7 +121,8 @@ export async function getCustomCategorySearchEntries(): Promise<CustomCategorySe
     return docs
       .map((d) => ({ title: (d.title ?? '').trim(), slug: d.slug?.current ?? '' }))
       .filter((e) => e.title && e.slug);
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }

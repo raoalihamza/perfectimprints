@@ -28,6 +28,7 @@ import { cachedClient } from '../sanity/client';
 import { memoizedRead } from './read-memo';
 import { LANDING_TAG, PAGES_TAG, RELATED_BLOGS_TAG, VIDEOS_TAG } from '../sanity/cache-tags';
 import { getAllGeneratedRootSlugs, getCategoryContent } from '../categories';
+import { rethrowIfSanityAccessError } from '../sanity/read-access';
 
 export type InternalLinkKind = 'blog' | 'page' | 'category' | 'video' | 'landing';
 
@@ -199,7 +200,8 @@ export async function loadLinkDocsForKind(
           { next: { tags: [source.tag], revalidate: false } },
         )) ?? []
       );
-    } catch {
+    } catch (err) {
+      rethrowIfSanityAccessError(err);
       return [];
     }
   });

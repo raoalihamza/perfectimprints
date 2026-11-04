@@ -84,9 +84,12 @@ export default async function CustomerQuotePage({ params }: Props) {
   const { token } = await params;
 
   // getQuoteByToken returns null for an unknown, malformed, empty or
-  // unpublished token and never throws, so all of those become one honest 404
-  // rather than an error page or a blank page. (A malformed token also never
-  // reaches the cache-tag space - the helper rejects it before the fetch.)
+  // unpublished token, so all of those become one honest 404 rather than an
+  // error page or a blank page. (A malformed token also never reaches the
+  // cache-tag space - the helper rejects it before the fetch.) SEC-100: the one
+  // thing it throws on is a missing or rejected read token; that propagates,
+  // so a re-render fails and the last good copy stays cached, instead of a
+  // working link turning into a 404 for the customer.
   const quote = await getQuoteByToken(token);
   if (!quote) notFound();
 

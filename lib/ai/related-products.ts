@@ -55,6 +55,7 @@ import { resolveCategoryFromIndex } from './category-resolver';
 import { carriesToken, productPhraseTokens, significantTokens } from './match-tokens';
 import { buildSkuSet, isHiddenSku } from '../products/hidden-skus';
 import { memoizedRead } from './read-memo';
+import { rethrowIfSanityAccessError } from '../sanity/read-access';
 
 export interface MatchRelatedProductsOptions {
   /** URL-style category slug (path after /cat/), e.g. 'water-bottles'. */
@@ -316,7 +317,8 @@ export async function matchRelatedProducts(
         },
         opts.replacementBySku,
       );
-    } catch {
+    } catch (err) {
+      rethrowIfSanityAccessError(err);
       categoryProducts = getProductsForCategorySlug(opts.categorySlug.split('/').join('__'));
     }
     for (const p of rankEligible(categoryProducts, tokens, minScore)) push(p);
@@ -339,7 +341,8 @@ export async function matchRelatedProducts(
       // AUTO-205: read once per generation (lib/ai/read-memo.ts), not once per idea.
       const custom = (await memoizedRead('all-custom-products', () => getAllCustomProducts())).map(customProductToGeigerProduct);
       for (const p of rankEligible(custom.filter(scannable), tokens, minScore)) push(p);
-    } catch {
+    } catch (err) {
+      rethrowIfSanityAccessError(err);
       // Geiger-only fallback — suggestions stay useful without custom products.
     }
   }
@@ -363,7 +366,8 @@ export async function matchRelatedProducts(
       );
       const pages = (await memoizedRead('all-product-page-cards', () => getAllProductPageCards())).map(productPageToGeigerProduct);
       for (const p of rankEligible(pages.filter(scannable), tokens, catalogFloor)) push(p);
-    } catch {
+    } catch (err) {
+      rethrowIfSanityAccessError(err);
       // Geiger-only fallback.
     }
   }

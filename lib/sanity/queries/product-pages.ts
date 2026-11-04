@@ -14,6 +14,7 @@ import {
   productPageMinQty,
   productPagePriceRange,
 } from '@/lib/products/product-page-pricing';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 // ---------------------------------------------------------------------------
 // Sanity `productPage` documents (P2-CP-001 part 1) — full custom product
@@ -373,7 +374,8 @@ export async function getProductPageBySlug(slug: string): Promise<ProductPageDoc
       { slug },
       { next: { tags: [PRODUCT_PAGES_TAG, productPageTag(slug)].filter(Boolean), revalidate: false } },
     );
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return null;
   }
 }
@@ -386,7 +388,8 @@ export async function getAllProductPageSlugs(): Promise<string[]> {
       { next: { tags: [PRODUCT_PAGES_TAG], revalidate: false } },
     );
     return (slugs ?? []).filter(Boolean);
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }
@@ -401,7 +404,8 @@ export async function getProductPagesForNewProducts(): Promise<ProductPageCard[]
         { next: { tags: [PRODUCT_PAGES_TAG], revalidate: false } },
       )) ?? []
     ).filter((d) => d.slug);
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }
@@ -416,7 +420,8 @@ export async function getAllProductPageCards(): Promise<ProductPageCard[]> {
         { next: { tags: [PRODUCT_PAGES_TAG], revalidate: false } },
       )) ?? []
     ).filter((d) => d.slug);
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }
@@ -486,14 +491,15 @@ export async function getProductPageSearchEntries(): Promise<ProductPageSearchEn
         if (image) {
           try {
             entry.image = urlForRenderImage(image).width(80).height(80).fit('max').url();
-          } catch {
+          } catch { // sanity-read-guard: not a Sanity read
             /* leave image unset */
           }
         }
         return entry;
       })
       .filter((e) => e.title && e.url);
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }
@@ -527,7 +533,8 @@ export async function getProductLeadInfo(slug: string): Promise<ProductLeadLooku
       { slug },
       { next: { tags: [PRODUCT_PAGES_TAG, productPageTag(slug)].filter(Boolean), revalidate: false } },
     );
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return null;
   }
 }
@@ -593,7 +600,8 @@ export async function getProductQuoteSource(slug: string): Promise<ProductQuoteS
       setupCharge: raw.setupCharge,
       decorationMethods: raw.decorationMethods,
     };
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return null;
   }
 }
@@ -654,7 +662,8 @@ export async function getProductPageSitemapEntries(): Promise<ProductPageSitemap
         if (image) entry.image = image;
         return entry;
       });
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }

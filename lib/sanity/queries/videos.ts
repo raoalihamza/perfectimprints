@@ -12,6 +12,7 @@ import {
   rankRelatedVideos,
   type VideoCategoryRef,
 } from '@/lib/video/video-categories';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 // Tagged, non-CDN fetch options shared by every video read. Reading off
 // api.sanity.io (not the CDN) means a publish-triggered revalidation always sees
@@ -140,7 +141,8 @@ export async function getVideoSummariesBySlugs(slugs: string[]): Promise<VideoSu
       )) ?? [];
     const bySlug = new Map(docs.map((d) => [d.slug.current, d]));
     return wanted.map((s) => bySlug.get(s)).filter((d): d is VideoSummary => Boolean(d));
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }

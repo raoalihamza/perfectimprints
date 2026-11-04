@@ -4,6 +4,7 @@ import type { CategoryOverrideAddedProduct } from '@/lib/sanity/queries/category
 import { getSiteSettings } from '@/lib/sanity/queries/global-settings';
 import { getProductReplacements } from '@/lib/sanity/queries/product-replacements';
 import { memoizedRead } from '@/lib/ai/read-memo';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 /**
  * THE single answer to "which Geiger products must not appear, and what goes in
@@ -83,7 +84,8 @@ export const getHiddenProductContext = cache(
           replacementBySku: replacements.bySku,
           replacementOverlayDocs: replacements.overlayDocs,
         };
-      } catch {
+      } catch (err) {
+        rethrowIfSanityAccessError(err);
         // Hiding nothing is the safe failure: the site renders exactly as it did
         // before either feature existed, rather than blanking slots because a read
         // failed.
@@ -115,7 +117,8 @@ export async function searchHiddenSkus(): Promise<string[]> {
   try {
     const [settings, context] = await Promise.all([getSiteSettings(), getHiddenProductContext()]);
     return [...settings.searchHiddenSkus, ...context.hiddenSkus];
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }

@@ -24,6 +24,7 @@ import { getSiteSettings } from '@/lib/sanity/queries/global-settings';
 import { getRushProducts } from '@/lib/rush-products';
 import { getAllBrands } from '@/lib/brands';
 import { getBlogPostsPage } from '@/lib/sanity/queries/blogs';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
   /\/$/,
@@ -85,11 +86,12 @@ export default async function HomePage() {
     Promise.resolve(getNewProducts(12, hiddenNew)),
     Promise.resolve(getRushProducts(12, hiddenRush)),
     getAllBrands(),
-    getBlogPostsPage({ page: 1, perPage: 3 }).catch(() => ({
-      posts: [],
-      total: 0,
-      totalPages: 0,
-    })),
+    getBlogPostsPage({ page: 1, perPage: 3 }).catch((err: unknown) => {
+      // SEC-100: a missing or rejected read token must fail this render (the
+      // last good home page stays cached), never bake a home page with no posts.
+      rethrowIfSanityAccessError(err);
+      return { posts: [], total: 0, totalPages: 0 };
+    }),
   ]);
 
   return (

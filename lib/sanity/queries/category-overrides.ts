@@ -13,6 +13,7 @@ import { buildSkuSet, isHiddenSku } from '@/lib/products/hidden-skus';
 import { planProductSlots } from '@/lib/products/substitution';
 import { applyPinnedOrder } from '@/lib/products/pin-order';
 import type { GeigerProduct } from '@/lib/product-types';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 /**
  * One resolved `addedProducts` reference (P2-CP-004 batch 3): either a
@@ -105,7 +106,8 @@ export async function getCategoryOverride(
       { next: { tags: [categoryTag(categorySlug)].filter(Boolean), revalidate: false } },
     );
     return doc ?? null;
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return null;
   }
 }

@@ -10,6 +10,7 @@ import type { SanityImage } from './sanity/types';
 import { decodeProductEntities } from './products/decode-product';
 import { decodeHtmlEntities } from './text-utils';
 import type { GeigerProduct } from './categories';
+import { rethrowIfSanityAccessError } from './sanity/read-access';
 
 // Tagged, non-CDN fetch options for every brand read. Reading off api.sanity.io
 // (not the CDN) means a publish-triggered revalidation always sees fresh data;
@@ -89,7 +90,7 @@ function normalizeSanity(doc: SanityBrandDoc): Brand {
   if (doc.logo?.asset?._ref) {
     try {
       logoUrl = urlForImage(doc.logo).width(400).fit('max').url();
-    } catch {
+    } catch { // sanity-read-guard: not a Sanity read
       logoUrl = null;
     }
   }
@@ -119,7 +120,8 @@ async function fetchSanityBrands(): Promise<Brand[]> {
       BRANDS_FETCH_OPTS,
     );
     return docs.map(normalizeSanity).filter((b) => b.slug.length > 0);
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }

@@ -18,6 +18,7 @@ import { getSiteSettings } from '@/lib/sanity/queries/global-settings';
 import { searchHiddenSkus } from '@/lib/products/site-wide-hidden';
 import { filterHiddenSkuItems, buildHiddenSkuSet } from '@/lib/search/hidden-skus';
 import type { SearchIndexFile } from '@/lib/search/types';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 // ISR: cache the GET response, auto-refresh weekly, bust on-demand via the
 // publish webhook. (Next 16's tag-based revalidation now needs a cache-profile
@@ -39,7 +40,12 @@ export async function GET() {
   // the change would sit behind this route's 1-week ISR floor.
   const [items, settings] = await Promise.all([
     buildSanitySearchItems(),
-    getSiteSettings().catch(() => null),
+    getSiteSettings().catch((err: unknown) => {
+      // SEC-100: this route is ISR (1-week floor); a credential failure must
+      // keep the last good delta, never cache one with every hide list empty.
+      rethrowIfSanityAccessError(err);
+      return null;
+    }),
   ]);
 
   // HIDE-100: search hides its own list PLUS the site-wide list, because

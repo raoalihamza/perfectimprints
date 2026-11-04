@@ -4,6 +4,7 @@ import { createRateLimiter, getClientIp } from '@/lib/api/rate-limit';
 import { renderQuotePdf } from '@/lib/quotes/pdf/render-quote-pdf';
 import { isQuoteToken } from '@/lib/quotes/token';
 import { getQuoteByToken } from '@/lib/sanity/queries/quotes';
+import { isSanityAccessError } from '@/lib/sanity/read-access';
 
 /**
  * The downloadable quote PDF (Q-160): GET /api/quote-pdf/<token>
@@ -83,7 +84,20 @@ export async function GET(
     );
   }
 
-  const quote = await getQuoteByToken(token);
+  // SEC-100: the dataset is private. A missing or rejected read token is the
+  // server's fault, not the customer's link: answer 503 and say "try again",
+  // never the 404 that tells them their quote is gone.
+  let quote: Awaited<ReturnType<typeof getQuoteByToken>>;
+  try {
+    quote = await getQuoteByToken(token);
+  } catch (err) {
+    if (!isSanityAccessError(err)) throw err;
+    console.error('[quote-pdf] the Sanity read token was missing or rejected; the customer was told to try again.', err);
+    return NextResponse.json(
+      { error: 'We could not open this quote just now. Please try again in a few minutes, or email your contact.' },
+      { status: 503 },
+    );
+  }
   if (!quote) return notFound();
 
   let rendered: { buffer: Buffer; fileName: string };

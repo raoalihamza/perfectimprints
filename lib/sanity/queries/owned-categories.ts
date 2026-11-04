@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { cachedClient } from '@/lib/sanity/client';
 import { CATEGORY_CONTROL_TAG } from '@/lib/sanity/cache-tags';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 /**
  * Category-control sets for the `/cat/<slug>` render (M5-504 hybrid restore).
@@ -57,7 +58,7 @@ function readOwnedFileFallback(): Set<string> {
   try {
     const parsed = JSON.parse(fs.readFileSync(SLUGS_FILE, 'utf8')) as { slugs?: string[] };
     _fileCache = new Set(parsed.slugs ?? []);
-  } catch {
+  } catch { // sanity-read-guard: not a Sanity read
     _fileCache = new Set();
   }
   return _fileCache;
@@ -90,7 +91,8 @@ export async function getCategoryControlSets(): Promise<CategoryControlSets> {
       edited.add(s);
     }
     return { owned, edited };
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     const owned = readOwnedFileFallback();
     // Offline: only owned slugs are known; override/placement can't apply
     // without Sanity anyway, so `edited` == `owned`.

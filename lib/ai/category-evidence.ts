@@ -41,6 +41,7 @@ import {
 } from '../categories';
 import { buildCategoryIndex, type CategoryEvidence, type CategoryIndex } from './category-resolver';
 import type { CategoryCuration } from '../sanity/queries/category-evidence';
+import { rethrowIfSanityAccessError } from '../sanity/read-access';
 
 interface NamedProduct {
   sku: string;
@@ -156,7 +157,8 @@ async function readCuration(): Promise<CategoryCuration | null> {
   try {
     const { getCategoryCuration } = await import('../sanity/queries/category-evidence');
     return await getCategoryCuration();
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return null;
   }
 }
@@ -184,7 +186,7 @@ export function loadCategoryIndex(): Promise<CategoryIndex> {
   const index = buildIndex();
   memo = { at: now, index };
   // A failed build must not be remembered.
-  index.catch(() => {
+  index.catch(() => { // sanity-read-guard: not a Sanity read
     if (memo?.index === index) memo = null;
   });
   return index;

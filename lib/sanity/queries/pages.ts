@@ -9,6 +9,7 @@ import {
 } from '@/lib/sanity/strip-product-entries';
 import type { SanityImage } from '@/lib/sanity/types';
 import type { PortfolioGalleryBlockValue } from '@/lib/portfolio/gallery';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 // ---------------------------------------------------------------------------
 // Generic section-based `page` document (M5-506b). One type powers Services
@@ -234,7 +235,8 @@ export async function getPageBySlug(slug: string): Promise<PageDoc | null> {
       { slug },
       { next: { tags: [PAGES_TAG, pageTag(slug)].filter(Boolean), revalidate: false } },
     );
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return null;
   }
 }
@@ -247,7 +249,8 @@ export async function getAllPageSlugs(): Promise<string[]> {
       { next: { tags: [PAGES_TAG], revalidate: false } },
     );
     return slugs ?? [];
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }

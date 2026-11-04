@@ -8,6 +8,7 @@ import type {
   QuoteProductLineInput,
 } from '@/lib/quotes/quote-totals';
 import type { SanityImage } from '@/lib/sanity/types';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 // ---------------------------------------------------------------------------
 // Quick Quote `quote` documents (Q-110 - data foundation). Nothing renders a
@@ -186,7 +187,8 @@ export async function getQuoteByToken(token: string): Promise<QuoteDoc | null> {
       { next: { tags: [QUOTES_TAG, quoteTag(token)].filter(Boolean), revalidate: false } },
     );
     return doc ?? null;
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return null;
   }
 }
@@ -248,7 +250,8 @@ export async function getQuoteForResponse(token: string): Promise<QuoteForRespon
       { cache: 'no-store' },
     );
     return doc ?? null;
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return null;
   }
 }

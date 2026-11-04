@@ -19,6 +19,7 @@ import { largeSocialImage } from '@/lib/seo/open-graph';
 import { isIndexableSiteUrl } from '@/lib/seo/indexing-policy';
 import { RESERVED_SLUG_SET } from '@/lib/reserved-slugs';
 import { SIMPLE_NAV } from '@/lib/nav-data';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.perfectimprints.com').replace(
   /\/$/,
@@ -78,7 +79,8 @@ async function readBlogUrlsFromSanity(): Promise<{ posts: string[]; categories: 
       posts: postSlugs.map((s) => `/blog/${s}`),
       categories: categories.map((c) => `/blog/cat/${c.slug.current}`),
     };
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     // During build, before Sanity is populated, Sanity may error out. Fall back
     // to nothing so the sitemap still builds — blog URLs surface once Sanity
     // has data.
@@ -92,7 +94,8 @@ async function readVideoUrlsFromSanity(): Promise<string[]> {
   try {
     const slugs = await getVideoSlugs();
     return slugs.map((s) => `/videos/${s}`);
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }
@@ -116,7 +119,8 @@ async function readDynamicPageUrls(): Promise<string[]> {
     return slugs
       .filter((s) => s && !RESERVED_SLUG_SET.has(s) && !SERVICE_SLUGS.has(s))
       .map((s) => `/${s}`);
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }
@@ -131,7 +135,8 @@ async function readLandingPageUrls(): Promise<string[]> {
     return slugs
       .filter((s) => s && !RESERVED_SLUG_SET.has(s) && !SERVICE_SLUGS.has(s))
       .map((s) => `/${s}`);
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }
@@ -142,7 +147,8 @@ async function readLandingPageUrls(): Promise<string[]> {
 async function readProductPageEntries(): Promise<ProductPageSitemapEntry[]> {
   try {
     return await getProductPageSitemapEntries();
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }
@@ -155,7 +161,8 @@ async function readCatalogLandingUrls(): Promise<string[]> {
   try {
     const slugs = await getAllCatalogPageSlugs();
     return slugs.filter(Boolean).map((s) => `/shop-by-theme/${s}`);
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }
@@ -181,7 +188,8 @@ async function readPortfolioEntry(): Promise<{ images: string[] } | null> {
     // arrive in site order (featured first), so the first 1,000 are the right
     // ones to keep.
     return { images: images.slice(0, 1000) };
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return null;
   }
 }

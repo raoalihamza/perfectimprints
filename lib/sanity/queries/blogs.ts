@@ -3,6 +3,7 @@ import { BLOG_LIST_TAG, RELATED_BLOGS_TAG, blogPostTag } from '@/lib/sanity/cach
 import { STRIP_PRODUCT_ENTRIES_PROJECTION } from '@/lib/sanity/strip-product-entries';
 import type { PortableTextBlock } from '@portabletext/react';
 import type { SanityImage, SanitySlug } from '@/lib/sanity/types';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 export interface BlogAuthor {
   name: string;
@@ -140,7 +141,8 @@ export async function getBlogSummariesBySlugs(slugs: string[]): Promise<BlogPost
       )) ?? [];
     const bySlug = new Map(docs.map((d) => [d.slug.current, d]));
     return wanted.map((s) => bySlug.get(s)).filter((d): d is BlogPostSummary => Boolean(d));
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }

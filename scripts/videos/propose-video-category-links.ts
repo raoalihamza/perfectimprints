@@ -5,7 +5,8 @@
  *   pnpm videos:propose-links             writes docs/videos/VID-100-proposed-video-category-links.{md,json}
  *   pnpm videos:propose-links -- --force  overwrites a JSON that Ali has already marked approved
  *
- * Read only: an anonymous read of the published dataset (no token), the
+ * Read only: a read of the published dataset through the site's read client
+ * (the dataset is private since SEC-100, so the read token in .env.local), the
  * category data on disk, and FIX-911's category resolver. Calls no AI model.
  * Writes nothing to Sanity; the writer is scripts/videos/apply-video-category-links.ts,
  * which refuses to run until the JSON's "approved" is true.
@@ -25,6 +26,11 @@
  *
  * Run from the repo root; data/categories is read from the current directory.
  */
+// SEC-100: .env.local first (ESM evaluates imports in order), so the tokened
+// read client below sees SANITY_API_READ_TOKEN. The dataset is private: the
+// anonymous read this script used to make now returns nothing.
+import '../search-index/load-env';
+import { cachedClient } from '../../lib/sanity/client';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
@@ -44,19 +50,14 @@ import { productPhraseTokens } from '../../lib/ai/match-tokens';
 import { NEAR_GENERIC_WORDS } from '../../lib/ai/brand-voice';
 import type { CategoryCuration } from '../../lib/sanity/queries/category-evidence';
 
-const PROJECT = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? 'ii96lcy9';
-const DATASET = process.env.NEXT_PUBLIC_SANITY_DATASET ?? 'production';
 const FORCE = process.argv.includes('--force');
 
 async function groq<T>(query: string): Promise<T> {
-  const url = `https://${PROJECT}.api.sanity.io/v2024-01-01/data/query/${DATASET}?query=${encodeURIComponent(query)}`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`${res.status} ${await res.text()}`);
-  return (await res.json()).result as T;
+  return cachedClient.fetch<T>(query, {}, { cache: 'no-store' });
 }
 
 // The resolver's curation read, verbatim from lib/sanity/queries/category-evidence.ts
-// (that module is `server-only`, so the query is repeated here for an anonymous read).
+// (that module is `server-only`, so the query is repeated here for a script read).
 const CURATION_QUERY = `{
   "overrides": *[_type == "categoryOverride" && defined(categorySlug)] | order(_updatedAt desc) {
     categorySlug, forceCTA, forceProducts, replaceProducts, hiddenSkus, addedSkus,

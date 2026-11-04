@@ -2,6 +2,7 @@ import type { PortableTextBlock } from '@portabletext/react';
 import { cachedClient, urlForRenderImage } from '@/lib/sanity/client';
 import { HOME_TAG, SETTINGS_TAG } from '@/lib/sanity/cache-tags';
 import type { SanityImage } from '@/lib/sanity/types';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 // Q-175. Both reads below moved off the CDN `client` onto the non-CDN
 // `cachedClient` with a cache tag. `/` is `force-static` with no `revalidate`,
@@ -107,7 +108,8 @@ export async function getHomeCtaBanner(): Promise<HomeCtaBannerCopy> {
       CTA_FETCH_OPTS,
     );
     return result ?? { title: null, body: null, buttonLabel: null, buttonHref: null };
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return { title: null, body: null, buttonLabel: null, buttonHref: null };
   }
 }
@@ -239,7 +241,7 @@ function resolveImage(image: (SanityImage & { alt?: string }) | undefined, width
     let builder = urlForRenderImage(image).width(width).fit('crop');
     if (height) builder = builder.height(height);
     return { url: builder.url(), alt: image.alt ?? '' };
-  } catch {
+  } catch { // sanity-read-guard: not a Sanity read
     return { url: null, alt: image.alt ?? '' };
   }
 }
@@ -248,7 +250,8 @@ export async function getHomePage(): Promise<HomePageData> {
   let doc: RawHomeDoc | null = null;
   try {
     doc = await cachedClient.fetch<RawHomeDoc | null>(HOME_QUERY, {}, HOME_FETCH_OPTS);
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     doc = null;
   }
 

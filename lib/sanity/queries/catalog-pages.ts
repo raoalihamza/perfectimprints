@@ -6,6 +6,7 @@ import { CATALOG_PAGES_TAG, catalogPageTag } from '@/lib/sanity/cache-tags';
 import type { SanityImage, SeoFields } from '@/lib/sanity/types';
 import { PRODUCT_PAGE_CARD_FIELDS } from './product-pages';
 import type { CategoryOverrideAddedProduct } from './category-overrides';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 // ---------------------------------------------------------------------------
 // Sanity `catalogPage` documents (P2-CAT-001) — Geiger themed-catalog lead
@@ -122,7 +123,8 @@ export async function getCatalogPageBySlug(slug: string): Promise<CatalogPageDoc
       { slug },
       { next: { tags: [CATALOG_PAGES_TAG, catalogPageTag(slug)].filter(Boolean), revalidate: false } },
     );
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return null;
   }
 }
@@ -151,7 +153,8 @@ export async function getCatalogLeadInfo(slug: string): Promise<CatalogLeadLooku
       { next: { tags: [CATALOG_PAGES_TAG, catalogPageTag(slug)].filter(Boolean), revalidate: false } },
     );
     return doc?.title && doc.slug ? doc : null;
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return null;
   }
 }
@@ -165,7 +168,8 @@ export async function getAllCatalogPageSlugs(): Promise<string[]> {
       { next: { tags: [CATALOG_PAGES_TAG], revalidate: false } },
     );
     return (slugs ?? []).filter(Boolean);
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }

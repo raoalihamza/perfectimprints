@@ -14,6 +14,7 @@ const CUSTOM_PRODUCT_FETCH_OPTS = {
 };
 import type { SanityImage } from '@/lib/sanity/types';
 import type { GeigerProduct } from '@/lib/product-types';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 export interface CustomProductDoc {
   _id: string;
@@ -100,7 +101,8 @@ export async function getAllCustomProducts(): Promise<CustomProductDoc[]> {
         CUSTOM_PRODUCT_FETCH_OPTS,
       )) ?? []
     );
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }
@@ -114,7 +116,8 @@ export async function getCustomProductsForDeals(): Promise<CustomProductDoc[]> {
         CUSTOM_PRODUCT_FETCH_OPTS,
       )) ?? []
     );
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }
@@ -128,7 +131,8 @@ export async function getCustomProductsForNewProducts(): Promise<CustomProductDo
         CUSTOM_PRODUCT_FETCH_OPTS,
       )) ?? []
     );
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }
@@ -142,7 +146,8 @@ export async function getCustomProductsForRushProducts(): Promise<CustomProductD
         CUSTOM_PRODUCT_FETCH_OPTS,
       )) ?? []
     );
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }
@@ -180,14 +185,15 @@ export async function getCustomProductSearchEntries(): Promise<CustomProductSear
         if (d.image?.asset?._ref) {
           try {
             entry.image = urlForRenderImage(d.image).width(80).height(80).fit('max').url();
-          } catch {
+          } catch { // sanity-read-guard: not a Sanity read
             /* leave image unset */
           }
         }
         return entry;
       })
       .filter((e) => e.title && e.url);
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }
@@ -212,7 +218,7 @@ export function customProductToGeigerProduct(doc: CustomProductDoc): GeigerProdu
   if (doc.image?.asset?._ref) {
     try {
       imageUrl = urlForRenderImage(doc.image).width(400).fit('max').url();
-    } catch {
+    } catch { // sanity-read-guard: not a Sanity read
       imageUrl = null;
     }
   }

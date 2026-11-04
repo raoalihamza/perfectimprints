@@ -3,6 +3,7 @@ import 'server-only';
 import { cachedClient } from '@/lib/sanity/client';
 import { FORMS_TAG, formTag } from '@/lib/sanity/cache-tags';
 import type { FormDef, FormFieldDef } from '@/lib/forms/form-def';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 // ---------------------------------------------------------------------------
 // Reusable form-builder `form` documents (P2-FB-001). Read in two places:
@@ -43,7 +44,8 @@ export async function getFormBySlug(slug: string): Promise<FormDoc | null> {
     );
     if (!doc?.title || !doc.slug) return null;
     return { ...doc, fields: sanitizeFields(doc.fields) };
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return null;
   }
 }

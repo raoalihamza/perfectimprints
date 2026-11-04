@@ -14,7 +14,11 @@ import './search-index/load-env';
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { client } from '../lib/sanity/client';
+// SEC-100: the tokened read client (the dataset is private). The prebuild
+// check (scripts/security/check-sanity-read.ts) runs first and fails a Vercel
+// build with no usable token, so the empty-list fallback below is only ever a
+// local or CI outcome.
+import { cachedClient as client } from '../lib/sanity/client';
 
 const ROOT = path.resolve(__dirname, '..');
 const OUTPUT_FILE = path.join(ROOT, 'public', 'custom-category-slugs.json');

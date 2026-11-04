@@ -9,6 +9,7 @@ import {
 } from './product-pages';
 import type { CategoryOverrideAddedProduct } from './category-overrides';
 import type { GeigerProduct } from '@/lib/product-types';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 export interface CategoryPlacementSkus {
   /** SKUs to add to this category (from productPlacement.addToCategories). */
@@ -44,7 +45,8 @@ export async function getPlacementSkusForCategory(
       addSkus: (res?.addSkus ?? []).map((s) => String(s).trim()).filter(Boolean),
       removeSkus: (res?.removeSkus ?? []).map((s) => String(s).trim()).filter(Boolean),
     };
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return EMPTY;
   }
 }
@@ -90,7 +92,8 @@ export async function getPlacedProductPagesForCategory(
       products: valid.map(productPageToGeigerProduct),
       overlayDocs: valid,
     };
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return EMPTY_PLACED;
   }
 }

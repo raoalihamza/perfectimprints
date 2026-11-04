@@ -26,6 +26,7 @@ import { sweepOrphanHeaderImages, sweepSentence } from '@/lib/blog-automation/or
 import { BLOG_IMAGE_AI_DAILY_CAP, BLOG_IMAGE_AI_USAGE_DOC_ID } from '@/lib/blog-automation/header-image-usage';
 import { serverSanityClient } from '@/lib/sanity/studio-nonce-auth';
 import { sendBuiltEmail } from '@/lib/email/gmail-smtp';
+import { checkSanityReadHealth } from '@/lib/sanity/read-health';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -70,7 +71,18 @@ export async function GET(request: Request) {
     sweep = { sentence: sweepSentence(report) };
   }
 
+  // SEC-100: the daily check that the site can still read the private dataset
+  // (and that it is still private). Never throws; a failure leads the email.
+  let readHealth: { ok: boolean; message: string } | null;
+  try {
+    readHealth = await checkSanityReadHealth();
+    if (!readHealth.ok) console.error(`[blog-digest] site read health: ${readHealth.message}`);
+  } catch {
+    readHealth = null;
+  }
+
   const email = buildDigestEmail({
+    readHealth,
     day,
     runs,
     switches: { paused: settings.paused, publishMode: settings.publishMode },

@@ -2,6 +2,7 @@ import 'server-only';
 
 import { cachedClient } from '@/lib/sanity/client';
 import { CATEGORY_CONTROL_TAG } from '@/lib/sanity/cache-tags';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 /**
  * Patrick's curation of every category, in ONE read (FIX-911).
@@ -76,7 +77,8 @@ export async function getCategoryCuration(): Promise<CategoryCuration | null> {
       pages: res.pages ?? [],
       owned: res.owned ?? [],
     };
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return null;
   }
 }

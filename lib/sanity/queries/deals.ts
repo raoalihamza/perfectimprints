@@ -1,5 +1,6 @@
 import { cachedClient } from '@/lib/sanity/client';
 import { SETTINGS_TAG } from '@/lib/sanity/cache-tags';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 // Q-175: moved off the CDN `client` onto the non-CDN `cachedClient` with a
 // cache tag. This copy lives on the `globalSettings` singleton and carries the
@@ -34,7 +35,8 @@ export async function getDealsPageCopy(): Promise<DealsPageCopy> {
   try {
     const result = await cachedClient.fetch<DealsPageCopy | null>(DEALS_COPY_QUERY, {}, COPY_FETCH_OPTS);
     return result ?? {};
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return {};
   }
 }

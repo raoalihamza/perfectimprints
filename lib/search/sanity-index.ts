@@ -7,12 +7,14 @@ import { getCustomProductSearchEntries } from '@/lib/sanity/queries/custom-produ
 import { getProductPageSearchEntries } from '@/lib/sanity/queries/product-pages';
 import { getAllFaqSearchEntries } from '@/lib/sanity/queries/faqs';
 import type { SearchItem } from './types';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 /** Run a query, swallowing failures so one dead source can't sink the others. */
 async function safe<T>(fn: () => Promise<T[]>): Promise<T[]> {
   try {
     return await fn();
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }

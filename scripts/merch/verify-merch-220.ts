@@ -77,8 +77,9 @@ const SITE = (flagValue('--site') ?? 'https://www.perfectimprints.com').replace(
  */
 const CEILING_USD = Number(flagValue('--ceiling') ?? 500);
 const LIMIT = Number(flagValue('--limit') ?? 0);
-const PROJECT_ID = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? 'ii96lcy9';
-const DATASET = process.env.NEXT_PUBLIC_SANITY_DATASET ?? 'production';
+// SEC-100: the read client (loaded in readSettings) takes the project from
+// here; default it the way this script always has.
+process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ??= 'ii96lcy9';
 
 // -- Independent arithmetic --------------------------------------------------
 
@@ -129,11 +130,14 @@ interface PageResult {
 const num = (v: unknown): number | null => (typeof v === 'number' && Number.isFinite(v) ? v : null);
 
 async function readSettings(): Promise<Settings> {
-  const groq = '*[_type == "globalSettings"][0].shippingPolicy';
-  const url = `https://${PROJECT_ID}.api.sanity.io/v2024-01-01/data/query/${DATASET}?query=${encodeURIComponent(groq)}`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Sanity read failed: HTTP ${res.status}`);
-  const raw = ((await res.json()) as { result?: Record<string, unknown> | null }).result ?? {};
+  // SEC-100: the dataset is private, so this goes through the site's tokened
+  // read client (an anonymous read now returns nothing, which would read as
+  // "no shipping policy" and fail every product for the wrong reason). Loaded
+  // here, after loadDotEnvLocal() has run, because the client reads its
+  // token when the module is first evaluated.
+  const { cachedClient } = await import('../../lib/sanity/client');
+  const raw =
+    (await cachedClient.fetch<Record<string, unknown> | null>('*[_type == "globalSettings"][0].shippingPolicy', {}, { cache: 'no-store' })) ?? {};
   const pct = num(raw.orderPercentage);
   return {
     orderPercentage: pct !== null && pct >= 0 && pct <= 100 ? pct : null,

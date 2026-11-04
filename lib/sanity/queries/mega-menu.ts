@@ -3,6 +3,7 @@ import { MEGA_MENU_TAG } from '@/lib/sanity/cache-tags';
 import type { NavDepartment, NavNode } from '@/lib/nav-data';
 import type { MegaMenuItem, MegaMenuChild } from '@/components/layout/MegaMenu';
 import { normalizeHref } from '@/lib/sanity/normalize-href';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 // ---------------------------------------------------------------------------
 // Mega menu — Sanity-driven (M5-503).
@@ -177,7 +178,8 @@ export async function getMegaMenu(): Promise<ResolvedMenu> {
   let raw: RawMegaMenu | null = null;
   try {
     raw = await cachedClient.fetch<RawMegaMenu | null>(MEGA_MENU_QUERY, {}, MEGA_MENU_FETCH_OPTS);
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     raw = null;
   }
   return resolveMegaMenu(raw);

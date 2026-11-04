@@ -9,6 +9,7 @@ import {
 } from '@/lib/sanity/strip-product-entries';
 import type { SanityImage } from '@/lib/sanity/types';
 import type { PortfolioGalleryBlockValue } from '@/lib/portfolio/gallery';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 // ---------------------------------------------------------------------------
 // Local/topic `landingPage` documents (P2-AI-005 part 1). Rendered at /<slug>
@@ -94,7 +95,8 @@ export async function getLandingPageBySlug(slug: string): Promise<LandingPageDoc
       { slug },
       { next: { tags: [LANDING_TAG, landingTag(slug)].filter(Boolean), revalidate: false } },
     );
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return null;
   }
 }
@@ -107,7 +109,8 @@ export async function getAllLandingPageSlugs(): Promise<string[]> {
       { next: { tags: [LANDING_TAG], revalidate: false } },
     );
     return slugs ?? [];
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }
@@ -140,7 +143,8 @@ export async function getLandingLeadInfo(slug: string): Promise<LandingLeadLooku
       { slug },
       { next: { tags: [LANDING_TAG, landingTag(slug)].filter(Boolean), revalidate: false } },
     );
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return null;
   }
 }

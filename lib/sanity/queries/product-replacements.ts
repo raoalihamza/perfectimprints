@@ -9,6 +9,7 @@ import {
   productPageToGeigerProduct,
   type ProductPageCard,
 } from '@/lib/sanity/queries/product-pages';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 /**
  * Geiger products that one of Patrick's own product pages has SUPERSEDED
@@ -94,7 +95,8 @@ export const getProductReplacements = cache(async (): Promise<ProductReplacement
   let docs: ReplacementDoc[];
   try {
     docs = (await cachedClient.fetch<ReplacementDoc[] | null>(QUERY, {}, FETCH_OPTS)) ?? [];
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     // A failed read must never hide a product: degrading to "nothing is
     // replaced" leaves the Geiger originals visible, which is the safe side of
     // this failure. The alternative (hiding without substituting) would blank

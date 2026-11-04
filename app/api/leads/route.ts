@@ -33,6 +33,13 @@ import { getFormBySlug } from '@/lib/sanity/queries/forms';
 import { getLandingLeadInfo } from '@/lib/sanity/queries/landing-pages';
 import { getProductLeadInfo } from '@/lib/sanity/queries/product-pages';
 import { getCatalogLeadInfo } from '@/lib/sanity/queries/catalog-pages';
+// SEC-100: the four lookups below read the PRIVATE dataset with the read
+// token. If that token is ever missing or rejected, the lead must still reach
+// Patrick, so each lookup degrades to exactly what a Sanity outage has always
+// produced (default recipient, no confirmation), plus a loud log line. The
+// lead record and its artwork are WRITTEN through the separate write token
+// (lib/sanity/write-client.ts), which this does not touch.
+import { degradeOnSanityAccessError } from '@/lib/sanity/read-access';
 
 export const runtime = 'nodejs';
 
@@ -192,13 +199,18 @@ export async function POST(request: Request) {
   // stored `leadRecipient` SERVER-SIDE. `landing` is null for non-landing
   // submissions, unknown slugs, and lookup failures — all of which keep the
   // pre-existing behavior exactly (site-default recipient, no confirmation).
-  const landing = landingSlug ? await getLandingLeadInfo(landingSlug) : null;
+  const landing = landingSlug
+    ? await degradeOnSanityAccessError('leads: landing page recipient', () => getLandingLeadInfo(landingSlug), null)
+    : null;
   // Product-quote routing (P2-CP-002): identical model against the productPage
   // doc. Landing wins if a submission somehow carries both slugs; an unknown
   // product slug degrades to the default non-quote behavior. The lookup is
   // structurally a LandingLeadInfo ({leadRecipient, title}), so the SAME
   // routing resolver applies — one abuse-guarded code path for both.
-  const product = !landing && isProductQuote ? await getProductLeadInfo(productSlug) : null;
+  const product =
+    !landing && isProductQuote
+      ? await degradeOnSanityAccessError('leads: product page recipient', () => getProductLeadInfo(productSlug), null)
+      : null;
   const productTitle = product?.title?.trim() || '';
   const routing = resolveLandingLeadRouting(landing ?? product);
 
@@ -372,7 +384,7 @@ async function handleBuilderFormSubmission(
 ): Promise<NextResponse> {
   // The SERVER's copy of the form is authoritative — recipient, confirmation
   // toggle, and required fields all come from Sanity, never the client.
-  const form = await getFormBySlug(formSlug);
+  const form = await degradeOnSanityAccessError('leads: form definition', () => getFormBySlug(formSlug), null);
   if (!form || form.fields.length === 0) {
     return NextResponse.json(
       { error: 'This form is unavailable. Please try again later or call 800-773-9472.' },
@@ -459,7 +471,9 @@ async function handleBuilderFormSubmission(
   // against a published catalogPage SERVER-SIDE. `catalog` is null for
   // non-catalog submissions, unknown slugs, and lookup failures — all of which
   // keep the plain builder-form behavior exactly.
-  const catalog = catalogSlug ? await getCatalogLeadInfo(catalogSlug) : null;
+  const catalog = catalogSlug
+    ? await degradeOnSanityAccessError('leads: catalog page', () => getCatalogLeadInfo(catalogSlug), null)
+    : null;
   const answerRows = [
     // Patrick sees at a glance which catalog was requested — first row of the
     // lead email + the record (absent on non-catalog submissions).

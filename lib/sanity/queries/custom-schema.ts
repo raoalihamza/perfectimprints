@@ -2,6 +2,7 @@ import 'server-only';
 
 import { cachedClient } from '@/lib/sanity/client';
 import { customSchemaTag } from '@/lib/sanity/cache-tags';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 /**
  * Custom structured-data blocks attached to a page (Task C Part 2).
@@ -39,7 +40,8 @@ export async function getCustomSchemaForPath(path: string): Promise<CustomSchema
       { next: { tags: [customSchemaTag(path)].filter(Boolean), revalidate: false } },
     );
     return docs ?? [];
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }

@@ -3,6 +3,7 @@ import 'server-only';
 import type { PortableTextBlock } from '@portabletext/react';
 import { cachedClient } from '@/lib/sanity/client';
 import { FAQS_TAG } from '@/lib/sanity/cache-tags';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 // ---------------------------------------------------------------------------
 // FAQ library (M5-506). `faq` docs carry a question, an answer, and a
@@ -37,7 +38,8 @@ export async function getAnsweredFaqs(): Promise<FaqDoc[]> {
       { next: { tags: [FAQS_TAG], revalidate: false } },
     );
     return faqs ?? [];
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }
@@ -56,7 +58,8 @@ export async function getAllFaqSearchEntries(): Promise<FaqSearchEntry[]> {
       { next: { tags: [FAQS_TAG], revalidate: false } },
     );
     return entries ?? [];
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }

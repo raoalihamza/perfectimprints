@@ -27,6 +27,7 @@ import {
 import { embeddedTileSizes, type PortfolioEmbedHost } from '@/lib/portfolio/image-sizes';
 import { portfolioShopLink, type PortfolioShopLink } from '@/lib/portfolio/shop-link';
 import { toPortfolioTiles, type PortfolioTile } from '@/lib/portfolio/tile-data';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 // ---------------------------------------------------------------------------
 // Portfolio Gallery reads (PORT-100). The data layer behind the /portfolio
@@ -86,7 +87,8 @@ export async function getAllPortfolioCategoriesOrThrow(): Promise<PortfolioCateg
 export async function getAllPortfolioCategories(): Promise<PortfolioCategoryRef[]> {
   try {
     return await getAllPortfolioCategoriesOrThrow();
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }
@@ -108,7 +110,8 @@ export async function getPortfolioCategoryById(id: string): Promise<PortfolioCat
       opts(),
     );
     return doc?.slug ? doc : null;
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return null;
   }
 }
@@ -123,7 +126,8 @@ export async function getPortfolioCategoryBySlug(slug: string): Promise<Portfoli
       opts(portfolioCategoryTag(slug)),
     );
     return doc?.slug ? doc : null;
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return null;
   }
 }
@@ -137,7 +141,8 @@ export async function getPortfolioCategoryBySlug(slug: string): Promise<Portfoli
 export async function getAllPortfolioItems(): Promise<PortfolioItemCard[]> {
   try {
     return await getAllPortfolioItemsOrThrow();
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }
@@ -166,7 +171,8 @@ export async function getPortfolioItemsByCategory(categorySlug: string): Promise
       opts(portfolioCategoryTag(categorySlug)),
     );
     return sortPortfolioItems((docs ?? []).filter(isVisiblePortfolioItem));
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }
@@ -189,7 +195,8 @@ export async function getPortfolioItemsByIds(ids: readonly string[]): Promise<Po
       )) ?? [];
     const byId = new Map(docs.map((d) => [d._id, d]));
     return wanted.map((id) => byId.get(id)).filter(isVisiblePortfolioItem);
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return [];
   }
 }
@@ -204,7 +211,8 @@ export async function getPortfolioItemBySlug(slug: string): Promise<PortfolioIte
       opts(portfolioItemTag(slug)),
     );
     return isVisiblePortfolioItem(doc) ? doc : null;
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return null;
   }
 }

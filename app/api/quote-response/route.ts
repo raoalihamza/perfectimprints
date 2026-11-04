@@ -25,6 +25,7 @@ import { computeQuoteTotals, formatUsd } from '@/lib/quotes/quote-totals';
 import { isQuoteToken } from '@/lib/quotes/token';
 import { QUOTES_TAG, quoteTag } from '@/lib/sanity/cache-tags';
 import { getQuoteForResponse, type QuoteForResponse } from '@/lib/sanity/queries/quotes';
+import { isSanityAccessError } from '@/lib/sanity/read-access';
 import { getSanityWriteClient } from '@/lib/sanity/write-client';
 
 /**
@@ -195,7 +196,19 @@ export async function POST(request: Request) {
     return tooManyRequests();
   }
 
-  const quote = await getQuoteForResponse(token);
+  // SEC-100: a missing or rejected read token must not read as "this quote is
+  // gone" (404) to a customer trying to accept: answer 503 and say "try again".
+  let quote: QuoteForResponse | null;
+  try {
+    quote = await getQuoteForResponse(token);
+  } catch (err) {
+    if (!isSanityAccessError(err)) throw err;
+    console.error('[quote-response] the Sanity read token was missing or rejected; nothing was recorded and the customer was told to try again.', err);
+    return NextResponse.json(
+      { error: 'We could not record that just now. Please try again in a few minutes, or email your contact directly.' },
+      { status: 503 },
+    );
+  }
   if (!quote) return notFound();
 
   const now = new Date();

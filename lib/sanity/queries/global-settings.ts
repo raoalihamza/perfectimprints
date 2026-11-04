@@ -14,6 +14,7 @@ import {
   type HeaderImageLibraryEntry,
   type HeaderImageSource,
 } from '@/lib/blog-automation/header-image';
+import { rethrowIfSanityAccessError } from '@/lib/sanity/read-access';
 
 // ---------------------------------------------------------------------------
 // Site settings — social links + contact info, Sanity-driven.
@@ -455,7 +456,7 @@ function resolveIconUrl(image: SanityImage | undefined): string | null {
   if (!image?.asset?._ref) return null;
   try {
     return urlForRenderImage(image).width(48).height(48).fit('max').url();
-  } catch {
+  } catch { // sanity-read-guard: not a Sanity read
     return null;
   }
 }
@@ -565,7 +566,8 @@ export const getSiteSettings = cache(async (): Promise<SiteSettings> => {
   try {
     const raw = await cachedClient.fetch<RawSettings | null>(QUERY, {}, SETTINGS_FETCH_OPTS);
     return resolve(raw);
-  } catch {
+  } catch (err) {
+    rethrowIfSanityAccessError(err);
     return EMPTY;
   }
 });
