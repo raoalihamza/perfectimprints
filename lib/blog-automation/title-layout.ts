@@ -1004,6 +1004,66 @@ export function gradientContrast(grid: PixelGrid, rect: Rect, canvas: Canvas, g:
   return ratios[Math.min(ratios.length - 1, Math.floor(ratios.length * (1 - TITLE_CONTRAST_SHARE)))];
 }
 
+// -- A blank band painted into the photograph (AUTO-212) ----------------------------
+
+/** sRGB luma of a grid cell, 0..1 (Rec. 709 weights on the encoded values, as the eye compares flat areas). */
+function cellLuma(grid: PixelGrid, x: number, y: number): number {
+  const i = (y * grid.width + x) * 3;
+  return 0.2126 * grid.rgb[i] + 0.7152 * grid.rgb[i + 1] + 0.0722 * grid.rgb[i + 2];
+}
+
+function lineStats(grid: PixelGrid, idx: number, row: boolean): { mean: number; sd: number } {
+  const n = row ? grid.width : grid.height;
+  let s = 0;
+  let s2 = 0;
+  for (let k = 0; k < n; k += 1) {
+    const l = row ? cellLuma(grid, k, idx) : cellLuma(grid, idx, k);
+    s += l;
+    s2 += l * l;
+  }
+  const mean = s / n;
+  return { mean, sd: Math.sqrt(Math.max(0, s2 / n - mean * mean)) };
+}
+
+/** The flattest a line may be and still be the photograph (a real wall or sky has some texture and falloff). */
+export const PAINTED_BAND_MAX_SD = 0.02;
+/** How pale a painted band is (sRGB luma). */
+export const PAINTED_BAND_MIN_LUMA = 0.78;
+/** The shortest run that counts, as a share of the height or width. */
+export const PAINTED_BAND_MIN_SHARE = 0.08;
+/** The step at the band's inner edge (sRGB luma) that makes it a band and not a soft gradient. */
+export const PAINTED_BAND_MIN_STEP = 0.04;
+
+/**
+ * A blank pale band PAINTED INTO the photograph along an edge, or null.
+ * AUTO-212: asked to keep its top third calm for the title, the image model
+ * sometimes paints a flat strip there instead, with a hard edge under it: 5
+ * of the 31 photographs the site stored from 2026-10-18 to 2026-11-04 carry
+ * one, 164 to 200 px tall (Patrick's "pale bars"; our compose step never pads
+ * a picture, every stored one is the 1376 x 768 canvas). A band is a run of
+ * rows (from the top) or columns (from either side) that are each uniform and
+ * pale, at least PAINTED_BAND_MIN_SHARE of the frame, ending in a hard step.
+ */
+export function paintedBandIn(grid: PixelGrid | null | undefined): { edge: 'top' | 'left' | 'right'; share: number } | null {
+  if (!grid || grid.width < 8 || grid.height < 8) return null;
+  for (const edge of ['top', 'left', 'right'] as const) {
+    const row = edge === 'top';
+    const n = row ? grid.height : grid.width;
+    const at = (k: number) => (edge === 'right' ? grid.width - 1 - k : k);
+    let run = 0;
+    for (let k = 0; k < n / 2; k += 1) {
+      const st = lineStats(grid, at(k), row);
+      if (st.sd <= PAINTED_BAND_MAX_SD && st.mean >= PAINTED_BAND_MIN_LUMA) run += 1;
+      else break;
+    }
+    if (run < Math.max(2, Math.round(PAINTED_BAND_MIN_SHARE * n))) continue;
+    const inner = lineStats(grid, at(run - 1), row).mean;
+    const beyond = lineStats(grid, at(Math.min(n - 1, run + 1)), row).mean;
+    if (Math.abs(inner - beyond) >= PAINTED_BAND_MIN_STEP) return { edge, share: Math.round((run / n) * 100) / 100 };
+  }
+  return null;
+}
+
 // -- The vision call ----------------------------------------------------------------
 
 export const CALM_SIDES = ['left', 'right', 'top', 'either', 'neither'] as const;
@@ -1091,9 +1151,19 @@ export interface LogoPlacement {
   rect: Rect;
 }
 
-/** The logo's proportions (public/logo.svg, 601.8 x 225.5) and the mark's crop (title-logo.ts). */
+/** The logo's proportions (public/logo.svg, 601.8 x 225.5) and the mark's crop (title-logo.ts TITLE_MARK_VIEWBOX, '0 0 206 172' since AUTO-212). */
 export const TITLE_LOGO_ASPECT = 601.8 / 225.5;
-export const TITLE_MARK_ASPECT = 180 / 195;
+export const TITLE_MARK_ASPECT = 206 / 172;
+/**
+ * The bare mark's box on the base canvas (AUTO-212). The old crop (180 x 195
+ * units drawn 96 px wide) cut the left of the P away on every header; the
+ * whole mark (206 x 172 units) at the SAME scale is 110 x 92 px, and the
+ * bottom margin is set so the ink ends where it did (about 57 px above the
+ * frame's edge): Patrick's words were "the right size and placement, but
+ * it's being cut off".
+ */
+export const TITLE_MARK_WIDTH = 110;
+export const TITLE_MARK_BOTTOM = 56;
 
 export interface TitlePlan {
   /** The title exactly as drawn. */
@@ -1191,11 +1261,11 @@ function logoFor(geo: Geometry, canvas: Canvas, grid: PixelGrid | null | undefin
       return { kind: 'badge', white: true, rect: { x: right ? Math.round(canvas.width - 40 * s - w) : Math.round(40 * s), y: Math.round(canvas.height - 30 * s - h), w, h } };
     }
   }
-  const w = Math.round(96 * s);
+  const w = Math.round(TITLE_MARK_WIDTH * s);
   const h = Math.round(w / TITLE_MARK_ASPECT);
   const margin = Math.round(48 * s);
-  const bottomRight: Rect = { x: canvas.width - margin - w, y: canvas.height - 44 * s - h, w, h };
-  const bottomLeft: Rect = { x: margin, y: canvas.height - 44 * s - h, w, h };
+  const bottomRight: Rect = { x: canvas.width - margin - w, y: canvas.height - TITLE_MARK_BOTTOM * s - h, w, h };
+  const bottomLeft: Rect = { x: margin, y: canvas.height - TITLE_MARK_BOTTOM * s - h, w, h };
   // A side look keeps the mark away from its own side; the headline (across the top) may use either bottom corner, the right first.
   const corners: Rect[] = geo.side === 'right' ? [bottomLeft] : geo.side === 'top' ? [bottomRight, bottomLeft] : [bottomRight];
   for (const rect of corners) {

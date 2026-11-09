@@ -14,6 +14,15 @@
  * Only a picture THIS MODULE made is ever redrawn (the asset must carry the
  * upload marker, the rule in discard-header-image.ts), so an image Patrick
  * uploaded can never be written over, whatever the browser sends.
+ *
+ * AUTO-212: that held for the UNTITLED copy only, and that was not enough.
+ * When Patrick replaces a generated header in Studio, Studio swaps the asset
+ * and keeps the fields beside it, so his own upload sat with our picture's
+ * `untitledImage` and `titleOnImage` (11 of his published posts on
+ * 2026-11-05, the redraw button showing on 2). A redraw would have drawn our
+ * old picture back over his. So the asset ON the post must carry the marker
+ * too, and it must be a titled composite (a PNG): a picture he uploaded, or a
+ * library picture, is refused and nothing is changed.
  */
 import type { SanityClient } from '@sanity/client';
 import { BLOG_HEADER_ASSET_SOURCE, headerAssetId, isGeneratedHeaderAsset, type HeaderAssetFacts } from './discard-header-image';
@@ -29,6 +38,8 @@ export interface RetitleArgs {
   client: SanityClient;
   /** `headerImage.untitledImage.asset._ref`: the picture without the title. */
   untitledRef: unknown;
+  /** AUTO-212: `headerImage.asset._ref`, the picture on the post now; it must be ours. */
+  currentRef: unknown;
   /** The post's current title, drawn exactly. */
   title: string;
   /** The post's topic, for the alt text. */
@@ -58,6 +69,18 @@ export async function retitleHeaderImage(args: RetitleArgs): Promise<RetitleResu
   const id = headerAssetId(args.untitledRef);
   if (!id) return { ok: false, reason: 'the post has no untitled copy of its picture to redraw on' };
   const t0 = Date.now();
+  // AUTO-212: the picture ON the post must be a titled composite this site
+  // made. Anything else (an upload, a library picture, nothing) is the
+  // owner's picture and is never replaced by a redraw.
+  const currentId = headerAssetId(args.currentRef);
+  if (!currentId) return { ok: false, reason: 'the post has no generated header picture to redraw' };
+  const current = await args.client.fetch<{ mimeType?: string | null; source?: { name?: string | null } | null } | null>(
+    `*[_id == $id][0]{ mimeType, source }`,
+    { id: currentId },
+  );
+  if (!current || current.source?.name !== BLOG_HEADER_ASSET_SOURCE || (current.mimeType ?? '').toLowerCase() !== 'image/png') {
+    return { ok: false, reason: 'the picture on this post was uploaded by hand, not made by the site, so its title is not redrawn and the picture is kept' };
+  }
   const facts = await args.client.fetch<(HeaderAssetFacts & { url?: string | null }) | null>(
     `*[_id == $id][0]{ _id, url, originalFilename, mimeType, "width": metadata.dimensions.width, "height": metadata.dimensions.height, source }`,
     { id },

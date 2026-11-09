@@ -7,16 +7,17 @@
  * placement and fill: no AI call, no cap slot, free, a few seconds. It
  * patches the DRAFT and never publishes.
  *
- * An image Patrick uploaded can never reach this button: it has no
- * `titleOnImage` and no untitled copy, and the route refuses anything that
- * is not a picture the site generated.
+ * An image Patrick uploaded never reaches this button (AUTO-212: checked by
+ * its asset id, because Studio keeps the old picture's fields beside a new
+ * upload), and the route refuses unless the picture on the post carries the
+ * site's upload marker.
  *
  * Studio-only: plain React + the `sanity` action API, no server imports; the
  * pure request helpers and the pure drift rule only.
  */
 import { useRef, useState } from 'react';
 import { useDocumentOperation, type DocumentActionComponent } from 'sanity';
-import { titleOnImageDrift } from '../../lib/blog/header-image';
+import { isGeneratedTitledHeaderRef, titleOnImageDrift } from '../../lib/blog/header-image';
 import { AiProgressContent } from '../components/AiProgressDialog';
 import { useGenerateAuthFetch } from '../components/useGenerateAuthFetch';
 import { useHeaderAssetDiscard } from '../components/useHeaderAssetDiscard';
@@ -51,7 +52,11 @@ export const redrawBlogTitle: DocumentActionComponent = (props) => {
   const untitled = untitledAssetRefOf(doc);
   const title = typeof doc?.title === 'string' ? doc.title : '';
   // Shown only when there is something to redraw: a generated picture, its untitled copy, and a title that moved.
-  if (!drawn || !untitled || !titleOnImageDrift(drawn, title)) return null;
+  // AUTO-212: and only when the picture ON the post is our titled composite. A
+  // picture Patrick uploaded over ours keeps our picture's fields beside it
+  // (Studio swaps only the asset), so those fields alone do not mean the
+  // picture is ours; the server checks the asset's upload marker as well.
+  if (!drawn || !untitled || !isGeneratedTitledHeaderRef(headerAssetRefOf(doc)) || !titleOnImageDrift(drawn, title)) return null;
 
   const run = async () => {
     const atClick = latest.current;

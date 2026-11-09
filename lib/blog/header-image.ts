@@ -74,6 +74,28 @@ export function externalHeaderImageAlt(post: BlogHeaderImageFields | null | unde
 // -- AUTO-209: the title on the picture, and the picture's size ------------------
 
 /**
+ * AUTO-212: is the picture ON the post the site's own titled composite? Its
+ * asset id says so: every titled header is drawn on the 1376 x 768 canvas the
+ * image model returns and written as a PNG (resvg writes nothing else), so the
+ * id ends `-1376x768-png`. Measured 2026-11-05: all 31 titled composites the
+ * site stored have that id, and none of Patrick's 25 hand-made headers does
+ * (JPEGs of 1661 x 947, 1774 x 887 and similar).
+ *
+ * Why it matters. When Patrick replaces a generated header in Studio, Studio
+ * swaps the asset and KEEPS the fields beside it (`titleOnImage`,
+ * `untitledImage`, `titleTreatment`). On 11 of his published posts the AI
+ * picture's fields still sat beside his own upload, and on 2 of them the
+ * title had changed since, so the Studio was offering "Redraw title on header
+ * image", which would have put our old picture back over his. The button and
+ * the field warning now appear only when this is true, and the server refuses
+ * a redraw unless the asset on the post carries the site's upload marker.
+ * A cheap first gate for the Studio; the server's marker check is the rule.
+ */
+export function isGeneratedTitledHeaderRef(ref: unknown): boolean {
+  return typeof ref === 'string' && /^image-[A-Za-z0-9]+-1376x768-png$/.test(ref);
+}
+
+/**
  * The post's title no longer matches the title drawn ON its header picture
  * (AUTO-209). Returns the Studio warning to show, or null when they agree or
  * the picture carries no title. Compared ignoring case, spacing and the two

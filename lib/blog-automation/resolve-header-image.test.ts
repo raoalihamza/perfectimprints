@@ -743,6 +743,32 @@ describe('the reads of one picture (AUTO-204)', () => {
   });
 });
 
+describe('AUTO-212: a blank band painted into the photograph', () => {
+  it('is refused like a failed read: the picture is drawn again with the band named, and the second one is stored', async () => {
+    const f = fakeDeps();
+    let measured = 0;
+    f.deps.paintedBand = async () => {
+      measured += 1;
+      return measured === 1 ? { edge: 'top', share: 0.24 } : null;
+    };
+    const out = await resolveHeaderImage(base, f.deps);
+    expect(out.kind).toBe('asset');
+    expect(f.log.filter((l) => l.startsWith('generate:'))).toHaveLength(2);
+    expect(f.prompts[1]).toContain('The previous attempt was rejected because it contained a blank pale band painted across the top of the photograph (24% of it)');
+    expect(out.notes.join(' ')).toContain('the first picture showed a blank pale band painted across the top');
+  });
+  it('a band on both attempts stores nothing, and a test that throws accepts the picture', async () => {
+    const f = fakeDeps();
+    f.deps.paintedBand = async () => ({ edge: 'left', share: 0.3 });
+    expect((await resolveHeaderImage({ ...base, source: 'ai', library: [], products: [] }, f.deps)).kind).not.toBe('asset');
+    const g = fakeDeps();
+    g.deps.paintedBand = async () => {
+      throw new Error('cannot sample');
+    };
+    expect((await resolveHeaderImage(base, g.deps)).kind).toBe('asset');
+  });
+});
+
 describe('AUTO-205: the device rule and the tile pass in the chain', () => {
   const laptop: ImageCheck = { ...clean, devices: [{ what: 'laptop', where: 'on the desk' }] };
 

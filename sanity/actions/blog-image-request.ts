@@ -162,6 +162,8 @@ export function retitleRequestBody(doc: BlogImageDoc | null | undefined) {
     source: 'retitle' as const,
     title: typeof doc?.title === 'string' ? doc.title : '',
     untitledRef: untitledAssetRefOf(doc),
+    // AUTO-212: the picture ON the post, so the server can refuse when it is not ours.
+    currentRef: headerAssetRefOf(doc),
     treatment: typeof doc?.headerImage?.titleTreatment === 'string' ? doc.headerImage.titleTreatment : null,
     slug: typeof doc?.slug?.current === 'string' ? doc.slug.current : '',
     keywords: keywords.length > 0 ? keywords : typeof topic === 'string' && topic.trim() ? [topic.trim()] : [],

@@ -107,6 +107,16 @@ describe('Redraw title on header image', () => {
     expect(action).toBeNull();
   });
 
+  it('AUTO-212: is absent when Patrick uploaded his own picture over ours, though our old fields are still beside it and the title moved', async () => {
+    // Exactly the state of "Are Promotional Caps Good for Trade Shows?" on 2026-11-05: his JPEG, our titleOnImage, untitledImage and treatment.
+    await render(propsFor({ ...drifted, headerImage: { ...drifted.headerImage, asset: { _type: 'reference', _ref: 'image-9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f-1661x947-jpg' } } }));
+    expect(action).toBeNull();
+    // A PNG he uploaded at another size is not ours either.
+    await render(propsFor({ ...drifted, headerImage: { ...drifted.headerImage, asset: { _type: 'reference', _ref: 'image-9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f-1600x900-png' } } }));
+    expect(action).toBeNull();
+    expect(mocks.authFetch).not.toHaveBeenCalled();
+  });
+
   it('appears when the title moved; sends source "retitle" with the title, the untitled id, the placement and the slug; patches; removes the old picture', async () => {
     await render(propsFor(drifted));
     expect(action!.label).toBe('Redraw title on header image');
@@ -118,7 +128,7 @@ describe('Redraw title on header image', () => {
     const [url, init] = mocks.authFetch.mock.calls[0] as [string, RequestInit];
     expect(url).toBe('/api/sanity/generate-blog-image');
     const body = JSON.parse(init.body as string);
-    expect(body).toEqual({ source: 'retitle', title: 'New Title', untitledRef: UNTITLED, treatment: '{"layout":"panel-left","productBox":null}', slug: 'new-title', keywords: ['custom pens'] });
+    expect(body).toEqual({ source: 'retitle', title: 'New Title', untitledRef: UNTITLED, currentRef: OLD, treatment: '{"layout":"panel-left","productBox":null}', slug: 'new-title', keywords: ['custom pens'] });
     expect(body.skus).toBeUndefined();
     expect(allSets()).toEqual([{ headerImage: newImage }]);
     expect(mocks.afterReplace).toHaveBeenCalledWith(OLD);

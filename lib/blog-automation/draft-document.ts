@@ -20,9 +20,14 @@
  *     guess), relatedCategorySlugs (the topic's ranking page, FIX-900 clean),
  *     and the header image as an uploaded asset (`headerImage`) or, for the
  *     first-product-photo fallback, a hot link (`externalHeaderImage`)
+ *   - since AUTO-212, Patrick's CTA: `ctaTopic` "Get Help with <Keyword>" and
+ *     `ctaBody` with the keyword in his sentence, the keyword being the
+ *     topic's own search (`aiPostCta`); plain text the post's editor can
+ *     change, written once here, so no existing post is touched
  */
 import { buildSourceTopicRecord, type SourceTopicRecord, type SpacingGroup, type TopicCandidate } from './topic-pool';
 import { slugifyTitle } from '../blog/slugify-title';
+import { AI_POST_CTA_BODY, AI_POST_CTA_HEADING } from '../blog/cta-defaults';
 import type { HeaderImageOutcome, SanityImageValue } from './header-image';
 
 /** The part of a topic the record needs: what the panel sends and what a scheduler reads off the snapshot. */
@@ -66,6 +71,9 @@ export interface BlogDraftDocument {
   aiTopicKeywords: string[];
   aiWordCount: number;
   sourceTopic: SourceTopicRecord;
+  /** AUTO-212: Patrick's CTA, filled with the topic's search; absent when the search is blank. */
+  ctaTopic?: string;
+  ctaBody?: string;
   /** AUTO-202, each present only when determined. */
   author?: { _type: 'reference'; _ref: string };
   categories?: { _type: 'reference'; _ref: string; _key: string }[];
@@ -83,6 +91,24 @@ export function topicDraftTitle(query: string): string {
     .split(/\s+/)
     .map((w, i) => (i > 0 && SMALL_WORDS.has(w) ? w : w.charAt(0).toUpperCase() + w.slice(1)))
     .join(' ');
+}
+
+/**
+ * AUTO-212: Patrick's CTA for a post the AI writes, filled with the post's
+ * keyword: the search the post was generated from (`sourceTopic.query`,
+ * "promotional caps", "engraved pens"). The heading takes it in title case
+ * ("Get Help with Promotional Caps", the panel's title rule above); the body
+ * takes it as searched ("pick the right promotional caps, decoration, and
+ * quantity"). Null when the search is blank: the post then shows the
+ * automatic heading and the default body, as every post did before.
+ */
+export function aiPostCta(keyword: unknown): { heading: string; body: string } | null {
+  const k = typeof keyword === 'string' ? keyword.replace(/\s+/g, ' ').trim() : '';
+  if (!k) return null;
+  return {
+    heading: AI_POST_CTA_HEADING.replace('{KEYWORD}', topicDraftTitle(k)),
+    body: AI_POST_CTA_BODY.replace('{KEYWORD}', k),
+  };
 }
 
 function randomTail(): string {
@@ -150,6 +176,11 @@ export function buildBlogDraftDocument(args: BuildBlogDraftArgs): BlogDraftDocum
     aiWordCount: args.wordCount,
     sourceTopic: buildSourceTopicRecord(args.topic, args.recordedAt),
   };
+  const cta = aiPostCta(args.topic.query);
+  if (cta) {
+    doc.ctaTopic = cta.heading;
+    doc.ctaBody = cta.body;
+  }
   // AUTO-202: the fields beside the body, each only when determined, so a
   // draft with no picture or no author has no key for it rather than a null
   // (the Studio shows an empty field either way; a GROQ `defined()` sees the

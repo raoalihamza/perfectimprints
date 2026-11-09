@@ -21,9 +21,11 @@
 //                    NO chain and no model call; the post's current title is
 //                    drawn on the kept untitled copy of its generated picture
 //                    (lib/blog-automation/retitle-header-image.ts), in the
-//                    stored placement. Body: { title, untitledRef, treatment,
-//                    slug, keywords }. The asset must carry the site's own
-//                    upload marker, so an uploaded image is never drawn on.
+//                    stored placement. Body: { title, untitledRef, currentRef,
+//                    treatment, slug, keywords }. Both the untitled copy AND
+//                    the picture now on the post (currentRef, AUTO-212) must
+//                    carry the site's own upload marker, so neither an image
+//                    Patrick uploaded nor one he put over ours is drawn on.
 //
 // The browser sends the post's TITLE, its topic keywords, the SKUs of its
 // product strips and its related category slugs, and nothing else matters:
@@ -77,6 +79,8 @@ interface GenBody {
   postSource?: unknown;
   /** AUTO-209, source 'retitle' only. */
   untitledRef?: unknown;
+  /** AUTO-212, source 'retitle' only: the asset on the post now. */
+  currentRef?: unknown;
   treatment?: unknown;
   /** AUTO-210, sources 'ai' and 'default': the post's current title treatment, so a regenerate takes the next look. */
   previousTreatment?: unknown;
@@ -127,6 +131,7 @@ export async function POST(request: Request) {
       const result = await retitleHeaderImage({
         client: sanity,
         untitledRef: body.untitledRef,
+        currentRef: body.currentRef,
         title,
         topic: keywords[0] ?? title,
         treatment: body.treatment,

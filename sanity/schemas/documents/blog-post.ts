@@ -6,7 +6,7 @@ import { inlineImageAlignField, inlineImageSizeField } from '../objects/inline-i
 import { relatedCategorySlugProblem } from '../../../lib/blog/related-category-slugs';
 // AUTO-209: pure, no imports; the title drawn on a generated header picture
 // against the post's title.
-import { titleOnImageDrift } from '../../../lib/blog/header-image';
+import { isGeneratedTitledHeaderRef, titleOnImageDrift } from '../../../lib/blog/header-image';
 
 export default defineType({
   name: 'blogPost',
@@ -82,11 +82,16 @@ export default defineType({
         "Upload your own, or let the AI make one (Generate Blog with AI fills this when it is empty; Generate header image makes another). An image you upload is never replaced by Generate Blog with AI. An AI picture carries the post's title, drawn on it by the site.",
       // AUTO-209: a picture that shows an old title is wrong; a warning, never
       // an error, because the fix is one button press and must never block Publish.
+      // AUTO-212: only when the picture on the post IS ours. A picture Patrick
+      // uploaded over a generated one keeps the old picture's fields beside it
+      // (Studio swaps only the asset), and the warning must not invite a
+      // redraw that would put our picture back over his.
       validation: (Rule) =>
         Rule.custom((value, context) => {
-          const drawn = (value as { titleOnImage?: unknown } | undefined)?.titleOnImage;
+          const image = value as { titleOnImage?: unknown; asset?: { _ref?: unknown } } | undefined;
+          if (!isGeneratedTitledHeaderRef(image?.asset?._ref)) return true;
           const title = (context.document as { title?: unknown } | undefined)?.title;
-          return titleOnImageDrift(drawn, title) ?? true;
+          return titleOnImageDrift(image?.titleOnImage, title) ?? true;
         }).warning(),
     }),
     // AUTO-202: the LAST fallback of the header image chain, the post's first
@@ -272,7 +277,7 @@ export default defineType({
       title: 'CTA Heading (optional)',
       type: 'string',
       description:
-        "The exact heading shown on the 'Order Custom … Today' call-to-action block on this post. Whatever you type appears exactly as-is. Leave blank to use the automatic 'Order Custom [category] Today'. This does not affect the Related Blogs heading.",
+        "The exact heading shown on the 'Order Custom … Today' call-to-action block on this post. Whatever you type appears exactly as-is. Leave blank to use the automatic 'Order Custom [category] Today'. A post the AI writes comes with 'Get Help with [the search it was written for]' filled in; edit it like any text. This does not affect the Related Blogs heading.",
     }),
     defineField({
       name: 'ctaBody',
@@ -280,7 +285,7 @@ export default defineType({
       type: 'text',
       rows: 3,
       description:
-        "The paragraph shown under the CTA heading on this post. Whatever you type appears exactly as-is. Leave blank to use the default 'Our team can help you pick the right product, decoration, and quantity for your project. Reach out and we'll send tailored ideas — usually within one business day.'",
+        "The paragraph shown under the CTA heading on this post. Whatever you type appears exactly as-is. Leave blank to use the default 'Our team can help you pick the right product, decoration, and quantity for your project. Reach out and we'll send tailored ideas — usually within one business day.' A post the AI writes comes with the same sentence filled in, with the search it was written for in place of 'product'.",
     }),
     defineField({
       name: 'metaTitle',

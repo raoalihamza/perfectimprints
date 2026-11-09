@@ -122,7 +122,7 @@ import {
   type TileCheck,
 } from './header-image';
 import { reserveBlogImageCall, type BlogImageReservation } from './header-image-usage';
-import { TITLE_LAYOUT_RESPONSE_SCHEMA, buildTitleLayoutPrompt, parseTitleLayoutAnswer, previousLookOf, storedTreatmentOf, undrawableCharacters, type TitleLayoutAnswer, type TitleLookName } from './title-layout';
+import { TITLE_LAYOUT_RESPONSE_SCHEMA, buildTitleLayoutPrompt, paintedBandIn, parseTitleLayoutAnswer, previousLookOf, storedTreatmentOf, undrawableCharacters, type TitleLayoutAnswer, type TitleLookName } from './title-layout';
 import type { ComposedTitle } from './compose-title';
 
 /**
@@ -239,6 +239,13 @@ export interface HeaderImageDeps {
    * provide it; the real deps always do.
    */
   checkRegion?: (image: GeminiImageInput, region: string) => Promise<TileCheck | null>;
+  /**
+   * AUTO-212: a blank pale band the image model PAINTED into the photograph
+   * along an edge (title-layout.ts paintedBandIn), or null. Optional so test
+   * fakes need not provide it; the real deps always do. Pixels only, no model
+   * call.
+   */
+  paintedBand?: (image: GeminiImageInput) => Promise<{ edge: 'top' | 'left' | 'right'; share: number } | null>;
   /**
    * AUTO-209: the title layout call on the finished picture (askTitleLayout):
    * where the product is and which side is calm; null when it failed.
@@ -367,6 +374,12 @@ export function defaultHeaderImageDeps(client: SanityClient): HeaderImageDeps {
       }
     },
     chooseTitleLayout: (image, title, intendedRoom) => askTitleLayout(image, title, TITLE_LAYOUT_TIMEOUT_MS, intendedRoom ?? null),
+    paintedBand: async (image) => {
+      const { imageSize, pixelGridOf } = await import('./compose-title');
+      const size = imageSize(Buffer.from(image.base64, 'base64'));
+      if (!size) return null;
+      return paintedBandIn(await pixelGridOf(image, size));
+    },
     // Loaded lazily: next/og (satori and resvg's WebAssembly) enters the
     // process only when a title is actually drawn.
     composeTitle: async (args) => (await import('./compose-title')).composeTitledHeader(args),
@@ -763,6 +776,16 @@ async function aiStep(
     );
     let problem = worstImageCheckProblem(reads);
     if (reads.every((r) => r === null)) notes.push('the text-and-logo check was unavailable, so the picture was accepted unchecked; look at it before publishing');
+    // AUTO-212: a blank band painted into the photograph (the "pale bars") is refused like a failed read, and the
+    // retry is told why. Pixels only; a failure to measure accepts the picture.
+    if (!problem && deps.paintedBand) {
+      try {
+        const band = await deps.paintedBand(pictureInput);
+        if (band) problem = `a blank pale band painted across the ${band.edge === 'top' ? 'top' : `${band.edge} side`} of the photograph (${Math.round(band.share * 100)}% of it) instead of the softly blurred setting`;
+      } catch (err) {
+        log(`[header-image] band test unavailable: ${errorText(err)}`);
+      }
+    }
     // AUTO-209: the title layout call looks at the picture the full reads
     // passed, BESIDE the close look below, so it costs only what it takes
     // beyond it. Its answer is used only if the close look passes too.

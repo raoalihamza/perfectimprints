@@ -14,6 +14,8 @@ import { answerFromTreatment, retitleHeaderImage } from './retitle-header-image'
 import { parseStoredTreatment } from './title-layout';
 
 const UNTITLED = 'image-abcdef0123456789abcdef0123456789abcdef01-1376x768-jpg';
+/** AUTO-212: the titled composite now on the post. */
+const CURRENT = 'image-0123456789abcdef0123456789abcdef01234567-1376x768-png';
 
 async function flatPng(): Promise<Buffer> {
   const el = { type: 'div', props: { style: { width: 1376, height: 768, display: 'flex', backgroundColor: '#dfe6ee' } }, key: null } as unknown as React.ReactElement;
@@ -22,6 +24,8 @@ async function flatPng(): Promise<Buffer> {
 
 interface FakeOpts {
   facts?: Record<string, unknown> | null;
+  /** AUTO-212: the asset on the post; default ours (marker, PNG). */
+  current?: Record<string, unknown> | null;
   fetchStatus?: number;
 }
 
@@ -31,8 +35,13 @@ function fakeClient(opts: FakeOpts = {}) {
     opts.facts === undefined
       ? { _id: UNTITLED, url: `https://cdn.sanity.io/images/x/production/${UNTITLED.slice(6)}.jpg`, originalFilename: 'custom-pens-header-photo.jpg', mimeType: 'image/png', width: 1376, height: 768, source: { name: BLOG_HEADER_ASSET_SOURCE, id: 'x' } }
       : opts.facts;
+  const current = opts.current === undefined ? { mimeType: 'image/png', source: { name: BLOG_HEADER_ASSET_SOURCE, id: 'y' } } : opts.current;
+  const fetched: string[] = [];
   const client = {
-    fetch: async () => facts,
+    fetch: async (_q: string, params: { id?: string }) => {
+      fetched.push(String(params?.id));
+      return params?.id === UNTITLED ? facts : current;
+    },
     assets: {
       upload: async (_kind: string, bytes: Buffer, options: Record<string, unknown>) => {
         uploads.push({ bytes, options });
@@ -40,7 +49,7 @@ function fakeClient(opts: FakeOpts = {}) {
       },
     },
   };
-  return { client: client as never, uploads };
+  return { client: client as never, uploads, fetched };
 }
 
 const realFetch = globalThis.fetch;
@@ -63,7 +72,7 @@ describe('retitleHeaderImage (AUTO-209)', () => {
     const calls = fakeFetch(png);
     const { client, uploads } = fakeClient();
     const treatment = JSON.stringify({ layout: 'panel-left', productBox: [400, 500, 1000, 1000] });
-    const result = await retitleHeaderImage({ client, untitledRef: UNTITLED, title: 'Custom Pens for Trade Shows', topic: 'custom pens', treatment, slug: 'custom-pens' });
+    const result = await retitleHeaderImage({ client, untitledRef: UNTITLED, currentRef: CURRENT, title: 'Custom Pens for Trade Shows', topic: 'custom pens', treatment, slug: 'custom-pens' });
     expect(result.ok).toBe(true);
     if (result.ok !== true) throw new Error('unreachable');
     expect(calls).toHaveLength(1);
@@ -83,7 +92,7 @@ describe('retitleHeaderImage (AUTO-209)', () => {
   it('with no readable treatment the placement is chosen again, and the title still goes on', async () => {
     fakeFetch(await flatPng());
     const { client, uploads } = fakeClient();
-    const result = await retitleHeaderImage({ client, untitledRef: UNTITLED, title: 'Custom Pens', topic: 'custom pens', treatment: 'garbage', slug: 'custom-pens' });
+    const result = await retitleHeaderImage({ client, untitledRef: UNTITLED, currentRef: CURRENT, title: 'Custom Pens', topic: 'custom pens', treatment: 'garbage', slug: 'custom-pens' });
     expect(result.ok).toBe(true);
     expect(uploads).toHaveLength(1);
     expect(answerFromTreatment('garbage')).toBeNull();
@@ -92,7 +101,7 @@ describe('retitleHeaderImage (AUTO-209)', () => {
   it('refuses an image that is not one the site generated, and uploads nothing', async () => {
     const calls = fakeFetch(await flatPng());
     const { client, uploads } = fakeClient({ facts: { _id: UNTITLED, url: 'https://cdn.sanity.io/images/x/production/a.jpg', originalFilename: 'patricks-photo.jpg', mimeType: 'image/jpeg', width: 1600, height: 900, source: null } });
-    const result = await retitleHeaderImage({ client, untitledRef: UNTITLED, title: 'Custom Pens', topic: 'custom pens', treatment: null, slug: 'custom-pens' });
+    const result = await retitleHeaderImage({ client, untitledRef: UNTITLED, currentRef: CURRENT, title: 'Custom Pens', topic: 'custom pens', treatment: null, slug: 'custom-pens' });
     expect(result).toMatchObject({ ok: false, reason: expect.stringContaining('not one the site generated') });
     expect(calls).toHaveLength(0);
     expect(uploads).toHaveLength(0);
@@ -101,21 +110,43 @@ describe('retitleHeaderImage (AUTO-209)', () => {
   it('refuses a missing copy, a malformed id, a copy off the image CDN, and a fetch that fails', async () => {
     const png = await flatPng();
     fakeFetch(png);
-    expect((await retitleHeaderImage({ client: fakeClient({ facts: null }).client, untitledRef: UNTITLED, title: 'T', topic: 't', treatment: null, slug: 's' })).ok).toBe(false);
-    expect((await retitleHeaderImage({ client: fakeClient().client, untitledRef: 'not-an-id', title: 'T', topic: 't', treatment: null, slug: 's' })).ok).toBe(false);
+    expect((await retitleHeaderImage({ client: fakeClient({ facts: null }).client, untitledRef: UNTITLED, currentRef: CURRENT, title: 'T', topic: 't', treatment: null, slug: 's' })).ok).toBe(false);
+    expect((await retitleHeaderImage({ client: fakeClient().client, untitledRef: 'not-an-id', currentRef: CURRENT, title: 'T', topic: 't', treatment: null, slug: 's' })).ok).toBe(false);
     const offCdn = fakeClient({ facts: { _id: UNTITLED, url: 'https://evil.example/a.png', mimeType: 'image/png', source: { name: BLOG_HEADER_ASSET_SOURCE } } });
-    const off = await retitleHeaderImage({ client: offCdn.client, untitledRef: UNTITLED, title: 'T', topic: 't', treatment: null, slug: 's' });
+    const off = await retitleHeaderImage({ client: offCdn.client, untitledRef: UNTITLED, currentRef: CURRENT, title: 'T', topic: 't', treatment: null, slug: 's' });
     expect(off).toMatchObject({ ok: false, reason: expect.stringContaining('image CDN') });
     expect(offCdn.uploads).toHaveLength(0);
     fakeFetch(png, 500);
-    const failed = await retitleHeaderImage({ client: fakeClient().client, untitledRef: UNTITLED, title: 'T', topic: 't', treatment: null, slug: 's' });
+    const failed = await retitleHeaderImage({ client: fakeClient().client, untitledRef: UNTITLED, currentRef: CURRENT, title: 'T', topic: 't', treatment: null, slug: 's' });
     expect(failed).toMatchObject({ ok: false, reason: expect.stringContaining('HTTP 500') });
+  });
+
+  it('AUTO-212: refuses when the picture ON the post is an upload, even though the old untitled copy is ours; nothing fetched, nothing uploaded', async () => {
+    const calls = fakeFetch(await flatPng());
+    // Patrick replaced our picture: his JPEG is on the post, our fields (and our untitled copy) are still beside it.
+    const { client, uploads, fetched } = fakeClient({ current: { mimeType: 'image/jpeg', source: null } });
+    const result = await retitleHeaderImage({ client, untitledRef: UNTITLED, currentRef: 'image-9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f-1661x947-jpg', title: 'Are Promotional Caps Good for Trade Shows?', topic: 'promotional caps', treatment: null, slug: 'caps' });
+    expect(result).toMatchObject({ ok: false, reason: expect.stringContaining('uploaded by hand') });
+    expect(calls).toHaveLength(0);
+    expect(uploads).toHaveLength(0);
+    // The untitled copy was never even looked up: the refusal comes first.
+    expect(fetched).toEqual(['image-9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f-1661x947-jpg']);
+  });
+
+  it('AUTO-212: refuses with no current picture, and refuses a marked picture that is not a titled composite', async () => {
+    fakeFetch(await flatPng());
+    const none = fakeClient();
+    expect(await retitleHeaderImage({ client: none.client, untitledRef: UNTITLED, currentRef: null, title: 'T', topic: 't', treatment: null, slug: 's' })).toMatchObject({ ok: false });
+    expect(none.uploads).toHaveLength(0);
+    const photo = fakeClient({ current: { mimeType: 'image/jpeg', source: { name: BLOG_HEADER_ASSET_SOURCE } } });
+    expect(await retitleHeaderImage({ client: photo.client, untitledRef: UNTITLED, currentRef: CURRENT, title: 'T', topic: 't', treatment: null, slug: 's' })).toMatchObject({ ok: false, reason: expect.stringContaining('uploaded by hand') });
+    expect(photo.uploads).toHaveLength(0);
   });
 
   it('an undrawable title uploads nothing and says why', async () => {
     fakeFetch(await flatPng());
     const { client, uploads } = fakeClient();
-    const result = await retitleHeaderImage({ client, untitledRef: UNTITLED, title: 'Custom 中 Pens', topic: 'custom pens', treatment: null, slug: 'custom-pens' });
+    const result = await retitleHeaderImage({ client, untitledRef: UNTITLED, currentRef: CURRENT, title: 'Custom 中 Pens', topic: 'custom pens', treatment: null, slug: 'custom-pens' });
     expect(result).toMatchObject({ ok: false, reason: expect.stringContaining('cannot draw') });
     expect(uploads).toHaveLength(0);
   });
@@ -129,7 +160,7 @@ describe('retitleHeaderImage (AUTO-209)', () => {
   it('a title that no longer fits the kept look (a lockup for a title with nothing to set large) gets a look chosen again, and says so', async () => {
     fakeFetch(await flatPng());
     const { client, uploads } = fakeClient();
-    const result = await retitleHeaderImage({ client, untitledRef: UNTITLED, title: 'Are Custom Pens Worth It?', topic: 'custom pens', treatment: JSON.stringify({ layout: 'lockup-left', productBox: null }), slug: 'custom-pens' });
+    const result = await retitleHeaderImage({ client, untitledRef: UNTITLED, currentRef: CURRENT, title: 'Are Custom Pens Worth It?', topic: 'custom pens', treatment: JSON.stringify({ layout: 'lockup-left', productBox: null }), slug: 'custom-pens' });
     expect(result.ok).toBe(true);
     if (result.ok !== true) throw new Error('unreachable');
     expect(result.placementKept).toBe(false);
