@@ -162,8 +162,9 @@ export interface CreatedBlogDraft {
 async function discardGeneratedPicture(client: DraftWriter, outcome: HeaderImageOutcome): Promise<void> {
   if (outcome.kind !== 'asset' || outcome.source !== 'ai') return;
   if (typeof client.delete !== 'function' || typeof client.fetch !== 'function') return;
-  // AUTO-209: the titled picture and, when there is one, the untitled copy kept beside it.
-  const refs = [outcome.image.asset._ref, ...(outcome.image.untitledImage?.asset?._ref ? [outcome.image.untitledImage.asset._ref] : [])];
+  // AUTO-220: the picture and, when it is a separate asset, the copy kept beside it without the P! mark.
+  const copy = outcome.image.unmarkedImage?.asset?._ref;
+  const refs = [outcome.image.asset._ref, ...(copy && copy !== outcome.image.asset._ref ? [copy] : [])];
   for (const ref of refs) {
     const result = await discardGeneratedHeaderImage(client as unknown as AssetDiscardClient, ref);
     if (result.deleted !== true) {

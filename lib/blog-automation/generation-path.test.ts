@@ -191,12 +191,26 @@ describe('the fields beside the body (AUTO-202)', () => {
   it('the image chain never throws: every effect is caught, and every effect after the reservation runs under the deadline', () => {
     const chain = read(IMAGE_CHAIN);
     // AUTO-204: the check takes the picture and a context object, so its call no longer opens with a brace.
-    for (const effect of ['deps.reserve(', 'deps.fetchReference(', 'deps.plan({', 'deps.generate({', 'deps.check(', 'deps.upload(']) {
+    // AUTO-220: the main model's effects (its cap, the photo screen, the picture, the two kinds of read, the
+    // stamp) are held to the same two rules as the fallback model's.
+    const effects = [
+      'deps.reserveOpenAi(',
+      'deps.reserve(',
+      'deps.fetchReference(',
+      'deps.screenPhoto(',
+      'deps.draw({',
+      'deps.readTitle(',
+      'deps.readInventory(',
+      'deps.generate({',
+      'deps.stamp(',
+      'deps.upload(',
+    ];
+    for (const effect of effects) {
       const at = chain.indexOf(effect);
       expect(at, effect).toBeGreaterThan(-1);
       expect(chain.lastIndexOf('try {', at), `${effect} inside a try`).toBeGreaterThan(chain.lastIndexOf('} catch', at));
     }
-    for (const effect of ['deps.fetchReference(', 'deps.plan({', 'deps.generate({', 'deps.check(', 'deps.upload(']) {
+    for (const effect of effects.filter((e) => !e.startsWith('deps.reserve'))) {
       expect(chain, `${effect} under withDeadline`).toMatch(new RegExp(`withDeadline\\(\\s*${effect.replace(/[.(]/g, '\\$&')}`));
     }
     // The only throws are the two inside the no-client deps' own stubs, which the chain catches.
@@ -204,12 +218,18 @@ describe('the fields beside the body (AUTO-202)', () => {
     expect(body).not.toContain('throw new');
     // The key is checked before any slot is spent.
     expect(chain.indexOf('deps.keyConfigured()')).toBeLessThan(chain.indexOf('await deps.reserve('));
-    // AUTO-204: every picture is read IMAGE_CHECK_READS times, in parallel under ONE deadline, and the worst answer
-    // decides; an unavailable read is caught per read, so one failed read cannot throw the chain.
-    expect(chain).toContain('Array.from({ length: IMAGE_CHECK_READS }, async (): Promise<ImageCheck | null> => {');
-    expect(chain).toContain('let problem = worstImageCheckProblem(reads);');
-    expect(chain).toContain("if (reads.every((r) => r === null)) notes.push('the text-and-logo check was unavailable");
-    expect(chain.match(/deps\.check\(/g)).toHaveLength(1);
+    expect(chain.indexOf('deps.keyConfigured()')).toBeLessThan(chain.indexOf('await deps.reserveOpenAi('));
+    // AUTO-220: the title is read TITLE_GATE_READS times and the picture inventoried PICTURE_INVENTORY_READS
+    // times, in parallel, each read caught on its own; and the loop that draws runs twice at most.
+    expect(chain).toContain('Array.from({ length: TITLE_GATE_READS }, async (): Promise<string | null> => {');
+    expect(chain).toContain('Array.from({ length: PICTURE_INVENTORY_READS }, async (): Promise<PictureInventory | null> => {');
+    expect(chain).toContain('while (attempts < 2) {');
+    // Ali, 2026-11-15: the backup model's picture goes through the SAME loop and the same two gates, and the
+    // AUTO-204 check that read the old titleless backup picture is no longer called from the chain.
+    expect(chain).not.toContain('deps.check(');
+    expect(chain.match(/deps\.generate\(\{/g)).toHaveLength(1);
+    // A brand check that got no answer is asked once more, never in a loop.
+    expect(chain.match(/await readInventories\(\)/g)).toHaveLength(2);
   });
 
   it('the image budget fits the blog-topics route beside the AI deadline', () => {
@@ -245,13 +265,23 @@ describe('the fields beside the body (AUTO-202)', () => {
     const generateAt = chain.indexOf('deps.generate({');
     expect(reserveAt).toBeGreaterThan(-1);
     expect(generateAt).toBeGreaterThan(-1);
-    // The cap first; the reference photos, the scene plan and the generation only after a slot is held.
-    const planAt = chain.indexOf('deps.plan({');
+    // The cap first; the photos and the generation only after a slot is held. One loop
+    // serves both models (Ali, 2026-11-15), so the order is the same for each: its own
+    // cap, then the photos (gathered once), then the picture.
+    const openAiAt = chain.indexOf('await deps.reserveOpenAi(');
+    const gatherAt = chain.indexOf('photos = await gatherPhotos(');
+    const drawAt = chain.indexOf('deps.draw({');
+    expect(openAiAt).toBeGreaterThan(-1);
+    expect(openAiAt).toBeLessThan(gatherAt);
+    expect(reserveAt).toBeLessThan(gatherAt);
+    expect(gatherAt).toBeLessThan(drawAt);
+    expect(gatherAt).toBeLessThan(generateAt);
+    expect(openAiAt).toBeLessThan(fetchAt);
     expect(reserveAt).toBeLessThan(fetchAt);
-    expect(reserveAt).toBeLessThan(planAt);
-    expect(planAt).toBeLessThan(generateAt);
+    expect(chain.match(/gatherPhotos\(input, deps, remaining, log\)/g)).toHaveLength(1);
     const index = read('sanity/schemas/index.ts');
     expect(index).not.toContain('blogImageAiUsage');
+    expect(index).not.toContain('blogImageOpenAiUsage');
     expect(index).not.toContain('portfolioAiUsage');
   });
 });

@@ -16,6 +16,9 @@ const state = vi.hoisted(() => ({
   hidden: [] as string[],
   chainInputs: [] as Record<string, unknown>[],
   chainOutcome: { kind: 'asset', source: 'ai', image: { _type: 'image', asset: { _type: 'reference', _ref: 'image-gen' } }, notes: [] } as unknown,
+  // AUTO-220: what the guarded loader of "Change this picture" answers, and what it was asked.
+  editBase: { ok: true, picture: { mimeType: 'image/jpeg', base64: 'Y3VycmVudA' }, unmarkedId: 'image-copy-1536x864-jpg' } as unknown,
+  editBaseAsked: [] as unknown[],
 }));
 
 vi.mock('@/lib/sanity/studio-nonce-auth', () => ({
@@ -47,6 +50,13 @@ vi.mock('@/lib/blog-automation/resolve-header-image', () => ({
   }),
 }));
 
+vi.mock('@/lib/blog-automation/header-edit-base', () => ({
+  loadHeaderEditBase: vi.fn(async (_client: unknown, refs: unknown) => {
+    state.editBaseAsked.push(refs);
+    return state.editBase;
+  }),
+}));
+
 // eslint-disable-next-line import/first
 import { POST, maxDuration } from './route';
 
@@ -64,7 +74,10 @@ beforeEach(() => {
   state.settings = { blogAutomation: { headerImageSource: 'ai', headerImageLibrary: [] } };
   state.hidden = [];
   state.chainInputs = [];
+  state.editBase = { ok: true, picture: { mimeType: 'image/jpeg', base64: 'Y3VycmVudA' }, unmarkedId: 'image-copy-1536x864-jpg' };
+  state.editBaseAsked = [];
   process.env.GOOGLE_GEMINI_API_KEY = 'test-key';
+  process.env.OPENAI_API_KEY = 'sk-test-not-a-real-key';
 });
 
 async function post(body: unknown) {
@@ -138,5 +151,71 @@ describe('POST /api/sanity/generate-blog-image', () => {
     expect(maxDuration).toBe(120);
     const res = await post(good);
     expect(res.body.outcome).toEqual(state.chainOutcome);
+  });
+});
+
+describe('AUTO-220: the ladder, Patrick\'s own instruction, and the retired redraw', () => {
+  it('the rung the post is on travels to the chain, and a plain request is the ladder', async () => {
+    const res = await post({ ...good, previousRung: 2 });
+    expect(res.status).toBe(200);
+    expect(state.chainInputs[0]).toMatchObject({ source: 'ai', mode: 'ladder', previousRung: 2, editBase: null });
+    expect(res.body.mode).toBe('ladder');
+  });
+
+  it('"make a new one": his words go to the chain as an instruction, the chain starts at the AI whatever the post\'s setting says', async () => {
+    state.settings = { blogAutomation: { headerImageSource: 'product', headerImageLibrary: [] } };
+    const res = await post({ ...good, source: 'instruction', postSource: 'library', instruction: '  Show the bags on a trade show table  ' });
+    expect(res.status).toBe(200);
+    expect(state.chainInputs[0]).toMatchObject({ source: 'ai', mode: 'instruction', instruction: 'Show the bags on a trade show table', editBase: null });
+    expect(state.editBaseAsked).toEqual([]);
+  });
+
+  it('"change this picture": the picture comes from the guarded loader, by the two ids, and reaches the chain with the count', async () => {
+    const res = await post({ ...good, source: 'edit', instruction: 'make the background a beach', currentRef: 'image-ours-1536x864-png', unmarkedRef: 'image-copy-1536x864-jpg', editCount: 2 });
+    expect(res.status).toBe(200);
+    expect(state.editBaseAsked).toEqual([{ currentRef: 'image-ours-1536x864-png', unmarkedRef: 'image-copy-1536x864-jpg' }]);
+    expect(state.chainInputs[0]).toMatchObject({ source: 'ai', mode: 'edit', instruction: 'make the background a beach', editBase: { mimeType: 'image/jpeg', base64: 'Y3VycmVudA' }, editCount: 2 });
+  });
+
+  it("PATRICK'S OWN PICTURE IS NEVER SENT OR REPLACED: when the loader refuses, the answer is its reason and the chain never runs", async () => {
+    state.editBase = { ok: false, reason: 'the picture on this post was uploaded by hand, not made by the site, so it is not changed and stays as it is' };
+    const res = await post({ ...good, source: 'edit', instruction: 'make it blue', currentRef: 'image-his-1661x947-avif', unmarkedRef: 'image-copy-1536x864-jpg' });
+    expect(res.status).toBe(409);
+    expect(res.body.error).toBe('The picture on this post was uploaded by hand, not made by the site, so it is not changed and stays as it is. Nothing on the post was changed.');
+    expect(state.chainInputs).toEqual([]);
+  });
+
+  it('neither instruction button runs without an instruction, without the image key, without the checker key or without a write client', async () => {
+    for (const source of ['instruction', 'edit']) {
+      expect((await post({ ...good, source, instruction: '   ' })).status).toBe(400);
+      delete process.env.OPENAI_API_KEY;
+      const noKey = await post({ ...good, source, instruction: 'x' });
+      expect(noKey.status).toBe(500);
+      expect(String(noKey.body.error)).toContain('OPENAI_API_KEY');
+      expect(String(noKey.body.error)).toContain('Ask Ali');
+      process.env.OPENAI_API_KEY = 'sk-test-not-a-real-key';
+      delete process.env.GOOGLE_GEMINI_API_KEY;
+      expect((await post({ ...good, source, instruction: 'x' })).status).toBe(500);
+      process.env.GOOGLE_GEMINI_API_KEY = 'test-key';
+      state.client = null;
+      expect((await post({ ...good, source, instruction: 'x' })).status).toBe(500);
+      state.client = {};
+    }
+    expect(state.chainInputs).toEqual([]);
+    expect(state.editBaseAsked).toEqual([]);
+  });
+
+  it('the Generate header image button does not need the OpenAI key to answer: the chain itself falls to the backup model', async () => {
+    delete process.env.OPENAI_API_KEY;
+    expect((await post(good)).status).toBe(200);
+    expect(state.chainInputs).toHaveLength(1);
+  });
+
+  it('THE REDRAW BUTTON IS GONE: a request from a Studio tab left open is refused, and nothing is made', async () => {
+    const res = await post({ source: 'retitle', title: 'Custom Tote Bags', untitledRef: 'image-photo-1376x768-jpg', currentRef: 'image-his-1661x947-avif', treatment: '{"layout":"headline"}', slug: 'custom-tote-bags', keywords: [] });
+    expect(res.status).toBe(400);
+    expect(String(res.body.error)).toContain('retired');
+    expect(state.chainInputs).toEqual([]);
+    expect(state.editBaseAsked).toEqual([]);
   });
 });

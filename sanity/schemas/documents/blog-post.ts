@@ -4,8 +4,8 @@ import { inlineImageAlignField, inlineImageSizeField } from '../objects/inline-i
 // Pure and dependency-free, so the Studio bundle takes it (the quote.ts /
 // catalog-key.ts precedent); the repair script and the tests import the same rule.
 import { relatedCategorySlugProblem } from '../../../lib/blog/related-category-slugs';
-// AUTO-209: pure, no imports; the title drawn on a generated header picture
-// against the post's title.
+// Pure, no imports: the title on a generated header picture against the
+// post's title (AUTO-209; AUTO-220 changed what the fix is).
 import { isGeneratedTitledHeaderRef, titleOnImageDrift } from '../../../lib/blog/header-image';
 
 export default defineType({
@@ -45,10 +45,11 @@ export default defineType({
       options: { hotspot: true },
       fields: [
         { name: 'alt', type: 'string', title: 'Alt text' },
-        // AUTO-209: a generated picture carries the post's title, drawn by
-        // code. These three record what was drawn so the Studio can warn when
-        // the post's title changes, and so the title can be redrawn on the
-        // same picture for free. Written by the engine only; hidden otherwise.
+        // AUTO-220: the AI draws the post's title into the picture. These
+        // record what it drew, so the Studio can warn when the post's title
+        // changes, so Generate another header image knows which treatment
+        // comes next, and so Change this header picture has a copy without
+        // the P! mark to send back. Written by the engine only.
         {
           name: 'titleOnImage',
           type: 'string',
@@ -56,36 +57,35 @@ export default defineType({
           readOnly: true,
           hidden: ({ value }) => !value,
           description:
-            "The title the AI picture carries, exactly as drawn. If you change the post's title, redraw it (the button near Publish) so the picture and the post agree.",
+            "The title the AI picture carries. The title is part of the picture, so if you change the post's title, press Generate another header image for a new picture.",
         },
+        { name: 'ladderRung', type: 'number', title: 'Treatment the picture was drawn in (1 to 3)', readOnly: true, hidden: () => true },
+        { name: 'editCount', type: 'number', title: 'Changes in a row', readOnly: true, hidden: () => true },
         // An `image` field, not a reference to `sanity.imageAsset`: this Studio
         // rejects that reference target ("Unknown type: sanity.imageAsset",
         // seen on production 2026-10-23), and an image value is the shape
-        // Sanity always accepts for an asset. Written by the engine only.
+        // Sanity always accepts for an asset.
         {
-          name: 'untitledImage',
+          name: 'unmarkedImage',
           type: 'image',
-          title: 'The same picture without the title',
-          readOnly: true,
-          hidden: ({ value }) => !value,
-          description: 'Kept so the title can be redrawn without making a new picture.',
-        },
-        {
-          name: 'titleTreatment',
-          type: 'string',
-          title: 'Title placement',
+          title: 'The same picture without the P! mark',
           readOnly: true,
           hidden: () => true,
         },
+        // AUTO-209 to AUTO-212, no longer written: the old pictures had their
+        // title drawn on by the site and kept a copy without it. The fields
+        // stay DECLARED so a post made then still opens cleanly (an undeclared
+        // field is an "unknown field" warning), hidden and read only.
+        { name: 'untitledImage', type: 'image', title: 'Older picture without its title', readOnly: true, hidden: () => true },
+        { name: 'titleTreatment', type: 'string', title: 'Older title placement', readOnly: true, hidden: () => true },
       ],
       description:
-        "Upload your own, or let the AI make one (Generate Blog with AI fills this when it is empty; Generate header image makes another). An image you upload is never replaced by Generate Blog with AI. An AI picture carries the post's title, drawn on it by the site.",
-      // AUTO-209: a picture that shows an old title is wrong; a warning, never
-      // an error, because the fix is one button press and must never block Publish.
+        "Upload your own, or let the AI make one (Generate Blog with AI fills this when it is empty; Generate header image makes another, in a different treatment each time; the two instruction buttons follow what you type in the instruction box below). An image you upload is never replaced by Generate Blog with AI. An AI picture carries the post's title and the P! mark.",
+      // A picture that shows an old title is wrong; a warning, never an error,
+      // because the fix is one button press and must never block Publish.
       // AUTO-212: only when the picture on the post IS ours. A picture Patrick
       // uploaded over a generated one keeps the old picture's fields beside it
-      // (Studio swaps only the asset), and the warning must not invite a
-      // redraw that would put our picture back over his.
+      // (Studio swaps only the asset), and his own picture must not be flagged.
       validation: (Rule) =>
         Rule.custom((value, context) => {
           const image = value as { titleOnImage?: unknown; asset?: { _ref?: unknown } } | undefined;
@@ -385,6 +385,19 @@ export default defineType({
       },
       description:
         'Where the AI buttons get this post\'s header image. Left blank, the site setting in Global Settings > Blog Automation applies (AI generated unless you changed it). When the chosen source has nothing for this post the next one is tried, then the next, then no image. An image you upload yourself is never replaced by Generate Blog with AI, whatever this says.',
+    }),
+    // AUTO-220: Patrick's own instruction for the header picture. Read by the
+    // two instruction buttons near Publish and by nothing else: no render
+    // path, no webhook, no scheduler.
+    defineField({
+      name: 'headerImageInstruction',
+      title: 'Your instruction for the header image',
+      type: 'text',
+      rows: 3,
+      fieldset: 'ai',
+      validation: (Rule) => Rule.max(600).warning('Keep the instruction under 600 characters; anything longer is cut off.'),
+      description:
+        'Optional. Say in plain words what you want, then press one of the two buttons near Publish: "Change this header picture" changes the AI picture now on the post the way you say (for example: make the background a beach at sunset), and "New header picture" makes a new one your way from the post\'s product photos (for example: show the products on a trade show table, title in a blue band across the top). The picture still carries the post\'s title and the P! mark, and each press counts against the daily limit of generated pictures. Not shown on the live page.',
     }),
     defineField({
       name: 'aiSuggestedLinks',

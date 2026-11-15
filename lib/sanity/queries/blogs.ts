@@ -38,6 +38,12 @@ export interface BlogPostDetail extends BlogPostSummary {
   body: PortableTextBlock[];
   updatedDate?: string;
   metaTitle?: string;
+  /**
+   * AUTO-220: the "SEO (extra)" overrides. Empty means the main title,
+   * description and header image are used; filled means the field wins
+   * (lib/blog/post-seo.ts).
+   */
+  seo?: { metaTitle?: string | null; metaDescription?: string | null; ogImage?: SanityImage | null } | null;
   /** Optional VERBATIM heading for the CTA block only (rendered as-is, no "Order Custom … Today" wrapper). */
   ctaTopic?: string;
   /** Optional per-post body paragraph for the CTA block (rendered as-is; blank → default copy). */
@@ -195,6 +201,7 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPostDetail | 
       },
       updatedDate,
       metaTitle,
+      seo{ metaTitle, metaDescription, ogImage },
       ctaTopic,
       ctaBody,
       relatedCategorySlugs,

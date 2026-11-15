@@ -3,7 +3,20 @@
  * what they patch from its answer.
  */
 import { describe, expect, it } from 'vitest';
-import { capOf, hasHeaderImage, headerImageSignature, imageDetail, imageRequestBody, imageWhy, patchForOutcome } from './blog-image-request';
+import {
+  capOf,
+  changePictureBlocker,
+  copyAssetRefsOf,
+  generatedCopyRefOf,
+  hasHeaderImage,
+  headerImageSignature,
+  headerInstructionOf,
+  imageDetail,
+  imageRequestBody,
+  imageWhy,
+  instructionRequestBody,
+  patchForOutcome,
+} from './blog-image-request';
 
 const asset = { _type: 'image' as const, asset: { _type: 'reference' as const, _ref: 'image-gen-1376x768-jpg' }, alt: 'alt' };
 
@@ -69,5 +82,52 @@ describe('the reasons and the detail line (AUTO-204)', () => {
     expect(imageDetail({ what: 'a picture from the header image library', why: 'The image model failed: 503.' })).toBe('A picture from the header image library. The image model failed: 503.');
     expect(imageDetail({ what: 'x', outcome: { kind: 'url', notes } })).toBe('X. The image model failed: 503. The header image library is empty.');
     for (const d of [imageDetail({ what: 'a picture from the header image library', why: 'Y.' }), imageDetail({})]) expect(d).not.toContain('Header image:');
+  });
+});
+
+describe('AUTO-220: the ladder, the copies and Patrick\'s instruction', () => {
+  const ours = { asset: { _ref: 'image-ours-1536x864-png' }, titleOnImage: 'T', ladderRung: 3, editCount: 1, unmarkedImage: { asset: { _ref: 'image-copy-1536x864-jpg' } } };
+
+  it('the rung the picture was drawn on travels with the request; anything that is not a rung does not', () => {
+    expect(imageRequestBody({ title: 'T', headerImage: ours }, 'ai').previousRung).toBe(3);
+    for (const ladderRung of [undefined, 0, 4, '2', null]) {
+      expect(imageRequestBody({ title: 'T', headerImage: { asset: { _ref: 'image-x-1536x864-png' }, ladderRung } }, 'ai').previousRung).toBeUndefined();
+    }
+    // Nothing of the retired title stack is sent any more.
+    expect(Object.keys(imageRequestBody({ title: 'T', headerImage: ours }, 'ai'))).not.toContain('previousTreatment');
+  });
+
+  it('the copies kept beside a picture go with it: the copy without the mark, and an older picture\'s copy without the title; never the header itself', () => {
+    expect(copyAssetRefsOf({ headerImage: ours })).toEqual(['image-copy-1536x864-jpg']);
+    expect(copyAssetRefsOf({ headerImage: { asset: { _ref: 'image-old-1376x768-png' }, untitledImage: { asset: { _ref: 'image-oldphoto-1376x768-jpg' } } } })).toEqual(['image-oldphoto-1376x768-jpg']);
+    // The mark could not be stamped: the one asset is its own copy, and it is not listed twice.
+    expect(copyAssetRefsOf({ headerImage: { asset: { _ref: 'image-a-1536x864-jpg' }, unmarkedImage: { asset: { _ref: 'image-a-1536x864-jpg' } } } })).toEqual([]);
+    expect(copyAssetRefsOf({ headerImage: { asset: { _ref: 'image-his-1661x947-avif' } } })).toEqual([]);
+    expect(copyAssetRefsOf(null)).toEqual([]);
+    const outcome = { kind: 'asset' as const, source: 'ai' as const, image: { _type: 'image' as const, asset: { _type: 'reference' as const, _ref: 'image-n-1536x864-png' }, unmarkedImage: { _type: 'image' as const, asset: { _type: 'reference' as const, _ref: 'image-c-1536x864-jpg' } } } };
+    expect(generatedCopyRefOf(outcome)).toBe('image-c-1536x864-jpg');
+    expect(generatedCopyRefOf({ ...outcome, source: 'library' })).toBeNull();
+    expect(generatedCopyRefOf({ ...outcome, image: { ...outcome.image, unmarkedImage: { _type: 'image', asset: { _type: 'reference', _ref: 'image-n-1536x864-png' } } } })).toBeNull();
+  });
+
+  it('his instruction is sent trimmed, and each button sends what its action needs and no more', () => {
+    const doc = { title: 'T', slug: { current: 't' }, headerImage: ours, headerImageInstruction: '  blue  band\nacross the top ' };
+    expect(headerInstructionOf(doc)).toBe('blue band across the top');
+    expect(headerInstructionOf({})).toBe('');
+    expect(instructionRequestBody(doc, 'instruction')).toEqual({ title: 'T', keywords: [], skus: [], rootSlugs: [], slug: 't', source: 'instruction', postSource: undefined, previousRung: 3, instruction: 'blue band across the top' });
+    expect(instructionRequestBody(doc, 'edit')).toMatchObject({ source: 'edit', instruction: 'blue band across the top', currentRef: 'image-ours-1536x864-png', unmarkedRef: 'image-copy-1536x864-jpg', editCount: 1 });
+  });
+
+  it('"Change this picture" is blocked, in his words, on anything but a picture the current engine made', () => {
+    expect(changePictureBlocker({ headerImage: ours })).toBeNull();
+    // The backup model's picture is 1376 x 768 and can be changed too.
+    expect(changePictureBlocker({ headerImage: { asset: { _ref: 'image-b-1376x768-png' }, unmarkedImage: { asset: { _ref: 'image-bc-1376x768-jpg' } } } })).toBeNull();
+    expect(changePictureBlocker({})).toContain('no header picture to change');
+    expect(changePictureBlocker({ headerImage: { asset: { _ref: 'image-his-1661x947-avif' } } })).toContain('your own upload or an older picture');
+    // His upload put over a generated picture: Studio kept the copy beside it, and it is still blocked.
+    expect(changePictureBlocker({ headerImage: { ...ours, asset: { _ref: 'image-his-1661x947-avif' } } })).toContain('your own upload or an older picture');
+    // An AUTO-209 to AUTO-212 composite has no copy without the mark.
+    expect(changePictureBlocker({ headerImage: { asset: { _ref: 'image-old-1376x768-png' }, untitledImage: { asset: { _ref: 'image-o-1376x768-jpg' } } } })).toContain('older picture');
+    expect(changePictureBlocker({ headerImage: { ...ours, editCount: 3 } })).toContain('already been changed 3 times in a row');
   });
 });

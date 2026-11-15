@@ -71,36 +71,36 @@ export function externalHeaderImageAlt(post: BlogHeaderImageFields | null | unde
   return alt ? alt : null;
 }
 
-// -- AUTO-209: the title on the picture, and the picture's size ------------------
+// -- The title on a generated picture, and the picture's size --------------------
 
 /**
- * AUTO-212: is the picture ON the post the site's own titled composite? Its
- * asset id says so: every titled header is drawn on the 1376 x 768 canvas the
- * image model returns and written as a PNG (resvg writes nothing else), so the
- * id ends `-1376x768-png`. Measured 2026-11-05: all 31 titled composites the
- * site stored have that id, and none of Patrick's 25 hand-made headers does
- * (JPEGs of 1661 x 947, 1774 x 887 and similar).
+ * Is the picture ON the post one the header engine made and put a title on?
+ * Its asset id says so (the id carries the size and the format):
+ *   - AUTO-220: the image model draws at 1536 x 864 and the stamped picture is
+ *     a PNG, so the id ends `-1536x864-png` (`-1536x864-jpg` when the mark
+ *     could not be stamped and the model's own bytes were stored);
+ *   - AUTO-209 to AUTO-212: the old composites, 1376 x 768 PNGs.
+ * Measured 2026-11-05: none of Patrick's hand-made headers has either size
+ * (JPEGs and AVIFs of 1661 x 947, 1774 x 887 and similar).
  *
  * Why it matters. When Patrick replaces a generated header in Studio, Studio
  * swaps the asset and KEEPS the fields beside it (`titleOnImage`,
- * `untitledImage`, `titleTreatment`). On 11 of his published posts the AI
- * picture's fields still sat beside his own upload, and on 2 of them the
- * title had changed since, so the Studio was offering "Redraw title on header
- * image", which would have put our old picture back over his. The button and
- * the field warning now appear only when this is true, and the server refuses
- * a redraw unless the asset on the post carries the site's upload marker.
- * A cheap first gate for the Studio; the server's marker check is the rule.
+ * `unmarkedImage`, `ladderRung`). So "the picture shows an old title" must
+ * be said only when the picture on the post is still ours; his own upload
+ * must never be flagged. A cheap gate for the Studio warning; the server's
+ * upload-marker check (header-edit-base.ts) is the rule for anything that
+ * writes.
  */
 export function isGeneratedTitledHeaderRef(ref: unknown): boolean {
-  return typeof ref === 'string' && /^image-[A-Za-z0-9]+-1376x768-png$/.test(ref);
+  return typeof ref === 'string' && /^image-[A-Za-z0-9]+-(?:1536x864-(?:png|jpg)|1376x768-png)$/.test(ref);
 }
 
 /**
- * The post's title no longer matches the title drawn ON its header picture
- * (AUTO-209). Returns the Studio warning to show, or null when they agree or
- * the picture carries no title. Compared ignoring case, spacing and the two
- * shapes of apostrophe and quote, because the drawn title is the stored title
- * exactly and only an EDIT should warn.
+ * The post's title no longer matches the title ON its header picture. Returns
+ * the Studio warning to show, or null when they agree or the picture carries
+ * no title. Compared ignoring case, spacing and the two shapes of apostrophe
+ * and quote, so only an EDIT warns. AUTO-220: the image model draws the
+ * title, so the fix is a new picture; there is no redraw.
  */
 export function titleOnImageDrift(titleOnImage: unknown, title: unknown): string | null {
   if (typeof titleOnImage !== 'string' || typeof title !== 'string') return null;
@@ -113,7 +113,24 @@ export function titleOnImageDrift(titleOnImage: unknown, title: unknown): string
       .toLowerCase();
   const drawn = fold(titleOnImage);
   if (!drawn || drawn === fold(title)) return null;
-  return `The header picture shows the title "${titleOnImage.trim()}", which no longer matches this post's title. Press "Redraw title on header image" (free, a few seconds) to put the current title on the same picture, or Generate another header image for a new picture.`;
+  return `The header picture shows the title "${titleOnImage.trim()}", which no longer matches this post's title. The title is part of the picture, so press "Generate another header image" for a new picture with the current title (or upload your own).`;
+}
+
+/**
+ * Whether the SOCIAL image (og:image, twitter:image) must be asked for as a
+ * JPEG. The social image is served without `auto=format` (IMG-120: scrapers
+ * cache what they get), so the CDN returns the asset's own format, and only a
+ * JPEG is both small and shown everywhere: a generated header is a PNG (1.1 MB
+ * at 1200 wide against 67 KB as a JPEG, measured AUTO-209), and X does not
+ * show an AVIF or WebP card image at all. A header that already IS a JPEG is
+ * requested exactly as before, so its URL does not change. AUTO-220: this was
+ * a `-png$` test, true only for the engine's own pictures.
+ */
+export function socialImageNeedsJpeg(ref: unknown): boolean {
+  if (typeof ref !== 'string' || !ref) return false;
+  const m = /-([a-z0-9]+)$/i.exec(ref);
+  const format = m ? m[1].toLowerCase() : '';
+  return format !== 'jpg' && format !== 'jpeg';
 }
 
 /**

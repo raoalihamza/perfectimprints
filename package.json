@@ -33,6 +33,7 @@
     "auto:verify-wider-window": "tsx scripts/blog-automation/verify-wider-window.ts",
     "auto:volumes": "tsx scripts/blog-automation/search-volumes.ts",
     "auto:sweep-orphans": "tsx scripts/blog-automation/sweep-orphan-headers.ts",
+    "auto:soak-drafts": "tsx scripts/blog-automation/soak-draft-headers.ts",
     "audit:cta": "tsx scripts/audit-cta-pages.ts",
     "audit:category-rule": "tsx scripts/audit-category-rule.ts",
     "reconcile:missing-urls": "tsx scripts/reconcile-missing-urls.ts",

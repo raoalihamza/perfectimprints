@@ -23,7 +23,8 @@ import { readRunsForDay, runDayKey } from '@/lib/blog-automation/run-log';
 import { readSchedulerSettings } from '@/lib/blog-automation/scheduler-settings';
 import { buildDigestEmail } from '@/lib/blog-automation/digest';
 import { sweepOrphanHeaderImages, sweepSentence } from '@/lib/blog-automation/orphan-sweep';
-import { BLOG_IMAGE_AI_DAILY_CAP, BLOG_IMAGE_AI_USAGE_DOC_ID } from '@/lib/blog-automation/header-image-usage';
+// AUTO-220: the counter the digest reports is the MAIN image model's (OpenAI); the backup model keeps its own.
+import { BLOG_IMAGE_OPENAI_DAILY_CAP, BLOG_IMAGE_OPENAI_USAGE_DOC_ID } from '@/lib/blog-automation/openai-image-usage';
 import { serverSanityClient } from '@/lib/sanity/studio-nonce-auth';
 import { sendBuiltEmail } from '@/lib/email/gmail-smtp';
 import { checkSanityReadHealth } from '@/lib/sanity/read-health';
@@ -58,8 +59,8 @@ export async function GET(request: Request) {
   const [runs, settings] = await Promise.all([readRunsForDay(client, day), readSchedulerSettings(client)]);
   let imageCap: { used: number; cap: number } | null = null;
   try {
-    const usage = await client.fetch<{ day?: string; count?: number } | null>(`*[_id == $id][0]{ day, count }`, { id: BLOG_IMAGE_AI_USAGE_DOC_ID }, { cache: 'no-store' });
-    imageCap = { used: usage?.day === day && typeof usage.count === 'number' ? usage.count : 0, cap: BLOG_IMAGE_AI_DAILY_CAP };
+    const usage = await client.fetch<{ day?: string; count?: number } | null>(`*[_id == $id][0]{ day, count }`, { id: BLOG_IMAGE_OPENAI_USAGE_DOC_ID }, { cache: 'no-store' });
+    imageCap = { used: usage?.day === day && typeof usage.count === 'number' ? usage.count : 0, cap: BLOG_IMAGE_OPENAI_DAILY_CAP };
   } catch {
     imageCap = null;
   }

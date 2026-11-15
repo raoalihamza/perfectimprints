@@ -70,14 +70,14 @@ import {
 } from './blog-generate-plan';
 import {
   capOf,
+  copyAssetRefsOf,
   generatedAssetRefOf,
-  generatedUntitledRefOf,
+  generatedCopyRefOf,
   headerAssetRefOf,
   imageDetail,
   imageRequestBody,
   imageWhy,
   patchForOutcome,
-  untitledAssetRefOf,
   type ImageResponse,
 } from './blog-image-request';
 import { useHeaderAssetDiscard } from '../components/useHeaderAssetDiscard';
@@ -176,18 +176,19 @@ function useBlogGenerateAction(props: DocumentActionProps, mode: Mode): Document
       if (changed) {
         const unusedRef = generatedAssetRefOf(data.outcome);
         if (unusedRef) discard.unused(unusedRef);
-        // AUTO-209: and the untitled copy made beside it.
-        const unusedUntitled = generatedUntitledRefOf(data.outcome);
-        if (unusedUntitled) discard.unused(unusedUntitled);
+        // AUTO-220: and the copy without the mark made beside it.
+        const unusedCopy = generatedCopyRefOf(data.outcome);
+        if (unusedCopy) discard.unused(unusedCopy);
         return { status: 'kept', summary: 'The header image changed while the AI was working, so yours was kept.', cap };
       }
       patch.execute([{ set: toPatch.set }, { unset: toPatch.unset }]);
       // AUTO-207: the picture Regenerate replaced goes, if it was a generated one and nothing else uses it.
       const replacedRef = intent === 'replace' ? headerAssetRefOf(atClick) : null;
       if (replacedRef && replacedRef !== generatedAssetRefOf(data.outcome)) discard.afterReplace(replacedRef);
-      // AUTO-209: the replaced picture's untitled copy goes with it.
-      const replacedUntitled = intent === 'replace' ? untitledAssetRefOf(atClick) : null;
-      if (replacedUntitled && replacedUntitled !== generatedUntitledRefOf(data.outcome)) discard.afterReplace(replacedUntitled);
+      // The copies kept beside the replaced picture go with it (the same guarded rule).
+      for (const copy of intent === 'replace' ? copyAssetRefsOf(atClick) : []) {
+        if (copy !== generatedCopyRefOf(data.outcome) && copy !== generatedAssetRefOf(data.outcome)) discard.afterReplace(copy);
+      }
       return { status: intent === 'fill' ? 'filled' : 'replaced', summary: imageDetail(data), cap };
     } catch (e) {
       return { status: 'failed', summary: e instanceof Error ? e.message : 'The header image could not be made; the rest of the post is unaffected.' };
@@ -335,7 +336,7 @@ function useBlogGenerateAction(props: DocumentActionProps, mode: Mode): Document
               <AiProgressContent
                 message={
                   stage === 'image'
-                    ? 'The post is written. Now making the header image from the product photos in it and checking it for text and logos (15 to 30 seconds).'
+                    ? 'The post is written. Now making the header image from the product photos in it, with the title on it, and reading it back (30 to 45 seconds).'
                     : 'Writing the post: body text, product rows, meta, excerpt and internal links, then the header image. A long post can take a minute or two. Anything you change on the post while you wait is kept.'
                 }
               />

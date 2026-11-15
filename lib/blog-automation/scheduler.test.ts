@@ -216,6 +216,85 @@ describe('publish mode', () => {
     expect(d.publishedId).toBe('doc-1');
     expect(d.switches?.publishMode).toBe('publish');
   });
+
+  // Ali, 2026-11-15: "keep the picture but hold the post as a draft rather than
+  // publishing it. Nothing is blocked, and an unknown never publishes itself."
+  const unchecked = (): CreatedBlogDraft =>
+    created({
+      headerImage: {
+        kind: 'asset',
+        source: 'ai',
+        image: { _type: 'image', asset: { _type: 'reference', _ref: 'image-x-1536x864-png' }, alt: 'alt', titleOnImage: '7 Custom Koozie Ideas for Trade Shows' },
+        notes: ['the brand check of the picture could not be made (the reading model did not answer it, asked twice); look at the logos on it before publishing'],
+        usage: { model: 'gpt-image-2.6-sunburst', imageTokens: 924, promptTokens: 3140, elapsedMs: 27000, attempts: 1, usd: 0.0528, brandCheckMade: false },
+      },
+    });
+
+  it('a picture whose brand check could not be made is NOT published: the draft is kept, complete, and the run says why', async () => {
+    const { deps, docs } = makeDeps({ readSettings: async () => settings({ publishMode: 'publish' }), createDraft: vi.fn(async () => unchecked()) });
+    const out = await runScheduledPost('b', deps);
+    expect(deps.publishDraft).not.toHaveBeenCalled();
+    expect(out).toMatchObject({ kind: 'written', publishedId: null, draftId: 'drafts.doc-1' });
+    const d = docs.get(runLogId(DAY, 'b'))!;
+    expect(d.status).toBe('written');
+    expect(d.publishedId).toBeUndefined();
+    expect(d.switches?.publishMode).toBe('publish');
+    expect(d.notes?.[0]).toBe(
+      'NOT PUBLISHED, saved as a draft instead: the brand check of its header picture could not be made (the reading model did not answer, asked twice), so the logos on the picture are unchecked. Look at the picture, then publish the draft yourself.',
+    );
+  });
+
+  it('in draft mode the same picture changes nothing: a draft was all that was asked for', async () => {
+    const { deps, docs } = makeDeps({ createDraft: vi.fn(async () => unchecked()) });
+    const out = await runScheduledPost('a', deps);
+    expect(out).toMatchObject({ kind: 'written' });
+    expect((docs.get(runLogId(DAY, 'a'))!.notes ?? []).some((n) => n.startsWith('NOT PUBLISHED'))).toBe(false);
+  });
+
+  // Ali, 2026-11-15: "Yes on holding a title-alone picture as a draft in publish
+  // mode, the same way an unanswered brand check does."
+  const checkedUsage = { model: 'gpt-image-2.6-sunburst', imageTokens: 924, promptTokens: 3140, elapsedMs: 27000, attempts: 1, usd: 0.0528, brandCheckMade: true };
+  const withPhotos = (photos: { fetched: number; brand: number; offSubject: number; sent: number; nearest?: number }): CreatedBlogDraft['headerImage'] =>
+    ({ ...unchecked().headerImage, notes: [], usage: { ...checkedUsage, photos } }) as CreatedBlogDraft['headerImage'];
+
+  it('a picture drawn from the title alone, with no product photo sent, is NOT published: the draft is kept and the run says why', async () => {
+    const { deps, docs } = makeDeps({
+      readSettings: async () => settings({ publishMode: 'publish' }),
+      createDraft: vi.fn(async () => created({ headerImage: withPhotos({ fetched: 0, brand: 0, offSubject: 0, sent: 0 }) })),
+    });
+    const out = await runScheduledPost('b', deps);
+    expect(deps.publishDraft).not.toHaveBeenCalled();
+    expect(out).toMatchObject({ kind: 'written', publishedId: null, draftId: 'drafts.doc-1' });
+    const d = docs.get(runLogId(DAY, 'b'))!;
+    expect(d.status).toBe('written');
+    expect(d.publishedId).toBeUndefined();
+    expect(d.notes?.[0]).toBe(
+      "NOT PUBLISHED, saved as a draft instead: its header picture was drawn from the title alone, with no product photo sent, so the products on it are the image model's own and not items from the catalogue. Look at the picture, then publish the draft yourself.",
+    );
+  });
+
+  it('in draft mode a title-alone picture changes nothing either', async () => {
+    const { deps, docs } = makeDeps({ createDraft: vi.fn(async () => created({ headerImage: withPhotos({ fetched: 0, brand: 0, offSubject: 0, sent: 0 }) })) });
+    const out = await runScheduledPost('a', deps);
+    expect(out).toMatchObject({ kind: 'written' });
+    expect((docs.get(runLogId(DAY, 'a'))!.notes ?? []).some((n) => n.startsWith('NOT PUBLISHED'))).toBe(false);
+  });
+
+  it('a picture whose check WAS made, one drawn from real photos, one from the nearest products, a library picture, a product photo and no picture at all still publish', async () => {
+    const outcomes: CreatedBlogDraft['headerImage'][] = [
+      { ...unchecked().headerImage, usage: { model: 'gpt-image-2.6-sunburst', imageTokens: 924, promptTokens: 3140, elapsedMs: 27000, attempts: 1, usd: 0.0528, brandCheckMade: true } } as CreatedBlogDraft['headerImage'],
+      withPhotos({ fetched: 4, brand: 0, offSubject: 0, sent: 3 }),
+      withPhotos({ fetched: 4, brand: 1, offSubject: 3, sent: 3, nearest: 3 }),
+      { kind: 'asset', source: 'library', image: { _type: 'image', asset: { _type: 'reference', _ref: 'image-lib-1600x900-jpg' } }, notes: [] },
+      { kind: 'url', source: 'product', url: 'https://imgsirv.geiger.com/x.jpg', alt: 'a', notes: [] },
+      { kind: 'none', notes: [] },
+    ];
+    for (const headerImage of outcomes) {
+      const { deps } = makeDeps({ readSettings: async () => settings({ publishMode: 'publish' }), createDraft: vi.fn(async () => created({ headerImage })) });
+      const out = await runScheduledPost('a', deps);
+      expect(out.kind, JSON.stringify(headerImage).slice(0, 60)).toBe('published');
+    }
+  });
 });
 
 describe('failures leave nothing half written and are on the run log', () => {

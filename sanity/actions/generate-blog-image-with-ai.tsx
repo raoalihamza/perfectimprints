@@ -10,9 +10,17 @@
  * REPLACES, AFTER ASKING. Unlike Generate Blog with AI (which only fills an
  * empty image), this button exists to replace, so when the post already has
  * a header image, uploaded or generated, it shows a confirmation first that
- * says so; with no image it just runs. Every press costs money (about seven
+ * says so; with no image it just runs. Every press costs money (about six
  * cents) and counts against the daily cap of generated images, and when the
  * cap refuses, the refusal is shown in the dialog in its own words.
+ *
+ * EVERY PRESS GIVES A DIFFERENT TREATMENT (AUTO-220). The picture is drawn on
+ * the rung of the ladder AFTER the one the post's picture was drawn on
+ * (lib/blog-automation/header-brief.ts): the plain prompt first, then the
+ * poster with the title as the only writing, then a clean photograph with the
+ * title on it, then round again. The image model draws the post's title
+ * itself, so after a change of title this is the button that puts the new
+ * title on the picture: by making a new picture.
  *
  * THE TYPING WINDOW. If the header image changed while the picture was being
  * made (Patrick uploaded one during the wait), his is kept and the dialog
@@ -37,10 +45,10 @@ import { AiProgressContent } from '../components/AiProgressDialog';
 import { useGenerateAuthFetch } from '../components/useGenerateAuthFetch';
 import {
   capOf,
+  copyAssetRefsOf,
   generatedAssetRefOf,
-  generatedUntitledRefOf,
+  generatedCopyRefOf,
   headerAssetRefOf,
-  untitledAssetRefOf,
   headerImageSignature,
   imageRequestBody,
   imageWhy,
@@ -129,9 +137,9 @@ export const generateBlogImageWithAi: DocumentActionComponent = (props) => {
         // AUTO-207: the picture made for nothing is removed, not left in the media library.
         const unusedRef = generatedAssetRefOf(data.outcome);
         if (unusedRef) discard.unused(unusedRef);
-        // AUTO-209: and the untitled copy made beside it.
-        const unusedUntitled = generatedUntitledRefOf(data.outcome);
-        if (unusedUntitled) discard.unused(unusedUntitled);
+        // AUTO-220: and the copy without the mark made beside it.
+        const unusedCopy = generatedCopyRefOf(data.outcome);
+        if (unusedCopy) discard.unused(unusedCopy);
         setOutcome({ summary, why, source, kept: 'changed', cap });
         return;
       }
@@ -139,9 +147,10 @@ export const generateBlogImageWithAi: DocumentActionComponent = (props) => {
       // AUTO-207: the picture this replaced goes, if it was a generated one and nothing else uses it.
       const replacedRef = headerAssetRefOf(atClick);
       if (replacedRef && replacedRef !== generatedAssetRefOf(data.outcome)) discard.afterReplace(replacedRef);
-      // AUTO-209: the replaced picture's untitled copy goes with it (the same guarded rule: ours, and referenced by nothing).
-      const replacedUntitled = untitledAssetRefOf(atClick);
-      if (replacedUntitled && replacedUntitled !== generatedUntitledRefOf(data.outcome)) discard.afterReplace(replacedUntitled);
+      // The copies kept beside the replaced picture go with it (the same guarded rule: ours, and referenced by nothing).
+      for (const copy of copyAssetRefsOf(atClick)) {
+        if (copy !== generatedCopyRefOf(data.outcome) && copy !== generatedAssetRefOf(data.outcome)) discard.afterReplace(copy);
+      }
       setOutcome({ summary, why, source, kept: null, cap });
     } catch (e) {
       setError(e instanceof Error ? e.message : 'The header image could not be made. Nothing on the post was changed.');
@@ -159,8 +168,8 @@ export const generateBlogImageWithAi: DocumentActionComponent = (props) => {
       : isRunning && !isGenerating
         ? 'The AI is already working on this post.'
         : hasImage
-        ? 'Makes a new picture and replaces the current header image. Asks first. Costs about seven cents and counts against the daily limit.'
-        : 'Makes a picture from the title and the product photos in the post. Costs about seven cents and counts against the daily limit.',
+        ? 'Makes a new picture, in a different treatment from the last one, and replaces the current header image. Asks first. Costs about six cents and counts against the daily limit.'
+        : 'Makes a picture from the title and the product photos in the post. Costs about six cents and counts against the daily limit.',
     onHandle: () => {
       if (hasImage) {
         setConfirming(true);
@@ -178,7 +187,10 @@ export const generateBlogImageWithAi: DocumentActionComponent = (props) => {
                 <strong>This replaces the current header image</strong> with a new picture made by the AI. The current one stays in
                 the media library but comes off this post. It cannot be undone by this button; you can upload the old one again.
               </p>
-              <p>Each press costs about seven cents and counts against the daily limit of generated images.</p>
+              <p>
+                Each press gives a different treatment from the last one, costs about six cents and counts against the daily limit of
+                generated images.
+              </p>
             </div>
           ),
           confirmButtonText: 'Make a new picture',
@@ -198,7 +210,7 @@ export const generateBlogImageWithAi: DocumentActionComponent = (props) => {
             header: 'Making the header image…',
             onClose: () => setHideProgress(true),
             content: (
-              <AiProgressContent message="Reading the product photos in the post, drawing the picture, then checking it for logos, brand names and stray words. This usually takes 15 to 30 seconds." />
+              <AiProgressContent message="Reading the product photos in the post, drawing the picture with the title on it, then reading the title and the logos back and adding the P! mark. This usually takes 30 to 45 seconds, longer when the picture has to be drawn a second time." />
             ),
           }
         : error
@@ -237,9 +249,10 @@ export const generateBlogImageWithAi: DocumentActionComponent = (props) => {
                     )}
                     {outcome.kept === null && outcome.source === 'ai' && (
                       <p>
-                        <strong>Look at it before you publish.</strong> Every generated picture is checked for logos, brand
-                        names and stray words before it is used, but the check is a machine: read the picture with your own
-                        eyes. Do not like it? Press the button again, or upload your own.
+                        <strong>Look at it before you publish.</strong> The title on the picture is read back and the logos
+                        are checked against a list of well known brands before it is used, but the check is a machine and the
+                        list is not every company: read the picture with your own eyes. Do not like it? Press the button
+                        again for a different treatment, type your own instruction, or upload your own.
                       </p>
                     )}
                     {outcome.kept === null && outcome.source !== 'ai' && (

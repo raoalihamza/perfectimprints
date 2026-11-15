@@ -1,56 +1,65 @@
-// Gemini generate-blog-image route (AUTO-202): the header image for ONE blog
-// post, for the Studio buttons. The tenth generate-* route, and the second
-// that uses Gemini (after generate-portfolio, PORT-170). It runs the same
-// header image chain the server-side draft creator runs for a topic
-// (lib/blog-automation/resolve-header-image.ts: ai -> library -> product ->
-// none, starting where the source says), uploads the generated picture as a
-// Sanity image asset, and RETURNS the value for the Studio action to patch
-// onto the draft. It writes NO content document itself: which field is set,
-// and whether an image Patrick uploaded is kept, is decided in the browser by
-// the action, the PORT-170 / AUTO-116 rule, and tested there.
+// generate-blog-image route (AUTO-202; the engine behind it is AUTO-220's):
+// the header image for ONE blog post, for the Studio buttons. The tenth
+// generate-* route. It runs the same header image chain the server-side draft
+// creator runs for a topic (lib/blog-automation/resolve-header-image.ts: ai ->
+// library -> product -> none, starting where the source says), uploads the
+// generated picture as a Sanity image asset, and RETURNS the value for the
+// Studio action to patch onto the draft. It writes NO content document
+// itself: which field is set, and whether an image Patrick uploaded is kept,
+// is decided in the browser by the action, the PORT-170 / AUTO-116 rule, and
+// tested there.
 //
 // POST { title, keywords?: string[], skus?: string[], rootSlugs?: string[],
-//        slug?: string, source: 'ai' | 'default', postSource?: string }
+//        slug?: string, source, postSource?: string, previousRung?: number,
+//        instruction?: string, currentRef?: string, unmarkedRef?: string,
+//        editCount?: number }
 //   → { ok: true, outcome, summary, what, why }
 //
-//   source 'ai'      the "Generate header image" button: the chain starts at
-//                    the AI regardless of any setting (Patrick pressed it);
-//   source 'default' Generate / Regenerate Blog with AI: the chain starts at
-//                    the post's own setting, else the site setting;
-//   source 'retitle' AUTO-209, the "Redraw title on header image" button:
-//                    NO chain and no model call; the post's current title is
-//                    drawn on the kept untitled copy of its generated picture
-//                    (lib/blog-automation/retitle-header-image.ts), in the
-//                    stored placement. Body: { title, untitledRef, currentRef,
-//                    treatment, slug, keywords }. Both the untitled copy AND
-//                    the picture now on the post (currentRef, AUTO-212) must
-//                    carry the site's own upload marker, so neither an image
-//                    Patrick uploaded nor one he put over ours is drawn on.
+//   source 'ai'           the "Generate header image" button: the chain
+//                         starts at the AI regardless of any setting (Patrick
+//                         pressed it), on the rung of the ladder AFTER the one
+//                         the post's picture was drawn on (`previousRung`);
+//   source 'default'      Generate / Regenerate Blog with AI: the chain starts
+//                         at the post's own setting, else the site setting;
+//   source 'instruction'  AUTO-220, "Make a new picture my way": a new
+//                         picture from Patrick's own words (`instruction`) in
+//                         place of the ladder's block, with the same product
+//                         photos; the AI or nothing;
+//   source 'edit'         AUTO-220, "Change this picture": the post's current
+//                         generated picture (its copy without the P! mark,
+//                         `unmarkedRef`) is sent back with his words. BOTH
+//                         that copy and the picture on the post (`currentRef`)
+//                         must carry the site's own upload marker
+//                         (lib/blog-automation/header-edit-base.ts), so a
+//                         picture Patrick uploaded is never changed and never
+//                         replaced, whatever the browser sent.
+//
+// The title gate, the brand read-back, the P! mark and the daily cap run on
+// every one of the four; his instruction does not switch a guard off.
 //
 // The browser sends the post's TITLE, its topic keywords, the SKUs of its
 // product strips and its related category slugs, and nothing else matters:
 // a SKU only picks a reference photo out of the catalog on disk (no
 // client-supplied URL is ever fetched), a root slug only picks a library
-// picture, and the picture goes nowhere but Patrick's own dataset. It is
-// sent rather than read from the draft because the action calls this right
-// after patching a freshly generated body, before Sanity has necessarily
-// stored it; what the action has in hand is the truth of that moment.
+// picture, an asset id only names a picture already in Patrick's dataset, and
+// the picture goes nowhere but that dataset. It is sent rather than read from
+// the draft because the action calls this right after patching a freshly
+// generated body, before Sanity has necessarily stored it; what the action
+// has in hand is the truth of that moment.
 //
 // Order of operations, each of which stops the request before the next:
 //   1. FIX-850 nonce guard (first-party Studio session only), before the body
 //      is read and before any key is checked.
 //   2. Body validation.
-//   3. For source 'ai' only: GOOGLE_GEMINI_API_KEY and the write client (a
-//      clear 500 for Ali, no call made). For 'default' the chain itself
-//      notes a missing key and falls to the next source, as the creator does.
+//   3. For every source but 'default': the keys and the write client (a clear
+//      500 for Ali, no call made). For 'default' the chain itself notes a
+//      missing key and falls to the next source, as the creator does.
 //   4. The chain, with the daily cap reserved inside it BEFORE anything is
-//      sent to Google (lib/blog-automation/header-image-usage.ts, a counter in
-//      Sanity, never process memory).
+//      sent to the image service (a counter in Sanity, never process memory).
 //
-// `maxDuration` 120 (AUTO-207, was 90): the chain's own budget is 90 s
-// (HEADER_IMAGE_BUDGET_MS, raised with the Pro image model; the arithmetic is
-// on that constant), the settings read, the catalog read and the category
-// resolve are a few seconds.
+// `maxDuration` 120: the chain's own budget is 100 s
+// (HEADER_IMAGE_BUDGET_MS; the arithmetic is on that constant), the settings
+// read, the catalog read and the category resolve are a few seconds.
 
 import { NextResponse } from 'next/server';
 import { verifyStudioNonce, serverSanityClient } from '@/lib/sanity/studio-nonce-auth';
@@ -62,8 +71,10 @@ import { siteWideHiddenSkus } from '@/lib/products/site-wide-hidden';
 import { normalizeSku } from '@/lib/products/hidden-skus';
 import { isCleanRelatedCategorySlug } from '@/lib/blog/related-category-slugs';
 import { effectiveHeaderImageSource, headerImageSummary, headerImageWhat, headerImageWhy, type HeaderImageSource } from '@/lib/blog-automation/header-image';
-import { defaultHeaderImageDeps, noClientHeaderImageDeps, resolveHeaderImage } from '@/lib/blog-automation/resolve-header-image';
-import { retitleHeaderImage } from '@/lib/blog-automation/retitle-header-image';
+import { defaultHeaderImageDeps, noClientHeaderImageDeps, resolveHeaderImage, type HeaderImageMode, type PictureInput } from '@/lib/blog-automation/resolve-header-image';
+import { cleanInstruction } from '@/lib/blog-automation/header-brief';
+import { loadHeaderEditBase } from '@/lib/blog-automation/header-edit-base';
+import { openAiImageConfigured } from '@/lib/ai/openai-image';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -77,13 +88,15 @@ interface GenBody {
   slug?: unknown;
   source?: unknown;
   postSource?: unknown;
-  /** AUTO-209, source 'retitle' only. */
-  untitledRef?: unknown;
-  /** AUTO-212, source 'retitle' only: the asset on the post now. */
+  /** AUTO-220: the rung of the ladder the post's current picture was drawn on, so this one takes the next. */
+  previousRung?: unknown;
+  /** AUTO-220, sources 'instruction' and 'edit': Patrick's own words. */
+  instruction?: unknown;
+  /** AUTO-220, source 'edit': the asset on the post now, and its copy without the P! mark. */
   currentRef?: unknown;
-  treatment?: unknown;
-  /** AUTO-210, sources 'ai' and 'default': the post's current title treatment, so a regenerate takes the next look. */
-  previousTreatment?: unknown;
+  unmarkedRef?: unknown;
+  /** AUTO-220, source 'edit': how many changes in a row the current picture carries. */
+  editCount?: unknown;
 }
 
 const MAX_LIST = 40;
@@ -97,9 +110,11 @@ function strings(value: unknown, maxLen: number): string[] {
     : [];
 }
 
+type Requested = 'ai' | 'default' | 'instruction' | 'edit';
+
 export async function POST(request: Request) {
   // FIX-850: first-party Studio session only (the Site Refresh / Bulk Upload
-  // nonce scheme). Rejects before any body parsing, key check or Gemini call.
+  // nonce scheme). Rejects before any body parsing, key check or model call.
   const auth = await verifyStudioNonce(request, {
     authDocId: GENERATE_AUTH_DOC_ID,
     headerName: GENERATE_NONCE_HEADER,
@@ -118,53 +133,47 @@ export async function POST(request: Request) {
   if (!title) {
     return NextResponse.json({ error: 'Add a title first: the image is made from the title and the product photos.' }, { status: 400 });
   }
-  const keywords = strings(body.keywords, 200);
-
-  // AUTO-209: the title redrawn on the kept untitled copy; no chain, no model, no cap slot.
+  // AUTO-220: the "Redraw title on header image" button is gone (the image
+  // model draws the title, so a changed title means a new picture). A Studio
+  // tab left open from before the deploy can still send its request; it is
+  // refused here rather than read as anything else, so an old button can
+  // never make or replace a picture.
   if (body.source === 'retitle') {
-    const sanity = serverSanityClient();
-    if (!sanity) {
-      return NextResponse.json({ error: 'Server is missing SANITY_API_TOKEN / Sanity project config, so the picture could not be read or saved.' }, { status: 500 });
-    }
-    const slug = typeof body.slug === 'string' ? body.slug.trim() : '';
-    try {
-      const result = await retitleHeaderImage({
-        client: sanity,
-        untitledRef: body.untitledRef,
-        currentRef: body.currentRef,
-        title,
-        topic: keywords[0] ?? title,
-        treatment: body.treatment,
-        slug: slug || title,
-        log: (line) => console.info(`[generate-blog-image] ${line}`),
-      });
-      if (result.ok === false) return NextResponse.json({ error: `${result.reason}. Nothing on the post was changed.` }, { status: 409 });
-      const outcome = { kind: 'asset' as const, source: 'ai' as const, image: result.image, notes: [] as string[] };
-      const what = `the same picture with the current title drawn on it${result.placementKept ? ', in the same place' : ' (the new title did not fit the old placement, so a new one was chosen)'}`;
-      return NextResponse.json({ ok: true, source: 'retitle', outcome, summary: `Header image: ${what}.`, what, why: '' });
-    } catch (err) {
-      const message = err instanceof Error ? err.message : 'The title could not be redrawn.';
-      console.error(`[generate-blog-image] retitle failed: ${message}`);
-      return NextResponse.json({ error: `${message} Nothing on the post was changed.` }, { status: 502 });
-    }
+    return NextResponse.json(
+      { error: 'This button has been retired: the title is now part of the picture. Reload the Studio and press Generate another header image for a picture with the current title. Nothing on the post was changed.' },
+      { status: 400 },
+    );
   }
-
-  const requested: 'ai' | 'default' = body.source === 'ai' ? 'ai' : 'default';
+  const keywords = strings(body.keywords, 200);
+  const requested: Requested = body.source === 'ai' || body.source === 'instruction' || body.source === 'edit' ? body.source : 'default';
   const skus = strings(body.skus, 40);
   const rootSlugs = strings(body.rootSlugs, 120).filter((s) => isCleanRelatedCategorySlug(s));
   const slug = typeof body.slug === 'string' ? body.slug.trim() : '';
+  const instruction = cleanInstruction(body.instruction);
 
-  if (requested === 'ai' && !process.env.GOOGLE_GEMINI_API_KEY) {
+  if ((requested === 'instruction' || requested === 'edit') && !instruction) {
+    return NextResponse.json({ error: 'Type your instruction in the box first. Nothing on the post was changed.' }, { status: 400 });
+  }
+  if (requested !== 'default' && !process.env.GOOGLE_GEMINI_API_KEY) {
     return NextResponse.json(
       {
         error:
-          'The AI image service is not set up on this site yet (GOOGLE_GEMINI_API_KEY is missing on the server). Ask Ali to add it. You can upload a header image yourself meanwhile.',
+          'The picture checker is not set up on this site yet (GOOGLE_GEMINI_API_KEY is missing on the server), and no picture is used unread. Ask Ali to add it. You can upload a header image yourself meanwhile.',
+      },
+      { status: 500 },
+    );
+  }
+  if ((requested === 'instruction' || requested === 'edit') && !openAiImageConfigured()) {
+    return NextResponse.json(
+      {
+        error:
+          'The AI image service is not set up on this site yet (OPENAI_API_KEY is missing on the server). Ask Ali to add it. You can upload a header image yourself meanwhile.',
       },
       { status: 500 },
     );
   }
   const sanity = serverSanityClient();
-  if (requested === 'ai' && !sanity) {
+  if (requested !== 'default' && !sanity) {
     return NextResponse.json(
       { error: 'Server is missing SANITY_API_TOKEN / Sanity project config, so the daily limit cannot be counted and the picture could not be saved.' },
       { status: 500 },
@@ -172,8 +181,20 @@ export async function POST(request: Request) {
   }
 
   try {
+    // "Change this picture": the copy of the post's generated picture without
+    // the mark, and only when the picture on the post is one the site made.
+    let editBase: PictureInput | null = null;
+    if (requested === 'edit') {
+      const base = await loadHeaderEditBase(sanity!, { currentRef: body.currentRef, unmarkedRef: body.unmarkedRef });
+      if (base.ok === false) {
+        return NextResponse.json({ error: `${base.reason.charAt(0).toUpperCase()}${base.reason.slice(1)}. Nothing on the post was changed.` }, { status: 409 });
+      }
+      editBase = base.picture;
+    }
+
     const settings = (await getSiteSettings()).blogAutomation;
-    const source: HeaderImageSource = requested === 'ai' ? 'ai' : effectiveHeaderImageSource(body.postSource, settings.headerImageSource);
+    const source: HeaderImageSource = requested === 'default' ? effectiveHeaderImageSource(body.postSource, settings.headerImageSource) : 'ai';
+    const mode: HeaderImageMode = requested === 'instruction' ? 'instruction' : requested === 'edit' ? 'edit' : 'ladder';
     // The site-wide hide list (HIDE-100 / HIDE-110): a product Patrick has
     // hidden everywhere must not become a reference photo or the header.
     const hiddenSet = new Set((await siteWideHiddenSkus()).map(normalizeSku));
@@ -196,13 +217,17 @@ export async function POST(request: Request) {
         slug: slug || title,
         clientMissing: !sanity,
         log: (line) => console.info(`[generate-blog-image] ${line}`),
-        previousTreatment: typeof body.previousTreatment === 'string' ? body.previousTreatment : undefined,
+        previousRung: body.previousRung,
+        mode,
+        instruction,
+        editBase,
+        editCount: body.editCount,
       },
       sanity ? defaultHeaderImageDeps(sanity) : noClientHeaderImageDeps(),
     );
     // `summary` is the whole line; `what` and `why` are its two halves, so a
     // dialog that words the first half itself can print the reasons once.
-    return NextResponse.json({ ok: true, source, outcome, summary: headerImageSummary(outcome), what: headerImageWhat(outcome), why: headerImageWhy(outcome) });
+    return NextResponse.json({ ok: true, source, mode, outcome, summary: headerImageSummary(outcome), what: headerImageWhat(outcome), why: headerImageWhy(outcome) });
   } catch (err) {
     const message = err instanceof Error ? err.message : 'The header image could not be made.';
     console.error(`[generate-blog-image] failed: ${message}`);

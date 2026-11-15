@@ -5,6 +5,22 @@
  * no Sanity, no fs, no network, no next/*, so the Studio bundle, the server
  * resolver and vitest import the same rules.
  *
+ * READ THIS FIRST (AUTO-220). The picture is now drawn by OpenAI's image
+ * model from Patrick's own two lines and the post's product photos, title
+ * included: that prompt is header-brief.ts, its gates are there and in
+ * brand-screen.ts, and the chain is resolve-header-image.ts. EVERYTHING BELOW
+ * ABOUT THE PLANNER, THE BLANK-PRODUCT PROMPT AND THE READ-BACK CHECK IS NO
+ * LONGER CALLED BY THE CHAIN (Ali, 2026-11-15): it described the titleless
+ * picture the Gemini image model drew when OpenAI failed, and that backup
+ * picture is now drawn from Patrick's two lines and gated like any other
+ * (resolve-header-image.ts). The pure functions and their tests stay until
+ * the soak has shown the titled backup holds; then they are to be deleted.
+ * What this file still owns: the three sources and their order, the photo
+ * candidates (`pickPhotoCandidates`, HEADER_IMAGE_PHOTOS = 3 sent of
+ * HEADER_IMAGE_PHOTO_CANDIDATES = 6 read), the image value's shape, the file
+ * names and the words the Studio shows. The title-room rule, the looks and
+ * the titled alt text of AUTO-209 to AUTO-212 are gone with the compose stack.
+ *
  * Patrick's decision (2026-10-05): "I want each blog post to have its own
  * unique image." Ali's on top of it: three sources with a site default in
  * Global Settings and a per-post override that falls back to the default when
@@ -125,7 +141,6 @@
 
 import { geigerImageVariant } from '../blog/header-image';
 import { NEAR_GENERIC_WORDS, NON_SIGNIFICANT_MATCH_WORDS } from '../ai/brand-voice';
-import { lookOrderFor, roomSideForLook, seedOf, type TitleLookName } from './title-layout';
 
 export type HeaderImageSource = 'ai' | 'library' | 'product';
 
@@ -168,16 +183,23 @@ export interface SanityImageValue {
   asset: { _type: 'reference'; _ref: string };
   alt?: string;
   /**
-   * AUTO-209: the title the picture CARRIES, exactly as drawn on it, set only
-   * when the title was put on a generated picture. The Studio warns when the
-   * post's title no longer matches it, because a picture that shows an old
-   * title is wrong.
+   * The title the picture CARRIES, set only when the image model drew it and
+   * it read back exactly (AUTO-220; the field is AUTO-209's). The Studio warns
+   * when the post's title no longer matches it, because a picture that shows
+   * an old title is wrong, and the fix is a new picture.
    */
   titleOnImage?: string;
-  /** AUTO-209: the same picture without the title, kept so the title can be redrawn for free when the post's title changes. */
-  untitledImage?: { _type: 'image'; asset: { _type: 'reference'; _ref: string } };
-  /** AUTO-209: which look the title has and where the product was (title-layout.ts StoredTitleTreatment, as JSON), so a redraw keeps the same look and a regenerate takes the next one (AUTO-210). */
-  titleTreatment?: string;
+  /** AUTO-220: the rung of the ladder (header-brief.ts, 1 to 3) the post is on, so the next Generate again takes the one after. */
+  ladderRung?: number;
+  /** AUTO-220: how many "Change this picture" edits in a row produced this picture (0 or absent for a fresh one). */
+  editCount?: number;
+  /**
+   * AUTO-220: the picture exactly as the image model drew it, BEFORE the P!
+   * mark was stamped on. Kept so "Change this picture" hands the model a
+   * picture with no mark on it (a mark sent back comes out redrawn and a
+   * second one is stamped beside it).
+   */
+  unmarkedImage?: { _type: 'image'; asset: { _type: 'reference'; _ref: string } };
 }
 
 /**
@@ -239,8 +261,21 @@ export interface ReferenceProduct {
   brand?: string | null;
 }
 
-/** Reference photos sent to the image model per picture. Flash accepts up to 10 object references; four is plenty to pin the product type and keeps the request small. */
+/** Reference photos the FALLBACK model's planner sees per picture (AUTO-207). Four is plenty to pin the product type and keeps the request small. */
 export const HEADER_IMAGE_MAX_REFERENCES = 4;
+/**
+ * AUTO-220: product photos sent to the main image model per picture. Measured
+ * (CHECK-image-brief-26): one photo makes it clone the product, six are all
+ * drawn but smaller, cost more and bring more customer imprints onto the
+ * page; three are all used, with no clones (29 of 29 pictures).
+ */
+export const HEADER_IMAGE_PHOTOS = 3;
+/**
+ * AUTO-220: photos fetched and screened to find those three. Some are dropped
+ * before sending (a well known brand as the sample imprint, or a product that
+ * only shares a word with the post's subject), so more are looked at than sent.
+ */
+export const HEADER_IMAGE_PHOTO_CANDIDATES = 6;
 /** The width each reference photo is fetched at (the catalog URL asks for 275; the model reads detail from 600 and no more is needed). */
 export const HEADER_IMAGE_REFERENCE_WIDTH = 600;
 
@@ -320,6 +355,43 @@ export function pickReferenceProducts(products: readonly ReferenceProduct[], max
   const unbranded = eligible.filter((p) => !isBrandNameProduct(p));
   const branded = eligible.filter((p) => isBrandNameProduct(p));
   return [...unbranded, ...branded].slice(0, max);
+}
+
+/** A strip product whose photo is looked at for the main model's picture (AUTO-220). */
+export interface PhotoCandidate {
+  product: ReferenceProduct;
+  /** True when the product's NAME carries a topic word (the AUTO-202 rule). */
+  nameMatch: boolean;
+}
+
+/**
+ * AUTO-220: the photos the main model's picture is chosen from. The products
+ * whose name carries a topic word come first (`pickReferenceProducts`, the
+ * rule above); the slots left are filled with the post's other strip
+ * products, in strip order, marked `nameMatch: false`.
+ *
+ * Why the second group. The name rule is a guess at the subject, and it
+ * guesses wrong both ways: on the shaker bottles post it passed a spice
+ * shaker and a cocktail shaker (all three names say "shaker"), and on a post
+ * titled "Fundraising with Custom Halloween Bags" it passed none of the eight
+ * totes (no name says "bag"). Every candidate's PHOTO is now read by the
+ * vision model (brand-screen.ts), which says what the product is, so the name
+ * is no longer the only evidence: a name match is sent unless the reader says
+ * it is another kind of product, and a product with no name match is sent
+ * only when the reader says outright that it IS the post's subject (so the
+ * pedometers post's clips, AUTO-202's lesson, still stay out, and stay out
+ * when the reader is down).
+ */
+export function pickPhotoCandidates(products: readonly ReferenceProduct[], topic = '', max = HEADER_IMAGE_PHOTO_CANDIDATES): PhotoCandidate[] {
+  const out: PhotoCandidate[] = pickReferenceProducts(products, max, topic).map((product) => ({ product, nameMatch: true }));
+  const seen = new Set(out.map((c) => c.product.sku));
+  for (const p of products) {
+    if (out.length >= max) break;
+    if (!p || seen.has(p.sku) || !isGeigerImageUrl(p.imageUrl)) continue;
+    seen.add(p.sku);
+    out.push({ product: p, nameMatch: false });
+  }
+  return out;
 }
 
 /** True when the catalogue records a brand name for the product. */
@@ -492,63 +564,6 @@ export const PLANNER_DEVICE_RULE =
   '- No laptops, computers, monitors, tablets or phones anywhere in the scene, not even partly visible and not even when the product is used with one: a picture with any such device in it is rejected. A product that attaches to a phone, a tablet or a laptop is planned on its own, unattached, on a surface or in a hand.';
 
 /**
- * ROOM FOR THE TITLE (AUTO-209). The post's title is laid over the finished
- * picture by code (title-layout.ts), and a picture composed edge to edge with
- * no idea that text is coming leaves no calm place for it: over AUTO-206's
- * and AUTO-207's 94 pictures the title went onto a band at the top or the
- * bottom 54 times, because every corner and side covered the product. So the
- * planner and the image model are both told to keep one third of the frame
- * calm and empty, and WHICH third rotates by the post's own seed (left or
- * right; AUTO-210 dropped the top, because every surviving look sits down
- * one side or along the bottom), so posts do not all compose alike and the
- * title does not always land in the same place. The bottom is not offered:
- * the surface the product stands on is usually there, and the lower-third
- * look darkens it rather than needing it empty.
- */
-export type TitleRoomSide = 'left' | 'right' | 'top';
-/** The two sides the hash rotates over; the top is not rotated into, it is asked for exactly when the next look is the headline. */
-export const TITLE_ROOM_SIDES: readonly TitleRoomSide[] = ['left', 'right'];
-
-/**
- * The third of the frame kept calm for this post. AUTO-211: when the look the
- * picture will get is the headline (every FIRST picture, and a regenerate
- * whose cycle has come round to it) the room is the TOP, light and calm, so
- * the dark lettering reads; otherwise a side, stable for the same seed (the
- * slug, else the title). `previous` is the look the post has now, so the room
- * follows the same rotation the compose step will take (title-layout.ts
- * lookOrderFor).
- */
-export function titleRoomSideFor(seed: string, previous: TitleLookName | null = null): TitleRoomSide {
-  if (roomSideForLook(lookOrderFor(seedOf(seed), previous)[0]) === 'top') return 'top';
-  let h = 0x811c9dc5;
-  for (let i = 0; i < seed.length; i += 1) {
-    h ^= seed.charCodeAt(i);
-    h = Math.imul(h, 0x01000193) >>> 0;
-  }
-  // The avalanche step: plain FNV-1a's low bits clump on similar slugs.
-  h ^= h >>> 16;
-  h = Math.imul(h, 0x45d9f3b) >>> 0;
-  h ^= h >>> 16;
-  // `^` gives a signed 32-bit number; `>>> 0` makes it unsigned again before the modulo.
-  return TITLE_ROOM_SIDES[(h >>> 0) % TITLE_ROOM_SIDES.length];
-}
-
-const ROOM_PHRASE: Readonly<Record<TitleRoomSide, string>> = { left: 'left third', right: 'right third', top: 'top third' };
-
-/** The headline's lettering is dark, so a top room must be light as well as empty; a side room carries white letters and may be dark. */
-const TOP_ROOM_LIGHT = ' That third must also be LIGHT: a bright, softly out of focus background, a pale wall or a clear sky, never dark or busy, because the title there is set in dark letters.';
-
-/** The planner's half of the room rule. */
-export function plannerRoomRule(side: TitleRoomSide): string {
-  return `- Leave room for the title: the ${ROOM_PHRASE[side]} of the frame stays calm and empty (the post's title is laid over it later). Plan the product and the things around it in the rest of the frame, and keep the scene simple.${side === 'top' ? TOP_ROOM_LIGHT : ''}`;
-}
-
-/** The image prompt's half of the room rule. */
-export function imageRoomRule(side: TitleRoomSide): string {
-  return `- Leave room for the title: a designer lays the post's title over this photograph afterwards. Keep the ${ROOM_PHRASE[side]} of the frame calm and empty: a plain wall, the sky, a soft out of focus background or a bare stretch of surface, with no objects in it. Put the product and everything that matters in the rest of the frame. Draw no title, words or letters in that area or anywhere for it: the area is left empty.${side === 'top' ? TOP_ROOM_LIGHT : ''}`;
-}
-
-/**
  * AUTO-207: the scene planner's answer, as a response schema (Google's
  * OpenAPI subset). With it the model's decoding is constrained to this shape,
  * which removes the malformed answers AUTO-206 saw (3 in 64: a dropped key
@@ -605,8 +620,6 @@ export interface ScenePlanPromptInput {
   productNames: readonly string[];
   /** AUTO-207: how many reference photos are attached to the planner call, in the order of `productNames`; 0 for a text-only call. */
   photos?: number;
-  /** AUTO-209: the third of the frame kept calm for the title; absent, the prompt is as before. */
-  titleRoom?: TitleRoomSide | null;
 }
 
 /** The planner's instructions: a JSON scene for this product, physically correct, with the text rule stated. */
@@ -633,7 +646,6 @@ export function buildScenePlanPrompt(input: ScenePlanPromptInput): { system: str
       '- The things around the product must not need writing to be recognised: prefer tools, bowls, plants, fabric, food. No signs, banners, booths, screens, name plates, awards, labelled packaging or book and magazine covers; a book or paper, if any, is open to pages too small to read.',
       PLANNER_DEVICE_RULE,
       ARRANGEMENT_RULE,
-      ...(input.titleRoom ? [plannerRoomRule(input.titleRoom)] : []),
       ...(photos > 0
         ? [
             ARRANGEMENT_FROM_PHOTOS_RULE,
@@ -722,8 +734,6 @@ export interface HeaderImagePromptInput {
   scene?: ScenePlan | null;
   /** Set on the one retry: what the check found in the previous attempt. */
   previousProblem?: string | null;
-  /** AUTO-209: the third of the frame kept calm for the title; absent, the prompt is as before. */
-  titleRoom?: TitleRoomSide | null;
 }
 
 /**
@@ -826,7 +836,6 @@ export function buildHeaderImagePrompt(input: HeaderImagePromptInput): string {
   if (scene?.avoid) {
     lines.push(`- The placement must be physically possible for this product. Physically wrong, and not to be shown: ${scene.avoid}.`);
   }
-  if (input.titleRoom) lines.push(imageRoomRule(input.titleRoom));
   lines.push('- No close-up faces. People, if any, are in the background and out of focus.');
   lines.push('- Natural daylight, soft shadows, shallow depth of field, an editorial photography look. Not an illustration, not a collage, no borders, no frames, no watermark.');
   if (input.previousProblem?.trim()) {
@@ -849,28 +858,19 @@ export function headerImageAlt(topic: string): string {
 }
 
 /**
- * The alt text for a generated picture that carries the title (AUTO-209):
- * the title first, because a reader who cannot see the picture should hear
- * what it says, then what is under it. No longer "blank and unbranded": the
- * picture now carries the post's title and the Perfect Imprints logo.
- */
-export function titledHeaderImageAlt(title: string, topic: string): string {
-  const t = title.replace(/\s+/g, ' ').trim();
-  const what = topic.replace(/\s+/g, ' ').trim().toLowerCase() || 'promotional products';
-  return `${t}${/[.!?]$/.test(t) ? '' : '.'} The post's title over an illustrative photo of ${what} in a business setting`;
-}
-
-/**
  * The asset filename, so a picture in Studio's media library says which post
- * and attempt it was. AUTO-209: the titled picture is a PNG (`.png`), and the
- * untitled original kept beside it is `-photo`; the plain form is unchanged.
+ * and attempt it was. AUTO-220: the picture stored on the post carries the P!
+ * mark and is a PNG (`stamped`); the copy kept beside it without the mark
+ * is `-photo`, in whatever format the image model returned; `plain` is a
+ * picture stored as the model drew it (the mark could not be stamped).
  */
-export function headerImageFilename(slug: string, attempt: number, kind: 'plain' | 'titled' | 'photo' = 'plain'): string {
+export function headerImageFilename(slug: string, attempt: number, kind: 'plain' | 'stamped' | 'photo' = 'plain', mimeType = 'image/jpeg'): string {
   const base = slug.trim().replace(/[^a-z0-9-]/gi, '').slice(0, 60) || 'blog-header';
   const n = attempt > 1 ? `-${attempt}` : '';
-  if (kind === 'titled') return `${base}-header${n}.png`;
-  if (kind === 'photo') return `${base}-header${n}-photo.jpg`;
-  return `${base}-header${n}.jpg`;
+  const ext = mimeType === 'image/png' ? 'png' : mimeType === 'image/webp' ? 'webp' : 'jpg';
+  if (kind === 'stamped') return `${base}-header${n}.png`;
+  if (kind === 'photo') return `${base}-header${n}-photo.${ext}`;
+  return `${base}-header${n}.${ext}`;
 }
 
 // -- The check -------------------------------------------------------------------
@@ -1266,22 +1266,28 @@ export interface HeaderImageUsage {
   planner?: { model: string; promptTokens: number; outputTokens: number; elapsedMs: number } | null;
   /** AUTO-203: the plan the picture was drawn from, for the report and the Studio dialog. */
   scene?: ScenePlan | null;
+  /** AUTO-220: what the picture cost in US dollars, summed over the attempts, from the tokens the image service reported. */
+  usd?: number;
+  /** AUTO-220: how the picture was asked for: a rung of the ladder, Patrick's own instruction for a new picture, or a change to the current one; 'fallback' when the backup model drew it. */
+  mode?: 'ladder' | 'instruction' | 'edit' | 'fallback';
+  /** AUTO-220: the rung of the ladder the picture was drawn on (1 to 3). */
+  rung?: number;
+  /** AUTO-220: the title gate: reads that came back, and how many were exact. */
+  titleReads?: { answered: number; exact: number } | null;
   /**
-   * AUTO-209: the title put on the picture: the placement and fill used, the
-   * contrast the text got, the size it was set at, how long the layout call
-   * and the drawing took, and the layout call's tokens (null when it failed
-   * or ran out of time, and the placement was chosen from the picture).
+   * AUTO-220: product photos fetched, dropped for a well known brand, not the
+   * post's subject, and sent. `nearest` is set when NONE was the subject and
+   * the post's nearest real products were sent instead: how many of them.
    */
-  title?: {
-    layout: string;
-    /** AUTO-210: the look the post had before this picture, when it was a regenerate. */
-    previous: string | null;
-    contrast: number;
-    size: number;
-    lines: number;
-    composeMs: number;
-    layoutCall: { model: string; promptTokens: number; outputTokens: number; elapsedMs: number } | null;
-  } | null;
+  photos?: { fetched: number; brand: number; offSubject: number; sent: number; nearest?: number } | null;
+  /**
+   * AUTO-220: false when the brand read-back of the finished picture got no
+   * answer, asked twice. The picture is still used; a post carrying it is
+   * held as a draft instead of publishing itself (`holdBeforePublishReason`).
+   */
+  brandCheckMade?: boolean;
+  /** AUTO-220: the P! mark: the corner it went in and the colours it took; null when it could not be stamped. */
+  mark?: { corner: string; variant: string; ms: number } | null;
 }
 
 export type HeaderImageOutcome =
@@ -1292,13 +1298,39 @@ export type HeaderImageOutcome =
 /** What the header image is, with no label and no full stop: the part every surface words the same. */
 export function headerImageWhat(outcome: HeaderImageOutcome): string {
   if (outcome.kind === 'asset' && outcome.source === 'ai') {
+    if (outcome.usage?.mode === 'edit') return 'the picture you had, changed by the AI the way you asked';
+    if (outcome.usage?.mode === 'instruction') return "a new picture made by the AI from your instruction and the post's product photos";
+    if (outcome.usage?.mode === 'fallback') return "generated by the backup image model from the post's product photos, with the post's title on it";
     return outcome.image.titleOnImage
-      ? "generated by the AI from the post's product photos, with the post's title put on it"
+      ? "generated by the AI from the post's product photos, with the post's title on it"
       : "generated by the AI from the post's product photos";
   }
   if (outcome.kind === 'asset') return 'a picture from the header image library';
   if (outcome.kind === 'url') return "the post's first product photo, shown from Geiger's image server";
   return 'none';
+}
+
+/**
+ * Why a post carrying this picture must NOT publish itself, or null when it
+ * may (Ali, 2026-11-15: "keep the picture but hold the post as a draft rather
+ * than publishing it. Nothing is blocked, and an unknown never publishes
+ * itself"). Two reasons, both about a generated picture: its brand read-back
+ * got no answer, asked twice; or it was drawn from the title alone, no product
+ * photo sent, so its products are the model's own (Ali, 2026-11-15: "the same
+ * way an unanswered brand check does"). A picture drawn from the post's
+ * nearest real products is NOT held. The scheduler asks this before its
+ * publish step; a draft was never going to publish itself, so nothing else
+ * asks.
+ */
+export function holdBeforePublishReason(outcome: HeaderImageOutcome): string | null {
+  if (outcome.kind !== 'asset' || outcome.source !== 'ai') return null;
+  if (outcome.usage?.brandCheckMade === false) {
+    return 'the brand check of its header picture could not be made (the reading model did not answer, asked twice), so the logos on the picture are unchecked';
+  }
+  if (outcome.usage?.photos?.sent === 0) {
+    return "its header picture was drawn from the title alone, with no product photo sent, so the products on it are the image model's own and not items from the catalogue";
+  }
+  return null;
 }
 
 /**

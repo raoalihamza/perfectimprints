@@ -6,6 +6,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { isGeneratedTitledHeaderRef, titleOnImageDrift } from './header-image';
 import { externalHeaderImageAlt, externalHeaderImageUrl, geigerImageVariant, hasHeaderAsset } from './header-image';
 import { collectBlogProductSkus } from './collect-strip-skus';
 import { largeSocialImage } from '../seo/open-graph';
@@ -81,5 +82,28 @@ describe('collectBlogProductSkus', () => {
       expect(src, file).toMatch(/\?\?\s*externalHeaderImageUrl\(post, \d+\)/);
     }
     expect(readFileSync(join(ROOT, 'lib/sanity/queries/blogs.ts'), 'utf8')).toContain('externalHeaderImage{ url, alt },');
+  });
+});
+
+describe('AUTO-220: a picture that shows an old title', () => {
+  it('only the header engine\'s own pictures are ever flagged: its 1536 x 864 pictures and the older 1376 x 768 composites', () => {
+    expect(isGeneratedTitledHeaderRef('image-abc123-1536x864-png')).toBe(true);
+    expect(isGeneratedTitledHeaderRef('image-abc123-1536x864-jpg')).toBe(true);
+    expect(isGeneratedTitledHeaderRef('image-abc123-1376x768-png')).toBe(true);
+    // Patrick's own headers: other sizes, other formats.
+    for (const his of ['image-abc123-1661x947-jpg', 'image-abc123-1774x887-avif', 'image-abc123-1536x864-avif', 'image-abc123-1376x768-jpg', '', null, undefined, 12]) {
+      expect(isGeneratedTitledHeaderRef(his), String(his)).toBe(false);
+    }
+  });
+
+  it('the warning sends him to a NEW picture (the title is part of the picture; nothing can redraw it), and only an edit warns', () => {
+    const warning = titleOnImageDrift('Custom Pens: A Buyer’s Guide', 'Engraved Pens: A Buyer’s Guide');
+    expect(warning).toBe(
+      'The header picture shows the title "Custom Pens: A Buyer’s Guide", which no longer matches this post\'s title. The title is part of the picture, so press "Generate another header image" for a new picture with the current title (or upload your own).',
+    );
+    expect(warning).not.toMatch(/redraw/i);
+    expect(titleOnImageDrift("Custom Pens: A Buyer's Guide", 'custom pens:  a buyer’s guide')).toBeNull();
+    expect(titleOnImageDrift(undefined, 'T')).toBeNull();
+    expect(titleOnImageDrift('', 'T')).toBeNull();
   });
 });

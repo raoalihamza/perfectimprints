@@ -1,270 +1,249 @@
 /**
- * The header image chain (AUTO-202): `ai` -> `library` -> `product` -> none,
- * starting wherever the chosen source says, and NEVER THROWING. Server side
- * (it fetches product photos, calls Gemini, uploads an asset, reserves the
- * daily cap in Sanity), but every effect is behind `HeaderImageDeps`, so the
- * tests drive the real chain with fakes and the two callers (the draft
- * creator and the generate-blog-image route) pass `defaultHeaderImageDeps`.
+ * The header image chain: `ai` -> `library` -> `product` -> none, starting
+ * wherever the chosen source says, and NEVER THROWING (AUTO-202). Server side
+ * (it fetches product photos, calls the image services, uploads assets,
+ * reserves the daily caps in Sanity), but every effect is behind
+ * `HeaderImageDeps`, so the tests drive the real chain with fakes and the two
+ * callers (the draft creator and the generate-blog-image route) pass
+ * `defaultHeaderImageDeps`.
  *
- * The AI step, in order, each failure a note and a fall to the next source:
- *   1. the client and the key: no write client or no GOOGLE_GEMINI_API_KEY
- *      means no cap slot is spent and no image is tried (the review of the
- *      proof run: before this, an environment without the key burned a slot
- *      of the daily cap on every draft for a call that was never made);
- *   2. the cap, RESERVED BEFORE anything else is spent (lib/blog-automation/
- *      header-image-usage.ts): refused, the refusal is the note;
- *   3. the reference photos: the post's own strip products that carry a
- *      topic word, up to four, fetched IN PARALLEL from Geiger's image server
- *      at HEADER_IMAGE_REFERENCE_WIDTH inside the budget (a failed fetch is
- *      skipped; with none the prompt describes the item);
- *   4. the scene plan (AUTO-203): one cheap call on the vision model that
- *      says where this product lives (its surface, its setting, what is
- *      around it, what text belongs on it, what would be physically wrong)
- *      and, since AUTO-207, HOW MANY of it to show and IN WHAT STATE, read
- *      from the reference PHOTOS (the planner sees them; a name like "Gold
- *      First Aid Kit" no longer becomes a gold tin) and answered through a
- *      response schema. Made ONCE per picture (the retry reuses it); a
- *      planner that fails or answers unreadably is asked ONCE more, and a
- *      second failure is said LOUDLY (an error line and a note) and the
- *      picture is drawn from the standard composition, which carries the
- *      same count rule and no-signs rule as a plan;
- *   5. the generation on GEMINI_IMAGE_MODEL (Pro since AUTO-207), with a
- *      timeout inside the chain's own budget. ANY failure of it (an HTTP
- *      error, a 503, a timeout, an answer with NO picture in it) is handed
- *      ONCE to GEMINI_IMAGE_FALLBACK_MODEL, a second slot reserved, if the
- *      budget allows; a second failure is a note and a fall;
- *   6. the check: the vision model reads the picture back IMAGE_CHECK_READS
- *      times in parallel (AUTO-204: the one read the chain used to make
- *      missed an Apple logo that five reads of nine saw) and lists every
- *      readable piece of text with its object
- *      and its kind; a logo, a brand or company name or a contact detail,
- *      display text on anything, or an impossible placement seen by ANY read
- *      refuses the picture, while the product's own markings and small page
- *      text pass (the rule is `imageCheckProblem` in header-image.ts); a
- *      refusal is ONE retry with the problem named (a second slot reserved,
- *      the cap counts attempts) on the main model when there is time for it,
- *      on the backup when there is only time for that, else a fall;
- *   7. the upload, inside the budget: the bytes become a Sanity image asset
- *      carrying the BLOG_HEADER_ASSET_SOURCE marker (AUTO-207: how a replaced
- *      generated picture is told from an upload when it is removed), and the
- *      outcome carries the value to write onto the post.
+ * AUTO-220 REPLACED THE AI STEP. The picture is drawn by OpenAI's image model
+ * (lib/ai/openai-image.ts) from Patrick's own two lines and the post's own
+ * product photos, title included; the Gemini image model that drew every
+ * picture from AUTO-202 to AUTO-212 is now the BACKUP, and everything that
+ * existed to put the title on a picture in code is gone (the compose step and
+ * its layout call, the fonts, the looks, the untitled copy, the redraw
+ * button, the room-for-the-title rule and the painted-band check). What code
+ * still puts on a picture is the P! mark (stamp-mark.tsx).
  *
- * Before step 1, AUTO-207: a post in a DEVICE_MOUNTED_ROOTS category skips
- * the AI entirely (no slot, no call): the library, then the product photo.
+ * THE AI STEP, in order, each failure a note and a fall to the next source:
+ *   1. the clients and the keys: no write client, no reader key
+ *      (GOOGLE_GEMINI_API_KEY: every picture is READ BACK by the vision model,
+ *      so without it no picture is drawn and no cap slot is spent) or, for
+ *      the main model, no OPENAI_API_KEY (the backup model then draws);
+ *   2. the cap, RESERVED BEFORE anything else is spent on this attempt,
+ *      the photo reads included (openai-image-usage.ts): refused, the
+ *      refusal is the note;
+ *   3. the product photos, once: the post's own strip products, those whose
+ *      name carries a topic word first (header-image.ts pickPhotoCandidates),
+ *      up to HEADER_IMAGE_PHOTO_CANDIDATES fetched in parallel from Geiger's
+ *      image server, each READ by the vision model (brand-screen.ts layer 1):
+ *      a photo whose sample imprint is a well known brand, or whose logo the
+ *      reader recognises, is not sent, nor is a product that only shares a
+ *      word with the post's subject (the shaker bottles post: a spice shaker
+ *      and a cocktail shaker), and a product whose name does not carry a
+ *      topic word is sent only when the reader says it IS the subject. The
+ *      first HEADER_IMAGE_PHOTOS that pass are sent. When NONE is the
+ *      subject (the fidget spinners post, whose strips hold cubes, pens and
+ *      worms and no spinner) the post's NEAREST real products are sent
+ *      instead, name matches first, and the note names them (Ali,
+ *      2026-11-15: cubes under a spinners title are a bit off, but products
+ *      the model invents, carrying company names it invents, are the thing
+ *      this module exists to stop). Only a post with no usable photo at all
+ *      (none in its rows, none fetched, or every one left out for a brand)
+ *      is drawn from the title alone, and the note says its products are
+ *      the model's own;
+ *   4. the picture: one `POST /v1/images/edits` with the prompt of the
+ *      post's current rung of the ladder (header-brief.ts) and the photos;
+ *   5. THE GATES, read off the finished picture by the vision model, in
+ *      parallel: TITLE_GATE_READS transcriptions of the title (accept on ONE
+ *      exact read) and PICTURE_INVENTORY_READS inventories of every readable
+ *      text and recognised logo: a text is checked against the brand list, a
+ *      logo the reader names is a hit listed or not (brand-screen.ts layer
+ *      3). When NO inventory answers, the inventories are asked ONCE more;
+ *      when that gets no answer either the picture is KEPT, the note says
+ *      the brand check was not made, and `usage.brandCheckMade` is false,
+ *      which is what makes the scheduler hold the post as a draft instead of
+ *      publishing it (header-image.ts holdBeforePublishReason; Ali,
+ *      2026-11-15: nothing is blocked, and an unknown never publishes
+ *      itself);
+ *   6. a failed gate is ONE redraw with the problem named, never two: the
+ *      worst measured chain with one redraw is 82 s of the 100 s budget, and
+ *      a second would reach 121 s;
+ *   7. the mark: the P! is stamped in a corner by code (stamp-mark.tsx);
+ *   8. the upload: the stamped picture (a PNG) is the header, and the picture
+ *      as the model drew it is kept beside it (`unmarkedImage`) so "Change
+ *      this picture" hands the model a picture with no mark on it. Both carry
+ *      the BLOG_HEADER_ASSET_SOURCE marker.
  *
- * NO PICTURE IS JUDGED FOR BELIEVABILITY, AND NONE IS CHOSEN FROM SEVERAL.
- * AUTO-206 measured all three ways of doing that and each is dead: no vision
- * model on the key can tell a believable product from an unbelievable one,
- * and every one of them calls real catalogue photographs fake (CLAUDE.md
- * AUTO-207, "the closed roads"). The last check is a human eye, which is what
- * "Generate another header image" is for.
+ * THE BACKUP MODEL (Ali, 2026-11-15; it replaced a titleless picture). When
+ * OpenAI fails on the first attempt (an HTTP error, a timeout, no picture) or
+ * has no key, the Gemini image model draws INSIDE THE SAME LOOP: it is sent
+ * Patrick's two lines and nothing else, whatever rung the ladder is on (the
+ * one prompt measured on it: 4 of 4 titles exact, and the sample imprints
+ * copied better than OpenAI managed, CHECK-openai-image-api section 11), with
+ * the same screened photos, and its picture passes the same title gate and
+ * the same brand read-back, gets the same mark, and is stored the same way,
+ * title recorded. What it does not get is a third try: after an OpenAI
+ * failure it is the second attempt, so a picture of its own that fails a gate
+ * is not redrawn (with no OpenAI key it is the first attempt and may be
+ * redrawn once, like any picture). It draws at 1376 x 768 on its own cap of
+ * 20 a day. A cap refusal and a refused picture do NOT go to the backup
+ * model: they fall to the library and the product photo, as a refused picture
+ * always has. The planner, the blank-product prompt, the AUTO-204 check and
+ * the AUTO-205 close look that made the old titleless backup picture are no
+ * longer called from this chain (their pure halves are still in
+ * header-image.ts with their tests, to be deleted once the soak has shown
+ * the titled backup holds).
  *
- * THE BUDGET IS A DEADLINE, NOT A HOPE. HEADER_IMAGE_BUDGET_MS = 70 s for
- * the whole chain, and EVERY effect after the reservation runs under
- * `withDeadline(remaining())`: a reference fetch, the plan, the generation,
- * the check and the upload each give up when the budget is gone, so the chain cannot
- * run past 70 s however slow Google or the CDN is (a step cut off by the
- * deadline is a note and a fall, exactly like a failure). The measured
- * chain is 11 to 21 s (AUTO-202), plus about 2 s for the planner (AUTO-203). The blog-topics route's 240 s must hold the DeepSeek
- * deadline of 150 s (BLOG_AI_TIMEOUT_MS), two live drafts reads, this chain
- * and the create: 150 + 3 + 70 + 1 is 224, inside 240 with room to answer.
- * Do not widen this budget without re-doing that sum.
+ * PATRICK'S OWN INSTRUCTION (AUTO-220). `mode: 'instruction'` draws a new
+ * picture with his words in place of the ladder's block; `mode: 'edit'` sends
+ * the current picture (its unmarked copy) back with his words. Both run the
+ * same gates, the same stamp and the same cap; neither uses the backup
+ * model (its two lines are the only prompt measured on it) or the later
+ * sources.
+ *
+ * NO PICTURE IS JUDGED FOR BELIEVABILITY, AND NONE IS CHOSEN FROM SEVERAL
+ * (AUTO-206's closed roads stand). The last check is a human eye.
+ *
+ * THE BUDGET IS A DEADLINE, NOT A HOPE. HEADER_IMAGE_BUDGET_MS = 100 s for
+ * the whole chain, and every effect runs under `withDeadline(remaining())`.
+ * Measured (CHECK-image-brief-26, 35 pictures): photos 1.4 s, picture 34.1 s
+ * worst (27.3 median), reads 4.8 s, upload about 3 s; the photo screen and
+ * the stamp are AUTO-220's own measurements (CLAUDE.md). One redraw at the
+ * worst of every step holds; two do not. The routes that carry this chain
+ * are unchanged (generate-blog-image 120 s, blog-topics 270 s, the cron
+ * writer 300 s).
  */
 import type { SanityClient } from '@sanity/client';
-import {
-  GEMINI_IMAGE_FALLBACK_MODEL,
-  GEMINI_IMAGE_MODEL,
-  GeminiError,
-  generateImage,
-  generateJsonFromImage,
-  generateJsonFromImages,
-  generateJsonFromText,
-  type GeminiImageInput,
-} from '../ai/gemini';
+import { GEMINI_IMAGE_MODEL, GeminiError, generateImage, generateJsonFromImages, imageCallUsd, type GeminiImageInput } from '../ai/gemini';
+import { generateOpenAiImage, openAiImageConfigured } from '../ai/openai-image';
 import { BLOG_HEADER_ASSET_SOURCE } from './discard-header-image';
 import {
-  PLANNER_RESPONSE_SCHEMA,
   deviceMountedRoot,
-  photosForPicture,
-  buildHeaderImagePrompt,
-  buildImageCheckPrompt,
-  buildScenePlanPrompt,
-  buildTileCheckPrompt,
-  parseTileCheck,
-  tilePassProblem,
-  TILE_REGIONS,
   firstProductImage,
   geigerReferenceUrl,
   headerImageAlt,
   headerImageFilename,
-  titledHeaderImageAlt,
-  titleRoomSideFor,
   type SanityImageValue,
-  type TitleRoomSide,
   HEADER_IMAGE_ASPECT_RATIO,
+  HEADER_IMAGE_PHOTOS,
   HEADER_IMAGE_SIZE,
-  IMAGE_CHECK_READS,
   imageValueFor,
-  parseImageCheck,
-  parseScenePlan,
   pickLibraryImage,
-  pickReferenceProducts,
-  UNREADABLE_IMAGE_CHECK,
-  worstImageCheckProblem,
+  pickPhotoCandidates,
   type HeaderImageLibraryEntry,
   type HeaderImageOutcome,
   type HeaderImageSource,
   type HeaderImageUsage,
-  type ImageCheck,
-  type ImageCheckContext,
   type ReferenceProduct,
-  type ScenePlan,
-  type TileCheck,
 } from './header-image';
 import { reserveBlogImageCall, type BlogImageReservation } from './header-image-usage';
-import { TITLE_LAYOUT_RESPONSE_SCHEMA, buildTitleLayoutPrompt, paintedBandIn, parseTitleLayoutAnswer, previousLookOf, storedTreatmentOf, undrawableCharacters, type TitleLayoutAnswer, type TitleLookName } from './title-layout';
-import type { ComposedTitle } from './compose-title';
+import { reserveOpenAiImageCall } from './openai-image-usage';
+import {
+  MAX_HEADER_EDITS_IN_A_ROW,
+  TITLE_GATE_READS,
+  TITLE_READ_PROMPT,
+  TITLE_READ_SCHEMA,
+  buildEditBrief,
+  buildHeaderBrief,
+  buildInstructionBrief,
+  cleanInstruction,
+  drawnHeaderAlt,
+  editCountOf,
+  nextRung,
+  parseTitleRead,
+  rungOf,
+  titleGate,
+  type BriefRetry,
+  type HeaderRung,
+} from './header-brief';
+import {
+  PHOTO_SCREEN_SCHEMA,
+  PICTURE_INVENTORY_READS,
+  PICTURE_INVENTORY_SCHEMA,
+  buildPhotoScreenPrompt,
+  buildPictureInventoryPrompt,
+  parsePhotoScreen,
+  parsePictureInventory,
+  photoScreenVerdict,
+  pictureBrandProblem,
+  type PhotoScreen,
+  type PictureInventory,
+} from './brand-screen';
+import type { StampedPicture } from './stamp-mark';
 
 /**
- * The whole chain's deadline (AUTO-209: 90 s to 100 s, raised deliberately
- * for the title; AUTO-207: 70 s to 90 s).
- *
- * AUTO-209 ADDS, after the accepted picture: the title layout call, run
- * BESIDE the close look so it costs only what it takes beyond it (measured
- * 2.1 s median and 3.7 s worst against the close look's 5.3 s worst, and
- * capped at TITLE_LAYOUT_TIMEOUT_MS = 8 s, so at most 8 - 5.3 = 2.7 s); the
- * drawing (0.7 s median, 1.3 s worst, plus about 2.5 s the first time a
- * function instance loads the WebAssembly: 4 s worst); and a larger upload
- * (the titled PNG is about 1.7 MB against about 0.3 MB of JPEG, and the
- * untitled original goes up beside it in parallel: about 2 s more). The two
- * AUTO-207 sums become 85.5 + 2.7 + 4 + 2 = 94.2 s and 88.5 + 2.7 + 4 + 2 =
- * 97.2 s; 100 s holds both. The title never costs the picture: with too
- * little time left to draw it, the picture is stored untitled with a note.
- * The routes: generate-blog-image keeps 120 s (100 + its reads); blog-topics
- * keeps 270 s (150 + 3 + 100 + 3 = 256); the cron writer keeps 300 s (a warm
- * pool, 150, 100 and the reads, about 260).
- *
- * AUTO-207's own arithmetic, unchanged:
- * Measured per step, worst observed: reference photos 2.1 s, the planner
- * 4.4 s (96 calls), a Pro generation 26 s (28 calls: AUTO-207's 20 at 15.8 to
- * 22.2 s, AUTO-206's 8 at 17 to 26 s), the two reads 6.7 s, the close look
- * 5.3 s, the upload about 3 s. A refusal and a second Pro picture at the
- * WORST of every step is 2.1 + 4.4 + (26 + 6.7 + 5.3) x 2 + 3 = 85.5 s; a Pro
- * failure at its 45 s timeout and the backup at its worst observed 22 s is
- * 2.1 + 4.4 + 45 + 22 + 6.7 + 5.3 + 3 = 88.5 s. At the median the first sum is
- * 52 s. 70 s held at the median but not in the tail, where a refused picture
- * would have fallen to the product photo for want of time; 90 s holds both.
- * The routes that carry this chain were raised with it (generate-blog-image
- * 90 to 120 s, blog-topics 240 to 270 s). Do not widen it again without
- * re-doing both sums.
+ * The whole chain's deadline. 100 s since AUTO-209; AUTO-220 keeps the number
+ * and re-does the sum for the new chain, worst observed of every step:
+ *   photos 1.4 + photo screen 4 + picture 34.1 + reads 4.8  = 44.3 s
+ *   one redraw: + 34.1 + 4.8                                 = 83.2 s
+ *   stamp 4 (the WebAssembly loading; 0.7 warm) + upload 3   = 90.2 s
+ * A second redraw would be 129 s, which is why there is never one. The
+ * backup model after an OpenAI failure at its 45 s timeout is 1.4 + 4 + 46 +
+ * its picture 26 (worst of AUTO-207's 28) + reads 4.8 + 4 + 3 = 89.2 s, and
+ * every step in it is cut off by the deadline if it does not fit. Do not
+ * widen this without re-doing both sums and the three routes'.
  */
 export const HEADER_IMAGE_BUDGET_MS = 100_000;
-/** One generation's own timeout on GEMINI_IMAGE_MODEL (worst observed 26 s). */
+/** One picture's own timeout on the OpenAI model (worst observed 34.1 s over 35 pictures). */
 export const HEADER_IMAGE_GENERATE_TIMEOUT_MS = 45_000;
-/** One generation's own timeout on GEMINI_IMAGE_FALLBACK_MODEL (worst observed 22 s, AUTO-206). */
-export const HEADER_IMAGE_FALLBACK_GENERATE_TIMEOUT_MS = 30_000;
-/** A second attempt on GEMINI_IMAGE_MODEL is made only with this much budget left: a worst Pro picture, its reads, its close look and the upload (26 + 6.7 + 5.3 + 2), and the title (AUTO-209: 2.7 + 4 + 2). */
-export const HEADER_IMAGE_RETRY_MIN_REMAINING_MS = 49_000;
-/** A second attempt on GEMINI_IMAGE_FALLBACK_MODEL is made only with this much budget left (22 + 6.7 + 5.3 + 1, and the title's 8.7). */
-export const HEADER_IMAGE_FALLBACK_MIN_REMAINING_MS = 44_000;
-/** Kept back from a generation's timeout for the reads, the close look, the title and the upload that follow it (worst observed 6.7 + 5.3 s, and AUTO-209's 2.7 + 4 + 2). */
-const AFTER_GENERATION_RESERVE_MS = 21_000;
-/** The drawing's own ceiling (AUTO-209; worst observed 1.3 s warm, about 4 s with the WebAssembly loading). */
-export const TITLE_COMPOSE_TIMEOUT_MS = 8_000;
-/** Kept back for the upload when deciding whether there is time to draw the title. */
-const TITLE_UPLOAD_RESERVE_MS = 5_000;
-/** The check's own ceiling (the measured read is about 2.5 s; the reads run in parallel). */
-const CHECK_TIMEOUT_MS = 15_000;
-/** Room for the whole listed answer (AUTO-204): eight entries are about 350 tokens; a cut-off answer cannot be parsed and refuses the picture. */
-const CHECK_MAX_OUTPUT_TOKENS = 1024;
-/** The scene planner's own ceiling. */
-const PLAN_TIMEOUT_MS = 15_000;
-/** Planner calls per picture (AUTO-207): a failed or unreadable plan is asked for once more. */
-export const PLANNER_ATTEMPTS = 2;
-/** Room for the whole plan: about 300 tokens; a cut-off answer is unreadable. */
-const PLAN_MAX_OUTPUT_TOKENS = 1024;
-
-/**
- * The planner ANSWERED, but with nothing usable (AUTO-207): not JSON, a
- * malformed object, an empty reply, a refusal, or a plan with no surface and
- * no setting. Distinct from "unavailable" (no answer at all), so the chain can
- * say which, loudly.
- */
-export class PlannerAnswerError extends Error {
-  constructor(message: string) {
-    super(message);
-    this.name = 'PlannerAnswerError';
-  }
-}
-/** Each reference photo fetch; the four run in parallel. */
+/** The backup model's own timeout (worst observed 26 s over 28 pictures, AUTO-207; one of the four two-line pictures took 52 s and would be cut off here). */
+export const HEADER_IMAGE_FALLBACK_GENERATE_TIMEOUT_MS = 40_000;
+/** A redraw is made only with this much budget left: a worst picture, its reads, the stamp and the upload (34.1 + 4.8 + 4 + 3), and a little room. */
+export const HEADER_IMAGE_RETRY_MIN_REMAINING_MS = 48_000;
+/** The backup model takes over only with this much budget left: its worst picture, the reads, the stamp and the upload (26 + 4.8 + 4 + 3), and room. */
+export const HEADER_IMAGE_FALLBACK_MIN_REMAINING_MS = 45_000;
+/** Kept back from a picture's timeout for the reads, the stamp and the upload that follow it. */
+const AFTER_GENERATION_RESERVE_MS = 12_000;
+/** The stamp's own ceiling (0.7 s warm, about 4 s the first time a function instance loads the WebAssembly). */
+export const STAMP_TIMEOUT_MS = 8_000;
+/** Kept back for the upload when deciding whether there is time to stamp the mark. */
+const UPLOAD_RESERVE_MS = 5_000;
+/** A read's own ceiling (a read is about 1.5 to 5 s; they run in parallel). */
+const READ_TIMEOUT_MS = 15_000;
+/** Room for a whole inventory: forty entries are about 900 tokens; a cut-off answer cannot be parsed and counts as not made. */
+const INVENTORY_MAX_OUTPUT_TOKENS = 2048;
+/** The photo screen's own ceiling; the photos are read in parallel. */
+const PHOTO_SCREEN_TIMEOUT_MS = 10_000;
+/** Each reference photo fetch; they run in parallel. */
 const REFERENCE_FETCH_TIMEOUT_MS = 8_000;
 const REFERENCE_MAX_BYTES = 3 * 1024 * 1024;
 
-/** The planner's answer with what it cost. */
-export interface PlannedScene {
-  scene: ScenePlan;
-  usage: { model: string; promptTokens: number; outputTokens: number; elapsedMs: number };
-}
+/** A picture or a photo as the models take it. */
+export type PictureInput = GeminiImageInput;
 
 export interface GeneratedPicture {
   bytes: Buffer;
   mimeType: string;
   base64: string;
-  usage: { imageTokens: number; promptTokens: number; elapsedMs: number; model: string };
+  usage: { imageTokens: number; promptTokens: number; elapsedMs: number; model: string; usd?: number | null };
 }
 
 /** Every effect of the chain, injectable. */
 export interface HeaderImageDeps {
-  /** Whether the image service is configured at all (the key is present); false skips the AI step with no slot spent. */
+  /** Whether the READER is configured (GOOGLE_GEMINI_API_KEY): every picture is read back, so without it nothing is drawn. It is also the backup model's key. */
   keyConfigured: () => boolean;
-  /** Reserve one generated image for today (the cap). */
+  /** Whether the main image model is configured (OPENAI_API_KEY); false sends the ladder straight to the backup model. */
+  openAiConfigured: () => boolean;
+  /** Reserve one picture on the main model for today (its own cap). */
+  reserveOpenAi: (now: Date) => Promise<BlogImageReservation>;
+  /** Reserve one picture on the backup model for today (the AUTO-202 cap). */
   reserve: (now: Date) => Promise<BlogImageReservation>;
   /** The bytes of one product photo, or null when it could not be fetched. */
-  fetchReference: (url: string) => Promise<GeminiImageInput | null>;
+  fetchReference: (url: string) => Promise<PictureInput | null>;
+  /** Layer 1 of the brand screen, and the subject check: one read of one catalogue photo; null when the reader was unavailable. */
+  screenPhoto: (photo: PictureInput, args: { productName: string; title: string; topic: string }) => Promise<PhotoScreen | null>;
+  /** The main model: one picture from the prompt and the images (the product photos, or the one picture to change). */
+  draw: (args: { prompt: string; images: PictureInput[]; timeoutMs: number }) => Promise<GeneratedPicture>;
+  /** ONE transcription of the title on a picture: the text, '' when the reader answered with nothing usable, null when it was unavailable. */
+  readTitle: (image: PictureInput) => Promise<string | null>;
+  /** ONE inventory of every readable text and recognised logo on a picture; null when unavailable or unreadable. */
+  readInventory: (image: PictureInput) => Promise<PictureInventory | null>;
+  /** The backup model: one picture from the same prompt and the same photos the main model would have had. */
+  generate: (args: { prompt: string; references: PictureInput[]; timeoutMs: number; model: string }) => Promise<GeneratedPicture>;
   /**
-   * AUTO-203: plan the scene for this product. AUTO-207: the planner is given
-   * the reference photos (`references`, in the order of `productNames`) so the
-   * plan describes what they show. Null when the planner was unavailable (no
-   * answer); throws `PlannerAnswerError` when it answered with nothing usable.
+   * Stamp the P! mark on a picture (stamp-mark.tsx). Throws when it cannot.
+   * Optional so a test's fakes need not provide it; the real deps always do,
+   * and without it the picture is stored as the model drew it.
    */
-  plan: (args: { title: string; topic: string; productNames: readonly string[]; references: GeminiImageInput[]; titleRoom?: TitleRoomSide | null }) => Promise<PlannedScene | null>;
-  /** AUTO-207: `model` is GEMINI_IMAGE_MODEL, or GEMINI_IMAGE_FALLBACK_MODEL on the fallback attempt. */
-  generate: (args: { prompt: string; references: GeminiImageInput[]; timeoutMs: number; model: string }) => Promise<GeneratedPicture>;
-  /** ONE read of a generated picture; null when the check itself was unavailable. The chain calls it IMAGE_CHECK_READS times per picture. `context` says what the picture is about, so the check knows which objects are the product. */
-  check: (image: GeminiImageInput, context: ImageCheckContext) => Promise<ImageCheck | null>;
-  /**
-   * AUTO-205: one close look at one region of a picture that passed the
-   * reads (the tile pass); null when unavailable. The chain calls it once per
-   * TILE_REGIONS entry, in parallel. Optional so a test's fake deps need not
-   * provide it; the real deps always do.
-   */
-  checkRegion?: (image: GeminiImageInput, region: string) => Promise<TileCheck | null>;
-  /**
-   * AUTO-212: a blank pale band the image model PAINTED into the photograph
-   * along an edge (title-layout.ts paintedBandIn), or null. Optional so test
-   * fakes need not provide it; the real deps always do. Pixels only, no model
-   * call.
-   */
-  paintedBand?: (image: GeminiImageInput) => Promise<{ edge: 'top' | 'left' | 'right'; share: number } | null>;
-  /**
-   * AUTO-209: the title layout call on the finished picture (askTitleLayout):
-   * where the product is and which side is calm; null when it failed.
-   * Optional so a test's fake deps need not provide it; the real deps always
-   * do, and without it the product is not located and the side comes from
-   * the room rule.
-   */
-  chooseTitleLayout?: (image: GeminiImageInput, title: string, intendedRoom?: TitleRoomSide | null) => Promise<{ answer: TitleLayoutAnswer; usage: { model: string; promptTokens: number; outputTokens: number; elapsedMs: number } } | null>;
-  /**
-   * AUTO-209: draw the post's exact title onto the picture (compose-title.tsx
-   * composeTitledHeader). Null when the title cannot be drawn exactly; throws
-   * when the drawing fails. Optional for the same reason; WITHOUT it the
-   * picture is stored untitled, exactly as before AUTO-209.
-   */
-  composeTitle?: (args: { picture: GeminiImageInput; title: string; answer: TitleLayoutAnswer | null; seed: string; previous: TitleLookName | null; room: TitleRoomSide | null }) => Promise<ComposedTitle | null>;
+  stamp?: (picture: PictureInput) => Promise<StampedPicture>;
   /** Store the bytes as a Sanity image asset; returns the asset document id. */
   upload: (bytes: Buffer, filename: string, contentType: string) => Promise<string>;
   now: () => number;
 }
+
+export type HeaderImageMode = 'ladder' | 'instruction' | 'edit';
 
 export interface ResolveHeaderImageInput {
   /** Where the chain starts: the effective source for this post. */
@@ -281,23 +260,35 @@ export interface ResolveHeaderImageInput {
   /** True when there is no write client at all (the AI step is then skipped with a note). */
   clientMissing?: boolean;
   log?: (line: string) => void;
-  /** AUTO-207: where a planner failure is said LOUDLY (default console.error, which Vercel keeps as an error line). */
+  /** Where a failure that must not pass unseen is said LOUDLY (default console.error, which Vercel keeps as an error line). */
   logError?: (line: string) => void;
   /**
-   * AUTO-210: the post's current `headerImage.titleTreatment` (as stored),
-   * when this is a regenerate: the title then takes the look AFTER the one
-   * the post has now, so every regenerate gives a new look. Absent or
-   * unreadable means a first picture, and the rotation starts from the seed.
+   * AUTO-220: the rung of the ladder the post's current picture was drawn on
+   * (`headerImage.ladderRung`, as stored). The picture is drawn on the rung
+   * AFTER it; absent or unreadable means a first picture, rung 1.
    */
-  previousTreatment?: unknown;
+  previousRung?: unknown;
+  /**
+   * AUTO-220: `ladder` (the default) draws the next rung; `instruction`
+   * draws a new picture with Patrick's words in place of the rung's block;
+   * `edit` sends `editBase` back with his words. The last two run the AI step
+   * only: no backup model and no later source.
+   */
+  mode?: HeaderImageMode;
+  /** Patrick's words, for `instruction` and `edit`. */
+  instruction?: string;
+  /** `edit`: the picture to change (the unmarked copy of the post's generated header). */
+  editBase?: PictureInput | null;
+  /** `edit`: how many changes in a row the current picture already carries (`headerImage.editCount`). */
+  editCount?: unknown;
 }
 
 /**
- * True when the check call ANSWERED but gave no verdict (AUTO-204): the reply
- * was not JSON, was cut off, was empty, or the model declined to look at the
- * picture. Such a read refuses the picture. A call that never answered (a
- * network failure, an HTTP error, a timeout, a missing key) is "unavailable"
- * instead. The four wordings are lib/ai/gemini.ts's own; a test pins them.
+ * True when a vision call ANSWERED but gave nothing usable (AUTO-204): the
+ * reply was not JSON, was cut off, was empty, or the model declined to look.
+ * A call that never answered (a network failure, an HTTP error, a timeout, a
+ * missing key) is "unavailable" instead. The four wordings are
+ * lib/ai/gemini.ts's own; a test pins them.
  */
 export function checkAnsweredWithoutVerdict(message: string): boolean {
   return /not JSON|malformed JSON|Empty response|declined this/i.test(message);
@@ -307,8 +298,72 @@ export function checkAnsweredWithoutVerdict(message: string): boolean {
 export function defaultHeaderImageDeps(client: SanityClient): HeaderImageDeps {
   return {
     keyConfigured: () => Boolean(process.env.GOOGLE_GEMINI_API_KEY),
+    openAiConfigured: () => openAiImageConfigured(),
+    reserveOpenAi: (now) => reserveOpenAiImageCall(client, now),
     reserve: (now) => reserveBlogImageCall(client, now),
     fetchReference: fetchReferencePhoto,
+    screenPhoto: async (photo, args) => {
+      const { system, user } = buildPhotoScreenPrompt(args);
+      try {
+        const result = await generateJsonFromImages<unknown>({ system, user, images: [photo], maxOutputTokens: 512, temperature: 0, timeoutMs: PHOTO_SCREEN_TIMEOUT_MS, responseSchema: PHOTO_SCREEN_SCHEMA });
+        return parsePhotoScreen(result.data);
+      } catch (err) {
+        // A photo that could not be read is sent (layer 1 fails open; the finished picture is read in any case).
+        if (err instanceof GeminiError) return null;
+        throw err;
+      }
+    },
+    draw: async ({ prompt, images, timeoutMs }) => {
+      const out = await generateOpenAiImage({ prompt, images, timeoutMs });
+      return {
+        bytes: out.bytes,
+        mimeType: out.mimeType,
+        base64: out.base64,
+        usage: {
+          imageTokens: out.usage.imageOutputTokens,
+          promptTokens: out.usage.textInputTokens + out.usage.imageInputTokens,
+          elapsedMs: out.elapsedMs,
+          model: out.model,
+          usd: out.usd,
+        },
+      };
+    },
+    readTitle: async (image) => {
+      try {
+        const result = await generateJsonFromImages<unknown>({
+          system: TITLE_READ_PROMPT.system,
+          user: TITLE_READ_PROMPT.user,
+          images: [image],
+          maxOutputTokens: 256,
+          temperature: 0,
+          timeoutMs: READ_TIMEOUT_MS,
+          responseSchema: TITLE_READ_SCHEMA,
+        });
+        return parseTitleRead(result.data) ?? '';
+      } catch (err) {
+        // An answer with nothing usable is a read that did not match; a call that never answered is unavailable.
+        if (err instanceof GeminiError) return checkAnsweredWithoutVerdict(err.message) ? '' : null;
+        throw err;
+      }
+    },
+    readInventory: async (image) => {
+      const { system, user } = buildPictureInventoryPrompt();
+      try {
+        const result = await generateJsonFromImages<unknown>({
+          system,
+          user,
+          images: [image],
+          maxOutputTokens: INVENTORY_MAX_OUTPUT_TOKENS,
+          temperature: 0,
+          timeoutMs: READ_TIMEOUT_MS,
+          responseSchema: PICTURE_INVENTORY_SCHEMA,
+        });
+        return parsePictureInventory(result.data);
+      } catch (err) {
+        if (err instanceof GeminiError) return null;
+        throw err;
+      }
+    },
     generate: async ({ prompt, references, timeoutMs, model }) => {
       const out = await generateImage({
         prompt,
@@ -322,67 +377,17 @@ export function defaultHeaderImageDeps(client: SanityClient): HeaderImageDeps {
         bytes: out.bytes,
         mimeType: out.mimeType,
         base64: out.base64,
-        usage: { imageTokens: out.usage.imageTokens, promptTokens: out.usage.promptTokens, elapsedMs: out.elapsedMs, model: out.model },
+        usage: {
+          imageTokens: out.usage.imageTokens,
+          promptTokens: out.usage.promptTokens,
+          elapsedMs: out.elapsedMs,
+          model: out.model,
+          usd: imageCallUsd(out.model, out.usage),
+        },
       };
     },
-    plan: async ({ title, topic, productNames, references, titleRoom }) => {
-      // AUTO-207: the planner SEES the reference photos (the naming trap) and
-      // answers through a response schema (the malformed answers).
-      const { system, user } = buildScenePlanPrompt({ title, topic, productNames, photos: references.length, titleRoom });
-      let data: unknown;
-      let usage: PlannedScene['usage'];
-      try {
-        const common = { system, user, maxOutputTokens: PLAN_MAX_OUTPUT_TOKENS, temperature: 0.3, timeoutMs: PLAN_TIMEOUT_MS, responseSchema: PLANNER_RESPONSE_SCHEMA };
-        const result = references.length > 0 ? await generateJsonFromImages<unknown>({ ...common, images: references }) : await generateJsonFromText<unknown>(common);
-        data = result.data;
-        usage = { model: result.model, promptTokens: result.usage.promptTokens, outputTokens: result.usage.outputTokens + result.usage.thoughtTokens, elapsedMs: result.elapsedMs };
-      } catch (err) {
-        // Answered without a usable plan (not JSON, malformed, empty, declined): say so. No answer at all: unavailable.
-        if (err instanceof GeminiError) {
-          if (checkAnsweredWithoutVerdict(err.message)) throw new PlannerAnswerError(err.message);
-          return null;
-        }
-        throw err;
-      }
-      const scene = parseScenePlan(data);
-      if (!scene) throw new PlannerAnswerError('the plan named no surface and no setting');
-      return { scene, usage };
-    },
-    check: async (image, context) => {
-      const { system, user } = buildImageCheckPrompt(context);
-      try {
-        const result = await generateJsonFromImage<unknown>({ system, user, image, maxOutputTokens: CHECK_MAX_OUTPUT_TOKENS, temperature: 0 });
-        return parseImageCheck(result.data);
-      } catch (err) {
-        // An answer that arrived without a verdict is a REFUSAL, not an
-        // unavailable check (AUTO-204): the picture with the most text is the
-        // one whose answer is longest, so "could not parse" must never mean
-        // "accepted unchecked". Only a call that never answered is unavailable.
-        if (err instanceof GeminiError) return checkAnsweredWithoutVerdict(err.message) ? UNREADABLE_IMAGE_CHECK : null;
-        throw err;
-      }
-    },
-    checkRegion: async (image, region) => {
-      const { system, user } = buildTileCheckPrompt(region);
-      try {
-        const result = await generateJsonFromImage<unknown>({ system, user, image, maxOutputTokens: 256, temperature: 0 });
-        return parseTileCheck(region, result.data);
-      } catch (err) {
-        // A region read that failed is left out; the two full reads already passed, and the tile pass is the belt.
-        if (err instanceof GeminiError) return null;
-        throw err;
-      }
-    },
-    chooseTitleLayout: (image, title, intendedRoom) => askTitleLayout(image, title, TITLE_LAYOUT_TIMEOUT_MS, intendedRoom ?? null),
-    paintedBand: async (image) => {
-      const { imageSize, pixelGridOf } = await import('./compose-title');
-      const size = imageSize(Buffer.from(image.base64, 'base64'));
-      if (!size) return null;
-      return paintedBandIn(await pixelGridOf(image, size));
-    },
-    // Loaded lazily: next/og (satori and resvg's WebAssembly) enters the
-    // process only when a title is actually drawn.
-    composeTitle: async (args) => (await import('./compose-title')).composeTitledHeader(args),
+    // Loaded lazily: next/og (satori and resvg's WebAssembly) enters the process only when a mark is actually stamped.
+    stamp: async (picture) => (await import('./stamp-mark')).stampMark(picture),
     upload: async (bytes, filename, contentType) => {
       // AUTO-207: the marker that lets lib/blog-automation/discard-header-image.ts
       // tell a generated header from a picture Patrick uploaded.
@@ -395,73 +400,28 @@ export function defaultHeaderImageDeps(client: SanityClient): HeaderImageDeps {
 
 /** The deps used when there is no write client at all: nothing can be reserved, generated or stored. */
 export function noClientHeaderImageDeps(): HeaderImageDeps {
+  const refuse = async (): Promise<BlogImageReservation> => ({ ok: false, reason: 'unavailable', used: 0, cap: 0, day: '', message: 'the server has no Sanity write access' });
+  const fail = async (): Promise<never> => {
+    throw new Error('the server has no Sanity write access');
+  };
   return {
     keyConfigured: () => false,
-    reserve: async () => ({ ok: false, reason: 'unavailable', used: 0, cap: 0, day: '', message: 'the server has no Sanity write access' }),
+    openAiConfigured: () => false,
+    reserveOpenAi: refuse,
+    reserve: refuse,
     fetchReference: async () => null,
-    plan: async () => null,
-    generate: async () => {
-      throw new Error('the server has no Sanity write access');
-    },
-    check: async () => null,
-    upload: async () => {
-      throw new Error('the server has no Sanity write access');
-    },
+    screenPhoto: async () => null,
+    draw: fail,
+    readTitle: async () => null,
+    readInventory: async () => null,
+    generate: fail,
+    upload: fail,
     now: () => Date.now(),
   };
 }
 
-/** The title layout call's own ceiling (AUTO-209; measured 2.1 s median and 3.7 s worst over 94 pictures, it runs beside the close look). */
-export const TITLE_LAYOUT_TIMEOUT_MS = 8_000;
-
-/** What the title layout call cost, for the usage line. */
-export interface TitleLayoutUsage {
-  model: string;
-  promptTokens: number;
-  outputTokens: number;
-  elapsedMs: number;
-}
-
-/**
- * The title layout call (AUTO-209): the vision model looks at the FINISHED,
- * checked picture and chooses where the title goes, from the vocabulary in
- * title-layout.ts, through a response schema so the answer is always one of
- * the names. It is told the title only so it knows how long it is; it is
- * never asked to write it. Null when the call failed or answered nothing
- * usable: the placement is then chosen from the picture in code.
- */
-export async function askTitleLayout(
-  image: GeminiImageInput,
-  title: string,
-  timeoutMs = TITLE_LAYOUT_TIMEOUT_MS,
-  intendedRoom: TitleRoomSide | null = null,
-): Promise<{ answer: TitleLayoutAnswer; usage: TitleLayoutUsage } | null> {
-  const { system, user } = buildTitleLayoutPrompt(title, intendedRoom);
-  try {
-    const result = await generateJsonFromImages<unknown>({
-      system,
-      user,
-      images: [image],
-      maxOutputTokens: 512,
-      // A little warmth, so two similar pictures do not always get the same corner.
-      temperature: 0.4,
-      timeoutMs,
-      responseSchema: TITLE_LAYOUT_RESPONSE_SCHEMA,
-    });
-    const answer = parseTitleLayoutAnswer(result.data);
-    if (!answer.productBox && !answer.calmSide) return null;
-    return {
-      answer,
-      usage: { model: result.model, promptTokens: result.usage.promptTokens, outputTokens: result.usage.outputTokens + result.usage.thoughtTokens, elapsedMs: result.elapsedMs },
-    };
-  } catch (err) {
-    if (err instanceof GeminiError) return null;
-    throw err;
-  }
-}
-
 /** One Geiger product photo as inline data for the model; null on any failure. Only the Geiger host is ever fetched. */
-export async function fetchReferencePhoto(url: string): Promise<GeminiImageInput | null> {
+export async function fetchReferencePhoto(url: string): Promise<PictureInput | null> {
   const target = geigerReferenceUrl(url);
   if (!target) return null;
   try {
@@ -483,9 +443,8 @@ function errorText(err: unknown): string {
 
 /**
  * A model failure as Patrick reads it in the notes (AUTO-207): the first
- * sentence only ("Image request failed (404)."), never Google's raw error
- * body, which the forced-failure proof showed reaching the Studio dialog as
- * JSON. The full message still goes to the log.
+ * sentence only ("Image request failed (404)."), never a raw error body. The
+ * full message still goes to the log.
  */
 export function shortFailure(message: string): string {
   const first = message.split(/(?<=[.!?])\s/)[0] ?? message;
@@ -519,19 +478,21 @@ export async function resolveHeaderImage(input: ResolveHeaderImageInput, deps: H
   const log = input.log ?? (() => {});
   const startedAt = deps.now();
   const remaining = () => HEADER_IMAGE_BUDGET_MS - (deps.now() - startedAt);
+  const mode: HeaderImageMode = input.mode === 'instruction' || input.mode === 'edit' ? input.mode : 'ladder';
   const order: HeaderImageSource[] = ['ai', 'library', 'product'];
   const from = order.indexOf(input.source);
-  const steps = order.slice(from === -1 ? 0 : from);
+  // Patrick's own instruction is an AI picture or nothing: no stand-in is ever put in its place.
+  const steps = mode === 'ladder' ? order.slice(from === -1 ? 0 : from) : (['ai'] as HeaderImageSource[]);
 
   // AUTO-207: a product that only makes sense on a phone or a laptop is not
-  // drawn at all (the device rule would leave an empty frame); the library,
-  // then the product photo, take over.
-  const mounted = deviceMountedRoot(input.rootSlugs);
+  // drawn by the ladder (the library, then the product photo, take over).
+  // With his own instruction Patrick has said what he wants, so it is drawn.
+  const mounted = mode === 'ladder' ? deviceMountedRoot(input.rootSlugs) : null;
 
   for (const step of steps) {
     if (step === 'ai' && mounted) {
       notes.push(
-        `products in the "${mounted}" category only make sense on a phone or a laptop, which a header picture may not show, so the AI does not draw one; a picture for this category in the header image library (Global Settings) is used instead when there is one`,
+        `products in the "${mounted}" category only make sense on a phone or a laptop, so the AI does not draw one on its own; a picture for this category in the header image library (Global Settings) is used instead when there is one`,
       );
       log(`[header-image] device-mounted root ${mounted}: AI skipped`);
       continue;
@@ -539,7 +500,7 @@ export async function resolveHeaderImage(input: ResolveHeaderImageInput, deps: H
     if (step === 'ai') {
       let made: HeaderImageOutcome | null = null;
       try {
-        made = await aiStep(input, deps, notes, remaining, log);
+        made = await aiStep(input, mode, deps, notes, remaining, log);
       } catch (err) {
         // The belt: aiStep catches its own effects; this catches a fault in the chain itself.
         notes.push(`the image step failed: ${errorText(err)}`);
@@ -569,6 +530,7 @@ export async function resolveHeaderImage(input: ResolveHeaderImageInput, deps: H
 
 async function aiStep(
   input: ResolveHeaderImageInput,
+  mode: HeaderImageMode,
   deps: HeaderImageDeps,
   notes: string[],
   remaining: () => number,
@@ -580,336 +542,386 @@ async function aiStep(
     return null;
   }
   if (!deps.keyConfigured()) {
-    notes.push('the AI image service is not set up (GOOGLE_GEMINI_API_KEY is missing on the server), so no image was generated');
+    notes.push('the picture checker is not set up (GOOGLE_GEMINI_API_KEY is missing on the server), and no picture is used unread, so none was generated');
     return null;
   }
 
+  const instruction = cleanInstruction(input.instruction);
+  if (mode !== 'ladder' && !instruction) {
+    notes.push('no instruction was given, so no picture was made');
+    return null;
+  }
+  const priorEdits = editCountOf(input.editCount);
+  if (mode === 'edit') {
+    if (!input.editBase) {
+      notes.push('there is no generated picture on this post to change');
+      return null;
+    }
+    if (priorEdits >= MAX_HEADER_EDITS_IN_A_ROW) {
+      notes.push(
+        `this picture has already been changed ${priorEdits} times in a row, and every change redraws the whole picture from the last one, so it gets a little rougher each time; make a new picture instead`,
+      );
+      return null;
+    }
+  }
+  // The rung this picture is drawn on (the ladder), or the rung the post stays on (his own instruction does not move the ladder).
+  const rung: HeaderRung = mode === 'ladder' ? nextRung(input.previousRung) : (rungOf(input.previousRung) ?? 1);
+  const keptRung = mode === 'ladder' ? rung : rungOf(input.previousRung);
+
+  // WHICH MODEL DRAWS. The main one, unless it has no key; and the backup one
+  // takes over INSIDE THIS LOOP, under the same prompt, photos and gates, when
+  // the main one fails on the first attempt of the ladder (Ali, 2026-11-15).
+  let engine: 'main' | 'backup' = 'main';
+  let mainFailed = false;
+  if (!deps.openAiConfigured()) {
+    notes.push('the main image service is not set up (OPENAI_API_KEY is missing on the server)');
+    // Patrick's own instruction is drawn by the main model or not at all.
+    if (mode !== 'ladder') return null;
+    engine = 'backup';
+  }
+
+  // The product photos are gathered ONCE, after the first cap slot is held (nothing is spent before the cap).
+  let photos: ScreenedPhoto[] | null = null;
+  let images: PictureInput[] = mode === 'edit' ? [input.editBase as PictureInput] : [];
+  let photoCounts: HeaderImageUsage['photos'] = null;
+  const brandContext = { title: input.title, products: input.products.map((p) => ({ name: p.name, brand: p.brand ?? null })) };
+  let retry: BriefRetry | null = null;
   let previousProblem: string | null = null;
   let attempts = 0;
-  // AUTO-210: the look the post has now, so a regenerate takes the next one.
-  const previousLook = previousLookOf(input.previousTreatment);
-  // AUTO-209: the third of the frame kept calm for the title, only when the
-  // title will actually be put on the picture (no compose step, no request).
-  // AUTO-211: the top when the next look is the headline, else a side.
-  const titleRoom: TitleRoomSide | null = deps.composeTitle ? titleRoomSideFor(input.slug || input.title, previousLook) : null;
-  let usage: HeaderImageUsage | undefined;
-  let references: GeminiImageInput[] | null = null;
-  let names: string[] = [];
-  let planned: PlannedScene | null | undefined;
-  /** The model the next attempt draws with (AUTO-207: the main model, then the backup after a failure). */
-  let model = GEMINI_IMAGE_MODEL;
-  /** Why the main model's attempt produced no picture, when the next attempt is the backup's. */
-  let modelFailure: string | null = null;
+  let usdTotal = 0;
+  let imageTokens = 0;
+  let promptTokens = 0;
+  let elapsedMs = 0;
 
   while (attempts < 2) {
-    if (attempts > 0) {
-      // The second attempt (AUTO-207). After a FAILURE the backup model
-      // draws (twice as fast); after a REFUSAL the main model draws again,
-      // or the backup when there is no longer time for the main one.
-      if (modelFailure) {
-        if (remaining() < HEADER_IMAGE_FALLBACK_MIN_REMAINING_MS) {
-          notes.push(`the image model failed (${modelFailure}), and there was no time left in the image budget for the backup model`);
-          return null;
-        }
-        model = GEMINI_IMAGE_FALLBACK_MODEL;
-      } else if (remaining() >= HEADER_IMAGE_RETRY_MIN_REMAINING_MS) {
-        model = GEMINI_IMAGE_MODEL;
-      } else if (remaining() >= HEADER_IMAGE_FALLBACK_MIN_REMAINING_MS) {
-        model = GEMINI_IMAGE_FALLBACK_MODEL;
-      } else {
-        notes.push(`the first picture showed ${previousProblem}, and there was no time left in the image budget for a second attempt`);
-        return null;
-      }
+    // A redraw of a refused picture needs time for a whole picture. (The backup model taking over is checked where it takes over.)
+    if (attempts > 0 && previousProblem && remaining() < HEADER_IMAGE_RETRY_MIN_REMAINING_MS) {
+      notes.push(`the first picture ${previousProblem}, and there was no time left in the image budget to draw it again`);
+      return null;
     }
 
-    // The cap, before anything else is spent on this attempt.
+    // The cap of the model that draws, before anything is sent on this attempt.
     let reservation: BlogImageReservation;
     try {
-      reservation = await deps.reserve(new Date(deps.now()));
+      reservation = engine === 'main' ? await deps.reserveOpenAi(new Date(deps.now())) : await deps.reserve(new Date(deps.now()));
     } catch (err) {
       notes.push(`the daily-limit counter could not be reached (${errorText(err)}), so no image was generated`);
       return null;
     }
     if (reservation.ok === false) {
-      const first = previousProblem ? `the first picture showed ${previousProblem}, and ` : modelFailure ? `the image model failed (${modelFailure}), and ` : '';
-      notes.push(`${first}${reservation.message}`);
+      notes.push(`${previousProblem ? `the first picture ${previousProblem}, and ` : ''}${reservation.message}`);
       return null;
     }
     attempts += 1;
 
-    // The reference photos, once, in parallel, inside the budget.
-    if (references === null) {
-      const candidates = pickReferenceProducts(input.products, undefined, input.topic);
-      if (candidates.length === 0 && pickReferenceProducts(input.products).length > 0) {
-        notes.push("none of the post's product photos matched the topic, so the picture was drawn from the title alone");
-      }
-      const fetched = await Promise.all(
-        candidates.map(async (p) => {
-          try {
-            return { p, img: await withDeadline(deps.fetchReference(p.imageUrl as string), Math.min(REFERENCE_FETCH_TIMEOUT_MS, remaining()), `the photo of ${p.sku}`) };
-          } catch (err) {
-            log(`[header-image] reference fetch failed for ${p.sku}: ${errorText(err)}`);
-            return { p, img: null };
-          }
-        }),
-      );
-      references = [];
-      names = [];
-      for (const { p, img } of fetched) {
-        if (img) {
-          references.push(img);
-          names.push(p.name);
-        }
-      }
-    }
-
-    // The scene, once per picture (AUTO-203), from the photos (AUTO-207). A
-    // planner that fails is asked ONCE more; a second failure is said LOUDLY
-    // (an error line in the server log and a note on the outcome), and the
-    // picture is drawn from the standard composition, which carries the same
-    // count and state rule and the same no-signs rule as a plan does, so it
-    // is never weaker than a planned picture on either.
-    if (planned === undefined) {
-      planned = null;
-      let failure: 'malformed' | 'unavailable' = 'unavailable';
-      let detail = '';
-      let tries = 0;
-      for (let p = 1; p <= PLANNER_ATTEMPTS; p += 1) {
-        if (p > 1 && remaining() < PLAN_TIMEOUT_MS + HEADER_IMAGE_RETRY_MIN_REMAINING_MS) break;
-        tries = p;
-        try {
-          const got = await withDeadline(
-            deps.plan({ title: input.title, topic: input.topic, productNames: names, references, titleRoom }),
-            Math.min(PLAN_TIMEOUT_MS, remaining()),
-            'the scene planner',
-          );
-          if (got) {
-            planned = got;
-            break;
-          }
-          failure = 'unavailable';
-          detail = 'no answer';
-        } catch (err) {
-          failure = err instanceof PlannerAnswerError ? 'malformed' : 'unavailable';
-          detail = errorText(err);
-        }
-        logError(
-          `[header-image] SCENE PLANNER ${failure === 'malformed' ? 'ANSWERED WITH NO USABLE PLAN' : 'UNAVAILABLE'} (try ${p} of ${PLANNER_ATTEMPTS}) for "${input.topic}": ${detail}`,
-        );
-      }
-      if (!planned) {
+    // The photos (not for a change to the current picture: the picture itself is the input).
+    if (photos === null && mode !== 'edit') {
+      photos = await gatherPhotos(input, deps, remaining, log);
+      const picked = selectPhotos(photos);
+      images = picked.sent.map((p) => p.image);
+      photoCounts = picked.counts;
+      if (picked.brands.length > 0) {
         notes.push(
-          `the scene planner ${failure === 'malformed' ? 'answered with a plan that could not be read' : 'was unavailable'} (${tries === 1 ? 'one try' : `${tries} tries`}: ${detail}), so the picture was drawn from the standard composition (one to three items in a plain setting, no signs or screens); look at it before publishing`,
-        );
-      } else {
-        log(
-          `[header-image] plan surface="${planned.scene.surface}" setting="${planned.scene.setting}" arrangement="${planned.scene.arrangement}" productText="${planned.scene.productText}" avoid="${planned.scene.avoid}" tokens=${planned.usage.promptTokens}+${planned.usage.outputTokens} ms=${planned.usage.elapsedMs}`,
+          `${picked.counts.brand === 1 ? 'one product photo was' : `${picked.counts.brand} product photos were`} left out of the picture because ${picked.counts.brand === 1 ? 'its' : 'their'} sample logo is a well known brand (${picked.brands.join(', ')})`,
         );
       }
+      if (picked.sent.length === 0) {
+        notes.push(
+          `${photos.length === 0 ? 'the post has no product photo to send' : 'that left no product photo to send'}, so the picture was drawn from the title alone: the products on it are the image model's own, not items from the catalogue, so look at it before publishing`,
+        );
+      } else if (picked.nearest) {
+        notes.push(
+          `none of the post's product photos showed the post's subject itself, so its nearest products were used instead (${picked.sent.map((p) => p.product.name.replace(/\s+/g, ' ').trim()).join(', ')}): look at the picture before publishing`,
+        );
+      }
+      log(
+        `[header-image] photos fetched=${picked.counts.fetched} brand=${picked.counts.brand} offSubject=${picked.counts.offSubject} sent=${picked.counts.sent}${picked.nearest ? ' (nearest)' : ''}${picked.sent.length ? ` (${picked.sent.map((p) => p.product.sku).join(', ')})` : ''}`,
+      );
     }
-    const scene = planned?.scene ?? null;
-    // AUTO-207, the overshoot: the image model is sent ONLY the photo(s) the
-    // plan's arrangement shows (four different photos made it draw one of
-    // each, whatever the words said); with no plan, the first photo alone.
-    const pick = scene ? photosForPicture(scene.photos, references.length) : references.length > 0 ? [0] : [];
-    const drawRefs = pick.map((i) => (references as GeminiImageInput[])[i]);
-    const drawNames = pick.map((i) => names[i]);
-    if (attempts === 1 && references.length > 0) log(`[header-image] photos sent to the image model: ${pick.map((i) => i + 1).join(', ')} of ${references.length}`);
-    const checkContext: ImageCheckContext = { topic: input.topic, productNames: drawNames, productText: scene?.productText ? scene.productText : null };
 
-    const perModel = model === GEMINI_IMAGE_MODEL ? HEADER_IMAGE_GENERATE_TIMEOUT_MS : HEADER_IMAGE_FALLBACK_GENERATE_TIMEOUT_MS;
-    const timeoutMs = Math.max(5_000, Math.min(perModel, remaining() - AFTER_GENERATION_RESERVE_MS));
+    const prompt =
+      mode === 'edit'
+        ? buildEditBrief({ title: input.title, instruction, retry })
+        : mode === 'instruction'
+          ? buildInstructionBrief({ title: input.title, instruction, photos: images.length, retry })
+          : // The backup model is sent Patrick's two lines whatever the rung: the one prompt measured on it.
+            buildHeaderBrief({ title: input.title, rung: engine === 'backup' ? 1 : rung, photos: images.length, retry });
+    const timeoutMs = Math.max(5_000, Math.min(engine === 'main' ? HEADER_IMAGE_GENERATE_TIMEOUT_MS : HEADER_IMAGE_FALLBACK_GENERATE_TIMEOUT_MS, remaining() - AFTER_GENERATION_RESERVE_MS));
     let picture: GeneratedPicture;
     try {
-      picture = await withDeadline(
-        deps.generate({
-          prompt: buildHeaderImagePrompt({ title: input.title, topic: input.topic, productNames: drawNames, scene, previousProblem, titleRoom }),
-          references: drawRefs,
-          timeoutMs,
-          model,
-        }),
-        timeoutMs + 1_000,
-        'the image model',
-      );
+      picture = await (engine === 'main'
+        ? withDeadline(deps.draw({ prompt, images, timeoutMs }), timeoutMs + 1_000, 'the image model')
+        : withDeadline(deps.generate({ prompt, references: images, timeoutMs, model: GEMINI_IMAGE_MODEL }), timeoutMs + 1_000, 'the backup image model'));
     } catch (err) {
       const why = errorText(err);
-      log(`[header-image] generate failed on ${model} (attempt ${attempts}): ${why}`);
-      // AUTO-207: a failure of the main model (an HTTP error, a 503, a
-      // timeout, an answer with no picture) is handed to the backup model
-      // once; it never stops the draft either way.
-      if (attempts < 2 && !previousProblem && model !== GEMINI_IMAGE_FALLBACK_MODEL) {
-        modelFailure = shortFailure(why);
+      log(`[header-image] ${engine} draw failed (attempt ${attempts}): ${why}`);
+      if (engine === 'backup') {
+        notes.push(`${previousProblem ? `the first picture ${previousProblem}, and then ` : ''}the backup image model failed${mainFailed ? ' too' : ''}: ${shortFailure(why)}`);
+        return null;
+      }
+      // The main model FAILED (an HTTP error, a timeout, no picture). On the
+      // first attempt of the ladder the backup model takes over, in this same
+      // loop; it is not asked to follow an instruction or change a picture,
+      // and it is never a third attempt.
+      if (attempts === 1 && mode === 'ladder') {
+        notes.push(`the main image model failed (${shortFailure(why)})`);
+        if (remaining() < HEADER_IMAGE_FALLBACK_MIN_REMAINING_MS) {
+          notes.push('there was no time left in the image budget for the backup image model');
+          return null;
+        }
+        mainFailed = true;
+        engine = 'backup';
         continue;
       }
-      notes.push(
-        `${previousProblem ? `the first picture showed ${previousProblem}, and then ` : modelFailure ? `the image model failed (${modelFailure}), and then ` : ''}the ${model === GEMINI_IMAGE_FALLBACK_MODEL && modelFailure ? 'backup ' : ''}image model failed: ${shortFailure(why)}`,
-      );
+      notes.push(`${previousProblem ? `the first picture ${previousProblem}, and then ` : ''}the image model failed: ${shortFailure(why)}`);
       return null;
     }
-    usage = {
-      model: picture.usage.model,
-      imageTokens: (usage?.imageTokens ?? 0) + picture.usage.imageTokens,
-      promptTokens: (usage?.promptTokens ?? 0) + picture.usage.promptTokens,
-      elapsedMs: (usage?.elapsedMs ?? 0) + picture.usage.elapsedMs,
-      attempts,
-      capUsed: reservation.used,
-      cap: reservation.cap,
-      planner: planned ? planned.usage : null,
-      scene,
-    };
+    usdTotal += picture.usage.usd ?? 0;
+    imageTokens += picture.usage.imageTokens;
+    promptTokens += picture.usage.promptTokens;
+    elapsedMs += picture.usage.elapsedMs;
     log(
-      `[header-image] ${picture.usage.model} attempt=${attempts} references=${drawRefs.length}/${references.length} imageTokens=${picture.usage.imageTokens} promptTokens=${picture.usage.promptTokens} ms=${picture.usage.elapsedMs} cap=${reservation.used}/${reservation.cap}`,
+      `[header-image] ${picture.usage.model} ${engine === 'backup' ? 'backup' : mode}${mode === 'ladder' ? ` rung=${rung}` : ''} attempt=${attempts} images=${images.length} imageTokens=${picture.usage.imageTokens} promptTokens=${picture.usage.promptTokens} ms=${picture.usage.elapsedMs} cap=${reservation.used}/${reservation.cap}`,
     );
 
-    // The reads, in parallel, the worst answer winning (AUTO-204).
-    const pictureInput: GeminiImageInput = { mimeType: picture.mimeType, base64: picture.base64 };
-    const checkDeadline = Math.min(CHECK_TIMEOUT_MS, remaining());
-    const reads = await Promise.all(
-      Array.from({ length: IMAGE_CHECK_READS }, async (): Promise<ImageCheck | null> => {
+    // THE GATES, the same whichever model drew: the title and the brand read-back, all reads in parallel.
+    const pictureInput: PictureInput = { mimeType: picture.mimeType, base64: picture.base64 };
+    const readInventories = (): Promise<(PictureInventory | null)[]> =>
+      Promise.all(
+        Array.from({ length: PICTURE_INVENTORY_READS }, async (): Promise<PictureInventory | null> => {
+          try {
+            return await withDeadline(deps.readInventory(pictureInput), Math.min(READ_TIMEOUT_MS, remaining()), 'the picture read');
+          } catch (err) {
+            log(`[header-image] picture read unavailable: ${errorText(err)}`);
+            return null;
+          }
+        }),
+      );
+    // Started first and awaited second, so the title reads and the inventories run side by side.
+    const titleReading = Promise.all(
+      Array.from({ length: TITLE_GATE_READS }, async (): Promise<string | null> => {
         try {
-          return await withDeadline(deps.check(pictureInput, checkContext), checkDeadline, 'the text-and-logo check');
+          return await withDeadline(deps.readTitle(pictureInput), Math.min(READ_TIMEOUT_MS, remaining()), 'the title read');
         } catch (err) {
-          log(`[header-image] check unavailable: ${errorText(err)}`);
+          log(`[header-image] title read unavailable: ${errorText(err)}`);
           return null;
         }
       }),
     );
-    let problem = worstImageCheckProblem(reads);
-    if (reads.every((r) => r === null)) notes.push('the text-and-logo check was unavailable, so the picture was accepted unchecked; look at it before publishing');
-    // AUTO-212: a blank band painted into the photograph (the "pale bars") is refused like a failed read, and the
-    // retry is told why. Pixels only; a failure to measure accepts the picture.
-    if (!problem && deps.paintedBand) {
-      try {
-        const band = await deps.paintedBand(pictureInput);
-        if (band) problem = `a blank pale band painted across the ${band.edge === 'top' ? 'top' : `${band.edge} side`} of the photograph (${Math.round(band.share * 100)}% of it) instead of the softly blurred setting`;
-      } catch (err) {
-        log(`[header-image] band test unavailable: ${errorText(err)}`);
-      }
+    let inventories = await readInventories();
+    const titleReads = await titleReading;
+    const gate = titleGate(titleReads, input.title);
+    if (gate.answered === 0) {
+      // The reader is down: the title cannot be vouched for, and a second picture could not be read either.
+      notes.push('the picture was drawn but could not be read back (the reading model did not answer), and no picture is used unread, so it was not used');
+      logError(`[header-image] NO TITLE READ CAME BACK for "${input.title}": the picture was not used`);
+      return null;
     }
-    // AUTO-209: the title layout call looks at the picture the full reads
-    // passed, BESIDE the close look below, so it costs only what it takes
-    // beyond it. Its answer is used only if the close look passes too.
-    const layoutCall =
-      !problem && deps.chooseTitleLayout
-        ? withDeadline(deps.chooseTitleLayout(pictureInput, input.title, titleRoom), Math.min(TITLE_LAYOUT_TIMEOUT_MS, remaining()), 'the title layout call').catch((err) => {
-            log(`[header-image] title layout call unavailable: ${errorText(err)}`);
-            return null;
-          })
-        : Promise.resolve(null);
-    // The tile pass (AUTO-205): six close looks, one per region, in parallel,
-    // only on a picture the full reads passed; any logo seen refuses it like
-    // a failed read. A region whose call failed is left out.
-    if (!problem && deps.checkRegion) {
-      const tileDeadline = Math.min(CHECK_TIMEOUT_MS, remaining());
-      const tiles = await Promise.all(
-        TILE_REGIONS.map(async (region): Promise<TileCheck | null> => {
-          try {
-            return await withDeadline(deps.checkRegion!(pictureInput, region), tileDeadline, `the close look at the ${region}`);
-          } catch (err) {
-            log(`[header-image] tile pass unavailable (${region}): ${errorText(err)}`);
-            return null;
-          }
-        }),
-      );
-      problem = tilePassProblem(tiles);
-      if (problem) log(`[header-image] tile pass refused attempt ${attempts}: ${problem}`);
+    // A brand check that got NO answer is asked ONCE more (Ali, 2026-11-15),
+    // never in a loop, and not for a picture the title gate has already refused.
+    if (gate.passed && inventories.every((r) => r === null)) {
+      log('[header-image] no picture read came back: asking once more');
+      inventories = await readInventories();
     }
-    const layout = await layoutCall;
+    const brandCheckMade = inventories.some((r) => r !== null);
+    const brand = pictureBrandProblem(inventories, brandContext);
+    let problem: string | null = null;
+    if (!gate.passed) problem = `did not carry the title exactly${gate.misread ? ` (it read "${gate.misread}")` : ''}`;
+    else if (brand) problem = `showed the name of a well known brand (${brand})`;
+    log(`[header-image] gates attempt=${attempts} title=${gate.exact}/${gate.answered} exact brand=${brand ?? 'none'}${brandCheckMade ? '' : ' (brand check NOT made)'}`);
     if (problem) {
-      log(`[header-image] check refused attempt ${attempts}: ${problem}`);
       if (attempts >= 2) {
+        // Two pictures refused; or the main model failed and the backup model's one picture was refused.
         notes.push(
-          modelFailure && !previousProblem
-            ? `the image model failed (${modelFailure}), and the backup model's picture showed ${problem}, so it was not used`
-            : `both generated pictures were refused, so neither was used: the first showed ${previousProblem}; the second showed ${problem}`,
+          previousProblem
+            ? `both pictures were refused, so neither was used: the first ${previousProblem}; the second ${problem}`
+            : `the backup model's picture ${problem}, so it was not used`,
         );
         return null;
       }
       previousProblem = problem;
+      retry = { title: !gate.passed, brand: gate.passed ? brand : null };
       continue;
     }
-
-    // AUTO-209: the post's title, drawn by code onto the CHECKED picture. The
-    // order is the point: every read and the close look above saw the picture
-    // with no title on it, because the check refuses display text and would
-    // refuse our own title; the forbidden list is enforced on what the image
-    // model drew, and only then are our title and our logo added. The image
-    // model never draws the title. The title never costs the picture: if it
-    // cannot be drawn (no time, a character the font lacks, a drawing fault),
-    // the picture is stored untitled and the note says why.
-    let titled: ComposedTitle | null = null;
-    if (deps.composeTitle) {
-      const room = remaining() - TITLE_UPLOAD_RESERVE_MS;
-      if (room < 1_000) {
-        notes.push('there was no time left in the image budget to put the title on the picture, so it is stored without the title; press Generate another header image to try again');
-      } else {
-        try {
-          titled = await withDeadline(
-            deps.composeTitle({ picture: pictureInput, title: input.title, answer: layout?.answer ?? null, seed: input.slug || input.title, previous: previousLook, room: titleRoom }),
-            Math.min(TITLE_COMPOSE_TIMEOUT_MS, room),
-            'putting the title on the picture',
-          );
-          if (!titled) {
-            const missing = undrawableCharacters(input.title);
-            notes.push(
-              missing.length > 0
-                ? `the title has a character the title font cannot draw (${missing.join(' ')}), so the picture is stored without a title rather than with a wrong one`
-                : 'the post has no title to put on the picture, so it is stored without one',
-            );
-          }
-        } catch (err) {
-          logError(`[header-image] THE TITLE COULD NOT BE DRAWN for "${input.topic}": ${errorText(err)}`);
-          notes.push(`the title could not be put on the picture (${shortFailure(errorText(err))}), so it is stored without the title`);
-          titled = null;
-        }
-      }
+    if (!brandCheckMade) {
+      // The picture is KEPT; `usage.brandCheckMade` is what holds the post as a draft in publish mode.
+      notes.push('the brand check of the picture could not be made (the reading model did not answer it, asked twice); look at the logos on it before publishing');
+      logError(`[header-image] NO BRAND CHECK CAME BACK for "${input.title}", asked twice: the picture is kept and the post is not to publish itself`);
     }
 
-    try {
-      let image: SanityImageValue;
-      if (titled) {
-        const photoName = headerImageFilename(input.slug, attempts, 'photo').replace(/\.jpg$/, picture.mimeType === 'image/png' ? '.png' : '.jpg');
-        const [assetId, photoId] = await Promise.all([
-          withDeadline(deps.upload(titled.bytes, headerImageFilename(input.slug, attempts, 'titled'), titled.mimeType), remaining(), 'saving the picture'),
-          // The untitled original, so a change of title can be redrawn for free. Not needed for the post itself.
-          withDeadline(deps.upload(picture.bytes, photoName, picture.mimeType), remaining(), 'saving the untitled copy').catch((err) => {
-            log(`[header-image] untitled copy not saved: ${errorText(err)}`);
-            return null;
-          }),
-        ]);
-        image = {
-          ...imageValueFor(assetId, titledHeaderImageAlt(titled.plan.title, input.topic)),
-          titleOnImage: titled.plan.title,
-          titleTreatment: JSON.stringify(storedTreatmentOf(titled.plan, layout?.answer ?? null)),
-        };
-        if (photoId) image.untitledImage = { _type: 'image', asset: { _type: 'reference', _ref: photoId } };
-        else notes.push('the untitled copy of the picture could not be saved, so a later change of title will need a new picture');
-        if (usage) {
-          usage.title = {
-            layout: titled.plan.layout,
-            previous: titled.plan.previous,
-            contrast: titled.plan.contrast,
-            size: titled.plan.text.size,
-            lines: titled.plan.text.lines.length,
-            composeMs: titled.ms,
-            layoutCall: layout?.usage ?? null,
-          };
-        }
-        log(
-          `[header-image] title ${titled.plan.layout}${titled.plan.previous ? ` (after ${titled.plan.previous})` : ''} size=${titled.plan.text.size} lines=${titled.plan.text.lines.length} contrast=${titled.plan.contrast}${titled.plan.measured ? '' : ' (not measured)'} calm=${layout?.answer.calmSide ?? 'none'} product=${layout?.answer.productBox ? 'located' : 'none'} ms=${titled.ms}${titled.plan.reasons.length ? ` (${titled.plan.reasons.join('; ')})` : ''}`,
-        );
-      } else {
-        const assetId = await withDeadline(deps.upload(picture.bytes, headerImageFilename(input.slug, attempts), picture.mimeType), remaining(), 'saving the picture');
-        image = imageValueFor(assetId, headerImageAlt(input.topic));
-      }
-      if (attempts > 1 && previousProblem) notes.push(`the first picture showed ${previousProblem} and was replaced`);
-      if (attempts > 1 && modelFailure && !previousProblem) notes.push(`the image model failed (${modelFailure}), so the backup model drew this picture`);
-      return { kind: 'asset', source: 'ai', image, notes, usage };
-    } catch (err) {
-      notes.push(`the generated picture could not be saved: ${errorText(err)}`);
-      log(`[header-image] upload failed: ${errorText(err)}`);
-      return null;
-    }
+    const usage: HeaderImageUsage = {
+      model: picture.usage.model,
+      imageTokens,
+      promptTokens,
+      elapsedMs,
+      attempts,
+      capUsed: reservation.used,
+      cap: reservation.cap,
+      usd: Math.round(usdTotal * 10000) / 10000,
+      mode: engine === 'backup' ? 'fallback' : mode,
+      ...(mode === 'ladder' ? { rung } : {}),
+      titleReads: { answered: gate.answered, exact: gate.exact },
+      photos: photoCounts,
+      brandCheckMade,
+    };
+    const stored = await stampAndStore({
+      input,
+      deps,
+      notes,
+      remaining,
+      log,
+      logError,
+      picture,
+      attempt: attempts,
+      usage,
+      value: (assetRef, unmarkedRef) => {
+        const image: SanityImageValue = { ...imageValueFor(assetRef, drawnHeaderAlt(input.title, input.topic)), titleOnImage: input.title.replace(/\s+/g, ' ').trim() };
+        if (keptRung) image.ladderRung = keptRung;
+        if (mode === 'edit') image.editCount = priorEdits + 1;
+        image.unmarkedImage = { _type: 'image', asset: { _type: 'reference', _ref: unmarkedRef } };
+        return image;
+      },
+    });
+    if (!stored) return null;
+    if (attempts > 1 && previousProblem) notes.push(`the first picture ${previousProblem} and was drawn again`);
+    if (engine === 'backup') notes.push(`the backup image model drew this picture${mainFailed ? '; press Generate another header image to try the main model again' : ''}`);
+    return stored;
   }
   return null;
+}
+
+interface StoreArgs {
+  input: ResolveHeaderImageInput;
+  deps: HeaderImageDeps;
+  notes: string[];
+  remaining: () => number;
+  log: (line: string) => void;
+  logError: (line: string) => void;
+  picture: GeneratedPicture;
+  attempt: number;
+  usage: HeaderImageUsage;
+  /** The value written onto the post, from the header asset and the unmarked copy's asset. */
+  value: (assetRef: string, unmarkedRef: string) => SanityImageValue;
+}
+
+/**
+ * The mark and the upload, the same for every picture whichever model drew
+ * it. The mark never costs the picture: when it cannot be stamped (no time
+ * left, a drawing fault) the picture is stored as the model drew it and the
+ * note says so. Null when the picture could not be saved.
+ */
+async function stampAndStore(a: StoreArgs): Promise<HeaderImageOutcome | null> {
+  const { input, deps, notes, remaining, log, logError, picture, attempt, usage } = a;
+  const pictureInput: PictureInput = { mimeType: picture.mimeType, base64: picture.base64 };
+  let stamped: StampedPicture | null = null;
+  if (deps.stamp) {
+    const room = remaining() - UPLOAD_RESERVE_MS;
+    if (room < 1_000) {
+      notes.push('there was no time left in the image budget to put the P! mark on the picture, so it is stored without it; press Generate another header image for a new one');
+    } else {
+      try {
+        stamped = await withDeadline(deps.stamp(pictureInput), Math.min(STAMP_TIMEOUT_MS, room), 'stamping the P! mark');
+      } catch (err) {
+        logError(`[header-image] THE P! MARK COULD NOT BE STAMPED for "${input.topic}": ${errorText(err)}`);
+        notes.push(`the P! mark could not be put on the picture (${shortFailure(errorText(err))}), so it is stored without it`);
+      }
+    }
+  }
+  try {
+    let assetId: string;
+    let unmarkedId: string;
+    if (stamped) {
+      [assetId, unmarkedId] = await Promise.all([
+        withDeadline(deps.upload(stamped.bytes, headerImageFilename(input.slug, attempt, 'stamped'), stamped.mimeType), remaining(), 'saving the picture'),
+        withDeadline(deps.upload(picture.bytes, headerImageFilename(input.slug, attempt, 'photo', picture.mimeType), picture.mimeType), remaining(), 'saving the copy without the mark'),
+      ]);
+      usage.mark = { corner: stamped.placement.corner, variant: stamped.placement.variant, ms: stamped.ms };
+      log(`[header-image] mark ${stamped.placement.corner} ${stamped.placement.variant}${stamped.placement.halo ? ` outline=${stamped.placement.halo}` : ''} contrast=${stamped.placement.contrast} busyness=${stamped.placement.busyness} ms=${stamped.ms}`);
+    } else {
+      // No mark: the one stored picture is also the copy without the mark.
+      assetId = await withDeadline(deps.upload(picture.bytes, headerImageFilename(input.slug, attempt, 'plain', picture.mimeType), picture.mimeType), remaining(), 'saving the picture');
+      unmarkedId = assetId;
+      usage.mark = null;
+    }
+    return { kind: 'asset', source: 'ai', image: a.value(assetId, unmarkedId), notes, usage };
+  } catch (err) {
+    notes.push(`the generated picture could not be saved: ${errorText(err)}`);
+    log(`[header-image] upload failed: ${errorText(err)}`);
+    return null;
+  }
+}
+
+/** A fetched product photo with what the screen said about it. */
+interface ScreenedPhoto {
+  product: ReferenceProduct;
+  image: PictureInput;
+  /** A well known brand the photo carries that is not the product's own. */
+  brand: string | null;
+  /**
+   * True when the photo is not sent as the post's subject: the reader said
+   * it is another kind of product, or the product's name carries no topic
+   * word and the reader did not say outright that it is the subject.
+   */
+  offSubject: boolean;
+}
+
+/**
+ * The photos the image model is sent, with the counts for the record: no well
+ * known brand, on the subject, the first HEADER_IMAGE_PHOTOS. WHEN NONE IS ON
+ * THE SUBJECT the post's nearest real products are sent instead (Ali,
+ * 2026-11-15): the photos with no well known brand, in the candidates' own
+ * order, which is the products whose name shares a word with the subject
+ * first and then strip order. `nearest` says that happened; a photo left out
+ * for a brand is never brought back by it.
+ */
+function selectPhotos(photos: readonly ScreenedPhoto[]): {
+  sent: ScreenedPhoto[];
+  nearest: boolean;
+  brands: string[];
+  counts: NonNullable<HeaderImageUsage['photos']>;
+} {
+  const branded = photos.filter((p) => p.brand);
+  const clean = photos.filter((p) => !p.brand);
+  const onSubject = clean.filter((p) => !p.offSubject);
+  const nearest = onSubject.length === 0 && clean.length > 0;
+  const sent = (nearest ? clean : onSubject).slice(0, HEADER_IMAGE_PHOTOS);
+  return {
+    sent,
+    nearest,
+    brands: [...new Set(branded.map((p) => p.brand as string))],
+    counts: { fetched: photos.length, brand: branded.length, offSubject: clean.filter((p) => p.offSubject).length, sent: sent.length, ...(nearest ? { nearest: sent.length } : {}) },
+  };
+}
+
+/** Fetch the candidate photos and read each one (layer 1 of the brand screen and the subject check). Never throws. */
+async function gatherPhotos(
+  input: ResolveHeaderImageInput,
+  deps: HeaderImageDeps,
+  remaining: () => number,
+  log: (line: string) => void,
+): Promise<ScreenedPhoto[]> {
+  const candidates = pickPhotoCandidates(input.products, input.topic);
+  const fetched = await Promise.all(
+    candidates.map(async ({ product: p, nameMatch }) => {
+      try {
+        return { p, nameMatch, img: await withDeadline(deps.fetchReference(p.imageUrl as string), Math.min(REFERENCE_FETCH_TIMEOUT_MS, remaining()), `the photo of ${p.sku}`) };
+      } catch (err) {
+        log(`[header-image] reference fetch failed for ${p.sku}: ${errorText(err)}`);
+        return { p, nameMatch, img: null };
+      }
+    }),
+  );
+  const have = fetched.filter((f): f is { p: ReferenceProduct; nameMatch: boolean; img: PictureInput } => f.img !== null);
+  return Promise.all(
+    have.map(async ({ p, nameMatch, img }): Promise<ScreenedPhoto> => {
+      let screen: PhotoScreen | null = null;
+      try {
+        screen = await withDeadline(deps.screenPhoto(img, { productName: p.name, title: input.title, topic: input.topic }), Math.min(PHOTO_SCREEN_TIMEOUT_MS, remaining()), `the read of ${p.sku}'s photo`);
+      } catch (err) {
+        log(`[header-image] photo screen unavailable for ${p.sku}: ${errorText(err)}`);
+      }
+      const verdict = photoScreenVerdict(screen, { name: p.name, brand: p.brand ?? null }, input.title);
+      return { product: p, image: img, brand: verdict.brand, offSubject: nameMatch ? verdict.offSubject : !verdict.onSubject };
+    }),
+  );
 }

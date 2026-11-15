@@ -178,9 +178,17 @@ describe('Generate header image', () => {
     expect(mocks.unused).not.toHaveBeenCalled();
   });
 
-  it('AUTO-210: a generated picture\'s title treatment travels with the request, so the regenerate takes the next look', async () => {
-    const titled = { headerImage: { _type: 'image', asset: { _type: 'reference', _ref: 'image-generated-1376x768-png' }, titleOnImage: 'Custom Tote Bags', untitledImage: { _type: 'image', asset: { _type: 'reference', _ref: 'image-photo-1376x768-jpg' } }, titleTreatment: '{"layout":"panel-left","productBox":null}' } };
-    await render(propsFor({ ...base, ...titled }));
+  it('AUTO-220: the rung the post\'s picture was drawn on travels with the request, so Generate another takes the next treatment', async () => {
+    const drawn = {
+      headerImage: {
+        _type: 'image',
+        asset: { _type: 'reference', _ref: 'image-generated-1536x864-png' },
+        titleOnImage: 'Custom Tote Bags',
+        ladderRung: 2,
+        unmarkedImage: { _type: 'image', asset: { _type: 'reference', _ref: 'image-photo-1536x864-jpg' } },
+      },
+    };
+    await render(propsFor({ ...base, ...drawn }));
     await act(async () => {
       action!.onHandle!();
     });
@@ -189,9 +197,16 @@ describe('Generate header image', () => {
     });
     expect(mocks.authFetch).toHaveBeenCalledTimes(1);
     const [, init] = mocks.authFetch.mock.calls[0] as [string, RequestInit];
-    expect(JSON.parse(init.body as string)).toMatchObject({ source: 'ai', previousTreatment: '{"layout":"panel-left","productBox":null}' });
-    // A post with no generated picture sends none.
-    expect(JSON.parse(JSON.stringify(imageRequestBody(base as never, 'ai')))).not.toHaveProperty('previousTreatment');
+    expect(JSON.parse(init.body as string)).toMatchObject({ source: 'ai', previousRung: 2 });
+    // The picture it replaced AND the copy kept beside it are handed to the guarded removal rule.
+    expect(mocks.afterReplace.mock.calls).toEqual([['image-generated-1536x864-png'], ['image-photo-1536x864-jpg']]);
+    // A post with no generated picture sends no rung (a first picture), and nothing from the retired title stack is ever sent.
+    const first = JSON.parse(JSON.stringify(imageRequestBody(base as never, 'ai')));
+    expect(first).not.toHaveProperty('previousRung');
+    expect(first).not.toHaveProperty('previousTreatment');
+    // An older picture (AUTO-209 to AUTO-212) carries no rung: its Generate another is a first picture, and its old copy without the title goes with it.
+    const old = { headerImage: { _type: 'image', asset: { _type: 'reference', _ref: 'image-old-1376x768-png' }, titleOnImage: 'T', untitledImage: { _type: 'image', asset: { _type: 'reference', _ref: 'image-oldphoto-1376x768-jpg' } }, titleTreatment: '{"layout":"headline","productBox":null}' } };
+    expect(JSON.parse(JSON.stringify(imageRequestBody({ ...base, ...old } as never, 'ai')))).not.toHaveProperty('previousRung');
   });
 
   it('AUTO-207: with no image before, nothing is handed to the removal rule', async () => {
@@ -312,7 +327,8 @@ describe('the notice says each thing once (AUTO-204)', () => {
     const html = htmlOf(dialog);
     expect(count(html, 'The first picture showed a logo or brand mark (Apple logo on laptop) and was replaced.')).toBe(1);
     expect(count(html, 'Look at it before you publish')).toBe(1);
-    expect(html).toContain('logos, brand names and stray words');
+    expect(html).toContain('the logos are checked against a list of well known brands');
+    expect(html).toContain('the list is not every company');
     expect(html).not.toContain('Note:');
     expect(html).not.toContain('stand-in');
     expect(html).toContain('4 of 20 generated header images used today.');

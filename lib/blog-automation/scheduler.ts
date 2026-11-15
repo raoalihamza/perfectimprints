@@ -28,6 +28,12 @@
  *      the published copy with `publishDate` stamped to now, the AUTO-116
  *      rule the Studio's Publish applies, and delete of the draft), so the
  *      post is either live with no draft left or still a complete draft.
+ *      EXCEPT a post whose header picture must not publish itself
+ *      (header-image.ts holdBeforePublishReason; AUTO-220: its brand check
+ *      got no answer, asked twice, or it was drawn from the title alone with
+ *      no product photo): that post is NOT published, the draft is
+ *      left complete, the run finishes as `written` and its first note says
+ *      why, which the digest prints. An unknown never publishes itself.
  *   7. The record: title, words, strips, picture, links, timings, cost.
  *
  * WHAT A FAILURE LEAVES. Before the draft is created, nothing. The create
@@ -45,8 +51,9 @@
  * independent of the others: the schedule fires at most four times a day
  * (schedule.ts); the cap declines once the day holds as many finished runs
  * as slots; a failed slot is retried ONCE, by its second firing, never by a
- * loop inside a firing; and the image cap (20 a day, reserved before every
- * generation, header-image-usage.ts) bounds the dear part. The worst a
+ * loop inside a firing; and the image caps (40 a day on the main model,
+ * openai-image-usage.ts, and 20 a day on the backup, header-image-usage.ts,
+ * each reserved before every generation) bound the dear part. The worst a
  * broken day can spend is four DeepSeek calls (about two cents) and the
  * images those four runs reserve.
  *
@@ -59,7 +66,7 @@ import { claimRunSlot, countFinishedRuns, runDayKey, updateRun, type RunLogClien
 import { estimateRunCost, stripStats, type RunCostEstimate } from './run-cost';
 import { BLOG_POSTS_PER_DAY } from './schedule';
 import type { SchedulerSettings } from './scheduler-settings';
-import { headerImageWhy } from './header-image';
+import { headerImageWhy, holdBeforePublishReason } from './header-image';
 
 export interface SchedulerDeps {
   now: () => Date;
@@ -213,6 +220,9 @@ export async function runScheduledPost(slot: string, deps: SchedulerDeps): Promi
     return fail('generate', err);
   }
   const generateMs = deps.now().getTime() - generateStart;
+  // AUTO-220: a picture that must not publish itself holds the post as a draft. Said first, because it is the thing to act on.
+  const hold = settings.publishMode === 'publish' ? holdBeforePublishReason(created.headerImage) : null;
+  if (hold) notes.push(`NOT PUBLISHED, saved as a draft instead: ${hold}. Look at the picture, then publish the draft yourself.`);
   if (created.titleRepair === 'shortened') notes.push('The title ran past 75 characters and was shortened.');
   const why = headerImageWhy(created.headerImage);
   if (why) notes.push(`Header image: ${why}`);
@@ -221,7 +231,7 @@ export async function runScheduledPost(slot: string, deps: SchedulerDeps): Promi
     deepseekCalls: created.deepseekCalls,
     image:
       created.headerImage.kind === 'asset' && created.headerImage.source === 'ai' && created.headerImage.usage
-        ? { model: created.headerImage.usage.model, imageTokens: created.headerImage.usage.imageTokens, promptTokens: created.headerImage.usage.promptTokens, attempts: created.headerImage.usage.attempts }
+        ? { model: created.headerImage.usage.model, imageTokens: created.headerImage.usage.imageTokens, promptTokens: created.headerImage.usage.promptTokens, attempts: created.headerImage.usage.attempts, usd: created.headerImage.usage.usd }
         : null,
   });
   const strips = stripStats(created.document.body);
@@ -246,7 +256,9 @@ export async function runScheduledPost(slot: string, deps: SchedulerDeps): Promi
   // 6) Publish, when the switch says so.
   let publishedId: string | null = null;
   let publishMs = 0;
-  if (settings.publishMode === 'publish') {
+  if (hold) {
+    log(`[blog-scheduler] ${day} ${slot}: NOT published, held as a draft: ${hold}`);
+  } else if (settings.publishMode === 'publish') {
     await updateRun(deps.runLog, runId, { now: deps.now(), stage: 'publish' });
     const publishStart = deps.now().getTime();
     try {

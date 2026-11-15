@@ -1397,8 +1397,10 @@
         listing cards. You can upload the header image yourself, or let the AI make one: <strong>Generate Blog with
         AI</strong> makes a picture when the field is empty, and the <strong>Generate header image</strong> button
         (among the document actions, near Publish) makes a new one at any time, replacing the current one after asking.
-        A picture you upload yourself is never replaced by Generate Blog with AI. Each AI picture costs about seven
-        cents and there is a limit of 20 a day. When a generated post's picture is its first product photo instead, a
+        A picture you upload yourself is never replaced by Generate Blog with AI. Each AI picture costs about six
+        cents and there is a limit of 40 a day. You can also tell the AI what you want in your own words: see
+        <strong>Change this header picture</strong> and <strong>New header picture</strong> under
+        <a href="#blog-ai">Generate a Blog Post with AI</a>. When a generated post's picture is its first product photo instead, a
         <strong>Header image link</strong> field appears under this one holding the photo's address; upload a Header
         Image and it takes over. That product photo shows wherever the post's picture shows: on the post, on the blog
         cards, and on the post's card in the "Related Blogs About ..." row of a category page.</li>
@@ -1426,8 +1428,13 @@
         share a category, newest first.</li>
       <li><strong>CTA Heading</strong> and <strong>CTA Body Text</strong> (see the next heading).</li>
       <li><strong>Meta Title</strong> (up to 60 characters) and <strong>Meta Description</strong> (up to 155) for
-        Google. There is also an <strong>SEO (extra)</strong> group for a social share image; the two fields above are
-        used by default.</li>
+        Google. There is also an <strong>SEO (extra)</strong> group with its own Meta Title, Meta Description and
+        <strong>Open Graph Image</strong> (the picture shown when the post is shared on Facebook, LinkedIn or X).
+        <strong>Since November 2026 these three really are overrides</strong>: leave one empty and the main field is
+        used (the Meta Title and Meta Description above, and the Header Image); fill one in and it wins. Before that
+        they were on the form and did nothing on blog posts. About 45 of your posts have an Open Graph Image filled;
+        on 40 it is the same picture as the header, so nothing changes, and on 5 the share picture is now the one you
+        put there. An image of any type works: the site hands social sites a JPEG.</li>
     </ul>
     <p>An image dropped inline in the body has a <strong>Size</strong> option (Small ≈
       quarter width, Medium ≈ half, Large ≈ three quarters, Full width) and an <strong>Alignment</strong> (left /
@@ -1509,10 +1516,10 @@
         with it filled, as described under CTA Heading above.)</li>
       <li>When it reads right, <strong>Publish</strong>.</li>
     </ol>
-    <h4>The three AI buttons on a blog post</h4>
+    <h4>The AI buttons on a blog post</h4>
     <ul>
       <li><strong>Generate Blog with AI</strong> fills in the empty fields and leaves everything else alone, the header
-        image included: with no header image on the post it makes one (a second step after the text, 15 to 30
+        image included: with no header image on the post it makes one (a second step after the text, 30 to 45
         seconds), and with one already there, uploaded or generated, it leaves it exactly as it is. Press it as often
         as you like; if every field already has something in it, it says so and does nothing. If only the picture is
         missing it makes just the picture.</li>
@@ -1524,87 +1531,104 @@
         match.</li>
       <li><strong>Generate header image</strong> (it reads <strong>Generate another header image</strong> when the post
         already has one) makes a new picture and nothing else. With a picture already on the post it asks first,
-        because the current one comes off the post. If the one it replaces was made by the AI, it is also deleted from
-        the media library once no draft or published post uses it any more (so pressing it ten times does not leave
-        nine unused pictures behind); a picture <strong>you</strong> uploaded is never deleted, and while the published
-        post still shows the old picture it is kept until you publish. <strong>Since October 2026 the picture carries
-        the post's title</strong>, laid over it the way your own headers do (see the box below), so pressing this
-        button redoes the title too. Each press costs about fifteen cents and counts
-        against the day's limit of 20; when the limit is reached the button says so, with the time it resets, and you
-        can still upload your own. The box that opens when it finishes says what happened
-        <strong>once</strong>: <strong>Header image updated</strong> when the AI's picture is on the post;
-        <strong>A stand-in picture was used</strong> when the AI's pictures were refused and a plain product photo
-        (or a library picture) went on an empty post instead, with the reason for each refusal in one sentence;
-        <strong>Your image was kept</strong> when the post already had an image and the AI made nothing better. A
-        stand-in never replaces an image that is already on the post.</li>
-      <li><strong>Redraw title on header image</strong> appears only when it is needed: when the post's title no longer
-        matches the title drawn on its AI picture (the Header Image field shows a yellow warning saying so). It puts the
-        current title on the <em>same</em> picture, in the same place and colour, in a few seconds, and costs nothing:
-        no new picture is made and it does not count against the daily limit. An image you uploaded yourself is never
-        touched by it, <strong>including one you uploaded over an AI picture</strong>: Studio keeps the old AI
-        picture's title note beside your upload, so until November 2026 the button could appear on such a post (it did
-        on two of yours) and would have put the old AI picture back. It now appears only when the picture on the post
-        is the site's own, and the server refuses anything else, so your picture is always kept.</li>
-      <li>With any of the four, anything you change on the post while the AI is working is kept. The fields are
+        because the current one comes off the post. <strong>Each press gives a different treatment</strong> (see the
+        box below). If the picture it replaces was made by the AI, it is also deleted from the media library once no
+        draft or published post uses it any more (so pressing it ten times does not leave nine unused pictures
+        behind); a picture <strong>you</strong> uploaded is never deleted, and while the published post still shows
+        the old picture it is kept until you publish. Each press costs about six cents and counts against the day's
+        limit of 40; when the limit is reached the button says so, with the time it resets, and you can still upload
+        your own. The box that opens when it finishes says what happened <strong>once</strong>: <strong>Header image
+        updated</strong> when the AI's picture is on the post; <strong>A stand-in picture was used</strong> when the
+        AI's pictures were refused and a plain product photo (or a library picture) went on an empty post instead,
+        with the reason in a sentence; <strong>Your image was kept</strong> when the post already had an image and
+        the AI made nothing better. A stand-in never replaces an image that is already on the post.</li>
+      <li><strong>Change this header picture (your instruction)</strong> and <strong>New header picture (your
+        instruction)</strong> are for when you want to say what the picture should be. Type what you want, in plain
+        words, in the field <strong>Your instruction for the header image</strong> (in the AI generation section),
+        then press one of the two:
+        <ul>
+          <li><strong>Change this header picture</strong> takes the AI picture that is on the post now and changes it
+            the way you say, keeping the rest. For example: <em>"Remove the people from the background and make the
+            background a plain light office wall"</em>, or <em>"Make it a beach at sunset"</em>. It takes about 25
+            seconds and costs about four cents. It works only on a picture the site made; a picture you uploaded is
+            never changed by it, and the button says so. After three changes in a row on the same picture it asks you
+            to make a new one instead, because every change redraws the whole picture and it gets a little softer
+            each time.</li>
+          <li><strong>New header picture</strong> makes a fresh picture your way from the post's product photos. For
+            example: <em>"Show one of the bags worn by a person walking into an office, the others on a bench by the
+            door, warm morning light"</em>. About 35 seconds and about six cents.</li>
+        </ul>
+        Both ask before they replace anything, both still put the post's exact title and the P! mark on the picture,
+        both run the same checks as any other AI picture, and both count against the daily limit of 40. If the
+        picture that comes back does not carry the title correctly, it is drawn once more; if that fails too, your
+        current picture stays and the box tells you.</li>
+      <li>With any of these, anything you change on the post while the AI is working is kept. The fields are
         compared one at a time, so if you edit the body during the wait, the whole body is kept as you left it, and
         if you upload a header image during the wait, yours stays.</li>
     </ul>
+    <p class="small">The <strong>Redraw title on header image</strong> button is gone (November 2026). The title is now
+      part of the picture itself, drawn by the image model, so there is nothing for the site to redraw. If you change
+      a post's title after its picture was made, the Header Image field shows a yellow note; press
+      <strong>Generate another header image</strong> for a picture with the new title, or leave it if the old wording
+      on the picture is fine with you.</p>
     <div class="callout info">
       <span class="label">What the AI picture is, and what to look for</span>
-      <p>The picture is made from the post's own product rows: the real photos of the products in them are sent to the
-        image model as references, and it is told to show items like them, blank and unbranded, where such a product
-        is really used (a magnet on a refrigerator, measuring cups on a kitchen counter, a wall clock on a wall).</p>
-      <p><strong>Few things, shown simply.</strong> Since October 2026 a picture shows one to three of the product,
-        large, and anything that folds or opens (a multi-tool, a pocket knife, a tape measure) is shown closed, with at
-        most one open; a kit is one case. Before that, the model drew one of every product photo it was shown, all of
-        them fanned open, and the result looked like a catalogue page rather than a photograph. The plan for the
-        picture is now made by looking at the product photos themselves, not their names, so a product called
-        "Gold First Aid Kit" that is really a red fabric bag is drawn as a red fabric bag, not a gold tin. The pictures
-        are drawn by Google's better image model, which draws scales and dials correctly (the earlier one jumbled the
-        numbers on measuring cups); if it is busy or fails, the faster model draws the picture instead, and the post
-        is never held up by it.</p>
-      <p><strong>What a picture may carry, and what it may not.</strong> A product's <strong>own markings are
-        allowed</strong>, because a measuring cup with no scale is not a picture of a measuring cup: the lines and
-        numbers on a measuring cup, a ruler or a tape measure, the numerals on a clock face, the months and dates of a
-        calendar, the day letters on a pill box, and the standard words a product carries by convention, such as
-        <strong>FIRST AID</strong> on a first aid kit or <strong>SPF 30</strong> on sunscreen (first aid kit pictures
-        used to be refused every time for exactly those words). So is the small print on the page of an open book or a
-        notepad that happens to be in the scene. <strong>Never allowed, anywhere in the picture:</strong> a logo or a maker's mark
-        (including on a laptop, a phone or a cup in the background), a brand name, a company name, a phone number, a
-        web address, a slogan or a price; and any other words meant to be read, such as a sign, a label, a book
-        title, a name plate, or a word or name printed or engraved on the product itself.</p>
-      <p>Every picture is read back twice by a second model before it is used. If either reading finds one of the
-        things on the never-allowed list, the picture is thrown away and made once more with the problem named; if
-        the second is refused too, the post gets its first product photo as a stand-in and the box tells you why.
-        Still look at every picture before you publish: check that the products shown are the kind the post sells and
-        that nothing in it reads as a brand. The check is a machine and can miss a faint mark. It also cannot tell you
-        whether a product <strong>looks real</strong>: we tested every model we have on that question, and they refused
-        good pictures as often as bad ones and called Geiger's own product photographs fake. So nothing checks that for
-        you, and your eye is the last check; that is what the button below is for. Do not like it? Press
-        <strong>Generate another header image</strong>, or upload your own. The alt text is filled in and says the
-        picture is illustrative; edit it if you like.</p>
-      <p><strong>The title on the picture (since October 2026).</strong> Every AI picture carries the post's title, the
-        way your own blog headers have for years. The photograph always runs edge to edge. <strong>Every new picture gets
-        the look your own recent headers use</strong>: the title large across the top in two colours (navy, then blue
-        after the colon or from the second line), over a soft light haze, with the products below it and the P! mark in
-        the corner; the picture itself is asked to keep its top third light and calm for it. Pressing <strong>Generate
-        another header image</strong> then walks through five other looks, one per press: a navy <strong>panel</strong> down one side (under a third of the width, the logo at its foot); a
-        <strong>gradient</strong> with no edge at all, the picture's own colour taken near black and dissolving into the
-        photograph, the title set down that side; the same dissolve from the bottom with the title as a
-        <strong>lower third</strong>; and the <strong>lockup</strong> from your own pink header, the list number set huge
-        beside the rest (a title with a colon splits into a large first part and a smaller second; a title with neither
-        gets no lockup); and the <strong>curve</strong> from the PPAI graphic you pointed at, a navy curve sweeping in from a top corner with the logo in its own small red curve in the far corner. After the curve the cycle comes back to the headline, and <strong>every time you press Generate another header
-        image, the new picture gets a different look from the one it had</strong>. Which side the title sits on follows
-        the side the picture was asked to keep calm, and a look that would cover the product is skipped. The title and the
-        logo are <strong>drawn by the site, not by the image model</strong>, in the site's own typeface, so the lettering
-        is the post's exact title and never a near miss; there is no white box behind the logo any more (it is knocked
-        out to white inside the panel, and elsewhere the bare P! mark sits in a free bottom corner). They are added only
-        <em>after</em> the picture has passed the read-back check, so the check still refuses logos and brand names in
-        what the model drew. The title is the post's title at the moment the picture is made: if you change the title
-        afterwards, the field warns you and the <strong>Redraw title on header image</strong> button puts the new title on
-        the same picture in the same look for free. A title with a character the site's font cannot draw (a symbol, an
-        emoji) is left off the picture rather than drawn wrong, and the box tells you. Your own uploaded pictures are
-        never written on.</p>
+      <p><strong>It is made the way you make your own.</strong> Since November 2026 the header picture is drawn by
+        OpenAI's image model (the one behind ChatGPT's pictures) from the same two lines you type yourself: <em>Create
+        a blog header image, "the post's title"</em> and <em>Use the attached product photos in the image</em>. The
+        photos are the real catalogue photos of the products in that post's own product rows, three of them. The
+        model draws the title into the picture, as it does for you.</p>
+      <p><strong>Three treatments, one per press.</strong> The first picture a post gets uses those two lines and
+        nothing else, so it usually comes out as a poster: a banner, the products large, sometimes a few short
+        captions. Press <strong>Generate another header image</strong> and the next one is a poster with the wording
+        kept to the title; press again and the third is a plainer photograph of the products in a setting that suits
+        them, with the title on it. A fourth press starts again at the first. So if you do not like a picture, the
+        next press is never the same kind again.</p>
+      <p><strong>The P! mark is added by the site, not by the image model.</strong> It is stamped into the calmer
+        bottom corner after the picture is made, whole, in the colours that read best over what is under it (with a
+        thin outline when the corner is busy). On a poster that has a strip of captions along the bottom it can sit
+        over the corner of that strip; press Generate another header image if that bothers you.</p>
+      <p><strong>Which product photos are used.</strong> Before any photo is sent, a second model looks at each one
+        and says what kind of product it is. A product that only shares a word with the post's subject is left out
+        (a post about shaker bottles used to get a cocktail shaker and a spice shaker), and a product whose name does
+        not say what it is can still be used when it clearly is the subject. If none of the post's products is the
+        subject itself (a post about fidget spinners whose product rows hold fidget cubes and fidget pens), the
+        post's <strong>nearest real products</strong> are used instead, and the box names them: the picture then
+        shows real items from your catalogue under a title about something a little different, so look at it and
+        decide. Only when a post has no usable product photo at all (no product row, or rows that hold only your own
+        product pages) is the picture drawn from the title alone, and the box says so: the products on such a
+        picture are the model's own, not items from your catalogue, so look at it with care. If you have the
+        automatic posts set to publish straight away, a post with such a picture is <strong>saved as a draft
+        instead</strong>, with the reason in the morning email.</p>
+      <p><strong>Logos on the products: what is checked, and what is not.</strong> The catalogue photos carry sample
+        logos, and the model copies them onto the picture, as it does for you. Most are invented names. Some are real
+        companies. Three things reduce that: a photo is not sent when its sample logo is a well known brand (a list
+        of several hundred names, plus any logo the checking model recognises on sight); the finished picture is read
+        back twice, and if a well known brand is on it the picture is drawn once more without it; and if it is still
+        there, the picture is not used. <strong>This catches the famous names. It does not catch everything:</strong>
+        a regional bank, a hospital, a school or a local firm is on no list and the checking model does not know it,
+        and it can misread small lettering. In testing, Delta, Sprint, Virgin Mobile, Telemundo and the NYPD were
+        caught; a real aircraft parts company called Aviall was not. <strong>So look at the logos on every picture
+        before you publish</strong>, and if one is a real organisation you would not want on your blog, press
+        Generate another header image, or use Change this header picture and say which logo to remove. If the logo
+        check itself cannot be made (the checking model does not answer, and it is asked twice), the picture is
+        still used and the box says so; and if you have the automatic posts set to publish straight away, a post
+        with such a picture is <strong>saved as a draft instead</strong>, with the reason in the morning email, so
+        a picture nobody checked never publishes itself.</p>
+      <p><strong>The title is checked too.</strong> Three readings are taken of the title on every picture. If none
+        of them reads it exactly as the post's title, letter for letter, the picture is drawn once more; if the
+        second is wrong as well, it is not used. In testing every picture carried the title correctly first time, but
+        glance at it anyway.</p>
+      <p><strong>If OpenAI is down.</strong> The post still gets the same kind of picture: Google's image model is
+        given the same two lines and the same product photos, draws the picture <strong>with the title on
+        it</strong>, and the title and the logos are checked exactly as usual before the P! mark goes on. The box
+        says the backup model made it. Its pictures look a little different (more like a photograph with the title
+        set over it, less like a poster); press Generate another header image later if you would rather have the
+        usual kind.</p>
+      <p>Nothing checks whether a product <strong>looks real</strong>, or whether a caption the model added to a
+        poster is something you would say. Your eye is the last check; that is what the buttons above are for. The alt
+        text is filled in for you; edit it if you like. Your own uploaded pictures are never written on, changed or
+        replaced by any of this unless you press a button and confirm.</p>
     </div>
     <p class="small">About the product rows: each section's row is matched to <em>that section's</em> topic (a
       power-bank idea shows power banks, a tote-bag idea shows tote bags), and no product repeats anywhere in the post.
@@ -3355,14 +3379,12 @@
       until it can be done properly. When a term has no category page of its own ("imprinted promotional products"),
       the product row under a guide or a question is now built one kind of product at a time (two water bottles, two
       tote bags, two notebooks), not as one search over all the words together, which had been returning wine tote
-      bags. The header image is now planned before it is drawn, so the product is shown where it
-      really lives (a magnet on a refrigerator, a pen on paper) and may carry its own generic text (a calendar's
-      months and dates), never a brand name, a logo, a phone number or a web address. Three more rules on the picture
-      since October 2026: the model is told that any tag, label or logo on the catalogue photos it is shown is not part
-      of the design (the live koozies post's header had copied the Koozie tag); a picture with a laptop, monitor, tablet
-      or phone anywhere in it is refused and redrawn, because that is where a maker's mark gets painted; and every
-      picture that passes gets six close looks, one per region, for a small logo the full view missed. A picture the
-      close look refuses is redrawn once, and if that fails too the draft falls back to a product photo, as before. It takes a minute or two;
+      bags. The header image is made the way you make your own (since November 2026): OpenAI's image model draws it
+      from the post's title and the real photos of the products in its rows, with the title in the picture and the P!
+      mark stamped in a corner by the site. The title is read back and must match exactly, and the logos on it are
+      checked against a list of well known brands; a picture that fails either is drawn once more, and if that fails
+      too the draft falls back to a product photo, as before. The full account is under
+      <a href="#blog-ai">Generate a Blog Post with AI</a>. It takes a minute or two;
       the button says "Writing" while it works. When it is done, press
       <strong>Open draft</strong>, read it, edit anything, and press <strong>Publish</strong> yourself when it is
       right. <strong>The tab never publishes anything.</strong> The draft is only saved once the post is complete, so
@@ -3396,7 +3418,7 @@
       shows in that page's "Related Blogs About …" row), and the <strong>Categories</strong> you chose as the default
       there, or none if you chose none. The green box under the buttons says what each draft got: the picture and
       where it came from, and which of the other three were filled. If the picture could not be made (the day's limit
-      of 20 reached, or the image model down), the draft is still saved and the box says so; open it and press
+      of 40 reached, or the image models down), the draft is still saved and the box says so; open it and press
       <strong>Generate header image</strong>, or upload one. Nothing about the image is ever a reason for a draft not
       to be saved.</p>
     <p class="small">Drafts made before this change already have a publish date filled in from the day they were
@@ -3514,7 +3536,9 @@
         nothing reaches the site until you press Publish. <em>Publish it straight away</em> puts each post on the site
         within a minute of being written, before anyone has read it, with that moment as its publish date. Choose it
         only once you trust what the engine writes; you can switch back at any time, and the posts already published
-        stay published.</li>
+        stay published. One exception, for your protection: a post whose header picture could not be checked for
+        well known logos, or was drawn from the title alone because the post had no product photo to use, is
+        saved as a draft even in this mode, and the morning email says so.</li>
     </ul>
     <div class="callout warn">
       <span class="label">What happens on the day this goes live</span>

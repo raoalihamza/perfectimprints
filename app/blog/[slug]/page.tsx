@@ -12,6 +12,7 @@ import { RelatedBlogsForPost } from '@/components/blog/RelatedBlogsForPost';
 import { CustomSchemaJsonLd } from '@/components/seo/CustomSchemaJsonLd';
 import { buildImageUrl, buildRenderImageUrl } from '@/lib/sanity/client';
 import { externalHeaderImageUrl, headerImageRenderSize } from '@/lib/blog/header-image';
+import { blogPostSeo } from '@/lib/blog/post-seo';
 import { collectBlogProductSkus } from '@/lib/blog/collect-strip-skus';
 import {
   getBlogPostBySlug,
@@ -52,23 +53,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getBlogPostBySlug(slug);
   if (!post) return {};
   const canonical = `${SITE_URL}/blog/${post.slug.current}`;
-  // The uploaded or generated asset, else the hot-linked product photo the
-  // blog engine's last image fallback writes (AUTO-202), else the branded card.
-  // AUTO-209: a generated header is a PNG (the title is drawn on it), and the
-  // social image is served without `auto=format` (IMG-120: scrapers cache what
-  // they get), so a PNG header is asked for as a JPEG here (1.1 MB to 67 KB at
-  // 1200 wide, measured); an uploaded JPEG header is requested exactly as before.
-  const pngHeader = /-png$/.test(post.headerImage?.asset?._ref ?? '');
-  const heroImage = buildImageUrl(post.headerImage, (b) => (pngHeader ? b.width(1200).format('jpg') : b.width(1200))) ?? externalHeaderImageUrl(post, 1200) ?? undefined;
+  // AUTO-220: the "SEO (extra)" fields are true overrides (lib/blog/post-seo.ts):
+  // empty, the main title, description and header image are used exactly as
+  // before; filled, the field wins. The social image: the Open Graph Image
+  // when set, else the uploaded or generated header, else the hot-linked
+  // product photo the engine's last fallback writes (AUTO-202), else the
+  // branded card. It is served without `auto=format` (IMG-120), so anything
+  // that is not already a JPEG is asked for as one: a generated header is a
+  // PNG (1.1 MB to 67 KB at 1200 wide, measured) and an AVIF upload is not
+  // shown by X at all. A JPEG header's URL is exactly what it was.
+  const seo = blogPostSeo(post, {
+    imageUrl: (image, jpeg) => buildImageUrl(image, (b) => (jpeg ? b.width(1200).format('jpg') : b.width(1200))),
+    externalUrl: (p) => externalHeaderImageUrl(p, 1200),
+  });
   return {
-    title: post.metaTitle || `${post.title} | Perfect Imprints`,
-    description: post.metaDescription || post.excerpt,
+    title: seo.title,
+    description: seo.description,
     alternates: { canonical },
     ...socialMeta({
-      title: post.metaTitle || post.title,
-      description: post.metaDescription || post.excerpt,
+      title: seo.socialTitle,
+      description: seo.description,
       url: canonical,
-      image: heroImage ?? null,
+      image: seo.image,
       imageAlt: post.title,
       type: 'article',
       publishedTime: post.publishDate,
