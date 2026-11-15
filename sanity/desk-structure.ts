@@ -1,4 +1,59 @@
-import type { StructureResolver } from 'sanity/structure';
+import type { StructureBuilder, StructureResolver } from 'sanity/structure';
+
+/**
+ * Blog posts by publish state (2026-11-15, Ali: drafts and published posts
+ * were mixed in one list of 822). "Blog Post" opens three lists: the drafts,
+ * the published posts, and all of them as before.
+ *
+ * THE FILTER, measured on the live dataset and not to be "simplified": Sanity
+ * 3.99 runs every list under the "drafts" perspective, where a draft is shown
+ * under its PUBLISHED id, so the classic `_id in path("drafts.**")` matches 0
+ * of the 138 drafts there. `_originalId` still names the real document (138
+ * under "drafts", 138 raw, 0 under "published"), and `_id` is the fallback
+ * for a read that carries no `_originalId`.
+ *
+ * What the split can and cannot say: a list sees ONE version of each post, so
+ * "has a draft" is all it knows. A published post with edits waiting is live
+ * AND has a draft; it is listed with the drafts (5 of the 138 on the day this
+ * was written), which is why the titles say "unpublished changes" and "no
+ * changes waiting" rather than plain "Drafts" and "Published".
+ */
+export const BLOG_POST_HAS_DRAFT = 'coalesce(_originalId, _id) in path("drafts.**")';
+export const BLOG_POST_DRAFTS_FILTER = `_type == $type && ${BLOG_POST_HAS_DRAFT}`;
+export const BLOG_POST_PUBLISHED_FILTER = `_type == $type && !(${BLOG_POST_HAS_DRAFT})`;
+
+/**
+ * The three lists are built from the generated type list, so each keeps the
+ * sort menu and the post's own orderings. The two filtered lists decline
+ * "open this document" links: a link must land in the list that holds every
+ * post, not in one that may not hold the post it opens.
+ */
+const blogPostLists = (S: StructureBuilder) =>
+  S.list()
+    .title('Blog Post')
+    .items([
+      S.listItem()
+        .title('Drafts and unpublished changes')
+        .id('blogPostDrafts')
+        .child(
+          S.documentTypeList('blogPost')
+            .title('Drafts and unpublished changes (newest first)')
+            .filter(BLOG_POST_DRAFTS_FILTER)
+            .defaultOrdering([{ field: '_updatedAt', direction: 'desc' }])
+            .canHandleIntent(() => false),
+        ),
+      S.listItem()
+        .title('Published (no changes waiting)')
+        .id('blogPostPublished')
+        .child(
+          S.documentTypeList('blogPost')
+            .title('Published, no changes waiting (newest first)')
+            .filter(BLOG_POST_PUBLISHED_FILTER)
+            .defaultOrdering([{ field: 'publishDate', direction: 'desc' }])
+            .canHandleIntent(() => false),
+        ),
+      S.listItem().title('All blog posts').id('blogPostAll').child(S.documentTypeList('blogPost').title('All blog posts')),
+    ]);
 
 const SINGLETON_TYPES = new Set(['homePage', 'globalSettings', 'megaMenu']);
 
@@ -143,8 +198,10 @@ export const deskStructure: StructureResolver = (S) =>
             ]),
         ),
       S.divider(),
-      ...S.documentTypeListItems().filter((listItem) => {
-        const id = listItem.getId() ?? '';
-        return !SINGLETON_TYPES.has(id) && !QUOTE_TYPES.has(id) && !PORTFOLIO_TYPES.has(id) && !RUN_LOG_TYPES.has(id);
-      }),
+      ...S.documentTypeListItems()
+        .filter((listItem) => {
+          const id = listItem.getId() ?? '';
+          return !SINGLETON_TYPES.has(id) && !QUOTE_TYPES.has(id) && !PORTFOLIO_TYPES.has(id) && !RUN_LOG_TYPES.has(id);
+        })
+        .map((listItem) => (listItem.getId() === 'blogPost' ? listItem.child(blogPostLists(S)) : listItem)),
     ]);
