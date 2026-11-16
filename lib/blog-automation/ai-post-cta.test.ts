@@ -68,7 +68,9 @@ describe("Patrick's CTA on AI posts (AUTO-212)", () => {
     expect(cta).not.toContain('AI_POST_CTA');
   });
 
-  it('is written by the draft builder and by nothing else (no backfill, no Studio action, no render path)', () => {
+  // AUTO-221 added ONE more writer, for the engine-made posts older than this rule: the guarded,
+  // dry-run-by-default backfill (lib/blog-automation/cta-backfill.ts), which takes its wording from aiPostCta too.
+  it('is written by the draft builder, and by no Studio action and no render path', () => {
     const writers = ['lib/blog-automation/draft-document.ts'];
     const candidates = [
       'lib/blog-automation/create-blog-draft.ts',
@@ -80,5 +82,8 @@ describe("Patrick's CTA on AI posts (AUTO-212)", () => {
     ];
     for (const f of writers) expect(readFileSync(f, 'utf8')).toContain('aiPostCta(args.topic.query)');
     for (const f of candidates) expect(readFileSync(f, 'utf8')).not.toMatch(/AI_POST_CTA|aiPostCta/);
+    // The wording is spelled in one file and filled by one function; the backfill only calls it.
+    expect(readFileSync('lib/blog-automation/cta-backfill.ts', 'utf8')).toContain('aiPostCta(facts.query)');
+    expect(readFileSync('lib/blog-automation/cta-backfill.ts', 'utf8')).not.toMatch(/AI_POST_CTA|Get Help with \{/);
   });
 });

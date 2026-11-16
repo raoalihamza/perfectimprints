@@ -78,7 +78,8 @@
     "dedupe-header-images": "tsx scripts/migrations/dedupe-header-images.ts",
     "delete-affected-blogs": "tsx scripts/migrations/delete-affected-blogs.ts",
     "migrate-decoration-methods": "tsx scripts/migrations/migrate-decoration-methods.ts",
-    "backfill-blog-cta-body": "tsx scripts/migrations/backfill-blog-cta-body.ts"
+    "backfill-blog-cta-body": "tsx scripts/migrations/backfill-blog-cta-body.ts",
+    "backfill-ai-post-cta": "tsx scripts/migrations/backfill-ai-post-cta.ts"
   },
   "dependencies": {
     "@next/third-parties": "^16.2.0",
